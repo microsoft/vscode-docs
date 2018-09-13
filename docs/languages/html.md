@@ -4,10 +4,10 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
-# HTML programming in VS Code
+# HTML in Visual Studio Code
 
 Visual Studio Code provides basic support for HTML programming out of the box. There is syntax highlighting, smart completions with IntelliSense, and customizable formatting. VS Code also includes great Emmet support.
 
@@ -152,12 +152,11 @@ Install an extension to add more functionality. Go to the **Extensions** view (`
 
 Read on to find out about:
 
-* [CSS, Less and Sass](/docs/languages/css.md) - VS Code has first class support for CSS including Less and Sass.
+* [CSS, SCSS, and Less](/docs/languages/css.md) - VS Code has first class support for CSS including Less and SCSS.
 * [Emmet](/docs/editor/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
 
 ## Common Questions
 
-**Q: Does VS Code have HTML preview?**
+### Does VS Code have HTML preview?
 
-**A:** No, VS Code doesn't have built-in support for HTML preview but there are extensions available in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). Open the **Extensions** view (`kb(workbench.view.extensions)`) and search on 'live preview' or 'html preview' to see a list of available HTML preview extensions.
-
+No, VS Code doesn't have built-in support for HTML preview but there are extensions available in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). Open the **Extensions** view (`kb(workbench.view.extensions)`) and search on 'live preview' or 'html preview' to see a list of available HTML preview extensions.

@@ -10,7 +10,7 @@ DateApproved: 12/18/2017
 
 Upon creating the Function application, the necessary VS Code launch configuration was added to your project. To run the project locally, press `F5`. This will launch and attach to the Azure Functions host - this is the same runtime that runs on Azure so you can be sure that your source code runs the same locally as it does when deployed.
 
-Press `F5` to launch the debugger. Output from the Functions Core tools is displayed in the VS Code Integrate Terminal panel. Once the host has started up, the local URL for your Function is written out. `Super+Click` the URL to open it in your browser.
+Press `F5` to launch the debugger. Output from the Functions Core tools is displayed in the VS Code Integrate Terminal panel. Once the host has started up, the local URL for your Function is written out. `Ctrl+Click` (`Cmd+Click` on macOS) the URL to open it in your browser.
 
 ![Functions Launch](images/functions-extension/functions-vscode-f5.png)
 

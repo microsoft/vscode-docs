@@ -4,12 +4,12 @@ Area: azure
 TOCTitle: Docker
 ContentId: 42F8B9F8-BD03-4159-9479-17C5BDE30531
 PageTitle: Working with Docker in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: Working with Docker containers in Visual Studio Code.
 ---
 # Working with Docker
 
-[Docker](https://www.docker.com) is a very popular container platform that lets you easily package, deploy, and consume applications and services. Whether you are a seasoned Docker developer or just getting started, Visual Studio Code makes it easy to author `Dockerfile` and `docker-compose.yml` files in your workspace. VS Code even supports generating and [adding the appropriate Docker files](#generating-docker-files) based on your project type.
+[Docker](https://www.docker.com) is a very popular container platform that lets you easily package, deploy, and consume applications and services. Whether you are a seasoned Docker developer or just getting started, Visual Studio Code makes it easy to author `Dockerfile` and `docker-compose.yml` files in your workspace. Visual Studio Code even supports generating and [adding the appropriate Docker files](#generating-docker-files) based on your project type.
 
 ## Install the Docker extension
 
@@ -105,7 +105,7 @@ The Docker extension language service analyzes your Docker files and provides yo
 
 ![docker warnings](images/docker/linting.png)
 
-You can control specific linting rules to either be a warning, error, or ignored through the `docker.languageservice.diagnostics` [settings](/docs/getstarted/settings.md)
+You can control specific linting rules to either be a warning, error, or ignored through the `docker.languageserver.diagnostics` [settings](/docs/getstarted/settings.md)
 
 ## Deploying images to Azure App Service
 

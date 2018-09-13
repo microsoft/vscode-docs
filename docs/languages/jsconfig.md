@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Appendix - jsconfig.json
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
 PageTitle: jsconfig.json Reference
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: View the reference for jsconfig.json.
 ---
 # jsconfig.json
@@ -19,7 +19,7 @@ The presence of `jsconfig.json` file in a directory indicates that the directory
 
 ## Why do I need a jsconfig.json file?
 
-VS Code's JavaScript support can run in two different modes:
+Visual Studio Code's JavaScript support can run in two different modes:
 
 * **File Scope - no jsconfig.json**: In this mode, JavaScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.js` doesn't reference a file `b.ts` explicitly (either using /// reference [directives](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) or **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0)), there is no common project context between the two files.
 

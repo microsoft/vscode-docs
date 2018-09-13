@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -17,7 +17,7 @@ At its heart, Visual Studio Code is a code editor. Like many other code editors,
 
 VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into five areas:
 
-* **Editor** - The main area to edit your files. You can open up to three editors side by side.
+* **Editor** - The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.
 * **Side Bar** - Contains different views like the Explorer to assist you while working on your project.
 * **Status Bar** - Information about the opened project and the files you edit.
 * **Activity Bar** -  Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
@@ -31,18 +31,20 @@ Open files in each editor are displayed with tabbed headers (Tabs) at the top of
 
 ## Side by Side Editing
 
-You can have up to three editors open side by side. If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
+You can open as many editors as you like side by side vertically and horizontally. If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
 
 * `kbstyle(Ctrl)` (macOS: `kbstyle(Cmd)`) click on a file in the Explorer.
 * `kb(workbench.action.splitEditor)` to split the active editor into two.
 * **Open to the Side** from the Explorer context menu on a file.
 * Click the **Split Editor** button in the upper right of an editor.
-* Drag and drop a file to the either side of the editor region.
+* Drag and drop a file to any side of the editor region.
 * `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(Cmd+Enter)`) in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
 
 ![Side by Side editing](images/userinterface/sidebyside.png)
 
 Whenever you open another file, the editor that is active will display the content of that file. So if you have two editors side by side and you want to open file 'foo.cs' into the right hand editor, make sure that editor is active (by clicking inside it) before opening file 'foo.cs'.
+
+By default editors will open to the right hand side of the active one. You can change this behaviour through the setting `workbench.editor.openSideBySideDirection` and configure to open new editors to the bottom of the active one instead.
 
 When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (macOS: `kbstyle('Cmd')`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
@@ -70,7 +72,7 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 * Move files and folders with drag and drop.
 * Use the context menu to explore all options.
 
->**Tip:** You can drag and drop files into the Explorer from outside VS Code to copy them.
+>**Tip:** You can drag and drop files into the Explorer from outside VS Code to copy them (if the explorer is empty VS Code will open them instead)
 
 ![Explorer Menu](images/userinterface/explorer_menu.png)
 
@@ -82,7 +84,7 @@ You can also navigate to the location of a file or folder in the native Explorer
 
 By default, VS Code excludes some folders from the Explorer (for example. `.git`). Use the `files.exclude` [setting](/docs/getstarted/settings.md) to configure rules for hiding files and folders from the Explorer.
 
-**Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
+>**Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
 
 ### Multi-selection
 
@@ -176,7 +178,11 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 ### Zen Mode
 
-Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel) and going to full screen. Zen mode can be toggled using **View** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen` and `zenMode.restore`.
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen and centering the editor layout. Zen mode can be toggled using **View** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen`, `zenMode.restore` and `zenMode.centerLayout`.
+
+### Centered Editor Layout
+
+Centered editor layout allows you to center the editor area. This is particularly useful when working with a single editor on a large monitor. You can use the sashes on the side to resize the view (hold down the `Alt` key to independently move the sashes).
 
 ## Tabs
 
@@ -223,7 +229,7 @@ If you'd prefer to not use preview mode and always create a new Tab, you can con
 
 ## Editor Groups
 
-When you split an editor (using the **Split Editor** or **Open to the Side** commands), a new editor region is created which can hold a group of items.  VS Code allows up to three editor groups which are designated **LEFT**, **CENTER**, and **RIGHT**.
+When you split an editor (using the **Split Editor** or **Open to the Side** commands), a new editor region is created which can hold a group of items. You can open as many editor regions as you like side by side vertically and horizontally.
 
 You can see these clearly in the **OPEN EDITORS** section at the top of the Explorer view:
 
@@ -233,16 +239,29 @@ You can Drag and Drop editor groups on the workbench, move individual Tabs betwe
 
 >**Note:** VS Code uses editor groups whether or not you have enabled Tabs.  Without Tabs, editor groups are a stack of your open items with the most recently selected item visible in the editor pane.
 
-### Horizontal layout
+## Grid editor layout
 
-By default, editor groups are laid out in three vertical columns. If you prefer, you can change the layout to be three horizontal rows with editor groups designated **TOP**, **CENTER**, and **BOTTOM**.
+By default, editor groups are laid out in vertical columns (e.g. when you split an editor to open it to the side). You can easily arrange editor groups in any layout you like, both vertically and horizontally:
 
-You can toggle the editor group layout between vertical and horizontal with:
+![Grid Editor Layout](images/userinterface/grid-layout.gif)
 
-* **View** > **Toggle Editor Group Layout** menu
-* **View: Toggle Editor Group Vertical/ Layout** command in the **Command Palette** (`kb(workbench.action.showCommands)`)
-* Toggle button in the **OPEN EDITORS** tool bar
-* `kb(workbench.action.toggleEditorGroupLayout)` keyboard shortcut
+To support flexible layouts, you can create empty editor groups. By default, closing the last editor of an editor group will also close the group itself, but you can change this behavior with the new setting `workbench.editor.closeEmptyGroups: false`:
+
+![Grid Empty](images/userinterface/grid-empty.png)
+
+There are a predefined set of editor layouts in the new **View** > **Editor Layout** menu:
+
+![Grid Editor Layout Menu](images/userinterface/grid-layout-menu.png)
+
+Editors that open to the side (for example by clicking the editor toolbar **Split Editor** action) will by default open to the right hand side of the active editor. If you prefer to open editors below the active one, configure the new setting `workbench.editor.openSideBySideDirection: down`.
+
+There are many keyboard commands for adjusting the editor layout with the keyboard alone, but if you prefer to use the mouse, drag and drop is a fast way to split the editor into any direction:
+
+![Grid Editor Drag and Drop](images/userinterface/grid-dnd.gif)
+
+>**Pro Tip**: If you press and hold the `Alt` key while hovering over the toolbar action to split an editor, it will offer to split to the other orientation. This is a fast way to split either to the right or to the bottom.
+
+![Grid Alt Click](images/userinterface/grid-alt.gif)
 
 ### Keyboard Shortcuts
 
@@ -319,9 +338,9 @@ Now that you know the overall layout of VS Code, start to customize the editor t
 
 ## Common Questions
 
-**Q: How can I change the color of the indent guides?**
+### How can I change the color of the indent guides?
 
-**A:** The indent guide colors are customizable as are most VS Code UI elements. To [customize](/docs/getstarted/theme-color-reference.md) the indent guides color for your active color theme, use the `workbench.colorCustomizations` [setting](/docs/getstarted/settings.md) and modify the `editorIndentGuide.background` value.
+The indent guide colors are customizable as are most VS Code UI elements. To [customize](/docs/getstarted/theme-color-reference.md) the indent guides color for your active color theme, use the `workbench.colorCustomizations` [setting](/docs/getstarted/settings.md) and modify the `editorIndentGuide.background` value.
 
 For example, to make the indent guides bright blue, add the following to your `settings.json`:
 
@@ -331,6 +350,6 @@ For example, to make the indent guides bright blue, add the following to your `s
 }
 ```
 
-**Q: Can I hide the OPEN EDITORS section in the Explorer?**
+### Can I hide the OPEN EDITORS section in the Explorer?
 
-**A:** Yes, you can hide the **OPEN EDITORS** list with the `explorer.openEditors.visible` [setting](/docs/getstarted/settings.md), which declares how many items to display before a scroll bar appears. Setting `"explorer.openEditors.visible": 0` will hide **OPEN EDITORS** when you have an open folder. The list will still be displayed if you are using VS Code to view loose files.
+Yes, you can hide the **OPEN EDITORS** list with the `explorer.openEditors.visible` [setting](/docs/getstarted/settings.md), which declares how many items to display before a scroll bar appears. Setting `"explorer.openEditors.visible": 0` will hide **OPEN EDITORS** when you have an open folder. The list will still be displayed if you are using VS Code to view loose files.

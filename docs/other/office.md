@@ -5,9 +5,9 @@ TOCTitle: Office
 ContentId: 8661D491-297F-4778-B10B-588005CCD443
 PageTitle: Office Add-ins with Visual Studio Code
 DateApproved: 3/5/2018
-MetaDescription: This page walks you through how to scaffold out a project for VS Code that extends Office.  See how to use the features of VS Code and integrate your Add-in with Office/Office 365.
+MetaDescription: See how to use the features of Visual Studio Code and integrate your Add-in with Office/Office 365.
 ---
-# Office Add-ins with VS Code
+# Office Add-ins with Visual Studio Code
 
 [Office Add-ins](https://dev.office.com/getting-started/addins) run inside an Office application and can interact with the contents of the Office document using the rich JavaScript API.
 
@@ -28,9 +28,9 @@ Follow the instructions to [Create an Office Add-in using any editor](https://de
 | Add [TypeScript](https://www.typescriptlang.org/) | No |
 | Choose framework | Jquery |
 
-## Use VS Code to develop your Office Add-in!
+## Use Visual Studio Code to develop your Office Add-in!
 
-VS Code is a great tool to help you develop your custom Office Add-ins regardless if they are for Outlook, Word, Excel, PowerPoint and run in the web clients, Windows clients, iOS clients or on macOS!
+Visual Studio Code is a great tool to help you develop your custom Office Add-ins regardless if they are for Outlook, Word, Excel, PowerPoint and run in the web clients, Windows clients, iOS clients or on macOS!
 
 ### Getting started
 
@@ -110,10 +110,10 @@ Check out the other pages on the VS Code site to find out how you can leverage m
 
 ## Common Questions
 
-**Q: Can I create an Office Add-in with the generator and use VS Code regardless of the language or client-side framework?**
+### Can I create an Office Add-in with the generator and use VS Code regardless of the language or client-side framework?
 
-**A:** Yes, you can. You can use pure HTML, Angular, Ember, React, Aurelia... anything you like!
+Yes, you can. You can use pure HTML, Angular, Ember, React, Aurelia... anything you like!
 
-**Q: Can I use TypeScript to create my Office Add-in?**
+### Can I use TypeScript to create my Office Add-in?
 
-**A:** Absolutely, VS Code has great support for [TypeScript](/docs/languages/typescript.md)!
+Absolutely, VS Code has great support for [TypeScript](/docs/languages/typescript.md)!

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/Debugging.png
 ---
@@ -88,9 +88,19 @@ Do not assume that an attribute that is available for one debugger automatically
 
 ![launch.json IntelliSense](images/debugging/launch-json-intellisense.png)
 
+Review all automatically generated values and make sure that they make sense for your project and debugging environment.
+
+### Launch versus attach configurations
+
+In VS Code, there are two core concepts for debugging: **Launch** and **Attach**, which handle two different workflows and segments of developers. Depending on your workflow, it can be confusing to know what type of configuration is appropriate for your project.
+
+If you come from a browser Developer Tools background, you aren't used to the concept of "launching from your tool" since your browser instance is already open. When you open DevTools, you are simply **attaching** DevTools to your open browser tab. On the other hand, if you come from a server or desktop background, it's quite normal to have your editor **launch** your process for you, and your editor automatically attaches its debugger to the newly launched process.
+
+The best way to explain the difference between **launch** and **attach** is think of a **launch** configuration as a recipe for how to start your app in debug mode **before** VS Code attaches to it, while an **attach** configuration is a recipe for how to connect VS Code's debugger to an app or process that's **already** running.
+
 VS Code debuggers typically support launching a program in debug mode or attaching to an already running program in debug mode. Depending on the request (`attach` or `launch`) different attributes are required and VS Code's `launch.json` validation and suggestions should help with that.
 
-Review all automatically generated values and make sure that they make sense for your project and debugging environment.
+### Add a new configuration
 
 To add a new configuration to an existing `launch.json`, use one of the following techniques:
 
@@ -127,7 +137,7 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 * Restart `kb(workbench.action.debug.restart)`
 * Stop `kb(workbench.action.debug.stop)`
 
->**Tip**: Use the setting `debug.toolBarLocation` to control the location of the debug toolbar. It can either be the default `floating`, `docked` to the debug viewlet or `hidden`.
+>**Tip**: Use the setting `debug.toolBarLocation` to control the location of the debug toolbar. It can either be the default `floating`, `docked` to the debug viewlet or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area.
 
 ### Run mode
 
@@ -149,7 +159,7 @@ The **Reapply All Breakpoints** command sets all breakpoints again to their orig
 
 ## Logpoints
 
-A Logpoint is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the console. Logpoints are especially useful for injecting logging while debugging production servers which cannot be stopped.
+A Logpoint is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the console. Logpoints are especially useful for injecting logging while debugging production servers that cannot be paused or stopped.
 
 A Logpoint is represented by a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
 
@@ -157,7 +167,7 @@ A Logpoint is represented by a "diamond" shaped icon. Log messages are plain tex
 
 Just like regular breakpoints, Logpoints can be enabled or disabled and can also be controlled by a condition and/or hit count.
 
-**Note**: Logpoints are currently only supported by VS Code's built-in Node.js debugger, but can be implemented by other debug extensions.
+**Note**: Logpoints are currently only supported by VS Code's built-in Node.js debugger, but can be implemented by other debug extensions. The [Python extension](/docs/python/python-tutorial.md), for example, supports Logpoints.
 
 ## Data inspection
 
@@ -295,7 +305,7 @@ If a debugger does not support conditional breakpoints the **Add Conditional Bre
 
 ### Inline breakpoints
 
-Inline breakpoints will only be hit when the execution reaches the column asociated with the inline breakpoint. This is particularly useful when debugging minified code which contains multiple statements on a single line.
+Inline breakpoints will only be hit when the execution reaches the column associated with the inline breakpoint. This is particularly useful when debugging minified code which contains multiple statements on a single line.
 
 An inline breakpoint can be set using `kb(editor.debug.action.toggleInlineBreakpoint)` or through the context menu during a debug session and inline breakpoints are shown inline in the editor.
 
@@ -384,10 +394,10 @@ To write your own debugger extension, visit:
 
 ## Common Questions
 
-**Q: What are the supported debugging scenarios?**
+### What are the supported debugging scenarios?
 
-**A:** Debugging of Node.js based applications is supported on Linux, macOS, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available on the Marketplace.
+Debugging of Node.js based applications is supported on Linux, macOS, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available on the Marketplace.
 
-**Q: I do not see any launch configurations in the debug view drop down, what is wrong?**
+### I do not see any launch configurations in the debug view drop down, what is wrong?
 
-**A:** The most common problem is that you did not set up `launch.json` yet or there is a syntax error in the `launch.json` file. Or you might need to open a folder, since no folder debugging does not support launch configurations.
+The most common problem is that you did not set up `launch.json` yet or there is a syntax error in the `launch.json` file. Or you might need to open a folder, since no folder debugging does not support launch configurations.

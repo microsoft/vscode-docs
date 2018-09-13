@@ -3,8 +3,8 @@ Order:
 Area: editor
 TOCTitle: Tasks
 ContentId: 8cdc7d99-6339-49ac-9a31-55f6563fab5c
-PageTitle: Tasks (legacy version)
-DateApproved: 6/6/2018
+PageTitle: Visual Studio Code Tasks (legacy version)
+DateApproved: 9/5/2018
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
 ---
 # Tasks (legacy version)
@@ -246,7 +246,7 @@ The Markdown topic provides two examples for compiling Markdown to HTML:
 1. [Manually compiling with a Build task](/docs/languages/markdown.md#compiling-markdown-into-html)
 2. [Automation of the compile step with a file watcher](/docs/languages/markdown.md#automating-markdown-compilation)
 
-### Transpiling Less and Sass into CSS
+### Transpiling Less and SCSS into CSS
 
 The CSS topic provides examples of how to use Tasks to generate CSS files.
 
@@ -375,7 +375,7 @@ A matcher that captures the above warning (and errors) looks like:
     "fileLocation": ["relative", "${workspaceFolder}"],
     // The actual pattern to match problems in the output.
     "pattern": {
-        // The regular expression. Example to match: helloWorld.c:5:3: warning: implicit declaration of function ‘prinft’ [-Wimplicit-function-declaration]
+        // The regular expression. Example to match: helloWorld.c:5:3: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
         "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
         // The first match group matches the file name which is relative.
         "file": 1,

@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Extension Manifest
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
 PageTitle: Visual Studio Code Extension Manifest File - package.json
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.
 ---
 # Extension Manifest File - package.json
@@ -36,7 +36,7 @@ Name | Required | Type | Details
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
 `scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with [extra VS Code specific fields](/docs/extensions/publish-extension.md#pre-publish-step).
-`icon` | | `string` | The path to a 128x128 pixel icon.
+`icon` | | `string` | The path to the icon of at least 128x128 pixels (256x256 for Retina screens).
 
 Also check [npm's `package.json` reference](https://docs.npmjs.com/files/package.json).
 
@@ -226,7 +226,7 @@ Below is an extension manifest which includes a LaTex language definition (langu
         "grammars": [{
             "language": "latex",
             "scopeName": "text.tex.latex",
-            "path": "./syntaxes/latex.tmLanguage"
+            "path": "./syntaxes/latex.tmLanguage.json"
         }],
         "snippets": [{
             "language": "latex",
@@ -281,7 +281,7 @@ There are several Node.js modules available on npmjs to help with writing VSCode
 * [jsonc-parser](https://www.npmjs.com/package/jsonc-parser) - A scanner and fault tolerant parser to process JSON with or without comments.
 * [request-light](https://www.npmjs.com/package/request-light) - A light weight Node.js request library with proxy support
 * [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) - Consistent telemetry reporting for VS Code extensions.
-* [vscode-languageclient](https://www.npmjs.com/package/vscode-languageclient) - Easily integrate language servers adhering to the [language server protocol](https://github.com/Microsoft/language-server-protocol).
+* [vscode-languageclient](https://www.npmjs.com/package/vscode-languageclient) - Easily integrate language servers adhering to the [language server protocol](https://microsoft.github.io/language-server-protocol).
 
 ## Next Steps
 

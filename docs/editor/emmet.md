@@ -4,12 +4,12 @@ Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 6/6/2018
-MetaDescription: Using Emmet abbreviations inside VS Code.
+DateApproved: 9/5/2018
+MetaDescription: Using Emmet abbreviations inside Visual Studio Code.
 ---
 # Emmet in Visual Studio Code
 
-Emmet support is built right into VS Code, **no extension is required**. [Emmet 2.0](https://code.visualstudio.com/blogs/2017/08/07/emmet-2.0) has support for the majority of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
+Emmet support is built right into Visual Studio Code, **no extension is required**. [Emmet 2.0](https://code.visualstudio.com/blogs/2017/08/07/emmet-2.0) has support for the majority of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
 
 ## How to expand Emmet abbreviations and snippets
 
@@ -360,13 +360,13 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 Emmet is just one of the great web developer features in VS Code.  Read on to find out about:
 
 * [HTML](/docs/languages/html.md) - VS Code supports HTML with IntelliSense, closing tags, and formatting.
-* [CSS](/docs/languages/css.md) - We offer rich support for CSS, Sass and Less.
+* [CSS](/docs/languages/css.md) - We offer rich support for CSS, SCSS and Less.
 
 ## Common Questions
 
-**Q: Custom tags do not get expanded in the suggestion list**
+### Custom tags do not get expanded in the suggestion list
 
-**A:** Custom tags when used in an expression like `MyTag>YourTag` or `MyTag.someclass` do show up in the suggestion list. But when these are used on their own like `MyTag`, they do not appear in the suggestion list. This is designed so to avoid noise in the suggestion list as every word is a potential custom tag.
+Custom tags when used in an expression like `MyTag>YourTag` or `MyTag.someclass` do show up in the suggestion list. But when these are used on their own like `MyTag`, they do not appear in the suggestion list. This is designed so to avoid noise in the suggestion list as every word is a potential custom tag.
 
 Add the following setting to enable expanding of Emmet abbreviations using tab which will expand custom tags in all cases.
 
@@ -374,17 +374,17 @@ Add the following setting to enable expanding of Emmet abbreviations using tab w
 "emmet.triggerExpansionOnTab": true
 ```
 
-**Q: My HTML snippets ending with `+` does not work?**
+### My HTML snippets ending with `+` does not work?
 
-**A:** HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1). Workaround is to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets) for such scenarios.
+HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1). Workaround is to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets) for such scenarios.
 
-**Q: Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)**
+### Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)
 
-**A:** You can set the preferences using the setting `emmet.preferences`. Only a subset of the preferences that are documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/) can be customized. Please read the preferences section under [Emmet configuration](/docs/editor/emmet.md#emmet-configuration).
+You can set the preferences using the setting `emmet.preferences`. Only a subset of the preferences that are documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/) can be customized. Please read the preferences section under [Emmet configuration](/docs/editor/emmet.md#emmet-configuration).
 
-**Q: Any tips and tricks?**
+### Any tips and tricks?
 
-**A:** Of course!
+Of course!
 
 - In CSS abbreviations, when you use `:`, the left part is used to fuzzy match with the CSS property name and the right part is used to match with CSS property value. Take full advantage of this by using abbreviations like `pos:f`, `trf:rx`, `fw:b`, etc.
 - Use the new command **Emmet: Wrap Individual Lines with Abbreviation** instead of **Emmet: Wrap with Abbreviation** when you want each selected line to be wrapped by a repeater in the given abbreviation. For example, use `ul>li*` to wrap selected lines in an unordered list with each line as a list item.

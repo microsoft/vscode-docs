@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Overview
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
 PageTitle: Setup VS Code
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: Get Visual Studio Code up and running.
 MetaSocialImage: quicksetup_QuickSetup.png
 ---
@@ -43,7 +43,7 @@ VS Code is an editor first and foremost and prides itself on a small footprint. 
 VS Code [extensions](/docs/editor/extension-gallery.md) let third parties add support for additional:
 
 * Languages - [C++](/docs/languages/cpp.md), [C#](/docs/languages/csharp.md), [Go](/docs/languages/go.md), [Java](/docs/languages/java.md), [Python](/docs/languages/python.md)
-* Tools - [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint), [JSHint](https://marketplace.visualstudio.com/items/dbaeumer.jshint) , [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell), [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team)
+* Tools - [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint), [JSHint](https://marketplace.visualstudio.com/items/dbaeumer.jshint) , [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 * Debuggers - [Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [PHP XDebug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug).
 * Keymaps - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim), [Sublime Text](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings), [IntelliJ](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings), [Emacs](https://marketplace.visualstudio.com/items?itemName=hiro-sun.vscode-emacs), [Atom](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings), [Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vs-keybindings), [Eclipse](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
 
@@ -64,22 +64,22 @@ If you'd like to get something running quickly, try the [Node.js tutorial](/docs
 
 ## Common Questions
 
-**Q: What are the system requirements for VS Code?**
+### What are the system requirements for VS Code?
 
-**A:** We have a list of [System Requirements](/docs/supporting/requirements.md).
+We have a list of [System Requirements](/docs/supporting/requirements.md).
 
-**Q: How big is VS Code?**
+### How big is VS Code?
 
-**A:** VS Code is a small download (< 100 MB) and has a disk footprint of less than 200 MB, so you can quickly install VS Code and try it out.
+VS Code is a small download (< 100 MB) and has a disk footprint of less than 200 MB, so you can quickly install VS Code and try it out.
 
-**Q: How do I create and run a new project?**
+### How do I create and run a new project?
 
-**A:** VS Code doesn't include a traditional **File** > **New Project** dialog or pre-installed project templates. You'll need to add [additional components](/docs/setup/additional-components.md) and scaffolders depending on your development interests. With scaffolding tools like [Yeoman](http://yeoman.io/) and the multitude of modules available through the [NPM](https://www.npmjs.com/) package manager, you're sure to find appropriate templates and tools to create your projects.
+VS Code doesn't include a traditional **File** > **New Project** dialog or pre-installed project templates. You'll need to add [additional components](/docs/setup/additional-components.md) and scaffolders depending on your development interests. With scaffolding tools like [Yeoman](http://yeoman.io/) and the multitude of modules available through the [NPM](https://www.npmjs.com/) package manager, you're sure to find appropriate templates and tools to create your projects.
 
-**Q: How do I know which version I'm running?**
+### How do I know which version I'm running?
 
-**A:** On Linux and Windows, choose **Help** > **About**. On macOS, use **Code** > **About Visual Studio Code**.
+On Linux and Windows, choose **Help** > **About**. On macOS, use **Code** > **About Visual Studio Code**.
 
-**Q: Why is VS Code saying my installation is corrupt?**
+### Why is VS Code saying my installation is Unsupported?
 
-**A:** VS Code has detected that some installation files have been modified, perhaps by an extension. Reinstalling VS Code will replace the affected files. See our [FAQ topic](/docs/supporting/faq.md#installation-appears-to-be-corrupt) for more details.
+VS Code has detected that some installation files have been modified, perhaps by an extension. Reinstalling VS Code will replace the affected files. See our [FAQ topic](/docs/supporting/faq.md#installation-appears-to-be-corrupt-unsupported) for more details.

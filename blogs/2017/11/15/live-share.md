@@ -12,7 +12,7 @@ Author: Amanda Silver
 
 November 15, 2017 Amanda Silver, [@amandaksilver](https://twitter.com/amandaksilver)
 
->**Update (May 7, 2018):** Visual Studio Live Share is now publicly available. You can [get started using Live Share](https://www.visualstudio.com/services/live-share/) today!
+>**Update (May 7, 2018):** Visual Studio Live Share is now publicly available. You can [get started using Live Share](https://visualstudio.microsoft.com/services/live-share) today!
 
 We are excited to announce that we’re working on “Visual Studio Live Share”, which enables developers using Visual Studio 2017 or Visual Studio Code to collaborate in real-time! Learn more about Live Share and the upcoming limited private preview [here](/visual-studio-live-share).
 

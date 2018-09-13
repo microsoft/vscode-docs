@@ -5,7 +5,7 @@ TOCTitle: Java with Container
 ContentId: 4fee9404-306a-4d60-8a7e-94f7d59c2fc3
 PageTitle: Java with Docker in Visual Studio Code
 DateApproved: 5/30/2018
-MetaDescription:
+MetaDescription: Java with Docker in Visual Studio Code
 ---
 # Java with Docker in VS Code
 
@@ -13,7 +13,7 @@ This tutorial will walk you through building and deploying a [Docker](https://do
 
 We will continue using the same Spring Boot application we built in our first [Java Tutorial](/docs/java/java-tutorial.md).
 
-[Docker](https://docker.com/) is a Linux container management toolkit which allows users to publish and reuse container images. A Docker image is a recipe for running a containerized process. In this tutorial, we will build an Docker image for the web app, run the image locally, and then deploy it to the cloud.
+[Docker](https://docker.com/) is a container management toolkit which allows users to publish and reuse container images. A Docker image is a recipe for running a containerized process. In this tutorial, we will build an Docker image for the web app, run the image locally, and then deploy it to the cloud.
 
 ## Before you begin
 

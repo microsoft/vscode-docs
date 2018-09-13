@@ -4,16 +4,16 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
-# Running VS Code on Linux
+# Visual Studio Code on Linux
 
 ## Installation
 
 ### Debian and Ubuntu based distributions
 
-The easiest way to install for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868) either through the graphical software center if it's available or through the command line with:
+The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868) either through the graphical software center if it's available or through the command line with:
 
 ```bash
 sudo dpkg -i <file>.deb
@@ -26,13 +26,14 @@ The repository and key can also be installed manually with the following script:
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 ```
 
 Then update the package cache and install the package using:
 
 ```bash
+sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install code # or code-insiders
 ```
@@ -174,6 +175,16 @@ The new value can then be loaded in by running `sudo sysctl -p`. Note that [Arch
 
 While 524288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524288 watches are consumed that results in an upper bound of around 256MB (32-bit) or 512MB (64-bit).
 
+Another option is to exclude specific workspace directories from the VS Code file watcher with the `files.watcherExclude` [setting](/docs/getstarted/settings.md). The default for `files.watcherExclude` excludes `node_module` and some folders under `.git` but you can add other directories that you don't want VS Code to track.
+
+```json
+"files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  }
+```
+
 ### I can't see Chinese characters in Ubuntu
 
 We're working on a fix. In the meantime, open the application menu, then choose **File** > **Preferences** > **Settings**. Then set `editor.fontFamily` as shown:
@@ -211,3 +222,12 @@ ccsm
 ```
 
 Under **General** > **General Options** > **Focus & Raise Behaviour**, set "Focus Prevention Level" to "Off". Remember this is an OS-level setting that will apply to all applications, not just VS Code.
+
+### Cannot install .deb package due to "/etc/apt/sources.list.d/vscode.list: No such file or directory"
+
+This can happen when sources.list.d doesn't exist or you don't have access to create the file. To fix this try manually creating the folder and an empty `vscode.list` file:
+
+```bash
+sudo mkdir /etc/apt/sources.list.d
+sudo touch /etc/apt/sources.list.d/vscode.list
+```

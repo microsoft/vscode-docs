@@ -1,10 +1,10 @@
 ---
-Order: 14
+Order: 15
 Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code Command Line Options
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: Visual Studio Code command line options (switches).
 ---
 # Command Line Interface (CLI)
@@ -23,7 +23,7 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 
 **Note:** Users on macOS must first run a command (**Shell Command: Install 'code' command in PATH**) to add VS Code executable to the `PATH` environment variable. Read the [macOS setup guide](/docs/setup/mac.md) for help.
 
-Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, VS Code is installed under `Program Files\Microsoft VS Code\bin`. To review platform specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
+Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, VS Code is installed under `AppData\Local\Programs\Microsoft VS Code\bin`. To review platform specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
 
 > **Insiders:** If you are using the VS Code [Insiders](/insiders) preview, you launch your Insiders build with `code-insiders`.
 
@@ -140,12 +140,16 @@ Read on to find out about:
 
 ## Common Questions
 
-**Q: 'code' is not recognized as an internal or external command.**
+### 'code' is not recognized as an internal or external command
 
-**A:** Your OS can not find the VS Code binary `code` on its path. The VS Code Windows and Linux installations should have installed VS Code on your path. Try uninstalling and reinstalling VS Code. If `code` is still not found, consult the platform specific setup topics for [Windows](/docs/setup/windows.md) and [Linux](/docs/setup/linux.md).
+Your OS can not find the VS Code binary `code` on its path. The VS Code Windows and Linux installations should have installed VS Code on your path. Try uninstalling and reinstalling VS Code. If `code` is still not found, consult the platform specific setup topics for [Windows](/docs/setup/windows.md) and [Linux](/docs/setup/linux.md).
 
 On macOS, you need to manually run the **Shell Command: Install 'code' command in PATH** command (available through the **Command Palette** `kb(workbench.action.showCommands)`). Consult the [macOS](/docs/setup/mac.md) specific setup topic for details.
 
-**Q: How do I get access to a command line (terminal) from within VS Code?**
+### How do I get access to a command line (terminal) from within VS Code?
 
-**A:** VS Code has an [Integrated Terminal](/docs/editor/integrated-terminal.md) where you can run command line tools from within VS Code.
+VS Code has an [Integrated Terminal](/docs/editor/integrated-terminal.md) where you can run command line tools from within VS Code.
+
+### Can I specify the settings location for VS Code in order to have a portable version?
+
+Not directly through the command line, but VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.

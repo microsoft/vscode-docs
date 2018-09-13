@@ -4,12 +4,12 @@ Area: extensionapi
 TOCTitle: Overview
 ContentId: C99AC3B3-47BC-41E3-8C7B-6F24364C20D1
 PageTitle: Visual Studio Code Extensibility Reference
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: Learn the details of Visual Studio Code's rich extensibility (plug-in) model.  This documentation describes the various extension points, activation rules and specific feature APIs (e.g. working with documents and editors).
 ---
 # Extensibility Reference
 
-This section of our documentation goes into detail on the various features of VS Code extensibility.  It's worth reviewing the introduction on the [extensions](/docs/extensions/overview.md) as well as going through the ['Hello World'](/docs/extensions/example-hello-world.md) example before digging in too deeply here.
+This section of our documentation goes into detail on the various features of Visual Studio Code extensibility.  It's worth reviewing the introduction on the [extensions](/docs/extensions/overview.md) as well as going through the ['Hello World'](/docs/extensions/example-hello-world.md) example before digging in too deeply here.
 
 The easiest way to see VS Code extensions in action is via the [Extension Marketplace](/docs/editor/extension-gallery.md).  Once you have built your first extension, it can be [published](/docs/extensions/publish-extension.md) for others to install.
 

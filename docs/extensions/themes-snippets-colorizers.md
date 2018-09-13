@@ -1,15 +1,15 @@
 ---
-Order: 7
+Order: 8
 Area: extensions
 TOCTitle: Themes, Snippets and Colorizers
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D
 PageTitle: Add Themes, Snippets and Colorizers to Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code. TextMate .tmLanguage files are supported.
 ---
 # Themes, Snippets and Colorizers
 
-Custom color and icons themes, snippets and language syntax colorizers bring an editor to life. There are lots of existing TextMate customization files available and VS Code lets you easily package and reuse these. You can directly use `.tmTheme`, `.tmSnippets`, and `.tmLanguage` files in your extensions and share them in the extension [Marketplace](https://marketplace.visualstudio.com/VSCode). This topic describes how to reuse TextMate files as well as create and share your own themes, snippets and colorizers.
+Custom color and icons themes, snippets and language syntax colorizers bring an editor to life. There are lots of existing TextMate customization files available and Visual Studio Code lets you easily package and reuse these. You can directly use `.tmTheme`, `.tmSnippets`, and `.tmLanguage` files in your extensions and share them in the extension [Marketplace](https://marketplace.visualstudio.com/VSCode). This topic describes how to reuse TextMate files as well as create and share your own themes, snippets and colorizers.
 
 ## Adding a new Color Theme
 
@@ -94,7 +94,7 @@ You can use the **Developer: Inspect TM Scopes** command from the **Command Pale
 
 ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
 
-## Create a new color theme
+## Create a new Color Theme
 
 - Generate a theme file using the **Developer: Generate Color Theme from Current Settings** command from the **Command Palette**
 - Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generate a new theme extension:
@@ -126,9 +126,11 @@ You can use the **Developer: Inspect TM Scopes** command from the **Command Pale
 }
 ```
 
+- Give your color definition file the `.color-theme.json` suffix and you will get hovers, code completion, color decorators and color pickers when editing.
+
 >**Tip:** [ColorSublime](https://colorsublime.github.io) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"https://raw.githubusercontent.com/Colorsublime/Colorsublime-Themes/master/themes/(name).tmTheme"`
 
-## Test a new color theme
+## Test a new Color Theme
 
 To try out the new theme, copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
 
@@ -145,6 +147,10 @@ If you'd like to share your new theme with the community, you can publish it to 
 > **Tip:** To make it easy for users to find your theme, include the word "theme" in the extension description and set the `Category` to `Theme` in your `package.json`.
 
 We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
+
+## Adding a new Color Ids
+
+Color ids can also be contributed by extensions through the [color contribution point](/docs/extensionAPI/extension-points.md#contributescolors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery.md#extensiondetails) tab.
 
 ## Adding a new Icon Theme
 
@@ -431,7 +437,7 @@ When you're adding a new language to VS Code, it is also great to add language [
         "grammars": [{
             "language": "latex",
             "scopeName": "text.tex.latex",
-            "path": "./syntaxes/latex.tmLanguage"
+            "path": "./syntaxes/latex.tmLanguage.json"
         }],
         "snippets": [
             {
@@ -473,7 +479,7 @@ Language supports are added using the language identifier:
     "grammars": [{
         "language": "groovy",
         "scopeName": "source.groovy",
-        "path": "./syntaxes/Groovy.tmLanguage"
+        "path": "./syntaxes/Groovy.tmLanguage.json"
     }],
     "snippets": [{
         "language": "groovy",
@@ -490,6 +496,45 @@ When defining a new language identifier, use the following guidelines:
 
 You can find a list of known language identifiers in the [language identifier reference](/docs/languages/identifiers.md).
 
+## Embedded languages
+
+Languages can embed other languages in order to provide syntax highlighting and features of those languages. A common example of this is Markdown, it can have YAML front matter, fenced code blocks etc.
+
+An implementation of CSS code blocks in our `.tmLanguage.json` file might look like this:
+
+```json
+"patterns": [
+    {
+        "begin": "^```css$",
+        "end": "^```$",
+        "contentName": "meta.embedded.block.css",
+        "patterns": [
+            { "include": "source.css" }
+        ]
+    }
+]
+```
+
+`source.css` is the scope name used by CSS language, it will provide proper syntax highlighting for the code between the lines matched by `begin` and `end`.
+
+In order to inherit other CSS features we marked the block by using `contentName`, that way we can map its value in `contributes.grammars.embeddedLanguages` in `package.json`:
+
+```json
+"contributes": {
+    "grammars": [{
+        "language": "markdown",
+        "scopeName": "text.html.markdown",
+        "path": "./syntaxes/markdown.tmLanguage.json",
+        "embeddedLanguages": {
+            "meta.embedded.block.css": "css",
+            ...
+        }
+    }]
+}
+```
+
+We mapped it to the ID of the language that we want to inherit features from. For example, now if we press `kbstyle(ctrl/)` inside a CSS code block, VS Code will use CSS comments instead of Markdown!
+
 ## Next Steps
 
 If you'd like to learn more about VS Code extensibility, try these topics:
@@ -499,23 +544,23 @@ If you'd like to learn more about VS Code extensibility, try these topics:
 
 ## Common Questions
 
-**Q: What parts of VS code can I theme with a custom color theme?**
+### What parts of VS code can I theme with a custom color theme?
 
 The VS Code color themes affect the editor input area (text foreground, background, selection, lineHighlight, caret, and the syntax tokens) as well as some of the custom UI (see the list in [Creating a Theme](/docs/extensions/themes-snippets-colorizers.md#creating-a-custom-theme)). When contributing a theme, you also specify a base theme: light (`vs`), dark (`vs-dark`) and high contrast (`hc-black`). The base theme is used for all other areas in the workbench such as the File Explorer. Base themes are not customizable or contributable by extensions.
 
-**Q: Is there a list of scopes that I can use in my custom color theme?**
+### Is there a list of scopes that I can use in my custom color theme?
 
 VS Code themes are standard TextMate themes and the tokenizers used in VS code are well established TextMate tokenizers, mostly maintained by the community and in use in other products.
 
 To learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes) and this useful [blog post](https://www.apeth.com/nonblog/stories/textmatebundle.html).  A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
 
-**Q: I created a snippets extension but they aren't showing up in the VS Code editor?**
+### I created a snippets extension but they aren't showing up in the VS Code editor?
 
-**A:** Be sure you have correctly specified the `language` identifier for your snippet (e.g. `markdown` for Markdown .md files, `plaintext` for Plain Text .txt files).  Also verify that the relative path to the snippets json file is correct.
+Be sure you have correctly specified the `language` identifier for your snippet (e.g. `markdown` for Markdown .md files, `plaintext` for Plain Text .txt files).  Also verify that the relative path to the snippets json file is correct.
 
-**Q: Can I add more file extensions to my colorizer?**
+### Can I add more file extensions to my colorizer?
 
-**A:** Yes, the `yo code` generator provides the default file extensions from the .tmLanguage file but you can easily add more file extensions to a `languages` contribution `extensions` array.  In the example below, the `.asp` file extension has been added to the default `.asa` file extension.
+Yes, the `yo code` generator provides the default file extensions from the .tmLanguage file but you can easily add more file extensions to a `languages` contribution `extensions` array.  In the example below, the `.asp` file extension has been added to the default `.asa` file extension.
 
 ```json
 {
@@ -534,15 +579,15 @@ To learn about what scopes are used where, check out the [TextMate documentation
         "grammars": [{
             "language": "asp",
             "scopeName": "source.asp",
-            "path": "./syntaxes/asp.tmLanguage"
+            "path": "./syntaxes/asp.tmLanguage.json"
         }]
     }
 }
 ```
 
-**Q: Can I add more file extensions to an existing colorizer?**
+### Can I add more file extensions to an existing colorizer?
 
-**A:** Yes. To extend an existing colorizer, you can associate a file extension to an existing language identifier with the `files.associations` [setting](/docs/getstarted/settings.md).  IntelliSense will show you the list of currently available language ids.
+Yes. To extend an existing colorizer, you can associate a file extension to an existing language identifier with the `files.associations` [setting](/docs/getstarted/settings.md).  IntelliSense will show you the list of currently available language ids.
 
 For example, the setting below adds the `.mmd` file extension to the `markdown` colorizer:
 
@@ -552,9 +597,9 @@ For example, the setting below adds the `.mmd` file extension to the `markdown` 
     }
 ```
 
-**Q: What if I want to completely override an existing colorizer?**
+### What if I want to completely override an existing colorizer?
 
-**A:** Yes. You override the colorizer by providing a new `grammars` element for an existing language id. Also, add a `extensionDependencies` attribute that contains the name of the extension that defines the grammar that you want to replace.
+Yes. You override the colorizer by providing a new `grammars` element for an existing language id. Also, add a `extensionDependencies` attribute that contains the name of the extension that defines the grammar that you want to replace.
 
 ```json
 {
@@ -571,7 +616,7 @@ For example, the setting below adds the `.mmd` file extension to the `markdown` 
         "grammars": [{
             "language": "xml",
             "scopeName": "text.xml",
-            "path": "./syntaxes/BetterXML.tmLanguage"
+            "path": "./syntaxes/BetterXML.tmLanguage.json"
         }]
     }
 }

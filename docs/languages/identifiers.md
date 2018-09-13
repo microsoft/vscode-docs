@@ -3,12 +3,12 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
 
-In Visual Studio Code, each language mode has a unique specific language identifier. That identifier is rarely seen by the user except in the settings, for example, when associating file extensions to a language:
+In Visual Studio Code, each [language mode](/docs/languages/overview.md#changing-the-language-for-the-selected-file) has a unique specific language identifier. That identifier is rarely seen by the user except in the settings, for example, when associating file extensions to a language:
 
 ```json
     "files.associations": {
@@ -36,7 +36,7 @@ Language supports are added using the language identifier:
     "grammars": [{
         "language": "groovy",
         "scopeName": "source.groovy",
-        "path": "./syntaxes/Groovy.tmLanguage"
+        "path": "./syntaxes/Groovy.tmLanguage.json"
     }],
     "snippets": [{
         "language": "groovy",
@@ -82,6 +82,7 @@ Ini | `ini`
 Java | `java`
 JavaScript | `javascript`
 JSON | `json`
+JSON with Comments | `jsonc`
 LaTeX | `latex`
 Less | `less`
 Lua | `lua`
@@ -98,12 +99,13 @@ R | `r`
 Razor (cshtml) | `razor`
 Ruby | `ruby`
 Rust | `rust`
-Sass | `scss` (syntax using curly brackets), `sass` (indented syntax)
+SCSS | `scss` (syntax using curly brackets), `sass` (indented syntax)
 ShaderLab | `shaderlab`
 Shell Script (Bash) | `shellscript`
 SQL | `sql`
 Swift | `swift`
 TypeScript | `typescript`
+TypeScript React | `typescriptreact`
 TeX | `tex`
 Visual Basic | `vb`
 XML | `xml`

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Overview
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 # Programming Languages
@@ -24,7 +24,7 @@ Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use our 
 ## Language specific documentation
 
 On this website, we have a number of topics outlining several of the common languages supported by VS Code. These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/azure/docker.md) - [Go](/docs/languages/go.md) - [HTML](/docs/languages/html.md) - [Java](/docs/languages/java.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) -
-[Markdown](/docs/languages/markdown.md) - [PHP](/docs/languages/php.md) - [Python](/docs/languages/python.md) - [Sass](/docs/languages/css.md) - [T-SQL](/docs/languages/tsql.md) - [TypeScript](/docs/languages/typescript.md).
+[Markdown](/docs/languages/markdown.md) - [PHP](/docs/languages/php.md) - [Python](/docs/languages/python.md) - [SCSS](/docs/languages/css.md) - [T-SQL](/docs/languages/tsql.md) - [TypeScript](/docs/languages/typescript.md).
 
 Click on any linked item to get an overview of how to use VS Code in the context of that language.  Most language extensions also contain a summary of their core features in their README.
 
@@ -84,17 +84,17 @@ Now you know that VS Code has support for the languages you care about. Read on.
 
 ## Common Questions
 
-**Q: Can I contribute my own language service?**
+### Can I contribute my own language service?
 
-**A:** Yes you can! Check out the [example language server](/docs/extensions/example-language-server.md) in the [VS Code Extension Authoring](/docs/extensions/overview.md) documentation.
+Yes you can! Check out the [example language server](/docs/extensions/example-language-server.md) in the [VS Code Extension Authoring](/docs/extensions/overview.md) documentation.
 
-**Q: What if I don't want to create a full language service, can I reuse existing TextMate bundles?**
+### What if I don't want to create a full language service, can I reuse existing TextMate bundles?
 
-**A:** Yes, you can also add support for your favorite language through TextMate colorizers. See [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) topic in the Extension Authoring section to learn how to integrate TextMate `.tmLanguage` syntax files into VS Code.
+Yes, you can also add support for your favorite language through TextMate colorizers. See [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) topic in the Extension Authoring section to learn how to integrate TextMate `.tmLanguage` syntax files into VS Code.
 
-**Q: Can I map additional file extensions to a language?**
+### Can I map additional file extensions to a language?
 
-**A:** Yes, with the `files.associations` [setting](/docs/getstarted/settings.md) you can map file extensions to an existing language either globally or per workspace.
+Yes, with the `files.associations` [setting](/docs/getstarted/settings.md) you can map file extensions to an existing language either globally or per workspace.
 
 Here is an example that will associate more file extensions to the PHP language:
 

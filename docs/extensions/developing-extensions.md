@@ -1,10 +1,10 @@
 ---
-Order: 10
+Order: 11
 Area: extensions
 TOCTitle: Developing Extensions
 ContentId: 44569A0C-7196-48E6-A5EE-FC5AAAAD32F3
 PageTitle: Developing your own Visual Studio Code Extension
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: Visual Studio Code extension (plug-in) development. Learn about running, debugging, profiling, and troubleshooting extensions.
 ---
 # Developing Extensions
@@ -177,10 +177,9 @@ You can also click the extension name in the upper banner and you'll go to the e
 
 ## Common Questions
 
-**Q: How can I use API from my extension that was introduced in a newer release of VS Code?**
+### How can I use an API in my extension that was introduced in a newer release of VS Code?
 
-**A:** If your extension is using an API that was introduced in a newer release of VS Code, you have to declare this dependency in the
-`engines` field of the `package.json` file of the extension.
+If your extension is using an API that was introduced in a newer release of VS Code, you have to declare this dependency in the `engines` field of the `package.json` file of the extension.
 
 Here are the steps:
 

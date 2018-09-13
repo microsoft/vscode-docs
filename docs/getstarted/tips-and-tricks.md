@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 6/6/2018
+DateApproved: 9/5/2018
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -333,13 +333,13 @@ Keyboard Shortcut: `kb(workbench.view.extensions)`
 
 ### Install extensions
 
-In the **Extensions** view, you can search via the search bar or click the **More** (...) button to filter and sort by install count.
+In the **Extensions** view, you can search via the search bar or click the **More Actions** (...) button to filter and sort by install count.
 
 ![install extensions](images/tips-and-tricks/InstallExtensions.gif)
 
 ### Extension recommendations
 
-In the **Extensions** view, click **Show Recommended Extensions** in the **More** (...) button menu.
+In the **Extensions** view, click **Show Recommended Extensions** in the **More Actions** (...) button menu.
 
 ![show recommended extensions](images/tips-and-tricks/ShowRecommendedExtensions.gif)
 
@@ -710,7 +710,7 @@ See more details in [Creating your own Snippets](/docs/editor/userdefinedsnippet
 
 Keyboard Shortcut: `kb(workbench.view.scm)`
 
-Git integration comes with VS Code "out-of-the-box". You can install other SCM provider from the extension Marketplace. This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
+Git integration comes with VS Code "out-of-the-box". You can install other SCM providers from the extension Marketplace. This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
 
 ### Diffs
 
@@ -726,7 +726,7 @@ Default is side by side diff.
 
 **Inline view**
 
-Toggle inline view by clicking the **More** (...) button in the top right and selecting **Switch to Inline View**.
+Toggle inline view by clicking the **More Actions** (...) button in the top right and selecting **Switch to Inline View**.
 
 ![git inline](images/tips-and-tricks/git_inline.png)
 
@@ -809,7 +809,7 @@ Inspect variables in the **Debug** panels and in the console.
 
 ### Inline values
 
-You can set `"debug.inlineValues": true` to see variable values inline in the debugger. This feature is experimental and disabled by default.
+You can set `"debug.inlineValues": true` to see variable values inline in the debugger. This feature can be expensive and may slow down stepping, so it is disabled by default.
 
 ## Task Runner
 
@@ -851,6 +851,10 @@ With the setting `npm.enableScriptExplorer`, you can enable an explorer that sho
 ![Filter problems](images/tips-and-tricks/script_explorer.png)
 
 From the explorer you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). The default action on click is to open the script. To run a script on a single click, set `npm.scriptExplorerAction` to "run". Use the setting `npm.exclude` to exclude scripts in `package.json` files contained in particular folders.
+
+## Portable Mode
+
+VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
 ## Insiders builds
 
