@@ -41,7 +41,7 @@ The VS Code version is the first **Version** number listed and has the version f
 
 By default, VS Code is set up to auto-update for macOS and Windows users when we release new updates. If you do not want to get automatic updates, you can set the `update.channel` setting from `default` to `none`.
 
-To modify the update channel, go to **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `update.channel` and change the setting to `"none"`.
+To modify the update channel, go to **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `update.channel` and change the setting to `none`.
 
 If you use the `json` editor for your settings, add the following line:
 ```json
