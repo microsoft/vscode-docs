@@ -72,7 +72,7 @@ You can install and manage VS Code [extensions](/docs/editor/extension-gallery.m
 
 Argument|Description
 ------------------|-----------
-`--install-extension <ext>` | Install an extension. Provide the full extension name `publisher.extension` as an argument.
+`--install-extension <ext>` | Install an extension. Provide the full extension name `publisher.extension` as an argument. Use `--force` argument to avoid prompts.
 `--uninstall-extension <ext>` | Uninstall an extension. Provide the full extension name `publisher.extension` as an argument.
 `--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the `Extensions: Show Installed Extensions` dropdown but they will never be activated.
 `--list-extensions` | List the installed extensions.
