@@ -43,7 +43,8 @@ By default, VS Code is set up to auto-update for macOS and Windows users when we
 
 To modify the update channel, go to **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `update.channel` and change the setting to `none`.
 
-If you use the `json` editor for your settings, add the following line:
+If you use the JSON editor for your settings, add the following line:
+
 ```json
     "update.channel": "none"
 ```
@@ -122,12 +123,13 @@ If you don't wish to send usage data to Microsoft, you can set the `telemetry.en
 
 From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry.enableTelemetry` and uncheck the setting. This will silence all telemetry events from the VS Code shell going forward until you enable the setting again.
 
-If you use the `json` editor for your settings, add the following line:
+If you use the JSON editor for your settings, add the following line:
+
 ```json
     "telemetry.enableTelemetry": false
 ```
 
-You can inspect telemetry events in the Output panel by setting the log level to `trace` using `Developer: Set Log Level` from the Command Palette.
+You can inspect telemetry events in the Output panel by setting the log level to **Trace** using **Developer: Set Log Level** from the Command Palette.
 
 > **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
 
@@ -139,7 +141,8 @@ If you don't wish to send crash data to Microsoft, you can set the `telemetry.en
 
 From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry.enableCrashReporter` and uncheck the setting.
 
-If you use the `json` editor for your settings, add the following line:
+If you use the JSON editor for your settings, add the following line:
+
 ```json
     "telemetry.enableCrashReporter": false
 ```
