@@ -1,6 +1,6 @@
 # Editing PowerShell in Visual Studio Code
 
-PowerShell is a task-based command line shell and scripting language built on .NET .
+PowerShell is a task-based command line shell and scripting language built on .NET.
 
 PowerShell provides a powerful toolset for administrators on any platform.
 
@@ -10,11 +10,11 @@ PowerShell provides a powerful toolset for administrators on any platform.
 
 The official PowerShell Extension can be installed by following the steps in the
 [Visual Studio Code Docs](https://code.visualstudio.com/docs/editor/extension-gallery)
-or by going directly to the Marketplace and clicking the [Install Button](vscode:extension/ms-vscode.PowerShell)
+or by going directly to the Marketplace and clicking the [Install Button](vscode:extension/ms-vscode.PowerShell).
 
 You can also install the PowerShell Extension from within Visual Studio Code by
 browsing the Extension Marketplace under the Marketplace view in the Activity Bar for extensions.
-You can access this with the shortcut <kbd>ctrl</kbd>-<kbd>Shift</kbd>-<kbd>x</kbd> or by clicking on the
+You can access this with the shortcut <kbd>ctrl</kbd>-<kbd>Shift</kbd>-<kbd>x</kbd> (or <kbd>cmd</kbd>+<kbd>shift</kbd>+<kbd>x</kbd> on macOS) or by clicking on the
 
  Marketplace Icon:
 
@@ -25,7 +25,7 @@ Which is denoted by this Icon:
 
 ![PowerShell Extension](./images/powershell/pwshVsixIcon.png)
 
- ## Search from the Command line
+ ## Install from the Command line
 
  Alternatively, the PowerShell Extension can be installed from any command line (including PowerShell, CMD, bash) on all platforms with the following command
  
@@ -62,8 +62,8 @@ code-insiders (Get-ChildItem $Home\.vscode\extensions\ms-vscode.PowerShell-*\exa
 
 ```
 
-You can also open view the examples from the [command pallette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)
-( opened with <kbd>ctrl</kbd>-<kbd>shift</kbd>-<kbd>p</kbd>, <kbd>cmd</kbd>-<kbd>shift</kbd>-<kbd>p</kbd> on macOS) and typing __PowerShell: Open Examples Folder__.
+You can also open the examples from the [command pallette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)
+(opened with <kbd>ctrl</kbd>-<kbd>shift</kbd>-<kbd>p</kbd>, <kbd>cmd</kbd>-<kbd>shift</kbd>-<kbd>p</kbd> on macOS) and typing __PowerShell: Open Examples Folder__.
 
 ![Open PowerShell Examples](./images/powershell/pwshExamples.png)
 
@@ -89,7 +89,7 @@ You can read the  [VSCode debugging Docs](https://code.visualstudio.com/docs/edi
 
 ![HSG](./images/powershell/HSGavatar.png)
 
-For more information on debugging check out the Hey, Scripting Guy two-part blog post series Written by [@keithHill](https://twitter.com/r_keith_hill) on debugging with the PowerShell Extension:
+For more information on debugging check out the Hey, Scripting Guy two-part blog post series written by [@keithHill](https://twitter.com/r_keith_hill) on debugging with the PowerShell Extension:
 
 [Debugging PowerShell script in Visual Studio Code – Part 1](https://blogs.technet.microsoft.com/heyscriptingguy/2017/02/06/debugging-powershell-script-in-visual-studio-code-part-1/)
 
@@ -104,9 +104,7 @@ located in the lower left corner of the activity bar.
 
 ![codeGear](./images/powershell/codeGear.png)
 
-You can also use the shortcut <kbd>ctrl</kbd>-<kbd>, </kbd> (<kbd>cmd</kbd>-<kbd>,</kbd> on macOS) for a quick search
-
-in VSCode versions prior to 1.27.1, this will launch the settings.json file,  where the VSCode team has introduced a settings GUI the new default interface for customizing settings.
+You can also use the shortcut <kbd>ctrl</kbd>-<kbd>, </kbd> (<kbd>cmd</kbd>-<kbd>,</kbd> on macOS) for a quick search. The VSCode team has introduced a settings GUI in the latest version 1.27.1 as the new default interface for customizing settings. In VSCode versions prior to 1.27.1, this will launch the settings.json file.
 
 You can still launch the settings.json file by using the [command pallette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)
 and entering the command __Open Settings (JSON)__ or by changing the default settings editor with the `"workbench.settings.editor"`
@@ -141,13 +139,13 @@ to update Pester or to install the latest version on other platforms follow the 
 
 ## Plaster
 
- Plaster is a template-based file and project generator written in PowerShell. Its Purpose is to streamline the creation of PowerShell module projects, Pester tests, DSC configurations and more.
+ Plaster is a template-based file and project generator written in PowerShell. Its purpose is to streamline the creation of PowerShell module projects, Pester tests, DSC configurations and more.
  See the [Github Plaster repo](https://github.com/PowerShell/Plaster) for more information.
 
  [Cmdlet Documentation](https://github.com/PowerShell/Plaster/blob/master/docs/en-US/Plaster.md)
 
  Create a new Plaster Project from the [command pallette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)
-( opened with <kbd>ctrl</kbd>-<kbd>shift</kbd>-<kbd>p</kbd>, <kbd>cmd</kbd>-<kbd>shift</kbd>-<kbd>p</kbd> on macOS) and typing Plaster:
+( opened with <kbd>ctrl</kbd>-<kbd>shift</kbd>-<kbd>p</kbd>, or <kbd>cmd</kbd>-<kbd>shift</kbd>-<kbd>p</kbd> on macOS) and typing Plaster:
 ![Plaster Project](./images/powershell/cpPlasterCommand.png)
 
 
@@ -155,13 +153,13 @@ to update Pester or to install the latest version on other platforms follow the 
 
 The PowerShell Extension includes PSSCriptAnalyzer by default, and automatically performs analysis on PowerShell script files being edited in VSCode.
 
-[PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer#introduction) is a static code checker for Windows PowerShell modules and scripts. PSScriptAnalyzer checks the quality of Windows PowerShell code by running a set of rules. The rules are based on PowerShell best practices identified by the PowerShell Team and the community. Pester generates diagnostic rescords (errors and warnings) to inform users about potential code defects and suggests possible solutions for improvements.
+[PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer#introduction) is a static code checker for PowerShell modules and scripts. PSScriptAnalyzer checks the quality of PowerShell code by running a set of rules. The rules are based on PowerShell best practices identified by the PowerShell Team and the community. Pester generates diagnostic rescords (errors and warnings) to inform users about potential code defects and suggests possible solutions for improvements.
 
 ### PSScriptAnalyzer Settings
 
 PSScriptAnalyzer is shipped with a collection of built-in rules that checks various aspects of PowerShell code such as presence of uninitialized variables, usage of PSCredential Type, usage of Invoke-Expression etc. additional functionalities such as exclude/include specific rules are also supported.
 
-To disable PSSCriptAnalyzer open the settings browse extensions select the PowerShellExtension and deselect the checkbox for
+To disable PSSCriptAnalyzer open the settings, browse extensions, select the PowerShell Extension and deselect the checkbox for
 
 ![PSScriptAnalyzer Settings](./images/powershell/pssaExtensionSetting.png)
 
@@ -174,7 +172,7 @@ by entering Format keyword or using the <kbd>alt</kbd>+<kbd>shift></kbd>+<kbd>F<
 
 ## CodeLens
 
-Shows actionable , contextual information that is displayed within the source code.
+Shows actionable, contextual information that is displayed within the source code.
 
 CodeLens support was added in version 1.3.0 of the PowerShell Extension read the [PowerShell Extension Changelog](https://marketplace.visualstudio.com/items/ms-vscode.PowerShell/changelog) for more information.
 
