@@ -718,7 +718,7 @@ In addition, your language server needs to respond to the `textDocument/codeLens
 #### Direct Implementation
 
 ```typescript
-class GoRCodeLensProvider implements vscode.CodeLensProvider {
+class GoCodeLensProvider implements vscode.CodeLensProvider {
     public provideCodeLenses(document: TextDocument, token: CancellationToken):
         CodeLens[] | Thenable<CodeLens[]> {
     ...
