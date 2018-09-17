@@ -3,20 +3,20 @@ Order: 5
 Area: docker
 TOCTitle: Viewing logs
 PageTitle: Viewing the application logs
-MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
-DateApproved: 1/11/2018
+MetaDescription: Viewing container logs for apps deployed to Azure App Services with Visual Studio Code
+DateApproved: 9/14/2018
 ---
 # Viewing Logs
 
-In this step, you learn how to view (or "tail") the logs from the running website. Any calls to `console.log` in the site are displayed in the Output panel in Visual Studio Code.
+In this step, you learn how to view (or "tail") the logs from the running website. Any calls that output to the control, such as `print` in Python and `console.log` in Node.js, are displayed in the Output panel in Visual Studio Code.
 
 Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and choose **View Streaming Logs**.
 
-When prompted, choose to enable logging and restart the application. Once the app is restarted, the VS Code Output panel opens with a connection to the log stream.
+When prompted, choose to enable logging and restart the app. Once the app is restarted, the VS Code Output panel opens with a connection to the log stream.
 
-![View Streaming Logs](images/app-service-extension/view-logs.png)
+![View Streaming Logs](../images/app-service-extension/view-logs.png)
 
-![Enable Logging and Restart](images/app-service-extension/enable-restart.png)
+![Enable Logging and Restart](../images/app-service-extension/enable-restart.png)
 
 After a few seconds, you will see a message indicating that you are connected to the log-streaming service.
 
