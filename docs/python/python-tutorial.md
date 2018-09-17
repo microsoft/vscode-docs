@@ -122,7 +122,7 @@ The command opens a menu of available debuggers, which shows **Python** and **Py
 
 **Note**: VS Code uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.
 
-These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select "Python: Current File", which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
+These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python: Current File**", which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
 To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
 
@@ -135,6 +135,8 @@ To automatically stop the debugger on the first line when the program starts, ad
     "stopOnEntry": true
 },
 ```
+
+> **Tip:** If you need to specify the exact folder containing the interpreter to use for debugging, include an entry for `pythonPath` in the configuration, such as `"pythonPath": "${workspaceFolder}"` or `"pythonPath": "${workspaceFolder}/.venv"`.
 
 Save `launch.json`, switch to `hello.py` in the editor, then run the debugger by selecting the green arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. Because `stopOnEntry` is set to true, the debugger stops on the first line of the file. The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
 
