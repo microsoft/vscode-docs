@@ -40,7 +40,7 @@ In this section you create a virtual environment in which Django is installed. U
 
     ```bash
     # macOS/Linux
-    # You may need to run sudo apt-get install python3-venv first
+    sudo apt-get install python3-venv    # If needed
     python3 -m venv env
 
     # Windows
@@ -70,11 +70,7 @@ In this section you create a virtual environment in which Django is installed. U
 1. Install Django in the virtual environment by running one of the following commands in the VS Code Terminal:
 
     ```bash
-    # macOS/Linux
     python -m pip install django
-
-    # Windows
-    py -m pip install django
     ```
 
 You now have an self-contained environment ready for writing Django code. Just be sure that whenever you work from a command prompt or terminal, activate the environment by running `env/scripts/activate` (Linux/MacOS) or `env\scripts\activate` (Windows). VS Code activates the environment automatically when you use **Python: Create Terminal**. You know the environment is activated when the command prompt shows **(env)** at the beginning.
@@ -90,20 +86,20 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 1. In the VS Code Terminal where your virtual environment is activated, run the following command:
 
     ```bash
-    django-admin startproject web_project
+    django-admin startproject web_project .
     ```
 
-    The `startproject` command creates a project folder with the specified name (in this case "web_project") that contains the following:
+    This `startproject` command assumes (by use of `.` at the end) that the current folder is your project folder, and creates the following within it:
 
-    - `manage.py`: The Django command-line administrative utility for the project. You run administrative commands for the project using `python3 manage.py <command> [options]` (Linux/MacOS) or `python manage.py <command> [options]` (Windows).
+    - `manage.py`: The Django command-line administrative utility for the project. You run administrative commands for the project using `python manage.py <command> [options]`.
 
-    - A subfolder with the same name as the project, which contains the following files:
+    - A subfolder named `web_project`, which contains the following files:
         - `__init.py`: an empty file that tells Python that this folder is a Python package.
         - `wsgi.py`: an entry point for WSGI-compatible web servers to serve your project. You typically leave this file as-is as it provides the hooks for production web servers.
         - `settings.py`: contains settings for Django project, which you modify in the course of developing a web app.
         - `urls.py`: contains a table of contents for the Django project, which you also modify in the course of development.
 
-1. To verify the Django project, start Django's development server using the command `python manage.py runserver` (`python3` as necessary on Linux/MacOS). The server runs on the default port 8000, and you see output like the following in the Output window:
+1. To verify the Django project, make sure your virtual environment is activated, then start Django's development server using the command `python manage.py runserver`. The server runs on the default port 8000, and you see output like the following in the Output window:
 
     ```output
     Performing system checks...
@@ -128,13 +124,9 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 ### Create A Django app
 
-1. In the VS Code Terminal where your virtual environment is activated, navigate into the first `web_project` folder (that contains `manage.py`) and run the administrative utility's `startapp` command:
+1. In the VS Code Terminal where your virtual environment is activated, navigate to the project folder (that contains `manage.py`) and run the administrative utility's `startapp` command:
 
     ```bash
-    # Linux/MacOS
-    python3 manage.py startapp hello
-
-    # Windows
     python manage.py startapp hello
     ```
 
@@ -189,14 +181,14 @@ You're probably already wondering where there's an easier way to run the server 
 
 1. Select the gear icon and wait for a few seconds for VS Code to create and open a `launch.json` file. (If you're using an older version of VS Code, you may be prompted with a list of debugger targets, in which case select **Python** from the list.) The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
-1. Scroll down to and examine the configuration with the name "Python: Django", and modify the `"program"` entry to include the `web_project` folder as shown here:
+1. Scroll down to and examine the configuration with the name "Python: Django":
 
     ```json
     {
         "name": "Python: Django",
         "type": "python",
         "request": "launch",
-        "program": "${workspaceFolder}/web_project/manage.py",
+        "program": "${workspaceFolder}/manage.py",
         "console": "integratedTerminal",
         "args": [
             "runserver",
@@ -207,7 +199,7 @@ You're probably already wondering where there's an easier way to run the server 
     },
     ```
 
-    This configuration tells VS Code to run `"${workspaceFolder}/web_project/manage.py"` using the selected Python interpreter, using the arguments in the `args` list. When you launch the VS Code debugger with this configuration, then, it's the same as running `python manage.py runserver --noreload --nothreading` in the VS Code Terminal with your activated virtual environment. (You can add a port number like `"5000"` to `args` if desired.) The `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you see later in this tutorial.
+    This configuration tells VS Code to run `"${workspaceFolder}/manage.py"` using the selected Python interpreter, using the arguments in the `args` list. When you launch the VS Code debugger with this configuration, then, it's the same as running `python manage.py runserver --noreload --nothreading` in the VS Code Terminal with your activated virtual environment. (You can add a port number like `"5000"` to `args` if desired.) The `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you see later in this tutorial.
 
 1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration drop-down list (which reads **Python: Current File**) select the **Python: Django** configuration:
 
@@ -347,7 +339,7 @@ A template is an HTML file that contains placeholders for values that the code p
 
 In this section you create a single page using a template. In the sections that follow, you configure the app to serve static files, and then create multiple pages to the app that each contain a nav bar from a base template.
 
-1. In the project's `web_project/settings.py` file, locate the `INSTALLED_APPS` list and add the following entry, which makes sure the project knows about the app so it can handle templating:
+1. In the `web_project/settings.py` file, locate the `INSTALLED_APPS` list and add the following entry, which makes sure the project knows about the app so it can handle templating:
 
     ```python
     'hello',
@@ -669,9 +661,9 @@ class LogMessage(models.Model):
 
 A model class can include methods that return values computed from other class properties. Models typically include a `__unicode__` method that returns a string representation of the instance.
 
-## Migrate the database
+### Migrate the database
 
-Because you changed your data models by editing `models.py`, you need to update the database itself. In VS Code, open a Terminal with your virtual environment activated (use the **Python: Create Terminal** command), then navigate into the top `web_project` folder and run the following commands:
+Because you changed your data models by editing `models.py`, you need to update the database itself. In VS Code, open a Terminal with your virtual environment activated (use the **Python: Create Terminal** command), navigate to the project folder, and run the following commands:
 
 ```bash
 python manage.py makemigrations
@@ -848,6 +840,26 @@ With your models in place and the database migrated, you can store and retrieve 
 1. Start the app and open a browser to the home page, which should now display messages:
 
     ![App home page displaying message from the database](images/django/app-with-message-list.png)
+
+## Use the debugger with page templates
+
+As shown in the previous section, page templates can contain procedural directives like `{% for message in message_list %}` and `{% if message_list %}`, rather than only passive, declarative elements like `{% url %}` and `{% block %}`. As a result, templates can contain programming errors like any other procedural code.
+
+Fortunately, the Python Extension for VS Code provides template debugging when you have `"django": true` in the debugging configuration. The following steps demonstrate this capability:
+
+1. In `templates/hello/home.html`, set breakpoints on both the `{% if message_list %}` and `{% for message in message_list %}` lines, as indicated by the yellow arrows in the image below:
+
+    ![Breakpoints set in a Django page template](images/django/template-breakpoints.png)
+
+1. Run the app in the debugger and open a browser to the home page. Observe that VS Code breaks into the debugger in the template on the `{% if %}` statement and shows all the context variables in the **Variables** pane:
+
+    ![Debugger stopped at breakpoints in the page template](images/django/template-debugger.png)
+
+1. Use the Step Over (`kb(workbench.action.debug.stepOver)`) command to step through the template code. Observe that the debugger steps over all declarative statements and pauses at any procedural code. For example, stepping through the `{% for message in message_list %}` loops lets you examine each value in `message` and lets you step to lines like `<td>{{ message.log_date | date:'d M Y' }}</td>`.
+
+1. You can also work with variables in the **Debug Console** panel. However, Django filters like `date` are not presently available in the console.
+
+1. When desired, select Continue (`kb(workbench.action.debug.continue)`) to finish running the app. Stop the debugger when you're done.
 
 ## Optional activities
 
