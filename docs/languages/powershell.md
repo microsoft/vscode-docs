@@ -16,9 +16,9 @@ The Microsoft [PowerShell](https://marketplace.visualstudio.com/items?itemName=m
 ## Install the PowerShell extension
 
 The official PowerShell extension can be installed by following the steps described in the
-[Visual Studio Code User Guide](/docs/editor/extension-gallerymd) or by going directly to the Marketplace and clicking the [Install Button](vscode:extension/ms-vscode.PowerShell).
+[Visual Studio Code User Guide](/docs/editor/extension-gallery.md) or by going directly to the Marketplace and clicking the [Install Button](vscode:extension/ms-vscode.PowerShell).
 
-You can also install the PowerShell extension from within Visual Studio Code by opening the Extensions view with keyboard shortcut `kb(workbench.view.extenions)` or by clicking on the Extensions icon on the Activity Bar:
+You can also install the PowerShell extension from within Visual Studio Code by opening the Extensions view with keyboard shortcut `kb(workbench.view.extensions)` or by clicking on the Extensions icon on the Activity Bar:
 
 ![Marketplace Activity Icon](images/powershell/extensionBrowser.png)
 
@@ -66,7 +66,7 @@ You can also open the examples from the Command Palette (`kb(workbench.action.sh
 
 * Syntax highlighting
 * Code snippets
-* Intellisense for cmdlets and more
+* IntelliSense for cmdlets and more
 * Rule-Based analysis provided by PowerShell Script Analyzer
 * "Go to definition" of cmdlets and variables
 * Find references of cmdlets and variables
@@ -77,9 +77,9 @@ You can also open the examples from the Command Palette (`kb(workbench.action.sh
 
 ## Debugging
 
-The PowerShell extension uses the built-in debugging interface of VS Code to allow for debugging of PowerShell scripts and modules.
+The PowerShell extension uses the built-in debugging interface of VS Code to allow for debugging of PowerShell scripts and modules. You can learn more about [VS Code debugging](/docs/editor/debugging.md) here.
 
-You can learn more about [VS Code debugging](/docs/editor/debugging.md) here.
+### Hey, Scripting Guy blog
 
 ![HSG](images/powershell/HSGavatar.png)
 
@@ -105,25 +105,25 @@ Go to [User and Workspace settings](/docs/getstarted/settings.md) for more infor
 
 ## Multi-version support
 
-You can configure the PowerShell extension to use any version of PowerShell installed on your machine by following [these instructions](https://docs.microsoft.com/powershell/scripting/core-powershell/vscode/using-vscode?view=powershell-6#using-a-specific-installed-version-of-powershell)
+You can configure the PowerShell extension to use any version of PowerShell installed on your machine by following [these instructions](https://docs.microsoft.com/powershell/scripting/core-powershell/vscode/using-vscode?view=powershell-6#using-a-specific-installed-version-of-powershell).
 
 You can also change the version by clicking on the version number in the lower right corner:
 
 ![Change PowerShell Version](images/powershell/pwshChangeVersion.png)
 
-Run the **PowerShell: Show Session Menu** command from the Command Palette (`kb(workbench.action.showCommands)`).
+Or run the **PowerShell: Show Session Menu** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Pester
 
 [Pester](https://github.com/pester/Pester/wiki/Pester) is a [Behavior-driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development) (BDD) based unit test runner for PowerShell. Pester provides a framework for running unit tests to execute and validate PowerShell commands. Pester follows a file naming convention for naming tests to be discovered by Pester at test time and a simple set of functions that expose a testing [domain-specific language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL) for isolating, running, evaluating and reporting the results of PowerShell commands.
 
-Windows 10 and Server 2016 comes with Pester 3.40 pre-installed. To update Pester or to install the latest version on other platforms follow the [Pester installation instructions](https://github.com/pester/Pester#installation)
+Windows 10 and Server 2016 comes with Pester 3.40 pre-installed. To update Pester or to install the latest version on other platforms follow the [Pester installation instructions](https://github.com/pester/Pester#installation).
 
 ![Pester CodeLens Integration](images/powershell/pesterCodeLens.png)
 
 ## Plaster
 
- Plaster is a template-based file and project generator written in PowerShell. Its purpose is to streamline the creation of PowerShell module projects, Pester tests, DSC configurations and more. See the [Github Plaster repo](https://github.com/PowerShell/Plaster) for more information, for documentation on Plaster's cmdlets see [Cmdlet Documentation](https://github.com/PowerShell/Plaster/blob/master/docs/en-US/Plaster.md).
+ Plaster is a template-based file and project generator written in PowerShell. Its purpose is to streamline the creation of PowerShell module projects, Pester tests, DSC configurations and more. See the [GitHub Plaster repository](https://github.com/PowerShell/Plaster) for more information, for documentation on Plaster's cmdlets see [Cmdlet Documentation](https://github.com/PowerShell/Plaster/blob/master/docs/en-US/Plaster.md).
 
 The PowerShell extension allows the creation of new Plaster projects by running the **PowerShell: Create New Project from Plaster Template** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -169,7 +169,7 @@ and
 Debug tests
 ```
 
-### CodeLens Pester Debug support
+### CodeLens Pester debug support
 
 ![CodeLens Pester Debug Support](images/powershell/codeLensPesterDebug.gif)
 
