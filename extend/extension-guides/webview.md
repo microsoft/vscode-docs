@@ -2,7 +2,7 @@
 Order: 3
 Area: extension-guides
 TOCTitle: Webview
-PageTitle: Webview Guide
+PageTitle: Webview
 ---
 
 # Webview Guide
