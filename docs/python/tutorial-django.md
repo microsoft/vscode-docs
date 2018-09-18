@@ -437,7 +437,11 @@ The second type are those files that you want to refer to in code, such as when 
 
 1. In the `hello` folder, create a folder named `static`.
 
-1. Within the `static` folder, create a file named `site.css` with the following contents. After entering this code, also observe the syntax highlighting that VS Code provide for CSS files, including a color preview.
+1. Within the `static` folder, create a subfolder named `hello`, matching the app name.
+
+    The reason for this extra subfolder is that when you deploy the Django project to a production server, you collect all the static files into a single folder that's then served by a dedicated static file server. The `static/hello` subfolder ensures that when the app's static files are collected, they're in an app-specific subfolder and won't collide with file from other apps in the same project.
+
+1. In the `static/hello` folder, create a file named `site.css` with the following contents. After entering this code, also observe the syntax highlighting that VS Code provide for CSS files, including a color preview.
 
     ```css
     .message {
@@ -450,7 +454,7 @@ The second type are those files that you want to refer to in code, such as when 
 
     ```html
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}" />
     ```
 
 1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
@@ -484,7 +488,7 @@ The following steps demonstrate creating a base template.
             <meta charset="utf-8" />
             <title>{% block title %}{% endblock %}</title>
             {% load static %}
-            <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}" />
+            <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}" />
         </head>
 
         <body>
@@ -506,7 +510,7 @@ The following steps demonstrate creating a base template.
     </html>
     ```
 
-1. Add the following styles to `static/site.css` below the existing "message" style, and save the file. (This walkthrough doesn't attempt to demonstrate responsive design; these styles simply generate a reasonably interesting result.)
+1. Add the following styles to `static/hello/site.css` below the existing "message" style, and save the file. (This walkthrough doesn't attempt to demonstrate responsive design; these styles simply generate a reasonably interesting result.)
 
     ```css
     .navbar {
@@ -707,7 +711,7 @@ With your models in place and the database migrated, you can store and retrieve 
 
     > **Note**: Django's `{% csrf_token %}` tag provides protection from cross-site request forgeries. See [Cross Site Request Forgery protection](https://docs.djangoproject.com/en/2.1/ref/csrf/) in the Django documentation for details.
 
-1. In the app's `static/site.css` file, add a rule to make the input form wider:
+1. In the app's `static/hello/site.css` file, add a rule to make the input form wider:
 
     ```css
     input[name=message] {
@@ -796,7 +800,7 @@ With your models in place and the database migrated, you can store and retrieve 
     {% endblock %}
     ```
 
-1. In `static/site.css`, add a rule to format the table a little:
+1. In `static/hello/site.css`, add a rule to format the table a little:
 
     ```css
     .message_list th,td {
