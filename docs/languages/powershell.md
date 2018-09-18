@@ -79,11 +79,11 @@ You can also open the examples from the Command Palette (`kb(workbench.action.sh
 
 The PowerShell extension uses the built-in debugging interface of VS Code to allow for debugging of PowerShell scripts and modules. You can learn more about [VS Code debugging](/docs/editor/debugging.md) here.
 
-### Hey, Scripting Guy blog
+### Hey, Scripting Guy! blog
 
 ![HSG](images/powershell/HSGavatar.png)
 
-For more information on debugging, check out the "Hey, Scripting Guy" two-part blog post series written by [@keithHill](https://twitter.com/r_keith_hill) on debugging with the PowerShell extension:
+For more information on debugging, check out the "Hey, Scripting Guy!" two-part blog post series written by [@keithHill](https://twitter.com/r_keith_hill) on debugging with the PowerShell extension:
 
 [Debugging PowerShell script in Visual Studio Code – Part 1](https://blogs.technet.microsoft.com/heyscriptingguy/2017/02/06/debugging-powershell-script-in-visual-studio-code-part-1/)
 
@@ -157,17 +157,7 @@ CodeLens support was added in version 1.3.0 of the PowerShell extension, read th
 
 ### Pester CodeLens support
 
-Pester supports CodeLens integration for
-
-```
-Run tests
-```
-
-and
-
-```
-Debug tests
-```
+Pester supports CodeLens integration for **Run tests** and **Debug tests**.
 
 ### CodeLens Pester debug support
 
@@ -175,7 +165,7 @@ Debug tests
 
 ### CodeLens Pester symbol support
 
-![CodeLens Pester Symbol Support](images/powershell/codelensPesterSymbol.gif)
+![CodeLens Pester Symbol Support](images/powershell/codeLensPesterSymbol.gif)
 
 ### Function reference CodeLens support
 
