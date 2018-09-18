@@ -69,7 +69,7 @@ The yum repository above also works for openSUSE and SLE based systems, the foll
 
 ```bash
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo zypper addrepo --check --refresh --name 'Visual Studio Code' https://packages.microsoft.com/yumrepos/vscode vscode
+sudo zypper addrepo --gpgcheck --check --refresh --name 'Visual Studio Code' https://packages.microsoft.com/yumrepos/vscode vscode
 ```
 
 Then install the package using:
