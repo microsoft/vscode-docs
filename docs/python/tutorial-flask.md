@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Flask Tutorial
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
 PageTitle: Python and Flask Tutorial in VS Code
-DateApproved: 07/11/2018
+DateApproved: 09/18/2018
 MetaDescription: Python Flask tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -34,7 +34,7 @@ To successfully complete this tutorial, you must do the following (which are the
 
 ## Create a project environment for Flask
 
-In this section you create a virtual environment in which Flask is installed. Using a virtual environment avoids installing Flask into a global Python environment and gives you exact control over the libraries used in an application. A virtual environment also makes it easy to [Create a requirements.txt file for the environment](#create-a-requirements-txt-file-for-the-environment).
+In this section you create a virtual environment in which Flask is installed. Using a virtual environment avoids installing Flask into a global Python environment and gives you exact control over the libraries used in an application. A virtual environment also makes it easy to [Create a requirements.txt file for the environment](#create-a-requirementstxt-file-for-the-environment).
 
 1. On your file system, create a project folder for this tutorial, such as `hello_flask`.
 
@@ -42,7 +42,7 @@ In this section you create a virtual environment in which Flask is installed. Us
 
     ```bash
     # macOS/Linux
-    # You may need to run sudo apt-get install python3-venv first
+    sudo apt-get install python3-venv    # If needed
     python3 -m venv env
 
     # Windows
@@ -57,11 +57,11 @@ In this section you create a virtual environment in which Flask is installed. Us
 
     ![Opening the Command Palette in VS Code](images/shared/command-palette.png)
 
-1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select your virtual environment:
+1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select the virtual environment in your project folder that starts with `./env` or `.\env`:
 
     ![Selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
-1. Run **Python: Create Terminal** from the command palette, which creates a terminal and automatically activates the virtual environment by running its activate script.
+1. Run **Python: Create Terminal** from the command palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 
     > **Note**: on Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
@@ -79,7 +79,7 @@ In this section you create a virtual environment in which Flask is installed. Us
     pip install flask
     ```
 
-You now have an self-contained environment ready for writing Flask code.
+You now have an self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use **Python: Create Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/MacOS) or `env\scripts\activate` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
 
 ## Create and run a minimal Flask app
 
@@ -139,7 +139,7 @@ You now have an self-contained environment ready for writing Flask code.
 
 Debugging gives you the opportunity to pause a running program on a particular line of code. When a program is paused, you can examine variables, run code in the Debug Console panel, and otherwise take advantage of the features described on [Debugging](/docs/python/debugging.md). Running the debugger also automatically saves any modified files before the debugging session begins.
 
-**Before you begin**: Make sure that you stopped the running app at the end of the last section by using `kbstyle(Ctrl+C)` in the terminal. If you leave the app running in one terminal, it continues to own the port. As a result, when you run the app in the debugger using the same port, the original running app handles all the requests and you won't see any activity in the app being debugged and the program won't stop at breakpoints. In other words, if the debugger doesn't seem to be working, make sure that no other instance of the app is still running.
+**Before you begin**: Make sure you've stopped the running app at the end of the last section by using `kbstyle(Ctrl+C)` in the terminal. If you leave the app running in one terminal, it continues to own the port. As a result, when you run the app in the debugger using the same port, the original running app handles all the requests and you won't see any activity in the app being debugged and the program won't stop at breakpoints. In other words, if the debugger doesn't seem to be working, make sure that no other instance of the app is still running.
 
 1. Replace the contents of `app.py` with the following code, which adds a second route and function that you can step through in the debugger:
 
@@ -236,7 +236,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Use Step Over to run the `now = datetime.now()` statement.
 
-1. On the left side of the VS Code window you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [VS Code debugging](/docs/editor/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb(debug.setVariable)`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes to correct values when the code didn't produce the right value to begin with.
+1. On the left side of the VS Code window you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [VS Code debugging](/docs/editor/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb(debug.setVariable)`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes only to correct values when the code didn't produce the right value to begin with.
 
     ![Local variables and arguments in VS Code during debugging](images/flask/debug-local-variables.png)
 
@@ -276,13 +276,13 @@ During your work with Flask or any other library, you may want to examine the co
 
 - **Go to Definition** jumps from your code into the code that defines an object. For example, in `app.py`, right-click on the `Flask` class (in the line `app = Flask(__name__)`) and select **Go to Definition** (or use `kb(editor.action.goToDeclaration)`), which navigates to the class definition in the Flask library.
 
-- **Peek Definition** (`kb(editor.action.previewDeclaration)`, also on the right-click context menu), is similar, but displays the class definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `kbstyle(Escape)` to close the Peek window.
+- **Peek Definition** (`kb(editor.action.previewDeclaration)`, also on the right-click context menu), is similar, but displays the class definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `kbstyle(Escape)` to close the Peek window or use the **x** in the upper right corner.
 
     ![Peek definition showing the Flask class inline](images/flask/peek-definition.png)
 
 ## Use a template to render a page
 
-The app you've created so far in this tutorial generates only plain text web pages directly within Python code. Although it's possible to generate HTML directly in code, developers typically avoid such a practice because it's vulnerable to cross-site scripting (XSS) attacks. Instead, developers separate HTML markup from the code-generated data that gets inserted into that markup. **Templates** are a common approach to achieve this separation.
+The app you've created so far in this tutorial generates only plain text web pages from Python code. Although it's possible to generate HTML directly in code, developers typically avoid such a practice because it's vulnerable to cross-site scripting (XSS) attacks. Instead, developers separate HTML markup from the code-generated data that gets inserted into that markup. **Templates** are a common approach to achieve this separation.
 
 - A template is an HTML file that contains placeholders for values that the code provides at run time. The templating engine takes care of making the substitutions when rendering the page. The code, therefore, concerns itself only with data values and the template concerns itself only with markup.
 - The default templating engine for Flask is Jinja, which is installed automatically when you install Flask. This engine provides flexible options including template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
@@ -510,24 +510,22 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
 1. In the list that appears, select **html**. (The option may appear as "html.json" in the **Existing Snippets** section of the list if you've created snippets previously.)
 
-1. After VS code opens `html.json`, modify it so it looks like the following (the explanatory comments, not shown here, describe details such as how the `$0` line indicates where VS Code places the cursor after inserting a snippet):
+1. After VS code opens `html.json`, add the following entry within the existing curly braces (the explanatory comments, not shown here, describe details such as how the `$0` line indicates where VS Code places the cursor after inserting a snippet):
 
     ```json
-    {
-        "Flask App: template extending layout.html": {
-            "prefix": "flextlayout",
-            "body": [
-                "{% extends \"layout.html\" %}",
-                "{% block title %}",
-                "$0",
-                "{% endblock %}",
-                "{% block content %}",
-                "{% endblock %}"
-            ],
+    "Flask App: template extending layout.html": {
+        "prefix": "flextlayout",
+        "body": [
+            "{% extends \"layout.html\" %}",
+            "{% block title %}",
+            "$0",
+            "{% endblock %}",
+            "{% block content %}",
+            "{% endblock %}"
+        ],
 
-            "description": "Boilerplate template that extends layout.html"
-        }
-    }
+        "description": "Boilerplate template that extends layout.html"
+    },
     ```
 
 1. Save the `html.json` file (`kb(workbench.action.files.save)`).
@@ -584,9 +582,9 @@ The following sections describe additional steps that you might find helpful in 
 
 ### Create a requirements.txt file for the environment
 
-When you share your app code with others through source control or some other means, it doesn't make sense to copy all the files in a virtual environment because recipients can always install packages themselves.
+When you share your app code through source control or some other means, it doesn't make sense to copy all the files in a virtual environment because recipients can always recreate the environment themselves.
 
-Accordingly, developers typically omit the virtual environment folder from source control, and instead describe the app's dependencies using a `requirements.txt` file.
+Accordingly, developers typically omit the virtual environment folder from source control and instead describe the app's dependencies using a `requirements.txt` file.
 
 Although you can create the file by hand, you can also use the `pip freeze` command to generate the file based on the exact libraries installed in the activated environment:
 
@@ -684,7 +682,7 @@ If you have any problems, feel free to file an issue for thus tutorial in the [V
 
 ## Next steps
 
-Congratulations on completing this walkthrough of working with Flask in Visual Studio code!
+Congratulations on completing this walkthrough of working with Flask in Visual Studio Code!
 
 The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
 
