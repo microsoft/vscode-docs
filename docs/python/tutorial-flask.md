@@ -34,7 +34,7 @@ To successfully complete this tutorial, you must do the following (which are the
 
 ## Create a project environment for Flask
 
-In this section you create a virtual environment in which Flask is installed. Using a virtual environment avoids installing Flask into a global Python environment and gives you exact control over the libraries used in an application. A virtual environment also makes it easy to [Create a requirements.txt file for the environment](#create-a-requirements-txt-file-for-the-envionment).
+In this section you create a virtual environment in which Flask is installed. Using a virtual environment avoids installing Flask into a global Python environment and gives you exact control over the libraries used in an application. A virtual environment also makes it easy to [Create a requirements.txt file for the environment](#create-a-requirementstxt-file-for-the-environment).
 
 1. On your file system, create a project folder for this tutorial, such as `hello_flask`.
 
