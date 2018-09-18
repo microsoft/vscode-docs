@@ -429,9 +429,21 @@ In this section you start by creating a single page using a template. In subsequ
 
 Static files are pieces of content that your web app returns as-is for certain requests, such as CSS files. Serving static files requires that the `INSTALLED_APPS` list in `settings.py` contains `django.contrib.staticfiles`, which is included by default.
 
-Static files are of two types. First are those files like stylesheets to which a page template can just refer directly, which is demonstrated in the next section. Such files are placed by default in a `static` folder within the app, the name of which is defined by the `STATIC_URL` variable found in the project's `settings.py` file. You can also define a `STATICFILES_DIRS` list in `settings.py` to define additional static folders. For example, the equivalent entry in `STATICFILES_DIRS` for the default `static` folder is `os.path.join(BASE_DIR, "static")`.
+Serving static files in Django is something of an art, especially when deploying to production. What's shown here is a simple approach that works with the Django development server and also a production server like gunicorn. A full treatment of static files, however, is beyond the scope of this tutorial, so for more information, see [Managing static files](https://docs.djangoproject.com/en/2.1/howto/static-files/) in the Django documentation.
 
-The second type are those files that you want to refer to in code, such as when you implement an API endpoint that returns the contents of a static file. The considerations for serving such files in production environments, however, is beyond the scope of this tutorial. For more information, see [Managing static files](https://docs.djangoproject.com/en/2.1/howto/static-files/) in the Django documentation.
+### Ready the app for static files
+
+1. In the project's `web_project/urls.py`, add the following `import` statement:
+
+    ```python
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+    ```
+
+1. In that same file, add the following line at the end, which includes standard static file URLs to the list that the project recognizes:
+
+    ```python
+    urlpatterns += staticfiles_urlpatterns()
+    ```
 
 ### Refer to static files in a template
 
@@ -464,6 +476,20 @@ The second type are those files that you want to refer to in code, such as when 
     ```
 
 1. Run the app, navigate to a /hello/name URL, and observe that the message renders in blue. Stop the app when you're done.
+
+### Use the collectstatic command
+
+For production deployments, you typically collect all the static files from your apps into a single folder using the `python manage.py collectstatic` command. You can then use a dedicated static file server to serve those files, which typically results in better overall performance. The following steps show how this collection is made, although you don't use the collection when running with the Django development server.
+
+1. In `web_project/settings.py`, add the following line that defines a location where static files are collected when you use the `collectstatic` command:
+
+    ```python
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
+    ```
+
+1. In the Terminal, run the command `python manage.py collectstatic` and observe that `hello/site.css` is copied into the top-level `static_collected` folder alongside `manage.py`.
+
+1. In practice, run `collectstatic` any time you change static files and before deploying into production.
 
 ## Create multiple templates that extend a base template
 
