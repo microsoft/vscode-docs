@@ -76,7 +76,7 @@ A Docker image contains your app files along with few files for Docker itself. T
 
 1. If your app uses additional libraries described in a `requirements.txt` file, uncomment the last three lines in the `Dockerfile`.
 
-1. In the `hello_app` folder, create a file named `uwsgi.ini` with the following contents, which indicates that the Flask app object is found in the `webapp.py` module, and that it's named `app`:
+1. In your app folder (`hello_app` in the sample), create a file named `uwsgi.ini` with the following contents, which indicates that the Flask app object is found in the `webapp.py` module, and that it's named `app` (change as needed for your app):
 
     ```ini
     [uwsgi]
@@ -84,13 +84,15 @@ A Docker image contains your app files along with few files for Docker itself. T
     callable = app
     ```
 
-    If you ues a different name than `app` for the app object, just change the value of `callable` to that other name.
-
 ### Changes for Python/Django apps
 
 1. Make sure you have a `requirements.txt` file in your project that contains Django and its dependencies. You can generate `requirements.txt` using the `pip freeze` command.
 
-1. Replace the contents of `Dockerfile` with the following configuration, which uses the base image tiangolo/uwsgi-nginx:python3.6-alpine3.7 that contains a production-ready web server. The last three lines of the `Dockerfile` also bring in `requirements.txt` to install Django.
+1. Create a file in the project (alongside `manage.py`) named `uwsgi.ini` with the following contents, which provide all the startup arguments to the uwsgi server:
+
+1. Replace the contents of `Dockerfile` with the following configuration, which uses the base image tiangolo/uwsgi-nginx:python3.6-alpine3.7 that contains a production-ready web server, runs `pip install -r requirements.txt` to install Django in the image, and adds the uwsgi command start the server:
+
+
 
 ## Build the Docker image
 
@@ -123,6 +125,10 @@ A Docker image contains your app files along with few files for Docker itself. T
     docker run --rm -it -p 8000:8000 <image_name>
     ```
 
+> **Tip:** The Docker extension provides a simple UI to manage and even run your images rather than using the Docker CLI. Just expand the **Image** node in the Docker explorer, right click any image, and select any of the menu items:
+>
+> ![Managing images with the Docker extension](../images/docker-extension/manage-images.png)
+
 ## Push the image to a registry
 
 1. On the **Command Palette** (`kb(workbench.action.showCommands)`), select **Docker: Push**.
@@ -131,6 +137,8 @@ A Docker image contains your app files along with few files for Docker itself. T
 1. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Docker** explorer, then expand the registry and image name to see the exact image. (You may need to refresh the **Docker** explorer.)
 
 ![The built app image in the Azure Container Registry](../images/docker-extension/image-in-acr.png)
+
+> **Tip:** The first time you push an image, you see that VS Code uploads all of the different layers that make up the image. Subsequent push operations, however, upload only those layers that have changed. Because it's typically only your app code that's changes, those uploads happen much more quickly, making for a tight edit-build-deploy-test loop.
 
 Next, you deploy the app image to Azure App Service.
 
