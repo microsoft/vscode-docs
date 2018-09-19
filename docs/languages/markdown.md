@@ -7,7 +7,7 @@ PageTitle: Markdown editing with Visual Studio Code
 DateApproved: 9/5/2018
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
-# Markdown and VS Code
+# Markdown and Visual Studio Code
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a number of Markdown specific features that will help you be more productive.
 
@@ -300,7 +300,7 @@ The **gulp: default** task runs in the background and watches for file changes t
 
 Read on to find out about:
 
-* [CSS, Less and Sass](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, Less and Sass editing.
+* [CSS, SCSS, and Less](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, SCSS, and Less editing.
 
 ## Common Questions
 

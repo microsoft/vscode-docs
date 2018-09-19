@@ -82,13 +82,13 @@ Voila, Insiders:
 
 ## Icon Squatting
 
-Before VS Code existed, there was [Visual Studio Online Monaco](https://azure.microsoft.com/en-us/resources/videos/building-web-sites-with-visual-studio-online-monaco/), which was our fully browser based workbench that lets you live edit your Azure App Service web apps. Since we were calling ourselves "Visual Studio Online" and needed an icon, we "borrowed" the blue infinity from Visual Studio Team Services.
+Before VS Code existed, there was [Visual Studio Online Monaco](https://azure.microsoft.com/en-us/resources/videos/building-web-sites-with-visual-studio-online-monaco/), which was our fully browser based workbench that lets you live edit your Azure App Service web apps. Since we were calling ourselves "Visual Studio Online" and needed an icon, we "borrowed" the blue infinity.
 
 When we first released VS Code, everything was happening so quickly, and the icon was the least of our concerns. Regardless of what you think about the new icon, [the old one looks pretty bad](https://github.com/Microsoft/vscode/issues/11274) on the desktop and in the Taskbar and Dock, it was really meant to be a favicon.
 
 ![Original blue infinity icon](originalblueicon.png)
 
-Later on, when we decided that each product in the family would have its own color, it made sense that VSTS would keep its blue and we'd have to come up with something else. Plus, we stole it from them, so it seemed right to give it back :).
+Later on, when we decided that each product in the family would have its own color, and since blue was already taken, we'd have to come up with something else. Plus, we stole it from them, so it seemed right to give it back :).
 
 ## Pumpkin Spice
 

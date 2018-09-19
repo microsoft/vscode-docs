@@ -21,7 +21,7 @@ Also see [Linting](/docs/python/linting.md).
 
 ## Autocomplete and IntelliSense
 
-Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations.
+Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations. To customize the behavior of the analysis engine, see the [code analysis settings](settings-reference.md#code-analysis-settings) and [autocomplete settings](settings-reference.md#autocomplete-settings).
 
 <video id="python-code-completion-video" src="https://az754404.vo.msecnd.net/public/python-intellisense.mp4" poster="/images/python_python-intellisense-placeholder.png" autoplay loop controls muted></video>
 

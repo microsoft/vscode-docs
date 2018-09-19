@@ -3,7 +3,7 @@ TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
 DateApproved: 9/5/2018
-MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
+MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
 
@@ -35,13 +35,15 @@ On macOS, go to **Code** > **About Visual Studio Code**.
 
 On Windows and Linux, go to **Help** > **About**.
 
-The VS Code version is the first **Version** number listed and has the version format 'major.minor.release', for example '1.6.0'.
+The VS Code version is the first **Version** number listed and has the version format 'major.minor.release', for example '1.27.0'.
 
 ## How do I opt out of VS Code auto-updates?
 
 By default, VS Code is set up to auto-update for macOS and Windows users when we release new updates. If you do not want to get automatic updates, you can set the `update.channel` setting from `default` to `none`.
 
-To modify the update channel, go to **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**) and add the `update.channel` setting with the value `"none"`.
+To modify the update channel, go to **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `update.channel` and change the setting to `none`.
+
+If you use the JSON editor for your settings, add the following line:
 
 ```json
     "update.channel": "none"
@@ -73,7 +75,7 @@ To install the Insiders build, go to the Insiders [download page](/insiders).
 
 ## VS Code gets unresponsive right after opening a folder
 
-When you open a folder, VS Code will search for typical project files to offer you additional tooling (e.g. the solution picker in the status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via settings and they will not be searched for project files:
+When you open a folder, VS Code will search for typical project files to offer you additional tooling (e.g. the solution picker in the status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
 
 ```json
     "files.exclude": {
@@ -89,9 +91,9 @@ The Electron shell used by Visual Studio Code has trouble with some GPU (graphic
 code --disable-gpu
 ```
 
-## Installation appears to be corrupt
+## Installation appears to be corrupt [Unsupported]
 
-VS Code does a background check to detect if the installation has been changed on disk. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. Reinstalling VS Code will replace the modified files and silence the warning.
+VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text '[Unsupported]' in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. Reinstalling VS Code will replace the modified files and silence the warning.
 
 ## GDPR and VS Code
 
@@ -119,13 +121,17 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
 
 If you don't wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`.
 
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), add the following option to disable telemetry reporting, this will silence all telemetry events from the VS Code shell.
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry.enableTelemetry` and uncheck the setting. This will silence all telemetry events from the VS Code shell going forward until you enable the setting again.
+
+If you use the JSON editor for your settings, add the following line:
 
 ```json
     "telemetry.enableTelemetry": false
 ```
 
-> **Important Notice**: This option requires a restart of VS Code to take effect. VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
+You can inspect telemetry events in the Output panel by setting the log level to **Trace** using **Developer: Set Log Level** from the Command Palette.
+
+> **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
 
 ## How to disable crash reporting
 
@@ -133,11 +139,21 @@ VS Code collects data about any crashes that occur and sends it to Microsoft to 
 
 If you don't wish to send crash data to Microsoft, you can set the `telemetry.enableCrashReporter` setting to `false`.
 
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry.enableCrashReporter` and uncheck the setting.
+
+If you use the JSON editor for your settings, add the following line:
+
 ```json
     "telemetry.enableCrashReporter": false
 ```
 
 > **Important Notice**: This option requires a restart of VS Code to take effect.
+
+## Managing online services
+
+Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, or providing Natural Language Search within Settings. You can control which online services VS Code may use.
+
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), and search for `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
 
 ## Technical Support
 

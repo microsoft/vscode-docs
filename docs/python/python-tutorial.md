@@ -137,6 +137,8 @@ To automatically stop the debugger on the first line when the program starts, ad
 },
 ```
 
+> **Tip:** If you need to specify the exact folder containing the interpreter to use for debugging, include an entry for `pythonPath` in the configuration, such as `"pythonPath": "${workspaceFolder}"` or `"pythonPath": "${workspaceFolder}/.venv"`.
+
 Save `launch.json`, switch to `hello.py` in the editor, then run the debugger by selecting the green arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. Because `stopOnEntry` is set to true, the debugger stops on the first line of the file. The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
 
 ![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
@@ -237,12 +239,10 @@ To install the `matplotlib` package (which also installs `numpy` as a dependency
 > **Note**: If you are unable to install the package, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ```bash
-# pip install commands may require elevation
-
 # macOS
-python -m pip install matplotlib
+sudo python3 -m pip install matplotlib
 
-# Windows
+# Windows (may require elevation)
 py -m pip install matplotlib
 
 # Linux (Debian)

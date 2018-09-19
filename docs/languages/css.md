@@ -1,15 +1,15 @@
 ---
 Order: 5
 Area: languages
-TOCTitle: CSS, Sass and Less
+TOCTitle: CSS, SCSS and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
-PageTitle: CSS, Sass and Less support in VS Code
+PageTitle: CSS, SCSS, and Less support in Visual Studio Code
 DateApproved: 9/5/2018
-MetaDescription: Find out how Visual Studio Code can support your CSS, Sass and Less development.
+MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
 ---
-# CSS, Sass and Less
+# CSS, SCSS and Less
 
-Visual Studio Code has built-in support for editing style sheets in CSS `.css`, Sass `.scss` and Less `.less`.  In addition, you can install an extension for greater functionality.
+Visual Studio Code has built-in support for editing style sheets in CSS `.css`, SCSS `.scss` and Less `.less`.  In addition, you can install an extension for greater functionality.
 
 <div class="marketplace-extensions-css-curated"></div>
 
@@ -256,9 +256,9 @@ gulp.task('default', ['less'], function() {
 What is happening here?
 
 1. Our `default` gulp task first runs the `sass` or `less` task once when it starts up.
-2. It then watches for changes to any Sass/Less file at the root of our workspace, for example the current folder open in VS Code.
-3. It takes the set of Sass/Less files that have changed and runs them through our respective compiler, for example `gulp-sass`, `gulp-less`.
-4. We now have a set of CSS files, each named respectively after their original Sass/Less file.  We then put these files in the same directory.
+2. It then watches for changes to any SCSS/Less file at the root of our workspace, for example the current folder open in VS Code.
+3. It takes the set of SCSS/Less files that have changed and runs them through our respective compiler, for example `gulp-sass`, `gulp-less`.
+4. We now have a set of CSS files, each named respectively after their original SCSS/Less file.  We then put these files in the same directory.
 
 ### Step 3: Run the gulp default task
 
@@ -270,7 +270,7 @@ If you want to make the **gulp: default** task the default build task executed w
 
 The **gulp: default** task runs in the background and watches for file changes to Sass/Less files. If you want to stop the task, you can use the **Terminate Running Task** from the global **Tasks** menu.
 
-## Customizing CSS, Sass and Less Settings
+## Customizing CSS, SCSS and Less Settings
 
 You can configure the following lint warnings as [User and Workspace Settings](/docs/getstarted/settings.md).
 
@@ -282,7 +282,7 @@ css.validate | Enables or disables all css validations | true
 less.validate | Enables or disables all less validations | true
 scss.validate | Enables or disables all scss validations | true
 
-To configure an option for CSS, use `css.lint.` as the prefix to the id; for Sass and Less, use `scss.lint.` and `less.lint.`.
+To configure an option for CSS, use `css.lint.` as the prefix to the id; for SCSS and Less, use `scss.lint.` and `less.lint.`.
 
 Set a setting to `warning` or `error` if you want to enable lint checking, use `ignore` to disable it. Lint checks are performed as you type.
 
@@ -312,7 +312,7 @@ idSelector | Warn when using selectors for an id `#id` as selectors should not c
 
 Read on to find out about:
 
-* [Configure Tasks](/docs/editor/tasks.md) - Dig into Tasks to help you transpile your Sass and Less to CSS.
+* [Configure Tasks](/docs/editor/tasks.md) - Dig into Tasks to help you transpile your SCSS and Less to CSS.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [HTML](/docs/languages/html.md) - CSS is just the start, HTML is also very well supported in VS Code.
@@ -325,4 +325,4 @@ Yes, color picker has been added in version 1.15.
 
 ### Is there support for the indentation based Sass syntax (.sass)?
 
-No, but there are several extensions in the Marketplace supporting the indented flavor of Sass.
+No, but there are several extensions in the Marketplace supporting the indented flavor of Sass, for example, the [sass-indented](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented) extension by Robin Bentley.

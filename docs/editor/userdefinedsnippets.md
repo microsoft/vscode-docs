@@ -11,7 +11,7 @@ MetaDescription: It is easy to add code snippets to Visual Studio Code both for 
 
 Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
 
-Snippets show in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": true`, type a *snippet prefix*, and press `kb(insertSnippet)` to insert a snippet.
+In Visual Studio Code, snippets show in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": true`, type a *snippet prefix*, and press `kb(insertSnippet)` to insert a snippet.
 
 The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'interpolated shell code', which is not supported.
 
@@ -45,7 +45,7 @@ Snippets are defined in a JSON format. The example below is a `For Loop` snippet
           "}"
         ],
         "description": "For Loop"
-    },
+    }
 }
 ```
 

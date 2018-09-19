@@ -39,7 +39,6 @@ As you'd expect from a talk called [Node.js and Microsoft: A Love Story about De
 There were also several new VS Code extensions released at //build/:
 
 * [C/C++ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - Complete C/C++ language support including code-editing and debugging. See a demo in [C++ Discussion](https://channel9.msdn.com/Events/Build/2016/C-Discussion).
-* [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) - Monitor builds and manage pull requests and work items for Team Services Git repositories.
 * [NativeScript](https://marketplace.visualstudio.com/items?itemName=Telerik.nativescript) - NativeScript support for Visual Studio Code.
 
 Visit the VS Code [Extensions Marketplace](https://marketplace.visualstudio.com/VSCode) to learn more about these and other useful extensions.
