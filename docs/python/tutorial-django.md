@@ -2,11 +2,10 @@
 Order: 6
 Area: python
 TOCTitle: Django Tutorial
-ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
-PageTitle: Python and Flask Tutorial in VS Code
+ContentId: 3c0948f9-85a5-4dd4-a461-59788dbfce4c
+PageTitle: Python and Django tutorial in Visual Studio Code
 DateApproved: 09/19/2018
 MetaDescription: Python Django tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
-MetaSocialImage: images/tutorial/social.png
 ---
 # Use Django in Visual Studio Code
 
@@ -94,7 +93,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
     - `manage.py`: The Django command-line administrative utility for the project. You run administrative commands for the project using `python manage.py <command> [options]`.
 
     - A subfolder named `web_project`, which contains the following files:
-        - `__init.py`: an empty file that tells Python that this folder is a Python package.
+        - `__init__.py`: an empty file that tells Python that this folder is a Python package.
         - `wsgi.py`: an entry point for WSGI-compatible web servers to serve your project. You typically leave this file as-is as it provides the hooks for production web servers.
         - `settings.py`: contains settings for Django project, which you modify in the course of developing a web app.
         - `urls.py`: contains a table of contents for the Django project, which you also modify in the course of development.
@@ -667,7 +666,7 @@ When using the `db.sqlite3` file, you can also work directly with the database u
 
 By default, Django includes a `db.sqlite3` file for an app's database that's suitable for development work. As described on [When to use SQLite](https://www.sqlite.org/whentouse.html) (sqlite.org), SQLite works fine for low to medium traffic sites with fewer than 100K hits/day, but is not recommended for higher volumes. It's also limited to a single computer, so it cannot be used in any multi-server scenario such as load-balancing and geo-replication.
 
-For these reasons, consider using a production-level data store such as PostgreSQL, MySQL, and SQL Server. For information on Django's support for other databases, see [Database setup](https://docs.djangoproject.com/en/2.1/intro/tutorial02/#database-setup). You can also use the [Azure SDK for Python](azure-sdk-for-python.md) to work with Azure storage services like tables and blobs.
+For these reasons, consider using a production-level data store such as PostgreSQL, MySQL, and SQL Server. For information on Django's support for other databases, see [Database setup](https://docs.djangoproject.com/en/2.1/intro/tutorial02/#database-setup). You can also use the [Azure SDK for Python](https://docs.microsoft.com/visualstudio/python/azure-sdk-for-python) to work with Azure storage services like tables and blobs.
 
 ### Define models
 
@@ -789,7 +788,7 @@ With your models in place and the database migrated, you can store and retrieve 
 
 1. Stop the app when you're done.
 
-1. Now modify the home page to display the logged messages. Start by replacing the contents of app's `templates/hello/home.html` file with the markup below. This template expects a context variable named `message_list`. If it receives one (checked with the `{% if message_list %}` tag), it then iterates over that list (the `{% for message in messsage_list %}` tag) to generate table rows for each message. Otherwise the page indicates that no messages have yet been logged.
+1. Now modify the home page to display the logged messages. Start by replacing the contents of app's `templates/hello/home.html` file with the markup below. This template expects a context variable named `message_list`. If it receives one (checked with the `{% if message_list %}` tag), it then iterates over that list (the `{% for message in message_list %}` tag) to generate table rows for each message. Otherwise the page indicates that no messages have yet been logged.
 
     ```html
     {% extends "hello/layout.html" %}
@@ -861,7 +860,7 @@ With your models in place and the database migrated, you can store and retrieve 
     from .models import LogMessage
     ```
 
-1. ALso in `urls.py`, replace the path for the home page with the code below, which retrieves the five most recent `LogMessage` objects in descending order (meaning that it queries the database), and then provides a name for the data in the template context (`message_list`), and identifies the template to use:
+1. Also in `urls.py`, replace the path for the home page with the code below, which retrieves the five most recent `LogMessage` objects in descending order (meaning that it queries the database), and then provides a name for the data in the template context (`message_list`), and identifies the template to use:
 
     ```python
         # Replace the existing path for ''
@@ -944,7 +943,7 @@ Perform the following steps to enable the administrative interface:
 
     ![The default Django administrative interface](images/django/default-admin-interface.png)
 
-You can customize the administrative interface as much as you like. For example, you could provide capabilities to edit and remove entries inthe database. For more information on making customizations, refer to the [Django admin site documentation](https://docs.djangoproject.com/en/2.1/ref/contrib/admin/).
+You can customize the administrative interface as much as you like. For example, you could provide capabilities to edit and remove entries in the database. For more information on making customizations, refer to the [Django admin site documentation](https://docs.djangoproject.com/en/2.1/ref/contrib/admin/).
 
 ## Next steps
 
