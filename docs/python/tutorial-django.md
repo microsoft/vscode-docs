@@ -472,7 +472,7 @@ Serving static files in Django is something of an art, especially when deploying
 1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
 
     ```html
-    <span class="message">Hello, there \{{ name }}!</span> It's {{ date | date:'l, d F, Y' }} at {{ date | time:'H:i:s' }}.
+    <span class="message">Hello, there \{{ name }}!</span> It's \{{ date | date:'l, d F, Y' }} at \{{ date | time:'H:i:s' }}.
     ```
 
 1. Run the app, navigate to a /hello/name URL, and observe that the message renders in blue. Stop the app when you're done.
@@ -729,7 +729,7 @@ With your models in place and the database migrated, you can store and retrieve 
     {% endblock %}
     {% block content %}
     <form method="POST" class="log-form">{% csrf_token %}
-            {{ form.as_p }}
+            \{{ form.as_p }}
             <button type="submit" class="save btn btn-default">Log</button>
         </form>
     {% endblock %}
@@ -811,10 +811,10 @@ With your models in place and the database migrated, you can store and retrieve 
         <tbody>
             {% for message in message_list %}
             <tr>
-                <td>{{ message.log_date | date:'d M Y' }}</td>
-                <td>{{ message.log_date | date:'H:i:s' }}</td>
+                <td>\{{ message.log_date | date:'d M Y' }}</td>
+                <td>\{{ message.log_date | date:'H:i:s' }}</td>
                 <td>
-                    {{ message.message }}
+                    \{{ message.message }}
                 </td>
             </tr>
             {% endfor %}
@@ -893,7 +893,7 @@ Fortunately, the Python Extension for VS Code provides template debugging when y
 
     ![Debugger stopped at breakpoints in the page template](images/django/template-debugger.png)
 
-1. Use the Step Over (`kb(workbench.action.debug.stepOver)`) command to step through the template code. Observe that the debugger steps over all declarative statements and pauses at any procedural code. For example, stepping through the `{% for message in message_list %}` loops lets you examine each value in `message` and lets you step to lines like `<td>{{ message.log_date | date:'d M Y' }}</td>`.
+1. Use the Step Over (`kb(workbench.action.debug.stepOver)`) command to step through the template code. Observe that the debugger steps over all declarative statements and pauses at any procedural code. For example, stepping through the `{% for message in message_list %}` loops lets you examine each value in `message` and lets you step to lines like `<td>\{{ message.log_date | date:'d M Y' }}</td>`.
 
 1. You can also work with variables in the **Debug Console** panel. (Django filters like `date`, however, are not presently available in the console.)
 
