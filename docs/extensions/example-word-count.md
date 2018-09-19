@@ -95,7 +95,7 @@ class WordCounter {
 
         let doc = editor.document;
 
-        // Only update status if an Markdown file
+        // Only update status if a Markdown file
         if (doc.languageId === "markdown") {
             let wordCount = this._getWordCount(doc);
 

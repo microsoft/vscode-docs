@@ -543,7 +543,7 @@ The Markdown topic provides two examples for compiling Markdown to HTML:
 1. [Manually compiling with a Build task](/docs/languages/markdown.md#compiling-markdown-into-html)
 2. [Automating the compile step with a file watcher](/docs/languages/markdown.md#automating-markdown-compilation)
 
-### Transpiling Less and Sass into CSS
+### Transpiling Less and SCSS into CSS
 
 The CSS topic provides examples of how to use Tasks to generate CSS files.
 

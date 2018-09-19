@@ -99,12 +99,13 @@ R | `r`
 Razor (cshtml) | `razor`
 Ruby | `ruby`
 Rust | `rust`
-Sass | `scss` (syntax using curly brackets), `sass` (indented syntax)
+SCSS | `scss` (syntax using curly brackets), `sass` (indented syntax)
 ShaderLab | `shaderlab`
 Shell Script (Bash) | `shellscript`
 SQL | `sql`
 Swift | `swift`
 TypeScript | `typescript`
+TypeScript React | `typescriptreact`
 TeX | `tex`
 Visual Basic | `vb`
 XML | `xml`

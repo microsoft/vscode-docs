@@ -8,7 +8,7 @@ DateApproved: 3/6/2017
 MetaDescription: Learn how to configure Visual Studio Code, including settings, keybindings, and snippets
 MetaSocialImage: images/opengraph/introvideos.png
 ---
-# Customize VS Code
+# Customize Visual Studio Code
 
 In this tutorial, we show you how to personalize Visual Studio Code.
 
@@ -30,4 +30,4 @@ In this tutorial, we show you how to personalize Visual Studio Code.
 
 ## Next Video
 
-* [Extensions in VS Code](/docs/introvideos/extend.md) - Add features to VS Code through Extensions.
+* [Extensions in Visual Studio Code](/docs/introvideos/extend.md) - Add features to VS Code through Extensions.

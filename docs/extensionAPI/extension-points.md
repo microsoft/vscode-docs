@@ -9,7 +9,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 ---
 # Contribution Points - package.json
 
-This document covers the various contribution points that are defined in the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md).
+This document covers the various Visual Studio Code contribution points that are defined in the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md).
 
 * [`configuration`](/docs/extensionAPI/extension-points.md#contributesconfiguration)
 * [`commands`](/docs/extensionAPI/extension-points.md#contributescommands)
@@ -35,6 +35,8 @@ Contribute configuration keys that will be exposed to the user. The user will be
 When contributing configuration keys, a JSON schema describing these keys is actually contributed. This ensures the user gets great tooling support when authoring VS Code settings files.
 
 You can read these values from your extension using `vscode.workspace.getConfiguration('myExtension')`.
+
+>**Note:** If you use `markdownDescription` instead of `description`, your setting description will be rendered as Markdown in the settings UI.
 
 ### Example
 

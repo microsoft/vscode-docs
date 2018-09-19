@@ -168,7 +168,7 @@ We updated the Electron shell to 0.37.6.
 
 ## Language Server Protocol
 
-Version 2.x of the [language server protocol](https://microsoft.github.io/language-server-protocoll) was released together with a corresponding [client library](https://github.com/Microsoft/vscode-languageserver-node) to be used in extensions and a [server library](https://github.com/Microsoft/vscode-languageserver-node) for Node.js.
+Version 2.x of the [language server protocol](https://microsoft.github.io/language-server-protocol) was released together with a corresponding [client library](https://github.com/Microsoft/vscode-languageserver-node) to be used in extensions and a [server library](https://github.com/Microsoft/vscode-languageserver-node) for Node.js.
 
 The major changes are:
 

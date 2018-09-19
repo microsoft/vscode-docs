@@ -3,7 +3,7 @@ Order: 7
 Area: java
 TOCTitle: Debugging and Testing
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
-PageTitle: Debugging and Testing Java in VS Code
+PageTitle: Debugging and Testing Java in Visual Studio Code
 DateApproved: 5/30/2018
 MetaDescription: See how you can debug and test your Java code locally, and in the cloud.
 MetaSocialImage:

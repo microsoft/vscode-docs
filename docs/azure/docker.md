@@ -9,7 +9,7 @@ MetaDescription: Working with Docker containers in Visual Studio Code.
 ---
 # Working with Docker
 
-[Docker](https://www.docker.com) is a very popular container platform that lets you easily package, deploy, and consume applications and services. Whether you are a seasoned Docker developer or just getting started, Visual Studio Code makes it easy to author `Dockerfile` and `docker-compose.yml` files in your workspace. VS Code even supports generating and [adding the appropriate Docker files](#generating-docker-files) based on your project type.
+[Docker](https://www.docker.com) is a very popular container platform that lets you easily package, deploy, and consume applications and services. Whether you are a seasoned Docker developer or just getting started, Visual Studio Code makes it easy to author `Dockerfile` and `docker-compose.yml` files in your workspace. Visual Studio Code even supports generating and [adding the appropriate Docker files](#generating-docker-files) based on your project type.
 
 ## Install the Docker extension
 

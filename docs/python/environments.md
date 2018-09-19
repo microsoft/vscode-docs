@@ -81,7 +81,7 @@ To avoid activating virtual and conda environments when using these terminal com
 
 ### Choose a debugging environment
 
-Debugging uses the the value from `python.pythonPath`in selecting what Python interpreter to use in the following order of precedence:
+Debugging uses the value from `python.pythonPath`in selecting what Python interpreter to use, in the following order of precedence:
 
 1. `launch.json`
 1. Workspace `settings.json`

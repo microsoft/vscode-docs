@@ -7,12 +7,11 @@ PageTitle: Creating Language Servers for Visual Studio Code
 DateApproved: 9/5/2018
 MetaDescription: Learn how to create Language Servers for Visual Studio Code.  These can be used to easily integrate existing Linters into VS Code.
 ---
-
 # Example - Language Server
 
 ## A Brief Overview of Language Server and Language Server Protocol
 
-Language Server is a special kind of extension that powers the editing experience for many programming languages in VS Code. With Language Servers, you can implement autocomplete, error-checking (diagnostics), jump-to-definition and many other [language features](https://code.visualstudio.com/docs/extensionAPI/language-support) supported in VS Code.
+Language Server is a special kind of Visual Studio Code extension that powers the editing experience for many programming languages. With Language Servers, you can implement autocomplete, error-checking (diagnostics), jump-to-definition and many other [language features](https://code.visualstudio.com/docs/extensionAPI/language-support) supported in VS Code.
 
 However, while implementing support for language features in VS Code, we found three common problems:
 

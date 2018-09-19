@@ -228,12 +228,12 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether the editor should automatically adjust the indentation when users type, paste or move lines. Extensions with indentation rules of the language must be available.
   "editor.autoIndent": true,
 
-  // Controls whether the editor should automatically wrap selections.
-  //  - always
-  //  - brackets: Wrap with brackets but not quotes.
-  //  - quotes: Wrap with quotes but not brackets.
+  // Controls whether the editor should automatically surround selections.
+  //  - languageDefined: Use language configurations to determine when to automatically surround selections.
+  //  - brackets: Surround with brackets but not quotes.
+  //  - quotes: Surround with quotes but not brackets.
   //  - never
-  "editor.autoWrapping": "always",
+  "editor.autoSurround": "languageDefined",
 
   // Code action kinds to be run on save.
   "editor.codeActionsOnSave": {},
@@ -617,8 +617,8 @@ Below are the Visual Studio Code default settings and their values. You can also
   "workbench.quickOpen.closeOnFocusLost": true,
 
   // Determines which settings editor to use by default.
-  //  - ui: Use the JSON file editor.
-  //  - json: Use the settings UI editor.
+  //  - ui: Use the settings UI editor.
+  //  - json: Use the JSON file editor.
   "workbench.settings.editor": "ui",
 
   // Controls whether to enable the natural language search mode for settings. The natural language search is provided by an online service.
@@ -993,6 +993,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - force: Wrap each attribute except first.
   //  - force-aligned: Wrap each attribute except first and keep aligned.
   //  - force-expand-multiline: Wrap each attribute.
+  //  - aligned-multiple: Wrap when line length is exceeded, align attributes vertically.
   "html.format.wrapAttributes": "auto",
 
   // Maximum amount of characters per line (0 = disable).
@@ -1623,9 +1624,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - last: Only show the last element of the file path in the breadcrumbs view.
   "breadcrumbs.filePath": "on",
 
-  // Controls whether the breadcrumb picker filters or highlights when typing.
-  "breadcrumbs.filterOnType": false,
-
   // Controls whether and how symbols are shown in the breadcrumbs view.
   //  - on: Show all symbols in the breadcrumbs view.
   //  - off: Do not show symbols in the breadcrumbs view.
@@ -1691,9 +1689,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   "[yaml]":  {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "editor.autoIndent": false,
-  }
-
+    "editor.autoIndent": false
+  },
+ 
 // Node Debug
 
   // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
