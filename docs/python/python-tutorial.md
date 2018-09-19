@@ -132,7 +132,7 @@ To automatically stop the debugger on the first line when the program starts, ad
     "type": "python",
     "request": "launch",
     "program": "${file}",
-    "console": "integratedTerminal"
+    "console": "integratedTerminal",
     "stopOnEntry": true
 },
 ```
