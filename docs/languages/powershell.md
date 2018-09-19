@@ -9,7 +9,7 @@ MetaDescription: Learn about using PowerShell in Visual Studio Code
 ---
 # PowerShell in Visual Studio Code
 
-[PowerShell](https://docs.microsoft.com/powershell/) is a task-based command line shell and scripting language built on [.NET](https://docs.microsoft.com/dotnet), which provides a powerful toolset for administrators on any platform.
+[PowerShell](https://docs.microsoft.com/powershell/) is a task-based command-line shell and scripting language built on [.NET](https://docs.microsoft.com/dotnet), which provides a powerful toolset for administrators on any platform.
 
 The Microsoft [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) extension for Visual Studio Code provides rich language support and capabilities such as completions, definition tracking, and linting analysis for PowerShell versions 3, 4, 5, and 5.1 as well as all versions of [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60).
 
@@ -67,7 +67,7 @@ You can also open the examples from the Command Palette (`kb(workbench.action.sh
 * "Go to definition" of cmdlets and variables
 * Find references of cmdlets and variables
 * Document and Workspace symbol discovery
-* Run selected selection of PowerShell code using `kbstyle(F8)`
+* Run selected section of PowerShell code using `kbstyle(F8)`
 * Launch online help for the symbol under the cursor using `kbstyle(Ctrl + F1)`
 * Local script debugging and basic interactive console support
 
