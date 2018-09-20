@@ -132,13 +132,11 @@ There are many things you can do to customize VS Code.
 * Create snippets
 * Install extensions
 
-Check out the full [Settings](/docs/getstarted/settings.md) documentation.
-
 ### Change your theme
 
 Keyboard Shortcut: `kb(workbench.action.selectTheme)`
 
-You can install more themes from the extension Marketplace.
+You can install more themes from the VS Code extension [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Themes&sortBy=Downloads).
 
 ![Preview themes](images/tips-and-tricks/PreviewThemes.gif)
 
@@ -393,6 +391,8 @@ Keyboard Shortcut: `kb(workbench.action.toggleZenMode)`
 ![zen mode](images/tips-and-tricks/zen_mode.gif)
 
 Enter distraction free Zen mode.
+
+Press `kbstyle(Esc)` twice to exit Zen Mode.
 
 ### Side by side editing
 
@@ -791,7 +791,7 @@ git config --global merge.tool code
 
 ### Configure debugger
 
-From the **Command Palette** (`kb(workbench.action.showCommands)`) and select **Debug: Open launch.json**, select the environment. This will generate a `launch.json` file. Works out of the box as expected for Node.js and other environments. May need some additional configuration for other languages. See [documentation](/docs/editor/debugging.md) for more details.
+From the **Command Palette** (`kb(workbench.action.showCommands)`), select **Debug: Open launch.json**, and select the environment that matches your project (Node.js, Python, C++, etc). This will generate a `launch.json` file. Node.js support is built-in and other environments require installing the appropriate language extensions. See the debugging [documentation](/docs/editor/debugging.md) for more details.
 
 ![configure debugging](images/tips-and-tricks/configure_debug.gif)
 
@@ -858,7 +858,7 @@ VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep sett
 
 ## Insiders builds
 
-The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can also use the Insiders version by [downloading here](/insiders).
+The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can also use the Insiders version by [downloading it here](/insiders).
 
 * For Early Adopters - Insiders has the most recent code changes for users and extension authors to try out.
 * Frequent Builds - New builds everyday with the latest bug fixes and features.
