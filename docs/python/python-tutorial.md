@@ -214,7 +214,7 @@ Select `hello.py` and try again. Alternately, create a debug configuration speci
 
 ## Install and use packages
 
-Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example you use the `matplotlib` and `numpy` packages to create a graphical plot as commonly done with data science.
+Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example you use the `matplotlib` and `numpy` packages to create a graphical plot as commonly done with data science. (Note that matplotlib cannot show graphs when running in the Windows subsystem for Linux as it lacks the necessary UI support.)
 
 Return to the **Explorer** view (the top-most icon on the left side, which shows files), create a new file called `standardplot.py`, and paste in the following source code:
 
@@ -236,7 +236,7 @@ Unless you're using an Anaconda distribution or have previously installed the `m
 
 To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and run **Python: Create Terminal** from the Command Palette. This command opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system (commands may require elevation if the Python interpreter is installed in a protected area of the file system):
 
-> **Note**: If you are unable to install the package, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
+> **Note**: If you are unable to install the package or encounter other problems, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ```bash
 # macOS
