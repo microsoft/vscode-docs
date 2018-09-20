@@ -55,7 +55,15 @@ Additionally, double clicking an element in the Markdown preview will automatica
 
 ![Markdown Preview double click switches to editor](images/Markdown/double-click-preview-switch.gif)
 
-### Extending the Markdown preview
+## Outline view
+
+The Outline view is a separate section in the bottom of the File Explorer. When expanded, it will show the symbol tree of the currently active editor. For Markdown files, the symbol tree is the Markdown file's header hierarchy.
+
+![Markdown Outline view](images/markdown/markdown-outline-view.png)
+
+The Outline view is a great way to review your document's header structure and outline.
+
+## Extending the Markdown preview
 
 Extensions can contribute custom styles and scripts to the Markdown preview to change its appearance and add new functionality. Here's a set of example extensions that customize the preview:
 
