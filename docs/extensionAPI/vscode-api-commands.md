@@ -13,10 +13,10 @@ This document lists the set of Visual Studio Code complex commands. They are cal
 
 The following is a sample of how to open a new folder in VS Code:
 
- ```javascript
- let uri = Uri.file('/some/path/to/folder');
- let success = await commands.executeCommand('vscode.openFolder', uri);
- ```
+```javascript
+let uri = Uri.file('/some/path/to/folder');
+let success = await commands.executeCommand('vscode.openFolder', uri);
+```
 
 ## Commands
 
