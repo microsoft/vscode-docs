@@ -115,7 +115,7 @@ In conclusion, we expect our approach to evolve as we learn more about GDPR and 
 
 You can find more information about how the Visual Studio family approaches GDPR at [Visual Studio Family Data Subject Requests for the GDPR](https://docs.microsoft.com/en-us/microsoft-365/compliance/gdpr-dsr-visual-studio-family).
 
-## How to disable telemetry reporting
+## How do I disable telemetry reporting?
 
 VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
 
@@ -133,7 +133,7 @@ You can inspect telemetry events in the Output panel by setting the log level to
 
 > **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
 
-## How to disable crash reporting
+## How do I disable crash reporting?
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
 
@@ -149,11 +149,28 @@ If you use the JSON editor for your settings, add the following line:
 
 > **Important Notice**: This option requires a restart of VS Code to take effect.
 
-## Managing online services
+## How do I manage online services?
 
 Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, or providing Natural Language Search within Settings. You can control which online services VS Code may use.
 
 From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), and search for `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
+
+## Do you send all my information to a recommendation service?
+
+We distinguish between file type recommendations, workspace recommendations, and environment recommendations. File type recommendations are either precomputed or dynamic. Workspace and environment recommendations are always precomputed.
+
+### Dynamic recommendations
+
+When you open a file type for which VS Code does not have any precomputed recommendation, it asks the extension marketplace for extensions that declare they support this file type. If the query returns extensions you have not installed VS Code tells you about it.
+
+### Precomputed recommendations
+
+VS Code collects telemetry about which extensions are being activated for what file types and what workspaces/folders. We identify folders by computing a hash of each of the folder's git remotes.
+
+We use this information to precompute anonymous recommendations. Precomputed recommendations are instructions that spell out under which conditions which extensions should be recommended. For example when we see an interesting co-relation between two extensions A and B, one instruction might be: Recommend extension B if the user has installed extension A but not B. We ship some pre-computed recommendations as part of the product. VS Code fetches additional precomputed recommendations at runtime from an online service.
+
+VS Code independently evaluates and executes pre-computed recommendations without sending any information to any online service.
+
 
 ## Technical Support
 
