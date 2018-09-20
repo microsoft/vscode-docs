@@ -167,9 +167,9 @@ When you open a file type for which VS Code does not have any precomputed recomm
 
 VS Code collects telemetry about which extensions are being activated for what file types and what workspaces/folders. We identify folders by computing a hash of each of the folder's git remotes.
 
-We use this information to precompute anonymous recommendations. Precomputed recommendations are instructions that spell out under which conditions which extensions should be recommended. For example when we see an interesting co-relation between two extensions A and B, one instruction might be: Recommend extension B if the user has installed extension A but not B. We ship some pre-computed recommendations as part of the product. VS Code fetches additional precomputed recommendations at runtime from an online service.
+We use this information to precompute anonymous recommendations. Precomputed recommendations are instructions that spell out under which conditions which extensions should be recommended. For example when we see an interesting co-relation between two extensions A and B, one instruction might be: Recommend extension B if the user has installed extension A but not B.
 
-VS Code independently evaluates and executes pre-computed recommendations without sending any information to any online service.
+Some precomputed recommendations are shipped as part of the product while additional precomputed recommendations are fetched at runtime from an online service. VS Code independently evaluates and executes precomputed recommendations without sending any information to any online service.
 
 
 ## Technical Support
