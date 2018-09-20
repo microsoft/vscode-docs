@@ -120,6 +120,12 @@ You can see a list of recommended extensions using **Show Recommended Extensions
 
 See the section below to learn how to [contribute](#workspace-recommended-extensions) recommendations for other users in your project.
 
+### Ignoring recommendations
+
+To dismiss a recommendation, click on the extension item to open the Details pane and then press the **Ignore Recommendation** button. Ignored recommendations will no longer be recommended to you.
+
+![Ignore extension recommendation](images/extension-gallery/ignore-recommendation.png)
+
 ## Configuring extensions
 
 VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/getstarted/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
