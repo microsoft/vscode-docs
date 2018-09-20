@@ -11,6 +11,13 @@ MetaDescription: Visual Studio Code extensions (plug-ins) complex commands Refer
 
 This document lists the set of Visual Studio Code complex commands. They are called complex commands because they require parameters and often return a value. You can use the commands in conjunction with the `executeCommand` API.
 
+The following is a sample of how to open a new folder in VS Code:
+
+ ```javascript
+ let uri = Uri.file('/some/path/to/folder');
+ let success = await commands.executeCommand('vscode.openFolder', uri);
+ ```
+
 ## Commands
 
 `vscode.executeWorkspaceSymbolProvider` - Execute all workspace symbol provider.
