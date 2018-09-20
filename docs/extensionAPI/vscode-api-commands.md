@@ -158,7 +158,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 `vscode.previewHtml` - Render the HTML of the resource in an editor view.
 
-**🚨 The previewHtml command is deprecated. Please use the [webview api](https://code.visualstudio.com/docs/extensions/webview) instead**
+**🚨 The previewHtml command is deprecated. Please use the [Webview API](https://code.visualstudio.com/docs/extensions/webview) instead**
 
 * _uri_ - Uri of the resource to preview.
 * _column_ - (optional) Column in which to preview.
