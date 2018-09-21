@@ -17,7 +17,7 @@ This tutorial walks you through creating and deploying a Java Azure Functions ap
 
 To develop Azure Functions with Java, you'll need the following tools installed:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), version 1.8.
+- [Java Developer Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK), version 1.8.
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
 >**Important**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
