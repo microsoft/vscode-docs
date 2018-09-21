@@ -151,9 +151,28 @@ If you use the JSON editor for your settings, add the following line:
 
 ## Managing online services
 
-Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, or providing Natural Language Search within Settings. You can control which online services VS Code may use.
+Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, or providing Natural Language Search within Settings. You can choose to turn on/off features that use these services.
 
 From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), and search for `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
+
+## Do you send all my information to a recommendation service?
+
+VS Code provides extension recommendations based on your file types, your workspace and your environment. File type recommendations are either precomputed or dynamic. Workspace and environment recommendations are always precomputed.
+
+If you want to know why an extension is being recommended open the extension's detail page. You can find the recommendation reason in the page header.
+
+### Dynamic recommendations
+
+When you open a file type for which VS Code does not have any precomputed recommendation, it asks the extension marketplace for extensions that declare they support this file type. If the query returns extensions you have not installed VS Code tells you about it.
+
+### Precomputed recommendations
+
+VS Code collects telemetry about which extensions are being activated for what file types and what workspaces/folders. We identify folders by computing a hash of each of the folder's git remotes.
+
+We use this information to precompute anonymous recommendations. Precomputed recommendations are instructions that spell out under which conditions which extensions should be recommended. For example when we see an interesting co-relation between two extensions A and B, one instruction might be: Recommend extension B if the user has installed extension A but not B.
+
+Some precomputed recommendations are shipped as part of the product while additional precomputed recommendations are fetched at runtime from an online service. VS Code independently evaluates and executes precomputed recommendations without sending any information to any online service.
+
 
 ## Technical Support
 
