@@ -351,13 +351,15 @@ In this section you start by creating a single page using a template. In subsequ
     ```html
     <!DOCTYPE html>
     <html>
-        <head>
-            <meta charset="utf-8" />
-            <title>\{{ title }}</title>
-        </head>
-        <body>
-            \{{ content }}
-        </body>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Hello, Django</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}"/>
+    </head>
+    <body>
+    <span class="message">Hello, there \{{ name }}!</span> It's \{{ date | date:'l, d F, Y' }} at \{{ date | time:'H:i:s' }}.
+    </body>
     </html>
     ```
 
@@ -509,29 +511,30 @@ The following steps demonstrate creating a base template.
     ```html
     <!DOCTYPE html>
     <html>
-        <head>
-            <meta charset="utf-8" />
-            <title>{% block title %}{% endblock %}</title>
-            {% load static %}
-            <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}" />
-        </head>
+    <head>
+        <meta charset="utf-8"/>
+        <title>{% block title %}{% endblock %}</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}"/>
+    </head>
 
-        <body>
-            <div class="navbar">
-                <a href="{% url 'home' %}" class="navbar-brand">Home</a>
-                <a href="{% url 'about' %}" class="navbar-item">About</a>
-                <a href="{% url 'contact' %}" class="navbar-item">Contact</a>
-            </div>
+    <body>
+    <div class="navbar">
+        <a href="{% url 'home' %}" class="navbar-brand">Home</a>
+        <a href="{% url 'log' %}" class="navbar-item">Log Message</a>
+        <a href="{% url 'about' %}" class="navbar-item">About</a>
+        <a href="{% url 'contact' %}" class="navbar-item">Contact</a>
+    </div>
 
-            <div class="body-content">
-                {% block content %}
-                {% endblock %}
-                <hr/>
-                <footer>
-                    <p>&copy; 2018</p>
-                </footer>
-            </div>
-        </body>
+    <div class="body-content">
+        {% block content %}
+        {% endblock %}
+        <hr/>
+        <footer>
+            <p>&copy; 2018</p>
+        </footer>
+    </div>
+    </body>
     </html>
     ```
 
@@ -724,10 +727,11 @@ With your models in place and the database migrated, you can store and retrieve 
     ```html
     {% extends "hello/layout.html" %}
     {% block title %}
-    Log a message
+        Log a message
     {% endblock %}
     {% block content %}
-    <form method="POST" class="log-form">{% csrf_token %}
+        <form method="POST" class="log-form">
+            {% csrf_token %}
             \{{ form.as_p }}
             <button type="submit" class="save btn btn-default">Log</button>
         </form>
@@ -793,35 +797,35 @@ With your models in place and the database migrated, you can store and retrieve 
     ```html
     {% extends "hello/layout.html" %}
     {% block title %}
-    Home
+        Home
     {% endblock %}
     {% block content %}
-    <h2>Logged messages</h2>
+        <h2>Logged messages</h2>
 
-    {% if message_list %}
-    <table class="message_list">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Message</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for message in message_list %}
-            <tr>
-                <td>\{{ message.log_date | date:'d M Y' }}</td>
-                <td>\{{ message.log_date | date:'H:i:s' }}</td>
-                <td>
-                    \{{ message.message }}
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <p>No messages have been logged. Use the <a href="{% url 'log' %}">Log Message form</a>.</p>
-    {% endif %}
+        {% if message_list %}
+            <table class="message_list">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Message</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for message in message_list %}
+                    <tr>
+                        <td>\{{ message.log_date | date:'d M Y' }}</td>
+                        <td>\{{ message.log_date | date:'H:i:s' }}</td>
+                        <td>
+                            \{{ message.message }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No messages have been logged. Use the <a href="{% url 'log' %}">Log Message form</a>.</p>
+        {% endif %}
     {% endblock %}
     ```
 
