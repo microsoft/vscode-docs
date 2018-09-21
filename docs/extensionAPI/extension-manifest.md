@@ -166,11 +166,13 @@ Due to security concerns, we only allow badges from trusted services.
 
 We allow badges from the following URL prefixes:
 
+* api.travis-ci.com
 * api.travis-ci.org
 * badge.fury.io
 * badges.frapsoft.com
 * badges.gitter.im
 * badges.greenkeeper.io
+* cdn.travis-ci.com
 * cdn.travis-ci.org
 * ci.appveyor.com
 * codacy.com
@@ -193,6 +195,11 @@ We allow badges from the following URL prefixes:
 * www.bithound.io
 * www.versioneye.com
 * nodesecurity.io
+* app.fossa.io
+* godoc.org
+* goreportcard.com
+* badge.waffle.io
+* api.bintray.com
 
 If you have other badges you would like to use, please open a Github [issue](https://github.com/Microsoft/vscode/issues) and we're happy to take a look.
 
