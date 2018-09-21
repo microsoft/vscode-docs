@@ -145,7 +145,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
     ```python
     from django.urls import path
-    from . import views
+    from hello import views
 
     urlpatterns = [
         path('', views.home, name="home"),
@@ -711,7 +711,7 @@ With your models in place and the database migrated, you can store and retrieve 
 
     ```python
     from django import forms
-    from .models import LogMessage
+    from hello.models import LogMessage
 
     class LogMessageForm(forms.ModelForm):
         class Meta:
@@ -755,8 +755,8 @@ With your models in place and the database migrated, you can store and retrieve 
     ```python
     # At the top of the file:
     from django.shortcuts import redirect
-    from .forms import LogMessageForm
-    from .models import LogMessage
+    from hello.forms import LogMessageForm
+    from hello.models import LogMessage
 
     # Elsewhere in the file:
     def log_message(request):
@@ -857,7 +857,7 @@ With your models in place and the database migrated, you can store and retrieve 
 1. In the app's `urls.py`, import the data model:
 
     ```python
-    from .models import LogMessage
+    from hello.models import LogMessage
     ```
 
 1. Also in `urls.py`, make a variable for the new view, which retrieves the five most recent `LogMessage` objects in descending order (meaning that it queries the database), and then provides a name for the data in the template context (`message_list`), and identifies the template to use:
