@@ -860,16 +860,21 @@ With your models in place and the database migrated, you can store and retrieve 
     from .models import LogMessage
     ```
 
-1. Also in `urls.py`, replace the path for the home page with the code below, which retrieves the five most recent `LogMessage` objects in descending order (meaning that it queries the database), and then provides a name for the data in the template context (`message_list`), and identifies the template to use:
+1. Also in `urls.py`, make a variable for the new view, which retrieves the five most recent `LogMessage` objects in descending order (meaning that it queries the database), and then provides a name for the data in the template context (`message_list`), and identifies the template to use:
 
     ```python
-        # Replace the existing path for ''
-        path('',
-            views.HomeListView.as_view(
-                queryset=LogMessage.objects.order_by('-log_date')[:5],  # :5 limits the results to the five most recent
-                context_object_name='message_list',
-                template_name='hello/home.html',),
-            name="home"),
+    home_list_view = views.HomeListView.as_view(
+        queryset=LogMessage.objects.order_by("-log_date")[:5],  # :5 limits the results to the five most recent
+        context_object_name="message_list",
+        template_name="hello/home.html",
+    )
+    ```
+
+1. Make one more change in `urls.py`, and replace the path for the home page with the code below to use our newly declared view.
+
+    ```python
+        # Replace the existing path for ""
+        path("", home_list_view, name="home"),
     ```
 
 1. Start the app and open a browser to the home page, which should now display messages:
