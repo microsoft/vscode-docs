@@ -683,12 +683,12 @@ class LogMessage(models.Model):
     message = models.CharField(max_length=300)
     log_date = models.DateTimeField('date logged')
 
-    def __unicode__(self):
+    def __str__(self):
         """Returns a string representation of a message."""
-        return "'" + self.text + "' logged on " + log_date.strftime('%A, %d %B, %Y at %X')
+        return f"'{self.message}' logged on {self.log_date.strftime('%A, %d %B, %Y at %X')}"
 ```
 
-A model class can include methods that return values computed from other class properties. Models typically include a `__unicode__` method that returns a string representation of the instance.
+A model class can include methods that return values computed from other class properties. Models typically include a `__str__` method that returns a string representation of the instance.
 
 ### Migrate the database
 
