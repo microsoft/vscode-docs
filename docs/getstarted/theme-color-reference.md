@@ -91,10 +91,13 @@ Colors for input controls such as in the Search view or the Find/Replace dialog.
 - `input.placeholderForeground`: Input box foreground color for placeholder text.
 - `inputOption.activeBorder`: Border color of activated options in input fields.
 - `inputValidation.errorBackground`: Input validation background color for error severity.
+- `inputValidation.errorForeground`: Input validation foreground color for error severity.
 - `inputValidation.errorBorder`: Input validation border color for error severity.
 - `inputValidation.infoBackground`: Input validation background color for information severity.
+- `inputValidation.infoForeground`: Input validation foreground color for information severity.
 - `inputValidation.infoBorder`: Input validation border color for information severity.
 - `inputValidation.warningBackground`: Input validation background color for information warning.
+- `inputValidation.warningForeground`: Input validation foreground color for warning severity.
 - `inputValidation.warningBorder`: Input validation border color for warning severity.
 
 ## Scrollbar Control
@@ -157,6 +160,7 @@ The Side Bar contains views like the Explorer and Search.
 - `sideBarTitle.foreground`: Side Bar title foreground color.
 - `sideBarSectionHeader.background`: Side Bar section header background color.
 - `sideBarSectionHeader.foreground`: Side Bar section header foreground color.
+- `sideBarSectionHeader.border`: Side bar section header border color.
 
 ## Editor Groups & Tabs
 
@@ -460,6 +464,7 @@ The Status Bar is shown in the bottom of the workbench.
 - `menu.selectionForeground`: Foreground color of the selected menu item in menus.
 - `menu.selectionBackground`: Background color of the selected menu item in menus.
 - `menu.selectionBorder`: Border color of the selected menu item in menus.
+- `menu.separatorBackground`: Color of a separator menu item in menus.
 
 ## Notification Colors
 
