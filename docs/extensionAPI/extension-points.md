@@ -23,6 +23,7 @@ This document covers the various Visual Studio Code contribution points that are
 * [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
 * [`jsonValidation`](/docs/extensionAPI/extension-points.md#contributesjsonvalidation)
 * [`views`](/docs/extensionAPI/extension-points.md#contributesviews)
+* [`viewContainers`](/docs/extensionAPI/extension-points.md#contributesviewscontainers)
 * [`problemMatchers`](/docs/extensionAPI/extension-points.md#contributesproblemmatchers)
 * [`problemPatterns`](/docs/extensionAPI/extension-points.md#contributesproblempatterns)
 * [`taskDefinitions`](/docs/extensionAPI/extension-points.md#contributestaskDefinitions)
