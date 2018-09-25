@@ -188,7 +188,7 @@ The VS Code Node debugger supports loading environment variables from a file and
    "envFile": "${workspaceFolder}/.env",
    "env": { "USER": "john doe" }
    //...
-````
+```
 
 Any environment variable specified in the `env` dictionary will override variables loaded from the file.
 
@@ -213,7 +213,7 @@ If you want to attach the VS Code debugger to a Node.js program, launch Node.js 
 
 ```
 node --inspect program.js
-````
+```
 
 or if the program should not start running but must wait for the debugger to attach:
 
