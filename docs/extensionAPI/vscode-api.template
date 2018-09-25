@@ -6,8 +6,8 @@ ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
 PageTitle: Visual Studio Code API Reference
 DateApproved: 9/5/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
-VSCodeCommitHash: 8119412ac606f91f9c9e8b6f79cfd3de5ecf7783
-VSCodeVersion: 1.27.0
+VSCodeCommitHash: fe8d9d2470ddffb9dc2da604b23f5bd8a185cd66
+VSCodeVersion: 1.28.0
 ---
 
 # vscode namespace API
