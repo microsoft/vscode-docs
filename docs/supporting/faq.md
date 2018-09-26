@@ -91,6 +91,20 @@ The Electron shell used by Visual Studio Code has trouble with some GPU (graphic
 code --disable-gpu
 ```
 
+## Blurriness on macOS Mojave
+
+If you have updated to macOS 10.14 (Mojave), you might have noticed that fonts in VS Code look blurry if you are not using a high-DPI monitor.
+
+A workaround for this is to run:
+
+```bash
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+```
+
+from a terminal followed by restarting your computer.
+
+Note that this change is global for every application and not specific to VS Code. See [issue 51132](https://github.com/Microsoft/vscode/issues/51132) for the related discussion.
+
 ## Installation appears to be corrupt [Unsupported]
 
 VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text '[Unsupported]' in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. Reinstalling VS Code will replace the modified files and silence the warning.
