@@ -111,6 +111,8 @@ Node.js is a popular platform and runtime for easily building and running JavaSc
 
 If you'd like to install Node.js on Linux, see [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your Linux distribution.
 
+Note: We're living at world where each JavaScript and Nodejs grows really fast each month. The option to install nodejs and support multi version of Nodejs is: [Node Version Manager](https://github.com/creationix/nvm)
+
 To learn more about JavaScript and Node.js, see our [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md) where you'll learn about running and debugging Node.js applications with VS Code.
 
 ## Setting VS Code as the default text editor
