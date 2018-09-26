@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: python
 TOCTitle: Unit Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/) and [Nose](https://nose.readthedocs.io/en/latest/). To use either pytest and Nose, they must be installed into the current Python environment (the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
 
-After [enabling a test framework](#enable-a-test-framework), use the **Python: Discover Unit Tests** command to scan the project for tests according to the discovery patterns of the currently selected test framework (see [Test discovery](#test-discovery). Once discovered, VS Code provides a variety of means to run tests (see [Run tests](#run-tests)) and debug tests (see [Debug tests](#debug-tests)). VS Code displays unit test output in the **Python Test Log** panel, including errors caused when a test framework is not installed.
+After [enabling a test framework](#enable-a-test-framework), use the **Python: Discover Unit Tests** command to scan the project for tests according to the discovery patterns of the currently selected test framework (see [Test discovery](#test-discovery). Once discovered, Visual Studio Code provides a variety of means to run tests (see [Run tests](#run-tests)) and debug tests (see [Debug tests](#debug-tests)). VS Code displays unit test output in the **Python Test Log** panel, including errors caused when a test framework is not installed.
 
 > **Tip**: a useful repository containing a variety of unit tests, applied to different sorting algorithms, is [https://github.com/gwtw/py-sorting](https://github.com/gwtw/py-sorting).
 

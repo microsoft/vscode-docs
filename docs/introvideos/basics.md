@@ -8,7 +8,6 @@ DateApproved: 7/30/2018
 MetaDescription: Download and learn the basics of Visual Studio Code.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
-
 # Getting started with Visual Studio Code
 
 In this tutorial, we walk you through setting up Visual Studio Code and give an overview of the basic features.
@@ -33,4 +32,4 @@ In this tutorial, we walk you through setting up Visual Studio Code and give an 
 
 ## Next Video
 
-* [Customize VS Code](/docs/introvideos/configure.md) - Learn how to personalize VS Code to your work style.
+* [Customize Visual Studio Code](/docs/introvideos/configure.md) - Learn how to personalize VS Code to your work style.

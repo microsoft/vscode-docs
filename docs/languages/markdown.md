@@ -7,7 +7,7 @@ PageTitle: Markdown editing with Visual Studio Code
 DateApproved: 9/5/2018
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
-# Markdown and VS Code
+# Markdown and Visual Studio Code
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a number of Markdown specific features that will help you be more productive.
 
@@ -55,7 +55,15 @@ Additionally, double clicking an element in the Markdown preview will automatica
 
 ![Markdown Preview double click switches to editor](images/Markdown/double-click-preview-switch.gif)
 
-### Extending the Markdown preview
+## Outline view
+
+The Outline view is a separate section in the bottom of the File Explorer. When expanded, it will show the symbol tree of the currently active editor. For Markdown files, the symbol tree is the Markdown file's header hierarchy.
+
+![Markdown Outline view](images/markdown/markdown-outline-view.png)
+
+The Outline view is a great way to review your document's header structure and outline.
+
+## Extending the Markdown preview
 
 Extensions can contribute custom styles and scripts to the Markdown preview to change its appearance and add new functionality. Here's a set of example extensions that customize the preview:
 
@@ -300,7 +308,7 @@ The **gulp: default** task runs in the background and watches for file changes t
 
 Read on to find out about:
 
-* [CSS, Less and Sass](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, Less and Sass editing.
+* [CSS, SCSS, and Less](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, SCSS, and Less editing.
 
 ## Common Questions
 

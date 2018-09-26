@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 07/30/2018
+DateApproved: 09/19/2018
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -116,25 +116,28 @@ Then select the settings icon on the debug toolbar (or use the **Debug** > **Ope
 
 ![Debug toolbar settings command](images/tutorial/debug-settings.png)
 
-The command opens a menu of available debuggers, which shows **Python** and **Python Experimental**. Select **Python**. The Python extension then creates a `launch.json` file that contains a number of configurations, which appear in the configurations drop-down:
+After a few moments, the command creates a `launch.json` file that contains a number of configurations, which appear in the configurations drop-down:
 
 ![Debug configurations after launch.json is created](images/tutorial/debug-configurations.png)
 
 **Note**: VS Code uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.
 
-These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select "Python: Current File", which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
+These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python: Current File (Integrated Terminal)**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
 To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
 
 ```json
 {
-    "name": "Python: Current File",
+    "name": "Python: Current File (Integrated Terminal)",
     "type": "python",
     "request": "launch",
     "program": "${file}",
+    "console": "integratedTerminal",
     "stopOnEntry": true
 },
 ```
+
+> **Tip:** If you need to specify the exact folder containing the interpreter to use for debugging, include an entry for `pythonPath` in the configuration, such as `"pythonPath": "${workspaceFolder}"` or `"pythonPath": "${workspaceFolder}/.venv"`.
 
 Save `launch.json`, switch to `hello.py` in the editor, then run the debugger by selecting the green arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. Because `stopOnEntry` is set to true, the debugger stops on the first line of the file. The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
 
@@ -179,11 +182,12 @@ If for some reason VS Code doesn't generate `launch.json` for you, create the `.
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Python: Current File (Integrated Terminal)",
             "type": "python",
             "request": "launch",
-            "program": "${file}"
-        }
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
     ]
 }
 ```
@@ -203,13 +207,14 @@ Select `hello.py` and try again. Alternately, create a debug configuration speci
             "name": "Python: hello.py",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/hello.py"
+            "program": "${workspaceFolder}/hello.py",
+            "console": "integratedTerminal"
         },
 ```
 
 ## Install and use packages
 
-Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example you use the `matplotlib` and `numpy` packages to create a graphical plot as commonly done with data science.
+Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example you use the `matplotlib` and `numpy` packages to create a graphical plot as commonly done with data science. (Note that matplotlib cannot show graphs when running in the Windows Subsystem for Linux as it lacks the necessary UI support.)
 
 Return to the **Explorer** view (the top-most icon on the left side, which shows files), create a new file called `standardplot.py`, and paste in the following source code:
 
@@ -231,15 +236,13 @@ Unless you're using an Anaconda distribution or have previously installed the `m
 
 To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and run **Python: Create Terminal** from the Command Palette. This command opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system (commands may require elevation if the Python interpreter is installed in a protected area of the file system):
 
-> **Note**: If you are unable to install the package, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
+> **Note**: If you are unable to install the package or encounter other problems, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ```bash
-# pip install commands may require elevation
-
 # macOS
-python -m pip install matplotlib
+sudo python3 -m pip install matplotlib
 
-# Windows
+# Windows (may require elevation)
 py -m pip install matplotlib
 
 # Linux (Debian)

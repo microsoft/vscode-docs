@@ -3,7 +3,7 @@ TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
 DateApproved: 9/5/2018
-MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
+MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
 
@@ -43,7 +43,8 @@ By default, VS Code is set up to auto-update for macOS and Windows users when we
 
 To modify the update channel, go to **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `update.channel` and change the setting to `none`.
 
-If you use the `json` editor for your settings, add the following line:
+If you use the JSON editor for your settings, add the following line:
+
 ```json
     "update.channel": "none"
 ```
@@ -90,9 +91,9 @@ The Electron shell used by Visual Studio Code has trouble with some GPU (graphic
 code --disable-gpu
 ```
 
-## Installation appears to be corrupt
+## Installation appears to be corrupt [Unsupported]
 
-VS Code does a background check to detect if the installation has been changed on disk. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. Reinstalling VS Code will replace the modified files and silence the warning.
+VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text '[Unsupported]' in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. Reinstalling VS Code will replace the modified files and silence the warning.
 
 ## GDPR and VS Code
 
@@ -122,12 +123,13 @@ If you don't wish to send usage data to Microsoft, you can set the `telemetry.en
 
 From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry.enableTelemetry` and uncheck the setting. This will silence all telemetry events from the VS Code shell going forward until you enable the setting again.
 
-If you use the `json` editor for your settings, add the following line:
+If you use the JSON editor for your settings, add the following line:
+
 ```json
     "telemetry.enableTelemetry": false
 ```
 
-You can inspect telemetry events in the Output panel by setting the log level to `trace` using `Developer: Set Log Level` from the Command Palette.
+You can inspect telemetry events in the Output panel by setting the log level to **Trace** using **Developer: Set Log Level** from the Command Palette.
 
 > **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
 
@@ -139,7 +141,8 @@ If you don't wish to send crash data to Microsoft, you can set the `telemetry.en
 
 From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry.enableCrashReporter` and uncheck the setting.
 
-If you use the `json` editor for your settings, add the following line:
+If you use the JSON editor for your settings, add the following line:
+
 ```json
     "telemetry.enableCrashReporter": false
 ```
@@ -148,9 +151,27 @@ If you use the `json` editor for your settings, add the following line:
 
 ## Managing online services
 
-Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, or providing Natural Language Search within Settings. You can control which online services VS Code may use.
+Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, or providing Natural Language Search within Settings. You can choose to turn on/off features that use these services.
 
 From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), and search for `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
+
+## Do you send all my information to a recommendation service?
+
+VS Code provides extension recommendations based on your file types, your workspace, and your environment. File type recommendations are either precomputed or dynamic. Workspace and environment recommendations are always precomputed.
+
+If you want to know why an extension is being recommended, open the extension's detail page. You can find the recommendation reason in the page header.
+
+### Dynamic recommendations
+
+When you open a file type for which VS Code does not have any precomputed recommendation, it asks the extension Marketplace for extensions that declare that they support this file type. If the query returns extensions you don't have installed, VS Code tells you about it.
+
+### Precomputed recommendations
+
+VS Code collects telemetry about which extensions are being activated for what file types and what workspaces/folders. We identify folders by computing a hash of each of the folder's Git remotes.
+
+We use this information to precompute anonymous recommendations. Precomputed recommendations are instructions that spell out under which conditions an extension should be recommended. For example, when we see an interesting co-relation between two extensions A and B, one instruction might be: Recommend extension B if the user has installed extension A but not B.
+
+Some precomputed recommendations are shipped as part of the product while additional precomputed recommendations are fetched at runtime from an online Microsoft service. VS Code independently evaluates and executes precomputed recommendations without sending any user information to any online service.
 
 ## Technical Support
 

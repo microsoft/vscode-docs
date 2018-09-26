@@ -80,6 +80,6 @@ VS Code doesn't include a traditional **File** > **New Project** dialog or pre-i
 
 On Linux and Windows, choose **Help** > **About**. On macOS, use **Code** > **About Visual Studio Code**.
 
-### Why is VS Code saying my installation is corrupt?
+### Why is VS Code saying my installation is Unsupported?
 
-VS Code has detected that some installation files have been modified, perhaps by an extension. Reinstalling VS Code will replace the affected files. See our [FAQ topic](/docs/supporting/faq.md#installation-appears-to-be-corrupt) for more details.
+VS Code has detected that some installation files have been modified, perhaps by an extension. Reinstalling VS Code will replace the affected files. See our [FAQ topic](/docs/supporting/faq.md#installation-appears-to-be-corrupt-unsupported) for more details.

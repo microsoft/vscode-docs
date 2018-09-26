@@ -7,7 +7,7 @@ PageTitle: Managing Extensions in Visual Studio Code
 DateApproved: 9/5/2018
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
-# VS Code Extension Marketplace
+# Extension Marketplace
 
 **Increase the power of Visual Studio Code through Extensions**
 
@@ -119,6 +119,12 @@ You can see a list of recommended extensions using **Show Recommended Extensions
 * **Other Recommendations** - Recommended based on recently opened files.
 
 See the section below to learn how to [contribute](#workspace-recommended-extensions) recommendations for other users in your project.
+
+### Ignoring recommendations
+
+To dismiss a recommendation, click on the extension item to open the Details pane and then press the **Ignore Recommendation** button. Ignored recommendations will no longer be recommended to you.
+
+![Ignore extension recommendation](images/extension-gallery/ignore-recommendation.png)
 
 ## Configuring extensions
 

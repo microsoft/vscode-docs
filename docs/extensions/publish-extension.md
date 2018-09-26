@@ -23,9 +23,10 @@ npm install -g vsce
 
 ## Usage
 
-You'll use the `vsce` command directly from the command line. For example, here's how you can quickly publish an extension (after your `login` and `package`ing):
+You'll use the `vsce` command directly from the command line in your extension root folder. For example, here's how you can quickly publish an extension (after your `login` and `package`ing):
 
 ```bash
+$ cd myExtension
 $ vsce publish
 Publishing uuid@0.0.1...
 Successfully published uuid@0.0.1!
@@ -48,15 +49,15 @@ The publishing tool checks the following constraints:
 
 ---
 
-Visual Studio Code leverages [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services) for its Marketplace services. This means that authentication, hosting and management of extensions is provided through that service.
+Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
-`vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/vsts/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
+`vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
 
 ### Get a Personal Access Token
 
-First, make sure you have a [Visual Studio Team Services](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) account.
+First, make sure you have an Azure DevOps [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
 
-In the following examples, the account name is `monacotools`. From your account's home page (for example: `https://monacotools.visualstudio.com`), go to the **Security** page:
+In the following examples, the organization's name is `monacotools`. From your organization's home page (for example: `https://dev.azure.com/monacotools`), go to the **Security** page:
 
 ![Security page](images/publish-extension/publishers1.png)
 
@@ -64,7 +65,7 @@ Click **Add** to create a new Personal Access Token:
 
 ![Add personal access token](images/publish-extension/publishers2.png)
 
-Give the Personal Access Token a nice description, optionally extend its expiration date to 1 year, make it access every account and set the authorization to **all scopes**:
+Give the Personal Access Token a nice description, optionally extend its expiration date to 1 year, make it accessible to every organization and set the authorization to **all scopes**:
 
 ![Personal access token details](images/publish-extension/publishers3.png)
 

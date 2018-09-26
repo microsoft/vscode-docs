@@ -7,7 +7,7 @@ PageTitle: Go with Visual Studio Code
 DateApproved: 9/5/2018
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Go.
 ---
-# Go programming in VS Code
+# Go in Visual Studio Code
 
 Using the Go extension for Visual Studio Code, you get language features like IntelliSense, code navigation, symbol search, bracket matching, snippets and many more that will help you in [Golang](https://golang.org/) development.
 

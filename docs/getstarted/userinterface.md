@@ -96,6 +96,25 @@ You can select multiple files in the **File Explorer** and **OPEN EDITORS** view
 "workbench.list.multiSelectModifier": "alt"
 ```
 
+### Outline view
+
+The Outline view is a separate section in the bottom of the File Explorer. When expanded, it will show the symbol tree of the currently active editor.
+
+![Outline view](images/userinterface/outline-view.png)
+
+The Outline view has different **Sort By** modes, optional cursor tracking, and supports the usual open gestures. It also includes an input box which finds or filters symbols as you type. Errors and warnings are also shown in the Outline view, letting you see at a glance a problem's location.
+
+For symbols, the view relies on information computed by your installed extensions for different file types. For example, the built-in Markdown support returns the Markdown header hierarchy for a Markdown file's symbols.
+
+![Markdown Outline view](images/userinterface/markdown-outline-view.png)
+
+There are several Outline view [settings](/docs/getstarted/settings.md) which allow you to enable/disable icons and control the errors and warnings display (all enabled by default):
+
+* `outline.icons` - Toggle rendering outline elements with icons.
+* `outline.problems.enabled` - Show errors and warnings on outline elements.
+* `outline.problems.badges` - Toggle using badges for errors and warnings.
+* `outline.problems.colors` - Toggle using colors for errors and warnings.
+
 ## Open Editors
 
 At the top of the Explorer is a view labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** view if you:
