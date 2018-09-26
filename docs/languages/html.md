@@ -54,9 +54,11 @@ You can turn off autoclosing tags with the following [setting](/docs/getstarted/
 
 ## Color picker
 
-The [VS Code color picker UI](https://code.visualstudio.com/updates/v1_15#_color-picker) is now available in HTML style sections.
+The VS Code color picker UI is now available in HTML style sections.
 
 ![color picker in HTML](images/html/color-picker-html.png)
+
+It supports configuration of hue, saturation and opacity for the color that is picked up from the editor. It also provides the ability to trigger between different color modes by clicking on the color string at the top of the picker. The picker appears on a hover when you are over a color definition.
 
 ## Hover
 
@@ -120,7 +122,7 @@ The Marketplace has several alternative formatters to choose from. If you want t
 
 ## Emmet snippets
 
-We support [Emmet snippet](https://emmet.io/) expansion. Emmet abbreviations are listed along with other suggestions and snippets in the editor auto-completion list.
+VS Code supports [Emmet snippet](https://emmet.io/) expansion. Emmet abbreviations are listed along with other suggestions and snippets in the editor auto-completion list.
 
 ![Emmet HTML support built-in](images/html/emmetsnippet.gif)
 
@@ -140,8 +142,6 @@ For example, to use Emmet HTML abbreviations inside JavaScript:
 
 We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
 
->**Tip:**[John Papa](https://twitter.com/John_Papa) and [Burke Holland](https://twitter.com/burkeholland) will give you quick demonstration about different tips and tricks related with emmet: [VS Code Can Do That?! VS Code Tips and Tricks](https://youtu.be/x5GzCohd4eo?t=34m3s)
-
 ## HTML extensions
 
 Install an extension to add more functionality. Go to the **Extensions** view (`kb(workbench.view.extensions)`) and type 'html' to see a list of relevant extensions to help with creating and editing HTML.
@@ -156,7 +156,7 @@ Read on to find out about:
 
 * [CSS, SCSS, and Less](/docs/languages/css.md) - VS Code has first class support for CSS including Less and SCSS.
 * [Emmet](/docs/editor/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
-  * [Emmet — official documentation](https://docs.emmet.io/) - Emmet — the essential toolkit for web-developers
+* [Emmet — official documentation](https://docs.emmet.io/) - Emmet — the essential toolkit for web-developers
 
 ## Common Questions
 
