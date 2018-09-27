@@ -32,7 +32,7 @@ With an image built and pushed to a registry, you can use the Docker extension i
 
 1. Once completed, you must also add a setting named `WEBSITES_PORT` to the App Service to specify the port on which the container is listening, such as 3000, 8000, 5555. To do this, switch to the **Azure: App Service** explorer, expand the node for your new App Service (refresh if necessary), then right-click **Application Settings** and select **Add New Setting**. At the prompts enter `WEBSITES_PORT` as the key and the port number for the value.
 
-    ![Context menu command on an App Service for Add New Setting](../image/docker-extension/add-app-service-setting.png)
+    ![Context menu command on an App Service for Add New Setting](../images/docker-extension/add-app-service-setting.png)
 
 1. Right-click the App Service and select **Restart** to apply the setting.
 

@@ -14,10 +14,6 @@ In this step, you learn how to view (or "tail") the logs from the running websit
 
 1. Answer **Yes** when prompted to enable logging and restart the app. Once the app is restarted, the VS Code Output panel opens with a connection to the log stream.
 
-    ![View Streaming Logs](../images/app-service-extension/view-logs.png)
-
-    ![Enable Logging and Restart](../images/app-service-extension/enable-restart.png)
-
 1. After a few seconds, you see a message indicating that you are connected to the log-streaming service.
 
     ```bash
@@ -47,7 +43,7 @@ The [Azure Python Developer Center](https://docs.microsoft.com/en-us/python/azur
 
 There are many other Azure extensions for VS Code. Just search on "Azure" in the Extensions explorer:
 
-    ![Azure extensions for VS Code](../images/docker-extension/azure-extensions.png)
+![Azure extensions for VS Code](../images/docker-extension/azure-extensions.png)
 
 A few favorites include:
 
