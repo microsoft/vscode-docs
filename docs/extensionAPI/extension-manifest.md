@@ -167,12 +167,13 @@ Due to security concerns, we only allow badges from trusted services.
 We allow badges from the following URL prefixes:
 
 * api.bintray.com
-* app.fossa.io
 * api.travis-ci.com
 * api.travis-ci.org
-* badges.frapsoft.com
+* app.fossa.io
 * badge.fury.io
 * badge.waffle.io
+* badgen.net
+* badges.frapsoft.com
 * badges.gitter.im
 * badges.greenkeeper.io
 * cdn.travis-ci.com
