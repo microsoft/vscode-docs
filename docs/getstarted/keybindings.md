@@ -304,7 +304,7 @@ View Identifiers:
 
 Panel Identifiers:
 
-* workbench.panel.match - Problems
+* workbench.panel.markers - Problems
 * workbench.panel.output - Output
 * workbench.panel.repl - Debug Console
 * workbench.panel.terminal - Integrated Terminal
