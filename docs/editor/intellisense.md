@@ -114,8 +114,10 @@ By default, VS Code pre-selects the previously used suggestion in the suggestion
 The available `editor.suggestSelection` values are:
 
 * `first` - Always select the top list item.
-* `recentlyUsed` - The previously used item is selected (default).
+* `recentlyUsed` - (default) The previously used item is selected unless a prefix (type to select) selects a different item.
 * `recentlyUsedByPrefix` - Select items based on previous prefixes that have completed those suggestions.
+
+"Type to select" means that the current prefix (roughly the text left of the cursor) is used to filter and sort suggestions. When this happens and when its result differs from the result of `recentlyUsed` it will be given precedence.
 
 When using the last option, `recentlyUsedByPrefix`, VS Code remembers which item was selected for a specific prefix (partial text). For example, if you typed `co` and then selected `console`, the next time you typed `co`, the suggestion `console` would be pre-selected. This lets you quickly map various prefixes to different suggestions, for example `co` -> `console` and `con` -> `const`.
 
