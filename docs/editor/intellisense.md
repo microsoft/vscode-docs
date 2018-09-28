@@ -95,17 +95,42 @@ The settings shown below are the default settings. You can change these settings
     // Controls if suggestions should automatically show up when typing trigger characters
     "editor.suggestOnTriggerCharacters": true,
 
+    // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
+    "editor.tabCompletion": "on",
+
+    // Controls whether sorting favours words that appear close to the cursor
+    "editor.suggest.localityBonus": true,
+
+    // Controls how suggestions are pre-selected when showing the suggest list
+    "editor.suggestSelection": "recentlyUsed",
+
     // Enable word based suggestions
     "editor.wordBasedSuggestions": true,
 
     // Enable parameter hints
-    "editor.parameterHints": true
+    "editor.parameterHints": true,
 }
 ```
 
-### Snippets in suggestions
+### Tab Completion
 
-By default, VS Code shows snippets and completion proposals in one widget. You can control the behavior with the `editor.snippetSuggestions` setting. To remove snippets from the suggestions widget, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"bottom"`.
+The editor supports "tab completion" which inserts the best matching completion when pressing `kb(insertBestCompletion)`. This works regardless of the suggest widget showing or not. Also, pressing `kb(insertNextSuggestion)` after inserting a suggestions will insert the next best suggestion.
+
+![Tab Completion](images/intellisense/tabCompletion.gif)
+
+By default, tab completion is disabled. Use the `editor.tabCompletion` setting to enable it. These values exist:
+
+* `off` - (default) Tab completion is disabled.
+* `on` - Tab completion is enabled for all suggestions and repeated invocations insert the next best suggestion.
+* `onlySnippets` - Tab completion only inserts static snippets which prefix match the current line prefix.
+
+### Locality Bonus
+
+Sorting of suggestions depends on extension information and on how well they match the current word you are typing. In addition, you can ask the editor to boost suggestions that appear closer to the cursor position, using the `editor.suggest.localityBonus` setting.
+
+![Sorted By Locality](images/intellisense/localitybonus.png)
+
+In above images you can see that `count`, `context`, and `colocated` are sorted based on the scopes in which they appear (loop, function, file).
 
 ### Suggestion selection
 
@@ -120,6 +145,11 @@ The available `editor.suggestSelection` values are:
 "Type to select" means that the current prefix (roughly the text left of the cursor) is used to filter and sort suggestions. When this happens and when its result differs from the result of `recentlyUsed` it will be given precedence.
 
 When using the last option, `recentlyUsedByPrefix`, VS Code remembers which item was selected for a specific prefix (partial text). For example, if you typed `co` and then selected `console`, the next time you typed `co`, the suggestion `console` would be pre-selected. This lets you quickly map various prefixes to different suggestions, for example `co` -> `console` and `con` -> `const`.
+
+### Snippets in suggestions
+
+By default, VS Code shows snippets and completion proposals in one widget. You can control the behavior with the `editor.snippetSuggestions` setting. To remove snippets from the suggestions widget, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"inline"`.
+
 
 ### Key bindings
 
