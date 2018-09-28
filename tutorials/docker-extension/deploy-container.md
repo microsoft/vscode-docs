@@ -2,33 +2,55 @@
 Order: 4
 Area: docker
 TOCTitle: Deploy the image
-PageTitle: Deploy the image
-MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
-DateApproved: 1/11/2018
+PageTitle: Deploy a Docker image to Azure App Service
+MetaDescription: Deploy a Docker image to Azure App Services with Visual Studio Code
+DateApproved: 09/27/2018
 ---
 # Deploy the image to Azure App Service
 
-Now that you have your app image built and pushed to a registry, you can deploy to [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/) directly from the Docker extension explorer.
+With an image built and pushed to a registry, you can use the Docker extension in VS Code to easily set up an Azure App Service running the container.
 
-## Deploy the image
+1. In the **Docker** explorer, expand **Registries** > **Azure**, then expand your registry node and the image name until you see the image with the `:latest` tag.
 
-Find the image under the **Registries** node in the **DOCKER** explorer, right click the `:latest` tag and choose **Deploy Image to Azure App Service**.
+    ![Locating an image in the Docker explorer](../images/docker-extension/deploy-find-image.png)
 
-![Deploy From the Explorer](images/docker-extension/deploy-menu.png)
+1. Right-click the image and select **Deploy Image to Azure App Service**.
 
-From here follow the prompts. Set up a Resource Group in `West US` and App Service Plan. For this tutorial, use 'myResourceGroup' and 'myPlan' for the Resource Group and plan names then give your app a **unique** name.
+    ![Selecting the Deploy menu command](../images/docker-extension/deploy-menu.png)
 
-Once created, your app is accessible via http://**unique-name**.azurewebsites.net. In this example, I called it `myExpressApp4321`.
+1. Follow the prompts to select an Azure subscription, select or specify a resource group, specify a region, configure an App Service Plan (B1 is the least expensive), and specify a name for the site. The animation below illustrates the process.
 
-![Create and Deploy](images/docker-extension/create.gif)
+    ![Create and Deploy](../images/docker-extension/deploy-to-app-service.gif)
 
-A **Resource Group** is essentially a named collection of all our application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure Function.
+    A **Resource Group** is a named collection the different resources that make up an app. By assigning all the app's resources to a single group, you can easily manage those resources as a single unit. (For more information, see the [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in the Azure documentation.)
 
-An **App Service Plan** defines the physical resources that will be used to host our website. In this walkthrough, we will use a **Basic** hosting plan on **Linux** infrastructure, which means the site will be hosted on a Linux machine alongside other websites. You can scale up and be the only site running on a machine later in the Azure Portal.
+    An **App Service Plan** defines the physical resources (an underlying virtual machine) that hosts the running container. For this tutorial, B1 is the least expensive plan that supports Docker containers. (For more information, see [App Service plan overview](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) in the Azure documentation.)
 
-## Browse the website
+    The name of the App Service must be unique across all of Azure, so you typically use a company or personal name. For production sites, you typically configure the App Service with a separately-registered domain name.
 
-The Output panel will open during deployment to indicate the status of the operation. Once completed, find the app that you just created in the **AZURE APP SERVICE** explorer, right-click, and choose **Browse Website** to open the site in your browser.
+1. Creating the app service takes a few minutes, and you see progress in VS Code's Output panel.
+
+1. Once completed, you must also add a setting named `WEBSITES_PORT` to the App Service to specify the port on which the container is listening, such as 3000, 8000, 5555. To do this, switch to the **Azure: App Service** explorer, expand the node for your new App Service (refresh if necessary), then right-click **Application Settings** and select **Add New Setting**. At the prompts enter `WEBSITES_PORT` as the key and the port number for the value.
+
+    ![Context menu command on an App Service for Add New Setting](../images/docker-extension/add-app-service-setting.png)
+
+1. Right-click the App Service and select **Restart** to apply the setting.
+
+1. After the service has restarted, browse the site at `http://<name>.azurewebsites.net`. You can `kbstyle(Ctrl+click)` the URL in the Output panel, or right-click the App Service in the **Azure: App Service** explorer and select **Browse Website**.
+
+## Redeploying after changes
+
+Because you inevitably make changes to your app, you'll also be rebuilding and redeploying your container many times. Fortunately, the process is very simple:
+
+1. Make changes to your app and test locally.
+
+1. Rebuild the Docker image. If you change only app code, the build should take only a few seconds.
+
+1. Push your image to the registry. If again you change nothing but app code, only that small layer needs to be pushed and the process typically completes in a few seconds.
+
+1. In the **Azure: App Service** explorer, right-click the appropriate App Service and select **Restart**. Restarting an app service automatically pulls the latest container image from the registry.
+
+1. After about 15-20 seconds, visit the App Service URL again to check the updates.
 
 ----
 
