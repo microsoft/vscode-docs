@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 7
 Area: languageextensions
 TOCTitle: Smart Editing LSP Guide
 PageTitle: Smart Editing LSP Guide

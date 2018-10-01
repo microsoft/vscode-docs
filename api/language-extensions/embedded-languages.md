@@ -1,5 +1,5 @@
 ---
-Order: 13
+Order: 9
 Area: languageextensions
 TOCTitle: Embedded Languages
 PageTitle: Language Extensions for Embedded Languages
