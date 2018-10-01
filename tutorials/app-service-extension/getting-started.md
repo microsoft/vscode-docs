@@ -24,7 +24,7 @@ The Azure App Service extension is used to create, manage, and deploy Linux Web 
 
 ## Sign in
 
-Once the extension is installed, log into your Azure account - in the Actvity Bar, click on the Azure logo to show the **AZURE APP SERVICE** explorer. Click **Sign in to Azure...** and follow the instructions.
+Once the extension is installed, log into your Azure account - in the Activity Bar, click on the Azure logo to show the **AZURE APP SERVICE** explorer. Click **Sign in to Azure...** and follow the instructions.
 
 ![sign in to Azure](images/app-service-extension/sign-in.png)
 

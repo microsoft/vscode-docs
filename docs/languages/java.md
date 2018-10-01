@@ -24,7 +24,7 @@ VS Code is a fast editor and ships with great editing features. Add Java languag
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-There're also other popular Java extensions you can pick for your own needs, including:
+There are also other popular Java extensions you can pick for your own needs, including:
 
 1. [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)

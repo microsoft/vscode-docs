@@ -816,7 +816,7 @@ function getWebviewContent() {
 }
 ```
 
-![persistance retrain](images/webview/persistence-retrain.gif)
+![persistence retrain](images/webview/persistence-retrain.gif)
 
 Notice how the counter does not reset now when the webview is hidden and then restored. No extra code required! With `retainContextWhenHidden`, the webview acts similarly to a background tab in a web browser. Scripts and other dynamic content are suspended, but immediately resumed once the webview becomes visible again. You cannot send messages to a hidden webview, even when `retainContextWhenHidden` is enabled.
 
