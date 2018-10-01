@@ -53,7 +53,7 @@ So you will have the following values for each variable:
 
 You can also reference environment variables through **${env:Name}** syntax (for example, `${env:PATH}`).
 
-```json
+```json5
 {
     "type": "node",
     "request": "launch",
@@ -85,7 +85,7 @@ For example, in a multi root workspace with folders `Server` and `Client`, a `${
 
 No, the predefined variables are not supported in strings in `settings.json` files. Some [settings](/docs/getstarted/settings.md) like `window.title` have their own variables:
 
-```json
+```json5
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"
 ```
 

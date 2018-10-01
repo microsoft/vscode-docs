@@ -18,7 +18,7 @@ The following description is based on the [Rake task provider example](https://g
 
 To uniquely identify a task in the system, an extension contributing a task needs to define the properties that identify a task. In the Rake example, the task definition looks like this:
 
-```json
+```json5
 "taskDefinitions": [
     {
         "type": "rake",

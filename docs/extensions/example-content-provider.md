@@ -148,7 +148,7 @@ Next modify the extension's `package.json` file with your command name `examplep
 
 Update the `"activationEvents"`:
 
-```json
+```json5
 "activationEvents": [
     "onCommand:exampleprovider.open"
 ],
@@ -156,7 +156,7 @@ Update the `"activationEvents"`:
 
 as well as the `"contributes"` section:
 
-```json
+```json5
 "contributes": {
     "commands": [
         {

@@ -90,7 +90,7 @@ Let's first take a look at `/package.json`, which describes the capabilities of 
 
 First look the [`activationEvents`](https://code.visualstudio.com/docs/extensionAPI/activation-events):
 
-```json
+```json5
 "activationEvents": [
     "onLanguage:plaintext"
 ]
@@ -100,7 +100,7 @@ This section tells VS Code to activate the extension as soon as a plain text fil
 
 Next look at the [`configuration`](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesconfiguration) section:
 
-```json
+```json5
 "configuration": {
     "type": "object",
     "title": "Example configuration",
@@ -119,7 +119,7 @@ This section contributes `configuration` settings to VS Code. The example will e
 
 The actual Language Client code and the corresponding `package.json` is in the `/client` folder. The interesting part in the `/client/package.json` file is that it adds a dependency to the `vscode` extension host API and the `vscode-languageclient` library:
 
-```json
+```json5
 "dependencies": {
     "vscode": "^1.1.18",
     "vscode-languageclient": "^4.1.4"
@@ -201,7 +201,7 @@ In the example, the server is also implemented in TypeScript and executed using 
 
 The source code for the Language Server is at `/server`. The interesting section in the server's `package.json` file is:
 
-```json
+```json5
 "dependencies": {
     "vscode-languageserver": "^4.1.3"
 }
@@ -717,7 +717,7 @@ It is possible to do Unit Test in any testing framework of your choice. Here we 
 
 Open `.vscode/launch.json`, and you can find a `E2E` test target:
 
-```json
+```json5
 {
     "name": "Language Server E2E Test",
     "type": "extensionHost",

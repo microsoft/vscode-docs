@@ -45,7 +45,7 @@ By default the JavaScript language service will analyze and provide IntelliSense
 
 The `exclude` attribute (a glob pattern) tells the language service what files are and are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects the slow down).
 
-```json
+```json5
 {
     "compilerOptions": {
         "target": "es6"
@@ -62,7 +62,7 @@ The `exclude` attribute (a glob pattern) tells the language service what files a
 
 Alternatively, you can explicitly set the files in your project using the `include` attribute (a glob pattern). If no `include` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `include` attribute is specified, only those files are included. Here is an example with an explicit `include` attribute.
 
-```json
+```json5
 {
     "compilerOptions": {
         "target": "es6"
@@ -97,7 +97,7 @@ For IntelliSense to work with webpack aliases, you need to specify the `paths` k
 
 For example, for alias 'ClientApp':
 
-```json
+```json5
 {
   "compilerOptions": {
     "baseUrl": ".",

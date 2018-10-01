@@ -86,7 +86,7 @@ The schema of `.code-workspace` is fairly straightforward. You have an array of 
 
 You can override the display name of your folders with the `name` attribute for a clearer display in the Explorer. For example, you could more clearly name your project folders such as 'Product' and 'Documentation':
 
-```json
+```json5
 {
     "folders": [
         {
@@ -128,7 +128,7 @@ There are only a few changes to the VS Code UI when you are using multi-root wor
 
 If you'd always like to see the folder displayed in the tabbed header, you can use the `workbench.editor.labelFormat` [setting](/docs/getstarted/settings.md) "medium" or "long" values to show the folder or full paths.
 
-```json
+```json5
 "workbench.editor.labelFormat": "medium"
 ```
 
@@ -156,7 +156,7 @@ With multiple root folders in one workspace, it is possible to have a `.vscode` 
 
 User settings are supported as with single folder project and you can also set global Workspace settings which will apply to all folders in your multi-root Workspace. Global Workspace settings will be stored in your `.code-workspace` file.
 
-```json
+```json5
 {
     "folders": [
         {
@@ -223,7 +223,7 @@ Alternatively, new launch configurations can be added via the "Add Config (works
 
 A compound launch configuration can reference the individual launch configurations by name as long as the names are unique within the workspace, for example:
 
-```json
+```json5
   "compounds": [{
       "name": "Launch Server & Client",
       "configurations": [
@@ -235,7 +235,7 @@ A compound launch configuration can reference the individual launch configuratio
 
 If the individual launch configuration names are not unique, the qualifying folder can be specified with a more verbose "folder" syntax:
 
-```json
+```json5
   "compounds": [{
       "name": "Launch Server & Client",
       "configurations": [
@@ -256,7 +256,7 @@ In addition to `compounds` the `launch` section of the workspace configuration f
 
 Here is an example for a launch configuration where the program lives in a folder "Program" and where all files from a folder "Library" should be skipped when stepping:
 
-```json
+```json5
 "launch": {
   "configurations": [{
       "type": "node",
@@ -301,7 +301,7 @@ Below are some of the popular extensions which have already adopted the multi-ro
 
 VS Code supports folder level extension recommendations through the `extensions.json` files under the folder's `.vscode` subfolder. You can also provide global Workspace extension recommendations by adding them to your `.code-workspace` file. You can use the **Extensions: Configure Recommended Extensions (Workspace)** command to open your Workspace file and add extension identifiers ({publisherName}.{extensionName}) to the `extensions.recommendations` array.
 
-```json
+```json5
 {
     "folders": [
         {

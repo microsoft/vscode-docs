@@ -37,7 +37,7 @@ In this image you can see IntelliSense, including the method signature, paramete
 
 Type declaration files are automatically downloaded and managed by Visual Studio Code for packages listed in your project's `package.json`.
 
-```json
+```json5
     "dependencies": {
         "lodash": "^4.17.0"
     }
@@ -45,7 +45,7 @@ Type declaration files are automatically downloaded and managed by Visual Studio
 
 If you are using Visual Studio Code 1.8+, you can alternately explicitly list packages to acquire type declaration files for in your `jsconfig.json`.
 
-```json
+```json5
     "typeAcquisition": {
         "include": [
             "lodash"
@@ -67,7 +67,7 @@ If you have npm installed but still see a warning message, you can explicitly te
 
 For example on Windows, you would add a path like this to your `settings.json` file:
 
-```json
+```json5
   "typescript.npm": "C:\\Program Files\\nodejs\\npm.cmd"
 ```
 
@@ -95,7 +95,7 @@ Illustrated below is a project with a `client` and `server` folder, showing two 
 
 Below is a simple template for `jsconfig.json` file which defines the JavaScript `target` to be `ES6` and the `exclude` attribute excludes the `node_modules` folder. You can copy and paste this code into your `jsconfig.json` file.
 
-```json
+```json5
 {
     "compilerOptions": {
         "target": "ES6"
@@ -113,7 +113,7 @@ You can explicitly set the files in your project using the `include` attribute. 
 
 Here is an example with an explicit `include` attribute:
 
-```json
+```json5
 {
     "compilerOptions": {
         "target": "ES6"
@@ -251,7 +251,7 @@ A linter extension may require an external tool. The steps below show how to set
 
 It is recommended that you enable the linter rules that warn about undefined and unused variables. To do this, put the following options in your `.eslintrc.json` file.
 
-```json
+```json5
 "no-undef": 1,
 "no-unused-vars": 1,
 ```
@@ -314,7 +314,7 @@ To enable type checking for JavaScript files that are part of a `jsconfig.json` 
 
 `jsconfig.json`:
 
-```json
+```json5
 {
     "compilerOptions": {
         "checkJs": true
@@ -328,7 +328,7 @@ To enable type checking for JavaScript files that are part of a `jsconfig.json` 
 
 `tsconfig.json`:
 
-```json
+```json5
 {
     "compilerOptions": {
         "allowJs": true,
@@ -369,7 +369,7 @@ If you want to continue using `// @ts-check` but are confident that these are no
 
 To start, [create a `jsconfig.json`](#javascript-project-jsconfigjson) at the root of your project:
 
-```json
+```json5
 {
     "compilerOptions": { },
     "exclude": [
@@ -399,7 +399,7 @@ declare var CAN_NOTIFY: number;
 
 The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate **Babel** into your workflow by adding the configuration below to your `tasks.json` file (located under the workspace's `.vscode` folder). The `group` setting makes this task the default **Task: Run Build Task** gesture.  `isBackground` tells VS Code to keep running this task in the background. To learn more, go to [Tasks](/docs/editor/tasks.md).
 
-```json
+```json5
 {
     "version": "2.0.0",
     "tasks": [

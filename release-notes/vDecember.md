@@ -199,7 +199,7 @@ We now show breakpoints in a more intuitive way:
 
 Extensions can now contribute JSON schema associations. The `jsonValidation` contribution point takes a file pattern and the URL of the JSON schema.
 
-```json
+```json5
     "contributes": {
         "jsonValidation": [{
             "fileMatch": ".jshintrc",
@@ -210,7 +210,7 @@ Extensions can now contribute JSON schema associations. The `jsonValidation` con
 
 Alternatively, extensions can also give the path to a schema file in the extension folder:
 
-```json
+```json5
     "contributes": {
         "jsonValidation": [{
             "fileMatch": ".htmlhintrc",

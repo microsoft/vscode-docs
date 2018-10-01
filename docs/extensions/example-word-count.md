@@ -198,7 +198,7 @@ context.subscriptions.push(wordCounter);
 
 Second, we must make sure the extension is activated upon the opening of a `Markdown` file.  To do this, we'll need to modify the `package.json` file.  Previously the extension was activated via the `extension.sayHello` command which we no longer need and so we can delete the entire `contributes` attribute from `package.json`:
 
-```json
+```json5
     "contributes": {
         "commands":
             [{
@@ -211,7 +211,7 @@ Second, we must make sure the extension is activated upon the opening of a `Mark
 
 Now change your extension so that it is activated upon the opening of a *Markdown* file by updating the `activationEvents` attribute to this:
 
-```json
+```json5
     "activationEvents": [
         "onLanguage:markdown"
     ]

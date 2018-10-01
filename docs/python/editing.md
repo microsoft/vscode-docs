@@ -33,7 +33,7 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
 
 **Windows:**
 
-```json
+```json5
 "python.autoComplete.extraPaths": [
     "C:/Program Files (x86)/Google/google_appengine",
     "C:/Program Files (x86)/Google/google_appengine/lib" ]
@@ -41,7 +41,7 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
 
 **macOS/Linux:**
 
-```json
+```json5
 "python.autoComplete.extraPaths": [
     "~/.local/lib/Google/google_appengine",
     "~/.local/lib/Google/google_appengine/lib" ]
@@ -49,13 +49,13 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
 
 The `python.autoComplete.preloadModules` setting also allows you speed up autocomplete for specific packages by preloading their information. For example:
 
-```json
+```json5
 "python.autoComplete.preloadModules": ["numpy", "pandas", "matplotlib"],
 ```
 
 Finally, the `python.autocomplete.addBrackets` setting (default false) determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to true:
 
-```json
+```json5
   "python.autoComplete.addBrackets": true,
 ```
 
@@ -107,7 +107,7 @@ The following settings apply to the individual formatters. The Python extension 
 
 When using custom arguments, each top-level element of an argument string that's separated by space on the command line must be a separate item in the args list. For example:
 
-```json
+```json5
 "python.formatting.autopep8Args": ["--max-line-length", "120", "--experimental"],
 "python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]
 "python.formatting.blackArgs": ["--line-length", "100"]
@@ -130,7 +130,7 @@ When using the black formatter, VS Code issues the following warning when pastin
 
 To prevent this warning, add the following entry to your user or workspace settings to disable format on paste for Python files:
 
-```json
+```json5
 "[python]": {
     "editor.formatOnPaste": false
 }
@@ -179,7 +179,7 @@ Invoked by:
 
 Custom arguments to isort are specified in the `python.sortImports.args` setting, where each top-level element, as separated by spaces on the command line, is a separate item in the array:
 
-```json
+```json5
 "python.sortImports.args": ["-rc", "--atomic"],
 ```
 
@@ -191,7 +191,7 @@ Further configurations can be stored in an `.isort.cfg` file as documented on [C
 
 To automatically sort imports whenever you save a file, add the following entry to your user or workspace settings:
 
-```json
+```json5
 "[python]": {
     "editor.codeActionsOnSave": {
         "source.organizeImports": true

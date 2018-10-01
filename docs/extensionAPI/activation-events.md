@@ -26,7 +26,7 @@ We also provide an overview of the [`package.json` extension manifest](/docs/ext
 
 This activation event is emitted and interested extensions will be activated whenever a file that resolves to a certain language gets opened.
 
-```json
+```json5
 ...
 "activationEvents": [
     "onLanguage:python"
@@ -38,7 +38,7 @@ The `onLanguage` event takes a [language identifier](/docs/languages/identifiers
 
 Multiple languages can be declared with separate `onLanguage` entries in the `activationEvents` array.
 
-```json
+```json5
 "activationEvents": [
     "onLanguage:json",
     "onLanguage:markdown",
@@ -51,7 +51,7 @@ Multiple languages can be declared with separate `onLanguage` entries in the `ac
 
 This activation event is emitted and interested extensions will be activated whenever a command is being invoked:
 
-```json
+```json5
 ...
 "activationEvents": [
     "onCommand:extension.sayHello"
@@ -63,7 +63,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 This activation event is emitted and interested extensions will be activated before a debug session is started:
 
-```json
+```json5
 ...
 "activationEvents": [
     "onDebug"
@@ -84,7 +84,7 @@ There are two more fine-grained `onDebug` activation events:
 
 This activation event is emitted and interested extensions will be activated whenever a folder is opened and the folder contains at least one file that matches a glob pattern.
 
-```json
+```json5
 ...
 "activationEvents": [
     "workspaceContains:**/.editorconfig"
@@ -96,7 +96,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 This activation event is emitted and interested extensions will be activated whenever a file or folder from a specific *scheme* is read. This is usually the `file`-scheme, but with custom file system providers more schemes come into place, e.g `ftp` or `ssh`.
 
-```json
+```json5
 ...
 "activationEvents": [
     "onFileSystem:sftp"
@@ -108,7 +108,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 This activation event is emitted and interested extensions will be activated whenever a view of the specified id is expanded:
 
-```json
+```json5
 ...
 "activationEvents": [
     "onView:nodeDependencies"
@@ -120,7 +120,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 This activation event is emitted and interested extensions will be activated whenever a system-wide Uri for that extension is opened. The Uri scheme is fixed to either `vscode` or `vscode-insiders`. The Uri authority must be the extension's identifier. The rest of the Uri is arbitrary.
 
-```json
+```json5
 ...
 "activationEvents": [
     "onUri"
@@ -138,7 +138,7 @@ If the `vscode.git` extension defines `onUri` as an activation event, it will be
 
 This activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
 
-```json
+```json5
 ...
 "activationEvents": [
     "*"

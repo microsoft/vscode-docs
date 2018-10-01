@@ -63,7 +63,7 @@ A common misunderstanding is that when contributing a formatter, you must suppor
 
 What happens when there are multiple formatters for one language? This can be a problem when different formatters' actions contradict. In the October release, we added settings to enable or disable the default formatters that ship with VS Code. The best practice is for extension authors to add a similar setting as what we did in VS Code as shown below.
 
-```json
+```json5
 "html.format.enable": true,
 "javascript.format.enable": true,
 "typescript.format.enable": true,
@@ -80,7 +80,7 @@ Last, we want to bring more awareness to formatters and have added a new ["Forma
 
 To summarize, an extension that implements the formatting extension API properly will do the following :
 
-1. Register formatters via [registerDocumentFormattingEditProvider](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L4172).  
+1. Register formatters via [registerDocumentFormattingEditProvider](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L4172).
 2. Implement the formatting logic per the [DocumentFormattingEditProvider interface](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L2143).
 3. Have a setting to enable / disable the formatter.
 4. Add the "Formatters" category to the extension manifest.

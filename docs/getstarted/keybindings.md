@@ -66,7 +66,7 @@ All keyboard shortcuts in VS Code can be customized via the `keybindings.json` f
 
 The keyboard shortcuts dispatching is done by analyzing a list of rules that are expressed in JSON. Here are some examples:
 
-```json
+```json5
 // Keybindings that are active when the focus is in the editor
 { "key": "home",            "command": "cursorHome",                  "when": "editorTextFocus" },
 { "key": "shift+home",      "command": "cursorHomeSelect",            "when": "editorTextFocus" },
@@ -130,7 +130,7 @@ You can invoke a command with arguments. This is useful if you often perform the
 
 The following is an example overriding the `kbstyle(Enter)` key to print some text:
 
-```json
+```json5
   { "key": "enter", "command": "type",
                     "args": { "text": "Hello World" },
                     "when": "editorTextFocus" }
@@ -144,7 +144,7 @@ You can write a key binding rule that targets the removal of a specific default 
 
 Here is an example:
 
-```json
+```json5
 // In Default Keyboard Shortcuts
 ...
 { "key": "tab", "command": "tab", "when": ... },
@@ -198,7 +198,7 @@ There is also a widget that helps input the key binding rule when editing `keybi
 
 Using scan codes, it is possible to define keybindings which do not change with the change of the keyboard layout. For example:
 
-```json
+```json5
 { "key": "cmd+[Slash]", "command": "editor.action.commentLine",
                            "when": "editorTextFocus" }
 ```
@@ -314,7 +314,7 @@ Panel Identifiers:
 
 The `editor.action.codeAction` command lets you configure keybindings for specific [Refactorings](/docs/editor/refactoring.md) (Code Actions). For example, the keybinding below triggers the **Extract function** refactoring Code Actions:
 
-```json
+```json5
 {
   "key": "ctrl+shift+r ctrl+e",
   "command": "editor.action.codeAction",
@@ -572,7 +572,7 @@ In the **Default Keyboard Shortcuts**, open `Quick Outline` by pressing `kb(work
 
 Find a rule that triggers the action in the **Default Keyboard Shortcuts** and write a modified version of it in your `keybindings.json` file:
 
-```json
+```json5
 // Original, in Default Keyboard Shortcuts
 { "key": "ctrl+shift+k",          "command": "editor.action.deleteLines",
                                      "when": "editorTextFocus" },
@@ -585,7 +585,7 @@ Find a rule that triggers the action in the **Default Keyboard Shortcuts** and w
 
 Use the `editorLangId` context key in your `when` clause:
 
-```json
+```json5
 { "key": "shift+alt+a",           "command": "editor.action.blockComment",
                                      "when": "editorTextFocus && editorLangId == csharp" },
 ```

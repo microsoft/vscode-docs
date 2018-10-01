@@ -75,7 +75,7 @@ You can also use your own CSS in the Markdown preview with the `"markdown.styles
 
 For example, to load a stylesheet called `Style.css` at the root of your current workspace, use **File** > **Preferences** > **Settings** to bring up the workspace `settings.json` file and make this update:
 
-```json
+```json5
 // Place your settings in this file to overwrite default and user settings.
 {
     "markdown.styles": [
@@ -164,7 +164,7 @@ The next step is to set up the task configuration file `tasks.json`.  To do this
 
 This generates a `tasks.json` file in your workspace `.vscode` folder with the following content:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -181,7 +181,7 @@ This generates a `tasks.json` file in your workspace `.vscode` folder with the f
 
 To use **markdown-it** to compile the Markdown file, change the contents as follows:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -207,7 +207,7 @@ At this point, you should see an additional file show up in the file list `sampl
 
 If you want to make the **Compile Markdown** task the default build task to run execute **Configure Default Build Task** from the global **Tasks** menu and select **Compile Markdown** from the presented list. The final `tasks.json` file will then look like this:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -281,7 +281,7 @@ To complete the tasks integration with VS Code, we will need to modify the task 
 
 If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Tasks** menu and select **gulp: default** from the presented list. The final `tasks.json` file will then look like this:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format

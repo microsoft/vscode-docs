@@ -34,7 +34,7 @@ Here are the instructions for various Ruby versions. I am using Ruby v2.0.x.
 
 Create a `launch.json` file in `.vscode` folder and add the following:
 
-```json
+```json5
 {
   "version": "0.2.0",
   "configurations": [

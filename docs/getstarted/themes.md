@@ -24,7 +24,7 @@ Color themes let you modify the colors in Visual Studio Code's user interface to
 
 The active color theme is stored in your user [settings](/docs/getstarted/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
 
-```json
+```json5
   // Specifies the color theme used in the workbench.
   "workbench.colorTheme": "Default Dark+"
 }
@@ -56,7 +56,7 @@ You can use IntelliSense while setting `workbench.colorCustomizations` values or
 
 To customize a specific theme only, use the following syntax:
 
-```json
+```json5
 "workbench.colorCustomizations": {
     "[Monokai]": {
         "sideBar.background": "#347890"
@@ -76,7 +76,7 @@ A pre-configured set of syntax tokens ('comments', 'strings', ...) is available 
 
 Again, to customize a specific theme only, use the following syntax:
 
-```json
+```json5
 "editor.tokenColorCustomizations": {
     "[Monokai]": {
         "comments": "#229977"
@@ -123,7 +123,7 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 The active File Icon theme is persisted in your user [settings](/docs/getstarted/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
 
-```json
+```json5
   // Specifies the icon theme used in the workbench.
   "workbench.iconTheme": "vs-seti"
 }

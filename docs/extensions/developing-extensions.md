@@ -186,7 +186,7 @@ Here are the steps:
 * Set the minimal version of VS Code that your extension requires in the `engine` field of the `package.json`.
 * Add a `postinstall` script to your `package.json` like this:
 
-```json
+```json5
 "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install"
 }

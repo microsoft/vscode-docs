@@ -49,7 +49,7 @@ Renaming is common operation related to refactoring source code and VS Code has 
 
 The `editor.action.codeAction` command lets you configure keybindings for specific Code Actions. This keybinding for example triggers the **Extract function** refactoring Code Actions:
 
-```json
+```json5
 {
   "key": "ctrl+shift+r ctrl+e",
   "command": "editor.action.codeAction",
@@ -67,7 +67,7 @@ Using the above keybinding, if only a single `"refactor.extract.function"` Code 
 
 You can also control how/when Code Actions are automatically applied using the `apply` argument:
 
-```json
+```json5
 {
   "key": "ctrl+shift+r ctrl+e",
   "command": "editor.action.codeAction",

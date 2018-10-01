@@ -26,7 +26,7 @@ The following steps give you a quick walkthrough of working with test in VS Code
 
 1. Enable the unittest framework by adding the following entries to your user (or workspace) settings. We recommend explicitly enabling one framework and disabling the others as shown here:
 
-    ```json
+    ```json5
     "python.unitTest.unittestEnabled": true,
     "python.unitTest.pyTestEnabled": false,
     "python.unitTest.nosetestsEnabled": false,
@@ -93,7 +93,7 @@ It's important that you enable only a single test framework at a time. For this 
 
 To enable unittest, for example, use the following settings:
 
-```json
+```json5
 "python.unitTest.unittestEnabled": true,
 "python.unitTest.pyTestEnabled": false,
 "python.unitTest.nosetestsEnabled": false,
@@ -101,7 +101,7 @@ To enable unittest, for example, use the following settings:
 
 To enable pyTest:
 
-```json
+```json5
 "python.unitTest.unittestEnabled": false,
 "python.unitTest.pyTestEnabled": true,
 "python.unitTest.nosetestsEnabled": false,
@@ -109,7 +109,7 @@ To enable pyTest:
 
 To enable Nose:
 
-```json
+```json5
 "python.unitTest.unittestEnabled": false,
 "python.unitTest.pyTestEnabled": false,
 "python.unitTest.nosetestsEnabled": true,

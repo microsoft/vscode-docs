@@ -126,7 +126,7 @@ VS Code now ships with the latest [TypeScript 1.8.2](https://blogs.msdn.microsof
 
 If you don't already have a `jsconfig.json` file in your workspace, add a `jsconfig.json` file to the root with the `compilerOptions:module` attribute set:
 
-```json
+```json5
 {
     "compilerOptions": {
         "module": "commonjs"
@@ -257,7 +257,7 @@ nodemon --debug server.js
 
 In VS Code, create an 'attach' launch configuration:
 
-```json
+```json5
 {
     "name": "Attach",
     "type": "node",
@@ -298,7 +298,7 @@ You can either install the **Mono Debug** extension with the VS Code **Extension
 
 The `eslint-stylish` problem matcher changed to use absolute file paths by default. We made this breaking change because the stylish reporter integrated into `eslint` reports absolute paths by default. If you are using an older version of `eslint` with the external stylish reporter that reports relative file paths, you can tweak the `problemMatcher` in a tasks.json file as below to make this combination work:
 
-```json
+```json5
 "problemMatcher": {
     "base": "$eslint-stylish",
     "fileLocation": "relative"
@@ -360,7 +360,7 @@ VS Code will now fallback to installing the latest compatible version of an exte
 
 We now support more OS types for the `debuggers` contribution point (see [#1696](https://github.com/Microsoft/vscode/issues/1696) for details). In addition to `win`, `linux`, and `osx`, adapters can now use `winx86` in their `package.json` to specify options specific to a 32-bit Windows:
 
-```json
+```json5
 "debuggers": [{
     "type": "gdb",
     "win": {

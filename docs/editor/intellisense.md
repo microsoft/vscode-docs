@@ -125,7 +125,7 @@ The key bindings shown below are the default key bindings. You can change these 
 
 > **Note:** There are many more key bindings relating to IntelliSense. Open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
 
-```json
+```json5
 [
     {
         "key": "ctrl+space",

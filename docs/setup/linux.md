@@ -177,7 +177,7 @@ While 524288 is the maximum number of files that can be watched, if you're in an
 
 Another option is to exclude specific workspace directories from the VS Code file watcher with the `files.watcherExclude` [setting](/docs/getstarted/settings.md). The default for `files.watcherExclude` excludes `node_module` and some folders under `.git` but you can add other directories that you don't want VS Code to track.
 
-```json
+```json5
 "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
@@ -189,7 +189,7 @@ Another option is to exclude specific workspace directories from the VS Code fil
 
 We're working on a fix. In the meantime, open the application menu, then choose **File** > **Preferences** > **Settings**. Then set `editor.fontFamily` as shown:
 
-```json
+```json5
     "editor.fontFamily": "Droid Sans Mono, Droid Sans Fallback"
 ```
 

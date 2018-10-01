@@ -35,7 +35,7 @@ VS Code maps different language configurations and providers to specific program
 
 In order to support syntax highlighting, your extension needs to register a TextMate grammar `.tmLanguage` for its language in its `package.json` file.
 
-```json
+```json5
 "contributes": {
     "languages": [
         {
@@ -69,7 +69,7 @@ VS Code recognizes two formats for grammar files, Plist (`.tmLanguage`) and JSON
 
 With code snippets, you can provide useful source code templates with placeholders. You need to register a file that contains the snippets for your language in your extension's `package.json` file. You can learn about VS Code's snippet schema in [Creating Your Own Snippets](/docs/editor/userdefinedsnippets.md#creating-your-own-snippets).
 
-```json
+```json5
 "contributes": {
     "snippets": [
         {
@@ -84,7 +84,7 @@ With code snippets, you can provide useful source code templates with placeholde
 >
 >Provide snippets with placeholders such as this example for `markdown`:
 >
->```json
+>```json5
 >"Insert ordered list": {
 >    "prefix": "ordered list",
 >    "body": [
@@ -101,7 +101,7 @@ With code snippets, you can provide useful source code templates with placeholde
 >
 >Provide snippets that use explicit tab stops to guide the user and use nested placeholders such as this example for `groovy`:
 >
->```json
+>```json5
 >"key: \"value\" (Hash Pair)": {
 >        "prefix": "key",
 >        "body": "${1:key}: ${2:\"${3:value}\"}"
@@ -114,7 +114,7 @@ With code snippets, you can provide useful source code templates with placeholde
 
 You can provide a language configuration in your extension's `package.json` file.
 
-```json
+```json5
 "contributes": {
     "languages": [
         {
@@ -135,7 +135,7 @@ You can provide a language configuration in your extension's `package.json` file
 >
 >Here is an example from `TypeScript`:
 >
->```json
+>```json5
 >{
 >    "comments": {
 >        "lineComment": "//",
@@ -192,7 +192,7 @@ Hovers show information about the symbol/object that's below the mouse cursor. T
 
 In the response to the `initialize` method, your language server needs to announce that it provides hovers.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -242,7 +242,7 @@ Code completions provide context sensitive suggestions to the user.
 
 In the response to the `initialize` method, your language server needs to announce that it provides completions and whether or not it supports the `completionItem\resolve` method to provide additional information for the computed completion items.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -347,7 +347,7 @@ When the user enters a function or method, display information about the functio
 
 In the response to the `initialize` method, your language server needs to announce that it provides signature help.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -399,7 +399,7 @@ Allow the user to see the definition of variables/functions/methods right where 
 
 In the response to the `initialize` method, your language server needs to announce that it provides goto-definition locations.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -449,7 +449,7 @@ Allow the user to see all the source code locations where a certain variable/fun
 
 In the response to the `initialize` method, your language server needs to announce that it provides symbol reference locations.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -500,7 +500,7 @@ Allow the user to see all occurrences of a symbol in the open editor.
 
 In the response to the `initialize` method, your language server needs to announce that it provides symbol document locations.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -550,7 +550,7 @@ Allow the user to quickly navigate to any symbol definition in the open editor.
 
 In the response to the `initialize` method, your language server needs to announce that it provides symbol document locations.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -600,7 +600,7 @@ Allow the user to quickly navigate to symbol definitions anywhere in the folder 
 
 In the response to the `initialize` method, your language server needs to announce that it provides global symbol locations.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -650,7 +650,7 @@ Provide the user with possible corrective actions right next to an error or warn
 
 In the response to the `initialize` method, your language server needs to announce that it provides Code Actions.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -701,7 +701,7 @@ Provide the user with actionable, contextual information that is displayed inter
 
 In the response to the `initialize` method, your language server needs to announce that it provides CodeLens results and whether it supports the `codeLens\resolve` method to bind the CodeLens to its command.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -757,7 +757,7 @@ Allow the user to rename a symbol and update all references to the symbol.
 
 In the response to the `initialize` method, your language server needs to announce that it provides for renaming.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -808,7 +808,7 @@ Provide the user with support for formatting whole documents.
 
 In the response to the `initialize` method, your language server needs to announce that it provides document formatting.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -857,7 +857,7 @@ Provide the user with support for formatting a selected range of lines in a docu
 
 In the response to the `initialize` method, your language server needs to announce that it provides formatting support for ranges of lines.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -910,7 +910,7 @@ Provide the user with support for formatting text as they type.
 
 In the response to the `initialize` method, your language server needs to announce that it provides formatting as the user types. It also needs to tell the client on which characters formatting should be triggered. `moreTriggerCharacters` is optional.
 
-```json
+```json5
 {
     ...
     "capabilities" : {
@@ -964,7 +964,7 @@ Allow the user to preview and modify colors in the document.
 
 In the response to the `initialize` method, your language server needs to announce that it provides color information.
 
-```json
+```json5
 {
     ...
     "capabilities" : {

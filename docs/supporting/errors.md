@@ -29,7 +29,7 @@ This error occurs when you have a relative path in your [debug configuration](/d
 
 In the example below, the `program` attribute has a relative path to `app.js` at the root of the workspace (project folder).
 
-```json
+```json5
 {
 "version": "0.2.0",
     "configurations": [
@@ -45,7 +45,7 @@ In the example below, the `program` attribute has a relative path to `app.js` at
 
 The fix is to use an absolute path or better use the `${workspaceFolder}` variable which will resolve to the absolute path of the project folder.
 
-```json
+```json5
 {
 "version": "0.2.0",
     "configurations": [

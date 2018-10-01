@@ -45,7 +45,7 @@ To modify the update channel, go to **File** > **Preferences** > **Settings** (m
 
 If you use the JSON editor for your settings, add the following line:
 
-```json
+```json5
     "update.channel": "none"
 ```
 
@@ -77,7 +77,7 @@ To install the Insiders build, go to the Insiders [download page](/insiders).
 
 When you open a folder, VS Code will search for typical project files to offer you additional tooling (e.g. the solution picker in the status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
 
-```json
+```json5
     "files.exclude": {
         "**/largeFolder": true
     }
@@ -139,7 +139,7 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 If you use the JSON editor for your settings, add the following line:
 
-```json
+```json5
     "telemetry.enableTelemetry": false
 ```
 
@@ -157,7 +157,7 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 If you use the JSON editor for your settings, add the following line:
 
-```json
+```json5
     "telemetry.enableCrashReporter": false
 ```
 

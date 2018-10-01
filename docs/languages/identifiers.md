@@ -10,7 +10,7 @@ MetaDescription: Visual Studio Code language mode identifiers
 
 In Visual Studio Code, each [language mode](/docs/languages/overview.md#changing-the-language-for-the-selected-file) has a unique specific language identifier. That identifier is rarely seen by the user except in the settings, for example, when associating file extensions to a language:
 
-```json
+```json5
     "files.associations": {
         "*.myphp": "php"
     }
@@ -22,7 +22,7 @@ The language identifier becomes essential for VS Code extension developers when 
 
 Every language defines its *id* through the `languages` configuration point:
 
-```json
+```json5
     "languages": [{
         "id": "java",
         "extensions": [ ".java", ".jav" ],
@@ -32,7 +32,7 @@ Every language defines its *id* through the `languages` configuration point:
 
 Language supports are added using the language identifier:
 
-```json
+```json5
     "grammars": [{
         "language": "groovy",
         "scopeName": "source.groovy",

@@ -41,7 +41,7 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 
 ### Example
 
-```json
+```json5
 "contributes": {
     "configuration": {
         "type": "object",
@@ -72,7 +72,7 @@ The following example contributes default editor configurations for the `markdow
 
 ### Example
 
-```json
+```json5
 "contributes": {
     "configurationDefaults": {
         "[markdown]": {
@@ -91,7 +91,7 @@ Contribute an entry consisting of a title and a command to invoke to the **Comma
 
 ### Example
 
-```json
+```json5
 "contributes": {
     "commands": [{
         "command": "extension.sayHello",
@@ -132,7 +132,7 @@ In addition to a title, commands can also define icons which VS Code will show i
 
 ### Example
 
-```json
+```json5
 "contributes": {
     "menus": {
         "editor/title": [{
@@ -153,7 +153,7 @@ When registering commands in `package.json`, they will automatically be shown in
 
 The snippet below makes the 'Hello World' command only visible in the **Command Palette** when something is selected in the editor:
 
-```json
+```json5
 "commands": [{
     "command": "extension.sayHello",
     "title": "Hello World"
@@ -206,7 +206,7 @@ The **editor title menu** has these default groups:
 
 The order inside a group depends on the title or an order-attribute. The group-local order of a menu item is specified by appending `@<number>` to the group identifier as shown below:
 
-```json
+```json5
 "editor/title": [{
     "when": "editorHasSelection",
     "command": "extension.Command",
@@ -228,7 +228,7 @@ Contributing a key binding will cause the Default Keyboard Shortcuts to display 
 
 Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` under macOS trigger the `"extension.sayHello"` command:
 
-```json
+```json5
 "contributes": {
     "keybindings": [{
         "command": "extension.sayHello",
@@ -274,7 +274,7 @@ If your language configuration file name is or ends with `language-configuration
 
 ### Example
 
-```json
+```json5
 ...
 "contributes": {
     "languages": [{
@@ -290,7 +290,7 @@ If your language configuration file name is or ends with `language-configuration
 
 language-configuration.json
 
-```json
+```json5
 {
     "comments": {
         "lineComment": "//",
@@ -340,7 +340,7 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 * `variables` introduces substitution variables and binds them to commands implemented by the debugger extension.
 * `languages` those languages for which the debug extension could be considered the "default debugger".
 * `adapterExecutableCommand` the command ID where the debug adapters executable path and arguments are dynamically calculated. The command returns a structure with this format:
-  ```json
+  ```json5
   command: "<executable>",
   args: [ "<argument1>", "<argument2>", ... ]
   ```
@@ -348,7 +348,7 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 
 ### Example
 
-```json
+```json5
 "contributes": {
     "debuggers": [{
         "type": "node",
@@ -404,7 +404,7 @@ For a full walkthrough on how to integrate a `debugger`, go to [Debuggers](/docs
 
 Usually a debugger extension will also have a `contributes.breakpoints` entry where the extension lists the language file types for which setting breakpoints will be enabled.
 
-```json
+```json5
 "contributes": {
     "breakpoints": [
         {
@@ -425,7 +425,7 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 
 ### Example
 
-```json
+```json5
 "contributes": {
     "grammars": [{
         "language": "markdown",
@@ -449,7 +449,7 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 
 ### Example
 
-```json
+```json5
 "contributes": {
     "themes": [{
         "label": "Monokai",
@@ -469,7 +469,7 @@ Contribute snippets for a specific language. The `language` attribute is the [la
 
 The example below shows adding snippets for the Go language.
 
-```json
+```json5
 "contributes": {
     "snippets": [{
         "language": "go",
@@ -482,7 +482,7 @@ The example below shows adding snippets for the Go language.
 
 Contribute a validation schema for a specific type of `json` file.  The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](http://schemastore.org/json).
 
-```json
+```json5
 "contributes": {
     "jsonValidation": [{
         "fileMatch": ".jshintrc",
@@ -503,7 +503,7 @@ Contribute a view to VS Code. You must specify an identifier and name for the vi
 
 When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (e.g. `onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value.
 
-```json
+```json5
 "contributes": {
     "views": {
         "explorer": [
@@ -525,7 +525,7 @@ Extension writers should create a [TreeView](https://code.visualstudio.com/docs/
 
 Contribute a view container into which [Custom views](#contributes.views) can be contributed. You must specify an identifier, title and an icon for the view container. At present, you can contribute them to the Activity Bar (`activitybar`) only. Below example shows how the `Package Explorer` view container is contributed to the Activity Bar and how views are contributed to it.
 
-```json
+```json5
 "contributes": {
         "viewsContainers": {
             "activitybar": [
@@ -570,7 +570,7 @@ Contribute a view container into which [Custom views](#contributes.views) can be
 
 Contribute problem matcher patterns. These contributions work in both the output panel runner and in the terminal runner. Below is an example to contribute a problem matcher for the gcc compiler in an extension:
 
-```json
+```json5
 "contributes": {
     "problemMatchers": [
         {
@@ -592,7 +592,7 @@ Contribute problem matcher patterns. These contributions work in both the output
 
 This problem matcher can now be used in a `tasks.json` file via a name reference `$gcc`. An example looks like this:
 
-```json
+```json5
 {
     "version": "2.0.0",
     "tasks": [
@@ -616,7 +616,7 @@ Contributes named problem patterns that can be used in problem matchers (see abo
 
 Contributes and defines an object literal structures that allows to uniquely identifiy a contributed task in the system. A task definition has at minimum a `type` property but it usually defines additional propertiies. For example a task definition for a task representing a script in a package.json file looks like this:
 
-```json
+```json5
 "taskDefinitions": [
     {
         "type": "npm",
@@ -654,7 +654,7 @@ let task = new vscode.Task({ type: 'npm', script: 'test' }, ....);
 
 Contributes new themable colors. These colors can be used by the extension in editor decorators and in the status bar. Once defined, users can customize the color in the `workspace.colorCustomization` setting and user themes can set the color value.
 
-```json
+```json5
 "contributes": {
   "colors": [{
       "id": "superstatus.error",
@@ -674,7 +674,7 @@ Color default values can be defined for light, dark and high contrast theme and 
 
 Contributes [TypeScript server plugins](https://github.com/Microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin) that augment VS Code's JavaScript and TypeScript support:
 
-```json
+```json5
 "contributes": {
    "typescriptServerPlugins": [
       {
@@ -686,7 +686,7 @@ Contributes [TypeScript server plugins](https://github.com/Microsoft/TypeScript/
 
 The above example extension contributes the [`typescript-styled-plugin`](https://github.com/Microsoft/typescript-styled-plugin) which adds styled-component IntelliSense for JavaScript and TypeScript. This plugin will be loaded from the extension and must be listed as a `dependency`:
 
-```json
+```json5
 {
     "dependencies": {
         "typescript-styled-plugin": "*"

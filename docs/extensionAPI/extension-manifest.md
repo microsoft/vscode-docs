@@ -44,7 +44,7 @@ Also check [npm's `package.json` reference](https://docs.npmjs.com/files/package
 
 Here is a complete `package.json`
 
-```json
+```json5
 {
     "name": "wordcount",
     "displayName": "Word Count",
@@ -105,14 +105,14 @@ Here are a few examples:
 
 Provide a good display name and description. This is important for the Marketplace and in product displays.  These strings are also used for text search in VS Code and having relevant keywords will help a lot.
 
-```json
+```json5
     "displayName": "Word Count",
     "description": "Markdown Word Count Example - reports out the number of words in a Markdown file.",
 ```
 
 An Icon and a contrasting banner color looks great on the Marketplace page header.  The `theme` attribute refers to the font to be used in the banner - `dark` or `light`.
 
-```json
+```json5
 {
     "icon": "images/icon.png",
     "galleryBanner": {
@@ -124,7 +124,7 @@ An Icon and a contrasting banner color looks great on the Marketplace page heade
 
 There are several optional links (`bugs`, `homepage`, `repository`) you can set and these are displayed under the **Resources** section of the Marketplace.
 
-```json
+```json5
 {
     "license": "SEE LICENSE IN LICENSE.txt",
     "homepage": "https://github.com/Microsoft/vscode-wordcount/blob/master/README.md",
@@ -150,7 +150,7 @@ Set a `category` for your extension.  Extensions in the same `category` are grou
 
 >**Note:** Only use the values that make sense for your extension. Allowed values are `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`. Use `Programming Languages` for general language features like syntax highlighting and code completions. The category `Language Packs` is reserved for display language extensions (for example, localized Bulgarian).
 
-```json
+```json5
 {
     "categories": [
         "Linters", "Programming Languages", "Other"
@@ -212,7 +212,7 @@ To combine extension contributions, edit an existing extension manifest `package
 
 Below is an extension manifest which includes a LaTex language definition (language identifier and file extensions), colorization (`grammar`), and snippets.
 
-```json
+```json5
 {
     "name": "language-latex",
     "description": "LaTex Language Support",
@@ -256,7 +256,7 @@ An Extension Pack can include other contributions or be a bundling extension tha
 
 For example, here is an Extension Pack for PHP that includes a debugger, language service, and formatter:
 
-```json
+```json5
 {
   "extensionDependencies": [
       "felixfbecker.php-debug",
@@ -270,7 +270,7 @@ When installing an Extension Pack, VS Code will now also install its extension d
 
 Extension packs should be categorized in the `Extension Packs` Marketplace category:
 
-```json
+```json5
 {
   "categories": [
       "Extension Packs"

@@ -61,7 +61,7 @@ VS Code extensions can also define schemas and schema mapping. That's why VS Cod
 
 In the following example, the JSON file specifies that its contents follow the [CoffeeLint](http://www.coffeelint.org/) schema.
 
-```json
+```json5
 {
    "$schema": "http://json.schemastore.org/coffeelint",
    "line_endings": "unix"
@@ -74,7 +74,7 @@ Please note that this syntax is VS Code-specific and not part of the [JSON Schem
 
 The following excerpt from User [settings](/docs/getstarted/settings.md) shows how `.babelrc` files are mapped to the [babelrc](https://babeljs.io/docs/usage/babelrc) schema located on [http://json.schemastore.org/babelrc](http://json.schemastore.org/babelrc).
 
-```json
+```json5
 "json.schemas": [
     {
         "fileMatch": [
@@ -90,7 +90,7 @@ The following excerpt from User [settings](/docs/getstarted/settings.md) shows h
 
 To map a schema that is located in the workspace, use a relative path. In this example, a file in the workspace root called `myschema.json` will be used as the schema for all files ending with `.foo.json`.
 
-```json
+```json5
 "json.schemas": [
     {
         "fileMatch": [
@@ -104,7 +104,7 @@ To map a schema that is located in the workspace, use a relative path. In this e
 
 To map a schema that is defined in the User or Workspace settings, use the `schema` property. In this example, a schema is defined that will be used for all files named `.myconfig`.
 
-```json
+```json5
 "json.schemas": [
     {
         "fileMatch": [
@@ -131,7 +131,7 @@ Schemas and schema associations can also be defined by an extension. Check out t
 JSON schemas describe the shape of the JSON file, as well as value sets and default values which are used by the JSON language support to provide completion proposals.
 If you are a schema author and want to provide even more customized completion proposals, you can also specify snippets in the schema. The following example shows a schema for a key binding settings file defining a snippet:
 
-```json
+```json5
 {
     "type": "array",
     "title": "Keybindings configuration",

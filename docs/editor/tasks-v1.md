@@ -41,7 +41,7 @@ Select the **Tasks: Configure Task Runner** command and you will see a list of t
 
 You should now see a `tasks.json` file in your workspace `.vscode` folder with the following content:
 
-```json
+```json5
 {
     "version": "0.1.0",
     "command": "echo",
@@ -85,7 +85,7 @@ You can also define multiple tasks in a `tasks` array in order to pass different
 
 Here's a simple example passing different arguments to the `echo` command:
 
-```json
+```json5
 {
     "version": "0.1.0",
     "command": "echo",
@@ -122,7 +122,7 @@ There are also `tasks` specific properties. One useful property is `isBuildComma
 
 If you want to run multiple different commands you can specify different commands per task. A `tasks.json` file using commands per task looks like this:
 
-```json
+```json5
 {
     "version": "0.1.0",
     "tasks": [
@@ -152,7 +152,7 @@ If you need to run a task frequently, you can also define a keyboard shortcut fo
 
 For example, to bind `ctrl+h` to the `build` task from above, add the following to your `keybindings.json` file:
 
-```json
+```json5
 {
     "key": "ctrl+h",
     "command": "workbench.action.tasks.runTask",
@@ -166,7 +166,7 @@ When authoring tasks configurations, it is useful to have a set of predefined co
 
 Below is an example of a configuration that passes the current opened file to the TypeScript compiler.
 
-```json
+```json5
 {
     "command": "tsc",
     "args": ["${file}"]
@@ -179,7 +179,7 @@ The task system supports defining values (for example, the command to be execute
 
 Below is an example that uses the Node.js executable as a command and is treated differently on Windows and Linux:
 
-```json
+```json5
 {
     "version": "0.1.0",
     "windows": {
@@ -195,7 +195,7 @@ Valid operating properties are `windows` for Windows, `linux` for Linux and `osx
 
 In the example below:
 
-```json
+```json5
 {
     "version": "0.1.0",
     "showOutput": "never",
@@ -209,7 +209,7 @@ Output from the executed task is never brought to front except for Windows where
 
 Tasks local commands can be made operating specific as well. The syntax is the same as for global commands. Here an example that adds an OS specific argument to a command:
 
-```json
+```json5
 {
     "version": "0.1.0",
     "tasks": [
@@ -310,7 +310,7 @@ If you don't already have a `tasks.json` under your workspace `.vscode` folder, 
 
 For this example, select `Gulp` from the list. Given a `gulpfile.js` like the example above, this will generate a `tasks.json` file like this:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -339,7 +339,7 @@ Since we execute the Mono compiler to compile C# files, we should use the `$msCo
 
 The `problemMatcher` property will then be:
 
-```json
+```json5
             "problemMatcher": [
                 "$msCompile"
             ]
@@ -367,7 +367,7 @@ We want to produce a problem matcher that can capture the message in the output 
 
 A matcher that captures the above warning (and errors) looks like:
 
-```json
+```json5
 {
     // The problem is owned by the cpp language service.
     "owner": "cpp",
@@ -395,7 +395,7 @@ Please note that the file, line and message properties are mandatory.
 
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
 
-```json
+```json5
 {
     "version": "0.1.0",
     "command": "gcc",
@@ -444,7 +444,7 @@ To do this we use an array of problem patterns for the `pattern` property. This 
 
 The following problem pattern matches the output from ESLint in stylish mode - but still has one small issue which we will resolve next.  The code below has a first regular expression to capture the file name and the second to capture the line, column, severity, message and error code:
 
-```json
+```json5
 {
     "owner": "javascript",
     "fileLocation": ["relative", "${workspaceFolder}"],
@@ -486,7 +486,7 @@ The information captured by all previous patterns is combined with the informati
 
 Here is a problem matcher to fully capture ESLint stylish problems:
 
-```json
+```json5
 {
     "owner": "javascript",
     "fileLocation": ["relative", "${workspaceFolder}"],
@@ -538,7 +538,7 @@ To capture this information, a problem matcher can provide a `watching` property
 
 For the tsc compiler, this looks like follows:
 
-```json
+```json5
 "watching": {
     "activeOnStart": true,
     "beginsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - File change detected\\. Starting incremental compilation\\.\\.\\.",
@@ -550,7 +550,7 @@ In addition to the `watching` property on the problem matcher, the task itself h
 
 A full handcrafted `tasks.json` for a tsc task running in watch mode looks like this:
 
-```json
+```json5
 {
     "version": "0.1.0",
     "command": "tsc",

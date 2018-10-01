@@ -92,7 +92,7 @@ You can select multiple files in the **File Explorer** and **OPEN EDITORS** view
 
 **Note:** In earlier VS Code releases, clicking with the `Ctrl/Cmd` key pressed would open a file in a new Editor Group to the side. If you would still like this behavior, you can use the `workbench.list.multiSelectModifier` setting to change multi-selection to use the `Alt` key.
 
-```json
+```json5
 "workbench.list.multiSelectModifier": "alt"
 ```
 
@@ -217,7 +217,7 @@ When you have more open items than can fit in the title area, you can use the **
 
 If you don't want to use Tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/getstarted/settings.md) to false:
 
-```json
+```json5
     "workbench.editor.showTabs": false
 ```
 
@@ -229,7 +229,7 @@ By default, new Tabs are added to the right of the existing Tabs but you can con
 
 For example, you might like new tabbed items to appear on the left:
 
-```json
+```json5
     "workbench.editor.openPositioning": "left"
 ```
 
@@ -315,7 +315,7 @@ You can change keybindings for `kbstyle(Ctrl+Tab)` to show you a list of all ope
 
 Edit your [keybindings](/docs/getstarted/keybindings.md) and add the following:
 
-```json
+```json5
 { "key": "ctrl+tab", "command": "workbench.action.openPreviousEditorFromHistory" },
 { "key": "ctrl+tab", "command": "workbench.action.quickOpenNavigateNext", "when": "inQuickOpen" },
 ```
@@ -326,13 +326,13 @@ If you liked the behavior of VS Code closing an entire group when closing one ed
 
 macOS:
 
-```json
+```json5
 { "key": "cmd+w", "command": "workbench.action.closeEditorsInGroup" }
 ```
 
 Windows/Linux:
 
-```json
+```json5
 { "key": "ctrl+w", "command": "workbench.action.closeEditorsInGroup" }
 ```
 
@@ -363,7 +363,7 @@ The indent guide colors are customizable as are most VS Code UI elements. To [cu
 
 For example, to make the indent guides bright blue, add the following to your `settings.json`:
 
-```json
+```json5
 "workbench.colorCustomizations": {
     "editorIndentGuide.background": "#0000ff"
 }

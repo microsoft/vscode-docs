@@ -195,7 +195,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Scroll down to and examine the configuration with the name "Python: Flask (0.11.x or later)". This configuration contains `"module": "flask",`, which tells VS Code to run Python with `-m flask` when it starts the debugger. It also defines the FLASK_APP environment variable in the `env` property to identify the startup file, which is `app.py` by default, but allows you to easily specify a different file. If you want to change the host and/or port, you can use the `args` array.
 
-    ```json
+    ```json5
     {
         "name": "Python: Flask (0.11.x or later)",
         "type": "python",
@@ -406,7 +406,7 @@ The following sections demonstrate both types of static files.
 
 1. In the `static` folder, create a JSON data file named `data.json` with the following contents (which are just meaningless sample data):
 
-    ```json
+    ```json5
     {
         "01": {
             "note" : "This data is very simple because we're demonstrating only the mechanism."
@@ -512,7 +512,7 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
 1. After VS code opens `html.json`, add the following entry within the existing curly braces (the explanatory comments, not shown here, describe details such as how the `$0` line indicates where VS Code places the cursor after inserting a snippet):
 
-    ```json
+    ```json5
     "Flask App: template extending layout.html": {
         "prefix": "flextlayout",
         "body": [
@@ -662,7 +662,7 @@ Throughout this tutorial, all the app code is contained in a single `app.py` fil
 
 1. Open the debug configuration file `launch.json` and update the `env` property as follows to point to the startup object:
 
-    ```json
+    ```json5
     "env": {
         "FLASK_APP": "hello_app.webapp"
     },

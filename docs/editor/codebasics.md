@@ -166,7 +166,7 @@ You can invoke these from the **Command Palette** (`kb(workbench.action.showComm
 
 VS Code has default formatters for JavaScript, TypeScript, JSON, and HTML. Each language has specific formatting options (for example, `html.format.indentInnerHtml`) which you can tune to your preference in your user or workspace [settings](/docs/getstarted/settings.md). You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
 
-```json
+```json5
 "html.format.enable": false
 ```
 
@@ -204,7 +204,7 @@ Since the 1.22 release, folding ranges can also be computed based on syntax toke
 
 If you prefer to switch back to indentation based folding for one (or all) of the languages above, use:
 
-```json
+```json5
   "[html]": {
     "editor.foldingStrategy": "indentation"
   },
@@ -236,7 +236,7 @@ To fold and unfold only the regions defined by markers use:
 
 VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.mg).
 
-```json
+```json5
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
 ```
@@ -253,7 +253,7 @@ You can click on the Status Bar indentation display to bring up a drop-down with
 
 >**Note:** VS Code auto-detection checks for indentations of 2, 4, 6 or 8 spaces. If your file uses a different number of spaces, the indentation may not be correctly detected. For example, if your convention is to indent with 3 spaces, you may want to turn off `editor.detectIndentation` and explicitly set the tab size to 3.
 
-```json
+```json5
     "editor.detectIndentation": false,
     "editor.tabSize": 3,
 ```
@@ -299,7 +299,7 @@ Yes, expand the Search view text box to include a replace text field. You can se
 
 You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default, `editor.wordWrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
 
-```json
+```json5
     "editor.wordWrap": "on"
 ```
 
