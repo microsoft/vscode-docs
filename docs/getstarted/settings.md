@@ -129,9 +129,9 @@ The first time you open a workspace which defines any of these settings, VS Code
 
 Below are the Visual Studio Code default settings and their values. You can also view the default values in the Settings editor.
 
-```json
+```js
 {
-// Commonly Used
+  // Commonly Used Settings
 
   // Controls auto save of dirty files. Read more about autosave [here](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save).
   //  - off: A dirty file is never automatically saved.
