@@ -16,7 +16,7 @@ const TAS_URL = `https://${GITHUB_TOKEN}@github.com/microsoft/TryAppServiceClien
  * This task
  * - Clones vscode-website
  * - Clones vscode-website-dist
- * - Uses vscode-docs:ext-docs + vscode-website:extensibility to build to vscode-website-dist:ext-docs
+ * - Uses vscode-docs:ext-docs + vscode-website:ext-docs to build to vscode-website-dist:ext-docs
  */
 gulp.task('build-dist', done => {
   if (!$.which('git')) {
@@ -31,13 +31,13 @@ gulp.task('build-dist', done => {
   }
   $.cd('_build')
 
-  // Clone extensibility branch of vscode-website
+  // Clone ext-docs branch of vscode-website
   // If it exists, upgrade to latest
   if (!$.test('-e', 'vscode-website')) {
-    $.exec(`git clone --depth=1 --branch=extensibility ${URL}`)
+    $.exec(`git clone --depth=1 --branch=ext-docs ${URL}`)
   } else {
     $.cd('vscode-website')
-    $.exec('git pull origin extensibility')
+    $.exec('git pull origin ext-docs')
     $.cd('..')
   }
 
