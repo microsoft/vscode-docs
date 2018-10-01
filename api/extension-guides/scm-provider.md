@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order: 13
 Area: extension-guides
 TOCTitle: SCM Provider
 PageTitle: SCM Provider

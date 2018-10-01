@@ -1,5 +1,5 @@
 ---
-Order: 13
+Order: 14
 Area: extension-guides
 TOCTitle: Debugger
 PageTitle: Debugger

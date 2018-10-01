@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 11
 Area: extension-guides
 TOCTitle: Search Provider
 PageTitle: Search Provider
