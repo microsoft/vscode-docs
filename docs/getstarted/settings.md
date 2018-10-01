@@ -268,9 +268,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether the find operation is carried on selected text or the entire file in the editor.
   "editor.find.autoFindInSelection": false,
 
-  // Controls whether the Find Widget should read or modify the shared find clipboard on macOS.
-  "editor.find.globalFindClipboard": true,
-
   // Controls whether the search string in the Find Widget is seeded from the editor selection.
   "editor.find.seedSearchStringFromSelection": true,
 
@@ -325,6 +322,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Insert spaces when pressing `Tab`. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
   "editor.insertSpaces": true,
 
+  // Special handling for large files to disable certain memory intensive features.
+  "editor.largeFileOptimizations": true,
+
   // Controls the letter spacing in pixels.
   "editor.letterSpacing": 0,
 
@@ -367,6 +367,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Zoom the font of the editor when using mouse wheel and holding `Ctrl`.
   "editor.mouseWheelZoom": false,
+
+  // Merge multiple cursors when they are overlapping.
+  "editor.multiCursorMergeOverlapping": true,
 
   // The modifier to be used to add multiple cursors with the mouse. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier. [Read more](https://code.visualstudio.com/docs/editor/codebasics#_multicursor-modifier).
   //  - ctrlCmd: Maps to `Control` on Windows and Linux and to `Command` on macOS.
@@ -428,9 +431,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether the editor will scroll beyond the last line.
   "editor.scrollBeyondLastLine": true,
-
-  // Controls whether the Linux primary clipboard should be supported.
-  "editor.selectionClipboard": true,
 
   // Controls whether the editor should highlight matches similar to the selection
   "editor.selectionHighlight": true,
@@ -575,9 +575,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
 
-  // Navigate between open files using three-finger swipe horizontally.
-  "workbench.editor.swipeToNavigate": false,
-
   // Controls the position of the editor's tabs close buttons, or disables them when set to 'off'.
   "workbench.editor.tabCloseButton": "right",
 
@@ -588,13 +585,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Fetches experiments to run from a Microsoft online service.
   "workbench.enableExperiments": true,
-
-  // Controls font aliasing method in the workbench.
-  //  - default: Sub-pixel font smoothing. On most non-retina displays this will give the sharpest text.
-  //  - antialiased: Smooth the font on the level of the pixel, as opposed to the subpixel. Can make the font appear lighter overall.
-  //  - none: Disables font smoothing. Text will show with jagged sharp edges.
-  //  - auto: Applies `default` or `antialiased` automatically based on the DPI of displays.
-  "workbench.fontAliasing": "default",
 
   // Specifies the icon theme used in the workbench or 'null' to not show any file icons.
   //  - null: No file icons
@@ -607,7 +597,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - alt: Maps to `Alt` on Windows and Linux and to `Option` on macOS.
   "workbench.list.multiSelectModifier": "ctrlCmd",
 
-  // Controls how to open items in trees and lists using the mouse (if supported). For parents with children in trees, this setting will control if a single click expands the parent or a double click. Note that some trees and lists might choose to ignore this setting if it is not applicable.
+  // Controls how to open items in trees and lists using the mouse (if supported). For parents with children in trees, this setting will control if a single click expands the parent or a double click. Note that some trees and lists might choose to ignore this setting if it is not applicable. 
   "workbench.list.openMode": "singleClick",
 
   // Controls the default location of the panel (terminal, debug console, output, problems). It can either show at the bottom or on the right of the workbench.
@@ -664,14 +654,8 @@ Below are the Visual Studio Code default settings and their values. You can also
   // If enabled, will automatically change to high contrast theme if Windows is using a high contrast theme, and to dark theme when switching away from a Windows high contrast theme.
   "window.autoDetectHighContrast": true,
 
-  // If enabled, clicking on an inactive window will both activate the window and trigger the element under the mouse if it is clickable. If disabled, clicking anywhere on an inactive window will activate it only and a second click is required on the element.
-  "window.clickThroughInactive": true,
-
   // Controls whether closing the last editor should also close the window. This setting only applies for windows that do not show folders.
   "window.closeWhenEmpty": false,
-
-  // Enables macOS Sierra window tabs. Note that changes require a full restart to apply and that native tabs will disable a custom title bar style if configured.
-  "window.nativeTabs": false,
 
   // If enabled, the main menus can be opened via Alt-key shortcuts. Disabling mnemonics allows to bind these Alt-key shortcuts to editor commands instead.
   "window.enableMenuBarMnemonics": true,
@@ -764,6 +748,53 @@ Below are the Visual Studio Code default settings and their values. You can also
   "files.defaultLanguage": "",
 
   // The default character set encoding to use when reading and writing files. This setting can also be configured per language.
+  //  - utf8: UTF-8
+  //  - utf8bom: UTF-8 with BOM
+  //  - utf16le: UTF-16 LE
+  //  - utf16be: UTF-16 BE
+  //  - windows1252: Western (Windows 1252)
+  //  - iso88591: Western (ISO 8859-1)
+  //  - iso88593: Western (ISO 8859-3)
+  //  - iso885915: Western (ISO 8859-15)
+  //  - macroman: Western (Mac Roman)
+  //  - cp437: DOS (CP 437)
+  //  - windows1256: Arabic (Windows 1256)
+  //  - iso88596: Arabic (ISO 8859-6)
+  //  - windows1257: Baltic (Windows 1257)
+  //  - iso88594: Baltic (ISO 8859-4)
+  //  - iso885914: Celtic (ISO 8859-14)
+  //  - windows1250: Central European (Windows 1250)
+  //  - iso88592: Central European (ISO 8859-2)
+  //  - cp852: Central European (CP 852)
+  //  - windows1251: Cyrillic (Windows 1251)
+  //  - cp866: Cyrillic (CP 866)
+  //  - iso88595: Cyrillic (ISO 8859-5)
+  //  - koi8r: Cyrillic (KOI8-R)
+  //  - koi8u: Cyrillic (KOI8-U)
+  //  - iso885913: Estonian (ISO 8859-13)
+  //  - windows1253: Greek (Windows 1253)
+  //  - iso88597: Greek (ISO 8859-7)
+  //  - windows1255: Hebrew (Windows 1255)
+  //  - iso88598: Hebrew (ISO 8859-8)
+  //  - iso885910: Nordic (ISO 8859-10)
+  //  - iso885916: Romanian (ISO 8859-16)
+  //  - windows1254: Turkish (Windows 1254)
+  //  - iso88599: Turkish (ISO 8859-9)
+  //  - windows1258: Vietnamese (Windows 1258)
+  //  - gbk: Simplified Chinese (GBK)
+  //  - gb18030: Simplified Chinese (GB18030)
+  //  - cp950: Traditional Chinese (Big5)
+  //  - big5hkscs: Traditional Chinese (Big5-HKSCS)
+  //  - shiftjis: Japanese (Shift JIS)
+  //  - eucjp: Japanese (EUC-JP)
+  //  - euckr: Korean (EUC-KR)
+  //  - windows874: Thai (Windows 874)
+  //  - iso885911: Latin/Thai (ISO 8859-11)
+  //  - koi8ru: Cyrillic (KOI8-RU)
+  //  - koi8t: Tajik (KOI8-T)
+  //  - gb2312: Simplified Chinese (GB 2312)
+  //  - cp865: Nordic DOS (CP 865)
+  //  - cp850: Western European DOS (CP 850)
   "files.encoding": "utf8",
 
   // The default end of line character.
@@ -797,6 +828,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // When enabled, will trim trailing whitespace when saving a file.
   "files.trimTrailingWhitespace": false,
+
+  // Use the new experimental file watcher.
+  "files.useExperimentalFileWatcher": false,
 
   // Configure glob patterns of file paths to exclude from file watching. Patterns must match on absolute paths (i.e. prefix with ** or the full path to match properly). Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
   "files.watcherExclude": {
@@ -873,9 +907,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to follow symlinks while searching.
   "search.followSymlinks": true,
 
-  // Controls whether the search view should read or modify the shared find clipboard on macOS.
-  "search.globalFindClipboard": false,
-
   // Controls whether the search will be shown as a view in the sidebar or as a panel in the panel area for more horizontal space.
   "search.location": "sidebar",
 
@@ -900,9 +931,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   "http.proxyAuthorization": null,
 
   // Controls whether the proxy server certificate should be verified against the list of supplied CAs.
-  "http.proxyStrictSSL": true,
+	"http.proxyStrictSSL": true,
 
-// Keyboard
+// Keyboard (only on macOS)
 
   // Controls the dispatching logic for key presses to use either `code` (recommended) or `keyCode`.
   "keyboard.dispatch": "code",
@@ -1019,6 +1050,10 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // JSON
 
+  // The setting `json.colorDecorators.enable` has been deprecated in favor of `editor.colorDecorators`.
+  // Enables or disables color decorators
+  "json.colorDecorators.enable": true,
+
   // Enable/disable default JSON formatter
   "json.format.enable": true,
 
@@ -1057,6 +1092,10 @@ Below are the Visual Studio Code default settings and their values. You can also
   // When a markdown editor is scrolled, update the view of the preview.
   "markdown.preview.scrollPreviewWithEditor": true,
 
+  // This setting has been replaced by 'markdown.preview.scrollPreviewWithEditor' and no longer has any effect.
+  // [Deprecated] Scrolls the markdown preview to reveal the currently selected line from the editor.
+  "markdown.preview.scrollPreviewWithEditorSelection": true,
+
   // Sets how YAML front matter should be rendered in the markdown preview. 'hide' removes the front matter. Otherwise, the front matter is treated as markdown content.
   "markdown.previewFrontMatter": "hide",
 
@@ -1080,7 +1119,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Whether the linter is run on save or on type.
   "php.validate.run": "onSave",
 
-// TypeScript
+// JavaScript / TypeScript
 
   // Enable/disable automatic closing of JSX tags. Requires using TypeScript 3.0 or newer in the workspace.
   "javascript.autoClosingTags": true,
@@ -1286,6 +1325,10 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // CSS
 
+  // The setting `css.colorDecorators.enable` has been deprecated in favor of `editor.colorDecorators`.
+  // Enables or disables color decorators.
+  "css.colorDecorators.enable": true,
+
   // Invalid number of parameters.
   "css.lint.argumentsInColorFunction": "error",
 
@@ -1351,6 +1394,10 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // LESS
 
+  // The setting `less.colorDecorators.enable` has been deprecated in favor of `editor.colorDecorators`.
+  // Enables or disables color decorators.
+  "less.colorDecorators.enable": true,
+
   // Invalid number of parameters.
   "less.lint.argumentsInColorFunction": "error",
 
@@ -1409,6 +1456,10 @@ Below are the Visual Studio Code default settings and their values. You can also
   "less.validate": true,
 
 // SCSS (Sass)
+
+  // The setting `scss.colorDecorators.enable` has been deprecated in favor of `editor.colorDecorators`.
+  // Enables or disables color decorators.
+  "scss.colorDecorators.enable": true,
 
   // Invalid number of parameters.
   "scss.lint.argumentsInColorFunction": "error",
@@ -1498,7 +1549,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "terminal.external.osxExec": "Terminal.app",
 
   // Customizes which terminal to run on Windows.
-  "terminal.external.windowsExec": "C:\\Windows\\System32\\cmd.exe",
+  "terminal.external.windowsExec": "C:\\windows\\System32\\cmd.exe",
 
 // Integrated Terminal
 
@@ -1507,7 +1558,92 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.action.toggleTabFocusMode",
     "workbench.action.debug.continue",
     "workbench.action.debug.pause",
-    ...
+    "workbench.action.debug.restart",
+    "workbench.action.debug.run",
+    "workbench.action.debug.start",
+    "workbench.action.debug.stepInto",
+    "workbench.action.debug.stepOut",
+    "workbench.action.debug.stepOver",
+    "workbench.action.debug.stop",
+    "workbench.action.firstEditorInGroup",
+    "workbench.action.focusActiveEditorGroup",
+    "workbench.action.focusEighthEditorGroup",
+    "workbench.action.focusFifthEditorGroup",
+    "workbench.action.focusFirstEditorGroup",
+    "workbench.action.focusFourthEditorGroup",
+    "workbench.action.focusLastEditorGroup",
+    "workbench.action.focusSecondEditorGroup",
+    "workbench.action.focusSeventhEditorGroup",
+    "workbench.action.focusSixthEditorGroup",
+    "workbench.action.focusThirdEditorGroup",
+    "workbench.action.lastEditorInGroup",
+    "workbench.action.navigateDown",
+    "workbench.action.navigateLeft",
+    "workbench.action.navigateRight",
+    "workbench.action.navigateUp",
+    "workbench.action.openNextRecentlyUsedEditorInGroup",
+    "workbench.action.openPreviousRecentlyUsedEditorInGroup",
+    "workbench.action.quickOpen",
+    "workbench.action.quickOpenPreviousEditor",
+    "workbench.action.quickOpenView",
+    "workbench.action.showCommands",
+    "workbench.action.tasks.build",
+    "workbench.action.tasks.restartTask",
+    "workbench.action.tasks.runTask",
+    "workbench.action.tasks.showLog",
+    "workbench.action.tasks.showTasks",
+    "workbench.action.tasks.terminate",
+    "workbench.action.tasks.test",
+    "workbench.action.terminal.clear",
+    "workbench.action.terminal.clearSelection",
+    "workbench.action.terminal.copySelection",
+    "workbench.action.terminal.deleteWordLeft",
+    "workbench.action.terminal.deleteWordRight",
+    "workbench.action.terminal.focus",
+    "workbench.action.terminal.focusAtIndex1",
+    "workbench.action.terminal.focusAtIndex2",
+    "workbench.action.terminal.focusAtIndex3",
+    "workbench.action.terminal.focusAtIndex4",
+    "workbench.action.terminal.focusAtIndex5",
+    "workbench.action.terminal.focusAtIndex6",
+    "workbench.action.terminal.focusAtIndex7",
+    "workbench.action.terminal.focusAtIndex8",
+    "workbench.action.terminal.focusAtIndex9",
+    "workbench.action.terminal.focusFindWidget",
+    "workbench.action.terminal.focusNext",
+    "workbench.action.terminal.focusNextPane",
+    "workbench.action.terminal.focusPrevious",
+    "workbench.action.terminal.focusPreviousPane",
+    "workbench.action.terminal.hideFindWidget",
+    "workbench.action.terminal.kill",
+    "workbench.action.terminal.moveToLineEnd",
+    "workbench.action.terminal.moveToLineStart",
+    "workbench.action.terminal.new",
+    "workbench.action.terminal.newInActiveWorkspace",
+    "workbench.action.terminal.paste",
+    "workbench.action.terminal.resizePaneDown",
+    "workbench.action.terminal.resizePaneLeft",
+    "workbench.action.terminal.resizePaneRight",
+    "workbench.action.terminal.resizePaneUp",
+    "workbench.action.terminal.runActiveFile",
+    "workbench.action.terminal.runSelectedText",
+    "workbench.action.terminal.scrollDown",
+    "workbench.action.terminal.scrollDownPage",
+    "workbench.action.terminal.scrollToBottom",
+    "workbench.action.terminal.scrollToNextCommand",
+    "workbench.action.terminal.scrollToPreviousCommand",
+    "workbench.action.terminal.scrollToTop",
+    "workbench.action.terminal.scrollUp",
+    "workbench.action.terminal.scrollUpPage",
+    "workbench.action.terminal.selectAll",
+    "workbench.action.terminal.selectToNextCommand",
+    "workbench.action.terminal.selectToNextLine",
+    "workbench.action.terminal.selectToPreviousCommand",
+    "workbench.action.terminal.selectToPreviousLine",
+    "workbench.action.terminal.split",
+    "workbench.action.terminal.splitInActiveWorkspace",
+    "workbench.action.terminal.toggleTerminal",
+    "workbench.action.togglePanel"
   ],
 
   // Controls whether to confirm on exit if there are active terminal sessions.
@@ -1589,7 +1725,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "terminal.integrated.shell.osx": "sh",
 
   // The path of the shell that the terminal uses on Windows. [Read more about configuring the shell](https://code.visualstudio.com/docs/editor/integrated-terminal#_configuration).
-  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "terminal.integrated.shell.windows": "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
 
   // The command line arguments to use when on the Linux terminal. [Read more about configuring the shell](https://code.visualstudio.com/docs/editor/integrated-terminal#_configuration).
   "terminal.integrated.shellArgs.linux": [],
@@ -1632,7 +1768,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Telemetry
 
-  // Enable crash reports to be sent to a Microsoft online service.
+  // Enable crash reports to be sent to a Microsoft online service. 
   // This option requires restart to take effect.
   "telemetry.enableCrashReporter": true,
 
@@ -1653,54 +1789,8 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Show Errors & Warnings on Outline Elements.
   "outline.problems.enabled": true,
 
-// Default Configuration Overrides
-
-  // Configure editor settings to be overridden for [git-commit] language.
-  "[git-commit]":  {
-    "editor.rulers": [
-        72
-    ]
-  },
-
-  // Configure editor settings to be overridden for [go] language.
-  "[go]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [json] language.
-  "[json]":  {
-    "editor.quickSuggestions": {
-        "strings": true
-    }
-  },
-
-  // Configure editor settings to be overridden for [makefile] language.
-  "[makefile]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [markdown] language.
-  "[markdown]":  {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": false
-  },
-
-  // Configure editor settings to be overridden for [yaml] language.
-  "[yaml]":  {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": false
-  },
- 
-// Node Debug
-
-  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
-  //  - disabled: Auto attach is disabled and not shown in status bar.
-  //  - on: Auto attach is active.
-  //  - off: Auto attach is inactive.
-  "debug.node.autoAttach": "disabled",
-
 // Emmet
+
 
   // An array of languages where Emmet abbreviations should not be expanded.
   "emmet.excludeLanguages": [
@@ -1740,36 +1830,57 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Variables to be used in Emmet snippets
   "emmet.variables": {},
 
-// Npm
+// Default Configuration Overrides
 
-  // Controls whether npm scripts should be automatically detected.
-  "npm.autoDetect": "on",
+  // Configure editor settings to be overridden for [git-commit] language.
+  "[git-commit]":  {
+    "editor.rulers": [
+        72
+    ]
+  },
 
-  // Enable an explorer view for npm scripts.
-  "npm.enableScriptExplorer": false,
+  // Configure editor settings to be overridden for [go] language.
+  "[go]":  {
+    "editor.insertSpaces": false
+  },
 
-  // Configure glob patterns for folders that should be excluded from automatic script detection.
-  "npm.exclude": "",
+  // Configure editor settings to be overridden for [json] language.
+  "[json]":  {
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+  },
 
-  // Fetch data from https://registry.npmjs/org and https://registry.bower.io to provide auto-completion and information on hover features on npm dependencies.
-  "npm.fetchOnlinePackageInfo": true,
+  // Configure editor settings to be overridden for [makefile] language.
+  "[makefile]":  {
+    "editor.insertSpaces": false
+  },
 
-  // The package manager used to run scripts.
-  "npm.packageManager": "npm",
+  // Configure editor settings to be overridden for [markdown] language.
+  "[markdown]":  {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
+  },
 
-  // Run npm commands with the `--silent` option.
-  "npm.runSilent": false,
+  // Configure editor settings to be overridden for [yaml] language.
+  "[yaml]":  {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": false
+  },
 
-  // The default click action used in the scripts explorer: `open` or `run`, the default is `open`.
-  "npm.scriptExplorerAction": "open",
+// Node Debug
 
-// Merge Conflict
+  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
+  //  - disabled: Auto attach is disabled and not shown in status bar.
+  //  - on: Auto attach is active.
+  //  - off: Auto attach is inactive.
+  "debug.node.autoAttach": "disabled",
 
-  // Create a Code Lens for merge conflict blocks within editor.
-  "merge-conflict.codeLens.enabled": true,
+// Experimental
 
-  // Create decorators for merge conflict blocks within editor.
-  "merge-conflict.decorators.enabled": true,
+  // (Experimental) Enable this experimental search provider extension. When enabled, it takes precedence over vscode's built-in search.
+  "searchRipgrep.enable": false,
 
 // Git
 
@@ -1853,20 +1964,51 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to show a notification when a push is successful.
   "git.showPushSuccessNotification": false,
 
+// NPM
+
+  // Controls whether npm scripts should be automatically detected.
+  "npm.autoDetect": "on",
+
+  // Enable an explorer view for npm scripts.
+  "npm.enableScriptExplorer": false,
+
+  // Configure glob patterns for folders that should be excluded from automatic script detection.
+  "npm.exclude": "",
+
+  // Fetch data from https://registry.npmjs/org and https://registry.bower.io to provide auto-completion and information on hover features on npm dependencies.
+  "npm.fetchOnlinePackageInfo": true,
+
+  // The package manager used to run scripts.
+  "npm.packageManager": "npm",
+
+  // Run npm commands with the `--silent` option.
+  "npm.runSilent": false,
+
+  // The default click action used in the scripts explorer: `open` or `run`, the default is `open`.
+  "npm.scriptExplorerAction": "open",
+
+// Merge Conflicts
+
+  // Create a Code Lens for merge conflict blocks within editor.
+  "merge-conflict.codeLens.enabled": true,
+
+  // Create decorators for merge conflict blocks within editor.
+  "merge-conflict.decorators.enabled": true,
+
 // Grunt
 
   // Controls whether auto detection of Grunt tasks is on or off. Default is on.
   "grunt.autoDetect": "on",
 
-// Jake
-
-  // Controls whether auto detection of Jake tasks is on or off. Default is on.
-  "jake.autoDetect": "on",
-
 // Gulp
 
   // Controls whether auto detection of Gulp tasks is on or off. Default is on.
-  "gulp.autoDetect": "on"
+  "gulp.autoDetect": "on",
+
+// Jake
+
+  // Controls whether auto detection of Jake tasks is on or off. Default is on.
+  "jake.autoDetect": "on"
 }
 ```
 
