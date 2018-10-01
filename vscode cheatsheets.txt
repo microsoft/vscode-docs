@@ -1,0 +1,9 @@
+##Link to the vscode cheatsheets
+
+https://devhints.io/vscode
+
+https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
+
+https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf
+
+https://zellwk.com/blog/useful-vscode-keyboard-shortcuts/
