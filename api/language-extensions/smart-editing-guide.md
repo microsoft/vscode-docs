@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: languageextensions
 TOCTitle: Smart Editing Guide
 PageTitle: Smart Editing Guide
