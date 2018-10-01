@@ -638,4 +638,4 @@ Yes, if you've created symlinks with `npm link`, you can debug symlink sources b
 }
 ```
 
-If your `cwd` is inside a symlinked path, then you will also need to add the `"--preserve-symlinks-main"` option. This option is only available in Node 10+.
+If your main script is inside a symlinked path, then you will also need to add the `"--preserve-symlinks-main"` option. This option is only available in Node 10+.
