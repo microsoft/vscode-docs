@@ -470,7 +470,9 @@ Here is a selection of common features for editing code. If the keyboard shortcu
 
 ### Multi cursor selection
 
-Keyboard Shortcut: `kb(editor.action.insertCursorAbove)` or `kb(editor.action.insertCursorBelow)`
+You can select and edit multiple lines of code (or same variable) by using this shortcut.
+
+**Keyboard Shortcut**: `kb(editor.action.insertCursorAbove)` or `kb(editor.action.insertCursorBelow)`
 
 ![multi cursor](images/tips-and-tricks/multi_cursor.gif)
 
@@ -484,7 +486,9 @@ Add more cursors to current selection.
 
 ### Join line
 
-Keyboard Shortcut: `kb(editor.action.joinLines)`
+You can join several lines of variables (within function declarations) into a single line.
+
+**Keyboard Shortcut**: `kb(editor.action.joinLines)`
 
 > Windows / Linux: Not bound by default. Open **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) and bind `editor.action.joinLines` to a shortcut of your choice.
 
@@ -791,7 +795,9 @@ git config --global merge.tool code
 
 ### Configure debugger
 
-From the **Command Palette** (`kb(workbench.action.showCommands)`), select **Debug: Open launch.json**, and select the environment that matches your project (Node.js, Python, C++, etc). This will generate a `launch.json` file. Node.js support is built-in and other environments require installing the appropriate language extensions. See the debugging [documentation](/docs/editor/debugging.md) for more details.
+Open the **Command Palette** (`kb(workbench.action.showCommands)`), and select **Debug: Open launch.json**, then select the environment that matches your project (Node.js, Python, C++, etc).
+
+This will generate a `launch.json` file. Node.js support is built-in and other environments require installing the appropriate language extensions. See the debugging [documentation](/docs/editor/debugging.md) for more details.
 
 ![configure debugging](images/tips-and-tricks/configure_debug.gif)
 
