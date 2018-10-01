@@ -109,7 +109,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 `vscode.executeCodeLensProvider` - Execute CodeLens provider.
 
 * _uri_ - Uri of a text document
-* _itemResolveCount_ - (optional) Number of lenses that should be resolved and returned. Will only retrun resolved lenses, will impact performance)
+* _itemResolveCount_ - (optional) Number of lenses that should be resolved and returned. Will only return resolved lenses, will impact performance)
 * _(returns)_ - A promise that resolves to an array of CodeLens instances.
 
 

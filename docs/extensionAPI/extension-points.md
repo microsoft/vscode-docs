@@ -614,7 +614,7 @@ Contributes named problem patterns that can be used in problem matchers (see abo
 
 ## contributes.taskDefinitions
 
-Contributes and defines an object literal structures that allows to uniquely identifiy a contributed task in the system. A task definition has at minimum a `type` property but it usually defines additional propertiies. For example a task definition for a task representing a script in a package.json file looks like this:
+Contributes and defines an object literal structures that allows to uniquely identify a contributed task in the system. A task definition has at minimum a `type` property but it usually defines additional properties. For example a task definition for a task representing a script in a package.json file looks like this:
 
 ```json
 "taskDefinitions": [
@@ -637,7 +637,7 @@ Contributes and defines an object literal structures that allows to uniquely ide
 ]
 ```
 
-The task definition is defined using JSON schema syntax for the `required` and `properties` property. The `type` property definies the task type. If the above example:
+The task definition is defined using JSON schema syntax for the `required` and `properties` property. The `type` property defines the task type. If the above example:
 
 * `"type": "npm"` associates the task definition with the npm tasks
 * `"required": [ "script" ]` defines that `script` attributes as mandatory. The `path` property is optional.
