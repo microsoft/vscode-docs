@@ -434,12 +434,6 @@ Navigate forward: `kb(workbench.action.navigateForward)`
 
 ![navigate history](images/tips-and-tricks/navigate_history.gif)
 
-### Navigate to a file
-
-Keyboard Shortcut: `kb(workbench.action.quickOpen)`
-
-![navigate to file](images/tips-and-tricks/navigate_to_file.gif)
-
 ### File associations
 
 Create language associations for files that aren't detected correctly. For example, many configuration files with custom file extensions are actually JSON.
