@@ -22,6 +22,15 @@ The selected environment is also automatically activated when using the **Python
 
 ## Global and virtual environments
 
+
+> As of version _2018.8.1_, the Python Extension automatically updates environments, this can be disabled, by setting the configuration in `settings.json`:
+
+```python
+{
+    "python.terminal.activateEnvironment": false
+}
+```
+
 By default, any Python interpreter that you've installed run in its own "global" environment, which is not specific to any one program. For example, if you just run `python` (Windows) or `python3` (macOS/Linux) at a new command prompt, you're running in that interpreter's global environment. Accordingly, any packages that you install or uninstall affect the global environment and all programs that you run within that context.
 
 Although working in the global environment is an easy way to get started, that environment will, over time, become cluttered with many different packages that you've installed for different projects. Such clutter makes it difficult to thoroughly test an application against a specific set of packages with known versions, which is exactly the kind of environment you'd set up on a build server or web server.
@@ -48,6 +57,7 @@ The next section describes how to select an environment, include virtual environ
 ## Select an environment
 
 VS Code makes it easy to select and activate environments. Switching environments help you test different parts of your project with different interpreters as needed.
+
 
 To select a specific interpreter, invoke the **Python: Select Interpreter** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
