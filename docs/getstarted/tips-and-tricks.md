@@ -470,7 +470,7 @@ Keyboard Shortcut: `kb(editor.action.insertCursorAbove)` or `kb(editor.action.in
 
 ![multi cursor second example](images/tips-and-tricks/editingevolved_multicursor.gif)
 
-Add more cursors to current selection.
+You can add additional cursors to all occurances of the current selection with `kbstyle(Ctrl+Shift+L)`
 
 ![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
 
