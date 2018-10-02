@@ -65,7 +65,7 @@ You can open multiple files from **Quick Open** by pressing the Right arrow key.
 
 ## Command line
 
-VS Code has a powerful command line interface (CLI) to help you customize how you launch the editor for your specific scenarios.
+VS Code has a powerful command line interface (CLI) to help you customize how the editor is launched for various situations.
 
 > Make sure the VS Code binary is on your path so you can simply type 'code' to launch VS Code. See the platform specific setup topics if VS Code is added to your environment path during installation ([Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)).
 
@@ -434,12 +434,6 @@ Navigate forward: `kb(workbench.action.navigateForward)`
 
 ![navigate history](images/tips-and-tricks/navigate_history.gif)
 
-### Navigate to a file
-
-Keyboard Shortcut: `kb(workbench.action.quickOpen)`
-
-![navigate to file](images/tips-and-tricks/navigate_to_file.gif)
-
 ### File associations
 
 Create language associations for files that aren't detected correctly. For example, many configuration files with custom file extensions are actually JSON.
@@ -791,7 +785,7 @@ git config --global merge.tool code
 
 ### Configure debugger
 
-From the **Command Palette** (`kb(workbench.action.showCommands)`), select **Debug: Open launch.json**, and select the environment that matches your project (Node.js, Python, C++, etc). This will generate a `launch.json` file. Node.js support is built-in and other environments require installing the appropriate language extensions. See the debugging [documentation](/docs/editor/debugging.md) for more details.
+Open the **Command Palette** (`kb(workbench.action.showCommands)`) and select **Debug: Open launch.json**, which will prompt you to select the environment that matches your project (Node.js, Python, C++, etc). This will generate a `launch.json` file. Node.js support is built-in and other environments require installing the appropriate language extensions. See the debugging [documentation](/docs/editor/debugging.md) for more details.
 
 ![configure debugging](images/tips-and-tricks/configure_debug.gif)
 
