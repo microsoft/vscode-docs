@@ -23,7 +23,7 @@ When you start typing an Emmet abbreviation, you will see the abbreviation displ
 
 If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the following setting:
 
-```json
+```json5
 "emmet.triggerExpansionOnTab": true
 ```
 
@@ -37,7 +37,7 @@ If you have disabled the `editor.quickSuggestions` [setting](/docs/getstarted/se
 
 If you don't want to see Emmet abbreviations in suggestions at all, then use the following setting:
 
-```json
+```json5
 "emmet.showExpandedAbbreviation": "never"
 ```
 
@@ -47,7 +47,7 @@ You can still use the command **Emmet: Expand Abbreviation** to expand your abbr
 
 To ensure Emmet suggestions are always on top in the suggestion list, add the following settings:
 
-```json
+```json5
 "emmet.showSuggestionsAsSnippets": true,
 "editor.snippetSuggestions": "top"
 ```
@@ -58,7 +58,7 @@ To enable the Emmet abbreviation expansion in file types where it is not availab
 
 For example:
 
-```json
+```json5
 "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "vue-html": "html",
@@ -68,7 +68,7 @@ For example:
 
 Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non HTML/CSS context. To avoid this, you can use the following setting.
 
-```json
+```json5
 "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly"
 ```
 
@@ -88,7 +88,7 @@ Prefix your CSS abbreviations with `-` to get all applicable vendor prefixes inc
 
 Below are a few examples of how you can control which vendors get applied to which CSS property by updating the `emmet.preferences` setting:
 
-```json
+```json5
 {
     "emmet.preferences": {
         "css.webkitProperties": "border-right,animation",
@@ -109,7 +109,7 @@ Filters are special post-processors that modify the expanded abbreviation before
 
 Below is an example of the first approach using the `emmet.syntaxProfiles` setting to apply the `bem` filter for all the abbreviations in HTML files:
 
-```json
+```json5
 "emmet.syntaxProfiles": {
     "html": {
         "filters": "bem"
@@ -149,7 +149,7 @@ The format for the `filter.commentAfter` preference is different in VS Code Emme
 
 For example, instead of:
 
-```json
+```json5
 "emmet.preferences": {
     "filter.commentAfter": "\n<!-- /<%= attr('id', '#') %><%= attr('class', '.') %> -->"
 }
@@ -157,7 +157,7 @@ For example, instead of:
 
 in VS Code, you would use a simpler:
 
-```json
+```json5
 "emmet.preferences": {
     "filter.commentAfter": "\n<!-- /[#ID][.CLASS] -->"
 }
@@ -173,7 +173,7 @@ Custom Emmet snippets need to be defined in a json file named `snippets.json`. T
 
 Below is an example for the contents of this `snippets.json` file.
 
-```json
+```json5
 {
     "html": {
         "snippets": {
@@ -236,7 +236,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     Make sure to use language ids for both sides of the mapping.
 
     For example:
-    ```json
+    ```json5
     "emmet.includeLanguages": {
         "javascript": "javascriptreact",
         "vue-html": "html",
@@ -253,7 +253,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     See [Emmet Customization of output profile](https://docs.emmet.io/customization/syntax-profiles/#create-your-own-profile) to learn how you can customize the output of your HTML abbreviations.
 
     For example:
-    ```json
+    ```json5
     "emmet.syntaxProfiles": {
         "html": {
             "attr_quotes": "single"
@@ -269,7 +269,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     Customize variables used by Emmet snippets.
 
     For example:
-    ```json
+    ```json5
     "emmet.variables": {
         "lang": "de",
         "charset": "UTF-16"
@@ -339,7 +339,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
     For example, instead of the older format
 
-    ```json
+    ```json5
     "emmet.preferences": {
         "filter.commentAfter": "\n<!-- /<%= attr('id', '#') %><%= attr('class', '.') %> -->"
     }
@@ -347,7 +347,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
     you would use
 
-    ```json
+    ```json5
     "emmet.preferences": {
         "filter.commentAfter": "\n<!-- /[#ID][.CLASS] -->"
     }
@@ -370,7 +370,7 @@ Custom tags when used in an expression like `MyTag>YourTag` or `MyTag.someclass`
 
 Add the following setting to enable expanding of Emmet abbreviations using tab which will expand custom tags in all cases.
 
-```json
+```json5
 "emmet.triggerExpansionOnTab": true
 ```
 

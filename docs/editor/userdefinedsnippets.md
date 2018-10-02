@@ -35,7 +35,7 @@ You can define your own snippets, either global snippets or snippets for a speci
 
 Snippets are defined in a JSON format. The example below is a `For Loop` snippet you would use for JavaScript:
 
-```json
+```json5
 {
     "For_Loop": {
         "prefix": "for",
@@ -68,7 +68,7 @@ Global snippets that are applicable whenever you are editing and are stored in `
 
 The sample below is the `For Loop` again but this time it is scoped to JavaScript *and* TypeScript.
 
-```json
+```json5
 {
     "For_Loop": {
         "prefix": "for",
@@ -210,7 +210,7 @@ You can also use existing TextMate snippets (.tmSnippets) with VS Code. See the 
 
 You can create custom [keybindings](/docs/getstarted/keybindings.md) to insert specific snippets. Open `keybindings.json` (**Preferences: Open Keyboard Shortcuts File**), which defines all your keybindings, and add a keybinding passing `"snippet"` as an extra argument:
 
-```json
+```json5
 {
   "key": "cmd+k 1",
   "command": "editor.action.insertSnippet",
@@ -225,7 +225,7 @@ The keybinding will invoke the **Insert Snippet** command but instead of prompti
 
 Also, instead of using the `snippet` argument value to define your snippet inline, you can reference an existing snippet by using the `langId` and `name` arguments :
 
-```json
+```json5
 {
   "key": "cmd+k 1",
   "command": "editor.action.insertSnippet",

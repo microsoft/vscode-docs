@@ -65,7 +65,7 @@ You can add new file extensions to an existing language with the `files.associat
 
 For example, the setting below adds the `.myphp` file extension to the `php` language identifier:
 
-```json
+```json5
     "files.associations": {
         "*.myphp": "php"
     }
@@ -98,7 +98,7 @@ Yes, with the `files.associations` [setting](/docs/getstarted/settings.md) you c
 
 Here is an example that will associate more file extensions to the PHP language:
 
-```json
+```json5
 "files.associations": {
     "*.php4": "php",
     "*.php5": "php"
@@ -107,7 +107,7 @@ Here is an example that will associate more file extensions to the PHP language:
 
 You can also configure full file paths to languages if needed. The following example associates all files in a folder `somefolder` to PHP:
 
-```json
+```json5
 "files.associations": {
     "**/somefolder/*.*": "php"
 }

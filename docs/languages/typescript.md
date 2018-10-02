@@ -51,7 +51,7 @@ Typically the first step in any new TypeScript project is to add in a `tsconfig.
 
 A simple `tsconfig.json` looks like this for ES5, **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0) and source maps:
 
-```json
+```json5
 {
     "compilerOptions": {
         "target": "es5",
@@ -205,7 +205,7 @@ This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling
 
 To exclude JavaScript files generated from both `.ts` and `.tsx` source files, use this expression:
 
-```json
+```json5
 "**/*.js": { "when": "$(basename).ts" },
 "**/**.js": { "when": "$(basename).tsx" }
 ```
@@ -230,7 +230,7 @@ To use a different TypeScript version by default, configure `typescript.tsdk` in
 
 For example:
 
-```json
+```json5
 {
    "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib"
 }
@@ -238,7 +238,7 @@ For example:
 
 You can also configure a specific version of TypeScript in a particular workspace by adding a `typescript.tsdk` workspace setting pointing to the directory of the `tsserver.js` file:
 
-```json
+```json5
 {
    "typescript.tsdk": "./node_modules/typescript/lib"
 }

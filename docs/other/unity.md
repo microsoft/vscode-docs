@@ -93,7 +93,7 @@ Unity creates a number of additional files that can clutter your workspace in VS
 
 To do this, add the following JSON to your [workspace settings](/docs/getstarted/settings.md).
 
-```json
+```json5
     // Configure glob patterns for excluding files and folders.
     "files.exclude": {
         "**/.git": true,

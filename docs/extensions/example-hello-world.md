@@ -89,7 +89,7 @@ Let's go through the purpose of all these files and explain what they do:
 
 #### Example TypeScript extension manifest
 
-```json
+```json5
 {
     "name": "myFirstExtension",
     "description": "",

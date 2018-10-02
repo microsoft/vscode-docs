@@ -39,7 +39,7 @@ Although not necessarily a JavaScript extension, Git Project Manager is a favori
 
 To use this extension, first install it and then add the following configuration to your `settings.json` file.
 
-```json
+```json5
 "gitProjectManager.baseProjectsFolders": [
     "/path/to/your/base/project/folders"
 ]
@@ -80,7 +80,7 @@ These extensions are in preview because we want your feedback. There are still m
 3. Add a JSON object to `contributes.keybindings` section of `package.json` as seen below ([Atom](https://github.com/waderyan/vscode-atom-keybindings/blob/master/package.json#L25) and [Sublime Text](https://github.com/Microsoft/vscode-sublime-keybindings/blob/master/package.json#L25)).
 4. Open a pull request.
 
-```json
+```json5
 {
     "mac": "<keyboard shortcut for mac>",
     "linux": "<keyboard shortcut for linux",

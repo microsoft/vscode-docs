@@ -127,7 +127,7 @@ Instead of launching the Node.js program directly with node, you can use 'npm' s
 
 Let's look at an 'npm' example. If your `package.json` has a 'debug' script, for example:
 
-```json
+```json5
   "scripts": {
     "debug": "node --nolazy --inspect-brk=9229 myProgram.js"
   },
@@ -135,7 +135,7 @@ Let's look at an 'npm' example. If your `package.json` has a 'debug' script, for
 
 the corresponding launch configuration would look like this:
 
-```json
+```json5
 {
     "name": "Launch via NPM",
     "type": "node",
@@ -153,7 +153,7 @@ the corresponding launch configuration would look like this:
 
 If you are using '[nvm](https://github.com/creationix/nvm)' (or '[nvm-windows](https://github.com/coreybutler/nvm-windows)')  to manage your Node.js versions, it is possible to specify a `runtimeVersion` attribute in a launch configuration for selecting a specific version of Node.js:
 
-```json
+```json5
 {
     "type": "node",
     "request": "launch",
@@ -165,7 +165,7 @@ If you are using '[nvm](https://github.com/creationix/nvm)' (or '[nvm-windows](h
 
 If you are using '[nvs](https://github.com/jasongin/nvs)' to manage your Node.js versions, it is possible to use `runtimeVersion` attribute to select a specific version of Node.js:
 
-```json
+```json5
 {
     "type": "node",
     "request": "launch",
@@ -183,7 +183,7 @@ Make sure to have those Node.js versions installed that you want to use with the
 
 The VS Code Node debugger supports loading environment variables from a file and passing them to the Node.js runtime. To use this feature, add an attribute `envFile` to your launch configuration and specify the absolute path to the file containing the environment variables:
 
-```json
+```json5
    //...
    "envFile": "${workspaceFolder}/.env",
    "env": { "USER": "john doe" }
@@ -259,7 +259,7 @@ This option requires more work but in contrast to the previous two options it al
 
 The simplest "attach" configuration looks like this:
 
-```json
+```json5
 {
     "name": "Attach to Process",
     "type": "node",
@@ -272,7 +272,7 @@ The port `9229` is the default debug port of the `--inspect` and `--inspect-brk`
 
 If you want to attach to a Node.js process that hasn't been started in debug mode, you can do this by specifying the process ID of the Node.js process as a string:
 
-```json
+```json5
 {
     "name": "Attach to Process",
     "type": "node",
@@ -285,7 +285,7 @@ Since it is a bit laborious to repeatedly find the process ID and enter it in th
 
 By using the `PickProcess` variable the launch configuration looks like this:
 
-```json
+```json5
 {
     "name": "Attach to Process",
     "type": "node",
@@ -335,7 +335,7 @@ tsc --sourceMap --outDir bin app.ts
 
 This is the corresponding launch configuration for a TypeScript program:
 
-```json
+```json5
 {
     "version": "0.2.0",
     "configurations": [
@@ -384,7 +384,7 @@ Here are some things to try when your breakpoints turn gray:
 
 The Node.js debugger supports remote debugging for versions of Node.js >= 4.x. Specify a remote host via the `address` attribute. Here is an example:
 
-```json
+```json5
 {
     "type": "node",
     "request": "attach",
@@ -396,7 +396,7 @@ The Node.js debugger supports remote debugging for versions of Node.js >= 4.x. S
 
 By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. A `localRoot` and a `remoteRoot` attribute can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
 
-```json
+```json5
 {
     "type": "node",
     "request": "attach",
@@ -420,7 +420,7 @@ Two frequently used applications of remote debugging are:
 
   Here is the simplest debug configuration for debugging `hello.js` in WSL:
 
-  ```json
+  ```json5
   {
       "type": "node",
       "request": "launch",
@@ -452,7 +452,7 @@ nodemon --inspect server.js
 
 you can attach the VS Code debugger to it with the following launch configuration:
 
-```json
+```json5
 {
     "name": "Attach to node",
     "type": "node",
@@ -464,7 +464,7 @@ you can attach the VS Code debugger to it with the following launch configuratio
 
 Alternatively you can start your program `server.js` via **nodemon** directly with a launch config and attach the VS Code debugger:
 
-```json
+```json5
 {
     "name": "Launch server.js via nodemon",
     "type": "node",
@@ -489,7 +489,7 @@ The Node debugger has a mechanism that tracks all subprocesses of a debuggee and
 
 The feature is enabled by setting the launch config attribute `autoAttachChildProcesses` to true:
 
-```json
+```json5
 {
   "type": "node",
   "request": "launch",
@@ -572,7 +572,7 @@ all code in the `node_modules` and `lib` folders in your project will be skipped
 
 Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules:
 
-```json
+```json5
   "skipFiles": [
      "<node_internals>/**/*.js"
    ]
@@ -630,7 +630,7 @@ To write your own debugger extension, visit:
 
 Yes, if you've created symlinks with `npm link`, you can debug symlink sources by telling the Node.js runtime to honor those symlinks. Use the node.exe `--preserve-symlinks` [switch](https://nodejs.org/api/cli.html#cli_preserve_symlinks) in your launch configuration `runtimeArgs` attribute. `runtimeArgs`, an array of strings, are passed to the debugging session runtime executable, which defaults to node.exe.
 
-```json
+```json5
 {
     "runtimeArgs": [
         "--preserve-symlinks"

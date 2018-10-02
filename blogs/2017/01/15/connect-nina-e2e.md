@@ -192,7 +192,7 @@ Select the extension named `Debugger for Chrome` and click the `Install` button.
 
 Type `CTRL+P`, enter/select `launch.json` and replace the contents of that file with the following:
 
-```json
+```json5
 {
     "version": "0.2.0",
     "compounds": [

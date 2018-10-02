@@ -147,7 +147,7 @@ If you want to share your extension with others privately, you can send them you
 
 When authoring an extension, you will need to describe what is the extension's compatibility to Visual Studio Code itself. This can done via the `engines.vscode` field inside `package.json`:
 
-```json
+```json5
 {
   "engines": {
     "vscode": "^1.8.0"
@@ -199,7 +199,7 @@ You should ignore all files not needed at runtime. For example, if your extensio
 
 It's possible to add a pre-publish step to your manifest file. The command will be called every time the extension is packaged.
 
-```json
+```json5
 {
     "name": "uuid",
     "version": "0.0.1",

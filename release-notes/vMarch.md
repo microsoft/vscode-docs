@@ -75,7 +75,7 @@ The issue is that the `react-native` typings do not define a `default` export. B
 
 In `jsconfig.json`:
 
-```json
+```json5
  {
     "compilerOptions": {
         "allowSyntheticDefaultImports": true
@@ -187,7 +187,7 @@ A very common request was having a configurable way to associate file names and 
 
 Here is an example that will associate more extensions to the PHP language:
 
-```json
+```json5
 "files.associations": {
     "*.php4": "php",
     "*.php5": "php"
@@ -196,7 +196,7 @@ Here is an example that will associate more extensions to the PHP language:
 
 You can also configure full file paths to languages if needed. The following example associates all files in a folder `somefolder` to PHP:
 
-```json
+```json5
 "files.associations": {
     "**/somefolder/*.*": "php"
 }
@@ -214,7 +214,7 @@ We have also added keyboard commands for column selection.  These are bound on W
 
 For example:
 
-```json
+```json5
 { "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
                                   "when": "editorTextFocus" },
 { "key": "shift+alt+left",     "command": "cursorColumnSelectLeft",
@@ -258,7 +258,7 @@ Visual Studio Code stops by default at the beginning of words when using `kbstyl
 
 For example:
 
-```json
+```json5
 { "key": "ctrl+right",       "command": "cursorWordStartRight",
                                 "when": "editorTextFocus" },
 { "key": "ctrl+shift+right", "command": "cursorWordStartRightSelect",
@@ -279,7 +279,7 @@ Some environments explicitly ask to include a BOM (Byte Order Mark) for UTF-8 en
 
 To save all new files with the UTF-8 BOM encoding, configure the `files.encoding` setting to this:
 
-```json
+```json5
 "files.encoding": "utf8bom"
 ```
 
@@ -305,7 +305,7 @@ When you open VS Code on a folder, it installs a file watcher service on the fol
 
 This setting has the following defaults:
 
-```json
+```json5
 "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/node_modules/**": true

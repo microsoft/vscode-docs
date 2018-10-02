@@ -126,7 +126,7 @@ These different configurations are fully explained in [Debugging configurations]
 
 To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
 
-```json
+```json5
 {
     "name": "Python: Current File (Integrated Terminal)",
     "type": "python",
@@ -177,7 +177,7 @@ For full details, see [Debugging configurations](/docs/python/debugging.md), whi
 
 If for some reason VS Code doesn't generate `launch.json` for you, create the `.vscode/launch.json` file within the project folder (creating the `.vscode` folder if you need to), then paste the following contents into `launch.json`:
 
-```json
+```json5
 {
     "version": "0.2.0",
     "configurations": [
@@ -202,7 +202,7 @@ SyntaxError: invalid syntax
 
 Select `hello.py` and try again. Alternately, create a debug configuration specifically for the `hello.py` file by adding the following lines in `launch.json` within the `configuration` array. Then select this configuration in the debugger drop-down and start the debugger again.
 
-```json
+```json5
         {
             "name": "Python: hello.py",
             "type": "python",

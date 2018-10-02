@@ -45,7 +45,7 @@ This will generate a `c_cpp_properties.json` file that allows you to add additio
 
 Below you can see that the MinGW C++ compiler has been set as the default compiler for Windows. The extension will use that information to determine the system include path and defines so that they don't need to be added to `c_cpp_properties.json`.
 
-```json
+```json5
 {
     "name": "Win32",
     "includePath": [
@@ -80,7 +80,7 @@ Below you can see that the MinGW C++ compiler has been set as the default compil
 
 You should now see a `tasks.json` file in your workspace `.vscode` folder that looks something like:
 
-```json
+```json5
 {
     "version": "2.0.0",
     "tasks": [
@@ -98,7 +98,7 @@ You should now see a `tasks.json` file in your workspace `.vscode` folder that l
 
 If you'd like to be able to build your application with **Tasks: Run Build Task** (`kb(workbench.action.tasks.build)`), you can add it to the `build` group.
 
-```json
+```json5
 {
     "version": "2.0.0",
     "tasks": [
@@ -135,7 +135,7 @@ For more information on tasks, see [Integrate with External Tools via Tasks](/do
 
 Below is an example using the MinGW GDB debugger:
 
-```json
+```json5
 {
     "version": "0.2.0",
     "configurations": [
@@ -183,7 +183,7 @@ By default, the clang-format style is set to "file" which means it looks for a `
 
 The "Visual Studio" clang-format style is not yet an official OOTB clang-format style but it implies the following clang-format settings:
 
-```json
+```json5
 UseTab: (VS Code current setting)
 IndentWidth: (VS Code current setting)
 BreakBeforeBraces: AllMan
@@ -196,7 +196,7 @@ If you'd like to use a different version of clang-format than the one that ships
 
 For example, on the Windows platform:
 
-```json
+```json5
   "C_Cpp.clang_format_path": "C:\\Program Files (x86)\\LLVM\\bin\\clang-format.exe"
 ```
 
@@ -266,7 +266,7 @@ You can debug Windows applications created using Cygwin or MinGW by using VS Cod
 
 For example:
 
-```json
+```json5
     "miDebuggerPath": "c:\\mingw\\bin\\gdb.exe"
 ```
 
@@ -310,13 +310,13 @@ If there are additional directories where the debugger can find symbol files (fo
 
 For example:
 
-```json
+```json5
     "additionalSOLibSearchPath": "/path/to/symbols;/another/path/to/symbols"
 ```
 
 or
 
-```json
+```json5
     "symbolSearchPath": "C:\\path\\to\\symbols;C:\\another\\path\\to\\symbols"
 ```
 
@@ -326,7 +326,7 @@ The source file location can be changed if the source files are not located in t
 
 For example:
 
-```json
+```json5
 "sourceFileMap": {
     "/build/gcc-4.8-fNUjSI/gcc-4.8-4.8.4/build/i686-linux-gnu/libstdc++-v3/include/i686-linux-gnu": "/usr/include/i686-linux-gnu/c++/4.8",
     "/build/gcc-4.8-fNUjSI/gcc-4.8-4.8.4/build/i686-linux-gnu/libstdc++-v3/include": "/usr/include/c++/4.8"

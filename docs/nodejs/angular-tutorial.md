@@ -127,7 +127,7 @@ We need to initially configure the [debugger](/docs/editor/debugging.md). To do 
 
 We need to make one change for our example: change the port of the `url` from `8080` to `4200`. Your `launch.json` should look like this:
 
-```json
+```json5
 {
     "version": "0.2.0",
     "configurations": [

@@ -62,7 +62,7 @@ By default, the debugger uses the same `python.pythonPath` workspace setting as 
 
 There are two standard configurations in `launch.json` that run the active file in the editor in either the integrated terminal (inside VS Code) or the external terminal (outside of VS Code):
 
-```json
+```json5
 {
     "name": "Python: Current File (Integrated Terminal)",
     "type": "python",
@@ -83,7 +83,7 @@ The specific settings are described in the following sections.
 
 > **Tip**: It's often helpful in a project to create a configuration that runs a specific startup file. For example, if you always want to always launch `startup.py` whenever you start the debugger, create a configuration entry as follows:
 >
-> ```json
+> ```json5
 > {
 >     "name": "Python: startup.py",
 >     "type": "python",
@@ -111,13 +111,13 @@ Specifies the mode in which to start debugging:
 
 Provides the fully qualified path to the python program's entry module (startup file). The value `${file}`, often used in default configurations, uses the currently active file in the editor. By specifying a specific startup file, you can always be sure of launching your program with the same entry point regardless of which files are open. For example:
 
-```json
+```json5
 "program": "/Users/Me/Projects/PokemonGo-Bot/pokemongo_bot/event_handlers/__init__.py",
 ```
 
 You can also rely on a relative path from the workspace root. For example, if the root is `/Users/Me/Projects/PokemonGo-Bot` then you can use the following:
 
-```json
+```json5
 "program": "${workspaceFolder}/pokemongo_bot/event_handlers/__init__.py",
 ```
 
@@ -129,7 +129,7 @@ If not specified, this setting defaults to the interpreter identified in the `py
 
 You can specify platform-specific paths by placing `pythonPath` within a parent object named `osx`, `windows`, or `linux`. For example, the configuration for PySpark uses the following values:
 
-```json
+```json5
 "osx": {
     "pythonPath": "^\"\\${env:SPARK_HOME}/bin/spark-submit\""
 },
@@ -147,7 +147,7 @@ Alternately, you can use a custom environment variable that's defined on each pl
 
 Specifies arguments to pass to the Python program. Each argument should be contained within quotes, for example:
 
-```json
+```json5
 "args": [
     "--quiet", "--norepeat"
 ],
@@ -330,7 +330,7 @@ To debug an app that requires administrator privileges, use `"console": "externa
 
 ### Flask debugging
 
-```json
+```json5
 {
     "name": "Python: Flask",
     "type": "python",
@@ -354,7 +354,7 @@ The `"jinja": true` setting also enables debugging for Flask's default Jinja tem
 
 If you want to run Flask's development server in development mode, use the following configuration:
 
-```json
+```json5
 {
     "name": "Python: Flask (development mode)",
     "type": "python",
@@ -381,7 +381,7 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
 
 1. Create a `tasks.json` file with the following contents:
 
-    ```json
+    ```json5
     {
         "version": "2.0.0",
         "tasks": [

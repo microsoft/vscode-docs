@@ -357,7 +357,7 @@ To make things a bit more complicated, TextMate themes also support parent selec
 
 Here are two Monokai theme rules (as JSON here for brevity; the original is in XML):
 
-```json
+```json5
 ...
 // Function name
 { "scope": "entity.name.function", "fontStyle": "", "foreground":"#A6E22E" }
@@ -403,7 +403,7 @@ Perhaps the biggest breakthrough we've had is that we **don't need to store toke
 
 Here's how a very simple theme might look like:
 
-```json
+```json5
 theme = [
   {                                  "foreground": "#F8F8F2"                           },
   { "scope": "var",                  "foreground": "#F8F8F2"                           },
@@ -420,7 +420,7 @@ theme = [
 When loading it, we will generate an id for each unique color that shows up in the theme and store it into a color map (similar as we did for token types above):
 
 
-```json
+```json5
 //                          1          2          3          4          5           6
 colorMap = ["reserved", "#F8F8F2", "#00FF00", "#0000FF", "#100000", "#200000", "#300000"]
 theme = [

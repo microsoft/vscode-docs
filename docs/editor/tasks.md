@@ -57,7 +57,7 @@ The first entry executes the TypeScript compiler and translates the TypeScript f
 
 You can also define the TypeScript build or watch task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select **tsc: build** or **tsc: watch** and VS Code will generate a `tasks.json` file. The one shown below make the **tsc: build** task the default build task:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -96,7 +96,7 @@ Executing the task produces one error shown in the **Problems** view:
 
 In addition, VS Code created a `tasks.json` file with the following content:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -123,7 +123,7 @@ For Gulp, Grunt, and Jake, the task auto-detection works the same. Below is an e
 
 Task auto detection can be disabled using the following settings:
 
-```json
+```json5
 {
     "typescript.tsc.autoDetect": "off",
     "grunt.autoDetect": "off",
@@ -143,7 +143,7 @@ Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is
 
 We are working on more auto-detection support, so this list will get smaller and smaller in the future. Since we want to write our own custom task, select **Others** from the list. This opens the `tasks.json` file with a task skeleton. Replace the contents with the following:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -181,7 +181,7 @@ To see the full set of task properties and values, you can review the [tasks.jso
 Shell commands need special treatment when it comes to commands and arguments that contains spaces or other special characters like `$`. By default the task system support the following behaviour:
 
 * if a single command is provided the task system passes the command as is to the underlying shell. If the command needs quoting or escaping to function properly the command need to contain the proper quotes or escape characters. For example to list the directory of a folder containing spaces in its name the command executed in bash should look like this: `ls 'folder with spaces'`.
-```json
+```json5
 {
   "label": "dir",
   "type": "shell",
@@ -189,7 +189,7 @@ Shell commands need special treatment when it comes to commands and arguments th
 }
 ```
 * if a command and arguments are provided the task system will used single quotes if the command or arguments contain spaces. For `cmd.exe` double quotes are used. So a shell command like below is executed in PowerShell as `dir 'folder with spaces'`.
-```json
+```json5
 {
   "label": "dir",
   "type": "shell",
@@ -200,7 +200,7 @@ Shell commands need special treatment when it comes to commands and arguments th
 }
 ```
 * if you want to control how the argument is quoted, the argument can be a literal specifying the value and a quoting style. Below an example that uses escaping instead of quoting for an argument with spaces.
-```json
+```json5
 {
   "label": "dir",
   "type": "shell",
@@ -235,7 +235,7 @@ You can also compose tasks out of simpler tasks with the `dependsOn` property. F
 
 The `tasks.json` file looks like this:
 
-```json
+```json5
 {
     "version": "2.0.0",
     "tasks": [
@@ -280,7 +280,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
 
 You can modify the terminal panel behavior for auto-detected tasks as well. For example, if you want to change the output behavior for the **npm: run lint** from the ESLint example from above, add the `presentation` property to it:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -303,7 +303,7 @@ You can modify the terminal panel behavior for auto-detected tasks as well. For 
 
 You can also mix custom tasks with configurations for detected tasks. A `tasks.json` that configures the **npm: run lint** task and adds a custom **Run Test** tasks looks like this:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -373,7 +373,7 @@ Executing **Run Task** from the global **Tasks** menu will show the following pi
 
 Press the gear icon. This will create the following `tasks.json` file:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -415,7 +415,7 @@ If you need to run a task frequently, you can define a keyboard shortcut for the
 
 For example, to bind `Ctrl+H` to the **Run tests** task from above, add the following to your `keybindings.json` file:
 
-```json
+```json5
 {
     "key": "ctrl+h",
     "command": "workbench.action.tasks.runTask",
@@ -429,7 +429,7 @@ When authoring tasks configurations, it is useful to have a set of predefined co
 
 Below is an example of a custom task configuration that passes the current opened file to the TypeScript compiler.
 
-```json
+```json5
 {
     "label": "TypeScript compile",
     "type": "shell",
@@ -444,7 +444,7 @@ Similarly, you can reference your project's configuration settings by prefixing 
 
 Below is an example of a custom task configuration which executes autopep8 on the current file using your project's selected Python executable:
 
-```json
+```json5
 {
     "label": "autopep8 current file",
     "type": "process",
@@ -464,7 +464,7 @@ The task system supports defining values (for example, the command to be execute
 
 Below is an example that uses the Node.js executable as a command and is treated differently on Windows and Linux:
 
-```json
+```json5
 {
     "label": "Run Node",
     "type": "process",
@@ -481,7 +481,7 @@ Valid operating properties are `windows` for Windows, `linux` for Linux, and `os
 
 Task properties can also be defined in the global scope. If present, they will be used for specific tasks unless they define the same property with a different value. In the example below, there is a global `presentation` property that defines that all tasks should be executed in a new panel:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -510,7 +510,7 @@ If you need to tweak the encoding you should check whether it makes sense to cha
 
 If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows using code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therefore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -566,7 +566,7 @@ We want to produce a problem matcher that can capture the message in the output 
 
 A matcher that captures the above warning (and errors) looks like this:
 
-```json
+```json5
 {
     // The problem is owned by the cpp language service.
     "owner": "cpp",
@@ -594,7 +594,7 @@ Please note that the file, line and message properties are mandatory.
 
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
 
-```json
+```json5
 {
     "version": "2.0.0",
     "tasks": [
@@ -652,7 +652,7 @@ To do this we use an array of problem patterns for the `pattern` property. This 
 
 The following problem pattern matches the output from ESLint in stylish mode - but still has one small issue which we will resolve next.  The code below has a first regular expression to capture the file name and the second to capture the line, column, severity, message and error code:
 
-```json
+```json5
 {
     "owner": "javascript",
     "fileLocation": ["relative", "${workspaceFolder}"],
@@ -694,7 +694,7 @@ The information captured by all previous patterns is combined with the informati
 
 Here is a problem matcher to fully capture ESLint stylish problems:
 
-```json
+```json5
 {
     "owner": "javascript",
     "fileLocation": ["relative", "${workspaceFolder}"],
@@ -746,7 +746,7 @@ To capture this information, a problem matcher can provide a `background` proper
 
 For the `tsc` compiler, an appropriate `background` property looks like this:
 
-```json
+```json5
 "background": {
     "activeOnStart": true,
     "beginsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - File change detected\\. Starting incremental compilation\\.\\.\\.",
@@ -758,7 +758,7 @@ In addition to the `background` property on the problem matcher, the task itself
 
 A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks like this:
 
-```json
+```json5
 {
     "version": "2.0.0",
     "tasks": [
@@ -813,7 +813,7 @@ Here is a migration guide:
 
 Consider the following `0.1.0` configuration:
 
-```json
+```json5
 {
     "version": "0.1.0",
     "isShellCommand": true,
@@ -832,7 +832,7 @@ Consider the following `0.1.0` configuration:
 
 The corresponding `2.0.0` configuration would look like this:
 
-```json
+```json5
 {
     "version": "2.0.0",
     "tasks": [
@@ -847,7 +847,7 @@ The corresponding `2.0.0` configuration would look like this:
 
 - **taskSelector**: Move the command into the task and specify the task selector inside the command.
 
-```json
+```json5
 {
     "version": "0.1.0",
     "command": "msbuild",
@@ -865,7 +865,7 @@ The corresponding `2.0.0` configuration would look like this:
 
 A corresponding `2.0.0` configuration would look like this:
 
-```json
+```json5
 {
     "version": "2.0.0",
     "tasks": [
@@ -899,7 +899,7 @@ That was tasks - let's keep going...
 
 You can override a task's shell with the `options.shell` property. You can set this per task, globally, or per platform. For example, to use cmd.exe on Windows, your `tasks.json` would include:
 
-```json
+```json5
 {
     "version": "2.0.0",
     "windows": {

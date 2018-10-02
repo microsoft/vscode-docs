@@ -37,12 +37,12 @@ Clicking on a color preview will launch the integrated color picker which suppor
 
 You can hide VS Code's color previews by setting the following [setting](/docs/getstarted/settings.md):
 
-```json
+```json5
 "editor.colorDecorators": false
 ```
 
 To just disable it for css, Less and SCSS, use
-```json
+```json5
 "[css]": {
     "editor.colorDecorators": false
 }
@@ -58,7 +58,7 @@ Additionally you can use the following region markers to define a folding range:
 
 If you prefer to switch to indentation based folding for CSS, Less and SCSS, use:
 
-```json
+```json5
 "[css]": {
     "editor.foldingStrategy": "indentation"
 },
@@ -78,7 +78,7 @@ VS Code also supports [User Defined Snippets](/docs/editor/userdefinedsnippets.m
 There is support for CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 
 >**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/getstarted/settings.md) to false.
->```json
+>```json5
 >"css.validate": false
 >```
 
@@ -146,7 +146,7 @@ The next step is to set up the task configuration.  To do this, run **Tasks** > 
 
 This will create a sample `tasks.json` file in the workspace `.vscode` folder.  The initial version of file has an example to run an arbitrary command. We will modify that configuration for transpiling Sass/Less instead:
 
-```json
+```json5
 // Sass configuration
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
@@ -163,7 +163,7 @@ This will create a sample `tasks.json` file in the workspace `.vscode` folder.  
 }
 ```
 
-```json
+```json5
 // Less configuration
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558

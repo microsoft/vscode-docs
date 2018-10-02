@@ -100,7 +100,7 @@ An alternative, even simpler approach for debugging the extension and the debug 
 
 Set a breakpoint at the beginning of method `launchRequest(...)` in file `src/mockDebug.ts` and as a last step configure the mock debugger to connect to the debug adapter server by adding a `debugServer` attribute for port `4711` to your mock test launch config:
 
-```json
+```json5
 {
     "version": "0.2.0",
     "configurations": [
@@ -131,7 +131,7 @@ So let's have a closer look at the `package.json` of Mock Debug.
 
 Like every VS Code extension, the `package.json` declares the fundamental properties **name**, **publisher**, and **version** of the extension. Use the **categories** field to make the extension easier to find in the VS Code Extension Marketplace.
 
-```json
+```json5
 {
     "name": "mock-debug",
     "displayName": "Mock Debug",
@@ -229,7 +229,7 @@ Since VS Code runs on different platforms, we have to make sure that the debug a
 
 1. If your debug adapter implementation needs different executables on different platforms, the **program** attribute can be qualified for specific platforms like this:
 
-    ```json
+    ```json5
     "debuggers": [{
         "type": "gdb",
         "windows": {
@@ -246,7 +246,7 @@ Since VS Code runs on different platforms, we have to make sure that the debug a
 
 1. A combination of both approaches is possible too. The following example is from the Mono Debug adapter which is implemented as a mono application that needs a runtime on macOS and Linux but not on Windows:
 
-    ```json
+    ```json5
     "debuggers": [{
         "type": "mono",
         "program": "./bin/monoDebug.exe",
@@ -298,7 +298,7 @@ The `MockConfigurationProvider` in `src/extension.ts` implements `resolveDebugCo
 A debug configuration provider is registered for a specific debug type via `vscode.debug.registerDebugConfigurationProvider` typically in the extension's `activate` function.
 To ensure that the `DebugConfigurationProvider` is registered early enough, the extension must be activated as soon as the debug functionality is used. This can be easily achieved by configuring extension activation for the `onDebug` event in the `package.json`:
 
-```json
+```json5
 "activationEvents": [
     "onDebug",
     // ...

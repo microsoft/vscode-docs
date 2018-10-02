@@ -63,7 +63,7 @@ Here are some example theming rules. The  `scope` property lists the rules scope
 
 - Scope selector support prefix matching and matching against parent scopes
 
-```json
+```json5
 {
     "name": "Variables",
     "scope": "variable",
@@ -111,7 +111,7 @@ You can use the **Developer: Inspect TM Scopes** command from the **Command Pale
 - Copy the theme file generated from your settings to the new extension.
 - To use a existing TextMate theme, you can tell the extension generator to import a TextMate theme file and package it for use in VS Code. Alternatively, if you have already downloaded the theme, replace the `tokenColors` section with a link to the `.tmTheme` file to use.
 
-```json
+```json5
 {
     "type": "dark",
     "colors": {
@@ -158,7 +158,7 @@ You can create your own icon theme from icons (preferably SVG) and from icon fon
 
 To begin, create a VS Code extension and add the `iconTheme` contribution point.
 
-```json
+```json5
 "contributes": {
     "iconThemes": [
         {
@@ -182,7 +182,7 @@ An icon association maps a file type ('file', 'folder', 'json-file'...) to an ic
 
 The `iconDefinitions` section contains all definitions. Each definition has an id, which will be used to reference the definition. A definition can be referenced also by more than one file association.
 
-```json
+```json5
     "iconDefinitions": {
         "_folder_dark": {
             "iconPath": "./images/Folder_16x_inverse.svg"
@@ -208,7 +208,7 @@ Additionally each of these associations can be refined for 'light' and 'highCont
 
 Each file association points to an icon definition.
 
-```json
+```json5
 "file": "_file_dark",
 "folder": "_folder_dark",
 "folderExpanded": "_folder_open_dark",
@@ -263,7 +263,7 @@ It is recommended to use [WOFF](https://developer.mozilla.org/docs/Web/Guide/WOF
 - the style property values are defined [here](https://developer.mozilla.org/docs/Web/CSS/@font-face/font-style#Values).
 - the size should be relative to the font size where the icon is used. Therefore, always use percentage.
 
-```json
+```json5
     "fonts": [
         {
             "id": "turtles-font",
@@ -328,7 +328,7 @@ Now add an extension manifest package.json file to the extension folder.  The sn
 
 Below is an example manifest for Markdown snippets:
 
-```json
+```json5
 {
     "name": "DM-Markdown",
     "publisher": "mscott",
@@ -373,7 +373,7 @@ When the generator is finished, open the created folder in Visual Studio Code. H
 
 Here is an example for a language with XML-like brackets:
 
-```json
+```json5
 {
     "comments": {
         "lineComment": "",
@@ -415,7 +415,7 @@ We also have recommendations on how to make your extension look great on the VS 
 
 When you're adding a new language to VS Code, it is also great to add language [snippets](/docs/editor/userdefinedsnippets.md) to support common editing actions. It is easy to [combine multiple extensions](/docs/extensionAPI/extension-manifest.md#combining-extension-contributions) like snippets and colorizers into the same extension. You can modify the colorizer extension manifest `package.json` to include a `snippets` contribution and the snippets.json.
 
-```json
+```json5
 {
     "name": "language-latex",
     "description": "LaTeX Language Support",
@@ -453,7 +453,7 @@ When you're adding a new language to VS Code, it is also great to add language [
 
 In VS Code, each language mode has a unique specific language identifier. That identifier is rarely seen by the user except in the settings, e.g. when associating file extensions to a language:
 
-```json
+```json5
     "files.associations": {
         "*.myphp": "php"
     }
@@ -465,7 +465,7 @@ The language identifier becomes essential for VS Code extension developers when 
 
 Every language defines its *id* through the `languages` configuration point:
 
-```json
+```json5
     "languages": [{
         "id": "java",
         "extensions": [ ".java", ".jav" ],
@@ -475,7 +475,7 @@ Every language defines its *id* through the `languages` configuration point:
 
 Language supports are added using the language identifier:
 
-```json
+```json5
     "grammars": [{
         "language": "groovy",
         "scopeName": "source.groovy",
@@ -502,7 +502,7 @@ Languages can embed other languages in order to provide syntax highlighting and 
 
 An implementation of CSS code blocks in our `.tmLanguage.json` file might look like this:
 
-```json
+```json5
 "patterns": [
     {
         "begin": "^```css$",
@@ -519,7 +519,7 @@ An implementation of CSS code blocks in our `.tmLanguage.json` file might look l
 
 In order to inherit other CSS features we marked the block by using `contentName`, that way we can map its value in `contributes.grammars.embeddedLanguages` in `package.json`:
 
-```json
+```json5
 "contributes": {
     "grammars": [{
         "language": "markdown",
@@ -562,7 +562,7 @@ Be sure you have correctly specified the `language` identifier for your snippet 
 
 Yes, the `yo code` generator provides the default file extensions from the .tmLanguage file but you can easily add more file extensions to a `languages` contribution `extensions` array.  In the example below, the `.asp` file extension has been added to the default `.asa` file extension.
 
-```json
+```json5
 {
     "name": "asp",
     "version": "0.0.1",
@@ -591,7 +591,7 @@ Yes. To extend an existing colorizer, you can associate a file extension to an e
 
 For example, the setting below adds the `.mmd` file extension to the `markdown` colorizer:
 
-```json
+```json5
     "files.associations": {
         "*.mmd": "markdown"
     }
@@ -601,7 +601,7 @@ For example, the setting below adds the `.mmd` file extension to the `markdown` 
 
 Yes. You override the colorizer by providing a new `grammars` element for an existing language id. Also, add a `extensionDependencies` attribute that contains the name of the extension that defines the grammar that you want to replace.
 
-```json
+```json5
 {
     "name": "override-xml",
     "version": "0.0.1",

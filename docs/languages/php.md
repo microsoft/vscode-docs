@@ -47,7 +47,7 @@ To set the PHP executable path, open your **User or Workspace Settings** and add
 
 ### Windows
 
-```json
+```json5
 {
     "php.validate.executablePath": "c:/php/php.exe"
 }
@@ -55,7 +55,7 @@ To set the PHP executable path, open your **User or Workspace Settings** and add
 
 ### Linux and macOS
 
-```json
+```json5
 {
     "php.validate.executablePath": "/usr/bin/php"
 }

@@ -89,7 +89,7 @@ You can also configure language based settings by directly opening `settings.jso
 
 The following examples customize editor settings for language modes `typescript` and `markdown`.
 
-```json
+```json5
 {
   "[typescript]": {
     "editor.formatOnSave": true,
@@ -129,7 +129,7 @@ The first time you open a workspace which defines any of these settings, VS Code
 
 Below are the Visual Studio Code default settings and their values. You can also view the default values in the Settings editor.
 
-```json
+```json5
 {
 // Commonly Used
 
@@ -1691,7 +1691,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.tabSize": 2,
     "editor.autoIndent": false
   },
- 
+
 // Node Debug
 
   // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.

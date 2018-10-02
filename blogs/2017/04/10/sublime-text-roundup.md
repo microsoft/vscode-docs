@@ -27,7 +27,7 @@ VS Code has several features you can enable to more closely match the coding exp
 
 VS Code has an excellent minimap, but it requires a setting change. Use the following setting to turn on the minimap:
 
-```json
+```json5
 "editor.minimap.enabled": true
 ```
 
@@ -35,7 +35,7 @@ VS Code has an excellent minimap, but it requires a setting change. Use the foll
 
 Format on paste is a fantastic feature when moving source code around. Use this setting to enable format on paste:
 
-```json
+```json5
 "editor.formatOnPaste": true
 ```
 
@@ -43,7 +43,7 @@ Format on paste is a fantastic feature when moving source code around. Use this 
 
 Sublime Text and VS Code order snippets differently in their code completion widgets. To make VS Code work more like Sublime Text, use this setting to put snippets at the top:
 
-```json
+```json5
 "editor.snippetSuggestions": "top"
 ```
 

@@ -132,7 +132,7 @@ We need to initially configure the [debugger](/docs/editor/debugging.md). To do 
 
 We need to make one change for our example: change the port of the `url` from `8080` to `3000`. Your `launch.json` should look like this:
 
-```json
+```json5
 {
     "version": "0.2.0",
     "configurations": [
@@ -189,7 +189,7 @@ Once the ESLint extension is installed and VS Code reloaded, you'll want to crea
 
 The command will create a `.eslintrc.json` file in your project root:
 
-```json
+```json5
 {
     "env": {
         "browser": true,
@@ -225,7 +225,7 @@ ESLint will now analyze open files and shows a warning in `index.js` about 'App'
 
 Let's add an error rule for extra semi-colons:
 
-```json
+```json5
  "rules": {
         "no-const-assign": "warn",
         "no-this-before-super": "warn",

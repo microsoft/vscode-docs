@@ -25,7 +25,7 @@ You can trigger suggestions at any time by pressing `kb(editor.action.triggerSug
 
 You can also control which built-in code completion providers are active. Override these in your user or workspace [settings](/docs/getstarted/settings.md) if you prefer not to see the corresponding suggestions.
 
-```json
+```json5
 // Configures if the built-in HTML language suggests Angular V1 tags and properties.
 "html.suggest.angular1": true,
 
@@ -48,7 +48,7 @@ The matching closing tag is inserted when `/` of the closing tag is entered.
 
 You can turn off autoclosing tags with the following [setting](/docs/getstarted/settings.md):
 
-```json
+```json5
 "html.autoClosingTags": false
 ```
 
@@ -72,7 +72,7 @@ The HTML language support performs validation on all embedded JavaScript and CSS
 
 You can turn that validation off with the following settings:
 
-```json
+```json5
 // Configures if the built-in HTML language support validates embedded scripts.
 "html.validate.scripts": true,
 
@@ -89,7 +89,7 @@ Additionally you can use the following region markers to define a folding range:
 
 If you prefer to switch to indentation based folding for HTML use:
 
-```json
+```json5
 "[html]": {
     "editor.foldingStrategy": "indentation"
 },
@@ -132,7 +132,7 @@ If you'd like to use HTML Emmet abbreviations with other languages, you can asso
 
 For example, to use Emmet HTML abbreviations inside JavaScript:
 
-```json
+```json5
 {
     "emmet.includeLanguages": {
         "javascript": "html"

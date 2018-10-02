@@ -67,7 +67,7 @@ Break-on-load breakpoints are powered by DOM Instrumentation Breakpoints in Chro
 
 We are releasing break-on-load breakpoints as an experimental feature for our Chrome Debugger, and you can enable the feature by setting the new `breakOnLoad` property to `true` in your `launch.json` configuration:
 
-```json
+```json5
 {
     "type": "chrome",
     "request": "launch",

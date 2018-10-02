@@ -131,27 +131,27 @@ If VS Code does not automatically locate an interpreter you want to use, you can
 
     - Windows:
 
-      ```json
+      ```json5
       "python.pythonPath": "c:/python36/python.exe"
       ```
 
     - macOS/Linux:
 
-      ```json
+      ```json5
       "python.pythonPath": "/home/python36/python"
       ```
 
 1. You can also use `python.pythonPath` to point to a virtual environment, for example:
 
     Windows:
-    ```json
+    ```json5
     {
         "python.pythonPath": "c:/dev/ala/venv/Scripts/python.exe"
     }
     ```
 
     macOS/Linux:
-    ```json
+    ```json5
     {
         "python.pythonPath": "/home/abc/dev/ala/venv/bin/python"
     }
@@ -160,7 +160,7 @@ If VS Code does not automatically locate an interpreter you want to use, you can
 
 A system environment variable can be used in the path setting using the syntax `${env:VARIABLE}`. For example:
 
-```json
+```json5
 {
     "python.pythonPath": "${env:PYTHON_INSTALL_LOC}"
 }

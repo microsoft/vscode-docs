@@ -33,7 +33,7 @@ To explain the webview API, we are going to build a simple extension called **Ca
 
 Here's the `package.json` for the first version of the **Cat Coding** extension. You can find the complete code for the example app [here](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample/README.md). The first version of our extension [contributes a command](/docs/extensionAPI/extension-points.md#contributescommands) called `catCoding.start`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the **Command Palette** as **Cat Coding: Start new cat coding session** or even create a keybinding for it if they are so inclined.
 
-```json
+```json5
 {
   "name": "cat-coding",
   "description": "Cat Coding",
@@ -737,7 +737,7 @@ By implementing a `WebviewPanelSerializer`, your webviews can be automatically r
 
 To make our coding cats persist across VS Code restarts, first add a `onWebviewPanel` activation event to the extension's `package.json`:
 
-```json
+```json5
 "activationEvents": [
     ...,
     "onWebviewPanel:catCoding"

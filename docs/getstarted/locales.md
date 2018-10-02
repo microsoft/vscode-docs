@@ -33,7 +33,7 @@ Save `locale.json` and restart VS Code to use the new display language.
 
 The example below sets VS Code to display Simplified Chinese `zh-CN`:
 
-```json
+```json5
 {
     // Defines VS Code's display language.
     "locale":"zh-CN"

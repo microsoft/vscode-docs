@@ -42,7 +42,7 @@ You can create more `test.ts` files under the `test` folder and they will automa
 
 The `Extension Tests` configuration is defined in the project's `.vscode\launch.json` file.  It is similar the `Extension` configuration with the addition of the `--extensionTestsPath` argument which points to the compiled test files (assuming this is a TypeScript project).
 
-```json
+```json5
 {
     "name": "Extension Tests",
     "type": "extensionHost",
@@ -62,7 +62,7 @@ The `Extension Tests` configuration is defined in the project's `.vscode\launch.
 
 You can set the file or folder that the test instance should open by inserting the path at the front of the argument list for the launch configuration.
 
-```json
+```json5
 "args": [
     "file or folder name",
     "--extensionDevelopmentPath=${workspaceFolder}",
@@ -76,7 +76,7 @@ This way you can run your tests with predictable content and folder structure.
 
 By default, the debug instance of VS Code will load any extension you've previously installed alongside the one you are developing. If you want to disable those extensions, add `"--disable-extensions"` to the argument list in the launch configuration.
 
-```json
+```json5
 "args": [
     "--disable-extensions",
     "--extensionDevelopmentPath=${workspaceFolder}",
@@ -106,7 +106,7 @@ In order to enable automated extension tests, the `vscode` npm module provides a
 
 To enable this test command, open your `package.json` and add the following entry to the `scripts` section:
 
-```json
+```json5
 "test": "node ./node_modules/vscode/bin/test"
 ```
 

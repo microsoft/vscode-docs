@@ -62,7 +62,7 @@ VS Code will try to automatically detect your debug environment but if this fail
 
 Here is the launch configuration generated for Node.js debugging:
 
-```json
+```json5
 {
     "version": "0.2.0",
     "configurations": [
@@ -214,7 +214,7 @@ Many debuggers support some of the following attributes:
 
 To avoid having to use absolute paths in debug configurations, VS Code makes commonly used paths and other values available as variables and supports variable substitution inside strings in `launch.json`. Examples are `${workspaceFolder}` for the root path of a workspace folder, `${file}` for the file open in the active editor, and `${env:Name}` for an environment variable 'Name'. You can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md) or by invoking IntelliSense inside the `launch.json` string attributes.
 
-```json
+```json5
 {
     "type": "node",
     "request": "launch",
@@ -231,7 +231,7 @@ To avoid having to use absolute paths in debug configurations, VS Code makes com
 
 Below is an example that passes `"args"` to the program differently on Windows than on Linux and macOS:
 
-```json
+```json5
 {
     "version": "0.2.0",
     "configurations": [
@@ -252,7 +252,7 @@ Below is an example that passes `"args"` to the program differently on Windows t
 Valid operating properties are `"windows"` for Windows, `"linux"` for Linux and `"osx"` for macOS. Properties defined in an operating system specific scope override properties defined in the global scope.
 
 In the example below debugging the program always _stops on entry_ except for macOS:
-```json
+```json5
 {
     "version": "0.2.0",
     "configurations": [
@@ -274,7 +274,7 @@ In the example below debugging the program always _stops on entry_ except for ma
 
 VS Code supports adding a `"launch"` object inside your User [settings](/docs/getstarted/settings.md). This `"launch"` configuration will then be shared across your workspaces. For example:
 
-```json
+```json5
 "launch": {
     "version": "0.2.0",
     "configurations": [{
@@ -339,7 +339,7 @@ Using multi-target debugging is simple: after you've started a first debug sessi
 
 An alternative way to start multiple debug session is by using a so-called _compound_ launch configuration. A compound launch configuration lists the names of two or more launch configurations that should be launched in parallel. Compound launch configurations show up in the launch configuration drop down menu.
 
-```json
+```json5
 {
     "version": "0.2.0",
     "configurations": [

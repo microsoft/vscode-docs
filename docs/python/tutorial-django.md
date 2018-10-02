@@ -182,7 +182,7 @@ You're probably already wondering if there's an easier way to run the server and
 
 1. Scroll down to and examine the configuration with the name "Python: Django":
 
-    ```json
+    ```json5
     {
         "name": "Python: Django",
         "type": "python",
@@ -579,7 +579,7 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
 1. After VS code opens `html.json`, add the code below within the existing curly braces. (The explanatory comments, not shown here, describe details such as how the `$0` line indicates where VS Code places the cursor after inserting a snippet):
 
-    ```json
+    ```json5
     "Django App: template extending layout.html": {
         "prefix": "djextlayout",
         "body": [

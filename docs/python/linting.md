@@ -68,7 +68,7 @@ To select a different linter, use the **Python: Select Linter** command. You can
 
 Custom arguments are specified in the appropriate arguments setting for each linter. Each top-level element of an argument string that's separated by a space on the command line must be a separate item in the args list. For example:
 
-```json
+```json5
 "python.linting.pylintArgs": ["--reports", "12", "--disable-msg", "I0011"],
 "python.linting.flake8Args": ["--ignore=E24,W504", "--verbose"]
 "python.linting.pydocstyleArgs": ["--ignore=D400", "--ignore=D4"]
@@ -123,7 +123,7 @@ For the complete list of Pylint messages, see [readable-pylint-messages](https:/
 
 See [Pylint command line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options) for general switches. Command line arguments can be used to load Pylint plugins, such as that for Django:
 
-```json
+```json5
 "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 ```
 
@@ -160,13 +160,13 @@ The generated file contains sections for all the Pylint options, along with docu
 
 See [pycodestyle Command Line Interface](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage) for general options. For example, to ignore error D400 (first line should end with a period), add the following line to your `settings.json` file:
 
-```json
+```json5
 "python.linting.pydocstyleArgs": ["--ignore=D400"]
 ```
 
 A code prefix also instructs pydocstyle to ignore specific categories of errors. For example, to ignore all Docstring Content issues (D4XXX errors), add the following line to `settings.json`:
 
-```json
+```json5
 "python.linting.pydocstyleArgs": ["--ignore=D4"]
 ```
 
@@ -193,7 +193,7 @@ The Python extension maps all pydocstyle errors to the Convention (C) category.
 
 See [pycodestyle example usage and output](https://pep8.readthedocs.io/en/latest/intro.html#example-usage-and-output) for general switches. For example, to ignore error E303 (too many blank lines), add the following line to your `settings.json` file:
 
-```json
+```json5
 "python.linting.pep8Args": ["--ignore=E303"]
 ```
 
@@ -214,7 +214,7 @@ The Python extension maps pep8 message categories to VS Code categories through 
 
 See [Invoking Flake8](http://flake8.pycqa.org/en/latest/user/invocation.html) for general switches. For example, to ignore error E303 (too many blank lines), use the following setting:
 
-```json
+```json5
 "python.linting.flake8Args": ["--ignore=E303"]
 ```
 

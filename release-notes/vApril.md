@@ -117,7 +117,7 @@ You can now specify which external shell VS Code will launch when you use comman
 
 For example, to set PowerShell as your external shell on Windows and Terminator on Linux, use:
 
-```json
+```json5
 {
     "terminal.external.windowsExec": "powershell",
     "terminal.external.linuxExec": "terminator"

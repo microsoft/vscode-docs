@@ -11,7 +11,7 @@ MetaDescription: Reference for Visual Studio Code theme colors.
 
 You can customize your active Visual Studio Code [color theme](/docs/getstarted/themes.md) with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings.md).
 
-```json
+```json5
 {
     "workbench.colorCustomizations": {
         "activityBar.background": "#00AA00"

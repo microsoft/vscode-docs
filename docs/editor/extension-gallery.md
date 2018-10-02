@@ -222,7 +222,7 @@ In a [multi-root workspace](/docs/editor/multi-root-workspaces.md), the command 
 
 An example `extensions.json` could be:
 
-```json
+```json5
 {
     "recommendations": [
         "eg2.tslint",

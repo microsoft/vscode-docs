@@ -173,25 +173,25 @@ Keyboard Shortcut: `kb(workbench.action.openSettings)`
 
 Format on paste
 
-```json
+```json5
 "editor.formatOnPaste": true
 ```
 
 Change the font size
 
-```json
+```json5
 "editor.fontSize": 18
 ```
 
 Change the zoom level
 
-```json
+```json5
 "window.zoomLevel": 5
 ```
 
 Font ligatures
 
-```json
+```json5
 "editor.fontFamily": "Fira Code",
 "editor.fontLigatures": true
 ```
@@ -202,7 +202,7 @@ Font ligatures
 
 Auto Save
 
-```json
+```json5
 "files.autoSave": "afterDelay"
 ```
 
@@ -210,25 +210,25 @@ You can also toggle Auto Save from the top-level menu with the **File** > **Auto
 
 Format on save
 
-```json
+```json5
 "editor.formatOnSave": true,
 ```
 
 Change the size of Tab characters
 
-```json
+```json5
 "editor.tabSize": 4
 ```
 
 Spaces or Tabs
 
-```json
+```json5
 "editor.insertSpaces": true
 ```
 
 Render whitespace
 
-```json
+```json5
 "editor.renderWhitespace": "all"
 ```
 
@@ -236,7 +236,7 @@ Ignore files / folders
 
 Removes these files / folders from your editor window.
 
-```json
+```json5
 "files.exclude": {
         "somefolder/": true,
         "somefile": true
@@ -245,7 +245,7 @@ Removes these files / folders from your editor window.
 
 Remove these files / folders from search results.
 
-```json
+```json5
 "search.exclude": {
     "someFolder/": true,
     "somefile": true
@@ -258,7 +258,7 @@ And many, many [other customizations](/docs/getstarted/settings.md).
 
 For those settings you only want for specific languages, you can scope the settings by the language identifier. You can find a list of commonly used language ids in the [Language Identifiers](/docs/languages/identifiers.md) reference.
 
-```json
+```json5
 "[languageid]": {
 
 }
@@ -272,7 +272,7 @@ For those settings you only want for specific languages, you can scope the setti
 
 Enabled by default for many file types. Create your own schema and validation in `settings.json`
 
-```json
+```json5
 "json.schemas": [
     {
         "fileMatch": [
@@ -285,7 +285,7 @@ Enabled by default for many file types. Create your own schema and validation in
 
 or for a schema defined in your workspace
 
-```json
+```json5
 "json.schemas": [
     {
         "fileMatch": [
@@ -298,7 +298,7 @@ or for a schema defined in your workspace
 
 or a custom schema
 
-```json
+```json5
 "json.schemas": [
     {
         "fileMatch": [
@@ -372,7 +372,7 @@ Further reading:
 
 Open User Settings `settings.json` with `kb(workbench.action.openSettings)`
 
-```json
+```json5
 "files.autoSave": "afterDelay"
 ```
 
@@ -444,7 +444,7 @@ Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 
 Create language associations for files that aren't detected correctly. For example, many configuration files with custom file extensions are actually JSON.
 
-```json
+```json5
 "files.associations": {
     ".database": "json"
 }
@@ -633,7 +633,7 @@ your linter however you'd like. Consult the [ESLint specification](https://eslin
 
 Here is configuration to use ES6.
 
-```json
+```json5
 {
     "env": {
         "browser": true,
@@ -689,7 +689,7 @@ See IntelliSense for your `package.json` file.
 
 **File** > **Preferences** > **User Snippets** (**Code** > **Preferences** > **User Snippets** on macOS), select the language, and create a snippet.
 
-```json
+```json5
 "create component": {
     "prefix": "component",
     "body": [
@@ -818,7 +818,7 @@ You can set `"debug.inlineValues": true` to see variable values inline in the de
 Select **Tasks** from the top-level menu, run the command **Configure Tasks...**, then select the type of task you'd like to run.
 This will generate a `task.json` file with content like the following. See the [Tasks](/docs/editor/tasks.md) documentation for more details.
 
-```json
+```json5
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format

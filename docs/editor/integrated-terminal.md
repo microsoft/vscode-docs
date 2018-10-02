@@ -56,7 +56,7 @@ The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10
 
 Correctly configuring your shell on Windows is a matter of locating the right executable and updating the setting. Below are a list of common shell executables and their default locations:
 
-```json
+```json5
 // Command Prompt
 "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
 // PowerShell
@@ -79,7 +79,7 @@ You can pass arguments to the shell when it is launched.
 
 For example, to enable running bash as a login shell (which runs `.bash_profile`), pass in the `-l` argument (with double quotes):
 
-```json
+```json5
 // Linux
 "terminal.integrated.shellArgs.linux": ["-l"]
 ```
@@ -181,7 +181,7 @@ Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (
 
 By default, the terminal will open at the folder that is opened in the Explorer. The `terminal.integrated.cwd` setting allows specifying a custom path to open instead:
 
-```json
+```json5
 {
     "terminal.integrated.cwd": "/home/user"
 }
@@ -233,7 +233,7 @@ CD /D %CurrentWorkingDirectory%
 
 then in your VS Code user settings, add the following to your `settings.json` file:
 
-```json
+```json5
 "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
 "terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vscode.bat"]
 ```
@@ -242,7 +242,7 @@ then in your VS Code user settings, add the following to your `settings.json` fi
 
 Yes, to use the [Cygwin](http://cygwin.com/) shell, you will first need to install the chere package and then add the following settings to your `settings.json` file:
 
-```json
+```json5
 "terminal.integrated.shell.windows": "C:\\Cygwin\\bin\\bash.exe",
 "terminal.integrated.shellArgs.windows": ["/bin/xhere", "/bin/bash"]
 ```
@@ -261,7 +261,7 @@ If you want to put the default Integrated Terminal shell back to the default (Po
 
 For example, if you have set your default terminal to bash, you will find `terminal.integrated.shell.windows` in your `settings.json` pointing to your bash location.
 
-```json
+```json5
 "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
 ```
 
@@ -271,7 +271,7 @@ Remove the entry to use the built-in VS Code default or set it to another shell 
 
 The easy fix for this is to use the 64-bit version. If you must use the 32-bit version you need to use the `sysnative` path when configuring your paths instead of `System32`:
 
-```json
+```json5
 "terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
 ```
 
@@ -281,14 +281,14 @@ Normally `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` clears the terminal on macOS/Windows
 
 macOS:
 
-```json
+```json5
 { "key": "cmd+k",                 "command": "workbench.action.terminal.clear",
                                      "when": "terminalFocus" },
 ```
 
 Windows:
 
-```json
+```json5
 { "key": "ctrl+k",                "command": "workbench.action.terminal.clear",
                                      "when": "terminalFocus" },
 ```
@@ -331,7 +331,7 @@ rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
 
 Yes, you can specify [Powerline](https://powerline.readthedocs.io) fonts with the `terminal.integrated.fontFamily` [setting](/docs/getstarted/settings.md).
 
-```json
+```json5
 "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline"
 ```
 

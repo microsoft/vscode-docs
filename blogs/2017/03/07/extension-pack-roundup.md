@@ -45,7 +45,7 @@ To include an extension, your extension manifest file (`package.json`) needs the
 
 For my CodeLens Roundup, this is what my extension manifest file looked like:
 
-```json
+```json5
 "extensionDependencies": [
     "eamodio.gitlens",
     "VisualStudioOnlineApplicationInsights.application-insights",

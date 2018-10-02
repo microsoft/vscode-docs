@@ -15,7 +15,7 @@ Markdown extensions allow you to extend and enhance Visual Studio Code's built-i
 
 Extensions can contribute CSS to change the look or layout of the Markdown preview. Stylesheets are registered using the `markdown.previewStyles` contribution in your extension's `package.json`:
 
-```json
+```json5
 "contributes": {
     "markdown.previewStyles": [
         "./style.css"
@@ -35,7 +35,7 @@ The VS Code Markdown preview supports the [CommonMark specification](https://spe
 
 To contribute a markdown-it plugin, first add a `"markdown.markdownItPlugins"` contribution in your extension's `package.json`:
 
-```json
+```json5
 "contributes": {
     "markdown.markdownItPlugins": true
 }
@@ -74,7 +74,7 @@ You may also want to review:
 
 For advanced functionality, extensions may contribute scripts that are executed inside of the Markdown preview.
 
-```json
+```json5
 "contributes": {
     "markdown.previewScripts": [
         "./main.js"
