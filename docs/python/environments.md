@@ -47,8 +47,6 @@ The next section describes how to select an environment, include virtual environ
 
 > **Tip**: When you're ready to deploy the application to other computers, you can create a `requirements.txt` file with the command `pip freeze > requirements.txt` (`pip3` on macOS/Linux). The requirements file describes the packages you've installed in your virtual environment. With only this file, you or other developers can restore those packages using `pip install -r requirements.txt` (or, again, `pip3` on macOS/Linux). By using a requirements file, you need not commit the virtual environment itself to source control.
 
-> **Tip**: You can also set the virtual environment folder in your `settings.json` file by setting `"python.pythonPath": ".venv"`, where `.venv` is a virtual environment. This setting allows cross-platform support when you commit `.vscode/settings.json`.
-
 ## Select an environment
 
 VS Code makes it easy to select and activate environments. Switching environments help you test different parts of your project with different interpreters as needed.
