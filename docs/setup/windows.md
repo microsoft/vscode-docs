@@ -4,23 +4,26 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 10/10/2016
+DateApproved: 9/5/2018
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
-
-# Running VS Code on Windows
+# Visual Studio Code on Windows
 
 ## Installation
 
 1. Download the [Visual Studio Code installer](https://go.microsoft.com/fwlink/?LinkID=534107) for Windows.
-2. Once it is downloaded, run the installer (VSCodeSetup-stable.exe). This will only take a minute.
-3. By default, VS Code is installed under `C:\Program Files (x86)\Microsoft VS Code` for a 64-bit machine.
+2. Once it is downloaded, run the installer (VSCodeUserSetup-{version}.exe). This will only take a minute.
+3. By default, VS Code is installed under `C:\users\{username}\AppData\Local\Programs\Microsoft VS Code`.
 
-You can also find a Zip archive [here](/docs/?dv=winzip).
+Altenatively, you can also download a [Zip archive](/docs/?dv=winzip), extract it and run Code from there.
 
->**Note:** .NET Framework 4.5 is required for VS Code.  If you are using Windows 7, please make sure [.NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653) is installed.
+>**Note:** .NET Framework 4.5.2 or higher is required for VS Code.  If you are using Windows 7, make sure you have at least [.NET Framework 4.5.2](https://www.microsoft.com/download/details.aspx?id=42643) installed.
 
->**Tip:** Setup will optionally add Visual Studio Code to your `%PATH%`, so from the console you can simply type `code .` to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
+>**Tip:** Setup will add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
+
+## 32 bit versions
+
+If you need to run a 32 bit version of VS Code, both a 32 bit [Installer](https://go.microsoft.com/fwlink/?LinkId=723965) and [Zip archive](https://go.microsoft.com/fwlink/?LinkID=733265) are available.
 
 ## Updates
 
@@ -31,14 +34,25 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 Once you have installed VS Code, these topics will help you learn more about VS Code:
 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
-* [The Basics](/docs/editor/codebasics.md) - A quick orientation around VS Code.
-* [User/Workspace Settings](/docs/customization/userandworkspace.md) - Learn how to configure VS Code to your preferences through settings.
+* [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
+* [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.
 
 ## Common Questions
 
-### Trouble with the installer
+### What command line arguments are supported by the Windows Setup?
 
-Try using the [zip file](/docs/?dv=winzip) instead of the installer.  To use this, unzip VS Code in your **Program Files** folder.
+VS Code uses [Inno Setup](http://www.jrsoftware.org/isinfo.php) to create its setup package
+for Windows. Thus, all the [Inno Setup command line switches](http://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available for use.
+
+Additionally, you can prevent the Setup from launching VS Code after completion with `/mergetasks=!runcode`.
+
+### Scrolling is laggy and not smooth
+
+On certain devices, editor scrolling is not smooth but laggy for an unpleasant experience. If you notice this issue, you can configure the setting `window.smoothScrollingWorkaround: true` as a workaround.
+
+### I'm having trouble with the installer
+
+Try using the [zip file](/docs/?dv=winzip) instead of the installer.  To use this, unzip VS Code in your `AppData\Local\Programs` folder.
 
 >**Note:** When VS Code is installed via a Zip file, you will need to manually update it for each [release](/updates).
 

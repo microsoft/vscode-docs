@@ -1,8 +1,9 @@
 ---
-Order: 1
+Order:
 TOCTitle: The Insiders Build
 PageTitle: Introducing the Insiders Build
 MetaDescription: insiders build
+MetaSocialImage: /assets/blogs/2016/02/01/opengraph_insiders.png
 Date: 2016-02-01
 ShortDescription: VS Code has its roots in the web (built using TypeScript and Node.js) and one thing we love about cloud based applications is that they are always up to date. Update the service and all of your users are instantly on the latest fixes and features, with no user interaction.
 Author: Chris Dias
@@ -22,7 +23,7 @@ There were two shortcomings to this model. First, you needed to join the “Insi
 
 With the open sourcing of VS Code in November, we are retiring the Insiders Program. With the upcoming January 2016 release, we are introducing a new Insiders build that installs side by side with the monthly, stable VS Code release.
 
-![Insiders and Stable, side by side, don't worry, the green icon is temporary](2016_02_01_insiders_build_icon.png)
+![Insiders and Stable, side by side, don't worry, the green icon is temporary](insiders_build_icon.png)
 
 No longer do you need to manage settings to switch between the two. The Insiders build is a separate installation with isolated settings, extensions, and configurations. This does mean that you will need to configure both and install your favorite extensions into each, but once you’ve done this, trying out new features (and giving us feedback!) is easier than ever.
 

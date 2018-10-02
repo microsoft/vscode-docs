@@ -1,19 +1,19 @@
 ---
-Order: 7
+Order:
 TOCTitle: 1.0 Release
 PageTitle: Visual Studio Code 1.0 Release
 MetaDescription: Visual Studio Code releases 1.0.
 Date: 2016-04-14
 ShortDescription: Visual Studio Code releases 1.0.
 Author: PJ Meyer
-MetaSocialImage: 2016_04_14_header.png
+MetaSocialImage: /assets/blogs/2016/04/14/header.png
 ---
 
 # Visual Studio Code 1.0!
 
 April 14, 2016 by The VS Code Team, [@code](https://twitter.com/code)
 
-![header graphic](2016_04_14_header.png)
+![header graphic](header.png)
 
 Today we’re very proud to release version 1.0 of Visual Studio Code. Since our initial launch one year ago, 2 million developers have installed VS Code. Today, we’re excited to report that more than 500,000 developers actively use VS Code each month.
 
@@ -27,7 +27,7 @@ And we have strived to make VS Code 1.0 a great editor for every developer. VS C
 
 We could not have reached this important milestone without the help of all our contributors. Since committing to doing development in the open less than four months ago, we’ve consumed over [300 pull requests](https://github.com/Microsoft/vscode/pulls?q=is%3Apr+is%3Aclosed).  Whether you created a PR, filed an issue, gave a thumbs up, tweeted, or simply used VS Code in your day-to-day, you’re a part of the team. **Thank you!**
 
-![installs graphic](2016_04_14_installs.png)
+![installs graphic](installs.png)
 
 ## The History of VS Code
 
@@ -37,7 +37,7 @@ It was only a few short years ago that we kicked off what we then called the "Mo
 
 So we set out to answer the question, "Can we build a browser-based code editor that feels native?" Not just an experience for text editing, but source code editing.  Suggestion lists, error and warning squiggles, Go to Definition, and more.
 
-Today, we believe the answer was a resounding "Yes". The editor we built can now be found on some of the most demanding global websites – OneDrive, Visual Studio Team Services, Bing Code Search, Azure – sites used by millions of people every day. It even ships to 100s of millions of Windows desktops with the F12 tools in Internet Explorer.  And that same editor is at the heart of VS Code.
+Today, we believe the answer was a resounding "Yes". The editor we built can now be found on some of the most demanding global websites – OneDrive, Bing Code Search, Azure – sites used by millions of people every day. It even ships to 100s of millions of Windows desktops with the F12 tools in Internet Explorer.  And that same editor is at the heart of VS Code.
 
 Of course, to build the editor we needed a development tool. Developers know that one of the best ways to evolve your code quickly is to "dogfood" it: use it the same way your customers will.  It therefore made sense that we would create a local Node.js based service to serve up files and the editor in a lightweight development tool. This tool eventually made its way to the cloud as a part of Azure Websites.
 
@@ -51,13 +51,13 @@ Keeping our principle of using VS Code the way our customers do, we decided that
 
 And at the same time, we open-sourced the VS Code [repository](https://github.com/Microsoft/vscode) and many of our own extensions, and moved to developing Visual Studio Code in the open.
 
-![timeline graphic](2016_04_14_timeline.png)
+![timeline graphic](timeline.png)
 
 ## Being "1.0"
 
 Today, Visual Studio Code delivers on many of the aspects that we imagined during incubation. VS Code has great editing and navigation [experiences](/docs/editor/editingevolved), streamlined [debugging](/docs/editor/debugging), and built-in [Git support](/docs/editor/versioncontrol).
 
-Developers today love VS Code for its powerful set of built-in features, intuitive editing and debugging experiences, performance and responsiveness, and great language and platform support. The VS Code download is under 40MB including support for 9 additional [languages](/docs/customization/locales) (Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish) and it installs in seconds.  With the help of developers like [@zersiax](https://twitter.com/zersiax), VS Code is now [accessible](/docs/editor/accessibility) to visually impaired developers on Windows and soon on OS X and Linux.
+Developers today love VS Code for its powerful set of built-in features, intuitive editing and debugging experiences, performance and responsiveness, and great language and platform support. The VS Code download is under 40MB including support for 9 additional [languages](/docs/getstarted/locales) (Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish) and it installs in seconds.  With the help of developers like [@zersiax](https://twitter.com/zersiax), VS Code is now [accessible](/docs/editor/accessibility) to visually impaired developers on Windows and soon on OS X and Linux.
 
 ## Community at its Core
 
@@ -67,13 +67,13 @@ The community responded, with huge growth in the number of extensions and the wa
 
 Seeing the support and help the community has already poured into the product, the potential for VS Code has never been greater.
 
-<img src="/images/Hundreds-of-extensions.png" style="width: 69%;display: block;margin-left: auto;margin-right: auto">
+<img src="/assets/images/Hundreds-of-extensions.png" style="width: 69%;display: block;margin-left: auto;margin-right: auto">
 
 ## Looking Ahead
 
 While we’re excited about releasing 1.0 today, we are even more excited about the future.
 
-Of course, we will continue to focus on the fundamentals.  Performance, stability, accessibility, and compatibility are of utmost importance to our users, and they are to us as well. We will continue to invest in improving developer productivity, guided by the great user feedback on [UserVoice](http://go.microsoft.com/fwlink/?LinkID=533482). We will continue to work with partners and the community to expand support for new languages, and platforms, and experiences. And we will continue to work with you, our community, to build a great tool for you, and for every developer.
+Of course, we will continue to focus on the fundamentals.  Performance, stability, accessibility, and compatibility are of utmost importance to our users, and they are to us as well. We will continue to invest in improving developer productivity, guided by the great user feedback on [UserVoice](https://go.microsoft.com/fwlink/?LinkID=533482). We will continue to work with partners and the community to expand support for new languages, and platforms, and experiences. And we will continue to work with you, our community, to build a great tool for you, and for every developer.
 
 If you haven’t tried out Visual Studio Code yet, please [download](/Download) it and let us know what you think!
 

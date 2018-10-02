@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order:
 TOCTitle: February 2016 Release
 PageTitle: Visual Studio February 2016 Release
 MetaDescription: Announcing the Visual Studio Code February 2016 Release
@@ -19,7 +19,7 @@ Today we are releasing the February 2016 build of Visual Studio Code. This relea
 * **Extensions**: VS Code can make recommendations for extensions based on the files you've opened in the tool (Press `kb(workbench.action.showCommands)`, search for "recommend").
 * **Accessibility**: Screen reader support in the Editor is now on by default.
 
-And much, much more. Please see our [Release Notes](http://go.microsoft.com/fwlink/?LinkID=533483) for more information.
+And much, much more. Please see our [Release Notes](https://go.microsoft.com/fwlink/?LinkID=533483) for more information.
 
 If you have automatic updates turned on (OS X and Windows) then you'll get prompted soon. Otherwise, [download VS Code today](https://code.visualstudio.com)!
 

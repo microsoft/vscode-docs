@@ -1,10 +1,9 @@
 ---
-Order: 11
+Order: 10
 TOCTitle: April 2016
 PageTitle: Visual Studio Code April 2016 1.1
 MetaDescription: See what is new in the Visual Studio Code April 2016 Release (1.1)
 ---
-
 # April 2016 (1.1)
 
 The April 1.1 release is our first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.
@@ -50,7 +49,7 @@ You can now double-click on some resize borders (sashes) in the workbench to qui
 
 The `workbench.action.reopenClosedEditor` command has been added which will reopen the most recent file removed from the working files list. The default key binding for this command is `kb(workbench.action.reopenClosedEditor)`.
 
->**Note:** Previously `kb(workbench.action.reopenClosedEditor)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding. You can [customize](https://code.visualstudio.com/docs/customization/keybindings#_customizing-shortcuts) the key bindings and change the behavior back to the previous one if desired.
+>**Note:** Previously `kb(workbench.action.reopenClosedEditor)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding. You can [customize](https://code.visualstudio.com/docs/getstarted/keybindings#_customizing-shortcuts) the key bindings and change the behavior back to the previous one if desired.
 
 ### Disable Emmet abbreviation expansion on Tab
 
@@ -169,7 +168,7 @@ We updated the Electron shell to 0.37.6.
 
 ## Language Server Protocol
 
-Version 2.x of the [language server protocol](https://github.com/Microsoft/vscode-languageserver-protocol) was released together with a corresponding [client library](https://github.com/Microsoft/vscode-languageserver-node) to be used in extensions and a [server library](https://github.com/Microsoft/vscode-languageserver-node) for Node.js.
+Version 2.x of the [language server protocol](https://microsoft.github.io/language-server-protocol) was released together with a corresponding [client library](https://github.com/Microsoft/vscode-languageserver-node) to be used in extensions and a [server library](https://github.com/Microsoft/vscode-languageserver-node) for Node.js.
 
 The major changes are:
 

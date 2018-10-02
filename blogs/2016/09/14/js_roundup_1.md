@@ -2,9 +2,9 @@
 Order: 17
 TOCTitle: JavaScript Extensions Part 1
 PageTitle: Visual Studio Code JavaScript Extensions Part 1 Sep 2016
-MetaDescription: Essential JavaScript extensions for Visual Studio Code. 
+MetaDescription: Essential JavaScript extensions for Visual Studio Code.
 Date: 2016-09-14
-ShortDescription: Essential JavaScript extensions for Visual Studio Code. 
+ShortDescription: Essential JavaScript extensions for Visual Studio Code.
 Author: Wade Anderson
 ---
 
@@ -16,11 +16,11 @@ September 14, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 I learned JavaScript during an internship in the summer of 2013. Although not a difficult programming language, JavaScript didn't come easy. I used a lightweight editor along with the rest of my team and missed the deep language integration features of Visual Studio (C#) and Eclipse (Java).
 
-Visual Studio Code is not an IDE, but you can extend it to do many of the things an IDE can do. VS Code extensions effectively bridge the gap between an IDE and a lightweight editor (read [here](/docs/extensions/our-approach.md#stability-extension-isolation) to learn how we maintain high performance when extensions are added).
+Visual Studio Code is not an IDE, but you can extend it to do many of the things an IDE can do. VS Code extensions effectively bridge the gap between an IDE and a lightweight editor (read [here](/docs/extensionAPI/patterns-and-principles.md#core-concepts) to learn how we maintain high performance when extensions are added).
 
 Below are some of the essential JavaScript extensions that I and many of you are using every day.
 
-> **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. See more instructions [here](/docs/editor/extension-gallery.md#browse-and-install-extensions-in-vs-code).
+> **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. See more instructions [here](/docs/editor/extension-gallery.md#browse-and-install-extensions).
 
 ## ESLint
 
@@ -32,7 +32,7 @@ Easily integrate [ESLint](http://eslint.org/) into your project. Dirk is a membe
 
 Read more about setting up JavaScript linters in the VS Code [documentation](/docs/languages/javascript.md#linters).
 
-![eslint animation](2016_09_14_eslint.gif)
+![eslint animation](eslint.gif)
 
 ## JavaScript (ES6) code snippets
 
@@ -42,7 +42,7 @@ Publisher - [charalampos karypidis](https://marketplace.visualstudio.com/search?
 
 VS Code comes with many built-in code snippets. The **JavaScript (ES6) code snippets** extension adds snippets for ES6 (ECMAScript 6) syntax. Here is a small sampling of the snippets provided by this extension. See the extension's [README](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) to see the dozens of snippets this pack gives you.
 
-![javascript snippets](2016_09_14_javascript_snippets.png)
+![javascript snippets](javascript_snippets.png)
 
 You can read more about JavaScript snippets in the VS Code [documentation](/docs/languages/javascript.md#snippets). For additional snippet packs, including [Angular 1](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular1), [Angular 2](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2), [Bootstrap 3](https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets), [ReactJs](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets), and [jQuery](https://marketplace.visualstudio.com/items?itemName=donjayamanne.jquerysnippets), check out the Marketplace's [Snippets category](https://marketplace.visualstudio.com/vscode/Snippets?sortBy=Downloads).
 
@@ -54,7 +54,7 @@ Publisher - [Christian Kohler](https://marketplace.visualstudio.com/search?term=
 
 This extension autocompletes file paths in your source code. Use this in JavaScript, HTML, CSS files and more.
 
-![path intellisense](2016_09_14_path_intellisense.gif)
+![path intellisense](path_intellisense.gif)
 
 ## npm IntelliSense
 
@@ -64,7 +64,7 @@ Publisher - [Christian Kohler](https://marketplace.visualstudio.com/search?term=
 
 A second incredibly useful extension from Christian Kohler. This extension provides IntelliSense for npm modules.
 
-![npm intellisense](2016_09_14_npm_intellisense.gif)
+![npm intellisense](npm_intellisense.gif)
 
 ## Want to see your extension featured?
 

@@ -1,46 +1,27 @@
 ---
 Order: 5
 Area: editor
-TOCTitle: Editing Evolved
+TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
-PageTitle: Editing Evolved
-DateApproved: 10/10/2016
+PageTitle: Code Navigation in Visual Studio Code
+DateApproved: 9/5/2018
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
-
-# Editing Evolved
+# Code Navigation
 
 Visual Studio Code has a high productivity code editor which, when combined with programming language services, gives you the power of an IDE and the speed of a text editor. In this topic, we'll first describe VS Code's language intelligence features (suggestions, parameter hints, smart code navigation) and then show the power of the core text editor.
 
-## Editing - Smart
+## Quick File Navigation
 
-VS Code comes with a built-in JavaScript/TypeScript language service so you get JavaScript and TypeScript code intelligence out-of-the-box. For other languages, like Go, Python, and C#, you will need to install an extension for deep language service integration. Language services provide the code understanding necessary for features like IntelliSense (suggestions) and smart code navigation (Go to Definition, Find All References, Rename Symbol).  Different language extensions provide different levels of support for VS Code's language features but rest assured the community is very active adding new languages and great functionality. Learn more about installing VS Code extensions in our [Extensions Marketplace](/docs/editor/extension-gallery.md) topic and visit the [Marketplace](https://marketplace.visualstudio.com/VSCode) to see what's available for your favorite programming languages.
+The Explorer is great for navigating between files when you are exploring a project. However, when you are working on a task, you will find yourself quickly jumping between the same set of files. VS Code provides two powerful commands to navigate in and across files with easy-to-use key bindings.
 
-![IntelliSense](images/editingevolved/javascript-intellisense.png)
+Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files open in an editor group. To open one of these files, use `kbstyle(Tab)` again to pick the file you want to navigate to, then release `kbstyle(Ctrl)` to open it.
 
-## IntelliSense
+![Quick Navigation](images/editingevolved/quicknav.png)
 
-We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(.)`, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/customization/keybindings.md).
+Alternatively, you can use `kb(workbench.action.navigateBack)` and `kb(workbench.action.navigateForward)` to navigate between files and edit locations. If you are jumping around between different lines of the same file, these shortcuts allow you to navigate between those locations easily.
 
-> **Tip:** The suggestions filtering supports CamelCase so you can type the upper case letters of a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
-
-> **Tip:** IntelliSense suggestions can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` [settings](/docs/customization/userandworkspace.md).
-
-JavaScript and TypeScript developers can take advantage of the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) type definition (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using `typings` files in the [JavaScript language](/docs/languages/javascript#_intellisense) topic and the [Node.js](/docs/runtimes/nodejs#_intellisense-and-typings) walkthrough.
-
-Learn more in the [IntelliSense document](/docs/editor/intellisense.md).
-
-## Parameter Hints
-
-In JavaScript, TypeScript or C#, parameter hints will pop up as you're typing a method invocation. You can navigate between different overloads with `kbstyle(Up)` and `kbstyle(Down)` and the best overload will be presented based on the arguments you pass in.
-
-![Parameter Hints](images/editingevolved/parameterhints.png)
-
-## Hover
-
-For languages that support it, the hover will show useful information, such as types of symbols, or, in the case of CSS below, the shape of the HTML that would match a certain CSS rule:
-
-![Hover](images/editingevolved/hover.png)
+>**Tip:** You can open any file by its name when you type `kb(workbench.action.quickOpen)` (**Quick Open**).
 
 ## Go to Definition
 
@@ -50,17 +31,25 @@ If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declarati
 
 ![Ctrl Hover](images/editingevolved/ctrlhover.png)
 
-> **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`. If you opened a new editor window, you can go back to the previous editor with `kb(workbench.action.focusPreviousGroup)`.
+> **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`.
 
-## Goto Symbol
+## Go to Type Definition
 
-You can navigate symbols inside a file with `kb(workbench.action.gotoSymbol)`. By typing `kbstyle(:)` the symbols will be grouped by category. Just press `kbstyle(Up)` or `kbstyle(Down)` and navigate to the place you want.
+Some [languages](/docs/languages/overview.md) also support jumping to the type definition of a symbol by running the **Go to Type Definition** command from either the editor context menu or the **Command Palette**. This will take you to the definition of the type of a symbol. The command `editor.action.goToTypeDefinition` is not bound to a keyboard shortcut by default but you can add your own custom [keybinding](/docs/getstarted/keybindings.md).
+
+## Go to Implementation
+
+[Languages](/docs/languages/overview.md) can also support jumping to the implementation of a symbol by pressing `kb(editor.action.goToImplementation)`. For an interface, this shows all the implementors of that interface and for abstract methods, this shows all concrete implementations of that method.
+
+## Go to Symbol
+
+You can navigate symbols inside a file with `kb(workbench.action.gotoSymbol)`. By typing `kbstyle(:)` the symbols will be grouped by category. Press `kbstyle(Up)` or `kbstyle(Down)` and navigate to the place you want.
 
 ![Go to Symbol](images/editingevolved/gotosymbol.png)
 
 ## Open symbol by name
 
-Some languages support jumping to a symbol across files with `kb(workbench.action.showAllSymbols)`. Just type the first letter of a type you want to navigate to, regardless of which file contains it, and press `kbstyle(Enter)`.
+Some languages support jumping to a symbol across files with `kb(workbench.action.showAllSymbols)`. Type the first letter of a type you want to navigate to, regardless of which file contains it, and press `kbstyle(Enter)`.
 
 ![Open symbol by name](images/editingevolved/symbol.png)
 
@@ -72,7 +61,7 @@ We think there's nothing worse than a big context switch when all you want is to
 
 You can navigate between different references in the peeked editor and make quick edits right there. Clicking on the peeked editor filename or double-clicking in the result list will open the reference in the outer editor.
 
-> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `editor.stablePeek` [setting](/docs/customization/userandworkspace.md).
+> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `editor.stablePeek` [setting](/docs/getstarted/settings.md).
 
 ## Bracket matching
 
@@ -84,7 +73,7 @@ Matching brackets will be highlighted as soon as the cursor is near one of them.
 
 ## Reference information
 
-Some languages like C# supports inline reference information, that is updated live. This allows you to quickly analyze the impact of your edit or the popularity of your specific method or property throughout your project:
+Some languages like C# support inline reference information, that is updated live. This allows you to quickly analyze the impact of your edit or the popularity of your specific method or property throughout your project:
 
 ![Reference information](images/editingevolved/referenceinfo.png)
 
@@ -94,7 +83,7 @@ Some languages like C# supports inline reference information, that is updated li
 
 ## Rename symbol
 
-Some languages support rename symbol across files. Simply press `kb(editor.action.rename)` and then type the new desired name and press `kbstyle(Enter)`. All usages of the symbol will be renamed, across files.
+Some languages support rename symbol across files. Press `kb(editor.action.rename)` and then type the new desired name and press `kbstyle(Enter)`. All usages of the symbol will be renamed, across files.
 
 ![Rename](images/editingevolved/rename.png)
 
@@ -102,88 +91,25 @@ Some languages support rename symbol across files. Simply press `kb(editor.actio
 
 Warnings or Errors can be generated either via [configured tasks](/docs/editor/tasks.md), by rich language services, or by linters, that constantly analyze your code in the background. Since we love bug-free code, warnings and errors show up in multiple places:
 
-* In the status bar, there is a summary of all errors and warnings counts.
+* In the Status Bar, there is a summary of all errors and warnings counts.
 * You can click on the summary or press `kb(workbench.actions.view.problems)` to display the **PROBLEMS** panel with a list of all current errors.
 * If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
 
 ![errors in problems panel](images/editingevolved/errors.png)
 
-> **Tip:** To loop through errors or warnings in the current file, you can press `kb(editor.action.marker.next)` or `kb(editor.action.marker.prev)` which will show an inline zone detailing the problem and possible code actions (if available):
+> **Tip:** To loop through errors or warnings in the current file, you can press `kb(editor.action.marker.nextInFiles)` or `kb(editor.action.marker.prevInFiles)` which will show an inline zone detailing the problem and possible Code Actions (if available):
 
 ![Errors and Warnings Inline](images/editingevolved/errorsinline.png)
 
-## Editing - Fast
+## Code Action
 
-The Visual Studio Code editor has many features you need for high productivity when working with text. Besides the features discussed below, you can learn about other editor commands and their keyboard shortcuts by looking in the **Command Palette** (`kb(workbench.action.showCommands)`) and the `Default Keyboard Shortcuts` (**Files** > **Preferences** > **Keyboard Shortcuts**).
-
-## Multiple Selections
-
-VS Code supports for multiple cursors for fast simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
-
-> **Note:** Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
-
-![Multi-cursor](images/editingevolved/multicursor.gif)
-
-`kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.  `kb(editor.action.moveSelectionToNextFindMatch)` moves the last added cursor to next occurrence of the current selection.
-
-![Multi-cursor-next-word](images/editingevolved/multicursor-word.gif)
-
-> **Tip:** You can add more cursors also with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text or with `kb(editor.action.changeAll)`, which will add a selection at each occurrence of the current word.
-
-## Shrink/expand selection
-
-Quickly shrink or expand the current selection (applies to all languages). Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`
-
-Here's an example of expanding the selection with `kb(editor.action.smartSelect.grow)`:
-
-![Expand selection](images/editingevolved/expandselection.gif)
-
-## Column (box) text selection
-
-Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column text selection:
-
-![Column text selection](images/editingevolved/column-select.gif)
-
-There are also default key bindings for column selection on Mac and Windows, but not on Linux. You can [edit](/docs/customization/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
-
-For example:
-
-```json
-{ "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+left",     "command": "cursorColumnSelectLeft",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+pagedown", "command": "cursorColumnSelectPageDown",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+pageup",   "command": "cursorColumnSelectPageUp",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+right",    "command": "cursorColumnSelectRight",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+up",       "command": "cursorColumnSelectUp",
-                                  "when": "editorTextFocus" }
-```
-
-## Folding
-
-You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Move the mouse over the gutter to fold and unfold regions. The folding regions are evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
-
-You can also use the following actions:
-
- * Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor
- * Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor
- * Fold All (`kb(editor.foldAll)`) folds all region in the editor
- * Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor
- * Fold Level X (`kb(editor.foldLevel2)` for level 2) folds all regions of level X, except the region at the current cursor position
-
-![Folding](images/editingevolved/folding.png)
+Warnings and Errors can provide Code Actions (also known as Quick Fixes) to help fix issues. These will be displayed in the editor in the left margin as a lightbulb. Clicking on the lightbulb will either display the Code Action options or perform the action.
 
 ## Next Steps
 
 Now that you know how the editor works, time to try a few other things...
 
-* [Intro Video - Code Editing] - Watch an introductory video on code editing features. 
-* [The Basics](/docs/editor/codebasics.md) - In case you missed a basic orientation around VS Code.
-* [Customization](/docs/customization/overview.md) - Configure VS Code the way you want - Themes, Settings, Display Language
-* [Key Bindings](/docs/customization/keybindings.md) - Learn how to modify key bindings to your preference.
+* [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
+* [User Interface](/docs/getstarted/userinterface.md) - In case you missed a basic orientation around VS Code.
+* [Key Bindings](/docs/getstarted/keybindings.md) - Learn how to modify key bindings to your preference.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
-

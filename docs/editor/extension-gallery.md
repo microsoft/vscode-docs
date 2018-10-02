@@ -4,94 +4,221 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 10/10/2016
-MetaDescription: Find out how to discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
+DateApproved: 9/5/2018
+MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
+# Extension Marketplace
 
-# VS Code Extension Marketplace
+**Increase the power of Visual Studio Code through Extensions**
 
-## Increase the power of VS Code through Extensions
+The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This topic explains how to find, install, and manage VS Code extensions.
 
-The features that VS Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This topic explains how to find, install, and manage VS Code extensions.
+## Browse for extensions
 
-## Browse and Install Extensions in VS Code
+You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of VS Code or the **View: Extensions** command (`kb(workbench.view.extensions)`).
 
-You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the View Bar on the side of VS Code.
-
-![Extension View icon](images/extension-gallery/extensions-view-icon.png)
+![Extensions view icon](images/extension-gallery/extensions-view-icon.png)
 
 This will show you a list of the most popular VS Code extensions on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 ![popular extensions](images/extension-gallery/extensions-popular.png)
 
-Each extension in the list includes a brief description, the publisher, the download count and a five star rating. You can click on the extension item to display the extension's [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) page where you can learn more.
+Each extension in the list includes a brief description, the publisher, the download count and a five star rating. You can click on the extension item to display the extension's details page where you can learn more.
 
->**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy Server Support](/docs/setup/setup-overview.md#proxy-server-support) for details.
+> **Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy server support](/docs/setup/network.md#proxy-server-support) for details.
 
-By clicking on the view's `...` **More** button, it is possible to show:
+### Install an extension
+
+Click the **Install** button and after a successful install, you'll see a **Reload** button. Clicking on this will restart VS Code to enable the new extension.
+
+### Extension details
+
+On the extension details page, you can read the extension's README as well as review the extension's:
+
+* **Contributions** - The extension's additions to VS Code such as settings, commands and keyboard shortcuts, language grammars, debugger, etc.
+* **Changelog** - The extension repository CHANGELOG if available.
+* **Dependencies** - Lists if the extension depends on any other extensions.
+
+![extension contributions](images/extension-gallery/extension-contributions.png)
+
+If an extension is an Extension Pack, the **Dependencies** section will display which extensions will be installed when you install the pack. [Extension Packs](/docs/extensionAPI/extension-manifest.md#extension-packs) bundle separate extensions together so they can be easily installed at one time.
+
+![extension dependencies](images/extension-gallery/extension-dependencies.png)
+
+### Extensions view commands
+
+You can run various Extensions view commands by clicking on the Extensions view's `...` **More Actions** button.
+
+![more button](images/extension-gallery/more-button.png)
+
+There are commands to show:
 
 * The list of currently installed extensions
 * The list of outdated extensions that can be updated
+* The list of currently enabled/disabled extensions
 * The list of recommended extensions based on your workspace
 * The list of globally popular extensions
 
-You can sort the extension list by **Install Count** or **Rating** in either ascending or descending order.
+You can sort the extension list by **Install Count** or **Rating** in either ascending or descending order. You can learn more about extension search filters [below](#extensions-view-filters).
 
-## Install an Extension
+![more dropdown](images/extension-gallery/more-dropdown.png)
 
-Simply click the **Install** button and after a successful install, you'll see an **Enable** button which will prompt you to restart VS Code to enable the new extension.
+### Search for an extension
 
-## Search for an Extension
-
-You can clear the Search box at the top of the Extensions View and type in the name of the extension, tool or programming language you're looking for. 
+You can clear the Search box at the top of the Extensions view and type in the name of the extension, tool or programming language you're looking for.
 
 For example, typing 'python' will bring up a list of Python language extensions:
 
 ![python extensions](images/extension-gallery/extensions-python.png)
 
-You can see a list of recommended extensions (based on your workspace file types), using **Show Recommended Extensions** which sets the '@recommended' filter.
+If you know the exact identifier for an extension you're looking for, you can use the `@id:` prefix, for example `@id:octref.vetur`. Additionally, to filter or sort results, you can use the [filter](#extensions-view-filters) and [sort](#sorting) commands, detailed below.
 
-## List Installed Extensions
+## Manage extensions
 
-**Show Installed Extensions** will clear the search box and shows the list of installed extensions.
+VS Code makes it very easy to manage your extensions. You can install, disable, update, and uninstall extensions through the Extensions view, the **Command Palette** (commands have the **Extensions:** prefix) or command line switches.
 
-## Uninstall an Extension
+### List installed extensions
 
-To uninstall an extension, click the **Uninstall** button. This will uninstall the extension and prompt you to restart VS Code.
+By default, the Extensions view will show the extensions you currently have enabled, all extensions that are recommended for you, and a collapsed view of all extensions you have disabled. You can use the **Show Installed Extensions** command, available in the **Command Palette** (`kb(workbench.action.showCommands)`) or the **More Actions** (`...`) dropdown, to clear any text in the search box and show the list of all installed extensions, which includes those that have been disabled.
 
-## Update an Extension
+### Uninstall an extension
 
-You can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the '@outdated' filter.  This will display any available updates for your currently installed extensions. Simply click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to restart VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command.
+To uninstall an extension, click the gear button at the right of an extension entry and then choose **Uninstall** from the dropdown. This will uninstall the extension and prompt you to reload VS Code.
 
-## Auto Update Extensions
+![uninstall an extension](images/extension-gallery/uninstall-extension.png)
 
-If you would like your installed extensions to be updated automatically, you can use the `extensions.autoUpdate` [setting](/docs/customization/userandworkspace.md). When set to `true`, VS Code will download new versions of outdated extensions automatically and you will just need to restart VS Code when you see the blue **Enable** button in the Installed Extensions list.
+### Disable an extension
 
-## Browse Extensions
+If you don't want to permanently remove an extension, you can instead temporarily disable the extension by clicking the gear button at the right of an extension entry. You can disable an extension globally or just for your current Workspace. You will be prompted to reload VS Code after you disable an extension.
 
-Additionally, you can browse and search for VS Code extensions through the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) site. Below is a sampling of the most popular extensions.
+If you want to quickly disable all installed extensions, there is a **Disable All Installed Extensions** command in the **Command Palette** and **More Actions** (`...`) dropdown.
 
-<div class="marketplace-extensions-top"></div>
+Extensions remain disabled for all VS Code sessions until you re-enable them.
 
-You can review our handy **Featured**, **Most Popular**, and **Recently Added** extension lists and filter by **Category** (Debuggers, Languages, Linters, etc).
+### Enable an extension
 
-![marketplace-categories](images/extension-gallery/marketplace-categories.png)
+Similarly if you have disabled an extension (it will be in the **Disabled** section of the list and marked ***Disabled***), you can re-enable it with the **Enable** or **Enable (Workspace)** commands in the dropdown.
 
-## Command Line Extension Management
+![enable extension](images/extension-gallery/enable-extension.png)
 
-To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the command line. When identifying an extension, provide the full name of the form `publisher.extension`, for example `donjayamanne.python`.
+There is also an **Enable All Extensions** command in the **More Actions** (`...`) dropdown.
+
+### Extension auto-update
+
+VS Code checks for extension updates and installs them automatically. After an update, you will be prompted to reload VS Code. If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Updating Extensions** command which sets the `extensions.autoUpdate` [setting](/docs/getstarted/settings.md)  to `false`. If you don't want VS Code to even check for updates, you can set the `extensions.autoCheckUpdates` setting to false.
+
+### Update an extension manually
+
+If you have extensions auto-update disabled, you can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the `@outdated` filter. This will display any available updates for your currently installed extensions. Click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to reload VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command. If you also have automatic checking for updates disabled, you can use the **Check for Extension Updates** command to check which of your extensions can be updated.
+
+## Recommended extensions
+
+You can see a list of recommended extensions using **Show Recommended Extensions**, which sets the `@recommended` [filter](#extensions-view-filters). Extension recommendations can either be :
+
+* **Workspace Recommendations** - Recommended by other users of your current workspace.
+* **Other Recommendations** - Recommended based on recently opened files.
+
+See the section below to learn how to [contribute](#workspace-recommended-extensions) recommendations for other users in your project.
+
+### Ignoring recommendations
+
+To dismiss a recommendation, click on the extension item to open the Details pane and then press the **Ignore Recommendation** button. Ignored recommendations will no longer be recommended to you.
+
+![Ignore extension recommendation](images/extension-gallery/ignore-recommendation.png)
+
+## Configuring extensions
+
+VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/getstarted/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
+
+## Command line extension management
+
+To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the [command line](/docs/editor/command-line.md). When identifying an extension, provide the full name of the form `publisher.extension`, for example `ms-python.python`.
 
 Example:
 
 ```
+code --extensions-dir <dir>
+    Set the root path for extensions.
 code --list-extensions
-code --install-extension ms-vscode.cpptools
-code --uninstall-extension ms-vscode.csharp
+    List the installed extensions.
+code --show-versions
+    Show versions of installed extensions, when using --list-extension.
+code --install-extension (<extension-id> | <extension-vsix-path>)
+    Installs an extension.
+code --uninstall-extension (<extension-id> | <extension-vsix-path>)
+    Uninstalls an extension.
+code --enable-proposed-api (<extension-id>)
+    Enables proposed API features for extensions. Can receive one or more extension IDs to enable individually.
 ```
 
-## Workspace Recommended Extensions
+You can see the extension id on the extension details page next to the extension name.
 
-Often you have a set of extensions that makes working with a particular workspace or programming language more productive and you'd like to share this list with your team or colleagues. You can create a recommended list of extensions for a workspace with the **Extensions: Configure Workspace Recommended Extensions** command. This creates a `extensions.json` file located in the workspace `.vscode` folder where you can list extensions.
+![extension identifier](images/extension-gallery/extension-identifier.png)
+
+## Extensions view filters
+
+The Extensions view search box supports filters to help you find and manage extensions. You may have seen filters such as `@installed` and `@recommended` if you used the commands **Show Installed Extensions** and **Show Recommended Extensions**. There are also filters to let you sort by popularity and ratings and search by category (for example 'Linters') and tags (for example 'node'). You can see a complete listing of all filter and sort commands by typing `@` in the extensions search box and navigating through the suggestions:
+
+![intellisense on extension search filters](images/extension-gallery/extension-search-filters.png)
+
+Here are the Extensions view filters:
+
+* `@builtin` - Show extensions that come with VS Code. Grouped by type (Programming Languages, Themes, etc.).
+* `@disabled` - Show disabled installed extensions.
+* `@installed` - Show installed extensions.
+* `@outdated` - Show outdated installed extensions. A newer version is available on the Marketplace.
+* `@enabled` - Show enabled installed extensions. Extensions can be individually enabled/disabled.
+* `@recommended` - Show recommended extensions. Grouped as Workspace specific or general use.
+
+If no filter is provided, the Extensions view displays the currently installed and recommended extensions.
+
+### Sorting
+
+You can sort extensions with the `@sort` filter which can take the following values:
+
+* `installs` - Sort by Marketplace installation count, in descending order.
+* `rating` - Sort by Marketplace rating (1-5 stars), in descending order.
+* `name` - Sort alphabetically by extension name.
+
+![sort by install count](images/extension-gallery/sort-install-count.png)
+
+### Categories and tags
+
+Extensions can set **Categories** and **Tags** describing their features.
+
+![extension categories and tags](images/extension-gallery/categories-and-tags.png)
+
+You can filter on category and tag by using `category:` and `tag:`.
+
+Supported categories are: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`. They can be accessed through IntelliSense in the extensions search box:
+
+![categories debuggers](images/extension-gallery/extension-search-categories.png)
+
+Note that you must surround the category name in quotes if it is more than one word (for example, `category:"SCM Providers"`).
+
+Tags may contain any string and are not provided by IntelliSense so review the Marketplace to find helpful tags.
+
+## Install from a VSIX
+
+You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX...** command in the Extensions view command drop-down, or the **Extensions: Install from VSIX...** command in the **Command Palette**, point to the `.vsix` file.
+
+You can also install using the VS Code `--install-extension` command line switch providing the path to the `.vsix` file.
+
+```
+code --install-extension myextension.vsix
+```
+
+You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
+
+If you'd like to learn more about packaging and publishing extensions, see our [Publishing Extensions](/docs/extensions/publish-extension.md) topic in the Extension Authoring section.
+
+## Workspace recommended extensions
+
+A good set of extensions can make working with a particular workspace or programming language more productive and you'd often like to share this list with your team or colleagues. You can create a recommended list of extensions for a workspace with the **Extensions: Configure Recommended Extensions (Workspace)** command.
+
+In a single folder workspace, the command creates an `extensions.json` file located in the workspace `.vscode` folder where you can add a list of extensions identifiers ({publisherName}.{extensionName}).
+
+In a [multi-root workspace](/docs/editor/multi-root-workspaces.md), the command will open your `.code-workspace` file where you can list extensions under `extensions.recommendations`. You can still add extension recommendations to individual folders in a multi-root workspace by using the **Extensions: Configure Recommended Extensions (Workspace Folder)** command.
 
 An example `extensions.json` could be:
 
@@ -107,52 +234,53 @@ An example `extensions.json` could be:
 
 which recommends two linter extensions, TSLint and ESLint, as well as the Chrome debugger extension.
 
-An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page.
+An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page. VS Code will provide you auto-completion for installed extensions inside these files.
 
 ![Extension identifier](images/extension-gallery/extension-identifier.png).
 
-VS Code prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Workspace Recommended Extensions** command.
+VS Code prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Recommended Extensions** command.
 
 ![Show Recommendations](images/extension-gallery/recommendations.png)
 
-## Next Steps
+## Next steps
 
 Here are a few topics you may find interesting...
 
-* [Publishing to the Marketplace](/docs/tools/vscecli.md) - Publish your own customization or extension to the VS Code Marketplace
-* [Customization](/docs/customization/overview.md) - Learn how to integrate TextMate themes, colorizers and snippets into Visual Studio Code.
-* [Yo Code](/docs/tools/yocode.md) - Learn how the Yo Code extension generator can scaffold out new extensions and package existing TextMate files.
-* [Extending Visual Studio Code](/docs/extensions/overview.md) - Start learning about VS Code extensibility
-* [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension
+* [Publishing to the Marketplace](/docs/extensions/publish-extension.md) - Publish your own extension to the VS Code Marketplace.
+* [Extension Generator](/docs/extensions/yocode.md) - Learn how the `yo code` extension generator can scaffold out a new extension.
+* [Extending Visual Studio Code](/docs/extensions/overview.md) - Start learning about VS Code extensibility.
+* [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension.
+* [Troubleshooting Extensions](/docs/extensions/developing-extensions.md#troubleshooting-extensions) - See our troubleshooting guide if an extension isn't working properly.
 
-## Common Questions
+## Common questions
 
-**Q: Can I download an extension directly from the Marketplace?**
+### Where are extensions installed?
 
-**A:** Some users prefer to download an extension once from the Marketplace and then install it multiple times from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
+Extensions are installed in a per user extensions folder. Depending on your platform, the location is in the following folder:
 
-An extension's direct download URL is in the form: 
+* **Windows** `%USERPROFILE%\.vscode\extensions`
+* **macOS** `~/.vscode/extensions`
+* **Linux** `~/.vscode/extensions`
 
-```
-https://${publisher}.gallery.vsassets.io/_apis/public/gallery/publisher/${publisher}/extension/${extension name}/${version}/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
-```
+You can change the location by launching VS Code with the `--extensions-dir <dir>` command line [option](/docs/editor/command-line.md).
 
-For example, the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) version `0.10.18` would be:
+### Whenever I try to install any extension, I get a connect ETIMEDOUT error
 
-```
-https://dbaeumer.gallery.vsassets.io/_apis/public/gallery/publisher/dbaeumer/extension/vscode-eslint/0.10.18/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
-```
+You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy server support](/docs/setup/network.md#proxy-server-support) section in SETUP topic for details.
 
-Once you've downloaded an extension, you can side load it by renaming the `.zip` filename extension to `.vsix` and then using the **Install from VSIX...** command in the Extensions View command dropdown. See [Installing Extensions](/docs/extensions/install-extension.md#install-a-packaged-extension-vsix) for more details.
+### Can I download an extension directly from the Marketplace?
 
-**Q: Can VS Code read TextMate bundles directly?**
+Some users prefer to download an extension once from the Marketplace and then install it multiple times from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
-**A**: No, VS Code can read some TextMate files such as .tmTheme and .tmLanguage but can not install full TextMate bundles. Also in order to use TextMate theme and syntax files, VS Code needs extra metadata for integration.  The [Yo Code](/docs/tools/yocode.md) extension generator makes it easy to package these files for use in VS Code.
+To download an extension, navigate to the details page for the specific extension within the [Marketplace](https://marketplace.visualstudio.com/vscode). On that page, there is a **Download Extension** link in the **Resources** section which is located on the right hand side of the page.
 
-**Q: Can I install Visual Studio Community extensions (shipped in .vsix) in Visual Studio Code?**
+Once downloaded, you can then install the extension via the **Install from VSIX...** command in the Extensions view command drop-down.
 
-**A:** No, Visual Studio Code's extensibility points are different from Visual Studio Community.
+### Can I stop VS Code from providing extension recommendations?
 
-**Q: Whenever I try to install any extension, I get a connect ETIMEDOUT error.**
+Yes, if you would prefer to not have VS Code display extension recommendations in the Extensions view or through notifications, you can modify the following settings:
 
-**A:** You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy Server Support](/docs/setup/setup-overview.md#proxy-server-support) section in SETUP topic for details.
+* `extensions.showRecommendationsOnlyOnDemand` - Set to true to remove the **RECOMMENDED** section.
+* `extensions.ignoreRecommendations` - Set to true to silence extension recommendation notifications.
+
+The **Show Recommended Extensions** command is always available if you wish to see recommendations.

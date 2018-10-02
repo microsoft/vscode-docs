@@ -2,19 +2,18 @@
 Order: 12
 TOCTitle: Extensions Roundup - Fun with Git
 PageTitle: Visual Studio Code Extensions Roundup - Git August 2016
-MetaDescription: Extensions to super power your Git workflow.  
+MetaDescription: Extensions to super power your Git workflow.
 Date: 2016-08-02
-ShortDescription: Extensions to super power your Git workflow.  
+ShortDescription: Extensions to super power your Git workflow.
 Author: Wade Anderson
 ---
-
 # Extensions Roundup - Fun with Git
 
 August 2, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 The first extension I built for Visual Studio Code was called [Git Blame](https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame). It lets you quickly see which developer most recently modified the currently selected line ("blame"). It was simple and effective. Since the time when I built this extension, there have been many more awesome Git extensions added to the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode). Here are some of my favorite.
 
-> Tip: Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. See more instructions [here](https://code.visualstudio.com/docs/editor/extension-gallery#_browse-and-install-extensions-in-vs-code).
+> Tip: Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. See more instructions [here](https://code.visualstudio.com/docs/editor/extension-gallery.md#browse-and-install-extensions).
 
 ## Annotator
 
@@ -24,7 +23,7 @@ Publisher - [Ryuichi Inagaki](https://marketplace.visualstudio.com/search?term=p
 
 This extension takes "blame" information to the next level. You can see all the commit information in the gutter and it's clickable! When you click on the blame, you see the diff of that commit. The gutter color is darker for older commits and lighter for the most recent commits, which was a smooth way to create the UI. Truly an excellent extension and my personal favorite.
 
-![animation annotator](2016_07_29_annotate-animation.gif)
+![animation annotator](annotate-animation.gif)
 
 ## Git History
 
@@ -32,15 +31,13 @@ Marketplace - [Git History](https://marketplace.visualstudio.com/items?itemName=
 
 Publisher - [Don Jayamanne](https://marketplace.visualstudio.com/search?term=publisher%3A%22Don%20Jayamanne%22&target=VSCode)
 
-Don Jayamanne has created some of the most popular extensions in the Marketplace (see the [Python extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)) and he has built a great Git extension.
-
 With this extension, you will find a very rich feature set for your Git workflow:
 
 - View history of a file or line.
 - Compare a previous copy of a file against the local workspace version.
 - View the changes to the active line.
 
-![animation of Git history](2016_07_29_git-history-animation.gif)
+![animation of Git history](git-history-animation.gif)
 
 ## Share Code
 
@@ -50,7 +47,7 @@ Publisher - [Roland Greim](https://marketplace.visualstudio.com/search?term=publ
 
 Ever wanted to send your code to Pastebin or a GitHub Gist? Open the file you want to share and share it with a couple commands in the **Command Palette**.
 
-![animation of share code](2016_07_29_share-code-animation.gif)
+![animation of share code](share-code-animation.gif)
 
 ## Open in GitHub
 
@@ -60,7 +57,7 @@ Publisher - [ziyasal](https://marketplace.visualstudio.com/search?term=publisher
 
 One of the most popular extensions used by the VS Code team. This extension allows you to open the current line in GitHub.
 
-![open in GitHub extension](2016_07_29_open-in-github.png)
+![open in GitHub extension](open-in-github.png)
 
 ## Git Project Manager
 
@@ -70,7 +67,7 @@ Publisher - [Felipe Caputo](https://marketplace.visualstudio.com/search?term=pub
 
 Do you have multiple Git projects that you want to open with VS Code? Install this extension and quickly switch between your projects.
 
-![Git project manager extension](2016_07_29_git-project-manager.png)
+![Git project manager extension](git-project-manager.png)
 
 ## Partial Diff
 
@@ -80,7 +77,7 @@ Publisher - [Ryuichi Inagaki](https://marketplace.visualstudio.com/search?term=p
 
 Ryuichi's second time on this list (he is busy)! This extension isn't Git specific but lets you diff selected text which I have found very useful while coding my projects.
 
-![partial diff extension animation](2016_07_29_partial-diff.gif)
+![partial diff extension animation](partial-diff.gif)
 
 ## gitignore
 
@@ -90,7 +87,7 @@ Publisher - [michelemelluso](https://marketplace.visualstudio.com/search?term=pu
 
 This is the first of two gitignore extensions. With this gitignore extension, simply right click and add a file to your `.gitignore` configuration!
 
-![gitignore right click extension](2016_07_29_gitignore-rightclick.png)
+![gitignore right click extension](gitignore-rightclick.png)
 
 ## gitignore #2
 
@@ -100,7 +97,7 @@ Publisher - [CodeZombie](https://marketplace.visualstudio.com/search?term=publis
 
 The second gitignore extension (note that they are from different publishers) will pull in template `.gitignore` files. Are you coding in Python and want all the "usual" Python `.gitignore` configurations? Install this extension and run a simple command to pull down the `.gitignore` from [github/gitignore](https://github.com/github/gitignore).
 
-![gitignore template extension](2016_07_29_gitignore-template.png)
+![gitignore template extension](gitignore-template.png)
 
 ## Want to see your extension featured?
 

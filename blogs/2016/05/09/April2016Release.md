@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order:
 TOCTitle: April 2016 Release
 PageTitle: Visual Studio April 2016 Release
 MetaDescription: Announcing the Visual Studio Code April 2016 Release
@@ -34,7 +34,7 @@ With this release, we're bringing many improvements to your development experien
 * Automated test support for authoring Debug Adapters
 * New APIs for working with folders and JSON files
 
-Please see our [Release Notes](http://go.microsoft.com/fwlink/?LinkID=533483) for the full list of features and fixes.
+Please see our [Release Notes](https://go.microsoft.com/fwlink/?LinkID=533483) for the full list of features and fixes.
 
 If you have automatic updates turned on (OS X and Windows) then you'll get prompted soon. Otherwise, [download VS Code today](https://code.visualstudio.com)!
 

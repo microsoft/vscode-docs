@@ -1,148 +1,121 @@
 ---
 Order: 2
 Area: editor
-TOCTitle: The Basics
+TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-PageTitle: The Basics of Visual Studio Code
-DateApproved: 10/10/2016
-MetaDescription: This topic helps you get acquainted with the Visual Studio Code user interface.
+PageTitle: Basic Editing in Visual Studio Code
+DateApproved: 9/5/2018
+MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
+# Basic Editing
 
-# The Basics of Visual Studio Code
+Visual Studio Code is an editor first and foremost and includes the features you need for highly productive source code editing. This topic takes you through the basics of the editor and helps you get moving with your code.
 
-At its heart, Visual Studio Code is a code editor. Like many other code editors, VS Code adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
+## Keyboard shortcuts
 
-![code basics hero](images/codebasics/hero.png)
+Being able to keep your hands on the keyboard when writing code is crucial for high productivity. VS Code has a rich set of default keyboard shortcuts as well as allowing you to customize them.
 
-## Files, Folders & Projects
+* [Keyboard Shortcuts Reference](/docs/getstarted/keybindings.md#keyboard-shortcuts-reference) - Learn the most commonly used and popular keyboard shortcuts by downloading the reference sheet.
+* [Install a Keymap extension](/docs/getstarted/keybindings.md#keymap-extensions) - Use the keyboard shortcuts of your old editor (such as Sublime Text, Atom, and Vim) in VS Code by installing a Keymap extension.
+* [Customize Keyboard Shortcuts](/docs/getstarted/keybindings.md#customizing-shortcuts) - Change the default keyboard shortcuts to fit your style.
 
-VS Code is file and folder based - you can get started immediately by opening a file or folder in VS Code.
+## Multiple selections (multi-cursor)
 
-On top of this, VS Code can read and take advantage of a variety of project files defined by different frameworks and platforms. For example, if the folder you opened in VS Code contains one or more `package.json`, `project.json`, `tsconfig.json`, or .NET Core Visual Studio solution and project files, VS Code will read these files and use them to provide additional functionality, such as rich IntelliSense in the editor.
+VS Code supports multiple cursors for fast simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
 
-## Basic Layout
+> **Note:** Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
 
-VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into five areas:
+![Multi-cursor](images/codebasics/multicursor.gif)
 
-* **Editor** The main area to edit your files. You can open up to three editors side by side.
-* **Side Bar** Contains different views like the Explorer to assist you while working on your project.
-* **Status Bar** Information about the opened project and the files you edit.
-* **View Bar** Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
-* **Panels** You can display different panels below the editor region for output or debug information, errors and warnings, or an integrated terminal.
+`kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.
 
-Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
+![Multi-cursor-next-word](images/codebasics/multicursor-word.gif)
 
-![VS Code Layout](images/codebasics/layout.png)
+> **Tip:** You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
 
-VS Code allows up to three visible editors at any one time, allowing you to edit or view up to three files together side by side. The open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/editor/tabs.md) topic.
+### Multi-cursor modifier
 
->**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Sidebar**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
+If you'd like to change the modifier key for applying multiple cursors to `kbstyle(Cmd+Click)` on macOS and `kbstyle(Ctrl+Click)` on Windows and Linux, you can do so with the `editor.multiCursorModifier` [setting](/docs/getstarted/settings.md). This lets users coming from other editors such as Sublime Text or Atom continue to use the keyboard modifier they are familiar with.
 
-### Hide the Menu Bar (Windows, Linux)
+The setting can be set to:
 
-You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu Bar** command (`kbstyle(Ctrl+U)`). You can still access the Menu Bar by pressing the `kbstyle(Alt)` key.
+* `ctrlCmd` - Maps to `kbstyle(Ctrl)` on Windows and `kbstyle(Cmd)` on macOS.
+* `alt` - The existing default `kbstyle(Alt)`.
 
-## Side by Side Editing
+There's also a menu item **Use Ctrl+Click for Multi-Cursor** in the **Selection** menu to quickly toggle this setting.
 
-You can have up to three editors open side by side.
+The **Go To Definition** and **Open Link** gestures will also respect this setting and adapt such that they do not conflict. For example, when the setting is `ctrlCmd`, multiple cursors can be added with `kbstyle(Ctrl/Cmd+Click)`, and opening links or going to definition can be invoked with `kbstyle(Alt+Click)`.
 
-If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
+### Shrink/expand selection
 
-* `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) click on a file in the Explorer.
-* `kb(workbench.action.splitEditor)` to split the active editor into two.
-* **Open to the Side** from the Explorer context menu on a file.
-* Click the **Split Editor** button in the upper right of an editor.
-* Drag and drop a file to the either side of the editor region.
+Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`
 
-![Side by Side editing](images/codebasics/sidebyside.png)
+Here's an example of expanding the selection with `kb(editor.action.smartSelect.grow)`:
 
-Whenever you open another file, the editor that is active will display the content of that file. So if you have two editors side by side and you want to open file 'foo.cs' into the right hand editor, make sure that editor is active (by clicking inside it) before opening file 'foo.cs'.
+![Expand selection](images/codebasics/expandselection.gif)
 
-When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
+## Column (box) selection
 
->**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
+Place the cursor in one corner and then hold `kbstyle(Shift+Alt)` while dragging to the opposite corner:
 
-## Explorer
+![Column text selection](images/codebasics/column-select.gif)
 
-The Explorer is used to browse, open, and manage all of the files and folders in your project.
+Note: This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
 
-After opening a folder in VS Code, the contents of the folder are shown in the Explorer. You can do many things from here:
+There are also default key bindings for column selection on macOS and Windows, but not on Linux.
 
-* Create, delete, and rename files and folders.
-* Move files and folders with drag and drop.
-* Use the context menu to explore all options.
+Key|Command|Command id
+---|-------|----------
+`kb(cursorColumnSelectDown)`|Column Select Down|`cursorColumnSelectDown`
+`kb(cursorColumnSelectUp)`|Column Select Up|`cursorColumnSelectUp`
+`kb(cursorColumnSelectLeft)`|Column Select Left|`cursorColumnSelectLeft`
+`kb(cursorColumnSelectRight)`|Column Select Right|`cursorColumnSelectRight`
+`kb(cursorColumnSelectPageDown)`|Column Select Page Down|`cursorColumnSelectPageDown`
+`kb(cursorColumnSelectPageUp)`|Column Select Page Up|`cursorColumnSelectPageUp`
 
->**Tip:** You can drag and drop files into the Explorer from outside VS Code to copy them.
-
-![Explorer Menu](images/codebasics/explorer_menu.png)
-
-VS Code works very well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Command Prompt** (or **Open in Terminal** on Mac or Linux).
-
-You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in Explorer** (or **Reveal in Finder** on the Mac or **Open Containing Folder** on Linux).
-
->**Tip:** Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
-
-By default, VS Code excludes some folders from the explorer (for example. `.git`). Use the `files.exclude` [setting](/docs/customization/userandworkspace.md) to configure rules for hiding files and folders from the explorer.
-
-**Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
-
-## Open Editors
-
-At the top of the Explorer is a section labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** section if you:
-
-* Make a change to a file.
-* Double-click a file in the Explorer.
-* Open a file that is not part of the current folder.
-
-Just click an item in the **OPEN EDITORS** section, and it becomes active in VS Code.
-
-Once you are done with your task, you can remove files individually from the **OPEN EDITORS** section, or you can remove all files by using the **View: Close All Editors** or **View: Close All Editors in Group** actions.
-
-## Configuring the Editor
-
-VS Code gives you many options to configure the editor. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/customization/userandworkspace.md#settings-file-locations).
- 
-* Select **File** > **Preferences** > **User Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `Enter`) to edit the user settings.json file.
- 
-* Select **File** > **Preferences** > **Workspace Settings** (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
-
->**Note for Mac users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **User Settings**.
-
-You will see the VS Code [Default Settings](/docs/customization/userandworkspace.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily review and copy settings from `Default Settings`.
-
-After editing your settings, type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
-
->**Note:** Workspace settings will override User settings and are useful for sharing project specific settings across a team.
+You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
 
 ## Save / Auto Save
 
 By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
 
-However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file.
+However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file. The easiest way to turn on `Auto Save` is with the **File** > **Auto Save** toggle which turns on and off save after a delay.
 
-To configure `Auto Save`, open **User Settings** or **Workspace Settings** and find the associated settings:
+For more control over `Auto Save`, open User or Workspace [settings](/docs/getstarted/settings.md) and find the associated settings:
 
 * `files.autoSave`: Can have the values:
   * `off` - to disable auto save.
-  * `afterDelay` - to save files after a configured delay.
+  * `afterDelay` - to save files after a configured delay (default 1000 ms).
   * `onFocusChange` - to save files when focus moves out of the editor of the dirty file.
   * `onWindowChange` - to save files when the focus moves out of the VS Code window.
-* `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`.
+* `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`. The default is 1000 ms.
 
-## Search Across Files
+## Hot Exit
 
-VS Code allows you to quickly search over all files in the currently-opened folder.  Simply type `kb(workbench.view.search)` and type in your search. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
+VS Code will remember unsaved changes to files when you exit by default. Hot exit is triggered when the application is closed via **File** > **Exit** (**Code** > **Quit** on macOS) or when the last window is closed.
+
+You can configure hot exit by setting `files.hotExit` to the following values:
+
+* `"off"`: Disable hot exit.
+* `"onExit"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu). All windows with backups will be restored upon next launch.
+* `"onExitAndWindowClose"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu), and also for any window with a folder opened regardless of whether it is the last window. All windows without folders opened will be restored upon next launch. To restore folder windows as they were before shutdown, set `window.restoreWindows` to `all`.
+
+## Search across files
+
+VS Code allows you to quickly search over all files in the currently opened folder.  Press `kb(workbench.view.search)` and enter your search term. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
 
 ![A simple text search across files](images/codebasics/search.png)
 
 >**Tip:** We support regular expression searching in the search box, too.
 
-You can configure advanced search options by typing `kb(workbench.action.search.toggleQueryDetails)`. This will show additional fields to configure the search.
+You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
+
+### Advanced Search options
 
 ![Advanced search options](images/codebasics/searchadvanced.png)
 
-In the two input boxes below the search box, you can include and exclude files. Click on the toggle to the right to enable the glob pattern syntax:
+In the input box below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `!` to exclude those patterns from the search. `!example` will skip searching any folder or file named `example`. You can also use glob syntax:
 
 * `*` to match one or more characters in a path segment
 * `?` to match on one character in a path segment
@@ -150,9 +123,15 @@ In the two input boxes below the search box, you can include and exclude files. 
 * `{}` to group conditions (e.g. `{**/*.html,**/*.txt}` matches all HTML and text files)
 * `[]` to declare a range of characters to match (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)
 
-VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open settings to change these rules under the `files.exclude` and `search.exclude` section.
+VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
 
->**Tip:** From the Explorer you can right-click on a folder and select **Find in Folder** to search inside a folder only.
+Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `files.exclude` and `search.exclude` settings.
+
+>**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
+
+VS Code does support regular expression searches, however, backreferences, lookaround, and multiline matches are not supported. This is because VS Code depends on the search tool [ripgrep](https://github.com/BurntSushi/ripgrep), which, while extremely fast, doesn't support these advanced regex features.
+
+### Search and Replace
 
 You can also Search and Replace across files. Expand the Search widget to display the Replace text box.
 
@@ -162,37 +141,124 @@ When you type text into the Replace text box, you will see a diff display of the
 
 ![search and replace diff view](images/codebasics/search-replace-example.png)
 
-## Command Palette
+>**Tip:** You can quickly reuse a previous search term by using `kb(history.showNext)` and `kb(history.showPrevious)` to navigate through your search term history.
 
-VS Code is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the **Command Palette**. From here, you have access to all of the functionality of VS Code, including keyboard shortcuts for the most common operations.
+## IntelliSense
 
-![Command Palette](images/codebasics/commands.png)
+We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/getstarted/keybindings.md).
 
-The Command Palette provides access to many commands. You can execute editor commands, open files, search for symbols, and see a quick outline of a file, all using the same interactive window. Here are a few tips:
+> **Tip:** The suggestions filtering supports CamelCase so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
-* `kb(workbench.action.quickOpen)` will let you navigate to any file or symbol by simply typing its name
-* `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)` will cycle you through the last set of files opened
-* `kb(workbench.action.showCommands)` will bring you directly to the editor commands
-* `kb(workbench.action.gotoSymbol)` will let you navigate to a specific symbol in a file
-* `kb(workbench.action.gotoLine)` will let you navigate to a specific line in a file
+> **Tip:** IntelliSense suggestions can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` [settings](/docs/getstarted/settings.md).
 
-Type `?` into the input field to get a list of available commands you can execute from here:
+JavaScript and TypeScript developers can take advantage of the [npmjs](https://www.npmjs.com) type declaration (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using type declaration files in the [JavaScript language](/docs/languages/javascript.md#intellisense) topic and the [Node.js](/docs/nodejs/nodejs-tutorial.md) tutorial.
 
-![Quick Open Help](images/codebasics/quickopenhelp.png)
+Learn more in the [IntelliSense document](/docs/editor/intellisense.md).
 
-## Quick File Navigation
+## Formatting
 
-The Explorer is great for navigating between files when you are exploring a project. However, when you are working on a task, you will find yourself quickly jumping between the same set of files. VS Code provides two powerful commands to navigate in and across files with easy-to-use key bindings.
+VS Code has great support for source code formatting. The editor has two explicit format actions:
 
-Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files open in an editor group. To open one of these files, use `kbstyle(Tab)` again to pick the file you want to navigate to, then release `kbstyle(Ctrl)` to open it.
+* **Format Document** (`kb(editor.action.formatDocument)`) - Format the entire active file.
+* **Format Selection** (`kb(editor.action.formatSelection)`) - Format the selected text.
 
-![Quick Navigation](images/codebasics/quicknav.png)
+You can invoke these from the **Command Palette** (`kb(workbench.action.showCommands)`) or the editor context menu.
 
-Alternatively, you can use `kb(workbench.action.navigateBack)` and `kb(workbench.action.navigateForward)` to navigate between files and edit locations. If you are jumping around between different lines of the same file, these shortcuts allow you to navigate between those locations easily.
+VS Code has default formatters for JavaScript, TypeScript, JSON, and HTML. Each language has specific formatting options (for example, `html.format.indentInnerHtml`) which you can tune to your preference in your user or workspace [settings](/docs/getstarted/settings.md). You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
 
->**Tip:** You can open any file by its name when you type `kb(workbench.action.quickOpen)` (**Quick Open**).
+```json
+"html.format.enable": false
+```
 
-## File Encoding Support
+Along with manually invoking code formatting, you can also trigger formatting based on user gestures such as typing, saving or pasting. These are off by default but you can enable these behaviors through the following [settings](/docs/getstarted/settings.md):
+
+* `editor.formatOnType` - Format the line after typing.
+* `editor.formatOnSave` - Format a file on save.
+* `editor.formatOnPaste` - Format the pasted content.
+
+>Note: Not all formatters support format on paste as to do so they must support formatting a selection or range of text.
+
+In addition to the default formatters, you can find extensions on the Marketplace to support other languages or formatting tools. There is a `Formatters` category so you can easily search and find [formatting extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Formatters&sortBy=Downloads). In the **Extensions** view search box, type 'formatters' or 'category:formatters' to see a filtered list of extensions within VS Code.
+
+## Folding
+
+You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Move the mouse over the gutter and click to fold and unfold regions. Use `kbstyle(Shift + Click)` on the folding icon to fold or unfold the region and all regions inside.
+
+![Folding](images/codebasics/folding.png)
+
+You can also use the following actions:
+
+* Fold (`kb(editor.fold)`) folds the innermost un-collapsed region at the cursor.
+* Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor.
+* Fold Recursively (`kb(editor.foldRecursively)`) folds the innermost un-collapsed region at the cursor and all regions inside that region.
+* Unfold Recursively (`kb(editor.unfoldRecursively)`) unfolds the region at the cursor and all regions inside that region.
+* Fold All (`kb(editor.foldAll)`) folds all regions in the editor.
+* Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor.
+* Fold Level X (`kb(editor.foldLevel2)` for level 2) folds all regions of level X, except the region at the current cursor position.
+* Fold All Block Comments (`kb(editor.foldAllBlockComments)`) folds all regions that start with a block comment token.
+
+Folding ranges are by default evaluated based on the indentation of lines. A folding range starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
+
+Since the 1.22 release, folding ranges can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding:
+- Markdown, HTML, CSS, LESS, SCSS and JSON
+
+If you prefer to switch back to indentation based folding for one (or all) of the languages above, use:
+
+```json
+  "[html]": {
+    "editor.foldingStrategy": "indentation"
+  },
+```
+
+Regions can also be defined by markers defined by each language. The following languages currently have markers defined:
+
+* C#: `#region` and `#endregion`
+* C/C++: `#pragma region` and `#pragma endregion`
+* CSS/Less/SCSS: `/*#region*/` and `/*#endregion*/`
+* Coffeescript: `#region` and `#endregion`
+* F#: `//#region` and `//#endregion` and `(#region)` and `(#endregion)`
+* Java: `//#region` and `// #endregion` and `//<editor-fold>` and `//</editor-fold>`
+* HTML:
+* PHP: `#region` and `#endregion`
+* Powershell: `#region` and `#endregion`
+* Python: `#region` and `#endregion`
+* TypeScript/JavaScript:  `//#region` and `//#endregion`  and `//region` and `//endregion`
+* VB: `#Region` and `#End Region`
+* Bat: `::#region` and `::#endregion`
+* Markdown: `<!-- #region -->` and `<!-- #endregion -->`
+
+To fold and unfold only the regions defined by markers use:
+
+* Fold Marker Regions (`kb(editor.foldAllMarkerRegions)`) folds all marker regions.
+* Unfold Marker Regions (`kb(editor.unfoldAllMarkerRegions)`) unfolds all marker regions.
+
+## Indentation
+
+VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.mg).
+
+```json
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+```
+
+### Auto-detection
+
+VS Code analyzes your open file and determines the indentation used in the document. The auto-detected indentation overrides your default indentation settings. The detected setting is displayed on the right side of the Status Bar:
+
+![auto detect indentation](images/codebasics/indentation-detection.png)
+
+You can click on the Status Bar indentation display to bring up a drop-down with indentation commands allowing you to change the default settings for the open file or convert between tab stops and spaces.
+
+![indentation commands](images/codebasics/indentation-commands.png)
+
+>**Note:** VS Code auto-detection checks for indentations of 2, 4, 6 or 8 spaces. If your file uses a different number of spaces, the indentation may not be correctly detected. For example, if your convention is to indent with 3 spaces, you may want to turn off `editor.detectIndentation` and explicitly set the tab size to 3.
+
+```json
+    "editor.detectIndentation": false,
+    "editor.tabSize": 3,
+```
+
+## File encoding support
 
 Set the file encoding globally or per workspace by using the `files.encoding` setting in **User Settings** or **Workspace Settings**.
 
@@ -210,91 +276,33 @@ Then choose an encoding.
 
 ![Select an encoding](images/codebasics/encodingselection.png)
 
-## Launching from the Command Line
-
-You can launch VS Code from the command line to quickly open a file, folder, or project. Typically, you open VS Code within the context of a folder. We find the best way to do this is to simply type:
-
-```
-code .
-```
-
->**Tip:** We have instructions for Mac users in our [Setup](/docs/setup/mac.md) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable on Windows and Linux automatically during installation.
-
-Sometimes you will want to open or create a file. If the specified files does not exist, VS Code will create them for you:
-
-```
-code index.html style.css readme.md
-```
-
->**Tip:** You can have as many file names as you want separated by spaces.
-
-## Additional Command line arguments
-
-Here are optional command line arguments you can use when starting VS Code at the command line via `code`:
-
-Argument|Description
-------------------|-----------
-`-h` or `--help` | Print usage
-`-v` or `--version` | Print VS Code version (e.g. 0.10.10)
-`-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session (default).
-`-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
-`-g` or `--goto` | When used with *file:line:column?*, opens a file at a specific line and optional column position. This argument is provided since some operating systems permit `:` in a file name.
-*file* | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
-*file:line:column?* | Name of a file to open at the specified line and optional column position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the *file:line:column?* specifier.
-*folder* | Name of a folder to open. You can specify multiple folders.
-`-d` or `--diff` | Open a file difference editor. Requires two file paths as arguments.
-`--locale` | Set the display language (locale) for the VS Code session.  Supported locales are: `en-US`, `zh-TW`, `zh-CN`, `fr`, `de`, `it`, `ja`, `ko`, `ru`, `es` 
-`--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the `Extensions: Show Installed Extensions` dropdown but they will never be activated.
-`--list-extensions` | List the installed extensions.
-`--install-extension` | Install an extension. Provide the full extension name `publisher.extension` as an argument.
-`--uninstall-extension` | Uninstall an extension. Provide the full extension name `publisher.extension` as an argument.
-`-w` or `--wait` | Wait for the window to be closed before returning
-
-For both files and folders, you can use absolute or relative paths. Relative paths are relative to the current directory of the command prompt where you run `code`.
-
-If you specify more than one file or folder at the command line, VS Code will open only a single instance.
-
-## Window Management
-
-VS Code has some options to control how windows should be opened or restored between sessions.
-
-The `window.openFilesInNewWindow` setting controls if files should open in a new window instead of reusing an existing VS Code instance. By default, VS Code will open a new window when you double-click on a file outside VS Code or open a file from the command line. Set this to `false` to reuse the last active instance of VS Code and open files in there.
-
-The `window.reopenFolders` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will
-reopen the last opened folder you worked on (setting: `one`). Change this setting to `none` to never reopen any folders and always start with an empty VS Code instance. Change it to `all` to restore all folders you worked on during your previous session.
-
 ## Next Steps
 
 You've covered the basic user interface - there is a lot more to VS Code.  Read on to find out about:
 
-* [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code. 
-* [User/Workspace Settings](/docs/customization/userandworkspace.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
-* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition, and more
+* [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code.
+* [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
+* [Code Navigation](/docs/editor/editingevolved.md) - Peek and Goto Definition, and more
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) - Learn about the integrated terminal for quickly performing command line tasks from within VS Code.
-* [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions. 
+* [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-* [Customization](/docs/customization/overview.md) - Themes, settings, and keyboard bindings
 
 ## Common Questions
 
-**Q: Is it possible to globally search and replace?**
+### Is it possible to globally search and replace?
 
-**A:** Yes, expand the Search view text box to include a replace text field. You can search and replace across all the files in your workspace.
+Yes, expand the Search view text box to include a replace text field. You can search and replace across all the files in your workspace. Note that if you did not open VS Code on a folder, the search will only run on the currently open files.
 
 ![global search and replace](images/codebasics/global-search-replace.png)
 
-**Q: How do I turn on word wrap?**
+### How do I turn on word wrap?
 
-**A:** You can control word wrap through the `editor.wrappingColumn` [setting](/docs/customization/userandworkspace.md). By default `editor.wrapperingColumn` is set to 300 characters.  You can adjust the column width or set the value to zero to wrap on the editor viewport width:
+You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default, `editor.wordWrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
 
 ```json
-    "editor.wrappingColumn": 0
+    "editor.wordWrap": "on"
 ```
 
-You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`. Restarting VS Code will pick up the persisted `editor.wrappingColumn` value.
+You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.
-
-**Q: How can I show more files in the OPEN EDITORS section?**
-
-**A:** You can configure the appearance of **OPEN EDITORS** through your [settings](/docs/customization/userandworkspace.md). For example, you can set the maximum number of visible files before a scroll bar appears via the `explorer.openEditors.visible` setting and whether the **OPEN EDITORS** section should dynamically set its height via `explorer.openEditors.dynamicHeight`.

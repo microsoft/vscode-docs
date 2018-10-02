@@ -1,8 +1,8 @@
 ---
-Order: 6
+Order:
 TOCTitle: VS Code at //build/
 PageTitle: Visual Studio Code at Build 2016
-MetaDescription: Visual Studio Code at Build 2016. Learn about presentations featuring VS Code. 
+MetaDescription: Visual Studio Code at Build 2016. Learn about presentations featuring VS Code.
 Date: 2016-04-05
 ShortDescription: Visual Studio Code had a great presence at Build 2016.
 Author: Wade Anderson
@@ -12,7 +12,7 @@ Author: Wade Anderson
 
 April 5, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
-This year's [Build 2016 conference](http://build.microsoft.com/) in San Francisco was very exciting and Visual Studio Code was happy to be a part of it. VS Code featured prominently as the editor of choice in many talks and demos and there were several presentations dedicated to VS Code.
+This year's [Build 2016 conference](https://build.microsoft.com/) in San Francisco was very exciting and Visual Studio Code was happy to be a part of it. VS Code featured prominently as the editor of choice in many talks and demos and there were several presentations dedicated to VS Code.
 
 ## Tips and Tricks
 
@@ -39,7 +39,6 @@ As you'd expect from a talk called [Node.js and Microsoft: A Love Story about De
 There were also several new VS Code extensions released at //build/:
 
 * [C/C++ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - Complete C/C++ language support including code-editing and debugging. See a demo in [C++ Discussion](https://channel9.msdn.com/Events/Build/2016/C-Discussion).
-* [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) - Monitor builds and manage pull requests and work items for Team Services Git repositories.
 * [NativeScript](https://marketplace.visualstudio.com/items?itemName=Telerik.nativescript) - NativeScript support for Visual Studio Code.
 
 Visit the VS Code [Extensions Marketplace](https://marketplace.visualstudio.com/VSCode) to learn more about these and other useful extensions.

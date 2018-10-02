@@ -1,6 +1,6 @@
 # Visual Studio Code Documentation
 
-You've found the GitHub repository that houses the source for the VS Code docs at <http://code.visualstudio.com/docs>.
+You've found the GitHub repository that houses the source for the VS Code docs at <https://code.visualstudio.com/docs>.
 
 ## Contribute to VS Code documentation
 
@@ -17,7 +17,7 @@ Thank you for your interest in VS Code documentation!
 
 ## Contributing
 
-To contribute to [VS Code documentation](http://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
+To contribute to [VS Code documentation](https://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
 
 ## Documentation intent
 
@@ -34,17 +34,18 @@ The documentation should target developers learning to use VS Code or searching 
 
 ## Repository organization
 
-The content in this repository follows the organization of documentation at <http://code.visualstudio.com/docs>.
+The content in this repository follows the organization of documentation at <https://code.visualstudio.com/docs>.
 
 This repository contains the following folders:
 
+* \setup
+* \introvideos
+* \getstarted
 * \editor
-* \customization
 * \languages
-* \runtimes
 * \extensions
 * \extensionAPI
-* \tools
+* \other
 * \supporting
 
 Within these folders you'll find the Markdown files used for the content. Each of these folders also contains an \images folder that references the images (such as screenshots) used in the topics.
@@ -59,7 +60,7 @@ We recommend that you create local working branches that target a specific scope
 
 ## Authoring tools
 
-[Visual Studio Code](http://code.visualstudio.com) is a great editor for Markdown!
+[Visual Studio Code](https://code.visualstudio.com) is a great editor for Markdown!
 
 In fact, VS Code itself is developed using VS Code and the core documentation is authored using VS Code.
 
@@ -79,7 +80,7 @@ Topic metadata enables certain functionalities for the topics such as table of c
 * **MetaDescription** - The meta description for this page which helps for search
 * **MetaTags** - Further tags for this page again for search
 
-## Formatting 
+## Formatting
 
 ### Headings & Right Nav
 
@@ -102,7 +103,7 @@ Use Markdown highlight for settings, filename and JSON attributes.
 
 Use '>' to show menu sequence.
 
-    **File** > **Preferences** > **User Settings**
+    **File** > **Preferences** > **Settings**
     **View** > **Command Palette**
 
 ### Links
@@ -116,9 +117,9 @@ For links within our own documentation, use a site relative link like `/docs/edi
 
 ### Bookmarks
 
-To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page#subheading-title)`.  
+To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page#subheading-title)`.
 
-Note the subheading title is lowercase and subheading title words are separated by '-' dashes.  
+Note the subheading title is lowercase and subheading title words are separated by '-' dashes.
 
 >For example: `[More on documentation intent](#documentation-intent)` - links to the **Documentation intent** subheading above.
 
@@ -126,19 +127,19 @@ Note the subheading title is lowercase and subheading title words are separated 
 
 Images are important to bring the product to life - even if people can't try the product these really help them see what they are missing.
 
-For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`. 
+For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`.
 
-When you link to an image, the path and filename are case-sensitive.  The convention is for image filenames to be all lowercase. 
+When you link to an image, the path and filename are case-sensitive.  The convention is for image filenames to be all lowercase.
 
 >For example: `![Debug Breakpoints](images/debugging/breakpoints.png)`
 
 ### Key bindings
 
-The VS Code portal is able to show the correct key bindings depending on the reader's operating system (Mac, Windows or Linux).  
+The VS Code portal is able to show the correct key bindings depending on the reader's operating system (macOS, Windows or Linux).
 
-To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command name is included in parentheses.  
+To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command name is included in parentheses.
 
->For a list of key bindings and the relevant `Command Ids` review the [key bindings document](https://code.visualstudio.com/docs/editor/keybindings).
+>For a list of key bindings and the relevant `Command Ids` review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings).
 
 If you are listing out multiple key bindings, you can use a table.
 
@@ -152,14 +153,14 @@ If you are listing out multiple key bindings, you can use a table.
 
 For source code we use the fenced code block notation ```` ``` ````.
 
->**Note:** To get colorization, add a language modifier e.g. ```` ```json ```` or ```` ```javascript ````.
+>**Note:** You can add an optional language identifier to enable syntax highlighting in your fenced code block. E.g. ```` ```json ```` or ```` ```javascript ````. [Read more →](https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting)
 
 Some JavaScript code...
 
 ```javascript
 function fancyAlert(arg) {
-	if(arg) {
-		$.facebox({div:foo})
-	}
+  if (arg) {
+    $.facebox({ div: foo });
+  }
 }
 ```

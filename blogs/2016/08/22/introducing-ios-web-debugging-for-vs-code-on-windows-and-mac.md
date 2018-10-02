@@ -7,16 +7,21 @@ Date: 2016-08-24
 ShortDescription: Today debugging web sites running on iOS devices are limited to a subset of developers, as the Safari Web Inspector (Safari DevTools) requires an instance of desktop Safari which only is available for MacOS users. With our new debugger we are aiming to change that, as our iOS Web Debugger for Visual Studio Code works both on Mac and Windows.
 Author: Kenneth Auchenberg
 ---
-
 # iOS Web Debugging on Windows and Mac
 
 August 24, 2016 by [Kenneth Auchenberg](https://twitter.com/auchenberg)
 
+## Update
+
+The [iOS Web debugger](https://github.com/Microsoft/vscode-ios-web-debug) has been deprecated and we now recommend that you use the [RemoteDebug iOS WebKit Adapter](https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter) together with Visual Studio Code. To learn more, see this introductory [guide](https://medium.com/@auchenberg/hello-remotedebug-ios-webkit-adapter-debug-safari-and-ios-webviews-from-anywhere-2a8553df7465) to the RemoteDebug iOS WebKit Adapter.
+
+## Introduction
+
 Debugging web sites running on iOS devices is accessible only to a subset of developers. For example, using the Safari Web Inspector (Safari DevTools) requires an instance of desktop Safari which only is available for MacOS users. Today, we’re enabling mobile web developers to debug JavaScript running on their iOS devices directly from their editor with a new [iOS Web Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web). This debug extension works on both **Mac and Windows**.
 
-![Demo](2016_08_22_ios-debugger-splash.png)
+![Demo](ios-debugger-splash.png)
 
-Our new iOS Web Debugger works quite similar to our Chrome debugger which we [introduced back in February](http://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code). Under the hood, it’s the same debugger running inside VS Code, which is powered by our open source [vscode-chrome-debug-core](https://github.com/Microsoft/vscode-chrome-debug-core) library. To make the connection from our debugging library to the iOS device, we are leveraging two open source projects, [ios-webkit-debug-proxy](https://github.com/google/ios-webkit-debug-proxy) and [ios-webkit-debug-proxy-win32](https://github.com/artygus/ios-webkit-debug-proxy-win32), that enables communication with the iOS devices over USB through the WebKit Remote Debugging Protocol. The protocol is compatible with the Chrome Debugging Protocol for the script debugging APIs, and this means our debugger works without additional mapping logic.
+Our new iOS Web Debugger works quite similar to our Chrome debugger which we [introduced back in February](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code). Under the hood, it’s the same debugger running inside VS Code, which is powered by our open source [vscode-chrome-debug-core](https://github.com/Microsoft/vscode-chrome-debug-core) library. To make the connection from our debugging library to the iOS device, we are leveraging two open source projects, [ios-webkit-debug-proxy](https://github.com/google/ios-webkit-debug-proxy) and [ios-webkit-debug-proxy-win32](https://github.com/artygus/ios-webkit-debug-proxy-win32), that enables communication with the iOS devices over USB through the WebKit Remote Debugging Protocol. The protocol is compatible with the Chrome Debugging Protocol for the script debugging APIs, and this means our debugger works without additional mapping logic.
 
 ## Enabling easy local development through emulated port forwarding
 
@@ -24,11 +29,11 @@ When developing websites running locally, it’s a cumbersome process to enable 
 
 So we found a way to emulate port forwarding by adding the option to start an instance of [localtunnel](https://localtunnel.github.io/www/), that behind the scenes creates HTTP tunnel from your local computer to the public internet for the specified `tunnelPort` property. This HTTP tunnel is then used by the iOS device to get access to your local development server, just as any other public website.
 
-![Demo](2016_08_22_ios-debugger-demo.gif)
+![Demo](ios-debugger-demo.gif)
 
 ## Getting started
 
-To get started, you simply open the **Command Palette** (`kb(workbench.action.showCommands)`) inside VS Code and type "ext install" to run the **Extensions: Install Extension** command. When the extension list appears, type "ios" to filter the list and install the Debugger for iOS Web extension. You'll then create a launch-configuration file which we explain in detail in our README [right here](https://github.com/Microsoft/vscode-ios-web-debug).
+To get started, open the **Extensions** view (`kb(workbench.view.extensions)`). When the extension list appears, type "ios" to filter the list and install the Debugger for iOS Web extension. You'll then create a launch-configuration file which we explain in detail in our README [right here](https://github.com/Microsoft/vscode-ios-web-debug).
 
 ## Supported features
 

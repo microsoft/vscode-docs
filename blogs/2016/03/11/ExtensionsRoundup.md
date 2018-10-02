@@ -1,8 +1,8 @@
 ---
-Order: 5
+Order:
 TOCTitle: Extensions Roundup
 PageTitle: Visual Studio Code Extensions Roundup
-MetaDescription: New, useful, and interesting extensions in Visual Studio Code. 
+MetaDescription: New, useful, and interesting extensions in Visual Studio Code.
 Date: 2016-03-17
 ShortDescription: New, useful, and interesting extensions in Visual Studio Code.
 Author: Wade Anderson
@@ -12,9 +12,9 @@ Author: Wade Anderson
 
 March 17, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
-In November 2015, we open sourced Visual Studio Code and introduced the [extensions API](http://code.visualstudio.com/docs/extensionAPI/vscode-api). The VS Code extensions [Marketplace](https://marketplace.visualstudio.com/VSCode) has over 850 extensions. Many new languages (Go, PowerShell, PHP, Python) and frameworks (Apache Cordova, React Native) are now supported.
+In November 2015, we open sourced Visual Studio Code and introduced the [extensions API](https://code.visualstudio.com/docs/extensionAPI/vscode-api). The VS Code extensions [Marketplace](https://marketplace.visualstudio.com/VSCode) has over 850 extensions. Many new languages (Go, PowerShell, PHP, Python) and frameworks (Apache Cordova, React Native) are now supported.
 
-We will continue to iterate on improving the API and we would love your [feedback](https://github.com/Microsoft/vscode/issues). If you are new to VS Code extensions, check out the [docs](http://code.visualstudio.com/docs/editor/extension-gallery) for instructions on finding and installing new extensions. We are invested in empowering the community to make VS Code the world's greatest code editor.
+We will continue to iterate on improving the API and we would love your [feedback](https://github.com/Microsoft/vscode/issues). If you are new to VS Code extensions, check out the [docs](https://code.visualstudio.com/docs/editor/extension-gallery) for instructions on finding and installing new extensions. We are invested in empowering the community to make VS Code the world's greatest code editor.
 
 In the spirit of a great [curated extensions list](https://github.com/viatsko/awesome-vscode), we wanted to give you regular updates on what is happening in the VS Code extensions [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
@@ -42,7 +42,7 @@ Create a `launch.json` file in `.vscode` folder and add the following:
           "name": "Ruby Debug",
           "type": "Ruby",
           "request": "launch",
-          "program": "${workspaceRoot}/hello_world.rb",
+          "program": "${workspaceFolder}/hello_world.rb",
           "stopOnEntry": false
       }
   ]
@@ -53,19 +53,19 @@ Create a `launch.json` file in `.vscode` folder and add the following:
 
 Below is an example session debugging a simple Hello World Ruby script. You can see setting a breakpoint, starting the debugger, hitting the breakpoint, and single stepping through the code.
 
-![Ruby Debugging](2016_03_11_ruby_debugging.gif)
+![Ruby Debugging](ruby_debugging.gif)
 
 ## yo by Sam Verschueren
 
-This extension lets you use the [Yeoman](http://yeoman.io) scaffolding tool from within VS Code in the Command Palette. Your installed Yeoman generators are displayed in a drop down and you answer the Yeoman terminal prompts right from within VS Code. [See more details at the Marketplace](https://marketplace.visualstudio.com/items?itemName=samverschueren.yo).
+This extension lets you use the Yeoman scaffolding tool from within VS Code in the Command Palette. Your installed Yeoman generators are displayed in a drop down and you answer the Yeoman terminal prompts right from within VS Code. [See more details at the Marketplace](https://marketplace.visualstudio.com/items?itemName=samverschueren.yo).
 
-![Yo Demo](2016_03_11_yo_demo.gif)
+![Yo Demo](yo_demo.gif)
 
 ## change-case by wmaurer
 
 Change the case of the currently selected word or selection. This [extension](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case) is implemented as a wrapper around the [node-change-case](https://github.com/blakeembrey/node-change-case) npm module.
 
-![change-case demo](2016_03_11_change-case_demo.gif)
+![change-case demo](change-case_demo.gif)
 
 ## Subscribe
 

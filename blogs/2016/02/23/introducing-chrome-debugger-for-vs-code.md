@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order:
 TOCTitle: Introducing Chrome Debugging
 PageTitle: Introducing Chrome Debugging for VS Code
 MetaDescription: Chrome debugger extension for Visual Studio Code
@@ -18,19 +18,19 @@ Our Chrome Debugger allows front-end developers to debug their client-side JavaS
 
 <br />
 
-![Demo](2016_02_23_chrome-debugger-demo.gif)
+![Demo](chrome-debugger-demo.gif)
 
 ## How does it work?
 
 Our debugger works by connecting to Chrome over its [Chrome Debugger protocol](https://developer.chrome.com/devtools/docs/debugger-protocol), where we map files loaded in the browser to the files open in Visual Studio Code. This means developers now can set breakpoints directly in their source code, set up variables to watch and see the full call stack when debugging — all without leaving the editor.
 
-In the above example, we are showing an [AngularJS](http://github.com/auchenberg/timey) app bundled and minified via [Browserify](http://browserify.org/) being debugged from VS Code. This works because our debugger understands [JavaScript Source Maps](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/), which we’ll use to enable developers to debug straight from their original source, and not the transpiled result that the browser sees. Supporting source maps also enables debugging of [TypeScript](http://www.typescriptlang.org/) straight from VS Code.
+In the above example, we are showing an [AngularJS](https://github.com/auchenberg/timey) app bundled and minified via [Browserify](http://browserify.org/) being debugged from VS Code. This works because our debugger understands [JavaScript Source Maps](https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/), which we’ll use to enable developers to debug straight from their original source, and not the transpiled result that the browser sees. Supporting source maps also enables debugging of [TypeScript](https://www.typescriptlang.org/) straight from VS Code.
 
-For now, Chrome needs to be started with remote debugging enabled, and only supports one concurrent connection. This means if you open up DevTools inside Chrome, the connection to VS Code will get terminated by Chrome. This is slightly annoying, and we hope this [issue](https://code.google.com/p/chromium/issues/detail?id=129539) will be fixed sometime soon.
+For now, Chrome needs to be started with remote debugging enabled, and only supports one concurrent connection. This means if you open up DevTools inside Chrome, the connection to VS Code will get terminated by Chrome. This is slightly annoying, and we hope this [issue](https://bugs.chromium.org/p/chromium/issues/detail?id=129539) will be fixed sometime soon.
 
 ## To get started
 
-To get started, you simply open the Command Palette (`kb(workbench.action.showCommands)`) inside VS Code and type `ext install` to run the `Extensions: Install Extension` command.  When the extension list appears, type 'chrome' to filter the list and install the `Debugger for Chrome` extension.  You'll then create a launch-configuration file which we explain in detail in our README [right here](https://github.com/Microsoft/vscode-chrome-debug).
+To get started, open the **Extensions** view (`kb(workbench.view.extensions)`).  When the extension list appears, type 'chrome' to filter the list and install the `Debugger for Chrome` extension.  You'll then create a launch-configuration file which we explain in detail in our README [right here](https://github.com/Microsoft/vscode-chrome-debug).
 
 You can either setup VS Code to connect to an already running Chrome instance or simply start a new one with remote debugging enabled, but read more about that in our [README](https://github.com/Microsoft/vscode-chrome-debug).
 

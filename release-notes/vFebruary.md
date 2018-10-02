@@ -1,13 +1,12 @@
 ---
-Order: 9
+Order: 8
 TOCTitle: February 2016
 PageTitle: Visual Studio Code February 0.10.11
 MetaDescription: See what is new in the Visual Studio Code February Release (0.10.11)
 ---
-
 # February 2016 (0.10.11)
 
-February is our last full iteration before we start the end game for the [Build 2016 conference](http://build.microsoft.com/) milestone at the end of March. It comes with many improvements:
+February is our last full iteration before we start the end game for the [Build 2016 conference](https://build.microsoft.com/) milestone at the end of March. It comes with many improvements:
 
 - Salsa is now the default JavaScript language service.
 - Folding, the most requested feature, is now available.
@@ -147,7 +146,7 @@ or if you already have a project with C# files, VS Code will prompt you to insta
 
 ### Source Code Folding
 
-The editor now contains a first implementation of code folding. You can turn the feature on and off with the `editor.folding` configuration setting (**File** > **Preferences** > **User Settings** or **Workspace Settings**). Once enabled, you can collapse and expand code regions using the folding icons next to the line numbers. Regions that can be folded are shown with a `-` icon, regions that are already folded with the `+` icon. The `-` icon only shows when the mouse is over the gutter.
+The editor now contains a first implementation of code folding. You can turn the feature on and off with the `editor.folding` configuration setting (**File** > **Preferences** > **Settings**). Once enabled, you can collapse and expand code regions using the folding icons next to the line numbers. Regions that can be folded are shown with a `-` icon, regions that are already folded with the `+` icon. The `-` icon only shows when the mouse is over the gutter.
 
 ![Source Code Folding](images/February/folding.png)
 
@@ -336,7 +335,7 @@ As a part of the accessibility work, the **High Contrast** theme, which was only
 
 We have turned on by default a new strategy for screen readers in the editor, one that is based on paging the text. From our testing, this is the best option in terms of trade-off between good screen reader support and performance when dealing with very large files.
 
-The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.next)` and `kb(editor.action.marker.prev)`) now allow screen readers to announce the error or warning messages.
+The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.nextInFiles)` and `kb(editor.action.marker.prevInFiles)`) now allow screen readers to announce the error or warning messages.
 
 ### Improved Debugger Accessibility
 
@@ -365,12 +364,12 @@ We now support more OS types for the `debuggers` contribution point (see [#1696]
 "debuggers": [{
     "type": "gdb",
     "win": {
-        "program": "./bin/gdbDebug.exe",
+        "program": "./bin/gdbDebug.exe"
     },
     "winx86": {
-        "program": "./bin/gdbDebug_x86.exe",
+        "program": "./bin/gdbDebug_x86.exe"
     }
-}
+}]
 ```
 
 ### Debug Protocol Changes
@@ -401,7 +400,7 @@ We have changed the debug protocol in the following (backward compatible) ways:
 - [2490](https://github.com/Microsoft/vscode/issues/2490): Improve IntelliSense perf
 - [3127](https://github.com/Microsoft/vscode/issues/3127): `code .` opens the current directory, `code ..` also opens the current directory - not the parent
 - [3894](https://github.com/Microsoft/vscode/issues/3894): [Handlebars] Curly braces edit issuess
-- [3899](https://github.com/Microsoft/vscode/issues/3899): [folding] sections are still folded when disabled in preferences 
+- [3899](https://github.com/Microsoft/vscode/issues/3899): [folding] sections are still folded when disabled in preferences
 - [3903](https://github.com/Microsoft/vscode/issues/3903): [js] syntax highlight for 'var' and 'function' not working in Default VS theme
 - [3509](https://github.com/Microsoft/vscode/issues/3509): Smoke Test: Don't get cross file intellisense in JS
 

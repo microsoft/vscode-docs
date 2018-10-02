@@ -1,15 +1,14 @@
 ---
-Order: 8
+Order: 7
 TOCTitle: January 2016
 PageTitle: Visual Studio Code January 2016 0.10.9
 MetaDescription: See what is new in the Visual Studio Code January Release (0.10.9)
 ---
-
 # January 2016 (0.10.9)
 
 Hi,
 
-We are back from the holidays and are rolling again, looking forward to the [Build 2016 conference](http://build.microsoft.com/). For //build, we're focused on making VS Code accessible, available in additional languages, and stabilizing on a 1.0 API. Outside of these fundamentals, perhaps the most impactful work item in the January release is enabling the [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) preview in VS Code. Read more below, give it a try, and let us know what you think.
+We are back from the holidays and are rolling again, looking forward to the [Build 2016 conference](https://build.microsoft.com/). For //build, we're focused on making VS Code accessible, available in additional languages, and stabilizing on a 1.0 API. Outside of these fundamentals, perhaps the most impactful work item in the January release is enabling the [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) preview in VS Code. Read more below, give it a try, and let us know what you think.
 
 Downloads: [Windows](https://az764295.vo.msecnd.net/stable/db71ac615ddf9f33b133ff2536f5d33a77d4774e/VSCodeSetup-stable.exe) | [OS X](https://az764295.vo.msecnd.net/stable/45d69357c9eb068dd8e624f5b0fe461cd2078d88/VSCode-darwin.zip) | [Linux 32-bit](https://az764295.vo.msecnd.net/stable/db71ac615ddf9f33b133ff2536f5d33a77d4774e/VSCode-linux-ia32-stable.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/stable/db71ac615ddf9f33b133ff2536f5d33a77d4774e/VSCode-linux-x64-stable.zip)
 
@@ -115,7 +114,7 @@ This is just the beginning of our journey to become more keyboard accessible, ex
 
 ### Experimental screen reader support in the editor
 
-We have added an experimental mode that can be enabled with the `editor.experimentalScreenReader` key in settings or for the current session with `kbstyle(Ctrl+Shift+R)`. This causes the editor to place all the current text in the opened file inside the `<textarea>` we use for user input. We have done our initial testing with the [NVDA screen reader](http://www.nvaccess.org) on Windows and have uncovered some serious performance issues and glitches caused by Chromium which we continue to work on. We have also added `kbstyle(Alt+F1)` that presents a tooltip explaining how to toggle this mode on and off. We have also improved keyboard navigation around `kbstyle(Tab)`, specifically all read-only editors no longer trap the `kbstyle(Tab)` key. Also, `kbstyle(Ctrl+M)` continues to act as a toggle for trapping `kbstyle(Tab)`.
+We have added an experimental mode that can be enabled with the `editor.experimentalScreenReader` key in settings or for the current session with `kbstyle(Ctrl+Shift+R)`. This causes the editor to place all the current text in the opened file inside the `<textarea>` we use for user input. We have done our initial testing with the [NVDA screen reader](https://www.nvaccess.org) on Windows and have uncovered some serious performance issues and glitches caused by Chromium which we continue to work on. We have also added `kbstyle(Alt+F1)` that presents a tooltip explaining how to toggle this mode on and off. We have also improved keyboard navigation around `kbstyle(Tab)`, specifically all read-only editors no longer trap the `kbstyle(Tab)` key. Also, `kbstyle(Ctrl+M)` continues to act as a toggle for trapping `kbstyle(Tab)`.
 
 ### Localization
 
@@ -143,7 +142,7 @@ We also added two new actions, "Find Next Selection" (`kb(editor.action.nextSele
 
 ### Input Handling
 
-We changed input handling in the editor to allow software such as [UniKey](http://www.unikey.org) (used for Vietnamese input) or [AutoHotKey](https://www.autohotkey.com) (used for keyboard automation) to work with VS Code.
+We changed input handling in the editor to allow software such as [UniKey](https://www.unikey.org) (used for Vietnamese input) or [AutoHotKey](https://www.autohotkey.com) (used for keyboard automation) to work with VS Code.
 
 ### Configurable Cursor Style
 
@@ -237,7 +236,7 @@ The followings improvements enable VS Code to support remote debugging, includes
 
 ### launch.json relative paths not automatically converted to absolute ones
 
-In order to achieve consistency across our configuration files, we plan for the **February release** to no longer automatically convert certain paths from relative to absolute in `launch.json`. We recommend that for the `program`, `cwd`, `outDir`, and `runtimeExecutable` attributes, you prefix your relative paths with the `${workspaceRoot}` variable as soon as possible. To make it easier for you to find the affected paths that need this treatment, we highlight them with a green squigglies for the January release. (Please note: since we continue to automatically convert paths for the January release, your launch configurations will continue to work).
+In order to achieve consistency across our configuration files, we plan for the **February release** to no longer automatically convert certain paths from relative to absolute in `launch.json`. We recommend that for the `program`, `cwd`, `outDir`, and `runtimeExecutable` attributes, you prefix your relative paths with the `${workspaceRoot}` variable as soon as possible. To make it easier for you to find the affected paths that need this treatment, we highlight them with a green squiggles for the January release. (Please note: since we continue to automatically convert paths for the January release, your launch configurations will continue to work).
 
 ### "--nolazy" option not automatically added
 

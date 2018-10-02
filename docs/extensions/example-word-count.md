@@ -1,13 +1,12 @@
 ---
-Order: 3
+Order: 4
 Area: extensions
 TOCTitle: Example-Word Count
 ContentId: 4D9132DC-CDDB-4E07-B2DD-9A7E168BE384
 PageTitle: Visual Studio Code Example - Word Count Extension
-DateApproved: 10/10/2016
+DateApproved: 9/5/2018
 MetaDescription: The Word Count extension (plug-in) example takes you deeper into the Visual Studio Code extensibility model, showing how to interact with the editor and manage extension and VS Code resources.
 ---
-
 # Example - Word Count
 
 This document assumes you have read [Your First Extension](/docs/extensions/example-hello-world.md) which covers the basics of VS Code extensibility.
@@ -19,7 +18,6 @@ Whenever a `Markdown` file is edited, a status bar message is added.  The messag
 ![Word Count on Status Bar](images/example-word-count/wordcountevent2.gif)
 
 > **Tip:** The finished sample is available from [this GitHub repository](https://github.com/microsoft/vscode-wordcount) should you have any issues.
-
 
 ## Overview
 
@@ -36,7 +34,7 @@ npm install -g yo generator-code
 yo code
 ```
 
-This will open up the extension generator - we will base this example on the TypeScript `New Extension` option. For now, simply fill in the fields the same way you see them completed in the image below (using 'WordCount' as the extension name and your own name as the publisher).
+This will open up the extension generator - we will base this example on the TypeScript `New Extension` option. For now, fill in the fields the same way you see them completed in the image below (using 'WordCount' as the extension name and your own name as the publisher).
 
 ![Yo Code Word Count Example Output](images/example-word-count/yo1.png)
 
@@ -49,9 +47,9 @@ code .
 
 ## Run the Extension
 
-Before we go on, we can run the extension to make sure everything works as expected by pressing `kb(workbench.action.debug.start)`. As you saw in the previous "Hello World" walkthrough, VS Code opens another window (the **[Extension Development Host]** window) in which your extension will be loaded. You should find the "Hello World" command in the Command Palette (press `kb(workbench.action.showCommands)`) and when you select it, you will see an information box at the top of the window saying "Hello World".
+Before we go on, we can run the extension to make sure everything works as expected by pressing `kb(workbench.action.debug.start)`. As you saw in the previous "Hello World" walkthrough, VS Code opens another window (the **[Extension Development Host]** window) in which your extension will be loaded. You should find the "Hello World" command in the **Command Palette** (press `kb(workbench.action.showCommands)`) and when you select it, you will see an notification at the bottom right of the window saying "Hello World!".
 
-Now that you have confirmed that the extension is running properly, you can keep the extension development window open if you like. To test out any changes that you make to your extension, you can either press `kb(workbench.action.debug.continue)` again in the development window or reload the extension development window by pressing `kbstyle(Ctrl+R)` (Mac: `kbstyle(Cmd+R)`).
+Now that you have confirmed that the extension is running properly, you can keep the extension development window open if you like. To test out any changes that you make to your extension, you can either press `kb(workbench.action.debug.continue)` again in the development window or reload the extension development window by pressing `kbstyle(Ctrl+R)` (macOS: `kbstyle(Cmd+R)`).
 
 ## Update the Status Bar
 
@@ -73,7 +71,7 @@ export function activate(context: ExtensionContext) {
     // create a new word counter
     let wordCounter = new WordCounter();
 
-    var disposable = commands.registerCommand('extension.sayHello', () => {
+    let disposable = commands.registerCommand('extension.sayHello', () => {
         wordCounter.updateWordCount();
     });
 
@@ -84,14 +82,9 @@ export function activate(context: ExtensionContext) {
 
 class WordCounter {
 
-    private _statusBarItem: StatusBarItem;
+    private _statusBarItem: StatusBarItem =  window.createStatusBarItem(StatusBarAlignment.Left);
 
     public updateWordCount() {
-
-        // Create as needed
-        if (!this._statusBarItem) {
-            this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
-        }
 
         // Get the current text editor
         let editor = window.activeTextEditor;
@@ -102,14 +95,14 @@ class WordCounter {
 
         let doc = editor.document;
 
-        // Only update status if an MarkDown file
+        // Only update status if a Markdown file
         if (doc.languageId === "markdown") {
             let wordCount = this._getWordCount(doc);
 
             // Update the status bar
             this._statusBarItem.text = wordCount !== 1 ? `${wordCount} Words` : '1 Word';
             this._statusBarItem.show();
-        } else { 
+        } else {
             this._statusBarItem.hide();
         }
     }
@@ -122,7 +115,7 @@ class WordCounter {
         docContent = docContent.replace(/(< ([^>]+)<)/g, '').replace(/\s+/g, ' ');
         docContent = docContent.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
         let wordCount = 0;
-        if (docContent != "") {
+        if (docContent !== "") {
             wordCount = docContent.split(" ").length;
         }
 
@@ -137,7 +130,7 @@ class WordCounter {
 
 Now let's try our updates to the extension.
 
-We have the compilation of the TypeScript file set on a watch (in the extension's .vscode\tasks.json file) so there is no need to re-build.  Simply hit `kbstyle(Ctrl+R)` in the **[Extension Development Host]** window where your code is running and the extension will reload (you can also just `kb(workbench.action.debug.start)` from your primary development window).  We still need to activate the code in the same way as before with the "Hello World" command.  Assuming you are in a Markdown file, your Status Bar will display the word count.
+We have the compilation of the TypeScript file set on a watch (in the extension's .vscode\tasks.json file) so there is no need to re-build.  Hit `kbstyle(Ctrl+R)` in the **[Extension Development Host]** window where your code is running and the extension will reload (you can also just `kb(workbench.action.debug.start)` from your primary development window).  We still need to activate the code in the same way as before with the "Hello World" command.  Assuming you are in a Markdown file, your Status Bar will display the word count.
 
 ![Working Word Count](images/example-word-count/wordcount2.png)
 
@@ -162,7 +155,6 @@ class WordCounterController {
 
     constructor(wordCounter: WordCounter) {
         this._wordCounter = wordCounter;
-        this._wordCounter.updateWordCount();
 
         // subscribe to selection change and editor activation events
         let subscriptions: Disposable[] = [];
@@ -186,7 +178,7 @@ class WordCounterController {
 }
 ```
 
-We no longer want the Word Count extension to be loaded when a command is invoked but instead be available for each *Markdown* file. 
+We no longer want the Word Count extension to be loaded when a command is invoked but instead be available for each *Markdown* file.
 
 First, replace the body of the `activate` function with this:
 
@@ -227,15 +219,15 @@ Now change your extension so that it is activated upon the opening of a *Markdow
 
 The  [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage) event takes the language id, in this case "markdown", and will be raised whenever a file of that language is opened.
 
-Run the extension by either doing a window reload `kbstyle(Ctrl+R)` or with `kb(workbench.action.debug.start)` and then start editing a Markdown file.  You should now should have a live updating Word Count.
+Run the extension by either doing a window reload `kbstyle(Ctrl+R)` or with `kb(workbench.action.debug.start)` and then start editing a Markdown file.  You now should have a live updating Word Count.
 
 ![Word Count Updating on Events](images/example-word-count/wordcountevent2.gif)
 
-If you set a breakpoint on the `activate` function, you'll notice that it is only called once when the first Markdown file is opened.  The `WordCountController` constructor runs and subscribes to the editor events so that the `updateWordCount` function is called as Markdown files are opened and their text changes. 
+If you set a breakpoint on the `activate` function, you'll notice that it is only called once when the first Markdown file is opened.  The `WordCountController` constructor runs and subscribes to the editor events so that the `updateWordCount` function is called as Markdown files are opened and their text changes.
 
 ## Customizing the Status Bar
 
-We've seen how you can display formatted text on the Status Bar.  VS Code allows you to customize your Status Bar additions even further with color, icons, tooltips and more.  Using IntelliSense, you can see the various `StatusBarItem` fields.  Another great resource for learning about the VS Code extensibility APIs is the `vscode.d.ts` typings file included in your generated Extension project.  Open `node_modules\vscode\vscode.d.ts` in the editor, you'll see the complete VS Code extensibility API with comments.
+We've seen how you can display formatted text on the Status Bar.  VS Code allows you to customize your Status Bar additions even further with color, icons, tooltips and more.  Using IntelliSense, you can see the various `StatusBarItem` fields.  Another great resource for learning about the VS Code extensibility APIs is the `vscode.d.ts` type declaration file included in your generated Extension project.  Open `node_modules\vscode\vscode.d.ts` in the editor, you'll see the complete VS Code extensibility API with comments.
 
 ![vscode-d-ts file](images/example-word-count/vscode-d-ts.png)
 
@@ -253,7 +245,7 @@ to display a [GitHub Octicon](https://octicons.github.com) `pencil` icon to the 
 
 ## Disposing Extension Resources
 
-Now we'll take a deeper look at how extensions should handle VS Code resources through [Disposables](/docs/extensions/patterns-and-principles.md#disposables).
+Now we'll take a deeper look at how extensions should handle VS Code resources through [Disposables](/docs/extensionAPI/patterns-and-principles.md#disposables).
 
 When an extension is activated, it is passed an `ExtensionContext` object which has a `subscriptions` collection of Disposables. Extensions can add their Disposable objects to this collection and VS Code will dispose of those objects when the extension is deactivated.
 
@@ -273,24 +265,18 @@ Events are another example where `onDid*` event subscriber methods return a Disp
 
 ## Installing your Extension Locally
 
-So far, the extension you have written only runs in a special instance of VS Code, the Extension Development Host instance. To make your extension available to all VS Code instances, copy the extension folder contents to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder).
+So far, the extension you have written only runs in a special instance of VS Code, the Extension Development Host instance. To make your extension available to all VS Code instances, copy the extension folder contents to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder).
 
 ## Publishing your Extension
 
-Read about how to [Share an Extension](/docs/tools/vscecli.md).
+Read about how to [Share an Extension](/docs/extensions/publish-extension.md).
 
 ## Next Steps
 
 Read on to find out about:
 
-* [Yo Code](/docs/tools/yocode.md) - learn about other options in Yo Code
-* [Extension API](/docs/extensionAPI/overview.md) - Get an overview of the Extension API
-* [Customization](/docs/customization/overview.md) - Themes, settings and keyboard bindings
-* [Publishing Tool](/docs/tools/vscecli.md) - Learn how to publish an extension to the public Marketplace
-* [Editor API](/docs/extensionAPI/vscode-api.md#window) - Learn more about Text Documents, Text Editors and editing text
-
-## Common Questions
-
-Nothing yet
-
-
+* [Extension Generator](/docs/extensions/yocode.md) - Learn about other options in the Yo Code extension generator.
+* [Extension API](/docs/extensionAPI/overview.md) - Get an overview of the Extension API.
+* [Publishing Tool](/docs/extensions/publish-extension.md) - Learn how to publish an extension to the public Marketplace.
+* [Editor API](/docs/extensionAPI/vscode-api.md#window) - Learn more about Text Documents, Text Editors and editing text.
+* [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.

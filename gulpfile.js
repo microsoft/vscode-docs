@@ -1,70 +1,61 @@
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+const gulp = require('gulp')
+const $ = require('shelljs')
 
-var gulp = require('gulp');
-var git = require('gulp-git');
-var fs = require('fs');
-var runSequence = require('run-sequence');
-var rimraf = require('rimraf');
-var common = require('./scripts/gulpfile.common.js');		
+const GITHUB_TOKEN = process.env['GITHUB_TOKEN']
+const BRANCH = process.env['BUILD_SOURCEBRANCHNAME']
 
-require('./scripts/gulpfile.docs.js');
-require('./scripts/gulpfile.releasenotes.js');
-require('./scripts/gulpfile.api.js');
-require('./scripts/gulpfile.blog.js');
+if (!GITHUB_TOKEN) {
+  $.echo('This script clones vscode-website and requires access token')
+  $.exit(1)
+}
 
-var BRANCH = process.env["branch"] ? process.env["branch"] : "master"; 
-var URL = process.env["token"] ? 'https://' + process.env["token"] + '@github.com/microsoft/vscode-website': 'https://github.com/microsoft/vscode-website';
+const URL = `https://${GITHUB_TOKEN}@github.com/microsoft/vscode-website`
+const TAS_URL = `https://${GITHUB_TOKEN}@github.com/microsoft/TryAppServiceClient`
 
-gulp.task('compile-all', ['compile-docs', 'compile-releasenotes', 'compile-blog']);
+/**
+ * This task
+ * - Clones vscode-website
+ * - Clones vscode-website-dist
+ * - Uses vscode-docs:[current-branch] + vscode-website:prod to build to vscode-website-dist:[current-branch]
+ */
+gulp.task('build-dist', done => {
+  if (!$.which('git')) {
+    $.echo('This command requires git')
+    $.exit(1)
+    done()
+  }
 
-gulp.task('clean-out-folder', common.rimraf('out'));
+  // Go to _build
+  if (!$.test('-e', '_build')) {
+    $.mkdir('_build')
+  }
+  $.cd('_build')
 
-gulp.task('clone-vscode-website', ['clean-out-folder'], function(cb){
-	fs.mkdir('out');
-	process.chdir('./out');
-	git.clone(URL, function (err) {
-		if (err) {
-			console.log('could not clone vscode-website')
-			console.log(err);
-			cb(err);
-		} else {
-			process.chdir('./vscode-website');
-			git.checkout(BRANCH, function(error) {
-				console.log('checked out branch:', BRANCH);
-				process.chdir('../../');
-				cb(error);
-			});
-		}
-	});
-});
+  // Clone prod branch of vscode-website
+  // If it exists, upgrade to latest
+  if (!$.test('-e', 'vscode-website')) {
+    $.exec(`git clone --depth=1 --branch=prod ${URL}`)
+  } else {
+    $.cd('vscode-website')
+    $.exec('git pull origin prod')
+    $.cd('..')
+  }
 
-gulp.task('commit', function(){
-	process.chdir('./out/vscode-website');
-	return gulp.src(['./*' ], {buffer:false})
-				.pipe(git.add())
-    			.pipe(git.commit('syncing with vscode-docs'))
-			   
-});
+  // Copy over MD/asset files
+  $.mkdir('vscode-website/vscode-docs')
+  $.cp('-R', ['../blogs', '../docs', '../images', '../release-notes', '../tutorials', '../build'], 'vscode-website/vscode-docs')
 
-gulp.task('push', function(cb){
-	git.push(URL, BRANCH, {args:"-f"}, function(error) {
-		if (!error) {
-			console.log('successfully pushed to branch:', BRANCH);
-		}
-		cb(error);
-	});
-});
+  // Clone tas-client
+  $.exec(`git clone ${TAS_URL} vscode-website/tas-client`)
+  $.cd('vscode-website/tas-client')
+  $.exec('git checkout tags/v0.1-alpha')
+  $.cd('../..')
 
-gulp.task('build-website', function(cb){
-	runSequence('compile',
-		        'clone-vscode-website', 
-				'generate-api-doc', 
-				'compile-all');
-});
-
-gulp.task('sync', function(cb){
-	runSequence('commit','push');
-});
+  // Go to vscode-website
+  $.cd('vscode-website')
+  // Run setup to fetch vscode-website-dist
+  $.echo('BRANCH is ' + BRANCH)
+  $.exec(`scripts/setup.sh ${GITHUB_TOKEN} ${BRANCH}`)
+  // Run build to sync changes to vscode-website-dist
+  $.exec(`scripts/build.sh ${BRANCH}`)
+})

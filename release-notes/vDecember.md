@@ -1,10 +1,9 @@
 ---
-Order: 7
+Order:
 TOCTitle: December 2015
 PageTitle: Visual Studio Code December 2015 0.10.6
 MetaDescription: See what is new in the Visual Studio Code December Release (0.10.6)
 ---
-
 # December 2015 (0.10.6)
 
 Hi,
@@ -98,7 +97,7 @@ At the same time, the grammar used to colorize JavaScript was also updated to su
 
 ## TypeScript Update
 
-The TypeScript language service was updated to version [1.7.5](http://blogs.msdn.com/b/typescript/archive/2015/11/30/announcing-typescript-1-7.aspx).
+The TypeScript language service was updated to version [1.7.5](https://blogs.msdn.com/b/typescript/archive/2015/11/30/announcing-typescript-1-7.aspx).
 
 ## JSX Support
 
