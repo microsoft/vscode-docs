@@ -29,7 +29,7 @@ The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-a
 - View a Web App's log files
 - Swap Deployment Slots
 
-To install the Azure App Service extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure app service` to filter the results. Select the Microsoft [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. For a more command line Maven-centric experience, you can also check out the [Maven plugin for Azure Web App tutorial](https://docs.microsoft.com/en-us/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable).
+To install the Azure App Service extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure app service` to filter the results. Select the Microsoft [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. For a more command line Maven-centric experience, you can also check out the [Maven plugin for Azure App Service Linux tutorial](https://docs.microsoft.com/azure/app-service/containers/quickstart-java).
 
 ## Create a new Web App
 
@@ -41,8 +41,6 @@ Once the extension is installed, you can take the following steps to create a ne
 4. Select a location for the new Web App.
 5. Select the OS as `Linux`.
 6. Select the runtime of the Web App, e.g.`Tomcat 8.5 (JRE8)`.
-
-> **Note:** All Java runtimes `Tomcat 8.5 (JRE8)`, `Tomcat 9.0 (JRE8)` and `Java SE (JRE8)` are now in preview status.
 
 ![Create a Web App](images/java-webapp/create-webapp.png)
 
