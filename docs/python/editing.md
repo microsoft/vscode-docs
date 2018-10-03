@@ -87,7 +87,7 @@ On first use of the **Python: Run Selection/Line in Python Terminal** command, V
 
 ## Formatting
 
-The Python extension supports source code formatting using either autopep8 (the default), black, or yapf.
+The Python extension supports source code formatting using either [autopep8](https://pypi.org/project/autopep8/) (the default), [black](https://github.com/ambv/black), or [yapf](https://yapf.now.sh/).
 
 ### General formatting settings
 
