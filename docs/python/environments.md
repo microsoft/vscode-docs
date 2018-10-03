@@ -24,7 +24,7 @@ The selected environment is also automatically activated when using the **Python
 
 By default, any Python interpreter that you've installed run in its own "global" environment, which is not specific to any one program. For example, if you just run `python` (Windows) or `python3` (macOS/Linux) at a new command prompt, you're running in that interpreter's global environment. Accordingly, any packages that you install or uninstall affect the global environment and all programs that you run within that context.
 
-> **Note**: The Python Extension version 2018.8.1 and later automatically updates environments. To disable automatic updating, add `"python.terminal.activateEnvironment": false` to your `settings.json` file.
+> **Note**: The Python Extension version 2018.8.1 and later automatically updates environments.
 
 Although working in the global environment is an easy way to get started, that environment will, over time, become cluttered with many different packages that you've installed for different projects. Such clutter makes it difficult to thoroughly test an application against a specific set of packages with known versions, which is exactly the kind of environment you'd set up on a build server or web server.
 
@@ -78,8 +78,6 @@ In either case, selecting this area of the Status Bar displays a list of availab
 After using **Python: Select Interpreter**, that interpreter is applied when right-clicking a file and selecting **Python: Run Python File in Terminal**. You can also use **Python: Create Terminal** to open a terminal in which that environment is activated. (However, launching VS Code from a shell in which a certain Python environment is activated does not automatically activate that environment in the default Terminal. Use the **Python: Create Terminal** command after VS Code is running.)
 
 Any changes you make to an activated environment within the terminal are persistent. For example, using `conda install <package>` from the terminal with a conda environment activated installs the package into that environment permanently. Similarly, using `pip install` in a terminal with a virtual environment activated adds the package to that environment.
-
-To avoid activating virtual and conda environments when using these terminal commands, change the `python.terminal.activateEnvironment` setting to `false`.
 
 ### Choose a debugging environment
 

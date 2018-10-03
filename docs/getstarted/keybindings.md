@@ -304,11 +304,12 @@ View Identifiers:
 
 Panel Identifiers:
 
-* workbench.panel.match - Problems
+* workbench.panel.markers - Problems
 * workbench.panel.output - Output
 * workbench.panel.repl - Debug Console
 * workbench.panel.terminal - Integrated Terminal
 * workbench.panel.comments - Comments
+* workbench.view.search - Search when `search.location` is set to `panel`
 
 ## Custom Keybindings for Refactorings
 
