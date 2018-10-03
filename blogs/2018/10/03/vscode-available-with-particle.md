@@ -1,5 +1,5 @@
 ---
-Order: 44
+Order:
 TOCTitle: Now available with Particle Workbench
 PageTitle: Visual Studio Code now available with Particle Workbench
 MetaDescription: Visual Studio Code now available with Particle Workbench
