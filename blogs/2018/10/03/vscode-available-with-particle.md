@@ -1,14 +1,14 @@
 ---
 Order: 44
-TOCTitle: Available with Particle Workbench
-PageTitle: Visual Studio Code now available through Particle Workbench
-MetaDescription: Visual Studio Code now available through Particle Workbench
+TOCTitle: Now available with Particle Workbench
+PageTitle: Visual Studio Code now available with Particle Workbench
+MetaDescription: Visual Studio Code now available with Particle Workbench
 MetaSocialImage: /assets/blogs/2018/10/03/particle-vscode.png
 Date: 2018-10-03
-ShortDescription: Visual Studio Code now available through Particle Workbench
+ShortDescription: Visual Studio Code now available with Particle Workbench
 Author: Marc Goodner
 ---
-# Visual Studio Code available through Particle Workbench
+# Visual Studio Code with Particle Workbench
 
 October 3, 2018 Marc Goodner, [@robotdad](https://twitter.com/robotdad)
 
@@ -22,7 +22,7 @@ Particle Workbench and Visual Studio Code provide a free, ready to use experienc
 
 Particle Workbench and Visual Studio Code are available together through a single, downloadable installer, which includes the toolchains and extensions for Particle’s IoT ecosystem. These include support for local offline compilation and device programming, or cloud compilation and over-the-air (OTA) device programming. IntelliSense for Particle Device APIs are provided by Visual Studio Code language services and the C/C++ extension. Advanced hardware debugging is available in Visual Studio Code, for actions like setting breakpoints and step-through debugging, all pre-configured for Particle hardware. There’s also access to more than 3,000 official and community Particle libraries, enabling more reusability and less typing.
 
-For more information, take a look at Particle’s [announcement on Particle Workbench](www.particle.io/workbench or TBD). And if you’re interested about how to use Particle with Microsoft Azure, you can learn how to [create the dashboard of your dreams](https://blog.particle.io/2018/09/28/create-the-dashboard-of-your-dreams-with-particle-electric-io/) in this post from Paul DeCarlo.
+For more information, take a look at Particle’s [announcement on Particle Workbench](www.particle.io/workbench). And if you’re interested about how to use Particle with Microsoft Azure, you can learn how to [create the dashboard of your dreams](https://blog.particle.io/2018/09/28/create-the-dashboard-of-your-dreams-with-particle-electric-io/) in this post from Paul DeCarlo.
 
 Happy Coding!
 
