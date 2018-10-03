@@ -1,6 +1,6 @@
 ---
 Order: 4
-Area: nodejsdeployment
+Area: nodejsdeploymentui
 TOCTitle: Deploy the website
 PageTitle: Deploy the website
 MetaDescription:
@@ -10,7 +10,7 @@ ShortDescription:
 ---
 # Deploy the Website
 
-In this step, you will deploy your Node.js website using Git and the Azure CLI. You will use the most basic deployment model where you push your local Git repository to the Website. Later in this walkthrough, you will set up a more robust Continuous Delivery pipeline.
+In this step, you will deploy your Node.js website using Git and the Azure web portal. You will use the most basic deployment model where you push your local Git repository to the Website. Later in this walkthrough, you will set up a more robust Continuous Delivery pipeline.
 
 ## Initialize the Git Repository
 
@@ -24,25 +24,26 @@ $ git commit -m "Initial Commit"
 
 ## Set up a Remote
 
-Configure the Website for deployment via Git. If you have not already set up deploy credentials in Azure, do this first, replacing `UserName` and `Password` below. Note that `UserName` must be uniqe across Azure!
+Configure the Website for deployment via Git.
+
+Select your web app from the Azure portal and choose `Deployment Options` from the menu.
+
+This will load a new pane, click the `Choose Source` option and then choose `Local Git Repository`
+
+![Select Web App](images/nodejs-deployment-ui/localgitrepo.png)
+
+This creates an endpoint which we can add as a git remote.
+
+## Setting the credentials
+
+Next we must set our credentials to authenticate from our local git repository to the Azure web app.
+
+Select `Deployment credentials` and enter a `username` and `password` and click `Save`
+
+With the endpoint in hand, set up a new Remote in Git named `azure`. The section of the URL between the `://` and `@` is the username you set in deployment credentials.
 
 ```bash
-$ az webapp deployment user set --user-name <UserName> --password <Password>
-```
-
-This command will return the Git endpoint to push to which includes the `UserName`.
-
-```bash
-$ az webapp deployment source config-local-git --name myExpressApp-chrisdias
-{
-  "url": "https://chrisdias@myexpressapp-chrisdias.scm.azurewebsites.net/myExpressApp-chrisdias.git"
-}
-```
-
-With the endpoint in hand, set up a new Remote in Git named `azure`.
-
-```bash
-$ git remote add azure https://chrisdias@myexpressapp-chrisdias.scm.azurewebsites.net/myExpressApp-chrisdias.git
+$ git remote add azure https://dougajmcdonald@myexpressapp-dougmcdonald.scm.azurewebsites.net/myExpressApp-dougmcdonald.git
 ```
 
 ## Deploy to Azure
@@ -51,18 +52,17 @@ Finally, you can deploy the application to Azure!
 
 ```bash
 $ git push azure master
-Password for 'https://chrisdias@myexpressapp-chrisdias.scm.azurewebsites.net':
-Counting objects: 17, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (14/14), done.
-Writing objects: 100% (17/17), 3.03 KiB | 0 bytes/s, done.
-Total 17 (delta 1), reused 0 (delta 0)
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 287 bytes | 287.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '5cda1c46a5'.
+remote: Preparing deployment for commit id 'daae462889'.
 remote: Generating deployment script.
-remote: Generating deployment script for node.js Web Site
-remote: Generated deployment script files
+remote: Running deployment command...
 ...
 ```
 
