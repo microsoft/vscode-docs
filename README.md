@@ -56,6 +56,11 @@ If you want to use VS Code, simply navigate to the `vscode-docs` directory and l
 cd vscode-docs
 code .
 ```
+Alternatively, you can also right click on a file and press open with Visual Studio Code. Also, if you have Git installed the option to open on Git will also appear here.
+
+<center>
+<img alt="vscode contribution" src="https://lh3.googleusercontent.com/-BwUkHSt2F4E/WN0pzTo-udI/AAAAAAAAEYU/LT-3eZ4cpJE/s1600-h/SNAGHTML1ed23e5%25255B5%25255D.png">
+</center>
 
 You can open any of the Markdown files and see a preview with the **Open Preview to the Side** button in the upper right of the editor.
 
