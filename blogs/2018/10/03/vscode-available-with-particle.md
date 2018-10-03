@@ -16,7 +16,7 @@ We’re excited to announce that Visual Studio Code will be included in the next
 
 Particle provides a widely-used IoT platform that consists of hardware, software, and connectivity. At their Spectra conference, Particle announced [Particle Workbench](https://www.particle.io/workbench), a new professional IoT developer offering that includes Visual Studio Code.
 
-![Particle and VS Code](particle-vscode-bigger.png)
+![Particle and VS Code](particle-vscode.png)
 
 Particle Workbench and Visual Studio Code provide a free, ready to use experience to develop, program, and debug apps on Particle’s IoT platform, as well as Microsoft Azure.
 
