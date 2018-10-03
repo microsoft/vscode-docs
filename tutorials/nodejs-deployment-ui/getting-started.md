@@ -1,6 +1,6 @@
 ---
 Order: 1
-Area: nodejsdeployment
+Area: nodejsdeploymentui
 TOCTitle: Getting started
 PageTitle: Node.js deployment with Visual Studio Code
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
@@ -8,7 +8,7 @@ DateApproved: 10/5/2017
 ---
 # Deploy to Azure using the Azure CLI
 
-In this walkthrough, you will deploy a Node.js application to the Azure cloud using the [Azure Command Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
+In this walkthrough, you will deploy a Node.js application to the Azure cloud using the [Azure Web Portal](https://azure.microsoft.com/en-gb/features/azure-portal/).
 
 ## Prerequisites
 
@@ -16,30 +16,11 @@ If you don't have an Azure account, [sign up today](https://azure.microsoft.com/
 
 You'll need [Node.js and npm](https://nodejs.org/en/download/) and [Git](https://git-scm.com/downloads) installed locally.
 
-Install the Azure Command Line Interface (CLI) which you will use the CLI to do the following:
+You will use the Azure Web Portal to do the following:
 
 * Create an Azure Website.
 * Set up a deployment pipeline between a local/remote Git repository and the Website.
 * View your application's logs (`console.log` output).
-
-> **Tip:** If you prefer, you can use Azure [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) from within VS Code for this tutorial. Install the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension which adds Cloud Shell support in the Integrated Terminal.
-
-## Install the Azure CLI
-
-The Azure CLI is cross platform and runs on Windows, macOS, as well as many different Linux distributions.
-
-> [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-
-### Log In
-
-Once installed, you can use the `az` command from your favorite terminal.
-
-Following the instructions, browse to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and paste in the 9 character code. When prompted, use the email address and password you used when creating your Azure account.
-
-```bash
-$ az login
-To sign in, go to https://aka.ms/devicelogin and enter the code BF9BUDLGR to authenticate.
-```
 
 ## Prerequisite Check
 
@@ -59,4 +40,4 @@ git version 2.6.4
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/express">I've installed the Azure CLI</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/express">I've created an Azure account</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-ui', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>
