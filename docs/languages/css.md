@@ -54,7 +54,7 @@ To just disable it for css, Less and SCSS, use
 You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges are available for all declarations (e.g. rule declarations) and for multi-line comments in the source code.
 
 Additionally you can use the following region markers to define a folding range:
-`/*#region*/` and `/*#endregion*/`
+`/*#region*/` and `/*#endregion*/` in CSS/SCSS/Less or `// #region` and `// #endregion` In SCSS/Less.
 
 If you prefer to switch to indentation based folding for CSS, Less and SCSS, use:
 
@@ -96,7 +96,7 @@ Hovering over a selector or property will provide an HTML snippet that is matche
 
 This is supported for Sass and Less variables in the same file. [CSS variables](https://developer.mozilla.org/docs/Web/CSS/Using_CSS_variables) per the [draft standards proposal](https://drafts.csswg.org/css-variables/) are also supported.
 
->**Note:** Cross file references ('imports') are not resolved.
+There is jump to definition for `@import` and `url()` links in CSS, SCSS and Less.
 
 ## Transpiling Sass and Less into CSS
 
