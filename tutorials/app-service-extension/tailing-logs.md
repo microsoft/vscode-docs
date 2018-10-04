@@ -14,9 +14,9 @@ Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and cho
 
 When prompted, choose to enable logging and restart the application. Once the app is restarted, the VS Code output window opens with a connection to the log stream.
 
-![View Streaming Logs](images/app-service-extension/view-logs.png)
+![View Streaming Logs](/images/app-service-extension/view-logs.png)
 
-![Enable Logging and Restart](images/app-service-extension/enable-restart.png)
+![Enable Logging and Restart](/images/app-service-extension/enable-restart.png)
 
 After a few seconds, you will see a message indicating that you are connected to the log-streaming service.
 
