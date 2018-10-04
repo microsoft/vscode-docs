@@ -81,7 +81,7 @@ Any changes you make to an activated environment within the terminal are persist
 
 ### Choose a debugging environment
 
-Debugging uses the value from `python.pythonPath`in selecting what Python interpreter to use, in the following order of precedence:
+Debugging uses the value from `python.pythonPath` in selecting what Python interpreter to use, in the following order of precedence:
 
 1. `launch.json`
 1. Workspace `settings.json`
@@ -162,7 +162,7 @@ A system environment variable can be used in the path setting using the syntax `
 }
 ```
 
-By using an environment variable, you can easily transfer a project between operating systems where the paths are different. Just be sure to set the environment variable on the operating system first.
+By using an environment variable, you can easily transfer a project between operating systems where the paths are different - just be sure to set the environment variable on the operating system first.
 
 ## Environment variable definitions file
 

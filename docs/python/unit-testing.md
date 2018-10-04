@@ -121,7 +121,7 @@ VS Code uses the currently enabled unit testing framework to discover tests. You
 
 With unittest, the `"python.unitTest.autoTestDiscoverOnSaveEnabled" : true` setting (true is the default), automatically performs test discovery whenever you save a test file. To disable this feature, set the value to false.
 
-Test discovery applies the discovery patterns specified in the arguments setting for the current test framework:  `python.unitTest.unittestArgs`, `python.unitTest.pyTestArgs`, or `python.unitTest.nosetestArgs` as described under[Test framework configurations](#test-framework-configurations).
+Test discovery applies the discovery patterns specified in the arguments setting for the current test framework:  `python.unitTest.unittestArgs`, `python.unitTest.pyTestArgs`, or `python.unitTest.nosetestArgs` as described under [Test framework configurations](#test-framework-configurations).
 
 For example, the default arguments for unittest include `-s . -p *test*.py`, which instruct unittest to look recursively, starting with the project folder (`-s .`), for all files with names matching the `*test*.py` pattern (`-p *test*.py`). You can specify a different starting folder after `-s`, and/or a different pattern after `-p`.
 
