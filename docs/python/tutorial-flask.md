@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: python
 TOCTitle: Flask Tutorial
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
@@ -17,6 +17,8 @@ Flask is called a "micro" framework because it doesn't directly provide features
 In this tutorial you create a simple Flask app with three pages that use a common base template. Along the way you experience a number of features of Visual Studio Code including using the terminal, the editor, the debugger, code snippets, and more.
 
 The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
+
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
@@ -688,6 +690,8 @@ The completed code project from this tutorial can be found on GitHub: [python-sa
 
 Because this tutorial has only scratched the surface of page templates, refer to the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/) for more information about templates. The [Template Designer Documentation](http://jinja.pocoo.org/docs/2.10/templates/#synopsis) contains all the details on the template language.
 
+To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](tutorial-deploy-containers.md).
+
 You may also want to review the following articles in the VS Code docs that are relevant to Python:
 
 - [Editing Python code](/docs/python/editing.md)
@@ -695,3 +699,5 @@ You may also want to review the following articles in the VS Code docs that are 
 - [Managing Python environments](/docs/python/environments.md)
 - [Debugging Python](/docs/python/debugging.md)
 - [Unit testing](/docs/python/unit-testing.md)
+
+If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
