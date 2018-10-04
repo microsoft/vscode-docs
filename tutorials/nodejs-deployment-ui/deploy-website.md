@@ -38,7 +38,7 @@ This creates an endpoint which we can add as a git remote.
 
 Next we must set our credentials to authenticate from our local git repository to the Azure web app.
 
-Select `Deployment credentials` and enter a `username` and `password` and click `Save`
+Select `Deployment credentials` and enter a `username` and `password` to use for the deployment and click `Save`.
 
 With the endpoint in hand, set up a new Remote in Git named `azure`. The section of the URL between the `://` and `@` is the username you set in deployment credentials.
 
@@ -72,12 +72,10 @@ Browse to the site again and you should see your Express site hosted in Azure!
 
 ![Express Site Hosted in Azure](images/nodejs-deployment/expressinazure.png)
 
-> Are you seeing the error `Object #<eventemitter> has no method 'hrtime'`? If so, you probably need to set the node runtime version on the site. The following command will tell the site to use node version `6.9.1`. If your site requires a different or later version of node, specify the **full** semantic version `major.minor.patch`.
+> If you see an error deploying it's likely you didn't set the Node.JS version in the `package.json` you can set this manually via the web portal by selecting `Application Settings` option in the Azure web portal and adding a setting with the key `WEBSITE_NODE_DEFAULT_VERSION` and a value of the Node version, in our example `6.9.1`.
 
-```bash
-$ az webapp config appsettings set --name myExpressApp-chrisdias --settings WEBSITE_NODE_DEFAULT_VERSION=6.9.1
-```
+![Setting the Node version](images/nodejs-deployment/setnodeversion.png)
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/tailing-logs">My site is on Azure</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'deploy-website')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/publishing-changes">My site is on Azure</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-ui', 'deploy-website')" href="javascript:void(0)">I ran into an issue</a>

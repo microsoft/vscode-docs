@@ -46,7 +46,7 @@ Leave this as the default `Code`.
 
 An **App Service Plan** defines the physical resources that will be used to host our website. In this walkthrough, we will use a **Free** hosting plan which means our site will be hosted on a machine alongside other websites.
 
-Click on `TODO: Cannot see this option` and select `+ Create new`.
+Click on `App service plan` and select `+ Create new`.
 
 Enter an `App Service Plan` name of `myPlan` and select a location which is close to you e.g. `UK West`.
 
