@@ -12,13 +12,13 @@ Upon creating the Function application, the necessary VS Code launch configurati
 
 Press `F5` to launch the debugger. Output from the Functions Core tools is displayed in the VS Code Integrate Terminal panel. Once the host has started up, the local URL for your Function is written out. `Ctrl+Click` (`Cmd+Click` on macOS) the URL to open it in your browser.
 
-![Functions Launch](images/functions-extension/functions-vscode-f5.png)
+![Functions Launch](/images/functions-extension/functions-vscode-f5.png)
 
 The default HTTP template parses a `name` query parameter to customize the response, add `?name=<yourname>` to the URL in your browser to see the response output correctly.
 
 > **TIP:** You can also set and hit breakpoints when running locally to test any changes.
 
-![Hello Matt](images/functions-extension/functions-test-local-browser.png)
+![Hello Matt](/images/functions-extension/functions-test-local-browser.png)
 
 After verifying that the app runs locally, it's time to publish it to Azure Functions.
 

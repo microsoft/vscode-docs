@@ -20,11 +20,11 @@ In this section, we will setup our Azure Storage account and blob container.
 
    > **Note**: If you don't see **Storage accounts**, select **All services** from the top of the menu, find it in the full list, and star it to dock it in your menu bar.
 
-   ![Sign into Storage Explorer](images/static-website/storage/1-portal-select-storage.png)
+   ![Sign into Storage Explorer](/images/static-website/storage/1-portal-select-storage.png)
 
 3. Click either **+ Add** or **Create Storage Accounts** to create a new account.
 
-   ![Create new storage account](images/static-website/storage/2-portal-new-storage.png)
+   ![Create new storage account](/images/static-website/storage/2-portal-new-storage.png)
 
 4. Fill in a **Name** for your storage account and the **Resource group**.
 
@@ -34,7 +34,7 @@ In this section, we will setup our Azure Storage account and blob container.
 
    Static website hosting is only available for accounts using GPv2.
 
-   ![Add name and Resource Group](images/static-website/storage/3-portal-config-storage.png)
+   ![Add name and Resource Group](/images/static-website/storage/3-portal-config-storage.png)
 
 6. When you're ready, click **Create** and wait for the account to be created.
 
@@ -48,7 +48,7 @@ In this section, we will setup our Azure Storage account and blob container.
 
   > **Note**: Be sure to include the name of your index document.
 
-   ![Confirm container](images/static-website/storage/8-portal-config-static-site.png)
+   ![Confirm container](/images/static-website/storage/8-portal-config-static-site.png)
 
 ## Your site URL
 
