@@ -20,7 +20,6 @@ You will use the Azure Web Portal to do the following:
 
 * Create an Azure Website.
 * Set up a deployment pipeline between a local/remote Git repository and the Website.
-* View your application's logs (`console.log` output).
 
 ## Prerequisite Check
 
