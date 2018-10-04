@@ -12,7 +12,9 @@ MetaSocialImage: images/tutorial/social.png
 
 In this tutorial you use Python 3 to create the simplest Python "Hello World" application in Visual Studio Code. By using the Python extension, you make VS Code into a great lightweight Python IDE (which you may find a productive alternative to PyCharm).
 
-> **Note**: You can use VS Code with Python 2 with this tutorial, but you need to make appropriate changes to the code.
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+
+> **Note**: You can use VS Code with Python 2 with this tutorial, but you need to make appropriate changes to the code, which are not covered here.
 
 ## Prerequisites
 
