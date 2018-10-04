@@ -58,9 +58,9 @@ Once the extensions are installed, sign into your Azure account by navigating to
 
 After signing in, verify that you see the email account of your Azure around in the Status Bar and your subscription(s) in the **Azure: App Service** explorer:
 
-    ![VS Code status bar showing Azure account](images/deploy-azure/azure-account-status-bar.png)
+![VS Code status bar showing Azure account](images/deploy-azure/azure-account-status-bar.png)
 
-    ![VS Code Azure App Service explorer showing subscriptions](images/deploy-azure/azure-subscription-view.png)
+![VS Code Azure App Service explorer showing subscriptions](images/deploy-azure/azure-subscription-view.png)
 
 > **Note**: If you see the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
 >
@@ -394,7 +394,7 @@ To learn more about Azure services that you can use from Python, including data 
 
 There are also other Azure extensions for VS Code that you may find helpful. Just search on "Azure" in the Extensions explorer:
 
-![Azure extensions for VS Code](deploy-containers/azure-extensions.png)
+![Azure extensions for VS Code](images/deploy-containers/azure-extensions.png)
 
 A few favorites include:
 
