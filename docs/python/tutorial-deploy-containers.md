@@ -1,9 +1,9 @@
 ---
-Order: 9
+Order: 10
 Area: python
 TOCTitle: Deploy with containers
 ContentId: e3f4006c-ab3f-4444-909b-fb045afcdf09
-PageTitle: Deploy to Azure App Service using Docker containers
+PageTitle: Deploy Python wed apps to Azure App Service using Docker containers
 DateApproved: 10/03/2018
 MetaDescription: How to create containers for Python apps and deploy to Azure App Service
 MetaSocialImage: images/tutorial/social.png
@@ -82,7 +82,7 @@ If you don't already have an app you'd like to work with, use one of the followi
 
 - [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](tutorial-flask.md).
 
-After verifying that your app runs properly, generate a `requirements.txt` file using `pip freeze` (which are included in the samples) so that those dependencies can be automatically installed in the Docker image.
+After verifying that your app runs properly, generate a `requirements.txt` file using `pip freeze > requirements.txt` (which are included in the samples) so that those dependencies can be automatically installed in the Docker image.
 
 ## Create a container registry
 
