@@ -22,7 +22,7 @@ For a general background on unit testing, see [Unit Testing](https://wikipedia.o
 
 Python tests are Python classes that are saved in separate files from the code being tested. How you write tests and how you save test files depends on the conventions of the framework you're using. Once you've written tests and have enabled a test framework, VS Code locates those tests and provides you with various commands to run and debug them.
 
-The following steps give you a quick walkthrough of working with test in VS Code. The sections that follow then go into more detail about test discovery, running tests, and debugging tests.
+The following steps give you a quick walkthrough of working with tests in VS Code. The sections that follow then go into more detail about test discovery, running tests, and debugging tests.
 
 1. Enable the unittest framework by adding the following entries to your user (or workspace) settings. We recommend explicitly enabling one framework and disabling the others as shown here:
 
