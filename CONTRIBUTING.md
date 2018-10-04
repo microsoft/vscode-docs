@@ -164,3 +164,8 @@ function fancyAlert(arg) {
   }
 }
 ```
+
+### Submitting File Changes
+
+Try to use Pull Request names which are self-explanatory of the change being made.
+If any additional information is needed to be provided alongwith the Pull Request, add it in the description section.
