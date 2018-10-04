@@ -3,14 +3,14 @@ Order: 10
 Area: python
 TOCTitle: Deploy with containers
 ContentId: e3f4006c-ab3f-4444-909b-fb045afcdf09
-PageTitle: Deploy Python wed apps to Azure App Service using Docker containers
+PageTitle: Deploy Python web apps to Azure App Service using Docker containers
 DateApproved: 10/03/2018
-MetaDescription: How to create containers for Python apps and deploy to Azure App Service
+MetaDescription: How to create Docker containers for Python web apps and deploy to Azure App Service
 MetaSocialImage: images/tutorial/social.png
 ---
-# Deploy Python apps to Azure App Service using Docker Containers
+# Deploy Python using Docker containers
 
-This tutorial walks you through the full process containerizing an existing Python application using [Docker](https://www.docker.com/), pushing the app image to a Docker registry, then deploying the image to [Azure App Service](https://azure.microsoft.com/services/app-service/containers/), all within Visual Studio Code. The tutorial also demonstrates how to use base container images that include production-ready web servers (uwsgi and nginx), and how to configure those servers for both Django and Flask apps, which is helpful to know no matter what your deployment target.
+This tutorial walks you through the full process of containerizing an existing Python application using [Docker](https://www.docker.com/), pushing the app image to a Docker registry, then deploying the image to [Azure App Service](https://azure.microsoft.com/services/app-service/containers/), all within Visual Studio Code. The tutorial also demonstrates how to use base container images that include production-ready web servers (uwsgi and nginx), and how to configure those servers for both [Django](https://www.djangoproject.com/) and [Flask](http://flask.pocoo.org/) web apps, which is helpful to know no matter what your deployment target.
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
 
@@ -38,7 +38,7 @@ Install the following:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Docker Community Edition](https://www.docker.com/community-edition). To verify your installation, run the command `docker --version`, which should show output like `Docker version 18.06.1-ce, build e68fc7a`.
-- Python and the Python extension as described on [Python Tutorial - Prerequisites](python-tutorial.md)
+- Python and the Python extension as described on [Python Tutorial - Prerequisites](/docs/python/python-tutorial.md)
 
 ### Docker and Azure App Service extensions for VS Code
 
@@ -78,9 +78,9 @@ After signing in, verify that you see the email account of your Azure around in 
 
 If you don't already have an app you'd like to work with, use one of the following samples, which already include the Docker-related files described later in this tutorial:
 
-- [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](tutorial-django.md).
+- [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md).
 
-- [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](tutorial-flask.md).
+- [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md).
 
 After verifying that your app runs properly, generate a `requirements.txt` file using `pip freeze > requirements.txt` (which are included in the samples) so that those dependencies can be automatically installed in the Docker image.
 
@@ -184,7 +184,7 @@ The following steps summarize the configuration used in the [python-sample-vscod
 
 ## Changes for Django apps
 
-A good base image for Flask is `tiangolo/uwsgi-nginx:python3.6-alpine3.7`, which is also available for other versions of Python (see the [tiangolo/uwsgi-nginx respository](https://github.com/tiangolo/uwsgi-nginx-docker) on GitHub).
+A good base image for Flask is `tiangolo/uwsgi-nginx:python3.6-alpine3.7`, which is also available for other versions of Python (see the [tiangolo/uwsgi-nginx repository](https://github.com/tiangolo/uwsgi-nginx-docker) on GitHub).
 
 This base image already contains the production-ready uwsgi and nginx servers, but does not include Django. It's also necessary to provide settings to uwsgi so it can find the app's startup code.
 
