@@ -14,15 +14,15 @@ This tutorial walks you through the full process of containerizing an existing P
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
 
-## A brief introduction to containers
+## An introduction to containers
 
-Docker is a system that allows you to deploy and run apps using *containers* rather than setting up dedicated environments like virtual machines. A container is a lightweight runtime environment that shares the resources of the host operating system with other containers. Docker is the layer that sits above the operating system to manage resources on behalf of containers.
+Docker is a system that allows you to deploy and run apps using **containers** rather than setting up dedicated environments like virtual machines. A container is a lightweight runtime environment that shares the resources of the host operating system with other containers. Docker is the layer that sits above the operating system to manage resources on behalf of containers.
 
-A container is specifically an instance of a Docker *image*, an executable package that contains everything needed to run your app: app code, configuration files, runtimes, and all of app's dependencies. A image can be used to instantiate any number of identical containers, which is especially useful when scaling out a cloud-based web app. Because container images are much smaller than virtual machine images, instances can be started and stopped much more quickly than virtual machines, enabling your app to be highly responsive to varying loads at a minimal cost. (When used to scale web apps, containers are often managed in *clusters*, which are then managed by an orchestration agent such as [Kubernetes](https://wikipedia.org/wiki/Kubernetes).)
+A container is specifically an instance of a Docker **image**, an executable package that contains everything needed to run your app: app code, configuration files, runtimes, and all of app's dependencies. A image can be used to instantiate any number of identical containers, which is especially useful when scaling out a cloud-based web app. Because container images are much smaller than virtual machine images, instances can be started and stopped much more quickly than virtual machines, enabling your app to be highly responsive to varying loads at a minimal cost. (When used to scale web apps, containers are often managed in *clusters*, which are then managed by an orchestration agent such as [Kubernetes](https://wikipedia.org/wiki/Kubernetes).)
 
-Images, for their part, are built in multiple *layers*. The lowest or *base* layers of an image are typically common elements like the Python runtime; the higher layers the contain more specialized elements like your app code. Because of layering, it takes very little time to rebuild an image when changing only the top layer with your app code. Similarly, when you push an image to a *container registry*, an online repository for images from which you can deploy to cloud services like Azure, only the modified layers need be uploaded and redeployed. As a result, using containers has only a very small impact on your develop-test-deploy loop.
+Images, for their part, are built in multiple **layers**. The lowest or **base** layers of an image are typically common elements like the Python runtime; the higher layers the contain more specialized elements like your app code. Because of layering, it takes very little time to rebuild an image when changing only the top layer with your app code. Similarly, when you push an image to a **container registry**, an online repository for images from which you can deploy to cloud services like Azure, only the modified layers need be uploaded and redeployed. As a result, using containers has only a very small impact on your develop-test-deploy loop.
 
-You experience the basics of containers and images in the course of this tutorial. For additional background, including helpful diagrams, refer to the [Docker documentation](https://docs.docker.com/get-started/).
+You will experience the basics of containers and images in the course of this tutorial. For additional background, including helpful diagrams, refer to the [Docker documentation](https://docs.docker.com/get-started/).
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ To complete this tutorial you need an Azure account, Docker, Visual Studio Code 
 
 If you don't have an Azure account, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension) for a free 30-day account with $200 in Azure credits to try out any combination of services.
 
-### Visual Studio Code, Docker, and language runtime
+### Visual Studio Code, Docker, and Python runtime
 
 Install the following:
 
@@ -86,7 +86,7 @@ After verifying that your app runs properly, generate a `requirements.txt` file 
 
 ## Create a container registry
 
-As mentioned earlier, a *container registry* is an online repository for container images that allows a cloud service, like Azure App Service, to acquire the image whenever it needs to start a container instance. Because the registry manages images separate from container instances, the same image in a registry can be used to start any number of concurrent instances, as happens when scaling out a web app to handle increased loads.
+As mentioned earlier, a container registry is an online repository for container images that allows a cloud service, like Azure App Service, to acquire the image whenever it needs to start a container instance. Because the registry manages images separate from container instances, the same image in a registry can be used to start any number of concurrent instances, as happens when scaling out a web app to handle increased loads.
 
 Because setting up a registry is a one-time affair, you do that step now before creating images that you then push to that registry.
 
@@ -104,13 +104,13 @@ To create an Azure Container Registry, as shown in this tutorial, do the followi
 
     ![Docker explorer in VS Code showing registries](images/deploy-containers/registries.png)
 
-## Add and customize Docker files
+## Create a container image
 
 A container image is a bundle of your app code and its dependencies. To create an image, Docker needs a `Dockerfile` that describes how to structure the app code in the container and how to get that code running. The `Dockerfile`, in other words, is the template for your image. The Docker extension helps you create these files with customization for production servers.
 
-> **Note**: the Python samples linked earlier in this article already contain the necessary Docker files. The instructions here help you create files for an app of your own.
+> **Note**: The Python samples linked earlier in this article already contain the necessary Docker files. The instructions here help you create files for an app of your own.
 
-## Create initial Docker files
+## Create the Docker files
 
 1. In VS Code, open the **Command Palette** (`kb(workbench.action.showCommands)`) and select the **Docker: Add Docker files to workspace** command.
 
@@ -128,7 +128,7 @@ A container image is a bundle of your app code and its dependencies. To create a
 
 > **Tip:** VS Code provides great support for Docker files. See the [Working with Docker](/docs/azure/docker.md) article to learn about rich language features like smart suggestions, completions, and error detection.
 
-## Modify the Dockerfile to use production web servers
+## Using production servers
 
 For Python, the Docker extension by default specifies the base image `python:alpine` in the `Dockerfile` and includes commands to run only the Flask development server. These defaults obviously don't accommodate Django, for one, and when deploying to the cloud, as with Azure App Service, you should also use production-ready web servers instead of a development server. (If you're used Flask, you're probably accustomed to seeing the development server's warning in this regard!)
 
@@ -249,7 +249,7 @@ The following steps summarize the configuration used in the [python-sample-vscod
 > SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
 > ```
 
-## Build and test the Docker image
+## Build and test the image
 
 With the necessary `Dockerfile` in place, you're ready to build the Docker image and run it locally:
 
@@ -261,7 +261,7 @@ With the necessary `Dockerfile` in place, you're ready to build the Docker image
 
 1. When prompted for a name to give the image, use a name that follows the conventional form of `<registry or username>/<image name>:<tag>`, where `<tag>` is typically `latest`. Here are some examples:
 
-    ```
+    ```sh
     # Examples for Azure Container Registry, prefixed with the registry name
     vsdocsregistry.azurecr.io/python-sample-vscode-django-tutorial:latest
     vsdocsregistry.azurecr.io/python-sample-vscode-flask-tutorial:latest
@@ -315,7 +315,7 @@ Once you're confident that your image works, the next step is to push it to your
 
 > **Tip:** The first time you push an image, you see that VS Code uploads all of the different layers that make up the image. Subsequent push operations, however, upload only those layers that have changed. Because it's typically only your app code that's changes, those uploads happen much more quickly, making for a tight edit-build-deploy-test loop. To see this, make a small change to your code, rebuild the image, and then push again to the registry. The whole process typically completes in a matter of seconds.
 
-## Deploy the image to Azure App Service
+## Deploy the image to Azure
 
 With an image built and pushed to a registry, you can use the Docker extension in VS Code to easily set up an Azure App Service running the container.
 
@@ -361,7 +361,7 @@ Because you inevitably make changes to your app, you end up rebuilding and redep
 
 1. After about 15-20 seconds, visit the App Service URL again to check the updates.
 
-## Viewing Logs
+## Viewing logs
 
 From within VS Code, you can view (or "tail") logs from the running site on Azure App Service, which captures any output to the console as from `print` statements and routes them to the VS Code **Output** panel.
 
