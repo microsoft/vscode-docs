@@ -58,6 +58,8 @@ The VS Code color picker UI is now available in HTML style sections.
 
 ![color picker in HTML](images/html/color-picker-html.png)
 
+It supports configuration of hue, saturation and opacity for the color that is picked up from the editor. It also provides the ability to trigger between different color modes by clicking on the color string at the top of the picker. The picker appears on a hover when you are over a color definition.
+
 ## Hover
 
 Move the mouse over HTML tags or embedded styles and JavaScript to get more information on the symbol under the cursor.
@@ -113,14 +115,14 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
   * `force-aligned`: Wrap all attributes, except first, and align attributes
   * `force-expand-multiline`: Wrap all attributes
 
->**Tip:** The formatter does not format the tags listed in the `html.format.unformatted` and `html.format.contentUnformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
+>**Tip:** The formatter doesn't format the tags listed in the `html.format.unformatted` and `html.format.contentUnformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 
 The Marketplace has several alternative formatters to choose from. If you want to use a different formatter, define
 `"html.format.enable": false` in your settings to turn off the built-in formatter.
 
 ## Emmet snippets
 
-We support Emmet snippet expansion. Emmet abbreviations are listed along with other suggestions and snippets in the editor auto-completion list.
+VS Code supports [Emmet snippet](https://emmet.io/) expansion. Emmet abbreviations are listed along with other suggestions and snippets in the editor auto-completion list.
 
 ![Emmet HTML support built-in](images/html/emmetsnippet.gif)
 
@@ -154,6 +156,7 @@ Read on to find out about:
 
 * [CSS, SCSS, and Less](/docs/languages/css.md) - VS Code has first class support for CSS including Less and SCSS.
 * [Emmet](/docs/editor/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
+* [Emmet — official documentation](https://docs.emmet.io/) - Emmet — the essential toolkit for web-developers
 
 ## Common Questions
 

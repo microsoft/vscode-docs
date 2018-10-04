@@ -36,7 +36,7 @@ If you'd like to try our nightly builds to see new features early or verify bug 
 
 ## Additional components
 
-VS Code is an editor first and foremost and prides itself on a small footprint. Unlike traditional IDEs with everything but the kitchen sink, you can tune your installation to the development technologies you care about. Be sure to read the [Additional Components](/docs/setup/additional-components.md) topic after reading the platform guides to learn about customizing your VS Code installation.
+VS Code is an editor, first and foremost, and prides itself on a small footprint. Unlike traditional IDEs which tend to include everything but the kitchen sink, you can tune your installation to the development technologies you care about. Be sure to read the [Additional Components](/docs/setup/additional-components.md) topic after reading the platform guides to learn about customizing your VS Code installation.
 
 ## Extensions
 

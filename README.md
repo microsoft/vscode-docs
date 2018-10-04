@@ -1,3 +1,7 @@
+<center>
+<img alt="vscode logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Visual_Studio_Code_1.18_icon.svg/1200px-Visual_Studio_Code_1.18_icon.svg.png" width="100px">
+</center>
+
 # Visual Studio Code Documentation
 
 You've found the Visual Studio Code documentation GitHub repository which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
@@ -5,6 +9,14 @@ You've found the Visual Studio Code documentation GitHub repository which contai
 Topics submitted here will be published to the [Visual Studio Code](https://code.visualstudio.com) portal.
 
 If you are looking for the VS Code product GitHub repository, you can find it [here](https://github.com/Microsoft/vscode).
+
+## Index
+1. [About Visual Studio Code](#visual-studio-code)
+2. [Contributing to the documentation](#contributing-to-the-documentation)
+3. [Feedback](#feedback)
+4. [Documentation Issues](#documentation-issues)
+5. [Editing](#editing)
+6. [Publishing](#publishing)
 
 ## Visual Studio Code
 

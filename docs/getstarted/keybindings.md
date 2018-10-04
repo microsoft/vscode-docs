@@ -309,6 +309,7 @@ Panel Identifiers:
 * workbench.panel.repl - Debug Console
 * workbench.panel.terminal - Integrated Terminal
 * workbench.panel.comments - Comments
+* workbench.view.search - Search when `search.location` is set to `panel`
 
 ## Custom Keybindings for Refactorings
 

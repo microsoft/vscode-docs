@@ -295,7 +295,7 @@ On the remote computer:
     AllowTcpForwarding yes
     ```
 
-1. Restart the ssh server. On Linux/MacOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, then select **Restart**.
+1. Restart the SSH server. On Linux/MacOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, then select **Restart**.
 
 1. Start the Python program and let it wait for the debugger to attach as described in the previous section.
 
@@ -403,12 +403,12 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
 
 1. On Windows and Linux, replace the first item in `args` with the path to wherever Google App Engine is installed (the path shown in the source code above is for macOS).
 
-1. Create a file named pydev_startup.py in your project root with the following contents, modified as noted:
+1. Create a file named `pydev_startup.py` in your project root with the following contents, modified as noted:
     ```python
     import sys
     import os
 
-    #Assuming that pdvsd is located in the working folder
+    # Assuming that pdvsd is located in the working folder
     sys.path.append(os.getcwd())
 
     import ptvsd
@@ -416,7 +416,7 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
     # However, be sure the port is not blocked on your computer.
     ptvsd.enable_attach(address=('0.0.0.0', 3000), redirect_output=True)
 
-    #The debug server has started and you can now use VS Code to attach to the application for debugging
+    # The debug server has started and you can now use VS Code to attach to the application for debugging
     print("Google App Engine has started, ready to attach the debugger")
     ```
 1. Create a `launch.json` configuring using the **Attach (Remote Debug)** configuration as a template. Make sure the port value match what's in the source code above.

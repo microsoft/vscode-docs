@@ -71,7 +71,7 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 | --- | --- |
 | The path to the python interpreter is incorrect | Check the `pythonPath` setting. Restart VS Code if you make a correction. |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
-| VS Code was not launched from the active virtual environment that would set the path to custom modules. | Launch VS Code from a command prompt with the correct virtual environment activated, for example: `(venv) ter@minal:~$ code`. |
+| VS Code was not launched from the active virtual environment that would set the path to custom modules. | Launch VS Code from a command prompt with the correct virtual environment activated, for example: `(venv) terminal:~$ code`. |
 
 ## Run Selection/Line in Terminal (REPL)
 
@@ -87,7 +87,7 @@ On first use of the **Python: Run Selection/Line in Python Terminal** command, V
 
 ## Formatting
 
-The Python extension supports source code formatting using either autopep8 (the default), black, or yapf.
+The Python extension supports source code formatting using either [autopep8](https://pypi.org/project/autopep8/) (the default), [black](https://github.com/ambv/black), or [yapf](https://yapf.now.sh/).
 
 ### General formatting settings
 
