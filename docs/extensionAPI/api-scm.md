@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Source Control API
 ContentId: 79996489-8D16-4C0A-8BE8-FF4B1E9C223A
 PageTitle: Visual Studio Code Source Control API
-DateApproved: 9/5/2018
+DateApproved: 10/4/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) Source Control API.
 ---
 # Source Control in VS Code
