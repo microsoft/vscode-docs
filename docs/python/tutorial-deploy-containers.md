@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Deploy Python apps to Azure App Service using Docker Containers
 
-This tutorial walks you through the full process containerizing an existing Python application using [Docker](https://www.docker.com/), pushing the app image to a Docker registry, then deploying the image to [Azure App Service](https://azure.microsoft.com/services/app-service/containers/), all within Visual Studio Code. The tutorial also demonstrates how to use base container images that include production-ready web servers (uwsgi and nginx), and how to configure those servers for both Django and Flask apps.
+This tutorial walks you through the full process containerizing an existing Python application using [Docker](https://www.docker.com/), pushing the app image to a Docker registry, then deploying the image to [Azure App Service](https://azure.microsoft.com/services/app-service/containers/), all within Visual Studio Code. The tutorial also demonstrates how to use base container images that include production-ready web servers (uwsgi and nginx), and how to configure those servers for both Django and Flask apps, which is helpful to know no matter what your deployment target.
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
 
