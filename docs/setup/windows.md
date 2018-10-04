@@ -17,6 +17,8 @@ MetaDescription: Get Visual Studio Code up and running on Windows
 
 Altenatively, you can also download a [Zip archive](/docs/?dv=winzip), extract it and run Code from there.
 
+If you want to get the latest releases every day, you can install the [Insiders version of VS Code](https://code.visualstudio.com/insiders) , which updates atleast every day.
+
 >**Note:** .NET Framework 4.5.2 or higher is required for VS Code.  If you are using Windows 7, make sure you have at least [.NET Framework 4.5.2](https://www.microsoft.com/download/details.aspx?id=42643) installed.
 
 >**Tip:** Setup will add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
