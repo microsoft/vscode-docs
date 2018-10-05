@@ -137,7 +137,6 @@ To create a minimal Django app, then, it's necessary to first create the Django 
     from django.http import HttpResponse
     from django.shortcuts import render
 
-
     def home(request):
         return HttpResponse("Hello, Django!")
     ```
@@ -146,7 +145,6 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
     ```python
     from django.urls import path
-
     from hello import views
 
     urlpatterns = [
@@ -236,13 +234,10 @@ Debugging gives you the opportunity to pause a running program on a particular l
     ```python
     import re
     from datetime import datetime
-
     from django.http import HttpResponse
-
 
     def home(request):
         return HttpResponse("Hello, Django!")
-
 
     def hello_there(request, name):
         now = datetime.now()
@@ -355,15 +350,13 @@ In this section you start by creating a single page using a template. In subsequ
     ```html
     <!DOCTYPE html>
     <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Hello, Django</title>
-        {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}"/>
-    </head>
-    <body>
-    <span class="message">Hello, there \{{ name }}!</span> It's \{{ date | date:'l, d F, Y' }} at \{{ date | time:'H:i:s' }}.
-    </body>
+        <head>
+            <meta charset="utf-8" />
+            <title>\{{ title }}</title>
+        </head>
+        <body>
+            \{{ content }}
+        </body>
     </html>
     ```
 
@@ -386,7 +379,12 @@ In this section you start by creating a single page using a template. In subsequ
         content = "<strong>Hello there, " + name + "!</strong> It's " + formatted_now
 
         return render(
-            request, "hello/hello_there.html", {"title": "Hello, Django", "content": content}
+            request,
+            'hello/hello_there.html',
+            {
+                'title': 'Hello, Django',
+                'content': content,
+            }
         )
     ```
 
@@ -414,7 +412,12 @@ In this section you start by creating a single page using a template. In subsequ
     ```python
     def hello_there(request, name):
         return render(
-            request, "hello/hello_there.html", {"name": name, "date": datetime.now()}
+            request,
+            'hello/hello_there.html',
+            {
+                'name': name,
+                'date': datetime.now()
+            }
         )
     ```
 
@@ -868,7 +871,7 @@ With your models in place and the database migrated, you can store and retrieve 
     )
     ```
 
-1. Make one more change in `urls.py`, and replace the path for the home page with the code below to use our newly declared view.
+1. In `urls.py`, modify the path to the home page to use the `home_list_view` variable:
 
     ```python
         # Replace the existing path for ""
