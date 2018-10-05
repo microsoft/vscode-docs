@@ -26,8 +26,8 @@ Install the following prerequisites:
 
 1. Initialize a C# project:
 
-  * Open the command prompt (or terminal) and navigate to the folder you'd like to create the app.
-  *  Open a command shell and enter the following command:
+  * Open the command shell and navigate to the folder you'd like to create the app.
+  * Enter the following command:
 
   ```console
     dotnet new console`
