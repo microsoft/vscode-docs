@@ -343,7 +343,7 @@ With an image built and pushed to a registry, you can use the Docker extension i
 
     ![Context menu command on an App Service for Add New Setting](images/deploy-containers/add-app-service-setting.png)
 
-1. Right-click the App Service and select **Restart** to apply the setting.
+1. The App Service restarts automatically when you change settings. You can also right-click the App Service and select **Restart** at any time.
 
 1. After the service has restarted, browse the site at `http://<name>.azurewebsites.net`. You can `kbstyle(Ctrl+click)` the URL in the Output panel, or right-click the App Service in the **Azure: App Service** explorer and select **Browse Website**.
 
