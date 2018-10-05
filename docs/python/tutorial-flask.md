@@ -18,7 +18,7 @@ In this tutorial you create a simple Flask app with three pages that use a commo
 
 The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
@@ -680,7 +680,7 @@ Throughout this tutorial, all the app code is contained in a single `app.py` fil
     1. Set an environment variable for `FLASK_APP`. On Linux and MacOS, use `export set FLASK_APP=webapp`; on Windows use `set FLASK_APP=webapp`.
     1. In the `hello_app` folder, launch the program using `python3 -m flask run` (Linux/MacOS) or `python -m flask run` (Windows).
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Next steps
 
@@ -700,4 +700,4 @@ You may also want to review the following articles in the VS Code docs that are 
 - [Debugging Python](/docs/python/debugging.md)
 - [Unit testing](/docs/python/unit-testing.md)
 
-If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).

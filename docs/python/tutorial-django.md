@@ -15,7 +15,7 @@ In this tutorial you create a simple Django app with three pages that use a comm
 
 The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial).
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
@@ -965,4 +965,4 @@ You may also want to review the following articles in the VS Code docs that are 
 - [Debugging Python](/docs/python/debugging.md)
 - [Unit testing](/docs/python/unit-testing.md)
 
-If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
