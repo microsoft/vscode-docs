@@ -15,36 +15,34 @@ MetaTags:
 
 [.NET Core](https://docs.microsoft.com/dotnet/articles/welcome) provides a fast and modular platform for creating server apps that run on Windows, Linux, and macOS. Use Visual Studio Code with the C# extension to get a powerful editing experience with [C# IntelliSense](https://docs.microsoft.com/visualstudio/ide/visual-csharp-intellisense) (smart code completion) and debugging.
 
-## Get started
+## Prerequisites
 
-Install the following prerequisites:
+Install the following:
 
-1. [.NET Core](https://microsoft.com/net/core).
-2. The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
+- [.NET Core](https://microsoft.com/net/core).
+- The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
 
 ## Create a "Hello World" app
 
 1. Initialize a C# project:
 
-  * Open the command shell and navigate to the folder you'd like to create the app.
-  * Enter the following command in the command shell:
+   * Open a terminal and navigate to the folder in which you'd like to create the app.
+   * Enter the following command in the command shell:
 
-  ```console
-    dotnet new console`
-  ```
-
-   The preceding command creates a "Hello World" program.
+   ```console
+     dotnet new console`
+   ```
 
 2. When the project folder is first opened in VS Code:
   
-   * A "Would like to add the required assets to build and debug your project?" notification appears at the top of the window.
+   * A "Would you like to add the required assets to build and debug your project?" notification appears at the top of the window.
    * Select **Yes**.
 
 3. Run the app by entering the following command in the command shell:
 
-  ```console
-   dotnet run
-  ```
+   ```console
+    dotnet run
+   ```
 
 Watch a video tutorial for further setup help on [Windows](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows), [macOS](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-NET-Core-Mac), or [Linux](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-Csharp-dotnet-Core-Ubuntu).
 
