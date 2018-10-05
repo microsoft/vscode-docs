@@ -131,6 +131,21 @@ Debian-based distributions allow setting a default *editor* using the [alternati
 sudo update-alternatives --set editor /usr/bin/code
 ```
 
+### EDITOR environment variable
+
+Command line utilities, such as `git`, may use the `EDITOR` environment variable to choose the default editor. Adding the following line to your `.bashrc` or equivalent will set VS Code as the default text editor.
+
+```bash
+export EDITOR=code
+```
+
+Some commands, such as `git commit`, assume that the editor returns only after the file has been closed. This is not true with VS Code. The `--wait` option will prevent the editor from returning until the file is closed.
+
+```bash
+export EDITOR="code --wait"
+```
+See [Command Line](/docs/editor/command-line.md) for full options that can be used.
+
 ## Next Steps
 
 Once you have installed VS Code, these topics will help you learn more about VS Code:
