@@ -134,7 +134,7 @@ For Python, the Docker extension by default specifies the base image `python:alp
 
 For this reason, you need to modify the `Dockerfile` to use a base image with production servers, then provide the necessary configuration for your app. The following sections provide details for both Flask and Django.
 
-## Changes for Flask apps
+### Changes for Flask apps
 
 A good base image for Flask is `tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7`, which is also available for other versions of Python (see the [tiangolo/uwsgi-nginx-flask respository](https://github.com/tiangolo/uwsgi-nginx-flask-docker) on GitHub). This image already contains Flask and the production-ready uwsgi and nginx servers.
 
@@ -182,7 +182,7 @@ The following steps summarize the configuration used in the [python-sample-vscod
     processes = 4
     ```
 
-## Changes for Django apps
+### Changes for Django apps
 
 A good base image for Flask is `tiangolo/uwsgi-nginx:python3.6-alpine3.7`, which is also available for other versions of Python (see the [tiangolo/uwsgi-nginx repository](https://github.com/tiangolo/uwsgi-nginx-docker) on GitHub).
 
@@ -311,7 +311,7 @@ Once you're confident that your image works, the next step is to push it to your
 
 1. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Docker** explorer, then expand the registry and image name to see the exact image. (You may need to refresh the **Docker** explorer.)
 
-![The built app image in the Azure Container Registry](images/deploy-containers/image-in-acr.png)
+    ![The built app image in the Azure Container Registry](images/deploy-containers/image-in-acr.png)
 
 > **Tip:** The first time you push an image, you see that VS Code uploads all of the different layers that make up the image. Subsequent push operations, however, upload only those layers that have changed. Because it's typically only your app code that's changes, those uploads happen much more quickly, making for a tight edit-build-deploy-test loop. To see this, make a small change to your code, rebuild the image, and then push again to the registry. The whole process typically completes in a matter of seconds.
 
@@ -339,7 +339,7 @@ With an image built and pushed to a registry, you can use the Docker extension i
 
 1. Creating the app service takes a few minutes, and you see progress in VS Code's Output panel.
 
-1. Once completed, you **must** also add a setting named `WEBSITES_PORT` to the App Service to specify the port on which the container is listening, such as 8000 or 5000. To do this, switch to the **Azure: App Service** explorer, expand the node for your new App Service (refresh if necessary), then right-click **Application Settings** and select **Add New Setting**. At the prompts enter `WEBSITES_PORT` as the key and the port number for the value.
+1. Once completed, you **must** also add a setting named `WEBSITES_PORT` to the App Service to specify the port on which the container is listening, such as 8000 (in the Django sample) or 5000 (in the Flask sample). To do this, switch to the **Azure: App Service** explorer, expand the node for your new App Service (refresh if necessary), then right-click **Application Settings** and select **Add New Setting**. At the prompts enter `WEBSITES_PORT` as the key and the port number for the value.
 
     ![Context menu command on an App Service for Add New Setting](images/deploy-containers/add-app-service-setting.png)
 
