@@ -2943,180 +2943,33 @@ line completions were <a href="#CompletionItemProvider.provideCompletionItems">r
 
 #### Enumeration members
 
-
-
-<a name="CompletionItemKind.Class"></a><span class="ts" id=827 data-target="#details-827" data-toggle="collapse"><span class="ident">Class</span></span>
-<div class="details collapse" id="details-827">
-<em>6</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Color"></a><span class="ts" id=836 data-target="#details-836" data-toggle="collapse"><span class="ident">Color</span></span>
-<div class="details collapse" id="details-836">
-<em>15</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Constant"></a><span class="ts" id=841 data-target="#details-841" data-toggle="collapse"><span class="ident">Constant</span></span>
-<div class="details collapse" id="details-841">
-<em>20</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Constructor"></a><span class="ts" id=824 data-target="#details-824" data-toggle="collapse"><span class="ident">Constructor</span></span>
-<div class="details collapse" id="details-824">
-<em>3</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Enum"></a><span class="ts" id=833 data-target="#details-833" data-toggle="collapse"><span class="ident">Enum</span></span>
-<div class="details collapse" id="details-833">
-<em>12</em>
-</div>
-
-
-
-<a name="CompletionItemKind.EnumMember"></a><span class="ts" id=840 data-target="#details-840" data-toggle="collapse"><span class="ident">EnumMember</span></span>
-<div class="details collapse" id="details-840">
-<em>19</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Event"></a><span class="ts" id=843 data-target="#details-843" data-toggle="collapse"><span class="ident">Event</span></span>
-<div class="details collapse" id="details-843">
-<em>22</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Field"></a><span class="ts" id=825 data-target="#details-825" data-toggle="collapse"><span class="ident">Field</span></span>
-<div class="details collapse" id="details-825">
-<em>4</em>
-</div>
-
-
-
-<a name="CompletionItemKind.File"></a><span class="ts" id=838 data-target="#details-838" data-toggle="collapse"><span class="ident">File</span></span>
-<div class="details collapse" id="details-838">
-<em>16</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Folder"></a><span class="ts" id=839 data-target="#details-839" data-toggle="collapse"><span class="ident">Folder</span></span>
-<div class="details collapse" id="details-839">
-<em>18</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Function"></a><span class="ts" id=823 data-target="#details-823" data-toggle="collapse"><span class="ident">Function</span></span>
-<div class="details collapse" id="details-823">
-<em>2</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Interface"></a><span class="ts" id=828 data-target="#details-828" data-toggle="collapse"><span class="ident">Interface</span></span>
-<div class="details collapse" id="details-828">
-<em>7</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Keyword"></a><span class="ts" id=834 data-target="#details-834" data-toggle="collapse"><span class="ident">Keyword</span></span>
-<div class="details collapse" id="details-834">
-<em>13</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Method"></a><span class="ts" id=822 data-target="#details-822" data-toggle="collapse"><span class="ident">Method</span></span>
-<div class="details collapse" id="details-822">
-<em>1</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Module"></a><span class="ts" id=829 data-target="#details-829" data-toggle="collapse"><span class="ident">Module</span></span>
-<div class="details collapse" id="details-829">
-<em>8</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Operator"></a><span class="ts" id=844 data-target="#details-844" data-toggle="collapse"><span class="ident">Operator</span></span>
-<div class="details collapse" id="details-844">
-<em>23</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Property"></a><span class="ts" id=830 data-target="#details-830" data-toggle="collapse"><span class="ident">Property</span></span>
-<div class="details collapse" id="details-830">
-<em>9</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Reference"></a><span class="ts" id=837 data-target="#details-837" data-toggle="collapse"><span class="ident">Reference</span></span>
-<div class="details collapse" id="details-837">
-<em>17</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Snippet"></a><span class="ts" id=835 data-target="#details-835" data-toggle="collapse"><span class="ident">Snippet</span></span>
-<div class="details collapse" id="details-835">
-<em>14</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Struct"></a><span class="ts" id=842 data-target="#details-842" data-toggle="collapse"><span class="ident">Struct</span></span>
-<div class="details collapse" id="details-842">
-<em>21</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Text"></a><span class="ts" id=821 data-target="#details-821" data-toggle="collapse"><span class="ident">Text</span></span>
-<div class="details collapse" id="details-821">
-<em>0</em>
-</div>
-
-
-
-<a name="CompletionItemKind.TypeParameter"></a><span class="ts" id=845 data-target="#details-845" data-toggle="collapse"><span class="ident">TypeParameter</span></span>
-<div class="details collapse" id="details-845">
-<em>24</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Unit"></a><span class="ts" id=831 data-target="#details-831" data-toggle="collapse"><span class="ident">Unit</span></span>
-<div class="details collapse" id="details-831">
-<em>10</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Value"></a><span class="ts" id=832 data-target="#details-832" data-toggle="collapse"><span class="ident">Value</span></span>
-<div class="details collapse" id="details-832">
-<em>11</em>
-</div>
-
-
-
-<a name="CompletionItemKind.Variable"></a><span class="ts" id=826 data-target="#details-826" data-toggle="collapse"><span class="ident">Variable</span></span>
-<div class="details collapse" id="details-826">
-<em>5</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Class | 6
+Color | 15
+Constant | 20
+Constructor | 3
+Enum | 12
+EnumMember | 19
+Event | 22
+Field | 4
+File | 16
+Folder | 18
+Function | 2
+Interface | 7
+Keyword | 13
+Method | 1
+Module | 8
+Operator | 23
+Property | 9
+Reference | 17
+Snippet | 14
+Struct | 21
+Text | 0
+TypeParameter | 24
+Unit | 10
+Value | 11
+Variable | 5
 
 ### <a name="CompletionItemProvider"></a><span class="code-item" id=876>CompletionItemProvider</span>
 
@@ -3241,19 +3094,10 @@ this list.</p>
 
 #### Enumeration members
 
-
-
-<a name="CompletionTriggerKind.Invoke"></a><span class="ts" id=871 data-target="#details-871" data-toggle="collapse"><span class="ident">Invoke</span></span>
-<div class="details collapse" id="details-871">
-<em>0</em>
-</div>
-
-
-
-<a name="CompletionTriggerKind.TriggerCharacter"></a><span class="ts" id=872 data-target="#details-872" data-toggle="collapse"><span class="ident">TriggerCharacter</span></span>
-<div class="details collapse" id="details-872">
-<em>1</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Invoke | 0
+TriggerCharacter | 1
 
 ### <a name="ConfigurationChangeEvent"></a><span class="code-item" id=1326>ConfigurationChangeEvent</span>
 
@@ -3293,26 +3137,11 @@ this list.</p>
 
 #### Enumeration members
 
-
-
-<a name="ConfigurationTarget.Global"></a><span class="ts" id=985 data-target="#details-985" data-toggle="collapse"><span class="ident">Global</span></span>
-<div class="details collapse" id="details-985">
-<em>1</em>
-</div>
-
-
-
-<a name="ConfigurationTarget.Workspace"></a><span class="ts" id=986 data-target="#details-986" data-toggle="collapse"><span class="ident">Workspace</span></span>
-<div class="details collapse" id="details-986">
-<em>2</em>
-</div>
-
-
-
-<a name="ConfigurationTarget.WorkspaceFolder"></a><span class="ts" id=987 data-target="#details-987" data-toggle="collapse"><span class="ident">WorkspaceFolder</span></span>
-<div class="details collapse" id="details-987">
-<em>3</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Global | 1
+Workspace | 2
+WorkspaceFolder | 3
 
 ### <a name="DebugConfiguration"></a><span class="code-item" id=1374>DebugConfiguration</span>
 
@@ -3572,33 +3401,13 @@ number of decoration specific options small, and use decoration types wherever p
 
 #### Enumeration members
 
+Enumeration Member | Value
+--- | ---
+ClosedClosed | 1
+ClosedOpen | 3
+OpenClosed | 2
+OpenOpen | 0
 
-
-<a name="DecorationRangeBehavior.ClosedClosed"></a><span class="ts" id=236 data-target="#details-236" data-toggle="collapse"><span class="ident">ClosedClosed</span></span>
-<div class="details collapse" id="details-236">
-<em>1</em>
-</div>
-
-
-
-<a name="DecorationRangeBehavior.ClosedOpen"></a><span class="ts" id=238 data-target="#details-238" data-toggle="collapse"><span class="ident">ClosedOpen</span></span>
-<div class="details collapse" id="details-238">
-<em>3</em>
-</div>
-
-
-
-<a name="DecorationRangeBehavior.OpenClosed"></a><span class="ts" id=237 data-target="#details-237" data-toggle="collapse"><span class="ident">OpenClosed</span></span>
-<div class="details collapse" id="details-237">
-<em>2</em>
-</div>
-
-
-
-<a name="DecorationRangeBehavior.OpenOpen"></a><span class="ts" id=235 data-target="#details-235" data-toggle="collapse"><span class="ident">OpenOpen</span></span>
-<div class="details collapse" id="details-235">
-<em>0</em>
-</div>
 
 ### <a name="DecorationRenderOptions"></a><span class="code-item" id=280>DecorationRenderOptions</span>
 
@@ -4125,33 +3934,12 @@ all previous but not subsequent diagnostics are removed.</p>
 
 #### Enumeration members
 
-
-
-<a name="DiagnosticSeverity.Error"></a><span class="ts" id=1025 data-target="#details-1025" data-toggle="collapse"><span class="ident">Error</span></span>
-<div class="details collapse" id="details-1025">
-<em>0</em>
-</div>
-
-
-
-<a name="DiagnosticSeverity.Hint"></a><span class="ts" id=1028 data-target="#details-1028" data-toggle="collapse"><span class="ident">Hint</span></span>
-<div class="details collapse" id="details-1028">
-<em>3</em>
-</div>
-
-
-
-<a name="DiagnosticSeverity.Information"></a><span class="ts" id=1027 data-target="#details-1027" data-toggle="collapse"><span class="ident">Information</span></span>
-<div class="details collapse" id="details-1027">
-<em>2</em>
-</div>
-
-
-
-<a name="DiagnosticSeverity.Warning"></a><span class="ts" id=1026 data-target="#details-1026" data-toggle="collapse"><span class="ident">Warning</span></span>
-<div class="details collapse" id="details-1026">
-<em>1</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Error | 0
+Hint | 3
+Information | 2
+Warning | 1
 
 ### <a name="Disposable"></a><span class="code-item" id=416>Disposable</span>
 
@@ -4406,26 +4194,11 @@ the background color of its range.</p>
 
 #### Enumeration members
 
-
-
-<a name="DocumentHighlightKind.Read"></a><span class="ts" id=605 data-target="#details-605" data-toggle="collapse"><span class="ident">Read</span></span>
-<div class="details collapse" id="details-605">
-<em>1</em>
-</div>
-
-
-
-<a name="DocumentHighlightKind.Text"></a><span class="ts" id=604 data-target="#details-604" data-toggle="collapse"><span class="ident">Text</span></span>
-<div class="details collapse" id="details-604">
-<em>0</em>
-</div>
-
-
-
-<a name="DocumentHighlightKind.Write"></a><span class="ts" id=606 data-target="#details-606" data-toggle="collapse"><span class="ident">Write</span></span>
-<div class="details collapse" id="details-606">
-<em>2</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Read | 1
+Text | 0
+Write | 2
 
 ### <a name="DocumentHighlightProvider"></a><span class="code-item" id=614>DocumentHighlightProvider</span>
 
@@ -4658,19 +4431,10 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 
 #### Enumeration members
 
-
-
-<a name="EndOfLine.CRLF"></a><span class="ts" id=357 data-target="#details-357" data-toggle="collapse"><span class="ident">CRLF</span></span>
-<div class="details collapse" id="details-357">
-<em>2</em>
-</div>
-
-
-
-<a name="EndOfLine.LF"></a><span class="ts" id=356 data-target="#details-356" data-toggle="collapse"><span class="ident">LF</span></span>
-<div class="details collapse" id="details-356">
-<em>1</em>
-</div>
+Enumeration Member | Value
+--- | ---
+CRLF | 2
+LF | 1
 
 ### <a name="EnterAction"></a><span class="code-item" id=954>EnterAction</span>
 
@@ -5231,33 +4995,12 @@ signaled by returning <code>undefined</code> or <code>null</code>.</p>
 
 #### Enumeration members
 
-
-
-<a name="IndentAction.Indent"></a><span class="ts" id=951 data-target="#details-951" data-toggle="collapse"><span class="ident">Indent</span></span>
-<div class="details collapse" id="details-951">
-<em>1</em>
-</div>
-
-
-
-<a name="IndentAction.IndentOutdent"></a><span class="ts" id=952 data-target="#details-952" data-toggle="collapse"><span class="ident">IndentOutdent</span></span>
-<div class="details collapse" id="details-952">
-<em>2</em>
-</div>
-
-
-
-<a name="IndentAction.None"></a><span class="ts" id=950 data-target="#details-950" data-toggle="collapse"><span class="ident">None</span></span>
-<div class="details collapse" id="details-950">
-<em>0</em>
-</div>
-
-
-
-<a name="IndentAction.Outdent"></a><span class="ts" id=953 data-target="#details-953" data-toggle="collapse"><span class="ident">Outdent</span></span>
-<div class="details collapse" id="details-953">
-<em>3</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Indent | 1
+IndentOutdent | 2
+None | 0
+Outdent | 3
 
 ### <a name="IndentationRule"></a><span class="code-item" id=944>IndentationRule</span>
 
@@ -6043,33 +5786,12 @@ The overview ruler supports three lanes.</p>
 
 #### Enumeration members
 
-
-
-<a name="OverviewRulerLane.Center"></a><span class="ts" id=231 data-target="#details-231" data-toggle="collapse"><span class="ident">Center</span></span>
-<div class="details collapse" id="details-231">
-<em>2</em>
-</div>
-
-
-
-<a name="OverviewRulerLane.Full"></a><span class="ts" id=233 data-target="#details-233" data-toggle="collapse"><span class="ident">Full</span></span>
-<div class="details collapse" id="details-233">
-<em>7</em>
-</div>
-
-
-
-<a name="OverviewRulerLane.Left"></a><span class="ts" id=230 data-target="#details-230" data-toggle="collapse"><span class="ident">Left</span></span>
-<div class="details collapse" id="details-230">
-<em>1</em>
-</div>
-
-
-
-<a name="OverviewRulerLane.Right"></a><span class="ts" id=232 data-target="#details-232" data-toggle="collapse"><span class="ident">Right</span></span>
-<div class="details collapse" id="details-232">
-<em>4</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Center | 2
+Full | 7
+Left | 1
+Right | 4
 
 ### <a name="ParameterInformation"></a><span class="code-item" id=795>ParameterInformation</span>
 
@@ -6506,19 +6228,10 @@ location how progress is visually represented.</p>
 
 #### Enumeration members
 
-
-
-<a name="ProgressLocation.SourceControl"></a><span class="ts" id=1295 data-target="#details-1295" data-toggle="collapse"><span class="ident">SourceControl</span></span>
-<div class="details collapse" id="details-1295">
-<em>1</em>
-</div>
-
-
-
-<a name="ProgressLocation.Window"></a><span class="ts" id=1296 data-target="#details-1296" data-toggle="collapse"><span class="ident">Window</span></span>
-<div class="details collapse" id="details-1296">
-<em>10</em>
-</div>
+Enumeration Member | Value
+--- | ---
+SourceControl | 1
+Window | 10
 
 ### <a name="ProgressOptions"></a><span class="code-item" id=1297>ProgressOptions</span>
 
@@ -7990,19 +7703,10 @@ resource state.</p>
 
 #### Enumeration members
 
-
-
-<a name="StatusBarAlignment.Left"></a><span class="ts" id=1096 data-target="#details-1096" data-toggle="collapse"><span class="ident">Left</span></span>
-<div class="details collapse" id="details-1096">
-<em>1</em>
-</div>
-
-
-
-<a name="StatusBarAlignment.Right"></a><span class="ts" id=1097 data-target="#details-1097" data-toggle="collapse"><span class="ident">Right</span></span>
-<div class="details collapse" id="details-1097">
-<em>2</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Left | 1
+Right | 2
 
 ### <a name="StatusBarItem"></a><span class="code-item" id=1098>StatusBarItem</span>
 
@@ -8216,187 +7920,34 @@ interfaces etc.</p>
 
 #### Enumeration members
 
-
-
-<a name="SymbolKind.Array"></a><span class="ts" id=638 data-target="#details-638" data-toggle="collapse"><span class="ident">Array</span></span>
-<div class="details collapse" id="details-638">
-<em>17</em>
-</div>
-
-
-
-<a name="SymbolKind.Boolean"></a><span class="ts" id=637 data-target="#details-637" data-toggle="collapse"><span class="ident">Boolean</span></span>
-<div class="details collapse" id="details-637">
-<em>16</em>
-</div>
-
-
-
-<a name="SymbolKind.Class"></a><span class="ts" id=625 data-target="#details-625" data-toggle="collapse"><span class="ident">Class</span></span>
-<div class="details collapse" id="details-625">
-<em>4</em>
-</div>
-
-
-
-<a name="SymbolKind.Constant"></a><span class="ts" id=634 data-target="#details-634" data-toggle="collapse"><span class="ident">Constant</span></span>
-<div class="details collapse" id="details-634">
-<em>13</em>
-</div>
-
-
-
-<a name="SymbolKind.Constructor"></a><span class="ts" id=629 data-target="#details-629" data-toggle="collapse"><span class="ident">Constructor</span></span>
-<div class="details collapse" id="details-629">
-<em>8</em>
-</div>
-
-
-
-<a name="SymbolKind.Enum"></a><span class="ts" id=630 data-target="#details-630" data-toggle="collapse"><span class="ident">Enum</span></span>
-<div class="details collapse" id="details-630">
-<em>9</em>
-</div>
-
-
-
-<a name="SymbolKind.EnumMember"></a><span class="ts" id=642 data-target="#details-642" data-toggle="collapse"><span class="ident">EnumMember</span></span>
-<div class="details collapse" id="details-642">
-<em>21</em>
-</div>
-
-
-
-<a name="SymbolKind.Event"></a><span class="ts" id=644 data-target="#details-644" data-toggle="collapse"><span class="ident">Event</span></span>
-<div class="details collapse" id="details-644">
-<em>23</em>
-</div>
-
-
-
-<a name="SymbolKind.Field"></a><span class="ts" id=628 data-target="#details-628" data-toggle="collapse"><span class="ident">Field</span></span>
-<div class="details collapse" id="details-628">
-<em>7</em>
-</div>
-
-
-
-<a name="SymbolKind.File"></a><span class="ts" id=621 data-target="#details-621" data-toggle="collapse"><span class="ident">File</span></span>
-<div class="details collapse" id="details-621">
-<em>0</em>
-</div>
-
-
-
-<a name="SymbolKind.Function"></a><span class="ts" id=632 data-target="#details-632" data-toggle="collapse"><span class="ident">Function</span></span>
-<div class="details collapse" id="details-632">
-<em>11</em>
-</div>
-
-
-
-<a name="SymbolKind.Interface"></a><span class="ts" id=631 data-target="#details-631" data-toggle="collapse"><span class="ident">Interface</span></span>
-<div class="details collapse" id="details-631">
-<em>10</em>
-</div>
-
-
-
-<a name="SymbolKind.Key"></a><span class="ts" id=640 data-target="#details-640" data-toggle="collapse"><span class="ident">Key</span></span>
-<div class="details collapse" id="details-640">
-<em>19</em>
-</div>
-
-
-
-<a name="SymbolKind.Method"></a><span class="ts" id=626 data-target="#details-626" data-toggle="collapse"><span class="ident">Method</span></span>
-<div class="details collapse" id="details-626">
-<em>5</em>
-</div>
-
-
-
-<a name="SymbolKind.Module"></a><span class="ts" id=622 data-target="#details-622" data-toggle="collapse"><span class="ident">Module</span></span>
-<div class="details collapse" id="details-622">
-<em>1</em>
-</div>
-
-
-
-<a name="SymbolKind.Namespace"></a><span class="ts" id=623 data-target="#details-623" data-toggle="collapse"><span class="ident">Namespace</span></span>
-<div class="details collapse" id="details-623">
-<em>2</em>
-</div>
-
-
-
-<a name="SymbolKind.Null"></a><span class="ts" id=641 data-target="#details-641" data-toggle="collapse"><span class="ident">Null</span></span>
-<div class="details collapse" id="details-641">
-<em>20</em>
-</div>
-
-
-
-<a name="SymbolKind.Number"></a><span class="ts" id=636 data-target="#details-636" data-toggle="collapse"><span class="ident">Number</span></span>
-<div class="details collapse" id="details-636">
-<em>15</em>
-</div>
-
-
-
-<a name="SymbolKind.Object"></a><span class="ts" id=639 data-target="#details-639" data-toggle="collapse"><span class="ident">Object</span></span>
-<div class="details collapse" id="details-639">
-<em>18</em>
-</div>
-
-
-
-<a name="SymbolKind.Operator"></a><span class="ts" id=645 data-target="#details-645" data-toggle="collapse"><span class="ident">Operator</span></span>
-<div class="details collapse" id="details-645">
-<em>24</em>
-</div>
-
-
-
-<a name="SymbolKind.Package"></a><span class="ts" id=624 data-target="#details-624" data-toggle="collapse"><span class="ident">Package</span></span>
-<div class="details collapse" id="details-624">
-<em>3</em>
-</div>
-
-
-
-<a name="SymbolKind.Property"></a><span class="ts" id=627 data-target="#details-627" data-toggle="collapse"><span class="ident">Property</span></span>
-<div class="details collapse" id="details-627">
-<em>6</em>
-</div>
-
-
-
-<a name="SymbolKind.String"></a><span class="ts" id=635 data-target="#details-635" data-toggle="collapse"><span class="ident">String</span></span>
-<div class="details collapse" id="details-635">
-<em>14</em>
-</div>
-
-
-
-<a name="SymbolKind.Struct"></a><span class="ts" id=643 data-target="#details-643" data-toggle="collapse"><span class="ident">Struct</span></span>
-<div class="details collapse" id="details-643">
-<em>22</em>
-</div>
-
-
-
-<a name="SymbolKind.TypeParameter"></a><span class="ts" id=646 data-target="#details-646" data-toggle="collapse"><span class="ident">TypeParameter</span></span>
-<div class="details collapse" id="details-646">
-<em>25</em>
-</div>
-
-
-
-<a name="SymbolKind.Variable"></a><span class="ts" id=633 data-target="#details-633" data-toggle="collapse"><span class="ident">Variable</span></span>
-<div class="details collapse" id="details-633">
-<em>12</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Array | 17
+Boolean | 16
+Class | 4
+Constant | 13
+Constructor | 8
+Enum | 9
+EnumMember | 21
+Event | 23
+Field | 7
+File | 0
+Function | 11
+Interface | 10
+Key | 19
+Method | 5
+Module | 1
+Namespace | 2
+Null | 20
+Number | 15
+Object | 18
+Operator | 24
+Package | 3
+Property | 6
+String | 14
+Struct | 22
+TypeParameter | 25
+Variable | 12
 
 ### <a name="Task"></a><span class="code-item" id=1226>Task</span>
 
@@ -8639,26 +8190,11 @@ task definition for example looks like this</p>
 
 #### Enumeration members
 
-
-
-<a name="TaskPanelKind.Dedicated"></a><span class="ts" id=1170 data-target="#details-1170" data-toggle="collapse"><span class="ident">Dedicated</span></span>
-<div class="details collapse" id="details-1170">
-<em>2</em>
-</div>
-
-
-
-<a name="TaskPanelKind.New"></a><span class="ts" id=1171 data-target="#details-1171" data-toggle="collapse"><span class="ident">New</span></span>
-<div class="details collapse" id="details-1171">
-<em>3</em>
-</div>
-
-
-
-<a name="TaskPanelKind.Shared"></a><span class="ts" id=1169 data-target="#details-1169" data-toggle="collapse"><span class="ident">Shared</span></span>
-<div class="details collapse" id="details-1169">
-<em>1</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Dedicated | 2
+New | 3
+Shared | 1
 
 ### <a name="TaskPresentationOptions"></a><span class="code-item" id=1172>TaskPresentationOptions</span>
 
@@ -8765,26 +8301,11 @@ the missing information in the <code>resolveTask</code>-method.</p>
 
 #### Enumeration members
 
-
-
-<a name="TaskRevealKind.Always"></a><span class="ts" id=1165 data-target="#details-1165" data-toggle="collapse"><span class="ident">Always</span></span>
-<div class="details collapse" id="details-1165">
-<em>1</em>
-</div>
-
-
-
-<a name="TaskRevealKind.Never"></a><span class="ts" id=1167 data-target="#details-1167" data-toggle="collapse"><span class="ident">Never</span></span>
-<div class="details collapse" id="details-1167">
-<em>3</em>
-</div>
-
-
-
-<a name="TaskRevealKind.Silent"></a><span class="ts" id=1166 data-target="#details-1166" data-toggle="collapse"><span class="ident">Silent</span></span>
-<div class="details collapse" id="details-1166">
-<em>2</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Always | 1
+Never | 3
+Silent | 2
 
 ### <a name="TaskScope"></a><span class="code-item" id=1223>TaskScope</span>
 
@@ -8795,19 +8316,10 @@ the missing information in the <code>resolveTask</code>-method.</p>
 
 #### Enumeration members
 
-
-
-<a name="TaskScope.Global"></a><span class="ts" id=1224 data-target="#details-1224" data-toggle="collapse"><span class="ident">Global</span></span>
-<div class="details collapse" id="details-1224">
-<em>1</em>
-</div>
-
-
-
-<a name="TaskScope.Workspace"></a><span class="ts" id=1225 data-target="#details-1225" data-toggle="collapse"><span class="ident">Workspace</span></span>
-<div class="details collapse" id="details-1225">
-<em>2</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Global | 1
+Workspace | 2
 
 ### <a name="Terminal"></a><span class="code-item" id=1116>Terminal</span>
 
@@ -9332,26 +8844,11 @@ the corresponding document has been <a href="#workspace.onDidCloseTextDocument">
 
 #### Enumeration members
 
-
-
-<a name="TextDocumentSaveReason.AfterDelay"></a><span class="ts" id=1309 data-target="#details-1309" data-toggle="collapse"><span class="ident">AfterDelay</span></span>
-<div class="details collapse" id="details-1309">
-<em>2</em>
-</div>
-
-
-
-<a name="TextDocumentSaveReason.FocusOut"></a><span class="ts" id=1310 data-target="#details-1310" data-toggle="collapse"><span class="ident">FocusOut</span></span>
-<div class="details collapse" id="details-1310">
-<em>3</em>
-</div>
-
-
-
-<a name="TextDocumentSaveReason.Manual"></a><span class="ts" id=1308 data-target="#details-1308" data-toggle="collapse"><span class="ident">Manual</span></span>
-<div class="details collapse" id="details-1308">
-<em>1</em>
-</div>
+Enumeration Member | Value
+--- | ---
+AfterDelay | 2
+FocusOut | 3
+Manual | 1
 
 ### <a name="TextDocumentShowOptions"></a><span class="code-item" id=239>TextDocumentShowOptions</span>
 
@@ -9801,47 +9298,14 @@ instead. This method shows unexpected behavior and will be removed in the next m
 
 #### Enumeration members
 
-
-
-<a name="TextEditorCursorStyle.Block"></a><span class="ts" id=206 data-target="#details-206" data-toggle="collapse"><span class="ident">Block</span></span>
-<div class="details collapse" id="details-206">
-<em>2</em>
-</div>
-
-
-
-<a name="TextEditorCursorStyle.BlockOutline"></a><span class="ts" id=209 data-target="#details-209" data-toggle="collapse"><span class="ident">BlockOutline</span></span>
-<div class="details collapse" id="details-209">
-<em>5</em>
-</div>
-
-
-
-<a name="TextEditorCursorStyle.Line"></a><span class="ts" id=205 data-target="#details-205" data-toggle="collapse"><span class="ident">Line</span></span>
-<div class="details collapse" id="details-205">
-<em>1</em>
-</div>
-
-
-
-<a name="TextEditorCursorStyle.LineThin"></a><span class="ts" id=208 data-target="#details-208" data-toggle="collapse"><span class="ident">LineThin</span></span>
-<div class="details collapse" id="details-208">
-<em>4</em>
-</div>
-
-
-
-<a name="TextEditorCursorStyle.Underline"></a><span class="ts" id=207 data-target="#details-207" data-toggle="collapse"><span class="ident">Underline</span></span>
-<div class="details collapse" id="details-207">
-<em>3</em>
-</div>
-
-
-
-<a name="TextEditorCursorStyle.UnderlineThin"></a><span class="ts" id=210 data-target="#details-210" data-toggle="collapse"><span class="ident">UnderlineThin</span></span>
-<div class="details collapse" id="details-210">
-<em>6</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Block | 2
+BlockOutline | 5
+Line | 1
+LineThin | 4
+Underline | 3
+UnderlineThin | 6
 
 ### <a name="TextEditorDecorationType"></a><span class="code-item" id=220>TextEditorDecorationType</span>
 
@@ -9974,26 +9438,11 @@ You can use \r\n or \n in <code>value</code> and they will be normalized to the 
 
 #### Enumeration members
 
-
-
-<a name="TextEditorLineNumbersStyle.Off"></a><span class="ts" id=212 data-target="#details-212" data-toggle="collapse"><span class="ident">Off</span></span>
-<div class="details collapse" id="details-212">
-<em>0</em>
-</div>
-
-
-
-<a name="TextEditorLineNumbersStyle.On"></a><span class="ts" id=213 data-target="#details-213" data-toggle="collapse"><span class="ident">On</span></span>
-<div class="details collapse" id="details-213">
-<em>1</em>
-</div>
-
-
-
-<a name="TextEditorLineNumbersStyle.Relative"></a><span class="ts" id=214 data-target="#details-214" data-toggle="collapse"><span class="ident">Relative</span></span>
-<div class="details collapse" id="details-214">
-<em>2</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Off | 0
+On | 1
+Relative | 2
 
 ### <a name="TextEditorOptions"></a><span class="code-item" id=215>TextEditorOptions</span>
 
@@ -10082,33 +9531,12 @@ When setting a text editor&#39;s options, this property is optional and it can b
 
 #### Enumeration members
 
-
-
-<a name="TextEditorRevealType.AtTop"></a><span class="ts" id=228 data-target="#details-228" data-toggle="collapse"><span class="ident">AtTop</span></span>
-<div class="details collapse" id="details-228">
-<em>3</em>
-</div>
-
-
-
-<a name="TextEditorRevealType.Default"></a><span class="ts" id=225 data-target="#details-225" data-toggle="collapse"><span class="ident">Default</span></span>
-<div class="details collapse" id="details-225">
-<em>0</em>
-</div>
-
-
-
-<a name="TextEditorRevealType.InCenter"></a><span class="ts" id=226 data-target="#details-226" data-toggle="collapse"><span class="ident">InCenter</span></span>
-<div class="details collapse" id="details-226">
-<em>1</em>
-</div>
-
-
-
-<a name="TextEditorRevealType.InCenterIfOutsideViewport"></a><span class="ts" id=227 data-target="#details-227" data-toggle="collapse"><span class="ident">InCenterIfOutsideViewport</span></span>
-<div class="details collapse" id="details-227">
-<em>2</em>
-</div>
+Enumeration Member | Value
+--- | ---
+AtTop | 3
+Default | 0
+InCenter | 1
+InCenterIfOutsideViewport | 2
 
 ### <a name="TextEditorSelectionChangeEvent"></a><span class="code-item" id=194>TextEditorSelectionChangeEvent</span>
 
@@ -10153,26 +9581,11 @@ event. Can be <code>undefined</code>.</p>
 
 #### Enumeration members
 
-
-
-<a name="TextEditorSelectionChangeKind.Command"></a><span class="ts" id=193 data-target="#details-193" data-toggle="collapse"><span class="ident">Command</span></span>
-<div class="details collapse" id="details-193">
-<em>3</em>
-</div>
-
-
-
-<a name="TextEditorSelectionChangeKind.Keyboard"></a><span class="ts" id=191 data-target="#details-191" data-toggle="collapse"><span class="ident">Keyboard</span></span>
-<div class="details collapse" id="details-191">
-<em>1</em>
-</div>
-
-
-
-<a name="TextEditorSelectionChangeKind.Mouse"></a><span class="ts" id=192 data-target="#details-192" data-toggle="collapse"><span class="ident">Mouse</span></span>
-<div class="details collapse" id="details-192">
-<em>2</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Command | 3
+Keyboard | 1
+Mouse | 2
 
 ### <a name="TextEditorViewColumnChangeEvent"></a><span class="code-item" id=201>TextEditorViewColumnChangeEvent</span>
 
@@ -10727,26 +10140,11 @@ using <code>menus</code> extension point, you can specify context value for key 
 
 #### Enumeration members
 
-
-
-<a name="TreeItemCollapsibleState.Collapsed"></a><span class="ts" id=1284 data-target="#details-1284" data-toggle="collapse"><span class="ident">Collapsed</span></span>
-<div class="details collapse" id="details-1284">
-<em>1</em>
-</div>
-
-
-
-<a name="TreeItemCollapsibleState.Expanded"></a><span class="ts" id=1285 data-target="#details-1285" data-toggle="collapse"><span class="ident">Expanded</span></span>
-<div class="details collapse" id="details-1285">
-<em>2</em>
-</div>
-
-
-
-<a name="TreeItemCollapsibleState.None"></a><span class="ts" id=1283 data-target="#details-1283" data-toggle="collapse"><span class="ident">None</span></span>
-<div class="details collapse" id="details-1283">
-<em>0</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Collapsed | 1
+Expanded | 2
+None | 0
 
 ### <a name="TypeDefinitionProvider"></a><span class="code-item" id=568>TypeDefinitionProvider</span>
 
@@ -10979,33 +10377,12 @@ used to show editors side by side.</p>
 
 #### Enumeration members
 
-
-
-<a name="ViewColumn.Active"></a><span class="ts" id=1071 data-target="#details-1071" data-toggle="collapse"><span class="ident">Active</span></span>
-<div class="details collapse" id="details-1071">
-<em> -1</em>
-</div>
-
-
-
-<a name="ViewColumn.One"></a><span class="ts" id=1072 data-target="#details-1072" data-toggle="collapse"><span class="ident">One</span></span>
-<div class="details collapse" id="details-1072">
-<em>1</em>
-</div>
-
-
-
-<a name="ViewColumn.Three"></a><span class="ts" id=1074 data-target="#details-1074" data-toggle="collapse"><span class="ident">Three</span></span>
-<div class="details collapse" id="details-1074">
-<em>3</em>
-</div>
-
-
-
-<a name="ViewColumn.Two"></a><span class="ts" id=1073 data-target="#details-1073" data-toggle="collapse"><span class="ident">Two</span></span>
-<div class="details collapse" id="details-1073">
-<em>2</em>
-</div>
+Enumeration Member | Value
+--- | ---
+Active | -1
+One | 1
+Three | 3
+Two | 2
 
 ### <a name="WindowState"></a><span class="code-item" id=1258>WindowState</span>
 
