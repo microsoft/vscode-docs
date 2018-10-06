@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Activation Events
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
 PageTitle: Visual Studio Code Activation Events - package.json
-DateApproved: 9/5/2018
+DateApproved: 10/4/2018
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of activation events in the package.json extension manifest file.
 ---
 # Activation Events - package.json

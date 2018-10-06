@@ -12,7 +12,7 @@ Author: Amanda Silver
 
 May 7, 2018 Amanda Silver, [@amandaksilver](https://twitter.com/amandaksilver)
 
-We are excited to announce the public preview of Visual Studio Live Share! At [Connect last November](https://code.visualstudio.com/blogs/2017/11/15/live-share), we showed how Live Share enables real-time collaborative editing and debugging from the comfort of your favorite tools. Since then, we’ve worked with thousands of developers worldwide, resolved hundreds of issues, and addressed top feature requests such as [adding support for Linux](https://github.com/MicrosoftDocs/live-share/issues/24). We’ve benefitted greatly from all the feedback thus far, thank you! Today, we’re excited to announce that every developer using Visual Studio and Visual Studio Code can [get started with Live Share today](https://aka.ms/vsls)!
+We are excited to announce the public preview of Visual Studio Live Share! At [Connect last November](https://code.visualstudio.com/blogs/2017/11/15/live-share), we showed how Live Share enables real-time collaborative editing and debugging from the comfort of your favorite tools. Since then, we’ve worked with thousands of developers worldwide, resolved hundreds of issues, and addressed top feature requests such as [adding support for Linux](https://github.com/MicrosoftDocs/live-share/issues/24). We’ve benefited greatly from all the feedback thus far, thank you! Today, we’re excited to announce that every developer using Visual Studio and Visual Studio Code can [get started with Live Share today](https://aka.ms/vsls)!
 
 ## Universal Collaboration
 
@@ -28,7 +28,7 @@ Modern development commonly makes use of command-line tools to perform tasks suc
 
 ![Shared terminal](shared-terminal.png)
 
-When you share a new terminal, it is read-only by default. This allows everyone to see the real-time results of any command you run without needing to expose access to your machine. Additionally, you can choose to make a shared terminal writeable, which enables a fully collaborative experience between you and your guests which executes in your environment. This makes pair programming much easier, especially when seeking help with environment configuration.
+When you share a new terminal, it is read-only by default. This allows everyone to see the real-time results of any command you run without needing to expose access to your machine. Additionally, you can choose to make a shared terminal writable, which enables a fully collaborative experience between you and your guests which executes in your environment. This makes pair programming much easier, especially when seeking help with environment configuration.
 
 ## Secure Sharing
 

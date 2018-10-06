@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Overview
 ContentId: C99AC3B3-47BC-41E3-8C7B-6F24364C20D1
 PageTitle: Visual Studio Code Extensibility Reference
-DateApproved: 9/5/2018
+DateApproved: 10/4/2018
 MetaDescription: Learn the details of Visual Studio Code's rich extensibility (plug-in) model.  This documentation describes the various extension points, activation rules and specific feature APIs (e.g. working with documents and editors).
 ---
 # Extensibility Reference

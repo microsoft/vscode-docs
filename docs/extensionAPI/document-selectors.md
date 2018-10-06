@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Document Selectors
 ContentId: f328d7e0-8982-4510-b7fb-975188eca502
 PageTitle: Using Document Selectors
-DateApproved: 9/5/2018
+DateApproved: 10/4/2018
 MetaDescription: Extensions can filter their feature based on Document Selectors by language, file type and location.
 ---
 # Document Selectors

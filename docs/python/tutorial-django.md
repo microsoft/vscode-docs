@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 7
 Area: python
 TOCTitle: Django Tutorial
 ContentId: 3c0948f9-85a5-4dd4-a461-59788dbfce4c
@@ -14,6 +14,8 @@ MetaDescription: Python Django tutorial showing IntelliSense, debugging, and cod
 In this tutorial you create a simple Django app with three pages that use a common base template. You create this app in the context of Visual Studio Code in order to understand how to work with Django in the VS Code terminal, editor, and debugger. Thus tutorial does not explore various details about Django itself, such as working with data models and  creating an administrative interface. For guidance on those aspects, refer to the [Django documentation](https://docs.djangoproject.com/en/2.1/intro/tutorial01/).
 
 The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial).
+
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
@@ -953,6 +955,8 @@ The completed code project from this tutorial can be found on GitHub: [python-sa
 
 In this tutorial, we've only scratched the surface of everything Django can do. Be sure to visit the [Django documentation](https://docs.djangoproject.com/en/2.1/) for many more details on views, templates, data models, URL routing, the administrative interface, using other kinds of databases, deployment to production, and more.
 
+To try your app on a production website, check out the tutorial [Deploy Python using Docker containers](/docs/python/tutorial-deploy-containers.md).
+
 You may also want to review the following articles in the VS Code docs that are relevant to Python:
 
 - [Editing Python code](/docs/python/editing.md)
@@ -960,3 +964,5 @@ You may also want to review the following articles in the VS Code docs that are 
 - [Managing Python environments](/docs/python/environments.md)
 - [Debugging Python](/docs/python/debugging.md)
 - [Unit testing](/docs/python/unit-testing.md)
+
+If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).

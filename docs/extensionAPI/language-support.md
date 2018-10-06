@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Language Extension Guidelines
 ContentId: A9D40038-7837-4320-8C2D-E0CA5769AA69
 PageTitle: Visual Studio Code Language Extension Guidelines
-DateApproved: 9/5/2018
+DateApproved: 10/4/2018
 MetaDescription: Visual Studio Code language extensions contribute new programming language features to VS Code. These guidelines present the language extensibility points and how to implement them.
 ---
 # Language Extension Guidelines

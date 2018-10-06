@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Extensions
 ContentId: 3224f624-a3fc-4eeb-81d1-eb653a90a6fc
 PageTitle: JavaScript Extensions in Visual Studio Code
-DateApproved: 9/5/2018
+DateApproved: 10/4/2018
 MetaDescription: Learn more about installing and integrating JavaScript and Node.js extensions in the Visual Studio Code editor.
 MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
@@ -74,7 +74,7 @@ Publisher - [Microsoft](https://marketplace.visualstudio.com/search?term=publish
 
 When you develop for the front end, you might not see the value of an integrated debugger in your editor. You use the browser's debugger right? This is where the Debugger for Chrome extension comes in. This extension lets you debug your JavaScript code in the Google Chrome browser, or any other targets that support the [Chrome Debugging Protocol](https://chromedevtools.github.io/debugger-protocol-viewer/) while staying in VS Code. No more context switching to debug!
 
-Prefer to debug using a different browser? You can find extensions for [Safari](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web), [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge), and [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) as well.
+Prefer to debug using a different browser? You can find extensions for [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) and [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) as well.
 
 ![debugger for chrome image](images/extensions/chrome_debugger.png)
 

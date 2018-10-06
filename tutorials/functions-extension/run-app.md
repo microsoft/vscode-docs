@@ -4,7 +4,7 @@ Area: functions
 TOCTitle: Run your app locally
 PageTitle: Run your app locally
 MetaDescription: Node.js Deployment to Azure Functions with Visual Studio Code
-DateApproved: 12/18/2017
+DateApproved: 2/9/2018
 ---
 # Run your App locally
 
