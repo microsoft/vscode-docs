@@ -19,7 +19,7 @@ A simple Spring Boot Getting Started web app
 
 ## Before you begin
 
-Before running and deploying this sample, you must have the Java SE Development Kit (JDK) and Apache Maven build tools on your local development environment. If you don't, please install them.
+Before running and deploying this sample, you must have the Java SE Development Kit (JDK) and Apache Maven build tools on your local development environment. If you don't have, please install them.
 
 Download and install the Java SE Development Kit (JDK), version 8:
 
@@ -61,7 +61,7 @@ Test the web app by browsing to `http://localhost:8080` using a web browser. You
 
 ## Make a change
 
-Let's now edit `HelloController.java` to change "Greetings from Spring Boot!" to something else like "Hello World". VS Code provide a great editing experience for Java, check out [Editing and Navigating Code](/docs/languages/java.md#editing-and-navigating-code) to learn about VS Code's editing and code navigation features.
+Let's now edit `HelloController.java` to change "Greetings from Spring Boot!" to something else like "Hello World". VS Code provides a great editing experience for Java, check out [Editing and Navigating Code](/docs/languages/java.md#editing-and-navigating-code) to learn about VS Code's editing and code navigation features.
 
 Click the **Restart** button on the top of the editor to relaunch the app and see result by reloading the browser.
 
