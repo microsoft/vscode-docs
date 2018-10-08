@@ -7,4 +7,5 @@ PageTitle: Task Provider
 
 # Task Provider
 
-https://github.com/Microsoft/vscode-extension-samples/tree/master/task-provider-sample
+- Migrate https://code.visualstudio.com/docs/extensions/example-tasks
+- In https://github.com/Microsoft/vscode-extension-samples/tree/master/task-provider-sample, link back to this guide

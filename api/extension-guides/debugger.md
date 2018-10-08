@@ -7,4 +7,5 @@ PageTitle: Debugger
 
 # Debugger Guide
 
-https://code.visualstudio.com/docs/extensions/example-debuggers
+- Migrate https://code.visualstudio.com/docs/extensions/example-debuggers
+- Link to this guide in samples

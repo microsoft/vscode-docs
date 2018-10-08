@@ -7,4 +7,5 @@ PageTitle: SCM Provider
 
 # SCM Provider
 
-https://code.visualstudio.com/docs/extensionAPI/api-scm
+- Migrate https://code.visualstudio.com/docs/extensionAPI/api-scm
+- Link to this guide in the samples
