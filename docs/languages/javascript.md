@@ -162,11 +162,11 @@ Just start typing to see [suggestions](#intellisense) for all available JavaScri
 
 ![Global symbols are shown in the suggestion list](images/javascript/auto-import-pre.png)
 
-If you choose one of the suggestion from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
+If you choose one of the suggestions from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
 
 ![After selecting a symbol from a different file, an import is added for it automatically](images/javascript/auto-import-post.png)
 
-Auto imports requires TypeScript 2.6+ and are enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
+Auto imports require TypeScript 2.6+ and are enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
 
 ## References CodeLens
 
