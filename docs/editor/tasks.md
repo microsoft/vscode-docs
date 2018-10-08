@@ -178,7 +178,7 @@ The task's properties have the following semantic:
 
 To see the full set of task properties and values, you can review the [tasks.json schema](/docs/editor/tasks-appendix.md).
 
-Shell commands need special treatment when it comes to commands and arguments that contains spaces or other special characters like `$`. By default the task system support the following behaviour:
+Shell commands need special treatment when it comes to commands and arguments that contains spaces or other special characters like `$`. By default the task system support the following behavior:
 
 * if a single command is provided the task system passes the command as is to the underlying shell. If the command needs quoting or escaping to function properly the command need to contain the proper quotes or escape characters. For example to list the directory of a folder containing spaces in its name the command executed in bash should look like this: `ls 'folder with spaces'`.
 ```json

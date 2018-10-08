@@ -44,7 +44,7 @@ You can open as many editors as you like side by side vertically and horizontall
 
 Whenever you open another file, the editor that is active will display the content of that file. So if you have two editors side by side and you want to open file 'foo.cs' into the right hand editor, make sure that editor is active (by clicking inside it) before opening file 'foo.cs'.
 
-By default editors will open to the right hand side of the active one. You can change this behaviour through the setting `workbench.editor.openSideBySideDirection` and configure to open new editors to the bottom of the active one instead.
+By default editors will open to the right hand side of the active one. You can change this behavior through the setting `workbench.editor.openSideBySideDirection` and configure to open new editors to the bottom of the active one instead.
 
 When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (macOS: `kbstyle('Cmd')`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
