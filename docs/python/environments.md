@@ -101,7 +101,7 @@ The extension automatically looks for interpreters in the following locations:
 - Conda environments that contain a Python interpreter. VS Code does not show conda environments that don't contain an interpreter.
 - Interpreters installed in a `.direnv` folder for [direnv](https://direnv.net/) under the workspace (project) folder.
 
-You can also [manually specify an interpreter](#manually-specifying-an-interpreter) if Visual Studio Code does not locate it automatically.
+You can also [manually specify an interpreter](#manually-specify-an-interpreter) if Visual Studio Code does not locate it automatically.
 
 > **Tip:** If you create a new conda environment while VS Code is running, use the **Reload Window** command to refresh the environment list.
 
