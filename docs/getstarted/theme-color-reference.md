@@ -144,6 +144,7 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.background`: Activity Bar background color.
 - `activityBar.dropBackground`: Drag and drop feedback color for the Activity Bar items.
 - `activityBar.foreground`: Activity bar foreground color (for example used for the icons).
+- `activityBar.inactiveForeground`: Activity bar item foreground color when it is inactive.
 - `activityBar.border`: Activity Bar border color with the Side Bar.
 - `activityBarBadge.background`: Activity notification badge background color.
 - `activityBarBadge.foreground`: Activity notification badge foreground color.
@@ -586,6 +587,15 @@ The theme colors for breadcrumbs navigation:
 - `breadcrumb.focusForeground`: Color of focused breadcrumb items.
 - `breadcrumb.activeSelectionForeground`: Color of selected breadcrumb items.
 - `breadcrumbPicker.background`: Background color of breadcrumb item picker.
+
+## Snippets
+
+The theme colors for snippets:
+
+- `editor.snippetTabstopHighlightBackground`: Highlight background color of a snippet tabstop.
+- `editor.snippetTabstopHighlightBorder`: Highlight border color of a snippet tabstop.
+- `editor.snippetFinalTabstopHighlightBackground`: Highlight background color of the final tabstop of a snippet.
+- `editor.snippetFinalTabstopHighlightBorder`: Highlight border color of the final tabstop of a snippet.
 
 ## Extension Colors
 
