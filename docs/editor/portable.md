@@ -9,13 +9,13 @@ MetaDescription: Visual Studio Code supports a Portable Mode.
 ---
 # Portable Mode
 
-Visual Studio Code supports [Portable Mode](https://en.wikipedia.org/wiki/Portable_application). This mode enables all data created and maintained by VS Code to live near itself, so it can be moved around across environments. 
+Visual Studio Code supports [Portable Mode](https://en.wikipedia.org/wiki/Portable_application). This mode enables all data created and maintained by VS Code to live near itself, so it can be moved around across environments.
 
-This mode also provides a way to set the installation folder location for VS Code extension, useful for **Windows** corporate environments that prevent extensions from being installed in the AppData folder.
+This mode also provides a way to set the installation folder location for VS Code extension, useful for corporate environments that prevent extensions from being installed in the Windows AppData folder.
 
-Portable Mode is supported on the ZIP download for Windows and Linux, as well as the regular Application download for macOS.
+Portable mode is supported on the ZIP download for Windows and Linux, as well as the regular Application download for macOS.
 
-> **Note:** Do not attempt to configure portable mode on a **Windows installation**. Portable mode is only supported on the ZIP archive, and will not auto update.
+> **Note:** Do not attempt to configure portable mode on a **Windows installation**. Portable mode is only supported on the Windows ZIP archive. Note as well that the Windows ZIP archive does not support auto update.
 
 ## Enable Portable Mode
 
