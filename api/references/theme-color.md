@@ -5,7 +5,7 @@ TOCTitle: Theme Color
 PageTitle: Theme Color
 ---
 
-# Theme Color Reference
+# Theme Color
 
 You can customize your active Visual Studio Code [color theme](/docs/getstarted/themes.md) with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings.md).
 
