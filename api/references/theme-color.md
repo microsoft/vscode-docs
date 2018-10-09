@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 6
 Area: references
 TOCTitle: Theme Color
 PageTitle: Theme Color
