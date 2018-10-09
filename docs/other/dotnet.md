@@ -4,7 +4,7 @@ Area: other
 TOCTitle: .NET Core
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
 PageTitle: .NET Core and Visual Studio Code
-DateApproved: 2/10/2018
+DateApproved: 10/8/2018
 MetaDescription: Get started writing and debugging .NET Core apps with Visual Studio Code.
 MetaTags:
 - .NET Core
@@ -30,11 +30,11 @@ Install the following:
    * Enter the following command in the command shell:
 
    ```console
-     dotnet new console`
+     dotnet new console
    ```
 
 2. When the project folder is first opened in VS Code:
-  
+
    * A "Would you like to add the required assets to build and debug your project?" notification appears at the top of the window.
    * Select **Yes**.
 

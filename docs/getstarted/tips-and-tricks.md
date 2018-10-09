@@ -470,7 +470,7 @@ Keyboard Shortcut: `kb(editor.action.insertCursorAbove)` or `kb(editor.action.in
 
 ![multi cursor second example](images/tips-and-tricks/editingevolved_multicursor.gif)
 
-You can add additional cursors to all occurances of the current selection with `kbstyle(Ctrl+Shift+L)`
+You can add additional cursors to all occurrences of the current selection with `kbstyle(Ctrl+Shift+L)`
 
 ![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
 
@@ -852,7 +852,7 @@ You can define a keyboard shortcut for any task. From the **Command Palette** (`
 
 For example, to bind kb(Ctrl+H) to the `Run tests` task, add the following:
 
-```
+```json
 {
     "key": "ctrl+h",
     "command": "workbench.action.tasks.runTask",
