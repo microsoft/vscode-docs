@@ -1,12 +1,10 @@
 ---
-Order: 7
-Area: extensionapi
-TOCTitle: Document Selectors
-ContentId: f328d7e0-8982-4510-b7fb-975188eca502
-PageTitle: Using Document Selectors
-DateApproved: 9/5/2018
-MetaDescription: Extensions can filter their feature based on Document Selectors by language, file type and location.
+Order: 10
+Area: references
+TOCTitle: Document Selector
+PageTitle: Document Selector
 ---
+
 # Document Selectors
 
 Extensions can filter their features based on document selectors by language, file type, and location. This topic discusses document selectors, document schemes, and what extensions authors should be aware about.

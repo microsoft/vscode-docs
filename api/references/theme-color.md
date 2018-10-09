@@ -1,8 +1,8 @@
 ---
 Order: 3
 Area: references
-TOCTitle: Theme Color Reference
-PageTitle: Theme Color Reference
+TOCTitle: Theme Color
+PageTitle: Theme Color
 ---
 
 # Theme Color Reference
