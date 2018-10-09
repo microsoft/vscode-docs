@@ -844,6 +844,20 @@ Select **Tasks** from the top-level menu, run the command **Run Task...**, and s
 
 ![task runner](images/tips-and-tricks/task_runner.gif)
 
+### Define keyboard shortcuts for tasks
+
+You can define a keyboard shortcut for any task. From the **Command Palette** (`kb(workbench.action.showCommands)`), select **Preferences: Open Keyboard Shortcuts File**, bind the desired shortcut to the `workbench.action.tasks.runTask` command, and define the **Task** as `args`.
+
+For example, to bind kb(Ctrl+H) to the `Run tests` task, add the following:
+
+```
+{
+    "key": "ctrl+h",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Run tests"
+}
+```
+
 ### Run npm scripts as tasks from the explorer
 
 With the setting `npm.enableScriptExplorer`, you can enable an explorer that shows the scripts defined in your workspace.
