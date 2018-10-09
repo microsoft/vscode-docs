@@ -13,7 +13,7 @@ Code snippets are templates that make it easier to enter repeating code patterns
 
 In Visual Studio Code, snippets show in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": true`, type a *snippet prefix*, and press `kb(insertSnippet)` to insert a snippet.
 
-The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'interpolated shell code', which is not supported.
+The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exceptions of 'interpolated shell code' and the use of `\u`; both are not supported.
 
 ![ajax snippet](images/userdefinedsnippets/ajax-snippet.gif)
 
