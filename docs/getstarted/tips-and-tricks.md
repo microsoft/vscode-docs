@@ -466,6 +466,8 @@ Here is a selection of common features for editing code. If the keyboard shortcu
 
 Keyboard Shortcut: `kb(editor.action.insertCursorAbove)` or `kb(editor.action.insertCursorBelow)`
 
+You can select multiple lines by holding the alt and shift key. Click on the beginning of the first line that you want to select, hold your mouse while moving it down, until you selected all the lines you want. Now you can start typing and your text will appear on all the lines at once.
+
 ![multi cursor](images/tips-and-tricks/multi_cursor.gif)
 
 ![multi cursor second example](images/tips-and-tricks/editingevolved_multicursor.gif)
