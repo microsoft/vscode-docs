@@ -21,7 +21,7 @@ Open the **Welcome** page to get started with the basics of VS Code. **Help** > 
 
 ![welcome page](images/tips-and-tricks/welcome_page.png)
 
-In the bottom right of the **Welcome** page, there is a link to the **Interactive playground** where you can interactively try out VS Code's feature. **Help** > **Interactive Playground**.
+At the bottom right of the **Welcome** page, there is a link to the **Interactive playground** where you can interactively try out VS Code's feature. **Help** > **Interactive Playground**.
 
 ![interactive playground](images/tips-and-tricks/interactive_playground.png)
 
@@ -341,9 +341,9 @@ In the **Extensions** view, click **Show Recommended Extensions** in the **More 
 
 ![show recommended extensions](images/tips-and-tricks/ShowRecommendedExtensions.gif)
 
-### Creating my own extension
+### Creating my own extensions
 
-Are you interested in creating your own extension? You can learn how to do this in the [extension documentation](/docs/extensions/overview.md), specifically check out the [documentation on contribution points](/docs/extensionAPI/extension-points.md).
+Are you interested in creating your own extensions? You can learn how to do this in the [extension documentation](/docs/extensions/overview.md), specifically check out the [documentation on contribution points](/docs/extensionAPI/extension-points.md).
 
 * configuration
 * commands
@@ -446,13 +446,13 @@ Create language associations for files that aren't detected correctly. For examp
 
 ### Preventing dirty writes
 
-VS Code will show you an error message when you try to save a file that cannot be saved because it has changed on disk. VS Code blocks saving the file to prevent overwriting changes that have been made outside of the editor.
+VS Code will show you an error message when you try to save a file that cannot be saved because it has changed on the disk. VS Code blocks saving the file to prevent overwriting changes that have been made outside of the editor.
 
-In order to resolve the save conflict, click the **Compare** action in the error message to open a diff editor that will show you the contents of the file on disk (to the left) compared to the contents in VS Code (on the right):
+In order to resolve the save conflict, click the **Compare** action in the error message to open a diff editor that will show you the contents of the file on the disk (to the left) compared to the contents in VS Code (on the right):
 
 ![dirty write](images/tips-and-tricks/dirty-write.png)
 
-Use the actions in the editor toolbar to resolve the save conflict. You can either **Accept** your changes and thereby overwriting any changes on disk, or **Revert** to the version on disk. Reverting means that your changes will be lost.
+Use the actions in the editor toolbar to resolve the save conflict. You can either **Accept** your changes and thereby overwriting any changes on the disk, or **Revert** to the version on the disk. Reverting means that your changes will be lost.
 
 **Note:** The file will remain dirty and cannot be saved until you pick one of the two actions to resolve the conflict.
 
