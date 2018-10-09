@@ -1,6 +1,6 @@
 ---
-Order: 6
-Area: nodejsdeployment
+Order: 5
+Area: nodejsdeploymentui
 TOCTitle: Publish changes
 PageTitle: Publish changes
 MetaDescription:
@@ -46,4 +46,4 @@ Your changes will then be deployed to the Website. Refresh your application and 
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/extensions">I can see my changes!</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-ui', 'publishing-changes')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment-ui/extensions">I can see my changes!</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-ui', 'publishing-changes')" href="javascript:void(0)">I ran into an issue</a>

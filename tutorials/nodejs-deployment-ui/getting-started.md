@@ -39,4 +39,4 @@ git version 2.6.4
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/express">I've created an Azure account</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-ui', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment-ui/express">I've created an Azure account</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-ui', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>

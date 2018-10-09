@@ -68,4 +68,4 @@ Now, open your browser and navigate to [http://localhost:3000](http://localhost:
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/create-website">I created the Node.js application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'express')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment-ui/create-website">I created the Node.js application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'express')" href="javascript:void(0)">I ran into an issue</a>
