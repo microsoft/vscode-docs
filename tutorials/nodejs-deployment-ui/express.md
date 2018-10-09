@@ -41,6 +41,18 @@ $ cd myExpressApp
 $ npm install
 ```
 
+## Set the Node.JS version
+
+It is important to tell Azure which version of Node to use when running our application, otherwise it will assume a very early version which can cause problems.
+
+To do this, the following `package.json` entry will tell Azure this application requires at least node 7.0.0 to run.
+
+``` json
+"engines": {
+  "node": ">7.0.0"
+},
+```
+
 ## Run the Application
 
 Last, let's ensure that the application runs. From the terminal, start the application using the `npm start` command to start the server.

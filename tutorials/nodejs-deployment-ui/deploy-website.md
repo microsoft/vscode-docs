@@ -18,9 +18,13 @@ Initialize a local Git repository and make an initial commit. Git will respect t
 
 ```bash
 $ git init
-$ git add -A
-$ git commit -m "Initial Commit"
 ```
+
+Once your have initialised your Git repository you can use VS Code to add a commit message and commit your files. Open VS Code and select the `Source Control` tab (`Ctrl + Shift + G`) where you should see a list of the files created by the Express generator.
+
+![Commit files in VSCode](images/nodejs-deployment-ui/commitinvscode.png)
+
+Enter an initial commit message, in this example `Initial commit` and hit the `tick` button to commit to your local Git repository.
 
 ## Set up a Remote
 
