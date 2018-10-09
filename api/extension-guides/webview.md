@@ -11,6 +11,15 @@ The webview API allows extensions to create fully customizable views within Visu
 
 Think of a webview as an `iframe` within VS Code that your extension controls. A webview can render almost any HTML content in this frame, and it communicates with extensions using message passing. This freedom makes webviews incredibly powerful, and opens up a whole new range of extension possibilities.
 
+## Links
+
+- [Webview Sample](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample/README.md)
+
+### VS Code API Usage
+
+- `vscode.window.createWebviewPanel`
+- `vscode.registerWebviewPanelSerializer`
+
 ## Should I use a webview?
 
 Webviews are pretty amazing, but they should also be used sparingly and only when VS Code's native API is inadequate. Webviews are resource heavy and run in a separate context from normal extensions. A poorly designed webview can also easily feel out of place within VS Code.
