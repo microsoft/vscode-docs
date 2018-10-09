@@ -590,6 +590,14 @@ Special bonus: The preview will now sync.
 
 ![markdown sync](images/tips-and-tricks/markdown-preview-sync.gif)
 
+### Select all occurrences of current selection
+
+Keyboard Shortcut: `kb(editor.action.selectHighlights)`
+
+![select all occurrences current selection](images/tips-and-tricks/select-all-occurrences.gif)
+
+You can now easily update all occurrences by changing it once.
+
 ## IntelliSense
 
 `kb(editor.action.triggerSuggest)` to trigger the Suggestions widget.
