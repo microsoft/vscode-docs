@@ -172,3 +172,34 @@ CodeLens function reference support shows the number of times a function is refe
 ## Extension FAQ page
 
 Check out the FAQ page on the [PowerShell extensions Wiki](https://github.com/PowerShell/vscode-powershell/wiki/FAQ)
+
+## Types.ps1xml and Format.ps1xml files
+
+You can get IntelliSense features when authoring `Types.ps1xml` and `Format.ps1xml` files by installing the [XML extension by RedHat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml).
+After installing, add this configuration to your user settings:
+
+```json
+"xml.fileAssociations": [
+  {
+    "systemId": "https://raw.githubusercontent.com/PowerShell/PowerShell/master/src/Schemas/Format.xsd",
+    "pattern": "**/*.Format.ps1xml"
+  },
+  {
+    "systemId": "https://raw.githubusercontent.com/PowerShell/PowerShell/master/src/Schemas/Types.xsd",
+    "pattern": "**/*.Types.ps1xml"
+  }
+]
+```
+
+This tells the XML extension to use the official XML schemas from the PowerShell repository for all `.ps1xml` files.
+This enables the following features in `ps1xml` files:
+
+- Syntax error reporting
+- Schema validation
+- Tag and attribute completion
+- Auto-close tags
+- Symbol highlighting
+- Document folding
+- Document symbols and outline
+- Renaming support
+- Document Formatting
