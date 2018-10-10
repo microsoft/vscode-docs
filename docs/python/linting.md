@@ -61,7 +61,7 @@ The following table provides a summary of available Python linters and their bas
 | [mypy](#mypy) | [mypy](https://pypi.org/project/mypy/) | Disabled | mypyEnabled | mypyArgs | mypyPath |
 | [pydocstyle](#pydocstyle) | [pydocstyle](https://pypi.org/project/pydocstyle/) | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
 | [Pep8 (pycodestyle)](#pep8-pycodestyle) | [pep8](https://pypi.org/project/pep8/) | Disabled | pep8Enabled | pep8Args | pep8Path |
-| prospector | [prospector](https://pypi.org/project/prospector/) | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
+| [prospector](#prospector) | [prospector](https://pypi.org/project/prospector/) | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
 | pylama | [pylama](https://pypi.org/project/pylama/) | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |
 
 To select a different linter, use the **Python: Select Linter** command. You can also edit your settings manually to enable multiple linters. Note, however, that using the **Select Linter** command overwrites those edits.
@@ -207,6 +207,32 @@ The Python extension maps pep8 message categories to VS Code categories through 
 | --- | --- | --- |
 | W | pep8CategorySeverity.W | Warning |
 | E | pep8CategorySeverity.E | Error |
+
+## Prospector
+
+### Command-line arguments and configuration files
+
+See [Prospector Command Line Usage](https://prospector.readthedocs.io/en/master/usage.html) for general options.  To enable these in VS Code use the ```"python.linting.prospectorArgs"``` setting.  For example to set a strictness level of "very high", add the following line to your `settings.json` file:
+
+```json
+"python.linting.prospectorArgs": ["-s", "veryhigh"]
+```
+
+It is common with Prospector to use _profiles_ to configure how Prospector will run.  Details of profiles can be found in the [Prospector documentation](https://prospector.readthedocs.io/en/master/profiles.html).  By default, a `.prospector.yaml` file in the current directory will by loaded and used.
+
+It is worth noting that because Prospector calls other tools (ex: Pylint), if you have configuration files specific to those tools, they will override tool specific settings in your `.prospector.yaml` file.  For example, if you specify the following in your `.prospector.yaml` file:
+
+```yaml
+pylint:
+  disable:
+    - too-many-arguments
+```
+
+And then have a `.pylintrc` file which enables the `too-many-arguments` warning, then you'll continue to see warnings in the problems view of VS Code for "Too many arguments" from Pylint.
+
+### Message category mapping
+
+The Python extension maps all Prospector errors and warnings to the Error (E) category.
 
 ## Flake8
 
