@@ -1,10 +1,10 @@
 ---
 Order: 8
 Area: languageextensions
-TOCTitle: Multiroot
-PageTitle: Multiroot support for Language Extensions
+TOCTitle: Multiroot Support
+PageTitle: Multiroot Support for Language Extensions
 ---
 
-# Multiroot support for Language Extensions
+# Multiroot Support for Language Extensions
 
 https://github.com/Microsoft/vscode/wiki/Extension-Authoring:-Adopting-Multi-Root-Workspace-APIs
