@@ -146,18 +146,24 @@ Depending on the way you've structured your app, you may need to create a custom
 
     ![Setting the startup file name in the Azure Portal](images/deploy-azure/azure-portal-startup-file.png)
 
-> **Note**: Because you haven't deployed your app code yet, the custom command starts Gunicorn, but Gunicorn fails to find the app. As a result, browsing to the App Service at this point shows "Service unavailable," indicating that Gunicorn is running but nothing is responding to HTTP requests.
+> **Note**: Because you still haven't deployed your app code visiting the site at this point shows "Service unavailable", which means the Gunicorn server started but failed to find the app, and therefore nothing is responding to HTTP requests.
 
 ## Deploy your app code using Git
+
+As mentioned earlier, you must use Git to deploy Python apps to App Service on Linux so that your dependencies in `requirements.txt` are installed.
+
+In this step you can choose from two sources:
+
+- Local Git: code is deployed from the currently active branch of your local copy of the repository. This option is best if you want to deploy different branches to staging sites running on App Service, or if you maintain the production copy of the app on your computer directly.
+- GitHub: code is deployed from the master branch of a GitHub repository, which naturally includes all changes that have been merged from everyone in a development team. This option is best when you want to deploy the production version of an app, to both primary staging sites and your production site.
 
 1. In the **Azure: App Service** explorer, right-click the app service name, and select **Configure Deployment Source**:
 
     ![Configure Deployment Source command on an App Service in the App Service explorer](images/deploy-azure/configure-deployment-source.png)
 
-1. When prompted, choose one of the following sources:
+1. When prompted, choose either **LocalGit** or **GitHub** as the source.
 
-    - If your code is in a GitHub repository, select **GitHub**.
-    - If your code is only in a local repository, select **LocalGit**
+    When choosing **GitHub**, the App Service extension informs you that "You must give Azure access to your GitHub account" as shown below. For details, see [GitHub Access](#github-access) below; the **Learn More** button in the warning unfortunately takes you to an outdated
 
 1. Right-click the app service again and select **Deploy to Web App**.
 
