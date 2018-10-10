@@ -18,6 +18,8 @@ When working with Python in VS Code, you select from available environments usin
 
 The selected environment is also automatically activated when using the **Terminal: New Terminal** (`kb(workbench.action.terminal.new)`), **Python: Run Python File in Terminal**, and **Python: Create Terminal** commands (the latter is the same as **Terminal > New Terminal**). Installing (or uninstalling) a package in the Terminal with a command like `pip install matplotlib` installs (or uninstalls) the package in whatever environment is active in that Terminal.
 
+Changing interpreters with the **Python: Select Interpreter** command doesn't affect Terminal windows that are already open. You can thus activate separate environment in a split Terminal: select the first interpreter, create a Terminal for it, select a different interpreter, then use the split icon in the Terminal.
+
 > **Note**: By default, the Python extension looks for and uses on the first Python interpreter it finds in the system path. If it doesn't find an interpreter, it issues a warning. On macOS, the extension also issues a warning if you're using the OS-installed Python interpreter, because you typically want to use an interpreter you install directly. In either case, you can disable these warnings by setting `python.disableInstallationCheck` to `true` in your user settings.
 
 ## Global and virtual environments
