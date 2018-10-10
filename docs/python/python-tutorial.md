@@ -241,6 +241,8 @@ To install the `matplotlib` package (which also installs `numpy` as a dependency
 > **Note**: If you are unable to install the package or encounter other problems, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ```bash
+# Don't use with Anaconda distributions because they include matplotlib already.
+
 # macOS
 sudo python3 -m pip install matplotlib
 
