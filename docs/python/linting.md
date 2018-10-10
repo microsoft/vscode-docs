@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python in Visual Studio Code
-DateApproved: 09/17/2018
+DateApproved: 10/10/2018
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -212,15 +212,15 @@ The Python extension maps pep8 message categories to VS Code categories through 
 
 ### Command-line arguments and configuration files
 
-See [Prospector Command Line Usage](https://prospector.readthedocs.io/en/master/usage.html) for general options.  To enable these in VS Code use the ```"python.linting.prospectorArgs"``` setting.  For example to set a strictness level of "very high", add the following line to your `settings.json` file:
+See [Prospector Command Line Usage](https://prospector.readthedocs.io/en/master/usage.html) for general options. For example, to set a strictness level of "very high," add the following line to your `settings.json` file:
 
 ```json
 "python.linting.prospectorArgs": ["-s", "veryhigh"]
 ```
 
-It is common with Prospector to use _profiles_ to configure how Prospector will run.  Details of profiles can be found in the [Prospector documentation](https://prospector.readthedocs.io/en/master/profiles.html).  By default, a `.prospector.yaml` file in the current directory will by loaded and used.
+It's common with Prospector to use [profiles](https://prospector.readthedocs.io/en/master/profiles.html) to configure how Prospector runs. By default, Prospector loads the profile from a `.prospector.yaml` file in the current folder.
 
-It is worth noting that because Prospector calls other tools (ex: Pylint), if you have configuration files specific to those tools, they will override tool specific settings in your `.prospector.yaml` file.  For example, if you specify the following in your `.prospector.yaml` file:
+Because Prospector calls other tools, such as Pylint, any configuration files for those tools override tool-specific settings in `.prospector.yaml`.  For example, suppose you specify the following in `.prospector.yaml`:
 
 ```yaml
 pylint:
@@ -228,7 +228,7 @@ pylint:
     - too-many-arguments
 ```
 
-And then have a `.pylintrc` file which enables the `too-many-arguments` warning, then you'll continue to see warnings in the problems view of VS Code for "Too many arguments" from Pylint.
+If you also have a `.pylintrc` file that enables the `too-many-arguments` warning, you continue to see the warning from Pylint within VS Code.
 
 ### Message category mapping
 
