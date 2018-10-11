@@ -592,7 +592,8 @@ Although you can create the file by hand, you can also use the `pip freeze` comm
 
 1. With your chosen environment selected using the **Python: Select Interpreter** command, tun the **Python: Create Terminal** command to open a terminal with that environment activated.
 
-1. In the terminal, run `pip freeze > requirements.txt` to create the `requirements.txt` file in your project folder.
+1. In the terminal, run `pip freeze > requirements.txt` to create the `requirements.txt` file in your project folder. This command will get all the Python packages you have installed on the current environment and put it on the `requirements.txt` file. It may insert some
+unnecessary packages for the project, but this is just and simple example.
 
 Anyone (or any build server) that receives a copy of the project needs only to run the `pip install -r requirements.txt` command to reinstall the packages in the original the environment. (The recipient still needs to create their own virtual environment, however.)
 
