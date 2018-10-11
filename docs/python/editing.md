@@ -81,7 +81,7 @@ Source code that runs in the terminal/REPL is cumulative until the current insta
 
 The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. Note that initial startup might take a few moments especially if the first statement you run is an `import`.
 
-On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line is not run. If you encounter this behavior, try the command again the REPL has finished loading.
+On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line is not run. If you encounter this behavior, try the command again when the REPL has finished loading.
 
 > **Note**: At present, using `kbstyle(Shift+Enter)` keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
 
@@ -121,8 +121,8 @@ If formatting fails, check the following possible causes:
 
 | Cause | Solution |
 | --- | --- |
-| The path to the python interpreter is incorrect | Check the `pythonPath` setting. |
-| The formatter is not installed in the current environment | Open a command prompt, navigate to the location specified in the `pythonPath` setting, and run `pip install` for the formatter.
+| The path to the python interpreter is incorrect. | Check the `pythonPath` setting. |
+| The formatter is not installed in the current environment. | Open a command prompt, navigate to the location specified in the `pythonPath` setting, and run `pip install` for the formatter.
 | The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`.
 
