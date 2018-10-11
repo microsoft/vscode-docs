@@ -252,13 +252,13 @@ Notice that the extension manifest `categories` attribute now includes both `Pro
 
 You can also bundle separate extensions together in 'Extension Packs'. An Extension Pack is a set of extensions that can be installed together. This enables easily sharing your favorite extensions with other users or creating a set of extensions for a particular scenario like PHP development to help a PHP developer get started with VS Code quickly.
 
-An Extension Pack can include other contributions or be a bundling extension that lists other extensions. This dependency is expressed using the `extensionDependencies` attribute inside the `package.json` file.
+An Extension Pack can include other contributions or be a bundling extension that lists other extensions. This dependency is expressed using the `extensionPack` attribute inside the `package.json` file.
 
 For example, here is an Extension Pack for PHP that includes a debugger, language service, and formatter:
 
 ```json
 {
-  "extensionDependencies": [
+  "extensionPack": [
       "felixfbecker.php-debug",
       "felixfbecker.php-intellisense",
       "Kasik96.format-php"
