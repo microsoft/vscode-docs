@@ -83,6 +83,10 @@ sudo zypper install code
 
 There is a community maintained Arch User Repository (AUR) [package for VS Code](https://aur.archlinux.org/packages/visual-studio-code-bin).
 
+To get more information about the installation from the AUR, please consult the following wiki entry: 
+[Install AUR Packages](https://wiki.archlinux.org/index.php/Arch_User_Repository#Build_and_install_the_package).
+
+
 ### Nix package for NixOS (or any Linux distribution using Nix package manager)
 
 There is a community maintained [Nix package](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/vscode/default.nix) in the nixpkgs repository. In order to install it using Nix, set `allowUnfree` option to true in your `config.nix` and execute:
