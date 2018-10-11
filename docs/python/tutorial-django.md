@@ -41,7 +41,7 @@ In this section you create a virtual environment in which Django is installed. U
 
     ```bash
     # macOS/Linux
-    sudo apt-get install python3-venv # If needed
+    sudo apt-get install python3-venv    # If needed
     
     python3 -m venv env
 
