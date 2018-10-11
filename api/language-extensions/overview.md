@@ -42,15 +42,28 @@ VS Code allows extensions to define a "language configuration" for any programmi
 This category includes advanced language features such as auto completion, error checking and jump to definition. These features are often powered by a Language Server, a program that analyzes your project to provide the dynamic features.
  One example is the [`typescript-language-features`](https://github.com/Microsoft/vscode/tree/master/extensions/typescript-language-features) extension bundled in VS Code. It utlizes TSServer from [TypeScript](https://github.com/Microsoft/TypeScript) to offer advanced language features such as:
 
-- Auto completion
+- Hover information ([`vscode.languages.registerHoverProvider`](https://code.visualstudio.com/docs/extensionAPI/vscode-api#languages.registerHoverProvider))
+- Auto completion ([`vscode.languages.registerCompletionItemProvider`](https://code.visualstudio.com/docs/extensionAPI/vscode-api#languages.registerCompletionItemProvider))
+- Jump to definition ([`vscode.languages.registerDefinitionProvider`](https://code.visualstudio.com/docs/extensionAPI/vscode-api#languages.registerDefinitionProvider))
 - Error checking
-- Hover information
-- Jump to definition
 - Formatting
 - Refactor
 
 For a complete list of advanced language features, see [Language Features](/api/language-extensions/language-features).
 
+![multi-ls](images/overview/multi-ls.png)
+
+## LSP
+
+![multi-editor](images/overview/multi-editor.png)
+
+## Advanced Langauge Features
+
+### Multiroot Support
+
+### Embedded Languages
+
+---
 
 This page should should contain a brief overview of the following concepts:
 
