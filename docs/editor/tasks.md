@@ -269,7 +269,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
 
 - **reveal**: Controls whether the Integrated Terminal panel is brought to front. Valid values are:
   - *always* - The panel is always brought to front. This is the default.
-  - *never* - The user must explicitly bring the terminal panel to the front using the  **View** > **Integrated Terminal** command (`kb(workbench.action.terminal.toggleTerminal)`).
+  - *never* - The user must explicitly bring the terminal panel to the front using the  **View** > **Terminal** command (`kb(workbench.action.terminal.toggleTerminal)`).
   - *silent* - The terminal panel is brought to front only if the output is not scanned for errors and warnings.
 - **focus**: Controls whether the terminal is taking input focus or not. Default is `false`.
 - **echo**: Controls whether the executed command is echoed in the terminal. Default is `true`.
