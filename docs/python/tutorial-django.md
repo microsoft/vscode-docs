@@ -136,21 +136,21 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 1. Modify `hello/views.py` to match the following code, which creates a single view for the app's home page:
 
     ```python
-    from django.shortcuts import render
     from django.http import HttpResponse
+    from django.shortcuts import render
 
     def home(request):
         return HttpResponse("Hello, Django!")
     ```
 
-1. Create a file, `hello/urls.py`, with the contents below. The `urls.py` file is where you specify patterns to route different URLs to their appropriate views. The code below contains one route to map root URL of the app (`''`) to the `view.home` function that you just added to `hello/views.py`:
+1. Create a file, `hello/urls.py`, with the contents below. The `urls.py` file is where you specify patterns to route different URLs to their appropriate views. The code below contains one route to map root URL of the app (`""`) to the `view.home` function that you just added to `hello/views.py`:
 
     ```python
     from django.urls import path
-    from . import views
+    from hello import views
 
     urlpatterns = [
-        path('', views.home, name="home"),
+        path("", views.home, name="home"),
     ]
     ```
 
@@ -158,11 +158,10 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
     ```python
     from django.contrib import admin
-    from django.urls import path
-    from django.urls import include
+    from django.urls import include, path
 
     urlpatterns = [
-        path('', include('hello.urls')),
+        path("", include("hello.urls")),
     ]
     ```
 
@@ -225,7 +224,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 1. In `hello/urls.py`, add a route to the `urlpatterns` list:
 
     ```python
-    path('hello/<name>', views.hello_there, name="hello_there"),
+    path("hello/<name>", views.hello_there, name="hello_there"),
     ```
 
     The first argument to `path` defines a route "hello/" that accepts a variable string called *name*. The string is passed to the `views.hello_there` function specified in the second argument to `path`.
@@ -235,9 +234,9 @@ Debugging gives you the opportunity to pause a running program on a particular l
 1. Replace the contents of `views.py` with the following code to define the `hello_there` function that you can step through in the debugger:
 
     ```python
-    from django.http import HttpResponse
-    from datetime import datetime
     import re
+    from datetime import datetime
+    from django.http import HttpResponse
 
     def home(request):
         return HttpResponse("Hello, Django!")
@@ -511,29 +510,30 @@ The following steps demonstrate creating a base template.
     ```html
     <!DOCTYPE html>
     <html>
-        <head>
-            <meta charset="utf-8" />
-            <title>{% block title %}{% endblock %}</title>
-            {% load static %}
-            <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}" />
-        </head>
+    <head>
+        <meta charset="utf-8"/>
+        <title>{% block title %}{% endblock %}</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}"/>
+    </head>
 
-        <body>
-            <div class="navbar">
-                <a href="{% url 'home' %}" class="navbar-brand">Home</a>
-                <a href="{% url 'about' %}" class="navbar-item">About</a>
-                <a href="{% url 'contact' %}" class="navbar-item">Contact</a>
-            </div>
+    <body>
+    <div class="navbar">
+        <a href="{% url 'home' %}" class="navbar-brand">Home</a>
+        <a href="{% url 'log' %}" class="navbar-item">Log Message</a>
+        <a href="{% url 'about' %}" class="navbar-item">About</a>
+        <a href="{% url 'contact' %}" class="navbar-item">Contact</a>
+    </div>
 
-            <div class="body-content">
-                {% block content %}
-                {% endblock %}
-                <hr/>
-                <footer>
-                    <p>&copy; 2018</p>
-                </footer>
-            </div>
-        </body>
+    <div class="body-content">
+        {% block content %}
+        {% endblock %}
+        <hr/>
+        <footer>
+            <p>&copy; 2018</p>
+        </footer>
+    </div>
+    </body>
     </html>
     ```
 
@@ -624,8 +624,8 @@ With the code snippet in place, you can quickly create templates for the Home, A
 1. In the app's `urls.py`, add routes for the /about and /contact pages. Be mindful that the `name` argument to the `path` function defines the name with which you refer to the page in the `{% url %}` tags in the templates.
 
     ```python
-    path('about/', views.about, name="about"),
-    path('contact/', views.contact, name="contact"),
+    path("about/", views.about, name="about"),
+    path("contact/", views.contact, name="contact"),
     ```
 
 1. In `views.py`, add functions for the /about and /contact routes that refer to their respective page templates. Also modify the `home` function to use the `home.html` template.
@@ -633,13 +633,13 @@ With the code snippet in place, you can quickly create templates for the Home, A
     ```python
     # Replace the existing home function with the one below
     def home(request):
-        return render(request, 'hello/home.html')
+        return render(request, "hello/home.html")
 
     def about(request):
-        return render(request, 'hello/about.html')
+        return render(request, "hello/about.html")
 
     def contact(request):
-        return render(request, 'hello/contact.html')
+        return render(request, "hello/contact.html")
     ```
 
 ### Run the app
@@ -683,14 +683,14 @@ from django.db import models
 
 class LogMessage(models.Model):
     message = models.CharField(max_length=300)
-    log_date = models.DateTimeField('date logged')
+    log_date = models.DateTimeField("date logged")
 
-    def __unicode__(self):
+    def __str__(self):
         """Returns a string representation of a message."""
-        return "'" + self.text + "' logged on " + log_date.strftime('%A, %d %B, %Y at %X')
+        return f"'{self.message}' logged on {self.log_date.strftime('%A, %d %B, %Y at %X')}"
 ```
 
-A model class can include methods that return values computed from other class properties. Models typically include a `__unicode__` method that returns a string representation of the instance.
+A model class can include methods that return values computed from other class properties. Models typically include a `__str__` method that returns a string representation of the instance.
 
 ### Migrate the database
 
@@ -713,12 +713,12 @@ With your models in place and the database migrated, you can store and retrieve 
 
     ```python
     from django import forms
-    from .models import LogMessage
+    from hello.models import LogMessage
 
     class LogMessageForm(forms.ModelForm):
         class Meta:
             model = LogMessage
-            fields = ('message',)   # NOTE: the trailing comma is required
+            fields = ("message",)   # NOTE: the trailing comma is required
     ```
 
 1. In the `templates/hello` folder, create a new template named `log_message.html` with the following contents, which assumes that the template is given a variable named `form` to define the body of the form. It then adds a submit button with the label "Log".
@@ -726,10 +726,11 @@ With your models in place and the database migrated, you can store and retrieve 
     ```html
     {% extends "hello/layout.html" %}
     {% block title %}
-    Log a message
+        Log a message
     {% endblock %}
     {% block content %}
-    <form method="POST" class="log-form">{% csrf_token %}
+        <form method="POST" class="log-form">
+            {% csrf_token %}
             \{{ form.as_p }}
             <button type="submit" class="save btn btn-default">Log</button>
         </form>
@@ -749,7 +750,7 @@ With your models in place and the database migrated, you can store and retrieve 
 1. In the app's `urls.py` file, add a route for the new page:
 
     ```python
-    path('log/', views.log_message, name="log"),
+    path("log/", views.log_message, name="log"),
     ```
 
 1. In `views.py`, define the view named `log_message` (as referred to by the URL route). This view handles both HTTP GET and POST cases. In the GET case (the `else:` section), it just displays the form that you defined in the previous steps. In the POST case, it retrieves the data from the form into a data object (`message`), sets the timestamp, then saves that object at which point it's written to the database:
@@ -757,8 +758,8 @@ With your models in place and the database migrated, you can store and retrieve 
     ```python
     # At the top of the file:
     from django.shortcuts import redirect
-    from .forms import LogMessageForm
-    from .models import LogMessage
+    from hello.forms import LogMessageForm
+    from hello.models import LogMessage
 
     # Elsewhere in the file:
     def log_message(request):
@@ -769,10 +770,10 @@ With your models in place and the database migrated, you can store and retrieve 
                 message = form.save(commit=False)
                 message.log_date = datetime.now()
                 message.save()
-                return redirect('home')
+                return redirect("home")
         else:
             form = LogMessageForm()
-            return render(request, 'hello/log_message.html', {'form': form})
+            return render(request, "hello/log_message.html", {"form": form})
     ```
 
 1. One more step before you're ready to try everything out! In `templates/hello/layout.html`, add a link in the "navbar" div for the message logging page:
@@ -795,35 +796,35 @@ With your models in place and the database migrated, you can store and retrieve 
     ```html
     {% extends "hello/layout.html" %}
     {% block title %}
-    Home
+        Home
     {% endblock %}
     {% block content %}
-    <h2>Logged messages</h2>
+        <h2>Logged messages</h2>
 
-    {% if message_list %}
-    <table class="message_list">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Message</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for message in message_list %}
-            <tr>
-                <td>\{{ message.log_date | date:'d M Y' }}</td>
-                <td>\{{ message.log_date | date:'H:i:s' }}</td>
-                <td>
-                    \{{ message.message }}
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <p>No messages have been logged. Use the <a href="{% url 'log' %}">Log Message form</a>.</p>
-    {% endif %}
+        {% if message_list %}
+            <table class="message_list">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Message</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for message in message_list %}
+                    <tr>
+                        <td>\{{ message.log_date | date:'d M Y' }}</td>
+                        <td>\{{ message.log_date | date:'H:i:s' }}</td>
+                        <td>
+                            \{{ message.message }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No messages have been logged. Use the <a href="{% url 'log' %}">Log Message form</a>.</p>
+        {% endif %}
     {% endblock %}
     ```
 
@@ -859,19 +860,24 @@ With your models in place and the database migrated, you can store and retrieve 
 1. In the app's `urls.py`, import the data model:
 
     ```python
-    from .models import LogMessage
+    from hello.models import LogMessage
     ```
 
-1. Also in `urls.py`, replace the path for the home page with the code below, which retrieves the five most recent `LogMessage` objects in descending order (meaning that it queries the database), and then provides a name for the data in the template context (`message_list`), and identifies the template to use:
+1. Also in `urls.py`, make a variable for the new view, which retrieves the five most recent `LogMessage` objects in descending order (meaning that it queries the database), and then provides a name for the data in the template context (`message_list`), and identifies the template to use:
 
     ```python
-        # Replace the existing path for ''
-        path('',
-            views.HomeListView.as_view(
-                queryset=LogMessage.objects.order_by('-log_date')[:5],  # :5 limits the results to the five most recent
-                context_object_name='message_list',
-                template_name='hello/home.html',),
-            name="home"),
+    home_list_view = views.HomeListView.as_view(
+        queryset=LogMessage.objects.order_by("-log_date")[:5],  # :5 limits the results to the five most recent
+        context_object_name="message_list",
+        template_name="hello/home.html",
+    )
+    ```
+
+1. In `urls.py`, modify the path to the home page to use the `home_list_view` variable:
+
+    ```python
+        # Replace the existing path for ""
+        path("", home_list_view, name="home"),
     ```
 
 1. Start the app and open a browser to the home page, which should now display messages:
@@ -932,7 +938,7 @@ Perform the following steps to enable the administrative interface:
 
     ```python
     # This path is included by default when creating the app
-     path('admin/', admin.site.urls),
+     path("admin/", admin.site.urls),
     ```
 
 1. Run the server, the open a browser to the app's /admin page (such as `http://127.0.0.1:8000/admin` when using the development server).
