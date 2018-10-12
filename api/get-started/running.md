@@ -1,6 +1,6 @@
 ---
 Order: 2
-Area: hellocode
+Area: get-started
 TOCTitle: Running Extension
 PageTitle: Running the Extension
 ---

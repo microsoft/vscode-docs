@@ -1,6 +1,6 @@
 ---
 Order: 8
-Area: languageextensions
+Area: language-extensions
 TOCTitle: Multiroot Support
 PageTitle: Multiroot Support for Language Extensions
 ---

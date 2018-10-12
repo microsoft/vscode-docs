@@ -1,6 +1,6 @@
 ---
 Order: 2
-Area: languageextensions
+Area: language-extensions
 TOCTitle: Syntax Highlight Guide
 PageTitle: Syntax Highlight Guide
 ---

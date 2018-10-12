@@ -1,6 +1,6 @@
 ---
 Order: 1
-Area: languageextensions
+Area: language-extensions
 TOCTitle: Overview
 PageTitle: Language Extension Overview
 ---

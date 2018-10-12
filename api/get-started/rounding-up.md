@@ -1,6 +1,6 @@
 ---
 Order: 6
-Area: hellocode
+Area: get-started
 TOCTitle: Rounding Up
 PageTitle: Rounding Up
 ---

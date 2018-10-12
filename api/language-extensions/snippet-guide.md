@@ -1,6 +1,6 @@
 ---
 Order: 3
-Area: languageextensions
+Area: language-extensions
 TOCTitle: Snippet Guide
 PageTitle: Snippet Guide
 ---

@@ -1,6 +1,6 @@
 ---
 Order: 5
-Area: languageextensions
+Area: language-extensions
 TOCTitle: Language Features
 PageTitle: Language Features
 ---

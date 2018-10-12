@@ -1,6 +1,6 @@
 ---
 Order: 3
-Area: hellocode
+Area: get-started
 TOCTitle: Debugging
 PageTitle: Debugging the Extension
 ---

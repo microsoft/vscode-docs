@@ -1,6 +1,6 @@
 ---
 Order: 4
-Area: hellocode
+Area: get-started
 TOCTitle: Testing
 PageTitle: Testing the Extension
 ---

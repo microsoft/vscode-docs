@@ -1,6 +1,6 @@
 ---
 Order: 1
-Area: hellocode
+Area: get-started
 TOCTitle: Introduction
 PageTitle: Hello Code
 ---

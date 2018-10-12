@@ -1,6 +1,6 @@
 ---
 Order: 4
-Area: languageextensions
+Area: language-extensions
 TOCTitle: Language Configuration Guide
 PageTitle: Language Configuration Guide
 ---

@@ -1,6 +1,6 @@
 ---
 Order: 5
-Area: hellocode
+Area: get-started
 TOCTitle: Publishing
 PageTitle: Publishing the Extension
 ---

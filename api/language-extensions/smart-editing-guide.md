@@ -1,6 +1,6 @@
 ---
 Order: 6
-Area: languageextensions
+Area: language-extensions
 TOCTitle: Smart Editing Guide
 PageTitle: Smart Editing Guide
 ---
