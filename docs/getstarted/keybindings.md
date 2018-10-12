@@ -138,7 +138,7 @@ The following is an example overriding the `kbstyle(Enter)` key to print some te
 
 The type command will receive `{"text": "Hello World"}` as its first argument and add "Hello World" to the file instead of producing the default command.
 
-For more information on command with arguments, refer to [Complex Commands](https://code.visualstudio.com/docs/extensionAPI/vscode-api-commands#_commands).
+For more information on commands that take arguments, refer to [Complex Commands](/docs/extensionAPI/vscode-api-commands.md).
 
 ## Removing a specific key binding rule
 
