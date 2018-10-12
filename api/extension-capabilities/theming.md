@@ -26,7 +26,7 @@ If you want to change the color of text in your editor, you need to know how the
 
 ![tm-inspector](./images/theming/tm-inspector.png)
 
-There are also two settings, `workbench.colorCustomizations` and `editor.tokenColorCustomizations` that correspond to the `color` and `tokenColors` color settings. They provide a quick way for you to play with colors. For example, try adding this to your user settings:
+There are also two settings, `workbench.colorCustomizations` and `editor.tokenColorCustomizations` that correspond to the `color` and `tokenColors` color theme config. They provide a quick way for you to play with colors. For example, try adding this to your user settings:
 
 ```json
 {
