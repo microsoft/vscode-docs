@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 09/19/2018
+DateApproved: 10/10/2018
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -236,16 +236,18 @@ Next, try running the file in the debugger using the "Python: Current file" conf
 
 Unless you're using an Anaconda distribution or have previously installed the `matplotlib` package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'". Such a message indicates that the required package isn't available in your system.
 
-To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and run **Python: Create Terminal** from the Command Palette. This command opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system (commands may require elevation if the Python interpreter is installed in a protected area of the file system):
+To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and run **Terminal: New Terminal** from the Command Palette (`kb(workbench.action.terminal.new)`). This command opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system (commands may require elevation if the Python interpreter is installed in a protected area of the file system):
 
 > **Note**: If you are unable to install the package or encounter other problems, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ```bash
+# Don't use with Anaconda distributions because they include matplotlib already.
+
 # macOS
 sudo python3 -m pip install matplotlib
 
 # Windows (may require elevation)
-py -m pip install matplotlib
+py -3 -m pip install matplotlib
 
 # Linux (Debian)
 sudo apt-get install python3-tk

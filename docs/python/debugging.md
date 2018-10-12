@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 
-To familiarize yourself with Visual Studio Code's *general* debugging capabilities, such as examining local variables, the watch window, arguments, breakpoints, loading symbols, and more, review [VS Code debugging](/docs/editor/debugging.md).
+To familiarize yourself with Visual Studio Code's *general* debugging capabilities, such as examining local variables, the watch window, arguments, breakpoints, loading symbols, and more, review [VS Code debugging](/docs/editor/debugging.md). For Python, you can also call `breakpoint()` within your code to pause the debugger within a debugging session.
 
 This present article addresses only those considerations that are specific to Python, mainly Python-specific debugging *configurations*, including the necessary steps for specific app types and remote debugging.
 
