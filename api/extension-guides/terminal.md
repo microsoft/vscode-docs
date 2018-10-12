@@ -1,5 +1,5 @@
 ---
-Order: 5
+# Order: 5
 Area: extension-guides
 TOCTitle: Terminal
 PageTitle: Terminal
