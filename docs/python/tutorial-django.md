@@ -29,7 +29,7 @@ To successfully complete this tutorial, you must do the following (which are the
    - (MacOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
    - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
-1. On Windows, make sure the location of your Python interpreter is included in your PATH environment variable. You can check this by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Windows Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include that folder.
+1. On Windows, make sure the location of your Python interpreter is included in your PATH environment variable. You can check this by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Windows Settings, search for "environment", select **Edit environment variables for your account**, then edit the **PATH** variable to include that folder.
 
 ## Create a project environment for Django
 
@@ -42,6 +42,7 @@ In this section you create a virtual environment in which Django is installed. U
     ```bash
     # macOS/Linux
     sudo apt-get install python3-venv    # If needed
+    
     python3 -m venv env
 
     # Windows
