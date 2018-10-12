@@ -37,7 +37,7 @@ Once the extension is installed, you can take the following steps to create a ne
 
 1. Click **Create New Project** button on the **APP SERVICE** Explorer view.
 2. Select a subscription.
-3. Enter an unique name for the new Web App.
+3. Enter a unique name for the new Web App.
 4. Select a location for the new Web App.
 5. Select the OS as `Linux`.
 6. Select the runtime of the Web App, e.g.`Tomcat 8.5 (JRE8)`.
