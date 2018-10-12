@@ -172,3 +172,35 @@ CodeLens function reference support shows the number of times a function is refe
 ## Extension FAQ page
 
 Check out the FAQ page on the [PowerShell extensions Wiki](https://github.com/PowerShell/vscode-powershell/wiki/FAQ)
+
+## Types.ps1xml and Format.ps1xml files
+
+`ps1xml` files are PowerShell's way to extend the type system and define output formatting. For more information on these files, please refer to the official PowerShell documentation on [`Types.ps1xml`](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_types.ps1xml?view=powershell-6) and [`Format.ps1xml`](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_format.ps1xml?view=powershell-6).
+You can get IntelliSense features when authoring `ps1xml` files by installing the [XML extension by RedHat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml).
+After installing, add this configuration to your user settings:
+
+```json
+"xml.fileAssociations": [
+  {
+    "systemId": "https://raw.githubusercontent.com/PowerShell/PowerShell/master/src/Schemas/Format.xsd",
+    "pattern": "**/*.Format.ps1xml"
+  },
+  {
+    "systemId": "https://raw.githubusercontent.com/PowerShell/PowerShell/master/src/Schemas/Types.xsd",
+    "pattern": "**/*.Types.ps1xml"
+  }
+]
+```
+
+This tells the XML extension to use the official XML schemas from the PowerShell repository for all `.ps1xml` files.
+This enables the following features in `ps1xml` files:
+
+- Syntax error reporting
+- Schema validation
+- Tag and attribute completion
+- Auto-close tags
+- Symbol highlighting
+- Document folding
+- Document symbols and outline
+- Renaming support
+- Document Formatting
