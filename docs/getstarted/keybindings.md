@@ -138,6 +138,8 @@ The following is an example overriding the `kbstyle(Enter)` key to print some te
 
 The type command will receive `{"text": "Hello World"}` as its first argument and add "Hello World" to the file instead of producing the default command.
 
+For more information on command with arguments, refer to [Complex Commands](https://code.visualstudio.com/docs/extensionAPI/vscode-api-commands#_commands).
+
 ## Removing a specific key binding rule
 
 You can write a key binding rule that targets the removal of a specific default key binding. With the `keybindings.json`, it was always possible to redefine all the key bindings of VS Code, but it can be very difficult to make a small tweak, especially around overloaded keys, such as `kbstyle(Tab)` or `kbstyle(Escape)`. To remove a specific key binding, add a `-` to the `command` and the rule will be a removal rule.
