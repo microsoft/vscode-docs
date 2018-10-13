@@ -30,9 +30,9 @@ The Chrome team began working on this a few months ago, and we have been working
 
 ## Synchronized stepping between Chrome DevTools and VS Code
 
-We think being able to combine VS Code and Chrome DevTools is an extremely powerful experience. It enables you to pick the right tool for the scenario, without being forced to make the hard choice of replacing one tool with another. VS Code lets you debug JavaScript in your editor, but we also recognize that some users prefer to debug JavaScript from DevTools, so instead of trying to replace DevTools, we instead see this as an opportunity to integrate.
+We think being able to combine VS Code and Chrome DevTools is an extremely powerful experience. It enables you to pick the right tool for the scenario, without being forced to make the hard choice of replacing one tool with another. VS Code lets you debug JavaScript in your editor, but we also recognize that some users prefer to debug JavaScript from DevTools, so instead of trying to replace DevTools, we see this as an opportunity to integrate them.
 
-The first step towards better integrating the tools is **synchronized stepping between Chrome DevTools and VS Code**, as shown here:
+The first step towards integrating the tools better is **synchronized stepping between Chrome DevTools and VS Code**, as shown here:
 
 ![sync_stepping](sync_stepping.gif)
 
@@ -47,7 +47,7 @@ In this release we have also enabled localization of core parts of our debugger,
 
 ## Breakpoints set before your app runs
 
-Another feature we have been working on with [our friends in Visual Studio](https://github.com/Microsoft/vscode-chrome-debug-core/pull/241) is the ability for us to set breakpoints in JavaScript before it gets executed in Chrome. This sounds very simple, but is quite complicated when you dive into the details of how JavaScript can be loaded and executed asynchronously.
+Another feature we have been working on with [our friends in Visual Studio](https://github.com/Microsoft/vscode-chrome-debug-core/pull/241) is the ability for to set breakpoints in JavaScript before it gets executed in Chrome. This sounds very simple, but is quite complicated when you dive into the details of how JavaScript can be loaded and executed asynchronously.
 
 Many users have had the experience that their breakpoints aren't hit when launching Chrome. To add to their confusion, their breakpoints are hit after a simple page refresh. Why would that be? It's a bit complicated, but it comes down to a timing issue between VS Code and Chrome, which is best illustrated in a timeline:
 
@@ -81,7 +81,7 @@ We are releasing break-on-load breakpoints as an experimental feature for our Ch
 Enabling break-on-load breakpoints will have an impact on your initial page load performance, as the debugger briefly pauses Chrome every time a new script is loaded. For that reason, this is currently an opt-in feature. If you are experiencing missing breakpoints, try enabling break-on-load breakpoints and let us know how they work for you.
 
 
-That's it for now. It's a big update for our Chrome debugger, and we can't wait to hear your feedback on these new features. In a world where your editor is more integrated with DevTools, let us know what you would expect or want from your tools.
+That's it for now. It's a big update for our Chrome debugger, and we can't wait to hear your feedback on these new features. In a world where your editor is more integrated with DevTools, let us know what you expect from your tools.
 
 Happy Coding!
 
