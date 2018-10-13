@@ -118,11 +118,11 @@ Disables additional security in the preview window. This allows script execution
 
 There are several built-in Markdown snippets included in VS Code - press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and you get a context specific list of suggestions.
 
->**Tip:** You can add in your own User Defined Snippets for Markdown.  Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
 
 ## Compiling Markdown into HTML
 
-VS Code integrates with Markdown compilers through the integrated [task runner](/docs/editor/tasks.md).  We can use this to compile `.md` files into `.html` files.  Let's walk through compiling a simple Markdown document.
+VS Code integrates with Markdown compilers through the integrated [task runner](/docs/editor/tasks.md). We can use this to compile `.md` files into `.html` files. Let's walk through compiling a simple Markdown document.
 
 ### Step 1: Install a Markdown compiler
 
@@ -132,7 +132,7 @@ For this walkthrough, we use the popular [Node.js](https://nodejs.org) module, [
 npm install -g markdown-it
 ```
 
-> **Note:** There are many Markdown compilers to choose from beyond **markdown-it**.  Pick the one that best suits your needs and environment.
+> **Note:** There are many Markdown compilers to choose from beyond **markdown-it**. Pick the one that best suits your needs and environment.
 
 ### Step 2: Create a simple MD file
 
@@ -160,7 +160,7 @@ Things you'll need:
 
 ### Step 3: Create tasks.json
 
-The next step is to set up the task configuration file `tasks.json`.  To do this, run **Tasks** > **Configure Tasks** and click **Create tasks.json file from templates**. VS Code then presents a list of possible `tasks.json` templates to choose from. Select **Others** since we want to run an external command.
+The next step is to set up the task configuration file `tasks.json`. To do this, run **Tasks** > **Configure Tasks** and click **Create tasks.json file from templates**. VS Code then presents a list of possible `tasks.json` templates to choose from. Select **Others** since we want to run an external command.
 
 This generates a `tasks.json` file in your workspace `.vscode` folder with the following content:
 
@@ -197,7 +197,7 @@ To use **markdown-it** to compile the Markdown file, change the contents as foll
 }
 ```
 
-> **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
+> **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along. Use `kb(editor.action.triggerSuggest)` to see the available settings.
 
 ### Step 4: Run the Build Task
 
@@ -229,7 +229,7 @@ If you want to make the **Compile Markdown** task the default build task to run 
 
 ## Automating Markdown compilation
 
-Let's take things a little further and automate Markdown compilation with VS Code.  We can do so with the same task runner integration as before, but with a few modifications.
+Let's take things a little further and automate Markdown compilation with VS Code. We can do so with the same task runner integration as before, but with a few modifications.
 
 ### Step 1: Install Gulp and some plug-ins
 
@@ -242,7 +242,7 @@ npm install -g gulp
 npm install gulp gulp-markdown-it
 ```
 
-> **Note:** gulp-markdown-it is a Gulp plug-in for the **markdown-it** module we were using before.  There are many other Gulp Markdown plug-ins you can use, as well as plug-ins for Grunt.
+> **Note:** gulp-markdown-it is a Gulp plug-in for the **markdown-it** module we were using before. There are many other Gulp Markdown plug-ins you can use, as well as plug-ins for Grunt.
 
 You can test that your gulp installation was successful but typing `gulp -v`. You should see a version displayed for both the global (CLI) and local installations.
 
@@ -273,7 +273,7 @@ What is happening here?
 
 1. We are watching for changes to any Markdown file in our workspace, i.e. the current folder open in VS Code.
 2. We take the set of Markdown files that have changed, and run them through our Markdown compiler, i.e. `gulp-markdown-it`.
-3. We now have a set of HTML files, each named respectively after their original Markdown file.  We then put these files in the same directory.
+3. We now have a set of HTML files, each named respectively after their original Markdown file. We then put these files in the same directory.
 
 ### Step 3: Run the gulp default Task
 
@@ -322,4 +322,4 @@ No, VS Code targets the [CommonMark](http://commonmark.org) Markdown specificati
 
 ### In the walkthrough above, I didn't find the Configure Task command in the Command Palette?
 
-You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing 'code .' at the command line.
+You may have opened a file in VS Code rather than a folder. You can open a folder by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing 'code .' at the command line.
