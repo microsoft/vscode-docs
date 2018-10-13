@@ -13,7 +13,7 @@ Visual Studio Code is a great editor for PHP development. You get features like 
 
 ## PHP extensions
 
-There are many PHP language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) and more are being created.  You can search for PHP extensions from within VS Code in the **Extensions** view (`kb(workbench.view.extensions)`) then filter the extensions drop-down list by typing `php`.
+There are many PHP language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) and more are being created. You can search for PHP extensions from within VS Code in the **Extensions** view (`kb(workbench.view.extensions)`) then filter the extensions drop-down list by typing `php`.
 
 <div class="marketplace-extensions-php"></div>
 
@@ -25,7 +25,7 @@ There are many PHP language extensions available on the [VS Code Marketplace](ht
 
 ## Snippets
 
-Visual Studio Code includes a set of common snippets for PHP.  To access these, hit `kb(editor.action.triggerSuggest)` to get a context-specific list.
+Visual Studio Code includes a set of common snippets for PHP. To access these, hit `kb(editor.action.triggerSuggest)` to get a context-specific list.
 
 ![PHP Snippets](images/php/php-snippets.png)
 
@@ -63,7 +63,7 @@ To set the PHP executable path, open your **User or Workspace Settings** and add
 
 ## Debugging
 
-PHP debugging with **XDebug** is supported through a [PHP Debug extension](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug).  Follow the extension's instructions for configuring **XDebug** to work with VS Code.
+PHP debugging with **XDebug** is supported through a [PHP Debug extension](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug). Follow the extension's instructions for configuring **XDebug** to work with VS Code.
 
 ## Next Steps
 

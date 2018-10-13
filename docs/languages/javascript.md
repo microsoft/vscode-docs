@@ -65,7 +65,7 @@ npm is installed with the Node.js runtime, which is available for download from 
 
 If you have npm installed but still see a warning message, you can explicitly tell VS Code where npm is installed with the `typescript.npm` [setting](/docs/getstarted/settings.md). This should be set to the full path of the npm executable on your machine, and this does not have to match the version of npm you are using to manage packages in your workspace. `typescript.npm` requires TypeScript 2.3.4+.
 
-For example on Windows, you would add a path like this to your `settings.json` file:
+For example, on Windows, you would add a path like this to your `settings.json` file:
 
 ```json
   "typescript.npm": "C:\\Program Files\\nodejs\\npm.cmd"
@@ -227,7 +227,7 @@ VS Code provides several formatting settings for JavaScript. They can all be fou
 
 A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. VS Code supports linters through [extensions](/docs/editor/extension-gallery.md). Linters provide warnings, errors, and light bulb actions.
 
-VS Code provides support for JavaScript linters, including [ESLint](https://eslint.org/), [JSHint](http://jshint.com/) and [StandardJS](https://standardjs.com/).  If enabled, the JavaScript code is validated as you type and you can navigate to reported problems and fix them inside VS Code.
+VS Code provides support for JavaScript linters, including [ESLint](https://eslint.org/), [JSHint](http://jshint.com/) and [StandardJS](https://standardjs.com/). If enabled, the JavaScript code is validated as you type and you can navigate to reported problems and fix them inside VS Code.
 
  ![linter warning](images/javascript/eslint_warning.png)
 
