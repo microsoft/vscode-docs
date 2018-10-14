@@ -46,7 +46,7 @@ To select a debugging configuration, select the Debug View in the sidebar, then 
 
 > **Note**: Previous versions of the Python extension used slightly different names for the configurations as shown in the above graphic, but they generally work the same.
 
-By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and in the the`launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to scroll down to see  all the Python options):
+By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and in the the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to scroll down to see  all the Python options):
 
 ![Adding a new Python debugging configurations](images/debugging/add-configuration.png)
 
