@@ -34,7 +34,7 @@ In this section, we will setup our Azure Storage account and blob container.
 
    Static website hosting is only available for accounts using GPv2.
 
-   ![Add name and Resource Group](images/static-website/storage/3-portal-config-storage.png)
+   ![Add name and Resource Group](../images/static-website/storage/3-portal-config-storage.png)
 
 6. When you're ready, click **Create** and wait for the account to be created.
 
@@ -48,7 +48,7 @@ In this section, we will setup our Azure Storage account and blob container.
 
   > **Note**: Be sure to include the name of your index document.
 
-   ![Confirm container](images/static-website/storage/8-portal-config-static-site.png)
+   ![Confirm container](../images/static-website/storage/8-portal-config-static-site.png)
 
 ## Your site URL
 
