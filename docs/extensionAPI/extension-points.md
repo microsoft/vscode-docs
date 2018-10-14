@@ -50,12 +50,14 @@ You can read these values from your extension using `vscode.workspace.getConfigu
             "typescript.useCodeSnippetsOnMethodSuggest": {
                 "type": "boolean",
                 "default": false,
-                "description": "Complete functions with their parameter signature."
+                "description": "Complete functions with their parameter signature,
+                "scope": " Scope in Which the configuration is applicable."
             },
             "typescript.tsdk": {
                 "type": ["string", "null"],
                 "default": null,
-                "description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
+                "description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use.",
+                "scope": " Scope in Which the configuration is applicable."
             }
         }
     }
