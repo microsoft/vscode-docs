@@ -88,7 +88,7 @@ The specific settings are described in the following sections.
 >     "name": "Python: startup.py",
 >     "type": "python",
 >     "request": "launch",
->     "program": "${workspaceFolder}/startup.py",
+>     "program": "${workspaceFolder}/startup.py"
 > },
 > ```
 
