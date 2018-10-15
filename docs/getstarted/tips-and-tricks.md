@@ -880,5 +880,5 @@ VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep sett
 The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can also use the Insiders version by [downloading it here](/insiders).
 
 * For Early Adopters - Insiders has the most recent code changes for users and extension authors to try out.
-* Frequent Builds - New builds everyday with the latest bug fixes and features.
+* Frequent Builds - New builds every day with the latest bug fixes and features.
 * Side-by-side install - Insiders installs next to the Stable build allowing you to use either independently.
