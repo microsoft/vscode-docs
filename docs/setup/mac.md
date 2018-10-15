@@ -59,16 +59,3 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation around VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences settings.
-
-## Common Questions
-
-### Mono stopped working after installing El Capitan
-
-Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capitan Public Beta. What do I do?
-
-Run these commands:
-
-```bash
-brew update
-brew reinstall mono
-```
