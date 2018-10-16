@@ -59,7 +59,7 @@ Now when you `require` or `import` **lodash**, VS Code will use the automaticall
 
 [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA) uses [npm](https://www.npmjs.com), the Node.js package manager, to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
 
-A quick check that npm is installed and available is to run `npm --version` from a terminal or command prompt.
+Run `npm --version` from a terminal or command prompt to quickly check that npm is installed and available.
 
 npm is installed with the Node.js runtime, which is available for download from [Nodejs.org](https://nodejs.org). Install the current LTS (Long Term Support) version and the npm executable will be added by default to your system path.
 
@@ -136,7 +136,7 @@ It is possible to have mixed TypeScript and JavaScript projects. To start migrat
 
 ## Snippets
 
-VS Code has several built-in snippets that will come up as you type or you can press `kb(editor.action.triggerSuggest)` (**Trigger Suggest**) and you will see a context specific list of suggestions.
+VS Code has several built-in snippets that will come up as you type, or you can press `kb(editor.action.triggerSuggest)` (**Trigger Suggest**) and you will see a context specific list of suggestions.
 
 ![built in javascript snippet foreach](images/javascript/javascript_snippets.gif)
 
@@ -421,7 +421,7 @@ Once you have added this, you can start **Babel** with the `kb(workbench.action.
 
 ### Use the TypeScript compiler
 
-One of the key features TypeScript provides is the ability to use the latest JavaScript language features, and emit code that can execute in JavaScript runtimes that don't yet understand those newer features. With JavaScript using the same language service, it too can now take advantage of this same feature.
+One of the key features of TypeScript is the ability to use the latest JavaScript language features, and emit code that can execute in JavaScript runtimes that don't yet understand those newer features. With JavaScript using the same language service, it too can now take advantage of this same feature.
 
 The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level. Configure the `jsconfig.json` with the desired options and then use the –p argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json` to down-level compile.
 
