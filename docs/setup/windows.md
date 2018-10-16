@@ -48,7 +48,7 @@ Additionally, you can prevent the Setup from launching VS Code after completion 
 
 ### Scrolling is laggy and not smooth
 
-On certain devices, editor scrolling is not smooth but laggy for an unpleasant experience. If you notice this issue, you can configure the setting `window.smoothScrollingWorkaround: true` as a workaround.
+On certain devices, editor scrolling is not smooth but laggy for an unpleasant experience. If you notice this issue, make sure you install the Windows 10 October 2018 update where this issue is fixed.
 
 ### I'm having trouble with the installer
 
