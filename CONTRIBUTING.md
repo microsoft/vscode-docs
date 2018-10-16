@@ -21,6 +21,8 @@ To contribute to [VS Code documentation](https://code.visualstudio.com/docs), yo
 
 * [How to fork a repository](https://help.github.com/articles/fork-a-repo)
 * [How to make a pull request](https://help.github.com/articles/creating-a-pull-request/)
+* [Changing a commit message](https://help.github.com/articles/changing-a-commit-message/)
+* [How to squash commits](https://help.github.com/articles/about-pull-request-merges/)
 
 ## Documentation intent
 
