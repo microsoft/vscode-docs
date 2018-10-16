@@ -30,7 +30,7 @@ To contribute with new topics/information or make changes to existing documentat
 
 ## Feedback
 
-If you want to give documentation feedback, please use the feedback control located at the bottom of each documentation page.
+If you want to give a documentation feedback, please use the feedback control located at the bottom of each documentation page.
 
 ## Documentation Issues
 
