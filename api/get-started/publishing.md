@@ -1,8 +1,8 @@
 ---
-Order: 5
+Order: 6
 Area: get-started
-TOCTitle: Publishing
-PageTitle: Publishing the Extension
+TOCTitle: Distributing Extension
+PageTitle: Distributing Extension
 ---
 
-# How to Publish the extension
+# Distributing Extension
