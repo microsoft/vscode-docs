@@ -473,7 +473,7 @@ You can add your cursor to multiple lines by holding the alt and shift key. Left
 ![multi cursor second example](images/tips-and-tricks/editingevolved_multicursor.gif)
 
 You can add additional cursors to all occurrences of the current selection with `kbstyle(Ctrl+Shift+L)`
-You can put your cursors on multiple places in your code by holding alt and left click on the places where you want to add your cursors. Now you can start typing and your text will appear on all the places where you see your cursors blinking. 
+You can put your cursors on multiple places in your code by holding alt and left click on the places where you want to add your cursors. Now you can start typing and your text will appear on all the places where you see your cursors blinking.
 
 ![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
 
@@ -631,10 +631,9 @@ Select a symbol then type `kb(editor.action.rename)`. Alternatively, you can use
 
 ![rename symbol](images/tips-and-tricks/rename_symbol.gif)
 
-### Search and Modify
+### Search and modify
 
-Besides searching an replacing expresions, you can also search and reuse parts of what was matched, using regular expressions with capturing groups.
-Enable regular expressions in search box by clicking `.*` and then write a regular expression and use parenthesis to define groups. Then you can reuse the content matched in each group by using `$1`, `$2`, etc in the replace field.
+Besides searching and replacing expressions, you can also search and reuse parts of what was matched, using regular expressions with capturing groups. Enable regular expressions in the search box by clicking the **Use Regular Expression** `.*` button (`kb(toggleSearchRegex)`) and then write a regular expression and use parenthesis to define groups. You can then reuse the content matched in each group by using `$1`, `$2`, etc. in the Replace field.
 
 ![search and modify](images/tips-and-tricks/search_and_modify.png)
 
