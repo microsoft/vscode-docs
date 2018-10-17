@@ -4,13 +4,13 @@ Area: python
 TOCTitle: Deploy to Azure App Service
 ContentId: e3f4006c-ab3f-4444-909b-fb045afcdf09
 PageTitle: Deploy Python web apps to Azure App Service on Linux
-DateApproved: 10/04/2018
+DateApproved: 10/16/2018
 MetaDescription: How to deploy Python web apps to Azure App Service on Linux
 MetaSocialImage: images/tutorial/social.png
 ---
 # Deploy to Azure App Service on Linux
 
-This tutorial walks you through deploying a Python app to Azure App Service on Linux using the [VS Code App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
+This tutorial walks you through deploying a Python app to Azure App Service on Linux using the [VS Code App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
 
 [Azure App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), currently in Preview for Python, runs your code in a pre-defined Docker container. The characteristics of this container are fully documented on [Configure Python apps for App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python), and are summarized as follows:
 
@@ -66,7 +66,7 @@ If you don't already have an app you'd like to work with, use one of the followi
 
 - [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](python/tutorial-flask.md).
 
-- [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](python/tutorial-django.md).
+- [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](python/tutorial-django.md). Specifically use the "app-service-deploy" branch, which contains some necessary details for deployment to App Service.
 
 After verifying that your app runs properly, generate a `requirements.txt` file using `pip freeze > requirements.txt`. (This file is included in both samples.)
 
