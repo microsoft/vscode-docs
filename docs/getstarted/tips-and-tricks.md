@@ -631,6 +631,13 @@ Select a symbol then type `kb(editor.action.rename)`. Alternatively, you can use
 
 ![rename symbol](images/tips-and-tricks/rename_symbol.gif)
 
+### Search and Modify
+
+Besides searching an replacing expresions, you can also search and reuse parts of what was matched, using regular expressions with capturing groups.
+Enable regular expressions in search box by clicking `.*` and then write a regular expression and use parenthesis to define groups. Then you can reuse the content matched in each group by using `$1`, `$2`, etc in the replace field.
+
+![search and modify](images/tips-and-tricks/search_and_modify.png)
+
 ### .eslintrc.json
 
 Install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint). Configure
