@@ -21,9 +21,9 @@ Visual Studio Code version 1.9 includes a cool performance improvement that we'v
 
 Syntax Highlighting usually consists of two phases. Tokens are assigned to source code, and then they are targeted by a theme, assigned colors, and voilà, your source code is rendered with colors. It is the one feature that turns a text editor into a code editor.
 
-Tokenization in VS Code (and in the [Monaco Editor](https://microsoft.github.io/monaco-editor/)) runs line-by-line, from top to bottom, in a single pass. A tokenizer can store some state at the end of a tokenized line, which will be passed back when tokenizing the next line. This is a technique used by many tokenization engines, including TextMate grammars, that allows an editor to retokenize only a small subset of the lines when the user makes edits.
+Tokenization in VS Code (and in the [Monaco Editor](https://microsoft.github.io/monaco-editor/)) runs line-by-line, from top to bottom, in a single pass. A tokenizer can store some state at the end of a tokenized line, which will be passed back when tokenizing the next line. This is a technique used by many tokenization engines, including TextMate grammars, that allows an editor to re-tokenize only a small subset of the lines when the user makes edits.
 
-Most of the time, typing on a line results in only that line being retokenized, as the tokenizer returns the same end state and the editor can assume the following lines are not getting new tokens:
+Most of the time, typing on a line results in only that line being re-tokenized, as the tokenizer returns the same end state and the editor can assume the following lines are not getting new tokens:
 
 <center>
 <img src="/assets/blogs/2017/02/08/tokenization-1.gif" alt="Tokenization Single Line">
