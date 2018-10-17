@@ -235,7 +235,7 @@ The following steps summarize the configuration used in the [python-sample-vscod
     WORKDIR /app
     ADD . /app
 
-    # Make app folder writeable for the sake of db.sqlite3, and make that file also writeable.
+    # Make app folder writable for the sake of db.sqlite3, and make that file also writable.
     RUN chmod g+w /app
     RUN chmod g+w /app/db.sqlite3
 
