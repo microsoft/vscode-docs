@@ -23,7 +23,7 @@ Name | Required | Type | Details
 `displayName` | | `string`| The display name for the extension used in the Marketplace.
 `description` | | `string` | A short description of what your extension is and does.
 `categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`
-`keywords` | | `array` | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace.
+`keywords` | | `array` | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace. This list is currently limited to 5 keywords.
 `galleryBanner` | | `object` | Helps format the Marketplace header to match your icon.  See details below.
 `preview` | | `boolean` | Sets the extension to be flagged as a Preview in the Marketplace.
 `main` | | `string` | The entry point to your extension.
