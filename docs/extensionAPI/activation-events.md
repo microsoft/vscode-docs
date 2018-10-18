@@ -18,7 +18,7 @@ Extensions are activated lazily in VS Code.  As a result, you need to provide VS
 * [`onFileSystem:${scheme}`](/docs/extensionAPI/activation-events.md#activationeventsonfilesystem)
 * [`onView:${viewId}`](/docs/extensionAPI/activation-events.md#activationeventsonview)
 * [`onUri`](/docs/extensionAPI/activation-events.md#activationeventsonuri)
-* [`onWebviewPanel`](/docs/extensionAPI/activation-events.md#activationeventsonwebviewpanel)
+* [`onWebviewPanel:${viewType}`](/docs/extensionAPI/activation-events.md#activationeventsonwebviewpanel)
 * [`*`](/docs/extensionAPI/activation-events.md#activationevents)
 
 We also provide an overview of the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md) and the minimum required fields.
