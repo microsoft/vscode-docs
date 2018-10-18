@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Deploy to Azure App Service
 ContentId: e3f4006c-ab3f-4444-909b-fb045afcdf09
 PageTitle: Deploy Python web apps to Azure App Service on Linux
-DateApproved: 10/16/2018
+DateApproved: 10/18/2018
 MetaDescription: How to deploy Python web apps to Azure App Service on Linux
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -81,7 +81,7 @@ If you don't already have an app you'd like to work with, use one of the options
 
 - [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](tutorial-django.md).
 
-    > **Caveat**: App Service for Linux is currently in preview and has a few limitations with Django apps (like the sample) that use a local SQLite database in a `db.sqlite3` file. In particular, the Preview lacks a way to initialize a new database on the App Service before the app is started. As a result, apps typically fail because the necessary tables don't exist in the database. A partial workaround is to deploy a pre-initialized and even pre-populated database, which the app can use in a read-only manner; writing to the database also causes errors. These concerns aren't present, of course, when using a database that's hosted elsewhere.
+    > **Caveat**: At present, App Service for Linux is in preview and has a few limitations with Django apps that, like this sample, use a local SQLite database in a `db.sqlite3` file. Specifically, there isn't a means to run Django's `migrate` command as part of deployment, which means you must deploy a pre-initialized and even pre-populated database with the rest of the app code. Even then, the database if effectively read-only; writing to the database also causes errors. These concerns aren't present, of course, when using a database that's hosted elsewhere.
 
 ## Add the app to a Git repository
 
@@ -170,23 +170,24 @@ If you need a custom startup file, first create the file and commit it to your r
 
 By default, the App Service on Linux container assumes that a Flask app's startup file is named `application.py` and resides in the app's root folder. It further assumes that the Flask app object defined within that file is named `app`. If your app isn't structured in this exact way, then your custom startup command must identify the app object's location:
 
-1. Different file name and/or app object name: for example, if the app's startup file is `hello.py`and the app object is named `myapp`, the startup command is as follows:
+1. **Different file name and/or app object name**: for example, if the app's startup file is `hello.py`and the app object is named `myapp`, the startup command is as follows:
 
     ```text
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
     ```
 
-1. Startup file is in a subfolder: for example, if the startup file is `myapp/website.py` and the app object is `app`, then use Gunicorn's `--chdir` argument to specify the folder and then name the startup file and app object as usual:
+1. **Startup file is in a subfolder**: for example, if the startup file is `myapp/website.py` and the app object is `app`, then use Gunicorn's `--chdir` argument to specify the folder and then name the startup file and app object as usual:
 
     ```text
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir myapp website:app
     ```
 
-1. Startup file is within a module: for example, the startup file is `hello_app/webapp.py` and `hello_app` is itself a module with an `__init__.py` file. The app object is named `app` and is defined in `__init__.py` and `webapp.py` uses a relative import. Because of this arrangement, pointing Gunicorn with `webapp:app` produces a "Attempted relative import in non-package" error and the app fails to start.
+1. **Startup file is within a module**: in the [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, the `webapp.py` startup file is contained within the folder `hello_app`, which is itself a module with an `__init__.py` file. The app object is named `app` and is defined in `__init__.py` and `webapp.py` uses a relative import. Because of this arrangement, pointing Gunicorn to `webapp:app` produces a "Attempted relative import in non-package" error and the app fails to start.
 
-    In this situation, create a simple shim file that imports the app object from the module, and then have Gunicorn launc the app using the shim. In the example given here, which matches the [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, create a file named `startup.py` in the project root with the following contents:
+    In this situation, create a simple shim file that imports the app object from the module, and then have Gunicorn launch the app using the shim. The [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, for example, contains `startup.py` with the following contents:
 
     ```python
+    # startup.py shim
     from hello_app.webapp import app
     ```
 
@@ -206,9 +207,9 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
 
 1. When prompted, choose either **LocalGit** or **GitHub** as the source:
 
-    - LocalGit: code is deployed from the currently active branch of your local copy of the repository.
+    - **LocalGit**: code is deployed from the currently active branch of your local copy of the repository.
 
-    - GitHub: code is deployed from the selected branch of a GitHub repository, and happens automatically when you push commits to the repository. Selecting this option successively prompts you for the organization, repository, and branch to use.
+    - **GitHub**: code is deployed from the selected branch of a GitHub repository, and happens automatically when you push commits to the repository. Selecting this option successively prompts you for the organization, repository, and branch to use.
 
 1. With both choices, the extension connects the App Service to the repository. You don't see indications of the connection in VS Code itself; on the Azure portal, you can examine the connect on the Azure portal in the App Service's **Deployment** > **Deployment options** page.
 
@@ -218,7 +219,9 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
 
         ![Deploy to Web App command on an App Service in the App Service explorer](images/deploy-azure/deploy-to-web-app-command.png)
 
-    - GitHub: Commit your changes, then do a Git push by selecting **Git: Push** from the Command Palette.
+    - GitHub: Commit your changes, then do a Git push by selecting **Git: Push** from the Command Palette or by using the sync changes button on the status bar:
+
+        ![Git sync changes button on the VS Code status bar](images/deploy-azure/git-sync-changes.png)
 
 1. While deployment is taking place, you see an indicator in the App Service extension explorer:
 
@@ -245,7 +248,7 @@ When you use the App Service extension in VS Code to set GitHub as the deploymen
 1. In the **App Service** explorer in VS Code, right-click the App Service and select **Open in portal**.
 1. On the portal, select **Deployment** > **Deployment options**, then select **Disconnect**.
 
-    ![Disconnecting a deployment source](images/deployment-options-disconnect.png)
+    ![Disconnecting a deployment source](images/deploy-azure/deployment-options-disconnect.png)
 
 1. Once disconnected, you can configure a new connection directly on the portal, or you can use the App Service extension in VS Code to set the deployment source to GitHub again, selecting the desired branch.
 
@@ -259,8 +262,8 @@ With your App Service connected to a repository, you have a simple code-test-dep
 
 1. Deploy the code:
 
-    1. If you're using the LocalGit option, open the **Azure: App Service** explorer, right-click the App Service, and select **Deploy to Web App**.
-    1. If you're using GitHub, push your changes to GitHub and App Service automatically deploys the code and restarts.
+    1. **LocalGit**: open the **Azure: App Service** explorer, right-click the App Service, and select **Deploy to Web App**.
+    1. **GitHub**: push your changes to GitHub; App Service automatically deploys the code and restarts.
 
 1. Once deployment is complete, wait a few seconds for the App Service to restart, then browse the website and verify your changes.
 
