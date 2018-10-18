@@ -339,7 +339,7 @@ In the **Extensions** view, you can search via the search bar or click the **Mor
 
 In the **Extensions** view, click **Show Recommended Extensions** in the **More Actions** (...) button menu.
 
-![show recommended extensions](images/tips-and-tricks/ShowRecommendedExtensions.gif)
+![show recommended extensions](images/tips-and-tricks/show-recommended-extensions.png)
 
 ### Creating my own extension
 
@@ -566,13 +566,9 @@ Keyboard Shortcut: `kb(editor.fold)` and `kb(editor.unfold)`
 
 Keyboard Shortcut: `kb(expandLineSelection)`
 
-![select current line](images/tips-and-tricks/select_current_line.gif)
-
 ### Navigate to beginning and end of file
 
 Keyboard Shortcut: `kb(cursorTop)` and `kb(cursorBottom)`
-
-![navigate to beginning and end of file](images/tips-and-tricks/beginning_end_file.gif)
 
 ### Open Markdown Preview
 
@@ -591,14 +587,6 @@ Keyboard Shortcut: `kb(markdown.showPreviewToSide)`
 The preview and editor will synchronize with your scrolling in either view.
 
 ![side by side Markdown preview](images/tips-and-tricks/markdown-preview-side-by-side.png)
-
-### Select all occurrences of current selection
-
-Keyboard Shortcut: `kb(editor.action.selectHighlights)`
-
-![select all occurrences current selection](images/tips-and-tricks/select-all-occurrences.gif)
-
-You can now easily update all occurrences by changing it once.
 
 ## IntelliSense
 
