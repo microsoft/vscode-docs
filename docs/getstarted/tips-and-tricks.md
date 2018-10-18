@@ -528,13 +528,9 @@ Keyboard Shortcut: `kb(workbench.action.showAllSymbols)`
 
 Keyboard Shortcut: `kb(workbench.action.gotoLine)`
 
-![navigate to line](images/tips-and-tricks/navigate_to_line.gif)
-
 ### Undo cursor position
 
 Keyboard Shortcut: `kb(cursorUndo)`
-
-![undo cursor position](images/tips-and-tricks/undo_cursor_position.gif)
 
 ### Move line up and down
 
