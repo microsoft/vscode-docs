@@ -287,4 +287,4 @@ A few favorites include:
 - [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 - [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
-And again, if you've encountered any problems in the course of this tutorial, feel free to file an issue for this tutorial in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+And again, if you've encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
