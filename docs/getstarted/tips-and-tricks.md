@@ -65,7 +65,7 @@ You can open multiple files from **Quick Open** by pressing the Right arrow key.
 
 ## Command line
 
-VS Code has a powerful command line interface (CLI) to help you customize how the editor is launched for various situations.
+VS Code has a powerful command line interface (CLI) which allows you to customize how the editor is launched to support various scenarios.
 
 > Make sure the VS Code binary is on your path so you can simply type 'code' to launch VS Code. See the platform specific setup topics if VS Code is added to your environment path during installation ([Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)).
 
@@ -464,20 +464,25 @@ Here is a selection of common features for editing code. If the keyboard shortcu
 
 ### Multi cursor selection
 
+To add cursors at arbitrary positions, select a position with your mouse and use `kbstyle(Alt+Click)`.
+
+To set cursors above or below the current position use:
+
 Keyboard Shortcut: `kb(editor.action.insertCursorAbove)` or `kb(editor.action.insertCursorBelow)`
 
-You can add your cursor to multiple lines by holding the alt and shift key. Left click somewhere on the first line where you want to add a cursor, hold your mouse while moving it down, until you added cursors on all the lines you want. Now you can start typing and your text will appear everywhere where your cursors are blinking.
+![multi cursor](images/tips-and-tricks/multicursor.gif)
 
-![multi cursor](images/tips-and-tricks/multi_cursor.gif)
-
-![multi cursor second example](images/tips-and-tricks/editingevolved_multicursor.gif)
-
-You can add additional cursors to all occurrences of the current selection with `kbstyle(Ctrl+Shift+L)`
-You can put your cursors on multiple places in your code by holding alt and left click on the places where you want to add your cursors. Now you can start typing and your text will appear on all the places where you see your cursors blinking.
+You can add additional cursors to all occurrences of the current selection with `kb(editor.action.selectHighlights)`.
 
 ![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
 
 > Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `editor.multiCursorModifier` [setting](/docs/getstarted/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
+
+### Column (box) selection
+
+You can select blocks of text by holding `kbstyle(Shift+Alt)` while you drag your mouse. A separate cursor will be added to the end of each selected line.
+
+![Column text selection](images/tips-and-tricks/column-select.gif)
 
 ### Join line
 
@@ -575,7 +580,7 @@ In a Markdown file, use
 
 Keyboard Shortcut: `kb(markdown.showPreview)`
 
-![toggle readme preview](images/tips-and-tricks/toggle_preview.gif)
+![Markdown preview](images/tips-and-tricks/markdown-preview.png)
 
 ### Side by Side Markdown Edit and Preview
 
@@ -583,9 +588,9 @@ In a Markdown file, use
 
 Keyboard Shortcut: `kb(markdown.showPreviewToSide)`
 
-Special bonus: The preview will now sync.
+The preview and editor will synchronize with your scrolling in either view.
 
-![markdown sync](images/tips-and-tricks/markdown-preview-sync.gif)
+![side by side Markdown preview](images/tips-and-tricks/markdown-preview-side-by-side.png)
 
 ### Select all occurrences of current selection
 
