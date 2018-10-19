@@ -23,5 +23,3 @@ VS Code will reload and your new local Functions app will be loaded into your wo
 Next, add an HTTP trigger Function to your app.
 
 ----
-
-<a class="tutorial-next-btn" href="/tutorials/functions-extension/create-function">I created the Functions App</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azurefunctions', 'create-app')" href="javascript:void(0)">I ran into an issue</a>
