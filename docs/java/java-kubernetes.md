@@ -19,6 +19,9 @@ In addition to the Java tools you needed to install for the [Java Tutorial](/doc
 
 You can create a local Kubernetes cluster with [minikube](https://kubernetes.io/docs/getting-started-guides/minikube/) or an Azure Kubernetes cluster in [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/). In this tutorial, we will use [Azure Container Service(AKS)](https://docs.microsoft.com/azure/aks/) and you will need to have your [Azure](https://www.azure.com) account ready for the deployment steps.
 
+In addition if you want to iteratively run and debug containers directly in Azure Kubernetes Service (AKS), you could install 
+[Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds).  
+
 ## Install the Kubernetes extension
 
 For a fully integrated Kubernetes experience, you can install the [Kubernetes Tools](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension which lets you quickly develop Kubernetes manifests and HELM charts. With the extension, you can also deploy containerized micro-service based applications to local or Azure Kubernetes clusters and debug your live applications running in containers on Kubernetes clusters. It also makes it easy to browse and manage your Kubernetes clusters in VS Code and provides seamless integration with Draft to streamline Kubernetes development.
@@ -73,3 +76,4 @@ Congratulations! Now your app is successfully running in Azure Kubernetes Servic
 
 * To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md)
 * To learn more about Java on Azure, check out [Azure for Java developers](https://docs.microsoft.com/java/azure/)
+* To learn more about Java in Azure Dev Spaces, check out [Azure Dev Spaces for Java developers](https://docs.microsoft.com/azure/dev-spaces/quickstart-java)
