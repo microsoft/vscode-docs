@@ -21,7 +21,7 @@ Open the **Welcome** page to get started with the basics of VS Code. **Help** > 
 
 ![welcome page](images/tips-and-tricks/welcome_page.png)
 
-In the bottom right of the **Welcome** page, there is a link to the **Interactive playground** where you can interactively try out VS Code's feature. **Help** > **Interactive Playground**.
+In the bottom right of the **Welcome** page, there is a link to the **Interactive playground** where you can interactively try out VS Code's features. **Help** > **Interactive Playground**.
 
 ![interactive playground](images/tips-and-tricks/interactive_playground.png)
 
