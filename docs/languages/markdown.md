@@ -128,7 +128,7 @@ VS Code integrates with Markdown compilers through the integrated [task runner](
 
 For this walkthrough, we use the popular [Node.js](https://nodejs.org) module, [markdown-it](https://github.com/markdown-it/markdown-it).
 
-```
+```bash
 npm install -g markdown-it
 ```
 
