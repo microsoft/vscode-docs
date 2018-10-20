@@ -53,7 +53,3 @@ $ npm start
 Now, open your browser and navigate to [http://localhost:3000](http://localhost:3000), where you should see something like this:
 
 ![Running Express Application](images/nodejs-deployment/express.png)
-
-----
-
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/create-website">I created the Node.js application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'express')" href="javascript:void(0)">I ran into an issue</a>
