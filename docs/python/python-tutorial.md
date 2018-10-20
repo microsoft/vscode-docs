@@ -34,7 +34,7 @@ To successfully complete this tutorial, you must do the following:
 
 At a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
-```
+```bash
 mkdir hello
 cd hello
 code .

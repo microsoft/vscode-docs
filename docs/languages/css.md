@@ -42,6 +42,7 @@ You can hide VS Code's color previews by setting the following [setting](/docs/g
 ```
 
 To just disable it for css, Less and SCSS, use
+
 ```json
 "[css]": {
     "editor.colorDecorators": false
@@ -108,7 +109,7 @@ For this walkthrough, let's use either the [node-sass](https://www.npmjs.com/pac
 
 >**Note:** If you don't have [Node.js](https://nodejs.org) and the [NPM](https://www.npmjs.com/) package manager already installed, you'll need to do so for this walkthrough. [Install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager (NPM) is included in the Node.js distribution. You'll need to open a new terminal (command prompt) for `npm` to be on your PATH.
 
-```
+```bash
 npm install -g node-sass less
 ```
 
@@ -202,7 +203,7 @@ We will use [Gulp](https://gulpjs.com/) to create a task that will automate Sass
 
 We need to install gulp both globally (`-g` switch) and locally:
 
-```
+```bash
 npm install -g gulp
 npm install gulp gulp-sass gulp-less
 ```

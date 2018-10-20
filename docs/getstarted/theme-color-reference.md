@@ -568,7 +568,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `settings.dropdownBackground`: Dropdown background.
 - `settings.dropdownForeground`: Dropdown foreground.
 - `settings.dropdownBorder`: Dropdown border.
-* `settings.dropdownListBorder`: Dropdown list border.
+- `settings.dropdownListBorder`: Dropdown list border.
 - `settings.checkboxBackground`: Checkbox background.
 - `settings.checkboxForeground`: Checkbox foreground.
 - `settings.checkboxBorder`: Checkbox border.
@@ -600,4 +600,3 @@ The theme colors for snippets:
 ## Extension Colors
 
 Color ids can also be contributed by extensions through the [color contribution point](/docs/extensionAPI/extension-points.md#contributescolors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery.md#extensiondetails) tab.
-
