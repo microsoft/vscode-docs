@@ -138,9 +138,9 @@ Consult the documentation for the [Language Support for Java by Red Hat](https:/
 ### User Settings
 
 - `java.debug.logLevel` - Minimum level of debugger logs that are sent to VS Code, defaults to `warn`.
-- `java.debug.settings.showHex` - Show numbers in hex format in in the **VARIABLES** view, defaults to `false`.
-- `java.debug.settings.showStaticVariables` - Show static variables in in the **VARIABLES** view, defaults to `true`.
-- `java.debug.settings.showQualifiedNames` - Show fully qualified class names in in the **VARIABLES** view, defaults to `false`.
+- `java.debug.settings.showHex` - Show numbers in hex format in the **VARIABLES** view, defaults to `false`.
+- `java.debug.settings.showStaticVariables` - Show static variables in the **VARIABLES** view, defaults to `true`.
+- `java.debug.settings.showQualifiedNames` - Show fully qualified class names in the **VARIABLES** view, defaults to `false`.
 - `java.debug.settings.maxStringLength` - Maximum length of strings displayed in the **VARIABLES** view or Debug Console. Strings longer than this length will be trimmed. Default is `0` which means no trim is performed.
 - `java.debug.settings.enableHotCodeReplace` - Enable Hot Code replacement for Java source code. Make sure the auto build is not disabled for [VS Code Java](https://github.com/redhat-developer/vscode-java). See the [wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
 
