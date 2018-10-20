@@ -1076,7 +1076,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "markdown.preview.markEditorSelection": true,
 
   // How should clicking on links to markdown files be handled in the preview.
-  //  - inPreview: Try to open links in the the markdown preview
+  //  - inPreview: Try to open links in the markdown preview
   //  - inEditor: Try to open links in the editor
   "markdown.preview.openMarkdownLinks": "inPreview",
 

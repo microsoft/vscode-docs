@@ -5398,7 +5398,7 @@ and various editor features, like automatic bracket insertion, automatic indenta
 <div class="details collapse" id="details-977">
 <div class="comment"><p><strong>Deprecated</strong> Do not use.</p>
 <ul>
-<li><em>deprecated</em> - * Use the the autoClosingPairs property in the language configuration file instead.</li>
+<li><em>deprecated</em> - * Use th autoClosingPairs property in the language configuration file instead.</li>
 </ul>
 </div>
 </div>
@@ -8137,7 +8137,7 @@ interfaces etc.</p>
 </div></td></tr>
 <tr><td><a name="containerName"></a><span class="ts" id=656 data-target="#details-656" data-toggle="collapse"><span class="ident">containerName</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The name of the symbol containing the symbol.</p>
 </div></td></tr>
-<tr><td><a name="location"></a><span class="ts" id=657 data-target="#details-657" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Location">Location</a></span></td><td><div class="comment"><p>The the location of the symbol.</p>
+<tr><td><a name="location"></a><span class="ts" id=657 data-target="#details-657" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Location">Location</a></span></td><td><div class="comment"><p>The location of the symbol.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#SymbolInformation">SymbolInformation</a></span></td><td><div class="comment"></div></td></tr>
