@@ -24,7 +24,7 @@ In the **AZURE STORAGE** explorer, expand your subscription and find the Azure S
 
 Visit the URL to see your app running on Azure.
 
-![App running in Azure](images/static-website/azure-app.png)
+![App running in Azure](/tutorials/images/static-website/azure-app.png)
 
 ----
 

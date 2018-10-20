@@ -12,17 +12,17 @@ Next, create a Function that handles HTTP requests.
 
 From the **AZURE FUNCTIONS** explorer, click the **Create Function** icon.
 
-![Create Function](images/functions-extension/create-function.png)
+![Create Function](/tutorials/images/functions-extension/create-function.png)
 
 Select the directory you currently have open - it's the default option so press `kbstyle(Enter)`. When prompted, choose HTTP trigger, use the default name of `HttpTriggerJS`, and choose **Anonymous** authentication.
 
-![Choose Template](images/functions-extension/create-function-choose-template.png)
+![Choose Template](/tutorials/images/functions-extension/create-function-choose-template.png)
 
-![Choose Authentication](images/functions-extension/create-function-anonymous-auth.png)
+![Choose Authentication](/tutorials/images/functions-extension/create-function-anonymous-auth.png)
 
 Upon completion, a new directory is created within your Function app named `HttpTriggerJS` that includes `index.js`and `functions.json` files. The `index.js` file contains the source code that responds to the HTTP request and `functions.json` contains the [binding configuration](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger.
 
-![Completed Project](images/functions-extension/functions-vscode-intro.png)
+![Completed Project](/tutorials/images/functions-extension/functions-vscode-intro.png)
 
 Next, run your app locally to verify everything is working.
 

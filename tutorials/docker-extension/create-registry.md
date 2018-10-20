@@ -24,7 +24,7 @@ Docker Hub is Docker's own hosted registry that provides a free way of sharing i
 
 Ensure that the registry endpoint that you just setup is visible under **Registries** in the **DOCKER** explorer.
 
-![Registries](images/docker-extension/registries.png)
+![Registries](/tutorials/images/docker-extension/registries.png)
 
 ----
 

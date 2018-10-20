@@ -28,17 +28,17 @@ You can browse and install extensions from within VS Code. Bring up the **Extens
 
 Enter `Azure` in the search box and press `kbstyle(Enter)` to query the Marketplace. You'll see a number of Azure related extensions.
 
-![Search for Extensions](images/nodejs-deployment/searchforextension.png)
+![Search for Extensions](/tutorials/images/nodejs-deployment/searchforextension.png)
 
 ## Install the MS SQL Extension
 
 Scroll to find the **mssql** extension and click on it to review the README. Click the **Install** button to download and install the extension. You'll be prompted to restart VS Code to load the extension.
 
-![SQL Extension](images/nodejs-deployment/sqlextension.png)
+![SQL Extension](/tutorials/images/nodejs-deployment/sqlextension.png)
 
 Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type in `sql` to search for the newly added commands which will let you connect to a SQL Server, run queries, and more!
 
-![SQL Commands](images/nodejs-deployment/sqlcommands.png)
+![SQL Commands](/tutorials/images/nodejs-deployment/sqlcommands.png)
 
 ## Learn More at [docs.microsoft.com](https://docs.microsoft.com)
 
