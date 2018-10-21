@@ -25,7 +25,7 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 
 Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, VS Code is installed under `AppData\Local\Programs\Microsoft VS Code\bin`. To review platform specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
 
-> **Insiders:** If you are using the VS Code [Insiders](/insiders) preview, you launch your Insiders build with `code-insiders`.
+> **Insiders:** If you are using the VS Code [Insiders](/release-notes/vInsiders.md) preview, you launch your Insiders build with `code-insiders`.
 
 ## Core CLI options
 
