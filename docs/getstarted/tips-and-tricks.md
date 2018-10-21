@@ -479,6 +479,11 @@ You can add additional cursors to all occurrences of the current selection with 
 
 > Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `editor.multiCursorModifier` [setting](/docs/getstarted/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
 
+If you do not want to add all occurrences of the current selection, you can use `kb(editor.action.addSelectionToNextFindMatch)` instead.
+This only selects the next occurrence after the one you selected so you can add selections one by one.
+
+![add cursor to the next occurrences of current selection one by one](images/tips-and-tricks/add_cursor_current_selection_one_by_one.gif)
+
 ### Column (box) selection
 
 You can select blocks of text by holding `kbstyle(Shift+Alt)` while you drag your mouse. A separate cursor will be added to the end of each selected line.
