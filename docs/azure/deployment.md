@@ -17,11 +17,11 @@ The tutorials below will walk you through creating a simple website and deployin
 
 Tutorial | Description
 --- | ---
-[Deploy Azure Functions](/tutorials/functions-extension/getting-started) | Build and manage Azure Functions serverless apps directly in VS Code with the Azure Functions extension.
-[Deploy using the App Service extension](/tutorials/app-service-extension/getting-started) | Manage Azure resources directly in VS Code with the Azure App Service extension.
-[Deploy using Docker](/tutorials/docker-extension/getting-started) | Deploy your website using a Docker container.
-[Deploy using the Azure CLI](/tutorials/nodejs-deployment/getting-started) | Create, deploy, and update a website using a terminal and the Azure CLI.
-[Deploy a static website](/tutorials/static-website/getting-started) | Create, deploy, and update a static website on Azure Storage.
+[Deploy Azure Functions](/tutorials/functions-extension/getting-started.md) | Build and manage Azure Functions serverless apps directly in VS Code with the Azure Functions extension.
+[Deploy using the App Service extension](/tutorials/app-service-extension/getting-started.md) | Manage Azure resources directly in VS Code with the Azure App Service extension.
+[Deploy using Docker](/tutorials/docker-extension/getting-started.md) | Deploy your website using a Docker container.
+[Deploy using the Azure CLI](/tutorials/nodejs-deployment/getting-started.md) | Create, deploy, and update a website using a terminal and the Azure CLI.
+[Deploy a static website](/tutorials/static-website/getting-started.md) | Create, deploy, and update a static website on Azure Storage.
 
 ## Next Steps
 
