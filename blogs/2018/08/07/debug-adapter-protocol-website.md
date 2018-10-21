@@ -12,7 +12,7 @@ Author: André Weinand
 
 August 7, 2018 André Weinand, [@weinand](https://twitter.com/weinand)
 
-One goal of the July milestone was to move the **Debug Adapter Protocol** -- which was hiding itself in a somewhat obscure [GitHub project](https://github.com/Microsoft/vscode-debugadapter-node) -- to a more prominent web site (see feature request [#19636](https://github.com/Microsoft/vscode/issues/19636)).
+One goal of the July milestone was to move the **Debug Adapter Protocol** -- which was hiding itself in a somewhat obscure [GitHub project](https://github.com/Microsoft/vscode-debugadapter-node) -- to a more prominent website (see feature request [#19636](https://github.com/Microsoft/vscode/issues/19636)).
 
 This blog provides some background about protocols, the Debug Adapter Protocol, and the motivation behind the move.
 
