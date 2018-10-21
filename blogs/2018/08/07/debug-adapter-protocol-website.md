@@ -86,11 +86,11 @@ The picture shows two important benefits of the DAP approach:
 - Debug Adapters can be shared between different development tools, which helps amortize their development cost.
 - The Debug Adapter Protocol is not tied to VS Code and can be used as the foundation for a generic debugger UI in other development tools.
 
-These characteristics are similar to those of the Language Server Protocol published on its own [web site](https://microsoft.github.io/language-server-protocol/) in 2016.
+These characteristics are similar to those of the Language Server Protocol published on its own [website](https://microsoft.github.io/language-server-protocol/) in 2016.
 
 ## A new home for the DAP
 
-Now we have followed suit for the Debug Adapter Protocol by moving the DAP specification from its [old location](https://github.com/Microsoft/vscode-debugadapter-node) to a new web site [https://microsoft.github.io/debug-adapter-protocol](https://microsoft.github.io/debug-adapter-protocol/) and a corresponding repository [https://github.com/Microsoft/debug-adapter-protocol](https://github.com/Microsoft/debug-adapter-protocol).
+Now we have followed suit for the Debug Adapter Protocol by moving the DAP specification from its [old location](https://github.com/Microsoft/vscode-debugadapter-node) to a new website [https://microsoft.github.io/debug-adapter-protocol](https://microsoft.github.io/debug-adapter-protocol/) and a corresponding repository [https://github.com/Microsoft/debug-adapter-protocol](https://github.com/Microsoft/debug-adapter-protocol).
 
 This move should emphasize that the Debug Adapter Protocol in not specific to Visual Studio Code. For example, Visual Studio is now also [supporting this protocol](https://blogs.msdn.microsoft.com/visualstudio/2018/03/26/adding-support-for-debug-adapters-to-visual-studio-ide/).
 
@@ -112,7 +112,7 @@ The [old location](https://github.com/Microsoft/vscode-debugadapter-node) will c
 
 ## What's Next?
 
-Since the Debug Adapter Protocol has already been available for quite some time, the move to a new web site is not really an inception, but just a move to a new home...
+Since the Debug Adapter Protocol has already been available for quite some time, the move to a new website is not really an inception, but just a move to a new home...
 
 We'd like to invite all existing and future users of the DAP to visit our new home and continue the collaboration there. For example, you can help to keep the list of supporting tools and implementations up to date by submitting pull requests in GitHub against these Markdown files:
 [Debug Adapters](https://github.com/Microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/adapters.md),
