@@ -60,7 +60,7 @@ In this section you create a virtual environment in which Django is installed. U
 
     ![Selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
-1. Run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`) from the command palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
+1. Run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 
     > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
