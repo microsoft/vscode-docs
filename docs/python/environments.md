@@ -16,7 +16,9 @@ An "environment" in Python is the context in which a Python program runs. An env
 
 When working with Python in VS Code, you select from available environments using the **Python: Select Interpreter** command. The Python extension then uses that selected environment for IntelliSense, auto-completions, linting, formatting, and any other language-related features. (The environment is **not**, however, used for debugging; see [Choose a debugging environment](#choose-a-debugging-environment).)
 
-The selected environment is also automatically activated when using the **Terminal: New Terminal** (`kb(workbench.action.terminal.new)`), **Python: Run Python File in Terminal**, and **Python: Create Terminal** commands (the latter is the same as **Terminal > New Terminal**). Installing (or uninstalling) a package in the Terminal with a command like `pip install matplotlib` installs (or uninstalls) the package in whatever environment is active in that Terminal.
+The extension automatically activates the selected environment when you use the **Python: Run Python File in Terminal** and **Terminal: Create New Integrated Terminal** commands (as well as **Python: Create Terminal**). To prevent automatic activation, add  `"python.terminal.activateEnvironment": "false"` to your `settings.json` file.
+
+Installing (or uninstalling) a package in the Terminal with a command like `pip install matplotlib` installs (or uninstalls) the package in whatever environment is active in that Terminal.
 
 Changing interpreters with the **Python: Select Interpreter** command doesn't affect Terminal windows that are already open. You can thus activate separate environment in a split Terminal: select the first interpreter, create a Terminal for it, select a different interpreter, then use the split icon in the Terminal.
 
@@ -77,7 +79,9 @@ In either case, selecting this area of the Status Bar displays a list of availab
 
 ### Activate an environment in the Terminal
 
-After using **Python: Select Interpreter**, that interpreter is applied when right-clicking a file and selecting **Python: Run Python File in Terminal**. You can also use **Terminal: New Terminal** (`kb(workbench.action.terminal.new)`) to open a terminal in which that environment is activated. However, launching VS Code from a shell in which a certain Python environment is activated does not automatically activate that environment in the default Terminal. Use the **Terminal: New Terminal** command after VS Code is running.
+After using **Python: Select Interpreter**, that interpreter is applied when right-clicking a file and selecting **Python: Run Python File in Terminal**. You can also use **Terminal: Create New Integrated Terminal** or **Python: Create Terminal** to open a terminal in which that environment is activated. (The `python.terminal.activateEnvironment` setting, set to `true` by default, controls automatic activation.)
+
+However, launching VS Code from a shell in which a certain Python environment is activated does not automatically activate that environment in the default Terminal. Use the **Terminal: Create New Integrated Terminal** or **Python: Create Terminal** command after VS Code is running.
 
 Any changes you make to an activated environment within the terminal are persistent. For example, using `conda install <package>` from the terminal with a conda environment activated installs the package into that environment permanently. Similarly, using `pip install` in a terminal with a virtual environment activated adds the package to that environment.
 

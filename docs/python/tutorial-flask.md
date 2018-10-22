@@ -63,9 +63,9 @@ In this section you create a virtual environment in which Flask is installed. Us
 
     ![Selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
-1. Run **Terminal: New Terminal** (`kb(workbench.action.terminal.new)`) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
+1. Run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`)) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 
-    > **Note**: on Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
+    > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
 1. The selected environment appears on the left side of the VS Code status bar, and notice the "(venv)" indicator that tells you that you're using a virtual environment:
 
@@ -81,7 +81,7 @@ In this section you create a virtual environment in which Flask is installed. Us
     pip install flask
     ```
 
-You now have an self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use **Terminal: New Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/MacOS) or `env\scripts\activate` (Windows). You know the environment is activated when the command prompt shows **(env)** at the beginning.
+You now have an self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use **Terminal: Create New Integrated Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/MacOS) or `env\scripts\activate` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
 
 ## Create and run a minimal Flask app
 
@@ -101,10 +101,10 @@ You now have an self-contained environment ready for writing Flask code. VS Code
     ```python
     @app.route("/")
     def home():
-        return 'Hello, Flask!'
+        return "Hello, Flask!"
     ```
 
-    > **Tip**: you can use multiple decorators on the same function, one per line, depending on how many different routes you want to map to the same function.
+    > **Tip**: You can use multiple decorators on the same function, one per line, depending on how many different routes you want to map to the same function.
 
 1. Save the `app.py` file (`kb(workbench.action.files.save)`).
 
@@ -154,7 +154,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     @app.route("/")
     def home():
-        return 'Hello, Flask!'
+        return "Hello, Flask!"
 
     @app.route("/hello/<name>")
     def hello_there(name):
@@ -262,7 +262,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
     'Thu, 24 May, 18 at 14:35:27'
     ```
 
-    > **Note**: if you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
+    > **Note**: If you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
 
 1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
 
@@ -327,7 +327,7 @@ In this section you create a single page using a template. In the sections that 
 
         return render_template(
             "hello_there.html",
-            title='Hello, Flask',
+            title="Hello, Flask",
             content=content
         )
     ```
@@ -590,7 +590,7 @@ Accordingly, developers typically omit the virtual environment folder from sourc
 
 Although you can create the file by hand, you can also use the `pip freeze` command to generate the file based on the exact libraries installed in the activated environment:
 
-1. With your chosen environment selected using the **Python: Select Interpreter** command, run the **Terminal: New Terminal** command (`kb(workbench.action.terminal.new)`) to open a terminal with that environment activated.
+1. With your chosen environment selected using the **Python: Select Interpreter** command, run the **Terminal: Create New Integrated Terminal** command (`kb(workbench.action.terminal.new)`)) to open a terminal with that environment activated.
 
 1. In the terminal, run `pip freeze > requirements.txt` to create the `requirements.txt` file in your project folder.
 
