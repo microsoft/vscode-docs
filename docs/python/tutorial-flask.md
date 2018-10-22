@@ -327,7 +327,7 @@ In this section you create a single page using a template. In the sections that 
 
         return render_template(
             "hello_there.html",
-            title='Hello, Flask',
+            title="Hello, Flask",
             content=content
         )
     ```
