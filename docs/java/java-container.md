@@ -13,7 +13,7 @@ This tutorial will walk you through building and deploying a [Docker](https://do
 
 We will continue using the same Spring Boot application we built in our first [Java Tutorial](/docs/java/java-tutorial.md).
 
-[Docker](https://docker.com/) is a container management toolkit which allows users to publish and reuse container images. A Docker image is a recipe for running a containerized process. In this tutorial, we will build an Docker image for the web app, run the image locally, and then deploy it to the cloud.
+[Docker](https://docker.com/) is a container management toolkit which allows users to publish and reuse container images. A Docker image is a recipe for running a containerized process. In this tutorial, we will build a Docker image for the web app, run the image locally, and then deploy it to the cloud.
 
 ## Before you begin
 

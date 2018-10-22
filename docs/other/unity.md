@@ -122,4 +122,4 @@ Before|After
 
 ### How can I debug Unity?
 
-Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension.
+Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension. And check out [Debugging with VS Code](/docs/editor/debugging.md) to learn more about VS Code debugging support.

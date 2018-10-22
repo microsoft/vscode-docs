@@ -90,7 +90,7 @@ npm i -g azure-functions-core-tools@core --unsafe-perm true
 
 ### macOS
 
-**Homebew**:
+**Homebrew**:
 
 ```bash
 brew tap azure/functions

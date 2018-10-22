@@ -20,6 +20,8 @@ The extension automatically activates the selected environment when you use the 
 
 Installing (or uninstalling) a package in the Terminal with a command like `pip install matplotlib` installs (or uninstalls) the package in whatever environment is active in that Terminal.
 
+Changing interpreters with the **Python: Select Interpreter** command doesn't affect Terminal windows that are already open. You can thus activate separate environment in a split Terminal: select the first interpreter, create a Terminal for it, select a different interpreter, then use the split icon in the Terminal.
+
 > **Note**: By default, the Python extension looks for and uses on the first Python interpreter it finds in the system path. If it doesn't find an interpreter, it issues a warning. On macOS, the extension also issues a warning if you're using the OS-installed Python interpreter, because you typically want to use an interpreter you install directly. In either case, you can disable these warnings by setting `python.disableInstallationCheck` to `true` in your user settings.
 
 ## Global and virtual environments
@@ -105,7 +107,7 @@ The extension automatically looks for interpreters in the following locations:
 - Conda environments that contain a Python interpreter. VS Code does not show conda environments that don't contain an interpreter.
 - Interpreters installed in a `.direnv` folder for [direnv](https://direnv.net/) under the workspace (project) folder.
 
-You can also [manually specify an interpreter](#manually-specifying-an-interpreter) if Visual Studio Code does not locate it automatically.
+You can also [manually specify an interpreter](#manually-specify-an-interpreter) if Visual Studio Code does not locate it automatically.
 
 > **Tip:** If you create a new conda environment while VS Code is running, use the **Reload Window** command to refresh the environment list.
 
@@ -216,13 +218,13 @@ As noted earlier, Visual Studio automatically detects existing conda environment
 
 For example, the following command creates a conda environment *without* an interpreter, so VS Code doesn't display it in the list of available interpreters:
 
-```
+```bash
 conda create --name env-00
 ```
 
 In contrast, the following command creates a conda environment with a the Python 3.4 interpreter and several libraries. Because the environment contains an interpreter (which you can see in the Anaconda `envs/env-01` folder created by this command), VS Code includes it in its list:
 
-```
+```bash
 conda create -n env-01 python=3.4 scipy=0.15.0 astroid babel
 ```
 

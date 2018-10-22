@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 
-To familiarize yourself with Visual Studio Code's *general* debugging capabilities, such as examining local variables, the watch window, arguments, breakpoints, loading symbols, and more, review [VS Code debugging](/docs/editor/debugging.md).
+To familiarize yourself with Visual Studio Code's *general* debugging capabilities, such as examining local variables, the watch window, arguments, breakpoints, loading symbols, and more, review [VS Code debugging](/docs/editor/debugging.md). For Python, you can also call `breakpoint()` within your code to pause the debugger within a debugging session.
 
 This present article addresses only those considerations that are specific to Python, mainly Python-specific debugging *configurations*, including the necessary steps for specific app types and remote debugging.
 
@@ -46,7 +46,7 @@ To select a debugging configuration, select the Debug View in the sidebar, then 
 
 > **Note**: Previous versions of the Python extension used slightly different names for the configurations as shown in the above graphic, but they generally work the same.
 
-By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and in the the`launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to scroll down to see  all the Python options):
+By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and in the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to scroll down to see  all the Python options):
 
 ![Adding a new Python debugging configurations](images/debugging/add-configuration.png)
 
@@ -231,7 +231,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
     1. Launch the remote process _through_ ptvsd, for example:
 
-       ```
+       ```bash
        python3 -m ptvsd --host 1.2.3.4 --port 3000 -m myproject
        ```
 

@@ -12,13 +12,13 @@ MetaSocialImage: images/tutorial/social.png
 
 This tutorial walks you through the full process of containerizing an existing Python application using [Docker](https://www.docker.com/), pushing the app image to a Docker registry, then deploying the image to [Azure App Service](https://azure.microsoft.com/services/app-service/containers/), all within Visual Studio Code. The tutorial also demonstrates how to use base container images that include production-ready web servers (uwsgi and nginx), and how to configure those servers for both [Django](https://www.djangoproject.com/) and [Flask](http://flask.pocoo.org/) web apps, which is helpful to know no matter what your deployment target.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## An introduction to containers
 
 Docker is a system that allows you to deploy and run apps using **containers** rather than setting up dedicated environments like virtual machines. A container is a lightweight runtime environment that shares the resources of the host operating system with other containers. Docker is the layer that sits above the operating system to manage resources on behalf of containers.
 
-A container is specifically an instance of a Docker **image**, an executable package that contains everything needed to run your app: app code, configuration files, runtimes, and all of app's dependencies. A image can be used to instantiate any number of identical containers, which is especially useful when scaling out a cloud-based web app. Because container images are much smaller than virtual machine images, instances can be started and stopped much more quickly than virtual machines, enabling your app to be highly responsive to varying loads at a minimal cost. (When used to scale web apps, containers are often managed in *clusters*, which are then managed by an orchestration agent such as [Kubernetes](https://wikipedia.org/wiki/Kubernetes).)
+A container is specifically an instance of a Docker **image**, an executable package that contains everything needed to run your app: app code, configuration files, runtimes, and all of app's dependencies. A image can be used to instantiate any number of identical containers, which is especially useful when scaling out a cloud-based web app. Because container images are much smaller than virtual machine images, instances can be started and stopped much more quickly than virtual machines, enabling your app to be highly responsive to varying loads at a minimal cost. (When used to scale web apps, containers are often managed in **clusters**, which are then managed by an orchestration agent such as [Kubernetes](https://wikipedia.org/wiki/Kubernetes).)
 
 Images, for their part, are built in multiple **layers**. The lowest or **base** layers of an image are typically common elements like the Python runtime; the higher layers the contain more specialized elements like your app code. Because of layering, it takes very little time to rebuild an image when changing only the top layer with your app code. Similarly, when you push an image to a **container registry**, an online repository for images from which you can deploy to cloud services like Azure, only the modified layers need be uploaded and redeployed. As a result, using containers has only a very small impact on your develop-test-deploy loop.
 
@@ -38,7 +38,7 @@ Install the following:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Docker Community Edition](https://www.docker.com/community-edition). To verify your installation, run the command `docker --version`, which should show output like `Docker version 18.06.1-ce, build e68fc7a`.
-- Python and the Python extension as described on [Python Tutorial - Prerequisites](/docs/python/python-tutorial.md)
+- Python and the Python extension as described on [Python Tutorial - Prerequisites](/docs/python/python-tutorial.md).
 
 ### Docker and Azure App Service extensions for VS Code
 
@@ -138,7 +138,7 @@ For this reason, you need to modify the `Dockerfile` to use a base image with pr
 
 A good base image for Flask is `tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7`, which is also available for other versions of Python (see the [tiangolo/uwsgi-nginx-flask respository](https://github.com/tiangolo/uwsgi-nginx-flask-docker) on GitHub). This image already contains Flask and the production-ready uwsgi and nginx servers.
 
-By default, the image assumes that (a) your app code is located in an `app` folder, (b) the Flask app object is named `app`, and (c) the app object is located in `main.py`. Because your app may have a different structure, you can indicate the correct folders in the Dockerfile and provide the necessary parameters the the uwsgi server in a `uwsgi.ini` file.
+By default, the image assumes that (a) your app code is located in an `app` folder, (b) the Flask app object is named `app`, and (c) the app object is located in `main.py`. Because your app may have a different structure, you can indicate the correct folders in the Dockerfile and provide the necessary parameters the uwsgi server in a `uwsgi.ini` file.
 
 The following steps summarize the configuration used in the [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) app, which you can adapt for your own code.
 
@@ -235,7 +235,7 @@ The following steps summarize the configuration used in the [python-sample-vscod
     WORKDIR /app
     ADD . /app
 
-    # Make app folder writeable for the sake of db.sqlite3, and make that file also writeable.
+    # Make app folder writable for the sake of db.sqlite3, and make that file also writable.
     RUN chmod g+w /app
     RUN chmod g+w /app/db.sqlite3
 
@@ -403,4 +403,4 @@ A few favorites include:
 - [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 - [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
-And again, if you've encountered any problems in the course of this tutorial, feel free to file an issue for this tutorial in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+And again, if you've encountered any problems in the course of this tutorial, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
