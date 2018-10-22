@@ -60,7 +60,7 @@ In this section you create a virtual environment in which Django is installed. U
 
     ![Selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
-1. Run **Python: Create Terminal** from the command palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
+1. Run **Terminal: Create New Integrated Terminal** from the command palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 
     > **Note**: on Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
@@ -74,7 +74,7 @@ In this section you create a virtual environment in which Django is installed. U
     python -m pip install django
     ```
 
-You now have an self-contained environment ready for writing Django code. VS Code activates the environment automatically when you use **Python: Create Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/MacOS) or `env\scripts\activate` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
+You now have an self-contained environment ready for writing Django code. VS Code activates the environment automatically when you use **Terminal: Create New Integrated Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/MacOS) or `env\scripts\activate` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
 
 ## Create and run a minimal Django app
 
@@ -694,7 +694,7 @@ A model class can include methods that return values computed from other class p
 
 ### Migrate the database
 
-Because you changed your data models by editing `models.py`, you need to update the database itself. In VS Code, open a Terminal with your virtual environment activated (use the **Python: Create Terminal** command), navigate to the project folder, and run the following commands:
+Because you changed your data models by editing `models.py`, you need to update the database itself. In VS Code, open a Terminal with your virtual environment activated (use the **Terminal: Create New Integrated Terminal** command), navigate to the project folder, and run the following commands:
 
 ```bash
 python manage.py makemigrations
@@ -912,7 +912,7 @@ Accordingly, developers typically omit the virtual environment folder from sourc
 
 Although you can create the file by hand, you can also use the `pip freeze` command to generate the file based on the exact libraries installed in the activated environment:
 
-1. With your chosen environment selected using the **Python: Select Interpreter** command, tun the **Python: Create Terminal** command to open a terminal with that environment activated.
+1. With your chosen environment selected using the **Python: Select Interpreter** command, tun the **Terminal: Create New Integrated Terminal** command to open a terminal with that environment activated.
 
 1. In the terminal, run `pip freeze > requirements.txt` to create the `requirements.txt` file in your project folder.
 
