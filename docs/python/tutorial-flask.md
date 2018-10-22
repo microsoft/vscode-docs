@@ -65,7 +65,7 @@ In this section you create a virtual environment in which Flask is installed. Us
 
 1. Run **Python: Create Terminal** from the command palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 
-    > **Note**: on Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
+    > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
 1. The selected environment appears on the left side of the VS Code status bar, and notice the "(venv)" indicator that tells you that you're using a virtual environment:
 
@@ -101,10 +101,10 @@ You now have an self-contained environment ready for writing Flask code. VS Code
     ```python
     @app.route("/")
     def home():
-        return 'Hello, Flask!'
+        return "Hello, Flask!"
     ```
 
-    > **Tip**: you can use multiple decorators on the same function, one per line, depending on how many different routes you want to map to the same function.
+    > **Tip**: You can use multiple decorators on the same function, one per line, depending on how many different routes you want to map to the same function.
 
 1. Save the `app.py` file (`kb(workbench.action.files.save)`).
 
@@ -154,7 +154,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     @app.route("/")
     def home():
-        return 'Hello, Flask!'
+        return "Hello, Flask!"
 
     @app.route("/hello/<name>")
     def hello_there(name):
@@ -262,7 +262,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
     'Thu, 24 May, 18 at 14:35:27'
     ```
 
-    > **Note**: if you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
+    > **Note**: If you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
 
 1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
 
