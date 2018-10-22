@@ -36,7 +36,7 @@ Visual Studio Code is a great tool to help you develop your custom Office Add-in
 
 Open the project in Visual Studio Code by entering the following on the command line from within the same folder where you ran the generator:
 
-```
+```bash
 code .
 ```
 
@@ -58,7 +58,7 @@ Office Add-ins must be installed, or registered, with the Office application in 
 
 ### Side loading Mail Add-ins
 
-Mail Add-ins can be installed within the Outlook Web App. Browse to your Outlook Web App (https://mail.office365.com) and login. Once logged in, click the gear icon in the top-right section and select **Manage add-ins**:
+Mail Add-ins can be installed within the Outlook Web App. Browse to your [Outlook Web App](https://mail.office365.com) and login. Once logged in, click the gear icon in the top-right section and select **Manage add-ins**:
 
 ![Manage Add-ins](images/office/owamanageaddins.png)
 

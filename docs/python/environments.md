@@ -214,13 +214,13 @@ As noted earlier, Visual Studio automatically detects existing conda environment
 
 For example, the following command creates a conda environment *without* an interpreter, so VS Code doesn't display it in the list of available interpreters:
 
-```
+```bash
 conda create --name env-00
 ```
 
 In contrast, the following command creates a conda environment with a the Python 3.4 interpreter and several libraries. Because the environment contains an interpreter (which you can see in the Anaconda `envs/env-01` folder created by this command), VS Code includes it in its list:
 
-```
+```bash
 conda create -n env-01 python=3.4 scipy=0.15.0 astroid babel
 ```
 

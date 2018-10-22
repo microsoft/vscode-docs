@@ -234,7 +234,7 @@ To fold and unfold only the regions defined by markers use:
 
 ## Indentation
 
-VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.mg).
+VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.md).
 
 ```json
     "editor.insertSpaces": true,

@@ -32,7 +32,7 @@ code --install-extension ms-vscode.powershell
 
 If you are running VS Code [Insiders](/insiders), you will need this command instead:
 
-```
+```bash
 code-insiders --install-extension ms-vscode.powershell
 ```
 
@@ -44,13 +44,13 @@ Example scripts are included with the extension and can be found at the followin
 
 To open or view the examples in Visual Studio Code, run the following from your PowerShell command prompt:
 
-```
+```bash
 code (Get-ChildItem $Home\.vscode\extensions\ms-vscode.PowerShell-*\examples)[-1]
 ```
 
 If using the [Insiders](/insiders) edition:
 
-```
+```bash
 code-insiders (Get-ChildItem $Home\.vscode\extensions\ms-vscode.PowerShell-*\examples)[-1]
 ```
 

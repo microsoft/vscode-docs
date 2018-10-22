@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Getting Started with Python in VS Code
 
-In this tutorial you use Python 3 to create the simplest Python "Hello World" application in Visual Studio Code. By using the Python extension, you make VS Code into a great lightweight Python IDE (which you may find a productive alternative to PyCharm).
+In this tutorial, you use Python 3 to create the simplest Python "Hello World" application in Visual Studio Code. By using the Python extension, you make VS Code into a great lightweight Python IDE (which you may find a productive alternative to PyCharm).
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
@@ -34,7 +34,7 @@ To successfully complete this tutorial, you must do the following:
 
 At a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
-```
+```bash
 mkdir hello
 cd hello
 code .

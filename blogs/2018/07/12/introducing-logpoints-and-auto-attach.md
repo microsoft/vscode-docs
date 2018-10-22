@@ -54,7 +54,7 @@ If you come from a browser DevTools background, you aren't used to the concept o
 
 The best way to explain the difference between **launch** and **attach** is to think about [launch configurations](/docs/editor/debugging#_launch-configurations) as a recipe for how to start your app in debug mode **before** VS Code attaches to it, while an [attach config](/docs/editor/debugging#_launchjson-attributes) is a recipe for how to connect VS Code's debugger to an app or process that's **already** running.
 
-The value of [launch configurations](/docs/editor/debugging#_launch-configurations) is that they give you a way to offload some of the cognitive overhead of launching your app with the right debugging parameters by creating a configuration that's repeatable and sharable with your project and team.
+The value of [launch configurations](/docs/editor/debugging#_launch-configurations) is that they give you a way to offload some of the cognitive overhead of launching your app with the right debugging parameters by creating a configuration that's repeatable and shareable with your project and team.
 
 However, when we talked to developers about how they were launching their applications, we saw a pattern and made one important observation:
 
