@@ -26,7 +26,7 @@ If you landed here looking for other information about VS Code, head over to [ou
 
 ## Contributing to the documentation
 
-To contribute with new topics/information or make changes to existing documentation, see [contributing](https://github.com/Microsoft/vscode-docs/blob/master/CONTRIBUTING.md) for instructions and guidelines.
+To contribute with new topics/information or make changes to existing documentation, see [contributing](https://github.com/Microsoft/vscode-docs/blob/master/CONTRIBUTING.md#contributing) for instructions and guidelines.
 
 ## Feedback
 
