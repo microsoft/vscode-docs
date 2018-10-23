@@ -7,16 +7,14 @@ PageTitle: Extension Capabilities
 
 # Extensions and You
 
-Extensions let you extend VS Code. This includes everything from how the editor looks, to what commands and keyboard shortcuts are available, to what programming languages are supported. Even much of VS Code's built-in functionality—such as node debugging support and the markdown preview—is built on the same extension APIs that you have access to. And once you create something amazing, you can easily share it with other developers on the VS Code marketplace. Check out the [marketplace]() now to get a sense of just how powerful extensions can be.
+Extensions let you extend VS Code. This can range from how the editor looks, to the commands and keyboard shortcuts that are available, to what programming languages are supported. Much of VS Code's built-in functionality—such as node debugging support and the markdown preview—is built on the same extension APIs that you as an extension author have access to. Check out the [marketplace](https://marketplace.visualstudio.com/vscode) now to get a sense of what extensions are capable of and just how powerful they can be.
 
-This page provides a overview of VS Code's extension API. It breaks the API down into a few, high-level extension classes, with links to much more detailed documentation on each. Keep in mind that these classes are not ridged; a single extension can mix and match contributions from any of them.
+The breadth of VS Code's extensibility can be a bit daunting, so this page breaks VS Code's many extension points down into a few, high-level categories, with links to much more detailed documentation on each. These categories are not ridged; a single extension can use extension points from any of them.
 
 
 ## Theming
 
-Themes control the look of VS Code. A single theme can change both the colors of code in the editor and the colors of the VS Code user interface. If you've ever wanted to make it look like you're coding the matrix by making everything shades of green, or just wanted to create the ultimate, minimalist greyscale workspace, then themes are for you
-
-[Theming overview](TODO_link)
+[Themes](theming) control the look of VS Code, both the colors of code in the editor and the colors of the VS Code user interface itself. If you've ever wanted to make it look like you're coding the matrix by making VS Code all different shades of green, or just wanted to create the ultimate, minimalist greyscale workspace, then themes are for you.
 
 **Example Extension Points**
 
@@ -25,13 +23,12 @@ Themes control the look of VS Code. A single theme can change both the colors of
 - Port an existing TextMate theme to VS Code.
 - Add custom file icons.
 
+
 ## Language Basics
 
-Language basics let you extend an existing programming language or implement basic support for a new language declaratively, without writing any code. For more advanced features, like IntelliSense or debugging, see [language features](#language-features)
+[Language basics](language-basics) extend existing programming languages or implement basic support for a new languages. This is done declaratively, without writing any code. Basics focus on text editing-type features, such as bracket matching and syntax highlighting. For more advanced features, like IntelliSense or debugging, see [language features](#language-features)
 
-This doesn't mean language basics extension points aren't powerful. Snippets for example provide a rich and highly customizable syntax that supports advanced features like transformations and capitalizations, and a good  can completely change the coding experience.
-
-[Theming overview](TODO_link)
+Being "basic" doesn't mean these extension points aren't powerful. Snippets for example provide a rich and highly customizable syntax with support for advanced features like transformations and capitalization, while a good language grammar can completely change the coding experience.
 
 **Example Extension Points**
 
@@ -41,23 +38,58 @@ This doesn't mean language basics extension points aren't powerful. Snippets for
 - Extend an existing grammar with grammar injections.
 - Port an existing TextMate grammar to VS Code.
 
+
 ## Language Features
 
-The language feature extension points add rich support for a programming language; hovers, go to definition, error reporting, IntelliSense, code lenses—all that good stuff, and more.
+[Language feature extension points](extending-editor) add rich programming language support. Hovers, go to definition, error reporting, IntelliSense, and code lenses are just some examples of the various language features that extensions can provide.
 
-Extensions that contribute language features typically build on the [language basics](#language-basics) or extend one of VS Code's existing programming languages. They are written in TypeScript or JavaScript and run in a node environment. Many of these features can also be implemented by language servers, and advanced approach that effectively makes your extension portable across editors.
+Language features typically extend one of VS Code's existing programming languages or are built on [language basics](#language-basics). They are written in TypeScript or JavaScript and run in a node environment. Most language features can also be implemented by [language servers](/docs/extensions/example-language-server.md), and advanced approach that effectively makes your extension portable across editors.
 
-Keep in mind, these extension points be used for far more than just implementing a programming language.
+All of the language features extension points can be used for more than just implementing support for a programming language. Code lenses and hovers for example are a great way present additional information inline, while diagnostics can be used to highlight spelling or code style errors.
 
 **Example Extension Points**
 
-
-- Report spelling errors in code using diagnostics.
 - Add hovers that show previews of image urls.
+- Report spelling or linter errors in code using diagnostics.
+- Hook up VS Code to a new code formatter.
+- Provide rich, context-aware IntelliSense.
 - Add full support for a new programming language using the VS Code API or a language server.
+- Add custom outline views.
 
 
+## Common Capabilities
 
-The whole section of "Extension Capabilities" serves one purpose: **Tell people what they can do with extensions**. Topics here should be pointers to various resources instead of specific code guides.
+The [common capabilities](common-capabilities) are core pieces of functionality that you can use alongside any of the other extension points. These include registering commands, making your extension easily configurable, and collecting user input using quick inputs.
 
-It should make some overall distinction between what is and isn't "language features", and direct people to "Language Extensions" section for extension authors interested in writing language extensions.
+**Example Extension Points**
+
+- Register a new command with a keyboard shortcut.
+- Collect user input using quick inputs.
+- Build custom UI flows using quick picks.
+- Adding settings for your extension.
+- Depending on other extensions.
+- Exposing an API for other extensions to consume.
+
+
+## Workbench Extensions
+
+[Workbench extension points](extending-workbench) extend VS Code's user interface. Add new right click actions to the file explorer, or even build a custom file explorer like views using VS Code's high-level `TreeView` API. And, if your extension needs a fully customized user interface, use the Webview API to build your own document preview or interface using standard html, css, and JavaScript.
+
+**Example Extension Points**
+
+- Add custom context menu actions to the file explorer.
+- Create a new, interactive TreeView in the side bar.
+- Define a new activity bar section.
+- Show new information in the status bar.
+- Render custom content using the `WebView` API.
+
+
+## Core Extensions
+
+[Core extension points](extending-core-functionalities) are for very advanced users. These let you build a custom backend for many of VS Code's low-level functionality. For example, the `FileSystem` API can be used to support working with files over FTP or other protocols. Core extensions typically work transparently from a user's point of view.
+
+**Example Extension Points**
+
+- Add support for working with remote files over FTP or SFTP.
+- Register new source control provider, such as Mercurial.
+- Implement a custom file search provider.
