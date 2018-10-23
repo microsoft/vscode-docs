@@ -16,8 +16,8 @@ This tutorial walks you through deploying a Python app to Azure App Service on L
 
 - Apps are run with Python 3.7 using the Gunicorn web server.
 - The container includes Flask by default but not Django.
-- To install Django and any other dependencies, you must provide a `requirements.txt` file and deploy to App Service using Git, as shown in this tutorial.
-- Although the container can run Django and Flask apps automatically, provided the app matches an expected structure, you can also provide a custom startup command file through which you have full control over the Gunicorn command line.
+- To install Django and any other dependencies, you **must** provide a `requirements.txt` file and deploy to App Service using Git, as shown in this tutorial.
+- Although the container can run Django and Flask apps automatically, provided the app matches an expected structure, you can also provide a custom startup command file through which you have full control over the Gunicorn command line. A custom startup command is typically required for Flask apps, but not Django apps.
 - The container definition itself is on the [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
 
 ## Prerequisites
@@ -221,7 +221,7 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
 
 1. To deploy the app:
 
-    - **LocalGit**: Commit your changes to your local repository, then right-click the App Service again, select **Deploy to Web App**, and select the project folder when prompted. (You can also select use the deploy button at the top of the explorer, then select the App Service from the subsequent prompt.)
+    - **LocalGit**: Commit your changes to your local repository, then right-click the App Service again, select **Deploy to Web App**, and select the project folder when prompted. (You can also select use the deploy button at the top of the explorer.)
 
         ![Deploy to Web App command on an App Service in the App Service explorer](images/deploy-azure/deploy-to-web-app-command.png)
 
