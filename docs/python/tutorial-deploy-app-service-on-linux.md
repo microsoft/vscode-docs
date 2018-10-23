@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Deploy to Azure App Service
 ContentId: e3f4006c-ab3f-4444-909b-fb045afcdf09
 PageTitle: Deploy Python web apps to Azure App Service on Linux
-DateApproved: 10/18/2018
+DateApproved: 10/23/2018
 MetaDescription: How to deploy Python web apps to Azure App Service on Linux
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -64,7 +64,7 @@ After signing in, verify that you see the email account of your Azure around in 
 
 If you don't already have an app you'd like to work with, use one of the options below. Be sure to verify that the app runs locally.
 
-- A simple Flask app composed of one file named `hello.py` with the contents below, which is what's shown in this walkthrough. The app object is purposely named `myapp` to demonstrate how the names are used in the startup command for the App Service, as you see later.
+- Create a new folder, open it in VS Code, and add a file named `hello.py` with the contents below, which creates a minimal Flask app as used in this walkthrough. The app object is purposely named `myapp` to demonstrate how the names are used in the startup command for the App Service, as you see later.
 
     ```python
     from flask import Flask
@@ -75,45 +75,13 @@ If you don't already have an app you'd like to work with, use one of the options
         return "Hello Flask, on Azure App Service for Linux"
     ```
 
-    Also follow the instructions in [Flask Tutorial - Create a project environment for Flask](tutorial-flask.md#create-a-project-environment-for-flask) to create a virtual environment with Flask installed.
+    Also follow the instructions in [Flask Tutorial - Create a project environment for Flask](tutorial-flask.md#create-a-project-environment-for-flask) to create a virtual environment with Flask installed within which you can run the app locally.
 
 - [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](tutorial-flask.md).
 
 - [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](tutorial-django.md).
 
-    > **Caveat**: At present, App Service for Linux is in preview and has a few limitations with Django apps that, like this sample, use a local SQLite database in a `db.sqlite3` file. Specifically, there isn't a means to run Django's `migrate` command as part of deployment, which means you must deploy a pre-initialized and even pre-populated database with the rest of the app code. Even then, the database if effectively read-only; writing to the database also causes errors. These concerns aren't present, of course, when using a database that's hosted elsewhere.
-
-## Add the app to a Git repository
-
-As noted earlier, you must deploy to App Service on Linux using Git in order for the container to install your dependencies in `requirements.txt`. The following steps make sure you have both a `requirements.txt` file and a repository:
-
-1. Create a `requirements.txt` file if you don't have one already:
-
-    1. Activate your virtual environment with the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`).
-    1. Open a terminal for the environment with **Terminal: Create New Integrated Terminal**.
-    1. Run `pip freeze > requirements.txt`.
-
-1. In your project folder, create a file named `.gitignore` with the following contents (change `env` if you're using a different folder for a virtual environment):
-
-    ```gitignore
-    .vscode/
-    __pycache__
-    env/
-    ```
-
-1. From the **Command Palette**, run the **Git: Initialize Repository** command.
-
-    ![Initialize repository command in the command palette](images/deploy-azure/source-control-initialize-repository-command.png)
-
-    The same command is found at the top of the **Source Control** explorer:
-
-    ![Initialize repository command in the Source Control explorer](images/deploy-azure/source-control-initialize-repository-button.png)
-
-1. In the dialog that appears, navigate to your project folder (where you typically create a Git repository), then select **Initialize Repository**.
-
-1. In the **Source Control** explorer you see your project files ready to commit to the repository. Enter a commit message like "Initial commit", then select the checkmark button:
-
-    ![Commit the app code to source control](images/deploy-azure/source-control-commit.png)
+    > **Caveat**: If your Django app uses a local SQLite database like this sample, you need to include a pre-initialized and pre-populated copy of the `db.sqlite3` file in your repository. The reason for this is that, at present, the preview of App Service for Linux doesn't have a means to run Django's `migrate` command as part of deployment, so you must deploy a pre-made database. Even then, the database is effectively read-only; writing to the database also causes errors. The workaround is to use a database that's hosted elsewhere, in which case you would deploy and initialize that database separately before deploying the app code as described in this tutorial.
 
 ## Create the App Service
 
@@ -152,13 +120,11 @@ If you need a custom startup file, first create the file and commit it to your r
 
 1. Create a file in your project named `startup.txt` (or another name of your choice) that contains your startup command. For Flask, see [Flask startup commands](#flask-startup-commands) in the next section.
 
-1. Commit the command file to your Git repository.
+1. In the **Azure: App Service** explorer, expand the App Service, right-click **Application Settings**, and select **Open in Portal**:
 
-1. In the **Azure: App Service** explorer, navigate to and right-click the App Service, and select **Open in Portal**:
+    ![Open Settings in Portal command in the App Service explorer](images/deploy-azure/open-settings-in-portal-command.png)
 
-    ![Open in Portal command in the App Service explorer](images/deploy-azure/open-in-portal-command.png)
-
-1. In the Azure portal, sign in if necessary, then select **Application settings**, enter your startup file name under **Runtime** > **Startup File**, then select **Save**. (This is the one case in which you need to visit the Azure portal.)
+1. In the Azure portal, sign in if necessary; then on the **Application settings** page, enter your startup file name under **Runtime** > **Startup File**, then select **Save**. (This is the one case in which you need to visit the Azure portal.)
 
     ![Setting the startup file name in the Azure Portal](images/deploy-azure/azure-portal-startup-file.png)
 
@@ -197,9 +163,47 @@ By default, the App Service on Linux container assumes that a Flask app's startu
     gunicorn --bind=0.0.0.0 --timeout 600 startup:app
     ```
 
+## Add the app to a Git repository
+
+As noted earlier, you must deploy to App Service on Linux using Git in order for the container to install your dependencies in `requirements.txt`. The following steps make sure you have both a `requirements.txt` file and a repository:
+
+1. Create a `requirements.txt` file in your root folder if you don't have one already:
+
+    1. Activate your virtual environment with the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`).
+    1. Open a terminal for the environment with **Terminal: Create New Integrated Terminal**.
+    1. Make sure you're in the root folder of the app, then run `pip freeze > requirements.txt`.
+
+1. In your project folder, create a file named `.gitignore` with the following contents (change `env` if you're using a different folder for a virtual environment):
+
+    ```gitignore
+    .vscode/
+    __pycache__
+    env/
+    ```
+
+1. From the **Command Palette**, run the **Git: Initialize Repository** command.
+
+    ![Initialize repository command in the command palette](images/deploy-azure/source-control-initialize-repository-command.png)
+
+    The same command is found at the top of the **Source Control** explorer:
+
+    ![Initialize repository command in the Source Control explorer](images/deploy-azure/source-control-initialize-repository-button.png)
+
+1. In the prompt that appears, select your current folder for the repository, then answer **Open Repository** in the subsequent message"
+
+    ![Selecting a repository folder](images/deploy-azure/source-control-select-folder.png)
+
+    ![Opening the repository after initialization](images/deploy-azure/source-control-open-repository.png)
+
+1. In the **Source Control** explorer you see your project files ready to commit to the repository. Enter a commit message like "Initial commit", then select the checkmark button:
+
+    ![Commit the app code to source control](images/deploy-azure/source-control-commit.png)
+
 ## Deploy your app code using Git
 
 As mentioned earlier, you must use Git to deploy Python apps to App Service on Linux so that your dependencies in `requirements.txt` are installed. With Git deploy you can use either a local repository or a GitHub repository.
+
+1. Make sure all your code changes are committed to your repository, and pushed to GitHub if you're using that option.
 
 1. In the **Azure: App Service** explorer, right-click the App Service name, and select **Configure Deployment Source**:
 
@@ -215,7 +219,7 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
 
 1. To deploy the app:
 
-    - LocalGit: Commit your changes to your local repository, then right-click the App Service again, select **Deploy to Web App**, and select the project folder when prompted.
+    - LocalGit: Commit your changes to your local repository, then right-click the App Service again, select **Deploy to Web App**, and select the project folder when prompted. You can also select the App Service and use the deploy button at the top of the explorer.
 
         ![Deploy to Web App command on an App Service in the App Service explorer](images/deploy-azure/deploy-to-web-app-command.png)
 
@@ -227,7 +231,9 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
 
     ![Deployment indicator in the App Service extension explorer](images/deploy-azure/deployment-underway.png)
 
-    You can also observe progress in the **Output** panel by selecting **Azure App Service** from the drop-down.
+    You can also observe progress in the **Output** panel (`kb(workbench.action.output.toggleOutput)`) by selecting **Azure App Service** from the drop-down:
+
+    ![Observing App Service output in the Output window](images/deploy-azure/app-service-output.png)
 
 1. After a minute or two (depending on how many dependencies are in your `requirements.txt`), VS Code reports that deployment is complete. To verify that your files are deployed, expand the App Service in the **Azure: App Service** explorer, then expand **Files**:
 
@@ -237,7 +243,7 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
 
     > **Tip**: Be mindful that it's easy to misinterpret the file and folder structure because the App Service extension sorts all files and folders alphabetically and indents files slightly more than folders, which makes those files seem like children of a folder rather than peers. (See [issue 631](https://github.com/Microsoft/vscode-azureappservice/issues/631) in the App Service extension GitHub repo.)
 
-1. Right-click the App Service again and select **Browse Website** to view your running app:
+1. Right-click the App Service again and select **Browse Website** to view your running app (you may need to refresh the browser if the previous page was cached):
 
     ![The app running successfully on App Service](images/deploy-azure/running-app.png)
 
