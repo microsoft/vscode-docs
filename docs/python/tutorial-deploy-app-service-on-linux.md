@@ -221,7 +221,7 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
 
 1. To deploy the app:
 
-    - **LocalGit**: Commit your changes to your local repository, then right-click the App Service again, select **Deploy to Web App**, and select the project folder when prompted. You can also select the App Service and use the deploy button at the top of the explorer.
+    - **LocalGit**: Commit your changes to your local repository, then right-click the App Service again, select **Deploy to Web App**, and select the project folder when prompted. (You can also select use the deploy button at the top of the explorer, then select the App Service from the subsequent prompt.)
 
         ![Deploy to Web App command on an App Service in the App Service explorer](images/deploy-azure/deploy-to-web-app-command.png)
 
