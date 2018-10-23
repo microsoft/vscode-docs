@@ -59,7 +59,7 @@ Additionally, double clicking an element in the Markdown preview will automatica
 
 The Outline view is a separate section in the bottom of the File Explorer. When expanded, it will show the symbol tree of the currently active editor. For Markdown files, the symbol tree is the Markdown file's header hierarchy.
 
-![Markdown Outline view](images/markdown/markdown-outline-view.png)
+![Markdown Outline view](images/Markdown/markdown-outline-view.png)
 
 The Outline view is a great way to review your document's header structure and outline.
 
