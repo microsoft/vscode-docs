@@ -12,7 +12,7 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 In this tutorial, we show you how to personalize Visual Studio Code.
 
-<iframe src="https://www.youtube.com/embed/4wVF4w_53hs?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+[![Click to Watch](http://img.youtube.com/vi/4wVF4w_53hs/0.jpg)](https://www.youtube.com/embed/4wVF4w_53hs?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0)
 
 ## Outline
 

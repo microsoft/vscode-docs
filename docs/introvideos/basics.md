@@ -12,7 +12,7 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 In this tutorial, we walk you through setting up Visual Studio Code and give an overview of the basic features.
 
-<iframe src="https://www.youtube.com/embed/Sdg0ef2PpBw?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+[![Click to Watch](http://img.youtube.com/vi/Sdg0ef2PpBw/0.jpg)](https://www.youtube.com/embed/Sdg0ef2PpBw?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0)
 
 ## Outline
 

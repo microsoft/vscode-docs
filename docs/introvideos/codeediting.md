@@ -12,7 +12,7 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 In this Visual Studio Code tutorial, we cover source code editing, including the features outlined below. After viewing this overview, read on in the [Learn More](/docs/introvideos/codeediting.md#learn-more) section to see more features.
 
-<iframe src="https://www.youtube.com/embed/rsatrlBEFFA?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+[![Click to Watch](http://img.youtube.com/vi/rsatrlBEFFA/0.jpg)](https://www.youtube.com/embed/rsatrlBEFFA?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0)
 
 ## Outline
 
