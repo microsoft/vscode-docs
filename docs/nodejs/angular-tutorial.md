@@ -16,7 +16,7 @@ MetaSocialImage: images/angular/Welcome-to-app.png
 
 ## Welcome to Angular
 
-We'll be using the [Angular CLI](https://cli.angular.io/) for this tutorial. To install and use the command line interface as well as run the Angular application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [here](https://nodejs.org/en/download/).
+We'll be using the [Angular CLI](https://cli.angular.io/) for this tutorial. To install and use the command line interface as well as run the Angular application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [here](https://nodejs.org/en/download/). View the Angular getting started guide [here](https://angular.io/guide/quickstart).
 
 >**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version`.
 
@@ -38,7 +38,7 @@ Let's quickly run our Angular application by navigating to the new folder and ty
 
 ```bash
 cd my-app
-ng serve
+ng serve --open
 ```
 
 You should see "Welcome to app!!" on `http://localhost:4200` in your browser. We'll leave the web server running while we look at the application with VS Code.
