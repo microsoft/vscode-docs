@@ -12,7 +12,7 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 In this tutorial, we will learn how to use the basics of Git version control in Visual Studio Code.
 
-<iframe src="https://www.youtube.com/embed/AKNYgP0yEOY?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+[![Click to Watch](http://img.youtube.com/vi/AKNYgP0yEOY/0.jpg)](https://www.youtube.com/embed/AKNYgP0yEOY?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0)
 
 ## Outline
 
