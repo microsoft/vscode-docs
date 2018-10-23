@@ -66,6 +66,8 @@ If you don't already have an app you'd like to work with, use one of the options
 
 - Create a new folder, open it in VS Code, and add a file named `hello.py` with the contents below, which creates a minimal Flask app as used in this walkthrough. The app object is purposely named `myapp` to demonstrate how the names are used in the startup command for the App Service, as you see later.
 
+    Also follow the instructions in [Flask Tutorial - Create a project environment for Flask](tutorial-flask.md#create-a-project-environment-for-flask) to create a virtual environment with Flask installed within which you can run the app locally.
+
     ```python
     from flask import Flask
     myapp = Flask(__name__)
@@ -74,8 +76,6 @@ If you don't already have an app you'd like to work with, use one of the options
     def hello():
         return "Hello Flask, on Azure App Service for Linux"
     ```
-
-    Also follow the instructions in [Flask Tutorial - Create a project environment for Flask](tutorial-flask.md#create-a-project-environment-for-flask) to create a virtual environment with Flask installed within which you can run the app locally.
 
 - [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](tutorial-flask.md).
 
@@ -113,8 +113,10 @@ Depending on how you've structured your app, you may need to create a custom sta
 
 The specific use cases of a custom startup command are as follows:
 
-- You have a Flask app whose startup file and app object are named something *other* than `application.py` and `app`, respectively. In other words, unless you have an `application.py` in the root folder of your project, *and* the Flask app object is named `app`, then you need a custom startup command.
+- You have a **Flask** app whose startup file and app object are named something *other* than `application.py` and `app`, respectively. In other words, unless you have an `application.py` in the root folder of your project, *and* the Flask app object is named `app`, then you need a custom startup command.
 - You want to start the Gunicorn web server with additional arguments beyond the defaults, which are `--bind=0.0.0.0 --timeout 600`.
+
+Django apps typically don't need customizations unless you want to provide additional arguments to Gunicorn.
 
 If you need a custom startup file, first create the file and commit it to your repository so it can be deployed with the rest of the app code.
 
@@ -219,11 +221,11 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
 
 1. To deploy the app:
 
-    - LocalGit: Commit your changes to your local repository, then right-click the App Service again, select **Deploy to Web App**, and select the project folder when prompted. You can also select the App Service and use the deploy button at the top of the explorer.
+    - **LocalGit**: Commit your changes to your local repository, then right-click the App Service again, select **Deploy to Web App**, and select the project folder when prompted. You can also select the App Service and use the deploy button at the top of the explorer.
 
         ![Deploy to Web App command on an App Service in the App Service explorer](images/deploy-azure/deploy-to-web-app-command.png)
 
-    - GitHub: Commit your changes, then do a Git push by selecting **Git: Push** from the Command Palette or by using the sync changes button on the status bar:
+    - **GitHub**: Commit your changes, then do a Git push by selecting **Git: Push** from the Command Palette or by using the sync changes button on the status bar:
 
         ![Git sync changes button on the VS Code status bar](images/deploy-azure/git-sync-changes.png)
 
@@ -247,17 +249,6 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
 
     ![The app running successfully on App Service](images/deploy-azure/running-app.png)
 
-### Changing the GitHub branch
-
-When you use the App Service extension in VS Code to set GitHub as the deployment source, you're prompted for a specific branch. This branch is then directly wired into the App Service configuration. To use a different branch, you must first disconnect the existing branch, then create a new connection:
-
-1. In the **App Service** explorer in VS Code, right-click the App Service and select **Open in portal**.
-1. On the portal, select **Deployment** > **Deployment options**, then select **Disconnect**.
-
-    ![Disconnecting a deployment source](images/deploy-azure/deployment-options-disconnect.png)
-
-1. Once disconnected, you can configure a new connection directly on the portal, or you can use the App Service extension in VS Code to set the deployment source to GitHub again, selecting the desired branch.
-
 ## Make changes and redeploy
 
 With your App Service connected to a repository, you have a simple code-test-deploy process:
@@ -276,6 +267,17 @@ With your App Service connected to a repository, you have a simple code-test-dep
 With any deployment option, you can observe status on the Azure portal under the App Service's **Deployment** > **Deployment options** page:
 
 ![Azure portal showing deployment status for an App Service](images/deploy-azure/deployment-options-status.png)
+
+### Changing the GitHub branch
+
+When you use the App Service extension in VS Code to set GitHub as the deployment source, you're prompted for a specific branch. This branch is then directly wired into the App Service configuration. To use a different branch, you must first disconnect the existing branch, then create a new connection:
+
+1. In the **App Service** explorer in VS Code, right-click the App Service and select **Open in portal**.
+1. On the portal, select **Deployment** > **Deployment options**, then select **Disconnect**.
+
+    ![Disconnecting a deployment source](images/deploy-azure/deployment-options-disconnect.png)
+
+1. Once disconnected, you can configure a new connection directly on the portal, or you can use the App Service extension in VS Code to set the deployment source to GitHub again, selecting the desired branch.
 
 ## Next steps
 
