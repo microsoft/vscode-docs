@@ -9,7 +9,7 @@ PageTitle: Theming
 
 In VS Code, there are two types of themes:
 
-- Color Theme: A mapping from both UI Component Identifier and Text Token Identifier to color codes. Color theme allows you to apply your favorite colors to both VS Code UI Components and the text in the editor.
+- Color Theme: A mapping from both UI Component Identifier and Text Token Identifier to colors. Color theme allows you to apply your favorite colors to both VS Code UI Components and the text in the editor.
 - Icon Theme: A mapping from file type / file name to images. The file icon is displayed across the VS Code UI in places such as File Explorer, Quick Open List and Editor Tab.
 
 Additionally, there is an API [`vscode.TextEditor.setDecorations`](/api/references/vscode-api#TextEditor.setDecorations) that allows you to create decorations for specific ranges in a text editor.
@@ -18,9 +18,9 @@ Additionally, there is an API [`vscode.TextEditor.setDecorations`](/api/referenc
 
 ![color-theme](./images/theming/color-theme.png)
 
-As you can see in the illustration, Color Theme defines two mappings, `color` and `tokenColors` that determine the color of UI Components and Text Tokens.
+As you can see in the illustration, Color Theme defines two mappings, `colors` for UI Component colors and `tokenColors` for Text Token colors.
 
-You can see how each UI Component corresponds to the color key code at the [Theme Color Reference](/api/references/theme-color) topic.
+[Theme Color Reference](/api/references/theme-color) is a good starting point for customizing UI Component colors.
 
 If you want to change the color of text in your editor, you need to know how the text is tokenized. VS Code provides a handy command "Developer: Inspect TM Scopes" that shows you the TextMate scopes of each syntax token in the editor.
 
