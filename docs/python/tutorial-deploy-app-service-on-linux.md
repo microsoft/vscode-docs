@@ -20,6 +20,8 @@ This tutorial walks you through deploying a Python app to Azure App Service on L
 - Although the container can run Django and Flask apps automatically, provided the app matches an expected structure, you can also provide a custom startup command file through which you have full control over the Gunicorn command line. A custom startup command is typically required for Flask apps, but not Django apps.
 - The container definition itself is on the [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
 
+If you encounter any problems in the course of this tutorial, feel free to file an issue in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+
 ## Prerequisites
 
 To complete this tutorial you need an Azure account, Visual Studio Code with the App Service extension, a Python environment, and an app that you'd like to deploy.
