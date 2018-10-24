@@ -79,6 +79,6 @@ Congratulations, you have your first Spring Boot web app running locally! Read o
 
 ## Next steps
 
-* If you'd like to learn how to deploy your web application, checkout out the [Deploy a Java Application to Azure Web App](/docs/java/java-webapp.md) tutorial where we show how to run your web app in the cloud.
+* If you'd like to learn how to deploy your web application, check out the [Deploy a Java Application to Azure Web App](/docs/java/java-webapp.md) tutorial where we show how to run your web app in the cloud.
 * To see how you can containerize the web app and deploy to the cloud as a Docker container, check out [Java Container Tutorial](/docs/java/java-container.md)
 * To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md)
