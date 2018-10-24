@@ -74,7 +74,7 @@ In this section you create a virtual environment in which Django is installed. U
     python -m pip install django
     ```
 
-You now have an self-contained environment ready for writing Django code. VS Code activates the environment automatically when you use **Terminal: Create New Integrated Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/MacOS) or `env\scripts\activate` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
+You now have a self-contained environment ready for writing Django code. VS Code activates the environment automatically when you use **Terminal: Create New Integrated Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/MacOS) or `env\scripts\activate` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
 
 ## Create and run a minimal Django app
 
