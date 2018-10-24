@@ -5,11 +5,11 @@ TOCTitle: Overview
 PageTitle: Extension Capabilities
 ---
 
-# Extensions and You
+# Extensions Capabilities
 
-Extensions let you extend VS Code. This can range from how the editor looks, to the commands and keyboard shortcuts that are available, to what programming languages are supported. Much of VS Code's built-in functionality—such as node debugging support and the markdown preview—is built on the same extension APIs that you as an extension author have access to. Check out the [marketplace](https://marketplace.visualstudio.com/vscode) now to get a sense of what extensions are capable of and just how powerful they can be.
+Extensions let you extend VS Code. This can range from how the editor looks, to the commands and keyboard shortcuts that are available, to what programming languages are supported. Much of VS Code's built-in functionality — such as node debugging support and the markdown preview — is built on the same extension APIs that you as an extension author have access to. Check out the [marketplace](https://marketplace.visualstudio.com/vscode) now to get a sense of what extensions are capable of and just how powerful they can be.
 
-The breadth of VS Code's extensibility can be a bit daunting, so this page breaks VS Code's many extension points down into a few, high-level categories, with links to much more detailed documentation on each. These categories are not ridged; a single extension can use extension points from any of them.
+The breadth of VS Code's extensibility can be a bit daunting, so this page breaks VS Code's many extension points down into a few, high-level categories, with links to much more detailed documentation on each. These categories are not mutually exclusive; a single extension can use extension points from any of them.
 
 
 ## Theming
@@ -18,44 +18,10 @@ The breadth of VS Code's extensibility can be a bit daunting, so this page break
 
 **Example Extension Points**
 
-- Change code colors with a theme.
-- Change UI colors with a workbench theme.
+- Change colors of your code.
+- Change colors of the VS Code User Interface.
 - Port an existing TextMate theme to VS Code.
 - Add custom file icons.
-
-
-## Language Basics
-
-[Language basics](language-basics) extend existing programming languages or implement basic support for a new languages. This is done declaratively, without writing any code. Basics focus on text editing-type features, such as bracket matching and syntax highlighting. For more advanced features, like IntelliSense or debugging, see [language features](#language-features)
-
-Being "basic" doesn't mean these extension points aren't powerful. Snippets for example provide a rich and highly customizable syntax with support for advanced features like transformations and capitalization, while a good language grammar can completely change the coding experience.
-
-**Example Extension Points**
-
-- Provide snippets for an existing language.
-- Tell VS Code about a new programming language.
-- Add or replace the grammar for a programming language.
-- Extend an existing grammar with grammar injections.
-- Port an existing TextMate grammar to VS Code.
-
-
-## Language Features
-
-[Language feature extension points](extending-editor) add rich programming language support. Hovers, go to definition, error reporting, IntelliSense, and code lenses are just some examples of the various language features that extensions can provide.
-
-Language features typically extend one of VS Code's existing programming languages or are built on [language basics](#language-basics). They are written in TypeScript or JavaScript and run in a node environment. Most language features can also be implemented by [language servers](/docs/extensions/example-language-server.md), and advanced approach that effectively makes your extension portable across editors.
-
-All of the language features extension points can be used for more than just implementing support for a programming language. Code lenses and hovers for example are a great way present additional information inline, while diagnostics can be used to highlight spelling or code style errors.
-
-**Example Extension Points**
-
-- Add hovers that show previews of image urls.
-- Report spelling or linter errors in code using diagnostics.
-- Hook up VS Code to a new code formatter.
-- Provide rich, context-aware IntelliSense.
-- Add full support for a new programming language using the VS Code API or a language server.
-- Add custom outline views.
-
 
 ## Common Capabilities
 
@@ -70,6 +36,37 @@ The [common capabilities](common-capabilities) are core pieces of functionality 
 - Depending on other extensions.
 - Exposing an API for other extensions to consume.
 
+## Static Language Features
+
+[Static Language Features](/api/language-extensions/overview#Static-Language-Features) extend existing programming languages or implement basic support for a new languages. This is done declaratively, without writing any code. These extension points focus on text editing-type features, such as bracket matching and syntax highlighting. For more advanced features, like IntelliSense or debugging, see [Dynamic Language Features](#dynamic-language-features)
+
+Snippets for example provide a rich and highly customizable syntax with support for advanced features like transformations and capitalization, while a good language grammar can completely change the coding experience.
+
+**Example Extension Points**
+
+- Provide snippets for an existing language.
+- Tell VS Code about a new programming language.
+- Add or replace the grammar for a programming language.
+- Extend an existing grammar with grammar injections.
+- Port an existing TextMate grammar to VS Code.
+
+## Dynamic Language Features
+
+[Dynamic Language Features](/api/language-extensions/overview#Dynamic-Language-Features) add rich programming language support. Hovers, go to definition, error reporting, IntelliSense, and code lenses are just some examples of the various language features that extensions can provide.
+
+Language features typically extend one of VS Code's existing programming languages or are built on the Static Language Features. They are written in TypeScript or JavaScript and run in a node environment. Most language features can also be implemented by [language servers](/docs/extensions/example-language-server.md), an advanced approach that effectively makes your extension portable across editors.
+
+All of the language features extension points can be used for more than just implementing support for a programming language. Code lenses and hovers for example are a great way present additional information inline, while diagnostics can be used to highlight spelling or code style errors.
+
+**Example Extension Points**
+
+- Add decorations to text in the editor.
+- Add hovers that show previews of image urls.
+- Report spelling or linter errors in code using diagnostics.
+- Hook up VS Code to a new code formatter.
+- Provide rich, context-aware IntelliSense.
+- Add full support for a new programming language using the VS Code API or a language server.
+- Add custom outline views.
 
 ## Workbench Extensions
 
@@ -83,6 +80,10 @@ The [common capabilities](common-capabilities) are core pieces of functionality 
 - Show new information in the status bar.
 - Render custom content using the `WebView` API.
 
+## Debugger
+
+To be written @mjbvz.
+Talk about both debuggers and task providers.
 
 ## Core Extensions
 

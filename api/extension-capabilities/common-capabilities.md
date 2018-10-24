@@ -9,6 +9,7 @@ PageTitle: Common Capabilities
 
 This page should have a few short paragraphs that talks about common capabilities that extensions could use, for example:
 
+- Persist data between extension activations
 - Using commands
 - Contribute Context Menu items
 - Contribute configurations
