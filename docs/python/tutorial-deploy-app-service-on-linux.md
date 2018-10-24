@@ -2,7 +2,7 @@
 Order: 9
 Area: python
 TOCTitle: Deploy to Azure App Service
-ContentId: e3f4006c-ab3f-4444-909b-fb045afcdf09
+ContentId: 1d4ae3ac-5d53-4e29-bf70-d97f1186c6c2
 PageTitle: Deploy Python web apps to Azure App Service on Linux
 DateApproved: 10/24/2018
 MetaDescription: How to deploy Python web apps to Azure App Service on Linux
@@ -10,33 +10,33 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Deploy to Azure App Service on Linux
 
-This tutorial walks you through deploying a Python app to Azure App Service on Linux using the [VS Code App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+This tutorial walks you through using Visual Studio Code to deploy a Python application to Azure App Service on Linux using the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
 
-[Azure App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), currently in Preview for Python, runs your code in a pre-defined Docker container. The characteristics of this container are summarized as follows (for full documentation, see [Configure Python apps for App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python):
+[Azure App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), currently in Preview for Python, runs your source code in a pre-defined Docker container. The characteristics of this container are summarized as follows (for full documentation, see [Configure Python apps for App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python)):
 
-- Apps are run with Python 3.7 using the Gunicorn web server.
+- Apps are run with Python 3.7 using the [Gunicorn](https://gunicorn.org) web server.
 - The container includes Flask by default but not Django.
 - To install Django and any other dependencies, you **must** provide a `requirements.txt` file and deploy to App Service using Git, as shown in this tutorial.
 - Although the container can run Django and Flask apps automatically, provided the app matches an expected structure, you can also provide a custom startup command file through which you have full control over the Gunicorn command line. A custom startup command is typically required for Flask apps, but not Django apps.
 - The container definition itself is on the [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
 
-If you encounter any problems in the course of this tutorial, feel free to file an issue in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+If you encounter any problems in the course of this tutorial, feel free to file an issue in the [Visual Studio Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
-To complete this tutorial you need an Azure account, Visual Studio Code with the App Service extension, a Python environment, and an app that you'd like to deploy.
+To complete this tutorial you need an Azure account, Visual Studio Code with the Azure App Service extension, a Python environment, and an app that you'd like to deploy.
 
 ### Azure account
 
 If you don't have an Azure account, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension) for a free 30-day account with $200 in Azure credits to try out any combination of services.
 
-### Visual Studio Code, Python, and the App Service extension
+### Visual Studio Code, Python, and the Azure App Service extension
 
 Install the following:
 
 - [Visual Studio Code](https://code.visualstudio.com/).
-- Python and the Python extension as described on [Python Tutorial - Prerequisites](python-tutorial.md).
-- The [App Service Extension](vscode:extension/ms-azuretools.vscode-azureappservice), which provides interaction with Azure App Service from within VS Code. For general information, explore the [App Service extension tutorial](/tutorials/app-service-extension/getting-started.md) and visit the [vscode-azureappservice GitHub repository](https://github.com/Microsoft/vscode-azureappservice).
+- Python and the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension as described on [Python Tutorial - Prerequisites](/docs/python/python-tutorial.md).
+- The [Azure App Service](vscode:extension/ms-azuretools.vscode-azureappservice) extension, which provides interaction with Azure App Service from within VS Code. For general information, explore the [App Service extension tutorial](/tutorials/app-service-extension/getting-started.md) and visit the [vscode-azureappservice GitHub repository](https://github.com/Microsoft/vscode-azureappservice).
 
 ### Sign in to Azure
 
@@ -62,13 +62,13 @@ After signing in, verify that you see the email account of your Azure around in 
 > set HTTP_PROXY=http://username:password@proxy:8080
 > ```
 
-### App code
+### Your application
 
 If you don't already have an app you'd like to work with, use one of the options below. Be sure to verify that the app runs locally.
 
 - Create a new folder, open it in VS Code, and add a file named `hello.py` with the contents below, which creates a minimal Flask app as used in this walkthrough. The app object is purposely named `myapp` to demonstrate how the names are used in the startup command for the App Service, as you see later.
 
-    Also follow the instructions in [Flask Tutorial - Create a project environment for Flask](tutorial-flask.md#create-a-project-environment-for-flask) to create a virtual environment with Flask installed within which you can run the app locally.
+    Also follow the instructions in [Flask Tutorial - Create a project environment for Flask](/docs/python/tutorial-flask.md#create-a-project-environment-for-flask) to create a virtual environment with Flask installed within which you can run the app locally.
 
     ```python
     from flask import Flask
@@ -79,9 +79,9 @@ If you don't already have an app you'd like to work with, use one of the options
         return "Hello Flask, on Azure App Service for Linux"
     ```
 
-- [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](tutorial-flask.md).
+- [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md).
 
-- [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](tutorial-django.md).
+- [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md).
 
     > **Caveat**: If your Django app uses a local SQLite database like this sample, you need to include a pre-initialized and pre-populated copy of the `db.sqlite3` file in your repository. The reason for this is that, at present, the preview of App Service for Linux doesn't have a means to run Django's `migrate` command as part of deployment, so you must deploy a pre-made database. Even then, the database is effectively read-only; writing to the database also causes errors. The workaround is to use a database that's hosted elsewhere, in which case you would deploy and initialize that database separately before deploying the app code as described in this tutorial.
 
@@ -203,7 +203,7 @@ As noted earlier, you must deploy to App Service on Linux using Git in order for
 
     ![Commit the app code to source control](images/deploy-azure/source-control-commit.png)
 
-## Deploy your app code using Git
+## Deploy your app using Git
 
 As mentioned earlier, you must use Git to deploy Python apps to App Service on Linux so that your dependencies in `requirements.txt` are installed. With Git deploy you can use either a local repository or a GitHub repository.
 
