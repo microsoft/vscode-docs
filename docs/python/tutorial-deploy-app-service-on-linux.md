@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Deploy to Azure App Service
 ContentId: e3f4006c-ab3f-4444-909b-fb045afcdf09
 PageTitle: Deploy Python web apps to Azure App Service on Linux
-DateApproved: 10/23/2018
+DateApproved: 10/24/2018
 MetaDescription: How to deploy Python web apps to Azure App Service on Linux
 MetaSocialImage: images/tutorial/social.png
 ---
