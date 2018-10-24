@@ -86,7 +86,7 @@ Valid values for `"apply"`:
 
 ## Extensions with refactorings
 
-You can find extensions that support refactoring by looking in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). You can go to the Extensions view (`kb(workbench.view.extensions)`) and typing 'refactor' in the search box. You can then sort by install count or ratings to see which extensions are popular.
+You can find extensions that support refactoring by looking in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). You can go to the Extensions view (`kb(workbench.view.extensions)`) and type 'refactor' in the search box. You can then sort by install count or ratings to see which extensions are popular.
 
 <div class="marketplace-extensions-refactor"></div>
 
