@@ -37,7 +37,7 @@ With the C/C++ extension installed, open a folder that contains your C/C++ sourc
 
 The extension will attempt to determine your folder's basic configuration info based on compilers it finds on your system. If for any reason, that configuration is incomplete, you can generate a `c_cpp_properties.json` file by running the **C/Cpp: Edit configurations...** command from the **Command Palette** (`kb(workbench.action.showCommands)` and add the missing information.
 
-If a `#include` file or one of its dependencies cannot be found, you can also click on the green squiggles under the include statements to view suggestions for how to update your configuration.
+If a `#include` file or one of its dependencies cannot be found, you can also click on the red squiggles under the include statements to view suggestions for how to update your configuration.
 
 ![browse path light bulb](images/cpp/cpp-lightbulb.png)
 
