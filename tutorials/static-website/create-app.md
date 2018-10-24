@@ -12,7 +12,7 @@ In this section, you will create a simple static website that can be deployed to
 
 > **Tip:** If you already have your own application ready to deploy, you can skip ahead to [Deploy the Website](/tutorials/static-website/choose-deployment.md).
 
-## Install create-react-app tool
+## Install `create-react-app tool`
 
 [React](https://reactjs.org/) is a popular framework for building web applications, so we will use it as an example. You can scaffold (create) a new React application using the [create-react-app](https://github.com/facebook/create-react-app) tool. The `create-react-app` tool is shipped as an npm module and can be installed by using `npm`.
 
@@ -37,7 +37,7 @@ cd my-react-app
 npm run build
 ```
 
-You should now have a `build` folder in your project folder. This contains the `.html`, `.css`, and `.js` files we will be deploying to Azure Storage.
+You should now have a `build/` folder in your project folder. This contains the `.html`, `.css`, and `.js` files we will be deploying to Azure Storage.
 
 ## Run the application
 
