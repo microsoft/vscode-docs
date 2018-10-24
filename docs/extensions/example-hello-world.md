@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Hello World
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
 PageTitle: Your First Visual Studio Code Extension - Hello World
-DateApproved: 9/5/2018
+DateApproved: 10/4/2018
 MetaDescription: Create your first Visual Studio extension (plug-in) with a simple Hello Word example.  This walkthrough will take you through the basics of VS Code extensibility.
 ---
 # Example - Hello World

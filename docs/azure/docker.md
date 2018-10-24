@@ -4,7 +4,7 @@ Area: azure
 TOCTitle: Docker
 ContentId: 42F8B9F8-BD03-4159-9479-17C5BDE30531
 PageTitle: Working with Docker in Visual Studio Code
-DateApproved: 9/5/2018
+DateApproved: 10/4/2018
 MetaDescription: Working with Docker containers in Visual Studio Code.
 ---
 # Working with Docker

@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Webview API
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
 PageTitle: Using the Visual Studio Webview API
-DateApproved: 9/5/2018
+DateApproved: 10/4/2018
 MetaDescription: Using the Webview Api to create fully customizable views within Visual Studio Code
 ---
 # VS Code Webview API
@@ -816,7 +816,7 @@ function getWebviewContent() {
 }
 ```
 
-![persistance retrain](images/webview/persistence-retrain.gif)
+![persistence retrain](images/webview/persistence-retrain.gif)
 
 Notice how the counter does not reset now when the webview is hidden and then restored. No extra code required! With `retainContextWhenHidden`, the webview acts similarly to a background tab in a web browser. Scripts and other dynamic content are suspended, but immediately resumed once the webview becomes visible again. You cannot send messages to a hidden webview, even when `retainContextWhenHidden` is enabled.
 

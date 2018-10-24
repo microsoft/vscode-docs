@@ -209,7 +209,7 @@ to <code>undefined</code>.</p>
 
 <a name="debug.registerDebugConfigurationProvider"></a><span class="ts" id=1755 data-target="#details-1755" data-toggle="collapse"><span class="ident">registerDebugConfigurationProvider</span><span>(</span><span class="ident">debugType</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DebugConfigurationProvider">DebugConfigurationProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1755">
-<div class="comment"><p>Register a <a href="#DebugConfigurationProvider">debug configuration provider</a> for a specifc debug type.
+<div class="comment"><p>Register a <a href="#DebugConfigurationProvider">debug configuration provider</a> for a specific debug type.
 More than one provider can be registered for the same type.</p>
 </div>
 <div class="signature">
@@ -472,7 +472,7 @@ greater than zero mean the selector matches the document.</p>
 <li>When the <code>DocumentFilter</code> is empty (<code>{}</code>) the result is <code>0</code></li>
 <li>When <code>scheme</code>, <code>language</code>, or <code>pattern</code> are defined but one doesn’t match, the result is <code>0</code></li>
 <li>Matching against <code>*</code> gives a score of <code>5</code>, matching via equality or via a glob-pattern gives a score of <code>10</code></li>
-<li>The result is the maximun value of each match</li>
+<li>The result is the maximum value of each match</li>
 </ol>
 </li>
 </ol>
@@ -1798,7 +1798,7 @@ its returned promise isn&#39;t resolve or rejected.</del></p>
 the provided <a href="#Progress">progress</a>-object.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">R</a>&gt;</span></td><td><div class="comment"><p>The thenable the task did rseturn.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">R</a>&gt;</span></td><td><div class="comment"><p>The thenable the task did return.</p>
 </div></td></tr>
 </table>
 </div>
@@ -2228,7 +2228,7 @@ specify the <em>language</em> and/or the <em>content</em> of the document.</p>
 
 
 <div class="comment"><p>A cancellation token is passed to an asynchronous or long running
-operation to request cancellation, like cancelling a request
+operation to request cancellation, like canceling a request
 for completion items because the user continued to type.</p>
 <p>To get an instance of a <code>CancellationToken</code> use a
 <a href="#CancellationTokenSource">CancellationTokenSource</a>.</p>
@@ -2240,7 +2240,7 @@ for completion items because the user continued to type.</p>
 
 <a name="CancellationToken.isCancellationRequested"></a><span class="ts" id=408 data-target="#details-408" data-toggle="collapse"><span class="ident">isCancellationRequested</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 <div class="details collapse" id="details-408">
-<div class="comment"><p>Is <code>true</code> when the token has been cancelled, <code>false</code> otherwise.</p>
+<div class="comment"><p>Is <code>true</code> when the token has been canceled, <code>false</code> otherwise.</p>
 </div>
 </div>
 
@@ -2514,7 +2514,7 @@ calls to <a href="#CodeLensProvider.provideCodeLenses">compute</a>-lenses.</p>
 </div></td></tr>
 <tr><td><a name="green"></a><span class="ts" id=911 data-target="#details-911" data-toggle="collapse"><span class="ident">green</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>The green component.</p>
 </div></td></tr>
-<tr><td><a name="blue"></a><span class="ts" id=912 data-target="#details-912" data-toggle="collapse"><span class="ident">blue</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>The bluew component.</p>
+<tr><td><a name="blue"></a><span class="ts" id=912 data-target="#details-912" data-toggle="collapse"><span class="ident">blue</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>The blue component.</p>
 </div></td></tr>
 <tr><td><a name="alpha"></a><span class="ts" id=913 data-target="#details-913" data-toggle="collapse"><span class="ident">alpha</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>The alpha component.</p>
 </div></td></tr>
@@ -2600,7 +2600,7 @@ calls to <a href="#CodeLensProvider.provideCodeLenses">compute</a>-lenses.</p>
 
 <a name="ColorInformation.range"></a><span class="ts" id=915 data-target="#details-915" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
 <div class="details collapse" id="details-915">
-<div class="comment"><p>The range in the document where this color appers.</p>
+<div class="comment"><p>The range in the document where this color appears.</p>
 </div>
 </div>
 
@@ -2771,7 +2771,7 @@ invoked with.</p>
 
 
 <div class="comment"><p>A completion item represents a text snippet that is proposed to complete text that is being typed.</p>
-<p>It is suffient to create a completion item from just a <a href="#CompletionItem.label">label</a>. In that
+<p>It is sufficient to create a completion item from just a <a href="#CompletionItem.label">label</a>. In that
 case the completion item will replace the <a href="#TextDocument.getWordRangeAtPosition">word</a>
 until the cursor with the given label or <a href="#CompletionItem.insertText">insertText</a>. Otherwise the
 the given <a href="#CompletionItem.textEdit">edit</a> is used.</p>
@@ -3559,7 +3559,7 @@ Returning the value &#39;undefined&#39; prevents the debug session from starting
 <a name="DecorationOptions.renderOptions"></a><span class="ts" id=309 data-target="#details-309" data-toggle="collapse"><span class="ident">renderOptions</span><span>?</span><span>: </span><a class="type-ref" href="#DecorationInstanceRenderOptions">DecorationInstanceRenderOptions</a></span>
 <div class="details collapse" id="details-309">
 <div class="comment"><p>Render options applied to the current decoration. For performance reasons, keep the
-number of decoration specific options small, and use decoration types whereever possible.</p>
+number of decoration specific options small, and use decoration types wherever possible.</p>
 </div>
 </div>
 
@@ -4545,7 +4545,7 @@ can be signaled by returning <code>undefined</code>, <code>null</code>, or an em
 <a name="DocumentLinkProvider.resolveDocumentLink"></a><span class="ts" id=900 data-target="#details-900" data-toggle="collapse"><span class="ident">resolveDocumentLink</span><span>(</span><span class="ident">link</span><span>: </span><a class="type-ref" href="#DocumentLink">DocumentLink</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#DocumentLink">DocumentLink</a>&gt;</span>
 <div class="details collapse" id="details-900">
 <div class="comment"><p>Given a link fill in its <a href="#DocumentLink.target">target</a>. This method is called when an incomplete
-link is selected in the UI. Providers can implement this method and return incomple links
+link is selected in the UI. Providers can implement this method and return incomplete links
 (without target) from the <a href="#DocumentLinkProvider.provideDocumentLinks"><code>provideDocumentLinks</code></a> method which
 often helps to improve performance.</p>
 </div>
@@ -5193,7 +5193,7 @@ signaled by returning <code>undefined</code> or <code>null</code>.</p>
 
 
 
-<div class="comment"><p>The implemenetation provider interface defines the contract between extensions and
+<div class="comment"><p>The implementation provider interface defines the contract between extensions and
 the go to implementation feature.</p>
 </div>
 
@@ -5272,7 +5272,7 @@ signaled by returning <code>undefined</code> or <code>null</code>.</p>
 
 <a name="IndentationRule.decreaseIndentPattern"></a><span class="ts" id=945 data-target="#details-945" data-toggle="collapse"><span class="ident">decreaseIndentPattern</span><span>: </span><a class="type-ref" href="#RegExp">RegExp</a></span>
 <div class="details collapse" id="details-945">
-<div class="comment"><p>If a line matches this pattern, then all the lines after it should be unindendented once (until another rule matches).</p>
+<div class="comment"><p>If a line matches this pattern, then all the lines after it should be unindented once (until another rule matches).</p>
 </div>
 </div>
 
@@ -5834,7 +5834,7 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 <ul>
 <li>Note 1: A dialog can select files, folders, or both. This is not true for Windows
 which enforces to open either files or folder, but <em>not both</em>.</li>
-<li>Note 2: Explictly setting <code>canSelectFiles</code> and <code>canSelectFolders</code> to <code>false</code> is futile
+<li>Note 2: Explicitly setting <code>canSelectFiles</code> and <code>canSelectFolders</code> to <code>false</code> is futile
 and the editor then silently adjusts the options to select files.</li>
 </ul>
 </div>
@@ -7106,7 +7106,7 @@ like &quot;TypeScript&quot;, and an array of extensions, e.g.</p>
 
 <a name="Selection.new Selection"></a><span class="ts" id=156 data-target="#details-156" data-toggle="collapse"><span class="ident">new Selection</span><span>(</span><span class="ident">anchor</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">active</span><span>: </span><a class="type-ref" href="#Position">Position</a><span>)</span><span>: </span><a class="type-ref" href="#Selection">Selection</a></span>
 <div class="details collapse" id="details-156">
-<div class="comment"><p>Create a selection from two postions.</p>
+<div class="comment"><p>Create a selection from two positions.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
@@ -7593,7 +7593,7 @@ the <a href="#SnippetString.value"><code>value</code></a> of this snippet string
 <tr><td><a name="value"></a><span class="ts" id=750 data-target="#details-750" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-intrinsic">string</a> &#124; (snippet: <a class="type-ref" href="#SnippetString">SnippetString</a>) =&gt; <a class="type-intrinsic">any</a></span></td><td><div class="comment"><p>The value of this placeholder - either a string or a function
 with which a nested snippet can be created.</p>
 </div></td></tr>
-<tr><td><a name="number"></a><span class="ts" id=754 data-target="#details-754" data-toggle="collapse"><span class="ident">number</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>The number of this tabstop, defaults to an auto-incremet
+<tr><td><a name="number"></a><span class="ts" id=754 data-target="#details-754" data-toggle="collapse"><span class="ident">number</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>The number of this tabstop, defaults to an auto-increment
 value starting at 1.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
@@ -7613,7 +7613,7 @@ the <a href="#SnippetString.value"><code>value</code></a> of this snippet string
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="number"></a><span class="ts" id=747 data-target="#details-747" data-toggle="collapse"><span class="ident">number</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>The number of this tabstop, defaults to an auto-incremet
+<tr><td><a name="number"></a><span class="ts" id=747 data-target="#details-747" data-toggle="collapse"><span class="ident">number</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>The number of this tabstop, defaults to an auto-increment
 value starting at 1.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
@@ -9058,7 +9058,7 @@ a range. The range will be <a href="#TextDocument.validateRange">adjusted</a>.</
 <a name="TextDocument.getWordRangeAtPosition"></a><span class="ts" id=65 data-target="#details-65" data-toggle="collapse"><span class="ident">getWordRangeAtPosition</span><span>(</span><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">regex</span><span>?</span><span>: </span><a class="type-ref" href="#RegExp">RegExp</a><span>)</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-intrinsic">undefined</a></span>
 <div class="details collapse" id="details-65">
 <div class="comment"><p>Get a word-range at the given position. By default words are defined by
-common separators, like space, -, _, etc. In addition, per languge custom
+common separators, like space, -, _, etc. In addition, per language custom
 <a href="#LanguageConfiguration.wordPattern">word definitions</a> can be defined. It
 is also possible to provide a custom regular expression.</p>
 <ul>
@@ -9709,7 +9709,7 @@ This method shows unexpected behavior and will be removed in the next major upda
 <a name="TextEditor.insertSnippet"></a><span class="ts" id=335 data-target="#details-335" data-toggle="collapse"><span class="ident">insertSnippet</span><span>(</span><span class="ident">snippet</span><span>: </span><a class="type-ref" href="#SnippetString">SnippetString</a>, <span class="ident">location</span><span>?</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Position">Position</a>[] &#124; <a class="type-ref" href="#Range">Range</a>[], <span class="ident">options</span><span>?</span><span>: </span>{undoStopAfter: <a class="type-intrinsic">boolean</a>, undoStopBefore: <a class="type-intrinsic">boolean</a>}<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">boolean</a>&gt;</span>
 <div class="details collapse" id="details-335">
 <div class="comment"><p>Insert a <a href="#SnippetString">snippet</a> and put the editor into snippet mode. &quot;Snippet mode&quot;
-means the editor adds placeholders and additionals cursors so that the user can complete
+means the editor adds placeholders and additional cursors so that the user can complete
 or accept the snippet.</p>
 </div>
 <div class="signature">
@@ -10935,7 +10935,7 @@ of a URI depends on the scheme. The resulting string can be safely used with
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="skipEncoding"></a><span class="ts" id=404 data-target="#details-404" data-toggle="collapse"><span class="ident">skipEncoding</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>Do not percentage-encode the result, defaults to <code>false</code>. Note that
-    the <code>#</code> and <code>?</code> characters occuring in the path will always be encoded.</p>
+    the <code>#</code> and <code>?</code> characters occurring in the path will always be encoded.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A string representation of this Uri.</p>
@@ -11152,7 +11152,7 @@ for more information.</p>
 has no observable effect in that workspace, but in others. Setting a workspace value
 in the presence of a more specific folder value has no observable effect for the resources
 under respective <a href="#workspace.workspaceFolders">folder</a>, but in others. Refer to
-<a href="https://code.visualstudio.com/docs/getstarted/settings">Settings Inheritence</a> for more information.</p>
+<a href="https://code.visualstudio.com/docs/getstarted/settings">Settings Inheritance</a> for more information.</p>
 <p><em>Note 2:</em> To remove a configuration value use <code>undefined</code>, like so: <code>config.update(&#39;somekey&#39;, undefined)</code></p>
 <p>Will throw error when</p>
 <ul>

@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 9/5/2018
+DateApproved: 10/4/2018
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -82,6 +82,10 @@ sudo zypper install code
 ### AUR package for Arch Linux
 
 There is a community maintained Arch User Repository (AUR) [package for VS Code](https://aur.archlinux.org/packages/visual-studio-code-bin).
+
+To get more information about the installation from the AUR, please consult the following wiki entry:
+[Install AUR Packages](https://wiki.archlinux.org/index.php/Arch_User_Repository#Build_and_install_the_package).
+
 
 ### Nix package for NixOS (or any Linux distribution using Nix package manager)
 

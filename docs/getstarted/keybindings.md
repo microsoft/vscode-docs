@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 9/5/2018
+DateApproved: 10/4/2018
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -137,6 +137,8 @@ The following is an example overriding the `kbstyle(Enter)` key to print some te
 ```
 
 The type command will receive `{"text": "Hello World"}` as its first argument and add "Hello World" to the file instead of producing the default command.
+
+For more information on commands that take arguments, refer to [Complex Commands](/docs/extensionAPI/vscode-api-commands.md).
 
 ## Removing a specific key binding rule
 

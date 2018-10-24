@@ -48,7 +48,7 @@ gulp.task('build-dist', done => {
   // Clone tas-client
   $.exec(`git clone ${TAS_URL} vscode-website/tas-client`)
   $.cd('vscode-website/tas-client')
-  $.exec('git checkout tags/v0.1-alpha')
+  $.exec('git checkout tags/v1.4-beta')
   $.cd('../..')
 
   // Go to vscode-website

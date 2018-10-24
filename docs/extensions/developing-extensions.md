@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Developing Extensions
 ContentId: 44569A0C-7196-48E6-A5EE-FC5AAAAD32F3
 PageTitle: Developing your own Visual Studio Code Extension
-DateApproved: 9/5/2018
+DateApproved: 10/4/2018
 MetaDescription: Visual Studio Code extension (plug-in) development. Learn about running, debugging, profiling, and troubleshooting extensions.
 ---
 # Developing Extensions
@@ -23,7 +23,7 @@ You can use VS Code to develop an extension for VS Code and VS Code provides sev
 
 We suggest you start your extension by scaffolding out the basic files. You can use the `yo code` Yeoman generator to do this and we cover the details in the [extension generator](/docs/extensions/yocode.md) topic.  The generator will ensure everything is set up so you have a great development experience.
 
-> **Note**: The following sections assume you used the `yo code` Yeoman extension generator to create an extension project with the appropriate `launch.json` and `task.json`.
+> **Note**: The following sections assume you used the `yo code` Yeoman extension generator to create an extension project with the appropriate `launch.json` and `tasks.json`.
 
 ## Running and debugging your extension
 

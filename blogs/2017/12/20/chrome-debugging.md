@@ -41,7 +41,7 @@ Synchronized stepping allows you to debug your JavaScript source code in VS Code
 It's still early days and we are excited to explore the new world of integration that's possible with connected editors and DevTools.
 
 ## Localized debugging UI
-In this release we have also enabled localization of core parts of our debugger, which means that features such as `break on uncaught exceptions` and property descriptions in our `launch.json` now are localized and availble for our supported languages, such as Chinese.
+In this release we have also enabled localization of core parts of our debugger, which means that features such as `break on uncaught exceptions` and property descriptions in our `launch.json` now are localized and available for our supported languages, such as Chinese.
 
 ![locale1](locale1.png)
 

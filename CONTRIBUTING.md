@@ -19,6 +19,11 @@ Thank you for your interest in VS Code documentation!
 
 To contribute to [VS Code documentation](https://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
 
+* [How to fork a repository](https://help.github.com/articles/fork-a-repo)
+* [How to make a pull request](https://help.github.com/articles/creating-a-pull-request/)
+* [Changing a commit message](https://help.github.com/articles/changing-a-commit-message/)
+* [How to squash commits](https://help.github.com/articles/about-pull-request-merges/)
+
 ## Documentation intent
 
 The goal of the VS Code documentation is to educate users on VS Code features and how VS Code can be used to enhance their development experience with different programming languages and runtimes.
