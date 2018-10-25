@@ -41,7 +41,7 @@ Changes to settings are reloaded by VS Code after the modified `settings.json` f
 
 ## Settings editor
 
-When you open the settings editor, you will see **Default Settings** where you can search and discover settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
+When you open the settings editor, a new GUI for editing settings where you can search and discover settings you are looking for. You can still access the JSON settings editor, either by using the command Open Settings (JSON) or by changing your default settings editor with the `workbench.settings.editor` setting. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
 
 ![Settings Search](images/settings/settings-search.png)
 
