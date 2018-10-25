@@ -18,7 +18,7 @@ If you are used to working with larger, monolithic development tools (IDEs), you
 Here are a few commonly installed components:
 
 - [Git](https://git-scm.com/download) - VS Code has built-in support for source code control using Git but requires Git to be installed separately.
-- [Node.js (includes NPM)](https://nodejs.org/) - A platform and runtime for building and running JavaScript applications.
+- [Node.js (includes npm)](https://nodejs.org/) - A platform and runtime for building and running JavaScript applications.
 - [TypeScript](https://www.typescriptlang.org) - The TypeScript compiler, `tsc`, for transpiling TypeScript to JavaScript.
 
 You'll find the components above mentioned often in our documentation and walkthroughs.
@@ -41,9 +41,9 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 - [Express](https://expressjs.com/) - An application framework for Node.js applications using the **Jade** template engine.
 - [Gulp](https://gulpjs.com/) - A streaming task runner system which integrates easily with VS Code tasks.
 - [Mocha](https://mochajs.org/) - A JavaScript test framework that runs on Node.js.
-- [Yarn](https://yarnpkg.com/) - A dependency manager and alternative to NPM.
+- [Yarn](https://yarnpkg.com/) - A dependency manager and alternative to npm.
 
->**Note:** Most of these tools require Node.js and the NPM package manager to install and use.
+>**Note:** Most of these tools require Node.js and the npm package manager to install and use.
 
 ## Next Steps
 

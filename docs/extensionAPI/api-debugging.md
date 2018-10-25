@@ -75,9 +75,9 @@ Please note that accessing breakpoints initially returns an empty array but trig
 You can find the [Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol) specification expressed as a [JSON schema](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/debugProtocol.json) or as a (generated) [TypeScript definition](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/protocol/src/debugProtocol.ts) file in the
 [`vscode-debugadapter-node`](https://github.com/Microsoft/vscode-debugadapter-node) repository.
 Both files show the detailed structure of the individual protocol requests, responses and events.
-The protocol is also available as the NPM module [`vscode-debugprotocol`](https://www.npmjs.com/package/vscode-debugprotocol).
+The protocol is also available as the npm module [`vscode-debugprotocol`](https://www.npmjs.com/package/vscode-debugprotocol).
 
-We have implemented client libraries for the Debug Adapter Protocol in TypeScript and C#, but only the JavaScript/TypeScript client library is already available as an NPM module [`vscode-debugadapter-node`](https://github.com/Microsoft/vscode-debugadapter-node). You can find the C# client library in the [Mono Debug](https://github.com/Microsoft/vscode-mono-debug/blob/master/src/DebugSession.cs) repository.
+We have implemented client libraries for the Debug Adapter Protocol in TypeScript and C#, but only the JavaScript/TypeScript client library is already available as an npm module [`vscode-debugadapter-node`](https://github.com/Microsoft/vscode-debugadapter-node). You can find the C# client library in the [Mono Debug](https://github.com/Microsoft/vscode-mono-debug/blob/master/src/DebugSession.cs) repository.
 
 The following debugger extension projects can serve as examples for how to implement debug adapters:
 

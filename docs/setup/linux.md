@@ -111,7 +111,7 @@ VS Code ships monthly and you can see when a new release is available by checkin
 
 ## Node.js
 
-Node.js is a popular platform and runtime for easily building and running JavaScript applications. It also includes [NPM](https://www.npmjs.com/), a Package Manager for Node.js modules. You'll see Node.js and NPM mentioned frequently in our documentation and some optional VS Code tooling requires Node.js (for example, the VS Code [extension generator](/docs/extensions/yocode.md)).
+Node.js is a popular platform and runtime for easily building and running JavaScript applications. It also includes [npm](https://www.npmjs.com/), a Package Manager for Node.js modules. You'll see Node.js and npm mentioned frequently in our documentation and some optional VS Code tooling requires Node.js (for example, the VS Code [extension generator](/docs/extensions/yocode.md)).
 
 If you'd like to install Node.js on Linux, see [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your Linux distribution. You can also install and support multi version of Node.js by using the [Node Version Manager](https://github.com/creationix/nvm).
 
