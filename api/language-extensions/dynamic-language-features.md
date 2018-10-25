@@ -1,184 +1,53 @@
 ---
 Order: 5
 Area: language-extensions
-TOCTitle: Language Features
-PageTitle: Language Features
+TOCTitle: Dynamic Language Features
+PageTitle: Dynamic Language Features
 ---
 
-# Language Features
+# Dynamic Language Features
 
-When you hear about a language being supported in Visual Studio Code, you usually think first of syntax highlighting, code completion, and if applicable, debugging support. This is a good start, but language extensions can do a lot more.
+Dynamic Language Features is a set of smart-editing features powered by the [`vscode.languages.*`](/api/references/vscode-api#languages) API. There are two common ways to provide a dynamic language feature. Let's take [Hover](#hover) as an example:
 
-With just configuration files, an extension can support syntax highlighting, snippets, and smart bracket matching. For more advanced language features, you need to extend VS Code through its extensibility [API](/docs/extensionAPI/vscode-api.md) or by providing a [language server](/docs/extensions/example-language-server).
-
-A language server is a stand-alone server that speaks the [language server protocol](https://microsoft.github.io/language-server-protocol). You can implement the server in the programming language that is best suited for the task. For example, if there are good libraries written in Python for the language you want to support, you might want to consider implementing your language server in Python. If you choose to implement your language server in JavaScript or TypeScript, you can build on top of the VS Code [npm modules](https://github.com/Microsoft/vscode-languageserver-node).
-
-Besides the implementation language, you have flexibility in deciding which parts of the language server protocol your language server implements. Your language server announces its capabilities in response to the protocol's `initialize` method.
-
-However, the language server architecture is not the only way to provide language features in an extension. You can also implement features directly in your main extension code. In the guidelines below, we show both the **Language Server Protocol** approach (configuration and required events) and also a **Direct Implementation** section showing how to programmatically register specific language feature providers (ex. `registerHoverProvider`).
-
-To make it easier for you to decide what to implement first and what to improve upon later, we show the language features as they appear in VS Code and follow with the classes and methods or language server protocol messages they map to.  Also included is guidance on the **Basic** support required as well as descriptions of **Advanced** implementations.
-
-## Configuration Based Language Support
-
-[Syntax highlighting](/docs/extensionAPI/language-support.md#syntax-highlighting), [snippets](/docs/extensionAPI/language-support.md#source-code-snippets), and [smart bracket matching](/docs/extensionAPI/language-support.md#smart-bracket-matching) can be implemented declaratively with configuration files and don't require writing any extension code.
-
-### Language identifiers
-
-VS Code maps different language configurations and providers to specific programming languages through a language identifier. This is a lowercase string representing the programming language or file type. For example, JavaScript has a language id of `javascript` and Markdown files `markdown`. A list of known language identifiers can be found [here](/docs/languages/identifiers.md).
-
-## Syntax Highlighting
-
-![syntax highlighting](images/language-support/syntax-highlighting.png)
-
-In order to support syntax highlighting, your extension needs to register a TextMate grammar `.tmLanguage` for its language in its `package.json` file.
-
-```json
-"contributes": {
-    "languages": [
-        {
-            "id": "markdown",
-            ...
-        }
-    ],
-    "grammars": [
-        {
-            "language": "markdown",
-            "scopeName": "text.html.markdown",
-            "path": "./syntaxes/markdown.tmLanguage.json"
-        }
-    ], ...
-}
+```ts
+vscode.languages.registerHoverProvider('javascript', {
+  provideHover(document, position, token) {
+    return {
+      contents: [
+        'Hover Content'
+      ]
+    };
+  }
+});
 ```
 
-VS Code recognizes two formats for grammar files, Plist (`.tmLanguage`) and JSON (`.tmLanguage.json`). Plist files are really verbose, so people usually compile them from other languages like YAML. If you're creating a brand new grammar, we recommend using a JSON grammar to avoid a build step.
+As you see above, the [`vscode.languages.registerHoverProvider`](https://vscode-ext-docs.azurewebsites.net/api/references/vscode-api#languages.registerHoverProvider) API provides an easy way to provide hover contents to JavaScript files. After this extension gets activated, whenever you hover over some JavaScript code, VS Code queries all [`HoverProvider`](/api/references/vscode-api#HoverProvider) for JavaScript and shows the result in a Hover widget. A more in-depth guide can be found at the [Smart Editing Guide](/api/language-extensions/smart-editing-guide).
 
->**Basic**
->
->Start with a simple grammar that supports colorization of strings, comments, and keywords.
+An alternative approach is to implement a Language Server that speaks [Language Server Protocol](https://microsoft.github.io/language-server-protocol/). The way it works is:
 
->**Advanced**
->
->Provide a grammar that understands terms and expressions and thus supports colorization of variables and function references etc.
+- An extension provides a Language Client and a Language Server for JavaScript.
+- The Language Client is like any other VS Code extension, running in the Node.js Extension Host context. When it gets activated, it spawns the Language Server in another process and communicate with it through [Language Server Protocol](https://microsoft.github.io/language-server-protocol/).
+- You hover over JavaScript code in VS Code
+- VS Code informs the Language Client of the hover
+- The Language Client queries the Language Server for a hover result and sends it back to VS Code
+- VS Code displays the hover result in a Hover widget
 
-## Source Code Snippets
+The process seems more complicated, but it provides two major benefits:
 
-![Snippets at work](images/language-support/snippets.gif)
+- The Language Server can be written in any language
+- The Language Server can be reused to provide smart editing features for multiple editors
 
-With code snippets, you can provide useful source code templates with placeholders. You need to register a file that contains the snippets for your language in your extension's `package.json` file. You can learn about VS Code's snippet schema in [Creating Your Own Snippets](/docs/editor/userdefinedsnippets.md#creating-your-own-snippets).
+For a more in-depth guide, head over to the [Smart Editing LSP Guide](https://vscode-ext-docs.azurewebsites.net/api/language-extensions/smart-editing-lsp-guide).
 
-```json
-"contributes": {
-    "snippets": [
-        {
-            "language": "javascript",
-            "path": "./snippets/javascript.json"
-        }, ...
-    ], ...
-}
-```
+---
 
->**Basic**
->
->Provide snippets with placeholders such as this example for `markdown`:
->
->```json
->"Insert ordered list": {
->    "prefix": "ordered list",
->    "body": [
->        "1. ${first}",
->        "2. ${second}",
->        "3. ${third}",
->        "$0"
->    ],
->    "description": "Insert ordered list"
->}
->```
+## Language Features Listing
 
->**Advanced**
->
->Provide snippets that use explicit tab stops to guide the user and use nested placeholders such as this example for `groovy`:
->
->```json
->"key: \"value\" (Hash Pair)": {
->        "prefix": "key",
->        "body": "${1:key}: ${2:\"${3:value}\"}"
->    }
->```
+This listing includes the following items for each language feature:
 
-## Smart Bracket Matching
-
-![Smart Editing At Work](images/language-support/smart-editing.gif)
-
-You can provide a language configuration in your extension's `package.json` file.
-
-```json
-"contributes": {
-    "languages": [
-        {
-            "id": "typescript",
-            ...
-            "configuration": "./language-configuration.json"
-        }, ...
-    ]
-    ...
-}
-```
-
->**Basic**
->
->None
-
->**Advanced**
->
->Here is an example from `TypeScript`:
->
->```json
->{
->    "comments": {
->        "lineComment": "//",
->        "blockComment": [ "/*", "*/" ]
->    },
->    "brackets": [
->        ["{", "}"],
->        ["[", "]"],
->        ["(", ")"],
->        ["<", ">"]
->    ],
->    "autoClosingPairs": [
->        { "open": "{", "close": "}" },
->        { "open": "[", "close": "]" },
->        { "open": "(", "close": ")" },
->        { "open": "'", "close": "'", "notIn": ["string", "comment"] },
->        { "open": "\"", "close": "\"", "notIn": ["string"] },
->        { "open": "`", "close": "`", "notIn": ["string", "comment"] },
->        { "open": "/**", "close": " */", "notIn": ["string"] }
->    ],
->    "surroundingPairs": [
->        ["{", "}"],
->        ["[", "]"],
->        ["(", ")"],
->        ["<", ">"],
->        ["'", "'"],
->        ["\"", "\""],
->        ["`", "`"]
->    ]
->}
->```
-
-## Programmatic Language Support
-
-The rest of the language features require writing extension code to handle requests from VS Code. You can implement your language extension as a standalone server implementing the [language server protocol](https://microsoft.github.io/language-server-protocol) or directly register providers in your extension's `activate` method. Both approaches are shown in two sections called **LANGUAGE SERVER PROTOCOL** and **DIRECT IMPLEMENTATION**.
-
-The language server protocol approach follows the pattern of describing your server's capabilities in the response to the `initialize` request and then handling specific requests based on the user's actions.
-
-The direct implementation approach requires you register your feature provider when your extension is activated, often providing a `DocumentSelector` to identify the programming languages the provider supports.
-
-In the examples below, the providers are being registered for Go language files.
-
-```typescript
-const GO_MODE: vscode.DocumentFilter = { language: 'go', scheme: 'file' };
-```
+- An illustration of the language feature in VS Code
+- Related VS Code API
+- Related LSP methods
 
 ## Show Hovers
 

@@ -9,8 +9,7 @@ PageTitle: Extension Capabilities
 
 Extensions let you extend VS Code. This can range from how the editor looks, to the commands and keyboard shortcuts that are available, to what programming languages are supported. Much of VS Code's built-in functionality — such as node debugging support and the markdown preview — is built on the same extension APIs that you as an extension author have access to. Check out the [marketplace](https://marketplace.visualstudio.com/vscode) now to get a sense of what extensions are capable of and just how powerful they can be.
 
-The breadth of VS Code's extensibility can be a bit daunting, so this page breaks VS Code's many extension points down into a few, high-level categories, with links to much more detailed documentation on each. These categories are not mutually exclusive; a single extension can use extension points from any of them.
-
+The breadth of VS Code's extensibility can be a bit daunting, so this page breaks VS Code's many extension points down into a few high-level categories, with links to much more detailed documentation on each. These categories are not mutually exclusive; a single extension can use extension points from any of them.
 
 ## Theming
 
@@ -38,7 +37,7 @@ The [common capabilities](common-capabilities) are core pieces of functionality 
 
 ## Static Language Features
 
-[Static Language Features](/api/language-extensions/overview#Static-Language-Features) extend existing programming languages or implement basic support for a new languages. This is done declaratively, without writing any code. These extension points focus on text editing-type features, such as bracket matching and syntax highlighting. For more advanced features, like IntelliSense or debugging, see [Dynamic Language Features](#dynamic-language-features)
+[Static Language Features](/api/language-extensions/overview#Static-Language-Features) extend existing programming languages or implement basic support for a new languages. This is done declaratively, without writing any code. These extension points focus on text editing-type features, such as bracket matching and syntax highlighting. For more advanced features, like IntelliSense or debugging, see [Dynamic Language Features](#dynamic-language-features).
 
 Snippets for example provide a rich and highly customizable syntax with support for advanced features like transformations and capitalization, while a good language grammar can completely change the coding experience.
 
