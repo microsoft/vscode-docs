@@ -48,9 +48,3 @@ Icon theme allows you to:
 - Associate files to these unique Icon Identifiers by filenames or file language types.
 
 ![icon-theme](./images/theming/icon-theme.png)
-
-## Text Decoration
-
-You can refer to the [Text Decorator Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/decorator-sample) to learn how to create custom text decorations, such as:
-
-![text-decoration](./images/theming/text-decoration.png)
