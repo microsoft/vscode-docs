@@ -1207,7 +1207,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enable/disable automatic closing of JSX tags. Requires using TypeScript 3.0 or newer in the workspace.
   "typescript.autoClosingTags": true,
 
-  // Check if NPM is installed for Automatic Type Acquisition.
+  // Check if npm is installed for Automatic Type Acquisition.
   "typescript.check.npmIsInstalled": true,
 
   // Disables automatic type acquisition.
@@ -1267,7 +1267,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Sets the locale used to report JavaScript and TypeScript errors. Requires using TypeScript 2.6.0 or newer in the workspace. Default of `null` uses VS Code's locale.
   "typescript.locale": null,
 
-  // Specifies the path to the NPM executable used for Automatic Type Acquisition. Requires using TypeScript 2.3.4 or newer in the workspace.
+  // Specifies the path to the npm executable used for Automatic Type Acquisition. Requires using TypeScript 2.3.4 or newer in the workspace.
   "typescript.npm": null,
 
   // Preferred path style for auto imports.
@@ -1902,7 +1902,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether force pushing uses the safer force-with-lease variant.
   "git.useForcePushWithLease": true,
 
-// Npm
+// npm
 
   // Controls whether npm scripts should be automatically detected.
   "npm.autoDetect": "on",

@@ -10,7 +10,7 @@ MetaSocialImage: images/nodejs/runtimes_node.png
 ---
 # Node.js tutorial in Visual Studio Code
 
-[Node.js](https://nodejs.org/) is a platform for building fast and scalable server applications using JavaScript. Node.js is the runtime and [NPM](https://www.npmjs.com/) is the Package Manager for Node.js modules.
+[Node.js](https://nodejs.org/) is a platform for building fast and scalable server applications using JavaScript. Node.js is the runtime and [npm](https://www.npmjs.com/) is the Package Manager for Node.js modules.
 
 Visual Studio Code has support for the JavaScript and TypeScript languages out-of-the-box as well as Node.js debugging. However, to run a Node.js application, you will need to install the Node.js runtime on your machine.
 
@@ -103,7 +103,7 @@ Now that you've seen VS Code in action with "Hello World", the next section show
 
 ## An Express application
 
-[Express](https://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold (create) a new Express application using the Express Generator tool. The Express Generator is shipped as an NPM module and installed by using the NPM command line tool `npm`.
+[Express](https://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold (create) a new Express application using the Express Generator tool. The Express Generator is shipped as an npm module and installed by using the npm command line tool `npm`.
 
 >**Tip:** To test that you've got `npm` correctly installed on your computer, type `npm --help` from a terminal and you should see the usage documentation.
 
@@ -121,7 +121,7 @@ We can now scaffold a new Express application called `myExpressApp` by running:
 express myExpressApp
 ```
 
-This creates a new folder called `myExpressApp` with the contents of your application.  To install all of the application's dependencies (again shipped as NPM modules), go to the new folder and execute `npm install`:
+This creates a new folder called `myExpressApp` with the contents of your application.  To install all of the application's dependencies (again shipped as npm modules), go to the new folder and execute `npm install`:
 
 ```bash
 cd myExpressApp

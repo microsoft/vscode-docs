@@ -55,7 +55,7 @@ If you are using Visual Studio Code 1.8+, you can alternately explicitly list pa
 
 Now when you `require` or `import` **lodash**, VS Code will use the automatically downloaded type declaration files for the library to provide rich Intellisense. Most common JavaScript libraries have type declaration files available. You can search for a library's type declaration file package using the [TypeSearch](https://microsoft.github.io/TypeSearch) site.
 
-### Fixing NPM not installed warning for Automatic Type Acquisition
+### Fixing npm not installed warning for Automatic Type Acquisition
 
 [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA) uses [npm](https://www.npmjs.com), the Node.js package manager, to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
 
