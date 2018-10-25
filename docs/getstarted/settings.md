@@ -31,11 +31,13 @@ You are provided with a list of **Default Settings**. Copy any setting that you 
 
 You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
 
-In the example below, the workspace contains settings to disable line numbers in the editor and configure line wrapping to wrap automatically based on the size of the editor.
+VS Code now uses a GUI for easier editing, but you can still edit the legacy `settings.json` file by clicking the three dots near **Workspace Settings**.
+
+In the example below, the color theme and the icon theme have been changed.
 
 ![Example Settings](images/settings/settings.png)
 
-Changes to settings are reloaded by VS Code after the modified `settings.json` file is saved.
+Changes to settings are reloaded by VS Code as you change them, or after the modified `settings.json` file is saved.
 
 >**Note:** Workspace settings are useful for sharing project specific settings across a team.
 
@@ -49,9 +51,9 @@ When you open the settings editor, a new GUI for editing settings where you can 
 
 ### Edit settings
 
-If you hover over a setting, you will see an **Edit** action with a small pencil icon. Clicking on the pencil will display a dropdown with the available setting values. Select a value and the setting will be added to the currently open settings file.
+Each setting can be edited by either a **checkbox**, an **input** or by a **dropdown**. Simply edit the text or select the option you want to change to the desired settings.
 
-![edit a setting](images/settings/settings-edit.png)
+![Edit a Setting](images/settings/settings-edit.png)
 
 ### Settings groups
 
