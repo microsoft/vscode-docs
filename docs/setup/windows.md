@@ -38,6 +38,7 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.
+* [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Lets you jump right in and learn how to be productive with VS Code.
 
 ## Common Questions
 
