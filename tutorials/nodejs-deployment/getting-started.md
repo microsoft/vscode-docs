@@ -59,4 +59,5 @@ git version 2.6.4
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/express">I've installed the Azure CLI</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/express">I've installed the Azure CLI</a>  
+<a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>

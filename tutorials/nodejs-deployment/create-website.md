@@ -72,8 +72,9 @@ $ az webapp browse --name myExpressApp-chrisdias
 
 You should see something like this:
 
-![Empty Azure Website](images/nodejs-deployment/emptyazuresite.png)
+![Empty Azure Website](../images/nodejs-deployment/emptyazuresite.png)
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/deploy-website">My site is running</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'create-website')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/deploy-website">My site is running</a>  
+<a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'create-website')" href="javascript:void(0)">I ran into an issue</a>

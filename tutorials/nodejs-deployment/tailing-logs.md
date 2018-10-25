@@ -34,4 +34,5 @@ GET / 304 0.490 ms - -
 
 ----
 
- <a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/publishing-changes">I can see my logs</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'tailing-logs')" href="javascript:void(0)">I ran into an issue</a>
+ <a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/publishing-changes">I can see my logs</a>  
+ <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'tailing-logs')" href="javascript:void(0)">I ran into an issue</a>
