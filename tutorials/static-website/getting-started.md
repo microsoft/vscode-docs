@@ -41,7 +41,7 @@ The [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azure
 
 Once the extension is installed, log into your Azure account - in the Activity Bar, click on the Azure logo to show the **AZURE STORAGE** explorer. Click **Sign in to Azure...** and follow the instructions.
 
-![sign in to Azure](images/static-website/sign-in.png)
+![sign in to Azure](../images/static-website/sign-in.png)
 
 ## Prerequisite check
 
@@ -62,5 +62,5 @@ to ensure that both Node.js and npm are installed.
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/static-website/create-app">I've installed the prerequisites</a>
+<a class="tutorial-next-btn" href="/tutorials/static-website/create-app">I've installed the prerequisites</a>  
 <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>

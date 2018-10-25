@@ -28,8 +28,9 @@ Run `npm run build` locally then right-click your updated `build` directory and 
 
 Once your deployment is complete, revisit your storage endpoint (`https://<storage-account-name>.z4.web.core.windows.net/`) and you should see the following!
 
-![Import build](images/static-website/updated-azure-app.png)
+![Import build](../images/static-website/updated-azure-app.png)
 
 ----
 
-<a class="tutorial-next-btn" href="/docs">I'm done!</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'code-change')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/docs">I'm done!</a>  
+<a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'code-change')" href="javascript:void(0)">I ran into an issue</a>

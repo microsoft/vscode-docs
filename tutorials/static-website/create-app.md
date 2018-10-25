@@ -49,10 +49,11 @@ npm start
 
 Now, open your browser and navigate to [http://localhost:3000](http://localhost:3000), where you should see something like this:
 
-![Running React App](images/static-website/local-app.png)
+![Running React App](../images/static-website/local-app.png)
 
 You are now ready to deploy your app!
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/static-website/create-storage">I created the React application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'create-app')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/static-website/create-storage">I created the React application</a>  
+<a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'create-app')" href="javascript:void(0)">I ran into an issue</a>
