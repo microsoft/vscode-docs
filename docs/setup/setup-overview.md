@@ -54,6 +54,7 @@ Extensions integrate into VS Code's UI, commands, and task running systems so yo
 Once you have installed and set up VS Code, these topics will help you learn more about VS Code:
 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
+* [Extensions](/docs/extensions/overview.md) - Learn how to build extensions for VS code.
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
