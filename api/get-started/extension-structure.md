@@ -8,9 +8,15 @@ PageTitle: Extension Structure
 # Extension Structure
 
 - Extension file structure
+- TypeScript
 - Activation Events
 
 
+## TypeScript
+
+We recommend using TypeScript when writing VS Code extensions, as TypeScript will give you a nice authoring experience that will make it easier for you to browse VS Code's API.
+
+The TypeScript compilation is triggered before running your extension. This is done with the `preLaunchTask` attribute defined in the `.vscode/launch.json` file which declares a task to be executed before starting the debugging session. The task is defined inside the `.vscode/tasks.json` file.
 
 ## Extension file structure
 
