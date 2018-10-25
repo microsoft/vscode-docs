@@ -10,7 +10,7 @@ DateApproved: 2/9/2018
 
 In the **AZURE FUNCTIONS** explorer, click the blue up arrow icon to deploy your app to Azure Functions.
 
-![Deploy to Functions](images/functions-extension/function-app-publish-project.png)
+![Deploy to Functions](../images/functions-extension/function-app-publish-project.png)
 
 > **Tip:** You can also deploy from the **Command Palette** (`kb(workbench.action.showCommands)`) by typing 'deploy to function app' and running the **Azure Functions: Deploy to Function App** command.
 
@@ -30,13 +30,13 @@ The Output panel shows the Azure resources that were created in your subscriptio
 
 > **Tip:** A storage account is not required for HTTP trigger functions, other function triggers (e.g. Storage) do, however, require a storage account.
 
-![Deploy to Functions](images/functions-extension/function-create-output.png)
+![Deploy to Functions](../images/functions-extension/function-create-output.png)
 
 ## Browse the website
 
 The Output panel will open during deployment to indicate the status of the operation. Once completed, find the app that you just created in the **AZURE FUNCTIONS** explorer, expand the **Functions** node to expose the HttpTriggerJS function, then right-click and choose **Copy Function Url**. Paste the URL into your browser along add the `?name=Matt` query parameter and press `kbstyle(Enter)` to see the response.
 
-![Deploy to Functions](images/functions-extension/functions-test-remote-browser.png)
+![Deploy to Functions](../images/functions-extension/functions-test-remote-browser.png)
 
 ## Updating the App
 
@@ -61,4 +61,5 @@ Or get them all by installing the
 
 ----
 
-<a class="tutorial-next-btn" href="/docs">I'm Done!</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azurefunctions', 'deploy-app')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/docs">I'm Done!</a>  
+<a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azurefunctions', 'deploy-app')" href="javascript:void(0)">I ran into an issue</a>

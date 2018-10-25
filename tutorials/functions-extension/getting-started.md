@@ -44,7 +44,7 @@ The Azure Functions extension is used to create, manage, and deploy Functions Ap
 Once the extension is installed, log into your Azure account - in the Activity Bar, click on the Azure logo to show the **Azure Functions** explorer. Click **Sign in to Azure...** and follow the instructions.
 
 
-![sign in to Azure](images/functions-extension/sign-in.png)
+![sign in to Azure](../images/functions-extension/sign-in.png)
 
 ## Prerequisite check
 
@@ -74,5 +74,5 @@ Function Runtime Version: 2.0.11415.0
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/functions-extension/create-app">I've installed the Azure Extension</a>
+<a class="tutorial-next-btn" href="/tutorials/functions-extension/create-app">I've installed the Azure Extension</a>  
 <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azurefunctions', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>
