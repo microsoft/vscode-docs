@@ -24,9 +24,9 @@ Docker Hub is Docker's own hosted registry that provides a free way of sharing i
 
 Ensure that the registry endpoint that you just setup is visible under **Registries** in the **DOCKER** explorer.
 
-![Registries](images/docker-extension/registries.png)
+![Registries](../images/docker-extension/registries.png)
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/docker-extension/containerize-app">I've Created a Registry</a>
+<a class="tutorial-next-btn" href="/tutorials/docker-extension/containerize-app">I've Created a Registry</a>  
 <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>

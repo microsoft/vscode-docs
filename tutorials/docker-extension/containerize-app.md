@@ -36,7 +36,7 @@ This tutorial uses the Azure Container Registry so for my example:
 
 `fiveisprime.azurecr.io/myexpressapp:latest`
 
-![tag docker image](images/docker-extension/tag-image.png)
+![tag docker image](../images/docker-extension/tag-image.png)
 
 If you are using Docker Hub, use your Docker Hub username, for example:
 
@@ -46,16 +46,17 @@ Once completed, the Terminal panel will open and the Docker command will be exec
 
 Once built, the image will show up in the **DOCKER** explorer under **Images**.
 
-![Docker Image](images/docker-extension/image-list.png)
+![Docker Image](../images/docker-extension/image-list.png)
 
 ## Push the image to a registry
 
 Open the **Command Palette** (`kb(workbench.action.showCommands)`) and run **Docker: Push** and choose the image you just built to push the image to the registry. This will also execute the Docker command in the Terminal panel to show the status of the operation. Once completed, expand the **Images** node in the Docker extension explorer to see your image.
 
-![Image in ACR](images/docker-extension/image-in-acr.png)
+![Image in ACR](../images/docker-extension/image-in-acr.png)
 
 Next, you'll deploy your image to Azure.
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/docker-extension/deploy-container">I've created an image for my application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'containerize-app')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/docker-extension/deploy-container">I've created an image for my application</a>  
+<a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'containerize-app')" href="javascript:void(0)">I ran into an issue</a>

@@ -30,7 +30,7 @@ The Azure App Service extension is used to create, manage, and deploy Linux Web 
 
 Once the extensions are installed, log into your Azure account - in the Activity Bar, click on the Azure logo to show the **AZURE APP SERVICE** explorer. Click **Sign in to Azure...** and follow the instructions.
 
-![sign in to Azure](images/app-service-extension/sign-in.png)
+![sign in to Azure](../images/app-service-extension/sign-in.png)
 
 ## Prerequisite Check
 
@@ -47,5 +47,5 @@ Docker Version 17.12.0-ce, build c97c6d6
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/docker-extension/create-registry">I've installed the Docker Extension</a>
+<a class="tutorial-next-btn" href="/tutorials/docker-extension/create-registry">I've installed the Docker Extension</a>  
 <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>

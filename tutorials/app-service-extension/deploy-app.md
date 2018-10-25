@@ -14,7 +14,7 @@ In this step, you deploy your Node.js website using VS Code and the Azure App Se
 
 In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy your app to Azure.
 
-![Deploy to Web App](images/app-service-extension/deploy.png)
+![Deploy to Web App](../images/app-service-extension/deploy.png)
 
 > **Tip:** You can also deploy from the **Command Palette** (`kb(workbench.action.showCommands)`) by typing 'deploy to web app' and running the **Azure App Service: Deploy to Web App** command.
 
@@ -32,11 +32,11 @@ In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy yo
 
   Click **Yes** when prompted to update your configuration to run `npm install` on the target server. Your app is then deployed.
 
-  ![Configured deployment](images/app-service-extension/server-build.png)
+  ![Configured deployment](../images/app-service-extension/server-build.png)
 
 Once the deployment starts, you're prompted to update your workspace so that all subsequent deploys automatically target the same App Service Web App. Choose **Yes** to ensure your changes are deployed to the correct app.
 
-![Configured deployment](images/app-service-extension/save-configuration.png)
+![Configured deployment](../images/app-service-extension/save-configuration.png)
 
 > **Tip:** Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
 
@@ -54,4 +54,5 @@ You can deploy changes to this app by using the same process and choosing the ex
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/app-service-extension/tailing-logs">My site is on Azure</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azureappservice', 'deploy-app')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/app-service-extension/tailing-logs">My site is on Azure</a>  
+<a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azureappservice', 'deploy-app')" href="javascript:void(0)">I ran into an issue</a>

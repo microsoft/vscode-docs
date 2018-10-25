@@ -51,7 +51,7 @@ $ npm start
 
 Now, open your browser and navigate to [http://localhost:3000](http://localhost:3000), where you should see something like this:
 
-![Running Express Application](images/nodejs-deployment/express.png)
+![Running Express Application](../images/nodejs-deployment/express.png)
 
 Next, open your application folder in VS Code and get ready to deploy it to Azure.
 
@@ -61,4 +61,5 @@ $ code .
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/app-service-extension/deploy-app">I created the Node.js application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azureappservice', 'create-app')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/app-service-extension/deploy-app">I created the Node.js application</a>  
+<a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azureappservice', 'create-app')" href="javascript:void(0)">I ran into an issue</a>

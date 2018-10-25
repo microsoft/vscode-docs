@@ -14,13 +14,13 @@ Now that you have your app image built and pushed to a registry, you can deploy 
 
 Find the image under the **Registries** node in the **DOCKER** explorer, right click the `:latest` tag and choose **Deploy Image to Azure App Service**.
 
-![Deploy From the Explorer](images/docker-extension/deploy-menu.png)
+![Deploy From the Explorer](../images/docker-extension/deploy-menu.png)
 
 From here follow the prompts. Set up a Resource Group in `West US` and App Service Plan. For this tutorial, use 'myResourceGroup' and 'myPlan' for the Resource Group and plan names then give your app a **unique** name.
 
 Once created, your app is accessible via http://**unique-name**.azurewebsites.net. In this example, I called it `myExpressApp4321`.
 
-![Create and Deploy](images/docker-extension/create.gif)
+![Create and Deploy](../images/docker-extension/create.gif)
 
 A **Resource Group** is essentially a named collection of all our application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure Function.
 
@@ -32,4 +32,5 @@ The Output panel will open during deployment to indicate the status of the opera
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/docker-extension/tailing-logs">My site is on Azure</a> <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'deploy-app')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/docker-extension/tailing-logs">My site is on Azure</a>  
+<a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'deploy-app')" href="javascript:void(0)">I ran into an issue</a>

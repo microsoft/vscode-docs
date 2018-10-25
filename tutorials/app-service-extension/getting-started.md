@@ -26,7 +26,7 @@ The Azure App Service extension is used to create, manage, and deploy Linux Web 
 
 Once the extension is installed, log into your Azure account - in the Activity Bar, click on the Azure logo to show the **AZURE APP SERVICE** explorer. Click **Sign in to Azure...** and follow the instructions.
 
-![sign in to Azure](images/app-service-extension/sign-in.png)
+![sign in to Azure](../images/app-service-extension/sign-in.png)
 
 ## Troubleshooting
 
@@ -47,5 +47,5 @@ In VS Code, you should see your Azure email address in the Status Bar and your s
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/app-service-extension/create-app">I've installed the Azure Extension</a>
+<a class="tutorial-next-btn" href="/tutorials/app-service-extension/create-app">I've installed the Azure Extension</a>  
 <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azureappservice', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>
