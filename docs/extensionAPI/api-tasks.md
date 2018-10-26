@@ -1,14 +1,14 @@
 ---
 Order: 7
 Area: extensions
-TOCTitle: Example-Tasks
+TOCTitle: Tasks Extension API
 ContentId: 49744351-83ef-4ef6-99e7-2485e6e9c79f
 PageTitle: Contributing Tasks to Visual Studio Code
 DateApproved: 9/5/2018
 MetaDescription: Learn how to contribute tasks to Visual Studio Code.
 ---
 
-# Example - Tasks
+# Tasks API
 
 Users normally define [tasks](/docs/editor/tasks.md) in Visual Studio Code in a `tasks.json` file. However, there are some tasks during software development that can be automatically detected by VS Code. This topic describes how extensions can auto-detect and provide tasks to end-users.
 
