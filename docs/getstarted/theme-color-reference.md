@@ -203,6 +203,10 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.unfocusedHoverBackground`: Tab background color in an unfocused group when hovering
 - `tab.hoverBorder`: Border to highlight tabs when hovering
 - `tab.unfocusedHoverBorder`: Border to highlight tabs in an unfocused group when hovering
+- `tab.activeModifiedBorder`: Border on the top of modified (dirty) active tabs in an active group.
+- `tab.inactiveModifiedBorder`: Border on the top of modified (dirty) inactive tabs in an active group.
+- `tab.unfocusedActiveModifiedBorder`: Border on the top of modified (dirty) active tabs in an unfocused group.
+- `tab.unfocusedInactiveModifiedBorder`: Border on the top of modified (dirty) inactive tabs in an unfocused group.
 
 ## Editor Colors
 
