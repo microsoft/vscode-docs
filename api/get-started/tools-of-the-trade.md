@@ -1,9 +1,25 @@
 ---
 Order: 3
 Area: get-started
-TOCTitle: Running and Debugging
-PageTitle: Running and Debugging
+TOCTitle: Tools of the Trade
+PageTitle: Tools of the Trade
 ---
+
+# Tools of the Trade
+
+Developing extension is no easy task, and we are here to help. This section points you to many tools and resources to take adavantage of. Make good use of them!
+
+## Debugger
+
+## Samples and Yeoman Generator
+
+## vsce
+
+## Others
+
+
+---
+
 
 ## Running and debugging your extension
 
