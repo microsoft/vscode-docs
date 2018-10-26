@@ -78,6 +78,19 @@ Prefer to debug using a different browser? You can find extensions for [Edge](ht
 
 ![debugger for chrome image](images/extensions/chrome_debugger.png)
 
+### Extension uninstall hook
+If your extension has some clean ups to be done when it is uninstalled from VS Code, you can now do that by registering a `node` script to the uninstall hook `vscode:uninstall` under `scripts` section in extension's package.json.
+```json
+{
+  "scripts": {
+    "vscode:uninstall": "node ./out/src/lifecycle"
+  }
+}
+```
+This script gets executed when the extension is completely uninstalled from VS Code which is when VS Code is restarted (shutdown and start) after the extension is uninstalled.
+
+**Note**: Only Node.js scripts are supported.
+
 ### Document This
 
 Marketplace - [Document This](https://marketplace.visualstudio.com/items?itemName=joelday.docthis)
