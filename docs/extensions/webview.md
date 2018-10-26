@@ -448,6 +448,8 @@ code {
 }
 ```
 
+Review the [Theme Color Reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference) for the available variables.
+
 ## Scripts and message passing
 
 Webviews are just like iframes, which means that they can also run scripts. JavaScript is disabled in webviews by default, but it can easily re-enable by passing in the `enableScripts: true` option.

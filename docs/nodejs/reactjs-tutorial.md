@@ -16,9 +16,9 @@ MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 
 ## Welcome to React
 
-We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To install and use the generator as well as run the React application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [here](https://nodejs.org/en/download/).
+We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To install and use the generator as well as run the React application server, you'll need [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (Node.js package manager) installed. npm is included with Node.js which you can download and install from [here](https://nodejs.org/en/download/).
 
->**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version`.
+>**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
 
 To install the `create-react-app` generator, in a terminal or command prompt type:
 
@@ -43,7 +43,7 @@ npm start
 
 You should see "Welcome to React" on `http://localhost:3000` in your browser. We'll leave the web server running while we look at the application with VS Code.
 
-To open your React application in VS Code, open another terminal (or command prompt) and navigate to the `my-app` folder and type `code .`:
+To open your React application in VS Code, open another terminal or command prompt window, navigate to the `my-app` folder and type `code .`:
 
 ```bash
 cd my-app

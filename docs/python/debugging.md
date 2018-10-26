@@ -314,7 +314,7 @@ On the local computer:
 The configuration drop-down provides a variety of different options for general app types:
 
 | Configuration | Description |
-| --- | --- | --- |
+| --- | --- |
 | Attach | See [Remote debugging](#remote-debugging) in the previous section. |
 | Django | Specifies `"program": "${workspaceFolder}/manage.py"`, `"args": ["runserver", "--noreload", "--nothreading"]`, and `"console": "integratedTerminal"`. Also adds `"django": true` to enable debugging of Django HTML templates. Note that automatic reloading of Django apps is not possible while debugging. |
 | Flask | See [Flask debugging](#flask-debugging) below. |
