@@ -19,7 +19,7 @@ If you would like to have a more customizable UX component in VS Code you should
 
 ## Status Bar
 
-The status bar can be extended by custom [StatusBarItem](../references/vscode-api#StatusBarItem) that can show text and icons and run a command on click.
+The status bar can be extended by custom [`StatusBarItem`](../references/vscode-api#StatusBarItem) that can show text and icons and run a command on click.
 
 An example status bar extension can be found [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/statusbar-sample).
 
@@ -29,7 +29,7 @@ The Activity Bar on the left can be extended by custom views which can be contri
 
 ## Progress
 
-`Progress` is a used for reporting progress updates to the user.
+[`Progress`](../references/vscode-api#Progress) is a used for reporting progress updates to the user.
 Progress can be shown in different locations using the `ProgressLocation` option:
 * in the notifications area
 * in the source control view
