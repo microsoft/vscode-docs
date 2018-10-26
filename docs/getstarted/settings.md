@@ -33,7 +33,7 @@ In the example below, the color theme and the icon theme have been changed.
 
 ![Example Settings](images/settings/settings.png)
 
-Changes to settings are reloaded by VS Code as you change them.
+Changes to settings are reloaded by VS Code as you change them. Modified settings are now indicated with a _blue line_ similar to modified lines in the editor. The gear icon opens a context menu with options to reset the setting to its default value as well as copy setting as JSON.
 
 >**Note:** Workspace settings are useful for sharing project specific settings across a team.
 
