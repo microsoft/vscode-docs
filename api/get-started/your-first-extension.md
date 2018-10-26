@@ -24,9 +24,9 @@ You should see the `Hello Code` information dialog showing up. Success!
 
 ## Behind the Scenes
 
-When you type a URL and press Enter in a browser, you go to a website. However, [a lot happens](https://github.com/alex/what-happens-when) behind that seemingly simple action. Simiarly, when you press `Hello Code`, a lot happens behind the scene:
+When you type a URL and press Enter in a browser, you go to a website. However, [a lot happens](https://github.com/alex/what-happens-when) behind that seemingly simple action. Simiarly, when you press `Hello Code`, a lot happens behind the scenes:
 
-- VS Code launches the extension in an **"Extension Host"**, as specified in `.vscode/launch.json`
+- VS Code launches the extension in an **"Extension Host"**, as specified in `.vscode/launch.json`:
   - The `Run Extension` launch config contains a `preLaunchTask`. The task compiles `src/extension.ts` to `out/extension.js`.
   - VS Code starts in extension development mode and loads the extension.
   - VS Code executes `out/extension.js`, as specified in the `main` field of `package.json`.
@@ -34,13 +34,13 @@ When you type a URL and press Enter in a browser, you go to a website. However, 
 - In `package.json`, VS Code also finds a **[Contribution Point](/api/references/contribution-points)**: the `Hello Code` command with id `extension.helloCode`.
 - `Hello Code` command becomes available in the [Command Palette](/docs/getstarted/userinterface#_command-palette).
 - You run the `Hello Code` command.
-- The extension is activated.
+- The extension is activated:
   - The `activate` function in `our/extension.js` is invoked.
   - `vscode.commands.registerCommand('extension.helloCode', callback)` registers the `extension.helloCode` command.
   - The extension calls the command callback that uses `vscode.window.showInformationMessage` **[vscode API](/api/references/vscode-api)**.
 - The message `Hello Code` appears.
 
-This is a long list! Don't worry — in the following section, [Extension Anatomy](/api/getting-started/extension-anatomy), we'll explain these concepts in detail:
+This is a long list! Don't worry — in the [Extension Anatomy](/api/getting-started/extension-anatomy) section, we'll explain these concepts in detail:
 
 - Extension Host
 - [Activation Events](/api/references/activation-events)
