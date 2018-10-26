@@ -596,7 +596,7 @@ Although you can create the file by hand, you can also use the `pip freeze` comm
 
 Anyone (or any build server) that receives a copy of the project needs only to run the `pip install -r requirements.txt` command to reinstall the packages in the original the environment. (The recipient still needs to create their own virtual environment, however.)
 
-> **Note**: `pip freeze` lists all the Python packages you have installed in the current environment, including packages you aren't currently using. The command also lists packages with exact version numbers, which you might want to convert to ranges for more flexibility in the future. For more information, see [Requirements files](https://pip.readthedocs.io/1.1/requirements.html) in the pip command documentation.
+> **Note**: `pip freeze` lists all the Python packages you have installed in the current environment, including packages you aren't currently using. The command also lists packages with exact version numbers, which you might want to convert to ranges for more flexibility in the future. For more information, see [Requirements files](https://pip.readthedocs.io/en/stable/user_guide/#requirements-files) in the pip command documentation.
 
 ### Refactor the project to support further development
 
