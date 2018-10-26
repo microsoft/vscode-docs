@@ -27,27 +27,23 @@ To open your user and workspace settings, use the following VS Code menu command
 * On Windows/Linux - **File** > **Preferences** > **Settings**
 * On macOS - **Code** > **Preferences** > **Settings**
 
-You are provided with a list of **Default Settings**. Copy any setting that you want to change to the appropriate `settings.json` file. The tabs under the Search box let you switch quickly between the user and workspace settings files.
-
-You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
-
-VS Code now uses a GUI for easier editing, but you can still edit the legacy `settings.json` file by clicking the three dots near **Workspace Settings**.
+You can also open the Settings editor from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
 
 In the example below, the color theme and the icon theme have been changed.
 
 ![Example Settings](images/settings/settings.png)
 
-Changes to settings are reloaded by VS Code as you change them, or after the modified `settings.json` file is saved.
+Changes to settings are reloaded by VS Code as you change them.
 
 >**Note:** Workspace settings are useful for sharing project specific settings across a team.
 
 ## Settings editor
 
-When you open the settings editor, a new GUI for editing settings where you can search and discover settings you are looking for. You can still access the JSON settings editor, either by using the command Open Settings (JSON) or by changing your default settings editor with the `workbench.settings.editor` setting. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
+When you open the settings editor, you can search and discover settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy.
 
 ![Settings Search](images/settings/settings-search.png)
 
-**Note**: VS Code extensions can also add their own custom settings and they will be visible in the **Default Settings** list at runtime.
+**Note**: VS Code extensions can also add their own custom settings and they will be visible under an **Extensions** section.
 
 ### Edit settings
 
@@ -64,6 +60,8 @@ Default settings are represented in groups so that you can navigate them easily.
 Below is a [copy of the default settings](/docs/getstarted/settings.md#default-settings) that come with VS Code.
 
 ## Settings file locations
+
+By default VS Code shows the Settings editor, but you can still edit the underlying `settings.json` file by using the **Open Settings (JSON)** command or by changing your default settings editor with the `workbench.settings.editor` setting.
 
 Depending on your platform, the user settings file is located here:
 

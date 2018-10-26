@@ -31,7 +31,7 @@ The [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azu
 - Debug Function projects locally.
 - View Azure Function Apps.
 - Create, delete, start, stop and restart Azure Function Apps.
-- JSON Intellisense for `function.json`, `host.json` and `proxies.json` files.
+- JSON IntelliSense for `function.json`, `host.json` and `proxies.json` files.
 
 In this tutorial, we will leverage this extension to create a Java Azure Functions App. For a more command line Maven-centric experience, you can also check out the [Maven Functions Tutorial](https://docs.microsoft.com/en-gb/azure/azure-functions/functions-create-first-java-maven). The Java support of this extension leverages a lot from the [Maven Plugin for Azure Functions](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-functions-maven-plugin).
 
