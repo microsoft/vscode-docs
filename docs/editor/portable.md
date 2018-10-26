@@ -46,7 +46,7 @@ On **macOS**, you need to place the data folder as a sibling of the application 
 
 Portable Mode won't work if your application is in [quarantine](https://apple.stackexchange.com/a/104875), which happens by default if you just downloaded Code. Make sure you remove the quarantine attribute, if Portable Mode doesn't seem to work:
 
-```
+```bash
 xattr -dr com.apple.quarantine Visual\ Studio\ Code.app
 ```
 

@@ -266,7 +266,7 @@ You can change the location by launching VS Code with the `--extensions-dir <dir
 
 ### Whenever I try to install any extension, I get a connect ETIMEDOUT error
 
-You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy server support](/docs/setup/network.md#proxy-server-support) section in SETUP topic for details.
+You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy server support](/docs/setup/network.md#proxy-server-support) section in the setup topic for details.
 
 ### Can I download an extension directly from the Marketplace?
 

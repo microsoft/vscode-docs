@@ -25,7 +25,7 @@ If you'd just like to see refactorings without Quick Fixes, you can use the **Re
 
 >**Note:** If you prefer to not see the Code Action lightbulb in your editor, you can disable lightbulbs with the `editor.lightbulb.enable` [setting](/docs/getstarted/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
 
-## Refactoring
+## Refactoring Actions
 
 ### Extract Method
 
