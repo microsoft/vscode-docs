@@ -19,8 +19,12 @@ If you would like to have a more customizable UX component in VS Code you should
 
 ## Status Bar
 
+The status bar can be extended by custom [StatusBarItems](https://code.visualstudio.com/docs/extensionAPI/vscode-api#StatusBarItem) that can show text and icons and run a command on click.
+
+An example status bar extension can be found [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/statusbar-sample).
+
 ## Activity Bar
 
-The Activity Bar on the left can be extended by custom tree views which can be contributed to existing view container or to a brand container. More about tree views can be found [here](../extension-guides/tree-view.md).
+The Activity Bar on the left can be extended by custom views which can be contributed to an existing view container or to a brand new container. More about tree views can be found [here](../extension-guides/tree-view.md).
 
 ## Progress API
