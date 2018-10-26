@@ -9,17 +9,17 @@ PageTitle: Activation Events
 
 Extensions are activated lazily in VS Code.  As a result, you need to provide VS Code with context as to when your extension should be activated.  We support the following activation events:
 
-* [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage)
-* [`onCommand:${command}`](/docs/extensionAPI/activation-events.md#activationeventsoncommand)
-* [`onDebug`](/docs/extensionAPI/activation-events.md#activationeventsondebug)
-* [`workspaceContains:${toplevelfilename}`](/docs/extensionAPI/activation-events.md#activationeventsworkspacecontains)
-* [`onFileSystem:${scheme}`](/docs/extensionAPI/activation-events.md#activationeventsonfilesystem)
-* [`onView:${viewId}`](/docs/extensionAPI/activation-events.md#activationeventsonview)
-* [`onUri`](/docs/extensionAPI/activation-events.md#activationeventsonuri)
-* [`onWebviewPanel`](/docs/extensionAPI/activation-events.md#activationeventsonwebviewpanel)
-* [`*`](/docs/extensionAPI/activation-events.md#activationevents)
+* [`onLanguage:${language}`](/api/references/activation-events#activationeventsonlanguage)
+* [`onCommand:${command}`](/api/references/activation-events#activationeventsoncommand)
+* [`onDebug`](/api/references/activation-events#activationeventsondebug)
+* [`workspaceContains:${toplevelfilename}`](/api/references/activation-events#activationeventsworkspacecontains)
+* [`onFileSystem:${scheme}`](/api/references/activation-events#activationeventsonfilesystem)
+* [`onView:${viewId}`](/api/references/activation-events#activationeventsonview)
+* [`onUri`](/api/references/activation-events#activationeventsonuri)
+* [`onWebviewPanel`](/api/references/activation-events#activationeventsonwebviewpanel)
+* [`*`](/api/references/activation-events#activationevents)
 
-We also provide an overview of the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md) and the minimum required fields.
+We also provide an reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
 
 ## activationEvents.onLanguage
 
