@@ -27,4 +27,13 @@ An example status bar extension can be found [here](https://github.com/Microsoft
 
 The Activity Bar on the left can be extended by custom views which can be contributed to an existing view container or to a brand new container. More about tree views can be found [here](../extension-guides/tree-view.md).
 
-## Progress API
+## Progress
+
+`Progress` is a used for reporting progress updates to the user.
+Progress can be shown in different locations using the `ProgressLocation` option:
+* in the notifications area
+* in the source control view
+* general progress in the VS Code window
+
+
+An example progress extension can be found [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/progress-sample).
