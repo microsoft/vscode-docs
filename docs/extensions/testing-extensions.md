@@ -118,7 +118,7 @@ The command will expose some optional environment variables, which you can use t
 | `CODE_EXTENSIONS_PATH` | Location of the extensions to load (default is `process.cwd()`) |
 | `CODE_TESTS_WORKSPACE` | Location of a workspace to open for the test instance (default is CODE_TESTS_PATH) |
 
-## Travis CI
+### Travis CI
 
 Simple create the following top-level `.travis.yml` configuration file in your repository:
 
