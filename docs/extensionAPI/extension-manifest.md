@@ -283,6 +283,19 @@ To create an extension pack, you can use the `yo code` Yeoman generator and choo
 
 An Extension Pack should not have any functional dependencies with its bundled extensions and the bundled extensions should be manageable independent of the pack. If an extension has a dependency on another extension, that dependency should be declared with the `extensionDependencies` attribute.
 
+### Extension uninstall hook
+If your extension has some clean ups to be done when it is uninstalled from VS Code, you can now do that by registering a `node` script to the uninstall hook `vscode:uninstall` under `scripts` section in extension's package.json.
+```json
+{
+  "scripts": {
+    "vscode:uninstall": "node ./out/src/lifecycle"
+  }
+}
+```
+This script gets executed when the extension is completely uninstalled from VS Code which is when VS Code is restarted (shutdown and start) after the extension is uninstalled.
+
+**Note**: Only Node.js scripts are supported.
+
 ## Useful Node modules
 
 There are several Node.js modules available on npmjs to help with writing VSCode extensions. You can include these in your extension's `dependencies` section.
