@@ -67,7 +67,7 @@ We recommend that you create local working branches that target a specific scope
 
 [Visual Studio Code](https://code.visualstudio.com) is a great editor for Markdown!
 
-In fact, VS Code itself is developed using VS Code and the core documentation is authored using VS Code.
+In fact, VS Code and its core documentation are written using VS Code.
 
 ## How to use Markdown to format your topic
 
