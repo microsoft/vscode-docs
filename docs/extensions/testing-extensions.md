@@ -94,25 +94,35 @@ If you decide to share your extension, you may not want to include the tests in 
 out/test/**
 ```
 
-## Running tests automatically on Travis CI build machines
+## Continuous Integration
 
-You can run extension tests automatically on build machines like [Travis CI](https://travis-ci.org).
+Extension tests can be run on CI services. The `vscode` npm module provides a built-in command which:
 
-In order to enable automated extension tests, the `vscode` npm module provides a test command that will:
+1. Downloads and unzips VS Code;
+2. Launches your extension tests inside VS Code;
+3. Prints the results to the console and exits with an appropriate status code.
 
-1. Download and unzip VS Code;
-2. Launch your extension tests inside VS Code;
-3. Print the results to the console and return with an exit code according to test success or failure.
-
-To enable this test command, make sure the following `scripts` entry is in your extension's `package.json`:
+Make sure the following `scripts` entry is in your extension's `package.json`:
 
 ```json
 "test": "node ./node_modules/vscode/bin/test"
 ```
 
-Here's a sample Travis CI `.travis.yml` configuration file:
+The command will expose some optional environment variables, which you can use to customize the build:
 
-```
+| Name        | Description       |
+| ------------|-------------------|
+| `CODE_VERSION` | Version of VS Code to run the tests against (e.g. `0.10.10`) |
+| `CODE_DOWNLOAD_URL` | Full URL of a VS Code drop to use for running tests against |
+| `CODE_TESTS_PATH` | Location of the tests to execute (default is `process.cwd()/out/test` or `process.cwd()/test`) |
+| `CODE_EXTENSIONS_PATH` | Location of the extensions to load (default is `process.cwd()`) |
+| `CODE_TESTS_WORKSPACE` | Location of a workspace to open for the test instance (default is CODE_TESTS_PATH) |
+
+## Travis CI
+
+Simple create the following top-level `.travis.yml` configuration file in your repository:
+
+```yml
 sudo: false
 
 os:
@@ -134,21 +144,9 @@ script:
   - npm test --silent
 ```
 
-The script above will run the tests on both Linux and macOS. Note that in order to run the tests on Linux, you need to have a `before_install` configuration as above to enable Linux to start VS Code from the build.
+The script above will run the tests on both Linux and macOS.
 
-There are some optional environment variables to configure the test runner:
-
-| Name        | Description       |
-| ------------|-------------------|
-| `CODE_VERSION` | Version of VS Code to run the tests against (e.g. `0.10.10`) |
-| `CODE_DOWNLOAD_URL` | Full URL of a VS Code drop to use for running tests against |
-| `CODE_TESTS_PATH` | Location of the tests to execute (default is `process.cwd()/out/test` or `process.cwd()/test`) |
-| `CODE_EXTENSIONS_PATH` | Location of the extensions to load (default is `process.cwd()`) |
-| `CODE_TESTS_WORKSPACE` | Location of a workspace to open for the test instance (default is CODE_TESTS_PATH) |
-
-## Running tests on Windows with AppVeyor
-
-You can also run extension tests on Windows with [AppVeyor](https://www.appveyor.com/).
+**Note:** Linux requires an X server to be run before, hence the `before_install` section.
 
 ## Next Steps
 
