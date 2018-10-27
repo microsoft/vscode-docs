@@ -9,7 +9,7 @@ MetaDescription: Edit JSON files in Visual Studio Code
 ---
 # Editing JSON with Visual Studio Code
 
-JSON is a data format that is common in configuration files like `package.json` or `project.json`. We also use it extensively in Visual Studio Code for our configuration files. When opening a file that ends with `.json`, VS Code provides features out of the box to make it simpler to write or modify the file's content.
+JSON is a data format that is common in configuration files like `package.json` or `project.json`. We also use it extensively in Visual Studio Code for our configuration files. When opening a files that ends with `.json`, VS Code provides features out of the box to make it simpler to write or modify the file's content.
 
 ![JSON within VS Code](images/json/json_hero.png)
 
@@ -21,7 +21,7 @@ For properties and values, both for JSON data with and without a schema, we offe
 
 ### Package and Project Dependencies
 
-We also offer IntelliSense for specific value sets such as package and project dependencies in `package.json`, `project.json` and `bower.json`.
+We also offer IntelliSense for specific value sets such as packages and project dependencies in `package.json`, `project.json` and `bower.json`.
 
 ## Quick Navigation
 
