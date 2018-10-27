@@ -85,6 +85,8 @@ However, launching VS Code from a shell in which a certain Python environment is
 
 Any changes you make to an activated environment within the terminal are persistent. For example, using `conda install <package>` from the terminal with a conda environment activated installs the package into that environment permanently. Similarly, using `pip install` in a terminal with a virtual environment activated adds the package to that environment.
 
+> **Note:** conda environments cannot be automatically activated in the integrated terminal if PowerShell is set as the integrated shell.
+
 ### Choose a debugging environment
 
 Debugging uses the value from `python.pythonPath` in selecting what Python interpreter to use, in the following order of precedence:
