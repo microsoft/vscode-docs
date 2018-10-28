@@ -78,5 +78,5 @@ Open the **Output** window in VS Code to view the deployment logs. Once the depl
 
 ## Next steps
 
-* To containerize and deploy a web application, check out the [Java Container Tutorial](/docs/java/java-container.md)
-* To learn more about Java Debugging features, see the [Java Debugging Tutorial](/docs/java/java-debugging.md)
+* To containerize and deploy a web application, check out the [Java Container Tutorial](/docs/java/java-container.md).
+* To learn more about Java Debugging features, see the [Java Debugging Tutorial](/docs/java/java-debugging.md).
