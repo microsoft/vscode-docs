@@ -15,6 +15,8 @@ Thank you for your interest in VS Code documentation!
 * [Topic Metadata](#topic-metadata)
 * [Formatting](#formatting)
 
+>**Note**: Before submitting a pull request, especially for rendering or link issues, please review the content on the official VS Code website, [code.visualstudio.com](https://code.visualstudio.com). The element in question may render correctly after processing by the website build.
+
 ## Contributing
 
 To contribute to [VS Code documentation](https://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
