@@ -79,6 +79,9 @@ code -r .
 # create a new window
 code -n
 
+# add a folder to the last active window
+code --add <path>
+
 # change the language
 code --locale=es
 
@@ -93,6 +96,9 @@ code --help
 
 # disable all extensions
 code --disable-extensions .
+
+# install an extension (use publisher.name as id)
+code --install-extension <id>
 ```
 
 ### .vscode folder
