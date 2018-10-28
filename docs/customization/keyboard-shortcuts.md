@@ -112,6 +112,7 @@ Key|Command
 `kb(editor.action.marker.prevInFiles)`|Go to previous error or warning
 `kb(workbench.action.openpreviousRecentlyUsedEditorInGroup)`|Navigate editor group history
 `kb(workbench.action.navigateBack)`|Go back
+`kb(workbench.action.quickInputBack)`|Go back to previous step, when in the QuickInput UI
 `kb(workbench.action.navigateForward)`|Go forward
 `kb(editor.action.toggleTabFocusMode)`|Toggle Tab moves focus
 
