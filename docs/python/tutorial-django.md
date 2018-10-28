@@ -137,7 +137,6 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
     ```python
     from django.http import HttpResponse
-    from django.shortcuts import render
 
     def home(request):
         return HttpResponse("Hello, Django!")
