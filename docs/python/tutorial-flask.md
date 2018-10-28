@@ -692,7 +692,7 @@ The completed code project from this tutorial can be found on GitHub: [python-sa
 
 Because this tutorial has only scratched the surface of page templates, refer to the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/) for more information about templates. The [Template Designer Documentation](http://jinja.pocoo.org/docs/2.10/templates/#synopsis) contains all the details on the template language.
 
-To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](tutorial-deploy-containers.md). Azure also offers a standard container, [App Service on Linux (Preview)](tutorial-deploy-app-service-on-linux.md), to which you deploy web apps from within VS Code.
+To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](/docs/python/tutorial-deploy-containers.md). Azure also offers a standard container, [App Service on Linux (Preview)](/docs/python/tutorial-deploy-app-service-on-linux.md), to which you deploy web apps from within VS Code.
 
 You may also want to review the following articles in the VS Code docs that are relevant to Python:
 
