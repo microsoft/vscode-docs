@@ -150,9 +150,9 @@ If you are listing out multiple key bindings, you can use a table.
 
 >Shortcut|Key Strokes
 >--------|-----------
->Cut|`kb(editor.action.clipboardCutActionn)`
+>Cut|`kb(editor.action.clipboardCutAction)`
 >Copy|`kb(editor.action.clipboardCopyAction)`
->Paste|`kb(editor.action.clipboardPasteActionn)`
+>Paste|`kb(editor.action.clipboardPasteAction)`
 
 ### Source Code
 
