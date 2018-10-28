@@ -79,9 +79,16 @@ sudo zypper refresh
 sudo zypper install code
 ```
 
-### AUR package for Arch Linux
+### Arch Linux
 
-There is a community maintained Arch User Repository (AUR) [package for VS Code](https://aur.archlinux.org/packages/visual-studio-code-bin).
+There is a [package for VS Code](https://www.archlinux.org/packages/community/x86_64/code/) in the official [community repository](https://wiki.archlinux.org/index.php/Official_repositories#community).
+
+The following script will install the package:
+```bash
+sudo pacman -S code
+```
+
+There is also a community maintained Arch User Repository (AUR) [package for VS Code](https://aur.archlinux.org/packages/visual-studio-code-bin) which tends to be more up to date.
 
 To get more information about the installation from the AUR, please consult the following wiki entry:
 [Install AUR Packages](https://wiki.archlinux.org/index.php/Arch_User_Repository#Build_and_install_the_package).
