@@ -313,7 +313,13 @@ Panel Identifiers:
 * workbench.panel.comments - Comments
 * workbench.view.search - Search when `search.location` is set to `panel`
 
-If you want keybinding that is enabled only when a specific view or panel has focus, use `sidebarFocus` and `panelFocus` in combination with `activeViewlet` and `activiewFocus`. For example, `"sidebarFocus && activeViewlet == 'workbench.view.explorer'"` is true only when File Explorer has focus.
+If you want a keybinding that is enabled only when a specific view or panel has focus, use `sidebarFocus` or `panelFocus` in combination with `activeViewlet` or `activiewFocus`.
+
+For example, the when clause below is true only when the File Explorer has focus:
+
+```json
+"sidebarFocus && activeViewlet == 'workbench.view.explorer'"
+```
 
 ## Custom Keybindings for Refactorings
 
