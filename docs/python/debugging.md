@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Python debugging configurations in Visual Studio Code
-DateApproved: 08/30/2018
+DateApproved: 10/29/2018
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -32,9 +32,9 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. Select the settings button (circled in the image above) or use the **Debug** > **Open configurations** menu command.
 
-1. In the list of debuggers that appears, select **Python**.
+1. If a list of debuggers appears, select **Python**. (The list appears only with older versions of VS Code and the Python extension.)
 
-1. The Python extension then creates and opens a `launch.json` file that contains number of pre-defined configurations. You can add custom configurations as well.
+1. The Python extension then creates and opens a `launch.json` file that contains number of pre-defined configurations. You can modify configurations (to add arguments, for example), and also add custom configurations.
 
 The details of configuration properties are covered later in this article under [Standard configuration and options](#standard-configuration-and-options). Additional configurations are also described in this article under [Debugging specific app types](#debugging-specific-app-types).
 
