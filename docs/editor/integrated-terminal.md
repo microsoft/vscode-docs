@@ -15,7 +15,7 @@ To open the terminal:
 
 * Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
 * Use the **View** > **Terminal** menu command.
-* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View:Toggle Integrated Terminal** command.
+* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Integrated Terminal** command.
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
@@ -208,7 +208,7 @@ There are also extensions available that give more options such as [Terminal Her
 
 ## Changing how the terminal is rendered
 
-By default, the integrated terminal will render using multiple `<canvas>` elements which is better tuned than the DOM for rendering interactive text that changes often. However, Electron/Chromium are slower rendering to canvas on some environments and so VS Code also provides a fallback DOM-renderer experience. VS Code will try to detect slow performance and give you the option to change via a notification. You can also change the rendering directly by setting `terminal.integrated.rendererType` in your user or workspace [settings](/docs/getstarted/settings.md).
+By default, the integrated terminal will render using multiple `<canvas>` elements which are better tuned than the DOM for rendering interactive text that changes often. However, Electron/Chromium are slower at rendering to canvas on some environments so VS Code also provides a fallback DOM-renderer experience. VS Code will try to detect slow performance and give you the option to change via a notification. You can also change the rendering directly by setting `terminal.integrated.rendererType` in your user or workspace [settings](/docs/getstarted/settings.md).
 
 ```js
 {
