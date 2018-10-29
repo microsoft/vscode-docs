@@ -1,5 +1,5 @@
 ---
-Order: 15
+# Order: 15
 Area: references
 TOCTitle: Glossary
 PageTitle: Glossary
