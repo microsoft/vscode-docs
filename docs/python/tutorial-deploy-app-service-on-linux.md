@@ -15,7 +15,7 @@ This tutorial walks you through using Visual Studio Code to deploy a Python appl
 [Azure App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), currently in Preview for Python, runs your source code in a pre-defined Docker container. The characteristics of this container are summarized as follows (for full documentation, see [Configure Python apps for App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/how-to-configure-python)):
 
 - Apps are run with Python 3.7 using the [Gunicorn](https://gunicorn.org) web server.
-- The container includes Flask by default but not Django.
+- The container includes [Flask](https://http://flask.pocoo.org) by default but not [Django](https://www.djangoproject.com).
 - To install Django and any other dependencies, you **must** provide a `requirements.txt` file and deploy to App Service using Git, as shown in this tutorial.
 - Although the container can run Django and Flask apps automatically, provided the app matches an expected structure, you can also provide a custom startup command file through which you have full control over the Gunicorn command line. A custom startup command is typically required for Flask apps, but not Django apps.
 - The container definition itself is on the [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
