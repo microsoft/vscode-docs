@@ -7,24 +7,24 @@ PageTitle: Contribution Points
 
 # Contribution Points
 
-This document covers the various Visual Studio Code contribution points that are defined in the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md).
+This document covers the various Visual Studio Code contribution points that are defined in the [`package.json` extension manifest](/api/references/extension-manifest).
 
-* [`configuration`](/docs/extensionAPI/extension-points.md#contributesconfiguration)
-* [`commands`](/docs/extensionAPI/extension-points.md#contributescommands)
-* [`menus`](/docs/extensionAPI/extension-points.md#contributesmenus)
-* [`keybindings`](/docs/extensionAPI/extension-points.md#contributeskeybindings)
-* [`languages`](/docs/extensionAPI/extension-points.md#contributeslanguages)
-* [`debuggers`](/docs/extensionAPI/extension-points.md#contributesdebuggers)
-* [`breakpoints`](/docs/extensionAPI/extension-points.md#contributesbreakpoints)
-* [`grammars`](/docs/extensionAPI/extension-points.md#contributesgrammars)
-* [`themes`](/docs/extensionAPI/extension-points.md#contributesthemes)
-* [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
-* [`jsonValidation`](/docs/extensionAPI/extension-points.md#contributesjsonvalidation)
-* [`views`](/docs/extensionAPI/extension-points.md#contributesviews)
-* [`problemMatchers`](/docs/extensionAPI/extension-points.md#contributesproblemmatchers)
-* [`problemPatterns`](/docs/extensionAPI/extension-points.md#contributesproblempatterns)
-* [`taskDefinitions`](/docs/extensionAPI/extension-points.md#contributestaskDefinitions)
-* [`colors`](/docs/extensionAPI/extension-points.md#contributescolors)
+* [`configuration`](/api/references/contribution-points#contributes.configuration)
+* [`commands`](/api/references/contribution-points#contributes.commands)
+* [`menus`](/api/references/contribution-points#contributes.menus)
+* [`keybindings`](/api/references/contribution-points#contributes.keybindings)
+* [`languages`](/api/references/contribution-points#contributes.languages)
+* [`debuggers`](/api/references/contribution-points#contributes.debuggers)
+* [`breakpoints`](/api/references/contribution-points#contributes.breakpoints)
+* [`grammars`](/api/references/contribution-points#contributes.grammars)
+* [`themes`](/api/references/contribution-points#contributes.themes)
+* [`snippets`](/api/references/contribution-points#contributes.snippets)
+* [`jsonValidation`](/api/references/contribution-points#contributes.jsonValidation)
+* [`views`](/api/references/contribution-points#contributes.views)
+* [`problemMatchers`](/api/references/contribution-points#contributes.problemMatchers)
+* [`problemPatterns`](/api/references/contribution-points#contributes.problemPatterns)
+* [`taskDefinitions`](/api/references/contribution-points#contributes.taskDefinitions)
+* [`colors`](/api/references/contribution-points#contributes.colors)
 
 ## contributes.configuration
 
