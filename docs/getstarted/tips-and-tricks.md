@@ -486,7 +486,7 @@ This only selects the next occurrence after the one you selected so you can add 
 
 ### Column (box) selection
 
-You can select blocks of text by holding `kbstyle(Shift+Alt)` while you drag your mouse. A separate cursor will be added to the end of each selected line.
+You can select blocks of text by holding `kbstyle(Shift+Cmd)` while you drag your mouse. A separate cursor will be added to the end of each selected line.
 
 ![Column text selection](images/tips-and-tricks/column-select.gif)
 
