@@ -4,7 +4,7 @@
 
 # Visual Studio Code Documentation
 
-You've found the Visual Studio Code documentation GitHub repository which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
+You have found the Visual Studio Code documentation GitHub repository which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
 
 Topics submitted here will be published to the [Visual Studio Code](https://code.visualstudio.com) portal.
 
@@ -20,21 +20,23 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 
 ## Visual Studio Code
 
-[VS Code](https://code.visualstudio.com/) is a lightweight but powerful development environment for building and debugging modern web and cloud applications.  It is free and available on your favorite platform - Linux, macOS, and Windows.
+[VS Code](https://code.visualstudio.com/) is a lightweight but powerful development environment for building and debugging modern web and cloud applications.  It is free and available on all three major platforms - Linux, macOS, and Windows.
 
-If you landed here looking for other information about VS Code, head over to [our website](https://code.visualstudio.com) for additional information.
+If you are here looking for other information about VS Code, head over to [our website](https://code.visualstudio.com) for additional information.
 
 ## Contributing to the documentation
 
-To contribute with new topics/information or make changes to existing documentation, see [contributing](https://github.com/Microsoft/vscode-docs/blob/master/CONTRIBUTING.md#contributing) for instructions and guidelines.
+To contribute with new topics/information or make changes to the existing documentation, see [contributing](https://github.com/Microsoft/vscode-docs/blob/master/CONTRIBUTING.md#contributing) for instructions and guidelines.
 
 ## Feedback
 
-If you want to give documentation feedback, please use the feedback control located at the bottom of each documentation page.
+If you want to give feedback on documentation, please use the feedback module located at the bottom of every documentation page on the [Visual Studio Code website](https://code.visualstudio.com/docs).
+
+![Documentation Feedback Module](images/DocumentationFeedbackModul.png)
 
 ## Documentation Issues
 
-To enter documentation bugs, please create a [new GitHub issue](https://github.com/Microsoft/vscode-docs/issues) (try to check if there isn't a topic about your issue already).
+To enter documentation bugs, please create a [new GitHub issue](https://github.com/Microsoft/vscode-docs/issues) (try to make sure there is not an topic about your issue already).
 
 If you think the issue is with the VS Code product itself, please enter issues [here](https://github.com/Microsoft/vscode/issues).
 
@@ -42,18 +44,24 @@ If you think the issue is with the VS Code product itself, please enter issues [
 
 In order to edit the VS Code documentation, ensure that you have [Git](https://git-scm.com/downloads) installed.
 
+Navigate to the directory you would like to clone the repository to (e.g. Documents):
+
+```
+cd Documents/
+```
+
 Clone a copy of the repo:
 
 ```
 git clone https://github.com/Microsoft/vscode-docs.git
 ```
 
-VS Code itself is great for reviewing and editing [Markdown](https://code.visualstudio.com/docs/languages/markdown) with nice preview support.
+VS Code itself is great for reviewing and editing [Markdown](https://code.visualstudio.com/docs/languages/markdown) with intuitive preview support.
 
-If you want to use VS Code, simply navigate to the `vscode-docs` directory and launch VS Code from there:
+If you want to use VS Code to edit the documentation, simply navigate to the `vscode-docs` directory and launch VS Code from there:
 
 ```
-cd vscode-docs
+cd vscode-docs/
 code .
 ```
 
@@ -63,4 +71,4 @@ You can open any of the Markdown files and see a preview with the **Open Preview
 
 ## Publishing
 
-Steps for how to publish documentation changes can be found [here](https://github.com/Microsoft/vscode-website#publishing-a-documentation-change) in the (private) repository of the VS Code website.
+Steps for how to publish documentation changes to the Visual Studio Code website can be found [here](https://github.com/Microsoft/vscode-website#publishing-a-documentation-change) in the (private) repository of the Visual Studio Code website.
