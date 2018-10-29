@@ -36,7 +36,7 @@ Name | Required | Type | Details
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
 `extensionPack` | | `array` | An array with the ids of extensions bundled with this extension. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
-`scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with [extra VS Code specific fields](/docs/extensions/publish-extension.md#pre-publish-step).
+`scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with extra VS Code specific fields such as [vscode:prepublish](/docs/extensions/publish-extension.md#prepublish-step) or [vscode:uninstall](/docs/extensionAPI/extension-manifest.md#extension-uninstall-hook).
 `icon` | | `string` | The path to the icon of at least 128x128 pixels (256x256 for Retina screens).
 
 Also check [npm's `package.json` reference](https://docs.npmjs.com/files/package.json).
@@ -284,7 +284,9 @@ To create an extension pack, you can use the `yo code` Yeoman generator and choo
 An Extension Pack should not have any functional dependencies with its bundled extensions and the bundled extensions should be manageable independent of the pack. If an extension has a dependency on another extension, that dependency should be declared with the `extensionDependencies` attribute.
 
 ### Extension uninstall hook
-If your extension has some clean ups to be done when it is uninstalled from VS Code, you can now do that by registering a `node` script to the uninstall hook `vscode:uninstall` under `scripts` section in extension's package.json.
+
+If your extension has some clean up to be done when it is uninstalled from VS Code, you can register a `node` script to the uninstall hook `vscode:uninstall` under `scripts` section in extension's package.json.
+
 ```json
 {
   "scripts": {
@@ -292,6 +294,7 @@ If your extension has some clean ups to be done when it is uninstalled from VS C
   }
 }
 ```
+
 This script gets executed when the extension is completely uninstalled from VS Code which is when VS Code is restarted (shutdown and start) after the extension is uninstalled.
 
 **Note**: Only Node.js scripts are supported.

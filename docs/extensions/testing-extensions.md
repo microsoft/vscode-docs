@@ -120,7 +120,7 @@ The command will expose some optional environment variables, which you can use t
 
 ### Travis CI
 
-Simple create the following top-level `.travis.yml` configuration file in your repository:
+To use [Travis CI](https://travis-ci.org/), create the following top-level `.travis.yml` configuration file in your repository:
 
 ```yml
 sudo: false

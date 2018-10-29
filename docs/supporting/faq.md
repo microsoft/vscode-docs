@@ -167,7 +167,7 @@ If you use the JSON editor for your settings, add the following line:
 
 Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, or providing Natural Language Search within Settings. You can choose to turn on/off features that use these services.
 
-Please note, that turning off these features does not put VS Code into offline mode. If, for example, you search for extensions in the **Extensions** view, VS Code still searches the online VS Code market place. The settings ensure that VS Code does not talk to online services without you requesting it.
+Please note, that turning off these features does not put VS Code into offline mode. If, for example, you search for extensions in the **Extensions** view, VS Code still searches the online VS Code Marketplace. The settings ensure that VS Code does not talk to online services without you requesting it.
 
 From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), and search for `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
 
@@ -175,11 +175,11 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 ## What non-Microsoft online services does VS Code talk to
 
-The built-in **Npm support for VS Code** extension sends requests to [`https://registry.npmjs.org`](https://registry.npmjs.org) and [`https://registry.bower.io`](https://registry.bower.io).
+The built-in **npm support for VS Code** extension sends requests to [https://registry.npmjs.org](https://registry.npmjs.org) and [https://registry.bower.io](https://registry.bower.io).
 
-The built-in **TypeScript and JavaScript Language Features** extension queries the `@types` domain at [`https://registry.npmjs.org`](https://registry.npmjs.org).
+The built-in **TypeScript and JavaScript Language Features** extension queries the `@types` domain at [https://registry.npmjs.org](https://registry.npmjs.org).
 
-When you use **Developer: Toggle Developer Tools** or **Developer: Open Webview Developer Tools**, VS Code may talk to Google servers to fetch data needed to launch developer tools.
+When you use **Developer: Toggle Developer Tools** or **Developer: Open Webview Developer Tools**, VS Code may talk to Google servers to fetch data needed to launch Developer Tools.
 
 ## Do you send all my information to a recommendation service?
 
