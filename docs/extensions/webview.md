@@ -360,7 +360,7 @@ export function activate(context: vscode.ExtensionContext) {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, { });
 
         // Get path to resource on disk
-        const onDiskPath = vscode.Uri.file(path.join(extensionPath, 'media', 'cat.gif'));
+        const onDiskPath = vscode.Uri.file(path.join(context.extensionPath, 'media', 'cat.gif'));
 
         // And get the special URI to use with the webview
         const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
@@ -398,11 +398,11 @@ export function activate(context: vscode.ExtensionContext) {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, {
             // Only allow the webview to access resources in our extension's media directory
             localResourceRoots: [
-                vscode.Uri.file(path.join(extensionPath, 'media'))
+                vscode.Uri.file(path.join(context.extensionPath, 'media'))
             ]
         });
 
-        const onDiskPath = vscode.Uri.file(path.join(extensionPath, 'media', 'cat.gif'));
+        const onDiskPath = vscode.Uri.file(path.join(context.extensionPath, 'media', 'cat.gif'));
         const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
 
         panel.webview.html = getWebviewContent(catGifSrc);
