@@ -9,7 +9,7 @@ PageTitle: Your First Extension
 
 In this section, we'll teach you fundamental concepts for building VS Code extensions. The following topics are centered around the [Hello Code](https://github.com/Microsoft/vscode-extension-samples/tree/ext-docs/hellocode-sample) sample extension. Download and run it:
 
-```
+```bash
 git clone https://github.com/Microsoft/vscode-extension-samples
 cd vscode-extension-samples/hellocode-sample
 npm install
