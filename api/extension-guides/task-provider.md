@@ -69,7 +69,7 @@ The `getRakeTasks` implementation does the following:
 
 Since a Rake task instantiation needs a task definition as defined in the `package.json` file, VS Code also defines the structure using a TypeScript interface like this:
 
-```TypeScript
+```typescript
 interface RakeTaskDefinition extends vscode.TaskDefinition {
 
     /**
@@ -86,7 +86,7 @@ interface RakeTaskDefinition extends vscode.TaskDefinition {
 
 Assuming that the output comes from a task called `compile`, the corresponding task creation then looks like this:
 
-```TypeScript
+```typescript
 let task = new vscode.Task({ type: 'rake', task: 'compile' }, 'compile', 'rake', new vscode.ShellExecution('rake compile'));
 ```
 
