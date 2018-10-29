@@ -9,7 +9,7 @@ PageTitle: Source Control
 
 The Source Control API allows extension authors to define Source Control Management (SCM) features. There is a slim, yet powerful API surface which allows many different SCM systems to be integrated in VS Code, while having a common user interface with all of them.
 
-![VS Code SCM](images/scm/main.png)
+![VS Code SCM](images/scm-provider/main.png)
 
 VS Code itself ships with one Source Control provider, the Git extension, which is the best reference for this API and is [a great starting point](https://github.com/Microsoft/vscode/blob/master/extensions/git/src/repository.ts) if you'd like to contribute your very own SCM provider. There are other great examples in the Marketplace such as the [SVN extension](https://marketplace.visualstudio.com/items?itemName=johnstoncode.svn-scm).
 
@@ -131,7 +131,7 @@ async stageChange(uri: Uri, changes: LineChange[], index: number): Promise<void>
 
 The `scm/sourceControl` menu is located contextually near SourceControl instances:
 
-![source control menu](images/scm/sourcecontrol-menu.png)
+![source control menu](images/scm-provider/sourcecontrol-menu.png)
 
 Finally, the `scm/change/title` menu is related to the Quick Diff experience, showcased further ahead. It lets you contribute commands which are specific to code changes.
 
@@ -161,7 +161,7 @@ export interface SourceControl {
 
 VS Code also supports displaying **quick diff** editor gutter decorations. Clicking those decorations will reveal an inline diff experience, to which you can contribute contextual commands:
 
-![SCM quick diff](images/scm/quickdiff.png)
+![SCM quick diff](images/scm-provider/quickdiff.png)
 
 These decorations are computed by VS Code itself. All you need to do is provide VS Code with the original contents of any given file.
 
