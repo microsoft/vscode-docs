@@ -23,7 +23,7 @@ To successfully complete this tutorial, you must do the following:
 1. Install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
-   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download Python 3.7.0** button that appears first on the page (or whatever is the latest version).
+   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); you can typically use the **Download Python 3.7.0** button that appears first on the page (or whatever is the latest version).
    - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must install `pip` with [`get-pip.py`](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
    - (MacOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
    - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
@@ -50,7 +50,7 @@ From within VS Code, select a Python 3 interpreter by opening the **Command Pale
 
 ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
-The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](environments.md).
+The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
 
 Selecting an interpreter sets the `python.pythonPath` value in your workspace settings to the path of the interpreter. To see the setting, select **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS), then select the **Workspace Settings** tab.
 
@@ -58,7 +58,7 @@ Selecting an interpreter sets the `python.pythonPath` value in your workspace se
 
 ## Create a Python Hello World source code file
 
-From the File Explorer toolbar, press the New File button on the `hello` folder:
+From the File Explorer toolbar, click the New File button on the `hello` folder:
 
 ![File Explorer New File](images/tutorial/toolbar-new-file.png)
 
@@ -66,7 +66,7 @@ Name the file `hello.py`, and it automatically opens in the editor:
 
 ![File Explorer hello.py](images/tutorial/hello-py-file-created.png)
 
-By using the `.py` file extension, VS Code interprets this file as Python and evaluates the contents with the Python extension and the selected interpreter.
+By using the `.py` file extension, you tell VS Code to interpret this file as a Python program, so that it evaluates the contents with the Python extension and the selected interpreter.
 
 Next, start entering the following source code if using Python 3:
 
@@ -83,9 +83,9 @@ IntelliSense and auto-completions work for standard Python modules as well as ot
 
 ![IntelliSense appearing for a variable whose type provides methods](images/tutorial/intellisense02.png)
 
-Feel free to experiment with IntelliSense some more, but then revert changes so you have only the `msg` variable and the `print` call, and save the file (`kb(workbench.action.files.save)`).
+Feel free to experiment with IntelliSense some more, but then revert your changes so you have only the `msg` variable and the `print` call, and save the file (`kb(workbench.action.files.save)`).
 
-For full details on editing, formatting, and refactoring, see [Editing code](editing.md). The Python extension also has full support for [Linting](linting.md).
+For full details on editing, formatting, and refactoring, see [Editing code](/docs/python/editing.md). The Python extension also has full support for [Linting](/docs/python/linting.md).
 
 ## Run Hello World
 
@@ -100,13 +100,13 @@ The command opens a terminal panel in which your Python interpreter is automatic
 There are two other ways you can run Python within VS Code:
 
 - Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is very convenient for testing just a part of a file.
-- Use the **Python: Start REPL** command to opens a REPL terminal for the currently selected Python interpreter. In the REPL you can then enter and run lines of code one at a time.
+- Use the **Python: Start REPL** command to open a REPL terminal for the currently selected Python interpreter. In the REPL you can then enter and run lines of code one at a time.
 
 ## Configure and run the debugger
 
 Let's now try debugging our simple Hello World program.
 
-First, set a breakpoint on line 2 of `hello.py` by placing the cursor on the `print` call and pressing `kb(editor.debug.action.toggleBreakpoint)`. Alternately, just click in the editor left gutter next to the line numbers. A red circle  appears in the gutter.
+First, set a breakpoint on line 2 of `hello.py` by placing the cursor on the `print` call and pressing `kb(editor.debug.action.toggleBreakpoint)`. Alternately, just click in the editor's left gutter, next to the line numbers. When you do this, a red circle appears in the gutter.
 
 ![Setting a breakpoint in hello.py](images/tutorial/breakpoint-set.png)
 
@@ -124,7 +124,7 @@ After a few moments, the command creates a `launch.json` file that contains a nu
 
 **Note**: VS Code uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.
 
-These different configurations are fully explained in [Debugging configurations](debugging.md); for now, just select **Python: Current File (Integrated Terminal)**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
+These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python: Current File (Integrated Terminal)**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
 To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
 
@@ -149,7 +149,7 @@ A debug toolbar appears along the top with the following commands from left to r
 
 ![Debugging toolbar](images/tutorial/debug-toolbar.png)
 
-The Status Bar also changes color (orange in many themes) to indicate debug mode. The **Python Debug Console** also appears automatically in the lower right panel to show the commands being run along with program output.
+The Status Bar also changes color (orange in many themes) to indicate that you're in debug mode. The **Python Debug Console** also appears automatically in the lower right panel to show the commands being run, along with the program output.
 
 To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the next breakpoint. The now-defined `msg` variable appears in the **Local** pane
 
@@ -171,7 +171,7 @@ If you restart the debugger, remember that you set `stopOnEntry` in the configur
 
 To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Debug > Stop debugging** menu command.
 
-For full details, see [Debugging configurations](debugging.md), which includes details on how to use a use a specific Python interpreter for debugging.
+For full details, see [Debugging configurations](/docs/python/debugging.md), which includes details on how to use a use a specific Python interpreter for debugging.
 
 > **Tip: Use Logpoints instead of print statements**: Developers often litter source code with `print` statements to quickly inspect variables without necessarily stepping through each line of code in a debugger. In VS Code, you can instead use **Logpoints**. A Logpoint is like a breakpoint except that it logs a message to the console and doesn't stop the program. For more information, see [Logpoints](/docs/editor/debugging.md#logpoints) in the main VS Code debugging article.
 
@@ -194,7 +194,7 @@ If for some reason VS Code doesn't generate `launch.json` for you, create the `.
 }
 ```
 
-If you see "SyntaxError: invalid syntax" as shown below, you attempted to start to debugger when `launch.json` is currently showing in the editor, which is not Python code like `hello.py`:
+If you see "SyntaxError: invalid syntax" as shown below,  you may have attempted to start debugging when `launch.json` was showing in the editor. The error occurs because `launch.json` is not Python code like `hello.py`:
 
 ```bash
     // Use IntelliSense to learn about possible attributes.
@@ -216,7 +216,7 @@ Select `hello.py` and try again. Alternately, create a debug configuration speci
 
 ## Install and use packages
 
-Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example you use the `matplotlib` and `numpy` packages to create a graphical plot as commonly done with data science. (Note that matplotlib cannot show graphs when running in the Windows Subsystem for Linux as it lacks the necessary UI support.)
+Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) as it lacks the necessary UI support.)
 
 Return to the **Explorer** view (the top-most icon on the left side, which shows files), create a new file called `standardplot.py`, and paste in the following source code:
 
@@ -260,19 +260,19 @@ Rerun the program now (with or without the debugger) and after a few moments a p
 
 ## Next steps
 
-You can configure VS Code to use any Python environment you have installed, including virtual and conda environments. You can also use a separate environment for debugging. For full details, see [Environments](environments.md).
+You can configure VS Code to use any Python environment you have installed, including virtual and conda environments. You can also use a separate environment for debugging. For full details, see [Environments](/docs/python/environments.md).
 
 To learn to build web apps with the Django and Flask frameworks, see the following tutorials:
 
-- [Use Django in Visual Studio Code](tutorial-django.md)
-- [Use Flask in Visual Studio Code](tutorial-flask.md)
+- [Use Django in Visual Studio Code](/docs/python/tutorial-django.md)
+- [Use Flask in Visual Studio Code](/docs/python/tutorial-flask.md)
 
 There is then much more to explore with Python in Visual Studio Code:
 
-- [Editing code](editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
-- [Linting](linting.md) - Enable, configure, and apply a variety of Python linters.
-- [Debugging](debugging.md) - Learn to debug Python both locally and remotely.
-- [Unit testing](unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
-- [Settings reference](settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-- [Deploy Python to Azure App Service using containers](tutorial-deploy-containers.md)
-- [Deploy Python to Azure App Service on Linux (Preview)](tutorial-deploy-app-service-on-linux.md)
+- [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
+- [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
+- [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
+- [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
+- [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
+- [Deploy Python to Azure App Service using containers](/docs/python/tutorial-deploy-containers.md)
+- [Deploy Python to Azure App Service on Linux (Preview)](/docs/python/tutorial-deploy-app-service-on-linux.md)

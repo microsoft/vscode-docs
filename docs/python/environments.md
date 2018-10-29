@@ -101,7 +101,7 @@ The extension automatically looks for interpreters in the following locations:
 
 - Standard paths such as `/usr/local/bin`, `/usr/sbin`, `/sbin`, `c:\\python27`, `c:\\python36`, etc.
 - Virtual environments located directly under the workspace (project) folder.
-- Virtual environments located in the folder identified by the `python.venvPath` setting (see [General settings](settings-reference.md#general-settings)). The extension looks for virtual environments in the first-level subfolders of `venvPath`.
+- Virtual environments located in the folder identified by the `python.venvPath` setting (see [General settings](/docs/python/settings-reference.md#general-settings)). The extension looks for virtual environments in the first-level subfolders of `venvPath`.
 - Interpreters installed by [pyenv](https://github.com/pyenv/pyenv).
 - A [pipenv](https://docs.pipenv.org/) environment for the workplace folder. If one is found then no other interpreters are searched for or listed as pipenv expects to manage all aspects of the environment.
 - Conda environments that contain a Python interpreter. VS Code does not show conda environments that don't contain an interpreter.
@@ -174,7 +174,7 @@ By using an environment variable, you can easily transfer a project between oper
 
 An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used to mark comments. Multi-line values are not supported.
 
-By default, the Python extension loads a file named `.env` in the current workspace folder, as identified by the default value of the `python.envFile` setting (see [General settings](settings-reference.md#general-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
+By default, the Python extension loads a file named `.env` in the current workspace folder, as identified by the default value of the `python.envFile` setting (see [General settings](/docs/python/settings-reference.md#general-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
 A debug configuration also contains an `envFile` property that also defaults to the `.env` file in the current workspace (see [Debugging - standard configuration and options](/docs/python/debugging.md#standard-configuration-and-options)). This property allows you to easily set variables for debugging purposes that replace those used in the default `.env` file.
 
