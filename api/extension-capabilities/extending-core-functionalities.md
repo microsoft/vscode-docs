@@ -1,5 +1,5 @@
 ---
-Order: 6
+# Order: 6
 Area: extension-capabilities
 TOCTitle: Extending Core Functionalities
 PageTitle: Extending Core Functionalities
