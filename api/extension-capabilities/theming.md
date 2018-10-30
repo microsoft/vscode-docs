@@ -9,8 +9,8 @@ PageTitle: Theming
 
 In VS Code, there are two types of themes:
 
-- Color Theme: A mapping from both UI Component Identifier and Text Token Identifier to colors. Color theme allows you to apply your favorite colors to both VS Code UI Components and the text in the editor.
-- Icon Theme: A mapping from file type / file name to images. The file icon is displayed across the VS Code UI in places such as File Explorer, Quick Open List and Editor Tab.
+- **Color Theme**: A mapping from both UI Component Identifier and Text Token Identifier to colors. Color theme allows you to apply your favorite colors to both VS Code UI Components and the text in the editor.
+- **Icon Theme**: A mapping from file type / file name to images. The file icon is displayed across the VS Code UI in places such as File Explorer, Quick Open List and Editor Tab.
 
 Additionally, there is an API [`vscode.TextEditor.setDecorations`](/api/references/vscode-api#TextEditor.setDecorations) that allows you to create decorations for specific ranges in a text editor.
 
@@ -22,7 +22,7 @@ As you can see in the illustration, Color Theme defines two mappings, `colors` f
 
 [Theme Color Reference](/api/references/theme-color) is a good starting point for customizing UI Component colors.
 
-If you want to change the color of text in your editor, you need to know how the text is tokenized. VS Code provides a handy command "Developer: Inspect TM Scopes" that shows you the TextMate scopes of each syntax token in the editor.
+If you want to change the color of text in your editor, you need to know how the text is tokenized. VS Code provides a handy command `Developer: Inspect TM Scopes` that shows you the TextMate scopes of each syntax token in the editor.
 
 ![tm-inspector](./images/theming/tm-inspector.png)
 
@@ -43,8 +43,9 @@ There are also two settings, `workbench.colorCustomizations` and `editor.tokenCo
 
 ## Icon Theme
 
-Icon theme allows you to:
-- Create a mapping from unique Icon Identifiers to images/font-icons
-- Associate files to these unique Icon Identifiers by filenames or file language types.
+Icon themes allow you to:
+
+- Create a mapping from unique icon identifiers to images or font icons;
+- Associate files to these unique icon identifiers by filenames or file language types.
 
 ![icon-theme](./images/theming/icon-theme.png)
