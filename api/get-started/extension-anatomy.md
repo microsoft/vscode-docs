@@ -45,12 +45,12 @@ However, let's focus on `package.json` and `extensions.ts`, which are essential 
 
 ### The Extension Manifest: `package.json`
 
-Each VS Code extension must have a `package.json`. The `package.json` contains a mix of Node.js fields such as `scripts` and `dependencies` and VS Code fields such as `publisher`, `activationEvents` and `contributes`. You can find description of all VS Code specific fields in [Extension Manifest Reference](/api/references/extension-manifest). Here, we'll point out some important fields:
+Each VS Code extension must have a `package.json`. The `package.json` contains a mix of Node.js fields such as `scripts` and `dependencies` and VS Code specific fields such as `publisher`, `activationEvents` and `contributes`. You can find description of all VS Code specific fields in [Extension Manifest Reference](/api/references/extension-manifest). Here, we'll point out some important fields:
 
-- `name` and `publisher`: VS Code uses `<publisher>.<name>` as a unique ID for the extension. The HelloCode sample has the ID `vscode-samples.hellocode-sample`.
-- `engines.vscode`: This specifies the minimum version of vscode API that the extension depends on. The `postinstall` script `node ./node_modules/vscode/bin/install`
+- `name` and `publisher`: VS Code uses `<publisher>.<name>` as a unique ID for the extension. For example, the HelloCode sample has the ID `vscode-samples.hellocode-sample`.
 - `main`: The extension entry point.
 - `activationEvents` and `contributes`: [Activation Events](/api/references/activation-events) and [Contribution Points](/api/references/contribution-points).
+- `engines.vscode`: This specifies the minimum version of vscode API that the extension depends on.
 - The `postinstall` script: This would install the 1.25 version of vscode API as specified in `engines.vscode`. Once the `vscode.d.ts` file is downloaded to `node_modules/vscode/vscode.d.ts`, you will get IntelliSense, jump to definition and error checking for all usage of vscode API.
 
 ```json
