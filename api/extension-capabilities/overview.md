@@ -78,6 +78,7 @@ All of the language features extension points can be used for more than just imp
 - Define a new activity bar section.
 - Show new information in the status bar.
 - Render custom content using the `WebView` API.
+- Contribute Source Control providers.
 
 ## Debugger
 
