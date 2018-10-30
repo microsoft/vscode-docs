@@ -45,7 +45,16 @@ For a complete list of dynamic language features, see [Language Features](/api/l
 
 ![multi-ls](images/overview/multi-ls.png)
 
-## LSP
+## Language Server Protocol
+
+By standardizing the communication between a Language Server (a static code analysis tool) and a Language Client (usually a code editor), [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) allows extension authors to write one code analysis program and reuse it in multiple editor support plugins.
+
+In the [Language Features](/api/language-extensions/language-features) listing, you can find a listing of all VS Code language features and how they map to the [Language Server Protocol Spec](https://microsoft.github.io/language-server-protocol/specification).
+
+We also provide two in-depth guides that explain two approaches for extension authors to implement dynamic language features in VS Code:
+
+- Smart Editing Guide: https://vscode-ext-docs.azurewebsites.net/api/language-extensions/smart-editing-guide
+- Smart Editing LSP Guide: https://vscode-ext-docs.azurewebsites.net/api/language-extensions/smart-editing-lsp-guide
 
 ![multi-editor](images/overview/multi-editor.png)
 
