@@ -424,6 +424,7 @@ Key|Command|Command id
 `kb(workbench.action.showCommands)`|Show All Commands|`workbench.action.showCommands`
 `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Navigate Editor Group History|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
 `kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`
+`kb(workbench.action.quickInputBack)`|Go back in Quick Input|`workbench.action.quickInputBack`
 `kb(workbench.action.navigateForward)`|Go Forward|`workbench.action.navigateForward`
 
 ### Editor/Window Management
