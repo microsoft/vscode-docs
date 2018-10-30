@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 [Flask](http://flask.pocoo.org/) is a lightweight Python framework for web applications that provides the basics for URL routing and page rendering.
 
-Flask is called a "micro" framework because it doesn't directly provide features like form validation, database abstraction, authentication, and so on. Such features are instead provided by special Python packages called Flask [extensions](http://flask.pocoo.org/extensions/). The extensions integrate seamlessly with Flask so that they appear as if they were part of Flask itself. For example, Flask doesn't provide a page template engine, but installing Flask includes the Jinja templating engine by default. For convenience, we typically speak of these defaults as part of Flask.
+Flask is called a "micro" framework because it doesn't directly provide features like form validation, database abstraction, authentication, and so on. Such features are instead provided by special Python packages called Flask [extensions](http://flask.pocoo.org/extensions/). The extensions integrate seamlessly with Flask so that they appear as if they were part of Flask itself. For example, Flask doesn't provide a page template engine, but installing Flask includes the [Jinja](http://jinja.pocoo.org/) templating engine by default. For convenience, we typically speak of these defaults as part of Flask.
 
 In this tutorial you create a simple Flask app with three pages that use a common base template. Along the way you experience a number of features of Visual Studio Code including using the terminal, the editor, the debugger, code snippets, and more.
 
@@ -287,7 +287,7 @@ During your work with Flask or any other library, you may want to examine the co
 The app you've created so far in this tutorial generates only plain text web pages from Python code. Although it's possible to generate HTML directly in code, developers typically avoid such a practice because it's vulnerable to cross-site scripting (XSS) attacks. Instead, developers separate HTML markup from the code-generated data that gets inserted into that markup. **Templates** are a common approach to achieve this separation.
 
 - A template is an HTML file that contains placeholders for values that the code provides at run time. The templating engine takes care of making the substitutions when rendering the page. The code, therefore, concerns itself only with data values and the template concerns itself only with markup.
-- The default templating engine for Flask is Jinja, which is installed automatically when you install Flask. This engine provides flexible options including template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
+- The default templating engine for Flask is [Jinja](http://jinja.pocoo.org/), which is installed automatically when you install Flask. This engine provides flexible options including template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
 
 In this section you create a single page using a template. In the sections that follow, you configure the app to serve static files, and then create multiple pages to the app that each contain a nav bar from a base template.
 
@@ -690,7 +690,7 @@ Congratulations on completing this walkthrough of working with Flask in Visual S
 
 The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
 
-Because this tutorial has only scratched the surface of page templates, refer to the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/) for more information about templates. The [Template Designer Documentation](http://jinja.pocoo.org/docs/2.10/templates/#synopsis) contains all the details on the template language.
+Because this tutorial has only scratched the surface of page templates, refer to the [Jinja2 documentation](http://jinja.pocoo.org/docs/) for more information about templates. The [Template Designer Documentation](http://jinja.pocoo.org/docs/templates/#synopsis) contains all the details on the template language.
 
 To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](/docs/python/tutorial-deploy-containers.md). Azure also offers a standard container, [App Service on Linux (Preview)](/docs/python/tutorial-deploy-app-service-on-linux.md), to which you deploy web apps from within VS Code.
 
