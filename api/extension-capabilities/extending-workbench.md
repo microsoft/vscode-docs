@@ -7,9 +7,9 @@ PageTitle: Extending Workbench
 
 # Extending Workbench
 
-As described in the [Principles and Patterns](../references/principle-and-patterns.md) topic, we do not provide access to the underlying DOM to extension writers. In this section, we will describe the workbench UI components that are extensible.
+As described in the [Principles and Patterns](../references/principle-and-patterns) topic, we do not provide access to the underlying DOM to extension writers. In this section, we will describe the workbench UI components that are extensible.
 
-VS Code Workbench consists of different areas as shown in the picture:
+The VS Code workbench consists of different parts as shown in the picture:
 
 ![workbench](./images/extending-workbench/hero.png)
 
