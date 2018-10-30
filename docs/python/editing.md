@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 07/25/2018
+DateApproved: 10/29/2018
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -22,6 +22,8 @@ Also see [Linting](/docs/python/linting.md).
 ## Autocomplete and IntelliSense
 
 Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations. To customize the behavior of the analysis engine, see the [code analysis settings](settings-reference.md#code-analysis-settings) and [autocomplete settings](settings-reference.md#autocomplete-settings).
+
+You can also customize the general behavior of autocomplete and IntelliSense, even to disable these features entirely. See [Customizing IntelliSense](intellisense.md#_customizing-intellisense).
 
 <video id="python-code-completion-video" src="https://az754404.vo.msecnd.net/public/python-intellisense.mp4" poster="/images/python_python-intellisense-placeholder.png" autoplay loop controls muted></video>
 

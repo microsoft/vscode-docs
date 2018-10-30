@@ -212,7 +212,7 @@ You can also toggle Auto Save from the top-level menu with the **File** > **Auto
 Format on save
 
 ```json
-"editor.formatOnSave": true,
+"editor.formatOnSave": true
 ```
 
 Change the size of Tab characters
@@ -494,7 +494,7 @@ You can select blocks of text by holding `kbstyle(Shift+Alt)` while you drag you
 
 Keyboard Shortcut: `kb(editor.action.copyLinesUpAction)` or `kb(editor.action.copyLinesDownAction)`
 
-> The commands **Copy Line Up/Down** are unbound on Linux because the VS Code default keybindings would conflict with Ubuntu keybindings, see [Issue #509](https://github.com/Microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesUpAction` to your own preferred keyboard shortcuts.
+> The commands **Copy Line Up/Down** are unbound on Linux because the VS Code default keybindings would conflict with Ubuntu keybindings, see [Issue #509](https://github.com/Microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesDownAction` to your own preferred keyboard shortcuts.
 
 ![copy line down](images/tips-and-tricks/copy_line_down.gif)
 

@@ -15,6 +15,8 @@ Thank you for your interest in VS Code documentation!
 * [Topic Metadata](#topic-metadata)
 * [Formatting](#formatting)
 
+>**Note**: Before submitting a pull request, especially for rendering or link issues, please review the content on the official VS Code website, [code.visualstudio.com](https://code.visualstudio.com). The element in question may render correctly after processing by the website build.
+
 ## Contributing
 
 To contribute to [VS Code documentation](https://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
@@ -67,7 +69,7 @@ We recommend that you create local working branches that target a specific scope
 
 [Visual Studio Code](https://code.visualstudio.com) is a great editor for Markdown!
 
-In fact, VS Code itself is developed using VS Code and the core documentation is authored using VS Code.
+In fact, VS Code and its core documentation are written using VS Code.
 
 ## How to use Markdown to format your topic
 
@@ -150,9 +152,9 @@ If you are listing out multiple key bindings, you can use a table.
 
 >Shortcut|Key Strokes
 >--------|-----------
->Cut|`kb(editor.action.clipboardCutActionn)`
+>Cut|`kb(editor.action.clipboardCutAction)`
 >Copy|`kb(editor.action.clipboardCopyAction)`
->Paste|`kb(editor.action.clipboardPasteActionn)`
+>Paste|`kb(editor.action.clipboardPasteAction)`
 
 ### Source Code
 
