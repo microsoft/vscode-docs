@@ -1,5 +1,5 @@
 ---
-Order: 3
+# Order: 3
 Area: extension-guides
 TOCTitle: Tree View
 PageTitle: Tree View
