@@ -4,7 +4,7 @@
 
 # Visual Studio Code Documentation
 
-You've found the Visual Studio Code documentation GitHub repository which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
+You've found the Visual Studio Code documentation GitHub repository, which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
 
 Topics submitted here will be published to the [Visual Studio Code](https://code.visualstudio.com) portal.
 
@@ -20,7 +20,7 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 
 ## Visual Studio Code
 
-[VS Code](https://code.visualstudio.com/) is a lightweight but powerful development environment for building and debugging modern web and cloud applications.  It is free and available on your favorite platform - Linux, macOS, and Windows.
+[VS Code](https://code.visualstudio.com/) is a lightweight but powerful development environment for building and debugging modern web and cloud applications. It is free and available on your favorite platform - Linux, macOS, and Windows.
 
 If you landed here looking for other information about VS Code, head over to [our website](https://code.visualstudio.com) for additional information.
 
