@@ -9,65 +9,56 @@ PageTitle: Tools of the Trade
 
 Developing extension is no easy task, and we are here to help. This section points you to many tools and resources to take adavantage of. Make good use of them!
 
-## Debugger
+## Debugger and Debug Console
 
-## Samples and Yeoman Generator
+The debugger and debug console allow you stop the program and inspect variables effectively. Here we have an extension that would show a message `Hello Visual Studio Code!`, each time with an increasing exclamation mark. Let's find out how many exclamation marks the message would show by using the Debugger and the Debug Console.
+
+![debug](./images/tools-of-the-trade/debug.gif)
+
+You can learn more about debugging Node apps in VS Code at the [Node.js Debugging Topic](/docs/nodejs/nodejs-debugging).
+
+## Samples and Guides
+
+We have a great collection of Sample Extensions that you can clone and adapt from. Some of them even include detailed guide that explains the source code. You can find all Samples & Guides in the [Guide Listing](/api/extension-guides/overview) or the [vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples) repository.
+
+## Yeoman Generator
+
+We offer a [yeoman generator](https://github.com/Microsoft/vscode-generator-code) that helps you set up the VS Code extension development environment. The generated code shares the same setup as most of the sample extensions.
+
+```bash
+npm install -g yo generator-code
+yo code
+# Choose from one of the 7 templates
+# - New Extension (TypeScript)
+# - New Extension (JavaScript)
+# - New Color Theme
+# - New Language Support
+# - New Code Snippets
+# - New Keymap
+# - New Extension Pack
+```
 
 ## vsce
 
-## Others
+[`vsce`](https://github.com/Microsoft/vscode-vsce), short for "Visual Studio Code Extension", is a VS Code extension manager that helps you package, publish and manage extensions.
 
+If you would like to install extensions you have written, you can use `vsce` to package the extension into VSIX files and install from it.
 
----
+```bash
+npm install -g vsce
+vsce package # Run this at the root folder of hellocode-sample
+# hellocode-sample-0.0.1.vsix file created
+code --install-extension hellocode-sample-0.0.1.vsix
+# Alternatively, run the command `Extensions: Install from VSIX...`
+```
 
+https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix
 
-## Running and debugging your extension
+## Questions & Issues
 
-You can easily run your extension under the debugger by pressing `F5`. This opens a new VS Code window with your extension loaded. Output from your extension shows up in the `Debug Console`. You can set break points, step through your code, and inspect variables either in the `Debug` view or the `Debug Console`.
+If you have questions for extension development, try asking on:
 
-![Debugging extensions](images/developing-extensions/debug.png)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/visual-studio-code): There are 11k questions tagged `visual-studio-code`, and over half of them already have answers. Search for your issue, ask questions or help your fellow developers by answering VS Code extension development questions!
+- [Gitter Channel](https://gitter.im/Microsoft/vscode) and [VS Code Dev Slack](https://join.slack.com/t/vscode-dev-community/shared_invite/enQtMjIxOTgxNDE3NzM0LWU5M2ZiZDU1YjBlMzdlZjA2YjBjYzRhYTM5NTgzMTAxMjdiNWU0ZmQzYWI3MWU5N2Q1YjBiYmQ4MzY0NDE1MzY): Public chatroom full of helpful folks. Some VS Code team members chime in conversations.
 
-
-## Debugging your extension
-
-Set a breakpoint, for example inside the registered command, and run the `"Hello world"` command in the Extension Development VS Code instance.
-
-![Debugging the extension](images/example-hello-world/hitbp.png)
-
-> **Note:** For TypeScript extensions, even though VS Code loads and executes `out/extension.js`, you are actually able to debug the original TypeScript code due to the generated source map `out/extension.js.map` and VS Code's debugger support for source maps.
-
-> **Tip:** The Debug Console will show all the messages you log to the console.
-
-To learn more about the extension [development environment](/docs/extensions/developing-extensions.md).
-
-## Launching your extension
-
-Your extension is launched in a new window with the title `Extension Development Host`. This window runs VS Code or more
-precisely the `Extension Host` with your extension under development.
-
-You can accomplish the same from the command line using the `extensionDevelopmentPath` option. This option tells VS Code in what
-other locations it should look for extensions, for example:
-
->`code --extensionDevelopmentPath=_my_extension_folder`.
-
-Once the Extension Host is launched, VS Code attaches the debugger to it and starts the debug session.
-
-This is what happens when pressing `F5`:
-
- 1. `.vscode/launch.json` instructs to first run a task named `npm`.
- 2. `.vscode/tasks.json` defines the task `npm` as a shell command to `npm run compile`.
- 3. `package.json` defines the script `compile` as `tsc -watch -p ./`
- 4. This eventually invokes the TypeScript compiler included in node_modules, which generates `out/extension.js` and `out/extension.js.map`.
- 5. Once the TypeScript compilation task is finished, the `code --extensionDevelopmentPath=${workspaceFolder}` process is spawned.
- 6. The second instance of VS Code is launched in a special **Extension Host** mode and it searches for an extension at `${workspaceFolder}`.
-
-
-## Modifying your extension
-
-Since the TypeScript compiler is run in watch mode, the TypeScript files are automatically compiled as you make changes. You can observe
-the compilation progress on the left side of the VS Code Status Bar. On the Status Bar you can also see the error and warning counts of a
-compilation. When the compilation is complete with no errors, you must reload the **Extension Development Host** so that it picks up
-your changes. You have two options to do this:
-
-* Click on the Debug view **Restart** action to relaunch the **Extension Development Host** window.
-* Press `kbstyle(Ctrl+R)` (macOS: `kbstyle(Cmd+R)`) in the Extension Development Host window.
+If you have questions that you cannot find answer for, or issues with VS Code's Extension API, feel welcome to open a new issue in our issue tracker: https://github.com/Microsoft/vscode/issues.

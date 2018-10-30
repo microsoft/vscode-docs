@@ -578,6 +578,7 @@ function getWebviewContent() {
     </script>
 </body>
 </html>`;
+}
 ```
 
 ![Passing messages to a webview](images/webview/scripts-extension_to_webview.gif)
