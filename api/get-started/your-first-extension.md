@@ -18,7 +18,7 @@ code .
 # Run the `Hello Code` command
 ```
 
-(Gif for running Hello Code extension here)
+![launch](./images/your-first-extension/launch.gif)
 
 You should see the `Hello Code` information dialog showing up. Success!
 
@@ -55,6 +55,8 @@ However, if you can't wait to start writing code, try these things:
 
 Once you make some change, run the `Reload Window` command in the extension development window and you'll be running the new version of the extension. The TypeScript task defined in `.vscode/tasks.json` compiles the code as you make changes.
 
+![reload](./images/your-first-extension/reload.gif)
+
 ## Using JavaScript
 
-In this guide, we mainly describe how to develop VS Code extension with TypeScript, because we believe TypeScript gives you the best developing experience. However, if you prefer to use JavaScript, you can still follow along using [hellocode-minimap-sample](https://github.com/Microsoft/vscode-extension-samples/tree/ext-docs/hellocode-minimal-sample).
+In this guide, we mainly describe how to develop VS Code extension with TypeScript, because we believe TypeScript gives you the best experience for developing VS Code extension. However, if you prefer JavaScript, you can still follow along using [hellocode-minimap-sample](https://github.com/Microsoft/vscode-extension-samples/tree/ext-docs/hellocode-minimal-sample).
