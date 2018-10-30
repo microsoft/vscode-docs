@@ -639,3 +639,10 @@ Yes, if you've created symlinks with `npm link`, you can debug symlink sources b
 ```
 
 If your main script is inside a symlinked path, then you will also need to add the `"--preserve-symlinks-main"` option. This option is only available in Node 10+.
+
+### How do I debug ES Modules?
+
+If you use esm or pass `--experimental-modules` to Node in order to use ECMAScript modules, you can pass these options into the `runtimeArgs` key: 
+
+* `"runtimeArgs": ["--experimental-modules"]` - use the [experimental ECMAScript modules support](https://nodejs.org/api/esm.html) in Node v8.5.0+
+* `"runtimeArgs": ["-r", "esm"]` - use the [esm ES module loader](https://github.com/standard-things/esm) (note that `["-r esm"]` won't work)
