@@ -7,7 +7,7 @@ PageTitle: Using Proposed API
 
 # Using Proposed API
 
-At VS Code, we take Extension API compatibility seriously. We give our best effort to avoid breaking API changes, and extension authors could expect published extensions to continue to work. However, this puts great limitation on us: once we introduce an API, we cannot change it any more.
+At VS Code, we take Extension API compatibility seriously. We give our best effort to avoid breaking API changes, and extension authors could expect published extensions to continue to work. However, this puts great limitation on us: once we introduce an API, we cannot easily change it any more.
 
 Proposed API solves the problem for us. Proposed API is a set of unstable API that is published with each release of VS Code. They are **subject to change**, **only available in Insider distribution**  and **cannot be used in published extensions**. With these restrictions, extension authors could test the new API in local development and provide feedback for us to improve the API. Eventually, Proposed API becomes stable API and available for general use.
 
