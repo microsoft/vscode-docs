@@ -169,6 +169,13 @@ Here are the Extensions view filters:
 * `@outdated` - Show outdated installed extensions. A newer version is available on the Marketplace.
 * `@enabled` - Show enabled installed extensions. Extensions can be individually enabled/disabled.
 * `@recommended` - Show recommended extensions. Grouped as Workspace specific or general use.
+* `@category` - Show extensions belonging to specified category. Below are a few of supported categories. For a complete list, type `@category` and follow the options in the suggestion list
+    * `@category:themes`
+    * `@category:formatters`
+    * `@category:linters`
+    * `@category:snippets`
+
+These filters can be combined as well. For example: Use `@installed @category:themes` to view all installed themes.
 
 If no filter is provided, the Extensions view displays the currently installed and recommended extensions.
 
