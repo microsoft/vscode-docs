@@ -246,7 +246,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ```bash
     now.strftime("%A, %d %B, %Y at %X")
-    'Thursday, 24 May, 2018 at 14:35:27'
+    'Wednesday, 31 October, 2018 at 18:13:39'
     ```
 
     > **Tip**: The **Debug Console** also shows exceptions from within the app that may not appear in the terminal. For example, if you see a "Paused on exception" message in the **Call Stack** area of Debug View, switch to the **Debug Console** to see the exception message.
@@ -255,11 +255,11 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ```bash
     now.strftime("%a, %d %B, %Y at %X")
-    'Thu, 24 May, 2018 at 14:35:27'
+    'Wed, 31 October, 2018 at 18:13:39'
     now.strftime("%a, %d %b, %Y at %X")
-    'Thu, 24 May, 2018 at 14:35:27'
+    'Wed, 31 Oct, 2018 at 18:13:39'
     now.strftime("%a, %d %b, %y at %X")
-    'Thu, 24 May, 18 at 14:35:27'
+    'Wed, 31 Oct, 18 at 18:13:39'
     ```
 
     > **Note**: If you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
