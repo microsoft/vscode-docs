@@ -49,7 +49,7 @@ The **Go To Definition** and **Open Link** gestures will also respect this setti
 
 ### Shrink/expand selection
 
-Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`
+Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`.
 
 Here's an example of expanding the selection with `kb(editor.action.smartSelect.grow)`:
 
@@ -234,7 +234,7 @@ To fold and unfold only the regions defined by markers use:
 
 ## Indentation
 
-VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.mg).
+VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.md).
 
 ```json
     "editor.insertSpaces": true,
@@ -282,10 +282,10 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 * [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
-* [Code Navigation](/docs/editor/editingevolved.md) - Peek and Goto Definition, and more
+* [Code Navigation](/docs/editor/editingevolved.md) - Peek and Goto Definition, and more.
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) - Learn about the integrated terminal for quickly performing command line tasks from within VS Code.
 * [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
+* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 
 ## Common Questions
 

@@ -13,7 +13,7 @@ MetaDescription: Refactoring source code in Visual Studio Code.
 
 ![refactoring hero image](images/refactoring/refactoring-hero.png)
 
-For example, a common refactoring used to avoid duplicating code (a maintenance headache) is [Extract Method](https://refactoring.com/catalog/extractMethod.html) where you select source code that you'd like to reuse elsewhere and pull it out its own shared method.
+For example, a common refactoring used to avoid duplicating code (a maintenance headache) is [Extract Method](https://refactoring.com/catalog/extractMethod.html) where you select source code that you'd like to reuse elsewhere and pull it out into its own shared method.
 
 Refactorings are provided by a language service and VS Code has built-in support for TypeScript and JavaScript refactoring through the [TypeScript](https://www.typescriptlang.org/) language service. Refactoring support for other programming languages is provided through VS Code [extensions](/docs/editor/extension-gallery.md) which contribute language services. The UI and commands for refactoring are the same across languages, and in this topic we'll demonstrate refactoring support with the TypeScript language service.
 
@@ -25,7 +25,7 @@ If you'd just like to see refactorings without Quick Fixes, you can use the **Re
 
 >**Note:** If you prefer to not see the Code Action lightbulb in your editor, you can disable lightbulbs with the `editor.lightbulb.enable` [setting](/docs/getstarted/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
 
-## Refactoring
+## Refactoring Actions
 
 ### Extract Method
 
@@ -86,7 +86,7 @@ Valid values for `"apply"`:
 
 ## Extensions with refactorings
 
-You can find extensions that support refactoring by looking in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). You can go to the Extensions view (`kb(workbench.view.extensions)`) and typing 'refactor' in the search box. You can then sort by install count or ratings to see which extensions are popular.
+You can find extensions that support refactoring by looking in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). You can go to the Extensions view (`kb(workbench.view.extensions)`) and type 'refactor' in the search box. You can then sort by install count or ratings to see which extensions are popular.
 
 <div class="marketplace-extensions-refactor"></div>
 

@@ -23,7 +23,7 @@ Name | Required | Type | Details
 `displayName` | | `string`| The display name for the extension used in the Marketplace.
 `description` | | `string` | A short description of what your extension is and does.
 `categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`
-`keywords` | | `array` | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace.
+`keywords` | | `array` | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace. This list is currently limited to 5 keywords.
 `galleryBanner` | | `object` | Helps format the Marketplace header to match your icon.  See details below.
 `preview` | | `boolean` | Sets the extension to be flagged as a Preview in the Marketplace.
 `main` | | `string` | The entry point to your extension.
@@ -34,8 +34,9 @@ Name | Required | Type | Details
 `qna` | | `marketplace` (default), `string`, `false` | Controls the **Q & A** link in the Marketplace. Set to `marketplace` to enable the default Marketplace Q & A site. Set to a string to provide the URL of a custom Q & A site. Set to `false` to disable Q & A altogether.
 `dependencies` | | `object` | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
+`extensionPack` | | `array` | An array with the ids of extensions bundled with this extension. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
-`scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with [extra VS Code specific fields](/docs/extensions/publish-extension.md#pre-publish-step).
+`scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with extra VS Code specific fields such as [vscode:prepublish](/docs/extensions/publish-extension.md#prepublish-step) or [vscode:uninstall](/docs/extensionAPI/extension-manifest.md#extension-uninstall-hook).
 `icon` | | `string` | The path to the icon of at least 128x128 pixels (256x256 for Retina screens).
 
 Also check [npm's `package.json` reference](https://docs.npmjs.com/files/package.json).
@@ -250,15 +251,15 @@ Notice that the extension manifest `categories` attribute now includes both `Pro
 
 ## Extension Packs
 
-You can also bundle separate extensions together in 'Extension Packs'. An Extension Pack is a set of extensions that can be installed together. This enables easily sharing your favorite extensions with other users or creating a set of extensions for a particular scenario like PHP development to help a PHP developer get started with VS Code quickly.
+You can bundle separate extensions together in **Extension Packs**. An Extension Pack is a set of extensions that will be installed together. This enables easily sharing your favorite extensions with other users or creating a set of extensions for a particular scenario like PHP development to help a PHP developer get started with VS Code quickly.
 
-An Extension Pack can include other contributions or be a bundling extension that lists other extensions. This dependency is expressed using the `extensionDependencies` attribute inside the `package.json` file.
+An Extension Pack bundles other extensions using the `extensionPack` attribute inside the `package.json` file.
 
 For example, here is an Extension Pack for PHP that includes a debugger, language service, and formatter:
 
 ```json
 {
-  "extensionDependencies": [
+  "extensionPack": [
       "felixfbecker.php-debug",
       "felixfbecker.php-intellisense",
       "Kasik96.format-php"
@@ -278,7 +279,25 @@ Extension packs should be categorized in the `Extension Packs` Marketplace categ
 }
 ```
 
-To create an extension pack, you can use the `yo code` Yeoman generator. Optionally, it can also seed the pack with the set of extensions you have currently installed in your VS Code instance. In this way, you can easily create an Extension Pack with your favorite extensions, publish it to the Marketplace, and share it with others.
+To create an extension pack, you can use the `yo code` Yeoman generator and choose the **New Extension Pack** option. There is an option to seed the pack with the set of extensions you have currently installed in your VS Code instance. In this way, you can easily create an Extension Pack with your favorite extensions, publish it to the Marketplace, and share it with others.
+
+An Extension Pack should not have any functional dependencies with its bundled extensions and the bundled extensions should be manageable independent of the pack. If an extension has a dependency on another extension, that dependency should be declared with the `extensionDependencies` attribute.
+
+### Extension uninstall hook
+
+If your extension has some clean up to be done when it is uninstalled from VS Code, you can register a `node` script to the uninstall hook `vscode:uninstall` under `scripts` section in extension's package.json.
+
+```json
+{
+  "scripts": {
+    "vscode:uninstall": "node ./out/src/lifecycle"
+  }
+}
+```
+
+This script gets executed when the extension is completely uninstalled from VS Code which is when VS Code is restarted (shutdown and start) after the extension is uninstalled.
+
+**Note**: Only Node.js scripts are supported.
 
 ## Useful Node modules
 

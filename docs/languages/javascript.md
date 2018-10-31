@@ -53,19 +53,19 @@ If you are using Visual Studio Code 1.8+, you can alternately explicitly list pa
     }
 ```
 
-Now when you `require` or `import` **lodash**, VS Code will use the automatically downloaded type declaration files for the library to provide rich Intellisense. Most common JavaScript libraries have type declaration files available. You can search for a library's type declaration file package using the [TypeSearch](https://microsoft.github.io/TypeSearch) site.
+Now when you `require` or `import` **lodash**, VS Code will use the automatically downloaded type declaration files for the library to provide rich IntelliSense. Most common JavaScript libraries have type declaration files available. You can search for a library's type declaration file package using the [TypeSearch](https://microsoft.github.io/TypeSearch) site.
 
-### Fixing NPM not installed warning for Automatic Type Acquisition
+### Fixing npm not installed warning for Automatic Type Acquisition
 
 [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA) uses [npm](https://www.npmjs.com), the Node.js package manager, to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
 
-A quick check that npm is installed and available is to run `npm --version` from a terminal or command prompt.
+Run `npm --version` from a terminal or command prompt to quickly check that npm is installed and available.
 
 npm is installed with the Node.js runtime, which is available for download from [Nodejs.org](https://nodejs.org). Install the current LTS (Long Term Support) version and the npm executable will be added by default to your system path.
 
 If you have npm installed but still see a warning message, you can explicitly tell VS Code where npm is installed with the `typescript.npm` [setting](/docs/getstarted/settings.md). This should be set to the full path of the npm executable on your machine, and this does not have to match the version of npm you are using to manage packages in your workspace. `typescript.npm` requires TypeScript 2.3.4+.
 
-For example on Windows, you would add a path like this to your `settings.json` file:
+For example, on Windows, you would add a path like this to your `settings.json` file:
 
 ```json
   "typescript.npm": "C:\\Program Files\\nodejs\\npm.cmd"
@@ -136,7 +136,7 @@ It is possible to have mixed TypeScript and JavaScript projects. To start migrat
 
 ## Snippets
 
-VS Code has several built-in snippets that will come up as you type or you can press `kb(editor.action.triggerSuggest)` (**Trigger Suggest**) and you will see a context specific list of suggestions.
+VS Code has several built-in snippets that will come up as you type, or you can press `kb(editor.action.triggerSuggest)` (**Trigger Suggest**) and you will see a context specific list of suggestions.
 
 ![built in javascript snippet foreach](images/javascript/javascript_snippets.gif)
 
@@ -162,11 +162,11 @@ Just start typing to see [suggestions](#intellisense) for all available JavaScri
 
 ![Global symbols are shown in the suggestion list](images/javascript/auto-import-pre.png)
 
-If you choose one of the suggestion from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
+If you choose one of the suggestions from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
 
 ![After selecting a symbol from a different file, an import is added for it automatically](images/javascript/auto-import-post.png)
 
-Auto imports requires TypeScript 2.6+ and are enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
+Auto imports require TypeScript 2.6+ and are enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
 
 ## References CodeLens
 
@@ -227,7 +227,7 @@ VS Code provides several formatting settings for JavaScript. They can all be fou
 
 A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. VS Code supports linters through [extensions](/docs/editor/extension-gallery.md). Linters provide warnings, errors, and light bulb actions.
 
-VS Code provides support for JavaScript linters, including [ESLint](https://eslint.org/), [JSHint](http://jshint.com/) and [StandardJS](https://standardjs.com/).  If enabled, the JavaScript code is validated as you type and you can navigate to reported problems and fix them inside VS Code.
+VS Code provides support for JavaScript linters, including [ESLint](https://eslint.org/), [JSHint](http://jshint.com/) and [StandardJS](https://standardjs.com/). If enabled, the JavaScript code is validated as you type and you can navigate to reported problems and fix them inside VS Code.
 
  ![linter warning](images/javascript/eslint_warning.png)
 
@@ -421,7 +421,7 @@ Once you have added this, you can start **Babel** with the `kb(workbench.action.
 
 ### Use the TypeScript compiler
 
-One of the key features TypeScript provides is the ability to use the latest JavaScript language features, and emit code that can execute in JavaScript runtimes that don't yet understand those newer features. With JavaScript using the same language service, it too can now take advantage of this same feature.
+One of the key features of TypeScript is the ability to use the latest JavaScript language features, and emit code that can execute in JavaScript runtimes that don't yet understand those newer features. With JavaScript using the same language service, it too can now take advantage of this same feature.
 
 The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level. Configure the `jsconfig.json` with the desired options and then use the –p argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json` to down-level compile.
 

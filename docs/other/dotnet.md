@@ -4,8 +4,8 @@ Area: other
 TOCTitle: .NET Core
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
 PageTitle: .NET Core and Visual Studio Code
-DateApproved: 2/10/2018
-MetaDescription: Visual Studio Code has great support for writing and debugging .NET Core applications.
+DateApproved: 10/8/2018
+MetaDescription: Get started writing and debugging .NET Core apps with Visual Studio Code.
 MetaTags:
 - .NET Core
 - ASP.NET Core
@@ -13,36 +13,45 @@ MetaTags:
 ---
 # Using .NET Core in Visual Studio Code
 
-[.NET Core](https://docs.microsoft.com/dotnet/articles/welcome) gives you a blazing fast and modular platform for creating server applications that run on Windows, Linux and macOS. Use Visual Studio Code with the C# extension to get a powerful editing experience with full support for C# IntelliSense (smart code completion) and debugging.
+[.NET Core](https://docs.microsoft.com/dotnet/articles/welcome) provides a fast and modular platform for creating server apps that run on Windows, Linux, and macOS. Use Visual Studio Code with the C# extension to get a powerful editing experience with [C# IntelliSense](https://docs.microsoft.com/visualstudio/ide/visual-csharp-intellisense) (smart code completion) and debugging.
 
-## Getting Started
+## Prerequisites
 
-1. Install [.NET Core](https://microsoft.com/net/core).
-2. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
+Install the following:
 
-## Hello World
+- [.NET Core](https://microsoft.com/net/core).
+- The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
 
-If you'd like to get started with a simple "Hello World" program on .NET Core, follow the steps below:
+## Create a "Hello World" app
 
 1. Initialize a C# project:
 
-  * Open the command prompt (or terminal).
-  * Navigate to the folder where you'd like to create the C# project.
-  * Type `dotnet new console`.
-  * This creates a `Program.cs` file in your folder with a simple "Hello World" program already written.
+   * Open a terminal and navigate to the folder in which you'd like to create the app.
+   * Enter the following command in the command shell:
 
-2. When the project folder is first opened in VS Code, a notification will appear at the top of the window asking if you'd like to add the required assets to build and debug your project. Select **Yes**.
+   ```console
+     dotnet new console
+   ```
 
-3. Run the "Hello World" program by typing `dotnet run` in the command prompt (or terminal).
+2. When the project folder is first opened in VS Code:
+
+   * A "Would you like to add the required assets to build and debug your project?" notification appears at the top of the window.
+   * Select **Yes**.
+
+3. Run the app by entering the following command in the command shell:
+
+   ```console
+    dotnet run
+   ```
 
 Watch a video tutorial for further setup help on [Windows](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows), [macOS](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-NET-Core-Mac), or [Linux](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-Csharp-dotnet-Core-Ubuntu).
 
-> Tip: Continue exploring C# development: [Debug with VS Code and .NET Core](https://docs.microsoft.com/dotnet/articles/csharp/getting-started/with-visual-studio-code#debug)
+## Next steps
 
-## Next Steps
-
+* Continue exploring C# development: [Debug with VS Code and .NET Core](https://docs.microsoft.com/dotnet/articles/csharp/getting-started/with-visual-studio-code#debug)
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET Core application.
-* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
+* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
 * [.NET Core Docs](https://docs.microsoft.com/dotnet/articles/core/) - Visit the .NET Core docs for more information on this powerful cross-platform development solution.
+* [Deploying Applications to Azure](/docs/azure/deployment.md) - Deploy your app to [Azure](https://azure.microsoft.com).

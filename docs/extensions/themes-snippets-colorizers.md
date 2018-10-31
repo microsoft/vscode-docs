@@ -37,7 +37,7 @@ For syntax highlighting colors, there are two approaches. You just simply refere
 
 To write TextMate theme rules, you need to know about TextMate grammars and scopes.
 
-`TextMate grammars` consist of a set of regular expression that are used create a syntax tree out of the source code. Each tree node spans a source range and represents a `scope`. Scopes have a name and stand for either code sections (such as functions, blocks, comments) or symbols (for example keywords, numbers, operators).
+`TextMate grammars` consist of a set of regular expression that are used to create a syntax tree out of the source code. Each tree node spans a source range and represents a `scope`. Scopes have a name and stand for either code sections (such as functions, blocks, comments) or symbols (for example keywords, numbers, operators).
 
 Here's an example of the scope hierarchy generated for a JavaScript code sample:
 

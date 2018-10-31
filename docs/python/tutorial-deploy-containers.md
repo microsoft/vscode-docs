@@ -138,7 +138,7 @@ For this reason, you need to modify the `Dockerfile` to use a base image with pr
 
 A good base image for Flask is `tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7`, which is also available for other versions of Python (see the [tiangolo/uwsgi-nginx-flask respository](https://github.com/tiangolo/uwsgi-nginx-flask-docker) on GitHub). This image already contains Flask and the production-ready uwsgi and nginx servers.
 
-By default, the image assumes that (a) your app code is located in an `app` folder, (b) the Flask app object is named `app`, and (c) the app object is located in `main.py`. Because your app may have a different structure, you can indicate the correct folders in the Dockerfile and provide the necessary parameters the the uwsgi server in a `uwsgi.ini` file.
+By default, the image assumes that (a) your app code is located in an `app` folder, (b) the Flask app object is named `app`, and (c) the app object is located in `main.py`. Because your app may have a different structure, you can indicate the correct folders in the Dockerfile and provide the necessary parameters the uwsgi server in a `uwsgi.ini` file.
 
 The following steps summarize the configuration used in the [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) app, which you can adapt for your own code.
 
@@ -235,7 +235,7 @@ The following steps summarize the configuration used in the [python-sample-vscod
     WORKDIR /app
     ADD . /app
 
-    # Make app folder writeable for the sake of db.sqlite3, and make that file also writeable.
+    # Make app folder writable for the sake of db.sqlite3, and make that file also writable.
     RUN chmod g+w /app
     RUN chmod g+w /app/db.sqlite3
 
@@ -343,7 +343,7 @@ With an image built and pushed to a registry, you can use the Docker extension i
 
     ![Context menu command on an App Service for Add New Setting](images/deploy-containers/add-app-service-setting.png)
 
-1. Right-click the App Service and select **Restart** to apply the setting.
+1. The App Service restarts automatically when you change settings. You can also right-click the App Service and select **Restart** at any time.
 
 1. After the service has restarted, browse the site at `http://<name>.azurewebsites.net`. You can `kbstyle(Ctrl+click)` the URL in the Output panel, or right-click the App Service in the **Azure: App Service** explorer and select **Browse Website**.
 

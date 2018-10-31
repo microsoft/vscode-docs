@@ -11,9 +11,11 @@ MetaDescription: Visual Studio Code supports a Portable Mode.
 
 Visual Studio Code supports [Portable Mode](https://en.wikipedia.org/wiki/Portable_application). This mode enables all data created and maintained by VS Code to live near itself, so it can be moved around across environments.
 
-Portable Mode is supported on the ZIP download for Windows and Linux, as well as the regular Application download for macOS.
+This mode also provides a way to set the installation folder location for VS Code extensions, useful for corporate environments that prevent extensions from being installed in the Windows AppData folder.
 
-> **Note:** Do not attempt to configure portable mode on a **Windows installation**. Portable mode is only supported on the ZIP archive.
+Portable mode is supported on the ZIP download for Windows and Linux, as well as the regular Application download for macOS.
+
+> **Note:** Do not attempt to configure portable mode on a **Windows installation**. Portable mode is only supported on the Windows ZIP archive. Note as well that the Windows ZIP archive does not support auto update.
 
 ## Enable Portable Mode
 
@@ -44,7 +46,7 @@ On **macOS**, you need to place the data folder as a sibling of the application 
 
 Portable Mode won't work if your application is in [quarantine](https://apple.stackexchange.com/a/104875), which happens by default if you just downloaded Code. Make sure you remove the quarantine attribute, if Portable Mode doesn't seem to work:
 
-```
+```bash
 xattr -dr com.apple.quarantine Visual\ Studio\ Code.app
 ```
 

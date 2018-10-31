@@ -101,7 +101,7 @@ You can use IntelliSense to add launch configuration snippets for commonly used 
 Here is the list of all snippets:
 
 - **Launch Program**: Launch a Node.js program in debug mode.
-- **Launch via NPM**: Launch a Node.js program through an npm 'debug' script. If you have defined an npm debug script in your package.json, you can use this directly from your launch configuration. Make sure that the debug port used in the npm script, corresponds to the port specified in the snippet.
+- **Launch via npm**: Launch a Node.js program through an npm 'debug' script. If you have defined an npm debug script in your package.json, you can use this directly from your launch configuration. Make sure that the debug port used in the npm script, corresponds to the port specified in the snippet.
 - **Attach**: Attach to the debug port of a locally running Node.js program. Make sure that the Node.js program to debug has been started in debug mode and the debug port used is the same as the one specified in the snippet.
 - **Attach to Remote Program**: Attach to the debug port of a Node.js program running on the host specified by the `address` attribute. Make sure that the Node.js program to debug has been started in debug mode and the debug port used is the same as the one specified in the snippet. To help VS Code mapping source files between your workspace and the filesystem of the remote host, make sure to specify correct paths for the `localRoot`and `remoteRoot` attributes.
 - **Attach by Process ID**: Open the process picker to select a node or gulp process for debugging. With this launch configuration you can even attach to a node or gulp process that was not started in debug mode.
@@ -137,7 +137,7 @@ the corresponding launch configuration would look like this:
 
 ```json
 {
-    "name": "Launch via NPM",
+    "name": "Launch via npm",
     "type": "node",
     "request": "launch",
     "cwd": "${workspaceFolder}",
@@ -639,3 +639,10 @@ Yes, if you've created symlinks with `npm link`, you can debug symlink sources b
 ```
 
 If your main script is inside a symlinked path, then you will also need to add the `"--preserve-symlinks-main"` option. This option is only available in Node 10+.
+
+### How do I debug ECMAScript modules?
+
+If you use esm or pass `--experimental-modules` to Node.js in order to use ECMAScript modules, you can pass these options through the `runtimeArgs` attribute of `launch.json`:
+
+* `"runtimeArgs": ["--experimental-modules"]` - Use the [experimental ECMAScript modules support](https://nodejs.org/api/esm.html) in Node v8.5.0+
+* `"runtimeArgs": ["-r", "esm"]` - Use the [esm ES module loader](https://github.com/standard-things/esm) (Note that `["-r esm"]` without a comma won't work)

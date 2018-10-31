@@ -154,7 +154,7 @@ When you have a multi-root workspace open, you can choose to search in a single 
 
 With multiple root folders in one workspace, it is possible to have a `.vscode` folder in each root folder defining the settings that should apply for that folder. To avoid setting collisions, only resource (file, folder) settings are applied when using a multi-root workspace. Settings which affect the entire editor (for example, UI layout) are ignored. For example, two projects cannot both set the zoom level.
 
-User settings are supported as with single folder project and you can also set global Workspace settings which will apply to all folders in your multi-root Workspace. Global Workspace settings will be stored in your `.code-workspace` file.
+User settings are supported as with single folder projects and you can also set global Workspace settings which will apply to all folders in your multi-root Workspace. Global Workspace settings will be stored in your `.code-workspace` file.
 
 ```json
 {
@@ -176,7 +176,7 @@ User settings are supported as with single folder project and you can also set g
 }
 ```
 
-When you go from a single folder instance to multiples folders, VS Code will add the appropriate editor-wide settings from the first folder to the new global Workspace settings.
+When you go from a single folder instance to multiple folders, VS Code will add the appropriate editor-wide settings from the first folder to the new global Workspace settings.
 
 You can easily review and modify the different settings files through the Settings editor. The Settings editor dropdown lets you select your User settings, global Workspace settings and individual folder settings.
 
@@ -192,7 +192,7 @@ Global Workspace settings override User settings and folder settings can overrid
 
 ### Unsupported folder settings
 
-Unsupported editor-wide folder settings will show as grayed out in your folder settings and are filtered out of the **DEFAULT FOLDER SETTINGS** list. You will also see an information icon in front of the setting.
+Unsupported editor-wide folder settings will be shown as grayed out in your folder settings and are filtered out of the **DEFAULT FOLDER SETTINGS** list. You will also see an information icon in front of the setting.
 
 ![unsupported setting information](images/multi-root-workspaces/unsupported-setting-info.png)
 

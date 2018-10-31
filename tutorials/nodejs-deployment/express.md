@@ -16,7 +16,7 @@ In this step, you will create a very simple Node.js application that can be depl
 
 ## Install the Express Generator
 
-[Express](https://www.expressjs.com) is a very popular framework for building and running Node.js applications. You can scaffold (create) a new Express application using the [Express Generator](https://expressjs.com/en/starter/generator.html) tool. The Express Generator is shipped as an NPM module and installed by using the NPM command line tool `npm`.
+[Express](https://www.expressjs.com) is a very popular framework for building and running Node.js applications. You can scaffold (create) a new Express application using the [Express Generator](https://expressjs.com/en/starter/generator.html) tool. The Express Generator is shipped as an npm module and installed by using the npm command line tool `npm`.
 
 ```bash
 $ npm install -g express-generator

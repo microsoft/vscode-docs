@@ -4,7 +4,7 @@ TOCTitle: iOS Web Debugging
 PageTitle: Introducing iOS Web Debugging for VS Code on Windows and Mac
 MetaDescription: iOS Web Debugging for VS Code on Windows and Mac
 Date: 2016-08-24
-ShortDescription: Today debugging web sites running on iOS devices are limited to a subset of developers, as the Safari Web Inspector (Safari DevTools) requires an instance of desktop Safari which only is available for MacOS users. With our new debugger we are aiming to change that, as our iOS Web Debugger for Visual Studio Code works both on Mac and Windows.
+ShortDescription: Today debugging websites running on iOS devices are limited to a subset of developers, as the Safari Web Inspector (Safari DevTools) requires an instance of desktop Safari which only is available for MacOS users. With our new debugger we are aiming to change that, as our iOS Web Debugger for Visual Studio Code works both on Mac and Windows.
 Author: Kenneth Auchenberg
 ---
 # iOS Web Debugging on Windows and Mac
@@ -17,7 +17,7 @@ The [iOS Web debugger](https://github.com/Microsoft/vscode-ios-web-debug) has be
 
 ## Introduction
 
-Debugging web sites running on iOS devices is accessible only to a subset of developers. For example, using the Safari Web Inspector (Safari DevTools) requires an instance of desktop Safari which only is available for MacOS users. Today, we’re enabling mobile web developers to debug JavaScript running on their iOS devices directly from their editor with a new [iOS Web Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web). This debug extension works on both **Mac and Windows**.
+Debugging websites running on iOS devices is accessible only to a subset of developers. For example, using the Safari Web Inspector (Safari DevTools) requires an instance of desktop Safari which only is available for MacOS users. Today, we’re enabling mobile web developers to debug JavaScript running on their iOS devices directly from their editor with a new [iOS Web Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web). This debug extension works on both **Mac and Windows**.
 
 ![Demo](ios-debugger-splash.png)
 

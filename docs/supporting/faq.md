@@ -25,7 +25,7 @@ Yes, VS Code is [free for private or commercial use](https://code.visualstudio.c
 
 ## Report an issue with a VS Code extension
 
-For bugs, feature requests or to contact an extension author, you should use the links available in the Visual Studio Code [Marketplace](https://marketplace.visualstudio.com/vscode).  However, if there is an issue where an extension does not follow our code of conduct, for example it includes profanity, pornography or presents a risk to the user, then we have an email alias where you can [contact us to report the issue](mailto:VSMarketplace@microsoft.com). Once the mail is received, our Marketplace team will look into an appropriate course of action, up to and including unpublishing the extension.
+For bugs, feature requests or to contact an extension author, you should use the links available in the Visual Studio Code [Marketplace](https://marketplace.visualstudio.com/vscode) or use **Help: Report Issue** from the Command Palette. However, if there is an issue where an extension does not follow our code of conduct, for example it includes profanity, pornography or presents a risk to the user, then we have an email alias where you can [contact us to report the issue](mailto:VSMarketplace@microsoft.com). Once the mail is received, our Marketplace team will look into an appropriate course of action, up to and including unpublishing the extension.
 
 ## How do I find the VS Code version?
 
@@ -135,7 +135,7 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
 
 If you don't wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`.
 
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry.enableTelemetry` and uncheck the setting. This will silence all telemetry events from the VS Code shell going forward until you enable the setting again.
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry.enableTelemetry` and uncheck the setting. This will silence all telemetry events from VS Code going forward. Telemetry information may have been collected and sent up until the point when you disable the setting.
 
 If you use the JSON editor for your settings, add the following line:
 
@@ -167,7 +167,19 @@ If you use the JSON editor for your settings, add the following line:
 
 Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, or providing Natural Language Search within Settings. You can choose to turn on/off features that use these services.
 
+Please note, that turning off these features does not put VS Code into offline mode. If, for example, you search for extensions in the **Extensions** view, VS Code still searches the online VS Code Marketplace. The settings ensure that VS Code does not talk to online services without you requesting it.
+
 From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), and search for `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
+
+> **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may also use online services and may not provide settings to configure the usage of these online services, or they may not register their settings to show up when searching for `@tag:usesOnlineServices`. Consult the specific extension's documentation to learn about its usage of online services.
+
+## What non-Microsoft online services does VS Code talk to
+
+The built-in **npm support for VS Code** extension sends requests to [https://registry.npmjs.org](https://registry.npmjs.org) and [https://registry.bower.io](https://registry.bower.io).
+
+The built-in **TypeScript and JavaScript Language Features** extension queries the `@types` domain at [https://registry.npmjs.org](https://registry.npmjs.org).
+
+When you use **Developer: Toggle Developer Tools** or **Developer: Open Webview Developer Tools**, VS Code may talk to Google servers to fetch data needed to launch Developer Tools.
 
 ## Do you send all my information to a recommendation service?
 

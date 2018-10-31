@@ -27,31 +27,29 @@ To open your user and workspace settings, use the following VS Code menu command
 * On Windows/Linux - **File** > **Preferences** > **Settings**
 * On macOS - **Code** > **Preferences** > **Settings**
 
-You are provided with a list of **Default Settings**. Copy any setting that you want to change to the appropriate `settings.json` file. The tabs under the Search box let you switch quickly between the user and workspace settings files.
+You can also open the Settings editor from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
 
-You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
-
-In the example below, the workspace contains settings to disable line numbers in the editor and configure line wrapping to wrap automatically based on the size of the editor.
+In the example below, the color theme and the icon theme have been changed.
 
 ![Example Settings](images/settings/settings.png)
 
-Changes to settings are reloaded by VS Code after the modified `settings.json` file is saved.
+Changes to settings are reloaded by VS Code as you change them. Modified settings are now indicated with a _blue line_ similar to modified lines in the editor. The gear icon opens a context menu with options to reset the setting to its default value as well as copy setting as JSON.
 
 >**Note:** Workspace settings are useful for sharing project specific settings across a team.
 
 ## Settings editor
 
-When you open the settings editor, you will see **Default Settings** where you can search and discover settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
+When you open the settings editor, you can search and discover settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy.
 
 ![Settings Search](images/settings/settings-search.png)
 
-**Note**: VS Code extensions can also add their own custom settings and they will be visible in the **Default Settings** list at runtime.
+**Note**: VS Code extensions can also add their own custom settings and they will be visible under an **Extensions** section.
 
 ### Edit settings
 
-If you hover over a setting, you will see an **Edit** action with a small pencil icon. Clicking on the pencil will display a dropdown with the available setting values. Select a value and the setting will be added to the currently open settings file.
+Each setting can be edited by either a **checkbox**, an **input** or by a **dropdown**. Simply edit the text or select the option you want to change to the desired settings.
 
-![edit a setting](images/settings/settings-edit.png)
+![Edit a Setting](images/settings/settings-edit.png)
 
 ### Settings groups
 
@@ -62,6 +60,8 @@ Default settings are represented in groups so that you can navigate them easily.
 Below is a [copy of the default settings](/docs/getstarted/settings.md#default-settings) that come with VS Code.
 
 ## Settings file locations
+
+By default VS Code shows the Settings editor, but you can still edit the underlying `settings.json` file by using the **Open Settings (JSON)** command or by changing your default settings editor with the `workbench.settings.editor` setting.
 
 Depending on your platform, the user settings file is located here:
 
@@ -1207,7 +1207,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enable/disable automatic closing of JSX tags. Requires using TypeScript 3.0 or newer in the workspace.
   "typescript.autoClosingTags": true,
 
-  // Check if NPM is installed for Automatic Type Acquisition.
+  // Check if npm is installed for Automatic Type Acquisition.
   "typescript.check.npmIsInstalled": true,
 
   // Disables automatic type acquisition.
@@ -1267,7 +1267,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Sets the locale used to report JavaScript and TypeScript errors. Requires using TypeScript 2.6.0 or newer in the workspace. Default of `null` uses VS Code's locale.
   "typescript.locale": null,
 
-  // Specifies the path to the NPM executable used for Automatic Type Acquisition. Requires using TypeScript 2.3.4 or newer in the workspace.
+  // Specifies the path to the npm executable used for Automatic Type Acquisition. Requires using TypeScript 2.3.4 or newer in the workspace.
   "typescript.npm": null,
 
   // Preferred path style for auto imports.
@@ -1902,7 +1902,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether force pushing uses the safer force-with-lease variant.
   "git.useForcePushWithLease": true,
 
-// Npm
+// npm
 
   // Controls whether npm scripts should be automatically detected.
   "npm.autoDetect": "on",

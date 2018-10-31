@@ -18,6 +18,7 @@ Extensions are activated lazily in VS Code.  As a result, you need to provide VS
 * [`onFileSystem:${scheme}`](/docs/extensionAPI/activation-events.md#activationeventsonfilesystem)
 * [`onView:${viewId}`](/docs/extensionAPI/activation-events.md#activationeventsonview)
 * [`onUri`](/docs/extensionAPI/activation-events.md#activationeventsonuri)
+* [`onWebviewPanel:${viewType}`](/docs/extensionAPI/activation-events.md#activationeventsonwebviewpanel)
 * [`*`](/docs/extensionAPI/activation-events.md#activationevents)
 
 We also provide an overview of the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md) and the minimum required fields.
@@ -133,6 +134,21 @@ If the `vscode.git` extension defines `onUri` as an activation event, it will be
 - `vscode://vscode.git/init`
 - `vscode://vscode.git/clone?url=https%3A%2F%2Fgithub.com%2FMicrosoft%2Fvscode-vsce.git`
 - `vscode-insiders://vscode.git/init` (for VS Code Insiders)
+
+## activationEvents.onWebviewPanel
+
+This activation event is emitted and interested extensions will be activated whenever VS Code needs to restore a webview with the matching `viewType`.
+
+For example, the declaration of onWebviewPanel below:
+
+```json
+"activationEvents": [
+    ...,
+    "onWebviewPanel:catCoding"
+]
+```
+
+will cause the extension to be activated when VS Code needs to restore a webview with the viewType: `catCoding`. The viewType is set in the call to `window.createWebviewPanel` and you will need to have another activation event (for example, onCommand) to initially activate your extension and create the webview.
 
 ## activationEvents.*
 

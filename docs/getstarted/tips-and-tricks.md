@@ -15,13 +15,13 @@ MetaDescription: Visual Studio Code Tips and Tricks for power users.
 
 ## Basics
 
-### Getting Started
+### Getting started
 
 Open the **Welcome** page to get started with the basics of VS Code. **Help** > **Welcome**.
 
 ![welcome page](images/tips-and-tricks/welcome_page.png)
 
-In the bottom right of the **Welcome** page, there is a link to the **Interactive playground** where you can interactively try out VS Code's feature. **Help** > **Interactive Playground**.
+In the bottom right of the **Welcome** page, there is a link to the **Interactive playground** where you can interactively try out VS Code's features. **Help** > **Interactive Playground**.
 
 ![interactive playground](images/tips-and-tricks/interactive_playground.png)
 
@@ -39,7 +39,7 @@ All of the commands are in the **Command Palette** with the associated key bindi
 
 ![keyboard references](images/tips-and-tricks/keyboard-references.png)
 
-### Keyboard Reference Sheets
+### Keyboard reference sheets
 
 Download the keyboard shortcut reference sheet for your platform ([macOS](https://go.microsoft.com/fwlink/?linkid=832143), [Windows](https://go.microsoft.com/fwlink/?linkid=832145), [Linux](https://go.microsoft.com/fwlink/?linkid=832144)).
 
@@ -65,7 +65,7 @@ You can open multiple files from **Quick Open** by pressing the Right arrow key.
 
 ## Command line
 
-VS Code has a powerful command line interface (CLI) to help you customize how you launch the editor for your specific scenarios.
+VS Code has a powerful command line interface (CLI) which allows you to customize how the editor is launched to support various scenarios.
 
 > Make sure the VS Code binary is on your path so you can simply type 'code' to launch VS Code. See the platform specific setup topics if VS Code is added to your environment path during installation ([Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)).
 
@@ -101,7 +101,7 @@ Workspace specific files are in a `.vscode` folder at the root. For example, `ta
 
 ## Status Bar
 
-### Errors and Warnings
+### Errors and warnings
 
 Keyboard Shortcut: `kb(workbench.actions.view.problems)`
 
@@ -152,6 +152,7 @@ Are you used to keyboard shortcuts from another editor? You can install a Keymap
 * [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings)
 * [Emacs Keymap](https://marketplace.visualstudio.com/items?itemName=hiro-sun.vscode-emacs)
 * [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings)
+* [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
 
 ### Customize your keyboard shortcuts
 
@@ -211,7 +212,7 @@ You can also toggle Auto Save from the top-level menu with the **File** > **Auto
 Format on save
 
 ```json
-"editor.formatOnSave": true,
+"editor.formatOnSave": true
 ```
 
 Change the size of Tab characters
@@ -339,7 +340,7 @@ In the **Extensions** view, you can search via the search bar or click the **Mor
 
 In the **Extensions** view, click **Show Recommended Extensions** in the **More Actions** (...) button menu.
 
-![show recommended extensions](images/tips-and-tricks/ShowRecommendedExtensions.gif)
+![show recommended extensions](images/tips-and-tricks/show-recommended-extensions.png)
 
 ### Creating my own extension
 
@@ -355,7 +356,7 @@ Are you interested in creating your own extension? You can learn how to do this 
 * snippets
 * jsonValidation
 
-## Files and Folders
+## Files and folders
 
 ### Integrated Terminal
 
@@ -384,7 +385,7 @@ Keyboard Shortcut: `kb(workbench.action.toggleSidebarVisibility)`
 
 ![toggle side bar](images/tips-and-tricks/toggle_side_bar.gif)
 
-### Zen Mode
+### Zen mode
 
 Keyboard Shortcut: `kb(workbench.action.toggleZenMode)`
 
@@ -434,12 +435,6 @@ Navigate forward: `kb(workbench.action.navigateForward)`
 
 ![navigate history](images/tips-and-tricks/navigate_history.gif)
 
-### Navigate to a file
-
-Keyboard Shortcut: `kb(workbench.action.quickOpen)`
-
-![navigate to file](images/tips-and-tricks/navigate_to_file.gif)
-
 ### File associations
 
 Create language associations for files that aren't detected correctly. For example, many configuration files with custom file extensions are actually JSON.
@@ -462,7 +457,7 @@ Use the actions in the editor toolbar to resolve the save conflict. You can eith
 
 **Note:** The file will remain dirty and cannot be saved until you pick one of the two actions to resolve the conflict.
 
-## Editing Hacks
+## Editing hacks
 
 Here is a selection of common features for editing code. If the keyboard shortcuts aren't comfortable for you, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) for your old editor.
 
@@ -470,33 +465,44 @@ Here is a selection of common features for editing code. If the keyboard shortcu
 
 ### Multi cursor selection
 
+To add cursors at arbitrary positions, select a position with your mouse and use `kbstyle(Alt+Click)`.
+
+To set cursors above or below the current position use:
+
 Keyboard Shortcut: `kb(editor.action.insertCursorAbove)` or `kb(editor.action.insertCursorBelow)`
 
-![multi cursor](images/tips-and-tricks/multi_cursor.gif)
+![multi cursor](images/tips-and-tricks/multicursor.gif)
 
-![multi cursor second example](images/tips-and-tricks/editingevolved_multicursor.gif)
-
-Add more cursors to current selection.
+You can add additional cursors to all occurrences of the current selection with `kb(editor.action.selectHighlights)`.
 
 ![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
 
 > Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `editor.multiCursorModifier` [setting](/docs/getstarted/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
 
-### Join line
+If you do not want to add all occurrences of the current selection, you can use `kb(editor.action.addSelectionToNextFindMatch)` instead.
+This only selects the next occurrence after the one you selected so you can add selections one by one.
 
-Keyboard Shortcut: `kb(editor.action.joinLines)`
+![add cursor to the next occurrences of current selection one by one](images/tips-and-tricks/add_cursor_current_selection_one_by_one.gif)
 
-> Windows / Linux: Not bound by default. Open **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) and bind `editor.action.joinLines` to a shortcut of your choice.
+### Column (box) selection
 
-![Join lines](images/tips-and-tricks/JoinLines.gif)
+You can select blocks of text by holding `kbstyle(Shift+Alt)` while you drag your mouse. A separate cursor will be added to the end of each selected line.
+
+![Column text selection](images/tips-and-tricks/column-select.gif)
 
 ### Copy line up / down
 
 Keyboard Shortcut: `kb(editor.action.copyLinesUpAction)` or `kb(editor.action.copyLinesDownAction)`
 
-> The commands **Copy Line Up/Down** are unbound on Linux because the VS Code default keybindings would conflict with Ubuntu keybindings, see [Issue #509](https://github.com/Microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesUpAction` to your own preferred keyboard shortcuts.
+> The commands **Copy Line Up/Down** are unbound on Linux because the VS Code default keybindings would conflict with Ubuntu keybindings, see [Issue #509](https://github.com/Microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesDownAction` to your own preferred keyboard shortcuts.
 
 ![copy line down](images/tips-and-tricks/copy_line_down.gif)
+
+### Move line up and down
+
+Keyboard Shortcut: `kb(editor.action.moveLinesUpAction)` or `kb(editor.action.moveLinesDownAction)`
+
+![move line up and down](images/tips-and-tricks/move_line.gif)
 
 ### Shrink / expand selection
 
@@ -526,19 +532,9 @@ Keyboard Shortcut: `kb(workbench.action.showAllSymbols)`
 
 Keyboard Shortcut: `kb(workbench.action.gotoLine)`
 
-![navigate to line](images/tips-and-tricks/navigate_to_line.gif)
-
 ### Undo cursor position
 
 Keyboard Shortcut: `kb(cursorUndo)`
-
-![undo cursor position](images/tips-and-tricks/undo_cursor_position.gif)
-
-### Move line up and down
-
-Keyboard Shortcut: `kb(editor.action.moveLinesUpAction)` or `kb(editor.action.moveLinesDownAction)`
-
-![move line up and down](images/tips-and-tricks/move_line.gif)
 
 ### Trim trailing whitespace
 
@@ -564,31 +560,27 @@ Keyboard Shortcut: `kb(editor.fold)` and `kb(editor.unfold)`
 
 Keyboard Shortcut: `kb(expandLineSelection)`
 
-![select current line](images/tips-and-tricks/select_current_line.gif)
-
 ### Navigate to beginning and end of file
 
 Keyboard Shortcut: `kb(cursorTop)` and `kb(cursorBottom)`
 
-![navigate to beginning and end of file](images/tips-and-tricks/beginning_end_file.gif)
-
-### Open Markdown Preview
+### Open Markdown preview
 
 In a Markdown file, use
 
 Keyboard Shortcut: `kb(markdown.showPreview)`
 
-![toggle readme preview](images/tips-and-tricks/toggle_preview.gif)
+![Markdown preview](images/tips-and-tricks/markdown-preview.png)
 
-### Side by Side Markdown Edit and Preview
+### Side by side Markdown edit and preview
 
 In a Markdown file, use
 
 Keyboard Shortcut: `kb(markdown.showPreviewToSide)`
 
-Special bonus: The preview will now sync.
+The preview and editor will synchronize with your scrolling in either view.
 
-![markdown sync](images/tips-and-tricks/markdown-preview-sync.gif)
+![side by side Markdown preview](images/tips-and-tricks/markdown-preview-side-by-side.png)
 
 ## IntelliSense
 
@@ -625,6 +617,12 @@ Select a symbol then type `kb(editor.action.referenceSearch.trigger)`. Alternati
 Select a symbol then type `kb(editor.action.rename)`. Alternatively, you can use the context menu.
 
 ![rename symbol](images/tips-and-tricks/rename_symbol.gif)
+
+### Search and modify
+
+Besides searching and replacing expressions, you can also search and reuse parts of what was matched, using regular expressions with capturing groups. Enable regular expressions in the search box by clicking the **Use Regular Expression** `.*` button (`kb(toggleSearchRegex)`) and then write a regular expression and use parenthesis to define groups. You can then reuse the content matched in each group by using `$1`, `$2`, etc. in the Replace field.
+
+![search and modify](images/tips-and-tricks/search_and_modify.png)
 
 ### .eslintrc.json
 
@@ -781,7 +779,7 @@ View diff decorations in editor. See [documentation](/docs/editor/versioncontrol
 
 During a merge, go to the **Source Control** view (`kb(workbench.view.scm)`) and make changes in the diff view.
 
-### Setup VS Code as default merge tool
+### Set VS Code as default merge tool
 
 ```bash
 git config --global merge.tool code
@@ -791,7 +789,7 @@ git config --global merge.tool code
 
 ### Configure debugger
 
-From the **Command Palette** (`kb(workbench.action.showCommands)`), select **Debug: Open launch.json**, and select the environment that matches your project (Node.js, Python, C++, etc). This will generate a `launch.json` file. Node.js support is built-in and other environments require installing the appropriate language extensions. See the debugging [documentation](/docs/editor/debugging.md) for more details.
+Open the **Command Palette** (`kb(workbench.action.showCommands)`) and select **Debug: Open launch.json**, which will prompt you to select the environment that matches your project (Node.js, Python, C++, etc). This will generate a `launch.json` file. Node.js support is built-in and other environments require installing the appropriate language extensions. See the debugging [documentation](/docs/editor/debugging.md) for more details.
 
 ![configure debugging](images/tips-and-tricks/configure_debug.gif)
 
@@ -811,12 +809,12 @@ Inspect variables in the **Debug** panels and in the console.
 
 You can set `"debug.inlineValues": true` to see variable values inline in the debugger. This feature can be expensive and may slow down stepping, so it is disabled by default.
 
-## Task Runner
+## Task runner
 
 ### Auto detect tasks
 
 Select **Tasks** from the top-level menu, run the command **Configure Tasks...**, then select the type of task you'd like to run.
-This will generate a `task.json` file with content like the following. See the [Tasks](/docs/editor/tasks.md) documentation for more details.
+This will generate a `tasks.json` file with content like the following. See the [Tasks](/docs/editor/tasks.md) documentation for more details.
 
 ```json
 {
@@ -844,6 +842,20 @@ Select **Tasks** from the top-level menu, run the command **Run Task...**, and s
 
 ![task runner](images/tips-and-tricks/task_runner.gif)
 
+### Define keyboard shortcuts for tasks
+
+You can define a keyboard shortcut for any task. From the **Command Palette** (`kb(workbench.action.showCommands)`), select **Preferences: Open Keyboard Shortcuts File**, bind the desired shortcut to the `workbench.action.tasks.runTask` command, and define the **Task** as `args`.
+
+For example, to bind kb(Ctrl+H) to the `Run tests` task, add the following:
+
+```json
+{
+    "key": "ctrl+h",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Run tests"
+}
+```
+
 ### Run npm scripts as tasks from the explorer
 
 With the setting `npm.enableScriptExplorer`, you can enable an explorer that shows the scripts defined in your workspace.
@@ -852,14 +864,14 @@ With the setting `npm.enableScriptExplorer`, you can enable an explorer that sho
 
 From the explorer you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). The default action on click is to open the script. To run a script on a single click, set `npm.scriptExplorerAction` to "run". Use the setting `npm.exclude` to exclude scripts in `package.json` files contained in particular folders.
 
-## Portable Mode
+## Portable mode
 
-VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+VS Code has a [Portable mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
 ## Insiders builds
 
 The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can also use the Insiders version by [downloading it here](/insiders).
 
 * For Early Adopters - Insiders has the most recent code changes for users and extension authors to try out.
-* Frequent Builds - New builds everyday with the latest bug fixes and features.
+* Frequent Builds - New builds every day with the latest bug fixes and features.
 * Side-by-side install - Insiders installs next to the Stable build allowing you to use either independently.
