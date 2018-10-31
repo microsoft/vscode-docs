@@ -488,7 +488,48 @@ This only selects the next occurrence after the one you selected so you can add 
 
 You can select blocks of text by holding `kbstyle(Shift+Alt)` while you drag your mouse. A separate cursor will be added to the end of each selected line.
 
-![Column text selection](images/tips-and-tricks/column-select.gif)
+![Column text mouse selection](images/tips-and-tricks/column_select_mouse.gif)
+
+You can also use the keyboard for vertical selection.
+
+![Column text keyboard selection](images/tips-and-tricks/column_select_keyboard.gif)
+
+There are no shortcuts bound by default, but the following mapping is similar to what other editors offer:
+
+```json
+[
+    {
+        "key": "shift+alt+down",
+        "command": "cursorColumnSelectDown",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+left",
+        "command": "cursorColumnSelectLeft",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+pagedown",
+        "command": "cursorColumnSelectPageDown",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+pageup",
+        "command": "cursorColumnSelectPageUp",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+right",
+        "command": "cursorColumnSelectRight",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+up",
+        "command": "cursorColumnSelectUp",
+        "when": "editorTextFocus"
+    }
+]
+```
 
 ### Copy line up / down
 
