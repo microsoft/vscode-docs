@@ -57,9 +57,9 @@ This recipe shows how to run and debug a VS Code Node.js project written in Type
 
 - [Debugging Node.js with TypeScript in Docker](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript)
 
-## MERN - Mongo, Express, React and NodeJS
+## MERN - Mongo, Express, React and Node.js
 
-This recipe shows how to run and debug a MERN (Mongo, Express, React and NodeJS) based project in VS Code.
+This recipe shows how to run and debug a MERN (Mongo, Express, React and Node.js) based project in VS Code.
 
 ![MERN logos](images/recipes/mern.png)
 
