@@ -39,7 +39,7 @@ Changes to settings are reloaded by VS Code as you change them. Modified setting
 
 ## Settings editor
 
-When you open the settings editor, you can search and discover settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy.
+When you open the settings editor, a new GUI for editing settings appears where you can search and discover settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy.
 
 ![Settings Search](images/settings/settings-search.png)
 
