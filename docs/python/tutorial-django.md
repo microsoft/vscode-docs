@@ -756,7 +756,8 @@ With your models in place and the database migrated, you can store and retrieve 
 
     ```python
     # At the top of the file:
-    from django.shortcuts import redirect
+    import datatime
+    from django.shortcuts import redirect, render
     from hello.forms import LogMessageForm
     from hello.models import LogMessage
 

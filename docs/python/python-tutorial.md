@@ -222,7 +222,6 @@ Return to the **Explorer** view (the top-most icon on the left side, which shows
 
 ```python
 import matplotlib.pyplot as plt
-import matplotlib as mpl
 import numpy as np
 
 x = np.linspace(0, 20, 100)  # Create a list of evenly-spaced numbers over the range
