@@ -1778,7 +1778,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Node Debug
 
-  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
+  // Automatically attach node debugger when Node.js was launched in debug mode from integrated terminal.
   //  - disabled: Auto attach is disabled and not shown in status bar.
   //  - on: Auto attach is active.
   //  - off: Auto attach is inactive.
