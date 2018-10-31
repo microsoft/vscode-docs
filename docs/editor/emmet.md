@@ -62,6 +62,7 @@ For example:
 "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "vue-html": "html",
+    "razor": "html",
     "plaintext": "jade"
 }
 ```
