@@ -59,7 +59,7 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 }
 ```
 
-![configuration extension point example](images/extension-points/configuration.png)
+![configuration extension point example](images/contribution-points/configuration.png)
 
 ## contributes.configurationDefaults
 
@@ -98,7 +98,7 @@ Contribute an entry consisting of a title and a command to invoke to the **Comma
 }
 ```
 
-![commands extension point example](images/extension-points/commands.png)
+![commands extension point example](images/contribution-points/commands.png)
 
 ## contributes.menus
 
@@ -116,12 +116,12 @@ Currently extension writers can contribute to:
 * The editor title menu bar - `editor/title`
 * The editor title context menu - `editor/title/context`
 * The debug callstack view context menu - `debug/callstack/context`
-* The [SCM title menu](/docs/extensionAPI/api-scm.md#menus) - `scm/title`
-* [SCM resource groups](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resourceGroup/context`
-* [SCM resources](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resource/context`
-* [SCM change title](/docs/extensionAPI/api-scm.md#menus) menus - `scm/change/title`
-* The [View title menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/title`
-* The [View item menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/item/context`
+* The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
+* [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
+* [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resource/context`
+* [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
+* The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
+* The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
 
 >**Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
@@ -142,7 +142,7 @@ In addition to a title, commands can also define icons which VS Code will show i
 }
 ```
 
-![menus extension point example](images/extension-points/menus.png)
+![menus extension point example](images/contribution-points/menus.png)
 
 ### Context specific visibility of Command Palette menu items
 
@@ -175,7 +175,7 @@ The **editor context menu**  has these default groups:
 * `9_cutcopypaste` - The second last default group with the basic editing commands.
 * `z_commands` - The last default group with an entry to open the Command Palette.
 
-![Menu Group Sorting](images/extension-points/groupSorting.png)
+![Menu Group Sorting](images/contribution-points/groupSorting.png)
 
 
 The **explorer context menu** has these default groups:
@@ -236,7 +236,7 @@ Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` u
 }
 ```
 
-![keybindings extension point example](images/extension-points/keybindings.png)
+![keybindings extension point example](images/contribution-points/keybindings.png)
 
 ## contributes.languages
 
@@ -438,7 +438,7 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 
 See [Adding Language Colorization](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/extensions/yocode.md) to quickly package TextMate .tmLanguage files as VS Code extensions.
 
-![grammars extension point example](images/extension-points/grammars.png)
+![grammars extension point example](images/contribution-points/grammars.png)
 
 ## contributes.themes
 
@@ -456,7 +456,7 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 }
 ```
 
-![themes extension point example](images/extension-points/themes.png)
+![themes extension point example](images/contribution-points/themes.png)
 
 See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/extensions/yocode.md) to quickly package TextMate .tmTheme files as VS Code extensions.
 
@@ -514,7 +514,7 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
 }
 ```
 
-![views extension point example](images/extension-points/views.png)
+![views extension point example](images/contribution-points/views.png)
 
 Extension writers should create a [TreeView](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeView) by providing a [data provider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeDataProvider) through `createTreeView` API or register the [data provider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeDataProvider) directly through `registerTreeDataProvider` API to populate data. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
 
@@ -548,7 +548,7 @@ Contribute a view container into which [Custom views](#contributes.views) can be
 }
 ```
 
-![Custom views container](images/extension-points/custom-views-container.png)
+![Custom views container](images/contribution-points/custom-views-container.png)
 
 **Icon specifications**
 
