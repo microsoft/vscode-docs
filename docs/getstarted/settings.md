@@ -553,17 +553,23 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether the last typed input to the command palette should be restored when opening it the next time.
   "workbench.commandPalette.preserveInput": false,
 
+  // Controls if the centered layout should automatically resize to maximum width when more than one group is open. Once only one group is open it will resize back to the original centered width.
+  "workbench.editor.centeredLayoutAutoResize": true,
+
   // Controls the behavior of empty editor groups when the last tab in the group is closed. When enabled, empty groups will automatically close. When disabled, empty groups will remain part of the grid.
   "workbench.editor.closeEmptyGroups": true,
 
   // Controls whether editors showing a file that was opened during the session should close automatically when getting deleted or renamed by some other process. Disabling this will keep the editor open  on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
   "workbench.editor.closeOnFileDelete": false,
 
-  // Controls whether opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing) and show up with an italic font style.
+  // Controls whether opened editors show as preview. Preview editors are reused until they are pinned (e.g. via double click or editing) and show up with an italic font style.
   "workbench.editor.enablePreview": true,
 
-  // Controls whether opened editors from Quick Open show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
+  // Controls whether opened editors from Quick Open show as preview. Preview editors are reused until they are pinned (e.g. via double click or editing).
   "workbench.editor.enablePreviewFromQuickOpen": true,
+
+  // Controls whether a top border is drawn on modified (dirty) editor tabs or not.
+  "workbench.editor.highlightModifiedTabs": false,
 
   // Controls the format of the label for an editor.
   //  - default: Show the name of the file. When tabs are enabled and two files have the same name in one group the distinguishing sections of each file's path are added. When tabs are disabled, the path relative to the workspace folder is shown if the editor is active.
@@ -631,6 +637,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether Quick Open should close automatically once it loses focus.
   "workbench.quickOpen.closeOnFocusLost": true,
 
+  // Controls whether the last typed input to Quick Open should be restored when opening it the next time.
+  "workbench.quickOpen.preserveInput": false,
+
   // Determines which settings editor to use by default.
   //  - ui: Use the settings UI editor.
   //  - json: Use the JSON file editor.
@@ -657,6 +666,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - none: Start without an editor.
   //  - welcomePage: Open the Welcome page (default).
   //  - newUntitledFile: Open a new untitled file (only applies when opening an empty workspace).
+  //  - welcomePageInEmptyWorkbench: Open the Welcome page when opening an empty workbench.
   "workbench.startupEditor": "welcomePage",
 
   // Controls the visibility of the Twitter feedback (smiley) in the status bar at the bottom of the workbench.
@@ -735,9 +745,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - none: Never reopen a window. Always start with an empty one.
   "window.restoreWindows": "one",
 
-  // Enable this workaround if scrolling is no longer smooth after restoring a minimized VS Code window. This is a workaround for an issue (https://github.com/Microsoft/vscode/issues/13612) where scrolling starts to lag on devices with precision trackpads like the Surface devices from Microsoft. Enabling this workaround can result in a little bit of layout flickering after restoring the window from minimized state but is otherwise harmless. Note: in order for this workaround to function, make sure to also set `window.titleBarStyle` to `native`.
-  "window.smoothScrollingWorkaround": false,
-
   // Controls the window title based on the active editor. Variables are substituted based on the context:
   // - `${activeEditorShort}`: the file name (e.g. myFile.txt).
   // - `${activeEditorMedium}`: the path of the file relative to the workspace folder (e.g. myFolder/myFile.txt).
@@ -787,7 +794,8 @@ Below are the Visual Studio Code default settings and their values. You can also
   // The default end of line character.
   //  - \n: LF
   //  - \r\n: CRLF
-  "files.eol": "\r\n",
+  //  - auto: Uses operating system specific end of line character.
+  "files.eol": "auto",
 
   // Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting. Read more about glob patterns [here](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options).
   "files.exclude": {
@@ -797,9 +805,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     "**/CVS": true,
     "**/.DS_Store": true
   },
-
-  // If provided, will restrict the list of encodings that can be used when guessing. If the guessed file encoding is not in the list, the default encoding will be used.
-  "files.guessableEncodings": [],
 
   // Controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
   //  - off: Disable hot exit.
@@ -906,14 +911,26 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Whether to include results from a global symbol search in the file results for Quick Open.
   "search.quickOpen.includeSymbols": false,
 
+  // Controls whether to show line numbers for search results.
+  "search.showLineNumbers": false,
+
   // Search case-insensitively if the pattern is all lowercase, otherwise, search case-sensitively.
   "search.smartCase": false,
+
+  // Controls whether to use global `.gitignore` and `.ignore` files when searching for files.
+  "search.useGlobalIgnoreFiles": false,
 
   // Controls whether to use `.gitignore` and `.ignore` files when searching for files.
   "search.useIgnoreFiles": true,
 
-  // Controls whether to use ripgrep in text and file search.
-  "search.useRipgrep": true,
+  // Controls whether to use the deprecated legacy mode for text and file search. It supports some text encodings that are not supported by the standard ripgrep-based search.
+  "search.useLegacySearch": false,
+
+  // Whether to use the PCRE2 regex engine in text search. This enables using some advanced regex features like lookbehind and backreferences. However, not all PCRE2 features are supported - only features that are also supported by JavaScript.
+  "search.usePCRE2": false,
+
+  // Controls whether to open Replace Preview when selecting or replacing a match.
+  "search.useReplacePreview": true,
 
 // HTTP
 
@@ -1076,7 +1093,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "markdown.preview.markEditorSelection": true,
 
   // How should clicking on links to markdown files be handled in the preview.
-  //  - inPreview: Try to open links in the the markdown preview
+  //  - inPreview: Try to open links in the markdown preview
   //  - inEditor: Try to open links in the editor
   "markdown.preview.openMarkdownLinks": "inPreview",
 
@@ -1180,11 +1197,11 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enable/disable auto import suggestions. Requires using TypeScript 2.6.1 or newer in the workspace.
   "javascript.suggest.autoImports": true,
 
+  // Complete functions with their parameter signature.
+  "javascript.suggest.completeFunctionCalls": false,
+
   // Enabled/disable autocomplete suggestions.
   "javascript.suggest.enabled": true,
-
-  // Complete functions with their parameter signature.
-  "javascript.suggest.insertParametersForFunctionCalls": false,
 
   // Enable/disable including unique names from the file in JavaScript suggestions.
   "javascript.suggest.names": true,
@@ -1196,6 +1213,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   "javascript.suggestionActions.enabled": true,
 
   // Enable/disable automatic updating of import paths when you rename or move a file in VS Code. Requires using TypeScript 2.9 or newer in the workspace.
+  //  - prompt: Prompt on each rename.
+  //  - always: Always update paths automatically.
+  //  - never: Never rename paths and don't prompt.
   "javascript.updateImportsOnFileMove.enabled": "prompt",
 
   // Enable/disable JavaScript validation.
@@ -1210,7 +1230,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Check if npm is installed for Automatic Type Acquisition.
   "typescript.check.npmIsInstalled": true,
 
-  // Disables automatic type acquisition.
+  // Disables automatic type acquisition. Automatic type acquisition fetches `@types` packages from npm to improve IntelliSense for external libraries.
   "typescript.disableAutomaticTypeAcquisition": false,
 
   // Enable/disable default TypeScript formatter.
@@ -1288,11 +1308,11 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enable/disable auto import suggestions. Requires using TypeScript 2.6.1 or newer in the workspace.
   "typescript.suggest.autoImports": true,
 
+  // Complete functions with their parameter signature.
+  "typescript.suggest.completeFunctionCalls": false,
+
   // Enabled/disable autocomplete suggestions.
   "typescript.suggest.enabled": true,
-
-  // Complete functions with their parameter signature.
-  "typescript.suggest.insertParametersForFunctionCalls": false,
 
   // Enable/disable suggestions for paths in import statements and require calls.
   "typescript.suggest.paths": true,
@@ -1381,6 +1401,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Unknown vendor specific property.
   "css.lint.unknownVendorSpecificProperties": "ignore",
 
+  // A list of properties that are not validated against the `unknownProperties` rule.
+  "css.lint.validProperties": "",
+
   // When using a vendor-specific prefix, also include the standard property.
   "css.lint.vendorPrefix": "warning",
 
@@ -1425,7 +1448,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // IE hacks are only necessary when supporting IE7 and older.
   "less.lint.ieHack": "ignore",
 
-  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
+  // Avoid using `!important`. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
   "less.lint.important": "ignore",
 
   // Import statements do not load in parallel.
@@ -1442,6 +1465,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Unknown vendor specific property.
   "less.lint.unknownVendorSpecificProperties": "ignore",
+
+  // A list of properties that are not validated against the `unknownProperties` ruled.
+  "less.lint.validProperties": "",
 
   // When using a vendor-specific prefix, also include the standard property.
   "less.lint.vendorPrefix": "warning",
@@ -1484,7 +1510,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // IE hacks are only necessary when supporting IE7 and older.
   "scss.lint.ieHack": "ignore",
 
-  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
+  // Avoid using `!important`. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
   "scss.lint.important": "ignore",
 
   // Import statements do not load in parallel.
@@ -1501,6 +1527,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Unknown vendor specific property.
   "scss.lint.unknownVendorSpecificProperties": "ignore",
+
+  // A list of properties that are not validated against the `unknownProperties` rule.
+  "scss.lint.validProperties": "",
 
   // When using a vendor-specific prefix, also include the standard property.
   "scss.lint.vendorPrefix": "warning",
@@ -1649,6 +1678,12 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
   "terminal.integrated.showExitAlert": true,
 
+  // Controls the source of the starting cwd for terminals created by splitting.
+  //  - workspaceRoot: A new split terminal will use the workspace root as the cwd.
+  //  - sourceInitialCwd: A new split terminal will use the cwd that the parent terminal started with.
+  //  - sourceCwd: On macOS and Linux, a new split terminal will use the cwd of the parent terminal. On Windows, this behaves the same as sourceInitialCwd.
+  "terminal.integrated.splitCwd": "sourceCwd"
+
 // Problems
 
   // Controls whether Problems view should automatically reveal files when opening them.
@@ -1674,6 +1709,12 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - last: Only show the current symbol in the breadcrumbs view.
   "breadcrumbs.symbolPath": "on",
 
+  // Controls how symbols are sorted in the breadcrumbs outline view.
+  //  - position: Show symbol outline in file position order.
+  //  - name: Show symbol outline in alphabetical order.
+  //  - type: Show symbol outline in symbol type order.
+  "breadcrumbs.symbolSortOrder": "position",
+
 // Telemetry
 
   // Enable crash reports to be sent to a Microsoft online service.
@@ -1697,45 +1738,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Show Errors & Warnings on Outline Elements.
   "outline.problems.enabled": true,
 
-// Emmet
 
-  // An array of languages where Emmet abbreviations should not be expanded.
-  "emmet.excludeLanguages": [
-    "markdown"
-  ],
-
-  // Path to a folder containing Emmet profiles and snippets.
-  "emmet.extensionsPath": null,
-
-  // Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
-  //  E.g.: `{"vue-html": "html", "javascript": "javascriptreact"}`
-  "emmet.includeLanguages": {},
-
-  // When set to `false`, the whole file is parsed to determine if current position is valid for expanding Emmet abbreviations. When set to `true`, only the content around the current position in css/scss/less files is parsed.
-  "emmet.optimizeStylesheetParsing": true,
-
-  // Preferences used to modify behavior of some actions and resolvers of Emmet.
-  "emmet.preferences": {},
-
-  // Shows possible Emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to `"never"`.
-  "emmet.showAbbreviationSuggestions": true,
-
-  // Shows expanded Emmet abbreviations as suggestions.
-  // The option `"inMarkupAndStylesheetFilesOnly"` applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
-  // The option `"always"` applies to all parts of the file regardless of markup/css.
-  "emmet.showExpandedAbbreviation": "always",
-
-  // If `true`, then Emmet suggestions will show up as snippets allowing you to order them as per `editor.snippetSuggestions` setting.
-  "emmet.showSuggestionsAsSnippets": false,
-
-  // Define profile for specified syntax or use your own profile with specific rules.
-  "emmet.syntaxProfiles": {},
-
-  // When enabled, Emmet abbreviations are expanded when pressing TAB.
-  "emmet.triggerExpansionOnTab": false,
-
-  // Variables to be used in Emmet snippets
-  "emmet.variables": {},
 
 // Default Configuration Overrides
 
@@ -1776,13 +1779,45 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.autoIndent": false
   },
 
-// Node Debug
+// Emmet
 
-  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
-  //  - disabled: Auto attach is disabled and not shown in status bar.
-  //  - on: Auto attach is active.
-  //  - off: Auto attach is inactive.
-  "debug.node.autoAttach": "disabled",
+  // An array of languages where Emmet abbreviations should not be expanded.
+  "emmet.excludeLanguages": [
+    "markdown"
+  ],
+
+  // Path to a folder containing Emmet profiles and snippets.
+  "emmet.extensionsPath": null,
+
+  // Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
+  //  E.g.: `{"vue-html": "html", "javascript": "javascriptreact"}`
+  "emmet.includeLanguages": {},
+
+  // When set to `false`, the whole file is parsed to determine if current position is valid for expanding Emmet abbreviations. When set to `true`, only the content around the current position in css/scss/less files is parsed.
+  "emmet.optimizeStylesheetParsing": true,
+
+  // Preferences used to modify behavior of some actions and resolvers of Emmet.
+  "emmet.preferences": {},
+
+  // Shows possible Emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to `"never"`.
+  "emmet.showAbbreviationSuggestions": true,
+
+  // Shows expanded Emmet abbreviations as suggestions.
+  // The option `"inMarkupAndStylesheetFilesOnly"` applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
+  // The option `"always"` applies to all parts of the file regardless of markup/css.
+  "emmet.showExpandedAbbreviation": "always",
+
+  // If `true`, then Emmet suggestions will show up as snippets allowing you to order them as per `editor.snippetSuggestions` setting.
+  "emmet.showSuggestionsAsSnippets": false,
+
+  // Define profile for specified syntax or use your own profile with specific rules.
+  "emmet.syntaxProfiles": {},
+
+  // When enabled, Emmet abbreviations are expanded when pressing TAB.
+  "emmet.triggerExpansionOnTab": false,
+
+  // Variables to be used in Emmet snippets
+  "emmet.variables": {},
 
 // Git
 
@@ -1884,7 +1919,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether Git should check for unsaved files before committing.
   "git.promptToSaveFilesBeforeCommit": false,
 
-  // Use rebase instead of merge when running the sync command.
+  // Force git to use rebase when running the sync command.
   "git.rebaseWhenSync": false,
 
   // List of paths to search for git repositories in.
@@ -1927,6 +1962,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Merge Conflict
 
+  // Whether to automatically navigate to the next merge conflict after resolving a merge conflict.
+  "merge-conflict.autoNavigateNextConflict.enabled": false,
+
   // Create a Code Lens for merge conflict blocks within editor.
   "merge-conflict.codeLens.enabled": true,
 
@@ -1946,7 +1984,15 @@ Below are the Visual Studio Code default settings and their values. You can also
 // Jake
 
   // Controls whether auto detection of Jake tasks is on or off. Default is on.
-  "jake.autoDetect": "on"
+  "jake.autoDetect": "on",
+
+// Node Debug
+
+  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
+  //  - disabled: Auto attach is disabled and not shown in status bar.
+  //  - on: Auto attach is active.
+  //  - off: Auto attach is inactive.
+  "debug.node.autoAttach": "disabled"
 }
 ```
 
