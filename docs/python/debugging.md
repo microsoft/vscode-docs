@@ -295,7 +295,7 @@ On the remote computer:
     AllowTcpForwarding yes
     ```
 
-1. Restart the SSH server. On Linux/MacOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, then select **Restart**.
+1. Restart the SSH server. On Linux/macOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, then select **Restart**.
 
 1. Start the Python program and let it wait for the debugger to attach as described in the previous section.
 
