@@ -28,21 +28,21 @@ VS Code is an Electron based app, so its UI is built using HTML, CSS and JavaScr
 
 If you'd like to learn more about the Extension API, refer to the [Extension Capabilities / Overview](/api/extension-capabilities/overview) page.
 
-## Building Extensions
+## Resources
 
-If you have an idea for an extension and do not know how to start, the following resources can help you:
+Here are some high-level descriptions for each section to help you quickly locate the information you need.
 
 ### Hello Code
 
-The [Hello Code](/api/get-started/your-first-extension) tutorial walks you through the lifecycle of building an extension. You will learn:
+The [Hello Code](/api/get-started/your-first-extension) tutorial explains important concepts for building VS Code Extensions. You will learn:
 
 - Basic concepts such as Contribution Points and Activation Points
-- How to write, run, debug, test and publish extensions
+- How to write, run and debug a basic extension
 - How to use the tools and resources such as [Yeoman Code Generator](https://github.com/Microsoft/vscode-generator-code), [vsce](https://github.com/Microsoft/vscode-vsce), [VS Code Extension Samples](https://github.com/Microsoft/vscode-extension-samples) and our [API Reference](/api/references/vscode-api)
 
 ### Advanced Topics
 
-This section teaches you techniques for taking your extension development skills to the next level. Topics include:
+Through the [Hello Code](/api/get-started/your-first-extension) tutorial, you have gained enough knowledge for writing extensions. This section discusses more advanced topics for making high-quality extensions.
 
 - Publishing / Distributing extensions
 - Testing extensions / CI Integration
@@ -51,7 +51,7 @@ This section teaches you techniques for taking your extension development skills
 
 ### Extension Capabilities
 
-Once you have become familiar with VS Code extension development through the [Hello Code](/api/get-started/your-first-extension) tutorial, the [Extension Capabilities](/api/extension-capabilities/overview) section helps you explore the possibilities that VS Code API offers. This section focuses on explaining high-level concepts and point you to more detailed resources and guides.
+Once you have become familiar with VS Code extension development through the [Hello Code](/api/get-started/your-first-extension) tutorial, the [Extension Capabilities](/api/extension-capabilities/overview) section helps you discover the possibilities that VS Code API offers. This section focuses on explaining high-level concepts and point you to more detailed resources and guides.
 
 ### Extension Guides
 
@@ -61,8 +61,8 @@ The [Extension Guides](/api/extension-guides/overview) section includes guides t
 - Listing of VS Code API usage
 - Real-world Extensions following this model
 
-Some samples do not yet have accompanying guides, but the source code are mostly well-documented.
+Some samples in the [vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples) do not yet have accompanying guides, but the source code are mostly well-documented.
 
 ### References
 
-Not sure what to include in the `package.json` manifest? Confused by an unknown term? The <a>References</a> section includes an interactive API reference for the `vscode` module and exhaustive references on various topics such as Contributiong Points, Theme Color and Snippet Syntax.
+Not sure what to include in the [Extension Manifest](/api/references/extension-manifest)? Confused by an unknown term? The References section includes an interactive [API reference](/api/references/vscode-api) for the `vscode` NPM module and exhaustive references on various topics such as [Contributiong Points](/api/references/contribution-points), [Theme Color](/api/references/theme-color) and [Document Selector](/api/references/document-selector).
