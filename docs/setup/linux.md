@@ -17,7 +17,7 @@ The easiest way to install Visual Studio Code for Debian/Ubuntu based distributi
 
 ```bash
 sudo dpkg -i <file>.deb
-sudo apt-get install -f # Install dependencies
+sudo apt install -f # Install dependencies
 ```
 
 Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the regular system mechanism. Note that 32-bit and .tar.gz binaries are also available on the [download page](/Download).
@@ -33,9 +33,9 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 Then update the package cache and install the package using:
 
 ```bash
-sudo apt-get install apt-transport-https
-sudo apt-get update
-sudo apt-get install code # or code-insiders
+sudo apt install apt-transport-https
+sudo apt update
+sudo apt install code # or code-insiders
 ```
 
 ### RHEL, Fedora and CentOS based distributions
@@ -158,7 +158,7 @@ If you see an error when deleting files from the VS Code Explorer on the Debian 
 Run these commands to solve this issue:
 
 ```bash
-sudo apt-get install gvfs-bin
+sudo apt install gvfs-bin
 ```
 
 ### "Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
@@ -203,7 +203,7 @@ This error can appear during installation and is typically caused by the package
 
 ```bash
 # For .deb
-sudo apt-get update
+sudo apt update
 
 # For .rpm (Fedora 21 and below)
 sudo yum update
@@ -218,8 +218,8 @@ Running 'code .' on Ubuntu when VS Code is already open in the current directory
 
 ```bash
 # Install
-sudo apt-get update
-sudo apt-get install compizconfig-settings-manager
+sudo apt update
+sudo apt install compizconfig-settings-manager
 
 # Run
 ccsm

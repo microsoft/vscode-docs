@@ -252,7 +252,7 @@ sudo python3 -m pip install matplotlib
 py -3 -m pip install matplotlib
 
 # Linux (Debian)
-sudo apt-get install python3-tk
+sudo apt install python3-tk
 python -m pip install matplotlib
 ```
 

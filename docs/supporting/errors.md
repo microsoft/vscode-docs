@@ -18,7 +18,7 @@ On Linux, the VS Code Node.js debugger requires the [gnome-terminal](https://hel
 
 There are two options for solving this problem:
 
-* Install the gnome-terminal by running the command `sudo apt-get install gnome-terminal` (or the equivalent of your Linux distribution).
+* Install the gnome-terminal by running the command `sudo apt install gnome-terminal` (or the equivalent of your Linux distribution).
 * Manually launch your program in debug mode by passing a `--inspect` or `--inspect-brk` option to Node.js and then attach the VS Code debugger to port 9229 on 'localhost'.
 
 ## 20003

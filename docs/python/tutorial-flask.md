@@ -44,7 +44,7 @@ In this section you create a virtual environment in which Flask is installed. Us
 
     ```bash
     # macOS/Linux
-    sudo apt-get install python3-venv    # If needed
+    sudo apt install python3-venv    # If needed
     python3 -m venv env
 
     # Windows

@@ -40,7 +40,7 @@ To create a virtual environment, use the following command, where "env" is the n
 
 ```bash
 # macOS/Linux
-# You may need to run sudo apt-get install python3-venv first
+# You may need to run sudo apt install python3-venv first
 python3 -m venv env
 
 # Windows
