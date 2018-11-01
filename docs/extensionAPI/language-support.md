@@ -248,7 +248,7 @@ In the response to the `initialize` method, your language server needs to announ
     "capabilities" : {
         "completionProvider" : {
             "resolveProvider": "true",
-            "triggerCharacters": [ '.' ]
+            "triggerCharacters": [ "." ]
         }
         ...
     }
@@ -352,7 +352,7 @@ In the response to the `initialize` method, your language server needs to announ
     ...
     "capabilities" : {
         "signatureHelpProvider" : {
-            "triggerCharacters": [ '(' ]
+            "triggerCharacters": [ "(" ]
         }
         ...
     }
