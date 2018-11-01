@@ -13,14 +13,14 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 
 ### Debian and Ubuntu based distributions
 
-The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868) either through the graphical software center if it's available or through the command line with:
+The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868), either through the graphical software center if it's available, or through the command line with:
 
 ```bash
 sudo dpkg -i <file>.deb
 sudo apt-get install -f # Install dependencies
 ```
 
-Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the regular system mechanism. Note that 32-bit and .tar.gz binaries are also available on the [download page](/Download).
+Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the system's package manager. Note that 32-bit and .tar.gz binaries are also available on the [download page](/Download).
 
 The repository and key can also be installed manually with the following script:
 
@@ -115,7 +115,7 @@ Node.js is a popular platform and runtime for easily building and running JavaSc
 
 If you'd like to install Node.js on Linux, see [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your Linux distribution. You can also install and support multi version of Node.js by using the [Node Version Manager](https://github.com/creationix/nvm).
 
-To learn more about JavaScript and Node.js, see our [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md) where you'll learn about running and debugging Node.js applications with VS Code.
+To learn more about JavaScript and Node.js, see our [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md), where you'll learn about running and debugging Node.js applications with VS Code.
 
 ## Setting VS Code as the default text editor
 
@@ -129,7 +129,7 @@ xdg-mime default code.desktop text/plain
 
 ### Debian alternatives system
 
-Debian-based distributions allow setting a default *editor* using the [alternatives system](https://wiki.debian.org/DebianAlternatives), without concern for the mime type. You can set this by running the following and selecting code.
+Debian-based distributions allow setting a default *editor* using the [alternatives system](https://wiki.debian.org/DebianAlternatives), without concern for the MIME type. You can set this by running the following and selecting code:
 
 ```bash
 sudo update-alternatives --set editor /usr/bin/code
@@ -137,7 +137,7 @@ sudo update-alternatives --set editor /usr/bin/code
 
 ## Next Steps
 
-Once you have installed VS Code, these topics will help you learn more about VS Code:
+Once you have installed VS Code, these topics will help you learn more about it:
 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
@@ -177,9 +177,9 @@ fs.inotify.max_user_watches=524288
 
 The new value can then be loaded in by running `sudo sysctl -p`. Note that [Arch Linux](https://www.archlinux.org/) works a little differently, [view this page for advice](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers).
 
-While 524288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524288 watches are consumed that results in an upper bound of around 256MB (32-bit) or 512MB (64-bit).
+While 524,288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524,288 watches are consumed, that results in an upper bound of around 256MB (32-bit) or 512MB (64-bit).
 
-Another option is to exclude specific workspace directories from the VS Code file watcher with the `files.watcherExclude` [setting](/docs/getstarted/settings.md). The default for `files.watcherExclude` excludes `node_module` and some folders under `.git` but you can add other directories that you don't want VS Code to track.
+Another option is to exclude specific workspace directories from the VS Code file watcher with the `files.watcherExclude` [setting](/docs/getstarted/settings.md). The default for `files.watcherExclude` excludes `node_module` and some folders under `.git`, but you can add other directories that you don't want VS Code to track.
 
 ```json
 "files.watcherExclude": {
@@ -191,7 +191,7 @@ Another option is to exclude specific workspace directories from the VS Code fil
 
 ### I can't see Chinese characters in Ubuntu
 
-We're working on a fix. In the meantime, open the application menu, then choose **File** > **Preferences** > **Settings**. Then set `editor.fontFamily` as shown:
+We're working on a fix. In the meantime, open the application menu, then choose **File** > **Preferences** > **Settings**. In the **Text Editor** > **Font** section, set "Font Family" to `Droid Sans Mono, Droid Sans Fallback`. If you'd rather edit the `settings.json` file directly, set `editor.fontFamily` as shown:
 
 ```json
     "editor.fontFamily": "Droid Sans Mono, Droid Sans Fallback"
@@ -199,7 +199,7 @@ We're working on a fix. In the meantime, open the application menu, then choose 
 
 ### Package git is not installed
 
-This error can appear during installation and is typically caused by the package manager's being out of date. Try updating it and installing again:
+This error can appear during installation and is typically caused by the package manager's lists being out of date. Try updating them and installing again:
 
 ```bash
 # For .deb
@@ -214,7 +214,7 @@ sudo dnf update
 
 ### The code bin command does not bring the window to the foreground on Ubuntu
 
-Running 'code .' on Ubuntu when VS Code is already open in the current directory will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using `ccsm`.
+Running `code .` on Ubuntu when VS Code is already open in the current directory will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using `ccsm`.
 
 ```bash
 # Install
@@ -229,7 +229,7 @@ Under **General** > **General Options** > **Focus & Raise Behaviour**, set "Focu
 
 ### Cannot install .deb package due to "/etc/apt/sources.list.d/vscode.list: No such file or directory"
 
-This can happen when sources.list.d doesn't exist or you don't have access to create the file. To fix this try manually creating the folder and an empty `vscode.list` file:
+This can happen when `sources.list.d` doesn't exist or you don't have access to create the file. To fix this, try manually creating the folder and an empty `vscode.list` file:
 
 ```bash
 sudo mkdir /etc/apt/sources.list.d
