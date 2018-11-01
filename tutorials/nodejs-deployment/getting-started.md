@@ -43,7 +43,7 @@ To sign in, go to https://aka.ms/devicelogin and enter the code BF9BUDLGR to aut
 
 ## Prerequisite Check
 
-Before we continue, ensure that you have all of the prerequisites properly installed. Type each command and ensure it displays the version you have installed. If your Node.js version is less than 6, please [upgrade](https://nodejs.org/en/download/) to the most current LTS ("Long Term Stable") release.
+Before we continue, ensure that you have all of the prerequisites properly installed. Type each command and ensure it displays the version you have installed. If your Node.js version is less than 6, please [upgrade](https://nodejs.org/en/download/) to the most current LTS ("Long Term Support") release.
 
 ```bash
 $ node -v

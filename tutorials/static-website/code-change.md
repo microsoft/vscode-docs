@@ -8,7 +8,7 @@ DateApproved: 6/27/2018
 ---
 # Making a code change
 
-In this section, you will make a source code change and re-deploy the site so that you can see what your end-to-end deployment workflow will look like.
+In this section, you will make a source code change and redeploy the site so that you can see what your end-to-end deployment workflow will look like.
 
 ## Make a change
 
@@ -26,7 +26,7 @@ Run `npm run build` locally then right-click your updated `build` directory and 
 
 ## Test your changes
 
-Once your deployment is complete, revisit your storage endpoint (`https://<storage-account-name>.z4.web.core.windows.net/`) and you should see the following!
+Once your deployment is complete, revisit your storage endpoint (`https://<storage-account-name>.z4.web.core.windows.net/`) and you should see the following:
 
 ![Import build](images/static-website/updated-azure-app.png)
 
