@@ -7,6 +7,8 @@ PageTitle: Extending Workbench
 
 # Extending Workbench
 
+<!-- TODO: Explain the approach in more detail: We don't allow DOM access. We allow you to add things that follow the general theme/principle of VS Code's UI for consistency. -->
+
 As described in the [Principles and Patterns](../references/principle-and-patterns) topic, we do not provide access to the underlying DOM to extension writers. In this section, we will describe the workbench UI components that are extensible.
 
 The VS Code workbench consists of different parts as shown in the picture:
