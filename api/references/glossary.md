@@ -5,4 +5,8 @@ TOCTitle: Glossary
 PageTitle: Glossary
 ---
 
-# A glossary of all terms used in Extension Docs
+# Glossary
+
+This is the glossary of important terms used throughout the API. This page contains definition and links for each term.
+
+The glossary is ranked alphabetically.

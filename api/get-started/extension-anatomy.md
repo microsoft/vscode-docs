@@ -18,9 +18,9 @@ An extension can contain either of them. For example, a [Completion Provider Ext
 
 The **Extension Host** executes all extension code in a Node.js runtime. Each extension includes an entry file that is loaded when VS Code launches, and VS Code executes the `activate` function of each extension when their **Activation Events** are triggered.
 
-Let's take a closer look at the HelloCode sample, and see how these concepts applies to the sample.
+Let's take a closer look at the HelloCode sample, and see how these concepts applies to it.
 
-## Extension file structure
+## Extension File Structure
 
 ```
 .
@@ -45,7 +45,7 @@ However, let's focus on `package.json` and `extensions.ts`, which are essential 
 
 ### The Extension Manifest: `package.json`
 
-Each VS Code extension must have a `package.json`. The `package.json` contains a mix of Node.js fields such as `scripts` and `dependencies` and VS Code specific fields such as `publisher`, `activationEvents` and `contributes`. You can find description of all VS Code specific fields in [Extension Manifest Reference](/api/references/extension-manifest). Here, we'll point out some important fields:
+Each VS Code extension must have a `package.json` as its [Extension Manifest](/api/references/extension-manifest). The `package.json` contains a mix of Node.js fields such as `scripts` and `dependencies` and VS Code specific fields such as `publisher`, `activationEvents` and `contributes`. You can find description of all VS Code specific fields in [Extension Manifest Reference](/api/references/extension-manifest). Here, we'll point out some important fields:
 
 - `name` and `publisher`: VS Code uses `<publisher>.<name>` as a unique ID for the extension. For example, the HelloCode sample has the ID `vscode-samples.hellocode-sample`.
 - `main`: The extension entry point.
@@ -118,3 +118,12 @@ export function activate(context: vscode.ExtensionContext) {
 // this method is called when your extension is deactivated
 export function deactivate() {}
 ```
+
+## Wraping Up
+
+Here are the four important concepts we learned in this topic. You can find more information for them in the `References` section.
+
+- Extension Host: The Node.js runtime where your extension code is executed.
+- [vscode API](/api/references/vscode-api): The VS Code Extension API available in the Extension Host.
+- [Contribution Points](/api/references/contribution-points): The static declarations your extension can make in the `package.json`.
+- [Activation Events](/api/references/activation-events): The event on which your extension is activated.
