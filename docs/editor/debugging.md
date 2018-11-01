@@ -151,7 +151,7 @@ Breakpoints can be toggled by clicking on the **editor margin**. Finer breakpoin
 
 * Breakpoints in the editor margin are normally shown as red filled circles.
 * Disabled breakpoints have a filled gray circle.
-* When a debugging session starts, breakpoints that cannot be registered with the debugger change to a gray hollow circle. The same might happen if the source is edited while a debug session without live-edit support is running.
+* When a debugging session starts, breakpoints that cannot be registered with the debugger change to a gray hollow circle. The same might happen if editing the source while a debug session without live-edit support is running.
 
 The **Reapply All Breakpoints** command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed.
 
