@@ -4,7 +4,7 @@ PageTitle: Overview
 
 # Visual Studio Code Extension API
 
-Visual Studio Code is built with extensibility in mind. From the Workbench UI to the editing experience, almost every part of VS Code can be customized and enhanced through the Extension API. In fact, many core features of VS Code are built as [extensions](https://github.com/Microsoft/vscode/tree/master/extensions) and use the same Extension APIs.
+Visual Studio Code is built with extensibility in mind. From the Workbench UI to the editing experience, almost every part of VS Code can be customized and enhanced through the Extension API. In fact, many core features of VS Code are built as [extensions](https://github.com/Microsoft/vscode/tree/master/extensions) and use the same Extension API.
 
 This documentation describes:
 
@@ -63,9 +63,9 @@ The [Extension Capabilities](/api/extension-capabilities/overview) section helps
 
 The [Extension Guides](/api/extension-guides/overview) section describes in detail how to build various VS Code extensions. In each topic, you can find:
 
-- Sample code from [VS Code Extension Sample](https://github.com/Microsoft/vscode-extension-samples) repository
-- A listing of the VS Code APIs used
-- Real-world extensions using the APIs
+- Sample code from [VS Code Extension Samples](https://github.com/Microsoft/vscode-extension-samples) repository
+- A listing of the VS Code API used
+- Real-world extensions using the API
 
 Some samples in [vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples) do not yet have accompanying guides, but the source code is well-documented.
 
