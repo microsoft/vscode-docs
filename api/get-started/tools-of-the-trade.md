@@ -62,10 +62,3 @@ If you have questions for extension development, try asking on:
 - [Gitter Channel](https://gitter.im/Microsoft/vscode) and [VS Code Dev Slack](https://join.slack.com/t/vscode-dev-community/shared_invite/enQtMjIxOTgxNDE3NzM0LWU5M2ZiZDU1YjBlMzdlZjA2YjBjYzRhYTM5NTgzMTAxMjdiNWU0ZmQzYWI3MWU5N2Q1YjBiYmQ4MzY0NDE1MzY): Public chatroom full of helpful folks. Some VS Code team members chime in conversations.
 
 If you have questions that you cannot find answer for, or issues with VS Code's Extension API, feel welcome to open a new issue in our issue tracker: https://github.com/Microsoft/vscode/issues.
-
-## Next Steps
-
-TODO
-
-- Point to some of the advanced topics
-- Point to more samples / guides / overviews
