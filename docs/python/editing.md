@@ -8,7 +8,7 @@ DateApproved: 10/29/2018
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
-# Editing Python in VS Code
+# Editing Python in Visual Studio Code
 
 The Python extension provides many features for editing Python source code in Visual Studio Code:
 

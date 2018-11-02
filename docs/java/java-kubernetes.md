@@ -7,7 +7,7 @@ PageTitle: Java with Kubernetes in Visual Studio Code
 DateApproved: 5/30/2018
 MetaDescription: Java with Kubernetes in Visual Studio Code
 ---
-# Java with Kubernetes in VS Code
+# Java with Kubernetes in Visual Studio Code
 
 This tutorial will walk you through the process of deploying a Java application to [Kubernetes](https://kubernetes.io/) with Visual Studio Code. [Kubernetes](https://kubernetes.io/) is an open-source system for automating deployment, scaling, and management of containerized applications.
 
@@ -19,8 +19,8 @@ In addition to the Java tools you needed to install for the [Java Tutorial](/doc
 
 You can create a local Kubernetes cluster with [minikube](https://kubernetes.io/docs/getting-started-guides/minikube/) or an Azure Kubernetes cluster in [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/). In this tutorial, we will use [Azure Container Service(AKS)](https://docs.microsoft.com/azure/aks/) and you will need to have your [Azure](https://www.azure.com) account ready for the deployment steps.
 
-In addition if you want to iteratively run and debug containers directly in Azure Kubernetes Service (AKS), you could install 
-[Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds).  
+In addition if you want to iteratively run and debug containers directly in Azure Kubernetes Service (AKS), you could install
+[Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds).
 
 ## Install the Kubernetes extension
 

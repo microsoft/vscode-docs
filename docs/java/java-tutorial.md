@@ -7,7 +7,7 @@ PageTitle: Build Java Web Apps with Visual Studio Code
 DateApproved: 5/30/2018
 MetaDescription: Java tutorial showing Java language support in the Visual Studio Code editor.
 ---
-# Build Java Web Apps with VS Code
+# Java Web Apps with Visual Studio Code
 
 This tutorial shows you how to create a simple Java web application with Visual Studio Code. You'll learn how to run, debug, and edit the Java web app locally.
 

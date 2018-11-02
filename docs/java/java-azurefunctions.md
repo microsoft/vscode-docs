@@ -7,7 +7,7 @@ PageTitle: Building Azure Functions in Java with Visual Studio Code
 DateApproved: 8/13/2018
 MetaDescription: Using Visual Studio Code for developing, debugging and deploying your Java Azure Functions application.
 ---
-# Azure Functions in Java with VS Code
+# Java Azure Functions with Visual Studio Code
 
 Azure Functions let you execute your source code in a [serverless](https://azure.microsoft.com/en-us/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
 

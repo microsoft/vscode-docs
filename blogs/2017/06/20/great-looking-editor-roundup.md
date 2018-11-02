@@ -1,7 +1,7 @@
 ---
 Order: 29
 TOCTitle: Fresh Paint
-PageTitle: Fresh Paint - Give VS Code a New Look
+PageTitle: Fresh Paint - Give Visual Studio Code a New Look
 MetaDescription: Give VS Code a new look with these popular extensions, color themes, file icon themes and more.
 Date: 2017-06-20
 ShortDescription: Give VS Code a new look with these popular extensions, color themes, file icon themes and more.
