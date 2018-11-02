@@ -1,5 +1,5 @@
 ---
-# Order: 3
+Order: 3
 Area: extension-guides
 TOCTitle: Tree View
 PageTitle: Tree View
@@ -9,13 +9,13 @@ PageTitle: Tree View
 
 This guide teaches you how to write an extension that contribute tree views to Visual Studio Code. You can find a sample extension with source code at: https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample.
 
-## Extension point: contributes.views
+## Contribution Point: contributes.views
 
-To contribute a view you should first register it using `contributes.views` extension point in `package.json`. You must specify an identifier and name for the view and you can contribute to following locations
+To contribute a view, you should first register it using [`contributes.views`](/api/references/vscode-api) Contribution Point in `package.json`. You must specify an identifier and name for the view, and you can contribute to following locations
 
-- `explorer`: Explorer view in the Side bar
-- `debug`: Debug view in the Side bar
-- `scm`: Debug view in the Side bar
+- `explorer`: Explorer view in the Side Bar
+- `debug`: Debug view in the Side Bar
+- `scm`: Source Control view in the Side Bar
 
 Example:
 
@@ -33,16 +33,16 @@ Example:
 }
 ```
 
-When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (e.g. `onView:nodeDependencies` for the example above). You can also control the visibility of the view by providing the `when` context value.
+When the user opens the view, VS Code will then emit an activationEvent [`onView:${viewId}`](/api/references/activation-events#activationEvents.onView) (e.g. `onView:nodeDependencies` for the example above). You can also control the visibility of the view by providing the `when` context value.
 
-## Extension point: contributes.viewsContainers
+## Contributino Point: contributes.viewsContainers
 
 You can contribute your views to your own view container which will show up in the activity bar.
 
-To do such, extension writers can add a `viewContainers` object in the contributes section. each object will require three things:
+To do such, extension writers can add a [`contributes.viewContainers`](/api/references/contribution-points#contributes.viewsContainers) object in the Extension Manifest. Each object has three required fields:
 
-- `id`: The name of the new view you're creating
-- `title`: The name which will show up at the top of the view
+- `id`: The name of the new view container you're creating
+- `title`: The name which will show up at the top of the view container
 - `icon`: an image which will be displayed for the view container in the activity bar
 
 ```json
@@ -68,9 +68,9 @@ To do such, extension writers can add a `viewContainers` object in the contribut
 }
 ```
 
-## View actions
+## View Actions
 
-You can contribute actions at following locations in the view
+You can contribute actions at the following locations in the view
 
 - `view/title`: Location to show actions in the view title. Primary or inline actions use `"group": "navigation"` and rest are secondary actions which are in `...` menu.
 - `view/item/context`: Location to show actions for the tree item. Inline actions use `"group": "inline"` and rest are secondary actions which are in `...` menu.
@@ -109,20 +109,20 @@ Examples:
 
 ```json
 "contributes": {
-    "menus": {
-       "view/item/context": [
-           {
-                "command": "nodeDependencies.deleteEntry",
-                "when": "view == nodeDependencies && viewItem == dependency"
-			}
-        ]
-    }
+  "menus": {
+    "view/item/context": [
+      {
+        "command": "nodeDependencies.deleteEntry",
+        "when": "view == nodeDependencies && viewItem == dependency"
+      }
+    ]
+  }
 }
 ```
 
 ## TreeDataProvider
 
-Extension writers should register a [provider](/docs/extensionAPI/vscode-api.md#TreeDataProvider) programmatically to populate data in the view.
+Extension writers should register a [`TreeDataProvider`](/api/references/vscode-api#TreeDataProvider) programmatically to populate data in the view.
 
 ```typescript
 vscode.window.registerTreeDataProvider('nodeDependencies', new DepNodeProvider());
@@ -133,7 +133,7 @@ See [nodeDependencies.ts](https://github.com/Microsoft/vscode-extension-samples/
 
 ## TreeView
 
-If you would like to perform some UI operations on the view programatically, you can use `window.createTreeView` instead of `window.registerDataProvider`. This will give access to the view which you can use for performing view operations.
+If you would like to perform some UI operations on the view programatically, you can use `window.createTreeView` instead of `window.registerTreeDataProvider`. This will give access to the view which you can use for performing view operations.
 
 ```typescript
 vscode.window.createTreeView('ftpExplorer', { treeDataProvider: new FtpTreeDataProvider() });
