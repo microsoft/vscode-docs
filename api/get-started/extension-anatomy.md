@@ -14,7 +14,7 @@ VS Code offers two ways to extend its functionality:
 - **vscode API**: A set of JavaScript API that you can programmatically invoke.
 - **Contribution Points**: A set of static declarations that you can contribute through JSON configuration.
 
-An extension can contain either of them. For example, a [Completion Provider Extension](https://github.com/Microsoft/vscode-extension-samples/tree/master/completions-sample) uses the [`vscode.languages.registerCompletionItemProvider`](/api/references/vscode-api#languages.registerCompletionItemProvider) API but makes no contribution, and a [Theme Extension](https://github.com/Microsoft/vscode-extension-samples/tree/ext-docs/theme-sample) only uses the [`contributes.colors`](/api/references/contribution-points#contributes.colors) Contribution Point without including any code. Of course, you can utilize both in the same extension.
+An extension can contain either of them. For example, a [Completion Provider Extension](https://github.com/Microsoft/vscode-extension-samples/tree/master/completions-sample) uses the [`vscode.languages.registerCompletionItemProvider`](/api/references/vscode-api#languages.registerCompletionItemProvider) API but makes no contribution, and a [Theme Extension](https://github.com/Microsoft/vscode-extension-samples/tree/master/theme-sample) only uses the [`contributes.colors`](/api/references/contribution-points#contributes.colors) Contribution Point without including any code. Of course, you can utilize both in the same extension.
 
 The **Extension Host** executes all extension code in a Node.js runtime. Each extension includes an entry file that is loaded when VS Code launches, and VS Code executes the `activate` function of each extension when their **Activation Events** are triggered.
 

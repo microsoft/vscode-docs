@@ -7,7 +7,7 @@ PageTitle: Your First Extension
 
 # Your First Extension
 
-In this section, we'll teach you fundamental concepts for building VS Code extensions. The following topics are centered around the [Hello Code](https://github.com/Microsoft/vscode-extension-samples/tree/ext-docs/hellocode-sample) sample extension. Make sure you have [Node.js](https://nodejs.org/en/) and [Git](https://git-scm.com/) installed, then clone and run the sample with:
+In this section, we'll teach you fundamental concepts for building VS Code extensions. The following topics are centered around the [Hello Code](https://github.com/Microsoft/vscode-extension-samples/tree/master/hellocode-sample) sample extension. Make sure you have [Node.js](https://nodejs.org/en/) and [Git](https://git-scm.com/) installed, then clone and run the sample with:
 
 ```bash
 git clone https://github.com/Microsoft/vscode-extension-samples
@@ -60,4 +60,4 @@ Once you make some change, run the `Reload Window` command in the extension deve
 
 ## Using JavaScript
 
-In this guide, we mainly describe how to develop VS Code extension with TypeScript, because we believe TypeScript gives you the best experience for developing VS Code extension. However, if you prefer JavaScript, you can still follow along using [hellocode-minimap-sample](https://github.com/Microsoft/vscode-extension-samples/tree/ext-docs/hellocode-minimal-sample).
+In this guide, we mainly describe how to develop VS Code extension with TypeScript, because we believe TypeScript gives you the best experience for developing VS Code extension. However, if you prefer JavaScript, you can still follow along using [hellocode-minimap-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/hellocode-minimal-sample).
