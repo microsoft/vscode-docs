@@ -14,7 +14,7 @@ This documentation describes:
 
 If you are looking for published extensions, see the [VS Code Marketplace](https://marketplace.visualstudio.com/).
 
-## What can extensions do?
+## What Can Extensions Do?
 
 VS Code is an Electron based application and its UI is built using HTML, CSS and JavaScript using the usual browser DOM API. However, VS Code does not provide DOM access to extension authors in order to ensure its responsiveness and performance. Instead, an extensive Extension API is exposed in order to customize the editor.
 
@@ -53,7 +53,7 @@ After working through the [Hello Code](/api/get-started/your-first-extension) tu
 - Publishing / distributing extensions
 - Testing extensions / CI build integration
 - Profiling extensions
-- Using Proposed APIs
+- Using Proposed API
 
 ### Extension Capabilities
 
