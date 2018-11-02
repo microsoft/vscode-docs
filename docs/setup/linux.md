@@ -16,8 +16,7 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868), either through the graphical software center if it's available, or through the command line with:
 
 ```bash
-sudo dpkg -i <file>.deb
-sudo apt-get install -f # Install dependencies
+sudo apt install ./<file>.deb
 ```
 
 Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the system's package manager. Note that 32-bit and .tar.gz binaries are also available on the [download page](/Download).
