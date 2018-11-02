@@ -12,8 +12,6 @@ In VS Code, there are two types of themes:
 - **Color Theme**: A mapping from both UI Component Identifier and Text Token Identifier to colors. Color theme allows you to apply your favorite colors to both VS Code UI Components and the text in the editor.
 - **Icon Theme**: A mapping from file type / file name to images. The file icon is displayed across the VS Code UI in places such as File Explorer, Quick Open List and Editor Tab.
 
-Additionally, there is an API [`vscode.TextEditor.setDecorations`](/api/references/vscode-api#TextEditor.setDecorations) that allows you to create decorations for specific ranges in a text editor.
-
 ## Color Theme
 
 ![color-theme](./images/theming/color-theme.png)
