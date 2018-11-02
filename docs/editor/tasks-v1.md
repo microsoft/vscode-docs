@@ -150,7 +150,7 @@ The first task starts the TypeScript compiler in watch mode, the second one star
 
 If you need to run a task frequently, you can also define a keyboard shortcut for the task.
 
-For example, to bind `ctrl+h` to the `build` task from above, add the following to your `keybindings.json` file:
+For example, to bind `kbstyle(Ctrl+H)` to the `build` task from above, add the following to your `keybindings.json` file:
 
 ```json
 {

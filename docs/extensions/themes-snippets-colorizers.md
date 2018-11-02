@@ -533,7 +533,7 @@ In order to inherit other CSS features we marked the block by using `contentName
 }
 ```
 
-We mapped it to the ID of the language that we want to inherit features from. For example, now if we press `kbstyle(ctrl/)` inside a CSS code block, VS Code will use CSS comments instead of Markdown!
+We mapped it to the ID of the language that we want to inherit features from. For example, now if we press `kbstyle(Ctrl/)` inside a CSS code block, VS Code will use CSS comments instead of Markdown!
 
 ## Next Steps
 

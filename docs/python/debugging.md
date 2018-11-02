@@ -8,7 +8,7 @@ DateApproved: 10/29/2018
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
-# Python debugging configurations in Visual Studio Code
+# Python debugging in Visual Studio Code
 
 The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 

@@ -7,7 +7,7 @@ PageTitle: Java with Kubernetes in Visual Studio Code
 DateApproved: 5/30/2018
 MetaDescription: Java with Kubernetes in Visual Studio Code
 ---
-# Java with Kubernetes in Visual Studio Code
+# Java with Kubernetes in VS Code
 
 This tutorial will walk you through the process of deploying a Java application to [Kubernetes](https://kubernetes.io/) with Visual Studio Code. [Kubernetes](https://kubernetes.io/) is an open-source system for automating deployment, scaling, and management of containerized applications.
 

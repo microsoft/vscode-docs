@@ -175,7 +175,7 @@ If no text is selected in the active editor, the line that the cursor is on is r
 
 ## Send text from a keybinding
 
-The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences. This enables things like sending arrow keys, enter, cursor moves, etc. The example below shows the sorts of things you can achieve with this feature, it jumps over the word to the left of the cursor (ctrl+left arrow) and presses backspace:
+The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences. This enables things like sending arrow keys, enter, cursor moves, etc. The example below shows the sorts of things you can achieve with this feature, it jumps over the word to the left of the cursor (Ctrl+Left arrow) and presses backspace:
 
 ```json
 {
