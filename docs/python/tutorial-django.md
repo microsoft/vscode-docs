@@ -755,12 +755,12 @@ With your models in place and the database migrated, you can store and retrieve 
 1. In `views.py`, define the view named `log_message` (as referred to by the URL route). This view handles both HTTP GET and POST cases. In the GET case (the `else:` section), it just displays the form that you defined in the previous steps. In the POST case, it retrieves the data from the form into a data object (`message`), sets the timestamp, then saves that object at which point it's written to the database:
 
     ```python
-    # At the top of the file:
+    # Add these to existing imports at the top of the file:
     from django.shortcuts import redirect
     from hello.forms import LogMessageForm
     from hello.models import LogMessage
 
-    # Elsewhere in the file:
+    # Add this code elsewhere in the file:
     def log_message(request):
         if request.method == "POST":
             form = LogMessageForm(request.POST)
