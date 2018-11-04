@@ -428,7 +428,7 @@ There are a couple more properties that can be used inside a pattern. These are:
 
 >**Note:** A functional pattern must at least provide a match group for file, message and line or location.
 
-## Defining a Multi-Line Problem Matcher
+## Defining a Multiline Problem Matcher
 
 Some tools spread problems found in a source file over several lines, especially if stylish reporters are used. An example is [ESLint](https://eslint.org/); in stylish mode it produces output like this:
 
@@ -480,7 +480,7 @@ test.js
 
 The pattern's first regular expression will match "test.js", the second "1:0  error ...". The next line "1:9  error ..." is processed but not matched by the first regular expression and so no problem is captured.
 
-To make this work, the last regular expression of a multi-line pattern can specify the `loop` property. If set to true, it instructs the task system to apply the last pattern of a multi-line matcher to the lines in the output as long as the regular expression matches.
+To make this work, the last regular expression of a multiline pattern can specify the `loop` property. If set to true, it instructs the task system to apply the last pattern of a multiline matcher to the lines in the output as long as the regular expression matches.
 
 The information captured by all previous patterns is combined with the information captured by the last pattern and turned into a problem inside VS Code.
 

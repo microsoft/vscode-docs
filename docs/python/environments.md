@@ -174,7 +174,7 @@ By using an environment variable, you can easily transfer a project between oper
 
 ## Environment variable definitions file
 
-An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used to mark comments. Multi-line values are not supported.
+An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used to mark comments. Multiline values are not supported.
 
 By default, the Python extension loads a file named `.env` in the current workspace folder, as identified by the default value of the `python.envFile` setting (see [General settings](/docs/python/settings-reference.md#general-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
