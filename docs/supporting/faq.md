@@ -105,6 +105,16 @@ from a terminal followed by restarting your computer.
 
 Note that this change is global for every application and not specific to VS Code. See [issue 51132](https://github.com/Microsoft/vscode/issues/51132) for the related discussion.
 
+## Low contrast menu bar in Ubuntu 18.10
+
+If you are using Ubuntu 18.10 or a GTK theme that mixes light or dark context menus with the opposite theming for the application menu bar, you may experience a low contrast menu bar that is difficult to read. There are two possible workarounds for this.
+
+The first option is to try the newer custom title bar style by configuring the setting `window.titleBarStyle` to `custom`.
+
+The second option is to change your GTK theme. You can do this by installing the Gnome Tweaks application and using the previous default theme `Adwaita`.
+
+Information on this issue can be tracked in [62593](https://github.com/Microsoft/vscode/issues/62593).
+
 ## Installation appears to be corrupt [Unsupported]
 
 VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text '[Unsupported]' in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. Reinstalling VS Code will replace the modified files and silence the warning.
