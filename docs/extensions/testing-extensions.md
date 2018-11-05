@@ -198,7 +198,7 @@ Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/g
 
 ![pipelines](images/testing-extensions/pipelines.png)
 
-You can enable the build to run continuously when pushing to a branch and even on pull requests. [Click here](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=vsts&tabs=yaml) to learn more.
+You can enable the build to run continuously when pushing to a branch and even on pull requests. [Click here](https://docs.microsoft.com/azure/devops/pipelines/build/triggers) to learn more.
 
 ## Next Steps
 

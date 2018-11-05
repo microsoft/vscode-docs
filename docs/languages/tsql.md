@@ -74,7 +74,7 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 * [SQL Server Blog]
 * [SQL Server Videos] on Channel9
 
-[Transact-SQL]: https://docs.microsoft.com/en-us/sql/t-sql/language-reference
+[Transact-SQL]: https://docs.microsoft.com/sql/t-sql/language-reference
 [mssql]: https://aka.ms/mssql-marketplace
 [Download VS Code]: https://code.visualstudio.com/download
 [SQL Server 2017 Developer Edition]: https://www.microsoft.com/sql-server/sql-server-downloads
