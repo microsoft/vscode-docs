@@ -272,7 +272,7 @@ notificationCenterVisible | Notification Center is visible at the bottom right o
 notificationToastsVisible | Notification toast is visible at the bottom right of VS Code.
 searchViewletVisible | Search view is open.
 sidebarVisible | Side Bar is displayed.
-sidebarFocus | Side Bar has focus.
+sideBarFocus | Side Bar has focus.
 panelFocus | Panel has focus.
 editorIsOpen | True if one editor is open.
 inZenMode | Window is in Zen Mode.
@@ -315,12 +315,12 @@ Panel Identifiers:
 * workbench.panel.comments - Comments
 * workbench.view.search - Search when `search.location` is set to `panel`
 
-If you want a keybinding that is enabled only when a specific view or panel has focus, use `sidebarFocus` or `panelFocus` in combination with `activeViewlet` or `activiewFocus`.
+If you want a keybinding that is enabled only when a specific view or panel has focus, use `sideBarFocus` or `panelFocus` in combination with `activeViewlet` or `activiewFocus`.
 
 For example, the when clause below is true only when the File Explorer has focus:
 
 ```json
-"sidebarFocus && activeViewlet == 'workbench.view.explorer'"
+"sideBarFocus && activeViewlet == 'workbench.view.explorer'"
 ```
 
 ## Custom Keybindings for Refactorings
