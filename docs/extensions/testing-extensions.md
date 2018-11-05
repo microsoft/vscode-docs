@@ -114,9 +114,9 @@ The command will expose some optional environment variables, which you can use t
 
 ### Azure Pipelines
 
-<a href="https://azure.microsoft.com/en-us/services/devops/"><img alt="Azure Pipelines" src="images/testing-extensions/pipelines-logo.png" width="318" /></a>
+<a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="images/testing-extensions/pipelines-logo.png" width="318" /></a>
 
-You can create free projects on [Azure Devops](https://azure.microsoft.com/en-us/services/devops/). This gives you source code hosting, planning boards, building and testing infrastructure, etc. On top of that, you get [10 free parallel jobs](https://azure.microsoft.com/en-us/services/devops/pipelines/) for building your projects across all 3 major platforms: Windows, macOS and Linux.
+You can create free projects on [Azure DevOps](https://azure.microsoft.com/services/devops/). This gives you source code hosting, planning boards, building and testing infrastructure, and more. On top of that, you get [10 free parallel jobs](https://azure.microsoft.com/services/devops/pipelines/) for building your projects across all 3 major platforms: Windows, macOS and Linux.
 
 After registering and creating your new project, simply add the following `build.yml` to the root of your extension's repository:
 
@@ -194,7 +194,7 @@ jobs:
       DISPLAY: :10
 ```
 
-Then, [create a new Pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-yaml?view=vsts#get-your-first-build) in your Devops project and point it to the `build.yml` file. Trigger a build and voilá:
+Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts#get-your-first-build) in your DevOps project and point it to the `build.yml` file. Trigger a build and voilá:
 
 ![pipelines](images/testing-extensions/pipelines.png)
 
