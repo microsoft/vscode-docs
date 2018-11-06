@@ -745,6 +745,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - none: Never reopen a window. Always start with an empty one.
   "window.restoreWindows": "one",
 
+  // Enable this workaround if scrolling is no longer smooth after restoring a minimized VS Code window. This is a workaround for an issue (https://github.com/Microsoft/vscode/issues/13612) where scrolling starts to lag on devices with precision trackpads like the Surface devices from Microsoft. Enabling this workaround can result in a little bit of layout flickering after restoring the window from minimized state but is otherwise harmless. Note: in order for this workaround to function, make sure to also set `window.titleBarStyle` to `native`.
+  "window.smoothScrollingWorkaround": false,
+
   // Controls the window title based on the active editor. Variables are substituted based on the context:
   // - `${activeEditorShort}`: the file name (e.g. myFile.txt).
   // - `${activeEditorMedium}`: the path of the file relative to the workspace folder (e.g. myFolder/myFile.txt).
@@ -1402,7 +1405,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "css.lint.unknownVendorSpecificProperties": "ignore",
 
   // A list of properties that are not validated against the `unknownProperties` rule.
-  "css.lint.validProperties": "",
+  "css.lint.validProperties": [],
 
   // When using a vendor-specific prefix, also include the standard property.
   "css.lint.vendorPrefix": "warning",
@@ -1466,8 +1469,8 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Unknown vendor specific property.
   "less.lint.unknownVendorSpecificProperties": "ignore",
 
-  // A list of properties that are not validated against the `unknownProperties` ruled.
-  "less.lint.validProperties": "",
+  // A list of properties that are not validated against the `unknownProperties` rule.
+  "less.lint.validProperties": [],
 
   // When using a vendor-specific prefix, also include the standard property.
   "less.lint.vendorPrefix": "warning",
@@ -1529,7 +1532,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "scss.lint.unknownVendorSpecificProperties": "ignore",
 
   // A list of properties that are not validated against the `unknownProperties` rule.
-  "scss.lint.validProperties": "",
+  "scss.lint.validProperties": [],
 
   // When using a vendor-specific prefix, also include the standard property.
   "scss.lint.vendorPrefix": "warning",
@@ -1678,11 +1681,11 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
   "terminal.integrated.showExitAlert": true,
 
-  // Controls the source of the starting cwd for terminals created by splitting.
-  //  - workspaceRoot: A new split terminal will use the workspace root as the cwd.
-  //  - sourceInitialCwd: A new split terminal will use the cwd that the parent terminal started with.
-  //  - sourceCwd: On macOS and Linux, a new split terminal will use the cwd of the parent terminal. On Windows, this behaves the same as sourceInitialCwd.
-  "terminal.integrated.splitCwd": "sourceCwd"
+  // Controls the working directory a split terminal starts with.
+  //  - workspaceRoot: A new split terminal will use the workspace root as the working directory. In a multi-root workspace a choice for which root folder to use is offered.
+  //  - initial: A new split terminal will use the working directory that the parent terminal started with.
+  //  - inherited: On macOS and Linux, a new split terminal will use the working directory of the parent terminal. On Windows, this behaves the same as initial.
+  "terminal.integrated.splitCwd": "inherited"
 
 // Problems
 
@@ -1737,8 +1740,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Show Errors & Warnings on Outline Elements.
   "outline.problems.enabled": true,
-
-
 
 // Default Configuration Overrides
 
@@ -1830,7 +1831,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls the signoff flag for all commits.
   "git.alwaysSignOff": false,
 
-  // Whether auto fetching is enabled.
+  // When enabled, commits will automatically be fetched from the default remote of the current Git repository.
   "git.autofetch": false,
 
   // Whether auto refreshing is enabled.
@@ -1969,7 +1970,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "merge-conflict.codeLens.enabled": true,
 
   // Create decorators for merge conflict blocks within editor.
-  "merge-conflict.decorators.enabled": true
+  "merge-conflict.decorators.enabled": true,
 
 // Grunt
 
