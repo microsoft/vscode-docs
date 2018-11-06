@@ -876,10 +876,14 @@
                                         "when": "debugType == 'node2'" },
 { "key": "ctrl+shift+v",          "command": "markdown.showPreview",
                                         "when": "editorLangId == 'markdown'" },
+{ "key": "shift+alt+f12",         "command": "references-view.find",
+                                        "when": "editorHasReferenceProvider" },
 { "key": "f10",                   "command": "extension.node-debug.startWithStopOnEntry",
                                         "when": "!inDebugMode && debugConfigurationType == 'node'" },
 { "key": "ctrl+k v",              "command": "markdown.showPreviewToSide",
                                         "when": "editorLangId == 'markdown'" },
-{ "key": "f11",                   "command": "extension.node-debug.startWithStopOnEntry",
-                                        "when": "!inDebugMode && debugConfigurationType == 'node'" }
+{ "key": "f4",                    "command": "references-view.showNextReference",
+                                        "when": "reference-list.hasResult" },
+{ "key": "shift+f4",              "command": "references-view.showPrevReference",
+                                        "when": "reference-list.hasResult" }
 ]
