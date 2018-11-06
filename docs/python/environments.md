@@ -16,7 +16,7 @@ An "environment" in Python is the context in which a Python program runs. An env
 
 When working with Python in VS Code, you select from available environments using the **Python: Select Interpreter** command. The Python extension then uses that selected environment for IntelliSense, auto-completions, linting, formatting, and any other language-related features. (The environment is **not**, however, used for debugging; see [Choose a debugging environment](#choose-a-debugging-environment).)
 
-The extension automatically activates the selected environment when you use the **Python: Run Python File in Terminal** and **Terminal: Create New Integrated Terminal** commands (as well as **Python: Create Terminal**). To prevent automatic activation, add  `"python.terminal.activateEnvironment": "false"` to your `settings.json` file.
+The extension automatically activates the selected environment when you use the **Python: Run Python File in Terminal** and **Terminal: Create New Integrated Terminal** commands (as well as **Python: Create Terminal**). To prevent automatic activation, add  `"python.terminal.activateEnvironment": false` to your `settings.json` file.
 
 Installing (or uninstalling) a package in the Terminal with a command like `pip install matplotlib` installs (or uninstalls) the package in whatever environment is active in that Terminal.
 
