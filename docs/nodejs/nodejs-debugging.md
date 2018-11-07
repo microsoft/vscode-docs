@@ -32,7 +32,7 @@ Currently these protocols are supported by specific version ranges of the follow
 Runtime   | 'Legacy' Protocol | 'Inspector' Protocol
 ----------|-------------------|----------
 io.js     | all               | no
-node.js   | < 8.x             | >= 6.3 (Windows: >= 6.9)
+Node.js   | < 8.x             | >= 6.3 (Windows: >= 6.9)
 Electron  | < 1.7.4           | >= 1.7.4
 Chakra    | all               | not yet
 
@@ -90,13 +90,13 @@ These attributes are only available for launch configurations of request type `l
 
 This attribute is only available for launch configurations of request type `attach`:
 
-* `processId` - the debugger tries to attach to this process after having sent a USR1 signal. With this setting, the debugger can attach to an already running process that was not started in debug mode. When using the `processId` attribute the debug port is determined automatically based on the node.js version (and the used protocol) and cannot be configured explicitly. So don't specify a `port` attribute.
+* `processId` - the debugger tries to attach to this process after having sent a USR1 signal. With this setting, the debugger can attach to an already running process that was not started in debug mode. When using the `processId` attribute the debug port is determined automatically based on the Node.js version (and the used protocol) and cannot be configured explicitly. So don't specify a `port` attribute.
 
 ### Launch configurations for common scenarios
 
 You can use IntelliSense to add launch configuration snippets for commonly used Node.js debugging scenarios to a `launch.json` file.
 
-![Launch configuration snippets for node.js](images/nodejs-debugging/launch-snippets.png)
+![Launch configuration snippets for Node.js](images/nodejs-debugging/launch-snippets.png)
 
 Here is the list of all snippets:
 
@@ -109,7 +109,7 @@ Here is the list of all snippets:
 - **Mocha Tests**: Debug mocha tests in a `test` folder of your project. Make sure that your project has 'mocha' installed in its `node_modules` folder.
 - **Yeoman generator**: Debug a yeoman generator. The snippet asks you to specify the name of the generator. Make sure that your project has 'yo' installed in its `node_modules` folder and that your generated project has been installed for debugging by running `npm link` in the project folder.
 - **Gulp task**: Debug a gulp task. Make sure that your project has 'gulp' installed in its `node_modules` folder.
-- **Electron Main**: Debug the main node.js process of an Electron application. The snippet assumes that the Electron executable has been installed inside the `node_modules/.bin` directory of the workspace.
+- **Electron Main**: Debug the main Node.js process of an Electron application. The snippet assumes that the Electron executable has been installed inside the `node_modules/.bin` directory of the workspace.
 
 ### Node console
 

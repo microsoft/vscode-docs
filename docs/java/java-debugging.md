@@ -8,7 +8,7 @@ DateApproved: 5/30/2018
 MetaDescription: See how you can debug and test your Java code locally, and in the cloud.
 MetaSocialImage:
 ---
-# Debugging Java in VS Code
+# Debugging Java in Visual Studio Code
 
 Visual Studio Code is great at debugging Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension.
 

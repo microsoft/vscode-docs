@@ -7,9 +7,9 @@ PageTitle: Spring Boot support in Visual Studio Code
 DateApproved: 5/30/2018
 MetaDescription: Spring Boot extensions for Java developer using Visual Studio Code editor.
 ---
-# Build Spring Boot Apps with VS Code
+# Spring Boot in Visual Studio Code
 
-Visual Studio Code is an ideal lightweight development environment for Spring Boot developers and there are several useful VS Code extensions including:
+Visual Studio Code is an ideal lightweight development environment for Spring Boot application developers and there are several useful VS Code extensions including:
 
 * [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 * [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)

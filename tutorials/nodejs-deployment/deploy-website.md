@@ -30,7 +30,7 @@ Configure the Website for deployment via Git. If you have not already set up dep
 $ az webapp deployment user set --user-name <UserName> --password <Password>
 ```
 
-This command will return the Git endpoint to push to which includes the `UserName`.
+This command will return the Git endpoint to push to, which includes the `UserName`.
 
 ```bash
 $ az webapp deployment source config-local-git --name myExpressApp-chrisdias

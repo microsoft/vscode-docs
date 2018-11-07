@@ -8,7 +8,7 @@ DateApproved: 10/29/2018
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
-# Python debugging configurations in VS Code
+# Python debugging in Visual Studio Code
 
 The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 
@@ -295,7 +295,7 @@ On the remote computer:
     AllowTcpForwarding yes
     ```
 
-1. Restart the SSH server. On Linux/MacOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, then select **Restart**.
+1. Restart the SSH server. On Linux/macOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, then select **Restart**.
 
 1. Start the Python program and let it wait for the debugger to attach as described in the previous section.
 

@@ -3,7 +3,7 @@ Order: 8
 Area: python
 TOCTitle: Flask Tutorial
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
-PageTitle: Python and Flask Tutorial in VS Code
+PageTitle: Python and Flask Tutorial in Visual Studio Code
 DateApproved: 09/18/2018
 MetaDescription: Python Flask tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/tutorial/social.png
@@ -29,7 +29,7 @@ To successfully complete this tutorial, you must do the following (which are the
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
    - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download Python 3.6.5** button that appears first on the page (or whatever is the latest version).
    - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must run `sudo apt install python3-pip` in the terminal.
-   - (MacOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
+   - (macOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
    - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
 1. On Windows, make sure the location of your Python interpreter is included in your PATH environment variable. You can check this by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Windows Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include that folder.
@@ -81,7 +81,7 @@ In this section you create a virtual environment in which Flask is installed. Us
     pip install flask
     ```
 
-You now have a self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use **Terminal: Create New Integrated Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/MacOS) or `env\scripts\activate` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
+You now have a self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use **Terminal: Create New Integrated Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/macOS) or `env\scripts\activate` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
 
 ## Create and run a minimal Flask app
 
@@ -108,7 +108,7 @@ You now have a self-contained environment ready for writing Flask code. VS Code 
 
 1. Save the `app.py` file (`kb(workbench.action.files.save)`).
 
-1. In the terminal, run the app by entering `python3 -m flask run` (MacOS/Linux) or `python -m flask run` (Windows), which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
+1. In the terminal, run the app by entering `python3 -m flask run` (macOS/Linux) or `python -m flask run` (Windows), which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
 
     ```bash
     (env) D:\py\\hello_flask>python -m flask run
@@ -119,7 +119,7 @@ You now have a self-contained environment ready for writing Flask code. VS Code 
      * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
     ```
 
-    If you see an error that the Flask module cannot be found, make sure you've run `pip3 install flask` (MacOS/Linux) or `pip install flask` (Windows) in your virtual environment as described at the end of the previous section.
+    If you see an error that the Flask module cannot be found, make sure you've run `pip3 install flask` (macOS/Linux) or `pip install flask` (Windows) in your virtual environment as described at the end of the previous section.
 
     Also, if you want to run the development server on a different IP address or port, use the host and port command line arguments, as with `--host=0.0.0.0 --port=80`.
 
@@ -246,7 +246,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ```bash
     now.strftime("%A, %d %B, %Y at %X")
-    'Thursday, 24 May, 2018 at 14:35:27'
+    'Wednesday, 31 October, 2018 at 18:13:39'
     ```
 
     > **Tip**: The **Debug Console** also shows exceptions from within the app that may not appear in the terminal. For example, if you see a "Paused on exception" message in the **Call Stack** area of Debug View, switch to the **Debug Console** to see the exception message.
@@ -255,11 +255,11 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ```bash
     now.strftime("%a, %d %B, %Y at %X")
-    'Thu, 24 May, 2018 at 14:35:27'
+    'Wed, 31 October, 2018 at 18:13:39'
     now.strftime("%a, %d %b, %Y at %X")
-    'Thu, 24 May, 2018 at 14:35:27'
+    'Wed, 31 Oct, 2018 at 18:13:39'
     now.strftime("%a, %d %b, %y at %X")
-    'Thu, 24 May, 18 at 14:35:27'
+    'Wed, 31 Oct, 18 at 18:13:39'
     ```
 
     > **Note**: If you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
@@ -602,7 +602,7 @@ Anyone (or any build server) that receives a copy of the project needs only to r
 
 Throughout this tutorial, all the app code is contained in a single `app.py` file. To allow for further development and to separate concerns, it's helpful to refactor the pieces of `app.py` into separate files.
 
-1. In your project folder, create an folder for the app, such as `hello_app`, to separate its files from other project-level files like `requirements.txt` and the `.vscode` folder where VS Code stores settings and debug configuration files.
+1. In your project folder, create a folder for the app, such as `hello_app`, to separate its files from other project-level files like `requirements.txt` and the `.vscode` folder where VS Code stores settings and debug configuration files.
 
 1. Move the `static` and `templates` folders into `hello_app`, because these folders certainly contain app code.
 
@@ -679,8 +679,8 @@ Throughout this tutorial, all the app code is contained in a single `app.py` fil
     ![Modified project structure with separate files and folders for parts of the app](images/flask/project-structure.png)
 
 1. Run the app in the debugger again to make sure everything works. To run the app outside of the VS Code debugger, use the following steps:
-    1. Set an environment variable for `FLASK_APP`. On Linux and MacOS, use `export set FLASK_APP=webapp`; on Windows use `set FLASK_APP=webapp`.
-    1. In the `hello_app` folder, launch the program using `python3 -m flask run` (Linux/MacOS) or `python -m flask run` (Windows).
+    1. Set an environment variable for `FLASK_APP`. On Linux and macOS, use `export set FLASK_APP=webapp`; on Windows use `set FLASK_APP=webapp`.
+    1. In the `hello_app` folder, launch the program using `python3 -m flask run` (Linux/macOS) or `python -m flask run` (Windows).
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 

@@ -7,7 +7,7 @@ PageTitle: Java with Docker in Visual Studio Code
 DateApproved: 5/30/2018
 MetaDescription: Java with Docker in Visual Studio Code
 ---
-# Java with Docker in VS Code
+# Java with Docker in Visual Studio Code
 
 This tutorial will walk you through building and deploying a [Docker](https://docker.com/) image for a Java application with Visual Studio Code.
 

@@ -16,7 +16,7 @@ An "environment" in Python is the context in which a Python program runs. An env
 
 When working with Python in VS Code, you select from available environments using the **Python: Select Interpreter** command. The Python extension then uses that selected environment for IntelliSense, auto-completions, linting, formatting, and any other language-related features. (The environment is **not**, however, used for debugging; see [Choose a debugging environment](#choose-a-debugging-environment).)
 
-The extension automatically activates the selected environment when you use the **Python: Run Python File in Terminal** and **Terminal: Create New Integrated Terminal** commands (as well as **Python: Create Terminal**). To prevent automatic activation, add  `"python.terminal.activateEnvironment": "false"` to your `settings.json` file.
+The extension automatically activates the selected environment when you use the **Python: Run Python File in Terminal** and **Terminal: Create New Integrated Terminal** commands (as well as **Python: Create Terminal**). To prevent automatic activation, add  `"python.terminal.activateEnvironment": false` to your `settings.json` file.
 
 Installing (or uninstalling) a package in the Terminal with a command like `pip install matplotlib` installs (or uninstalls) the package in whatever environment is active in that Terminal.
 
@@ -117,7 +117,7 @@ The extension also loads an [environment variable definitions file](#environment
 
 ## Use of the PYTHONPATH variable
 
-The PYTHONPATH environment variable, which can be included in a [Environment variable definitions file](#environment-variable-definitions-file), specifies where Python should look for modules. The value of PYTHONPATH can contain multiple path values separated by `os.pathsep` (semicolons on Windows, colons on Linux/MacOS). Invalid paths are ignored.
+The PYTHONPATH environment variable, which can be included in a [Environment variable definitions file](#environment-variable-definitions-file), specifies where Python should look for modules. The value of PYTHONPATH can contain multiple path values separated by `os.pathsep` (semicolons on Windows, colons on Linux/macOS). Invalid paths are ignored.
 
 In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, and any other operation that depends on Python resolving modules. For example, suppose you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this, add the path to `src` to PYTHONPATH.
 

@@ -20,7 +20,7 @@ Visual Studio Code provides a rich and easy keyboard shortcuts editing experienc
 
 ![Keyboard Shortcuts](images/keybinding/keyboard-shortcuts.gif)
 
-Most importantly, you can see keybindings according to your keyboard layout. For example, key binding `cmd+\` in US keyboard layout will be shown as `ctrl+shift+alt+cmd+7` when layout is changed to German. The dialog to enter key binding will assign the correct and desired key binding as per your keyboard layout.
+Most importantly, you can see keybindings according to your keyboard layout. For example, key binding `kbstyle(Cmd+\)` in US keyboard layout will be shown as `kbstyle(Ctrl+Shift+Alt+Cmd+7)` when layout is changed to German. The dialog to enter key binding will assign the correct and desired key binding as per your keyboard layout.
 
 For doing more advanced keyboard shortcut customization, read [Advanced Customization](/docs/getstarted/keybindings.md#advanced-customization).
 
@@ -91,7 +91,7 @@ Each rule consists of:
 * a `command` containing the identifier of the command to execute.
 * an **optional** `when` clause containing a boolean expression that will be evaluated depending on the current **context**.
 
-Chords (two separate keypress actions) are described by separating the two keypresses with a space. For example, `kbstyle(ctrl+k ctrl+c)`.
+Chords (two separate keypress actions) are described by separating the two keypresses with a space. For example, `kbstyle(Ctrl+K Ctrl+C)`.
 
 When a key is pressed:
 
@@ -110,9 +110,9 @@ The following modifiers are accepted:
 
 Platform|Modifiers
 --|---------
-macOS|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(cmd+)`
-Windows|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(win+)`
-Linux|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(meta+)`
+macOS|`kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Cmd+)`
+Windows|`kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Win+)`
+Linux|`kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Meta+)`
 
 The following keys are accepted:
 

@@ -8,7 +8,7 @@ DateApproved: 07/30/2018
 MetaDescription: Unit Testing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
-# Unit tests with Python in VS Code
+# Python unit tests in Visual Studio Code
 
 The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/) and [Nose](https://nose.readthedocs.io/en/latest/). To use either pytest and Nose, they must be installed into the current Python environment (the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
 

@@ -1,7 +1,7 @@
 ---
 Order: 31
 TOCTitle: Java Debugging
-PageTitle: Using VS Code to Debug Java Applications
+PageTitle: Using Visual Studio Code to Debug Java Applications
 MetaDescription: Java Development with VS Code
 Date: 2017-09-28
 ShortDescription: Using VS Code to Debug Java Applications

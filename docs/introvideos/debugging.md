@@ -12,7 +12,7 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 Debugging is a core feature of Visual Studio Code. In this tutorial, we will show you how to configure and use debugging basics. We will walk you through how you get started with Node.js debugging in VS Code.
 
-> **Tip:** To use the debugging features demonstrated in this video for Node.js, you will need to first install [nodejs](https://nodejs.org/en/).
+> **Tip:** To use the debugging features demonstrated in this video for Node.js, you will need to first install [Node.js](https://nodejs.org/en/).
 
 <iframe src="https://www.youtube.com/embed/2oFKNL7vYV8?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 

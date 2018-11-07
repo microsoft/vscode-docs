@@ -25,10 +25,12 @@ To successfully complete this tutorial, you must do the following:
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
    - (All operating systems) A download from [python.org](https://www.python.org/downloads/); you can typically use the **Download Python 3.7.0** button that appears first on the page (or whatever is the latest version).
    - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must install `pip` with [`get-pip.py`](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
-   - (MacOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
+   - (macOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
    - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
 1. On Windows, make sure the location of your Python interpreter is included in your PATH environment variable. You can check this by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Windows Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include that folder.
+
+1. On MacOS, make sure the location of your VS Code installation is included in your PATH environment variable.  See [the setup instructions](/docs/setup/mac.md#launching-from-the-command-line) for more information.
 
 ## Start VS Code in a project (workspace) folder
 
@@ -41,6 +43,8 @@ code .
 ```
 
 By starting VS Code in a folder, that folder becomes your "workspace". VS Code stores settings that are specific to that workspace in `.vscode/settings.json`, which are separate from user settings that are stored globally.
+
+Alternately, you can run VS Code through the operating system UI, then use **File > Open Folder** to open the project folder.
 
 ## Select a Python interpreter
 
@@ -214,15 +218,16 @@ Select `hello.py` and try again. Alternately, create a debug configuration speci
         },
 ```
 
+If you see the message, "Python interpreter is not found because python.exe is not in the workspace directory," or "You need to install a Python interpreter before you start debugging," then you may have `pythonPath: ${workspaceFolder}` in your `launch.json` file, but your Python interpreter actually exists in a different path. Check the value, or remove the `pythonPath` property altogether.
+
 ## Install and use packages
 
-Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) as it lacks the necessary UI support.)
+Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) as it lacks the necessary UI support.)
 
 Return to the **Explorer** view (the top-most icon on the left side, which shows files), create a new file called `standardplot.py`, and paste in the following source code:
 
 ```python
 import matplotlib.pyplot as plt
-import matplotlib as mpl
 import numpy as np
 
 x = np.linspace(0, 20, 100)  # Create a list of evenly-spaced numbers over the range
@@ -247,7 +252,7 @@ To install the `matplotlib` package (which also installs `numpy` as a dependency
 sudo python3 -m pip install matplotlib
 
 # Windows (may require elevation)
-py -3 -m pip install matplotlib
+python -m pip install matplotlib
 
 # Linux (Debian)
 sudo apt-get install python3-tk

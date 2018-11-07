@@ -53,7 +53,7 @@ After signing in, verify that you see the email account of your Azure around in 
 > **Note**: If you see the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
 >
 > ```sh
-> # MacOS/Linux
+> # macOS/Linux
 > export HTTPS_PROXY=https://username:password@proxy:8080
 > export HTTP_PROXY=http://username:password@proxy:8080
 >

@@ -490,6 +490,8 @@ You can select blocks of text by holding `kbstyle(Shift+Alt)` while you drag you
 
 ![Column text selection](images/tips-and-tricks/column-select.gif)
 
+You can also use [keyboard shortcuts](/docs/editor/codebasics.md#column-box-selection) to trigger column selection.
+
 ### Copy line up / down
 
 Keyboard Shortcut: `kb(editor.action.copyLinesUpAction)` or `kb(editor.action.copyLinesDownAction)`
