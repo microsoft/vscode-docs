@@ -235,3 +235,15 @@ This can happen when `sources.list.d` doesn't exist or you don't have access to 
 sudo mkdir /etc/apt/sources.list.d
 sudo touch /etc/apt/sources.list.d/vscode.list
 ```
+
+### Low contrast menu bar
+
+If you are using Ubuntu 18.10 or a GTK theme that mixes light or dark context menus with the opposite theming for the application menu bar, you may experience a low contrast menu bar that is difficult to read.
+
+There are two possible workarounds for this:
+
+* Try out the VS Code custom title bar style by configuring the setting `window.titleBarStyle` to `custom`.
+* Change your GTK theme. You can do this by installing the Gnome Tweaks application and using the previous default theme `Adwaita`.
+
+Information on this issue can be tracked in issue [62593](https://github.com/Microsoft/vscode/issues/62593).
+
