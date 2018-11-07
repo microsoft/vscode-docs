@@ -214,7 +214,7 @@ To **push, pull, and sync** you need to have a Git origin set up.  You can get t
 
 ### My team is using Team Foundation Version Control (TFVC) instead of Git. What should I do?
 
-Use the [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension and this will light up TFVC support.
+Use the [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension and this will light up TFVC support.
 
 ### Why do the Pull, Push and Sync actions never finish?
 
