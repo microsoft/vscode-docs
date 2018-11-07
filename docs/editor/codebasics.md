@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 10/4/2018
+DateApproved: 11/8/2018
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -129,7 +129,7 @@ Also note the **Use Exclude Settings and Ignore Files** toggle button in the **f
 
 >**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
-VS Code does support regular expression searches, however, backreferences and lookaround aren't supported by default. But you can enable these with the setting `search.usePCRE2`. This configures [ripgrep](https://github.com/BurntSushi/ripgrep) to use the PCRE2 regex engine. While PCRE2 supports many other features, we only support regex expressions that are still valid in JavaScript, because open editors are still searched using the editor's JavaScript-based search.
+VS Code does support regular expression searches, however, [backreferences](https://www.regular-expressions.info/backref.html) and [lookaround](https://www.regular-expressions.info/lookaround.html) aren't supported by default. But you can enable these with the setting `search.usePCRE2`. This configures [ripgrep](https://github.com/BurntSushi/ripgrep) to use the [PCRE2](https://pcre.org/) regex engine. While PCRE2 supports many other features, we only support regex expressions that are still valid in JavaScript, because open editors are still searched using the editor's JavaScript-based search.
 
 ### Search and Replace
 
