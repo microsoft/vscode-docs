@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python in Visual Studio Code
-DateApproved: 07/25/2018
+DateApproved: 11/07/2018
 MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, snippets, linting).
 ---
 # Python in Visual Studio Code
@@ -36,7 +36,7 @@ The Python extension then provides shortcuts to run Python source code in the cu
 - In the text editor: right-click anywhere in the editor and select **Run Python File in Terminal**. If invoked on a selection, only that selection is run.
 - In Explorer: right-click a Python file and select **Run Python File in Terminal**.
 
-You can also use the **Python: Create Terminal** command to create a terminal and activate the currently selected interpreter. See [Environments](#environments) below. The **Python: Start REPL** activates a terminal with the currently selected interpreter and then runs the Python REPL.
+You can also use the **Terminal: Create New Integrated Terminal** command to create a terminal in which VS Code automatically activates the currently selected interpreter. See [Environments](#environments) below. The **Python: Start REPL** activates a terminal with the currently selected interpreter and then runs the Python REPL.
 
 For a more specific walkthrough on running code, see the [tutorial](/docs/python/python-tutorial.md).
 

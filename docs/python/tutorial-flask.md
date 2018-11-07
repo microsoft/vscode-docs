@@ -602,7 +602,7 @@ Anyone (or any build server) that receives a copy of the project needs only to r
 
 Throughout this tutorial, all the app code is contained in a single `app.py` file. To allow for further development and to separate concerns, it's helpful to refactor the pieces of `app.py` into separate files.
 
-1. In your project folder, create an folder for the app, such as `hello_app`, to separate its files from other project-level files like `requirements.txt` and the `.vscode` folder where VS Code stores settings and debug configuration files.
+1. In your project folder, create a folder for the app, such as `hello_app`, to separate its files from other project-level files like `requirements.txt` and the `.vscode` folder where VS Code stores settings and debug configuration files.
 
 1. Move the `static` and `templates` folders into `hello_app`, because these folders certainly contain app code.
 

@@ -44,6 +44,8 @@ code .
 
 By starting VS Code in a folder, that folder becomes your "workspace". VS Code stores settings that are specific to that workspace in `.vscode/settings.json`, which are separate from user settings that are stored globally.
 
+Alternately, you can run VS Code through the operating system UI, then use **File > Open Folder** to open the project folder.
+
 ## Select a Python interpreter
 
 Python is an interpreted language, and in order to run Python code and get Python IntelliSense, you must tell VS Code which interpreter to use.
@@ -216,6 +218,8 @@ Select `hello.py` and try again. Alternately, create a debug configuration speci
         },
 ```
 
+If you see the message, "Python interpreter is not found because python.exe is not in the workspace directory," or "You need to install a Python interpreter before you start debugging," then you may have `pythonPath: ${workspaceFolder}` in your `launch.json` file, but your Python interpreter actually exists in a different path. Check the value, or remove the `pythonPath` property altogether.
+
 ## Install and use packages
 
 Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) as it lacks the necessary UI support.)
@@ -248,7 +252,7 @@ To install the `matplotlib` package (which also installs `numpy` as a dependency
 sudo python3 -m pip install matplotlib
 
 # Windows (may require elevation)
-py -3 -m pip install matplotlib
+python -m pip install matplotlib
 
 # Linux (Debian)
 sudo apt-get install python3-tk
