@@ -253,7 +253,7 @@ To install the `matplotlib` package (which also installs `numpy` as a dependency
 sudo python3 -m pip install matplotlib
 
 # Windows (may require elevation)
-py -3 -m pip install matplotlib
+python -m pip install matplotlib
 
 # Linux (Debian)
 sudo apt-get install python3-tk
