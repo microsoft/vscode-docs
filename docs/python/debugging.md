@@ -206,6 +206,36 @@ If set to `true`, enables debugging of [gevent monkey-patched code](http://www.g
 
 In your Python code, you can call `breakpoint()` at any point where you want to pause the debugger during a debugging session.
 
+## Attach to a local script
+
+In some scenarios you need to debug a Python script that's invoked locally by another process. For example, you may be debugging a web server that runs different Python scripts for specific processing jobs. In such cases, you need to attach the VS Code debugger to the script once it's been launched:
+
+1. Run VS Code, open the folder or workspace containing the script, and create a `launch.json` for that workspace if one doesn't exist already.
+
+1. In the script code, add the following and save the file:
+
+    ```python
+    import ptvsd
+
+    # 5678 is the default attach port in the VS Code debug configurations
+    print("Waiting for debugger attach")
+    ptvsd.enable_attach(address=('localhost', 5678), redirect_output=True)
+    ptvsd.wait_for_attach()
+    breakpoint()
+    ```
+
+1. Open a terminal using **Terminal: Create New Integrated Terminal**, which activates the script's selected environment.
+
+1. In the terminal, install the ptvsd package with `python -m pip install --upgrade ptvsd`.
+
+1. In the terminal, start Python with the script, for example, `python3 myscript.py`. You should see the "Waiting for debugger attach" message that's included in the code, and the script halts at the `ptvsd.wait_for_attach()` call.
+
+1. Switch to the Debug view, select **Python: Attach** from the debugger drop-down list, and start the debugger.
+
+1. The debugger should stop on the `breakpoint()` call, from which point you can use the debugger normally. You can, of course, set other breakpoints in the script code instead of using `breakpoint()`.
+
+> **Note**: In the future, the Python extension will support attaching the debugger by process ID instead of host and port. See [Issue 1078](https://github.com/Microsoft/vscode-python/issues/1078).
+
 ## Remote debugging
 
 Remote debugging allows you to step through a program locally within VS Code while it runs on a remote computer. It is not necessary to install VS Code on the remote computer.
