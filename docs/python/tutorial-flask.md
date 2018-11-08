@@ -48,7 +48,7 @@ In this section you create a virtual environment in which Flask is installed. Us
     python3 -m venv env
 
     # Windows
-    py -3 -m venv env
+    python -m venv env
     ```
 
     > **Note**: Use a stock Python installation when running the above commands. If you use `python.exe` from an Anaconda installation, you see an error because the ensurepip module isn't available, and the environment is left in an unfinished state.

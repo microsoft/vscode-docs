@@ -177,12 +177,12 @@ As noted earlier, you must deploy to App Service on Linux using Git in order for
     1. Open a terminal for the environment with **Terminal: Create New Integrated Terminal**.
     1. Make sure you're in the root folder of the app, then run `pip freeze > requirements.txt`.
 
-1. In your project folder, create a file named `.gitignore` with the following contents (change `env` if you're using a different folder for a virtual environment):
+1. In your project folder, create a file named `.gitignore` with the following contents (change `.venv` if you're using a different folder for a virtual environment):
 
     ```gitignore
     .vscode/
     __pycache__
-    env/
+    .venv/
     ```
 
 1. From the **Command Palette**, run the **Git: Initialize Repository** command.
