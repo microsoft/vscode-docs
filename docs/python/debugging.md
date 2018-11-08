@@ -3,16 +3,16 @@ Order: 4
 Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
-PageTitle: Python debugging configurations in Visual Studio Code
+PageTitle: Debugging configurations for Python apps in Visual Studio Code
 DateApproved: 10/29/2018
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
-# Python debugging in Visual Studio Code
+# Python debug configurations in Visual Studio Code
 
 The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 
-To familiarize yourself with Visual Studio Code's *general* debugging capabilities, such as examining local variables, the watch window, arguments, breakpoints, loading symbols, and more, review [VS Code debugging](/docs/editor/debugging.md). For Python, you can also call `breakpoint()` within your code to pause the debugger within a debugging session.
+**For general debugging features** such as inspecting variables, setting breakpoints, and other activities that aren't language dependent, review [VS Code debugging](/docs/editor/debugging.md).
 
 This present article addresses only those considerations that are specific to Python, mainly Python-specific debugging *configurations*, including the necessary steps for specific app types and remote debugging.
 
@@ -32,11 +32,11 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. Select the settings button (circled in the image above) or use the **Debug** > **Open configurations** menu command.
 
-1. If a list of debuggers appears, select **Python**. (The list appears only with older versions of VS Code and the Python extension.)
+1. In the **Select Environment** popup atht appears, select **Python**.
 
 1. The Python extension then creates and opens a `launch.json` file that contains number of pre-defined configurations. You can modify configurations (to add arguments, for example), and also add custom configurations.
 
-The details of configuration properties are covered later in this article under [Standard configuration and options](#standard-configuration-and-options). Additional configurations are also described in this article under [Debugging specific app types](#debugging-specific-app-types).
+The details of configuration properties are covered later in this article under [Standard configuration and options](#set-configuration-options). Additional configurations are also described in this article under [Debugging specific app types](#debugging-specific-app-types).
 
 ## Choose a configuration
 
@@ -58,9 +58,9 @@ While debugging, the Status Bar shows the current configuration on the lower lef
 
 By default, the debugger uses the same `python.pythonPath` workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `pythonPath` in the applicable debugger configuration. Alternately, select the named interpreter on the Status Bar to select a different one.
 
-## Standard configuration and options
+## Set configuration options
 
-There are two standard configurations in `launch.json` that run the active file in the editor in either the integrated terminal (inside VS Code) or the external terminal (outside of VS Code):
+When you first create `launch.json`, there are two standard configurations that run the active file in the editor in either the integrated terminal (inside VS Code) or the external terminal (outside of VS Code):
 
 ```json
 {
@@ -79,16 +79,17 @@ There are two standard configurations in `launch.json` that run the active file 
 }
 ```
 
-The specific settings are described in the following sections.
+The specific settings are described in the following sections. You can also add other settings, such as `args`, that aren't included in the standard configurations.
 
-> **Tip**: It's often helpful in a project to create a configuration that runs a specific startup file. For example, if you always want to always launch `startup.py` whenever you start the debugger, create a configuration entry as follows:
+> **Tip**: It's often helpful in a project to create a configuration that runs a specific startup file. For example, if you always want to always launch `startup.py` with the arguments `--port 1593` whenever you start the debugger, create a configuration entry as follows:
 >
 > ```json
 > {
 >     "name": "Python: startup.py",
 >     "type": "python",
 >     "request": "launch",
->     "program": "${workspaceFolder}/startup.py"
+>     "program": "${workspaceFolder}/startup.py",
+>     "args" : ["--port", "1593"]
 > },
 > ```
 
@@ -145,12 +146,10 @@ Alternately, you can use a custom environment variable that's defined on each pl
 
 ### `args`
 
-Specifies arguments to pass to the Python program. Each argument should be contained within quotes, for example:
+Specifies arguments to pass to the Python program. Each element of the argument string that's separated by a space should be contained within quotes, for example:
 
 ```json
-"args": [
-    "--quiet", "--norepeat"
-],
+"args": ["--quiet", "--norepeat", "--port", "1593"],
 ```
 
 ### `stopOnEntry`
@@ -203,6 +202,10 @@ Optional path to a file that contains environment variable definitions. See [Con
 
 If set to `true`, enables debugging of [gevent monkey-patched code](http://www.gevent.org/intro.html).
 
+## Invoking a breakpoint in code
+
+In your Python code, you can call `breakpoint()` at any point where you want to pause the debugger during a debugging session.
+
 ## Remote debugging
 
 Remote debugging allows you to step through a program locally within VS Code while it runs on a remote computer. It is not necessary to install VS Code on the remote computer.
@@ -229,7 +232,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
         The IP address used in `enable_attach` should be the remote computer's private IP address. You can then launch the program normally, causing it to pause until the debugger attaches.
 
-    1. Launch the remote process _through_ ptvsd, for example:
+   1. Launch the remote process _through_ ptvsd, for example:
 
        ```bash
        python3 -m ptvsd --host 1.2.3.4 --port 3000 -m myproject
