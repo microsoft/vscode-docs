@@ -81,6 +81,7 @@ HTML | `html`
 Ini | `ini`
 Java | `java`
 JavaScript | `javascript`
+JavaScript React | `javascriptreact`
 JSON | `json`
 JSON with Comments | `jsonc`
 LaTeX | `latex`
