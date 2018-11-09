@@ -107,7 +107,7 @@ You should now see the transpiled `HelloWorld.js` JavaScript file which you can 
 
 ### Step 2: Run the TypeScript build
 
-Execute **Run Build Task...** from the global **Tasks** menu. If you created a `tsconfig.json` file in the earlier section, this should present the following picker:
+Execute **Run Build Task...** (`kb(workbench.action.tasks.build)`) from the global **Tasks** menu. If you created a `tsconfig.json` file in the earlier section, this should present the following picker:
 
 ![TypeScript Build](images/typescript/typescript-build.png)
 
