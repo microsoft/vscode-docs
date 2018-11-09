@@ -115,7 +115,7 @@ You can also open a Jupyter notebook file (`.ipynb`) in VS Code, and the Python 
 
 In you choose **Import**, the notebook's cells are delimited in the Python file with `#%%` comments; markdown cells are converted wholly to comments preceded with `#%% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
 
-[![Jupyter notebook running in VS Code and the Python interactive window](images/editing/jupyter-notebook.png)](images/editing/jupyter-notebook.png)
+![[Jupyter notebook running in VS Code and the Python interactive window](images/editing/jupyter-notebook.png)](images/editing/jupyter-notebook.png)
 
 If you open the file without importing, it appears as plain text.
 
