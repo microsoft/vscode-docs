@@ -44,6 +44,10 @@ Out of the box VS Code adds actions to navigate in editor history as well as the
 
 ![macOS Touch Bar](images/mac/touchbar.gif)
 
+## Mojave privacy protections
+
+After upgrading to macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave and is not specific to VS Code, you may see the dialogs when running other applications as well. You should see the dialog only once for each type of personal data and it is fine to choose **Don't Allow** since VS Code does not need access to those folders. You can read a more detailed explanation [here](https://discuss.atom.io/t/why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc).
+
 ## Updates
 
 VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will get installed (you won't need to do anything else to get the latest bits).
@@ -61,3 +65,9 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation around VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences settings.
+
+## Common questions
+
+### Why do I see "Visual Studio Code would like access to your calendar."
+
+If you are running macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave [discussed above](#mojave-privacy-protections). It is fine to choose **Don't Allow** since VS Code does not need access to those folders.
