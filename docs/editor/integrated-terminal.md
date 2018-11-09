@@ -204,6 +204,14 @@ By default, the terminal will open at the folder that is opened in the Explorer.
 }
 ```
 
+Split terminals on Windows will start in the directory that the parent terminal started with. On MacOS and Linux, split terminals will inherit the current working directory of the parent terminal. This behavior can be changed using the `terminal.integrated.splitCwd` setting:
+
+```json
+{
+    "terminal.integrated.splitCwd": "workspaceRoot"
+}
+```
+
 There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
 
 ## Changing how the terminal is rendered
