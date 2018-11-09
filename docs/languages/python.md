@@ -96,6 +96,14 @@ VS Code prompts you with a list of detected environments as well as any you've a
 
 Packages are installed using the **Terminal** panel and commands like `pip install <package_name>` (Windows) and `pip3 install <package_name>` (macOS/Linux). VS Code installs that package into your project along with its dependencies.
 
+## Jupyter notebooks
+
+If you open a [Jupyter notebook](http://jupyter.org/) file (`.ipynb`) in VS Code, the Python extension prompts you to import the notebook as a Python code file. The notebook's cells are delimited in the Python file with `#%%` comments, and the Python extension shows **Run Cell** and **Run All Cells** code lenses. Selecting either code lens starts the Jupyter server and runs the cell(s) in the Python interactive window:
+
+[![Jupyter notebook running in VS Code and the Python interactive window](images/editing/jupyter-notebook.png)](images/editing/jupyter-notebook.png)
+
+For more information, see [Editing - Jupyter code cells](/docs/python/editing.md#jupyter-code-cells).
+
 ## Unit testing
 
 The Python extension supports [unit testing](/docs/python/unit-testing.md) with the unittest, pytest, and nose test frameworks.
