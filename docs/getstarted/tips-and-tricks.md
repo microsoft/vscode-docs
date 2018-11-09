@@ -119,7 +119,7 @@ Keyboard Shortcut: `kb(workbench.action.editor.changeLanguageMode)`
 
 ![change syntax](images/tips-and-tricks/change_syntax.gif)
 
-If you want to persist the new language mode for that file type, you can use the **Configure File Association for ...** command to associate the current file extension with an installed language.
+If you want to persist the new language mode for that file type, you can use the **Configure File Association for** command to associate the current file extension with an installed language.
 
 ## Customization
 
@@ -265,7 +265,7 @@ For those settings you only want for specific languages, you can scope the setti
 }
 ```
 
-> **Tip:** You can also create language specific settings with the **Configure Language Specific Settings...** command.
+> **Tip:** You can also create language specific settings with the **Configure Language Specific Settings** command.
 
 ![language based settings](images/tips-and-tricks/lang-based-settings.png)
 
@@ -815,7 +815,7 @@ You can set `"debug.inlineValues": true` to see variable values inline in the de
 
 ### Auto detect tasks
 
-Select **Tasks** from the top-level menu, run the command **Configure Tasks...**, then select the type of task you'd like to run.
+Select **Terminal** from the top-level menu, run the command **Configure Tasks**, then select the type of task you'd like to run.
 This will generate a `tasks.json` file with content like the following. See the [Tasks](/docs/editor/tasks.md) documentation for more details.
 
 ```json
@@ -838,9 +838,9 @@ This will generate a `tasks.json` file with content like the following. See the 
 
 There are occasionally issues with auto generation. Check out the documentation for getting things to work properly.
 
-### Run tasks from the Tasks menu
+### Run tasks from the Terminal menu
 
-Select **Tasks** from the top-level menu, run the command **Run Task...**, and select the task you want to run. Terminate the running task by running the command **Terminate Task...**
+Select **Terminal** from the top-level menu, run the command **Run Task**, and select the task you want to run. Terminate the running task by running the command **Terminate Task**
 
 ![task runner](images/tips-and-tricks/task_runner.gif)
 

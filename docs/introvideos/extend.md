@@ -27,6 +27,6 @@ Use Visual Studio Code extensions to add new features, themes and more. In this 
 * [Extension Marketplace Documentation](/docs/editor/extension-gallery.md) - Official documentation for the VS Code Extension Marketplace.
 * [Marketplace](https://marketplace.visualstudio.com/) - Browse extensions online.
 
-## Next Steps
+## Next steps
 
 * [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md) - Learn about the advanced code editing features in VS Code.

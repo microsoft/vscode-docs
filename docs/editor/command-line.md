@@ -74,7 +74,7 @@ Argument|Description
 ------------------|-----------
 `--install-extension <ext>` | Install an extension. Provide the full extension name `publisher.extension` as an argument. Use `--force` argument to avoid prompts.
 `--uninstall-extension <ext>` | Uninstall an extension. Provide the full extension name `publisher.extension` as an argument.
-`--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the `Extensions: Show Installed Extensions` dropdown but they will never be activated.
+`--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the **Disabled** section of the Extensions view but they will never be activated.
 `--list-extensions` | List the installed extensions.
 `--show-versions` | Show versions of installed extensions, when using `--list-extensions`
 `--enable-proposed-api <ext>` | Enables proposed api features for an extension. Provide the full extension name `publisher.extension` as an argument.
@@ -130,7 +130,7 @@ You can use the URL in applications such as browsers or file explorers that can 
 
 ![vscode url in Windows Explorer](images/command-line/vscode-url.png)
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 
@@ -138,7 +138,7 @@ Read on to find out about:
 * [Basic Editing](/docs/editor/codebasics.md) - Learn the basics of the VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - VS Code lets you quickly understand and move through your source code.
 
-## Common Questions
+## Common questions
 
 ### 'code' is not recognized as an internal or external command
 

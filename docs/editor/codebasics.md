@@ -111,7 +111,7 @@ VS Code allows you to quickly search over all files in the currently opened fold
 
 You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
 
-### Advanced Search options
+### Advanced search options
 
 ![Advanced search options](images/codebasics/searchadvanced.png)
 
@@ -131,7 +131,7 @@ Also note the **Use Exclude Settings and Ignore Files** toggle button in the **f
 
 VS Code does support regular expression searches, however, backreferences, lookaround, and multiline matches are not supported. This is because VS Code depends on the search tool [ripgrep](https://github.com/BurntSushi/ripgrep), which, while extremely fast, doesn't support these advanced regex features.
 
-### Search and Replace
+### Search and replace
 
 You can also Search and Replace across files. Expand the Search widget to display the Replace text box.
 
@@ -276,7 +276,7 @@ Then choose an encoding.
 
 ![Select an encoding](images/codebasics/encodingselection.png)
 
-## Next Steps
+## Next steps
 
 You've covered the basic user interface - there is a lot more to VS Code.  Read on to find out about:
 
@@ -287,7 +287,7 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 * [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 
-## Common Questions
+## Common questions
 
 ### Is it possible to globally search and replace?
 

@@ -310,7 +310,7 @@ There are several Node.js modules available on npmjs to help with writing VSCode
 * [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) - Consistent telemetry reporting for VS Code extensions.
 * [vscode-languageclient](https://www.npmjs.com/package/vscode-languageclient) - Easily integrate language servers adhering to the [language server protocol](https://microsoft.github.io/language-server-protocol).
 
-## Next Steps
+## Next steps
 
 To learn more about VS Code extensibility model, try these topic:
 

@@ -110,13 +110,13 @@ To load an extension, you need to copy the files to your VS Code extensions fold
 
 If you want to load your extension each time VS Code runs, copy your project ('side loading') to a new folder under `.vscode/extensions`. For example: `~/.vscode/extensions/myextension`.
 
-## Next Steps
+## Next steps
 
 * [Publishing Tool](/docs/extensions/publish-extension.md) - Learn how to publish your extensions to the VS Code Marketplace.
 * [Hello World](/docs/extensions/example-hello-world.md) - Try the 'Hello World' walkthrough to build your first extension.
 * [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
 
-## Common Questions
+## Common questions
 
 ### The `yo code` generator doesn't respond to arrow keys on Windows 10
 

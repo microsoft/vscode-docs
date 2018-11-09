@@ -32,7 +32,7 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. Select the settings button (circled in the image above) or use the **Debug** > **Open configurations** menu command.
 
-1. In the **Select Environment** drop-down that appears, select **Python**.
+1. In the **Select Environment** drop-down list that appears, select **Python**.
 
 1. The Python extension then creates and opens a `launch.json` file that contains number of pre-defined configurations. You can modify configurations (to add arguments, for example), and also add custom configurations.
 

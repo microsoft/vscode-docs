@@ -29,9 +29,9 @@ Below are some popular extensions which include snippets in their language suppo
 
 ## Creating your own snippets
 
-You can define your own snippets, either global snippets or snippets for a specific language. To open up a snippet file for editing, select **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS) and select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear or create a new global snippet (**New Global Snippets file...**).
+You can define your own snippets, either global snippets or snippets for a specific language. To open up a snippet file for editing, select **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS) and select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear or create a new global snippet (**New Global Snippets file**).
 
-![snippet dropdown](images/userdefinedsnippets/snippet-dropdown.png)
+![snippet drop-down](images/userdefinedsnippets/snippet-dropdown.png)
 
 Snippets are defined in a JSON format. The example below is a `For Loop` snippet you would use for JavaScript:
 
@@ -164,7 +164,7 @@ The inserted text is matched with the regular expression and the match or matche
 Every occurrence of a placeholder can define its own transformation independently using the value of the first placeholder.
 The format for Placeholder-Transforms is the same as for Variable-Transforms.
 
-### Transform Examples
+### Transform examples
 
 The examples are shown within double quotes, as they would appear inside a snippet body, to illustrate the need to double escape certain characters. Sample transformations and the resulting output for the filename `example-123.456-TEST.js`.
 
@@ -237,13 +237,13 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 }
 ```
 
-## Next Steps
+## Next steps
 
 * [Command Line](/docs/editor/command-line.md) - VS Code has a rich command line interface to open or diff files and install extensions.
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code.
 * [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) - You can package themes, snippets and language colorizers for use in VS Code.
 
-## Common Questions
+## Common questions
 
 ### What if I want to use existing TextMate snippets from a .tmSnippet file?
 

@@ -23,7 +23,7 @@ Tutorial | Description
 [Deploy using the Azure CLI](/tutorials/nodejs-deployment/getting-started) | Create, deploy, and update a website using a terminal and the Azure CLI.
 [Deploy a static website](/tutorials/static-website/getting-started) | Create, deploy, and update a static website on Azure Storage.
 
-## Next Steps
+## Next steps
 
 * [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
 * [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.

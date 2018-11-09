@@ -48,7 +48,7 @@ Tool|Purpose
 **[Developing Extensions](/docs/extensions/developing-extensions.md)**|We have worked hard to provide an easy way to develop, debug and locally test your extensions.
 **[Publishing Tool](/docs/extensions/publish-extension.md)**|Once you have a working extension, it's time to share it in the [extension Marketplace](/docs/editor/extension-gallery.md). We have a simple command line tool for this. You can find the source code [here](https://github.com/Microsoft/vsce).
 
-## Next Steps
+## Next steps
 
 * [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
 * ['code' Yeoman generator](/docs/extensions/yocode) - Quickly create your first VS Code extension.

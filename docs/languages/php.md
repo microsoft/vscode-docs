@@ -65,7 +65,7 @@ To set the PHP executable path, open your **User or Workspace Settings** and add
 
 PHP debugging with **XDebug** is supported through a [PHP Debug extension](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug). Follow the extension's instructions for configuring **XDebug** to work with VS Code.
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 

@@ -128,7 +128,7 @@ To set a breakpoint in `index.js`, click on the gutter to the left of the line n
 
 ### Configure the Chrome debugger
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on the gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** dropdown. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
+We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on the gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** drop-down list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
 We need to make one change for our example: change the port of the `url` from `8080` to `3000`. Your `launch.json` should look like this:
 
@@ -262,7 +262,7 @@ If you're curious about TypeScript and React, you can also create a TypeScript v
 
 [Angular](https://angular.io/) is another popular web framework. If you'd like to see an example of Angular working with VS Code, check out the [Chrome Debugging with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI) recipe. It will walk you through creating an Angular application and configuring the `launch.json` file for the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
 
-## Common Questions
+## Common questions
 
 ### Can I get IntelliSense within declarative JSX?
 

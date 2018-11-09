@@ -335,7 +335,7 @@ The **Developer: Open Webview Developer Tools** VS Code command lets you debug w
 
 The contents of the webview are within an iframe inside the webview document. You can use Developer Tools to inspect and modify the webview's DOM, and debug scripts running within the webview itself.
 
-If you use the webview Developer Tools console, make sure to select the **active frame** environment from the dropdown in the top left corner of the Console panel:
+If you use the webview Developer Tools console, make sure to select the **active frame** environment from the drop-down in the top left corner of the Console panel:
 
 ![Selecting the active frame](images/webview/debug-active-frame.png)
 
@@ -824,7 +824,7 @@ Notice how the counter does not reset now when the webview is hidden and then re
 
 Although `retainContextWhenHidden` may be appealing, keep in mind that this has high memory overhead and should only be used when other persistence techniques will not work.
 
-## Next Steps
+## Next steps
 
 If you'd like to learn more about VS Code extensibility, try these topics:
 

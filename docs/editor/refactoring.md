@@ -17,7 +17,7 @@ For example, a common refactoring used to avoid duplicating code (a maintenance 
 
 Refactorings are provided by a language service and VS Code has built-in support for TypeScript and JavaScript refactoring through the [TypeScript](https://www.typescriptlang.org/) language service. Refactoring support for other programming languages is provided through VS Code [extensions](/docs/editor/extension-gallery.md) which contribute language services. The UI and commands for refactoring are the same across languages, and in this topic we'll demonstrate refactoring support with the TypeScript language service.
 
-## Code Actions = Quick Fixes and Refactorings
+## Code Actions = Quick Fixes and refactorings
 
 In VS Code, Code Actions can provide both refactorings and Quick Fixes for detected issues (highlighted with green squiggles). An available Code Action is announced by a lightbulb near the source code when the cursor is on a squiggle or selected text region. Clicking on the Code Action lightbulb or using the **Quick Fix** command `kb(editor.action.quickFix)` will display Quick Fixes and refactorings.
 
@@ -25,7 +25,7 @@ If you'd just like to see refactorings without Quick Fixes, you can use the **Re
 
 >**Note:** If you prefer to not see the Code Action lightbulb in your editor, you can disable lightbulbs with the `editor.lightbulb.enable` [setting](/docs/getstarted/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
 
-## Refactoring Actions
+## Refactoring actions
 
 ### Extract Method
 
@@ -92,13 +92,13 @@ You can find extensions that support refactoring by looking in the VS Code [Mark
 
 > Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you.
 
-## Next Steps
+## Next steps
 
 * [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
 * [Code Navigation](/docs/editor/editingevolved) - VS Code lets you move quickly through your source code.
 * [Debugging](/docs/editor/debugging.md) - Learn about debugging with VS Code.
 
-## Common Questions
+## Common questions
 
 ### Why don't I see any lightbulbs when there are errors in my code?
 

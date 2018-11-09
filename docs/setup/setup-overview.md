@@ -26,7 +26,7 @@ VS Code is lightweight and should run on most available hardware and platform ve
 
 ## Update cadence
 
-VS Code releases a new version [each month](/updates) with new features and important bug fixes. Most platforms support auto updating and you will be prompted to install the new release when it becomes available. You can also manually check for updates by running **Help** > **Check for Updates...**.
+VS Code releases a new version [each month](/updates) with new features and important bug fixes. Most platforms support auto updating and you will be prompted to install the new release when it becomes available. You can also manually check for updates by running **Help** > **Check for Updates**.
 
 >Note: You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
 
@@ -49,7 +49,7 @@ VS Code [extensions](/docs/editor/extension-gallery.md) let third parties add su
 
 Extensions integrate into VS Code's UI, commands, and task running systems so you'll find it easy to work with different technologies through VS Code's shared interface. Check out the VS Code extension [Marketplace](https://marketplace.visualstudio.com/vscode) to see what's available.
 
-## Next Steps
+## Next steps
 
 Once you have installed and set up VS Code, these topics will help you learn more about VS Code:
 
@@ -62,7 +62,7 @@ Once you have installed and set up VS Code, these topics will help you learn mor
 
 If you'd like to get something running quickly, try the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md) walkthrough which will have you debugging a Node.js web application with VS Code in minutes.
 
-## Common Questions
+## Common questions
 
 ### What are the system requirements for VS Code?
 

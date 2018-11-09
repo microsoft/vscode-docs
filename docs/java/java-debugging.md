@@ -158,7 +158,7 @@ You can also manage your test cases with **TEST EXPLORER**.
 
 ![Test Explorer](images/java-debugging/test-explorer.png)
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 

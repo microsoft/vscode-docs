@@ -60,7 +60,7 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 
 ![tsql snippets](images/tsql/snippets.gif)
 
-## Next Steps
+## Next steps
 
 * Download the free [SQL Server 2017 Developer Edition].
 * Install the [mssql] extension from the Visual Studio Code Marketplace.

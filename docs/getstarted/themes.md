@@ -84,7 +84,7 @@ Again, to customize a specific theme only, use the following syntax:
 },
 ```
 
-## Creating your own color theme
+## Creating your own Color Theme
 
 Creating and publishing a theme extension is quite easy. Customize your colors in your user settings then generate a theme definition file with the **Developer: Generate Color Theme From Current Settings** command.
 
@@ -94,7 +94,7 @@ See the [Adding a new Theme](/docs/extensions/themes-snippets-colorizers.md#addi
 
 ## Remove default themes
 
-If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`). Open the `...` **More Actions** dropdown from the top of the Extensions view, select **Show Built-in Extensions**, and you'll see a **THEMES** section listing the default themes.
+If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`). Open the `...` **More Actions** drop-down menu from the top of the Extensions view, select **Show Built-in Extensions**, and you'll see a **THEMES** section listing the default themes.
 
 ![built-in themes](images/themes/built-in-themes.png)
 
@@ -113,11 +113,11 @@ File icon themes can be contributed by extensions and selected by users as their
 3. Use the cursor keys to preview the icons of the theme.
 4. Select the theme you want and hit `kbstyle(Enter)`.
 
-![file icon theme dropdown](images/themes/file-icon-theme-dropdown.png)
+![file icon theme drop-down](images/themes/file-icon-theme-dropdown.png)
 
 By default, the **Seti** file icon set is used and those are the icons you see in the File Explorer. Once an icon theme is selected, the selected theme will be remembered and appear again whenever VS Code is restarted. You can disable file icons by selecting **None**.
 
-VS code ships with two icon themes; **Minimal** and **Seti**. To install more icon themes, select the **Install Additional File Icon Themes...** item in the icon theme picker and you'll see a query for file icon themes (tag:icon-theme) in the Extensions view.
+VS code ships with two icon themes; **Minimal** and **Seti**. To install more icon themes, select the **Install Additional File Icon Themes** item in the icon theme picker and you'll see a query for file icon themes (tag:icon-theme) in the Extensions view.
 
 You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
 
@@ -133,7 +133,7 @@ The active File Icon theme is persisted in your user [settings](/docs/getstarted
 
 You can create your own File Icon Theme from icons (preferably SVG), see the [Adding a new Icon Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-icon-theme) topic in our Extension Authoring section for details.
 
-## Next Steps
+## Next steps
 
 Themes are just one way to customize VS Code. If you'd like to learn more about VS Code customization and extensibility, try these topics:
 

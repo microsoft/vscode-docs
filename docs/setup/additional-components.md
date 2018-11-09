@@ -45,7 +45,7 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 
 >**Note:** Most of these tools require Node.js and the npm package manager to install and use.
 
-## Next Steps
+## Next steps
 
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation around VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.

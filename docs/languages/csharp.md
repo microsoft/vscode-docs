@@ -109,7 +109,7 @@ There are some basic quick fixes supported in VS Code. You will see a lightbulb 
 
 ![Quick fix](images/csharp/lightbulb.png)
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 
@@ -119,7 +119,7 @@ Read on to find out about:
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
 * [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 
-## Common Questions
+## Common questions
 
 ### My Project won't load
 

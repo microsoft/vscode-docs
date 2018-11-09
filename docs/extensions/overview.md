@@ -78,7 +78,7 @@ We also have great support for [writing and running tests](/docs/extensions/test
 
 Lots of great community ideas for VS Code features are better implemented as extensions rather than as part of the core product. This way users can easily pick and choose the functionality they want, by installing the right set of extensions. The VS Code team tracks possible extensions as GitHub issues labeled `*extension-candidate` in the [vscode repository](https://github.com/Microsoft/vscode). If you're looking for a great extension to build, have a look at the `*extension-candidate` [issues](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3A*extension-candidate).
 
-## Next Steps
+## Next steps
 
 * [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension.
 * [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs.

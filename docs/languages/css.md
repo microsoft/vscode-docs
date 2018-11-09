@@ -143,7 +143,7 @@ For the Less version of the above file, just change `$padding` to `@padding`.
 
 ### Step 3: Create tasks.json
 
-The next step is to set up the task configuration. To do this, run **Tasks** > **Configure Tasks** and click **Create tasks.json file from templates**. In the selection dialog that shows up, select **Others**.
+The next step is to set up the task configuration. To do this, run **Terminal** > **Configure Tasks** and click **Create tasks.json file from templates**. In the selection dialog that shows up, select **Others**.
 
 This will create a sample `tasks.json` file in the workspace `.vscode` folder. The initial version of file has an example to run an arbitrary command. We will modify that configuration for transpiling Sass/Less instead:
 
@@ -189,7 +189,7 @@ Since in more complex environments there can be more than one build task we prom
 
 At this point, you should see an additional file show up in the file list `sample.html`.
 
-If you want to make the task the default build task to run execute **Configure Default Build Task...** from the global **Tasks** menu and select the corresponding **Sass** or **Less** task from the presented list.
+If you want to make the task the default build task to run execute **Configure Default Build Task** from the global **Terminal** menu and select the corresponding **Sass** or **Less** task from the presented list.
 
 >**Note:** If your build fails or you see an error message such as "An output directory must be specified when compiling a directory", be sure the filenames in your `tasks.json` match the filenames on disk. You can always test your build by running `node-sass styles.scss styles.css` from the command line.
 
@@ -263,13 +263,13 @@ What is happening here?
 
 ### Step 3: Run the gulp default task
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Tasks** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler, select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output, select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
+To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Terminal** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler, select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output, select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
-If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Tasks** menu and select **gulp: default** from the presented list.
+If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Terminal** menu and select **gulp: default** from the presented list.
 
 ### Step 4: Terminate the gulp default Task
 
-The **gulp: default** task runs in the background and watches for file changes to Sass/Less files. If you want to stop the task, you can use the **Terminate Running Task** from the global **Tasks** menu.
+The **gulp: default** task runs in the background and watches for file changes to Sass/Less files. If you want to stop the task, you can use the **Terminate Task** from the global **Terminal** menu.
 
 ## Customizing CSS, SCSS and Less Settings
 
@@ -309,7 +309,7 @@ important | Warn when using `!important` as it is an indication that the specifi
 float | Warn when using `float` as floats lead to fragile CSS that is easy to break if one aspect of the layout changes. | ignore
 idSelector | Warn when using selectors for an id `#id` as selectors should not contain IDs because these rules are too tightly coupled with the HTML. | ignore
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 
@@ -318,7 +318,7 @@ Read on to find out about:
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [HTML](/docs/languages/html.md) - CSS is just the start, HTML is also very well supported in VS Code.
 
-## Common Questions
+## Common questions
 
 ### Does VS Code provide a color picker?
 

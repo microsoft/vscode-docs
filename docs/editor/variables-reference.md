@@ -79,7 +79,7 @@ By appending the root folder's name to a variable (separated by a colon), it is 
 
 For example, in a multi root workspace with folders `Server` and `Client`, a `${workspaceFolder:Client}` refers to the path of the `Client` root.
 
-## Common Questions
+## Common questions
 
 ### Is variable substitution supported in User and Workspace settings?
 

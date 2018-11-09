@@ -35,7 +35,7 @@ With the C/C++ extension installed, open a folder that contains your C/C++ sourc
 
 ### Configuring IntelliSense
 
-The extension will attempt to determine your folder's basic configuration info based on compilers it finds on your system. If for any reason, that configuration is incomplete, you can generate a `c_cpp_properties.json` file by running the **C/Cpp: Edit configurations...** command from the **Command Palette** (`kb(workbench.action.showCommands)` and add the missing information.
+The extension will attempt to determine your folder's basic configuration info based on compilers it finds on your system. If for any reason, that configuration is incomplete, you can generate a `c_cpp_properties.json` file by running the **C/Cpp: Edit configurations** command from the **Command Palette** (`kb(workbench.action.showCommands)` and add the missing information.
 
 If a `#include` file or one of its dependencies cannot be found, you can also click on the red squiggles under the include statements to view suggestions for how to update your configuration.
 
@@ -72,7 +72,7 @@ Below you can see that the MinGW C++ compiler has been set as the default compil
 **If you want to build your application from VS Code, you will need to generate a `tasks.json` file:**
 
 * Open the **Command Palette** (`kb(workbench.action.showCommands)`).
-* Select the **Tasks: Configure Tasks...** command, click **Create tasks.json file from templates**, and you will see a list of task runner templates.
+* Select the **Tasks: Configure Task** command, click **Create tasks.json file from templates**, and you will see a list of task runner templates.
 * Select **Others** to create a task which runs an external command.
 * Change the `command` to the command line expression you use to build your application (for example `g++`).
 * Add any required args (for example `-g` to build for debugging).
@@ -127,7 +127,7 @@ For more information on tasks, see [Integrate with External Tools via Tasks](/do
 
 * Navigate to the Debug view by clicking the Debug icon in the Sidebar.
 * In the **Debug** view, click the **Configure** icon.
-* Select `C++ (GDB/LLDB)` (to use GDB or LLDB) or `C++ (Windows)` (to use the Visual Studio Windows Debugger) from the **Select Environment** dropdown. This creates a `launch.json` file for editing with two configurations:
+* Select `C++ (GDB/LLDB)` (to use GDB or LLDB) or `C++ (Windows)` (to use the Visual Studio Windows Debugger) from the **Select Environment** drop-down list. This creates a `launch.json` file for editing with two configurations:
   * **C++ Launch** defines the properties for launching your application when you start debugging.
   * **C++ Attach** defines the properties for attaching to a process that's already running.
 * Update the `program` property with the path to the program you are debugging.
@@ -376,7 +376,7 @@ macOS:
     * Core dumps cannot be loaded when debugging with GDB because GDB [does not support the core dump format used in macOS](https://www.sourceware.org/ml/gdb/2014-01/msg00036.html).
     * When attached to a process with GDB, break-all will end the process.
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 
@@ -385,7 +385,7 @@ Read on to find out about:
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
 * [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 
-## Common Questions
+## Common questions
 
 ### My project won't load
 

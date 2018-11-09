@@ -16,7 +16,7 @@ MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 3. Drag `Visual Studio Code.app` to the `Applications` folder, making it available in the `Launchpad`.
 4. Add VS Code to your Dock by right-clicking on the icon and choosing `Options`, `Keep in Dock`.
 
-## Launching from the Command Line
+## Launching from the command line
 
 You can also run VS Code from the terminal by typing 'code' after adding it to the path:
 
@@ -50,11 +50,11 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 >Note: You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
 
-## Preferences Menu
+## Preferences menu
 
 You can configure VS Code through [settings](/docs/getstarted/settings.md), [color themes](/docs/getstarted/themes.md) and [custom keybindings](/docs/getstarted/keybindings.md) and you will often see mention in our documentation of the **File** > **Preferences** menu group.  On a macOS, the **Preferences** menu group is under **Code**, not **File**.
 
-## Next Steps
+## Next steps
 
 Once you have installed VS Code, these topics will help you learn more about VS Code:
 

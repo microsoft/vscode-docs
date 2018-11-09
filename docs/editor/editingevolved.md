@@ -11,7 +11,7 @@ MetaDescription: Visual Studio Code is a first class editor - but it's also so m
 
 Visual Studio Code has a high productivity code editor which, when combined with programming language services, gives you the power of an IDE and the speed of a text editor. In this topic, we'll first describe VS Code's language intelligence features (suggestions, parameter hints, smart code navigation) and then show the power of the core text editor.
 
-## Quick File Navigation
+## Quick file navigation
 
 The Explorer is great for navigating between files when you are exploring a project. However, when you are working on a task, you will find yourself quickly jumping between the same set of files. VS Code provides two powerful commands to navigate in and across files with easy-to-use key bindings.
 
@@ -87,7 +87,7 @@ Some languages support rename symbol across files. Press `kb(editor.action.renam
 
 ![Rename](images/editingevolved/rename.png)
 
-## Errors & Warnings
+## Errors & warnings
 
 Warnings or Errors can be generated either via [configured tasks](/docs/editor/tasks.md), by rich language services, or by linters, that constantly analyze your code in the background. Since we love bug-free code, warnings and errors show up in multiple places:
 
@@ -105,7 +105,7 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 
 Warnings and Errors can provide Code Actions (also known as Quick Fixes) to help fix issues. These will be displayed in the editor in the left margin as a lightbulb. Clicking on the lightbulb will either display the Code Action options or perform the action.
 
-## Next Steps
+## Next steps
 
 Now that you know how the editor works, time to try a few other things...
 

@@ -24,7 +24,7 @@ With Docker, you can build images by specifying the step by step commands needed
 VS Code understands the structure of Dockerfiles as well as the available set of instructions, so you get a great experience when authoring these files.
 
 1. Create a new file in your workspace named `Dockerfile`
-2. Press `kb(editor.action.triggerSuggest)` to bring up a list of snippets corresponding to valid `Dockerfile` commands. Pressing the 'i' **Read More...** button on the right will show a fly-out with details and a link to the Docker Online documentation.
+2. Press `kb(editor.action.triggerSuggest)` to bring up a list of snippets corresponding to valid `Dockerfile` commands. Pressing the 'i' **Read More** button on the right will show a fly-out with details and a link to the Docker Online documentation.
 
  ![Dockerfile snippets](images/docker/dockerfileintellisense.png)
 
@@ -135,7 +135,7 @@ The default connection of the extension is to connect to the local docker daemon
 
 By default, Docker runs as the root user on Linux, requiring other users to access it with `sudo`. This extension does not assume root access, so you will need to create a Unix group called "docker" and add users to it. Instructions can be found here: [Create a Docker group](https://docs.docker.com/install/linux/linux-postinstall/).
 
-## Next Steps
+## Next steps
 
 * [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.

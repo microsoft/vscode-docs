@@ -83,7 +83,7 @@ Other code editing features include:
 - Code formatting
 - Code snippets
 - Code outline
-- Code lens (references)
+- CodeLens (references)
 - Javadoc hovers
 - Rename
 - Highlights
@@ -141,7 +141,7 @@ See [Java Tutorial with VS Code](/docs/java/java-tutorial.md) to learn more abou
 
 See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more about Spring Boot support with VS Code.
 
-## Next Steps
+## Next steps
 
 Learn more about Java in VS Code
 

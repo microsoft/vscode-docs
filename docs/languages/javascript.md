@@ -172,13 +172,13 @@ Auto imports require TypeScript 2.6+ and are enabled by default. You can disable
 
 The JavaScript references CodeLens displays an inline count of reference for classes, methods, properties, and exported objects:
 
-![JavaScript references code lens](images/javascript/references-codelens.png)
+![JavaScript references CodeLens](images/javascript/references-codelens.png)
 
 You can enable this by setting `"javascript.referencesCodeLens.enabled": true`.
 
 Click on the reference count to quickly browse a list of references:
 
-![JavaScript references code lens peek](images/javascript/references-codelens-peek.png)
+![JavaScript references CodeLens peek](images/javascript/references-codelens-peek.png)
 
 ## Refactoring
 

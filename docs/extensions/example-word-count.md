@@ -271,7 +271,7 @@ So far, the extension you have written only runs in a special instance of VS Cod
 
 Read about how to [Share an Extension](/docs/extensions/publish-extension.md).
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 

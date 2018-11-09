@@ -17,7 +17,7 @@ The basic [yo code generator](/docs/extensions/yocode.md) extension project incl
 
 **Note**: The documentation below assumes that you created a TypeScript extension but the same also applies for a JavaScript extension. However, some file names may be different.
 
-After you've created a new extension and opened the project in VS Code, you can select the `Extension Tests` configuration from the dropdown at the top of the Debug View.
+After you've created a new extension and opened the project in VS Code, you can select the `Extension Tests` configuration from the drop-down at the top of the Debug View.
 
 ![launch tests](images/testing-extensions/launch-tests.png)
 
@@ -200,7 +200,7 @@ Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/g
 
 You can enable the build to run continuously when pushing to a branch and even on pull requests. [Click here](https://docs.microsoft.com/azure/devops/pipelines/build/triggers) to learn more.
 
-## Next Steps
+## Next steps
 
 * [Developing Extensions](/docs/extensions/developing-extensions.md) - Learn more about how to run and debug your extension.
 * [vsce](/docs/extensions/publish-extension.md) - Publish your extension with the VSCE command line tool.

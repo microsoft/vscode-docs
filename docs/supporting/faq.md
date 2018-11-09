@@ -7,7 +7,7 @@ MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
 
-Our docs contain a **Common Questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
+Our docs contain a **Common questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
 
 If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues) and our [Updates](/updates) notes.
 
