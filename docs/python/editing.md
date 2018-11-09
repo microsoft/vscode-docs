@@ -89,7 +89,7 @@ On first use of the **Python: Run Selection/Line in Python Terminal** command, V
 
 ## Jupyter code cells
 
-[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open source project that lets you easily combine markdown text and executable Python code on one canvas. If you're using an Anaconda environment or any other environment in which the [Jupyter package](https://pypi.org/project/jupyter/) is installed, you can define  Jupyter-like code cells within Python code using a `#%%` comment:
+[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open source project that lets you easily combine Markdown text and executable Python source code on one canvas. If you're using an Anaconda environment or any other environment in which the [Jupyter package](https://pypi.org/project/jupyter/) is installed, you can define  Jupyter-like code cells within Python code using a `#%%` comment:
 
 ```python
 #%%
@@ -97,11 +97,11 @@ msg = "Hello World"
 print(msg)
 ```
 
-When the Python extension detects a code cell, it adds **Run Cell** and **Run All Cells** code lenses above the comment:
+When the Python extension detects a code cell, it adds a **Run Cell** or **Run All Cells** CodeLens above the comment:
 
 ![Jupyter adornments for code cells in the VS Code editor](images/editing/code-cells-01.png)
 
-Selecting either command starts Jupyter (if necessary, which might take a minute), then runs the cell(s) in the Python interactive window
+Selecting either command starts Jupyter (if necessary, which might take a minute), then runs the cell(s) in the Python interactive window.
 
 ![Code cells running in a Python Interactive window](images/editing/code-cells-02.png)
 
@@ -113,9 +113,9 @@ You can also open a Jupyter notebook file (`.ipynb`) in VS Code, and the Python 
 
 ![Prompt to import a Jupyter notebook file](images/editing/jupyter-prompt.png)
 
-In you choose **Import**, the notebook's cells are delimited in the Python file with `#%%` comments; markdown cells are converted wholly to comments preceded with `#%% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
+In you choose **Import**, the notebook's cells are delimited in the Python file with `#%%` comments; Markdown cells are converted wholly to comments preceded with `#%% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
 
-[![Jupyter notebook running in VS Code and the Python interactive window](images/editing/jupyter-notebook.png)](images/editing/jupyter-notebook.png)
+![Jupyter notebook running in VS Code and the Python interactive window](images/editing/jupyter-notebook.png)
 
 If you open the file without importing, it appears as plain text.
 

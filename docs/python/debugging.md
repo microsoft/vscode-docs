@@ -32,7 +32,7 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. Select the settings button (circled in the image above) or use the **Debug** > **Open configurations** menu command.
 
-1. In the **Select Environment** popup atht appears, select **Python**.
+1. In the **Select Environment** drop-down that appears, select **Python**.
 
 1. The Python extension then creates and opens a `launch.json` file that contains number of pre-defined configurations. You can modify configurations (to add arguments, for example), and also add custom configurations.
 
@@ -248,7 +248,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Remote computer: there are two ways to specify how to attach to the remote process. Do note that you may need to specify the remote computer's private IP address, if applicable (Linux VMs on Azure, for example, have both a public and private address). If you use the public IP address, you might see the error "Cannot assign requested address".
 
-   1. In the source code, add the following lines, replacing *address* with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
+   1. In the source code, add the following lines, replacing `address` with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
 
         ```python
         import ptvsd
@@ -262,7 +262,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
         The IP address used in `enable_attach` should be the remote computer's private IP address. You can then launch the program normally, causing it to pause until the debugger attaches.
 
-   1. Launch the remote process _through_ ptvsd, for example:
+   1. Launch the remote process through ptvsd, for example:
 
        ```bash
        python3 -m ptvsd --host 1.2.3.4 --port 3000 -m myproject

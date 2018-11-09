@@ -98,9 +98,9 @@ Packages are installed using the **Terminal** panel and commands like `pip insta
 
 ## Jupyter notebooks
 
-If you open a [Jupyter notebook](http://jupyter.org/) file (`.ipynb`) in VS Code, the Python extension prompts you to import the notebook as a Python code file. The notebook's cells are delimited in the Python file with `#%%` comments, and the Python extension shows **Run Cell** and **Run All Cells** code lenses. Selecting either code lens starts the Jupyter server and runs the cell(s) in the Python interactive window:
+If you open a [Jupyter notebook](http://jupyter.org/) file (`.ipynb`) in VS Code, the Python extension prompts you to import the notebook as a Python code file. The notebook's cells are delimited in the Python file with `#%%` comments, and the Python extension shows **Run Cell** or **Run All Cells** CodeLens. Selecting either CodeLens starts the Jupyter server and runs the cell(s) in the Python interactive window:
 
-[![Jupyter notebook running in VS Code and the Python interactive window](images/editing/jupyter-notebook.png)](images/python/jupyter.png)
+![Jupyter notebook running in VS Code and the Python interactive window](images/python/jupyter.png)
 
 For more information, see [Editing - Jupyter code cells](/docs/python/editing.md#jupyter-code-cells).
 
