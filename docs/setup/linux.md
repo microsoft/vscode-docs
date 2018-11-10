@@ -135,7 +135,7 @@ Debian-based distributions allow setting a default *editor* using the [alternati
 sudo update-alternatives --set editor /usr/bin/code
 ```
 
-## Next Steps
+## Next steps
 
 Once you have installed VS Code, these topics will help you learn more about it:
 
@@ -143,7 +143,7 @@ Once you have installed VS Code, these topics will help you learn more about it:
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.
 
-## Common Questions
+## Common questions
 
 ### Azure VM Issues
 

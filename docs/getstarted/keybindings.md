@@ -14,7 +14,7 @@ Visual Studio Code lets you perform most tasks directly from the keyboard.  This
 
 >**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that platform. If you need the key binding for another platform, hover your mouse over the key you are interested in.
 
-## Keyboard Shortcuts Editor
+## Keyboard Shortcuts editor
 
 Visual Studio Code provides a rich and easy keyboard shortcuts editing experience using **Keyboard Shortcuts** editor. It lists all available commands with and without keybindings and you can easily change / remove / reset their keybindings using the available actions. It also has a search box on the top that helps you in finding commands or keybindings. You can open this editor by going to the menu under **File**  > **Preferences** > **Keyboard Shortcuts**. (**Code** > **Preferences** > **Keyboard Shortcuts** on macOS)
 
@@ -24,7 +24,7 @@ Most importantly, you can see keybindings according to your keyboard layout. For
 
 For doing more advanced keyboard shortcut customization, read [Advanced Customization](/docs/getstarted/keybindings.md#advanced-customization).
 
-## Keymap Extensions
+## Keymap extensions
 
 Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, **File** > **Preferences** > **Keymap Extensions** shows you a list of popular keymap extensions. These extensions modify the VS Code shortcuts to match those of other editors so you don't need to learn new keyboard shortcuts. There is also a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) of extensions in the Marketplace.
 
@@ -62,7 +62,7 @@ All keyboard shortcuts in VS Code can be customized via the `keybindings.json` f
 * This will open the **Default Keyboard Shortcuts** on the left and your `keybindings.json` file where you can overwrite the default bindings on the right.
 * The list above isn't exhaustive. More commands may be listed under "Here are other available commands" in **Default Keyboard Shortcuts**.
 
-## Keyboard Rules
+## Keyboard rules
 
 The keyboard shortcuts dispatching is done by analyzing a list of rules that are expressed in JSON. Here are some examples:
 
@@ -323,7 +323,15 @@ For example, the when clause below is true only when the File Explorer has focus
 "sideBarFocus && activeViewlet == 'workbench.view.explorer'"
 ```
 
-## Custom Keybindings for Refactorings
+### key-value when clause operator
+
+There is a key-value pair operator for `when` clauses. The expression `key =~ value` treats the right hand side as a regular expression to match against the left hand side. For example, to contribute context menu items for all Docker files, one could use:
+
+```json
+   "when": "resourceFileName =~ /docker/"
+```
+
+## Custom keybindings for refactorings
 
 The `editor.action.codeAction` command lets you configure keybindings for specific [Refactorings](/docs/editor/refactoring.md) (Code Actions). For example, the keybinding below triggers the **Extract function** refactoring Code Actions:
 
@@ -566,7 +574,7 @@ Key|Command|Command id
 `kb(workbench.extensions.action.showPopularExtensions)`|Show Popular Extensions|`workbench.extensions.action.showPopularExtensions`
 `kb(workbench.extensions.action.updateAllExtensions)`|Update All Extensions|`workbench.extensions.action.updateAllExtensions`
 
-## Next Steps
+## Next steps
 
 Now that you know about our Key binding support, what's next...
 
@@ -574,7 +582,7 @@ Now that you know about our Key binding support, what's next...
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - End to end Node.js scenario with a sample app
 
-## Common Questions
+## Common questions
 
 ### How can I find out what command is bound to a specific key?
 

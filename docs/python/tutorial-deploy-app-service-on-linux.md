@@ -87,7 +87,7 @@ If you don't already have an app you'd like to work with, use one of the options
 
 ## Create the App Service
 
-1. In the **Azure: App Service** explorer, select the **+** command to create a new App Service, or open the command palette and select **Azure App Service: Create New Web App**. (In App Service terminology, a "web app" is a *host* for web app code, not the app code itself.)
+1. In the **Azure: App Service** explorer, select the **+** command to create a new App Service, or open the Command Palette and select **Azure App Service: Create New Web App**. (In App Service terminology, a "web app" is a **host** for web app code, not the app code itself.)
 
     ![Create new App Service button in the App Service explorer](images/deploy-azure/app-service-create-new.png)
 
@@ -177,17 +177,17 @@ As noted earlier, you must deploy to App Service on Linux using Git in order for
     1. Open a terminal for the environment with **Terminal: Create New Integrated Terminal**.
     1. Make sure you're in the root folder of the app, then run `pip freeze > requirements.txt`.
 
-1. In your project folder, create a file named `.gitignore` with the following contents (change `env` if you're using a different folder for a virtual environment):
+1. In your project folder, create a file named `.gitignore` with the following contents (change `.venv` if you're using a different folder for a virtual environment):
 
     ```gitignore
     .vscode/
     __pycache__
-    env/
+    .venv/
     ```
 
 1. From the **Command Palette**, run the **Git: Initialize Repository** command.
 
-    ![Initialize repository command in the command palette](images/deploy-azure/source-control-initialize-repository-command.png)
+    ![Initialize repository command in the Command Palette](images/deploy-azure/source-control-initialize-repository-command.png)
 
     The same command is found at the top of the **Source Control** explorer:
 

@@ -150,7 +150,7 @@ Install an extension to add more functionality. Go to the **Extensions** view (`
 
 > Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 
@@ -158,7 +158,7 @@ Read on to find out about:
 * [Emmet](/docs/editor/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
 * [Emmet — official documentation](https://docs.emmet.io/) - Emmet — the essential toolkit for web-developers
 
-## Common Questions
+## Common questions
 
 ### Does VS Code have HTML preview?
 

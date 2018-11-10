@@ -356,14 +356,14 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
     If you want support for any of the other preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/), please log a [feature request](https://github.com/Microsoft/vscode/issues/new).
 
-## Next Steps
+## Next steps
 
 Emmet is just one of the great web developer features in VS Code.  Read on to find out about:
 
 * [HTML](/docs/languages/html.md) - VS Code supports HTML with IntelliSense, closing tags, and formatting.
 * [CSS](/docs/languages/css.md) - We offer rich support for CSS, SCSS and Less.
 
-## Common Questions
+## Common questions
 
 ### Custom tags do not get expanded in the suggestion list
 

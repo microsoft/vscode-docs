@@ -696,7 +696,7 @@ The above example extension contributes the [`typescript-styled-plugin`](https:/
 
 TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript.
 
-## Next Steps
+## Next steps
 
 To learn more about VS Code extensibility model, try these topic:
 

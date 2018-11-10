@@ -49,13 +49,13 @@ class Startup {
 Startup.main();
 ```
 
-Pressing `kb(workbench.action.tasks.build)` or running **Run Build Task...** from the global **Tasks** menu show the following picker:
+Pressing `kb(workbench.action.tasks.build)` or running **Run Build Task** from the global **Terminal** menu show the following picker:
 
 ![TypeScript Build Task](images/tasks/typescript-build.png)
 
 The first entry executes the TypeScript compiler and translates the TypeScript file to a JavaScript file. When the compiler has finished, there should be a `HelloWorld.js` file. The second entry starts the TypeScript compiler in watch mode. Every save to the `HelloWorld.ts` file will regenerate the `HelloWorld.js` file.
 
-You can also define the TypeScript build or watch task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select **tsc: build** or **tsc: watch** and VS Code will generate a `tasks.json` file. The one shown below make the **tsc: build** task the default build task:
+You can also define the TypeScript build or watch task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Terminal** menu. This shows you a picker with the available build tasks. Select **tsc: build** or **tsc: watch** and VS Code will generate a `tasks.json` file. The one shown below make the **tsc: build** task the default build task:
 
 ```json
 {
@@ -135,7 +135,7 @@ Task auto detection can be disabled using the following settings:
 
 ## Custom tasks
 
-Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Tasks** menu and select the **Create tasks.json file from template** entry. This opens the following picker:
+Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Terminal** menu and select the **Create tasks.json file from template** entry. This opens the following picker:
 
 ![Configure Task Runner](images/tasks/configure-task-runner.png)
 
@@ -367,7 +367,7 @@ gulp.task('default', ['lint'], function () {
 });
 ```
 
-Executing **Run Task** from the global **Tasks** menu will show the following picker:
+Executing **Run Task** from the global **Terminal** menu will show the following picker:
 
 ![Configure Task](images/tasks/configure-tasks.png)
 
@@ -791,7 +791,7 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 
 ## Convert from "0.1.0" to "2.0.0"
 
-**Note**: If you have created a workspace that consists of multiple folders ([Multi-root Workspace](/docs/editor/multi-root-workspaces.md)), only version `2.0.0` tasks are detected and shown in the **Tasks** > **Run Task...** picker.
+**Note**: If you have created a workspace that consists of multiple folders ([Multi-root Workspace](/docs/editor/multi-root-workspaces.md)), only version `2.0.0` tasks are detected and shown in the **Terminal** > **Run Task** picker.
 
 ### Try running without tasks.json
 
@@ -883,7 +883,7 @@ A corresponding `2.0.0` configuration would look like this:
 
 If you want to use a `0.1.0` version of the `tasks.json` file with the new terminal runner, you can add the `runner` property to the `tasks.json` file: `"runner": "terminal"`.
 
-## Next Steps
+## Next steps
 
 That was tasks - let's keep going...
 
@@ -893,7 +893,7 @@ That was tasks - let's keep going...
 * [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with VS Code and through community extensions.
 * [Debugging](/docs/editor/debugging.md) - Debug your source code directly in the VS Code editor.
 
-## Common Questions
+## Common questions
 
 ### Can a task use a different shell than the one specified for the Integrated Terminal?
 

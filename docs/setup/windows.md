@@ -31,7 +31,7 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 >Note: You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
 
-## Next Steps
+## Next steps
 
 Once you have installed VS Code, these topics will help you learn more about VS Code:
 
@@ -40,7 +40,7 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.
 * [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Lets you jump right in and learn how to be productive with VS Code.
 
-## Common Questions
+## Common questions
 
 ### What command line arguments are supported by the Windows Setup?
 

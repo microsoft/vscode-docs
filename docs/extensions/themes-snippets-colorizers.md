@@ -134,7 +134,7 @@ You can use the **Developer: Inspect TM Scopes** command from the **Command Pale
 
 To try out the new theme, copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
 
-Open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
+Open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the drop-down list.  Arrow up and down to see a live preview of your theme.
 
 ![select my theme](images/themes-snippets-colorizers/mytheme.png)
 
@@ -535,14 +535,14 @@ In order to inherit other CSS features we marked the block by using `contentName
 
 We mapped it to the ID of the language that we want to inherit features from. For example, now if we press `kbstyle(Ctrl/)` inside a CSS code block, VS Code will use CSS comments instead of Markdown!
 
-## Next Steps
+## Next steps
 
 If you'd like to learn more about VS Code extensibility, try these topics:
 
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code
 * [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
 
-## Common Questions
+## Common questions
 
 ### What parts of VS code can I theme with a custom color theme?
 

@@ -47,7 +47,7 @@ Visual Studio Code includes a public extensibility model that lets developers bu
 
 If you prefer a code editor-centric development tool or are building cross-platform web and cloud applications, we invite you to try out Visual Studio Code and let us know what you think!
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 

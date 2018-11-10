@@ -148,7 +148,7 @@ If the debug target has been 'attached' initially, *disconnect* should detach it
 In both cases and in the case that the target terminated normally or crashed the debug adapter must fire a **terminated** event.
 After receiving a response from the *disconnect* request, VS Code will terminate the debug adapter.
 
-## Next Steps
+## Next steps
 
 To learn more about VS Code extensibility model, try these topics:
 

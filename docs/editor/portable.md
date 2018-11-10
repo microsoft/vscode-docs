@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code supports a Portable Mode.
 ---
 # Portable Mode
 
-Visual Studio Code supports [Portable Mode](https://en.wikipedia.org/wiki/Portable_application). This mode enables all data created and maintained by VS Code to live near itself, so it can be moved around across environments.
+Visual Studio Code supports [Portable mode](https://en.wikipedia.org/wiki/Portable_application). This mode enables all data created and maintained by VS Code to live near itself, so it can be moved around across environments.
 
 This mode also provides a way to set the installation folder location for VS Code extensions, useful for corporate environments that prevent extensions from being installed in the Windows AppData folder.
 
@@ -17,7 +17,7 @@ Portable mode is supported on the ZIP download for Windows and Linux, as well as
 
 > **Note:** Do not attempt to configure portable mode on a **Windows installation**. Portable mode is only supported on the Windows ZIP archive. Note as well that the Windows ZIP archive does not support auto update.
 
-## Enable Portable Mode
+## Enable Portable mode
 
 ### Windows, Linux
 
@@ -58,7 +58,7 @@ On **Windows** and **Linux**, you can update VS Code by copying the `data` folde
 
 On **macOS**, automatic updates should work as always, no extra work needed.
 
-## Migrate to Portable Mode
+## Migrate to Portable mode
 
 You can also migrate an existing installation to Portable mode:
 
@@ -86,6 +86,6 @@ Here's the desired outcome on **Windows**:
 |   |- ...
 ```
 
-## TMP Directory
+## TMP directory
 
 By default, the default `TMP` directory is still the system one even in Portable Mode, since no state is kept there. If you wish to also have your TMP directory within your portable directory, simply create an empty `tmp` directory inside the `data` folder. As long as a `tmp` directory exists, it will be used for TMP data.

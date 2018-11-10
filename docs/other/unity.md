@@ -66,7 +66,7 @@ The community is continually developing more and more valuable extensions for Un
 
 The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-## Next Steps
+## Next steps
 
 Read on to learn more about:
 
@@ -75,7 +75,7 @@ Read on to learn more about:
 * [Debugging](/docs/editor/debugging.md) - how to use the debugger with your project
 * [C#](/docs/languages/csharp.md) - learn about the C# support in VS Code
 
-## Common Questions
+## Common questions
 
 ### I don't have IntelliSense
 

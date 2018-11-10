@@ -138,7 +138,7 @@ npm install -g markdown-it
 
 Open VS Code on an empty folder and create a `sample.md` file.
 
-> **Note:** You can open a folder with VS Code by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing 'code .' at the command line.
+> **Note:** You can open a folder with VS Code by either selecting the folder with **File** > **Open Folder** or navigating to the folder and typing 'code .' at the command line.
 
 Place the following source code in that file:
 
@@ -160,7 +160,7 @@ Things you'll need:
 
 ### Step 3: Create tasks.json
 
-The next step is to set up the task configuration file `tasks.json`. To do this, run **Tasks** > **Configure Tasks** and click **Create tasks.json file from templates**. VS Code then presents a list of possible `tasks.json` templates to choose from. Select **Others** since we want to run an external command.
+The next step is to set up the task configuration file `tasks.json`. To do this, run **Terminal** > **Configure Tasks** and click **Create tasks.json file from templates**. VS Code then presents a list of possible `tasks.json` templates to choose from. Select **Others** since we want to run an external command.
 
 This generates a `tasks.json` file in your workspace `.vscode` folder with the following content:
 
@@ -205,7 +205,7 @@ Since in more complex environments there can be more than one build task we prom
 
 At this point, you should see an additional file show up in the file list `sample.html`.
 
-If you want to make the **Compile Markdown** task the default build task to run execute **Configure Default Build Task** from the global **Tasks** menu and select **Compile Markdown** from the presented list. The final `tasks.json` file will then look like this:
+If you want to make the **Compile Markdown** task the default build task to run execute **Configure Default Build Task** from the global **Terminal** menu and select **Compile Markdown** from the presented list. The final `tasks.json` file will then look like this:
 
 ```json
 {
@@ -277,9 +277,9 @@ What is happening here?
 
 ### Step 3: Run the gulp default Task
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Tasks** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Since we only want to convert the Markdown file to HTML select **Never scan the build output** from the presented list. At this point, if you create and/or modify other Markdown files, you see the respective HTML files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
+To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Terminal** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Since we only want to convert the Markdown file to HTML select **Never scan the build output** from the presented list. At this point, if you create and/or modify other Markdown files, you see the respective HTML files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
-If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Tasks** menu and select **gulp: default** from the presented list. The final `tasks.json` file will then look like this:
+If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Terminal** menu and select **gulp: default** from the presented list. The final `tasks.json` file will then look like this:
 
 ```json
 {
@@ -302,15 +302,15 @@ If you want to make the **gulp: default** task the default build task executed w
 
 ### Step 4: Terminate the gulp default Task
 
-The **gulp: default** task runs in the background and watches for file changes to Markdown files. If you want to stop the task, you can use the **Terminate Running Task** from the global **Tasks** menu.
+The **gulp: default** task runs in the background and watches for file changes to Markdown files. If you want to stop the task, you can use the **Terminate Task** from the global **Terminal** menu.
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 
 * [CSS, SCSS, and Less](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, SCSS, and Less editing.
 
-## Common Questions
+## Common questions
 
 ### Is there spell checking?
 
@@ -322,4 +322,4 @@ No, VS Code targets the [CommonMark](http://commonmark.org) Markdown specificati
 
 ### In the walkthrough above, I didn't find the Configure Task command in the Command Palette?
 
-You may have opened a file in VS Code rather than a folder. You can open a folder by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing 'code .' at the command line.
+You may have opened a file in VS Code rather than a folder. You can open a folder by either selecting the folder with **File** > **Open Folder** or navigating to the folder and typing 'code .' at the command line.

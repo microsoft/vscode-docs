@@ -75,13 +75,13 @@ You would then paste that URL into the **Git: Clone** prompt.
 
 ## Branches and Tags
 
-You can create and checkout branches directly within VS code through the **Git: Create Branch...** and **Git: Checkout to..** commands in the **Command Palette** (`kb(workbench.action.showCommands)`).
+You can create and checkout branches directly within VS code through the **Git: Create Branch** and **Git: Checkout to** commands in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-If you run **Git: Checkout to...**, you will see a dropdown containing all of the branches or tags in the current repository.
+If you run **Git: Checkout to**, you will see a drop-down list containing all of the branches or tags in the current repository.
 
 ![Git checkout](images/versioncontrol/gitbranches.png)
 
-The **Git: Create Branch...** command lets you quickly create a new branch.  Just provide the name of your new branch and VS Code will create the branch and switch to it.
+The **Git: Create Branch** command lets you quickly create a new branch.  Just provide the name of your new branch and VS Code will create the branch and switch to it.
 
 ## Remotes
 
@@ -123,7 +123,7 @@ Our Git tooling supports viewing of diffs within VS Code.
 
 ![A File Diff in VS Code](images/versioncontrol/diff.png)
 
->**Tip:** You can diff any two files by first right clicking on a file in the Explorer or **OPEN EDITORS** list and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with 'file_name_you_chose'**.   Alternatively from the keyboard hit `kb(workbench.action.showCommands)` and select **File: Compare Active File With...** and you will be presented with a list of recent files.
+>**Tip:** You can diff any two files by first right clicking on a file in the Explorer or **OPEN EDITORS** list and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with 'file_name_you_chose'**.   Alternatively from the keyboard hit `kb(workbench.action.showCommands)` and select **File: Compare Active File With** and you will be presented with a list of recent files.
 
 ### Diff editor review pane
 
@@ -137,7 +137,7 @@ There is a review pane in the Diff editor which presents changes in a unified pa
 
 You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you are just curious. :)
 
-To open the Git output window, run **View** > **Output** and select **Git** from the dropdown.
+To open the Git output window, run **View** > **Output** and select **Git** from the drop-down list.
 
 ## Initialize a repository
 
@@ -192,7 +192,7 @@ Visual Studio Code also supports pull request workflows through [extensions](/do
 
 > **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
 
-## Next Steps
+## Next steps
 
 * [Intro Video - Git Version Control](/docs/introvideos/versioncontrol.md) - An introductory video providing an overview of VS Code Git support.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
@@ -201,7 +201,7 @@ Visual Studio Code also supports pull request workflows through [extensions](/do
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
 * [SCM API](/docs/extensionAPI/api-scm.md) - If you want to integrate another Source Control provider into VS Code, see our SCM API.
 
-## Common Questions
+## Common questions
 
 ### I initialized my repo but the actions in the `...` menu are all grayed out
 
@@ -214,7 +214,7 @@ To **push, pull, and sync** you need to have a Git origin set up.  You can get t
 
 ### My team is using Team Foundation Version Control (TFVC) instead of Git. What should I do?
 
-Use the [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension and this will light up TFVC support.
+Use the [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension and this will light up TFVC support.
 
 ### Why do the Pull, Push and Sync actions never finish?
 

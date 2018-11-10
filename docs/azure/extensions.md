@@ -29,7 +29,7 @@ You can also search for Azure or cloud extensions in the VS Code Extensions view
 
 ![popular Azure extensions](images/extensions/popular-azure-extensions.png)
 
-## Next Steps
+## Next steps
 
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
 * [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.

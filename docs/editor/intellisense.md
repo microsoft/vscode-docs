@@ -185,7 +185,7 @@ If you find IntelliSense has stopped working, the language service may not be ru
 
 A particular language extension may not support all the VS Code IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's detail page and click the `Support` link.
 
-## Next Steps
+## Next steps
 
 IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
@@ -193,7 +193,7 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - See an example of IntelliSense in action in the Node.js walkthrough.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 
-## Common Questions
+## Common questions
 
 ### Why am I not getting any suggestions?
 

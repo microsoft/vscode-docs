@@ -215,12 +215,12 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 
 This will always invoke the [TypeScript](https://www.typescriptlang.org/) compiler whenever the extension is packaged.
 
-## Next Steps
+## Next steps
 
 * [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
 * [Testing Extensions](/docs/extensions/testing-extensions.md) - Add tests to your extension project to ensure high quality.
 
-## Common Questions
+## Common questions
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 

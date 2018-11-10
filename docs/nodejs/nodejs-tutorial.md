@@ -152,7 +152,7 @@ Now launch VS Code:
 code .
 ```
 
->**Note:** If you've been using the VS Code integrated terminal to install the Express generator and scaffold the app, you can open the `myExpressApp` folder from your running VS Code instance with the **File** > **Open Folder...** command.
+>**Note:** If you've been using the VS Code integrated terminal to install the Express generator and scaffold the app, you can open the `myExpressApp` folder from your running VS Code instance with the **File** > **Open Folder** command.
 
 The [Node.js](https://nodejs.org/api/) and [Express](https://expressjs.com/api.html) documentation does a great job explaining how to build rich applications using the platform and framework. Visual Studio Code will make you more productive developing these types of applications by providing great code editing and navigation experiences.
 
@@ -184,7 +184,7 @@ You will need to create a debugger configuration file `launch.json` for your Exp
 }
 ```
 
-Save the new file and make sure **Launch Program** is selected in the configuration dropdown at the top of the Debug view. Open `app.js` and set a breakpoint near the top of the file where the Express app object is created by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
+Save the new file and make sure **Launch Program** is selected in the configuration drop-down at the top of the Debug view. Open `app.js` and set a breakpoint near the top of the file where the Express app object is created by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
 
 ![Debug session](images/nodejs/debugsession.png)
 
@@ -194,7 +194,7 @@ If you'd like to learn how to deploy your web application, check out the [Deploy
 
 ---
 
-## Next Steps
+## Next steps
 
 There is much more to explore with Visual Studio Code, please try the following topics:
 

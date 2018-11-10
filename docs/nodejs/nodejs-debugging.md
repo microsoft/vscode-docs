@@ -605,7 +605,7 @@ In the following (`legacy` protocol-only) example all but a 'math' module is ski
 
 >**Note:** The `legacy` protocol debugger has to emulate the `skipFiles` feature because the _V8 Debugger Protocol_ does not support it natively. This might result in slow stepping performance.
 
-## Next Steps
+## Next steps
 
 In case you didn't already read the Node.js section, take a look at:
 
@@ -624,7 +624,7 @@ To write your own debugger extension, visit:
 
 * [Debuggers](/docs/extensions/example-debuggers.md) - Steps to create a VS Code debug extension starting from a mock sample
 
-## Common Questions
+## Common questions
 
 ### Can I debug if I'm using symlinks?
 

@@ -4,13 +4,15 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 10/10/2018
+DateApproved: 11/08/2018
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 MetaSocialImage: images/tutorial/social.png
 ---
 # Getting Started with Python in VS Code
 
 In this tutorial, you use Python 3 to create the simplest Python "Hello World" application in Visual Studio Code. By using the Python extension, you make VS Code into a great lightweight Python IDE (which you may find a productive alternative to PyCharm).
+
+This tutorial is intended to introduce you to VS Code as a Python environment, primarily how to edit, run, and debug code. Once you are familiar with these basics, you can then follow any of the [programming tutorials](https://wiki.python.org/moin/BeginnersGuide/Programmers) listed on python.org within the context of VS Code for an introduction to the language itself.
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
@@ -266,6 +268,8 @@ Rerun the program now (with or without the debugger) and after a few moments a p
 ## Next steps
 
 You can configure VS Code to use any Python environment you have installed, including virtual and conda environments. You can also use a separate environment for debugging. For full details, see [Environments](/docs/python/environments.md).
+
+To learn more about the Python language, follow any of the [programming tutorials](https://wiki.python.org/moin/BeginnersGuide/Programmers) listed on python.org within the context of VS Code.
 
 To learn to build web apps with the Django and Flask frameworks, see the following tutorials:
 

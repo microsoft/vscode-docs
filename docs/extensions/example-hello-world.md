@@ -254,7 +254,7 @@ So far, the extension you have written only runs in a special instance of VS Cod
 
 Read about how to [Share an Extension](/docs/extensions/publish-extension.md).
 
-## Next Steps
+## Next steps
 
 In this walkthrough, we've seen a very simple extension. For a more detailed example, see the [Word Count Example](/docs/extensions/example-word-count.md) which shows how to target a specific language (Markdown) and listen to the editor's document changed events.
 

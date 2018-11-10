@@ -77,7 +77,7 @@ The Visual Studio Code editor supports debugging [Electron](https://electron.ato
 
 - [Debugging Electron Main and Renderer processes](https://github.com/Microsoft/vscode-recipes/tree/master/Electron)
 
-## Next Steps
+## Next steps
 
 * [Debugging](/docs/editor/debugging.md) - Read about general VS Code debugging features.
 * [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) - Learn about the built-in Node.js debugger.

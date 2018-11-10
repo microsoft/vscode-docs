@@ -66,7 +66,7 @@ Here's a list of Azure extensions supporting Java:
 
 ### Team development
 
-* The [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps servers, allowing you to easily monitory builds, pull requests, and work items for your TFVC or Git source repositories.
+* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps servers, allowing you to easily monitory builds, pull requests, and work items for your TFVC or Git source repositories.
 
 ### Internet of Things
 
@@ -80,4 +80,4 @@ Here's a list of Azure extensions supporting Java:
 
 * The [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) provide an enhanced editing experience when authoring Azure CLI 2.0 commands, with full completions (IntelliSense), the ability to invoke one or more commands in the terminal, and the ability to easily view and format results as a separate JSON document.
 
-* The [Azure Application Insights](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.application-insights) extension brings information from your production services right into the editor (via Code Lenses), helping you to find and fix issues even faster.
+* The [Azure Application Insights](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.application-insights) extension brings information from your production services right into the editor (via CodeLens), helping you to find and fix issues even faster.

@@ -21,9 +21,9 @@ To open the terminal:
 
 > **Note:** You can still open an external shell with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
-## Managing Multiple Terminals
+## Managing multiple terminals
 
-You can create multiple terminals open to different locations and easily navigate between them. Terminal instances can be added by clicking the plus icon on the top-right of the **TERMINAL** panel or by triggering the `kb(workbench.action.terminal.new)` command. This creates another entry in the dropdown list that can be used to switch between them.
+You can create multiple terminals open to different locations and easily navigate between them. Terminal instances can be added by clicking the plus icon on the top-right of the **TERMINAL** panel or by triggering the `kb(workbench.action.terminal.new)` command. This creates another entry in the drop-down list that can be used to switch between them.
 
 ![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
 
@@ -84,7 +84,7 @@ For example, to enable running bash as a login shell (which runs `.bash_profile`
 "terminal.integrated.shellArgs.linux": ["-l"]
 ```
 
-## Terminal Display Settings
+## Terminal display settings
 
 You can customize the integrated terminal font and line height with the following settings:
 
@@ -94,7 +94,7 @@ You can customize the integrated terminal font and line height with the followin
 * `terminal.integrated.fontWeightBold`
 * `terminal.integrated.lineHeight`
 
-## Terminal Key Bindings
+## Terminal keybindings
 
 The **View: Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
 
@@ -226,7 +226,7 @@ By default, the integrated terminal will render using multiple `<canvas>` elemen
 
 Something else that might improve performance is to ignore Chromium's GPU blacklist by launching VS Code with `code --ignore-gpu-blacklist`.
 
-## Next Steps
+## Next steps
 
 The basics of the terminal have been covered in this document, read on to find out more about:
 
@@ -234,7 +234,7 @@ The basics of the terminal have been covered in this document, read on to find o
 * [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
 * Explore the rest of the terminal commands by browsing your keybindings.json file within VS Code.
 
-## Common Questions
+## Common questions
 
 ### Why is VS Code shortcut X not working when the terminal has focus?
 

@@ -7,7 +7,7 @@ MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
 
-Our docs contain a **Common Questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
+Our docs contain a **Common questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
 
 If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues) and our [Updates](/updates) notes.
 
@@ -175,9 +175,9 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 ## What non-Microsoft online services does VS Code talk to
 
-The built-in **npm support for VS Code** extension sends requests to [https://registry.npmjs.org](https://registry.npmjs.org) and [https://registry.bower.io](https://registry.bower.io).
+The built-in **npm support for VS Code** extension sends requests to `https://registry.npmjs.org` and `https://registry.bower.io`.
 
-The built-in **TypeScript and JavaScript Language Features** extension queries the `@types` domain at [https://registry.npmjs.org](https://registry.npmjs.org).
+The built-in **TypeScript and JavaScript Language Features** extension queries the `@types` domain at `https://registry.npmjs.org`.
 
 When you use **Developer: Toggle Developer Tools** or **Developer: Open Webview Developer Tools**, VS Code may talk to Google servers to fetch data needed to launch Developer Tools.
 

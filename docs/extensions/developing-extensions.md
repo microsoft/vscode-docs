@@ -158,7 +158,7 @@ To open the **Developer Tools** console in VS Code, use the **Help** > **Toggle 
 
 ### Reinstall the extension
 
-Sometimes an extension installation can fail or get corrupted. If an extension isn't working correctly, you can always try to uninstall and reinstall the extension. VS Code has a handy command **Developer: Reinstall Extension...** which will present a dropdown with all of your installed extensions. Choose the extension which is giving you trouble and then after the extension is reinstalled, follow the notification to reload VS Code.
+Sometimes an extension installation can fail or get corrupted. If an extension isn't working correctly, you can always try to uninstall and reinstall the extension. VS Code has a handy command **Developer: Reinstall Extension** which will present a drop-down list with all of your installed extensions. Choose the extension which is giving you trouble and then after the extension is reinstalled, follow the notification to reload VS Code.
 
 ### Consult the extension README
 
@@ -168,14 +168,14 @@ Extensions may have additional dependencies like standalone linters or compilers
 
 You can also click the extension name in the upper banner and you'll go to the extension's Marketplace page where you can find a link to the extension's GitHub repository under **Resources** which may have more documentation.
 
-## Next Steps
+## Next steps
 
 * [Testing your Extension](/docs/extensions/testing-extensions.md) - Learn how to write unit and integration tests for your extension
 * [Publishing Tool](/docs/extensions/publish-extension.md) - Publish your extension with the vsce command line tool.
 * [Extension Manifest file](/docs/extensionAPI/extension-manifest.md) - VS Code extension manifest file reference
 * [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs
 
-## Common Questions
+## Common questions
 
 ### How can I use an API in my extension that was introduced in a newer release of VS Code?
 

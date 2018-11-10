@@ -29,6 +29,6 @@ Debugging is a core feature of Visual Studio Code. In this tutorial, we will sho
 * [Debugging](/docs/editor/debugging.md) - Official documentation for VS Code debugging.
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) - Use the integrated terminal inside VS Code.
 
-## Next Steps
+## Next steps
 
 * [Git Version Control](/docs/introvideos/versioncontrol.md) - Learn the basics of Git version control.

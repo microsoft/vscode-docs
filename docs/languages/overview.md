@@ -75,14 +75,14 @@ IntelliSense (`kb(editor.action.triggerSuggest)`) will show you the available la
 
 ![language id IntelliSense](images/overview/language-id-intellisense.png)
 
-## Next Steps
+## Next steps
 
 Now you know that VS Code has support for the languages you care about. Read on...
 
 * [Code Navigation](/docs/editor/editingevolved.md) - Peek and Go to Definition and more
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 
-## Common Questions
+## Common questions
 
 ### Can I contribute my own language service?
 

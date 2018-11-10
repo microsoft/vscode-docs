@@ -29,7 +29,7 @@ Open files in each editor are displayed with tabbed headers (Tabs) at the top of
 
 >**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Side Bar Right**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
-## Side by Side Editing
+## Side by side editing
 
 You can open as many editors as you like side by side vertically and horizontally. If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
 
@@ -170,7 +170,7 @@ Type `?` into the input field to get a list of available commands you can execut
 
 ![Quick Open Help](images/userinterface/quickopenhelp.png)
 
-## Configuring the Editor
+## Configuring the editor
 
 VS Code gives you many options to configure the editor. From the **View** menu, you can hide or toggle various parts of the user interface, such as the **Side Bar**, **Status Bar**, and **Activity Bar**.
 
@@ -199,7 +199,7 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen and centering the editor layout. Zen mode can be toggled using **View** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen`, `zenMode.restore` and `zenMode.centerLayout`.
 
-### Centered Editor Layout
+### Centered editor layout
 
 Centered editor layout allows you to center the editor area. This is particularly useful when working with a single editor on a large monitor. You can use the sashes on the side to resize the view (hold down the `Alt` key to independently move the sashes).
 
@@ -213,7 +213,7 @@ When you open a file, a new Tab is added for that file.
 
 Tabs let you quickly navigate between items and you can Drag and Drop Tabs to reorder them.
 
-When you have more open items than can fit in the title area, you can use the **Show Opened Editors** command (available through the `...` More button) to display a dropdown of tabbed items.
+When you have more open items than can fit in the title area, you can use the **Show Opened Editors** command (available through the `...` More button) to display a drop-down list of tabbed items.
 
 If you don't want to use Tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/getstarted/settings.md) to false:
 
@@ -282,7 +282,7 @@ There are many keyboard commands for adjusting the editor layout with the keyboa
 
 ![Grid Alt Click](images/userinterface/grid-alt.gif)
 
-### Keyboard Shortcuts
+### Keyboard shortcuts
 
 Here are some handy keyboard shortcuts to quickly navigate between editors and editor groups.
 
@@ -336,7 +336,7 @@ Windows/Linux:
 { "key": "ctrl+w", "command": "workbench.action.closeEditorsInGroup" }
 ```
 
-## Window Management
+## Window management
 
 VS Code has some options to control how windows (instances) should be opened or restored between sessions.
 
@@ -349,13 +349,13 @@ Note: There can still be cases where this setting is ignored (for example, when 
 The `window.restoreWindows` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will
 reopen the last opened window you worked on (setting: `one`). Change this setting to `none` to never reopen any windows and always start with an empty VS Code instance. Change it to `all` to restore all windows you worked on during your previous session or `folders` to only restore windows that had folders opened.
 
-## Next Steps
+## Next steps
 
 Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following topics:
 
 * [Changing the Theme](/docs/getstarted/themes.md) - Set a Color and/or File Icon theme to your preference.
 
-## Common Questions
+## Common questions
 
 ### How can I change the color of the indent guides?
 

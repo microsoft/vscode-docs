@@ -107,7 +107,7 @@ You should now see the transpiled `HelloWorld.js` JavaScript file which you can 
 
 ### Step 2: Run the TypeScript build
 
-Execute **Run Build Task...** from the global **Tasks** menu. If you created a `tsconfig.json` file in the earlier section, this should present the following picker:
+Execute **Run Build Task** (`kb(workbench.action.tasks.build)`) from the global **Terminal** menu. If you created a `tsconfig.json` file in the earlier section, this should present the following picker:
 
 ![TypeScript Build](images/typescript/typescript-build.png)
 
@@ -119,7 +119,7 @@ Under the covers, we run the TypeScript compiler as a task. The command we use i
 
 ### Step 3: Make the TypeScript Build the default
 
-You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select TypeScript **tsc: build** which generates the following `tasks.json` file:
+You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Terminal** menu. This shows you a picker with the available build tasks. Select TypeScript **tsc: build** which generates the following `tasks.json` file:
 
 ```ts
 {
@@ -272,19 +272,19 @@ Auto imports requires TypeScript 2.6+ and are enabled by default. You can disabl
 
 The TypeScript references CodeLens displays an inline count of reference for classes, interfaces, methods, properties, and exported objects:
 
-![TypeScript references code lens](images/typescript/ts-references-code-lens.png)
+![TypeScript references CodeLens](images/typescript/ts-references-code-lens.png)
 
 You can enable this by setting `"typescript.referencesCodeLens.enabled": true` in the User Settings file.
 
 Click on the reference count to quickly browse a list of references:
 
-![TypeScript references code lens peek](images/typescript/ts-references-code-lens-peek.png)
+![TypeScript references CodeLens peek](images/typescript/ts-references-code-lens-peek.png)
 
 ## Implementations CodeLens
 
 The TypeScript implementations CodeLens displays the number of implementors of an interface:
 
-![TypeScript implementations code lens](images/typescript/ts-implementations-code-lens.png)
+![TypeScript implementations CodeLens](images/typescript/ts-implementations-code-lens.png)
 
 You can enable this by setting `"typescript.implementationsCodeLens.enabled": true`.
 
@@ -298,7 +298,7 @@ VS Code provides many features for TypeScript out of the box. In addition to wha
 
 > Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
-## Next Steps
+## Next steps
 
 OK, read on to find out about:
 
@@ -308,7 +308,7 @@ OK, read on to find out about:
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Debugging](/docs/editor/debugging.md) - we support debugging TypeScript Node.js apps
 
-## Common Questions
+## Common questions
 
 ### How do I resolve a TypeScript "Cannot compile external module" error?
 

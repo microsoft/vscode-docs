@@ -87,6 +87,38 @@ On first use of the **Python: Run Selection/Line in Python Terminal** command, V
 
 > **Note**: At present, using `kbstyle(Shift+Enter)` keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
 
+## Jupyter code cells
+
+[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open source project that lets you easily combine Markdown text and executable Python source code on one canvas. If you're using an Anaconda environment or any other environment in which the [Jupyter package](https://pypi.org/project/jupyter/) is installed, you can define  Jupyter-like code cells within Python code using a `#%%` comment:
+
+```python
+#%%
+msg = "Hello World"
+print(msg)
+```
+
+When the Python extension detects a code cell, it adds a **Run Cell** or **Run All Cells** CodeLens above the comment:
+
+![Jupyter adornments for code cells in the VS Code editor](images/editing/code-cells-01.png)
+
+Selecting either command starts Jupyter (if necessary, which might take a minute), then runs the cell(s) in the Python interactive window.
+
+![Code cells running in a Python Interactive window](images/editing/code-cells-02.png)
+
+You can also run code cells using the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `#%%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
+
+### Open Jupyter notebooks
+
+You can also open a Jupyter notebook file (`.ipynb`) in VS Code, and the Python extension prompts you to import the notebook as a Python code file.
+
+![Prompt to import a Jupyter notebook file](images/editing/jupyter-prompt.png)
+
+In you choose **Import**, the notebook's cells are delimited in the Python file with `#%%` comments; Markdown cells are converted wholly to comments preceded with `#%% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
+
+![Jupyter notebook running in VS Code and the Python interactive window](images/editing/jupyter-notebook.png)
+
+If you open the file without importing, it appears as plain text.
+
 ## Formatting
 
 The Python extension supports source code formatting using either [autopep8](https://pypi.org/project/autopep8/) (the default), [black](https://github.com/ambv/black), or [yapf](https://yapf.now.sh/).

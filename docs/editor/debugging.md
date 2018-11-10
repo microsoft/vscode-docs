@@ -18,7 +18,7 @@ One of the key features of Visual Studio Code is its great debugging support. VS
 
 VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript.
 
-For debugging other languages and runtimes (including [PHP](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug), [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby), [Go](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go), [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), [Powershell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) and [many others](https://marketplace.visualstudio.com/search?term=debug&target=VSCode&category=Debuggers&sortBy=Relevance)), look for `Debuggers` [extensions](/docs/editor/extension-gallery.md) in our VS Code [Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or click on **Install Additional Debuggers...** in the top level Debug menu.
+For debugging other languages and runtimes (including [PHP](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug), [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby), [Go](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go), [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), [Powershell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) and [many others](https://marketplace.visualstudio.com/search?term=debug&target=VSCode&category=Debuggers&sortBy=Relevance)), look for `Debuggers` [extensions](/docs/editor/extension-gallery.md) in our VS Code [Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or click on **Install Additional Debuggers** in the top level Debug menu.
 
 Below are several popular extensions which include debugging support:
 
@@ -106,13 +106,13 @@ To add a new configuration to an existing `launch.json`, use one of the followin
 
 * Use IntelliSense if your cursor is located inside the configurations array.
 * Press the **Add Configuration** button to invoke snippet IntelliSense at the start of the array.
-* Choose **Add Configuration...** option in the Debug dropdown.
+* Choose **Add Configuration** option in the Debug menu.
 
 ![launch json suggestions](images/debugging/add-config.gif)
 
 VS Code also supports compound launch configurations for starting multiple configurations at the same time, for more details please read this [section](#compound-launch-configurations).
 
-In order to start a debug session first select the configuration named **Launch Program** using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
+In order to start a debug session, first select the configuration named **Launch Program** using the **Configuration drop-down** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
 
 Alternatively you can run your configuration through the **Command Palette** (`kb(workbench.action.showCommands)`), by filtering on **Debug: Select and Start Debugging** or typing `'debug '`, and selecting the configuration you want to debug.
 
@@ -191,7 +191,7 @@ The following attributes are mandatory for every launch configuration:
 
 * `type` - the type of debugger to use for this launch configuration. Every installed debug extension introduces a type, for example, `node` for the built-in node debugger, or `php` and `go` for the PHP and Go extensions.
 * `request` - the request type of this launch configuration. Currently supported are `launch` and `attach`.
-* `name` - friendly name which appears in the Debug launch configuration dropdown.
+* `name` - friendly name which appears in the Debug launch configuration drop-down.
 
 Here are some optional attributes available to all launch configurations:
 
@@ -297,7 +297,7 @@ A powerful VS Code debugging feature is the ability to set conditions based on e
 - **Expression condition**: The breakpoint will be hit whenever the expression evaluates to `true`.
 - **Hit count**: The 'hit count' controls how many times a breakpoint needs to be hit before it will 'break' execution. Whether a 'hit count' is respected and how the exact syntax of the expression looks like depends on the debugger extension used.
 
-You can add a condition and/or hit count either when creating the breakpoint with the **Add Conditional Breakpoint** action or with the **Edit Breakpoint...** action for existing breakpoints. In both cases an inline text box with a drop down menu opens where the expressions can be entered:
+You can add a condition and/or hit count either when creating the breakpoint with the **Add Conditional Breakpoint** action or with the **Edit Breakpoint** action for existing breakpoints. In both cases an inline text box with a drop down menu opens where the expressions can be entered:
 
 ![HitCount](images/debugging/hitCount.gif)
 
@@ -332,7 +332,7 @@ For debugging complex scenarios involving more than one process (for example, a 
 Using multi-target debugging is simple: after you've started a first debug session, you can just launch another session. As soon as a second session is up and running, the VS Code UI switches to _multi-target mode_:
 
 - The individual sessions now show up as top level elements in the **CALL STACK** view.<BR>![Callstack View](images/debugging/debug-callstack.png)
-- The debug toolbar shows the currently _active session_ (and all other sessions are available in a dropdown menu).<BR>![Debug Actions Widget](images/debugging/debug-actions-widget.png)
+- The debug toolbar shows the currently **active session** (and all other sessions are available in a drop-down menu).<BR>![Debug Actions Widget](images/debugging/debug-actions-widget.png)
 - Debug actions (for example, all actions in the debug toolbar) are performed on the active session. The active session can be changed either by using the drop down menu in the debug toolbar or by selecting a different element in the **CALL STACK** view.
 
 ### Compound launch configurations
@@ -373,7 +373,7 @@ VS Code does not support 'remote debugging' by itself. Remote debugging is a fea
 
 There is however one exception, VS Code ships with a Node.js debugger which supports remote debugging. See the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) topic to learn how to configure remote debugging.
 
-## Next Steps
+## Next steps
 
 To learn about VS Code's Node.js debugging support, take a look at:
 
@@ -392,7 +392,7 @@ To write your own debugger extension, visit:
 
 * [Debuggers](/docs/extensions/example-debuggers.md) - Steps to create a VS Code debug extension starting from a mock sample
 
-## Common Questions
+## Common questions
 
 ### What are the supported debugging scenarios?
 

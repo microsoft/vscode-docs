@@ -100,7 +100,7 @@ To install an Add-in within an Office application, select the **Insert** tab and
 
 Using the Office Add-ins dialog you can select Add-ins you've uploaded to your Office 365 tenancy's App Catalog (*listed under My Organization*) or acquire Add-ins from the Office Store.
 
-## Next Steps
+## Next steps
 
 Check out the other pages on the VS Code site to find out how you can leverage more capabilities of the editor when creating custom Office Add-ins:
 
@@ -108,7 +108,7 @@ Check out the other pages on the VS Code site to find out how you can leverage m
 - [User Interface](/docs/getstarted/userinterface.md) - Just starting out with VS Code? This is worth reviewing.
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 
-## Common Questions
+## Common questions
 
 ### Can I create an Office Add-in with the generator and use VS Code regardless of the language or client-side framework?
 

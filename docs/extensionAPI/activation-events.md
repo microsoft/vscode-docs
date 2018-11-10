@@ -166,7 +166,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 > **Note:** An extension **must** export an `activate()` function from its main module and it will be invoked **only once** by VS Code when any of the specified activation events is emitted. Also, an extension **should** export a `deactivate()` function from its main module to perform cleanup tasks on VS Code shutdown. Extension **must** return a Promise from `deactivate()` if the cleanup process is asynchronous. An extension may return `undefined` from `deactivate()` if the cleanup runs synchronously.
 
-## Next Steps
+## Next steps
 
 To learn more about VS Code extensibility model, try these topic:
 
