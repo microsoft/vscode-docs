@@ -30,11 +30,11 @@ In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy yo
 
 5. Choose the directory that you currently have open, `myExpressApp`.
 
-  Click **Yes** when prompted to updated your configuration to run `npm install` on the target server. Your app is then deployed.
+  Click **Yes** when prompted to update your configuration to run `npm install` on the target server. Your app is then deployed.
 
   ![Configured deployment](images/app-service-extension/server-build.png)
 
-Once the deployment starts, you're prompted to updated your workspace so that all subsequent deploys automatically target the same App Service Web App. Choose **Yes** to ensure your changes are deployed to the correct app.
+Once the deployment starts, you're prompted to update your workspace so that all subsequent deploys automatically target the same App Service Web App. Choose **Yes** to ensure your changes are deployed to the correct app.
 
 ![Configured deployment](images/app-service-extension/save-configuration.png)
 

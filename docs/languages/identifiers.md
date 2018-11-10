@@ -3,7 +3,7 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
@@ -81,6 +81,7 @@ HTML | `html`
 Ini | `ini`
 Java | `java`
 JavaScript | `javascript`
+JavaScript React | `javascriptreact`
 JSON | `json`
 JSON with Comments | `jsonc`
 LaTeX | `latex`
@@ -99,12 +100,13 @@ R | `r`
 Razor (cshtml) | `razor`
 Ruby | `ruby`
 Rust | `rust`
-Sass | `scss` (syntax using curly brackets), `sass` (indented syntax)
+SCSS | `scss` (syntax using curly brackets), `sass` (indented syntax)
 ShaderLab | `shaderlab`
 Shell Script (Bash) | `shellscript`
 SQL | `sql`
 Swift | `swift`
 TypeScript | `typescript`
+TypeScript React | `typescriptreact`
 TeX | `tex`
 Visual Basic | `vb`
 XML | `xml`

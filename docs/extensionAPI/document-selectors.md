@@ -3,8 +3,8 @@ Order: 7
 Area: extensionapi
 TOCTitle: Document Selectors
 ContentId: f328d7e0-8982-4510-b7fb-975188eca502
-PageTitle: Using Document Selectors
-DateApproved: 8/12/2018
+PageTitle: Using Visual Studio Code Document Selectors
+DateApproved: 10/4/2018
 MetaDescription: Extensions can filter their feature based on Document Selectors by language, file type and location.
 ---
 # Document Selectors
@@ -79,7 +79,7 @@ vscode.languages.registerHoverProvider({ scheme: 'file', language: 'typescript' 
 
 Documents are usually stored on the file system, but not always: there are untitled documents, cached documents that Git uses, documents from remote sources like FTP, and so forth. If your feature relies on disk access, make sure to use a document selector with the `file` scheme.
 
-## Next Steps
+## Next steps
 
 To learn more about VS Code extensibility model, try these topic:
 

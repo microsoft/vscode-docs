@@ -3,9 +3,9 @@ Order: 2
 Area: getstarted
 TOCTitle: Intro Videos
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
-PageTitle: Intro Videos Overview
-DateApproved: 8/12/2018
-MetaDescription: Overview of VS Code's introductory videos.
+PageTitle: Visual Studio Code Introductory Videos
+DateApproved: 10/4/2018
+MetaDescription: Overview of Visual Studio Code's introductory videos.
 MetaSocialImage: images/introvideos/opengraph_introvideos.png
 ---
 # Introductory Videos
@@ -71,7 +71,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 			<div class="info">
 				<h2 class="title faux-h3">Debugging</h2>
 				<p class="description">Getting started with Node.js debugging in VS Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>8<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -81,7 +81,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 			<div class="info">
 				<h2 class="title faux-h3">Version Control</h2>
 				<p class="description">Learn how to use Git version control in VS Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>

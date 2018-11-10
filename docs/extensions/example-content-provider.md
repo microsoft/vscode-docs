@@ -169,7 +169,7 @@ as well as the `"contributes"` section:
 
 Press `kb(workbench.action.debug.start)` to rebuild and test your updated extension. If you have created an `index.html` file in a `resources` subfolder, you'll see the content displayed when you run the **Open Content Provider** command.
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 

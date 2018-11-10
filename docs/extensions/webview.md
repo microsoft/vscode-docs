@@ -1,10 +1,10 @@
 ---
-Order: 8
+Order: 9
 Area: extensions
 TOCTitle: Webview API
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-PageTitle: Using the Visual Studio Webview API
-DateApproved: 8/12/2018
+PageTitle: Using the Visual Studio Code Webview API
+DateApproved: 10/4/2018
 MetaDescription: Using the Webview Api to create fully customizable views within Visual Studio Code
 ---
 # VS Code Webview API
@@ -335,7 +335,7 @@ The **Developer: Open Webview Developer Tools** VS Code command lets you debug w
 
 The contents of the webview are within an iframe inside the webview document. You can use Developer Tools to inspect and modify the webview's DOM, and debug scripts running within the webview itself.
 
-If you use use the webview Developer Tools console, make sure to select the **active frame** environment from the dropdown in the top left corner of the Console panel:
+If you use the webview Developer Tools console, make sure to select the **active frame** environment from the drop-down in the top left corner of the Console panel:
 
 ![Selecting the active frame](images/webview/debug-active-frame.png)
 
@@ -360,7 +360,7 @@ export function activate(context: vscode.ExtensionContext) {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, { });
 
         // Get path to resource on disk
-        const onDiskPath = vscode.Uri.file(path.join(extensionPath, 'media', 'cat.gif'));
+        const onDiskPath = vscode.Uri.file(path.join(context.extensionPath, 'media', 'cat.gif'));
 
         // And get the special URI to use with the webview
         const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
@@ -398,11 +398,11 @@ export function activate(context: vscode.ExtensionContext) {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, {
             // Only allow the webview to access resources in our extension's media directory
             localResourceRoots: [
-                vscode.Uri.file(path.join(extensionPath, 'media'))
+                vscode.Uri.file(path.join(context.extensionPath, 'media'))
             ]
         });
 
-        const onDiskPath = vscode.Uri.file(path.join(extensionPath, 'media', 'cat.gif'));
+        const onDiskPath = vscode.Uri.file(path.join(context.extensionPath, 'media', 'cat.gif'));
         const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
 
         panel.webview.html = getWebviewContent(catGifSrc);
@@ -440,13 +440,15 @@ body.vscode-high-contrast {
 
 When developing a webview application, make sure that it works for the three types of themes. And always test your webview in high-contrast mode to make sure it will be usable by people with visual disabilities.
 
-Webviews can also access VS Code theme colors using [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables). These variable names are prefixed with `vscode` and replace the `.` with `-`. For example `editor.foreground` becomes `var(--vscode-editor-foreground)`:
+Webviews can also access VS Code theme colors using [CSS variables](https://developer.mozilla.org/docs/Web/CSS/Using_CSS_variables). These variable names are prefixed with `vscode` and replace the `.` with `-`. For example `editor.foreground` becomes `var(--vscode-editor-foreground)`:
 
 ```css
 code {
     color: var(--vscode-editor-foreground);
 }
 ```
+
+Review the [Theme Color Reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference) for the available variables.
 
 ## Scripts and message passing
 
@@ -816,13 +818,13 @@ function getWebviewContent() {
 }
 ```
 
-![persistance retrain](images/webview/persistence-retrain.gif)
+![persistence retrain](images/webview/persistence-retrain.gif)
 
 Notice how the counter does not reset now when the webview is hidden and then restored. No extra code required! With `retainContextWhenHidden`, the webview acts similarly to a background tab in a web browser. Scripts and other dynamic content are suspended, but immediately resumed once the webview becomes visible again. You cannot send messages to a hidden webview, even when `retainContextWhenHidden` is enabled.
 
 Although `retainContextWhenHidden` may be appealing, keep in mind that this has high memory overhead and should only be used when other persistence techniques will not work.
 
-## Next Steps
+## Next steps
 
 If you'd like to learn more about VS Code extensibility, try these topics:
 

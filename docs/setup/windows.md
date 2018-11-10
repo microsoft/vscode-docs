@@ -4,10 +4,10 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
-# Running VS Code on Windows
+# Visual Studio Code on Windows
 
 ## Installation
 
@@ -15,7 +15,7 @@ MetaDescription: Get Visual Studio Code up and running on Windows
 2. Once it is downloaded, run the installer (VSCodeUserSetup-{version}.exe). This will only take a minute.
 3. By default, VS Code is installed under `C:\users\{username}\AppData\Local\Programs\Microsoft VS Code`.
 
-You can also find a Zip archive [here](/docs/?dv=winzip).
+Alternatively, you can also download a [Zip archive](/docs/?dv=winzip), extract it and run Code from there.
 
 >**Note:** .NET Framework 4.5.2 or higher is required for VS Code.  If you are using Windows 7, make sure you have at least [.NET Framework 4.5.2](https://www.microsoft.com/download/details.aspx?id=42643) installed.
 
@@ -23,21 +23,24 @@ You can also find a Zip archive [here](/docs/?dv=winzip).
 
 ## 32 bit versions
 
-If you need to run a 32 bit version of VS Code, both an 32 bit [Installer](https://go.microsoft.com/fwlink/?LinkId=723965) and [Zip archive](https://go.microsoft.com/fwlink/?LinkID=733265) are available.
+If you need to run a 32 bit version of VS Code, both a 32 bit [Installer](https://go.microsoft.com/fwlink/?LinkId=723965) and [Zip archive](https://go.microsoft.com/fwlink/?LinkID=733265) are available.
 
 ## Updates
 
-VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will be installed (you won't need to do anything else to get the latest bits). If you'd rather control VS Code updates manually, see [How do I opt out of auto-updates](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates).
+VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will be installed (you won't need to do anything else to get the latest bits).
 
-## Next Steps
+>Note: You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
+
+## Next steps
 
 Once you have installed VS Code, these topics will help you learn more about VS Code:
 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.
+* [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Lets you jump right in and learn how to be productive with VS Code.
 
-## Common Questions
+## Common questions
 
 ### What command line arguments are supported by the Windows Setup?
 

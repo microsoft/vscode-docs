@@ -3,9 +3,9 @@ Order: 5
 Area: java
 TOCTitle: Java with Kubernetes
 ContentId: d0ece2e4-8dd2-4c0d-a773-604542651c9e
-PageTitle: Java with Kubernetes in VS Code
+PageTitle: Java with Kubernetes in Visual Studio Code
 DateApproved: 5/30/2018
-MetaDescription:
+MetaDescription: Java with Kubernetes in Visual Studio Code
 ---
 # Java with Kubernetes in VS Code
 
@@ -18,6 +18,9 @@ We will continue using the same Spring Boot application we built in our first [J
 In addition to the Java tools you needed to install for the [Java Tutorial](/docs/java/java-tutorial.md), you would also need to have tools for [Docker](https://docker.com/) and [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/). See the [Install Docker](https://docs.docker.com/install/) documentation for details on setting Docker up for your machine and [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/). Before proceeding further, verify you can run Docker and kubectl commands from the shell.
 
 You can create a local Kubernetes cluster with [minikube](https://kubernetes.io/docs/getting-started-guides/minikube/) or an Azure Kubernetes cluster in [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/). In this tutorial, we will use [Azure Container Service(AKS)](https://docs.microsoft.com/azure/aks/) and you will need to have your [Azure](https://www.azure.com) account ready for the deployment steps.
+
+In addition if you want to iteratively run and debug containers directly in Azure Kubernetes Service (AKS), you could install
+[Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds).
 
 ## Install the Kubernetes extension
 
@@ -73,3 +76,4 @@ Congratulations! Now your app is successfully running in Azure Kubernetes Servic
 
 * To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md)
 * To learn more about Java on Azure, check out [Azure for Java developers](https://docs.microsoft.com/java/azure/)
+* To learn more about Java in Azure Dev Spaces, check out [Azure Dev Spaces for Java developers](https://docs.microsoft.com/azure/dev-spaces/quickstart-java)

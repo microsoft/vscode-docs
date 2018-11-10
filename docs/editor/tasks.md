@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -49,13 +49,13 @@ class Startup {
 Startup.main();
 ```
 
-Pressing `kb(workbench.action.tasks.build)` or running **Run Build Task...** from the global **Tasks** menu show the following picker:
+Pressing `kb(workbench.action.tasks.build)` or running **Run Build Task** from the global **Terminal** menu show the following picker:
 
 ![TypeScript Build Task](images/tasks/typescript-build.png)
 
 The first entry executes the TypeScript compiler and translates the TypeScript file to a JavaScript file. When the compiler has finished, there should be a `HelloWorld.js` file. The second entry starts the TypeScript compiler in watch mode. Every save to the `HelloWorld.ts` file will regenerate the `HelloWorld.js` file.
 
-You can also define the TypeScript build or watch task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select **tsc: build** or **tsc: watch** and VS Code will generate a `tasks.json` file. The one shown below make the **tsc: build** task the default build task:
+You can also define the TypeScript build or watch task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Terminal** menu. This shows you a picker with the available build tasks. Select **tsc: build** or **tsc: watch** and VS Code will generate a `tasks.json` file. The one shown below make the **tsc: build** task the default build task:
 
 ```json
 {
@@ -135,7 +135,7 @@ Task auto detection can be disabled using the following settings:
 
 ## Custom tasks
 
-Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Tasks** menu and select the **Create tasks.json file from template** entry. This opens the following picker:
+Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Terminal** menu and select the **Create tasks.json file from template** entry. This opens the following picker:
 
 ![Configure Task Runner](images/tasks/configure-task-runner.png)
 
@@ -178,7 +178,7 @@ The task's properties have the following semantic:
 
 To see the full set of task properties and values, you can review the [tasks.json schema](/docs/editor/tasks-appendix.md).
 
-Shell commands need special treatment when it comes to commands and arguments that contains spaces or other special characters like `$`. By default the task system support the following behaviour:
+Shell commands need special treatment when it comes to commands and arguments that contains spaces or other special characters like `$`. By default the task system support the following behavior:
 
 * if a single command is provided the task system passes the command as is to the underlying shell. If the command needs quoting or escaping to function properly the command need to contain the proper quotes or escape characters. For example to list the directory of a folder containing spaces in its name the command executed in bash should look like this: `ls 'folder with spaces'`.
 ```json
@@ -269,7 +269,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
 
 - **reveal**: Controls whether the Integrated Terminal panel is brought to front. Valid values are:
   - *always* - The panel is always brought to front. This is the default.
-  - *never* - The user must explicitly bring the terminal panel to the front using the  **View** > **Integrated Terminal** command (`kb(workbench.action.terminal.toggleTerminal)`).
+  - *never* - The user must explicitly bring the terminal panel to the front using the  **View** > **Terminal** command (`kb(workbench.action.terminal.toggleTerminal)`).
   - *silent* - The terminal panel is brought to front only if the output is not scanned for errors and warnings.
 - **focus**: Controls whether the terminal is taking input focus or not. Default is `false`.
 - **echo**: Controls whether the executed command is echoed in the terminal. Default is `true`.
@@ -367,7 +367,7 @@ gulp.task('default', ['lint'], function () {
 });
 ```
 
-Executing **Run Task** from the global **Tasks** menu will show the following picker:
+Executing **Run Task** from the global **Terminal** menu will show the following picker:
 
 ![Configure Task](images/tasks/configure-tasks.png)
 
@@ -543,7 +543,7 @@ The Markdown topic provides two examples for compiling Markdown to HTML:
 1. [Manually compiling with a Build task](/docs/languages/markdown.md#compiling-markdown-into-html)
 2. [Automating the compile step with a file watcher](/docs/languages/markdown.md#automating-markdown-compilation)
 
-### Transpiling Less and Sass into CSS
+### Transpiling Less and SCSS into CSS
 
 The CSS topic provides examples of how to use Tasks to generate CSS files.
 
@@ -791,7 +791,7 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 
 ## Convert from "0.1.0" to "2.0.0"
 
-**Note**: If you have created a workspace that consists of multiple folders ([Multi-root Workspace](/docs/editor/multi-root-workspaces.md)), only version `2.0.0` tasks are detected and shown in the **Tasks** > **Run Task...** picker.
+**Note**: If you have created a workspace that consists of multiple folders ([Multi-root Workspace](/docs/editor/multi-root-workspaces.md)), only version `2.0.0` tasks are detected and shown in the **Terminal** > **Run Task** picker.
 
 ### Try running without tasks.json
 
@@ -883,7 +883,7 @@ A corresponding `2.0.0` configuration would look like this:
 
 If you want to use a `0.1.0` version of the `tasks.json` file with the new terminal runner, you can add the `runner` property to the `tasks.json` file: `"runner": "terminal"`.
 
-## Next Steps
+## Next steps
 
 That was tasks - let's keep going...
 
@@ -893,7 +893,7 @@ That was tasks - let's keep going...
 * [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with VS Code and through community extensions.
 * [Debugging](/docs/editor/debugging.md) - Debug your source code directly in the VS Code editor.
 
-## Common Questions
+## Common questions
 
 ### Can a task use a different shell than the one specified for the Integrated Terminal?
 

@@ -3,13 +3,13 @@ Order: 9
 Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
-PageTitle: Java in VS Code
+PageTitle: Java in Visual Studio Code
 DateApproved: 3/7/2018
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
-# Java in VS Code
+# Java in Visual Studio Code
 
-The Java support in VS Code is provided through [extensions](/docs/editor/extension-gallery.md) and optimized for lightweight Java projects with a simple, modern workflow. Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide essential language features such as project support, code completion, linting, debugging, testing, code formatting, snippets, as well as tooling integration including Maven and Tomcat.
+The Java support in Visual Studio Code is provided through [extensions](/docs/editor/extension-gallery.md) and optimized for lightweight Java projects with a simple, modern workflow. Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide essential language features such as project support, code completion, linting, debugging, testing, code formatting, snippets, as well as tooling integration including Maven and Tomcat.
 
 > [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, macOS, Linux).
 
@@ -24,7 +24,7 @@ VS Code is a fast editor and ships with great editing features. Add Java languag
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-There're also other popular Java extensions you can pick for your own needs, including:
+There are also other popular Java extensions you can pick for your own needs, including:
 
 1. [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
@@ -54,9 +54,9 @@ With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjav
 
 A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) provides this feature to report parsing and compilation errors as you type, so you can fix them inside VS Code.
 
-### Intellisense
+### IntelliSense
 
-VS Code also supports code completion and Intellisense for Java through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). [Intellisense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
+VS Code also supports code completion and IntelliSense for Java through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). [IntelliSense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
 
 ### Search for symbols
 
@@ -83,7 +83,7 @@ Other code editing features include:
 - Code formatting
 - Code snippets
 - Code outline
-- Code lens (references)
+- CodeLens (references)
 - Javadoc hovers
 - Rename
 - Highlights
@@ -141,7 +141,7 @@ See [Java Tutorial with VS Code](/docs/java/java-tutorial.md) to learn more abou
 
 See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more about Spring Boot support with VS Code.
 
-## Next Steps
+## Next steps
 
 Learn more about Java in VS Code
 

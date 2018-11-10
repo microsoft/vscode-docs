@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/Languages_typescript.png
 ---
@@ -45,7 +45,7 @@ VS Code's TypeScript support can operate in two different modes:
 
 ## tsconfig.json
 
-Typically the first step in any new TypeScript project is to add in a `tsconfig.json` file.  This defines the TypeScript [project settings](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) such as the compiler options and the files that should be included. To do this, open up the folder where you want to store your source and add in a new file named `tsconfig.json`.  Once in this file, IntelliSense (`kb(editor.action.triggerSuggest)`) will help you along the way.
+Typically the first step in any new TypeScript project is to add in a `tsconfig.json` file. This defines the TypeScript [project settings](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) such as the compiler options and the files that should be included. To do this, open up the folder where you want to store your source and add in a new file named `tsconfig.json`. Once in this file, IntelliSense (`kb(editor.action.triggerSuggest)`) will help you along the way.
 
 ![jsconfig.json IntelliSense](images/typescript/jsconfigintellisense.png)
 
@@ -80,7 +80,7 @@ You can disable this behavior by setting: `"typescript.reportStyleChecksAsWarnin
 
 ## Transpiling TypeScript into JavaScript
 
-VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md).  We can use this to transpile `.ts` files into `.js` files.  Another benefit of using VS Code tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editor/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
+VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md). We can use this to transpile `.ts` files into `.js` files. Another benefit of using VS Code tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editor/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
 
 >**Tip:** If you don't have the TypeScript compiler installed, you can [get it here](https://www.typescriptlang.org/).
 
@@ -107,7 +107,7 @@ You should now see the transpiled `HelloWorld.js` JavaScript file which you can 
 
 ### Step 2: Run the TypeScript build
 
-Execute **Run Build Task...** from the global **Tasks** menu. If you created a `tsconfig.json` file in the earlier section, this should present the following picker:
+Execute **Run Build Task** (`kb(workbench.action.tasks.build)`) from the global **Terminal** menu. If you created a `tsconfig.json` file in the earlier section, this should present the following picker:
 
 ![TypeScript Build](images/typescript/typescript-build.png)
 
@@ -119,7 +119,7 @@ Under the covers, we run the TypeScript compiler as a task. The command we use i
 
 ### Step 3: Make the TypeScript Build the default
 
-You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select TypeScript **tsc: build** which generates the following `tasks.json` file:
+You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Terminal** menu. This shows you a picker with the available build tasks. Select TypeScript **tsc: build** which generates the following `tasks.json` file:
 
 ```ts
 {
@@ -148,7 +148,7 @@ The example TypeScript file did not have any compile problems, so by running the
 
 ### Step 4: Reviewing build issues
 
-Unfortunately, most builds don't go that smoothly and the result is often some additional information.  For instance, if there was a simple error in our TypeScript file, we may get the following output from `tsc`:
+Unfortunately, most builds don't go that smoothly and the result is often some additional information. For instance, if there was a simple error in our TypeScript file, we may get the following output from `tsc`:
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
@@ -197,7 +197,7 @@ If generated (transpiled) JavaScript files do not live next to their source, you
 
 When you are working with TypeScript, you often don’t want to see generated JavaScript files in the explorer or in search results. VS Code offers filtering capabilities with a `files.exclude` [workspace setting](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings**) and you can easily create an expression to hide those derived files:
 
-`"**/*.js": { "when": "$(basename).ts"}`
+`"**/*.js": { "when": "$(basename).ts" }`
 
 This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling TypeScript file with the same name is present. The file explorer will no longer show derived resources for JavaScript if they are compiled to the same location.
 
@@ -272,19 +272,19 @@ Auto imports requires TypeScript 2.6+ and are enabled by default. You can disabl
 
 The TypeScript references CodeLens displays an inline count of reference for classes, interfaces, methods, properties, and exported objects:
 
-![TypeScript references code lens](images/typescript/ts-references-code-lens.png)
+![TypeScript references CodeLens](images/typescript/ts-references-code-lens.png)
 
 You can enable this by setting `"typescript.referencesCodeLens.enabled": true` in the User Settings file.
 
 Click on the reference count to quickly browse a list of references:
 
-![TypeScript references code lens peek](images/typescript/ts-references-code-lens-peek.png)
+![TypeScript references CodeLens peek](images/typescript/ts-references-code-lens-peek.png)
 
 ## Implementations CodeLens
 
 The TypeScript implementations CodeLens displays the number of implementors of an interface:
 
-![TypeScript implementations code lens](images/typescript/ts-implementations-code-lens.png)
+![TypeScript implementations CodeLens](images/typescript/ts-implementations-code-lens.png)
 
 You can enable this by setting `"typescript.implementationsCodeLens.enabled": true`.
 
@@ -298,7 +298,7 @@ VS Code provides many features for TypeScript out of the box. In addition to wha
 
 > Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
-## Next Steps
+## Next steps
 
 OK, read on to find out about:
 
@@ -308,7 +308,7 @@ OK, read on to find out about:
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Debugging](/docs/editor/debugging.md) - we support debugging TypeScript Node.js apps
 
-## Common Questions
+## Common questions
 
 ### How do I resolve a TypeScript "Cannot compile external module" error?
 

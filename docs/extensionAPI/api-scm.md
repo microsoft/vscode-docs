@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Source Control API
 ContentId: 79996489-8D16-4C0A-8BE8-FF4B1E9C223A
 PageTitle: Visual Studio Code Source Control API
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) Source Control API.
 ---
 # Source Control in VS Code
@@ -103,7 +103,7 @@ export interface SourceControlResourceState {
 
 There are five Source Control menu ids where you can place menu items, in order to provide the user with a much richer user interface.
 
-The `scm/title` menu is located to the right of the SCM view title. The menu items in the `navigation` group will be inline, while all the others will be within the `…` dropdown.
+The `scm/title` menu is located to the right of the SCM view title. The menu items in the `navigation` group will be inline, while all the others will be within the `…` drop-down menu.
 
 The `scm/resourceGroup/context` and `scm/resourceState/context` are similar. The former will let you customize resource groups, while the later refers to resource states. Place menu items in the `inline` group to have them inline. All other menu item groups will be represented in a context menu usually accessible using the mouse right-click. Commands called from within these menus will have the respective resource states on passed as arguments. Note that the SCM view supports multiple selection thus a command might receive more than one resource at a time in its arguments.
 
@@ -175,7 +175,7 @@ Using a `QuickDiffProvider`, your implementation is able to tell VS Code what's 
 
 You can combine this API with the [`registerTextDocumentContentProvider` method in the `workspace` namespace](/docs/extensionAPI/vscode-api.md#workspace), which lets you provide contents for arbitrary resources, given a `Uri`.
 
-## Next Steps
+## Next steps
 
 To learn more about VS Code extensibility model, try these topics:
 

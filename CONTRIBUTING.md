@@ -15,9 +15,16 @@ Thank you for your interest in VS Code documentation!
 * [Topic Metadata](#topic-metadata)
 * [Formatting](#formatting)
 
+>**Note**: Before submitting a pull request, especially for rendering or link issues, please review the content on the official VS Code website, [code.visualstudio.com](https://code.visualstudio.com). The element in question may render correctly after processing by the website build.
+
 ## Contributing
 
 To contribute to [VS Code documentation](https://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
+
+* [How to fork a repository](https://help.github.com/articles/fork-a-repo)
+* [How to make a pull request](https://help.github.com/articles/creating-a-pull-request/)
+* [Changing a commit message](https://help.github.com/articles/changing-a-commit-message/)
+* [How to squash commits](https://help.github.com/articles/about-pull-request-merges/)
 
 ## Documentation intent
 
@@ -52,7 +59,7 @@ Within these folders you'll find the Markdown files used for the content. Each o
 
 ### Branches
 
-We recommend that you create local working branches that target a specific scope of change (and then submit a pull request when your changes are ready). Each branch should be limited to a single concept/topic both to streamline work flow and reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
+We recommend that you create local working branches that target a specific scope of change (and then submit a pull request when your changes are ready). Each branch should be limited to a single concept/topic, both to streamline work flow, and to reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
 
 * A new topic (and associated images).
 * Spelling and grammar edits on a topic.
@@ -62,7 +69,7 @@ We recommend that you create local working branches that target a specific scope
 
 [Visual Studio Code](https://code.visualstudio.com) is a great editor for Markdown!
 
-In fact, VS Code itself is developed using VS Code and the core documentation is authored using VS Code.
+In fact, VS Code and its core documentation are written using VS Code.
 
 ## How to use Markdown to format your topic
 
@@ -125,7 +132,7 @@ Note the subheading title is lowercase and subheading title words are separated 
 
 ### Images
 
-Images are important to bring the product to life - even if people can't try the product these really help them see what they are missing.
+Images are important to bring the product to life - even if people can't try the product, these really help them to see what they are missing.
 
 For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`.
 
@@ -145,9 +152,9 @@ If you are listing out multiple key bindings, you can use a table.
 
 >Shortcut|Key Strokes
 >--------|-----------
->Cut|`kb(editor.action.clipboardCutActionn)`
+>Cut|`kb(editor.action.clipboardCutAction)`
 >Copy|`kb(editor.action.clipboardCopyAction)`
->Paste|`kb(editor.action.clipboardPasteActionn)`
+>Paste|`kb(editor.action.clipboardPasteAction)`
 
 ### Source Code
 

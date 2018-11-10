@@ -47,7 +47,7 @@ Once the extension is installed, log into your Azure account - in the Activity B
 
 Before we continue, ensure that you have all the prerequisites installed and configured.
 
-- Log in to [Azure Portal](https://portal.azure.com) to make sure you Azure Account is working.
+- Log in to [Azure Portal](https://portal.azure.com) to make sure your Azure Account is working.
 - From a terminal, execute:
 
 ```bash

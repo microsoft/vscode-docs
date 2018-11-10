@@ -3,14 +3,14 @@ Order: 2
 Area: nodejs
 TOCTitle: Node.js Tutorial
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
-PageTitle: Build Node.js Apps with VS Code
-DateApproved: 8/12/2018
+PageTitle: Build Node.js Apps with Visual Studio Code
+DateApproved: 10/4/2018
 MetaDescription: The Visual Studio Code editor has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: images/nodejs/runtimes_node.png
 ---
-# Node.js tutorial in VS Code
+# Node.js tutorial in Visual Studio Code
 
-[Node.js](https://nodejs.org/) is a platform for building fast and scalable server applications using JavaScript. Node.js is the runtime and [NPM](https://www.npmjs.com/) is the Package Manager for Node.js modules.
+[Node.js](https://nodejs.org/) is a platform for building fast and scalable server applications using JavaScript. Node.js is the runtime and [npm](https://www.npmjs.com/) is the Package Manager for Node.js modules.
 
 Visual Studio Code has support for the JavaScript and TypeScript languages out-of-the-box as well as Node.js debugging. However, to run a Node.js application, you will need to install the Node.js runtime on your machine.
 
@@ -75,7 +75,7 @@ You should see "Hello World" output to the terminal and then Node.js returns.
 
 VS Code has an [integrated terminal](/docs/editor/integrated-terminal.md) which you can use to run shell commands. You can run Node.js directly from there and avoid switching out of VS Code while running command line tools.
 
-**View** > **Integrated Terminal** (`kb(workbench.action.terminal.toggleTerminal)` with the backtick character) will open the integrated terminal and you can run `node app.js` there:
+**View** > **Terminal** (`kb(workbench.action.terminal.toggleTerminal)` with the backtick character) will open the integrated terminal and you can run `node app.js` there:
 
 ![integrated terminal](images/nodejs/integrated-terminal.png)
 
@@ -103,7 +103,7 @@ Now that you've seen VS Code in action with "Hello World", the next section show
 
 ## An Express application
 
-[Express](https://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold (create) a new Express application using the Express Generator tool. The Express Generator is shipped as an NPM module and installed by using the NPM command line tool `npm`.
+[Express](https://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold (create) a new Express application using the Express Generator tool. The Express Generator is shipped as an npm module and installed by using the npm command line tool `npm`.
 
 >**Tip:** To test that you've got `npm` correctly installed on your computer, type `npm --help` from a terminal and you should see the usage documentation.
 
@@ -121,7 +121,7 @@ We can now scaffold a new Express application called `myExpressApp` by running:
 express myExpressApp
 ```
 
-This creates a new folder called `myExpressApp` with the contents of your application.  To install all of the application's dependencies (again shipped as NPM modules), go to the new folder and execute `npm install`:
+This creates a new folder called `myExpressApp` with the contents of your application.  To install all of the application's dependencies (again shipped as npm modules), go to the new folder and execute `npm install`:
 
 ```bash
 cd myExpressApp
@@ -152,7 +152,7 @@ Now launch VS Code:
 code .
 ```
 
->**Note:** If you've been using the VS Code integrated terminal to install the Express generator and scaffold the app, you can open the `myExpressApp` folder from your running VS Code instance with the **File** > **Open Folder...** command.
+>**Note:** If you've been using the VS Code integrated terminal to install the Express generator and scaffold the app, you can open the `myExpressApp` folder from your running VS Code instance with the **File** > **Open Folder** command.
 
 The [Node.js](https://nodejs.org/api/) and [Express](https://expressjs.com/api.html) documentation does a great job explaining how to build rich applications using the platform and framework. Visual Studio Code will make you more productive developing these types of applications by providing great code editing and navigation experiences.
 
@@ -184,7 +184,7 @@ You will need to create a debugger configuration file `launch.json` for your Exp
 }
 ```
 
-Save the new file and make sure **Launch Program** is selected in the configuration dropdown at the top of the Debug view. Open `app.js` and set a breakpoint near the top of the file where the Express app object is created by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
+Save the new file and make sure **Launch Program** is selected in the configuration drop-down at the top of the Debug view. Open `app.js` and set a breakpoint near the top of the file where the Express app object is created by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
 
 ![Debug session](images/nodejs/debugsession.png)
 
@@ -194,7 +194,7 @@ If you'd like to learn how to deploy your web application, check out the [Deploy
 
 ---
 
-## Next Steps
+## Next steps
 
 There is much more to explore with Visual Studio Code, please try the following topics:
 

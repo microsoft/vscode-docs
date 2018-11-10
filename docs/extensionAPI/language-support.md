@@ -4,13 +4,12 @@ Area: extensionapi
 TOCTitle: Language Extension Guidelines
 ContentId: A9D40038-7837-4320-8C2D-E0CA5769AA69
 PageTitle: Visual Studio Code Language Extension Guidelines
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: Visual Studio Code language extensions contribute new programming language features to VS Code. These guidelines present the language extensibility points and how to implement them.
 ---
 # Language Extension Guidelines
 
-When you hear about a language being supported in VS Code, you usually think first of syntax highlighting, code completion, and if applicable,
-debugging support. This is a good start, but language extensions can do a lot more.
+When you hear about a language being supported in Visual Studio Code, you usually think first of syntax highlighting, code completion, and if applicable, debugging support. This is a good start, but language extensions can do a lot more.
 
 With just configuration files, an extension can support syntax highlighting, snippets, and smart bracket matching. For more advanced language features, you need to extend VS Code through its extensibility [API](/docs/extensionAPI/vscode-api.md) or by providing a [language server](/docs/extensions/example-language-server).
 
@@ -719,7 +718,7 @@ In addition, your language server needs to respond to the `textDocument/codeLens
 #### Direct Implementation
 
 ```typescript
-class GoRCodeLensProvider implements vscode.CodeLensProvider {
+class GoCodeLensProvider implements vscode.CodeLensProvider {
     public provideCodeLenses(document: TextDocument, token: CancellationToken):
         CodeLens[] | Thenable<CodeLens[]> {
     ...

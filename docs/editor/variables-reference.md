@@ -3,9 +3,9 @@ Order:
 Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
-PageTitle: Variables Reference
-DateApproved: 8/12/2018
-MetaDescription: Variable substitution reference
+PageTitle: Visual Studio Code Variables Reference
+DateApproved: 10/4/2018
+MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
 
@@ -79,7 +79,7 @@ By appending the root folder's name to a variable (separated by a colon), it is 
 
 For example, in a multi root workspace with folders `Server` and `Client`, a `${workspaceFolder:Client}` refers to the path of the `Client` root.
 
-## Common Questions
+## Common questions
 
 ### Is variable substitution supported in User and Workspace settings?
 

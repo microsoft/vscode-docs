@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 6
 Area: python
 TOCTitle: Unit Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
@@ -8,11 +8,11 @@ DateApproved: 07/30/2018
 MetaDescription: Unit Testing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
-# Unit tests with Python in VS Code
+# Python unit tests in Visual Studio Code
 
 The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/) and [Nose](https://nose.readthedocs.io/en/latest/). To use either pytest and Nose, they must be installed into the current Python environment (the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
 
-After [enabling a test framework](#enable-a-test-framework), use the **Python: Discover Unit Tests** command to scan the project for tests according to the discovery patterns of the currently selected test framework (see [Test discovery](#test-discovery). Once discovered, VS Code provides a variety of means to run tests (see [Run tests](#run-tests)) and debug tests (see [Debug tests](#debug-tests)). VS Code displays unit test output in the **Python Test Log** panel, including errors caused when a test framework is not installed.
+After [enabling a test framework](#enable-a-test-framework), use the **Python: Discover Unit Tests** command to scan the project for tests according to the discovery patterns of the currently selected test framework (see [Test discovery](#test-discovery). Once discovered, Visual Studio Code provides a variety of means to run tests (see [Run tests](#run-tests)) and debug tests (see [Debug tests](#debug-tests)). VS Code displays unit test output in the **Python Test Log** panel, including errors caused when a test framework is not installed.
 
 > **Tip**: a useful repository containing a variety of unit tests, applied to different sorting algorithms, is [https://github.com/gwtw/py-sorting](https://github.com/gwtw/py-sorting).
 
@@ -22,7 +22,7 @@ For a general background on unit testing, see [Unit Testing](https://wikipedia.o
 
 Python tests are Python classes that are saved in separate files from the code being tested. How you write tests and how you save test files depends on the conventions of the framework you're using. Once you've written tests and have enabled a test framework, VS Code locates those tests and provides you with various commands to run and debug them.
 
-The following steps give you a quick walkthrough of working with test in VS Code. The sections that follow then go into more detail about test discovery, running tests, and debugging tests.
+The following steps give you a quick walkthrough of working with tests in VS Code. The sections that follow then go into more detail about test discovery, running tests, and debugging tests.
 
 1. Enable the unittest framework by adding the following entries to your user (or workspace) settings. We recommend explicitly enabling one framework and disabling the others as shown here:
 
@@ -119,15 +119,9 @@ To enable Nose:
 
 VS Code uses the currently enabled unit testing framework to discover tests. You can trigger test discovery at any time using the **Python: Discover Unit Tests** command.
 
-With unittest, the `"python.unitTest.autoTestDiscoverOnSaveEnabled" : true` setting (true is the default), automatically performs test discovery whenever you save a test file. To disable this feature, set the value to false.
+`python.unitTest.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning test discovery is performed automatically whenever you save a test file. To disable this feature, set the value to `false`.
 
-Test discovery applies the discovery patterns specified in the arguments setting for the current test framework:  `python.unitTest.unittestArgs`, `python.unitTest.pyTestArgs`, or `python.unitTest.nosetestArgs` as described under[Test framework configurations](#test-framework-configurations).
-
-For example, the default arguments for unittest include `-s . -p *test*.py`, which instruct unittest to look recursively, starting with the project folder (`-s .`), for all files with names matching the `*test*.py` pattern (`-p *test*.py`). You can specify a different starting folder after `-s`, and/or a different pattern after `-p`.
-
-PyTest, for its part, has an algorithm for determining its root folder and patterns, as described on [pytest Configuration](https://docs.pytest.org/en/latest/customize.html) (docs.pytest.org).
-
-For Nose, use the `-w=<folder>` and `-m=<regex>` switches to specify a starting folder and a regular expression for pattern matching (see [Nose options](https://nose.readthedocs.io/en/latest/usage.html#options) (nose.readthedocs.io)).
+Test discovery applies the discovery patterns specified in the arguments setting for the current test framework:  `python.unitTest.unittestArgs`, `python.unitTest.pyTestArgs`, or `python.unitTest.nosetestArgs` as described under [Test framework configurations](#test-framework-configurations).
 
 > **Tip**: Sometimes unit tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, create an empty file named `__init__.py` in that folder.
 

@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Debug Adapter
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
 PageTitle: Integrating Debuggers into Visual Studio Code
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code through a Debug Adapter
 ---
 # Example - Debug Adapter
@@ -72,7 +72,7 @@ What's in the package?
 * `package.json` is the manifest for the mock-debug extension:
   - it lists the contributions of the mock-debug extension,
   - the `compile` and `watch` scripts are used to transpile the TypeScript source into the `out` folder and watch for subsequent source modifications,
-  - the dependencies `vscode-debugprotocol`, `vscode-debugadapter`, and `vscode-debugadapter-testsupport` are NPM modules that simplify the development of node-based debug adapters.
+  - the dependencies `vscode-debugprotocol`, `vscode-debugadapter`, and `vscode-debugadapter-testsupport` are npm modules that simplify the development of node-based debug adapters.
 * `src/mockRuntime.ts` is a 'mock' runtime with a simple debug API.
 * the code that 'adapts' the runtime to the debug adapter protocol lives in `src/mockDebug.ts`. Here you find the handlers for the various requests of the debug adapter protocol.
 * since the implementation of debug extension lives in the debug adapter, there is no need to have extension code at all (i.e. code that runs in the extension host process). However, Mock Debug has a small `src/extension.ts` because it illustrates what can be done in the extension code of a debug extension.

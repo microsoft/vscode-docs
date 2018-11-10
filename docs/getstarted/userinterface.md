@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -29,7 +29,7 @@ Open files in each editor are displayed with tabbed headers (Tabs) at the top of
 
 >**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Side Bar Right**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
-## Side by Side Editing
+## Side by side editing
 
 You can open as many editors as you like side by side vertically and horizontally. If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
 
@@ -44,7 +44,7 @@ You can open as many editors as you like side by side vertically and horizontall
 
 Whenever you open another file, the editor that is active will display the content of that file. So if you have two editors side by side and you want to open file 'foo.cs' into the right hand editor, make sure that editor is active (by clicking inside it) before opening file 'foo.cs'.
 
-By default editors will open to the right hand side of the active one. You can change this behaviour through the setting `workbench.editor.openSideBySideDirection` and configure to open new editors to the bottom of the active one instead.
+By default editors will open to the right hand side of the active one. You can change this behavior through the setting `workbench.editor.openSideBySideDirection` and configure to open new editors to the bottom of the active one instead.
 
 When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (macOS: `kbstyle('Cmd')`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
@@ -88,13 +88,32 @@ By default, VS Code excludes some folders from the Explorer (for example. `.git`
 
 ### Multi-selection
 
-You can select multiple files in the **File Explorer** and **OPEN EDITORS** view to run actions (Delete, Drag and Drop, Open to the Side) on multiple items. Uses the `Ctrl/Cmd` key with `click` to select individual files and `Shift` + `click` to select a range. If you select two items, you can now use the **Compare Selected** command to quickly diff two files.
+You can select multiple files in the **File Explorer** and **OPEN EDITORS** view to run actions (Delete, Drag and Drop, Open to the Side) on multiple items. Use the `Ctrl/Cmd` key with `click` to select individual files and `Shift` + `click` to select a range. If you select two items, you can now use the **Compare Selected** command to quickly diff two files.
 
 **Note:** In earlier VS Code releases, clicking with the `Ctrl/Cmd` key pressed would open a file in a new Editor Group to the side. If you would still like this behavior, you can use the `workbench.list.multiSelectModifier` setting to change multi-selection to use the `Alt` key.
 
 ```json
 "workbench.list.multiSelectModifier": "alt"
 ```
+
+### Outline view
+
+The Outline view is a separate section in the bottom of the File Explorer. When expanded, it will show the symbol tree of the currently active editor.
+
+![Outline view](images/userinterface/outline-view.png)
+
+The Outline view has different **Sort By** modes, optional cursor tracking, and supports the usual open gestures. It also includes an input box which finds or filters symbols as you type. Errors and warnings are also shown in the Outline view, letting you see at a glance a problem's location.
+
+For symbols, the view relies on information computed by your installed extensions for different file types. For example, the built-in Markdown support returns the Markdown header hierarchy for a Markdown file's symbols.
+
+![Markdown Outline view](images/userinterface/markdown-outline-view.png)
+
+There are several Outline view [settings](/docs/getstarted/settings.md) which allow you to enable/disable icons and control the errors and warnings display (all enabled by default):
+
+* `outline.icons` - Toggle rendering outline elements with icons.
+* `outline.problems.enabled` - Show errors and warnings on outline elements.
+* `outline.problems.badges` - Toggle using badges for errors and warnings.
+* `outline.problems.colors` - Toggle using colors for errors and warnings.
 
 ## Open Editors
 
@@ -151,7 +170,7 @@ Type `?` into the input field to get a list of available commands you can execut
 
 ![Quick Open Help](images/userinterface/quickopenhelp.png)
 
-## Configuring the Editor
+## Configuring the editor
 
 VS Code gives you many options to configure the editor. From the **View** menu, you can hide or toggle various parts of the user interface, such as the **Side Bar**, **Status Bar**, and **Activity Bar**.
 
@@ -170,7 +189,7 @@ Most editor configurations are kept in settings which can be modified directly. 
 
 ![workspace settings](images/userinterface/workspace-settings.png)
 
-You will see the VS Code [Default Settings](/docs/getstarted/settings.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily filter settings in the `Default Settings` using the search box at the top. Copy a setting over to the editable `settings.json` on the right by clicking on the edit icon to the left of the setting. Settings with a fixed set values allow you to pick a value as part of their edit icon menu.
+You will see the VS Code [Default Settings](/docs/getstarted/settings.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily filter settings in the `Default Settings` using the search box at the top. Copy a setting over to the editable `settings.json` on the right by clicking on the edit icon to the left of the setting. Settings with a fixed set of values allow you to pick a value as part of their edit icon menu.
 
 After editing your settings, type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
 
@@ -180,7 +199,7 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen and centering the editor layout. Zen mode can be toggled using **View** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen`, `zenMode.restore` and `zenMode.centerLayout`.
 
-### Centered Editor Layout
+### Centered editor layout
 
 Centered editor layout allows you to center the editor area. This is particularly useful when working with a single editor on a large monitor. You can use the sashes on the side to resize the view (hold down the `Alt` key to independently move the sashes).
 
@@ -194,7 +213,7 @@ When you open a file, a new Tab is added for that file.
 
 Tabs let you quickly navigate between items and you can Drag and Drop Tabs to reorder them.
 
-When you have more open items than can fit in the title area, you can use the **Show Opened Editors** command (available through the `...` More button) to display a dropdown of tabbed items.
+When you have more open items than can fit in the title area, you can use the **Show Opened Editors** command (available through the `...` More button) to display a drop-down list of tabbed items.
 
 If you don't want to use Tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/getstarted/settings.md) to false:
 
@@ -263,7 +282,7 @@ There are many keyboard commands for adjusting the editor layout with the keyboa
 
 ![Grid Alt Click](images/userinterface/grid-alt.gif)
 
-### Keyboard Shortcuts
+### Keyboard shortcuts
 
 Here are some handy keyboard shortcuts to quickly navigate between editors and editor groups.
 
@@ -317,7 +336,7 @@ Windows/Linux:
 { "key": "ctrl+w", "command": "workbench.action.closeEditorsInGroup" }
 ```
 
-## Window Management
+## Window management
 
 VS Code has some options to control how windows (instances) should be opened or restored between sessions.
 
@@ -330,13 +349,13 @@ Note: There can still be cases where this setting is ignored (for example, when 
 The `window.restoreWindows` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will
 reopen the last opened window you worked on (setting: `one`). Change this setting to `none` to never reopen any windows and always start with an empty VS Code instance. Change it to `all` to restore all windows you worked on during your previous session or `folders` to only restore windows that had folders opened.
 
-## Next Steps
+## Next steps
 
 Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following topics:
 
 * [Changing the Theme](/docs/getstarted/themes.md) - Set a Color and/or File Icon theme to your preference.
 
-## Common Questions
+## Common questions
 
 ### How can I change the color of the indent guides?
 

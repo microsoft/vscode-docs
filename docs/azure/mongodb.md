@@ -5,7 +5,7 @@ TOCTitle: MongoDB
 PageTitle: Working with MongoDB in Visual Studio Code
 ContentId: d1187f99-354f-4798-9c19-e432e4ae8572
 MetaDescription: Working with MongoDB in Visual Studio Code
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 ---
 # Working with MongoDB
 
@@ -23,9 +23,9 @@ Once you've installed the Cosmos DB extension and reloaded VS Code, you'll notic
 
 ![cosmos db explorer](images/mongodb/cosmosdb-explorer.png)
 
-To connect to a MongoDB database, expand the **Attached Database Accounts** and click **Attach Database Account..**, and choose the **MongoDB** from the Database Account API dropdown.
+To connect to a MongoDB database, expand the **Attached Database Accounts** and click **Attach Database Account**, and choose the **MongoDB** from the Database Account API drop-down list.
 
-![attach database account dropdown](images/mongodb/attach-database-account.png)
+![attach database account drop-down](images/mongodb/attach-database-account.png)
 
 Enter a connection string to the database, the default is your local MongoDB server at `mongodb://127.0.0.1:27017`. You can enter any connection string, to local or remote MongoDB servers.
 
@@ -65,7 +65,7 @@ You can easily host your MongoDB databases in the cloud on Azure with [Cosmos DB
 
 The Cosmos DB extension includes the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension which allows you to sign into Azure. If you don't have an Azure Subscription, you can [sign up today](https://azure.microsoft.com/en-us/free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
-To log into Azure, use the **Sign in to Azure...** command in the Cosmos DB Explorer or **Azure: Sign In*** from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign into your account using the Device Login flow. Click on **Copy & Open** to open your default browser.
+To log into Azure, use the **Sign in to Azure** command in the Cosmos DB Explorer or **Azure: Sign In*** from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign into your account using the Device Login flow. Click on **Copy & Open** to open your default browser.
 
 ![Azure Login](images/mongodb/devicelogin.png)
 
@@ -87,7 +87,7 @@ Follow the prompts to select an Azure Subscription, enter a Cosmos DB account na
 
 To learn more about MongoDB databases on Azure, see [Introduction to Azure Cosmos DB: MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction). Azure Cosmos DB also lets you host other database types such as SQL, Graph (Gremlin), Apache Cassandra through it's full set of [database APIs](https://docs.microsoft.com/azure/cosmos-db/).
 
-## Next Steps
+## Next steps
 
 * [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.

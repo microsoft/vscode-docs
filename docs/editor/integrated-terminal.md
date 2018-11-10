@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -14,16 +14,16 @@ In Visual Studio Code, you can open an integrated terminal, initially starting a
 To open the terminal:
 
 * Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
-* Use the **View** | **Integrated Terminal** menu command.
-* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View:Toggle Integrated Terminal** command.
+* Use the **View** > **Terminal** menu command.
+* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Integrated Terminal** command.
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
 > **Note:** You can still open an external shell with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
-## Managing Multiple Terminals
+## Managing multiple terminals
 
-You can create multiple terminals open to different locations and easily navigate between them. Terminal instances can be added by hitting the plus icon on the top-right of the **TERMINAL** panel or by triggering the `kb(workbench.action.terminal.new)` command. This creates another entry in the dropdown list that can be used to switch between them.
+You can create multiple terminals open to different locations and easily navigate between them. Terminal instances can be added by clicking the plus icon on the top-right of the **TERMINAL** panel or by triggering the `kb(workbench.action.terminal.new)` command. This creates another entry in the drop-down list that can be used to switch between them.
 
 ![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
 
@@ -84,7 +84,7 @@ For example, to enable running bash as a login shell (which runs `.bash_profile`
 "terminal.integrated.shellArgs.linux": ["-l"]
 ```
 
-## Terminal Display Settings
+## Terminal display settings
 
 You can customize the integrated terminal font and line height with the following settings:
 
@@ -94,7 +94,7 @@ You can customize the integrated terminal font and line height with the followin
 * `terminal.integrated.fontWeightBold`
 * `terminal.integrated.lineHeight`
 
-## Terminal Key Bindings
+## Terminal keybindings
 
 The **View: Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
 
@@ -173,6 +173,23 @@ The terminal will attempt to run the selected text.
 
 If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
 
+## Send text from a keybinding
+
+The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences. This enables things like sending arrow keys, enter, cursor moves, etc. The example below shows the sorts of things you can achieve with this feature, it jumps over the word to the left of the cursor (Ctrl+Left arrow) and presses backspace:
+
+```json
+{
+  "key": "ctrl+u",
+  "command": "workbench.action.terminal.sendSequence",
+  "args": { "text": "\u001b[1;5D\u007f" }
+}
+```
+
+Note that the command only works with the `\u0000` format for using characters via their character code (not `\x00`). You can read more about these hex code and the sequences terminals work with on the following resources:
+
+- [XTerm Control Sequences](http://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
+- [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
+
 ## Rename terminal sessions
 
 Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (`workbench.action.terminal.rename`) command. The new name will be displayed in the terminal selection drop-down.
@@ -191,7 +208,7 @@ There are also extensions available that give more options such as [Terminal Her
 
 ## Changing how the terminal is rendered
 
-By default, the integrated terminal will render using multiple `<canvas>` elements which is better tuned than the DOM for rendering interactive text that changes often. However, Electron/Chromium are slower rendering to canvas on some environment and so VS Code also provides a fallback DOM-renderer experience. VS Code will try to detect slow performance and give you the option to change via a notification. You can also change the rendering directly by setting `terminal.integrated.rendererType` in your user or workspace [settings](/docs/getstarted/settings.md).
+By default, the integrated terminal will render using multiple `<canvas>` elements which are better tuned than the DOM for rendering interactive text that changes often. However, Electron/Chromium are slower at rendering to canvas on some environments so VS Code also provides a fallback DOM-renderer experience. VS Code will try to detect slow performance and give you the option to change via a notification. You can also change the rendering directly by setting `terminal.integrated.rendererType` in your user or workspace [settings](/docs/getstarted/settings.md).
 
 ```js
 {
@@ -201,7 +218,7 @@ By default, the integrated terminal will render using multiple `<canvas>` elemen
 
 Something else that might improve performance is to ignore Chromium's GPU blacklist by launching VS Code with `code --ignore-gpu-blacklist`.
 
-## Next Steps
+## Next steps
 
 The basics of the terminal have been covered in this document, read on to find out more about:
 
@@ -209,7 +226,7 @@ The basics of the terminal have been covered in this document, read on to find o
 * [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
 * Explore the rest of the terminal commands by browsing your keybindings.json file within VS Code.
 
-## Common Questions
+## Common questions
 
 ### Why is VS Code shortcut X not working when the terminal has focus?
 

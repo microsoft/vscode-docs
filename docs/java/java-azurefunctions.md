@@ -7,9 +7,9 @@ PageTitle: Building Azure Functions in Java with Visual Studio Code
 DateApproved: 8/13/2018
 MetaDescription: Using Visual Studio Code for developing, debugging and deploying your Java Azure Functions application.
 ---
-# Azure Functions in Java with VS Code
+# Azure Functions in Java with Visual Studio Code
 
-Azure Functions let you execute your source code in a [serverless](https://azure.microsoft.com/en-us/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
+Azure Functions let you execute your source code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
 
 This tutorial walks you through creating and deploying a Java Azure Functions application using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension in Visual Studio Code. You'll be able to test the function locally and then deploy it to Azure. When you're done, you'll have a HTTP-triggered function app running in Azure.
 
@@ -17,7 +17,7 @@ This tutorial walks you through creating and deploying a Java Azure Functions ap
 
 To develop Azure Functions with Java, you'll need the following tools installed:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), version 1.8.
+- [Java Developer Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK), version 1.8.
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
 >**Important**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
@@ -31,7 +31,7 @@ The [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azu
 - Debug Function projects locally.
 - View Azure Function Apps.
 - Create, delete, start, stop and restart Azure Function Apps.
-- JSON Intellisense for `function.json`, `host.json` and `proxies.json` files.
+- JSON IntelliSense for `function.json`, `host.json` and `proxies.json` files.
 
 In this tutorial, we will leverage this extension to create a Java Azure Functions App. For a more command line Maven-centric experience, you can also check out the [Maven Functions Tutorial](https://docs.microsoft.com/en-gb/azure/azure-functions/functions-create-first-java-maven). The Java support of this extension leverages a lot from the [Maven Plugin for Azure Functions](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-functions-maven-plugin).
 
@@ -90,7 +90,7 @@ npm i -g azure-functions-core-tools@core --unsafe-perm true
 
 ### macOS
 
-**Homebew**:
+**Homebrew**:
 
 ```bash
 brew tap azure/functions

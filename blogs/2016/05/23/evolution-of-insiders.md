@@ -1,7 +1,7 @@
 ---
 Order:
 TOCTitle: Evolution of VS Code Insiders
-PageTitle: Evolution of VS Code Insiders
+PageTitle: Evolution of Visual Studio Code Insiders
 MetaDescription: Evolution of the Visual Studio Code Insiders Build
 MetaSocialImage: /assets/blogs/2016/11/30/opengraph_insiders.png
 Date: 2016-05-23

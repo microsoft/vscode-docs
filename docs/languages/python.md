@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python in Visual Studio Code
-DateApproved: 07/25/2018
+DateApproved: 11/07/2018
 MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, snippets, linting).
 ---
 # Python in Visual Studio Code
@@ -36,13 +36,13 @@ The Python extension then provides shortcuts to run Python source code in the cu
 - In the text editor: right-click anywhere in the editor and select **Run Python File in Terminal**. If invoked on a selection, only that selection is run.
 - In Explorer: right-click a Python file and select **Run Python File in Terminal**.
 
-You can also use the **Python: Create Terminal** command to create a terminal and activate the currently selected interpreter. See [Environments](#environments) below. The **Python: Start REPL** activates a terminal with the currently selected interpreter and then runs the Python REPL.
+You can also use the **Terminal: Create New Integrated Terminal** command to create a terminal in which VS Code automatically activates the currently selected interpreter. See [Environments](#environments) below. The **Python: Start REPL** activates a terminal with the currently selected interpreter and then runs the Python REPL.
 
 For a more specific walkthrough on running code, see the [tutorial](/docs/python/python-tutorial.md).
 
 ## Autocomplete and IntelliSense
 
-The Python extension supports code completion and Intellisense using the currently selected interpreter. [Intellisense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
+The Python extension supports code completion and IntelliSense using the currently selected interpreter. [IntelliSense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
 
 IntelliSense quickly shows methods, class members, and documentation as you type, and you can trigger completions at any time with `kb(editor.action.triggerSuggest)`.
 
@@ -95,6 +95,14 @@ VS Code prompts you with a list of detected environments as well as any you've a
 ### Installing packages
 
 Packages are installed using the **Terminal** panel and commands like `pip install <package_name>` (Windows) and `pip3 install <package_name>` (macOS/Linux). VS Code installs that package into your project along with its dependencies.
+
+## Jupyter notebooks
+
+If you open a [Jupyter notebook](http://jupyter.org/) file (`.ipynb`) in VS Code, the Python extension prompts you to import the notebook as a Python code file. The notebook's cells are delimited in the Python file with `#%%` comments, and the Python extension shows **Run Cell** or **Run All Cells** CodeLens. Selecting either CodeLens starts the Jupyter server and runs the cell(s) in the Python interactive window:
+
+![Jupyter notebook running in VS Code and the Python interactive window](images/python/jupyter.png)
+
+For more information, see [Editing - Jupyter code cells](/docs/python/editing.md#jupyter-code-cells).
 
 ## Unit testing
 

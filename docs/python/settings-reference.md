@@ -1,16 +1,16 @@
 ---
-Order: 8
+Order: 11
 Area: python
 TOCTitle: Settings Reference
 ContentId: d256dc5c-95e9-4c02-a82f-947bf34a3517
 PageTitle: Settings Reference for Python
-DateApproved: 08/06/2018
+DateApproved: 09/03/2018
 MetaDescription: Settings Reference for the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Python settings reference
 
-The Python Extension for VS Code is highly configurable. This page describes the key settings you can work with.
+The Python Extension for Visual Studio Code is highly configurable. This page describes the key settings you can work with.
 
 Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our more about working with settings in VS Code generally.
 
@@ -18,17 +18,15 @@ Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our
 
 | Setting | Default | Description |
 | --- | --- | --- |
-| python.pythonPath | `"python"` | Path to the python interpreter, or the path to a folder containing the Python interpreter. Can use variables like `${workspaceFolder}` and `${workspaceFolder}/.venv`. Using a path to a folder allows anyone working with a project to create an environment in the `.venv` folder as appropriate to their operating system, rather than having to specify an exact platform-dependent path. |
+| python.condaPath | `"conda"` | Path to the `conda` executable. |
+| python.pythonPath | `"python"` | Path to the python interpreter, or the path to a folder containing the Python interpreter. Can use variables like `${workspaceFolder}` and `${workspaceFolder}/.venv`. Using a path to a folder allows anyone working with a project to create an environment in the `.venv` folder as appropriate to their operating system, rather than having to specify an exact platform-dependent path. The `settings.json` file can then be included in a source code repository. |
 | python.disableInstallationCheck | `false` | If set to `true`, disables a warning from the extension if no Python interpreter is installed. On macOS, also disables a warning that appears if you're using the OS-installed Python interpreter. It's generally recommended to install an separate interpreter on macOS. |
-| python.venvPath | `""` | Path to a folder containing virtual environments, in which the extension looks for virtual environments in the first-level subfolders. Example values: `${workspaceFolder}/.pyenv`, `${workspaceFolder}\\venv`, `.\envs`, `~/.virtualenvs`, and so on, in which case that folder might have immediate subfolders such as `env`, `env2`, `ds_analysis_env`, and so on which are themselves virtual environments. |
-| python.envFile | `"${workspaceFolder}/.env"` | Absolute path to a file containing environment variable definitions. See [Configuring Python environments - environment variable definitions file](environments.md#environment-variable-definitions-file). |
+| python.venvPath | `""` | Path to a folder, where virtual environments are created. Depending on the virtualization tool used, it can be the project itself: `${workspaceFolder}`, or separate folder for all virtual enviroments located side-by-side: `.\envs`, `~/.virtualenvs`, and so on. |
+| python.envFile | `"${workspaceFolder}/.env"` | Absolute path to a file containing environment variable definitions. See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file). |
 | python.globalModuleInstallation | `false` | Specifies whether to install packages for the current user only using the `--user` command-line argument (the default), or to install for all users in the global environment (when set to `true`). Ignored when using a virtual environment. For more information on the `--user`argument, see [pip - User Installs](https://pip.pypa.io/en/stable/user_guide/#user-installs). |
-| python.terminal.launchArgs | `[]` | Launch arguments given the Python interpreter when running a file. Each top-level argument that's separated by a space is specified as a separate item in the list; spaces within those elements are not separated as items. For example, if the arguments are of the form "--a --b --c {"value1" : 1, "value2" : 2}", the list value for this setting would be `["--a", "--b", "--c", "{"value1" : 1, "value2" : 2}""]`. |
+| python.terminal.launchArgs | `[]` | Launch arguments that are given to the Python interpreter when you run a file using commands such as **Python: Run Python File in Terminal**. In the `launchArgs` list, each item is a top-level command-line element that's separated by a space (quoted values that contain spaces are a single top-level element and are thus one item in the list). For example, for the arguments `--a --b --c {"value1" : 1, "value2" : 2}`, the list items should be `["--a", "--b", "--c", "{\"value1\" : 1, \"value2\" : 2}\""]`. Note that Visual Studio code ignores this setting when debugging because it instead uses arguments from your selected debugging configuration in `launch.json`. |
 | python.terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
-| python.terminal.activateEnvironment | `true` | Indicates whether a selected virtual or conda environments is activated when using the **Python: Create Terminal** command or any other operation involving the terminal, such as the **Send Python File to Terminal** menu command. If `false`, skips activating virtual and conda environments before running the commands. |
-| python.jediEnabled | 'true' | Indicates whether to use Jedi as the IntelliSense engine (true) or the [Microsoft Python Language Server](http://blogs.msdn.microsoft.com/pythonengineering/2018/07/18/introducing-the-python-language-server/) (false). Note that the language server requires a platform that [supports .NET 2.1 or newer](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog). |
-| python.jediPath | `""` | Path to folder containing the Jedi library (folder should contain a `jedi` subfolder). |
-| python.jediMemoryLimit | 0 | Memory limit for the Jedi completion engine in megabytes. Zero (the default) means 1024MB. -1 disables the memory limit check. |
+| python.terminal.activateEnvironment | `true` | Indicates whether to automatically activate the environment you select using the **Python: Select Interpreter** command. For example, when this setting is `true` and you select a virtual envrionment, the extension automatically runs the environment's activate command (`source env/bin/activate` on macOS/Linux; `env\scripts\activate` on Windows). |
 
 ## Workspace symbol (tags) settings
 
@@ -42,6 +40,39 @@ Workspace symbols are symbols in C source code generated by the ctags tool (desc
 | rebuildOnFileSave | `true` | Specifies whether to re-build the tags file on when saving a Python file. |
 | ctagsPath | `"ctags"` | Fully qualified path to the ctags executable; default value assumes it's in the current environment. |
 | exclusionPatterns | `["**/site-packages/**"]` | Pattern used to exclude files and folders from ctags. |
+
+## Code analysis settings
+
+### IntelliSense engine settings
+
+| Setting | Default | Description |
+| --- | --- | --- |
+| python.jediEnabled | `true` | Indicates whether to use Jedi as the IntelliSense engine (true) or the [Microsoft Python Language Server](http://blogs.msdn.microsoft.com/pythonengineering/2018/07/18/introducing-the-python-language-server/) (false). Note that the language server requires a platform that [supports .NET Core 2.1 or newer](https://docs.microsoft.com/dotnet/core/rid-catalog). |
+| python.jediPath | `""` | Path to folder containing the Jedi library (folder should contain a `jedi` subfolder). |
+| python.jediMemoryLimit | 0 | Memory limit for the Jedi completion engine in megabytes. Zero (the default) means 1024MB. -1 disables the memory limit check. |
+
+### Python Language Server settings
+
+The language server settings apply when `python.jediEnabled` is `false`.
+
+| Setting<br/>(python.analysis.) | Default | Description |
+| --- | --- | --- |
+| diagnosticPublishDelay | `1000` | The number of milliseconds to wait before transferring diagnostic messages to the problems list. |
+| disabled<br/>errors<br/>warnings<br/>information | `[]` | List of diagnostics messages to suppress or show as errors, warnings, or information. See below for applicable values. The classification of messages affects both what's shown in the Problems window and in the editor (such as the color of the underlining). |
+| logLevel | `"Error"` | Defines the types of log messages that language server writes into the Problems window, one of "Error", "Warning", "Information", and "Trace". The "Warning" level implicitly includes "Error"; "Information" implicitly includes "Warning" and "Error"; "Trace" includes all messages. |
+| openFilesOnly | `true` | When true, shows only errors and warnings for open files rather than for the entire workspace. |
+| symbolsHierarchyDepthLimit | `10` | Limits the depth of the symbol tree in the document outline. |
+| typeshedPaths | `[]` | Paths to look for [typeshed modules](https://github.com/python/typeshed/) (github.com). |
+
+The `disabled`, `errors`, `warnings`, and `information` settings can contain the following values:
+
+| Value | Default type | Message text |
+| --- | --- | --- |
+| "not-callable" | Warning | (object may not be callable) |
+| "used-before-assignment" | Warning | (unknown variable '{0}') |
+| "unresolved-import" | Warning | "Unable to resolve 'module_name'. IntelliSense may be missing for this module." |
+
+To suppress the "used-before-assignment" messages, for example, use the setting `"python.analysis.disabled": ["used-before-assignment"]`.
 
 ## AutoComplete settings
 

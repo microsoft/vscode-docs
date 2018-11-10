@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Word Count
 ContentId: 4D9132DC-CDDB-4E07-B2DD-9A7E168BE384
 PageTitle: Visual Studio Code Example - Word Count Extension
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: The Word Count extension (plug-in) example takes you deeper into the Visual Studio Code extensibility model, showing how to interact with the editor and manage extension and VS Code resources.
 ---
 # Example - Word Count
@@ -95,7 +95,7 @@ class WordCounter {
 
         let doc = editor.document;
 
-        // Only update status if an Markdown file
+        // Only update status if a Markdown file
         if (doc.languageId === "markdown") {
             let wordCount = this._getWordCount(doc);
 
@@ -271,7 +271,7 @@ So far, the extension you have written only runs in a special instance of VS Cod
 
 Read about how to [Share an Extension](/docs/extensions/publish-extension.md).
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 

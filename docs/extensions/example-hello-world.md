@@ -4,14 +4,14 @@ Area: extensions
 TOCTitle: Example-Hello World
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
 PageTitle: Your First Visual Studio Code Extension - Hello World
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: Create your first Visual Studio extension (plug-in) with a simple Hello Word example.  This walkthrough will take you through the basics of VS Code extensibility.
 ---
 # Example - Hello World
 
 ## Your first extension
 
-This document will guide you through creating your first VS Code extension ("Hello World") and explain the basic VS Code extensibility concepts.
+This document will guide you through creating your first Visual Studio Code extension ("Hello World") and explain the basic VS Code extensibility concepts.
 
 In this walkthrough, you'll add a new command to VS Code which will display a simple "Hello World" message.  Later in the walkthrough, you'll interact with the VS Code editor and query for the user's currently selected text.
 
@@ -254,7 +254,7 @@ So far, the extension you have written only runs in a special instance of VS Cod
 
 Read about how to [Share an Extension](/docs/extensions/publish-extension.md).
 
-## Next Steps
+## Next steps
 
 In this walkthrough, we've seen a very simple extension. For a more detailed example, see the [Word Count Example](/docs/extensions/example-word-count.md) which shows how to target a specific language (Markdown) and listen to the editor's document changed events.
 

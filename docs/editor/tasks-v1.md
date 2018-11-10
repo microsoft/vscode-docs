@@ -3,8 +3,8 @@ Order:
 Area: editor
 TOCTitle: Tasks
 ContentId: 8cdc7d99-6339-49ac-9a31-55f6563fab5c
-PageTitle: Tasks (legacy version)
-DateApproved: 8/12/2018
+PageTitle: Visual Studio Code Tasks (legacy version)
+DateApproved: 10/4/2018
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
 ---
 # Tasks (legacy version)
@@ -53,7 +53,7 @@ You should now see a `tasks.json` file in your workspace `.vscode` folder with t
 
 In this example, we are just running the `echo` shell command with "Hello World" as an argument.
 
-Test the `echo` task by running **Tasks: Run Task** and selecting `echo` from the dropdown. The **OUTPUT** panel will open and you'll see the text "Hello World".
+Test the `echo` task by running **Tasks: Run Task** and selecting `echo` from the drop-down list. The **OUTPUT** panel will open and you'll see the text "Hello World".
 
 You can get IntelliSense on `tasks.json` variables and their values with hover and trigger smart completions with `kb(editor.action.triggerSuggest)`.
 
@@ -79,7 +79,7 @@ To see the exact command VS Code is running, you can enable the `echoCommand` se
 
 ## command and tasks[]
 
-`tasks.json` takes a single `command` value which can be a task runner like gulp or grunt or any command line tool like a compiler or linter. By default, the `command` will show up in the **Tasks: Run Task** dropdown.
+`tasks.json` takes a single `command` value which can be a task runner like gulp or grunt or any command line tool like a compiler or linter. By default, the `command` will show up in the **Tasks: Run Task** drop-down list.
 
 You can also define multiple tasks in a `tasks` array in order to pass different arguments or use different settings when the `command` is run.
 
@@ -107,7 +107,7 @@ Here's a simple example passing different arguments to the `echo` command:
 }
 ```
 
-Now when you run **Tasks: Run Task**, you will now see two tasks in the dropdown `hello` and `bye`. We set `suppressTaskName` to true as by default the task name is also passed to the command which would result in "echo hello Hello World".
+Now when you run **Tasks: Run Task**, you will now see two tasks in the drop-down list, `hello` and `bye`. We set `suppressTaskName` to true as by default the task name is also passed to the command which would result in "echo hello Hello World".
 
 ![tasks array](images/tasks/tasks-array.png)
 
@@ -150,7 +150,7 @@ The first task starts the TypeScript compiler in watch mode, the second one star
 
 If you need to run a task frequently, you can also define a keyboard shortcut for the task.
 
-For example, to bind `ctrl+h` to the `build` task from above, add the following to your `keybindings.json` file:
+For example, to bind `kbstyle(Ctrl+H)` to the `build` task from above, add the following to your `keybindings.json` file:
 
 ```json
 {
@@ -246,7 +246,7 @@ The Markdown topic provides two examples for compiling Markdown to HTML:
 1. [Manually compiling with a Build task](/docs/languages/markdown.md#compiling-markdown-into-html)
 2. [Automation of the compile step with a file watcher](/docs/languages/markdown.md#automating-markdown-compilation)
 
-### Transpiling Less and Sass into CSS
+### Transpiling Less and SCSS into CSS
 
 The CSS topic provides examples of how to use Tasks to generate CSS files.
 
@@ -582,7 +582,7 @@ A full handcrafted `tasks.json` for a tsc task running in watch mode looks like 
 }
 ```
 
-## Next Steps
+## Next steps
 
 That was tasks - let's keep going...
 

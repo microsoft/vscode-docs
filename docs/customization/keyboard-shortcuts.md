@@ -51,7 +51,7 @@ Key|Command
 `kb(editor.action.startFindReplaceAction)`|Replace
 `kb(editor.action.nextMatchFindAction)`|Find next
 `kb(editor.action.previousMatchFindAction)`|Find previous
-`kb(editor.action.selectAllMatches)`|Select all occurences of Find match
+`kb(editor.action.selectAllMatches)`|Select all occurrences of Find match
 `kb(editor.action.addSelectionTonextFindMatch)`|Add selection to next Find match
 `kb(editor.action.moveSelectionTonextFindMatch)`|Move last selection to next Find match
 `kb(toggleFindCaseSensitive)`|Toggle Find case sensitive
@@ -112,6 +112,7 @@ Key|Command
 `kb(editor.action.marker.prevInFiles)`|Go to previous error or warning
 `kb(workbench.action.openpreviousRecentlyUsedEditorInGroup)`|Navigate editor group history
 `kb(workbench.action.navigateBack)`|Go back
+`kb(workbench.action.quickInputBack)`|Go back to previous step, when in the QuickInput UI
 `kb(workbench.action.navigateForward)`|Go forward
 `kb(editor.action.toggleTabFocusMode)`|Toggle Tab moves focus
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -49,7 +49,7 @@ The **Go To Definition** and **Open Link** gestures will also respect this setti
 
 ### Shrink/expand selection
 
-Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`
+Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`.
 
 Here's an example of expanding the selection with `kb(editor.action.smartSelect.grow)`:
 
@@ -111,7 +111,7 @@ VS Code allows you to quickly search over all files in the currently opened fold
 
 You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
 
-### Advanced Search options
+### Advanced search options
 
 ![Advanced search options](images/codebasics/searchadvanced.png)
 
@@ -131,7 +131,7 @@ Also note the **Use Exclude Settings and Ignore Files** toggle button in the **f
 
 VS Code does support regular expression searches, however, backreferences, lookaround, and multiline matches are not supported. This is because VS Code depends on the search tool [ripgrep](https://github.com/BurntSushi/ripgrep), which, while extremely fast, doesn't support these advanced regex features.
 
-### Search and Replace
+### Search and replace
 
 You can also Search and Replace across files. Expand the Search widget to display the Replace text box.
 
@@ -145,7 +145,7 @@ When you type text into the Replace text box, you will see a diff display of the
 
 ## IntelliSense
 
-We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/getstarted/keybindings.md).
+We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/getstarted/keybindings.md).
 
 > **Tip:** The suggestions filtering supports CamelCase so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
@@ -234,7 +234,7 @@ To fold and unfold only the regions defined by markers use:
 
 ## Indentation
 
-VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.mg).
+VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.md).
 
 ```json
     "editor.insertSpaces": true,
@@ -276,18 +276,18 @@ Then choose an encoding.
 
 ![Select an encoding](images/codebasics/encodingselection.png)
 
-## Next Steps
+## Next steps
 
 You've covered the basic user interface - there is a lot more to VS Code.  Read on to find out about:
 
 * [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
-* [Code Navigation](/docs/editor/editingevolved.md) - Peek and Goto Definition, and more
+* [Code Navigation](/docs/editor/editingevolved.md) - Peek and Goto Definition, and more.
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) - Learn about the integrated terminal for quickly performing command line tasks from within VS Code.
 * [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
+* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 
-## Common Questions
+## Common questions
 
 ### Is it possible to globally search and replace?
 

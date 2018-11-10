@@ -1,15 +1,15 @@
 ---
-Order: 7
+Order: 8
 Area: extensions
 TOCTitle: Themes, Snippets and Colorizers
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D
 PageTitle: Add Themes, Snippets and Colorizers to Visual Studio Code
-DateApproved: 8/12/2018
+DateApproved: 10/4/2018
 MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code. TextMate .tmLanguage files are supported.
 ---
 # Themes, Snippets and Colorizers
 
-Custom color and icons themes, snippets and language syntax colorizers bring an editor to life. There are lots of existing TextMate customization files available and VS Code lets you easily package and reuse these. You can directly use `.tmTheme`, `.tmSnippets`, and `.tmLanguage` files in your extensions and share them in the extension [Marketplace](https://marketplace.visualstudio.com/VSCode). This topic describes how to reuse TextMate files as well as create and share your own themes, snippets and colorizers.
+Custom color and icons themes, snippets and language syntax colorizers bring an editor to life. There are lots of existing TextMate customization files available and Visual Studio Code lets you easily package and reuse these. You can directly use `.tmTheme`, `.tmSnippets`, and `.tmLanguage` files in your extensions and share them in the extension [Marketplace](https://marketplace.visualstudio.com/VSCode). This topic describes how to reuse TextMate files as well as create and share your own themes, snippets and colorizers.
 
 ## Adding a new Color Theme
 
@@ -37,7 +37,7 @@ For syntax highlighting colors, there are two approaches. You just simply refere
 
 To write TextMate theme rules, you need to know about TextMate grammars and scopes.
 
-`TextMate grammars` consist of a set of regular expression that are used create a syntax tree out of the source code. Each tree node spans a source range and represents a `scope`. Scopes have a name and stand for either code sections (such as functions, blocks, comments) or symbols (for example keywords, numbers, operators).
+`TextMate grammars` consist of a set of regular expression that are used to create a syntax tree out of the source code. Each tree node spans a source range and represents a `scope`. Scopes have a name and stand for either code sections (such as functions, blocks, comments) or symbols (for example keywords, numbers, operators).
 
 Here's an example of the scope hierarchy generated for a JavaScript code sample:
 
@@ -94,7 +94,7 @@ You can use the **Developer: Inspect TM Scopes** command from the **Command Pale
 
 ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
 
-## Create a new color theme
+## Create a new Color Theme
 
 - Generate a theme file using the **Developer: Generate Color Theme from Current Settings** command from the **Command Palette**
 - Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generate a new theme extension:
@@ -126,13 +126,15 @@ You can use the **Developer: Inspect TM Scopes** command from the **Command Pale
 }
 ```
 
+- Give your color definition file the `.color-theme.json` suffix and you will get hovers, code completion, color decorators and color pickers when editing.
+
 >**Tip:** [ColorSublime](https://colorsublime.github.io) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"https://raw.githubusercontent.com/Colorsublime/Colorsublime-Themes/master/themes/(name).tmTheme"`
 
-## Test a new color theme
+## Test a new Color Theme
 
 To try out the new theme, copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
 
-Open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
+Open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the drop-down list.  Arrow up and down to see a live preview of your theme.
 
 ![select my theme](images/themes-snippets-colorizers/mytheme.png)
 
@@ -145,6 +147,10 @@ If you'd like to share your new theme with the community, you can publish it to 
 > **Tip:** To make it easy for users to find your theme, include the word "theme" in the extension description and set the `Category` to `Theme` in your `package.json`.
 
 We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
+
+## Adding a new Color Ids
+
+Color ids can also be contributed by extensions through the [color contribution point](/docs/extensionAPI/extension-points.md#contributescolors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery.md#extensiondetails) tab.
 
 ## Adding a new Icon Theme
 
@@ -527,16 +533,16 @@ In order to inherit other CSS features we marked the block by using `contentName
 }
 ```
 
-We mapped it to the ID of the language that we want to inherit features from. For example, now if we press `kbstyle(ctrl/)` inside a CSS code block, VS Code will use CSS comments instead of Markdown!
+We mapped it to the ID of the language that we want to inherit features from. For example, now if we press `kbstyle(Ctrl/)` inside a CSS code block, VS Code will use CSS comments instead of Markdown!
 
-## Next Steps
+## Next steps
 
 If you'd like to learn more about VS Code extensibility, try these topics:
 
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code
 * [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
 
-## Common Questions
+## Common questions
 
 ### What parts of VS code can I theme with a custom color theme?
 
