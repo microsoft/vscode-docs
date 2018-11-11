@@ -10,9 +10,9 @@ MetaSocialImage: /assets/images/nodejs_javascript_vscode.png TBD
 ---
 # Using Vue in VS Code
 
-[Vue](https://facebook.github.io/react/) is a popular JavaScript library  for building web application user interfaces. The Visual Studio Code editor supports Vue.js IntelliSense and code navigation out of the box. TBD
+[Vue](https://vuejs.org/) is a popular JavaScript library for building web application user interfaces. The Visual Studio Code editor supports Vue.js IntelliSense and code navigation out of the box. TBD
 
-![welcome to react](images/vuejs/welcome-to-vue.png)
+![welcome to Vue](images/vuejs/welcome-to-vue.png)
 
 ## Welcome to Vue
 
@@ -26,7 +26,7 @@ To install the `vue/cli` , in a terminal or command prompt type:
 npm install -g @vue/cli
 ```
 
-This may take a few minutes to install. You can now create a new Vue application by typing:
+This may take a few minutes to install. You can now create a new Vue.js application by typing:
 
 ```bash
 vue create my-app
@@ -34,9 +34,9 @@ vue create my-app
 
 TBD better to user vue init webpack? needs a second install
 
-where `my-app` is the name of the folder for your application. You will be prompted to select a preset and you can keep the default (babel, eslint). It may take a few minutes to create the Vue application and install its dependencies.
+where `my-app` is the name of the folder for your application. You will be prompted to select a preset and you can keep the default `(babel, eslint)`. It may take a few minutes to create the Vue application and install its dependencies.
 
-Let's quickly run our Vue application by navigating to the new folder and typing `npm start` to start the web server and open the application in a browser:
+Let's quickly run our Vue application by navigating to the new folder and typing `npm run serve` to start the web server and open the application in a browser:
 
 ```bash
 cd my-app
@@ -64,37 +64,35 @@ The Vetur extension supplies Vue.js language features (syntax highlighting, snip
 
 ![vetur extension](images/vuejs/vetur-extension.png)
 
-Install the Vetur extension and reload VS Code when you see the **Reload** button on the extension tile.
+Install the Vetur extension (TBD add more to this flow) and reload VS Code when you see the **Reload** button on the extension tile in the Extensions view.
+
+TBD Vetur extension taking a long time to install??
 
 Now you should see advanced language features such as syntax highlighting, bracket matching, hover descriptions and more.
 
 ![vue language features](images/vuejs/vue-language-features.png)
 
-### Other Vue.js extensions
-
-Vetur is only one of many Vue.js extensions available for VS Code. TBD
-
 ### IntelliSense ?? does Vetur provide TBD
 
-As you start typing in `index.js`, you'll see smart suggestions or completions.
+As you start typing in `App.vue`, you'll see smart suggestions or completions.
 
-![react suggestions](images/reactjs/suggestions.png)
+![Vue.js suggestions](images/vuejs/suggestions.png)
 
 After you select a suggestion and type `.`, you see the types and methods on the object through [IntelliSense](/docs/editor/intellisense.md).
 
-![react intellisense](images/reactjs/intellisense.png)
+![Vue.jd intellisense](images/vuejs/intellisense.png)
 
 VS Code uses the TypeScript language service for its JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
 
 If you select a method, you'll also get parameter help:
 
-![react parameter help](images/reactjs/parameter-help.png)
+![vuejs parameter help](images/vuejs/parameter-help.png)
 
 ### Go to Definition, Peek definition TBD seems to work
 
 Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or **Peek Definition** (`kb(editor.action.peekImplementation)`). Put the cursor over the `App`, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `App` definition from `App.js`.
 
-![react peek definition](images/reactjs/peek-definition.png) TBD
+![Vue.js peek definition](images/vuejs/peek-definition.png) TBD
 
 Press `kbstyle(Escape)` to close the Peek window.
 
@@ -160,21 +158,17 @@ We need to make one change for our example: change your `webroot` to `${workspac
 
 Ensure that your development server is running ("npm run serve"). Then press `kb(workbench.action.debug.start)` or the green arrow to launch the debugger and open a new browser instance. The source code where the breakpoint is set runs on startup before the debugger was attached so we won't hit the breakpoint until we refresh the web page. Refresh the page and you should hit your breakpoint.
 
-![hit breakpoint](images/reactjs/hit-breakpoint.png) TBD
+![hit breakpoint](images/vuejs/hit-breakpoint.png) TBD
 
 You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `element`, and see the call stack of the client side React application.
 
-![debug variable](images/reactjs/debug-variable.png) TBD
+![debug variable](images/vuejs/debug-variable.png) TBD
 
 The **Debugger for Chrome** extension README has lots of information on other configurations, working with sourcemaps, and troubleshooting. You can review it directly within VS Code from the **Extensions** view by clicking on the extension item and opening the **Details** view.
 
-![debugger for chrome readme](images/reactjs/chrome-debugger-readme.png)
+![debugger for chrome readme](images/vuejs/chrome-debugger-readme.png)
 
 TBD need to talk about vue-devtools since it is in the output panel TBD
-
-### Live editing and debugging
-
-If you are using [webpack](https://webpack.js.org/) together with your React app, you can have a more efficient workflow by taking advantage of webpack's HMR mechanism which enables you to have live editing and debugging directly from VS Code. You can learn more in this [Live edit and debug your React apps directly from VS Code](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f) blog post.
 
 ## Linting
 
@@ -182,11 +176,11 @@ Linters analyze your source code and can warn you about potential problems befor
 
 Try making a small error in your Vue source code and you'll see a red squiggle and an error in the **Problems** panel.
 
-![javascript error](images/reactjs/js-error.png)
+![javascript error](images/vuejs/js-error.png)
 
 ## Popular Starter Kits
 
-In this tutorial, we used the `create-react-app` generator to create a simple Vue application. There are lots of great samples and starter kits available to help build your first Vue application.
+In this tutorial, we used the Vue CLI to create a simple Vue.js application. There are lots of great samples and starter kits available to help build your first Vue application.
 
 ### VuePack
 
@@ -194,14 +188,7 @@ In this tutorial, we used the `create-react-app` generator to create a simple Vu
 
 https://vuejs.github.io/vetur/
 
-### VS Code React Sample
 
-This is a [sample](https://github.com/Microsoft/vscode-react-sample) React application used for a [demo](https://channel9.msdn.com/events/Build/2017/T6078) at this year's //Build conference. The sample creates a simple TODO application and includes the source code for a Node.js [Express](https://expressjs.com/) server. It also shows how to use the [Babel](https://babeljs.io) ES6 transpiler and then use [webpack](https://webpack.js.org/) to bundle the site assets.
+### Other Vue.js extensions
 
-## Common Questions
-
-### Can I get IntelliSense within declarative JSX?
-
-Yes. For example, if you open the `create-react-app` project's `App.js` file, you can see IntelliSense within the React JSX in the `render()` method.
-
-![JSX IntelliSense](images/reactjs/jsx-intellisense.png)
+Vetur is only one of many Vue.js extensions available for VS Code. TBD
