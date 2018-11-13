@@ -1,5 +1,5 @@
 ---
- #Order: 2
+Order: 2
 Area: extension-capabilities
 TOCTitle: Common Capabilities
 PageTitle: Common Capabilities

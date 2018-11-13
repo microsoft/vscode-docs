@@ -47,9 +47,7 @@ These samples do not contain a guide. However, most of them have well-commented 
 
 ## Language Extension Samples
 
-These samples are [Language Extensions](/api/language-extensions/overview) samples.
-
-You can read more about Language Extensions in [Language Extension Overview](/api/language-extensions/overview), [Static Language Features](/api/extension-capabilities/overview#Static-Language-Features) and [Dynamic Language Features](/api/extension-capabilities/overview#Dynamic-Language-Features).
+These samples are [Language Extensions](/api/language-extensions/overview) samples:
 
 | Sample | Guide on VS Code Website |
 | ------ | ----- |

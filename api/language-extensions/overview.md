@@ -11,9 +11,9 @@ Visual Studio Code provides smart editing features for different programming lan
 
 Smart editing features can be roughly put into two categories:
 
-## Basic language support
+## Declarative language support
 
-Basic language editing support is defined in configuration files. Examples include [html](https://github.com/Microsoft/vscode/tree/master/extensions/html), [css](https://github.com/Microsoft/vscode/tree/master/extensions/css) and [typescript-basic](https://github.com/Microsoft/vscode/tree/master/extensions/typescript-basics) extensions bundled with VS Code, which offer a subset of the following Basic Language Features:
+Declarative language editing support is defined in configuration files. Examples include [html](https://github.com/Microsoft/vscode/tree/master/extensions/html), [css](https://github.com/Microsoft/vscode/tree/master/extensions/css) and [typescript-basic](https://github.com/Microsoft/vscode/tree/master/extensions/typescript-basics) extensions bundled with VS Code, which offer a subset of the following Declarative Language Features:
 
 - Syntax highlighting
 - Snippet completion
@@ -23,16 +23,16 @@ Basic language editing support is defined in configuration files. Examples inclu
 - Comment toggling
 - Folding (legacy)
 
-We have three guides for writing Language Extensions that provide basic language features.
+We have three guides for writing Language Extensions that provide Declarative Language Features.
 
 - [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide): VS Code uses TextMate grammar for syntax highlighting. This guide will walk you through converting an existing TextMate grammar into a VS Code extension.
 - [Snippet Completion Guide](/api/language-extensions/snippet-guide): Extension authors can provide handy snippets for any language. Learn how to add an idiomatic framework usage as a snippet, or create a snippet for using the latest ECMAScript syntax.
 - [Language Configuration Guide](/api/language-extensions/language-configuration-guide): VS Code allows extensions to define a **language configuration** for any programming language. This file controls basic editing features such as comment toggling, bracket matching/surrounding and region folding (legacy).
 
-## Advanced language features
+## Programmatic language features
 
-Advanced language features include auto completion, error checking, and jump to definition. These features are often powered by a Language Server, a program that analyzes your project to provide the dynamic features.
- One example is the [`typescript-language-features`](https://github.com/Microsoft/vscode/tree/master/extensions/typescript-language-features) extension bundled in VS Code. It utilizes the [TypeScript Language Service](https://github.com/Microsoft/TypeScript/wiki/Using-the-Language-Service-API) to offer advanced language features such as:
+Programmatic Language Features include auto completion, error checking, and jump to definition. These features are often powered by a Language Server, a program that analyzes your project to provide the dynamic features.
+ One example is the [`typescript-language-features`](https://github.com/Microsoft/vscode/tree/master/extensions/typescript-language-features) extension bundled in VS Code. It utilizes the [TypeScript Language Service](https://github.com/Microsoft/TypeScript/wiki/Using-the-Language-Service-API) to offer Programmatic Language Features such as:
 
 - Hover information ([`vscode.languages.registerHoverProvider`](https://code.visualstudio.com/docs/extensionAPI/vscode-api#languages.registerHoverProvider))
 - Auto completion ([`vscode.languages.registerCompletionItemProvider`](https://code.visualstudio.com/docs/extensionAPI/vscode-api#languages.registerCompletionItemProvider))
@@ -41,7 +41,7 @@ Advanced language features include auto completion, error checking, and jump to 
 - Formatting
 - Refactoring
 
-For a complete list of advanced language features, see [Language Features](/api/language-extensions/language-features).
+For a complete list of Programmatic Language Features, see [Language Features](/api/language-extensions/language-features).
 
 ![multi-ls](images/overview/multi-ls.png)
 

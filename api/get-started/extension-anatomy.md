@@ -7,6 +7,12 @@ PageTitle: Extension Anatomy
 
 # Extension Anatomy
 
+In the last topic, we were able to get a basic extension running. How does it work under the hood?
+
+**TODO: Pine**: Modify the section so it explains concepts together with the sample, as we removed the "Behind the scenes" section from first topic.
+
+---
+
 In the last topic, we came across four concepts: **Extension Host**, **Activation Events**, **Contribution Points** and **vscode API**. In short, they work together in this way:
 
 VS Code offers two ways to extend its functionality:
@@ -119,7 +125,7 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() {}
 ```
 
-## Wraping Up
+## Looking back
 
 Here are the four important concepts we learned in this topic. You can find more information for them in the `References` section.
 
