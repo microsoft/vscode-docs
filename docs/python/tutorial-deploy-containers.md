@@ -184,7 +184,7 @@ The following steps summarize the configuration used in the [python-sample-vscod
 
 ### Changes for Django apps
 
-A good base image for Flask is `tiangolo/uwsgi-nginx:python3.6-alpine3.7`, which is also available for other versions of Python (see the [tiangolo/uwsgi-nginx repository](https://github.com/tiangolo/uwsgi-nginx-docker) on GitHub).
+A good base image for Django is `tiangolo/uwsgi-nginx:python3.6-alpine3.7`, which is also available for other versions of Python (see the [tiangolo/uwsgi-nginx repository](https://github.com/tiangolo/uwsgi-nginx-docker) on GitHub).
 
 This base image already contains the production-ready uwsgi and nginx servers, but does not include Django. It's also necessary to provide settings to uwsgi so it can find the app's startup code.
 
