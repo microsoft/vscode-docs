@@ -111,7 +111,7 @@ Let's update the sample application to "Hello World!". In `App.vue` replace the 
 </template>
 ```
 
-Once you save the `App.vue` file, rebuild and restart the server with `npm run serve` and you'll see "Hello World!".
+Once you save the `App.vue` file, rebuild (TBD or refresh the browser) and restart the server with `npm run serve` and you'll see "Hello World!".
 
 >**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
 
@@ -121,7 +121,7 @@ Once you save the `App.vue` file, rebuild and restart the server with `npm run s
 
 To debug the client side Vue code, we'll need to install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
 
->Note: This tutorial assumes you have the Chrome browser installed. The builders of the Debugger for Chrome extension also have versions for the [Safari on iOS](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) and [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browsers.
+>Note: This tutorial assumes you have the Chrome browser installed. Microsoft also publishes a version of this extension for their [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browser.
 
 Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome` in the search box. You'll see several extensions which reference Chrome.
 
