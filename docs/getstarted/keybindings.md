@@ -403,7 +403,6 @@ Key|Command|Command id
 `kb(toggleFindRegex)`|Toggle Find Regex|`toggleFindRegex`
 `kb(toggleFindWholeWord)`|Toggle Find Whole Word|`toggleFindWholeWord`
 `kb(editor.action.toggleTabFocusMode)`|Toggle Use of Tab Key for Setting Focus|`editor.action.toggleTabFocusMode`
-`kb(toggleRenderWhitespace)`|Toggle Render Whitespace|`toggleRenderWhitespace`
 `kb(editor.action.toggleWordWrap)`|Toggle Word Wrap|`editor.action.toggleWordWrap`
 
 ### Rich Languages Editing
@@ -453,13 +452,10 @@ Key|Command|Command id
 `kb(workbench.action.closeWindow)`|Close Window|`workbench.action.closeWindow`
 `kb(workbench.action.closeActiveEditor)`|Close Editor|`workbench.action.closeActiveEditor`
 `kb(workbench.action.closeFolder)`|Close Folder|`workbench.action.closeFolder`
-`kb(workbench.action.navigateEditorGroups)`|Cycle Between Editor Groups|`workbench.action.navigateEditorGroups`
 `kb(workbench.action.splitEditor)`|Split Editor|`workbench.action.splitEditor`
 `kb(workbench.action.focusFirstEditorGroup)`|Focus into First Editor Group|`workbench.action.focusFirstEditorGroup`
 `kb(workbench.action.focusSecondEditorGroup)`|Focus into Second Editor Group|`workbench.action.focusSecondEditorGroup`
 `kb(workbench.action.focusThirdEditorGroup)`|Focus into Third Editor Group|`workbench.action.focusThirdEditorGroup`
-`kb(workbench.action.focusPreviousGroup)`|Focus into Editor Group on the Left|`workbench.action.focusPreviousGroup`
-`kb(workbench.action.focusNextGroup)`|Focus into Editor Group on the Right|`workbench.action.focusNextGroup`
 `kb(workbench.action.moveEditorLeftInGroup)`| Move Editor Left |`workbench.action.moveEditorLeftInGroup`
 `kb(workbench.action.moveEditorRightInGroup)`| Move Editor Right |`workbench.action.moveEditorRightInGroup`
 `kb(workbench.action.moveActiveEditorGroupLeft)`|Move Active Editor Group Left|`workbench.action.moveActiveEditorGroupLeft`
@@ -479,9 +475,6 @@ Key|Command|Command id
 `kb(workbench.action.closeActiveEditor)`|Close|`workbench.action.closeActiveEditor`
 `kb(workbench.action.closeOtherEditors)`|Close Others|`workbench.action.closeOtherEditors`
 `kb(workbench.action.closeEditorsInGroup)`|Close Group|`workbench.action.closeEditorsInGroup`
-`kb(workbench.action.closeEditorsInOtherGroups)`|Close Other Groups|`workbench.action.closeEditorsInOtherGroups`
-`kb(workbench.action.closeEditorsToTheLeft)`|Close Group to Left|`workbench.action.closeEditorsToTheLeft`
-`kb(workbench.action.closeEditorsToTheRight)`|Close Group to Right|`workbench.action.closeEditorsToTheRight`
 `kb(workbench.action.closeAllEditors)`|Close All|`workbench.action.closeAllEditors`
 `kb(workbench.action.reopenClosedEditor)`|Reopen Closed Editor|`workbench.action.reopenClosedEditor`
 `kb(workbench.action.keepEditor)`|Keep Open|`workbench.action.keepEditor`
@@ -490,7 +483,6 @@ Key|Command|Command id
 `kb(workbench.action.files.copyPathOfActiveFile)`|Copy Path of Active File|`workbench.action.files.copyPathOfActiveFile`
 `kb(workbench.action.files.revealActiveFileInWindows)`|Reveal Active File in Windows|`workbench.action.files.revealActiveFileInWindows`
 `kb(workbench.action.files.showOpenedFileInNewWindow)`|Show Opened File in New Window|`workbench.action.files.showOpenedFileInNewWindow`
-`kb(workbench.files.action.compareFileWith)`|Compare Opened File With|`workbench.files.action.compareFileWith`
 
 ### Display
 
@@ -535,11 +527,8 @@ Key|Command|Command id
 Key|Command|Command id
 ---|-------|----------
 `kb(workbench.action.openSettings)`|Open Settings|`workbench.action.openSettings`
-`kb(workbench.action.openWorkspaceSettings)`|Open Workspace Settings|`workbench.action.openWorkspaceSettings`
 `kb(workbench.action.openGlobalKeybindings)`|Open Keyboard Shortcuts|`workbench.action.openGlobalKeybindings`
-`kb(workbench.action.openSnippets)`|Open User Snippets|`workbench.action.openSnippets`
 `kb(workbench.action.selectTheme)`|Select Color Theme|`workbench.action.selectTheme`
-`kb(workbench.action.configureLocale)`|Configure Display Language|`workbench.action.configureLocale`
 
 ### Debug
 
@@ -561,18 +550,6 @@ Key|Command|Command id
 Key|Command|Command id
 ---|-------|----------
 `kb(workbench.action.tasks.build)`|Run Build Task|`workbench.action.tasks.build`
-`kb(workbench.action.tasks.test)`|Run Test Task|`workbench.action.tasks.test`
-
-### Extensions
-
-Key|Command|Command id
----|-------|----------
-`kb(workbench.extensions.action.installExtension)`|Install Extension|`workbench.extensions.action.installExtension`
-`kb(workbench.extensions.action.showInstalledExtensions)`|Show Installed Extensions|`workbench.extensions.action.showInstalledExtensions`
-`kb(workbench.extensions.action.listOutdatedExtensions)`|Show Outdated Extensions|`workbench.extensions.action.listOutdatedExtensions`
-`kb(workbench.extensions.action.showRecommendedExtensions)`|Show Recommended Extensions|`workbench.extensions.action.showRecommendedExtensions`
-`kb(workbench.extensions.action.showPopularExtensions)`|Show Popular Extensions|`workbench.extensions.action.showPopularExtensions`
-`kb(workbench.extensions.action.updateAllExtensions)`|Update All Extensions|`workbench.extensions.action.updateAllExtensions`
 
 ## Next steps
 
