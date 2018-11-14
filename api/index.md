@@ -42,6 +42,6 @@ Here is a high-level overview of each section's content:
 If you have questions for extension development, try asking on:
 
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/visual-studio-code): There are 11k questions tagged `visual-studio-code`, and over half of them already have answers. Search for your issue, ask questions or help your fellow developers by answering VS Code extension development questions!
-- [Gitter Channel](https://gitter.im/Microsoft/vscode) and [VS Code Dev Slack](https://join.slack.com/t/vscode-dev-community/shared_invite/enQtMjIxOTgxNDE3NzM0LWU5M2ZiZDU1YjBlMzdlZjA2YjBjYzRhYTM5NTgzMTAxMjdiNWU0ZmQzYWI3MWU5N2Q1YjBiYmQ4MzY0NDE1MzY): Public chatroom full of helpful folks. Some VS Code team members chime in conversations.
+- [Gitter Channel](https://gitter.im/Microsoft/vscode) and [VS Code Dev Slack](https://join.slack.com/t/vscode-dev-community/shared_invite/enQtMjIxOTgxNDE3NzM0LWU5M2ZiZDU1YjBlMzdlZjA2YjBjYzRhYTM5NTgzMTAxMjdiNWU0ZmQzYWI3MWU5N2Q1YjBiYmQ4MzY0NDE1MzY): Public chatroom for extension developers. Some VS Code team members chime in conversations.
 
 For feedback on documentation, create new issues at https://github.com/Microsoft/vscode-docs/issues. If you have questions that you cannot find answer for, or issues with VS Code's Extension API, please open new issues at https://github.com/Microsoft/vscode/issues.
