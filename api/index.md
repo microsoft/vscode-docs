@@ -29,13 +29,14 @@ If you'd like to learn more about the Extension API, refer to the [Extension Cap
 
 ## How to build extensions?
 
-Here is a high-level overview of each section's content:
+Now that you have seen some of the cool things you can do using VS Code API, it's time to build an extension! Building a good extension, however, could take a lot of effort. Here is how each section could help you with writing extension:
 
-- The [Hello Code](/api/get-started/your-first-extension) tutorial teaches fundamental concepts for building VS Code extensions.
-- `Advanced Topics` section includes in-depth guides for specific areas of VS Code extension development, such as publishing, testing, profiling extensions.
-- [Extension Capabilities](/api/extension-capabilities/overview) section dissects VS Code's vast API into smaller categories and points you to more detailed guides.
-- [Extension Guides](/api/extension-guides/overview) section contains guides and code samples that illustrate a specific part of VS Code API.
-- The `References` section contains exhaustive references for [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points) and many other topics.
+- `Get Started`: teaches fundamental concepts for building VS Code extensions with the [Hello Code](https://github.com/Microsoft/vscode-extension-samples/tree/master/hellocode-sample) sample.
+- `Advanced Topics`: includes in-depth guides for specific areas of VS Code extension development, such as [publishing](/api/advanced-topics/publishing-extension), [testing](/api/advanced-topics/testing-extension) and [profiling](/api/advanced-topics/profiling-extension) extensions.
+- `Extension Capabilities`: dissects VS Code's vast API into smaller categories and points you to more detailed guides.
+- `Extension Guides`: contains guides and code samples that illustrate a specific part of VS Code API.
+- `Language Extensions`: contains guides and code samples that illustrate how to add support for a programming language using VS Code API.
+- `References`: contains exhaustive references for [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points) and many other topics.
 
 ## Looking for help
 

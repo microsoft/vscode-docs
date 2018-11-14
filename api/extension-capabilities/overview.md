@@ -7,7 +7,10 @@ PageTitle: Extension Capabilities
 
 # Extensions Capabilities
 
-VS Code has a vast Extension API, and this topic breaks it down to smaller categories. Each category explains one aspect of VS Code API and point you to more detailed guides for using the API.
+VS Code has a vast Extension API, and this topic breaks it down to smaller categories. Each category:
+- Explains one aspect of VS Code API
+- Shows you what extension could achive with that API, and
+- Points you to more detailed guides for using that API
 
 ## Theming
 

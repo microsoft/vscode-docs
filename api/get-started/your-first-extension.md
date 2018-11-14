@@ -15,7 +15,7 @@ npm install -g yo generator-code
 
 The generator scaffolds a project ready for development. Run the generator and fill out a few fields:
 
-```
+```bash
 yo code
 
 # Why do we need to ask these 8 questions upfront? Can we simplify it?
@@ -71,4 +71,4 @@ You can find the source code of this tutorial at: https://github.com/Microsoft/v
 
 ### Using JavaScript
 
-In this guide, we mainly describe how to develop VS Code extension with TypeScript, because we believe TypeScript gives you the best experience for developing VS Code extension. However, if you prefer JavaScript, you can still follow along using [hellocode-minimap-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/hellocode-minimal-sample).
+In this guide, we mainly describe how to develop VS Code extension with TypeScript because we believe TypeScript offers the best experience for developing VS Code extension. However, if you prefer JavaScript, you can still follow along using [hellocode-minimal-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/hellocode-minimal-sample).
