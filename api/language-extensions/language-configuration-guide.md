@@ -118,7 +118,7 @@ Users can tweak the autoclosing behavior with `editor.autoClosingQuotes` and `ed
 
 In the past, VS Code only autocloses pairs if there is whitespace right after the cursor. So when you type `{` in the following JSX code, you would not get autoclose:
 
-```jsx
+```js
 const Component = () =>
   <div className={>
                   ^ Does not get autoclosed by default
