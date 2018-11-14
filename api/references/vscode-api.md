@@ -9,7 +9,7 @@ VSCodeCommitHash: 8119412ac606f91f9c9e8b6f79cfd3de5ecf7783
 VSCodeVersion: 1.27.0
 ---
 
-# vscode namespace API
+# VS Code API
 ## commands
 
 
