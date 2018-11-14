@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 1
 Area: advanced-topics
 TOCTitle: Testing Extension
 PageTitle: Testing Extension

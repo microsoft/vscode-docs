@@ -1,5 +1,5 @@
 ---
-Order: 1
+Order: 2
 Area: advanced-topics
 TOCTitle: Publishing Extension
 PageTitle: Publishing Extension
