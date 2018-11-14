@@ -17,7 +17,7 @@ The [`contributes.languages`](/api/references/contribution-points#contributes.la
 - TODO: Word pattern
 - TODO: Indentation Rules
 
-Here is a [Language Configuration Sample]() that configures the experience for JavaScript files. This guide will explain the source:
+Here is a [Language Configuration Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/language-configuration-sample) that configures the experience for JavaScript files. This guide will explain the source:
 
 `language-configuration.json`
 ```json
