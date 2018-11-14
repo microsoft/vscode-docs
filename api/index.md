@@ -33,7 +33,7 @@ Here is a high-level overview of each section's content:
 
 - The [Hello Code](/api/get-started/your-first-extension) tutorial teaches fundamental concepts for building VS Code extensions.
 - `Advanced Topics` section includes in-depth guides for specific areas of VS Code extension development, such as publishing, testing, profiling extensions.
-- [Extension Capabilities](/api/extension-capabilities/overview) section dissects VS Code's vast API into smaller categories and point you to more detailed guides.
+- [Extension Capabilities](/api/extension-capabilities/overview) section dissects VS Code's vast API into smaller categories and points you to more detailed guides.
 - [Extension Guides](/api/extension-guides/overview) section contains guides and code samples that illustrate a specific part of VS Code API.
 - The `References` section contains exhaustive references for [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points) and many other topics.
 
@@ -44,4 +44,4 @@ If you have questions for extension development, try asking on:
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/visual-studio-code): There are 11k questions tagged `visual-studio-code`, and over half of them already have answers. Search for your issue, ask questions or help your fellow developers by answering VS Code extension development questions!
 - [Gitter Channel](https://gitter.im/Microsoft/vscode) and [VS Code Dev Slack](https://join.slack.com/t/vscode-dev-community/shared_invite/enQtMjIxOTgxNDE3NzM0LWU5M2ZiZDU1YjBlMzdlZjA2YjBjYzRhYTM5NTgzMTAxMjdiNWU0ZmQzYWI3MWU5N2Q1YjBiYmQ4MzY0NDE1MzY): Public chatroom full of helpful folks. Some VS Code team members chime in conversations.
 
-For feedback on documentation, create new issues at https://github.com/Microsoft/vscode-docs. If you have questions that you cannot find answer for, or issues with VS Code's Extension API, please open new issues at https://github.com/Microsoft/vscode/issues.
+For feedback on documentation, create new issues at https://github.com/Microsoft/vscode-docs/issues. If you have questions that you cannot find answer for, or issues with VS Code's Extension API, please open new issues at https://github.com/Microsoft/vscode/issues.
