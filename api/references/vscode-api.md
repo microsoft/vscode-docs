@@ -1,7 +1,7 @@
 ---
 Order: 1
 Area: references
-TOCTitle: vscode API
+TOCTitle: VS Code API
 PageTitle: VS Code API Reference
 DateApproved: 9/5/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.

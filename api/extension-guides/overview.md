@@ -14,7 +14,7 @@ In each guide-sample combo, you can expect to find:
 - Thoroughly commented source code.
 - A gif or image showing the usage of the sample extension.
 - Instructions for running the sample extension.
-- Listing of vscode API being used.
+- Listing of VS Code API being used.
 - Listing of Contribution Points being used.
 - Real-world extensions resembling the sample.
 - Explanation of API concepts.
@@ -30,7 +30,7 @@ All guides in this section and their accompanying sample code.
 
 ## Other Samples
 
-These samples illustrate one [vscode API](/api/references/vscode-api) usage or a [Contribution Point](/api/references/contribution-points).
+These samples illustrate one [VS Code API](/api/references/vscode-api) usage or a [Contribution Point](/api/references/contribution-points).
 
 These samples do not contain a guide. However, most of them have well-commented source code:
 

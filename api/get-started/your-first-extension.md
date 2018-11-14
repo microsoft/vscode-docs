@@ -53,7 +53,7 @@ Here are some ideas for you to try:
 
 - Give `Hello Code` command a new name.
 - [Contribute](/api/references/contribution-points) another command `Goodbye Code`
-- Replace the `vscode.window.showInformationMessage` with another [vscode API](/api/references/vscode-api) call to show a warning message.
+- Replace the `vscode.window.showInformationMessage` with another [VS Code API](/api/references/vscode-api) call to show a warning message.
 
 ## Debugging the extension
 
