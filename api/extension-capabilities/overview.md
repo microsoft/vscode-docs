@@ -23,19 +23,6 @@ VS Code has a vast Extension API, and this topic breaks it down to smaller categ
 - Port an existing TextMate theme to VS Code.
 - Add custom file icons.
 
-## Common Capabilities
-
-The [common capabilities](common-capabilities) are core pieces of functionality that you can use alongside any of the other extension points. These include registering commands, making your extension easily configurable, and collecting user input using quick inputs.
-
-**Example Extension Points**
-
-- Register a new command with a keyboard shortcut.
-- Collect user input using quick inputs.
-- Build custom UI flows using quick picks.
-- Adding settings for your extension.
-- Depending on other extensions.
-- Exposing an API for other extensions to consume.
-
 ## Declarative Language Features
 
 [Declarative Language Features](/api/language-extensions/overview#Static-Language-Features) extend existing programming languages or implement basic support for a new languages. This is done declaratively, without writing any code. These extension points focus on text editing-type features, such as bracket matching and syntax highlighting. For more advanced features, like IntelliSense or debugging, see [Programmatic Language Features](#programmatic-language-features).
@@ -83,8 +70,21 @@ All of the language features extension points can be used for more than just imp
 
 ## Debugger
 
-To be written @mjbvz.
-Talk about both debuggers and task providers.
+TODO: Andre
+
+## Common Capabilities
+
+The [common capabilities](common-capabilities) are core pieces of functionality that you can use alongside any of the other extension points. These include registering commands, making your extension easily configurable, and collecting user input using quick inputs.
+
+**Example Extension Points**
+
+- Register a new command with a keyboard shortcut.
+- Collect user input using quick inputs.
+- Build custom UI flows using quick picks.
+- Adding settings for your extension.
+- Depending on other extensions.
+- Exposing an API for other extensions to consume.
+
 
 ## Core Extensions
 
