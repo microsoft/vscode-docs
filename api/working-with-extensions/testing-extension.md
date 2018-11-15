@@ -1,6 +1,6 @@
 ---
 Order: 1
-Area: advanced-topics
+Area: working-with-extensions
 TOCTitle: Testing Extension
 PageTitle: Testing Extension
 ---

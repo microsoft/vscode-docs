@@ -1,6 +1,6 @@
 ---
 Order: 3
-Area: advanced-topics
+Area: working-with-extensions
 TOCTitle: Continuous Integration
 PageTitle: Continuous Integration
 ---

@@ -1,6 +1,6 @@
 ---
 Order: 2
-Area: advanced-topics
+Area: working-with-extensions
 TOCTitle: Publishing Extension
 PageTitle: Publishing Extension
 ---
