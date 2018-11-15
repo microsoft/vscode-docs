@@ -6,11 +6,10 @@ ContentId: 85ce0bcc-d2b8-4b7c-b744-5eddce9a8d00
 PageTitle: Vue JavaScript Tutorial in VS Code
 DateApproved: 7/182018
 MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
-MetaSocialImage: /assets/images/nodejs_javascript_vscode.png TBD
 ---
 # Using Vue in VS Code
 
-[Vue](https://vuejs.org/) is a popular JavaScript library for building web application user interfaces. The Visual Studio Code editor supports Vue.js IntelliSense and code navigation out of the box. TBD
+[Vue](https://vuejs.org/) is a popular JavaScript library for building web application user interfaces. The Visual Studio Code editor is a powerful tool for writing Vue.js through the Vetur extension which supports Vue.js IntelliSense, snippets, and more. TBD
 
 ![welcome to Vue](images/vuejs/welcome-to-vue.png)
 
@@ -72,7 +71,7 @@ Now you should see advanced language features such as syntax highlighting, brack
 
 ![vue language features](images/vuejs/vue-language-features.png)
 
-### IntelliSense ?? does Vetur provide TBD
+### IntelliSense
 
 As you start typing in `App.vue`, you'll see smart suggestions or completions.
 
@@ -82,25 +81,28 @@ After you select a suggestion and type `.`, you see the types and methods on the
 
 ![Vue.jd intellisense](images/vuejs/intellisense.png)
 
+Vue.js directives v-bind
+Vue.js properties computed, methods, props, etc
+
 VS Code uses the TypeScript language service for its JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
 
 If you select a method, you'll also get parameter help:
 
 ![vuejs parameter help](images/vuejs/parameter-help.png)
 
-### Go to Definition, Peek definition TBD seems to work
+### Go to Definition, Peek definition
 
 Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or **Peek Definition** (`kb(editor.action.peekImplementation)`). Put the cursor over the `App`, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `App` definition from `App.js`.
 
 ![Vue.js peek definition](images/vuejs/peek-definition.png) TBD
 
+Show Go to Definition for Vue object TBD
+
 Press `kbstyle(Escape)` to close the Peek window.
 
 ## Hello World!
 
-TBD hot update does seem to work
-
-Let's update the sample application to "Hello World!". In `App.vue` replace the `HelloWorld msg` text with "Hello World!".
+Let's update the sample application to "Hello World!". In `App.vue` replace the HelloWorld component `msg` custom attribute text with "Hello World!".
 
 ```html
 <template>
@@ -111,7 +113,7 @@ Let's update the sample application to "Hello World!". In `App.vue` replace the 
 </template>
 ```
 
-Once you save the `App.vue` file, rebuild (TBD or refresh the browser) and restart the server with `npm run serve` and you'll see "Hello World!".
+Once you save the `App.vue` file, restart the server with `npm run serve` and you'll see "Hello World!". Leave the server running while we go on to learn about Vue.js client side debugging.
 
 >**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
 
@@ -168,11 +170,15 @@ The **Debugger for Chrome** extension README has lots of information on other co
 
 ![debugger for chrome readme](images/vuejs/chrome-debugger-readme.png)
 
-TBD need to talk about vue-devtools since it is in the output panel TBD
-
 ## Linting
 
 Linters analyze your source code and can warn you about potential problems before you run your application. The vue-cli-service language service has syntax error checking support by default which you can see in action in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
+
+TBD you'll get Vue specific Linting with the Vue ESLint plug-in `eslint-plugin-vue` for example more that one element in a Vue component template.
+
+TBD show image - make sure current with Hello World above
+
+You'll also get JavaScript errors and warnings as well.
 
 Try making a small error in your Vue source code and you'll see a red squiggle and an error in the **Problems** panel.
 
@@ -187,7 +193,6 @@ In this tutorial, we used the Vue CLI to create a simple Vue.js application. The
 ### Veturpack
 
 https://vuejs.github.io/vetur/
-
 
 ### Other Vue.js extensions
 
