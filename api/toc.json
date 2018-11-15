@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Get Started",
+    "area": "get-started",
+    "topics": [
+      ["Your First Extension", "/api/get-started/your-first-extension"],
+      ["Extension Anatomy", "/api/get-started/extension-anatomy"],
+      ["Wrapping Up", "/api/get-started/wrapping-up"]
+    ]
+  },
+  {
+    "name": "Advanced Topics",
+    "area": "advanced-topics",
+    "topics": [
+      ["Testing Extension", "/api/advanced-topics/testing-extension"],
+      ["Publishing Extension", "/api/advanced-topics/publishing-extension"],
+      ["Continuous Integration", "/api/advanced-topics/continuous-integration"],
+      ["Profiling Extension", "/api/advanced-topics/profiling-extension"],
+      ["Using Proposed API", "/api/advanced-topics/using-proposed-api"]
+    ]
+  },
+  {
+    "name": "Extension Capabilities",
+    "area": "extension-capabilities",
+    "topics": [
+      ["Overview", "/api/extension-capabilities/overview"],
+      ["Common Capabilities", "/api/extension-capabilities/common-capabilities"],
+      ["Theming", "/api/extension-capabilities/theming"],
+      ["Extending Workbench", "/api/extension-capabilities/extending-workbench"],
+      ["Debugger", "/api/extension-capabilities/debugger"]
+    ]
+  },
+  {
+    "name": "Extension Guides",
+    "area": "extension-guides",
+    "topics": [
+      ["Overview", "/api/extension-guides/overview"],
+      ["Command", "/api/extension-guides/command"],
+      ["Color Theme", "/api/extension-guides/color-theme"],
+      ["Tree View", "/api/extension-guides/tree-view"],
+      ["Webview", "/api/extension-guides/webview"],
+      ["Task Provider", "/api/extension-guides/task-provider"],
+      ["Source Control", "/api/extension-guides/scm-provider"],
+      ["Debug Extension", "/api/extension-guides/debug-extension"],
+      ["Markdown Extension", "/api/extension-guides/markdown-extension"]
+    ]
+  },
+  {
+    "name": "Language Extensions",
+    "area": "language-extensions",
+    "topics": [
+      ["Overview", "/api/language-extensions/overview"],
+      ["Syntax Highlight Guide", "/api/language-extensions/syntax-highlight-guide"],
+      ["Snippet Guide", "/api/language-extensions/snippet-guide"],
+      ["Language Configuration Guide", "/api/language-extensions/language-configuration-guide"],
+      ["Programmatic Language Features", "/api/language-extensions/programmatic-language-features"],
+      ["Smart Editing Guide", "/api/language-extensions/smart-editing-guide"],
+      ["Smart Editing LSP Guide", "/api/language-extensions/smart-editing-lsp-guide"]
+    ]
+  },
+  {
+    "name": "References",
+    "area": "references",
+    "topics": [
+      ["VS Code API ", "/api/references/vscode-api"],
+      ["Contribution Points", "/api/references/contribution-points"],
+      ["Activation Events", "/api/references/activation-events"],
+      ["Extension Manifest", "/api/references/extension-manifest"],
+      ["Commands", "/api/references/commands"],
+      ["Theme Color", "/api/references/theme-color"],
+      ["Document Selector", "/api/references/document-selector"],
+      ["Principles and Patterns", "/api/references/principle-and-patterns"]
+    ]
+  }
+]
