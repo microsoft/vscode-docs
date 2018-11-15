@@ -7,13 +7,7 @@ PageTitle: Snippet Guide
 
 # Snippet Guide
 
-The [`contributes.snippets`](/api/references/contribution-points#contributes.snippets) Contribution Point allows you to bundle snippets into an extension for sharing. This is useful for sharing snippets for specific frameworks, for example:
-
-- https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2
-- https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets
-- https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented
-
-TODO: Pine - Turn these into extension tiles.
+The [`contributes.snippets`](/api/references/contribution-points#contributes.snippets) Contribution Point allows you to bundle snippets into an extension for sharing.
 
 The [Creating snippets](https://vscode-ext-docs.azurewebsites.net/docs/editor/userdefinedsnippets#_creating-your-own-snippets) topic contains all information for creating snippets. This guide / sample just shows how you can turn your own snippets into an extension for sharing. The suggested workflow is:
 
