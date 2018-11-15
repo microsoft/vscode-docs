@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: extension-guides
 TOCTitle: Color Theme
 PageTitle: Color Theme

@@ -27,6 +27,8 @@ Here are some examples of what you can achieve with extensions:
 
 If you'd like to learn more about the Extension API, refer to the [Extension Capabilities / Overview](/api/extension-capabilities/overview) page.
 
+We also have a list of guides / samples that you can play with and use as a starting point for your own extensions at: [Extension Guides / Overview](/api/extension-guides/overview).
+
 ## How to build extensions?
 
 Now that you have seen some of the cool things you can do using VS Code API, it's time to build an extension! Building a good extension, however, could take a lot of effort. Here is how each section could help you with writing extension:
