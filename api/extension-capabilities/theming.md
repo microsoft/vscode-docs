@@ -1,7 +1,7 @@
 ---
 ---
 
-# Theming VS Code extension
+# Theming
 
 In VS Code, there are two types of themes:
 
@@ -12,34 +12,18 @@ In VS Code, there are two types of themes:
 
 ![color-theme](./images/theming/color-theme.png)
 
-As you can see in the illustration, Color Theme defines two mappings, `colors` for UI Component colors and `tokenColors` for Text Token colors.
+As you can see in the illustration, Color Theme defines two mappings:
 
-[Theme Color Reference](/api/references/theme-color) is a good starting point for customizing UI Component colors.
+- The `colors` mapping that controls colors for UI Components
+- The `tokenColors` mapping that controls colors for each source code token (your source code is broken into tokens by a [grammar](http://localhost:3000/api/language-extensions/syntax-highlight-guide))
 
-If you want to change the color of text in your editor, you need to know how the text is tokenized. VS Code provides a handy command `Developer: Inspect TM Scopes` that shows you the TextMate scopes of each syntax token in the editor.
-
-![tm-inspector](./images/theming/tm-inspector.png)
-
-There are also two settings, `workbench.colorCustomizations` and `editor.tokenColorCustomizations` that correspond to the `color` and `tokenColors` color theme config. They provide a quick way for you to play with colors. For example, try adding this to your user settings:
-
-```json
-{
-  "workbench.colorCustomizations": {
-    "titleBar.activeBackground": "#ff0000"
-  },
-  "editor.tokenColorCustomizations": {
-    "comments": "#FF0000"
-  }
-}
-```
-
-![color-setting](./images/theming/color-setting.png)
+We have a [Color Theme Guide](/api/extension-guides/color-theme) and a [Color Theme Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/theme-sample) that illustrates how to create a theme.
 
 ## Icon Theme
 
 Icon themes allow you to:
 
-- Create a mapping from unique icon identifiers to images or font icons;
-- Associate files to these unique icon identifiers by filenames or file language types.
+- Create a mapping from unique icon identifiers to images or font icons
+- Associate files to these unique icon identifiers by filenames or file language types
 
 ![icon-theme](./images/theming/icon-theme.png)
