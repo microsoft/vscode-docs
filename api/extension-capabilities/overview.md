@@ -8,6 +8,17 @@ VS Code has a vast Extension API, and this topic breaks it down to smaller categ
 - Shows you what extension could achive with that API, and
 - Points you to more detailed guides for using that API
 
+## Common Capabilities
+
+The [common capabilities](common-capabilities) are core pieces of functionality that you can use alongside any of the other extension points. These include registering commands, making your extension easily configurable, and collecting user input using quick inputs.
+
+**Example Extension Points**
+
+- Register a new command with a keyboard shortcut.
+- Collect user input using quick inputs.
+- Build custom UI flows using quick picks.
+- Adding settings for your extension.
+
 ## Theming
 
 [Themes](theming) control the look of VS Code, both the colors of code in the editor and the colors of the VS Code user interface itself. If you've ever wanted to make it look like you're coding the matrix by making VS Code all different shades of green, or just wanted to create the ultimate, minimalist greyscale workspace, then themes are for you.
@@ -67,20 +78,6 @@ All of the language features extension points can be used for more than just imp
 ## Debugger
 
 TODO: Andre
-
-## Common Capabilities
-
-The [common capabilities](common-capabilities) are core pieces of functionality that you can use alongside any of the other extension points. These include registering commands, making your extension easily configurable, and collecting user input using quick inputs.
-
-**Example Extension Points**
-
-- Register a new command with a keyboard shortcut.
-- Collect user input using quick inputs.
-- Build custom UI flows using quick picks.
-- Adding settings for your extension.
-- Depending on other extensions.
-- Exposing an API for other extensions to consume.
-
 
 ## Core Extensions
 
