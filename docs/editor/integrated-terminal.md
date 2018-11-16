@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 10/4/2018
+DateApproved: 11/8/2018
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -201,6 +201,14 @@ By default, the terminal will open at the folder that is opened in the Explorer.
 ```json
 {
     "terminal.integrated.cwd": "/home/user"
+}
+```
+
+Split terminals on Windows will start in the directory that the parent terminal started with. On MacOS and Linux, split terminals will inherit the current working directory of the parent terminal. This behavior can be changed using the `terminal.integrated.splitCwd` setting:
+
+```json
+{
+    "terminal.integrated.splitCwd": "workspaceRoot"
 }
 ```
 

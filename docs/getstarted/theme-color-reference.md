@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Theme Color Reference
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
 PageTitle: Visual Studio Code Theme Color Reference
-DateApproved: 10/4/2018
+DateApproved: 11/8/2018
 MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
@@ -204,6 +204,10 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.unfocusedHoverBackground`: Tab background color in an unfocused group when hovering
 - `tab.hoverBorder`: Border to highlight tabs when hovering
 - `tab.unfocusedHoverBorder`: Border to highlight tabs in an unfocused group when hovering
+- `tab.activeModifiedBorder`: Border on the top of modified (dirty) active tabs in an active group.
+- `tab.inactiveModifiedBorder`: Border on the top of modified (dirty) inactive tabs in an active group.
+- `tab.unfocusedActiveModifiedBorder`: Border on the top of modified (dirty) active tabs in an unfocused group.
+- `tab.unfocusedInactiveModifiedBorder`: Border on the top of modified (dirty) inactive tabs in an unfocused group.
 
 ## Editor colors
 
@@ -542,6 +546,8 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 
 - `debugToolBar.background`: Debug toolbar background color.
 - `debugToolBar.border`: Debug toolbar border color.
+- `editor.stackFrameHighlightBackground`: Background color of the top debug stack frame highlight in the editor. By default this color is yellow.
+- `editor.focusedStackFrameHighlightBackground`: Background color of the focused debug stack frame highlight in the editor. By default this color is green.
 
 ## Welcome page
 

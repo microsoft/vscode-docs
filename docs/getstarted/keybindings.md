@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 10/4/2018
+DateApproved: 11/8/2018
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -272,6 +272,8 @@ notificationCenterVisible | Notification Center is visible at the bottom right o
 notificationToastsVisible | Notification toast is visible at the bottom right of VS Code.
 searchViewletVisible | Search view is open.
 sidebarVisible | Side Bar is displayed.
+sideBarFocus | Side Bar has focus.
+panelFocus | Panel has focus.
 editorIsOpen | True if one editor is open.
 inZenMode | Window is in Zen Mode.
 inDebugRepl | Focus is in the Debug Console REPL.
@@ -287,7 +289,7 @@ config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` i
 
 The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
 
-### Active view or panel 'when' clause context
+### Active/Focused view or panel 'when' clause context
 
 You can have a keybinding that is enabled only when a specific view or panel is visible.
 
@@ -312,6 +314,14 @@ Panel Identifiers:
 * workbench.panel.terminal - Integrated Terminal
 * workbench.panel.comments - Comments
 * workbench.view.search - Search when `search.location` is set to `panel`
+
+If you want a keybinding that is enabled only when a specific view or panel has focus, use `sideBarFocus` or `panelFocus` in combination with `activeViewlet` or `activiewFocus`.
+
+For example, the when clause below is true only when the File Explorer has focus:
+
+```json
+"sideBarFocus && activeViewlet == 'workbench.view.explorer'"
+```
 
 ### key-value when clause operator
 

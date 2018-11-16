@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 10/4/2018
+DateApproved: 11/8/2018
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
 # HTML in Visual Studio Code
@@ -82,7 +82,7 @@ You can turn that validation off with the following settings:
 
 ## Folding
 
-You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges are available for all HTML elements for multi-line comments in the source code.
+You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges are available for all HTML elements for multiline comments in the source code.
 
 Additionally you can use the following region markers to define a folding range:
 `<!-- #region -->` and `<!-- endregion -->`

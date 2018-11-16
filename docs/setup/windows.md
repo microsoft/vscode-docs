@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 10/4/2018
+DateApproved: 11/8/2018
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Visual Studio Code on Windows
@@ -51,7 +51,7 @@ Additionally, you can prevent the Setup from launching VS Code after completion 
 
 ### Scrolling is laggy and not smooth
 
-On certain devices, editor scrolling is not smooth but laggy for an unpleasant experience. If you notice this issue, you can configure the setting `window.smoothScrollingWorkaround: true` as a workaround.
+On certain devices, editor scrolling is not smooth but laggy for an unpleasant experience. If you notice this issue, make sure you install the Windows 10 October 2018 update where this issue is fixed.
 
 ### I'm having trouble with the installer
 

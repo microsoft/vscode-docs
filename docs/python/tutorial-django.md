@@ -519,7 +519,6 @@ The following steps demonstrate creating a base template.
     <body>
     <div class="navbar">
         <a href="{% url 'home' %}" class="navbar-brand">Home</a>
-        <a href="{% url 'log' %}" class="navbar-item">Log Message</a>
         <a href="{% url 'about' %}" class="navbar-item">About</a>
         <a href="{% url 'contact' %}" class="navbar-item">Contact</a>
     </div>
