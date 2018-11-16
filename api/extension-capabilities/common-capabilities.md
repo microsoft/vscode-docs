@@ -24,13 +24,7 @@ Each extension can add custom keybindings. Read more in the [`contributes.keybin
 
 ## Context Menu
 
-Your extension can register custom Context Menu items that will be displayed in different parts of VS Code UI. Read more at [`contributes.menus`](/api/references/contribution-points#contributes.menus) Contribution Point.
-
-This page should have a few short paragraphs that talks about common capabilities that extensions could use, for example:
-
-- Contribute Context Menu items
-- Contribute configurations
-- Progress API
+Your extension can register custom Context Menu items that will be displayed in different parts of VS Code UI on right click. Read more at the [`contributes.menus`](/api/references/contribution-points#contributes.menus) Contribution Point.
 
 ## Data Storage
 
@@ -52,7 +46,7 @@ Almost all extensions need to display information messages at some point. VS Cod
 
 ## Quick Pick
 
-With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can easily gather user input or let user select one option from multiple ones. The [QuickInput Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/quickinput-sample) illustrates the API.
+With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can easily collect user input or let user select one option from multiple ones. The [QuickInput Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/quickinput-sample) illustrates the API.
 
 ## File Picker
 
@@ -68,4 +62,4 @@ Progress can be shown in different locations using the [`ProgressLocation`](/api
 - In the source control view
 - General progress in the VS Code window
 
-A sample extension that uses the Progress API can be found [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/progress-sample).
+The [Progress Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/progress-sample) illustrates this API.
