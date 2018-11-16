@@ -28,7 +28,7 @@ Your extension can register custom Context Menu items that will be displayed in 
 
 ## Data Storage
 
-If you need to store data for your extension, there are three options:
+You have three options for storing data:
 
 - [`ExtensionContext.workspaceState`](/api/references/vscode-api#ExtensionContext.workspaceState): A workspace storage where you can write key/value pairs to. VS Code manages the storage and will restore it when the same workspace is opened again.
 - [`ExtensionContext.globalState`](/api/references/vscode-api#ExtensionContext.globalState): A global storage where you can write key/value pairs to. VS Code manages the storage and will restore it for each extension activation.
