@@ -10,16 +10,20 @@ PageTitle: Common Capabilities
 This page should have a few short paragraphs that talks about common capabilities that extensions could use, for example:
 
 - Using commands
+- Showing information messages
 - Persist data between extension activations
 - Contribute Context Menu items
 - Contribute configurations
+- Progress API
 
-## Taken care of
+## Progress API
 
-- Extension Dependencies
-- Using vscode-nls for i18n
-- Exposing API
+[`Progress`](/api/references/vscode-api#Progress) is used for reporting progress updates to the user.
 
-It should also talk about limitations in certain areas, for example:
+Progress can be shown in different locations using the [`ProgressLocation`](/api/references/vscode-api#ProgressLocation) option:
 
-- Using native node modules
+- In the notifications area
+- In the source control view
+- General progress in the VS Code window
+
+A sample extension that uses the Progress API can be found [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/progress-sample).

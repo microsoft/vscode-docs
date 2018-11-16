@@ -35,7 +35,7 @@ Example:
 
 When the user opens the view, VS Code will then emit an activationEvent [`onView:${viewId}`](/api/references/activation-events#activationEvents.onView) (e.g. `onView:nodeDependencies` for the example above). You can also control the visibility of the view by providing the `when` context value.
 
-## Contributino Point: contributes.viewsContainers
+## Contribution Point: contributes.viewsContainers
 
 You can contribute your views to your own view container which will show up in the activity bar.
 
