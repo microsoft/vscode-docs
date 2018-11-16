@@ -1,8 +1,4 @@
 ---
-Order: 4
-Area: extension-guides
-TOCTitle: Tree View
-PageTitle: Tree View
 ---
 
 # Tree View Guide

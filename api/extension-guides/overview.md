@@ -1,8 +1,4 @@
 ---
-Order: 1
-Area: extension-guides
-TOCTitle: Overview
-PageTitle: Overview of Extension Guides
 ---
 
 # Extension Guides

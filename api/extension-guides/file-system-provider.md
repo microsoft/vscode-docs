@@ -1,8 +1,4 @@
 ---
-# Order: 10
-Area: extension-guides
-TOCTitle: File System Provider
-PageTitle: File System Provider
 ---
 
 # File System Provider

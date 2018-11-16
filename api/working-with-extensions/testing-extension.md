@@ -1,8 +1,4 @@
 ---
-Order: 1
-Area: working-with-extensions
-TOCTitle: Testing Extension
-PageTitle: Testing Extension
 ---
 
 # Testing Extension

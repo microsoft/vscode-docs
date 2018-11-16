@@ -1,8 +1,4 @@
 ---
-Order: 2
-Area: working-with-extensions
-TOCTitle: Publishing Extension
-PageTitle: Publishing Extension
 ---
 
 # Publishing Extension

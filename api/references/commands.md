@@ -1,8 +1,4 @@
 ---
-Order: 5
-Area: references
-TOCTitle: Commands
-PageTitle: Commands
 ---
 
 # VS Code built-in Commands

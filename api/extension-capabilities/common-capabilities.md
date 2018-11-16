@@ -1,11 +1,7 @@
 ---
-Order: 2
-Area: extension-capabilities
-TOCTitle: Common Capabilities
-PageTitle: Common Capabilities
 ---
 
-# Common Capabilities of Extensions
+# Common Capabilities
 
 This page should have a few short paragraphs that talks about common capabilities that extensions could use, for example:
 

@@ -1,8 +1,4 @@
 ---
-Order: 2
-Area: extension-guides
-TOCTitle: Command
-PageTitle: Command
 ---
 
 # Command

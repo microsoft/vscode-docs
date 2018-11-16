@@ -1,8 +1,4 @@
 ---
-Order: 3
-Area: working-with-extensions
-TOCTitle: Continuous Integration
-PageTitle: Continuous Integration
 ---
 
 # Continuous Integration

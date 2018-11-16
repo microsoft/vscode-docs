@@ -1,8 +1,4 @@
 ---
-Order: 14
-Area: references
-TOCTitle: Principles and Patterns
-PageTitle: Principles and Patterns
 ---
 
 # Extensibility Principles and Patterns

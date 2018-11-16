@@ -1,11 +1,7 @@
 ---
-Order: 3
-Area: references
-TOCTitle: Activation Events
-PageTitle: Activation Events
 ---
 
-# Activation Events - package.json
+# Activation Events
 
 Extensions are activated lazily in VS Code.  As a result, you need to provide VS Code with context as to when your extension should be activated.  We support the following activation events:
 

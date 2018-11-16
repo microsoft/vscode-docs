@@ -1,8 +1,4 @@
 ---
-Order: 5
-Area: language-extensions
-TOCTitle: Programmatic Language Features
-PageTitle: Programmatic Language Features
 ---
 
 # Programmatic Language Features

@@ -1,8 +1,4 @@
 ---
-Order: 14
-Area: extension-guides
-TOCTitle: Debug Extension
-PageTitle: Debug Extension
 ---
 
 # Debug Extension

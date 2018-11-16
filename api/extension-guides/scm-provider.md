@@ -1,11 +1,7 @@
 ---
-Order: 13
-Area: extension-guides
-TOCTitle: Source Control
-PageTitle: Source Control
 ---
 
-# VS Code Source Control API
+# Source Control API
 
 The Source Control API allows extension authors to define Source Control Management (SCM) features. There is a slim, yet powerful API surface which allows many different SCM systems to be integrated in VS Code, while having a common user interface with all of them.
 

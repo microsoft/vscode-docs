@@ -1,8 +1,4 @@
 ---
-Order: 10
-Area: references
-TOCTitle: Document Selector
-PageTitle: Document Selector
 ---
 
 # Document Selectors

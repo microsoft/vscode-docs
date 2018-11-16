@@ -1,5 +1,4 @@
 ---
-PageTitle: Overview
 ---
 
 # Visual Studio Code Extension API

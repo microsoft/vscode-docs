@@ -1,8 +1,4 @@
 ---
-Order: 1
-Area: language-extensions
-TOCTitle: Overview
-PageTitle: Visual Studio Code Language Extension Overview
 ---
 
 # Language Extension Overview

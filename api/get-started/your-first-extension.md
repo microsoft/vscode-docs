@@ -1,8 +1,4 @@
 ---
-Order: 1
-Area: get-started
-TOCTitle: Your First Extension
-PageTitle: Your First Extension
 ---
 
 # Your First Extension

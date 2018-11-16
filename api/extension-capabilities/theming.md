@@ -1,8 +1,4 @@
 ---
-Order: 3
-Area: extension-capabilities
-TOCTitle: Theming
-PageTitle: Theming
 ---
 
 # Theming VS Code extension

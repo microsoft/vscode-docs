@@ -1,8 +1,4 @@
 ---
-Order: 4
-Area: references
-TOCTitle: Extension Manifest
-PageTitle: Extension Manifest
 ---
 
 # Extension Manifest

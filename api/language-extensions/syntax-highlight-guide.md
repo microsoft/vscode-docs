@@ -1,8 +1,4 @@
 ---
-Order: 2
-Area: language-extensions
-TOCTitle: Syntax Highlight Guide
-PageTitle: Syntax Highlight Guide
 ---
 
 # Syntax Highlight Guide

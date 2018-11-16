@@ -1,8 +1,4 @@
 ---
-Order: 3
-Area: get-started
-TOCTitle: Wrapping Up
-PageTitle: Wrapping Up
 ---
 
 # Wrapping Up

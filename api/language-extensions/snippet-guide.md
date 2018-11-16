@@ -1,8 +1,4 @@
 ---
-Order: 3
-Area: language-extensions
-TOCTitle: Snippet Guide
-PageTitle: Snippet Guide
 ---
 
 # Snippet Guide

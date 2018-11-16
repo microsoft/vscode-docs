@@ -1,8 +1,4 @@
 ---
-Order: 2
-Area: references
-TOCTitle: Contribution Points
-PageTitle: Contribution Points
 ---
 
 # Contribution Points

@@ -1,8 +1,4 @@
 ---
-Order: 7
-Area: extension-capabilities
-TOCTitle: Debugger
-PageTitle: Debugger
 ---
 
 # Debugger Extension

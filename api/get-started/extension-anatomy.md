@@ -1,8 +1,4 @@
 ---
-Order: 2
-Area: get-started
-TOCTitle: Extension Anatomy
-PageTitle: Extension Anatomy
 ---
 
 # Extension Anatomy

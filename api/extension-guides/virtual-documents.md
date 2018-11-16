@@ -1,8 +1,4 @@
 ---
-# Order: 8
-Area: extension-guides
-TOCTitle: Virtual Documents
-PageTitle: Virtual Documents
 ---
 
 # Virtual Documents
