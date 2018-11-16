@@ -44,4 +44,4 @@ Extensions can create custom [`StatusBarItem`](/api/references/vscode-api#Status
 - Show text and icons
 - Run a command on click
 
-A Status Bar extension can be found [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/statusbar-sample).
+A Status Bar extension sample can be found [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/statusbar-sample).
