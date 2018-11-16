@@ -1,7 +1,7 @@
 ---
 ---
 
-# VS Code built-in Commands
+# Built-in Commands
 
 This document lists a subset of Visual Studio Code commands that you might use with `vscode.commands.executeCommand` API.
 
