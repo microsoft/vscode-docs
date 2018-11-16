@@ -4,19 +4,28 @@
 # Extensions Capabilities Overview
 
 VS Code has a vast Extension API, and this topic breaks it down to smaller categories. Each category:
+
 - Explains one aspect of VS Code API
 - Shows you what extension could achive with that API, and
 - Points you to more detailed guides for using that API
 
 ## Common Capabilities
 
-The [common capabilities](common-capabilities) are core pieces of functionality that you can use alongside any of the other extension points. These include registering commands, making your extension easily configurable, and collecting user input using quick inputs.
+[Common capabilities](common-capabilities) are core pieces of functionality that you can use alongside any of the other extension points. Some of these capabilities include:
+
+- Registering commands, configurations, keybindings or Context Menu items
+- Storing data
+- Displaying information messages
+- Using Quick Pick to get user input
+- Open system file picker to let user select files / folders
+- Use Progress API to indicate long-running operations
+
+Learn more at the [Common Capabilities](common-capabilities) topic.
 
 **Example Extension Points**
 
-- Register a new command with a keyboard shortcut.
-- Collect user input using quick inputs.
-- Build custom UI flows using quick picks.
+- Register new commands, configurations, keybindings,  with a keyboard shortcut.
+- Collect user input using Quick Picks.
 - Adding settings for your extension.
 
 ## Theming
