@@ -10,6 +10,9 @@ This is one of the options mentioned in https://vscode-ext-docs.azurewebsites.ne
 
 - Migrate content from https://code.visualstudio.com/docs/extensions/themes-snippets-colorizers#_adding-a-new-color-theme
 - Update https://github.com/Microsoft/vscode-extension-samples/tree/master/theme-sample so it includes a README and link back to this guide
+- You can also mention:
+  - https://github.com/Tyriar/vscode-theme-generator
+  - https://css-tricks.com/creating-a-vs-code-theme/
 
 ---
 
@@ -32,8 +35,6 @@ This is one of the options mentioned in https://vscode-ext-docs.azurewebsites.ne
 ---
 
 **Some content for reusing**
-
-A good guide: https://css-tricks.com/creating-a-vs-code-theme/
 
 As you can see in the illustration, Color Theme defines two mappings, `colors` for UI Component colors and `tokenColors` for Text Token colors.
 
