@@ -7,7 +7,7 @@ VS Code supports running and debugging tests for your extension that require the
 
 ## Yo Code test scaffolding
 
-The basic [yo code generator](/docs/extensions/yocode.md) extension project includes a sample test as well as the necessary infrastructure to run it.
+The basic [yo code generator](/docs/extensions/yocode) extension project includes a sample test as well as the necessary infrastructure to run it.
 
 **Note**: The documentation below assumes that you created a TypeScript extension but the same also applies for a JavaScript extension. However, some file names may be different.
 
@@ -82,7 +82,7 @@ This will give large benefits to performance when running tests
 
 ## Excluding test files from your extension package
 
-If you decide to share your extension, you may not want to include the tests in your extension package.  The [`.vscodeignore`](/docs/extensions/publish-extension.md#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/docs/extensions/publish-extension.md).  By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
+If you decide to share your extension, you may not want to include the tests in your extension package.  The [`.vscodeignore`](/docs/extensions/publish-extension.md#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/docs/extensions/publish-extension).  By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
 
 ```
 out/test/**
@@ -146,7 +146,7 @@ You can also run extension tests on Windows with [AppVeyor](https://www.appveyor
 
 ## Next Steps
 
-* [Developing Extensions](/docs/extensions/developing-extensions.md) - Learn more about how to run and debug your extension.
-* [vsce](/docs/extensions/publish-extension.md) - Publish your extension with the VSCE command line tool.
-* [Extension Manifest file](/docs/extensionAPI/extension-manifest.md) - VS Code extension manifest file reference
-* [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs
+* [Developing Extensions](/docs/extensions/developing-extensions) - Learn more about how to run and debug your extension.
+* [vsce](/docs/extensions/publish-extension) - Publish your extension with the VSCE command line tool.
+* [Extension Manifest file](/docs/extensionAPI/extension-manifest) - VS Code extension manifest file reference
+* [Extension API](/docs/extensionAPI/overview) - Learn about the VS Code extensibility APIs

@@ -210,7 +210,7 @@ The order inside a group depends on the title or an order-attribute. The group-l
 
 ## contributes.keybindings
 
-Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/getstarted/keybindings.md) topic where key bindings are explained in detail.
+Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/getstarted/keybindings) topic where key bindings are explained in detail.
 
 Contributing a key binding will cause the Default Keyboard Shortcuts to display your rule, and every UI representation of the command will now show the key binding you have added. And, of course, when the user presses the key combination the command will be invoked.
 
@@ -392,7 +392,7 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 }
 ```
 
-For a full walkthrough on how to integrate a `debugger`, go to [Debuggers](/docs/extensions/example-debuggers.md).
+For a full walkthrough on how to integrate a `debugger`, go to [Debuggers](/docs/extensions/example-debuggers).
 
 ## contributes.breakpoints
 
@@ -433,7 +433,7 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 }
 ```
 
-See [Adding Language Colorization](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/extensions/yocode.md) to quickly package TextMate .tmLanguage files as VS Code extensions.
+See [Adding Language Colorization](/docs/extensions/themes-snippets-colorizers) for instructions on using the [yo code extension generator](/docs/extensions/yocode) to quickly package TextMate .tmLanguage files as VS Code extensions.
 
 ![grammars extension point example](images/contribution-points/grammars.png)
 
@@ -455,11 +455,11 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 
 ![themes extension point example](images/contribution-points/themes.png)
 
-See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/extensions/yocode.md) to quickly package TextMate .tmTheme files as VS Code extensions.
+See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers) for instructions on using the [yo code extension generator](/docs/extensions/yocode) to quickly package TextMate .tmTheme files as VS Code extensions.
 
 ## contributes.snippets
 
-Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers.md) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets.md#snippet-syntax).
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets.md#snippet-syntax).
 
 The example below shows adding snippets for the Go language.
 
@@ -694,5 +694,5 @@ TypeScript server plugins are loaded for all JavaScript and TypeScript files whe
 
 To learn more about VS Code extensibility model, try these topic:
 
-* [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
-* [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
+* [Extension Manifest File](/docs/extensionAPI/extension-manifest) - VS Code package.json extension manifest file reference
+* [Activation Events](/docs/extensionAPI/activation-events) - VS Code activation events reference

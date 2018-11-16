@@ -43,7 +43,7 @@ Here is an illustration of VS Code running two Language Server extensions. The H
 
 ![LSP Illustration](images/smart-editing-lsp-guide/lsp-illustration.png)
 
-This guide will teach you how to build a Language Client / Server using our [Node SDK](https://github.com/Microsoft/vscode-languageserver-node). The remaining document assumes that you are familiar with normal [extension development](/docs/extensions/overview.md) for VS Code.
+This guide will teach you how to build a Language Client / Server using our [Node SDK](https://github.com/Microsoft/vscode-languageserver-node). The remaining document assumes that you are familiar with normal [extension development](/docs/extensions/overview) for VS Code.
 
 ### LSP Sample — A simple Language Server for plain text files
 
@@ -521,7 +521,7 @@ The `Extension Development Host` instance will then look like this:
 
 ### Debugging both Client and Server
 
-Debugging the client code is as easy as debugging a normal extension. Set a breakpoint in the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Developing Extensions](/docs/extensions/developing-extensions.md).
+Debugging the client code is as easy as debugging a normal extension. Set a breakpoint in the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Developing Extensions](/docs/extensions/developing-extensions).
 
 ![Debugging the client](images/smart-editing-lsp-guide/debugging-client.png)
 
@@ -852,7 +852,7 @@ The following language features are currently supported in a language server alo
 * _Document Links_: compute and resolve links inside a document.
 * _Document Colors_: compute and resolve colors inside a document to provide color picker in editor.
 
-The [Language Extension Guidelines](/docs/extensionAPI/language-support.md) topic describes each of the language features above and provides guidance on how to implement them either through the language server protocol or by using the extensibility API directly from your extension.
+The [Language Extension Guidelines](/docs/extensionAPI/language-support) topic describes each of the language features above and provides guidance on how to implement them either through the language server protocol or by using the extensibility API directly from your extension.
 
 ### Incremental Text Document Synchronization
 

@@ -57,7 +57,7 @@ Snippets for example provide a rich and highly customizable syntax with support 
 
 [Programmatic Language Features](/api/language-extensions/overview#Programmatic-Language-Features) add rich programming language support. Hovers, go to definition, error reporting, IntelliSense, and code lenses are just some examples of the various language features that extensions can provide.
 
-Language features typically extend one of VS Code's existing programming languages or are built on the Static Language Features. They are written in TypeScript or JavaScript and run in a node environment. Most language features can also be implemented by [language servers](/docs/extensions/example-language-server.md), an advanced approach that effectively makes your extension portable across editors.
+Language features typically extend one of VS Code's existing programming languages or are built on the Static Language Features. They are written in TypeScript or JavaScript and run in a node environment. Most language features can also be implemented by [language servers](/docs/extensions/example-language-server), an advanced approach that effectively makes your extension portable across editors.
 
 All of the language features extension points can be used for more than just implementing support for a programming language. Code lenses and hovers for example are a great way present additional information inline, while diagnostics can be used to highlight spelling or code style errors.
 

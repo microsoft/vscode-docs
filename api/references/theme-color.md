@@ -3,7 +3,7 @@
 
 # Theme Color
 
-You can customize your active Visual Studio Code [color theme](/docs/getstarted/themes.md) with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings.md).
+You can customize your active Visual Studio Code [color theme](/docs/getstarted/themes) with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings).
 
 ```json
 {
@@ -13,7 +13,7 @@ You can customize your active Visual Studio Code [color theme](/docs/getstarted/
 }
 ```
 
-**Note**: If you want to use an existing color theme, see [Color Themes](/docs/getstarted/themes.md) where you'll learn how to set the active color theme through the **Preferences: Color Theme** dropdown (`kb(workbench.action.selectTheme)`).
+**Note**: If you want to use an existing color theme, see [Color Themes](/docs/getstarted/themes) where you'll learn how to set the active color theme through the **Preferences: Color Theme** dropdown (`kb(workbench.action.selectTheme)`).
 
 ## Color Formats
 

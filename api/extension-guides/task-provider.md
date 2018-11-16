@@ -3,7 +3,7 @@
 
 # Task Provider
 
-Users normally define [tasks](/docs/editor/tasks.md) in Visual Studio Code in a `tasks.json` file. However, there are some tasks during software development that can be automatically detected by VS Code. This topic describes how extensions can auto-detect and provide tasks to end-users.
+Users normally define [tasks](/docs/editor/tasks) in Visual Studio Code in a `tasks.json` file. However, there are some tasks during software development that can be automatically detected by VS Code. This topic describes how extensions can auto-detect and provide tasks to end-users.
 
 This guide teachs you how to build a Task Provider that auto-detects tasks defined in [Rakefiles](https://ruby.github.io/rake/). The complete source code is at: https://github.com/Microsoft/vscode-extension-samples/tree/master/task-provider-sample.
 

@@ -29,7 +29,7 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 ```
 
-The `onLanguage` event takes a [language identifier](/docs/languages/identifiers.md) value.
+The `onLanguage` event takes a [language identifier](/docs/languages/identifiers) value.
 
 Multiple languages can be declared with separate `onLanguage` entries in the `activationEvents` array.
 
@@ -164,5 +164,5 @@ This activation event is emitted and interested extensions will be activated whe
 
 To learn more about VS Code extensibility model, try these topic:
 
-* [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
+* [Extension Manifest File](/docs/extensionAPI/extension-manifest) - VS Code package.json extension manifest file reference
+* [Contribution Points](/docs/extensionAPI/extension-points) - VS Code contribution points reference

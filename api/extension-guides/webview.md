@@ -830,5 +830,5 @@ Although `retainContextWhenHidden` may be appealing, keep in mind that this has 
 
 If you'd like to learn more about VS Code extensibility, try these topics:
 
-* [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code
-* [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
+* [Extending Visual Studio Code](/docs/extensions/overview) - Learn about other ways to extend VS Code
+* [Additional Extension Examples](/docs/extensions/samples) - Take a look at our list of example extension projects.

@@ -23,19 +23,19 @@ The `extension host` is a Node.js process and it exposes the VS Code API to exte
 
 ### Performance - Extension Activation
 
-VS Code loads extensions as late as possible and extensions that are not used during a session are not loaded and therefore do not consume memory. To help support lazy loading of extensions, VS Code defines so-called `activation events`. An [activation event](/docs/extensionAPI/activation-events.md) is fired by VS Code based on specific activities and an extension can define for which events it needs to be activated. For example, an extension for editing Markdown only needs to be activated when the user opens a Markdown file.
+VS Code loads extensions as late as possible and extensions that are not used during a session are not loaded and therefore do not consume memory. To help support lazy loading of extensions, VS Code defines so-called `activation events`. An [activation event](/docs/extensionAPI/activation-events) is fired by VS Code based on specific activities and an extension can define for which events it needs to be activated. For example, an extension for editing Markdown only needs to be activated when the user opens a Markdown file.
 
 ### Extension Manifest
 
-To activate an extension lazily, VS Code requires a description of your extension, the `extension manifest` which is a `package.json` file enriched with some additional [VS Code specific fields](/docs/extensionAPI/extension-manifest.md). This includes the [activation events](/docs/extensionAPI/activation-events.md) that trigger the loading of the extension. VS Code provides a set of `contribution points` that an [extension can add](/docs/extensionAPI/extension-points.md) to. For example, when adding a command to VS Code, you provide the command definition through the `commands` contribution point. You define the contributions of your extension in the package.json. VS Code reads and interprets the manifest during start-up and prepares its UI accordingly.
+To activate an extension lazily, VS Code requires a description of your extension, the `extension manifest` which is a `package.json` file enriched with some additional [VS Code specific fields](/docs/extensionAPI/extension-manifest). This includes the [activation events](/docs/extensionAPI/activation-events) that trigger the loading of the extension. VS Code provides a set of `contribution points` that an [extension can add](/docs/extensionAPI/extension-points) to. For example, when adding a command to VS Code, you provide the command definition through the `commands` contribution point. You define the contributions of your extension in the package.json. VS Code reads and interprets the manifest during start-up and prepares its UI accordingly.
 
 As the `extension host` is a Node.js process, you can use the Node API in your extensions and even better you can reuse existing Node.js modules when implementing an extension. You define your module dependencies inside the `package.json` and you use npm to install a Node.js module.
 
-See the [package.json contribution points reference](/docs/extensionAPI/extension-points.md) for more details.
+See the [package.json contribution points reference](/docs/extensionAPI/extension-points) for more details.
 
 ### Extensibility API
 
-The approach to run the extensions isolated in a separate process allows VS Code to strictly control the API exposed to extenders. See the [Extensibility API Overview](/docs/extensionAPI/overview.md) for details on the current API.
+The approach to run the extensions isolated in a separate process allows VS Code to strictly control the API exposed to extenders. See the [Extensibility API Overview](/docs/extensionAPI/overview) for details on the current API.
 
 VS Code is implemented using web technologies (HTML, CSS) and web technologies are very powerful when it comes to modifying and styling UI. You can easily add nodes to the DOM and implement a custom appearance using CSS. However, this power is not without its problems when it comes to evolving a complex application like VS Code. The structure can change and extensions that are tightly coupled to the UI would break. For this reason, VS Code took the defensive approach to not expose the DOM to extenders.
 
@@ -98,7 +98,7 @@ The VS Code API uses the `undefined` and `null` TypeScript types where appropria
 
 ## Using Node.js Modules with Extensions
 
-Your extension can depend on [Node.js](https://nodejs.org) modules at runtime. Similarly to a node module itself, you can add those dependencies to your [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md) using the `dependencies` field.
+Your extension can depend on [Node.js](https://nodejs.org) modules at runtime. Similarly to a node module itself, you can add those dependencies to your [`package.json` extension manifest](/docs/extensionAPI/extension-manifest) using the `dependencies` field.
 
 There are even VS Code specific Node.js modules which are [useful in extension development](/docs/extensionAPI/extension-manifest.md#useful-node-modules).
 
@@ -110,9 +110,9 @@ You can create a `.vscodeignore` file to exclude some files from being included 
 
 ## Next Steps
 
-* [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - Visual Studio Code package.json extension manifest file reference
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
-* [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
+* [Extension Manifest File](/docs/extensionAPI/extension-manifest) - Visual Studio Code package.json extension manifest file reference
+* [Contribution Points](/docs/extensionAPI/extension-points) - VS Code contribution points reference
+* [Activation Events](/docs/extensionAPI/activation-events) - VS Code activation events reference
 
 ## Common Questions
 

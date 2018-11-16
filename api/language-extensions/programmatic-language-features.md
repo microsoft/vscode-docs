@@ -765,7 +765,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Provide the user with support for formatting text as they type.
 
-**Note**: The user [setting](/docs/getstarted/settings.md) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
+**Note**: The user [setting](/docs/getstarted/settings) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
 
 ![Document Formatting at Work](images/language-support/format-on-type.gif)
 

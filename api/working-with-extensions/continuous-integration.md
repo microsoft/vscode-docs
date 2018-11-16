@@ -109,9 +109,9 @@ You can enable the build to run continuously when pushing to a branch and even o
 
 ## Next steps
 
-* [Developing Extensions](/docs/extensions/developing-extensions.md) - Learn more about how to run and debug your extension.
-* [vsce](/docs/extensions/publish-extension.md) - Publish your extension with the VSCE command line tool.
-* [Extension Manifest file](/docs/extensionAPI/extension-manifest.md) - VS Code extension manifest file reference
-* [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs
+* [Developing Extensions](/docs/extensions/developing-extensions) - Learn more about how to run and debug your extension.
+* [vsce](/docs/extensions/publish-extension) - Publish your extension with the VSCE command line tool.
+* [Extension Manifest file](/docs/extensionAPI/extension-manifest) - VS Code extension manifest file reference
+* [Extension API](/docs/extensionAPI/overview) - Learn about the VS Code extensibility APIs
 
 
