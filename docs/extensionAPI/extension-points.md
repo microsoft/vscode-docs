@@ -643,7 +643,7 @@ The task definition is defined using JSON schema syntax for the `required` and `
 * `"required": [ "script" ]` defines that `script` attributes as mandatory. The `path` property is optional.
 * `"properties"` : { ... }` defines the additional properties and their types.
 
-When the extension actual creates a Task it needs to pass a `TaskDefinition` that conforms to the task definition contributed in the package.json file. For the `npm` example a task creation for the test script inside a package.json file looks like this:
+When the extension actually creates a Task, it needs to pass a `TaskDefinition` that conforms to the task definition contributed in the package.json file. For the `npm` example a task creation for the test script inside a package.json file looks like this:
 
 ```ts
 let task = new vscode.Task({ type: 'npm', script: 'test' }, ....);
