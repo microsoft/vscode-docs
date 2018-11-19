@@ -92,7 +92,7 @@ Examples:
             "title": "Add",
         },
         {
-            "command": "nodeDependencies.editPackage",
+            "command": "nodeDependencies.editEntry",
             "title": "Edit",
             "icon": {
                 "light": "resources/light/edit.svg",
