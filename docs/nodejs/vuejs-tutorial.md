@@ -15,6 +15,8 @@ MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and co
 
 ![welcome to Vue](images/vuejs/welcome-to-vue.png)
 
+---
+
 ## Welcome to Vue
 
 We'll be using the [Vue CLI](https://cli.vuejs.org/) for this tutorial. If you are new to the Vue.js framework, you can find great documentation and tutorials on the [vuejs.org](https://vuejs.org) website.
@@ -109,6 +111,8 @@ Once you save the `App.vue` file (`kb(workbench.action.files.save)`), restart th
 ---
 
 ![hello world](images/vuejs/hello-world.png)
+
+---
 
 ## Linting
 

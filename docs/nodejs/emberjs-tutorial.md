@@ -9,9 +9,9 @@ MetaDescription: Ember JavaScript tutorial showing IntelliSense, debugging, and 
 ---
 # Using Ember in Visual Studio Code
 
-[Ember.js](https://emberjs.com/) is a popular JavaScript framework for building web application user interfaces. The Visual Studio Code editor supports Ember IntelliSense and code navigation out of the box.
+[Ember](https://emberjs.com/) is a popular JavaScript framework for building web application user interfaces. The Visual Studio Code editor supports Ember.js IntelliSense and code navigation out of the box.
 
-![Welcome to app](images/emberjs/welcome-page.png)
+![Welcome to app](images/emberjs/ember-logo.svg)
 
 ## Welcome to Ember
 
@@ -40,7 +40,9 @@ cd my-app
 ember serve
 ```
 
-You should see "Congratulations, you made it!" on `http://localhost:4200` in your browser. We'll leave the web server running while we look at the application with VS Code.
+Once you see the **Build successful** message, you can open your browser to [http://localhost:4200](http://localhost:4200) and you  should see "Congratulations, you made it!". You can press `kbstyle(Ctrl+C)` to stop the Ember server.
+
+![Ember welcome page](images/emberjs/welcome-page.png)
 
 To open your Ember application in VS Code, open another terminal (or command prompt) and navigate to the `my-app` folder and type `code .`:
 
@@ -48,3 +50,45 @@ To open your Ember application in VS Code, open another terminal (or command pro
 cd my-app
 code .
 ```
+
+### Syntax highlighting and bracket matching
+
+Now expand the `app` folder and select the `app.js` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parentheses, the matching bracket is also selected.
+
+![react bracket matching](images/emberjs/bracket-matching.png)
+
+### IntelliSense
+
+As you start typing in `app.js`, you'll see smart suggestions or completions.
+
+![Ember suggestions](images/emberjs/suggestions.png)
+
+After you select a suggestion and type `.`, you see the types and methods on the object through [IntelliSense](/docs/editor/intellisense.md).
+
+![Ember intellisense](images/emberjs/intellisense.png)
+
+VS Code uses the TypeScript language service for its JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+
+If you select a method, you'll also get parameter help:
+
+![Ember parameter help](images/emberjs/parameter-help.png)
+
+### Go to Definition, Peek definition
+
+Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or **Peek Definition** (`kb(editor.action.peekImplementation)`). Put the cursor over the `App`, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `App` definition from `App.js`.
+
+![react peek definition](images/emberjs/peek-definition.png)
+
+Press `kbstyle(Escape)` to close the Peek window.
+
+## Extensions
+
+The VS Code Marketplace has many community created extensions for Ember.js development which add features like code snippets and advanced code suggestions. You can search in the Extensions view (`kb(workbench.view.extensions)`) by typing 'ember'.
+
+![Ember.js extensions](images/emberjs/ember-extensions.png)
+
+## Common Questions
+
+### Can I debug Ember client side code with VS Code?
+
+You can use the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension for client side debugging. Unfortunately it is difficult to get the configuration correct due to the sourcemaps created by the Ember CLI default transpiler. See [here](https://github.com/Microsoft/vscode-chrome-debug/issues/193) for an explanation and partial workaround.
