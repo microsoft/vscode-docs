@@ -89,7 +89,7 @@ Examples:
         },
         {
             "command": "nodeDependencies.addEntry",
-            "title": "Add",
+            "title": "Add"
         },
         {
             "command": "nodeDependencies.editEntry",
@@ -116,7 +116,7 @@ Examples:
                 "when": "view == nodeDependencies"
             }
         ],
-        "view/title": [
+        "view/item/context": [
             {
                 "command": "nodeDependencies.editEntry",
                 "when": "view == nodeDependencies && viewItem == dependency",
