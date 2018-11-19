@@ -114,3 +114,14 @@ You can also configure full file paths to languages if needed. The following exa
 ```
 
 Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28programming%29) that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
+
+### How do I set the default language for new files?
+
+Using the `files.defaultLangauge` [setting](/docs/getstarted/settings.md), you can map all new files to a default language. Whenever a new blank file is opened, the editor will be configured for that langauge mode.
+
+This example will associate new files with the HTML language:
+
+```json
+  // The default language mode that is assigned to new files.
+  "files.defaultLanguage": "html"
+```
