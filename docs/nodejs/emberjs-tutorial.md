@@ -11,7 +11,7 @@ MetaDescription: Ember JavaScript tutorial showing IntelliSense, debugging, and 
 
 [Ember](https://emberjs.com/) is a popular JavaScript framework for building web application user interfaces. The Visual Studio Code editor supports Ember.js IntelliSense and code navigation out of the box.
 
-![Welcome to app](images/emberjs/ember-logo.svg)
+![Welcome to app](images/emberjs/tomster-logo.png)
 
 ## Welcome to Ember
 
