@@ -25,15 +25,6 @@ If you'd just like to see refactorings without Quick Fixes, you can use the **Re
 
 >**Note:** If you prefer to not see the Code Action lightbulb in your editor, you can disable lightbulbs with the `editor.lightbulb.enable` [setting](/docs/getstarted/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
 
-## Source actions
-
-TBD image of context menu
-
-Organize imports
-
-context menu and also Command Palette
-  Command Palette not working?
-
 ## Refactoring actions
 
 ### Extract Method
@@ -47,42 +38,6 @@ TypeScript language service provides **Extract to const**  refactoring to create
 ![Extract local](images/refactoring/ts-extract-local.gif)
 
 When working with classes, you can also extract a value to a new property.
-
-### Extract to function
-  inner scope
-  global scope
-
-extract to const ???
-
-### Move to a new file
-
-Just select source code
-
-### Generate Get/Set accessors
-
-### Convert to namespace imports
-
-### Convert to ES2015 class
-
-### Convert to ES6 module
-
-File is a CommonJS module; it may be converted to an ES6 module
-const gulp = require('gulp')
-becomes
-import gulp from 'gulp'
-
-### Convert to async
-
-## Quick Fixes
-
-### Remove unused variables
-
-Remove import from 'gulp'
-Delete all unused declarations
-
-### Organize imports - Source Action
-
-### Add all missing imports
 
 ## Rename symbol
 
