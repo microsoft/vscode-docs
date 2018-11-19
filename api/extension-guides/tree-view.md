@@ -124,7 +124,7 @@ Examples:
             },
             {
                 "command": "nodeDependencies.deletentry",
-                "when": "view == nodeDependencies && viewItem == dependency",
+                "when": "view == nodeDependencies && viewItem == dependency"
             }
         ]
     }
