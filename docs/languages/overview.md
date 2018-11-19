@@ -117,7 +117,7 @@ Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28
 
 ### How do I set the default language for new files?
 
-Using the `files.defaultLangauge` [setting](/docs/getstarted/settings.md), you can map all new files to a default language. Whenever a new blank file is opened, the editor will be configured for that langauge mode.
+Using the `files.defaultLanguage` [setting](/docs/getstarted/settings.md), you can map all new files to a default language. Whenever a new blank file is opened, the editor will be configured for that language mode.
 
 This example will associate new files with the HTML language:
 
