@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Unit Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Unit Testing Python in Visual Studio Code
-DateApproved: 07/30/2018
+DateApproved: 11/19/2018
 MetaDescription: Unit Testing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -59,9 +59,11 @@ The following steps give you a quick walkthrough of working with tests in VS Cod
         unittest.main()
     ```
 
-1. When using unittest, VS Code by default looks for tests whenever you save a recognized test file. The unittest framework specifically looks for files with "test" anywhere in the filename, as in `test1.py`. Once VS Code recognizes tests, it provides several ways to run those tests as shown later in [Running tests](#running-tests). The most obvious means are adornments that appear directly in the editor and allow you to easily run a single test method or a test class:
+1. When using unittest, VS Code by default looks for tests whenever you save a recognized test file. The unittest framework specifically looks for files with "test" anywhere in the filename, as in `test1.py`. Once VS Code recognizes tests, it provides several ways to run those tests as shown later in [Running tests](#running-tests). The most obvious means are CodeLens adornments that appear directly in the editor and allow you to easily run a single test method or a test class:
 
     ![Test adornments that appear in the VS Code editor for unit test code](images/unit-testing/editor-adornments.png)
+
+    > **Note**: At present, the Python extension doesn't provide a setting to turn the adornments on or off. To suggest a different behavior, file an issue on the [vscode-python repository](https://github.com/Microsoft/vscode-python/issues).
 
 1. For this walkthrough, select **Run Test** above the **class** to run all the tests in the class.
 
@@ -71,11 +73,11 @@ The following steps give you a quick walkthrough of working with tests in VS Cod
 
     ![Test result adornments on a unit test methods](images/unit-testing/result-adornments.png)
 
-    VS Code also shows test results in the **Python Test Log** output panel:
+    VS Code also shows test results in the **Python Test Log** output panel (use the **View** > **Output** menu command to show the **Output** panel, then select **Python Test Log** from the drop-down on the right side):
 
     ![Test results in the Python Test Log output panel](images/unit-testing/python-test-log-output.png)
 
-1. To more closely analyze a test, set a breakpoint on the line under the `test_decrement` function, then select the **Debug Test** adornment above that function. VS Code starts the debugger and pauses at the breakpoint. In this case, you can easily see that the expected result of 4 is incorrect and should be 2. Stop the debugger and correct that line of code:
+1. To more closely analyze a test, set a breakpoint on first the line in the `test_decrement` function, that reads `self.assertEquals(inc_dec.decrement(3), 4)`. Then select the **Debug Test** adornment above that function. VS Code starts the debugger and pauses at the breakpoint. In this case, you can use the **Debug Console** panel to enter `inc_dec.decrement(3)` and see the actual result is 2 and that the expected result of 4 is incorrect. Stop the debugger and correct that line of code:
 
     ```python
     self.assertEquals(inc_dec.decrement(3), 2)
@@ -87,7 +89,7 @@ The following steps give you a quick walkthrough of working with tests in VS Cod
 
 ## Enable a test framework
 
-Unit testing in Python is disabled by default. To enable unit testing, set one and only one of the following settings to true: `python.unitTest.unittestEnabled`, `python.unitTest.pyTestEnabled`, and `python.unitTest.nosetestsEnabled`. Each framework also has specific configuration settings as described under [Test framework configurations](#test-framework-configurations).
+Unit testing in Python is disabled by default. To enable unit testing, set *one and only one* of the following settings to true: `python.unitTest.unittestEnabled`, `python.unitTest.pyTestEnabled`, and `python.unitTest.nosetestsEnabled`. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings).
 
 It's important that you enable only a single test framework at a time. For this reason, when you enable one framework also be sure to disable the others.
 
@@ -121,7 +123,7 @@ VS Code uses the currently enabled unit testing framework to discover tests. You
 
 `python.unitTest.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning test discovery is performed automatically whenever you save a test file. To disable this feature, set the value to `false`.
 
-Test discovery applies the discovery patterns specified in the arguments setting for the current test framework:  `python.unitTest.unittestArgs`, `python.unitTest.pyTestArgs`, or `python.unitTest.nosetestArgs` as described under [Test framework configurations](#test-framework-configurations).
+Test discovery applies the discovery patterns specified in the arguments setting for the current test framework:  `python.unitTest.unittestArgs`, `python.unitTest.pyTestArgs`, or `python.unitTest.nosetestArgs` as described under [Test configuration settings](#test-configuration-settings).
 
 > **Tip**: Sometimes unit tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, create an empty file named `__init__.py` in that folder.
 
@@ -139,7 +141,7 @@ You run tests using any of the following actions:
 
 - Right-click a file in Explorer and select `Run Unit Tests`, which runs the tests in that one file.
 
-- Open a test file and select the `Run Test` adornment that appears above a test class or a method. This command runs only those tests in the class or runs that one test method, respectively.
+- Open a test file and select the `Run Test` CodeLens adornment that appears above a test class or a method. This command runs only those tests in the class or runs that one test method, respectively.
 
     ![Python unit testing commands in the editor](images/unit-testing/editor-adornments.png)
 
@@ -166,9 +168,19 @@ The **Python: Debug All Tests** and **Python: Debug Unit Test Method** commands 
 
 The debugger works the same for unit tests as for other Python code, including breakpoints, variable inspection, and so on. For more information, see [Python debugging configurations](/docs/python/debugging.md) and the general VS Code [Debugging](/docs/editor/debugging.md) article.
 
-## Test framework configurations
+## Test configuration settings
 
-The behavior of each test framework is driven by its applicable settings as described in the following sections.
+The behavior of unit testing with Python is driven by both general settings and settings that are specific to whichever framework you've enabled.
+
+### General settings
+
+| Setting<br/>(python.unitTest.) | Default | Description |
+| --- | --- | --- |
+| autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a unit test file. |
+| cwd | null | Specifies an optional working directory for unit tests. |
+| debugPort | `3000` | Port number used for debugging of UnitTest tests. |
+| outputWindow | `"Python Test Log"` | The window to use for unit test output. |
+| promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
 
 ### Unittest configuration settings
 
@@ -176,11 +188,6 @@ The behavior of each test framework is driven by its applicable settings as desc
 | --- | --- | --- |
 | unittestEnabled | `false` | Specifies whether UnitTest is enabled as the test framework. All other frameworks should be disabled. |
 | unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each element that's separated by a space is a separate item in the list. See below for a description of the defaults. |
-| cwd | null | Specifies an optional working directory for unit tests. |
-| outputWindow | `"Python Test Log"` | The window to use for unit test output. |
-| promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
-| debugPort | `3000` | Port number used for debugging of UnitTest tests. |
-  autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a unit test file. |
 
 The default arguments for UnitTest are as follows:
 
