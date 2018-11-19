@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 8
 Area: nodejs
 TOCTitle: Ember Tutorial
 ContentId: 4a60ed36-93ff-4ff3-b650-ce74baa405ca
@@ -57,7 +57,7 @@ Now expand the `app` folder and select the `app.js` file. You'll notice that VS 
 
 ![react bracket matching](images/emberjs/bracket-matching.png)
 
-### IntelliSense
+## IntelliSense
 
 As you start typing in `app.js`, you'll see smart suggestions or completions.
 
@@ -75,7 +75,7 @@ If you select a method, you'll also get parameter help:
 
 ### Go to Definition, Peek definition
 
-Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or **Peek Definition** (`kb(editor.action.peekImplementation)`). Put the cursor over the `App`, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `App` definition from `App.js`.
+Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or **Peek Definition** (`kb(editor.action.peekImplementation)`). Put the cursor over `Application`, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `Application` definition from `ember_application` Type Declaration file.
 
 ![react peek definition](images/emberjs/peek-definition.png)
 
@@ -87,7 +87,7 @@ The VS Code Marketplace has many community created extensions for Ember.js devel
 
 ![Ember.js extensions](images/emberjs/ember-extensions.png)
 
-## Common Questions
+## Common questions
 
 ### Can I debug Ember client side code with VS Code?
 

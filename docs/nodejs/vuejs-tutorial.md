@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 7
 Area: nodejs
 TOCTitle: Vue Tutorial
 ContentId: 85ce0bcc-d2b8-4b7c-b744-5eddce9a8d00
