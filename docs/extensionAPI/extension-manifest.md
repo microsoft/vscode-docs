@@ -119,7 +119,7 @@ An Icon and a contrasting banner color looks great on the Marketplace page heade
     "galleryBanner": {
         "color": "#C80000",
         "theme": "dark"
-    },
+    }
 }
 ```
 
@@ -136,7 +136,7 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
     "repository": {
         "type": "git",
         "url": "https://github.com/Microsoft/vscode-wordcount.git"
-    },
+    }
 }
 ```
 
@@ -155,7 +155,7 @@ Set a `category` for your extension.  Extensions in the same `category` are grou
 {
     "categories": [
         "Linters", "Programming Languages", "Other"
-    ],
+    ]
 }
 ```
 
@@ -275,7 +275,7 @@ Extension packs should be categorized in the `Extension Packs` Marketplace categ
 {
   "categories": [
       "Extension Packs"
-  ],
+  ]
 }
 ```
 
