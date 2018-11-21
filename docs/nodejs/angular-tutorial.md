@@ -41,7 +41,7 @@ cd my-app
 ng serve
 ```
 
-You should see "Welcome to app!!" on `http://localhost:4200` in your browser. We'll leave the web server running while we look at the application with VS Code.
+You should see "Welcome to app!!" on [http://localhost:4200](http://localhost:4200) in your browser. We'll leave the web server running while we look at the application with VS Code.
 
 To open your Angular application in VS Code, open another terminal (or command prompt) and navigate to the `my-app` folder and type `code .`:
 
