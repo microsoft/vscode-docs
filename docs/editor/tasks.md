@@ -317,7 +317,7 @@ You can also mix custom tasks with configurations for detected tasks. A `tasks.j
             ],
             "presentation": {
                 "reveal": "never"
-            },
+            }
         },
         {
             "label": "Run tests",

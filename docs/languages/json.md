@@ -147,7 +147,7 @@ If you are a schema author and want to provide even more customized completion p
         ],
         "properties": {
             "key": {
-                "type": "string",
+                "type": "string"
             }
             ...
         }

@@ -195,7 +195,7 @@ If for some reason VS Code doesn't generate `launch.json` for you, create the `.
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal"
-        },
+        }
     ]
 }
 ```
