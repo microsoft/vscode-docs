@@ -391,3 +391,7 @@ Of course!
 - Use the new command **Emmet: Wrap Individual Lines with Abbreviation** instead of **Emmet: Wrap with Abbreviation** when you want each selected line to be wrapped by a repeater in the given abbreviation. For example, use `ul>li*` to wrap selected lines in an unordered list with each line as a list item.
 - Explore all other Emmet features as documented in [Emmet Actions](https://docs.emmet.io/actions/).
 - Don't hesitate to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets).
+
+
+### How to Download Emmet
+Click the marketplace tab on Vscode, search for "Emmet", scroll down to more than two hundred pluggins, go back because you won't find it.
