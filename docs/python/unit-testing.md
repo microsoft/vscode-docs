@@ -50,10 +50,10 @@ The following steps give you a quick walkthrough of working with tests in VS Cod
 
     class Test_TestIncrementDecrement(unittest.TestCase):
         def test_increment(self):
-            self.assertEquals(inc_dec.increment(3), 4)
+            self.assertEqual(inc_dec.increment(3), 4)
 
         def test_decrement(self):
-            self.assertEquals(inc_dec.decrement(3), 4)
+            self.assertEqual(inc_dec.decrement(3), 4)
 
     if __name__ == '__main__':
         unittest.main()
@@ -77,10 +77,10 @@ The following steps give you a quick walkthrough of working with tests in VS Cod
 
     ![Test results in the Python Test Log output panel](images/unit-testing/python-test-log-output.png)
 
-1. To more closely analyze a test, set a breakpoint on first the line in the `test_decrement` function, that reads `self.assertEquals(inc_dec.decrement(3), 4)`. Then select the **Debug Test** adornment above that function. VS Code starts the debugger and pauses at the breakpoint. In this case, you can use the **Debug Console** panel to enter `inc_dec.decrement(3)` and see the actual result is 2 and that the expected result of 4 is incorrect. Stop the debugger and correct that line of code:
+1. To more closely analyze a test, set a breakpoint on first the line in the `test_decrement` function, that reads `self.assertEqual(inc_dec.decrement(3), 4)`. Then select the **Debug Test** adornment above that function. VS Code starts the debugger and pauses at the breakpoint. In this case, you can use the **Debug Console** panel to enter `inc_dec.decrement(3)` and see the actual result is 2 and that the expected result of 4 is incorrect. Stop the debugger and correct that line of code:
 
     ```python
-    self.assertEquals(inc_dec.decrement(3), 2)
+    self.assertEqual(inc_dec.decrement(3), 2)
     ```
 
 1. Save the file and run the test again to see that it passes.
