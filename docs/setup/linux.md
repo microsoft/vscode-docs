@@ -40,15 +40,6 @@ sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install code # or code-insiders
 ```
-If you receive an error similar to the following:
-> E: Repository 'http://dl.google.com/linux/chrome/deb stable Release' changed its 'Origin' value from 'Google, Inc.' to 'Google LLC'
-> N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
-
-Use `apt` instead of `apt-get` and you will be prompted to accept the origin change
-```bash
-sudo apt update
-```
-
 
 ### RHEL, Fedora and CentOS based distributions
 
@@ -259,3 +250,15 @@ There are two possible workarounds for this:
 
 Information on this issue can be tracked in issue [62593](https://github.com/Microsoft/vscode/issues/62593).
 
+### Repository changed its origin value
+
+If you receive an error similar to the following:
+
+> E: Repository '...' changed its 'Origin' value from '...' to '...'
+> N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
+
+Use `apt` instead of `apt-get` and you will be prompted to accept the origin change:
+
+```bash
+sudo apt update
+```
