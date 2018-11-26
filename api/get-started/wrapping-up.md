@@ -3,21 +3,19 @@
 
 # Wrapping Up
 
-In the [Your First Extension](/api/get-started/your-first-extension) topic, you learned how to create, run and debug an extension. In the [Extension Anatomy](/api/get-started/extension-anatomy) topic, you learned fundamental concepts to VS Code Extension development. However, we only touched the tip of the iceberg, and here are some suggested routes for furthering your VS Code extension development skills.
+In the [Your First Extension](/api/get-started/your-first-extension) topic, you learned how to create, run and debug an extension. In the [Extension Anatomy](/api/get-started/extension-anatomy) topic, you learned fundamental concepts to VS Code extension development. However, we only touched the tip of the iceberg, and here are some suggested routes for furthering your VS Code extension development skills.
 
-## Advanced Topics
+## Working with extensions
 
-This section includes advanced topics that help you develop high-quality VS Code extension. For example, you can learn
+This section includes topics that help you develop high-quality VS Code extension. For example, you can learn
 
-- How to add integration tests and set up Continuous Integration to build high quality extensions
+- How to add integration tests for your extension
 - How to publish your extension to [VS Code Marketplace](https://marketplace.visualstudio.com/)
-- How to use native modules or WASM in your extensions
-- How to expose an API from your extension to other extensions
-- How to use Proposed API
+- How to set up Continuous Integration for your extension
 
 ## Extension Capabilities
 
-In this section, we categorize the [VS Code API](/api/references/vscode-api) and [Contribution Points](/api/references/contribution-points) into a few categories, each with short descriptions as to what your extension could achieve.
+In this section, we split the [VS Code API](/api/references/vscode-api) and [Contribution Points](/api/references/contribution-points) into a few categories, each with short descriptions as to what your extension could achieve.
 
 ## Samples & Guides
 
