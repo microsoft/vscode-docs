@@ -30,7 +30,7 @@ code ./hello-code
 Then, inside the editor, press F5, and run the `Hello Code` command in the new window:
 
 <video autoplay loop muted playsinline controls>
-  <source src="./your-first-extension/launch.mp4" type="video/mp4">
+  <source src="/api/get-started/your-first-extension/launch.mp4" type="video/mp4">
 </video>
 
 You should see the `Hello Code` information dialog showing up. Success!
@@ -46,7 +46,7 @@ Let's make a change to the message:
 You should see the updated message showing up.
 
 <video autoplay loop muted playsinline controls>
-  <source src="./your-first-extension/reload.mp4" type="video/mp4">
+  <source src="/api/get-started/your-first-extension/reload.mp4" type="video/mp4">
 </video>
 
 Here are some ideas for you to try:
@@ -60,7 +60,7 @@ Here are some ideas for you to try:
 The debugger and debug console allow you stop the program and inspect variables effectively. Here we have an extension that would show a message `Hello Visual Studio Code!`, each time with an increasing exclamation mark. Let's find out how many exclamation marks the message would show by using the Debugger and the Debug Console.
 
 <video autoplay loop muted playsinline controls>
-  <source src="./your-first-extension/debug.mp4" type="video/mp4">
+  <source src="/api/get-started/your-first-extension/debug.mp4" type="video/mp4">
 </video>
 
 You can learn more about debugging Node apps in VS Code at the [Node.js Debugging Topic](/docs/nodejs/nodejs-debugging).
