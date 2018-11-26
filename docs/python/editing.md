@@ -221,18 +221,6 @@ To use a custom isort script, use the `python.sortImports.path` setting to speci
 
 Further configurations can be stored in an `.isort.cfg` file as documented on [Configuring isort](https://github.com/timothycrosley/isort#configuring-isort).
 
-### Sort imports on save
-
-To automatically sort imports whenever you save a file, add the following entry to your user or workspace settings:
-
-```json
-"[python]": {
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": true
-    }
-}
-```
-
 ## Next steps
 
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
