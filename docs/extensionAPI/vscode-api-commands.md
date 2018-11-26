@@ -291,14 +291,14 @@ The layout is described as object with an initial (optional) orientation (0 = ho
   * 'to': String value providing where to move.
   * 'by': String value providing the unit for move (by tab or by group).
   * 'value': Number value providing how many positions or an absolute position to move.
-  
-# Simple Commands
-Simple commands that do not require parameters can be found in the keyboard shortcuts list
 
-Windows: 
-> File -> Preferences -> Keyboard Shortcuts -> keybindings.json
+## Simple commands
 
-MacOS:
-> Code -> Preferences -> Keyboard Shortcuts -> keybindings.json
+Simple commands that do not require parameters can be found in the Keyboard Shortcuts list in the default `keybindings.json` file. The unbound commands are listed in a comment block at the bottom of the file.
 
-This will bring up the default keybindings file, which maps shortcuts to commands.
+To review `keybindings.json`:
+
+Windows, Linux: **File** > **Preferences** > **Keyboard Shortcuts** > `keybindings.json` link
+
+macOS:
+**Code** > **Preferences** > **Keyboard Shortcuts** > `keybindings.json` link

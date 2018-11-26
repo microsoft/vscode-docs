@@ -18,7 +18,7 @@ The easiest way to install Visual Studio Code for Debian/Ubuntu based distributi
 ```bash
 sudo apt install ./<file>.deb
 
-# If you're on an older Linux distribution you will need to run this instead
+# If you're on an older Linux distribution, you will need to run this instead:
 # sudo dpkg -i <file>.deb
 # sudo apt-get install -f # Install dependencies
 ```
@@ -254,8 +254,10 @@ Information on this issue can be tracked in issue [62593](https://github.com/Mic
 
 If you receive an error similar to the following:
 
-> E: Repository '...' changed its 'Origin' value from '...' to '...'
-> N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
+```
+E: Repository '...' changed its 'Origin' value from '...' to '...'
+N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
+```
 
 Use `apt` instead of `apt-get` and you will be prompted to accept the origin change:
 
