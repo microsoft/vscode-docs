@@ -5,22 +5,21 @@
 
 In the last topic, we were able to get a basic extension running. How does it work under the hood?
 
-**TODO: Pine**: Modify the section so it explains concepts together with the sample, as we removed the "Behind the scenes" section from first topic.
+The `Hello Code` extension does 3 things:
 
----
+- Registers the [`onCommand`](/api/references/activation-events#activationEvents.onCommand) [**Activation Event**](/api/references/activation-events): `onCommand:extension.helloCode`, so the extension becomes activated when user runs the `Hello Code` command.
+- Uses the [`contributes.commands`](/api/references/contribution-points#contributes.commands) [**Contribution Point**](/api/references/contribution-points) to make the command `Hello Code` available in the command palette, and bind it to a command ID `extension.helloCode`.
+- Uses the [`commands.registerCommand`](/api/references/vscode-api#commands.registerCommand) [**VS Code API**](/api/references/vscode-api) to bind a function to the registered command ID `extension.helloCode`.
 
-In the last topic, we came across four concepts: **Extension Host**, **Activation Events**, **Contribution Points** and **VS Code API**. In short, they work together in this way:
+Understanding these three concepts is crucial to writing VS Code Extensions:
 
-VS Code offers two ways to extend its functionality:
+- [**Activation Events**](/api/references/activation-events): events upon which your extension becomes active.
+- [**Contribution Points**](/api/references/contribution-points): static declarations that you make in the `package.json` [Extension Manifest](#extension-manifest) to extend VS Code.
+- [**VS Code API**](/api/references/vscode-api): a set of JavaScript API that you can invoke in your extension code.
 
-- **VS Code API**: A set of JavaScript API that you can programmatically invoke.
-- **Contribution Points**: A set of static declarations that you can contribute through JSON configuration.
+In general, your extension would use a combination of Contribtuion Points and VS Code API to extend VS Code's functionality. The [Extension Capabilities Overview](/api/extension-capabilities/overview) topic helps you find the right Contribution Point / VS Code API for your extension.
 
-An extension can contain either of them. For example, a [Completion Provider Extension](https://github.com/Microsoft/vscode-extension-samples/tree/master/completions-sample) uses the [`vscode.languages.registerCompletionItemProvider`](/api/references/vscode-api#languages.registerCompletionItemProvider) API but makes no contribution, and a [Theme Extension](https://github.com/Microsoft/vscode-extension-samples/tree/master/theme-sample) only uses the [`contributes.colors`](/api/references/contribution-points#contributes.colors) Contribution Point without including any code. Of course, you can utilize both in the same extension.
-
-The **Extension Host** executes all extension code in a Node.js runtime. Each extension includes an entry file that is loaded when VS Code launches, and VS Code executes the `activate` function of each extension when their **Activation Events** are triggered.
-
-Let's take a closer look at the `Hello Code` sample, and see how these concepts applies to it.
+Let's take a closer look of `Hello Code` sample's source code and see how these concepts apply to it.
 
 ## Extension File Structure
 
@@ -43,9 +42,9 @@ You can read more about the config files:
 - `tasks.json`: https://code.visualstudio.com/Docs/editor/tasks
 - `tsconfig.json`: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
 
-However, let's focus on `package.json` and `extensions.ts`, which are essential to understanding the HelloCode extension.
+However, let's focus on `package.json` and `extensions.ts`, which are essential to understanding the `Hello Code` extension.
 
-### The Extension Manifest: `package.json`
+### Extension Manifest
 
 Each VS Code extension must have a `package.json` as its [Extension Manifest](/api/references/extension-manifest). The `package.json` contains a mix of Node.js fields such as `scripts` and `dependencies` and VS Code specific fields such as `publisher`, `activationEvents` and `contributes`. You can find description of all VS Code specific fields in [Extension Manifest Reference](/api/references/extension-manifest). Here, we'll point out some important fields:
 
@@ -91,6 +90,10 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
 
 ## Extension Entry File
 
+The extension entry file exports two functions, `activate` and `deactivate`. `activate` is executed when your registered **Activation Event** happened. `deactivate` gives you a chance to clean up before it becomes deactivated.
+
+The [`vscode`](https://www.npmjs.com/package/vscode) module contains a script located at `node ./node_modules/vscode/bin/install`. The script pulls the VS Code API  definition file depending on the `engines.vscode` field in `package.json`. After running the script, you would get IntelliSense, jump to definition and other TypeScript language features in your code.
+
 ```ts
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
@@ -120,12 +123,3 @@ export function activate(context: vscode.ExtensionContext) {
 // this method is called when your extension is deactivated
 export function deactivate() {}
 ```
-
-## Looking back
-
-Here are the four important concepts we learned in this topic. You can find more information for them in the `References` section.
-
-- Extension Host: The Node.js runtime where your extension code is executed.
-- [VS Code API](/api/references/vscode-api): The VS Code Extension API available in the Extension Host.
-- [Contribution Points](/api/references/contribution-points): The static declarations your extension can make in the `package.json`.
-- [Activation Events](/api/references/activation-events): The event on which your extension is activated.

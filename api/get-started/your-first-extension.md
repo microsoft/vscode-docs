@@ -14,10 +14,8 @@ The generator scaffolds a project ready for development. Run the generator and f
 ```bash
 yo code
 
-# Why do we need to ask these 8 questions upfront? Can we simplify it?
 # ? What type of extension do you want to create? New Extension (TypeScript)
-# ? What's the name of your extension? hello-code2
-# ? What's the identifier of your extension? hello-code2
+# ? What's the name of your extension? hello-code
 # ? What's the description of your extension?
 # ? What's your publisher name (more info: https://code.visualstudio.com/docs/tools/vscecli#_publishing-extensions)? pine
 # ? Enable stricter TypeScript checking in 'tsconfig.json'? Yes
