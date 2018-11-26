@@ -6,10 +6,10 @@
 Commands trigger actions in VS Code. If you have ever [configured a keybinding](/docs/getstarted/keybindings), then you've worked with commands. Commands are also used by extensions to expose functionality to users, bind to actions in VS Code's user interface, and implement internal logic.
 
 ## Using Commands
-VS Code includes a large set of built-in commands that you can use to interact with the editor, control the user interface, or perform background operations. Many extensions also expose commands for their core functionality that you can leverage.
+VS Code includes a large set of [built-in commands](/api/references/commands) that you can use to interact with the editor, control the user interface, or perform background operations. Many extensions also expose commands for their core functionality that you can leverage.
 
 ### Programmatically executing a command
-The `vscode.commands.executeCommand` programmatically executes a command. This lets you leverage VS Code's built-in functionality, and build on extensions such as VS Code's built-in git and markdown extensions.
+The [`vscode.commands.executeCommand`](/api/references/vscode-api#commands.executeCommand) API programmatically executes a command. This lets you leverage VS Code's built-in functionality, and build on extensions such as VS Code's built-in git and markdown extensions.
 
 The `editor.action.addCommentLine` command for example comments the currently selected lines in the active text editor:
 
@@ -50,6 +50,7 @@ To find available commands:
 - [Look through VS Code's built-in advanced commands api](/api/references/commands)
 
 ### Command Uris
+
 Commands uris are links that execute a given command. They can be used as clickable links in hover text, completion item details, or inside of webviews.
 
 A command uri uses the `command` scheme followed by the command name. The command uri for the `editor.action.addCommentLine` command for example is `command:editor.action.addCommentLine`. Here's a hover provider that shows a link the comments the current line in the active text editor:
@@ -96,7 +97,8 @@ export function activate(context: vscode.ExtensionContext) {
 ## Creating new commands
 
 ### Registering a command
-`vscode.commands.registerCommand` binds a command id to a handler function in your extension:
+
+[`vscode.commands.registerCommand`](/api/references/vscode-api#commands.registerCommand) binds a command id to a handler function in your extension:
 
 ```ts
 import * as vscode from 'vscode';
@@ -115,6 +117,7 @@ export function activate(context: vscode.ExtensionContext) {
 The handler function will be invoked whenever the `myExtension.sayHello` command is executed, be it pragmatically with `executeCommand`, from the VS Code UI, or through a keybinding.
 
 ### Creating a user facing command
+
 `vscode.commands.registerCommand` only binds a command id to a handler function. To expose this command in the command palette and let user's know about it, you also need a corresponding command `contribution` in your extension's `package.json`:
 
 ```json
@@ -154,9 +157,10 @@ You do not need an `onCommand` activation events for internal commands but you m
 - Is intended as API for other extensions to consume.
 
 ### Controlling when a command shows up in the command palette
+
 By default, all user facing commands contributed through the `commands` section of the `package.json` show up in the command palette. However many commands are only relevant in certain circumstances, such as when there is an active text editor of a given language or when the user has a certain configuration option set.
 
-The `menus.commandPalette` contribution point lets you restrict when a command should show in the command palette. It takes the id of the target command and a [when clause](/docs/getstarted/keybindings.md#when-clause-contexts) the controls when the command is shown:
+The [`menus.commandPalette`](/api/references/contribution-points#contributes.menus) contribution point lets you restrict when a command should show in the command palette. It takes the id of the target command and a [when clause](/docs/getstarted/keybindings.md#when-clause-contexts) the controls when the command is shown:
 
 ```json
 {
