@@ -15,7 +15,7 @@ You might already have heard that the popular event-stream NPM package includes 
 
 We immediately checked if and how we are affected. First, we scanned Visual Studio Code. Both product installs of Visual Studio Code (stable as well as insiders) are safe.
 
-Secondly, we then scanned all extensions in the VS Code marketplace. We identified several extensions as affected. We decided to take aggressive actions to protect our users as well as the authors of those extensions and to automatically uninstall those extensions. Users don’t need to take any action to remove those extensions. The extensions will also be unlisted from the marketplace.
+Secondly, we scanned all extensions in the VS Code marketplace. We identified several extensions as affected. We decided to take aggressive actions to protect our users as well as the authors of those extensions and to automatically uninstall those extensions. Users don’t need to take any action to remove those extensions. The extensions will also be unlisted from the marketplace.
 
 At the time of the scan, the following extensions contained the malicious code:
 
@@ -58,7 +58,8 @@ At the time of the scan, the following extensions contained the malicious code:
 
 We are in the process of notifying the authors of those extensions. Once the authors have updated their extensions and we have received their notification, we will verify the update. You will then be able to reinstall the extension from the marketplace.
 
-A note to extension authors: When you generated an extension with the `yeoman` code generator you may have installed the malicious code as part of the dev dependencies. Delete your `node_modules` folder, clear you npm cache and rerun `npm install`.
+A note to extension authors: When you generated an extension with the `yeoman` code generator you may have installed the malicious code as part of the dev dependencies. Delete your `node_modules` folder, clean you npm cache with `npm cache clean --force` and rerun `npm install`.
 
 We'll keep you posted.
+
 [Kai Maetzel (Microsoft)](https://twitter.com/kaimaetzel)
