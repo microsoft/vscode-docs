@@ -83,7 +83,7 @@ The Debug Extension API serves two orthogonal purposes:
 
 ### Debugger Extensions
 
-Debugger Extension add rich debugging support for specific languages or runtimes. VS Code's built-in Node.js debugger is just one showcase of the various debugger features that extensions can provide:
+Debugger Extension add rich debugging support for specific languages or runtimes. VS Code's built-in Node.js debugger extension is just one showcase of the various debugger features that extensions can provide:
 
 - Source-, function-, conditional-, inline breakpoints, and logpoints.
 - Multi-process and multi-thread support.
@@ -94,15 +94,14 @@ Debugger Extension add rich debugging support for specific languages or runtimes
 
 A debugger extension does not have to implement any debugger UI as this is already generically provided by VS Code. And it does not have to implement a real debugger either, because most languages already come with their own debugger.
 
-Consequently a typical debugger extension only needs to talk to some existing debugger backend and retrieves some display data and massage it so that it can be used by VS Code's generic debugger UI. To make this "adapter" like functionality independent from VS Code and reusable for other development tools, we've defined a JSON-based [Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol/) (similar to the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/)) that specifies basically the "shape" of the display data flowing between the UI and a so called "debug adapter". The debug adapter implements the Debug Adapter Protocol as a separate program (and therefore can be implemented in any implementation language).
+Consequently a typical debugger extension only needs to talk to some existing debugger backend and retrieve some display data and massage it so that it can be used by VS Code's generic debugger UI. To make this adapter functionality independent from VS Code and reusable for other development tools, we've defined a JSON-based [Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol/) (similar to the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/)) that specifies the "shape" of the display data flowing between the UI and a so-called "debug adapter". The debug adapter implements the Debug Adapter Protocol as a separate program (and therefore can be implemented in any implementation language).
 
 An introduction for how debug adapters work can be found [here](https://microsoft.github.io/debug-adapter-protocol/overview#How_it_works).
 Developing a debug adapter in the context of a debugger extension is explained in detail [here](https://code.visualstudio.com/docs/extensions/example-debuggers).
 
-A VS Code debugger extension contributes the debug adapter as a standalone executable via the `Debuggers` extension point. VS Code launches the debug adpater whenever a debug session of that type is started.
+A VS Code debugger extension contributes the debug adapter as a standalone executable via the `debuggers` extension point. VS Code launches the debug adapter whenever a debug session of that type is started.
 
-In addition to the debug adapter executable the `Debuggers` extension point accepts the following
-information:
+In addition to the debug adapter executable, the `debuggers` extension point declares the following information:
 
 - List of languages supported by the debugger. VS Code enables the UI to set breakpoints for those languages.
 - JSON schema for the debug configuration attributes introduced by the debugger. VS Code uses this schema to verify the configuration in the launch.json editor and provides Intellisense.
@@ -110,11 +109,11 @@ information:
 - Debug configuration snippets that a user can add to a launch.json file.
 - Declaration of variables that can be used in debug configurations.
 
-In additon to the purely declarative contributions from above the debug extension API provides this code-based functionality:
+In addition to the purely declarative contributions from above, the debug extension API provides this code-based functionality:
 
 - Dynamically generated default debug configurations for the initial launch.json created by VS Code.
 - Determine the debug adapter to use dynamically.
-- Verify or "massage" debug configuration before they are passed to the debug adapter.
+- Verify or modify debug configuration before they are passed to the debug adapter.
 - Communicate with the debug adapter.
 - Send informative messages to the debug console.
 
