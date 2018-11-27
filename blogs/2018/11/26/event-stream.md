@@ -11,7 +11,7 @@ Author: Kai Maetzel
 
 November 26, 2018 Kai Maetzel, [@kaimaetzel](https://twitter.com/kaimaetzel)
 
-You might already have heard that the popular event-stream NPM package includes a malicious dependency. The details can be found in the following GitHub issue: https://github.com/dominictarr/event-stream/issues/116. This vulnerability has been in existence for about two months but was only recently discovered.
+You might already have heard that the popular event-stream NPM package includes a malicious dependency. The details can be found in the following GitHub issue: [https://github.com/dominictarr/event-stream/issues/116](https://github.com/dominictarr/event-stream/issues/116). This vulnerability has been in existence for about two months but was only recently discovered.
 
 We immediately checked if and how we are affected. First, we scanned Visual Studio Code. Both product installs of Visual Studio Code (stable as well as insiders) are safe.
 
