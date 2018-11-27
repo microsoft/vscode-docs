@@ -6,12 +6,12 @@
 The [`contributes.languages`](/api/references/contribution-points#contributes.languages) Contribution Point allows you to define a language configuration that controls the following language features:
 
 - Comment toggling
-- Brackets definition for auto-indentation
+- Brackets definition
 - Autoclosing
 - Autosurronding
 - Folding
-- TODO: Word pattern
-- TODO: Indentation Rules
+- Word pattern
+- Indentation Rules
 
 Here is a [Language Configuration Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/language-configuration-sample) that configures the experience for JavaScript files. This guide will explain the source:
 
