@@ -3,34 +3,25 @@
 
 # Extensions Capabilities Overview
 
-VS Code has a vast Extension API, and this topic breaks it down to smaller categories. Each category:
+VS Code offers many ways for extension to extend its capabilities, and sometimes it can be hard to find the right [Contribution Points](/api/references/contribution-points) and [VS Code API](/api/references/vscode-api) to use. This topic splits extension capabilities into a few categories. Each category:
 
-- Explains one aspect of VS Code API
-- Shows you what extension could achive with that API, and
-- Points you to more detailed guides for using that API
+- Lists some functionalities your extension could achieve
+- Points you to a more detailed topic for utilizing these capabilities
 
 ## Common Capabilities
 
 [Common capabilities](common-capabilities) are core pieces of functionality that you can use alongside any of the other extension points. Some of these capabilities include:
 
-- Registering commands, configurations, keybindings or Context Menu items
+- Registering commands, configurations, keybindings or context menu items
 - Storing data
 - Displaying information messages
-- Using Quick Pick to get user input
+- Using Quick Pick to collect user input
 - Open system file picker to let user select files / folders
 - Use Progress API to indicate long-running operations
 
-Learn more at the [Common Capabilities](common-capabilities) topic.
-
-**Example Extension Points**
-
-- Register new commands, configurations, keybindings,  with a keyboard shortcut.
-- Collect user input using Quick Picks.
-- Adding settings for your extension.
-
 ## Theming
 
-[Themes](theming) control the look of VS Code, both the colors of code in the editor and the colors of the VS Code user interface itself. If you've ever wanted to make it look like you're coding the matrix by making VS Code all different shades of green, or just wanted to create the ultimate, minimalist greyscale workspace, then themes are for you.
+[Themes](theming) control the look of VS Code, both the colors of code in the editor and the colors of the VS Code user interface. If you've ever wanted to make it look like you're coding the matrix by making VS Code all different shades of green, or just wanted to create the ultimate, minimalist greyscale workspace, then themes are for you.
 
 **Example Extension Points**
 
