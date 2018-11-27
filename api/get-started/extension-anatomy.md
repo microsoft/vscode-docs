@@ -17,7 +17,7 @@ Understanding these three concepts is crucial to writing VS Code Extensions:
 - [**Contribution Points**](/api/references/contribution-points): static declarations that you make in the `package.json` [Extension Manifest](#extension-manifest) to extend VS Code.
 - [**VS Code API**](/api/references/vscode-api): a set of JavaScript API that you can invoke in your extension code.
 
-In general, your extension would use a combination of Contribtuion Points and VS Code API to extend VS Code's functionality. The [Extension Capabilities Overview](/api/extension-capabilities/overview) topic helps you find the right Contribution Point / VS Code API for your extension.
+In general, your extension would use a combination of Contribution Points and VS Code API to extend VS Code's functionality. The [Extension Capabilities Overview](/api/extension-capabilities/overview) topic helps you find the right Contribution Point and VS Code API for your extension.
 
 Let's take a closer look of `Hello Code` sample's source code and see how these concepts apply to it.
 
