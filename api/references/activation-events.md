@@ -3,7 +3,7 @@
 
 # Activation Events
 
-Extensions are activated lazily in VS Code.  As a result, you need to provide VS Code with context as to when your extension should be activated.  We support the following activation events:
+**Activation Events** is a set of JSON declarations that you make in the `activationEvents` field of `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension becomes activated when the **Activation Event** happens. Here is a list of all available **Activation Events**:
 
 * [`onLanguage:${language}`](/api/references/activation-events#activationeventsonlanguage)
 * [`onCommand:${command}`](/api/references/activation-events#activationeventsoncommand)

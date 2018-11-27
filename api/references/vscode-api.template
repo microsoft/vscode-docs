@@ -10,4 +10,7 @@ VSCodeVersion: 1.27.0
 ---
 
 # VS Code API
+
+**VS Code API** ia a set of JavaScript API that you can invoke in your extension code. This page lists all VS Code API available to extension authors.
+
 {$ Content $}
