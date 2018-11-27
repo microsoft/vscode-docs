@@ -50,6 +50,11 @@ Here is a [Language Configuration Sample](https://github.com/Microsoft/vscode-ex
 			"start": "^\\s*//\\s*#?region\\b",
 			"end": "^\\s*//\\s*#?endregion\\b"
 		}
+	},
+	"wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)",
+	"indentationRules": {
+		"increaseIndentPattern": "^((?!.*?\\/\\*).*\\*\/)?\\s*[\\}\\]].*$",
+		"decreaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$"
 	}
 }
 ```
@@ -67,9 +72,9 @@ VS Code offers two commands for comment toggling. `Toggle Line Comment` and `Tog
 }
 ```
 
-## Brackets definition for auto-indentation
+## Brackets definition
 
-When you are inside a bracket pair defined here and entering a new line, VS Code will increase the indentation level by one:
+When you move the cursor to a bracket defined here, VSCode will highlight that bracket together with its matching pair.
 
 ```json
 {
@@ -80,6 +85,8 @@ When you are inside a bracket pair defined here and entering a new line, VS Code
 	]
 }
 ```
+
+Moreover, when you run `Go to Bracket` or `Select to Bracket`, VSCode will use the defintion above to find the nearest bracket and its matching pair.
 
 ## Autoclosing
 
@@ -170,12 +177,30 @@ In VS Code, there are three kinds of folding:
 
 **TODO: PINE - Add folding illustration to the programmatic language features topic**
 
-## TODO: Word Pattern
+## Word Pattern
 
-Like the section on Comment toggling, please explain which functionality of VS Code is tied to this configuration.
+`wordPattern` defines what's being considered as a word in a the programming language. So when you use word related commands, like `Move cursor to word start`(`kb(cursorWordStartLeft)`) or `Move cursor to word end` (`kb(cursorWordEndRight)`)，the editor will use this regex to find the word boundaries.
 
-## TODO: Indentation Rules
+```json
+"wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)",
+```
 
-Like the section on Comment toggling, please explain which functionality of VS Code is tied to this configuration.
+## Indentation Rules
 
-Also explain how this functionality interacts with `brackets`, since both affect auto-indentation.
+`indentationRules` defines how the editor should adjust the indentation of current line or next line when you type, paste and move lines.
+
+```json
+"indentationRules": {
+	"increaseIndentPattern": "^((?!.*?\\/\\*).*\\*\/)?\\s*[\\}\\]].*$",
+	"decreaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$"
+}
+```
+
+For example, `if (true) {` matches `increasedIndentPattern`, then if you press enter after the open bracket `{`, the editor will automatically indent once and your code will end up as
+
+```javascript
+if (true) {
+	console.log();
+```
+
+If there is no indentation rule set for the programming language, the editor will indent when the line ends with an open bracket and outdent when you type an closing bracket. The *bracket* here is defined by `brackets`.
