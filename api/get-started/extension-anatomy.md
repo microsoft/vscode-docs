@@ -1,14 +1,14 @@
 ---
 ---
 
-# Extension Anatomy
+# Visual Studio Code Extension Anatomy
 
-In the last topic, we were able to get a basic extension running. How does it work under the hood?
+In the last topic, you were able to get a basic Visual Studio Code extension running. How does it work under the hood?
 
 The `Hello Code` extension does 3 things:
 
 - Registers the [`onCommand`](/api/references/activation-events#activationEvents.onCommand) [**Activation Event**](/api/references/activation-events): `onCommand:extension.helloCode`, so the extension becomes activated when user runs the `Hello Code` command.
-- Uses the [`contributes.commands`](/api/references/contribution-points#contributes.commands) [**Contribution Point**](/api/references/contribution-points) to make the command `Hello Code` available in the command palette, and bind it to a command ID `extension.helloCode`.
+- Uses the [`contributes.commands`](/api/references/contribution-points#contributes.commands) [**Contribution Point**](/api/references/contribution-points) to make the command `Hello Code` available in the Command Palette, and bind it to a command ID `extension.helloCode`.
 - Uses the [`commands.registerCommand`](/api/references/vscode-api#commands.registerCommand) [**VS Code API**](/api/references/vscode-api) to bind a function to the registered command ID `extension.helloCode`.
 
 Understanding these three concepts is crucial to writing VS Code Extensions:
@@ -36,11 +36,11 @@ Let's take a closer look of `Hello Code` sample's source code and see how these 
 ├── tsconfig.json       // TypeScript configuration
 ```
 
-You can read more about the config files:
+You can read more about the configuration files:
 
-- `launch.json`: https://code.visualstudio.com/Docs/editor/debugging
-- `tasks.json`: https://code.visualstudio.com/Docs/editor/tasks
-- `tsconfig.json`: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+- `launch.json` used to configure VS Code [Debugging](/docs/editor/debugging.md)
+- `tasks.json` for defining VS Code [Tasks](/docs/editor/tasks.md)
+- `tsconfig.json` consult the TypeScript [Handbook](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 
 However, let's focus on `package.json` and `extensions.ts`, which are essential to understanding the `Hello Code` extension.
 
