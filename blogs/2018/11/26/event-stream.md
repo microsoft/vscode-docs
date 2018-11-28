@@ -24,7 +24,7 @@ At the time of the scan, the following extensions contained the malicious code:
 * `aoisupersix.bve5-language-support`
 * `ardenivanov.svelte-intellisense`
 * `ballerina.ballerina`
-* `BattleBas.kivy-vscode``
+* `BattleBas.kivy-vscode`
 * `christianvoigt.argdown-vscode`
 * `codemooseus.vscode-devtools-for-chrome`
 * `curlybracket.vlocode`
