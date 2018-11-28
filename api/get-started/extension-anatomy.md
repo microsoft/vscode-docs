@@ -38,8 +38,8 @@ Let's take a closer look of `Hello Code` sample's source code and see how these 
 
 You can read more about the configuration files:
 
-- `launch.json` used to configure VS Code [Debugging](/docs/editor/debugging.md)
-- `tasks.json` for defining VS Code [Tasks](/docs/editor/tasks.md)
+- `launch.json` used to configure VS Code [Debugging](/docs/editor/debugging)
+- `tasks.json` for defining VS Code [Tasks](/docs/editor/tasks)
 - `tsconfig.json` consult the TypeScript [Handbook](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 
 However, let's focus on `package.json` and `extensions.ts`, which are essential to understanding the `Hello Code` extension.

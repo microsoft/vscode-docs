@@ -9,9 +9,9 @@ In the [Your First Extension](/api/get-started/your-first-extension) topic, you 
 
 This section includes topics that help you develop high-quality VS Code extension. For example, you can learn
 
-- How to add integration tests for your extension
+- How to add [integration tests](/api/working-with-extensions/testing-extensions) for your extension
 - How to publish your extension to [VS Code Marketplace](https://marketplace.visualstudio.com/)
-- How to set up Continuous Integration for your extension
+- How to set up [Continuous Integration](/api/working-with-extensions/continous-integration) (CI) for your extension
 
 ## Extension Capabilities
 
@@ -19,4 +19,4 @@ In this section, we split the [VS Code API](/api/references/vscode-api) and [Con
 
 ## Samples & Guides
 
-We have a great collection of Sample Extensions that you can adapt from, and some of them include detailed guide that explains the source code. You can find all Samples & Guides in the [Extension Guide Listing](/api/extension-guides/overview) or the [vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples) repository.
+We have a great collection of sample extensions that you can adapt from, and some of them include a detailed guide that explains the source code. You can find all Samples & Guides in the [Extension Guide Listing](/api/extension-guides/overview) or the [vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples) repository.

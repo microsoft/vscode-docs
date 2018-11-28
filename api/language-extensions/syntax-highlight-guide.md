@@ -2,14 +2,17 @@
 ---
 
 # Syntax Highlighting
+
 Syntax highlighting determines the color and style of code displayed in the editor. It is responsible for colorizing keywords like `if` or `for` in JavaScript differently than strings and comments and variable names.
 
 There are two components to syntax highlighting: breaking text into a list of tokens and scopes using a grammar, and then using a theme to map these scopes to specific colors and styles. This document only discusses the first part: breaking text into tokens and scopes that existing themes can colorize. For more information about customizing the styling of different scopes in the editor, see the [page on theming](/api/references/theme-color)
 
 ## TextMate grammars
+
 VS Code uses [TextMate grammars][tm-grammars] to break text into a list of tokens. TextMate grammars are a structured collection of [ruby regular expressions](https://macromates.com/manual/en/regular_expressions) and are typically written as a plist or json. You can find a good introduction to TextMate grammars [here](http://www.apeth.com/nonblog/stories/TextMatebundle.html), and you can take a look at existing TextMate grammars to learn more about how they work.
 
 ### Tokens and scopes
+
 Tokens are one or more characters that are part of the same program element. Example tokens include operators such as `+` and `*`, variable names such as `myVar`, or strings such as `"my string"`.
 
 Each token is associated with a scope that defines the context of the token. A scope is a dot separated list of identifiers that specify the context of the current token. The `+` operation in JavaScript for example has the scope `keyword.operator.arithmetic.js`.
@@ -18,12 +21,13 @@ Themes map scopes to colors and styles to provide syntax highlighting. TextMate 
 
 Scopes nest so that each token is also associated with a list of parent scopes. The example below uses the [scope inspector](#scope-inspector) to show the scope hierarchy for the `+` operator in a simple JavaScript function. The most specific scope is listed at the top, with more general parent scopes listed below:
 
-![](images/syntax-highlighting/scopes.png)
+![syntax highlighting scopes](images/syntax-highlighting/scopes.png)
 
 Parent scope information is also used for theming. When a theme targets a scope, all tokens with that parent scope will be colorized unless the theme also provides a more specific colorization for their individual scopes.
 
 ### Contributing a basic grammar
-VS Code supports json TextMate grammars. These are contributed through the `grammars` [contribution point](api/references/contribution-points.md).
+
+VS Code supports json TextMate grammars. These are contributed through the `grammars` [contribution point](api/references/contribution-points).
 
 Each grammar contribution specifies: the identifier of the language the grammar applies to, the top level scope name for the tokens of the grammar, and the relative path to a grammar file. The example below shows a grammar contribution for a fictional `abc` language:
 
@@ -127,6 +131,7 @@ a               keyword.letter, source.abc
 Note that text that is not matched by one of the rules—such as the string `xyz`—is included in the current scope. The last paren at the end of the file is not part of the an `expression.group` since the `end` rule is not matched.
 
 ### Embedded languages
+
 If your grammar include embedded languages within the parent language—such as css style blocks in html—you can use the `embeddedLanguages` contribution point to tell VS Code to treat the embedded language as distinct from the parent language. This ensures that bracket matching, commenting, and other basic language features work as expected in the embedded language.
 
 The `embeddedLanguages` contribution point maps a scope in the embedded language to a top level language scope. In the example below, any tokens in the `meta.embedded.block.javascript` scope will be treated as javascript content:
@@ -150,6 +155,7 @@ The `embeddedLanguages` contribution point maps a scope in the embedded language
 Now if you try to comment code or trigger snippets inside an set of tokens marked `meta.embedded.block.javascript`, they will get the correct `//` JavaScript style comment and the correct JavaScript snippets.
 
 ## Developing a new grammar extension
+
 To quickly create a new grammar extension, use [VS Code's Yeoman templates](/api/get-started/your-first-extension) to run `yo code` and select the `New Language` option:
 
 ![Selecting the 'new language' template in 'yo code'](images/syntax-highlighting/yo-new-language.png)
@@ -171,11 +177,13 @@ After answering all the questions, Yeoman will create a new extension with the s
 Remember, if you are contributing a grammar to a language that VS Code already knows about, be sure to delete the `languages` contribution point in the generated `package.json`.
 
 ### Converting an existing TextMate grammar
+
 `yo code` can also help convert an existing TextMate grammar to a VS Code extension. Again, start by running `yo code` and selecting `Language extension`. When asked for an existing grammar file, give it the full path to either a `.tmLanguage` or `.json` TextMate grammar file:
 
 ![Converting an existing TextMate grammar](images/syntax-highlighting/yo-convert.png)
 
-### Using yaml to write a grammar
+### Using YAML to write a grammar
+
 As a grammar grows more complex, it can become difficult understand and maintain it as json. If you find yourself writing complex regular expressions or needing to add comments to explain aspects of the grammar, consider using yaml to define your grammar instead.
 
 Yaml grammars have the exact same structure as a json based grammar but allow you to use yaml's more concise syntax, along with features such as multi-line strings and comments.
@@ -193,6 +201,7 @@ $ npx js-yaml syntaxes/abc.tmLanguage.yaml > syntaxes/abc.tmLanguage.json
 ```
 
 ### Scope inspector
+
 VS Code's built-in scope inspector tool helps debug grammars. It displays the scopes for the token at the current position in a file, along with metadata about which theme rules apply to that token.
 
 Trigger the scope inspector from the command palette with the `Developer: Inspect TM Scopes` command or [create a keybinding](/docs/getstarted/keybindings) for it:
@@ -204,8 +213,7 @@ Trigger the scope inspector from the command palette with the `Developer: Inspec
 }
 ```
 
-
-![](images/syntax-highlighting/scope-inspector.png)
+![scope inspector](images/syntax-highlighting/scope-inspector.png)
 
 The scope inspector displays the following information:
 
@@ -215,6 +223,7 @@ The scope inspector displays the following information:
 1. Complete scope list, with the most specific scope at the top.
 
 ## Injection grammars
+
 Injection grammars let you extend an existing grammar. An injection grammar is a regular TextMate grammar that is injected into a specific scope within an existing grammar. Example applications of injection grammars:
 
 - Highlighting keywords such as `TODO` in comments.
@@ -222,6 +231,7 @@ Injection grammars let you extend an existing grammar. An injection grammar is a
 - Adding highlighting for a new language to markdown fenced code blocks.
 
 ### Creating a basic injection grammar
+
 Injection grammars are contributed though the `package.json` just like regular grammars. However, instead of specifying a `language`, an injection grammar uses `injectTo` to specify a list of target language scopes to inject the grammar into.
 
 For this example, we'll create a very simple injection grammar that highlights `TODO` as a keyword in javascript comments. To apply our injection grammar in javascript files, we use the `source.js` target language scope in `injectTo`:
@@ -265,6 +275,7 @@ The grammar itself is a standard TextMate grammar except for the top level `inje
 The `L:` in the injection selector means that the injection is added to the left of existing grammar rules. This basically means that our injected grammar's rules will be applied before any existing grammar rules.
 
 ### Embedded languages
+
 Injection grammars can also contribute embedded languages to their parent grammar. Just like with a normal grammar, an injection grammars can use `embeddedLanguages` to map scopes from the embedded language to a top level language scope.
 
 An extension that highlights sql queries in javascript strings for example may use `embeddedLanguages` to make sure all token inside the string marked `meta.embedded.inline.sql` are treated as sql for basic language features such as bracket matching and snippet selection.
@@ -289,6 +300,7 @@ An extension that highlights sql queries in javascript strings for example may u
 ```
 
 ### Token types and embedded languages
+
 There is one additional complication for injection languages embedded languages: by default, VS Code treats all tokens within a string as string contents and all tokens with a comment as token content. Since features such as bracket matching and auto closing pairs are disabled inside of strings and comments, if the embedded language appears inside a string or comment, these features will also be disabled in the embedded language.
 
 To override this behavior, you can use a `meta.embedded.*` scope to reset VS Code's marking of tokens as string or comment content. It is a good idea to always wrap  embedded language in a `meta.embedded.*` scope to make sure VS Code treats the embedded language properly.
@@ -316,6 +328,5 @@ If you can't add a `meta.embedded.*` scope to your grammar, you can alternativel
     }
 }
 ```
-
 
 [tm-grammars]: https://macromates.com/manual/en/language_grammars
