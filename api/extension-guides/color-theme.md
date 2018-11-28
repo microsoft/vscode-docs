@@ -3,58 +3,104 @@
 
 # Color Theme
 
----
-**Writing Instructions**
+Colors visible in the VS Code user interface fall in two categories:
 
-This is one of the options mentioned in https://vscode-ext-docs.azurewebsites.net/api/extension-capabilities/theming.
+- Workbench colors used in views and editors, from the Activity Bar to the Status Bar. A complete list of all these colors can be found in the [theme color reference](/api/references/theme-color).
+- Syntax colors used for source code in the editor. The theming of these colors is different as syntax colorization is based on TextMate grammars and TextMate themes.
 
-- Migrate content from https://code.visualstudio.com/docs/extensions/themes-snippets-colorizers#_adding-a-new-color-theme
-- Update https://github.com/Microsoft/vscode-extension-samples/tree/master/theme-sample so it includes a README and link back to this guide
-- You can also mention:
-  - https://github.com/Tyriar/vscode-theme-generator
-  - https://css-tricks.com/creating-a-vs-code-theme/
+This guide will cover the different ways in which you can create themes
 
----
+## Workbench colors
 
-**Suggested Sections**
-
-## UI Colors
-
-- In this section, explain `colors`, link to https://vscode-ext-docs.azurewebsites.net/api/references/theme-color, explain the setting `workbench.colorCustomizations`
-- Give a recommended workflow, such as:
-  - Start adjusting colors by tweaking `workbench.colorCustomizations`
-  - Then copy the keys to `colors` in a theme extension
-
-## Syntax Colors
-
-- In this section, explain `tokenColors`, link to the [Syntax Highlight Guide](https://vscode-ext-docs.azurewebsites.net/api/language-extensions/syntax-highlight-guide), explain scope inspector, explain `editor.tokenColorCustomization` setting
-- Give a recommended workflow, such as:
-  - Start adjusting colors by tweaking `workbench.tokenColorCustomizations`
-  - Then copy the keys to `tokenColors` in a theme extension
-
----
-
-**Some content for reusing**
-
-As you can see in the illustration, Color Theme defines two mappings, `colors` for UI Component colors and `tokenColors` for Text Token colors.
-
-[Theme Color Reference](/api/references/theme-color) is a good starting point for customizing UI Component colors.
-
-If you want to change the color of text in your editor, you need to know how the text is tokenized. VS Code provides a handy command `Developer: Inspect TM Scopes` that shows you the TextMate scopes of each syntax token in the editor.
-
-![tm-inspector](./images/color-theme/tm-inspector.png)
-
-There are also two settings, `workbench.colorCustomizations` and `editor.tokenColorCustomizations` that correspond to the `color` and `tokenColors` color theme config. They provide a quick way for you to play with colors. For example, try adding this to your user settings:
+The easiest way to create a new workbench color theme is to start with an existing color theme and customize it. First switch to the color theme that you want to modify, then open your [settings](/docs/getstarted/settings.md) and make changes to the `workbench.colorCustomizations` setting, changes are applied live to your VS Code instance. The following for example would change the color of the title bar:
 
 ```json
 {
   "workbench.colorCustomizations": {
     "titleBar.activeBackground": "#ff0000"
-  },
+  }
+}
+```
+
+A complete list of all themable colors can be found in the [color reference](/api/references/theme-color).
+
+## Syntax colors
+
+For syntax highlighting colors, there are two approaches. You just simply reference an existing TextMate theme (`.tmTheme` file) from the community, or you can come up with your own theming rules. The easiest way is to start with an existing theme and customize it, much like in the workbench colors section above.
+
+First switch to the color theme to customize and use the `editor.tokenColorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary. For example the following would chang eht ecolor of comments within the editor:
+
+```json
+{
   "editor.tokenColorCustomizations": {
     "comments": "#FF0000"
   }
 }
 ```
 
-![color-setting](./images/color-theme/color-setting.png)
+The setting supports a simple model with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than that, you need to use TextMate theme rules directly which are explained in detail in the [Syntax Highlighting Guide](/api/language-extensions/syntax-highlight-guide).
+
+## Create a new Color Theme
+
+Once you have tweaked your theme colors using `workbench.colorCustomizations` and `editor.tokenColorCustomizations`, it's time to create the actual theme.
+
+1. Generate a theme file using the **Developer: Generate Color Theme from Current Settings** command from the **Command Palette**
+2. Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generate a new theme extension:
+
+   ```bash
+   npm install -g yo generator-code
+   yo code
+   ```
+
+3. If you customized a theme as described above, select 'Start fresh'.
+
+   ![yo code theme](/docs/extensions/images/themes-snippets-colorizers/yocode-colortheme.png)
+
+4. Copy the theme file generated from your settings to the new extension.
+
+You can also use a existing TextMate theme by telling extension generator to import a TextMate theme file (.tmTheme) and package it for use in VS Code. Alternatively, if you have already downloaded the theme, replace the `tokenColors` section with a link to the `.tmTheme` file to use.
+
+```json
+{
+  "type": "dark",
+  "colors": {
+    "editor.background": "#1e1e1e",
+    "editor.foreground": "#d4d4d4",
+    "editorIndentGuide.background": "#404040",
+    "editorRuler.foreground": "#333333",
+    "activityBarBadge.background": "#007acc",
+    "sideBarTitle.foreground": "#bbbbbb"
+  },
+  "tokenColors": "./Diner.tmTheme"
+}
+```
+
+>**Tip:** Give your color definition file the `.color-theme.json` suffix and you will get hovers, code completion, color decorators and color pickers when editing.
+
+>**Tip:** [ColorSublime](https://colorsublime.github.io) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"https://raw.githubusercontent.com/Colorsublime/Colorsublime-Themes/master/themes/(name).tmTheme"`
+
+## Test a new Color Theme
+
+To try out the new theme, copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
+
+Open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the drop-down list.  Arrow up and down to see a live preview of your theme.
+
+![select my theme](images/themes-snippets-colorizers/mytheme.png)
+
+After making changes to any theme file, it is necessary to reload VS Code with `Reload Window`.
+
+## Publishing a Theme to the Extension Marketplace
+
+If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/extensions/publish-extension.md) to package your theme and publish it to the VS Code Marketplace.
+
+> **Tip:** To make it easy for users to find your theme, include the word "theme" in the extension description and set the `Category` to `Theme` in your `package.json`.
+
+We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
+
+## Adding a new Color Ids
+
+Color ids can also be contributed by extensions through the [color contribution point](/docs/extensionAPI/extension-points.md#contributescolors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery.md#extensiondetails) tab.
+
+## Further reading
+
+- [CSS Tricks - Creating a VS Code theme](https://css-tricks.com/creating-a-vs-code-theme/)
