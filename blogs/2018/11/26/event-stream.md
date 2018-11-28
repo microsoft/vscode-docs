@@ -58,7 +58,7 @@ Unblocked extensions:
 * `apollographql.vscode-apollo`
 * `cesium.gltf-vscode`
 * `jorithvdheuvel.webdav`
-* `kddejong.vscode-cfn-lint
+* `kddejong.vscode-cfn-lint`
 * `qoretechnologies.qorus-vscode`
 * `ritwickdey.LiveServer`
 * `SiteGo.spgo`
