@@ -55,6 +55,7 @@ At the time of the scan, the following extensions contained the malicious code:
 We are in the process of notifying the authors of those extensions. Once the authors have updated their extensions and we have received their notification, we will verify the update. You will then be able to reinstall the extension from the Marketplace.
 
 Unblocked extensions:
+
 * `apollographql.vscode-apollo`
 * `cesium.gltf-vscode`
 * `jorithvdheuvel.webdav`
@@ -67,7 +68,7 @@ Unblocked extensions:
 
 A note to extension authors: When you generated an extension with the `yeoman` code generator, you may have installed the malicious code as part of the dev dependencies. Delete your `node_modules` folder, clean your npm cache with `npm cache clean --force`, and rerun `npm install`.
 
-Extension authors needs to update the `vscode` module to `1.1.22`
+Extension authors needs to update the `vscode` module to `1.1.22`.
 
 We'll keep you posted.
 
