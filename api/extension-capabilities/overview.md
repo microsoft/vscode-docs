@@ -79,7 +79,7 @@ All of the language features extension points can be used for more than just imp
 
 VS Code has great [Debugging](/docs/editor/debugging) functionality, and you can take advantage of it by writing [Debugger Extensions](/api/extension-capabilities/debugging#debugger-extensions) that connect VS Code's debugging user interface to a specific debugger or runtime.
 
-**Example Functionalities**
+**Example Extension Points**
 
 - Connect VS Code's debugging UI to a debugger or runtime by contributing a [Debug Adapter implementation](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/).
 - Specify the languages supported by a debugger extension.
@@ -88,7 +88,7 @@ VS Code has great [Debugging](/docs/editor/debugging) functionality, and you can
 
 On the other hand VS Code also offers a set of [Debug Extension API](/api/extension-capabilities/debugging#debug-extension-api), with which you can implement debug-related functionality on top of any VS Code debugger, in order to automate a user's debugging experience.
 
-**Example Functionalities**
+**Example Extension Points**
 
 - Start debug sessions based on dynamically created debug configurations.
 - Track the life-cycle of debug sessions.
