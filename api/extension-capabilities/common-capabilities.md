@@ -34,15 +34,15 @@ You have three options for storing data:
 - [`ExtensionContext.globalState`](/api/references/vscode-api#ExtensionContext.globalState): A global storage where you can write key/value pairs to. VS Code manages the storage and will restore it for each extension activation.
 - [`ExtensionContext.storagePath`](/api/references/vscode-api#ExtensionContext.storagePath): A path pointing to a local directory where your extension has write/read access. This is a good option if you need to store large files.
 
-The extension context is availble to the `activate` function in the [Extension Entry File](/api/get-started/extension-anatomy#extension-entry-file).
+The extension context is available to the `activate` function in the [Extension Entry File](/api/get-started/extension-anatomy#extension-entry-file).
 
-## Display Information Messages
+## Display Notifications
 
-Almost all extensions need to display information messages at some point. VS Code offers three API for displaying messages of different severity:
+Almost all extensions need to present information to the user at some point. VS Code offers three API for displaying notification messages of different severity:
 
-- [window.showInformationMessage](/api/references/vscode-api#window.showInformationMessage)
-- [window.showWarningMessage](/api/references/vscode-api#window.showWarningMessage)
-- [window.showErrorMessage](/api/references/vscode-api#window.showErrorMessage)
+- [`window.showInformationMessage`](/api/references/vscode-api#window.showInformationMessage)
+- [`window.showWarningMessage`](/api/references/vscode-api#window.showWarningMessage)
+- [`window.showErrorMessage`](/api/references/vscode-api#window.showErrorMessage)
 
 ## Quick Pick
 
@@ -50,7 +50,7 @@ With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can
 
 ## File Picker
 
-Extensions can use the [`vscode.window.showOpenDialog`](/api/references/vscode-api#vscode.window.showOpenDialog) API to open the sytem file picker and get a list of picked files / folders.
+Extensions can use the [`vscode.window.showOpenDialog`](/api/references/vscode-api#vscode.window.showOpenDialog) API to open the system file picker and select files or folders.
 
 ## Progress API
 
@@ -58,7 +58,7 @@ You can use the [`vscode.Progress`](/api/references/vscode-api#Progress) API for
 
 Progress can be shown in different locations using the [`ProgressLocation`](/api/references/vscode-api#ProgressLocation) option:
 
-- In the notifications area
+- In the Notifications area
 - In the source control view
 - General progress in the VS Code window
 
