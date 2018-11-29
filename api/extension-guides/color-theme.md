@@ -12,7 +12,7 @@ This guide will cover the different ways in which you can create themes
 
 ## Workbench colors
 
-The easiest way to create a new workbench color theme is to start with an existing color theme and customize it. First switch to the color theme that you want to modify, then open your [settings](/docs/getstarted/settings.md) and make changes to the `workbench.colorCustomizations` setting, changes are applied live to your VS Code instance. The following for example would change the color of the title bar:
+The easiest way to create a new workbench color theme is to start with an existing color theme and customize it. First switch to the color theme that you want to modify, then open your [settings](/docs/getstarted/settings) and make changes to the `workbench.colorCustomizations` setting, changes are applied live to your VS Code instance. The following for example would change the color of the title bar:
 
 ```json
 {
@@ -28,7 +28,7 @@ A complete list of all themable colors can be found in the [color reference](/ap
 
 For syntax highlighting colors, there are two approaches. You just simply reference an existing TextMate theme (`.tmTheme` file) from the community, or you can come up with your own theming rules. The easiest way is to start with an existing theme and customize it, much like in the workbench colors section above.
 
-First switch to the color theme to customize and use the `editor.tokenColorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary. For example the following would chang eht ecolor of comments within the editor:
+First switch to the color theme to customize and use the `editor.tokenColorCustomizations` [settings](/docs/getstarted/settings). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary. For example the following would chang eht ecolor of comments within the editor:
 
 ```json
 {
@@ -45,7 +45,7 @@ The setting supports a simple model with a set of common token types such as 'co
 Once you have tweaked your theme colors using `workbench.colorCustomizations` and `editor.tokenColorCustomizations`, it's time to create the actual theme.
 
 1. Generate a theme file using the **Developer: Generate Color Theme from Current Settings** command from the **Command Palette**
-2. Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generate a new theme extension:
+2. Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode), to generate a new theme extension:
 
    ```bash
    npm install -g yo generator-code
@@ -91,7 +91,7 @@ After making changes to any theme file, it is necessary to reload VS Code with `
 
 ## Publishing a Theme to the Extension Marketplace
 
-If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/extensions/publish-extension.md) to package your theme and publish it to the VS Code Marketplace.
+If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery). Use the [vsce publishing tool](/docs/extensions/publish-extension) to package your theme and publish it to the VS Code Marketplace.
 
 > **Tip:** To make it easy for users to find your theme, include the word "theme" in the extension description and set the `Category` to `Theme` in your `package.json`.
 
