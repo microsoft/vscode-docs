@@ -3,14 +3,15 @@
 
 # Extensions Capabilities Overview
 
-Visual Studio Code offers many ways for extensions to extend its capabilities and add features. It can sometimes can be hard to find the right [Contribution Points](/api/references/contribution-points) and [VS Code API](/api/references/vscode-api) to use. This topic splits extension capabilities into a few categories. Each category:
+Visual Studio Code offers many ways for extensions to extend its capabilities and add features. It can sometimes can be hard to find the right [Contribution Points](/api/references/contribution-points) and [VS Code API](/api/references/vscode-api) to use. This topic splits extension capabilities into a few categories. Each category describes:
 
-- Lists some functionalities your extension could achieve
-- Points you to a more detailed topic for utilizing these capabilities
+- Some functionalities your extension could use
+- Links to more detailed topics for using these functionalities
+- A few extension ideas
 
 ## Common Capabilities
 
-[Common capabilities](common-capabilities) are core pieces of functionality that you can use alongside any of the other extension points. Some of these capabilities include:
+[Common capabilities](common-capabilities) are core pieces of functionality that you can sprinkle some in any extensions. Some of these capabilities include:
 
 - Registering commands, configurations, keybindings, or context menu items
 - Storing workspace or global data
@@ -23,7 +24,7 @@ Visual Studio Code offers many ways for extensions to extend its capabilities an
 
 [Theming](theming) control the look of VS Code, both the colors of source code in the editor and the colors of the VS Code user interface. If you've ever wanted to make it look like you're coding the Matrix by making VS Code different shades of green, or just wanted to create the ultimate, minimalist greyscale workspace, then themes are for you.
 
-**Example Extension Points**
+**Extension Ideas**
 
 - Change colors of your code.
 - Change colors of the VS Code User Interface.
@@ -36,7 +37,7 @@ Visual Studio Code offers many ways for extensions to extend its capabilities an
 
 Snippets for example provide a rich and highly customizable syntax with support for advanced features like transformations and capitalization, while a good language grammar can completely change the coding experience.
 
-**Example Extension Points**
+**Extension Ideas**
 
 - Provide snippets for an existing language.
 - Tell VS Code about a new programming language.
@@ -52,7 +53,7 @@ Language features typically extend one of VS Code's existing programming languag
 
 All of the language features extension points can be used for more than just implementing support for a programming language. For example, CodeLens and hovers are a great way to present additional information inline, while diagnostics can be used to highlight spelling or code style errors.
 
-**Example Extension Points**
+**Extension Ideas**
 
 - Add decorations to text in the editor.
 - Add hovers that show previews of image URLs.
@@ -66,7 +67,7 @@ All of the language features extension points can be used for more than just imp
 
 [Workbench extension points](extending-workbench) extend VS Code's user interface. Add new right click actions to the File Explorer, or even build a custom explorer using VS Code's high-level `TreeView` API. And, if your extension needs a fully customized user interface, use the Webview API to build your own document preview or interface using standard HTML, CSS, and JavaScript.
 
-**Example Extension Points**
+**Extension Ideas**
 
 - Add custom context menu actions to the File Explorer.
 - Create a new, interactive TreeView in the Side Bar.
@@ -79,7 +80,7 @@ All of the language features extension points can be used for more than just imp
 
 VS Code has great [Debugging](/docs/editor/debugging) functionality, and you can take advantage of it by writing [Debugger Extensions](/api/extension-capabilities/debugging#debugger-extensions) that connect VS Code's debugging user interface to a specific debugger or runtime.
 
-**Example Extension Points**
+**Extension Ideas**
 
 - Connect VS Code's debugging UI to a debugger or runtime by contributing a [Debug Adapter implementation](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/).
 - Specify the languages supported by a debugger extension.
@@ -88,7 +89,7 @@ VS Code has great [Debugging](/docs/editor/debugging) functionality, and you can
 
 On the other hand VS Code also offers a set of [Debug Extension API](/api/extension-capabilities/debugging#debug-extension-api), with which you can implement debug-related functionality on top of any VS Code debugger, in order to automate a user's debugging experience.
 
-**Example Extension Points**
+**Extension Ideas**
 
 - Start debug sessions based on dynamically created debug configurations.
 - Track the life-cycle of debug sessions.
@@ -98,7 +99,7 @@ On the other hand VS Code also offers a set of [Debug Extension API](/api/extens
 
 [Core extension points](extending-core-functionalities) are for very advanced users. These let you build a custom back end for many of VS Code's low-level functionality. For example, the `FileSystem` API can be used to support working with files over FTP or other protocols. Core extensions typically work transparently from a user's point of view.
 
-**Example Extension Points**
+**Extension Ideas**
 
 - Add support for working with remote files over FTP or SFTP.
 - Register new source control provider, such as Mercurial.
