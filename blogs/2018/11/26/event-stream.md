@@ -24,7 +24,6 @@ Currently unlisted and blocked extensions:
 * `ardenivanov.svelte-intellisense`
 * `Fr43nk.seito-openfile`
 * `JacobeanResearchandDevelopmentLLC.vscode-scxml-preview`
-* `joe-re.sql-language-server`
 * `jomiller.rtags-client`
 * `KazuoCode.gthubsum`
 * `roboceo.robojsx-plugin`
