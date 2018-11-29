@@ -19,52 +19,20 @@ We immediately checked if and how we are affected. First, we scanned Visual Stud
 
 Secondly, we scanned all extensions in the VS Code Marketplace. We identified several extensions as affected. We decided to take aggressive actions to protect our users as well as the authors of those extensions and to automatically uninstall those extensions. Users don’t need to take any action to remove those extensions. The extensions will also be unlisted from the Marketplace.
 
-At the time of the scan, the following extensions contained the malicious code:
+Currently unlisted and blocked extensions:
 
-* `aoisupersix.bve5-language-support`
 * `ardenivanov.svelte-intellisense`
-* `ballerina.ballerina`
-* `BattleBas.kivy-vscode`
-* `christianvoigt.argdown-vscode`
-* `codemooseus.vscode-devtools-for-chrome`
-* `curlybracket.vlocode`
-* `ivory-lab.jenkinsfile-support`
+* `Fr43nk.seito-openfile`
 * `JacobeanResearchandDevelopmentLLC.vscode-scxml-preview`
 * `joe-re.sql-language-server`
 * `jomiller.rtags-client`
 * `KazuoCode.gthubsum`
-* `Koihik.vscode-lua-format`
-* `myxvisual.vscode-ts-uml`
-* `OptimaSystems.vscode-apl-language-client`
-* `Paul-Ehigie-Paul.nativescript-extend`
-* `quantum.quantum-devkit-vscode`
-* `rkoubou.ksp`
 * `roboceo.robojsx-plugin`
 * `salbert.comment-ts`
-* `tintrinh.php-refactor`
-* `tomoki1207.pdf`
-* `vlopes11.advpls-client`
-* `webhint.vscode-webhint`
-* `wix.stylable-intelligence`
-* `zfzackfrost.commentbars`
-* `Zowe.vscode-extension-for-zowe`
 * `tboevil.webpaste`
-* `matepek.vscode-catch2-test-adapter`
-* `Fr43nk.seito-openfile`
+* `tintrinh.php-refactor`
 
 We are in the process of notifying the authors of those extensions. Once the authors have updated their extensions and we have received their notification, we will verify the update. You will then be able to reinstall the extension from the Marketplace.
-
-Unblocked extensions:
-
-* `apollographql.vscode-apollo`
-* `cesium.gltf-vscode`
-* `jorithvdheuvel.webdav`
-* `kddejong.vscode-cfn-lint`
-* `qoretechnologies.qorus-vscode`
-* `ritwickdey.LiveServer`
-* `SiteGo.spgo`
-* `terminus.tangram-vscode-plugin`
-* `Yseop.vscode-yseopml`
 
 A note to extension authors: When you generated an extension with the `yeoman` code generator, you may have installed the malicious code as part of the dev dependencies. Delete your `node_modules` folder, clean your npm cache with `npm cache clean --force`, and rerun `npm install`.
 
