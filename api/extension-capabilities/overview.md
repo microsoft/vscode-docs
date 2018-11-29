@@ -77,13 +77,22 @@ All of the language features extension points can be used for more than just imp
 
 ## Debugging
 
-VS Code has great [Debugging](/docs/editor/debugging) functionality, and you can take advantage of it by writing [Debugger Extensions](/api/extension-capabilities/debugging#debugger-extensions) that connects VS Code's debugging interface to any runtime. Meanwhile, VS Code also offers a set of [Debug Extension API](/api/extension-capabilities/debugging#debug-extension-api), with which you can programmatically manage debugging sessions and breakpoints to automate user's debugging experience.
+VS Code has great [Debugging](/docs/editor/debugging) functionality, and you can take advantage of it by writing [Debugger Extensions](/api/extension-capabilities/debugging#debugger-extensions) that connect VS Code's debugging user interface to a specific debugger or runtime.
 
-**Example Extension Points**
+**Example Functionalities**
 
-- Connect to a runtime such as .NET Core with [C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-- Connect [Debug Console](/docs/editor/debugging#_debug-console-repl) to a REPL
-- Add breakpoints to all JavaScript files under a specific directory
+- Connect VS Code's debugging UI to a debugger or runtime by contributing a [Debug Adapter implementation](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/).
+- Specify the languages supported by a debugger extension.
+- Provide rich IntelliSense and hover information for the debug configuration attributes used by the debugger.
+- Provide debug configuration snippets.
+
+On the other hand VS Code also offers a set of [Debug Extension API](/api/extension-capabilities/debugging#debug-extension-api), with which you can implement debug-related functionality on top of any VS Code debugger, in order to automate user's debugging experience.
+
+**Example Functionalities**
+
+- Start debug sessions based on dynamically created debug configurations.
+- Track the life-cycle of debug sessions.
+- Create and manage breakpoints programmatically.
 
 ## Core Extensions
 
