@@ -86,7 +86,7 @@ VS Code has great [Debugging](/docs/editor/debugging) functionality, and you can
 - Provide rich IntelliSense and hover information for the debug configuration attributes used by the debugger.
 - Provide debug configuration snippets.
 
-On the other hand VS Code also offers a set of [Debug Extension API](/api/extension-capabilities/debugging#debug-extension-api), with which you can implement debug-related functionality on top of any VS Code debugger, in order to automate user's debugging experience.
+On the other hand VS Code also offers a set of [Debug Extension API](/api/extension-capabilities/debugging#debug-extension-api), with which you can implement debug-related functionality on top of any VS Code debugger, in order to automate a user's debugging experience.
 
 **Example Functionalities**
 
