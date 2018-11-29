@@ -696,6 +696,59 @@ The above example extension contributes the [`typescript-styled-plugin`](https:/
 
 TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript.
 
+Extensions can now configure contributed TypeScript plugins through an API provided by VS Code's built-in TypeScript extension:
+
+```ts
+// In your VS Code extension
+
+export async function activate(context: vscode.ExtensionContext) {
+    // Get the TS extension
+    const tsExtension = vscode.extensions.gettsExtension('vscode.typescript-language-features');
+    if (!tsExtension) {
+        return;
+    }
+
+    await tsExtension.activate();
+
+    // Get the api from the TS extension
+    if (!tsExtension.exports || !tsExtension.exports.getAPI) {
+        return;
+    }
+
+    const api = tsExtension.exports.getAPI(0);
+    if (!api) {
+        return;
+    }
+
+    // Configure the 'my-typescript-plugin-id' plugin
+    api.configurePlugin('my-typescript-plugin-id', {
+        value: process.env['SOME_VALUE']
+    });
+}
+```
+
+The TypeScript server plugin receives the configuration data through an `onConfigurationChanged` method:
+
+```ts
+// In your TypeScript plugin
+
+import * as ts_module from 'typescript/lib/tsserverlibrary';
+
+export = function init({ typescript }: { typescript: typeof ts_module }) {
+    return {
+        create(info: ts.server.PluginCreateInfo) {
+            // Create new language service
+        },
+        onConfigurationChanged(config: any) {
+            // Recieve configuration changes sent from VS Code
+        },
+    };
+};
+```
+
+This api allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/Microsoft/vscode-typescript-tslint-plugin/blob/master/src/index.ts) and [Lit html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.
+
+
 ## Next steps
 
 To learn more about VS Code extensibility model, try these topic:
