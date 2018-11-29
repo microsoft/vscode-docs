@@ -5,7 +5,7 @@
 
 The Debug Extension API serves two orthogonal purposes:
 
-- Support to contribute new debuggers as "Debugger Extensions".
+- Support contributing new debuggers as "Debugger Extensions".
 - Surface debug functionality to extensions.
 
 ## Debugger Extensions

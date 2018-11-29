@@ -78,7 +78,7 @@ All of the language features extension points can be used for more than just imp
 
 ## Debugging
 
-VS Code has great [Debugging](/docs/editor/debugging) functionality, and you can take advantage of it by writing [Debugger Extensions](/api/extension-capabilities/debugging#debugger-extensions) that connect VS Code's debugging user interface to a specific debugger or runtime.
+You can take advantage of VS Code's [Debugging](/docs/editor/debugging) functionality by writing [Debugger Extensions](/api/extension-capabilities/debugging#debugger-extensions) that connect VS Code's debugging user interface to a specific debugger or runtime.
 
 **Extension Ideas**
 
@@ -87,12 +87,12 @@ VS Code has great [Debugging](/docs/editor/debugging) functionality, and you can
 - Provide rich IntelliSense and hover information for the debug configuration attributes used by the debugger.
 - Provide debug configuration snippets.
 
-On the other hand VS Code also offers a set of [Debug Extension API](/api/extension-capabilities/debugging#debug-extension-api), with which you can implement debug-related functionality on top of any VS Code debugger, in order to automate a user's debugging experience.
+On the other hand, VS Code also offers a set of [Debug Extension API](/api/extension-capabilities/debugging#debug-extension-api), with which you can implement debug-related functionality on top of any VS Code debugger, in order to automate a user's debugging experience.
 
 **Extension Ideas**
 
 - Start debug sessions based on dynamically created debug configurations.
-- Track the life-cycle of debug sessions.
+- Track the lifecycle of debug sessions.
 - Create and manage breakpoints programmatically.
 
 ## Core Extensions
