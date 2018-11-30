@@ -5,7 +5,7 @@
 
 VS Code's debugging architecture allows extension authors to easily integrate existing debuggers into VS Code, while having a common user interface with all of them.
 
-VS Code ships with one builtin debugger extension, the [Node.js](https://nodejs.org) debugger extension, which is an excellent showcase for the many debugger features supported by VS Code:
+VS Code ships with one built-in debugger extension, the [Node.js](https://nodejs.org) debugger extension, which is an excellent showcase for the many debugger features supported by VS Code:
 
 ![VS Code Debug Features](images/debug-extension/debug-features.png)
 
@@ -14,13 +14,13 @@ This screenshot shows the following debugging features:
 1. Debug configuration management.
 2. Debug actions for starting/stopping and stepping.
 3. Source-, function-, conditional-, inline breakpoints, and log points.
-4. Stacktraces, including multi-thread and multi-process support.
+4. Stack traces, including multi-thread and multi-process support.
 5. Navigating through complex data structures in views and hovers.
 6. Variable values shown in hovers or inlined in the source.
 7. Managing watch expressions.
 8. Debug console for interactive evaluation with autocomplete.
 
-This documentation will help you creating a debugger extension which can make any debugger work with VS Code.
+This documentation will help you create a debugger extension which can make any debugger work with VS Code.
 
 ## Debugging Architecture of VS Code
 
@@ -45,7 +45,7 @@ So in its most minimal form, a debugger extension is just a declarative contribu
 A more realistic debugger extension contributes many or all of the following declarative items to VS Code:
 
 - List of languages supported by the debugger. VS Code enables the UI to set breakpoints for those languages.
-- JSON schema for the debug configuration attributes introduced by the debugger. VS Code uses this schema to verify the configuration in the launch.json editor and provides Intellisense.
+- JSON schema for the debug configuration attributes introduced by the debugger. VS Code uses this schema to verify the configuration in the launch.json editor and provides IntelliSense.
 - Default debug configurations for the initial launch.json created by VS Code.
 - Debug configuration snippets that a user can add to a launch.json file.
 - Declaration of variables that can be used in debug configurations.
@@ -106,7 +106,7 @@ What's in the package?
   - The `compile` and `watch` scripts are used to transpile the TypeScript source into the `out` folder and watch for subsequent source modifications.
   - The dependencies `vscode-debugprotocol`, `vscode-debugadapter`, and `vscode-debugadapter-testsupport` are NPM modules that simplify the development of node-based debug adapters.
 * `src/mockRuntime.ts` is a _mock_ runtime with a simple debug API.
-* The code that _adapts_ the runtime to the debug adapter Protocol lives in `src/mockDebug.ts`. Here you find the handlers for the various requests of the DAP.
+* The code that _adapts_ the runtime to the Debug Adapter Protocol lives in `src/mockDebug.ts`. Here you find the handlers for the various requests of the DAP.
 * Since the implementation of debugger extension lives in the debug adapter, there is no need to have extension code at all (i.e. code that runs in the extension host process). However, Mock Debug has a small `src/extension.ts` because it illustrates what can be done in the extension code of a debugger extension.
 
 Now build and launch the Mock Debug extension by selecting the **Extension** launch configuration and hitting `F5`.
@@ -152,7 +152,7 @@ If you now launch this debug configuration, VS Code does not start the mock debu
 
 With this setup, you can now easily edit, transpile, and debug Mock Debug.
 
-But now the real work begins: you will have to replace the mock implementation of the debug adapter in `src/mockDebug.ts` and `src/mockRuntime.ts` by some code that talks to a "real" debugger or runtime. This involves understanding and implementing the debug adapter Protocol. More details
+But now the real work begins: you will have to replace the mock implementation of the debug adapter in `src/mockDebug.ts` and `src/mockRuntime.ts` by some code that talks to a "real" debugger or runtime. This involves understanding and implementing the Debug Adapter Protocol. More details
 about this can be found [here](https://microsoft.github.io/debug-adapter-protocol/overview#How_it_works).
 
 ## Anatomy of the package.json of a Debugger Extension
