@@ -3,7 +3,7 @@
 
 # Language Configuration Guide
 
-The [`contributes.languages`](/api/references/contribution-points#contributes.languages) Contribution Point allows you to define a language configuration that controls the following language features:
+The [`contributes.languages`](/api/references/contribution-points#contributes.languages) Contribution Point allows you to define a language configuration that controls the following Declarative Language Features:
 
 - Comment toggling
 - Brackets definition
@@ -13,9 +13,10 @@ The [`contributes.languages`](/api/references/contribution-points#contributes.la
 - Word pattern
 - Indentation Rules
 
-Here is a [Language Configuration Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/language-configuration-sample) that configures the experience for JavaScript files. This guide will explain the source:
+Here is a [Language Configuration Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/language-configuration-sample) that configures the editing experience for JavaScript files. This guide explains the content of `language-configuration.json`:
 
-`language-configuration.json`
+**Note: If your language configuration file name is or ends with `language-configuration.json`, you will get auto-completion and validation in VS Code.**
+
 ```json
 {
 	"comments": {
@@ -74,7 +75,7 @@ VS Code offers two commands for comment toggling. `Toggle Line Comment` and `Tog
 
 ## Brackets definition
 
-When you move the cursor to a bracket defined here, VSCode will highlight that bracket together with its matching pair.
+When you move the cursor to a bracket defined here, VS Code will highlight its matching bracket.
 
 ```json
 {
@@ -175,14 +176,14 @@ In VS Code, there are three kinds of folding:
 
 - Language server folding: The Language Server responds to the [`textDocument/foldingRange`](https://microsoft.github.io/language-server-protocol/specification#textDocument_foldingRange) request with a list of folding ranges, and VS Code would render the ranges as folding markers. Learn more about the folding support in Language Server Protocol at the [Programmatic Language Feature](/api/language-extensions/programmatic-language-features) topic.
 
-**TODO: PINE - Add folding illustration to the programmatic language features topic**
-
 ## Word Pattern
 
 `wordPattern` defines what's being considered as a word in a the programming language. So when you use word related commands, like `Move cursor to word start`(`kb(cursorWordStartLeft)`) or `Move cursor to word end` (`kb(cursorWordEndRight)`)，the editor will use this regex to find the word boundaries.
 
 ```json
-"wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)",
+{
+	"wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)",
+}
 ```
 
 ## Indentation Rules
@@ -190,9 +191,11 @@ In VS Code, there are three kinds of folding:
 `indentationRules` defines how the editor should adjust the indentation of current line or next line when you type, paste and move lines.
 
 ```json
-"indentationRules": {
-	"increaseIndentPattern": "^((?!.*?\\/\\*).*\\*\/)?\\s*[\\}\\]].*$",
-	"decreaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$"
+{
+	"indentationRules": {
+		"increaseIndentPattern": "^((?!.*?\\/\\*).*\\*\/)?\\s*[\\}\\]].*$",
+		"decreaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$"
+	}
 }
 ```
 
@@ -204,3 +207,5 @@ if (true) {
 ```
 
 If there is no indentation rule set for the programming language, the editor will indent when the line ends with an open bracket and outdent when you type an closing bracket. The *bracket* here is defined by `brackets`.
+
+Notice that `editor.formatOnPaste` setting is controlled by the [`DocumentRangeFormattingEditProvider`](/api/references/vscode-api#DocumentRangeFormattingEditProvider) and not affected by auto indentation.

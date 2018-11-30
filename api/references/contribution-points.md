@@ -237,34 +237,14 @@ Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` u
 
 ## contributes.languages
 
-Contribute the definition of a language. This will introduce a new language or enrich the knowledge VS Code has about a language.
+Contribute definition of a language. This will introduce a new language or enrich the knowledge VS Code has about a language.
 
-In this context, a language is basically a string identifier that is associated to a file (See `TextDocument.getLanguageId()`).
+The main effects of `contributes.languages` are:
 
-VS Code uses three hints to determine the language a file will be associated with. Each "hint" can be enriched independently:
-
-1. the extension of the filename (`extensions` below)
-2. the filename (`filenames` below)
-3. the first line inside the file (`firstLine` below)
-
-When a file is opened by the user, these three rules are applied and a language is determined. VS Code will then emit an activationEvent `onLanguage:${language}` (e.g. `onLanguage:python` for the example below)
-
-The `aliases` property contains human readable names under which the language is known. The first item in this list will be picked as the language label (as rendered in the status bar on the right).
-
-The `configuration` property specifies a path to the language configuration file. The path is relative to the extension folder, and is typically `./language-configuration.json`. The file uses the JSON format and can contain the following properties:
-
-* `comments` - Defines the comment symbols
-  * `blockComment` - The begin and end token used to mark a block comment. Used by the 'Toggle Block Comment' command.
-  * `lineComment` - The begin token used to mark a line comment. Used by the 'Add Line Comment' command.
-* `brackets` - Defines the bracket symbols that influence the indentation of code between the brackets. Used by the editor to determine or correct the new indentation level when entering a new line.
-* `autoClosingPairs` - Defines the open and close symbols for the auto-close functionality. When an open symbol is entered, the editor will insert the close symbol automatically. Auto closing pairs optionally take a `notIn` parameter to deactivate a pair inside strings or comments.
-* `surroundingPairs` - Defines the open and close pairs used to surround a selected string.
-* `folding` - Defines when and how code should be folded in the editor
-  * `offSide` - Empty lines trailing a code section belong to the next folding section (used for indentation based languages such as Python or F#)
-  * `markers` - Regex for identifying markers for custom folding regions in the code
-* `wordPattern` - Regex which defines what is considered to be a word in the programming language.
-
-If your language configuration file name is or ends with `language-configuration.json`, you will get validation and editing support in VS Code.
+- Define a `languageId` that can be reused in other parts of VS Code API, such as `vscode.TextDocument.getLanguageId()` and the `onLanguage` Activation Events.
+  - You can contribute a human-readable using the `aliases` field. The first item in the list will be used as the human-readable label.
+- Associate file name extensions, file name patterns, files that begin with a specific line (such as hashbang), mimetypes to that `languageId`.
+- Contribute a set of [Declarative Language Features](/api/language-extensions/overview#declarative-language-features) for the contributed language. Learn more about the configurable editing features in the [Language Configuration Guide](/api/language-extensions/language-configuration-guide).
 
 ### Example
 
@@ -279,44 +259,6 @@ If your language configuration file name is or ends with `language-configuration
         "firstLine": "^#!/.*\\bpython[0-9.-]*\\b",
         "configuration": "./language-configuration.json"
     }]
-}
-```
-
-language-configuration.json
-
-```json
-{
-    "comments": {
-        "lineComment": "//",
-        "blockComment": [ "/*", "*/" ]
-    },
-    "brackets": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"]
-    ],
-    "autoClosingPairs": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"],
-        { "open": "'", "close": "'", "notIn": ["string", "comment"] },
-        { "open": "/**", "close": " */", "notIn": ["string"] }
-    ],
-    "surroundingPairs": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"],
-        ["<", ">"],
-        ["'", "'"]
-    ],
-    "folding": {
-        "offSide": true,
-        "markers": {
-            "start": "^\\s*//#region",
-            "end": "^\\s*//#endregion"
-        }
-    },
-    "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)"
 }
 ```
 

@@ -7,7 +7,7 @@ Visual Studio Code provides smart editing features for different programming lan
 
 Smart editing features can be roughly put into two categories:
 
-## Declarative language support
+## Declarative language features
 
 Declarative language editing support is defined in configuration files. Examples include [html](https://github.com/Microsoft/vscode/tree/master/extensions/html), [css](https://github.com/Microsoft/vscode/tree/master/extensions/css) and [typescript-basic](https://github.com/Microsoft/vscode/tree/master/extensions/typescript-basics) extensions bundled with VS Code, which offer a subset of the following Declarative Language Features:
 
