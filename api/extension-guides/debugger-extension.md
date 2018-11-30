@@ -1,7 +1,7 @@
 ---
 ---
 
-# Debugger Extensions
+# Debugger Extension
 
 VS Code's debugging architecture allows extension authors to easily integrate existing debuggers into VS Code, while having a common user interface with all of them.
 
