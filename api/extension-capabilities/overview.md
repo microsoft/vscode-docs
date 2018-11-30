@@ -3,40 +3,43 @@
 
 # Extensions Capabilities Overview
 
-Visual Studio Code offers many ways for extensions to extend its capabilities and add features. It can sometimes can be hard to find the right [Contribution Points](/api/references/contribution-points) and [VS Code API](/api/references/vscode-api) to use. This topic splits extension capabilities into a few categories. Each category:
+Visual Studio Code offers many ways for extensions to extend its capabilities and add features. It can sometimes be hard to find the right [Contribution Points](/api/references/contribution-points) and [VS Code API](/api/references/vscode-api) to use. This topic splits extension capabilities into a few categories. Each category describes:
 
-- Lists some functionalities your extension could achieve
-- Points you to a more detailed topic for utilizing these capabilities
+- Some functionalities your extension could use
+- Links to more detailed topics for using these functionalities
+- A few extension ideas
 
 ## Common Capabilities
 
-[Common capabilities](common-capabilities) are core pieces of functionality that you can use alongside any of the other extension points. Some of these capabilities include:
+[Common capabilities](common-capabilities) are core pieces of functionality that you can use in any extension.
 
-- Registering commands, configurations, keybindings, or context menu items
-- Storing workspace or global data
-- Displaying notification messages
-- Using Quick Pick to collect user input
-- Open the system file picker to let user select files or folders
-- Use the Progress API to indicate long-running operations
+Some of these capabilities include:
+
+- Registering commands, configurations, keybindings, or context menu items.
+- Storing workspace or global data.
+- Displaying notification messages.
+- Using Quick Pick to collect user input.
+- Open the system file picker to let users select files or folders.
+- Use the Progress API to indicate long-running operations.
 
 ## Theming
 
-[Theming](theming) control the look of VS Code, both the colors of source code in the editor and the colors of the VS Code user interface. If you've ever wanted to make it look like you're coding the Matrix by making VS Code different shades of green, or just wanted to create the ultimate, minimalist greyscale workspace, then themes are for you.
+[Theming](theming) controls the look of VS Code, both the colors of source code in the editor and the colors of the VS Code user interface. If you've ever wanted to make it look like you're coding the Matrix by making VS Code different shades of green, or just wanted to create the ultimate, minimalist grayscale workspace, then themes are for you.
 
-**Example Extension Points**
+**Extension Ideas**
 
-- Change colors of your code.
-- Change colors of the VS Code User Interface.
+- Change the color highlighting of your source code.
+- Change the colors of the VS Code User Interface.
 - Port an existing TextMate theme to VS Code.
 - Add custom file icons.
 
 ## Declarative Language Support
 
-[Declarative language support](/api/language-extensions/overview#declarative-language-support) extend existing programming languages or implement basic support for a new languages. This is done declaratively, without writing any code. These extension points focus on text editing-type features, such as bracket matching and syntax highlighting. For more advanced features, like IntelliSense or debugging, see [Programmatic Language Features](/api/language-extensions/overview#programmatic-language-features).
+[Declarative language support](/api/language-extensions/overview#declarative-language-support) extends existing programming languages or implement basic support for a new language. This is done declaratively, without writing any code. These extension points focus on text editing features, such as bracket matching and syntax highlighting. For more advanced features, like IntelliSense or debugging, see [Programmatic Language Features](/api/language-extensions/overview#programmatic-language-features).
 
-Snippets for example provide a rich and highly customizable syntax with support for advanced features like transformations and capitalization, while a good language grammar can completely change the coding experience.
+Snippets, for example, provide a rich and highly customizable syntax with support for advanced features like transformations and capitalization, while a good language grammar can completely change the coding experience.
 
-**Example Extension Points**
+**Extension Ideas**
 
 - Provide snippets for an existing language.
 - Tell VS Code about a new programming language.
@@ -46,13 +49,13 @@ Snippets for example provide a rich and highly customizable syntax with support 
 
 ## Programmatic Language Features
 
-[Programmatic language features](/api/language-extensions/overview#programmatic-language-features) add rich programming language support. Hovers, go to definition, error reporting, IntelliSense, and code lenses are just some examples of the various language features that extensions can provide.
+[Programmatic language features](/api/language-extensions/overview#programmatic-language-features) add rich programming language support. Hovers, Go to Definition, error reporting, IntelliSense, and CodeLens are just some examples of the various language features that extensions can provide.
 
-Language features typically extend one of VS Code's existing programming languages or are built on the Static Language Features. They are written in TypeScript or JavaScript and run in a Node.js environment. Most language features can also be implemented by [language servers](/docs/extensions/example-language-server), an advanced approach that effectively makes your extension portable across editors.
+Language features typically extend one of VS Code's existing programming languages or are built on the Declarative Language Support. They are written in TypeScript or JavaScript and run in a Node.js environment. Most language features can also be implemented by [language servers](/docs/extensions/example-language-server), an advanced approach that effectively makes your extension portable across editors.
 
 All of the language features extension points can be used for more than just implementing support for a programming language. For example, CodeLens and hovers are a great way to present additional information inline, while diagnostics can be used to highlight spelling or code style errors.
 
-**Example Extension Points**
+**Extension Ideas**
 
 - Add decorations to text in the editor.
 - Add hovers that show previews of image URLs.
@@ -64,9 +67,9 @@ All of the language features extension points can be used for more than just imp
 
 ## Workbench Extensions
 
-[Workbench extension points](extending-workbench) extend VS Code's user interface. Add new right click actions to the File Explorer, or even build a custom explorer using VS Code's high-level `TreeView` API. And, if your extension needs a fully customized user interface, use the Webview API to build your own document preview or interface using standard HTML, CSS, and JavaScript.
+[Workbench extension points](extending-workbench) extend VS Code's user interface. Add new right-click actions to the File Explorer, or even build a custom explorer using VS Code's high-level `TreeView` API. And, if your extension needs a fully customized user interface, use the Webview API to build your own document preview or user interface using standard HTML, CSS, and JavaScript.
 
-**Example Extension Points**
+**Extension Ideas**
 
 - Add custom context menu actions to the File Explorer.
 - Create a new, interactive TreeView in the Side Bar.
@@ -77,19 +80,28 @@ All of the language features extension points can be used for more than just imp
 
 ## Debugging
 
-VS Code has great [Debugging](/docs/editor/debugging) functionality, and you can take advantage of it by writing [Debugger Extensions](/api/extension-capabilities/debugging#debugger-extensions) that connects VS Code's debugging interface to any runtime. Meanwhile, VS Code also offers a set of [Debug Extension API](/api/extension-capabilities/debugging#debug-extension-api), with which you can programmatically manage debugging sessions and breakpoints to automate user's debugging experience.
+You can take advantage of VS Code's [Debugging](/docs/editor/debugging) functionality by writing [Debugger Extensions](/api/extension-guides/debug-extension) that connect VS Code's debugging user interface to a specific debugger or runtime.
 
-**Example Extension Points**
+**Extension Ideas**
 
-- Connect to a runtime such as .NET Core with [C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-- Connect [Debug Console](/docs/editor/debugging#_debug-console-repl) to a REPL
-- Add breakpoints to all JavaScript files under a specific directory
+- Connect VS Code's debugging UI to a debugger or runtime by contributing a [Debug Adapter implementation](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/).
+- Specify the languages supported by a debugger extension.
+- Provide rich IntelliSense and hover information for the debug configuration attributes used by the debugger.
+- Provide debug configuration snippets.
+
+On the other hand, VS Code also offers a set of Debug Extension API, with which you can implement debug-related functionality on top of any VS Code debugger, in order to automate a user's debugging experience.
+
+**Extension Ideas**
+
+- Start debug sessions based on dynamically created debug configurations.
+- Track the lifecycle of debug sessions.
+- Create and manage breakpoints programmatically.
 
 ## Core Extensions
 
 [Core extension points](extending-core-functionalities) are for very advanced users. These let you build a custom back end for many of VS Code's low-level functionality. For example, the `FileSystem` API can be used to support working with files over FTP or other protocols. Core extensions typically work transparently from a user's point of view.
 
-**Example Extension Points**
+**Extension Ideas**
 
 - Add support for working with remote files over FTP or SFTP.
 - Register new source control provider, such as Mercurial.

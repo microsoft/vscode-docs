@@ -41,7 +41,7 @@
       ["Webview", "/api/extension-guides/webview"],
       ["Task Provider", "/api/extension-guides/task-provider"],
       ["Source Control", "/api/extension-guides/scm-provider"],
-      ["Debug Extension", "/api/extension-guides/debug-extension"],
+      ["Debugger Extension", "/api/extension-guides/debugger-extension"],
       ["Markdown Extension", "/api/extension-guides/markdown-extension"]
     ]
   },

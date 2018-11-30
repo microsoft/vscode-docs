@@ -1,7 +1,7 @@
 ---
 ---
 
-# Visual Studio Code Extension API
+# Extension API
 
 Visual Studio Code is built with extensibility in mind. From the UI to the editing experience, almost every part of VS Code can be customized and enhanced through the Extension API. In fact, many core features of VS Code are built as [extensions](https://github.com/Microsoft/vscode/tree/master/extensions) and use the same Extension API.
 
@@ -32,12 +32,12 @@ We also have a list of guides and samples that you can play with and use as a st
 
 Now that you have seen some of the cool things you can do using the VS Code API, it's time to build an extension! Building a good extension, however, could take a lot of effort. Here is how each section can help you with writing extension:
 
-- [Get Started](/api/get-started/your-first-extension) teaches fundamental concepts for building VS Code extensions with the [Hello Code](https://github.com/Microsoft/vscode-extension-samples/tree/master/hellocode-sample) sample.
-- [Working with Extensions](/api/working-with-extensions/testing-extension) includes in-depth guides on extension development, such as [publishing](/api/advanced-topics/publishing-extension) and [testing](/api/advanced-topics/testing-extension) extensions.
-- [Extension Capabilities](/api/extension-capabilities/overview)  dissects VS Code's vast API into smaller categories and points you to more detailed topics.
-- [Extension Guides](/api/extension-guides/overview) contains guides and code samples that illustrate a specific part of VS Code API.
-- [Language Extensions](/api/language-extensions/overview) contains guides and code samples specifically for adding support for a programming language.
-- [References](/api/references/vscode-api) contains exhaustive references for the [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points), and many other topics.
+- **Get Started** teaches fundamental concepts for building VS Code extensions with the [Hello Code](https://github.com/Microsoft/vscode-extension-samples/tree/master/hellocode-sample) sample.
+- **Working with Extensions** includes in-depth guides on extension development, such as [publishing](/api/advanced-topics/publishing-extension) and [testing](/api/advanced-topics/testing-extension) extensions.
+- **Extension Capabilities**  dissects VS Code's vast API into smaller categories and points you to more detailed topics.
+- **Extension Guides** contains guides and code samples that illustrate a specific part of VS Code API.
+- **Language Extensions** contains guides and code samples specifically for adding support for a programming language.
+- **References** contains exhaustive references for the [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points), and many other topics.
 
 ## Looking for help
 
@@ -46,4 +46,4 @@ If you have questions for extension development, try asking on:
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/visual-studio-code): There are 11k questions tagged `visual-studio-code`, and over half of them already have answers. Search for your issue, ask questions, or help your fellow developers by answering VS Code extension development questions!
 - [Gitter Channel](https://gitter.im/Microsoft/vscode) and [VS Code Dev Slack](https://join.slack.com/t/vscode-dev-community/shared_invite/enQtMjIxOTgxNDE3NzM0LWU5M2ZiZDU1YjBlMzdlZjA2YjBjYzRhYTM5NTgzMTAxMjdiNWU0ZmQzYWI3MWU5N2Q1YjBiYmQ4MzY0NDE1MzY): Public chatroom for extension developers. Some VS Code team members chime in conversations.
 
-To provide feedback on the documentation, create new issues at https://github.com/Microsoft/vscode-docs/issues. If you have product questions that you cannot find an answer for, or issues with VS Code's Extension API, please open new issues at https://github.com/Microsoft/vscode/issues.
+To provide feedback on the documentation, create new issues at https://github.com/Microsoft/vscode-docs/issues. If you have extension questions that you cannot find an answer for, or issues with VS Code's Extension API, please open new issues at https://github.com/Microsoft/vscode/issues.

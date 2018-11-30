@@ -1,7 +1,7 @@
 ---
 ---
 
-# Your First Visual Studio Code Extension
+# Your First Extension
 
 In this topic, we'll teach you the fundamental concepts for building Visual Studio Code extensions. Make sure you have [Node.js](https://nodejs.org/en/) and [Git](https://git-scm.com/) installed, then install [Yeoman](http://yeoman.io/) and [VS Code Extension Generator](https://www.npmjs.com/package/generator-code) with:
 

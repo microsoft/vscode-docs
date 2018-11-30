@@ -435,7 +435,7 @@ Contribute a view to VS Code. You must specify an identifier and name for the vi
 * `scm`: Source Control Management (SCM) view container in the Activity Bar
 * `debug`: Debug view container in the Activity Bar
 * `test`: Test view container in the Activity Bar
-* [Custom view containers](#contributesviewscontainers) contributed by Extensions.
+* [Custom view containers](#contributes.viewsContainers) contributed by Extensions.
 
 When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (e.g. `onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value.
 

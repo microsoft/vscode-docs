@@ -1,7 +1,7 @@
 ---
 ---
 
-# Visual Studio Code Extension Anatomy
+# Extension Anatomy
 
 In the last topic, you were able to get a basic Visual Studio Code extension running. How does it work under the hood?
 
