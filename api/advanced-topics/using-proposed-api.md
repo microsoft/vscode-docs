@@ -11,6 +11,6 @@ Proposed API solves the problem for us. Proposed API is a set of unstable API th
 
 These are the steps for testing Proposed API in local development:
 
-- Use [Insiders](https://code.visualstudio.com/insiders) release of VS Code.
+- Use [Insiders](/insiders) release of VS Code.
 - Add `"enableProposedApi": true` to your `package.json`.
 - Copy the latest version of the [`vscode.proposed.d.ts`](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.proposed.d.ts) into your project.

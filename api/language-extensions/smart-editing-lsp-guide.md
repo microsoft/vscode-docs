@@ -5,7 +5,7 @@
 
 ## A Brief Overview of Language Server and Language Server Protocol
 
-Language Server is a special kind of Visual Studio Code extension that powers the editing experience for many programming languages. With Language Servers, you can implement autocomplete, error-checking (diagnostics), jump-to-definition and many other [language features](https://code.visualstudio.com/docs/extensionAPI/language-support) supported in VS Code.
+Language Server is a special kind of Visual Studio Code extension that powers the editing experience for many programming languages. With Language Servers, you can implement autocomplete, error-checking (diagnostics), jump-to-definition and many other [language features](/api/language-extensions/programmatic-language-features) supported in VS Code.
 
 However, while implementing support for language features in VS Code, we found three common problems:
 
@@ -31,7 +31,7 @@ In this guide, we will:
 
 In VS Code, a language server has two parts:
 
-- Language Client: A normal VS Code extension written in JavaScript / TypeScript. This extension has access to all [VS Code Namespace API](https://code.visualstudio.com/docs/extensionAPI/vscode-api).
+- Language Client: A normal VS Code extension written in JavaScript / TypeScript. This extension has access to all [VS Code Namespace API](/api/references/vscode-api).
 - Language Server: A language analysis tool running in a separate process.
 
 As briefly stated above there are two benefits of running the Language Server in a separate process:
@@ -52,7 +52,7 @@ Let's build a simple Language Server extension that implements autocomplete and 
 If you prefer to jump right into the code:
 
 - **[lsp-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample)**: Heavily documented source code for this guide.
-- **[lsp-multi-server-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-server-sample)**: A heavily documented, advanced version of **lsp-sample** that starts a different server instance per workspace folder to support the [multi-root workspace](https://code.visualstudio.com/docs/editor/multi-root-workspaces) feature in VS Code.
+- **[lsp-multi-server-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-server-sample)**: A heavily documented, advanced version of **lsp-sample** that starts a different server instance per workspace folder to support the [multi-root workspace](/docs/editor/multi-root-workspaces) feature in VS Code.
 
 Clone the repository [Microsoft/vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples) and open the sample:
 
@@ -82,7 +82,7 @@ The above installs all dependencies and opens the **lsp-sample** workspace conta
 
 Let's first take a look at `/package.json`, which describes the capabilities of the Language Client. There are three interesting sections:
 
-First look the [`activationEvents`](https://code.visualstudio.com/docs/extensionAPI/activation-events):
+First look the [`activationEvents`](api/references/activation-events):
 
 ```json
 "activationEvents": [
@@ -92,7 +92,7 @@ First look the [`activationEvents`](https://code.visualstudio.com/docs/extension
 
 This section tells VS Code to activate the extension as soon as a plain text file is opened (e.g. a file with the extension `.txt`).
 
-Next look at the [`configuration`](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesconfiguration) section:
+Next look at the [`configuration`](/api/references/contribution-points#contributes.configuration) section:
 
 ```json
 "configuration": {
@@ -705,7 +705,7 @@ The screen shot below shows the completed code running on a plain text file:
 To create a high-quality Language Server, we need to build a good test suite covering its functionalities. There are two common ways of testing Language Servers:
 
 - Unit Test: This is useful if you want to test specific functionalities in Language Servers by mocking up all the information being sent to it. VS Code's [HTML](https://github.com/Microsoft/vscode-html-languageservice) / [CSS](https://github.com/Microsoft/vscode-css-languageservice) / [JSON](https://github.com/Microsoft/vscode-json-languageservice) Language Servers take this approach to testing. The LSP npm modules itself use the approach. See [here](https://github.com/Microsoft/vscode-languageserver-node/blob/master/protocol/src/test/connection.test.ts) for some unit test written using the npm protocol module.
-- End-to-End Test: This is similar to [VS Code extension test](https://code.visualstudio.com/docs/extensions/testing-extensions). The benefit of this approach is that it runs the test by instantiating a VS Code instance with a workspace, opening the file, activating the Language Client / Server and running [VS Code commands](https://code.visualstudio.com/docs/extensionAPI/vscode-api-commands). This approach is superior if you have files, settings or dependencies (such as `node_modules`) which are hard or impossible to mock. The popular [Python](https://github.com/Microsoft/vscode-python) extension takes this approach to testing.
+- End-to-End Test: This is similar to [VS Code extension test](/api/working-with-extensions/testing-extension). The benefit of this approach is that it runs the test by instantiating a VS Code instance with a workspace, opening the file, activating the Language Client / Server and running [VS Code commands](/api/references/commands). This approach is superior if you have files, settings or dependencies (such as `node_modules`) which are hard or impossible to mock. The popular [Python](https://github.com/Microsoft/vscode-python) extension takes this approach to testing.
 
 It is possible to do Unit Test in any testing framework of your choice. Here we describe how to do End-to-End testing for Language Server Extension.
 
@@ -818,7 +818,7 @@ In the activation part, we:
 - Open the specified document, and show it in the active text editor.
 - Sleep for 2 seconds, so we are sure the Language Server is instantiated.
 
-After the preparation, we can run the [VS Code Commands](https://code.visualstudio.com/docs/extensionAPI/vscode-api-commands) corresponding to each language feature, and assert against the returned result.
+After the preparation, we can run the [VS Code Commands](/api/references/commands) corresponding to each language feature, and assert against the returned result.
 
 There is one more test that covers the diagnostics feature that we just implemented. Check it out at `client/src/test/diagnostics.test.ts`.
 

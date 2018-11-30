@@ -22,7 +22,7 @@ An extension can contribute extension-specific settings with [`contributes.confi
 
 ## Keybinding
 
-An extension can add custom keybindings. Read more in the [`contributes.keybindings`](/api/references/contribution-points#contributes.keybindings) and [Key Bindings](https://code.visualstudio.com/docs/getstarted/keybindings) topics.
+An extension can add custom keybindings. Read more in the [`contributes.keybindings`](/api/references/contribution-points#contributes.keybindings) and [Key Bindings](/docs/getstarted/keybindings) topics.
 
 ## Context Menu
 
