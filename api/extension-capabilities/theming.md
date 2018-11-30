@@ -26,4 +26,6 @@ Icon themes allow you to:
 - Create a mapping from unique icon identifiers to images or font icons.
 - Associate files to these unique icon identifiers by filenames or file language types.
 
+The [Icon Theme Guide](/api/extension-guides/icon-theme) discusses how to create an Icon Theme.
+
 ![icon-theme](images/theming/icon-theme.png)

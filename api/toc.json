@@ -37,6 +37,7 @@
       ["Overview", "/api/extension-guides/overview"],
       ["Command", "/api/extension-guides/command"],
       ["Color Theme", "/api/extension-guides/color-theme"],
+      ["Icon Theme", "/api/extension-guides/icon-theme"],
       ["Tree View", "/api/extension-guides/tree-view"],
       ["Webview", "/api/extension-guides/webview"],
       ["Task Provider", "/api/extension-guides/task-provider"],
