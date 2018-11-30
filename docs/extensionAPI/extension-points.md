@@ -28,6 +28,7 @@ This document covers the various Visual Studio Code contribution points that are
 * [`problemPatterns`](/docs/extensionAPI/extension-points.md#contributesproblempatterns)
 * [`taskDefinitions`](/docs/extensionAPI/extension-points.md#contributestaskdefinitions)
 * [`colors`](/docs/extensionAPI/extension-points.md#contributescolors)
+* [`typescriptServerPlugins`](/docs/extensionAPI/extension-points.md#contributestypescriptserverplugins)
 
 ## contributes.configuration
 
