@@ -3,7 +3,7 @@
 
 # Extending Workbench
 
-"Workbench" refers to the overall VS Code UI that encompasses the following UI components:
+"Workbench" refers to the overall Visual Studio Code UI that encompasses the following UI components:
 
 - Title Bar
 - Activity Bar
@@ -12,12 +12,12 @@
 - Editor Group
 - Status Bar
 
-As mentioned in [Principles and Patterns](../references/principle-and-patterns), VS Code does not provide access to the underlying DOM. Instead, various API points allow you to add your own components to the VS Code Workbench:
+As mentioned in [Principles and Patterns](/api/references/principle-and-patterns), VS Code does not provide access to the underlying DOM. Instead, various API points allow you to add your own components to the VS Code Workbench:
 
-![workbench-contribution](./images/extending-workbench/workbench-contribution.png)
+![workbench-contribution](images/extending-workbench/workbench-contribution.png)
 
 - Activity Bar: The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) adds a [View Container](#view-container)
-- Side Bar: The built-in [NPM extension](https://github.com/Microsoft/vscode/tree/master/extensions/npm) adds a [Tree View](#tree-view) to the Explorer View
+- Side Bar: The built-in [NPM extension](https://github.com/Microsoft/vscode/tree/master/extensions/npm) adds a [Tree View](#tree-view) to the Explorer
 - Editor Group: The built-in [Markdown extension](https://github.com/Microsoft/vscode/tree/master/extensions/markdown-language-features) adds a [Webview](#webview) next to other editors in the Editor Group
 - Status Bar: The [VSCodeVim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) adds a [Status Bar Item](#status-bar-item) in the Status Bar
 
@@ -35,7 +35,7 @@ Webviews are highly customizable views built with HTML/CSS/JavaScript. They disp
 
 ## Status Bar Item
 
-Extensions can create custom [`StatusBarItem`](/api/references/vscode-api#StatusBarItem) that display in the Status Bar. Status Bar Items can show text and icons and run commmands on click events.
+Extensions can create custom [`StatusBarItem`](/api/references/vscode-api#StatusBarItem) that display in the Status Bar. Status Bar Items can show text and icons and run commands on click events.
 
 - Show text and icons
 - Run a command on click

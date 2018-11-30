@@ -3,12 +3,12 @@
 
 # Language Configuration Guide
 
-The [`contributes.languages`](/api/references/contribution-points#contributes.languages) Contribution Point allows you to define a language configuration that controls the following language features:
+The [`contributes.languages`](/api/references/contribution-points#contributes.languages) Contribution Point allows you to define a language configuration that controls the following Visual Studio Code language features:
 
 - Comment toggling
 - Brackets definition
 - Autoclosing
-- Autosurronding
+- Autosurrounding
 - Folding
 - Word pattern
 - Indentation Rules
@@ -16,6 +16,7 @@ The [`contributes.languages`](/api/references/contribution-points#contributes.la
 Here is a [Language Configuration Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/language-configuration-sample) that configures the experience for JavaScript files. This guide will explain the source:
 
 `language-configuration.json`
+
 ```json
 {
 	"comments": {
@@ -61,7 +62,7 @@ Here is a [Language Configuration Sample](https://github.com/Microsoft/vscode-ex
 
 ## Comment toggling
 
-VS Code offers two commands for comment toggling. `Toggle Line Comment` and `Toggle Block Comment`. You can specify `comments.blockComment` and `comments.lineComment` to control how VS Code should comment out lines / blocks.
+VS Code offers two commands for comment toggling. **Toggle Line Comment** and **Toggle Block Comment**. You can specify `comments.blockComment` and `comments.lineComment` to control how VS Code should comment out lines / blocks.
 
 ```json
 {
@@ -74,7 +75,7 @@ VS Code offers two commands for comment toggling. `Toggle Line Comment` and `Tog
 
 ## Brackets definition
 
-When you move the cursor to a bracket defined here, VSCode will highlight that bracket together with its matching pair.
+When you move the cursor to a bracket defined here, VS Code will highlight that bracket together with its matching pair.
 
 ```json
 {
@@ -86,7 +87,7 @@ When you move the cursor to a bracket defined here, VSCode will highlight that b
 }
 ```
 
-Moreover, when you run `Go to Bracket` or `Select to Bracket`, VSCode will use the defintion above to find the nearest bracket and its matching pair.
+Moreover, when you run **Go to Bracket** or **Select to Bracket**, VS Code will use the definition above to find the nearest bracket and its matching pair.
 
 ## Autoclosing
 
@@ -115,11 +116,11 @@ The `notIn` key disables this feature in certain code ranges. For example, when 
 
 The single quote will not be autoclosed.
 
-Users can tweak the autoclosing behavior with `editor.autoClosingQuotes` and `editor.autoClosingBrackets`.
+Users can tweak the autoclosing behavior with the `editor.autoClosingQuotes` and `editor.autoClosingBrackets` settings.
 
 ### Autoclosing before
 
-In the past, VS Code only autocloses pairs if there is whitespace right after the cursor. So when you type `{` in the following JSX code, you would not get autoclose:
+By default, VS Code only autocloses pairs if there is whitespace right after the cursor. So when you type `{` in the following JSX code, you would not get autoclose:
 
 ```js
 const Component = () =>
@@ -127,6 +128,7 @@ const Component = () =>
                   ^ Does not get autoclosed by default
   </div>
 ```
+
 However, this definition overrides that behavior:
 
 ```json
@@ -137,9 +139,9 @@ However, this definition overrides that behavior:
 
 Now when you enter `{` right before `>`, VS Code autocloses it with `}`.
 
-## Autosurronding
+## Autosurrounding
 
-When you select a range in VS Code and enters an opening bracket, VS Code would surrond the selected content with a pair of brackets. This feature is called Autosurronding, and here you can define the autosurronding pairs for a specific language:
+When you select a range in VS Code and enter an opening bracket, VS Code surrounds the selected content with a pair of brackets. This feature is called Autosurrounding, and here you can define the autosurrounding pairs for a specific language:
 
 ```json
 {
@@ -153,7 +155,8 @@ When you select a range in VS Code and enters an opening bracket, VS Code would 
 	]
 }
 ```
-Users can tweak the autosurronding behavior with `editor.autoSurround`.
+
+Users can tweak the autosurrounding behavior with the `editor.autoSurround` setting.
 
 ## Folding
 
@@ -179,7 +182,7 @@ In VS Code, there are three kinds of folding:
 
 ## Word Pattern
 
-`wordPattern` defines what's being considered as a word in a the programming language. So when you use word related commands, like `Move cursor to word start`(`kb(cursorWordStartLeft)`) or `Move cursor to word end` (`kb(cursorWordEndRight)`)，the editor will use this regex to find the word boundaries.
+`wordPattern` defines what's considered as a word in the programming language. So when you use word related commands, like **Move cursor to word start** (`kb(cursorWordStartLeft)`) or **Move cursor to word end** (`kb(cursorWordEndRight)`)，the editor will use this regex to find the word boundaries.
 
 ```json
 "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)",
@@ -187,7 +190,7 @@ In VS Code, there are three kinds of folding:
 
 ## Indentation Rules
 
-`indentationRules` defines how the editor should adjust the indentation of current line or next line when you type, paste and move lines.
+`indentationRules` defines how the editor should adjust the indentation of current line or next line when you type, paste, and move lines.
 
 ```json
 "indentationRules": {
@@ -196,11 +199,11 @@ In VS Code, there are three kinds of folding:
 }
 ```
 
-For example, `if (true) {` matches `increasedIndentPattern`, then if you press enter after the open bracket `{`, the editor will automatically indent once and your code will end up as
+For example, `if (true) {` matches `increasedIndentPattern`, then if you press `kbstyle(Enter)` after the open bracket `{`, the editor will automatically indent once, and your code will end up as:
 
 ```javascript
 if (true) {
 	console.log();
 ```
 
-If there is no indentation rule set for the programming language, the editor will indent when the line ends with an open bracket and outdent when you type an closing bracket. The *bracket* here is defined by `brackets`.
+If there is no indentation rule set for the programming language, the editor will indent when the line ends with an open bracket and outdent when you type a closing bracket. The *bracket* here is defined by `brackets`.
