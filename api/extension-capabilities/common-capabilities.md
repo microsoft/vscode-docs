@@ -54,6 +54,10 @@ With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can
 
 Extensions can use the [`vscode.window.showOpenDialog`](/api/references/vscode-api#vscode.window.showOpenDialog) API to open the system file picker and select files or folders.
 
+## Output Channel
+
+The Output Panel displays a collection of [`OutputChannel`](/api/references/vscode-api#OutputChannel), which are great for logging purpose. You can easily take advantage of it with the [`window.createOutputChannel`](/api/references/vscode-api#window.createOutputChannel) API.
+
 ## Progress API
 
 You can use the [`vscode.Progress`](/api/references/vscode-api#Progress) API for reporting progress updates to the user.
