@@ -7,7 +7,7 @@ Commands trigger actions in Visual Studio Code. If you have ever [configured a k
 
 ## Using Commands
 
-VS Code includes a large set of [built-in commands](/api/references/commands) that you can use to interact with the editor, control the user interface, or perform background operations. Many extensions also expose commands for their core functionality that you can leverage.
+VS Code includes a large set of [built-in commands](/api/references/commands) that you can use to interact with the editor, control the user interface, or perform background operations. Many extensions also expose their core functionality as commands that users and other extensions can leverage.
 
 ### Programmatically executing a command
 
