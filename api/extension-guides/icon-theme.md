@@ -3,7 +3,7 @@
 
 # Icon Theme
 
-VS Code displays icons next to filenames throughout its UI, and extensions can contribute new sets of file icons that users can choose from.
+Visual Studio Code displays icons next to filenames throughout its UI, and extensions can contribute new sets of file icons that users can choose from.
 
 ## Adding a new Icon Theme
 

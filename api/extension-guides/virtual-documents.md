@@ -3,11 +3,11 @@
 
 # Virtual Documents
 
-The text document content provider API allows you to create readonly documents from arbitrary sources. You can find a sample extension with source code at: https://github.com/Microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md
+The text document content provider API allows you to create readonly documents in Visual Studio Code from arbitrary sources. You can find a sample extension with source code at: https://github.com/Microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md
 
 ## TextDocumentContentProvider
 
-The API works by claiming an uri-scheme for which your provider then returns text contents. The scheme must be provided when registering a provider and cannot change afterwards. The same provider can be used for multiple schemes and multple providers can be registered for a single scheme.
+The API works by claiming an uri-scheme for which your provider then returns text contents. The scheme must be provided when registering a provider and cannot change afterwards. The same provider can be used for multiple schemes and multiple providers can be registered for a single scheme.
 
 ```ts
 vscode.workspace.registerTextDocumentContentProvider(myScheme, myProvider);
@@ -23,7 +23,7 @@ const myProvider = new class implements vscode.TextDocumentContentProvider {
 }
 ```
 
-Note how the provider doesn't create uris for virtual documents - its role is to *provide* contents given such an uri. In return, content providers are wired into the open document logic so that providers are always considered.
+Note how the provider doesn't create uris for virtual documents - its role is to **provide** contents given such an uri. In return, content providers are wired into the open document logic so that providers are always considered.
 
 This sample uses a 'cowsay'-command that crafts an uri which the editor should then show:
 

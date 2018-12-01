@@ -3,7 +3,7 @@
 
 # Contribution Points
 
-**Contribution Points** is a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension registers **Contribution Points** to extend various functionalities within VS Code. Here is a list of all available **Contribution Points**:
+**Contribution Points** is a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension registers **Contribution Points** to extend various functionalities within Visual Studio Code. Here is a list of all available **Contribution Points**:
 
 - [`configuration`](/api/references/contribution-points#contributes.configuration)
 - [`commands`](/api/references/contribution-points#contributes.commands)

@@ -3,7 +3,7 @@
 
 # Wrapping Up
 
-In the [Your First Extension](/api/get-started/your-first-extension) topic, you learned how to create, run and debug an extension. In the [Extension Anatomy](/api/get-started/extension-anatomy) topic, you learned fundamental concepts to VS Code extension development. However, we only touched the tip of the iceberg, and here are some suggested routes for furthering your VS Code extension development skills.
+In the [Your First Extension](/api/get-started/your-first-extension) topic, you learned how to create, run and debug an extension. In the [Extension Anatomy](/api/get-started/extension-anatomy) topic, you learned fundamental concepts to Visual Studio Code extension development. However, we only touched the tip of the iceberg, and here are some suggested routes for furthering your VS Code extension development skills.
 
 ## Working with extensions
 

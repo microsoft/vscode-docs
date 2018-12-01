@@ -3,7 +3,7 @@
 
 # Debugger Extension
 
-VS Code's debugging architecture allows extension authors to easily integrate existing debuggers into VS Code, while having a common user interface with all of them.
+Visual Studio Code's debugging architecture allows extension authors to easily integrate existing debuggers into VS Code, while having a common user interface with all of them.
 
 VS Code ships with one built-in debugger extension, the [Node.js](https://nodejs.org) debugger extension, which is an excellent showcase for the many debugger features supported by VS Code:
 
