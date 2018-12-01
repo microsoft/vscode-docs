@@ -3,7 +3,7 @@
 
 # Language Configuration Guide
 
-The [`contributes.languages`](/api/references/contribution-points#contributes.languages) Contribution Point allows you to define a Visual Studio Code language configuration that controls the following Declarative Language Features:
+The [`contributes.languages`](/api/references/contribution-points#contributes.languages) Contribution Point allows you to define a language configuration that controls the following Declarative Language Features:
 
 - Comment toggling
 - Brackets definition
