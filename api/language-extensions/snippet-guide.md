@@ -3,7 +3,7 @@
 
 # Snippet Guide
 
-The [`contributes.snippets`](/api/references/contribution-points#contributes.snippets) Contribution Point allows you to bundle snippets into an extension for sharing.
+The [`contributes.snippets`](/api/references/contribution-points#contributes.snippets) Contribution Point allows you to bundle snippets into a Visual Studio Code extension for sharing.
 
 The [Creating snippets](https://vscode-ext-docs.azurewebsites.net/docs/editor/userdefinedsnippets#_creating-your-own-snippets) topic contains all information for creating snippets. This guide / sample just shows how you can turn your own snippets into an extension for sharing. The suggested workflow is:
 

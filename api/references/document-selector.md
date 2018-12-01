@@ -11,7 +11,7 @@ Not all text documents are stored on disk, for example, newly created documents.
 
 ## Document selectors
 
-The VS Code extension API combines language-specific features, like IntelliSense, with document selectors through the [DocumentSelector](https://code.visualstudio.com/docs/extensionAPI/vscode-api#DocumentSelector) type. They are an easy mechanism to narrow down functionality to a specific language.
+The Visual Studio Code extension API combines language-specific features, like IntelliSense, with document selectors through the [DocumentSelector](https://code.visualstudio.com/docs/extensionAPI/vscode-api#DocumentSelector) type. They are an easy mechanism to narrow down functionality to a specific language.
 
 The snippet below registers a [HoverProvider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#HoverProvider) for TypeScript files and the document selector is the `typescript` language identifier string.
 
