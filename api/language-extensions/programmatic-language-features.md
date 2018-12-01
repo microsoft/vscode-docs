@@ -45,107 +45,27 @@ This listing includes the following items for each language feature:
 - Related VS Code API
 - Related LSP methods
 
-## Show Hovers
-
-Hovers show information about the symbol/object that's below the mouse cursor. This is usually the type of the symbol and a description.
-
-![Hovers at Work](images/language-support/hovers.gif)
-
-#### Language Server Protocol
-
-In the response to the `initialize` method, your language server needs to announce that it provides hovers.
-
-```json
-{
-    ...
-    "capabilities" : {
-        "hoverProvider" : "true",
-        ...
-    }
-}
-```
-
-In addition, your language server needs to respond to the `textDocument/hover` request.
-
-#### Direct Implementation
-
-```typescript
-class GoHoverProvider implements HoverProvider {
-    public provideHover(
-        document: TextDocument, position: Position, token: CancellationToken):
-        Thenable<Hover> {
-    ...
-    }
-}
-
-export function activate(ctx: vscode.ExtensionContext): void {
-    ...
-    ctx.subscriptions.push(
-        vscode.languages.registerHoverProvider(
-            GO_MODE, new GoHoverProvider()));
-    ...
-}
-```
-
->**Basic**
->
->Show type information and include documentation if available.
-
->**Advanced**
->
->Colorize method signatures in the same style you colorize the code.
-
-## Show Code Completion Proposals
-
-Code completions provide context sensitive suggestions to the user.
-
-![Code Completion at Work](images/language-support/code-completion.gif)
-
-#### Language Server Protocol
-
-In the response to the `initialize` method, your language server needs to announce that it provides completions and whether or not it supports the `completionItem\resolve` method to provide additional information for the computed completion items.
-
-```json
-{
-    ...
-    "capabilities" : {
-        "completionProvider" : {
-            "resolveProvider": "true",
-            "triggerCharacters": [ '.' ]
-        }
-        ...
-    }
-}
-```
-
-#### Direct Implementation
-
-```typescript
-class GoCompletionItemProvider implements vscode.CompletionItemProvider {
-    public provideCompletionItems(
-        document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken):
-        Thenable<vscode.CompletionItem[]> {
-    ...
-    }
-}
-
-export function activate(ctx: vscode.ExtensionContext): void {
-    ...
-    ctx.subscriptions.push(getDisposable());
-    ctx.subscriptions.push(
-        vscode.languages.registerCompletionItemProvider(
-            GO_MODE, new GoCompletionItemProvider(), '.', '\"'));
-    ...
-}
-```
-
->**Basic**
->
->You don't support resolve providers.
-
->**Advanced**
->
->You support resolve providers that compute additional information for completion proposal the user selects. This information is displayed along-side the selected item.
+| VS Code API | LSP method |
+| --- | --- |
+| [`createDiagnosticCollection`](/api/references/vscode-api#languages.createDiagnosticCollection) | [PublishDiagnostics](https://microsoft.github.io/language-server-protocol/specification#textDocument_publishDiagnostics) |
+| [`registerCompletionItemProvider`](/api/references/vscode-api#languages.registerCompletionItemProvider) | [Completion](https://microsoft.github.io/language-server-protocol/specification#textDocument_completion) & [Completion Resolve](https://microsoft.github.io/language-server-protocol/specification#completionItem_resolve) |
+| [`registerHoverProvider`](/api/references/vscode-api#languages.registerHoverProvider) | [Hover](https://microsoft.github.io/language-server-protocol/specification#textDocument_hover) |
+| [`registerSignatureHelpProvider`](/api/references/vscode-api#languages.registerSignatureHelpProvider) | [SignatureHelp](https://microsoft.github.io/language-server-protocol/specification#textDocument_signatureHelp) |
+| [`registerDefinitionProvider`](/api/references/vscode-api#languages.registerDefinitionProvider) | [Definition](https://microsoft.github.io/language-server-protocol/specification#textDocument_definition) |
+| [`registerTypeDefinitionProvider`](/api/references/vscode-api#languages.registerTypeDefinitionProvider) | [TypeDefinition](https://microsoft.github.io/language-server-protocol/specification#textDocument_typeDefinition) |
+| [`registerImplementationProvider`](/api/references/vscode-api#languages.registerImplementationProvider) | [Implementation](https://microsoft.github.io/language-server-protocol/specification#textDocument_implementation) |
+| [`registerReferenceProvider`](/api/references/vscode-api#languages.registerReferenceProvider) | [References](https://microsoft.github.io/language-server-protocol/specification#textDocument_references) |
+| [`registerDocumentHighlightProvider`](/api/references/vscode-api#languages.registerDocumentHighlightProvider) | [DocumentHighlight](https://microsoft.github.io/language-server-protocol/specification#textDocument_documentHighlight) |
+| [`registerDocumentSymbolProvider`](/api/references/vscode-api#languages.registerDocumentSymbolProvider) | [DocumentSymbol](https://microsoft.github.io/language-server-protocol/specification#textDocument_documentSymbol) |
+| [`registerCodeActionsProvider`](/api/references/vscode-api#languages.registerCodeActionsProvider) | [CodeAction](https://microsoft.github.io/language-server-protocol/specification#textDocument_codeAction) |
+| [`registerCodeLensProvider`](/api/references/vscode-api#languages.registerCodeLensProvider) | [CodeLens](https://microsoft.github.io/language-server-protocol/specification#textDocument_codeLens) & [CodeLens Resolve](https://microsoft.github.io/language-server-protocol/specification#codeLens_resolve) |
+| [`registerDocumentLinkProvider`](/api/references/vscode-api#languages.registerDocumentLinkProvider) | [DocumentLink](https://microsoft.github.io/language-server-protocol/specification#textDocument_documentLink) & [DocumentLink](https://microsoft.github.io/language-server-protocol/specification#documentLink_resolve) |
+| [`registerColorProvider`](/api/references/vscode-api#languages.registerDocumentColorProvider) | [DocumentColor](https://microsoft.github.io/language-server-protocol/specification#textDocument_documentColor) & [Color Presentation](https://microsoft.github.io/language-server-protocol/specification#textDocument_colorPresentation) |
+| [`registerDocumentFormattingEditProvider`](/api/references/vscode-api#languages.registerDocumentFormattingEditProvider) | [Formatting](https://microsoft.github.io/language-server-protocol/specification#textDocument_formatting) |
+| [`registerDocumentRangeFormattingEditProvider`](/api/references/vscode-api#languages.registerDocumentRangeFormattingEditProvider) | [RangeFormatting](https://microsoft.github.io/language-server-protocol/specification#textDocument_rangeFormatting) |
+| [`registerOnTypeFormattingEditProvider`](/api/references/vscode-api#languages.registerOnTypeFormattingEditProvider) | [OnTypeFormatting](https://microsoft.github.io/language-server-protocol/specification#textDocument_onTypeFormatting) |
+| [`registerRenameProvider`](/api/references/vscode-api#languages.registerRenameProvider) | [Rename](https://microsoft.github.io/language-server-protocol/specification#textDocument_rename) & [Prepare Rename](https://microsoft.github.io/language-server-protocol/specification#textDocument_prepareRename) |
+| [`registerFoldingRangeProvider`](/api/references/vscode-api#languages.registerFoldingRangeProvider) | [FoldingRange](https://microsoft.github.io/language-server-protocol/specification#textDocument_foldingRange) |
 
 ## Provide Diagnostics
 
@@ -199,6 +119,109 @@ function onChange() {
 >**Advanced**
 >
 >Report diagnostics not only for the open editors but for all resources in the open folder, no matter whether they have ever been opened in an editor or not.
+
+
+## Show Code Completion Proposals
+
+Code completions provide context sensitive suggestions to the user.
+
+![Code Completion at Work](images/language-support/code-completion.gif)
+
+#### Language Server Protocol
+
+In the response to the `initialize` method, your language server needs to announce that it provides completions and whether or not it supports the `completionItem\resolve` method to provide additional information for the computed completion items.
+
+```json
+{
+    ...
+    "capabilities" : {
+        "completionProvider" : {
+            "resolveProvider": "true",
+            "triggerCharacters": [ '.' ]
+        }
+        ...
+    }
+}
+```
+
+#### Direct Implementation
+
+```typescript
+class GoCompletionItemProvider implements vscode.CompletionItemProvider {
+    public provideCompletionItems(
+        document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken):
+        Thenable<vscode.CompletionItem[]> {
+    ...
+    }
+}
+
+export function activate(ctx: vscode.ExtensionContext): void {
+    ...
+    ctx.subscriptions.push(getDisposable());
+    ctx.subscriptions.push(
+        vscode.languages.registerCompletionItemProvider(
+            GO_MODE, new GoCompletionItemProvider(), '.', '\"'));
+    ...
+}
+```
+
+>**Basic**
+>
+>You don't support resolve providers.
+
+>**Advanced**
+>
+>You support resolve providers that compute additional information for completion proposal the user selects. This information is displayed along-side the selected item.
+
+## Show Hovers
+
+Hovers show information about the symbol/object that's below the mouse cursor. This is usually the type of the symbol and a description.
+
+![Hovers at Work](images/language-support/hovers.gif)
+
+#### Language Server Protocol
+
+In the response to the `initialize` method, your language server needs to announce that it provides hovers.
+
+```json
+{
+    ...
+    "capabilities" : {
+        "hoverProvider" : "true",
+        ...
+    }
+}
+```
+
+In addition, your language server needs to respond to the `textDocument/hover` request.
+
+#### Direct Implementation
+
+```typescript
+class GoHoverProvider implements HoverProvider {
+    public provideHover(
+        document: TextDocument, position: Position, token: CancellationToken):
+        Thenable<Hover> {
+    ...
+    }
+}
+
+export function activate(ctx: vscode.ExtensionContext): void {
+    ...
+    ctx.subscriptions.push(
+        vscode.languages.registerHoverProvider(
+            GO_MODE, new GoHoverProvider()));
+    ...
+}
+```
+
+>**Basic**
+>
+>Show type information and include documentation if available.
+
+>**Advanced**
+>
+>Colorize method signatures in the same style you colorize the code.
 
 ## Help With Function and Method Signatures
 
@@ -610,36 +633,40 @@ export function activate(ctx: vscode.ExtensionContext): void {
 >
 >Bind the CodeLens results to a command by responding to `codeLens/resolve`.
 
-## Rename Symbols
+## Show Color Decorators
 
-Allow the user to rename a symbol and update all references to the symbol.
+Allow the user to preview and modify colors in the document.
 
-![Type Hover](images/language-support/rename.gif)
+![Type Hover](images/language-support/color-decorators.png)
 
 #### Language Server Protocol
 
-In the response to the `initialize` method, your language server needs to announce that it provides for renaming.
+In the response to the `initialize` method, your language server needs to announce that it provides color information.
 
 ```json
 {
     ...
     "capabilities" : {
-        "renameProvider" : "true"
+        "colorProvider" : "true"
         ...
     }
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/rename` request.
+In addition, your language server needs to respond to the `textDocument/documentColor` and `textDocument/colorPresentation` requests.
 
 #### Direct Implementation
 
 ```typescript
-class GoRenameProvider implements vscode.RenameProvider {
-    public provideRenameEdits(
-        document: vscode.TextDocument, position: vscode.Position,
-        newName: string, token: vscode.CancellationToken):
-        Thenable<vscode.WorkspaceEdit> {
+class GoColorProvider implements vscode.DocumentColorProvider {
+    public provideDocumentColors(
+        document: vscode.TextDocument, token: vscode.CancellationToken):
+        Thenable<vscode.ColorInformation[]> {
+    ...
+    }
+    public provideColorPresentations(
+        color: Color, context: { document: TextDocument, range: Range }, token: vscode.CancellationToken):
+        Thenable<vscode.ColorPresentation[]> {
     ...
     }
 }
@@ -647,19 +674,19 @@ class GoRenameProvider implements vscode.RenameProvider {
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
     ctx.subscriptions.push(
-        vscode.languages.registerRenameProvider(
-            GO_MODE, new GoRenameProvider()));
+        vscode.languages.registerColorProvider(
+            GO_MODE, new GoColorProvider()));
     ...
 }
 ```
 
 >**Basic**
 >
->Don't provide rename support.
+>Return all color references in the document. Provide color presentations for the color formats supported (for example rgb(...), hsl(...)).
 
 >**Advanced**
 >
->Return the list of all workspace edits that need to be performed, for example all edits across all files that contain references to the symbol.
+>Nothing additional.
 
 ## Format Source Code in an Editor
 
@@ -817,40 +844,36 @@ export function activate(ctx: vscode.ExtensionContext): void {
 >
 >You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost.
 
-## Show Color Decorators
+## Rename Symbols
 
-Allow the user to preview and modify colors in the document.
+Allow the user to rename a symbol and update all references to the symbol.
 
-![Type Hover](images/language-support/color-decorators.png)
+![Type Hover](images/language-support/rename.gif)
 
 #### Language Server Protocol
 
-In the response to the `initialize` method, your language server needs to announce that it provides color information.
+In the response to the `initialize` method, your language server needs to announce that it provides for renaming.
 
 ```json
 {
     ...
     "capabilities" : {
-        "colorProvider" : "true"
+        "renameProvider" : "true"
         ...
     }
 }
 ```
 
-In addition, your language server needs to respond to the `textDocument/documentColor` and `textDocument/colorPresentation` requests.
+In addition, your language server needs to respond to the `textDocument/rename` request.
 
 #### Direct Implementation
 
 ```typescript
-class GoColorProvider implements vscode.DocumentColorProvider {
-    public provideDocumentColors(
-        document: vscode.TextDocument, token: vscode.CancellationToken):
-        Thenable<vscode.ColorInformation[]> {
-    ...
-    }
-    public provideColorPresentations(
-        color: Color, context: { document: TextDocument, range: Range }, token: vscode.CancellationToken):
-        Thenable<vscode.ColorPresentation[]> {
+class GoRenameProvider implements vscode.RenameProvider {
+    public provideRenameEdits(
+        document: vscode.TextDocument, position: vscode.Position,
+        newName: string, token: vscode.CancellationToken):
+        Thenable<vscode.WorkspaceEdit> {
     ...
     }
 }
@@ -858,16 +881,16 @@ class GoColorProvider implements vscode.DocumentColorProvider {
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
     ctx.subscriptions.push(
-        vscode.languages.registerColorProvider(
-            GO_MODE, new GoColorProvider()));
+        vscode.languages.registerRenameProvider(
+            GO_MODE, new GoRenameProvider()));
     ...
 }
 ```
 
 >**Basic**
 >
->Return all color references in the document. Provide color presentations for the color formats supported (for example rgb(...), hsl(...)).
+>Don't provide rename support.
 
 >**Advanced**
 >
->Nothing additional.
+>Return the list of all workspace edits that need to be performed, for example all edits across all files that contain references to the symbol.
