@@ -80,6 +80,11 @@ Topic metadata enables certain functionalities for the topics such as table of c
 * **MetaDescription** - The meta description for this page which helps for search
 * **MetaTags** - Further tags for this page again for search
 
+### Metadata for /api docs
+
+* **MetaDescription** - The meta description for this page which helps for search
+* **DateApproved** - This is set when the page is actually published on the VS Code portal. You can ignore it.
+
 ## Formatting
 
 ### Headings & Right Nav
