@@ -82,8 +82,13 @@ Topic metadata enables certain functionalities for the topics such as table of c
 
 ### Metadata for /api docs
 
+**For Writer**:
+
 * **MetaDescription** - The meta description for this page which helps for search
-* **DateApproved** - This is set when the page is actually published on the VS Code portal. You can ignore it.
+
+**For Doc Maintainer**:
+
+* **DateApproved** - This is set when the page is actually published on the VS Code portal.
 
 ## Formatting
 
