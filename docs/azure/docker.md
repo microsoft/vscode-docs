@@ -4,12 +4,12 @@ Area: azure
 TOCTitle: Docker
 ContentId: 42F8B9F8-BD03-4159-9479-17C5BDE30531
 PageTitle: Working with Docker in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: Working with Docker containers in Visual Studio Code.
 ---
 # Working with Docker
 
-[Docker](https://www.docker.com) is a very popular container platform that lets you easily package, deploy, and consume applications and services. Whether you are a seasoned Docker developer or just getting started, Visual Studio Code makes it easy to author `Dockerfile` and `docker-compose.yml` files in your workspace. VS Code even supports generating and [adding the appropriate Docker files](#generating-docker-files) based on your project type.
+[Docker](https://www.docker.com) is a very popular container platform that lets you easily package, deploy, and consume applications and services. Whether you are a seasoned Docker developer or just getting started, Visual Studio Code makes it easy to author `Dockerfile` and `docker-compose.yml` files in your workspace. Visual Studio Code even supports generating and [adding the appropriate Docker files](#generating-docker-files) based on your project type.
 
 ## Install the Docker extension
 
@@ -24,7 +24,7 @@ With Docker, you can build images by specifying the step by step commands needed
 VS Code understands the structure of Dockerfiles as well as the available set of instructions, so you get a great experience when authoring these files.
 
 1. Create a new file in your workspace named `Dockerfile`
-2. Press `kb(editor.action.triggerSuggest)` to bring up a list of snippets corresponding to valid `Dockerfile` commands. Pressing the 'i' **Read More...** button on the right will show a fly-out with details and a link to the Docker Online documentation.
+2. Press `kb(editor.action.triggerSuggest)` to bring up a list of snippets corresponding to valid `Dockerfile` commands. Pressing the 'i' **Read More** button on the right will show a fly-out with details and a link to the Docker Online documentation.
 
  ![Dockerfile snippets](images/docker/dockerfileintellisense.png)
 
@@ -105,7 +105,7 @@ The Docker extension language service analyzes your Docker files and provides yo
 
 ![docker warnings](images/docker/linting.png)
 
-You can control specific linting rules to either be a warning, error, or ignored through the `docker.languageservice.diagnostics` [settings](/docs/getstarted/settings.md)
+You can control specific linting rules to either be a warning, error, or ignored through the `docker.languageserver.diagnostics` [settings](/docs/getstarted/settings.md)
 
 ## Deploying images to Azure App Service
 
@@ -135,7 +135,7 @@ The default connection of the extension is to connect to the local docker daemon
 
 By default, Docker runs as the root user on Linux, requiring other users to access it with `sudo`. This extension does not assume root access, so you will need to create a Unix group called "docker" and add users to it. Instructions can be found here: [Create a Docker group](https://docs.docker.com/install/linux/linux-postinstall/).
 
-## Next Steps
+## Next steps
 
 * [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.

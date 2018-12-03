@@ -1,10 +1,10 @@
 ---
-Order: 11
+Order: 12
 Area: extensions
 TOCTitle: Publishing Extensions
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
 PageTitle: Publishing Visual Studio Code Extensions
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
 ---
 # Publishing Extensions
@@ -23,9 +23,10 @@ npm install -g vsce
 
 ## Usage
 
-You'll use the `vsce` command directly from the command line. For example, here's how you can quickly publish an extension (after your `login` and `package`ing):
+You'll use the `vsce` command directly from the command line in your extension root folder. For example, here's how you can quickly publish an extension (after your `login` and `package`ing):
 
 ```bash
+$ cd myExtension
 $ vsce publish
 Publishing uuid@0.0.1...
 Successfully published uuid@0.0.1!
@@ -48,27 +49,31 @@ The publishing tool checks the following constraints:
 
 ---
 
-Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/team-services/) for its Marketplace services. This means that authentication, hosting and management of extensions is provided through that service.
+Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
-`vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/vsts/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
+`vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
 
 ### Get a Personal Access Token
 
-First, make sure you have a [Visual Studio Team Services](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) account.
+First, make sure you have an Azure DevOps [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
 
-In the following examples, the account name is `monacotools`. From your account's home page (for example: `https://monacotools.visualstudio.com`), go to the **Security** page:
+In the following examples, the organization's name is `vscode`. From your organization's home page (for example: `https://dev.azure.com/vscode`), go to the **Security** page:
 
-![Security page](images/publish-extension/publishers1.png)
+![Security page](images/publish-extension/token1.png)
 
-Click **Add** to create a new Personal Access Token:
+Select `Personal access tokens` and click **New Token** to create a new Personal Access Token:
 
-![Add personal access token](images/publish-extension/publishers2.png)
+![Create personal access token](images/publish-extension/token2.png)
 
-Give the Personal Access Token a nice description, optionally extend its expiration date to 1 year, make it access every account and set the authorization to **all scopes**:
+Give the Personal Access Token a name, optionally extend its expiration date to 1 year, make it accessible to every organization, select a **custom defined** scope ruleset and click **Show all scopes**:
 
-![Personal access token details](images/publish-extension/publishers3.png)
+![Personal access token details](images/publish-extension/token3.png)
 
-The next screen will display your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
+Finally, scroll down the list of possible scopes until you find **Marketplace** and select both **Acquire** and **Manage**:
+
+![Personal access token details](images/publish-extension/token4.png)
+
+Click **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
 
 ### Create a publisher
 
@@ -214,21 +219,21 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 
 This will always invoke the [TypeScript](https://www.typescriptlang.org/) compiler whenever the extension is packaged.
 
-## Next Steps
+## Next steps
 
 * [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
 * [Testing Extensions](/docs/extensions/testing-extensions.md) - Add tests to your extension project to ensure high quality.
 
-## Common Questions
+## Common questions
 
-**Q: I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?**
+### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 
-**A:** One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accessible accounts` in the Accounts field drop-down (instead selecting a specific account). You should also set the Authorized Scopes to `All scopes` for the publish to work.
+One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accessible accounts` in the Accounts field drop-down (instead selecting a specific account). You should also set the Authorized Scopes to `All scopes` for the publish to work.
 
-**Q: I can't unpublish my extension through the `vsce` tool?**
+### I can't unpublish my extension through the `vsce` tool?
 
-**A:** You may have changed your extension ID or publisher name. You can also manage your extensions directly on the Marketplace by going to the [manage page](https://marketplace.visualstudio.com/manage).  You can update or unpublish your extension from your publisher manage page.
+You may have changed your extension ID or publisher name. You can also manage your extensions directly on the Marketplace by going to the [manage page](https://marketplace.visualstudio.com/manage).  You can update or unpublish your extension from your publisher manage page.
 
-**Q: Why does vsce not preserve file attributes?**
+### Why does vsce not preserve file attributes?
 
-**A:** Please note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and macOS works as expected.
+Please note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and macOS works as expected.

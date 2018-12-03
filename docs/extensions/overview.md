@@ -3,20 +3,20 @@ Order: 1
 Area: extensions
 TOCTitle: Overview
 ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
-PageTitle: Building extensions for VS Code
-DateApproved: 6/6/2018
+PageTitle: Building extensions for Visual Studio Code
+DateApproved: 11/8/2018
 MetaDescription: Visual Studio Code has a rich extensibility model for interacting with and adding to the tool.  Learn how to create your own extensions (plug-ins) for Visual Studio Code.
 ---
 # Extending Visual Studio Code
 
-If you are interested in extending VS Code, you are in the right place. Here we present an outline of the VS Code extensibility documentation and how to quickly build your first VS Code extension.  If you're curious about our design approach to extensibility for VS Code, you can read about it [here](/docs/extensionAPI/patterns-and-principles.md).
+If you are interested in extending Visual Studio Code, you are in the right place. Here we present an outline of the VS Code extensibility documentation and how to quickly build your first VS Code extension.  If you're curious about our design approach to extensibility for VS Code, you can read about it [here](/docs/extensionAPI/patterns-and-principles.md).
 
 If you just want to use existing extensions, see the [Extension Marketplace](/docs/editor/extension-gallery.md) topic where we show you how to find and install extensions from the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 All VS Code extensions share a common model of contribution (registration), activation (loading) and access to the VS Code extensibility API. There are however two special flavors of VS Code extensions, language servers and debuggers, which have their own additional protocols and are covered in their own sections of the documentation.
 
 1. [Extensions](/docs/extensions/overview.md#extensions) - the base building block
-2. [Language Servers](/docs/extensions/overview.md#language-servers) - for high cost IO or CPU intensive tasks
+2. [Language Servers](/docs/extensions/overview.md#language-servers) - extensions that enhance editing experiences through [Language Server Protocol](https://microsoft.github.io/language-server-protocol/)
 3. [Debuggers](/docs/extensions/overview.md#debug-adapter) - wire up an external debugger through a Debug Adapter
 
 ![VS Code extensibility architecture](images/overview/extensibility-architecture.png)
@@ -42,7 +42,7 @@ Also helpful is [Extensibility Principles and Patterns](/docs/extensionAPI/patte
 
 ## Language Servers
 
-Language servers let you create a dedicated process for your extension.  This is a useful design choice for your extension when your extension runs high cost CPU or IO intensive tasks which could slow other extensions.  This is common for tasks that work across all files in a workspace e.g. linters or static analysis suites.
+Language Server is a special kind of extension that powers the editing experience for many languages in VS Code. With language servers, you can implement jump-to-definitions, autocomplete, error-checking and many other [language features](https://code.visualstudio.com/docs/extensionAPI/language-support) supported in VS Code.
 
 Find out more about [language servers](/docs/extensions/example-language-server.md).
 
@@ -78,7 +78,7 @@ We also have great support for [writing and running tests](/docs/extensions/test
 
 Lots of great community ideas for VS Code features are better implemented as extensions rather than as part of the core product. This way users can easily pick and choose the functionality they want, by installing the right set of extensions. The VS Code team tracks possible extensions as GitHub issues labeled `*extension-candidate` in the [vscode repository](https://github.com/Microsoft/vscode). If you're looking for a great extension to build, have a look at the `*extension-candidate` [issues](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3A*extension-candidate).
 
-## Next Steps
+## Next steps
 
 * [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension.
 * [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs.

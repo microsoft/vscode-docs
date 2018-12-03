@@ -24,13 +24,13 @@ $ git commit -m "Initial Commit"
 
 ## Set up a Remote
 
-Configure the Website for deployment via Git. If you have not already set up deploy credentials in Azure, do this first, replacing `UserName` and `Password` below. Note that `UserName` must be uniqe across Azure!
+Configure the Website for deployment via Git. If you have not already set up deploy credentials in Azure, do this first, replacing `UserName` and `Password` below. Note that `UserName` must be unique across Azure!
 
 ```bash
 $ az webapp deployment user set --user-name <UserName> --password <Password>
 ```
 
-This command will return the Git endpoint to push to which includes the `UserName`.
+This command will return the Git endpoint to push to, which includes the `UserName`.
 
 ```bash
 $ az webapp deployment source config-local-git --name myExpressApp-chrisdias

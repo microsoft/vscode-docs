@@ -4,12 +4,12 @@ Area: extensions
 TOCTitle: Extension Generator
 ContentId: C733425A-3F06-4DB9-90A0-472EF1DB58D3
 PageTitle: The Yo Code Visual Studio Code Extension Generator
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: Easily create Visual Studio Code extensions and customizations with the Yo Code generator.
 ---
 # Yo Code - Extension Generator
 
-We have written a [Yeoman generator](https://github.com/Microsoft/vscode-generator-code) to help get you started.
+We have written a [Yeoman generator](https://github.com/Microsoft/vscode-generator-code) to help get you started creating Visual Studio Code extensions.
 
 ## Prerequisites
 
@@ -110,17 +110,17 @@ To load an extension, you need to copy the files to your VS Code extensions fold
 
 If you want to load your extension each time VS Code runs, copy your project ('side loading') to a new folder under `.vscode/extensions`. For example: `~/.vscode/extensions/myextension`.
 
-## Next Steps
+## Next steps
 
 * [Publishing Tool](/docs/extensions/publish-extension.md) - Learn how to publish your extensions to the VS Code Marketplace.
 * [Hello World](/docs/extensions/example-hello-world.md) - Try the 'Hello World' walkthrough to build your first extension.
 * [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
 
-## Common Questions
+## Common questions
 
-**Q: The `yo code` generator doesn't respond to arrow keys on Windows 10.**
+### The `yo code` generator doesn't respond to arrow keys on Windows 10
 
-**A:** Try starting the Yeoman generator with just `yo` and then select the `Code` generator.
+Try starting the Yeoman generator with just `yo` and then select the `Code` generator.
 
 ![yo workaround](images/yocode/yo-workaround.png)
 

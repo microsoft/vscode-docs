@@ -4,16 +4,16 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
-# HTML programming in VS Code
+# HTML in Visual Studio Code
 
 Visual Studio Code provides basic support for HTML programming out of the box. There is syntax highlighting, smart completions with IntelliSense, and customizable formatting. VS Code also includes great Emmet support.
 
 ## IntelliSense
 
-As you type in HTML, we offer suggestions via HTML IntelliSense.  In the image below, you can see a suggested HTML element closure `</div>` as well as a context specific list of suggested elements.
+As you type in HTML, we offer suggestions via HTML IntelliSense. In the image below, you can see a suggested HTML element closure `</div>` as well as a context specific list of suggested elements.
 
 ![HTML IntelliSense](images/html/htmlintellisense.png)
 
@@ -58,6 +58,8 @@ The VS Code color picker UI is now available in HTML style sections.
 
 ![color picker in HTML](images/html/color-picker-html.png)
 
+It supports configuration of hue, saturation and opacity for the color that is picked up from the editor. It also provides the ability to trigger between different color modes by clicking on the color string at the top of the picker. The picker appears on a hover when you are over a color definition.
+
 ## Hover
 
 Move the mouse over HTML tags or embedded styles and JavaScript to get more information on the symbol under the cursor.
@@ -80,7 +82,7 @@ You can turn that validation off with the following settings:
 
 ## Folding
 
-You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges are available for all HTML elements for multi-line comments in the source code.
+You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges are available for all HTML elements for multiline comments in the source code.
 
 Additionally you can use the following region markers to define a folding range:
 `<!-- #region -->` and `<!-- endregion -->`
@@ -113,14 +115,14 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
   * `force-aligned`: Wrap all attributes, except first, and align attributes
   * `force-expand-multiline`: Wrap all attributes
 
->**Tip:** The formatter does not format the tags listed in the `html.format.unformatted` and `html.format.contentUnformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
+>**Tip:** The formatter doesn't format the tags listed in the `html.format.unformatted` and `html.format.contentUnformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 
 The Marketplace has several alternative formatters to choose from. If you want to use a different formatter, define
 `"html.format.enable": false` in your settings to turn off the built-in formatter.
 
 ## Emmet snippets
 
-We support Emmet snippet expansion. Emmet abbreviations are listed along with other suggestions and snippets in the editor auto-completion list.
+VS Code supports [Emmet snippet](https://emmet.io/) expansion. Emmet abbreviations are listed along with other suggestions and snippets in the editor auto-completion list.
 
 ![Emmet HTML support built-in](images/html/emmetsnippet.gif)
 
@@ -148,16 +150,16 @@ Install an extension to add more functionality. Go to the **Extensions** view (`
 
 > Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 
-* [CSS, Less and Sass](/docs/languages/css.md) - VS Code has first class support for CSS including Less and Sass.
+* [CSS, SCSS, and Less](/docs/languages/css.md) - VS Code has first class support for CSS including Less and SCSS.
 * [Emmet](/docs/editor/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
+* [Emmet — official documentation](https://docs.emmet.io/) - Emmet — the essential toolkit for web-developers
 
-## Common Questions
+## Common questions
 
-**Q: Does VS Code have HTML preview?**
+### Does VS Code have HTML preview?
 
-**A:** No, VS Code doesn't have built-in support for HTML preview but there are extensions available in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). Open the **Extensions** view (`kb(workbench.view.extensions)`) and search on 'live preview' or 'html preview' to see a list of available HTML preview extensions.
-
+No, VS Code doesn't have built-in support for HTML preview but there are extensions available in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). Open the **Extensions** view (`kb(workbench.view.extensions)`) and search on 'live preview' or 'html preview' to see a list of available HTML preview extensions.

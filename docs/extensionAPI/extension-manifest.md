@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Extension Manifest
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
 PageTitle: Visual Studio Code Extension Manifest File - package.json
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.
 ---
 # Extension Manifest File - package.json
@@ -23,7 +23,7 @@ Name | Required | Type | Details
 `displayName` | | `string`| The display name for the extension used in the Marketplace.
 `description` | | `string` | A short description of what your extension is and does.
 `categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`
-`keywords` | | `array` | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace.
+`keywords` | | `array` | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace. This list is currently limited to 5 keywords.
 `galleryBanner` | | `object` | Helps format the Marketplace header to match your icon.  See details below.
 `preview` | | `boolean` | Sets the extension to be flagged as a Preview in the Marketplace.
 `main` | | `string` | The entry point to your extension.
@@ -34,9 +34,10 @@ Name | Required | Type | Details
 `qna` | | `marketplace` (default), `string`, `false` | Controls the **Q & A** link in the Marketplace. Set to `marketplace` to enable the default Marketplace Q & A site. Set to a string to provide the URL of a custom Q & A site. Set to `false` to disable Q & A altogether.
 `dependencies` | | `object` | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
+`extensionPack` | | `array` | An array with the ids of extensions bundled with this extension. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
-`scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with [extra VS Code specific fields](/docs/extensions/publish-extension.md#pre-publish-step).
-`icon` | | `string` | The path to a 128x128 pixel icon.
+`scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with extra VS Code specific fields such as [vscode:prepublish](/docs/extensions/publish-extension.md#prepublish-step) or [vscode:uninstall](/docs/extensionAPI/extension-manifest.md#extension-uninstall-hook).
+`icon` | | `string` | The path to the icon of at least 128x128 pixels (256x256 for Retina screens).
 
 Also check [npm's `package.json` reference](https://docs.npmjs.com/files/package.json).
 
@@ -118,7 +119,7 @@ An Icon and a contrasting banner color looks great on the Marketplace page heade
     "galleryBanner": {
         "color": "#C80000",
         "theme": "dark"
-    },
+    }
 }
 ```
 
@@ -135,7 +136,7 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
     "repository": {
         "type": "git",
         "url": "https://github.com/Microsoft/vscode-wordcount.git"
-    },
+    }
 }
 ```
 
@@ -154,7 +155,7 @@ Set a `category` for your extension.  Extensions in the same `category` are grou
 {
     "categories": [
         "Linters", "Programming Languages", "Other"
-    ],
+    ]
 }
 ```
 
@@ -166,11 +167,17 @@ Due to security concerns, we only allow badges from trusted services.
 
 We allow badges from the following URL prefixes:
 
+* api.bintray.com
+* api.travis-ci.com
 * api.travis-ci.org
+* app.fossa.io
 * badge.fury.io
+* badge.waffle.io
+* badgen.net
 * badges.frapsoft.com
 * badges.gitter.im
 * badges.greenkeeper.io
+* cdn.travis-ci.com
 * cdn.travis-ci.org
 * ci.appveyor.com
 * codacy.com
@@ -182,9 +189,12 @@ We allow badges from the following URL prefixes:
 * gemnasium.com
 * githost.io
 * gitlab.com
+* godoc.org
+* goreportcard.com
 * img.shields.io
 * isitmaintained.com
 * marketplace.visualstudio.com
+* nodesecurity.io
 * opencollective.com
 * snyk.io
 * travis-ci.com
@@ -192,7 +202,6 @@ We allow badges from the following URL prefixes:
 * vsmarketplacebadge.apphb.com
 * www.bithound.io
 * www.versioneye.com
-* nodesecurity.io
 
 If you have other badges you would like to use, please open a Github [issue](https://github.com/Microsoft/vscode/issues) and we're happy to take a look.
 
@@ -226,7 +235,7 @@ Below is an extension manifest which includes a LaTex language definition (langu
         "grammars": [{
             "language": "latex",
             "scopeName": "text.tex.latex",
-            "path": "./syntaxes/latex.tmLanguage"
+            "path": "./syntaxes/latex.tmLanguage.json"
         }],
         "snippets": [{
             "language": "latex",
@@ -242,15 +251,15 @@ Notice that the extension manifest `categories` attribute now includes both `Pro
 
 ## Extension Packs
 
-You can also bundle separate extensions together in 'Extension Packs'. An Extension Pack is a set of extensions that can be installed together. This enables easily sharing your favorite extensions with other users or creating a set of extensions for a particular scenario like PHP development to help a PHP developer get started with VS Code quickly.
+You can bundle separate extensions together in **Extension Packs**. An Extension Pack is a set of extensions that will be installed together. This enables easily sharing your favorite extensions with other users or creating a set of extensions for a particular scenario like PHP development to help a PHP developer get started with VS Code quickly.
 
-An Extension Pack can include other contributions or be a bundling extension that lists other extensions. This dependency is expressed using the `extensionDependencies` attribute inside the `package.json` file.
+An Extension Pack bundles other extensions using the `extensionPack` attribute inside the `package.json` file.
 
 For example, here is an Extension Pack for PHP that includes a debugger, language service, and formatter:
 
 ```json
 {
-  "extensionDependencies": [
+  "extensionPack": [
       "felixfbecker.php-debug",
       "felixfbecker.php-intellisense",
       "Kasik96.format-php"
@@ -266,11 +275,29 @@ Extension packs should be categorized in the `Extension Packs` Marketplace categ
 {
   "categories": [
       "Extension Packs"
-  ],
+  ]
 }
 ```
 
-To create an extension pack, you can use the `yo code` Yeoman generator. Optionally, it can also seed the pack with the set of extensions you have currently installed in your VS Code instance. In this way, you can easily create an Extension Pack with your favorite extensions, publish it to the Marketplace, and share it with others.
+To create an extension pack, you can use the `yo code` Yeoman generator and choose the **New Extension Pack** option. There is an option to seed the pack with the set of extensions you have currently installed in your VS Code instance. In this way, you can easily create an Extension Pack with your favorite extensions, publish it to the Marketplace, and share it with others.
+
+An Extension Pack should not have any functional dependencies with its bundled extensions and the bundled extensions should be manageable independent of the pack. If an extension has a dependency on another extension, that dependency should be declared with the `extensionDependencies` attribute.
+
+### Extension uninstall hook
+
+If your extension has some clean up to be done when it is uninstalled from VS Code, you can register a `node` script to the uninstall hook `vscode:uninstall` under `scripts` section in extension's package.json.
+
+```json
+{
+  "scripts": {
+    "vscode:uninstall": "node ./out/src/lifecycle"
+  }
+}
+```
+
+This script gets executed when the extension is completely uninstalled from VS Code which is when VS Code is restarted (shutdown and start) after the extension is uninstalled.
+
+**Note**: Only Node.js scripts are supported.
 
 ## Useful Node modules
 
@@ -281,9 +308,9 @@ There are several Node.js modules available on npmjs to help with writing VSCode
 * [jsonc-parser](https://www.npmjs.com/package/jsonc-parser) - A scanner and fault tolerant parser to process JSON with or without comments.
 * [request-light](https://www.npmjs.com/package/request-light) - A light weight Node.js request library with proxy support
 * [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) - Consistent telemetry reporting for VS Code extensions.
-* [vscode-languageclient](https://www.npmjs.com/package/vscode-languageclient) - Easily integrate language servers adhering to the [language server protocol](https://github.com/Microsoft/language-server-protocol).
+* [vscode-languageclient](https://www.npmjs.com/package/vscode-languageclient) - Easily integrate language servers adhering to the [language server protocol](https://microsoft.github.io/language-server-protocol).
 
-## Next Steps
+## Next steps
 
 To learn more about VS Code extensibility model, try these topic:
 

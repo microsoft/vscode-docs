@@ -4,35 +4,39 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
-# Running VS Code on Linux
+# Visual Studio Code on Linux
 
 ## Installation
 
 ### Debian and Ubuntu based distributions
 
-The easiest way to install for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868) either through the graphical software center if it's available or through the command line with:
+The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868), either through the graphical software center if it's available, or through the command line with:
 
 ```bash
-sudo dpkg -i <file>.deb
-sudo apt-get install -f # Install dependencies
+sudo apt install ./<file>.deb
+
+# If you're on an older Linux distribution, you will need to run this instead:
+# sudo dpkg -i <file>.deb
+# sudo apt-get install -f # Install dependencies
 ```
 
-Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the regular system mechanism. Note that 32-bit and .tar.gz binaries are also available on the [download page](/Download).
+Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the system's package manager. Note that 32-bit and .tar.gz binaries are also available on the [download page](/Download).
 
 The repository and key can also be installed manually with the following script:
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 ```
 
 Then update the package cache and install the package using:
 
 ```bash
+sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install code # or code-insiders
 ```
@@ -82,6 +86,10 @@ sudo zypper install code
 
 There is a community maintained Arch User Repository (AUR) [package for VS Code](https://aur.archlinux.org/packages/visual-studio-code-bin).
 
+To get more information about the installation from the AUR, please consult the following wiki entry:
+[Install AUR Packages](https://wiki.archlinux.org/index.php/Arch_User_Repository#Build_and_install_the_package).
+
+
 ### Nix package for NixOS (or any Linux distribution using Nix package manager)
 
 There is a community maintained [Nix package](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/vscode/default.nix) in the nixpkgs repository. In order to install it using Nix, set `allowUnfree` option to true in your `config.nix` and execute:
@@ -106,11 +114,11 @@ VS Code ships monthly and you can see when a new release is available by checkin
 
 ## Node.js
 
-Node.js is a popular platform and runtime for easily building and running JavaScript applications. It also includes [NPM](https://www.npmjs.com/), a Package Manager for Node.js modules. You'll see Node.js and NPM mentioned frequently in our documentation and some optional VS Code tooling requires Node.js (for example, the VS Code [extension generator](/docs/extensions/yocode.md)).
+Node.js is a popular platform and runtime for easily building and running JavaScript applications. It also includes [npm](https://www.npmjs.com/), a Package Manager for Node.js modules. You'll see Node.js and npm mentioned frequently in our documentation and some optional VS Code tooling requires Node.js (for example, the VS Code [extension generator](/docs/extensions/yocode.md)).
 
-If you'd like to install Node.js on Linux, see [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your Linux distribution.
+If you'd like to install Node.js on Linux, see [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your Linux distribution. You can also install and support multi version of Node.js by using the [Node Version Manager](https://github.com/creationix/nvm).
 
-To learn more about JavaScript and Node.js, see our [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md) where you'll learn about running and debugging Node.js applications with VS Code.
+To learn more about JavaScript and Node.js, see our [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md), where you'll learn about running and debugging Node.js applications with VS Code.
 
 ## Setting VS Code as the default text editor
 
@@ -124,21 +132,21 @@ xdg-mime default code.desktop text/plain
 
 ### Debian alternatives system
 
-Debian-based distributions allow setting a default *editor* using the [alternatives system](https://wiki.debian.org/DebianAlternatives), without concern for the mime type. You can set this by running the following and selecting code.
+Debian-based distributions allow setting a default *editor* using the [alternatives system](https://wiki.debian.org/DebianAlternatives), without concern for the MIME type. You can set this by running the following and selecting code:
 
 ```bash
 sudo update-alternatives --set editor /usr/bin/code
 ```
 
-## Next Steps
+## Next steps
 
-Once you have installed VS Code, these topics will help you learn more about VS Code:
+Once you have installed VS Code, these topics will help you learn more about it:
 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.
 
-## Common Questions
+## Common questions
 
 ### Azure VM Issues
 
@@ -172,11 +180,21 @@ fs.inotify.max_user_watches=524288
 
 The new value can then be loaded in by running `sudo sysctl -p`. Note that [Arch Linux](https://www.archlinux.org/) works a little differently, [view this page for advice](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers).
 
-While 524288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524288 watches are consumed that results in an upper bound of around 256MB (32-bit) or 512MB (64-bit).
+While 524,288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524,288 watches are consumed, that results in an upper bound of around 256MB (32-bit) or 512MB (64-bit).
+
+Another option is to exclude specific workspace directories from the VS Code file watcher with the `files.watcherExclude` [setting](/docs/getstarted/settings.md). The default for `files.watcherExclude` excludes `node_module` and some folders under `.git`, but you can add other directories that you don't want VS Code to track.
+
+```json
+"files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  }
+```
 
 ### I can't see Chinese characters in Ubuntu
 
-We're working on a fix. In the meantime, open the application menu, then choose **File** > **Preferences** > **Settings**. Then set `editor.fontFamily` as shown:
+We're working on a fix. In the meantime, open the application menu, then choose **File** > **Preferences** > **Settings**. In the **Text Editor** > **Font** section, set "Font Family" to `Droid Sans Mono, Droid Sans Fallback`. If you'd rather edit the `settings.json` file directly, set `editor.fontFamily` as shown:
 
 ```json
     "editor.fontFamily": "Droid Sans Mono, Droid Sans Fallback"
@@ -184,7 +202,7 @@ We're working on a fix. In the meantime, open the application menu, then choose 
 
 ### Package git is not installed
 
-This error can appear during installation and is typically caused by the package manager's being out of date. Try updating it and installing again:
+This error can appear during installation and is typically caused by the package manager's lists being out of date. Try updating them and installing again:
 
 ```bash
 # For .deb
@@ -199,7 +217,7 @@ sudo dnf update
 
 ### The code bin command does not bring the window to the foreground on Ubuntu
 
-Running 'code .' on Ubuntu when VS Code is already open in the current directory will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using `ccsm`.
+Running `code .` on Ubuntu when VS Code is already open in the current directory will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using `ccsm`.
 
 ```bash
 # Install
@@ -211,3 +229,38 @@ ccsm
 ```
 
 Under **General** > **General Options** > **Focus & Raise Behaviour**, set "Focus Prevention Level" to "Off". Remember this is an OS-level setting that will apply to all applications, not just VS Code.
+
+### Cannot install .deb package due to "/etc/apt/sources.list.d/vscode.list: No such file or directory"
+
+This can happen when `sources.list.d` doesn't exist or you don't have access to create the file. To fix this, try manually creating the folder and an empty `vscode.list` file:
+
+```bash
+sudo mkdir /etc/apt/sources.list.d
+sudo touch /etc/apt/sources.list.d/vscode.list
+```
+
+### Low contrast menu bar
+
+If you are using Ubuntu 18.10 or a GTK theme that mixes light or dark context menus with the opposite theming for the application menu bar, you may experience a low contrast menu bar that is difficult to read.
+
+There are two possible workarounds for this:
+
+* Try out the VS Code custom title bar style by configuring the setting `window.titleBarStyle` to `custom`.
+* Change your GTK theme. You can do this by installing the Gnome Tweaks application and using the previous default theme `Adwaita`.
+
+Information on this issue can be tracked in issue [62593](https://github.com/Microsoft/vscode/issues/62593).
+
+### Repository changed its origin value
+
+If you receive an error similar to the following:
+
+```
+E: Repository '...' changed its 'Origin' value from '...' to '...'
+N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
+```
+
+Use `apt` instead of `apt-get` and you will be prompted to accept the origin change:
+
+```bash
+sudo apt update
+```

@@ -2,9 +2,9 @@
 Order: 1
 Area: staticsite
 TOCTitle: Getting started
-PageTitle: Website Deployment with Azure Storage
+PageTitle: Website deployment with Azure Storage
 MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
-DateApproved: 4/6/2018
+DateApproved: 6/27/2018
 ---
 # Deploy a static website to Azure
 
@@ -19,9 +19,9 @@ When you are building a static website, your production website is a collection 
 In this tutorial, we will deploy your static site to Azure Storage by doing the following:
 
 1. Get the required accounts and dependencies.
-2. Create or prepare an application for deployment.
-3. Choose your preferred deployment method.
-4. Deploy!
+1. Create or prepare an application for deployment.
+1. Create and configure Azure Storage for hosting.
+1. Deploy to Azure Storage using VS Code!
 
 ## Prerequisites
 
@@ -31,19 +31,31 @@ In this tutorial, we will deploy your static site to Azure Storage by doing the 
 
 > **Note**: If you already have application code, you don't need to install Node.js as this tutorial only uses it to generate a sample project.
 
+## Install the extension
+
+The [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) extension is used to deploy your website to Azure.
+
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azurestorage">Install the Azure Storage extension</a>
+
+## Sign in
+
+Once the extension is installed, log into your Azure account - in the Activity Bar, click on the Azure logo to show the **AZURE STORAGE** explorer. Click **Sign in to Azure...** and follow the instructions.
+
+![sign in to Azure](images/static-website/sign-in.png)
+
 ## Prerequisite check
 
 Before we continue, ensure that you have all the prerequisites installed and configured.
 
-- Log in to [Azure Portal](https://portal.azure.com) to make sure you Azure Account is working.
+- Log in to [Azure Portal](https://portal.azure.com) to make sure your Azure Account is working.
 - From a terminal, execute:
 
 ```bash
 node -v
-v8.7.0
+v8.11.3
 
 npm -v
-5.4.2
+6.3.0
 ```
 
 to ensure that both Node.js and npm are installed.

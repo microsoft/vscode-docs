@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Multi-root Workspaces
 ContentId: 8d55f6b8-977f-4c26-a888-f3d8d982dd2d
 PageTitle: Multi-root Workspaces in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: You can open and work on multiple project folders in Visual Studio Code with multi-root workspaces.
 ---
 # Multi-root Workspaces
@@ -19,7 +19,7 @@ It is easy to add another folder to your existing workspace. There are several g
 
 ### Add Folder to Workspace...
 
-The **File** > **Add Folder to Workspace...** command brings up an Open Folder dialog to select the new folder.
+The **File** > **Add Folder to Workspace** command brings up an Open Folder dialog to select the new folder.
 
 ![Add Root Folder](images/multi-root-workspaces/add-root-folder.png)
 
@@ -65,14 +65,14 @@ When you save your workspace, it will create a `.code-workspace` file and the fi
 
 ### Save Workspace As...
 
-If you want to move your Workspace file to a new location, you can use the **File** > **Save Workspace As...** command which will automatically set the correct folder paths relative to the new Workspace file location.
+If you want to move your Workspace file to a new location, you can use the **File** > **Save Workspace As** command which will automatically set the correct folder paths relative to the new Workspace file location.
 
 ### Opening workspace files
 
 To reopen a Workspace, you can:
 
 * Double click the `.code-workspace` file in your platform's Explorer.
-* Use the **File** > **Open Workspace...** command and select the Workspace file.
+* Use the **File** > **Open Workspace** command and select the Workspace file.
 * Select the Workspace from the **File** > **Open Recent** (`kb(workbench.action.openRecent)`) list.
   * Workspaces have a **(Workspace)** suffix to differentiate them from folders.
 
@@ -154,7 +154,7 @@ When you have a multi-root workspace open, you can choose to search in a single 
 
 With multiple root folders in one workspace, it is possible to have a `.vscode` folder in each root folder defining the settings that should apply for that folder. To avoid setting collisions, only resource (file, folder) settings are applied when using a multi-root workspace. Settings which affect the entire editor (for example, UI layout) are ignored. For example, two projects cannot both set the zoom level.
 
-User settings are supported as with single folder project and you can also set global Workspace settings which will apply to all folders in your multi-root Workspace. Global Workspace settings will be stored in your `.code-workspace` file.
+User settings are supported as with single folder projects and you can also set global Workspace settings which will apply to all folders in your multi-root Workspace. Global Workspace settings will be stored in your `.code-workspace` file.
 
 ```json
 {
@@ -176,11 +176,11 @@ User settings are supported as with single folder project and you can also set g
 }
 ```
 
-When you go from a single folder instance to multiples folders, VS Code will add the appropriate editor-wide settings from the first folder to the new global Workspace settings.
+When you go from a single folder instance to multiple folders, VS Code will add the appropriate editor-wide settings from the first folder to the new global Workspace settings.
 
-You can easily review and modify the different settings files through the Settings editor. The Settings editor dropdown lets you select your User settings, global Workspace settings and individual folder settings.
+You can easily review and modify the different settings files through the Settings editor. The Settings editor tabs let you select your User settings, global Workspace settings, and individual folder settings.
 
-![settings dropdown](images/multi-root-workspaces/settings-dropdown.png)
+![settings drop-down](images/multi-root-workspaces/settings-dropdown.png)
 
 You can also open specific settings files with the commands:
 
@@ -192,21 +192,21 @@ Global Workspace settings override User settings and folder settings can overrid
 
 ### Unsupported folder settings
 
-Unsupported editor-wide folder settings will show as grayed out in your folder settings and are filtered out of the **DEFAULT FOLDER SETTINGS** list. You will also see an information icon in front of the setting.
+Unsupported editor-wide folder settings will be shown as grayed out in your folder settings and are filtered out of the **DEFAULT FOLDER SETTINGS** list. You will also see an information icon in front of the setting.
 
 ![unsupported setting information](images/multi-root-workspaces/unsupported-setting-info.png)
 
 ## Debugging
 
-With multi-root workspaces, VS Code searches across all folders for `launch.json` debug configuration files and displays them with the folder name as a suffix. Additionaly VS Code will also display launch configurations defined in the workspace configuration file.
+With multi-root workspaces, VS Code searches across all folders for `launch.json` debug configuration files and displays them with the folder name as a suffix. Additionally VS Code will also display launch configurations defined in the workspace configuration file.
 
-![debugging dropdown](images/multi-root-workspaces/debugging-dropdown.png)
+![debugging drop-down](images/multi-root-workspaces/debugging-dropdown.png)
 
 The example above shows the debugging configurations for the [TSLint extension](https://marketplace.visualstudio.com/items?itemName=eg2.tslint). There is a `launch` configuration from the `tslint` extension folder to start the extension running in the VS Code Extension Host and also an `attach` configuration from the `tslint-server` folder to attach the debugger to a running TSLint server.
 
-You can also see the three **Add Config** commands for the folders, `tslint`, `tslint-server`, and `tslint-tests`, in the vscode-tslint [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace). The **Add Config** command will either open an existing `launch.json` file in the folder's `.vscode` subfolder or create a new one and display the debugging configuration template dropdown.
+You can also see the three **Add Config** commands for the folders, `tslint`, `tslint-server`, and `tslint-tests`, in the vscode-tslint [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace). The **Add Config** command will either open an existing `launch.json` file in the folder's `.vscode` subfolder or create a new one and display the debugging configuration template drop-down.
 
-![debugging template dropdown](images/multi-root-workspaces/add-launch-config.png)
+![debugging template drop-down](images/multi-root-workspaces/add-launch-config.png)
 
 [Variables](/docs/editor/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to. It is possible to scope a variable per workspace folder by appending the root folder's name to a variable (separated by a colon).
 
@@ -252,7 +252,7 @@ If the individual launch configuration names are not unique, the qualifying fold
   }]
 ```
 
-In addition to `compounds` the `launch` section of the workspace configuration file can contain regular launch configurations too. Just make sure that all used variables are explicitly scoped to a specific folder because otherwise they are not valid for the workspace. You can find more details about explicitly scoped variables in the [Variables Reference](/docs/editor/variables-reference.md#variables-scoped-per-workspace-folder).
+In addition to `compounds` the `launch` section of the workspace configuration file can contain regular launch configurations too. Make sure that all used variables are explicitly scoped to a specific folder because otherwise they are not valid for the workspace. You can find more details about explicitly scoped variables in the [Variables Reference](/docs/editor/variables-reference.md#variables-scoped-per-workspace-folder).
 
 Here is an example for a launch configuration where the program lives in a folder "Program" and where all files from a folder "Library" should be skipped when stepping:
 
@@ -270,14 +270,13 @@ Here is an example for a launch configuration where the program lives in a folde
 }
 ```
 
-
 ## Tasks
 
 Similar to how VS Code searches for debugging configurations, VS Code will also try to autodetect tasks from gulp, grunt, npm, and TypeScript project files across all folders in a workspace as well as search for tasks defined in `tasks.json` files. The location of tasks is indicated by a folder name suffix. Note that tasks defined in `tasks.json` must be version 2.0.0.
 
-![tasks dropdown](images/multi-root-workspaces/tasks-dropdown.png)
+![tasks drop-down](images/multi-root-workspaces/tasks-dropdown.png)
 
-From the TSList extension [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace) example above, you can see that there are two **configured tasks** from `tasks.json` files in the `tslint` and `tslist-tests` folders and numerous autodetected npm and TypeScript compiler **detected tasks**.
+From the TSLint extension [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace) example above, you can see that there are two **configured tasks** from `tasks.json` files in the `tslint` and `tslint-tests` folders and numerous autodetected npm and TypeScript compiler **detected tasks**.
 
 ## Source Control
 
@@ -289,7 +288,7 @@ You can use `kbstyle(Ctrl+Click)` or `kbstyle(Shift+Click)` to select multiple r
 
 ## Extensions
 
-Multi-root workspaces have been available as a preview on Insiders build since the June 2017 [1.14 release](/updates/v1_14.md#preview-multi-root-workspaces) and we've been working with extension authors to help them get ready for the release to Stable. If you are an extension author, you can review our [Adopting Multi Root Workspace APIs](https://github.com/Microsoft/vscode/wiki/Extension-Authoring:-Adopting-Multi-Root-Workspace-APIs) guide to learn about VS Code API changes and how to make your extension work well across multiple folders.
+Multi-root workspaces have been available as a preview on Insiders build since the June 2017 [1.14 release](/updates/v1_14.md#preview-multi-root-workspaces) and we've been working with extension authors to help them get ready for the release to Stable. If you are an extension author, you can review our [Adopting Multi Root Workspace APIs](https://github.com/Microsoft/vscode/wiki/Adopting-Multi-Root-Workspace-APIs) guide to learn about VS Code API changes and how to make your extension work well across multiple folders.
 
 Below are some of the popular extensions which have already adopted the multi-root workspace APs.
 
@@ -321,17 +320,17 @@ VS Code supports folder level extension recommendations through the `extensions.
 }
 ```
 
-## Next Steps
+## Next steps
 
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 * [Tasks](/docs/editor/tasks.md) - Tasks let you run external tools like compilers within VS Code.
 
-## Common Questions
+## Common questions
 
-**Q: How can I go back to working with a single project folder?**
+### How can I go back to working with a single project folder?
 
 You can either close the Workspace and open the folder directly or remove the folder from Workspace.
 
-**Q: As an extension author what do I need to do?**
+### As an extension author what do I need to do?
 
-See our [Adopting Multi Root Workspace APIs](https://github.com/Microsoft/vscode/wiki/Extension-Authoring:-Adopting-Multi-Root-Workspace-APIs) guide. Most extensions can easily support multi-root workspaces.
+See our [Adopting Multi Root Workspace APIs](https://github.com/Microsoft/vscode/wiki/Adopting-Multi-Root-Workspace-APIs) guide. Most extensions can easily support multi-root workspaces.

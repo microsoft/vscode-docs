@@ -3,9 +3,9 @@ Order:
 Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
-PageTitle: Variables Reference
-DateApproved: 6/6/2018
-MetaDescription: Variable substitution reference
+PageTitle: Visual Studio Code Variables Reference
+DateApproved: 11/8/2018
+MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
 
@@ -26,6 +26,26 @@ The following predefined variables are supported:
 - **${cwd}** - the task runner's current working directory on startup
 - **${lineNumber}** - the current selected line number in the active file
 - **${selectedText}** - the current selected text in the active file
+
+### Predefined variables examples
+
+Supposing that you have the following requirements:
+
+1. A file located at `/home/your-username/your-project/folder/file.ext` opened in your editor;
+2. The directory `/home/your-username/your-project` opened as your root workspace.
+
+So you will have the following values for each variable:
+
+- **${workspaceFolder}** - `/home/your-username/your-project`
+- **${workspaceFolderBasename}** - `your-project`
+- **${file}** - `/home/your-username/your-project/folder/file.ext`
+- **${relativeFile}** - `folder/file.ext`
+- **${fileBasename}** - `file.ext`
+- **${fileBasenameNoExtension}** - `file`
+- **${fileDirname}** - `/home/your-username/your-project/folder`
+- **${fileExtname}** - `.ext`
+- **${lineNumber}** - `5`
+- **${selectedText}** - `Text selected in your code editor`
 
 >**Tip**: Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
 
@@ -59,11 +79,11 @@ By appending the root folder's name to a variable (separated by a colon), it is 
 
 For example, in a multi root workspace with folders `Server` and `Client`, a `${workspaceFolder:Client}` refers to the path of the `Client` root.
 
-## Common Questions
+## Common questions
 
-**Q: Is variable substitution supported in User and Workspace settings?**
+### Is variable substitution supported in User and Workspace settings?
 
-**A:** No, the predefined variables are not supported in strings in `settings.json` files. Some [settings](/docs/getstarted/settings.md) like `window.title` have their own variables:
+No, the predefined variables are not supported in strings in `settings.json` files. Some [settings](/docs/getstarted/settings.md) like `window.title` have their own variables:
 
 ```json
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"
@@ -71,6 +91,6 @@ For example, in a multi root workspace with folders `Server` and `Client`, a `${
 
 Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)`) to learn about setting specific variables.
 
-**Q: Why isn't ${workspaceRoot} documented?**
+### Why isn't ${workspaceRoot} documented?
 
-**A:** The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) support.
+The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) support.

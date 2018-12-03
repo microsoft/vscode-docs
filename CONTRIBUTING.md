@@ -15,9 +15,16 @@ Thank you for your interest in VS Code documentation!
 * [Topic Metadata](#topic-metadata)
 * [Formatting](#formatting)
 
+>**Note**: Before submitting a pull request, especially for rendering or link issues, please review the content on the official VS Code website, [code.visualstudio.com](https://code.visualstudio.com). The element in question may render correctly after processing by the website build.
+
 ## Contributing
 
 To contribute to [VS Code documentation](https://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
+
+* [How to fork a repository](https://help.github.com/articles/fork-a-repo)
+* [How to make a pull request](https://help.github.com/articles/creating-a-pull-request/)
+* [Changing a commit message](https://help.github.com/articles/changing-a-commit-message/)
+* [How to squash commits](https://help.github.com/articles/about-pull-request-merges/)
 
 ## Documentation intent
 
@@ -52,7 +59,7 @@ Within these folders you'll find the Markdown files used for the content. Each o
 
 ### Branches
 
-We recommend that you create local working branches that target a specific scope of change (and then submit a pull request when your changes are ready). Each branch should be limited to a single concept/topic both to streamline work flow and reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
+We recommend that you create local working branches that target a specific scope of change (and then submit a pull request when your changes are ready). Each branch should be limited to a single concept/topic, both to streamline work flow, and to reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
 
 * A new topic (and associated images).
 * Spelling and grammar edits on a topic.
@@ -62,7 +69,7 @@ We recommend that you create local working branches that target a specific scope
 
 [Visual Studio Code](https://code.visualstudio.com) is a great editor for Markdown!
 
-In fact, VS Code itself is developed using VS Code and the core documentation is authored using VS Code.
+In fact, VS Code and its core documentation are written using VS Code.
 
 ## How to use Markdown to format your topic
 
@@ -76,9 +83,14 @@ Topic metadata enables certain functionalities for the topics such as table of c
 * **Area** - General area within VS Code
 * **TOCTitle** - The title used in the left rail Table of Contents for this page
 * **PageTitle** - The title used in the HTML title for the page and in search results
+* **ContentId** - A GUID which uniquely identifies the topic to DevDiv doc reporting.
 * **DateApproved** - This is set when the page is actually published on the VS Code portal. You can ignore it.
-* **MetaDescription** - The meta description for this page which helps for search
+* **MetaDescription** - The meta description for this page which helps for search, use sentence structure limited to 300 characters.
 * **MetaTags** - Further tags for this page again for search
+
+## Product name
+
+Use the full product name "Visual Studio Code" in the topic MetaDescription and the first use in a topic. You can use the shortened "VS Code" after that throughout the rest of the content. Do not use "VSCode" (no space) or "Code".
 
 ## Formatting
 
@@ -93,7 +105,7 @@ Use bold for VS Code commands and UI elements.
     **Extensions: Install Extension**
     **Debug Console**
 
-Limit the use of bold for emphasis unless it is crucial to get the user's attention.
+Limit the use of bold for emphasis unless it is crucial to get the user's attention. Avoid the use of italics for emphasis since italics doesn't render well on the code.visualstudio.com site.
 
 Use Markdown highlight for settings, filename and JSON attributes.
 
@@ -112,20 +124,19 @@ For links within our own documentation, use a site relative link like `/docs/edi
 
 >For example: `[Why VS Code](/docs/editor/whyvscode.md)` - links to the **Why Visual Studio Code** page
 
-<strike>>**Caution:** Do not include the .md file extension.</strike>
 >**Correction:** For this repo to ease content development you should add the .md suffix.  We will parse these out for the website deployment.
 
 ### Bookmarks
 
-To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page#subheading-title)`.
+To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page.md#subheading-title)`.
 
 Note the subheading title is lowercase and subheading title words are separated by '-' dashes.
 
->For example: `[More on documentation intent](#documentation-intent)` - links to the **Documentation intent** subheading above.
+>For example: `[Keyboard Shortcuts](/docs/editor/codebasics.md#keyboard-shortcuts)` - links to https://code.visualstudio.com/docs/editor/codebasics#_keyboard-shortcuts.
 
 ### Images
 
-Images are important to bring the product to life - even if people can't try the product these really help them see what they are missing.
+Images are important to bring the product to life - even if people can't try the product, these really help them to see what they are missing.
 
 For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`.
 
@@ -145,9 +156,9 @@ If you are listing out multiple key bindings, you can use a table.
 
 >Shortcut|Key Strokes
 >--------|-----------
->Cut|`kb(editor.action.clipboardCutActionn)`
+>Cut|`kb(editor.action.clipboardCutAction)`
 >Copy|`kb(editor.action.clipboardCopyAction)`
->Paste|`kb(editor.action.clipboardPasteActionn)`
+>Paste|`kb(editor.action.clipboardPasteAction)`
 
 ### Source Code
 

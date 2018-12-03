@@ -3,12 +3,12 @@ Order: 7
 Area: java
 TOCTitle: Debugging and Testing
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
-PageTitle: Debugging and Testing Java in VS Code
+PageTitle: Debugging and Testing Java in Visual Studio Code
 DateApproved: 5/30/2018
 MetaDescription: See how you can debug and test your Java code locally, and in the cloud.
 MetaSocialImage:
 ---
-# Debugging Java in VS Code
+# Debugging Java in Visual Studio Code
 
 Visual Studio Code is great at debugging Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension.
 
@@ -104,8 +104,8 @@ Consult the documentation for the [Language Support for Java by Red Hat](https:/
 - `mainClass` (required) - The main class of the program (fully qualified name, e.g. [mymodule/]com.xyz.MainClass).
 - `args` - The command line arguments passed to the program.
 - `sourcePaths` - The extra source directories of the program. The debugger looks for source code from project settings by default. This option allows the debugger to look for source code in extra directories.
-- `modulePaths` - The modulepaths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
-- `classPaths` - The classpaths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
+- `modulePaths` - The module paths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
+- `classPaths` - The class paths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
 - `encoding` - The `file.encoding` setting for the JVM. If not specified, 'UTF-8' will be used. Possible values can be found in [Supported Encodings](https://docs.oracle.com/javase/8/docs/technotes/guides/intl/encoding.doc.html).
 - `vmArgs` - The extra options and system properties for the JVM (e.g. -Xms\<size\> -Xmx\<size\> -D\<name\>=\<value\>).
 - `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. This setting also works when the debugger looks for the specified main class when launching a program. It is required for expression evaluation.
@@ -138,9 +138,9 @@ Consult the documentation for the [Language Support for Java by Red Hat](https:/
 ### User Settings
 
 - `java.debug.logLevel` - Minimum level of debugger logs that are sent to VS Code, defaults to `warn`.
-- `java.debug.settings.showHex` - Show numbers in hex format in in the **VARIABLES** view, defaults to `false`.
-- `java.debug.settings.showStaticVariables` - Show static variables in in the **VARIABLES** view, defaults to `true`.
-- `java.debug.settings.showQualifiedNames` - Show fully qualified class names in in the **VARIABLES** view, defaults to `false`.
+- `java.debug.settings.showHex` - Show numbers in hex format in the **VARIABLES** view, defaults to `false`.
+- `java.debug.settings.showStaticVariables` - Show static variables in the **VARIABLES** view, defaults to `true`.
+- `java.debug.settings.showQualifiedNames` - Show fully qualified class names in the **VARIABLES** view, defaults to `false`.
 - `java.debug.settings.maxStringLength` - Maximum length of strings displayed in the **VARIABLES** view or Debug Console. Strings longer than this length will be trimmed. Default is `0` which means no trim is performed.
 - `java.debug.settings.enableHotCodeReplace` - Enable Hot Code replacement for Java source code. Make sure the auto build is not disabled for [VS Code Java](https://github.com/redhat-developer/vscode-java). See the [wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
 
@@ -158,7 +158,7 @@ You can also manage your test cases with **TEST EXPLORER**.
 
 ![Test Explorer](images/java-debugging/test-explorer.png)
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 

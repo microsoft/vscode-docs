@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -49,7 +49,7 @@ The **Go To Definition** and **Open Link** gestures will also respect this setti
 
 ### Shrink/expand selection
 
-Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`
+Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`.
 
 Here's an example of expanding the selection with `kb(editor.action.smartSelect.grow)`:
 
@@ -111,7 +111,7 @@ VS Code allows you to quickly search over all files in the currently opened fold
 
 You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
 
-### Advanced Search options
+### Advanced search options
 
 ![Advanced search options](images/codebasics/searchadvanced.png)
 
@@ -129,9 +129,9 @@ Also note the **Use Exclude Settings and Ignore Files** toggle button in the **f
 
 >**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
-VS Code does support regular expression searches, however, backreferences, lookaround, and multiline matches are not supported. This is because VS Code depends on the search tool [ripgrep](https://github.com/BurntSushi/ripgrep), which, while extremely fast, doesn't support these advanced regex features.
+VS Code does support regular expression searches, however, [backreferences](https://www.regular-expressions.info/backref.html) and [lookaround](https://www.regular-expressions.info/lookaround.html) aren't supported by default. But you can enable these with the setting `search.usePCRE2`. This configures [ripgrep](https://github.com/BurntSushi/ripgrep) to use the [PCRE2](https://pcre.org/) regex engine. While PCRE2 supports many other features, we only support regex expressions that are still valid in JavaScript, because open editors are still searched using the editor's JavaScript-based search.
 
-### Search and Replace
+### Search and replace
 
 You can also Search and Replace across files. Expand the Search widget to display the Replace text box.
 
@@ -141,11 +141,11 @@ When you type text into the Replace text box, you will see a diff display of the
 
 ![search and replace diff view](images/codebasics/search-replace-example.png)
 
->**Tip:** You can quickly reuse a previous search term by using `kb(search.history.showNext)` and `kb(search.history.showPrevious)` to navigate through your search term history.
+>**Tip:** You can quickly reuse a previous search term by using `kb(history.showNext)` and `kb(history.showPrevious)` to navigate through your search term history.
 
 ## IntelliSense
 
-We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/getstarted/keybindings.md).
+We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/getstarted/keybindings.md).
 
 > **Tip:** The suggestions filtering supports CamelCase so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
@@ -234,7 +234,7 @@ To fold and unfold only the regions defined by markers use:
 
 ## Indentation
 
-VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.mg).
+VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.md).
 
 ```json
     "editor.insertSpaces": true,
@@ -276,28 +276,28 @@ Then choose an encoding.
 
 ![Select an encoding](images/codebasics/encodingselection.png)
 
-## Next Steps
+## Next steps
 
 You've covered the basic user interface - there is a lot more to VS Code.  Read on to find out about:
 
 * [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
-* [Code Navigation](/docs/editor/editingevolved.md) - Peek and Goto Definition, and more
+* [Code Navigation](/docs/editor/editingevolved.md) - Peek and Goto Definition, and more.
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) - Learn about the integrated terminal for quickly performing command line tasks from within VS Code.
 * [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
+* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 
-## Common Questions
+## Common questions
 
-**Q: Is it possible to globally search and replace?**
+### Is it possible to globally search and replace?
 
-**A:** Yes, expand the Search view text box to include a replace text field. You can search and replace across all the files in your workspace. Note that if you did not open VS Code on a folder, the search will only run on the currently open files.
+Yes, expand the Search view text box to include a replace text field. You can search and replace across all the files in your workspace. Note that if you did not open VS Code on a folder, the search will only run on the currently open files.
 
 ![global search and replace](images/codebasics/global-search-replace.png)
 
-**Q: How do I turn on word wrap?**
+### How do I turn on word wrap?
 
-**A:** You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default, `editor.wordWrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
+You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default, `editor.wordWrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
 
 ```json
     "editor.wordWrap": "on"

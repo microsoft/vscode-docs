@@ -41,7 +41,8 @@ The Azure Functions extension is used to create, manage, and deploy Functions Ap
 
 ## Sign in
 
-Once the extension is installed, log into your Azure account - in the **AZURE FUNCTIONS** explorer, click **Sign in to Azure...** and follow the instructions.
+Once the extension is installed, log into your Azure account - in the Activity Bar, click on the Azure logo to show the **Azure Functions** explorer. Click **Sign in to Azure...** and follow the instructions.
+
 
 ![sign in to Azure](images/functions-extension/sign-in.png)
 
@@ -51,7 +52,7 @@ Before we continue, ensure that you have all the prerequisites installed and con
 
 In VS Code, you should see your Azure email address in the Status Bar and your subscription in the **AZURE FUNCTIONS** explorer.
 
-Verify that you have the Azure Functions tools installed by opening a terminal and running `$ func`.
+Verify that you have the Azure Functions tools installed by opening a terminal (or PowerShell/Command Prompt) and running `func`.
 
 ```bash
 $ func

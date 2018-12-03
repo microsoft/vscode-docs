@@ -168,7 +168,7 @@ We updated the Electron shell to 0.37.6.
 
 ## Language Server Protocol
 
-Version 2.x of the [language server protocol](https://github.com/Microsoft/vscode-languageserver-protocol) was released together with a corresponding [client library](https://github.com/Microsoft/vscode-languageserver-node) to be used in extensions and a [server library](https://github.com/Microsoft/vscode-languageserver-node) for Node.js.
+Version 2.x of the [language server protocol](https://microsoft.github.io/language-server-protocol) was released together with a corresponding [client library](https://github.com/Microsoft/vscode-languageserver-node) to be used in extensions and a [server library](https://github.com/Microsoft/vscode-languageserver-node) for Node.js.
 
 The major changes are:
 
@@ -182,7 +182,7 @@ The major changes are:
 
 This release has a number of notable bug fixes.
 
-* [3928](https://github.com/Microsoft/vscode/issues/3928): VS Code corrupts multi-line environment variables
+* [3928](https://github.com/Microsoft/vscode/issues/3928): VS Code corrupts multiline environment variables
 * [4426](https://github.com/Microsoft/vscode/issues/4426): Include CLI in Linux zip archive and support custom install locations
 * [4478](https://github.com/Microsoft/vscode/issues/4478): "Open in Terminal" not working on Fedora
 * [4691](https://github.com/Microsoft/vscode/issues/4691): Command palette's camel case matching does not work for non ASCII characters

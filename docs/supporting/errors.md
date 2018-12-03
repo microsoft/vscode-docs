@@ -3,7 +3,7 @@ Order:
 TOCTitle: Error Codes
 ContentId: 343B5C4D-3473-4454-AD22-084F405D6905
 PageTitle: Visual Studio Code workarounds for errors you might hit in the product.
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: Several error conditions can easily be resolved by the user this page is designed to help un-block you.
 ---
 # Common Error Cases
@@ -73,7 +73,7 @@ If the steps above don't help you, you may have hit a bug. You can check our [re
 
 ### Online search
 
-You can also search the rest of our online [documentation](/docs) for answers in our main topics and **Common Questions** sections. The online **Search** control is located in the upper right of the [code.visualstudio.com](/docs) website.
+You can also search the rest of our online [documentation](/docs) for answers in our main topics and **Common questions** sections. The online **Search** control is located in the upper right of the [code.visualstudio.com](/docs) website.
 
 ### Stack Overflow
 

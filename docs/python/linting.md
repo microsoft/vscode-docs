@@ -4,23 +4,38 @@ Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python in Visual Studio Code
-DateApproved: 05/21/2018
+DateApproved: 10/10/2018
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
-# Linting Python in VS Code
+# Linting Python in Visual Studio Code
 
-Linting highlights syntactical and stylistic errors in your Python source code. By default, linting for Python is enabled in Visual Studio Code using Pylint. If PyLint is not already installed in your selected Python environment, VS Code prompts you to install the necessary packages. (You can also manually run `pip install pylint` at a command prompt for that same environment.)
+Linting highlights syntactical and stylistic errors in your Python source code. By default, linting for Python is enabled in Visual Studio Code using [Pylint](https://www.pylint.org), and you can enable other linters of your choice.
 
-Linting runs automatically when you save a file, and you can run manually using the **Python: Run Linting** command. Issues are shown in the **Problems** panel and as underlines in the code editor. Hovering over an underlined issue displays the details:
+## Enable linters
+
+To enable linters other than the default PyLint, open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Python: Select Linter** command. This command adds `"python.linting<linter>Enabled": true` to your settings, where `<linter>` is the name of the chosen linter. See [Specific linters](#specific-linters) for details.
+
+Enabling a linter prompts you to install the required packages in your selected environment for the chosen linter.
+
+![Prompt for installing a linter](images/linting/install-linter-message.png)
+
+> **Note**: If you're using a global environment and VS Code is not running elevated, linter installation may fail. In that case, either run VS Code elevated, or manually run the Python package manager to install the linter at an elevated command prompt for the same environment: for example `sudo pip3 install pylint` (macOS/Linux) or `pip install pylint` (Windows, at an elevated prompt)
+
+## Run linting
+
+To perform linting:
+
+- Linting runs automatically when you save a file.
+- Open the Command Palette (`kb(workbench.action.showCommands)`), then enter and select **Python: Run Linting**.
+
+Issues are shown in the **Problems** panel and as underlines in the code editor. Hovering over an underlined issue displays the details:
 
 ![Linting messages in the editor and the Problems panel](images/linting/lint-messages.png)
 
-To enable other linters, use the **Python: Select Linter** command, which again prompts you to install required packages in your selected environment for the linter in question.
-
-The remainder of this article described settings for linting in general as well as specific linters. You add any of the settings to your user `settings.json` file (opened with the **File** > **Preferences** > **Settings** menu command). Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our more about working with settings in VS Code generally.
-
 ## General linting settings
+
+The remainder of this article describes settings for linting in general as well as specific linters. You can add any of the settings to your user `settings.json` file (opened with the **File** > **Preferences** > **Settings** command `kb(workbench.action.openSettings)`). Refer to [User and Workspace settings](/docs/getstarted/settings.md) to find out more about working with settings in VS Code generally.
 
 To change the linting behavior across all enabled linters, modify the following settings:
 
@@ -37,21 +52,30 @@ When enabling `lintOnSave`, you might also want to enable the generic `files.aut
 
 ## Specific linters
 
-The following table provides a summary of available Python linters and their basic settings. Only Pylint is enabled by default.
+The following table provides a summary of available Python linters and their basic settings. Only Pylint is enabled by default. For descriptions of individual settings, see the [Linter settings reference](/docs/python/settings-reference.md#linter-settings).
 
 | Linter | Package name for `pip install` command | Default state | True/false enable setting<br/>(python.linting.) | Arguments setting<br/>(python.linting.) | Custom path setting<br/>(python.linting.) |
 | --- | --- | --- | --- | --- | --- |
 | [Pylint](#pylint) (default) | [pylint](https://pypi.org/project/pylint/) | Enabled | pylintEnabled | pylintArgs | pylintPath |
 | [Flake8](#flake8) | [flake8](https://pypi.org/project/flake8/) | Disabled | flake8Enabled | flake8Args | flake8Path |
 | [mypy](#mypy) | [mypy](https://pypi.org/project/mypy/) | Disabled | mypyEnabled | mypyArgs | mypyPath |
-| pydocstyle | [pydocstyle](https://pypi.org/project/pydocstyle/) | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
+| [pydocstyle](#pydocstyle) | [pydocstyle](https://pypi.org/project/pydocstyle/) | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
 | [Pep8 (pycodestyle)](#pep8-pycodestyle) | [pep8](https://pypi.org/project/pep8/) | Disabled | pep8Enabled | pep8Args | pep8Path |
-| prospector | [prospector](https://pypi.org/project/prospector/) | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
+| [prospector](#prospector) | [prospector](https://pypi.org/project/prospector/) | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
 | pylama | [pylama](https://pypi.org/project/pylama/) | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |
+| bandit | [bandit](https://pypi.org/project/bandit/) | Disabled | banditEnabled | banditArgs | banditPath |
 
 To select a different linter, use the **Python: Select Linter** command. You can also edit your settings manually to enable multiple linters. Note, however, that using the **Select Linter** command overwrites those edits.
 
-Custom arguments can be specified in the appropriate arguments setting for each linter, with each argument given as a separate item in the array.
+Custom arguments are specified in the appropriate arguments setting for each linter. Each top-level element of an argument string that's separated by a space on the command line must be a separate item in the args list. For example:
+
+```json
+"python.linting.pylintArgs": ["--reports", "12", "--disable-msg", "I0011"],
+"python.linting.flake8Args": ["--ignore=E24,W504", "--verbose"]
+"python.linting.pydocstyleArgs": ["--ignore=D400", "--ignore=D4"]
+```
+
+Note that if a top-level element is a single value, as delineated by quotation marks or braces, is still a single item in the list even if the value itself contains spaces.
 
 A custom path is generally unnecessary as the Python extension resolves the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting. For example, if your selected interpreter is a virtual environment but you want to use a linter that's installed in a global environment, then set the appropriate path setting to point to the global environment's linter.
 
@@ -125,11 +149,44 @@ To control which Pylint messages are shown, add the following contents to an opt
 
 You can easily generate an options file using Pylint itself:
 
-```
+```bash
 pylint --generate-rcfile > .pylintrc
 ```
 
 The generated file contains sections for all the Pylint options, along with documentation in the comments.
+
+## pydocstyle
+
+### Command-line arguments and configuration files
+
+See [pycodestyle Command Line Interface](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage) for general options. For example, to ignore error D400 (first line should end with a period), add the following line to your `settings.json` file:
+
+```json
+"python.linting.pydocstyleArgs": ["--ignore=D400"]
+```
+
+A code prefix also instructs pydocstyle to ignore specific categories of errors. For example, to ignore all Docstring Content issues (D4XXX errors), add the following line to `settings.json`:
+
+```json
+"python.linting.pydocstyleArgs": ["--ignore=D4"]
+```
+
+More details can be found in the [pydocstyle documentation](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage).
+
+Options can also be read from a `[pydocstyle]` section of any of the following configuration files:
+
+- `setup.cfg`
+- `tox.ini`
+- `.pydocstyle`
+- `.pydocstyle.ini`
+- `.pydocstylerc`
+- `.pydocstylerc.ini`
+
+For more information, see [Configuration Files](http://www.pydocstyle.org/en/2.1.1/usage.html#configuration-files).
+
+### Message category mapping
+
+The Python extension maps all pydocstyle errors to the Convention (C) category.
 
 ## Pep8 (pycodestyle)
 
@@ -151,6 +208,32 @@ The Python extension maps pep8 message categories to VS Code categories through 
 | --- | --- | --- |
 | W | pep8CategorySeverity.W | Warning |
 | E | pep8CategorySeverity.E | Error |
+
+## Prospector
+
+### Command-line arguments and configuration files
+
+See [Prospector Command Line Usage](https://prospector.readthedocs.io/en/master/usage.html) for general options. For example, to set a strictness level of "very high," add the following line to your `settings.json` file:
+
+```json
+"python.linting.prospectorArgs": ["-s", "veryhigh"]
+```
+
+It's common with Prospector to use [profiles](https://prospector.readthedocs.io/en/master/profiles.html) to configure how Prospector runs. By default, Prospector loads the profile from a `.prospector.yaml` file in the current folder.
+
+Because Prospector calls other tools, such as Pylint, any configuration files for those tools override tool-specific settings in `.prospector.yaml`.  For example, suppose you specify the following in `.prospector.yaml`:
+
+```yaml
+pylint:
+  disable:
+    - too-many-arguments
+```
+
+If you also have a `.pylintrc` file that enables the `too-many-arguments` warning, you continue to see the warning from Pylint within VS Code.
+
+### Message category mapping
+
+The Python extension maps all Prospector errors and warnings to the Error (E) category.
 
 ## Flake8
 
@@ -199,7 +282,7 @@ The Python extension maps mypy message categories to VS Code categories through 
 | Linting with \<linter\> failed ... | The path to the Python interpreter is incorrect. | Check the `pythonPath` setting (see [Environments](/docs/python/environments.md)). |
 | | The linter has not been installed in the current Python environment. | Open a command window, navigate to the location of the Python interpreter in the `pythonPath` setting, and run `pip install` for the linter. |
 | | The path to the linter is incorrect. | Ensure that the appropriate `python.linting.<linter>Path` setting for the linter is correct. |
-| | Custom arguments are defined incorrectly. | Check the appropriate `python.linting.<linter>Args` settings, and that the value of the setting is an array of separate argument items. For example, `"python.linting.pylintPath": "pylint --load-plugins pylint_django"` is incorrect. The correct syntax is `"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]`. |
+| | Custom arguments are defined incorrectly. | Check the appropriate `python.linting.<linter>Args` settings, and that the value of the setting is a list of the argument elements that are separated by spaces. For example, `"python.linting.pylintPath": "pylint --load-plugins pylint_django"` is incorrect. The correct syntax is `"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]`. |
 
 ## Next steps
 

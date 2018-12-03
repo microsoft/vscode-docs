@@ -1,10 +1,10 @@
 ---
-Order: 15
+Order: 16
 Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -21,13 +21,13 @@ You can increase the Zoom level in VS Code with the **View** > **Zoom In** comma
 
 When you adjust the zoom level with the **View** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment increases the zoom level by 20%.
 
-## High Contrast Theme
+## High Contrast theme
 
 We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Color Theme** to display the **Select Color Theme** drop-down and select the **High Contrast** theme.
 
 ![High Contrast Theme](images/accessibility/high-contrast.png)
 
-## Keyboard Navigation
+## Keyboard navigation
 
 You will find that VS Code provides an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can run VS Code without using the mouse.  Press `kb(workbench.action.showCommands)` then type a command name (e.g. 'git') to filter the list of commands.
 
@@ -37,7 +37,7 @@ VS Code also has many preset keyboard shortcuts for commands. These are displaye
 
 You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** brings up the **Default Keyboard Shortcuts** in the left pane and your customizable `keybindings.json` on the right.  See [Key Bindings](/docs/getstarted/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
 
-## Tab Navigation
+## Tab navigation
 
 You can use the `kbstyle(Tab)` key to jump between VS Code UI controls. Use `kbstyle(Shift+Tab)` to tab in reverse order.  As you tab through the UI controls, you can see an indicator around the UI element once the element gains focus.
 
@@ -58,7 +58,7 @@ You can also toggle `kbstyle(Tab)` trapping from the **Command Palette** (`kb(wo
 
 Read-only files never trap the `kbstyle(Tab)` key. The **Integrated Terminal** panel respects the `kbstyle(Tab)` trapping mode and can be toggled with `kb(editor.action.toggleTabFocusMode)`.
 
-## Screen Readers
+## Screen readers
 
 VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](https://www.nvaccess.org), but we expect all screen readers to benefit from this support.
 
@@ -70,13 +70,13 @@ When the suggestions pop up, they will get announced to screen readers. It is po
 
 The **Go to Next/Previous Difference** actions (F7 and Shift+F7), when in a diff editor pane, will bring up the Diff Review Pane, which allows the navigation of the diffs, presented in a unified patch format. Arrow Up and Arrow Down can be used to navigate through the unchanged, inserted or deleted lines. Pressing Enter will return focus to the modified pane of the diff editor at the selected line number (or closest still existing line number in case a deleted line is selected). Use Escape or Shift+Escape to dismiss the Diff Review Pane.
 
-## Accessibility Help
+## Accessibility help
 
 You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Accessibility Help** dialog while in an editor to check the state of various accessibility options in VS Code:
 
 ![accessibility status](images/accessibility/status.png)
 
-## Debugger Accessibility
+## Debugger accessibility
 
 The VS Code debugger UI is user accessible and has the following features:
 
@@ -85,7 +85,7 @@ The VS Code debugger UI is user accessible and has the following features:
 * Both the Debug View and Debug Console support Tab navigation.
 * Debug hover is keyboard accessible (`kb(editor.action.showHover)`).
 
-## Current Known Issues
+## Current known issues
 
 VS Code has some known accessibility issues depending on the platform.
 
@@ -101,7 +101,7 @@ There is limited screen reader support for the editor with VoiceOver.
 
 There is no screen reader support for the editor.
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 

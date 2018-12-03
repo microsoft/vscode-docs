@@ -3,8 +3,8 @@ Order:
 Area: getstarted
 TOCTitle: Theme Color Reference
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-PageTitle: VS Code Theme Color Reference
-DateApproved: 6/6/2018
+PageTitle: Visual Studio Code Theme Color Reference
+DateApproved: 11/8/2018
 MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
@@ -19,21 +19,24 @@ You can customize your active Visual Studio Code [color theme](/docs/getstarted/
 }
 ```
 
-Color values can be defined in the RGB color model with an alpha channel for transparency. As format, the following hexadecimal notations are supported: `#RGB`, `#RGBA`, `#RRGGBB` and `#RRGGBBAA`.
-R (red), G (green), B (blue), and A (alpha) are hexadecimal characters (0-9, a-f or A-F). The three-digit notation (`#RGB`) is a shorter version of the six-digit form (`#RRGGBB`) and the four-digit RGB notation (`#RGBA`) is a shorter version of the eight-digit form (`#RRGGBBAA`). For example `#e35f` is the same color as `#ee3355ff`.
+**Note**: If you want to use an existing color theme, see [Color Themes](/docs/getstarted/themes.md) where you'll learn how to set the active color theme through the **Preferences: Color Theme** drop-down (`kb(workbench.action.selectTheme)`).
 
-If no alpha value is defined, it defaults to `f` resp `ff` (opaque, no transparency). If alpha is set to `0` resp `00`, the color is fully transparent.
+## Color formats
+
+Color values can be defined in the RGB color model with an alpha channel for transparency. As format, the following hexadecimal notations are supported: `#RGB`, `#RGBA`, `#RRGGBB` and `#RRGGBBAA`. R (red), G (green), B (blue), and A (alpha) are hexadecimal characters (0-9, a-f or A-F). The three-digit notation (`#RGB`) is a shorter version of the six-digit form (`#RRGGBB`) and the four-digit RGB notation (`#RGBA`) is a shorter version of the eight-digit form (`#RRGGBBAA`). For example `#e35f` is the same color as `#ee3355ff`.
+
+If no alpha value is defined, it defaults to `ff` (opaque, no transparency). If alpha is set to `00`, the color is fully transparent.
 
 Some colors should not be opaque in order to not cover other annotations. Check the color descriptions to see to which colors this applies.
 
-## Contrast Colors
+## Contrast colors
 
 The contrast colors are typically only set for high contrast themes. If set, they add an additional border around items across the UI to increase the contrast.
 
 - `contrastActiveBorder`: An extra border around active elements to separate them from others for greater contrast.
 - `contrastBorder`: An extra border around elements to separate them from others for greater contrast.
 
-## Base Colors
+## Base colors
 
 - `focusBorder`: Overall border color for focused elements. This color is only used if not overridden by a component.
 - `foreground`: Overall foreground color. This color is only used if not overridden by a component.
@@ -42,7 +45,7 @@ The contrast colors are typically only set for high contrast themes. If set, the
 - `descriptionForeground`: Foreground color for description text providing additional information, for example for a label.
 - `errorForeground`: Overall foreground color for error messages (this color is only used if not overridden by a component).
 
-## Text Colors
+## Text colors
 
 Colors inside a text document, such as the welcome page.
 
@@ -54,7 +57,7 @@ Colors inside a text document, such as the welcome page.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
 - `textSeparator.foreground`: Color for text separators.
 
-## Button Control
+## Button control
 
 A set of colors for button widgets such as **Open Folder** button in the Explorer of a new window.
 
@@ -64,19 +67,19 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 - `button.foreground`: Button foreground color.
 - `button.hoverBackground`: Button background color when hovering.
 
-## Dropdown Control
+## Dropdown control
 
-A set of colors for all dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the
-dropdown control is not used on macOS currently.
+A set of colors for all Dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the
+Dropdown control is not used on macOS currently.
 
-![drop down control](images/theme-color-reference/dropdown.png)
+![drop down control](images/theme-color-reference/Dropdown.png)
 
 - `dropdown.background`: Dropdown background.
 - `dropdown.listBackground`: Dropdown list background.
 - `dropdown.border`: Dropdown border.
 - `dropdown.foreground`: Dropdown foreground.
 
-## Input Control
+## Input control
 
 Colors for input controls such as in the Search view or the Find/Replace dialog.
 
@@ -88,13 +91,16 @@ Colors for input controls such as in the Search view or the Find/Replace dialog.
 - `input.placeholderForeground`: Input box foreground color for placeholder text.
 - `inputOption.activeBorder`: Border color of activated options in input fields.
 - `inputValidation.errorBackground`: Input validation background color for error severity.
+- `inputValidation.errorForeground`: Input validation foreground color for error severity.
 - `inputValidation.errorBorder`: Input validation border color for error severity.
 - `inputValidation.infoBackground`: Input validation background color for information severity.
+- `inputValidation.infoForeground`: Input validation foreground color for information severity.
 - `inputValidation.infoBorder`: Input validation border color for information severity.
 - `inputValidation.warningBackground`: Input validation background color for information warning.
+- `inputValidation.warningForeground`: Input validation foreground color for warning severity.
 - `inputValidation.warningBorder`: Input validation border color for warning severity.
 
-## Scrollbar Control
+## Scrollbar control
 
 - `scrollbar.shadow`: Scrollbar slider shadow to indicate that the view is scrolled.
 - `scrollbarSlider.activeBackground`: Scrollbar slider background color when clicked on.
@@ -108,11 +114,11 @@ Badges are small information labels, for example, search results count.
 - `badge.foreground`: Badge foreground color.
 - `badge.background`: Badge background color.
 
-## Progress Bar
+## Progress bar
 
 - `progressBar.background`: Background color of the progress bar shown for long running operations.
 
-## Lists and Trees
+## Lists and trees
 
 Colors for list and trees like the File Explorer. An active list/tree has keyboard focus, an inactive does not.
 
@@ -138,6 +144,7 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.background`: Activity Bar background color.
 - `activityBar.dropBackground`: Drag and drop feedback color for the Activity Bar items.
 - `activityBar.foreground`: Activity bar foreground color (for example used for the icons).
+- `activityBar.inactiveForeground`: Activity bar item foreground color when it is inactive.
 - `activityBar.border`: Activity Bar border color with the Side Bar.
 - `activityBarBadge.background`: Activity notification badge background color.
 - `activityBarBadge.foreground`: Activity notification badge foreground color.
@@ -154,14 +161,11 @@ The Side Bar contains views like the Explorer and Search.
 - `sideBarTitle.foreground`: Side Bar title foreground color.
 - `sideBarSectionHeader.background`: Side Bar section header background color.
 - `sideBarSectionHeader.foreground`: Side Bar section header foreground color.
+- `sideBarSectionHeader.border`: Side bar section header border color.
 
 ## Editor Groups & Tabs
 
-Editor Groups are the containers of editors. There can be up to three editor groups. A Tab is the container of an editor. Multiple Tabs can be opened in one editor group.
-
-- `editorGroup.background`: Background color of an editor group. The background color shows up when dragging editor groups around.
-
-    ![editorGroup.background](images/theme-color-reference/editorGroup-background.gif)
+Editor Groups are the containers of editors. There can be many editor groups. A Tab is the container of an editor. Multiple Tabs can be opened in one editor group.
 
 - `editorGroup.border`: Color to separate multiple editor groups from each other.
 
@@ -183,6 +187,8 @@ Editor Groups are the containers of editors. There can be up to three editor gro
 
     ![editorGroupHeader.tabsBorder](images/theme-color-reference/editorgroupheader-tabsborder.gif)
 
+- `editorGroup.emptyBackground`: Background color of an empty editor group.
+- `editorGroup.focusedEmptyBorder`: Border color of an empty editor group that is focused.
 - `tab.activeBackground`: Active Tab background color.
 - `tab.activeForeground`: Active Tab foreground color in an active group.
 - `tab.border`: Border to separate Tabs from each other.
@@ -198,8 +204,12 @@ Editor Groups are the containers of editors. There can be up to three editor gro
 - `tab.unfocusedHoverBackground`: Tab background color in an unfocused group when hovering
 - `tab.hoverBorder`: Border to highlight tabs when hovering
 - `tab.unfocusedHoverBorder`: Border to highlight tabs in an unfocused group when hovering
+- `tab.activeModifiedBorder`: Border on the top of modified (dirty) active tabs in an active group.
+- `tab.inactiveModifiedBorder`: Border on the top of modified (dirty) inactive tabs in an active group.
+- `tab.unfocusedActiveModifiedBorder`: Border on the top of modified (dirty) active tabs in an unfocused group.
+- `tab.unfocusedInactiveModifiedBorder`: Border on the top of modified (dirty) inactive tabs in an unfocused group.
 
-## Editor Colors
+## Editor colors
 
 The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) for  details on updating a Color Theme and the available token types.
 
@@ -281,9 +291,9 @@ To see editor rulers, define their location with `"editor.rulers"`
 
 - `editorRuler.foreground`: Color of the editor rulers.
 
-Code Lens:
+CodeLens:
 
-![Code Lenses](images/theme-color-reference/codelens.png)
+![CodeLens](images/theme-color-reference/codelens.png)
 
 - `editorCodeLens.foreground`: Foreground color of an editor CodeLens.
 
@@ -323,6 +333,11 @@ Errors and warnings:
 - `editorHint.foreground`: Foreground color of hints in the editor.
 - `editorHint.border`: Border color of hints in the editor.
 
+Unused source code:
+
+- `editorUnnecessaryCode.border`: Border of unnecessary (unused) source code in the editor.
+- `editorUnnecessaryCode.opacity`: Opacity of unnecessary (unused) source code in the editor.
+
 The gutter contains the glyph margins and the line numbers:
 
 - `editorGutter.background`: Background color of the editor gutter. The gutter contains the glyph margins and the line numbers.
@@ -330,7 +345,7 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.addedBackground`: Editor gutter background color for lines that are added.
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
 
-## Diff Editor Colors
+## Diff editor colors
 
 For coloring inserted and removed text, use either a background or a border color but not both.
 
@@ -338,8 +353,9 @@ For coloring inserted and removed text, use either a background or a border colo
 - `diffEditor.insertedTextBorder`: Outline color for the text that got inserted.
 - `diffEditor.removedTextBackground`: Background color for text that got removed. The color must not be opaque to not hide underlying decorations.
 - `diffEditor.removedTextBorder`: Outline color for text that got removed.
+- `diffEditor.border`: Border color between the two text editors.
 
-## Editor Widget Colors
+## Editor widget colors
 
 The Editor widget is shown in front of the editor content. Examples are the Find/Replace dialog, the suggestion widget, and the editor hover.
 
@@ -368,7 +384,7 @@ The editor marker view shows when navigating to errors and warnings in the edito
 - `editorMarkerNavigationWarning.background`: Editor marker navigation widget warning color.
 - `editorMarkerNavigationInfo.background`: Editor marker navigation widget info color.
 
-## Peek View Colors
+## Peek view colors
 
 Peek views are used to show references and declarations as a view inside the editor.
 
@@ -389,7 +405,7 @@ Peek views are used to show references and declarations as a view inside the edi
 - `peekViewTitleDescription.foreground`: Color of the peek view title info.
 - `peekViewTitleLabel.foreground`: Color of the peek view title.
 
-## Merge Conflicts
+## Merge conflicts
 
 Merge conflict decorations are shown when the editor contains special diff ranges.
 
@@ -406,7 +422,7 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.commonContentForeground`: Common ancestor overview ruler foreground for inline merge conflicts.
 
-## Panel Colors
+## Panel colors
 
 Panels are shown below the editor area and contain views like Output and Integrated Terminal.
 
@@ -417,7 +433,7 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panelTitle.activeForeground`: Title color for the active panel.
 - `panelTitle.inactiveForeground`: Title color for the inactive panel.
 
-## Status Bar Colors
+## Status Bar colors
 
 The Status Bar is shown in the bottom of the workbench.
 
@@ -435,9 +451,7 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.prominentBackground`: Status Bar prominent items background color. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
 - `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
 
-## Title Bar Colors (macOS)
-
-**Note:** These colors are currently only supported on macOS.
+## Title Bar colors
 
 - `titleBar.activeBackground`: Title Bar background when the window is active.
 - `titleBar.activeForeground`: Title Bar foreground when the window is active.
@@ -445,7 +459,19 @@ The Status Bar is shown in the bottom of the workbench.
 - `titleBar.inactiveForeground`: Title Bar foreground when the window is inactive.
 - `titleBar.border`: Title bar border color.
 
-## Notification Colors
+## Menu Bar colors
+
+- `menubar.selectionForeground`: Foreground color of the selected menu item in the menubar.
+- `menubar.selectionBackground`: Background color of the selected menu item in the menubar.
+- `menubar.selectionBorder`: Border color of the selected menu item in the menubar.
+- `menu.foreground`: Foreground color of menu items.
+- `menu.background`: Background color of menu items.
+- `menu.selectionForeground`: Foreground color of the selected menu item in menus.
+- `menu.selectionBackground`: Background color of the selected menu item in menus.
+- `menu.selectionBorder`: Border color of the selected menu item in menus.
+- `menu.separatorBackground`: Color of a separator menu item in menus.
+
+## Notification colors
 
 **Note:** The colors below only apply for VS Code versions 1.21 and higher.
 
@@ -486,12 +512,12 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `extensionButton.prominentBackground`: Extension view button background color.
 - `extensionButton.prominentHoverBackground`: Extension view button background hover color.
 
-## Quick Picker
+## Quick picker
 
 - `pickerGroup.border`: Quick picker (Quick Open) color for grouping borders.
 - `pickerGroup.foreground`: Quick picker (Quick Open) color for grouping labels.
 
-## Integrated Terminal Colors
+## Integrated Terminal colors
 
 - `terminal.background`: The background of the Integrated Terminal's viewport.
 - `terminal.border`: The color of the border that separates split panes within the terminal. This defaults to panel.border.
@@ -520,18 +546,63 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 
 - `debugToolBar.background`: Debug toolbar background color.
 - `debugToolBar.border`: Debug toolbar border color.
+- `editor.stackFrameHighlightBackground`: Background color of the top stack frame highlight in the editor.
+- `editor.focusedStackFrameHighlightBackground`: Background color of the focused stack frame highlight in the editor.
 
-## Welcome Page
+## Welcome page
 
 - `welcomePage.buttonBackground`: Background color for the buttons on the Welcome page.
 - `welcomePage.buttonHoverBackground`: Hover background color for the buttons on the Welcome page.
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 
-## Git Colors
+## Git colors
 
+- `gitDecoration.addedResourceForeground`: Color for added Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.modifiedResourceForeground`: Color for modified Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.deletedResourceForeground`: Color for deleted Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.untrackedResourceForeground`: Color for untracked Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.ignoredResourceForeground`: Color for ignored Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.conflictingResourceForeground`: Color for conflicting Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.submoduleResourceForeground`: Color for submodule resources.
+
+## Settings Editor colors
+
+**Note:** These colors are for the GUI settings editor which can be opened with the `Preferences: Open Settings (UI)` command.
+
+- `settings.headerForeground`: The foreground color for a section header or active title.
+- `settings.modifiedItemIndicator`: The line that indicates a modified setting.
+- `settings.dropdownBackground`: Dropdown background.
+- `settings.dropdownForeground`: Dropdown foreground.
+- `settings.dropdownBorder`: Dropdown border.
+- `settings.dropdownListBorder`: Dropdown list border.
+- `settings.checkboxBackground`: Checkbox background.
+- `settings.checkboxForeground`: Checkbox foreground.
+- `settings.checkboxBorder`: Checkbox border.
+- `settings.textInputBackground`: Text input box background.
+- `settings.textInputForeground`: Text input box foreground.
+- `settings.textInputBorder`: Text input box border.
+- `settings.numberInputBackground`: Number input box background.
+- `settings.numberInputForeground`: Number input box foreground.
+- `settings.numberInputBorder`: Number input box border.
+
+## Breadcrumbs
+
+The theme colors for breadcrumbs navigation:
+
+- `breadcrumb.foreground`: Color of breadcrumb items.
+- `breadcrumb.focusForeground`: Color of focused breadcrumb items.
+- `breadcrumb.activeSelectionForeground`: Color of selected breadcrumb items.
+- `breadcrumbPicker.background`: Background color of breadcrumb item picker.
+
+## Snippets
+
+The theme colors for snippets:
+
+- `editor.snippetTabstopHighlightBackground`: Highlight background color of a snippet tabstop.
+- `editor.snippetTabstopHighlightBorder`: Highlight border color of a snippet tabstop.
+- `editor.snippetFinalTabstopHighlightBackground`: Highlight background color of the final tabstop of a snippet.
+- `editor.snippetFinalTabstopHighlightBorder`: Highlight border color of the final tabstop of a snippet.
+
+## Extension colors
+
+Color ids can also be contributed by extensions through the [color contribution point](/docs/extensionAPI/extension-points.md#contributescolors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery.md#extensiondetails) tab.

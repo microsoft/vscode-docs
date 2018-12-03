@@ -8,13 +8,13 @@ DateApproved: 8/22/2017
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 MetaSocialImage: images/cpp/languages_cpp.png
 ---
-# C/C++ for VS Code (Preview)
+# C/C++ for Visual Studio Code (Preview)
 
 C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to enable cross-platform C and C++ development using VS Code on Windows, Linux, and macOS. The extension is still in preview and our focus is code editing, navigation, and debugging support for C and C++ code everywhere that VS Code runs.
 
 ![cpp hero](images/cpp/cpp-hero.png)
 
-If you just want a lightweight tool to edit your C++ files, Visual Studio Code is a great choice but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of the Visual Studio IDE such as [Visual Studio Community](https://www.visualstudio.com/vs/community).
+If you just want a lightweight tool to edit your C++ files, Visual Studio Code is a great choice but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of the Visual Studio IDE such as [Visual Studio Community](https://visualstudio.microsoft.com/vs/community).
 
 If you run into any issues or have suggestions for the Microsoft C/C++ extension, please file [issues and suggestions on GitHub](https://github.com/Microsoft/vscode-cpptools/issues). If you haven't already provided feedback, please take this [quick survey](https://www.research.net/r/VBVV6C6) to help shape this extension for your needs.
 
@@ -35,9 +35,9 @@ With the C/C++ extension installed, open a folder that contains your C/C++ sourc
 
 ### Configuring IntelliSense
 
-The extension will attempt to determine your folder's basic configuration info based on compilers it finds on your system. If for any reason, that configuration is incomplete, you can generate a `c_cpp_properties.json` file by running the **C/Cpp: Edit configurations...** command from the **Command Palette** (`kb(workbench.action.showCommands)` and add the missing information.
+The extension will attempt to determine your folder's basic configuration info based on compilers it finds on your system. If for any reason, that configuration is incomplete, you can generate a `c_cpp_properties.json` file by running the **C/Cpp: Edit configurations** command from the **Command Palette** (`kb(workbench.action.showCommands)` and add the missing information.
 
-If a `#include` file or one of its dependencies cannot be found, you can also click on the green squiggles under the include statements to view suggestions for how to update your configuration.
+If a `#include` file or one of its dependencies cannot be found, you can also click on the red squiggles under the include statements to view suggestions for how to update your configuration.
 
 ![browse path light bulb](images/cpp/cpp-lightbulb.png)
 
@@ -72,7 +72,7 @@ Below you can see that the MinGW C++ compiler has been set as the default compil
 **If you want to build your application from VS Code, you will need to generate a `tasks.json` file:**
 
 * Open the **Command Palette** (`kb(workbench.action.showCommands)`).
-* Select the **Tasks: Configure Tasks...** command, click **Create tasks.json file from templates**, and you will see a list of task runner templates.
+* Select the **Tasks: Configure Task** command, click **Create tasks.json file from templates**, and you will see a list of task runner templates.
 * Select **Others** to create a task which runs an external command.
 * Change the `command` to the command line expression you use to build your application (for example `g++`).
 * Add any required args (for example `-g` to build for debugging).
@@ -127,7 +127,7 @@ For more information on tasks, see [Integrate with External Tools via Tasks](/do
 
 * Navigate to the Debug view by clicking the Debug icon in the Sidebar.
 * In the **Debug** view, click the **Configure** icon.
-* Select `C++ (GDB/LLDB)` (to use GDB or LLDB) or `C++ (Windows)` (to use the Visual Studio Windows Debugger) from the **Select Environment** dropdown. This creates a `launch.json` file for editing with two configurations:
+* Select `C++ (GDB/LLDB)` (to use GDB or LLDB) or `C++ (Windows)` (to use the Visual Studio Windows Debugger) from the **Select Environment** drop-down list. This creates a `launch.json` file for editing with two configurations:
   * **C++ Launch** defines the properties for launching your application when you start debugging.
   * **C++ Attach** defines the properties for attaching to a process that's already running.
 * Update the `program` property with the path to the program you are debugging.
@@ -376,7 +376,7 @@ macOS:
     * Core dumps cannot be loaded when debugging with GDB because GDB [does not support the core dump format used in macOS](https://www.sourceware.org/ml/gdb/2014-01/msg00036.html).
     * When attached to a process with GDB, break-all will end the process.
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 
@@ -385,14 +385,14 @@ Read on to find out about:
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
 * [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 
-## Common Questions
+## Common questions
 
-**Q: My project won't load.**
+### My project won't load
 
-**A:** VS Code doesn't currently support C++ project files, instead it considers a directory of your choosing to be the workspace of your project. Source code files inside that directory and its sub-directories are part of the workspace.
+VS Code doesn't currently support C++ project files, instead it considers a directory of your choosing to be the workspace of your project. Source code files inside that directory and its sub-directories are part of the workspace.
 
-**Q: How do I build/run my project?**
+### How do I build/run my project?
 
-**A:** VS Code supports tasks that you can configure to build your application, and natively understands the output of MSBuild, CSC, and XBuild. For more information, see the [Tasks](/docs/editor/tasks.md) documentation.
+VS Code supports tasks that you can configure to build your application, and natively understands the output of MSBuild, CSC, and XBuild. For more information, see the [Tasks](/docs/editor/tasks.md) documentation.
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues).

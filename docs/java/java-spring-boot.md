@@ -3,13 +3,13 @@ Order: 2
 Area: java
 TOCTitle: Spring Boot
 ContentId: d37118cf-1b5b-4aee-9727-52fcfcac16bd
-PageTitle: Spring Boot support in VS Code
+PageTitle: Spring Boot support in Visual Studio Code
 DateApproved: 5/30/2018
 MetaDescription: Spring Boot extensions for Java developer using Visual Studio Code editor.
 ---
-# Build Spring Boot Apps with VS Code
+# Spring Boot in Visual Studio Code
 
-Visual Studio Code is an ideal lightweight development environment for Spring Boot developers and there are several useful VS Code extensions including:
+Visual Studio Code is an ideal lightweight development environment for Spring Boot application developers and there are several useful VS Code extensions including:
 
 * [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 * [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
@@ -64,7 +64,7 @@ If you don't have an Azure subscription, you can sign up for a [free Azure accou
 
 ### Config your project
 
-1. You can start from the [Spring Data Azure Cosmos DB Sample Project](https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-documentdb-spring-boot-sample).
+1. You can start from the [Spring Data Azure Cosmos DB Sample Project](https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-cosmosdb-spring-boot-sample).
 
 2. Navigate to `src/main/resources` and open `application.properties`. Replace below properties in `application.properties` with information of your database.
 

@@ -5,7 +5,7 @@ TOCTitle: Extensions
 PageTitle: Visual Studio Code Azure Extensions
 ContentId: d2e93075-4cfe-48f4-b05e-f985c86d9713
 MetaDescription: Visual Studio Code Azure Extensions
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 ---
 # Azure Extensions
 
@@ -29,7 +29,7 @@ You can also search for Azure or cloud extensions in the VS Code Extensions view
 
 ![popular Azure extensions](images/extensions/popular-azure-extensions.png)
 
-## Next Steps
+## Next steps
 
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
 * [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.

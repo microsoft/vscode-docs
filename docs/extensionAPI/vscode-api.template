@@ -4,10 +4,10 @@ Area: extensionapi
 TOCTitle: vscode namespace API
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
 PageTitle: Visual Studio Code API Reference
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
-VSCodeCommitHash: b4e6fe3bd751448783ed20c8e49fdabd69514b8d
-VSCodeVersion: 1.24.0
+VSCodeCommitHash: 1d0e4299c6ccfe9210252c811b4247cfdc8a6a44
+VSCodeVersion: 1.29.0
 ---
 
 # vscode namespace API

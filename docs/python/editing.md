@@ -4,15 +4,15 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 06/04/2018
+DateApproved: 10/29/2018
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
-# Editing Python in VS Code
+# Editing Python in Visual Studio Code
 
 The Python extension provides many features for editing Python source code in Visual Studio Code:
 
-- [Autocomplete and Intellisense](#autocomplete-and-intellisense)
+- [Autocomplete and IntelliSense](#autocomplete-and-intellisense)
 - [Run Selection/Line in Terminal (REPL)](#run-selectionline-in-terminal-repl)
 - [Formatting](#formatting)
 - [Refactoring](#refactoring)
@@ -21,9 +21,15 @@ Also see [Linting](/docs/python/linting.md).
 
 ## Autocomplete and IntelliSense
 
-Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations.
+Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations. To customize the behavior of the analysis engine, see the [code analysis settings](settings-reference.md#code-analysis-settings) and [autocomplete settings](settings-reference.md#autocomplete-settings).
+
+You can also customize the general behavior of autocomplete and IntelliSense, even to disable these features entirely. See [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense).
 
 <video id="python-code-completion-video" src="https://az754404.vo.msecnd.net/public/python-intellisense.mp4" poster="/images/python_python-intellisense-placeholder.png" autoplay loop controls muted></video>
+
+> **Tip**: Check out the [IntelliCode extension for VS Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context. For more information, see the [IntelliCode for VS Code FAQ](https://docs.microsoft.com/visualstudio/intellicode/intellicode-visual-studio-code).
+
+### Enable IntelliSense for custom package locations
 
 To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). For example, you might have installed Google App Engine installed in custom locations, in which case you'd specify those locations as follows:
 
@@ -67,33 +73,65 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 | --- | --- |
 | The path to the python interpreter is incorrect | Check the `pythonPath` setting. Restart VS Code if you make a correction. |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
-| VS Code was not launched from the active virtual environment that would set the path to custom modules. | Launch VS Code from a command prompt with the correct virtual environment activated, for example: `(venv) ter@minal:~$ code`. |
+| VS Code was not launched from the active virtual environment that would set the path to custom modules. | Launch VS Code from a command prompt with the correct virtual environment activated, for example: `(venv) terminal:~$ code`. |
 
 ## Run Selection/Line in Terminal (REPL)
 
-The **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Ctrl+Enter)`) is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
+The **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`) is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
 
 Source code that runs in the terminal/REPL is cumulative until the current instance of the terminal is closed.
 
 The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. Note that initial startup might take a few moments especially if the first statement you run is an `import`.
 
-On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line is not run. If you encounter this behavior, try the command again the REPL has finished loading.
+On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line is not run. If you encounter this behavior, try the command again when the REPL has finished loading.
 
-> **Note**: At present, using `kbstyle(Ctrl+Enter)` keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
+> **Note**: At present, using `kbstyle(Shift+Enter)` keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
+
+## Jupyter code cells
+
+[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open source project that lets you easily combine Markdown text and executable Python source code on one canvas. If you're using an Anaconda environment or any other environment in which the [Jupyter package](https://pypi.org/project/jupyter/) is installed, you can define  Jupyter-like code cells within Python code using a `#%%` comment:
+
+```python
+#%%
+msg = "Hello World"
+print(msg)
+```
+
+When the Python extension detects a code cell, it adds a **Run Cell** or **Run All Cells** CodeLens above the comment:
+
+![Jupyter adornments for code cells in the VS Code editor](images/editing/code-cells-01.png)
+
+Selecting either command starts Jupyter (if necessary, which might take a minute), then runs the cell(s) in the Python interactive window.
+
+![Code cells running in a Python Interactive window](images/editing/code-cells-02.png)
+
+You can also run code cells using the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `#%%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
+
+### Open Jupyter notebooks
+
+You can also open a Jupyter notebook file (`.ipynb`) in VS Code, and the Python extension prompts you to import the notebook as a Python code file.
+
+![Prompt to import a Jupyter notebook file](images/editing/jupyter-prompt.png)
+
+In you choose **Import**, the notebook's cells are delimited in the Python file with `#%%` comments; Markdown cells are converted wholly to comments preceded with `#%% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
+
+![Jupyter notebook running in VS Code and the Python interactive window](images/editing/jupyter-notebook.png)
+
+If you open the file without importing, it appears as plain text.
 
 ## Formatting
 
-The Python extension supports source code formatting using either autopep8 (the default), black, or yapf.
+The Python extension supports source code formatting using either [autopep8](https://pypi.org/project/autopep8/) (the default), [black](https://github.com/ambv/black), or [yapf](https://yapf.now.sh/).
 
 ### General formatting settings
 
 | Setting<br/>(python.formatting.) | Default value | Description |
 | --- | --- | --- |
-| provider | `"autopep8"` | Specifies the formatter to use, either "autopep8" or "yapf". |
+| provider | `"autopep8"` | Specifies the formatter to use, either "autopep8", "yapf", or "black". |
 
 ### Formatter-specific settings
 
-The following settings apply to the individual formatters. The Python extension looks in the current `pythonPath` for the formatter. To use a formatter in another location, specify that location in the appropriate custom path setting.
+The following settings apply to the individual formatters. The Python extension looks in the current `pythonPath` for the formatter. To use a formatter in another location, specify that location in the appropriate custom path setting. The `pip install` commands may require elevation.
 
 | Formatter | Install steps | Arguments setting<br/>(python.formatting.) | Custom path setting<br/>(python.formatting.) |
 | --- | --- | --- | --- |
@@ -101,12 +139,15 @@ The following settings apply to the individual formatters. The Python extension 
 | black | pip install black | blackArgs | blackPath |
 | yapf | pip install yapf | yapfArgs | yapfPath |
 
-Example custom arguments:
+When using custom arguments, each top-level element of an argument string that's separated by space on the command line must be a separate item in the args list. For example:
 
 ```json
 "python.formatting.autopep8Args": ["--max-line-length", "120", "--experimental"],
 "python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]
+"python.formatting.blackArgs": ["--line-length", "100"]
 ```
+
+In the second example, the top-level element `{based_on_style: chromium, indent_width: 20}` is a single value contained in braces, so the spaces within that value don't delineate a separate element.
 
 ### Troubleshooting
 
@@ -114,10 +155,20 @@ If formatting fails, check the following possible causes:
 
 | Cause | Solution |
 | --- | --- |
-| The path to the python interpreter is incorrect | Check the `pythonPath` setting. |
-| The formatter is not installed in the current environment | Open a command prompt, navigate to the location specified in the `pythonPath` setting, and run `pip install` for the formatter.
+| The path to the python interpreter is incorrect. | Check the `pythonPath` setting. |
+| The formatter is not installed in the current environment. | Open a command prompt, navigate to the location specified in the `pythonPath` setting, and run `pip install` for the formatter.
 | The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
-| Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains an array of individual argument items such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`.
+| Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`.
+
+When using the black formatter, VS Code issues the following warning when pasting source code into the editor: **Black does not support the "Format Select" command.**
+
+To prevent this warning, add the following entry to your user or workspace settings to disable format on paste for Python files:
+
+```json
+"[python]": {
+    "editor.formatOnPaste": false
+}
+```
 
 ## Refactoring
 
@@ -156,10 +207,11 @@ Invoked by:
 - Right-click in editor and select **Sort Imports** (no selection is required)
 - Command Palette (`kb(workbench.action.showCommands)`), then **Python Refactor: Sort Imports**
 - Assign a keyboard shortcut to the `python.sortImports` command
+- Saving a file when [sort on save](#sort-imports-on-save) is enabled.
 
 ![Sorting import statements](images/editing/sortImports.gif)
 
-Custom arguments to isort can be specified in the `python.sortImports.args` setting, with each argument as a separate item in the array:
+Custom arguments to isort are specified in the `python.sortImports.args` setting, where each top-level element, as separated by spaces on the command line, is a separate item in the array:
 
 ```json
 "python.sortImports.args": ["-rc", "--atomic"],

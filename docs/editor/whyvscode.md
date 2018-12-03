@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Why VS Code
 ContentId: FF543B32-703C-4894-9A3B-2B5BFAF8B6B8
 PageTitle: Why Visual Studio Code?
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: Visual Studio Code provides developers with a new choice of tool that combines the simplicity of a code editor with the best tooling for their core edit-build-debug cycle. Visual Studio Code is available for macOS, Linux, and Windows.
 ---
 # Why did we build Visual Studio Code?
@@ -35,7 +35,7 @@ Customize every feature to your liking and install any number of third-party ext
 
 ## Built with love for the Web
 
-VS Code includes enriched built-in support for Node.js development with JavaScript and TypeScript, powered by the same underlying technologies that drive Visual Studio. VS Code also includes great tooling for web technologies such as JSX/React, HTML, CSS, Less, Sass, and JSON.
+VS Code includes enriched built-in support for Node.js development with JavaScript and TypeScript, powered by the same underlying technologies that drive Visual Studio. VS Code also includes great tooling for web technologies such as JSX/React, HTML, CSS, SCSS, Less, and JSON.
 
 ## Robust and extensible architecture
 
@@ -47,7 +47,7 @@ Visual Studio Code includes a public extensibility model that lets developers bu
 
 If you prefer a code editor-centric development tool or are building cross-platform web and cloud applications, we invite you to try out Visual Studio Code and let us know what you think!
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 

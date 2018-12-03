@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Activation Events
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
 PageTitle: Visual Studio Code Activation Events - package.json
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of activation events in the package.json extension manifest file.
 ---
 # Activation Events - package.json
@@ -17,6 +17,8 @@ Extensions are activated lazily in VS Code.  As a result, you need to provide VS
 * [`workspaceContains:${toplevelfilename}`](/docs/extensionAPI/activation-events.md#activationeventsworkspacecontains)
 * [`onFileSystem:${scheme}`](/docs/extensionAPI/activation-events.md#activationeventsonfilesystem)
 * [`onView:${viewId}`](/docs/extensionAPI/activation-events.md#activationeventsonview)
+* [`onUri`](/docs/extensionAPI/activation-events.md#activationeventsonuri)
+* [`onWebviewPanel:${viewType}`](/docs/extensionAPI/activation-events.md#activationeventsonwebviewpanel)
 * [`*`](/docs/extensionAPI/activation-events.md#activationevents)
 
 We also provide an overview of the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md) and the minimum required fields.
@@ -115,6 +117,39 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 ```
 
+## activationEvents.onUri
+
+This activation event is emitted and interested extensions will be activated whenever a system-wide Uri for that extension is opened. The Uri scheme is fixed to either `vscode` or `vscode-insiders`. The Uri authority must be the extension's identifier. The rest of the Uri is arbitrary.
+
+```json
+...
+"activationEvents": [
+    "onUri"
+]
+...
+```
+
+If the `vscode.git` extension defines `onUri` as an activation event, it will be activated in any of the following Uris are open:
+
+- `vscode://vscode.git/init`
+- `vscode://vscode.git/clone?url=https%3A%2F%2Fgithub.com%2FMicrosoft%2Fvscode-vsce.git`
+- `vscode-insiders://vscode.git/init` (for VS Code Insiders)
+
+## activationEvents.onWebviewPanel
+
+This activation event is emitted and interested extensions will be activated whenever VS Code needs to restore a webview with the matching `viewType`.
+
+For example, the declaration of onWebviewPanel below:
+
+```json
+"activationEvents": [
+    ...,
+    "onWebviewPanel:catCoding"
+]
+```
+
+will cause the extension to be activated when VS Code needs to restore a webview with the viewType: `catCoding`. The viewType is set in the call to `window.createWebviewPanel` and you will need to have another activation event (for example, onCommand) to initially activate your extension and create the webview.
+
 ## activationEvents.*
 
 This activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
@@ -131,7 +166,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 > **Note:** An extension **must** export an `activate()` function from its main module and it will be invoked **only once** by VS Code when any of the specified activation events is emitted. Also, an extension **should** export a `deactivate()` function from its main module to perform cleanup tasks on VS Code shutdown. Extension **must** return a Promise from `deactivate()` if the cleanup process is asynchronous. An extension may return `undefined` from `deactivate()` if the cleanup runs synchronously.
 
-## Next Steps
+## Next steps
 
 To learn more about VS Code extensibility model, try these topic:
 

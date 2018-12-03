@@ -1,10 +1,10 @@
 ---
-Order: 7
+Order: 9
 Area: nodejs
 TOCTitle: Debugging Recipes
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
-PageTitle: Node.js Debugging Recipes for VS Code
-DateApproved: 6/6/2018
+PageTitle: Node.js Debugging Recipes for Visual Studio Code
+DateApproved: 11/8/2018
 MetaDescription:  Learn more about how to setup debugging in Visual Studio Code with debugging recipes
 MetaSocialImage: debugging_Debugging.png
 ---
@@ -57,9 +57,9 @@ This recipe shows how to run and debug a VS Code Node.js project written in Type
 
 - [Debugging Node.js with TypeScript in Docker](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript)
 
-## MERN - Mongo, Express, React and NodeJS
+## MERN - Mongo, Express, React and Node.js
 
-This recipe shows how to run and debug a MERN (Mongo, Express, React and NodeJS) based project in VS Code.
+This recipe shows how to run and debug a MERN (Mongo, Express, React and Node.js) based project in VS Code.
 
 ![MERN logos](images/recipes/mern.png)
 
@@ -77,7 +77,7 @@ The Visual Studio Code editor supports debugging [Electron](https://electron.ato
 
 - [Debugging Electron Main and Renderer processes](https://github.com/Microsoft/vscode-recipes/tree/master/Electron)
 
-## Next Steps
+## Next steps
 
 * [Debugging](/docs/editor/debugging.md) - Read about general VS Code debugging features.
 * [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) - Learn about the built-in Node.js debugger.

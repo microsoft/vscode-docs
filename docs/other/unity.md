@@ -35,7 +35,7 @@ Open up **Unity Preferences**, **External Tools**, then browse for the Visual St
 
 ![Unity Preferences](images/unity/Unity_Preferences_External_Script_Editor.gif)
 
-> The Visual Studio Code executable can be found at `/Applications/Visual Studio Code.app` on macOS, `C:\Program Files (x86)\Microsoft VS Code\Code.exe` on Windows by default.
+> The Visual Studio Code executable can be found at `/Applications/Visual Studio Code.app` on macOS, `C:\users\{username}\AppData\Local\Programs\Microsoft VS Code\Code.exe` on Windows by default.
 
 **Unity has built-in support for opening scripts in Visual Studio Code** as an external script editor on Windows and macOS. Unity will detect when Visual Studio Code is selected as an external script editor and pass the correct arguments to it when opening scripts from Unity. Unity will also set up a default `.vscode/settings.json` with file excludes, if it does not already exist (from [Unity 5.5 Release notes](https://unity3d.com/unity/whats-new/unity-5.5.0)).
 
@@ -66,7 +66,7 @@ The community is continually developing more and more valuable extensions for Un
 
 The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-## Next Steps
+## Next steps
 
 Read on to learn more about:
 
@@ -75,11 +75,11 @@ Read on to learn more about:
 * [Debugging](/docs/editor/debugging.md) - how to use the debugger with your project
 * [C#](/docs/languages/csharp.md) - learn about the C# support in VS Code
 
-## Common Questions
+## Common questions
 
-**Q: I don't have IntelliSense.**
+### I don't have IntelliSense
 
-**A:** You need to ensure that your solution is open in VS Code (not just a single file).  Open the folder with your solution and you usually will not need to do anything else.  If for some reason VS Code has not selected the right solution context, you can change the selected project by clicking on the OmniSharp flame icon on the status bar.
+You need to ensure that your solution is open in VS Code (not just a single file).  Open the folder with your solution and you usually will not need to do anything else.  If for some reason VS Code has not selected the right solution context, you can change the selected project by clicking on the OmniSharp flame icon on the status bar.
 
 ![OmniSharp Flame on the Status Bar](images/unity/omnisharp.png)
 
@@ -87,9 +87,9 @@ Choose the `-CSharp` version of the solution file and VS Code will light up.
 
 ![Choose Solution](images/unity/selectsln.png)
 
-**Q: How can I change the file exclusions?**
+### How can I change the file exclusions?
 
-**A:** Unity creates a number of additional files that can clutter your workspace in VS Code.  You can easily hide these so that you can focus on the files you actually want to edit.
+Unity creates a number of additional files that can clutter your workspace in VS Code.  You can easily hide these so that you can focus on the files you actually want to edit.
 
 To do this, add the following JSON to your [workspace settings](/docs/getstarted/settings.md).
 
@@ -120,6 +120,6 @@ Before|After
 ------|-----
 ![Unfiltered files](images/unity/unfilteredfiles.png)|![filtered files](images/unity/filteredfiles.png)
 
-**Q: How can I debug Unity?**
+### How can I debug Unity?
 
-**A:** Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension.
+Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension. And check out [Debugging with VS Code](/docs/editor/debugging.md) to learn more about VS Code debugging support.

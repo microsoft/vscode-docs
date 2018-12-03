@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -14,17 +14,17 @@ Visual Studio Code lets you perform most tasks directly from the keyboard.  This
 
 >**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that platform. If you need the key binding for another platform, hover your mouse over the key you are interested in.
 
-## Keyboard Shortcuts Editor
+## Keyboard Shortcuts editor
 
 Visual Studio Code provides a rich and easy keyboard shortcuts editing experience using **Keyboard Shortcuts** editor. It lists all available commands with and without keybindings and you can easily change / remove / reset their keybindings using the available actions. It also has a search box on the top that helps you in finding commands or keybindings. You can open this editor by going to the menu under **File**  > **Preferences** > **Keyboard Shortcuts**. (**Code** > **Preferences** > **Keyboard Shortcuts** on macOS)
 
 ![Keyboard Shortcuts](images/keybinding/keyboard-shortcuts.gif)
 
-Most importantly, you can see keybindings according to your keyboard layout. For example, key binding `cmd+\` in US keyboard layout will be shown as `ctrl+shift+alt+cmd+7` when layout is changed to German. The dialog to enter key binding will assign the correct and desired key binding as per your keyboard layout.
+Most importantly, you can see keybindings according to your keyboard layout. For example, key binding `kbstyle(Cmd+\)` in US keyboard layout will be shown as `kbstyle(Ctrl+Shift+Alt+Cmd+7)` when layout is changed to German. The dialog to enter key binding will assign the correct and desired key binding as per your keyboard layout.
 
 For doing more advanced keyboard shortcut customization, read [Advanced Customization](/docs/getstarted/keybindings.md#advanced-customization).
 
-## Keymap Extensions
+## Keymap extensions
 
 Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, **File** > **Preferences** > **Keymap Extensions** shows you a list of popular keymap extensions. These extensions modify the VS Code shortcuts to match those of other editors so you don't need to learn new keyboard shortcuts. There is also a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) of extensions in the Marketplace.
 
@@ -62,7 +62,7 @@ All keyboard shortcuts in VS Code can be customized via the `keybindings.json` f
 * This will open the **Default Keyboard Shortcuts** on the left and your `keybindings.json` file where you can overwrite the default bindings on the right.
 * The list above isn't exhaustive. More commands may be listed under "Here are other available commands" in **Default Keyboard Shortcuts**.
 
-## Keyboard Rules
+## Keyboard rules
 
 The keyboard shortcuts dispatching is done by analyzing a list of rules that are expressed in JSON. Here are some examples:
 
@@ -91,7 +91,7 @@ Each rule consists of:
 * a `command` containing the identifier of the command to execute.
 * an **optional** `when` clause containing a boolean expression that will be evaluated depending on the current **context**.
 
-Chords (two separate keypress actions) are described by separating the two keypresses with a space. For example, `kbstyle(ctrl+k ctrl+c)`.
+Chords (two separate keypress actions) are described by separating the two keypresses with a space. For example, `kbstyle(Ctrl+K Ctrl+C)`.
 
 When a key is pressed:
 
@@ -110,9 +110,9 @@ The following modifiers are accepted:
 
 Platform|Modifiers
 --|---------
-macOS|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(cmd+)`
-Windows|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(win+)`
-Linux|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(meta+)`
+macOS|`kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Cmd+)`
+Windows|`kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Win+)`
+Linux|`kbstyle(Ctrl+)`, `kbstyle(Shift+)`, `kbstyle(Alt+)`, `kbstyle(Meta+)`
 
 The following keys are accepted:
 
@@ -137,6 +137,8 @@ The following is an example overriding the `kbstyle(Enter)` key to print some te
 ```
 
 The type command will receive `{"text": "Hello World"}` as its first argument and add "Hello World" to the file instead of producing the default command.
+
+For more information on commands that take arguments, refer to [Complex Commands](/docs/extensionAPI/vscode-api-commands.md).
 
 ## Removing a specific key binding rule
 
@@ -231,6 +233,10 @@ editorHasMultipleSelections | Multiple regions of text are selected (multiple cu
 editorReadOnly | The editor is read only.
 editorLangId | True when the editor's associated [language Id](/docs/languages/identifiers.md) matches. Example: `"editorLangId == typescript"`.
 isInDiffEditor | The active editor is a difference editor.
+**Operating system contexts** |
+isLinux | True when the OS is Linux
+isMac | True when the OS is macOS
+isWindows | True when the OS is Windows
 **Mode contexts** |
 inDebugMode | A debug session is running.
 inSnippetMode | The editor is in snippet mode.
@@ -266,6 +272,8 @@ notificationCenterVisible | Notification Center is visible at the bottom right o
 notificationToastsVisible | Notification toast is visible at the bottom right of VS Code.
 searchViewletVisible | Search view is open.
 sidebarVisible | Side Bar is displayed.
+sideBarFocus | Side Bar has focus.
+panelFocus | Panel has focus.
 editorIsOpen | True if one editor is open.
 inZenMode | Window is in Zen Mode.
 inDebugRepl | Focus is in the Debug Console REPL.
@@ -281,7 +289,49 @@ config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` i
 
 The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
 
-## Custom Keybindings for Refactorings
+### Active/Focused view or panel 'when' clause context
+
+You can have a keybinding that is enabled only when a specific view or panel is visible.
+
+Context name | True when
+------------ | ------------
+activeViewlet | True when view is visible. Example: `"activeViewlet == 'workbench.view.explorer'"`
+activePanel | True when panel is visible. Example: `"activePanel == 'workbench.panel.output'"`
+
+View Identifiers:
+
+* workbench.view.explorer - File Explorer
+* workbench.view.search - Search
+* workbench.view.scm - Source Control
+* workbench.view.debug - Debug
+* workbench.view.extensions - Extensions
+
+Panel Identifiers:
+
+* workbench.panel.markers - Problems
+* workbench.panel.output - Output
+* workbench.panel.repl - Debug Console
+* workbench.panel.terminal - Integrated Terminal
+* workbench.panel.comments - Comments
+* workbench.view.search - Search when `search.location` is set to `panel`
+
+If you want a keybinding that is enabled only when a specific view or panel has focus, use `sideBarFocus` or `panelFocus` in combination with `activeViewlet` or `activiewFocus`.
+
+For example, the when clause below is true only when the File Explorer has focus:
+
+```json
+"sideBarFocus && activeViewlet == 'workbench.view.explorer'"
+```
+
+### key-value when clause operator
+
+There is a key-value pair operator for `when` clauses. The expression `key =~ value` treats the right hand side as a regular expression to match against the left hand side. For example, to contribute context menu items for all Docker files, one could use:
+
+```json
+   "when": "resourceFileName =~ /docker/"
+```
+
+## Custom keybindings for refactorings
 
 The `editor.action.codeAction` command lets you configure keybindings for specific [Refactorings](/docs/editor/refactoring.md) (Code Actions). For example, the keybinding below triggers the **Extract function** refactoring Code Actions:
 
@@ -300,6 +350,8 @@ This is covered in depth in the [Refactoring](/docs/editor/refactoring.md#keybin
 ## Default Keyboard Shortcuts
 
 >**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts). You can view the currently active keyboard shortcuts in VS Code in the **Command Palette** (**View** -> **Command Palette**) or in the **Keyboard Shortcuts** editor (**File** > **Preferences** > **Keyboard Shortcuts**).
+
+Some commands included below do not have default keyboard shortcuts (`kbstyle(unassigned)`) but you can assign your own keybindings.
 
 ### Basic Editing
 
@@ -392,6 +444,7 @@ Key|Command|Command id
 `kb(workbench.action.showCommands)`|Show All Commands|`workbench.action.showCommands`
 `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Navigate Editor Group History|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
 `kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`
+`kb(workbench.action.quickInputBack)`|Go back in Quick Input|`workbench.action.quickInputBack`
 `kb(workbench.action.navigateForward)`|Go Forward|`workbench.action.navigateForward`
 
 ### Editor/Window Management
@@ -476,8 +529,8 @@ Key|Command|Command id
 `kb(workbench.action.search.toggleQueryDetails)`|Toggle Search Details|`workbench.action.search.toggleQueryDetails`
 `kb(search.action.focusNextSearchResult)`|Focus Next Search Result|`search.action.focusNextSearchResult`
 `kb(search.action.focusPreviousSearchResult)`|Focus Previous Search Result|`search.action.focusPreviousSearchResult`
-`kb(search.history.showNext)`|Show Next Search Term|`search.history.showNext`
-`kb(search.history.showPrevious)`|Show Previous Search Term|`search.history.showPrevious`
+`kb(history.showNext)`|Show Next Search Term|`history.showNext`
+`kb(history.showPrevious)`|Show Previous Search Term|`history.showPrevious`
 
 ### Preferences
 
@@ -523,7 +576,7 @@ Key|Command|Command id
 `kb(workbench.extensions.action.showPopularExtensions)`|Show Popular Extensions|`workbench.extensions.action.showPopularExtensions`
 `kb(workbench.extensions.action.updateAllExtensions)`|Update All Extensions|`workbench.extensions.action.updateAllExtensions`
 
-## Next Steps
+## Next steps
 
 Now that you know about our Key binding support, what's next...
 
@@ -531,17 +584,17 @@ Now that you know about our Key binding support, what's next...
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - End to end Node.js scenario with a sample app
 
-## Common Questions
+## Common questions
 
-**Q: How to find out what command is bound to a specific key?**
+### How can I find out what command is bound to a specific key?
 
-**A:** In the **Default Keyboard Shortcuts**, open `Quick Outline` by pressing `kb(workbench.action.gotoSymbol)`
+In the **Default Keyboard Shortcuts**, open `Quick Outline` by pressing `kb(workbench.action.gotoSymbol)`
 
 ![Key bindings quick outline](images/keybinding/outline.png)
 
-**Q: How to add a key binding to an action? For example add Ctrl+D to Delete Lines**
+### How to add a key binding to an action? For example, add Ctrl+D to Delete Lines
 
-**A:** Find a rule that triggers the action in the **Default Keyboard Shortcuts** and write a modified version of it in your `keybindings.json` file:
+Find a rule that triggers the action in the **Default Keyboard Shortcuts** and write a modified version of it in your `keybindings.json` file:
 
 ```json
 // Original, in Default Keyboard Shortcuts
@@ -552,15 +605,15 @@ Now that you know about our Key binding support, what's next...
                                      "when": "editorTextFocus" },
 ```
 
-**Q: How can I add a key binding for only certain file types?**
+### How can I add a key binding for only certain file types?
 
-**A:** Use the `editorLangId` context key in your `when` clause:
+Use the `editorLangId` context key in your `when` clause:
 
 ```json
 { "key": "shift+alt+a",           "command": "editor.action.blockComment",
                                      "when": "editorTextFocus && editorLangId == csharp" },
 ```
 
-**Q: I have modified my key bindings in `keybindings.json`, why don't they work?**
+### I have modified my key bindings in `keybindings.json`, why don't they work?
 
-**A:** The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.
+The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.

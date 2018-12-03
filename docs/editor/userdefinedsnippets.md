@@ -4,16 +4,16 @@ Area: editor
 TOCTitle: Creating snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Creating your own snippets in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Creating your own snippets
 
 Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
 
-Snippets show in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": true`, type a *snippet prefix*, and press `kb(insertSnippet)` to insert a snippet.
+In Visual Studio Code, snippets show in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": "on"`, type a *snippet prefix*, and press `kb(insertSnippet)` to insert a snippet.
 
-The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'interpolated shell code', which is not supported.
+The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exceptions of 'interpolated shell code' and the use of `\u`; both are not supported.
 
 ![ajax snippet](images/userdefinedsnippets/ajax-snippet.gif)
 
@@ -29,9 +29,9 @@ Below are some popular extensions which include snippets in their language suppo
 
 ## Creating your own snippets
 
-You can define your own snippets, either global snippets or snippets for a specific language. To open up a snippet file for editing, select **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS) and select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear or create a new global snippet (**New Global Snippets file...**).
+You can define your own snippets, either global snippets or snippets for a specific language. To open up a snippet file for editing, select **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS) and select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear or create a new global snippet (**New Global Snippets file**).
 
-![snippet dropdown](images/userdefinedsnippets/snippet-dropdown.png)
+![snippet drop-down](images/userdefinedsnippets/snippet-dropdown.png)
 
 Snippets are defined in a JSON format. The example below is a `For Loop` snippet you would use for JavaScript:
 
@@ -45,7 +45,7 @@ Snippets are defined in a JSON format. The example below is a `For Loop` snippet
           "}"
         ],
         "description": "For Loop"
-    },
+    }
 }
 ```
 
@@ -79,7 +79,7 @@ The sample below is the `For Loop` again but this time it is scoped to JavaScrip
           "}"
         ],
         "description": "For Loop"
-    },
+    }
 }
 ```
 
@@ -145,8 +145,8 @@ The following example inserts the name of the current file without its ending, s
 
 ```
 ${TM_FILENAME/(.*)\\..+$/$1/}
-  |           |         | |
-  |           |         | |-> no options
+  |           |         |  |
+  |           |         |  |-> no options
   |           |         |
   |           |         |-> references the contents of the first
   |           |             capture group
@@ -157,18 +157,39 @@ ${TM_FILENAME/(.*)\\..+$/$1/}
   |-> resolves to the filename
 ```
 
+### Placeholder-Transform
+
+Like a Variable-Transform, a transformation of a placeholder allows changing the inserted text for the placeholder when moving to the next tab stop.
+The inserted text is matched with the regular expression and the match or matches - depending on the options - are replaced with the specified replacement format text.
+Every occurrence of a placeholder can define its own transformation independently using the value of the first placeholder.
+The format for Placeholder-Transforms is the same as for Variable-Transforms.
+
+### Transform examples
+
+The examples are shown within double quotes, as they would appear inside a snippet body, to illustrate the need to double escape certain characters. Sample transformations and the resulting output for the filename `example-123.456-TEST.js`.
+
+Example | Output | Explanation
+-------------|--------|------------
+`"${TM_FILENAME/[\\.]/_/}"` | `example-123_456-TEST.js` | Replace the first `.` with `_`
+`"${TM_FILENAME/[\\.-]/_/g}"` | `example_123_456_TEST_js` | Replace each `.` or `-` with `_`
+`"${TM_FILENAME/(.*)/${1:/upcase}/}"` | `EXAMPLE-123.456-TEST.JS` | Change to all uppercase
+`"${TM_FILENAME/[^0-9^a-z]//gi}"` | `example123456TESTjs` | Remove non-alphanumeric characters
+
 ### Grammar
 
 Below is the EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus-Naur_form)) for snippets. With `\` (backslash), you can escape `$`, `}` and `\`. Within choice elements, the backslash also escapes comma and pipe characters.
 
 ```
 any         ::= tabstop | placeholder | choice | variable | text
-tabstop     ::= '$' int | '${' int '}'
+tabstop     ::= '$' int
+                | '${' int '}'
+                | '${' int  transform '}'
 placeholder ::= '${' int ':' any '}'
 choice      ::= '${' int '|' text (',' text)* '|}'
-variable    ::= '$' var | '${' var }'
+variable    ::= '$' var | '${' var '}'
                 | '${' var ':' any '}'
-                | '${' var '/' regex '/' (format | text)+ '/' options '}'
+                | '${' var transform '}'
+transform   ::= '/' regex '/' (format | text)+ '/' options
 format      ::= '$' int | '${' int '}'
                 | '${' int ':' '/upcase' | '/downcase' | '/capitalize' '}'
                 | '${' int ':+' if '}'
@@ -216,14 +237,14 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 }
 ```
 
-## Next Steps
+## Next steps
 
 * [Command Line](/docs/editor/command-line.md) - VS Code has a rich command line interface to open or diff files and install extensions.
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code.
 * [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) - You can package themes, snippets and language colorizers for use in VS Code.
 
-## Common Questions
+## Common questions
 
-**Q: What if I want to use existing TextMate snippets from a .tmSnippet file?**
+### What if I want to use existing TextMate snippets from a .tmSnippet file?
 
-**A:** You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/docs/extensions/themes-snippets-colorizers.md#using-textmate-snippets) in our Extension Authoring documentation.
+You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/docs/extensions/themes-snippets-colorizers.md#using-textmate-snippets) in our Extension Authoring documentation.

@@ -1,10 +1,10 @@
 ---
-Order: 10
+Order: 11
 Area: extensions
 TOCTitle: Developing Extensions
 ContentId: 44569A0C-7196-48E6-A5EE-FC5AAAAD32F3
 PageTitle: Developing your own Visual Studio Code Extension
-DateApproved: 6/6/2018
+DateApproved: 11/8/2018
 MetaDescription: Visual Studio Code extension (plug-in) development. Learn about running, debugging, profiling, and troubleshooting extensions.
 ---
 # Developing Extensions
@@ -23,7 +23,7 @@ You can use VS Code to develop an extension for VS Code and VS Code provides sev
 
 We suggest you start your extension by scaffolding out the basic files. You can use the `yo code` Yeoman generator to do this and we cover the details in the [extension generator](/docs/extensions/yocode.md) topic.  The generator will ensure everything is set up so you have a great development experience.
 
-> **Note**: The following sections assume you used the `yo code` Yeoman extension generator to create an extension project with the appropriate `launch.json` and `task.json`.
+> **Note**: The following sections assume you used the `yo code` Yeoman extension generator to create an extension project with the appropriate `launch.json` and `tasks.json`.
 
 ## Running and debugging your extension
 
@@ -158,7 +158,7 @@ To open the **Developer Tools** console in VS Code, use the **Help** > **Toggle 
 
 ### Reinstall the extension
 
-Sometimes an extension installation can fail or get corrupted. If an extension isn't working correctly, you can always try to uninstall and reinstall the extension. VS Code has a handy command **Developer: Reinstall Extension...** which will present a dropdown with all of your installed extensions. Choose the extension which is giving you trouble and then after the extension is reinstalled, follow the notification to reload VS Code.
+Sometimes an extension installation can fail or get corrupted. If an extension isn't working correctly, you can always try to uninstall and reinstall the extension. VS Code has a handy command **Developer: Reinstall Extension** which will present a drop-down list with all of your installed extensions. Choose the extension which is giving you trouble and then after the extension is reinstalled, follow the notification to reload VS Code.
 
 ### Consult the extension README
 
@@ -168,19 +168,18 @@ Extensions may have additional dependencies like standalone linters or compilers
 
 You can also click the extension name in the upper banner and you'll go to the extension's Marketplace page where you can find a link to the extension's GitHub repository under **Resources** which may have more documentation.
 
-## Next Steps
+## Next steps
 
 * [Testing your Extension](/docs/extensions/testing-extensions.md) - Learn how to write unit and integration tests for your extension
 * [Publishing Tool](/docs/extensions/publish-extension.md) - Publish your extension with the vsce command line tool.
 * [Extension Manifest file](/docs/extensionAPI/extension-manifest.md) - VS Code extension manifest file reference
 * [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs
 
-## Common Questions
+## Common questions
 
-**Q: How can I use API from my extension that was introduced in a newer release of VS Code?**
+### How can I use an API in my extension that was introduced in a newer release of VS Code?
 
-**A:** If your extension is using an API that was introduced in a newer release of VS Code, you have to declare this dependency in the
-`engines` field of the `package.json` file of the extension.
+If your extension is using an API that was introduced in a newer release of VS Code, you have to declare this dependency in the `engines` field of the `package.json` file of the extension.
 
 Here are the steps:
 
