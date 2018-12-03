@@ -27,7 +27,6 @@
       ["Common Capabilities", "/api/extension-capabilities/common-capabilities"],
       ["Theming", "/api/extension-capabilities/theming"],
       ["Extending Workbench", "/api/extension-capabilities/extending-workbench"]
-      ["Debugging", "/api/extension-capabilities/debugging"]
     ]
   },
   {
