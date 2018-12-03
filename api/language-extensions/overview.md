@@ -47,9 +47,8 @@ By standardizing the communication between a Language Server (a static code anal
 
 In the [Language Features](/api/language-extensions/language-features) listing, you can find a listing of all VS Code language features and how they map to the [Language Server Protocol Specification](https://microsoft.github.io/language-server-protocol/specification).
 
-There are also two in-depth guides that explain two approaches for extension authors to implement rich language features in VS Code:
+We offer an in-depth guide that explains how to implement rich language features in VS Code:
 
-- [Smart Editing Guide](/api/language-extensions/smart-editing-guide)
 - [Smart Editing LSP Guide](/api/language-extensions/smart-editing-lsp-guide)
 
 ![multi-editor](images/overview/multi-editor.png)
