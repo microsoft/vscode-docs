@@ -17,8 +17,6 @@ In September, along with GitHub, [we announced the GitHub Pull Requests extensio
 
 <iframe src="https://www.youtube.com/embed/DAqDEi0fGco?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
-*First look video of a rich code navigation experience*
-
 ## Say goodbye to superficial reviews
 
 To thoroughly review a pull request, you need to understand the context of its changes and how they impact the broader codebase. Today, many developers do "lightweight reviews" in their browser, which provides an extremely convenient workflow, but makes it easy to miss much-needed context (for example, "Does this change break any consumers of the API?"). The [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension improved that experience by allowing you to leverage the capabilities of your developer environment to build and navigate the source code under review, but still requires you to checkout branches locally, and have the necessary platform SDKs and language extensions installed. Doing this for every PR can require a significant amount of time and context switches, which leaves you with the choice between the convenience of quickly reviewing remote PRs, or the power of reviewing them in your local editor. **We think developers should have both**.
