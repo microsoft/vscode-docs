@@ -11,13 +11,11 @@ Author: Jonathan Carter
 
 December 4, 2018 Jonathan Carter, [@lostintangent](https://twitter.com/LostInTangent)
 
-Pull requests are a critical collaboration tool for millions of developers every day, facilitating asynchronous code reviews and the distribution of knowledge amongst teams and open source communities. Because of this widespread utility and adoption, any advancement to the PR review workflow can have a significant impact on developer productivity, product quality and release velocity.
+Pull requests are a critical collaboration tool for millions of develPlopers every day, facilitating asynchronous code reviews and the distribution of knowledge amongst teams and open source communities. Because of this widespread utility and adoption, any advancement to the PR review workflow can have a significant impact on developer productivity, product quality and release velocity.
 
 In September, along with GitHub, [we announced the GitHub Pull Requests extension](https://code.visualstudio.com/blogs/2018/09/10/introducing-github-pullrequests), which enabled developers to review source code in the same place they write it: inside their familiar and highly-customized editor. Today, we're excited to share a sneak peek of a new experience that will further enhance in-editor PR reviews with support for **rich, multi-repository code navigations**.
 
-[![](https://user-images.githubusercontent.com/116461/49441512-92290500-f77b-11e8-87b4-fc2a0fee7f97.PNG)](http://www.youtube.com/watch?v=DAqDEi0fGco "First look at a rich code navigation experience")
-
-*First look video of a rich code navigation experience*
+[First look video of a rich code navigation experience](http://www.youtube.com/watch?v=DAqDEi0fGco)
 
 ## Say goodbye to superficial reviews
 
@@ -29,7 +27,7 @@ The rich code navigation experience we're building helps developers keep track o
 
 *Navigating a C#-based PR on macOS, without even having the C# extension or .NET Core installed.*
 
-![Navigating a C++ PR](C++.gif)
+![Navigating a C++ PR](CPlusPlus.gif)
 
 *Navigating a C++-based PR on macOS, without even having the C++ extension installed.*
 
