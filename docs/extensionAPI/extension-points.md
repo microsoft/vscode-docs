@@ -697,7 +697,9 @@ The above example extension contributes the [`typescript-styled-plugin`](https:/
 
 TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript.
 
-Extensions can now configure contributed TypeScript plugins through an API provided by VS Code's built-in TypeScript extension:
+### Plugin configuration
+
+Extensions can send configuration data to contributed TypeScript plugins through an API provided by VS Code's built-in TypeScript extension:
 
 ```ts
 // In your VS Code extension
@@ -723,7 +725,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
     // Configure the 'my-typescript-plugin-id' plugin
     api.configurePlugin('my-typescript-plugin-id', {
-        value: process.env['SOME_VALUE']
+        someValue: process.env['SOME_VALUE']
     });
 }
 ```
