@@ -57,19 +57,23 @@ Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services
 
 First, make sure you have an Azure DevOps [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
 
-In the following examples, the organization's name is `monacotools`. From your organization's home page (for example: `https://dev.azure.com/monacotools`), go to the **Security** page:
+In the following examples, the organization's name is `vscode`. From your organization's home page (for example: `https://dev.azure.com/vscode`), go to the **Security** page:
 
-![Security page](images/publish-extension/publishers1.png)
+![Security page](images/publish-extension/token1.png)
 
-Click **Add** to create a new Personal Access Token:
+Select `Personal access tokens` and click **New Token** to create a new Personal Access Token:
 
-![Add personal access token](images/publish-extension/publishers2.png)
+![Create personal access token](images/publish-extension/token2.png)
 
-Give the Personal Access Token a nice description, optionally extend its expiration date to 1 year, make it accessible to every organization and set the authorization to **all scopes**:
+Give the Personal Access Token a name, optionally extend its expiration date to 1 year, make it accessible to every organization, select a **custom defined** scope ruleset and click **Show all scopes**:
 
-![Personal access token details](images/publish-extension/publishers3.png)
+![Personal access token details](images/publish-extension/token3.png)
 
-The next screen will display your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
+Finally, scroll down the list of possible scopes until you find **Marketplace** and select both **Acquire** and **Manage**:
+
+![Personal access token details](images/publish-extension/token4.png)
+
+Click **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
 
 ### Create a publisher
 

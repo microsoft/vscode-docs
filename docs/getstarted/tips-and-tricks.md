@@ -465,7 +465,7 @@ Here is a selection of common features for editing code. If the keyboard shortcu
 
 ### Multi cursor selection
 
-To add cursors at arbitrary positions, select a position with your mouse and use `kbstyle(Alt+Click)`.
+To add cursors at arbitrary positions, select a position with your mouse and use `kbstyle(Alt+Click)` (`kbstyle(Option+click)` on macOS).
 
 To set cursors above or below the current position use:
 
@@ -486,7 +486,7 @@ This only selects the next occurrence after the one you selected so you can add 
 
 ### Column (box) selection
 
-You can select blocks of text by holding `kbstyle(Shift+Alt)` while you drag your mouse. A separate cursor will be added to the end of each selected line.
+You can select blocks of text by holding `kbstyle(Shift+Alt)` (`kbstyle(Shift+Option)` on macOS) while you drag your mouse. A separate cursor will be added to the end of each selected line.
 
 ![Column text selection](images/tips-and-tricks/column-select.gif)
 
@@ -848,7 +848,7 @@ Select **Terminal** from the top-level menu, run the command **Run Task**, and s
 
 You can define a keyboard shortcut for any task. From the **Command Palette** (`kb(workbench.action.showCommands)`), select **Preferences: Open Keyboard Shortcuts File**, bind the desired shortcut to the `workbench.action.tasks.runTask` command, and define the **Task** as `args`.
 
-For example, to bind kb(Ctrl+H) to the `Run tests` task, add the following:
+For example, to bind `kbstyle(Ctrl+H)` to the `Run tests` task, add the following:
 
 ```json
 {

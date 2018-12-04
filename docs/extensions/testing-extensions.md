@@ -118,83 +118,95 @@ The command will expose some optional environment variables, which you can use t
 
 You can create free projects on [Azure DevOps](https://azure.microsoft.com/services/devops/). This gives you source code hosting, planning boards, building and testing infrastructure, and more. On top of that, you get [10 free parallel jobs](https://azure.microsoft.com/services/devops/pipelines/) for building your projects across all 3 major platforms: Windows, macOS and Linux.
 
-After registering and creating your new project, simply add the following `build.yml` to the root of your extension's repository:
+After registering and creating your new project, simply add the following `.azure-pipelines.yml` to the root of your extension's repository:
 
-```yml
+```yaml
 jobs:
 - job: Windows
   pool:
-    name: Hosted VS2017
-    demands: npm
+    vmImage: 'vs2017-win2016'
+
   steps:
   - task: NodeTool@0
     displayName: 'Use Node 8.x'
     inputs:
       versionSpec: 8.x
+
   - task: Npm@1
     displayName: 'Install dependencies'
     inputs:
       verbose: false
+
   - task: Npm@1
     displayName: 'Compile sources'
     inputs:
       command: custom
       verbose: false
       customCommand: 'run compile'
+
   - script: 'node node_modules/vscode/bin/test'
     displayName: 'Run tests'
+
 - job: macOS
   pool:
-    name: Hosted macOS
-    demands: npm
+    vmImage: 'macOS-10.13'
+
   steps:
   - task: NodeTool@0
     displayName: 'Use Node 8.x'
     inputs:
       versionSpec: 8.x
+
   - task: Npm@1
     displayName: 'Install dependencies'
     inputs:
       verbose: false
+
   - task: Npm@1
     displayName: 'Compile sources'
     inputs:
       command: custom
       verbose: false
       customCommand: 'run compile'
+
   - script: 'node node_modules/vscode/bin/test'
     displayName: 'Run tests'
+
 - job: Linux
   pool:
-    name: Hosted Ubuntu 1604
-    demands: npm
+    vmImage: 'ubuntu-16.04'
+
   steps:
   - task: NodeTool@0
     displayName: 'Use Node 8.x'
     inputs:
       versionSpec: 8.x
+
   - task: Npm@1
     displayName: 'Install dependencies'
     inputs:
       verbose: false
+
   - task: Npm@1
     displayName: 'Compile sources'
     inputs:
       command: custom
       verbose: false
       customCommand: 'run compile'
+
   - script: |
       set -e
       /usr/bin/Xvfb :10 -ac >> /tmp/Xvfb.out 2>&1 &
       disown -ar
     displayName: 'Start xvfb'
+
   - script: 'node node_modules/vscode/bin/test'
     displayName: 'Run tests'
     env:
       DISPLAY: :10
 ```
 
-Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts#get-your-first-build) in your DevOps project and point it to the `build.yml` file. Trigger a build and voilá:
+Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts#get-your-first-build) in your DevOps project and point it to the `.azure-pipelines.yml` file. Trigger a build and voilá:
 
 ![pipelines](images/testing-extensions/pipelines.png)
 

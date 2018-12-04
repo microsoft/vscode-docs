@@ -83,9 +83,14 @@ Topic metadata enables certain functionalities for the topics such as table of c
 * **Area** - General area within VS Code
 * **TOCTitle** - The title used in the left rail Table of Contents for this page
 * **PageTitle** - The title used in the HTML title for the page and in search results
+* **ContentId** - A GUID which uniquely identifies the topic to DevDiv doc reporting.
 * **DateApproved** - This is set when the page is actually published on the VS Code portal. You can ignore it.
-* **MetaDescription** - The meta description for this page which helps for search
+* **MetaDescription** - The meta description for this page which helps for search, use sentence structure limited to 300 characters.
 * **MetaTags** - Further tags for this page again for search
+
+## Product name
+
+Use the full product name "Visual Studio Code" in the topic MetaDescription and the first use in a topic. You can use the shortened "VS Code" after that throughout the rest of the content. Do not use "VSCode" (no space) or "Code".
 
 ## Formatting
 
@@ -100,7 +105,7 @@ Use bold for VS Code commands and UI elements.
     **Extensions: Install Extension**
     **Debug Console**
 
-Limit the use of bold for emphasis unless it is crucial to get the user's attention.
+Limit the use of bold for emphasis unless it is crucial to get the user's attention. Avoid the use of italics for emphasis since italics doesn't render well on the code.visualstudio.com site.
 
 Use Markdown highlight for settings, filename and JSON attributes.
 
@@ -119,16 +124,15 @@ For links within our own documentation, use a site relative link like `/docs/edi
 
 >For example: `[Why VS Code](/docs/editor/whyvscode.md)` - links to the **Why Visual Studio Code** page
 
-<strike>>**Caution:** Do not include the .md file extension.</strike>
 >**Correction:** For this repo to ease content development you should add the .md suffix.  We will parse these out for the website deployment.
 
 ### Bookmarks
 
-To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page#subheading-title)`.
+To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page.md#subheading-title)`.
 
 Note the subheading title is lowercase and subheading title words are separated by '-' dashes.
 
->For example: `[More on documentation intent](#documentation-intent)` - links to the **Documentation intent** subheading above.
+>For example: `[Keyboard Shortcuts](/docs/editor/codebasics.md#keyboard-shortcuts)` - links to https://code.visualstudio.com/docs/editor/codebasics#_keyboard-shortcuts.
 
 ### Images
 

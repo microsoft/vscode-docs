@@ -659,7 +659,7 @@ Throughout this tutorial, all the app code is contained in a single `app.py` fil
 1. In the `hello_app` folder, create a file `webapp.py` with the following contents:
 
     ```python
-    """Entry point for the application."""
+    # Entry point for the application.
     from . import app    # For application discovery by the 'flask' command.
     from . import views  # For import side-effects of setting up routes.
     ```

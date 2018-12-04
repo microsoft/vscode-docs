@@ -23,7 +23,7 @@ Also see [Linting](/docs/python/linting.md).
 
 Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations. To customize the behavior of the analysis engine, see the [code analysis settings](settings-reference.md#code-analysis-settings) and [autocomplete settings](settings-reference.md#autocomplete-settings).
 
-You can also customize the general behavior of autocomplete and IntelliSense, even to disable these features entirely. See [Customizing IntelliSense](intellisense.md#_customizing-intellisense).
+You can also customize the general behavior of autocomplete and IntelliSense, even to disable these features entirely. See [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense).
 
 <video id="python-code-completion-video" src="https://az754404.vo.msecnd.net/public/python-intellisense.mp4" poster="/images/python_python-intellisense-placeholder.png" autoplay loop controls muted></video>
 
@@ -220,18 +220,6 @@ Custom arguments to isort are specified in the `python.sortImports.args` setting
 To use a custom isort script, use the `python.sortImports.path` setting to specify the path:
 
 Further configurations can be stored in an `.isort.cfg` file as documented on [Configuring isort](https://github.com/timothycrosley/isort#configuring-isort).
-
-### Sort imports on save
-
-To automatically sort imports whenever you save a file, add the following entry to your user or workspace settings:
-
-```json
-"[python]": {
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": true
-    }
-}
-```
 
 ## Next steps
 

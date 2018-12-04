@@ -546,6 +546,8 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 
 - `debugToolBar.background`: Debug toolbar background color.
 - `debugToolBar.border`: Debug toolbar border color.
+- `editor.stackFrameHighlightBackground`: Background color of the top stack frame highlight in the editor.
+- `editor.focusedStackFrameHighlightBackground`: Background color of the focused stack frame highlight in the editor.
 
 ## Welcome page
 

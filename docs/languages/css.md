@@ -187,7 +187,7 @@ As this is the only command in the file, you can execute it by pressing `kb(work
 
 Since in more complex environments there can be more than one build task we prompt you to pick the task to execute after pressing `kb(workbench.action.tasks.build)` (**Run Build Task**). In addition, we allow you to scan the output for compile problems (errors and warnings). Depending on the compiler, select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output, select **Never scan the build output** from the presented list.
 
-At this point, you should see an additional file show up in the file list `sample.html`.
+At this point, you should see an additional file show up in the file list `styles.css`.
 
 If you want to make the task the default build task to run execute **Configure Default Build Task** from the global **Terminal** menu and select the corresponding **Sass** or **Less** task from the presented list.
 

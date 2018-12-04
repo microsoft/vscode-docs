@@ -33,9 +33,9 @@ Open files in each editor are displayed with tabbed headers (Tabs) at the top of
 
 You can open as many editors as you like side by side vertically and horizontally. If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
 
-* `kbstyle(Ctrl)` (macOS: `kbstyle(Cmd)`) click on a file in the Explorer.
+* `kbstyle(Alt)` click on a file in the Explorer.
 * `kb(workbench.action.splitEditor)` to split the active editor into two.
-* **Open to the Side** from the Explorer context menu on a file.
+* **Open to the Side** (`kb(explorer.openToSide)`) from the Explorer context menu on a file.
 * Click the **Split Editor** button in the upper right of an editor.
 * Drag and drop a file to any side of the editor region.
 * `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(Cmd+Enter)`) in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
@@ -46,7 +46,7 @@ Whenever you open another file, the editor that is active will display the conte
 
 By default editors will open to the right hand side of the active one. You can change this behavior through the setting `workbench.editor.openSideBySideDirection` and configure to open new editors to the bottom of the active one instead.
 
-When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (macOS: `kbstyle('Cmd')`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
+When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (macOS: `kbstyle(Cmd)`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
 >**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
 
