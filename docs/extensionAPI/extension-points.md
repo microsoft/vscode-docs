@@ -703,7 +703,7 @@ Extensions can now configure contributed TypeScript plugins through an API provi
 
 export async function activate(context: vscode.ExtensionContext) {
     // Get the TS extension
-    const tsExtension = vscode.extensions.gettsExtension('vscode.typescript-language-features');
+    const tsExtension = vscode.extensions.getExtension('vscode.typescript-language-features');
     if (!tsExtension) {
         return;
     }
