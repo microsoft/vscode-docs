@@ -50,6 +50,8 @@ A more realistic debugger extension contributes many or all of the following dec
 - Debug configuration snippets that a user can add to a launch.json file.
 - Declaration of variables that can be used in debug configurations.
 
+You can find more information in [`contributes.breakpoints`](/api/references/contribution-points#contributes.breakpoints) and [`contributes.debuggers`](/api/references/contribution-points#contributes.debuggers) references.
+
 In addition to the purely declarative contributions from above, the Debug Extension API enables this code-based functionality:
 
 - Dynamically generated default debug configurations for the initial launch.json created by VS Code.
