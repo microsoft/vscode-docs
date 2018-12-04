@@ -22,7 +22,7 @@ Here are some examples of what you can achieve with extensions:
 - Add custom components & views in the UI — [Extending the Workbench](/api/extension-capabilities/extending-workbench)
 - Create a Webview to display a custom webpage built with HTML/CSS/JS — [Webview Guide](/api/extension-guides/webview)
 - Build a Task Provider for auto-detecting build tasks — [Task Provider Guide](/api/extension-guides/task-provider)
-- Support debugging a specific runtime — [Debug Extension Guide](/api/extension-capabilities/debugger)
+- Support debugging a specific runtime — [Debug Extension Guide](/api/extension-guides/debugger-extension)
 
 If you'd like to learn more about the Extension API, refer to the [Extension Capabilities / Overview](/api/extension-capabilities/overview) page.
 
