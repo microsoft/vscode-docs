@@ -711,7 +711,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
     await tsExtension.activate();
 
-    // Get the api from the TS extension
+    // Get the API from the TS extension
     if (!tsExtension.exports || !tsExtension.exports.getAPI) {
         return;
     }
@@ -741,14 +741,13 @@ export = function init({ typescript }: { typescript: typeof ts_module }) {
             // Create new language service
         },
         onConfigurationChanged(config: any) {
-            // Recieve configuration changes sent from VS Code
+            // Receive configuration changes sent from VS Code
         },
     };
 };
 ```
 
-This api allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/Microsoft/vscode-typescript-tslint-plugin/blob/master/src/index.ts) and [Lit html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.
-
+This API allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/Microsoft/vscode-typescript-tslint-plugin/blob/master/src/index.ts) and [lit-html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.
 
 ## Next steps
 
