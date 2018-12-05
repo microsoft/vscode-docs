@@ -36,7 +36,7 @@ Contribute configuration keys that will be exposed to the user. The user will be
 
 When contributing configuration keys, a JSON schema describing these keys is actually contributed. This ensures the user gets great tooling support when authoring VS Code settings files.
 
-You can read these values from your extension using `vscode.workspace.getConfiguration('myExtension')`.
+You can read these values from your extension using `vscode.workspace.getConfiguration().get('myExtension.configName')`.
 
 >**Note:** If you use `markdownDescription` instead of `description`, your setting description will be rendered as Markdown in the settings UI.
 
