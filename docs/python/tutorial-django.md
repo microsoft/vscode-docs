@@ -678,6 +678,7 @@ For example, add the following class in `models.py` to define a data model that 
 
 ```python
 from django.db import models
+from django.utils import timezone
 
 class LogMessage(models.Model):
     message = models.CharField(max_length=300)
@@ -685,7 +686,8 @@ class LogMessage(models.Model):
 
     def __str__(self):
         """Returns a string representation of a message."""
-        return f"'{self.message}' logged on {self.log_date.strftime('%A, %d %B, %Y at %X')}"
+        date = timezone.localtime(self.log_date)
+        return f"'{self.message}' logged on {date.strftime('%A, %d %B, %Y at %X')}
 ```
 
 A model class can include methods that return values computed from other class properties. Models typically include a `__str__` method that returns a string representation of the instance.
