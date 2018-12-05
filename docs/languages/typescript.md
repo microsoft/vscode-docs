@@ -41,7 +41,7 @@ VS Code's TypeScript support can operate in two different modes:
 
 * **Explicit Project**: A TypeScript project is defined via a `tsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a TypeScript project. The file itself lists the files belonging to the project as well as compiler options. Details about the `tsconfig.json` file can be found [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
->**Tip:** We recommend that you use explicit projects over file scope projects. Since explicit projects list the files belonging to a project language, features like `Find All References` `kb(editor.action.referenceSearch.trigger)` consider the project scope and not the file scope only.
+>**Tip:** We recommend that you use explicit projects over file scope projects. Since explicit projects list the files belonging to a project language, features like **Peek References** `kb(editor.action.referenceSearch.trigger)` consider the project scope and not the file scope only.
 
 ## tsconfig.json
 

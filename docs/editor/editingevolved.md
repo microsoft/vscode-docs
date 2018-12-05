@@ -25,7 +25,7 @@ Alternatively, you can use `kb(workbench.action.navigateBack)` and `kb(workbench
 
 ## Go to Definition
 
-If a [language](/docs/languages/overview.md) supports it, you can go to the definition of a symbol by pressing `kb(editor.action.goToDeclaration)`.
+If a [language](/docs/languages/overview.md) supports it, you can go to the definition of a symbol by pressing `kb(editor.action.revealDefinition)`.
 
 If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declaration will appear:
 
@@ -55,9 +55,9 @@ Some languages support jumping to a symbol across files with `kb(workbench.actio
 
 ## Peek
 
-We think there's nothing worse than a big context switch when all you want is to quickly check something. That's why we support peeked editors. When you execute a **Find All References** search (via `kb(editor.action.referenceSearch.trigger)`), or a **Peek Definition** (via `kb(editor.action.previewDeclaration)`), we embed the result inline:
+We think there's nothing worse than a big context switch when all you want is to quickly check something. That's why we support peeked editors. When you execute a **Peek References** search (via `kb(editor.action.referenceSearch.trigger)`), or a **Peek Definition** (via `kb(editor.action.peekDefinition)`), we embed the result inline:
 
-![Find All References](images/editingevolved/references.png)
+![Peek References](images/editingevolved/references.png)
 
 You can navigate between different references in the peeked editor and make quick edits right there. Clicking on the peeked editor filename or double-clicking in the result list will open the reference in the outer editor.
 
@@ -77,7 +77,7 @@ Some languages like C# support inline reference information, that is updated liv
 
 ![Reference information](images/editingevolved/referenceinfo.png)
 
-> **Tip:** Directly invoke the **Find All References** action by clicking on these annotations.
+> **Tip:** Directly invoke the **Peek References** action by clicking on these annotations.
 
 > **Tip:** Reference information shown in CodeLens can be turned on or off through the `editor.codeLens` setting.
 

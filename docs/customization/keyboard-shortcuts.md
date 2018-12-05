@@ -88,11 +88,11 @@ Key|Command
 `kb(editor.action.triggerParameterHints)`|Trigger parameter hints
 `kb(editor.action.formatDocument)`|Format document
 `kb(editor.action.formatSelection)`|Format selection
-`kb(editor.action.goToDeclaration)`|Go to Definition
-`kb(editor.action.previewDeclaration)`|Peek Definition
-`kb(editor.action.openDeclarationToTheSide)`|Open Definition to the side
+`kb(editor.action.revealDefinition)`|Go to Definition
+`kb(editor.action.peekDefinition)`|Peek Definition
+`kb(editor.action.revealDefinitionAside)`|Open Definition to the side
 `kb(editor.action.quickFix)`|Quick Fix
-`kb(editor.action.referenceSearch.trigger)`|Show References
+`kb(editor.action.referenceSearch.trigger)`|Peek References
 `kb(editor.action.rename)`|Rename Symbol
 `kb(editor.action.inPlaceReplace.down)`|Replace with next value
 `kb(editor.action.inPlaceReplace.up)`|Replace with previous value

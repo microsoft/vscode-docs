@@ -193,7 +193,7 @@ With the adoption of the Salsa JavaScript language service as the default, we co
 
 ### Open Definition to the Side
 
-There is now an action to open a definition to the side in the **Command Palette** (`kb(editor.action.openDeclarationToTheSide)`).
+There is now an action to open a definition to the side in the **Command Palette** (`kb(editor.action.revealDefinitionAside)`).
 
 ![open definition to the side](images/February/open-definition-to-side.png)
 

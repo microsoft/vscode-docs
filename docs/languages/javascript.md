@@ -9,9 +9,9 @@ MetaDescription: Get the best out of Visual Studio Code for JavaScript developme
 ---
 # JavaScript in Visual Studio Code
 
-Visual Studio Code provides IntelliSense, debugging, and powerful editor features for JavaScript. VS Code uses the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) to make authoring JavaScript easy. In addition to syntactical features like format, format on type and outlining, you also get language service features such as **Peek Definition**, **Go to Definition**, **Find all References**, and **Rename Symbol**.
+Visual Studio Code provides IntelliSense, debugging, and powerful editor features for JavaScript. VS Code uses the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) to make authoring JavaScript easy. In addition to syntactical features like format, format on type and outlining, you also get language service features such as **Peek Definition**, **Go to Definition**, **Peek References**, and **Rename Symbol**.
 
-![JavaScript find all references](images/javascript/javascript_find_all_references.png)
+![JavaScript peek references](images/javascript/javascript_find_all_references.png)
 
 ## IntelliSense
 
