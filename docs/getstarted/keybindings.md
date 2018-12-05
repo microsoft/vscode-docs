@@ -419,7 +419,7 @@ Key|Command|Command id
 `kb(editor.action.revealDefinition)`|Go to Definition|`editor.action.revealDefinition`
 `kb(editor.action.showHover)`|Show Hover|`editor.action.showHover`
 `kb(editor.action.peekDefinition)`|Peek Definition|`editor.action.peekDefinition`
-`kb(editor.action.revealDefinitionAside)`|Open Definition to the Side|`editor.action.revealDefinitionAsidee`
+`kb(editor.action.revealDefinitionAside)`|Open Definition to the Side|`editor.action.revealDefinitionAside`
 `kb(editor.action.quickFix)`|Quick Fix|`editor.action.quickFix`
 `kb(editor.action.referenceSearch.trigger)`|Peek References|`editor.action.referenceSearch.trigger`
 `kb(editor.action.rename)`|Rename Symbol|`editor.action.rename`
