@@ -298,7 +298,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.
   "editor.formatOnPaste": false,
 
-  // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
+  // Format a file on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.
   "editor.formatOnSave": false,
 
   // Timeout in milliseconds after which the formatting that is run on file save is cancelled.
@@ -462,6 +462,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether sorting favours words that appear close to the cursor.
   "editor.suggest.localityBonus": false,
+
+  // Controls whether remembered suggestion selections are shared between multiple workspaces and windows (needs `editor.suggestSelection`).
+  "editor.suggest.shareSuggestSelections": false,
 
   // Control whether an active snippet prevents quick suggestions.
   "editor.suggest.snippetsPreventQuickSuggestions": true,
@@ -665,6 +668,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls which editor is shown at startup, if none are restored from the previous session.
   //  - none: Start without an editor.
   //  - welcomePage: Open the Welcome page (default).
+  //  - readme: Open the README when opening a folder that contains one, fallback to 'welcomePage' otherwise.
   //  - newUntitledFile: Open a new untitled file (only applies when opening an empty workspace).
   //  - welcomePageInEmptyWorkbench: Open the Welcome page when opening an empty workbench.
   "workbench.startupEditor": "welcomePage",
@@ -745,7 +749,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - none: Never reopen a window. Always start with an empty one.
   "window.restoreWindows": "one",
 
-  // Enable this workaround if scrolling is no longer smooth after restoring a minimized VS Code window. This is a workaround for an issue (https://github.com/Microsoft/vscode/issues/13612) where scrolling starts to lag on devices with precision trackpads like the Surface devices from Microsoft. Enabling this workaround can result in a little bit of layout flickering after restoring the window from minimized state but is otherwise harmless. Note: in order for this workaround to function, make sure to also set `window.titleBarStyle` to `native`.
+  // Enable this workaround if scrolling is no longer smooth after restoring a minimized VS Code window. This is a workaround for an issue (https://github.com/Microsoft/vscode/issues/13612) where scrolling starts to lag on devices with precision trackpads like the Surface devices from Microsoft. Enabling this workaround can result in a little bit of layout flickering after restoring the window from minimized state but is otherwise harmless.
   "window.smoothScrollingWorkaround": false,
 
   // Controls the window title based on the active editor. Variables are substituted based on the context:
@@ -887,6 +891,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Search
 
+  // Controls the positioning of the actionbar on rows in the search view.
+  //  - auto: Position the actionbar to the right when the search view is narrow, and immediately after the content when the search view is wide.
+  //  - right: Always position the actionbar to the right.
+  "search.actionsPosition": "auto",
+
   // Controls whether the search results will be collapsed or expanded.
   //  - auto: Files with less than 10 results are expanded. Others are collapsed.
   //  - alwaysCollapse
@@ -929,7 +938,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to use the deprecated legacy mode for text and file search. It supports some text encodings that are not supported by the standard ripgrep-based search.
   "search.useLegacySearch": false,
 
-  // Whether to use the PCRE2 regex engine in text search. This enables using some advanced regex features like lookbehind and backreferences. However, not all PCRE2 features are supported - only features that are also supported by JavaScript.
+  // Whether to use the PCRE2 regex engine in text search. This enables using some advanced regex features like lookahead and backreferences. However, not all PCRE2 features are supported - only features that are also supported by JavaScript.
   "search.usePCRE2": false,
 
   // Controls whether to open Replace Preview when selecting or replacing a match.
@@ -1043,12 +1052,14 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Maximum amount of characters per line (0 = disable).
   "html.format.wrapLineLength": 120,
 
+  // Angular 1 is obsolete and Angular completion will be removed.
   // Controls whether the built-in HTML language support suggests Angular V1 tags and properties.
   "html.suggest.angular1": false,
 
   // Controls whether the built-in HTML language support suggests HTML5 tags, properties and values.
   "html.suggest.html5": true,
 
+  // Ionic 1 is obsolete and Ionic completion will be removed.
   // Controls whether the built-in HTML language support suggests Ionic tags, properties and values.
   "html.suggest.ionic": false,
 
@@ -1685,7 +1696,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - workspaceRoot: A new split terminal will use the workspace root as the working directory. In a multi-root workspace a choice for which root folder to use is offered.
   //  - initial: A new split terminal will use the working directory that the parent terminal started with.
   //  - inherited: On macOS and Linux, a new split terminal will use the working directory of the parent terminal. On Windows, this behaves the same as initial.
-  "terminal.integrated.splitCwd": "inherited"
+  "terminal.integrated.splitCwd": "inherited",
 
 // Problems
 
@@ -1779,6 +1790,48 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.tabSize": 2,
     "editor.autoIndent": false
   },
+
+// Node debug
+
+  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
+  //  - disabled: Auto attach is disabled and not shown in status bar.
+  //  - on: Auto attach is active.
+  //  - off: Auto attach is inactive.
+  "debug.node.autoAttach": "disabled",
+
+// Npm
+
+  // Controls whether npm scripts should be automatically detected.
+  "npm.autoDetect": "on",
+
+  // Enable an explorer view for npm scripts.
+  "npm.enableScriptExplorer": false,
+
+  // Configure glob patterns for folders that should be excluded from automatic script detection.
+  "npm.exclude": "",
+
+  // Fetch data from https://registry.npmjs/org and https://registry.bower.io to provide auto-completion and information on hover features on npm dependencies.
+  "npm.fetchOnlinePackageInfo": true,
+
+  // The package manager used to run scripts.
+  "npm.packageManager": "npm",
+
+  // Run npm commands with the `--silent` option.
+  "npm.runSilent": false,
+
+  // The default click action used in the scripts explorer: `open` or `run`, the default is `open`.
+  "npm.scriptExplorerAction": "open",
+
+// Merge Conflict
+
+  // Whether to automatically navigate to the next merge conflict after resolving a merge conflict.
+  "merge-conflict.autoNavigateNextConflict.enabled": false,
+
+  // Create a Code Lens for merge conflict blocks within editor.
+  "merge-conflict.codeLens.enabled": true,
+
+  // Create decorators for merge conflict blocks within editor.
+  "merge-conflict.decorators.enabled": true,
 
 // Emmet
 
@@ -1914,11 +1967,20 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls the commit message length threshold for showing a warning.
   "git.inputValidationLength": 72,
 
+  // Controls whether the diff editor should be opened when clicking a change. Otherwise the regular editor will be opened.
+  "git.openDiffOnClick": true,
+
   // Path and filename of the git executable, e.g. `C:\Program Files\Git\bin\git.exe` (Windows).
   "git.path": null,
 
+  // Runs a git command after a successful commit.
+  //  - none: Don't run any command after a commit.
+  //  - push: Run 'Git Push' after a successful commit.
+  //  - sync: Run 'Git Sync' after a successful commit.
+  "git.postCommitCommand": "none",
+
   // Controls whether Git should check for unsaved files before committing.
-  "git.promptToSaveFilesBeforeCommit": false,
+  "git.promptToSaveFilesBeforeCommit": true,
 
   // Force git to use rebase when running the sync command.
   "git.rebaseWhenSync": false,
@@ -1938,40 +2000,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether force pushing uses the safer force-with-lease variant.
   "git.useForcePushWithLease": true,
 
-// npm
-
-  // Controls whether npm scripts should be automatically detected.
-  "npm.autoDetect": "on",
-
-  // Enable an explorer view for npm scripts.
-  "npm.enableScriptExplorer": false,
-
-  // Configure glob patterns for folders that should be excluded from automatic script detection.
-  "npm.exclude": "",
-
-  // Fetch data from https://registry.npmjs/org and https://registry.bower.io to provide auto-completion and information on hover features on npm dependencies.
-  "npm.fetchOnlinePackageInfo": true,
-
-  // The package manager used to run scripts.
-  "npm.packageManager": "npm",
-
-  // Run npm commands with the `--silent` option.
-  "npm.runSilent": false,
-
-  // The default click action used in the scripts explorer: `open` or `run`, the default is `open`.
-  "npm.scriptExplorerAction": "open",
-
-// Merge Conflict
-
-  // Whether to automatically navigate to the next merge conflict after resolving a merge conflict.
-  "merge-conflict.autoNavigateNextConflict.enabled": false,
-
-  // Create a Code Lens for merge conflict blocks within editor.
-  "merge-conflict.codeLens.enabled": true,
-
-  // Create decorators for merge conflict blocks within editor.
-  "merge-conflict.decorators.enabled": true,
-
 // Grunt
 
   // Controls whether auto detection of Grunt tasks is on or off. Default is on.
@@ -1986,14 +2014,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether auto detection of Jake tasks is on or off. Default is on.
   "jake.autoDetect": "on",
-
-// Node Debug
-
-  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
-  //  - disabled: Auto attach is disabled and not shown in status bar.
-  //  - on: Auto attach is active.
-  //  - off: Auto attach is inactive.
-  "debug.node.autoAttach": "disabled"
 }
 ```
 
