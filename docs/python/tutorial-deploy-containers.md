@@ -94,7 +94,7 @@ Registry options include the following:
 
 - The [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/), a private, secure, hosted registry for your images.
 - [Docker Hub](https://hub.docker.com/), Docker's own hosted registry that provides a free way to share images.
-- A private registry running on your own server, ad described on [Docker registry](https://docs.docker.com/registry/) in the Docker documentation.
+- A private registry running on your own server, as described on [Docker registry](https://docs.docker.com/registry/) in the Docker documentation.
 
 To create an Azure Container Registry, as shown in this tutorial, do the following:
 
@@ -136,7 +136,7 @@ For this reason, you need to modify the `Dockerfile` to use a base image with pr
 
 ### Changes for Flask apps
 
-A good base image for Flask is `tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7`, which is also available for other versions of Python (see the [tiangolo/uwsgi-nginx-flask respository](https://github.com/tiangolo/uwsgi-nginx-flask-docker) on GitHub). This image already contains Flask and the production-ready uwsgi and nginx servers.
+A good base image for Flask is `tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7`, which is also available for other versions of Python (see the [tiangolo/uwsgi-nginx-flask repository](https://github.com/tiangolo/uwsgi-nginx-flask-docker) on GitHub). This image already contains Flask and the production-ready uwsgi and nginx servers.
 
 By default, the image assumes that (a) your app code is located in an `app` folder, (b) the Flask app object is named `app`, and (c) the app object is located in `main.py`. Because your app may have a different structure, you can indicate the correct folders in the Dockerfile and provide the necessary parameters the uwsgi server in a `uwsgi.ini` file.
 
