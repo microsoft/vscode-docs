@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: Create your first Visual Studio Code extension (plug-in) with a simple Hello World example.
 ---
 
 # Your First Extension

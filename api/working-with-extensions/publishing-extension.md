@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
 ---
 
 # Publishing Extension

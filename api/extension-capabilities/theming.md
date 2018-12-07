@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: Learn how to add custom themes for colors and icons to Visual Studio Code.
 ---
 
 # Theming

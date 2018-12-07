@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription:
 ---
 
 # Language Configuration Guide
@@ -75,11 +77,7 @@ VS Code offers two commands for comment toggling. **Toggle Line Comment** and **
 
 ## Brackets definition
 
-<<<<<<< HEAD
-When you move the cursor to a bracket defined here, VS Code will highlight its matching bracket.
-=======
 When you move the cursor to a bracket defined here, VS Code will highlight that bracket together with its matching pair.
->>>>>>> ab2290591154444386991d44499d7c30e4b3aa0a
 
 ```json
 {

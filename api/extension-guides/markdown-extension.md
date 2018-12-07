@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: Learn how extensions can extend Visual Studio Code's built-in Markdown preview.
 ---
 
 # Markdown Extension

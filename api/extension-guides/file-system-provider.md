@@ -1,4 +1,6 @@
 ---
+DateApproved:
+MetaDescription:
 ---
 
 # File System Provider

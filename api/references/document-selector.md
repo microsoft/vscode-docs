@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: Visual Studio Code extensions can filter their features based on Document Selectors by language, file type, and location.
 ---
 
 # Document Selectors

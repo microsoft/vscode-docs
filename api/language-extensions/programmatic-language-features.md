@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: Visual Studio Code language extensions contribute new programming language features. These guidelines present the language extension points and how to implement them.
 ---
 
 # Programmatic Language Features

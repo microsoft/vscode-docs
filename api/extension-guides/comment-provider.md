@@ -1,4 +1,6 @@
 ---
+DateApproved:
+MetaDescription:
 ---
 
 # Comment Provider

@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: Visual Studio Code extensions (plug-ins) Source Control API.
 ---
 
 # Source Control API

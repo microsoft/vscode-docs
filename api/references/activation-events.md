@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of activation events.
 ---
 
 # Activation Events

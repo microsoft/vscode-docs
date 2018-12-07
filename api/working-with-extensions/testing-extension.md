@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
 ---
 
 # Testing Extension

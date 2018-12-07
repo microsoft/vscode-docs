@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: Learn how to contribute tasks to Visual Studio Code.
 ---
 
 # Task Provider

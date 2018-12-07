@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: The Visual Studio Code extension (plug-in) API is designed around a set of guiding principles and patterns to promote extension consistency, correctness, and ease of development.
 ---
 
 # Extensibility Principles and Patterns

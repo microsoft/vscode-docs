@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 
 # Contribution Points

@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: Visual Studio Code has a rich extension API. Learn how to create your own extensions (plug-ins) for VS Code.
 ---
 
 # Extension API

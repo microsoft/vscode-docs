@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: Learn how to create Language Servers to provide rich language features in Visual Studio Code.
 ---
 
 # Smart Editing LSP Guide

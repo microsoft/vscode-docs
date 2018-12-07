@@ -1,4 +1,6 @@
 ---
+DateApproved: 12/6/2018
+MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
 ---
 
 # Webview API
