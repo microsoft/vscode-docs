@@ -9,6 +9,30 @@ Author: Kai Maetzel
 ---
 # Event-Stream Package Security Update
 
+**Update: December 7th 2018:**
+
+We have over the past many days been working with extension authors to get their extensions and dependencies updated. Below is the current list of blocked extensions:
+
+* `beisen.codecake-extension`
+* `DrMueller.ts-arrange2`
+* `JacobeanResearchandDevelopmentLLC.vscode-scxml-preview`
+* `joaquin6.package-watch`
+* `jonsmithers.open-in-vim`
+* `KazuoCode.gthubsum`
+* `MaxGotovkin.tslens`
+* `mf.magicspace`
+* `Restbird.vscode-restbird`
+* `rijndael.vscode-ursharp`
+* `roboceo.robojsx-plugin`
+* `taosheng.less-class`
+* `taosheng.uyun-class`
+* `taosheng.uyun-less-class`
+* `tboevil.webpaste`
+* `tintrinh.php-refactor`
+* `xuyl.vue-recommend-style`
+
+---
+
 November 26, 2018 Kai Maetzel, [@kaimaetzel](https://twitter.com/kaimaetzel)
 
 You might already have heard that the popular event-stream NPM package includes a malicious dependency. The details can be found in the following GitHub issue: [https://github.com/dominictarr/event-stream/issues/116](https://github.com/dominictarr/event-stream/issues/116). This vulnerability has been in existence for about two months but was only recently discovered.
@@ -19,17 +43,44 @@ We immediately checked if and how we are affected. First, we scanned Visual Stud
 
 Secondly, we scanned all extensions in the VS Code Marketplace. We identified several extensions as affected. We decided to take aggressive actions to protect our users as well as the authors of those extensions and to automatically uninstall those extensions. Users don’t need to take any action to remove those extensions. The extensions will also be unlisted from the Marketplace.
 
-Currently unlisted and blocked extensions:
+At the time of the scan, the following extensions contained the malicious code:
 
+* `aoisupersix.bve5-language-support`
+* `apollographql.vscode-apollo`
 * `ardenivanov.svelte-intellisense`
-* `Fr43nk.seito-openfile`
+* `ballerina.ballerina`
+* `BattleBas.kivy-vscode`
+* `cesium.gltf-vscode`
+* `christianvoigt.argdown-vscode`
+* `codemooseus.vscode-devtools-for-chrome`
+* `curlybracket.vlocode`
+* `ivory-lab.jenkinsfile-support`
 * `JacobeanResearchandDevelopmentLLC.vscode-scxml-preview`
+* `joe-re.sql-language-server`
 * `jomiller.rtags-client`
+* `jorithvdheuvel.webdav`
 * `KazuoCode.gthubsum`
+* `kddejong.vscode-cfn-lint`
+* `Koihik.vscode-lua-format`
+* `myxvisual.vscode-ts-uml`
+* `OptimaSystems.vscode-apl-language-client`
+* `Paul-Ehigie-Paul.nativescript-extend`
+* `qoretechnologies.qorus-vscode`
+* `quantum.quantum-devkit-vscode`
+* `ritwickdey.LiveServer`
+* `rkoubou.ksp`
 * `roboceo.robojsx-plugin`
 * `salbert.comment-ts`
-* `tboevil.webpaste`
+* `SiteGo.spgo`
+* `terminus.tangram-vscode-plugin`
 * `tintrinh.php-refactor`
+* `tomoki1207.pdf`
+* `vlopes11.advpls-client`
+* `webhint.vscode-webhint`
+* `wix.stylable-intelligence`
+* `Yseop.vscode-yseopml`
+* `zfzackfrost.commentbars`
+* `Zowe.vscode-extension-for-zowe`
 
 We are in the process of notifying the authors of those extensions. Once the authors have updated their extensions and we have received their notification, we will verify the update. You will then be able to reinstall the extension from the Marketplace.
 
