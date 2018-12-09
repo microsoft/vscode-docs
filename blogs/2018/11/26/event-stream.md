@@ -9,9 +9,11 @@ Author: Kai Maetzel
 ---
 # Event-Stream Package Security Update
 
-**Update: December 7th 2018:**
+**Update**: December 7, 2018
 
-We have over the past many days been working with extension authors to get their extensions and dependencies updated. Below is the current list of blocked extensions:
+We have been working with extension authors to get their extensions and dependencies updated.
+
+Below is the current list of blocked extensions:
 
 * `beisen.codecake-extension`
 * `DrMueller.ts-arrange2`
