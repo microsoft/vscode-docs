@@ -175,6 +175,7 @@ The task's properties have the following semantic:
 - **group**: Defines to which group the task belongs. In the example, it belongs to the `test` group. Tasks that belong to the test group can be executed by running **Run Test Task** from the **Command Palette**.
 - **presentation**: Defines how the task output is handled in the user interface. In this example, the Integrated Terminal showing the output is `always` revealed and a `new` terminal is created on every task run.
 - **options**: Override the defaults for `cwd` (current working directory), `env` (environment variables), or `shell` (default shell). Options can be set per task but also globally or per platform.
+- **runOptions**: Defines when and how a task is run.
 
 To see the full set of task properties and values, you can review the [tasks.json schema](/docs/editor/tasks-appendix.md).
 
@@ -277,6 +278,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
   - *shared*: The terminal is shared and the output of other task runs are added to the same terminal.
   - *dedicated*: The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However, the output of a different task is presented in a different terminal.
   - *new*: Every execution of that task is using a new clean terminal.
+- **clear**: Controls whether the terminal is cleared before this task is run. Default is `false`.
 
 You can modify the terminal panel behavior for auto-detected tasks as well. For example, if you want to change the output behavior for the **npm: run lint** from the ESLint example from above, add the `presentation` property to it:
 
@@ -336,6 +338,15 @@ You can also mix custom tasks with configurations for detected tasks. A `tasks.j
 }
 
 ```
+
+## Run behavior
+
+You can specify a tasks run behaviors using the `runOptions` property:
+
+- **reevaluateOnRerun**: Controls how variables are evaluated whan a task is executed through the **Rerun Last Task** command. The default is `true`, meaning that variables will be re-evaluated when a task is rerun. When set to `false` the resolved variable values from the previous run of the task will be used.
+- **runOn**: Specifies when a task is run.
+  - *default*: The task will only be run when executed through the **Run Task** command.
+  - *folderOpen*: The task will be run when the folder it is in is opened. The first time you open a folder that contains a task with *folderOpen* you will be asked if you allow tasks to run automatically in that folder. You can change you decision later using the **Allow Automatic Tasks in Folder** and **Disallow Automatic Tasks in Folder** commands.
 
 ## Customizing auto-detected tasks
 
@@ -457,6 +468,12 @@ Below is an example of a custom task configuration which executes autopep8 on th
     ]
 }
 ```
+
+If simple variable substitution isn't enough, you can also get input from the user of your task by adding an `inputs` section to your `tasks.json` file.
+
+![Inputs Example](images/tasks/run-input-example.gif)
+
+For more information about `inputs` see the [Variables Reference](/docs/editor/variables-reference.md).
 
 ## Operating system specific properties
 
