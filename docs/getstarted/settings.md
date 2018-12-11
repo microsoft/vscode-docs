@@ -253,6 +253,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Control the cursor animation style.
   "editor.cursorBlinking": "blink",
 
+  // Controls whether the smooth caret animation should be enabled.
+  "editor.cursorSmoothCaretAnimation": false,
+
   // Controls the cursor style.
   "editor.cursorStyle": "line",
 
