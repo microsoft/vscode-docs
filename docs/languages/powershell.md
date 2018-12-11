@@ -176,7 +176,7 @@ Check out the FAQ page on the [PowerShell extensions Wiki](https://github.com/Po
 ## Types.ps1xml and Format.ps1xml files
 
 `ps1xml` files are PowerShell's way to extend the type system and define output formatting. For more information on these files, please refer to the official PowerShell documentation on [`Types.ps1xml`](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_types.ps1xml?view=powershell-6) and [`Format.ps1xml`](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_format.ps1xml?view=powershell-6).
-You can get IntelliSense features when authoring `ps1xml` files by installing the [XML extension by RedHat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml).
+You can get IntelliSense features when authoring `ps1xml` files by installing the [XML extension by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml).
 After installing, add this configuration to your user settings:
 
 ```json
