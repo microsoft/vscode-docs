@@ -53,5 +53,5 @@ Watch a video tutorial for further setup help on [Windows](https://channel9.msdn
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET Core application.
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
-* [.NET Core Docs](https://docs.microsoft.com/dotnet/articles/core/) - Visit the .NET Core docs for more information on this powerful cross-platform development solution.
+* [.NET Core Docs](https://docs.microsoft.com/dotnet/core/) - Visit the .NET Core docs for more information on this powerful cross-platform development solution.
 * [Deploying Applications to Azure](/docs/azure/deployment.md) - Deploy your app to [Azure](https://azure.microsoft.com).
