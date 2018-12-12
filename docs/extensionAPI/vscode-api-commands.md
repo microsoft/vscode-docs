@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Complex Commands
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 PageTitle: Visual Studio Code Complex Commands Reference
-DateApproved: 11/8/2018
+DateApproved: 12/12/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands Reference.
 ---
 # Complex Commands

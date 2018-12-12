@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 11/8/2018
+DateApproved: 12/12/2018
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ

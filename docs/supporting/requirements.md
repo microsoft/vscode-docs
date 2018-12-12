@@ -3,7 +3,7 @@ Order:
 TOCTitle: Requirements
 ContentId: 1D4850EE-85E2-4152-81BE-FECAE62EA99E
 PageTitle: Requirements for Visual Studio Code
-DateApproved: 11/8/2018
+DateApproved: 12/12/2018
 MetaDescription: Visual Studio Code hardware and platform (operating system) requirements.
 ---
 # Requirements for Visual Studio Code
