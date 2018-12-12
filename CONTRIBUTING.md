@@ -85,8 +85,9 @@ Topic metadata enables certain functionalities for the topics such as table of c
 * **PageTitle** - The title used in the HTML title for the page and in search results
 * **ContentId** - A GUID which uniquely identifies the topic to DevDiv doc reporting.
 * **DateApproved** - This is set when the page is actually published on the VS Code portal. You can ignore it.
-* **MetaDescription** - The meta description for this page which helps for search, use sentence structure limited to 300 characters.
-* **MetaTags** - Further tags for this page again for search
+* **MetaDescription** - The meta description for this page which helps for search. Use sentence structure limited to 300 characters.
+* **MetaSocialImage** - Optional. Used for og:image in page header for sharing on social media. Should be 1024 x 512 .png.
+* **MetaTags** - Optional. Further tags for this page again for search.
 
 ## Product name
 
@@ -107,7 +108,7 @@ Use bold for VS Code commands and UI elements.
 
 Limit the use of bold for emphasis unless it is crucial to get the user's attention. Avoid the use of italics for emphasis since italics doesn't render well on the code.visualstudio.com site.
 
-Use Markdown highlight for settings, filename and JSON attributes.
+Use inline code formatting (backticks) for settings, filename and JSON attributes.
 
     `files.exclude`
     `tasks.json`

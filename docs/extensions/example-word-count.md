@@ -53,7 +53,7 @@ Now that you have confirmed that the extension is running properly, you can keep
 
 ## Update the Status Bar
 
-Replace the contents of the generated `extension.ts` file with the code shown below. It declares and instantiates a `WordCounter` class which can count words and shows them in the VS Code Status Bar.  The "Hello Word" command will call `updateWordCount` when invoked.
+Replace the contents of the generated `extension.ts` file with the code shown below. It declares and instantiates a `WordCounter` class which can count words and shows them in the VS Code Status Bar.  The "Hello World" command will call `updateWordCount` when invoked.
 
 ```javascript
 // The module 'vscode' contains the VS Code extensibility API
