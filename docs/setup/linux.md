@@ -252,7 +252,7 @@ Information on this issue can be tracked in issue [62593](https://github.com/Mic
 
 ### Broken cursor in editor with display scaling enabled
 
-Due to an upstream issue with electron that can be found [here](https://github.com/electron/electron/issues/14787), the mouse cursor may render incorrectly with scaling enabled. If you notice that the usual text cursor is not being rendered inside the editor as you would expect, try falling back to the native menu bar by configuring the setting `window.titleBarStyle` to `native`.
+Due to an upstream [issue](https://github.com/electron/electron/issues/14787) with Electron, the mouse cursor may render incorrectly with scaling enabled. If you notice that the usual text cursor is not being rendered inside the editor as you would expect, try falling back to the native menu bar by configuring the setting `window.titleBarStyle` to `native`.
 
 ### Repository changed its origin value
 
