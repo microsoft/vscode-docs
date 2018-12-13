@@ -1,6 +1,10 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 79996489-8D16-4C0A-8BE8-FF4B1E9C223A
 DateApproved: 12/6/2018
-MetaDescription: Visual Studio Code extensions (plug-ins) Source Control API.
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: A guide illustrating how to use Source Control API.
 ---
 
 # Source Control API

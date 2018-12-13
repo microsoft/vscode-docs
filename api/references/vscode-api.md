@@ -4,7 +4,7 @@ Area: references
 TOCTitle: VS Code API
 PageTitle: VS Code API Reference
 DateApproved: 9/5/2018
-MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
+MetaDescription: Visual Studio Code extensions API Reference.
 VSCodeCommitHash: 8119412ac606f91f9c9e8b6f79cfd3de5ecf7783
 VSCodeVersion: 1.27.0
 ---

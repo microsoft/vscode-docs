@@ -1,6 +1,10 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
 DateApproved: 12/6/2018
-MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: At the core of Visual Studio Code's extensibility model is an extension manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
 ---
 
 # Extension Manifest

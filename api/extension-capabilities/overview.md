@@ -1,6 +1,6 @@
 ---
 DateApproved: 12/6/2018
-MetaDescription: Learn the details of what's possible with Visual Studio Code's rich extension (plug-in) API.
+MetaDescription: Learn the details of what's possible with Visual Studio Code's rich extension API.
 ---
 
 # Extensions Capabilities Overview

@@ -1,5 +1,9 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: f328d7e0-8982-4510-b7fb-975188eca502
 DateApproved: 12/6/2018
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code extensions can filter their features based on Document Selectors by language, file type, and location.
 ---
 
@@ -52,7 +56,8 @@ The `scheme` of a document is often overlooked but is an important piece of info
 The importance of this comes into play when features rely on reading/writing files from/to disk. Check out the snippet below:
 
 ```ts
-vscode.languages.registerHoverProvider('typescript', { // 👎 too lax
+// 👎 too lax
+vscode.languages.registerHoverProvider('typescript', {
     provideHover(doc: vscode.TextDocument) {
         const { size } = fs.statSync(doc.uri.fsPath); // ⚠️ what about 'untitled:/Untitled1.ts' or others?
         return new vscode.Hover(`Size in bytes is ${size}`);
@@ -63,7 +68,8 @@ vscode.languages.registerHoverProvider('typescript', { // 👎 too lax
 The hover provider above wants to display the size of a document on disk but it fails to check whether the document is actually stored on disk. For example, it could be newly created and not yet saved. The correct way would be to tell VS Code that the provider can only work with files on disk.
 
 ```ts
-vscode.languages.registerHoverProvider({ scheme: 'file', language: 'typescript' }, { // 👍 only works with files on disk
+// 👍 only works with files on disk
+vscode.languages.registerHoverProvider({ scheme: 'file', language: 'typescript' }, {
     provideHover(doc: vscode.TextDocument) {
         const { size } = fs.statSync(doc.uri.fsPath);
         return new vscode.Hover(`Size in bytes is ${size}`);

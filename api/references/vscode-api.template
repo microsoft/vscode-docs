@@ -1,12 +1,13 @@
 ---
-Order: 1
-Area: references
-TOCTitle: VS Code API
-PageTitle: VS Code API Reference
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
 DateApproved: 9/5/2018
-MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
+
 VSCodeCommitHash: 8119412ac606f91f9c9e8b6f79cfd3de5ecf7783
-VSCodeVersion: 1.27.0
+VSCodeVersion: 1.30.0
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: Visual Studio Code extensions API Reference.
 ---
 
 # VS Code API

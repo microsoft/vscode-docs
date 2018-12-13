@@ -1,18 +1,17 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 DateApproved: 12/6/2018
-MetaDescription: Visual Studio Code extensions (plug-ins) complex commands reference.
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: Visual Studio Code built-in commands reference.
 ---
 
 # Built-in Commands
 
 This document lists a subset of Visual Studio Code commands that you might use with `vscode.commands.executeCommand` API.
 
-The following is a sample of how to preview a HTML document:
-
-```javascript
-let uri = Uri.parse('file:///some/path/to/file.html');
-let success = await commands.executeCommand('vscode.previewHtml', uri);
-```
+Read the [Commands Guide](/api/extension-guides/command) for how to use the commands API.
 
 ## Commands
 
