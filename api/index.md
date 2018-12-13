@@ -1,6 +1,10 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
 DateApproved: 12/6/2018
-MetaDescription: Visual Studio Code has a rich extension API. Learn how to create your own extensions (plug-ins) for VS Code.
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: Visual Studio Code has a rich extension API. Learn how to create your own extensions for VS Code.
 ---
 
 # Extension API
@@ -34,7 +38,7 @@ Building a good extension can take a lot of effort. Here is how each section of 
 
 - **Get Started** teaches fundamental concepts for building VS Code extensions with the [Hello World](https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-sample) sample.
 - **Working with Extensions** includes in-depth guides on extension development, such as [publishing](/api/advanced-topics/publishing-extension) and [testing](/api/advanced-topics/testing-extension) extensions.
-- **Extension Capabilities**  dissects VS Code's vast API into smaller categories and points you to more detailed topics.
+- **Extension Capabilities** dissects VS Code's vast API into smaller categories and points you to more detailed topics.
 - **Extension Guides** contains guides and code samples that illustrate a specific part of VS Code API.
 - **Language Extensions** contains guides and code samples specifically for adding support for a programming language.
 - **References** contains exhaustive references for the [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points), and many other topics.
