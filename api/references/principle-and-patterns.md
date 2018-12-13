@@ -4,7 +4,7 @@ ContentId: 36C1E34B-2F41-4AA0-9443-015D92EF85FB
 DateApproved: 12/6/2018
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: The Visual Studio Code extension API is designed around a set of guiding principles and patterns to promote extension consistency, correctness, and ease of development.
+MetaDescription: The Visual Studio Code extension API is designed around a set of guiding principles and patterns to promote extension (plug-in) consistency, correctness, and ease of development.
 ---
 
 # Extensibility Principles and Patterns

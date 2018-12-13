@@ -7,7 +7,7 @@ VSCodeCommitHash: 8119412ac606f91f9c9e8b6f79cfd3de5ecf7783
 VSCodeVersion: 1.30.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: Visual Studio Code extensions API Reference.
+MetaDescription: Visual Studio Code extensions (plug-in) API Reference.
 ---
 
 # VS Code API
