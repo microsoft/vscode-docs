@@ -361,3 +361,20 @@ Yes, you can specify [Powerline](https://powerline.readthedocs.io) fonts with th
 ```
 
 Note that you want to specify the font family, not an individual font like **Meslo LG M DZ Regular for Powerline** where **Regular** is the specific font name.
+
+### How do I configure zsh on mac to jump words with ctrl+left/right arrow?
+
+By default ctrl+left/right arrow will jump words in bash, you can configure the same for zsh by adding these keybindings:
+
+```json
+{
+  "key": "ctrl+left",
+  "command": "workbench.action.terminal.sendSequence",
+  "args": { "text": "\u001bb" }
+},
+{
+  "key": "ctrl+right",
+  "command": "workbench.action.terminal.sendSequence",
+  "args": { "text": "\u001bf" }
+}
+```
