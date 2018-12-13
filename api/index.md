@@ -17,24 +17,22 @@ If you are looking for published extensions, head to the [VS Code Marketplace](h
 
 ## What can extensions do?
 
-Here are some examples of what you can achieve with extensions:
+Here are some examples of what you can achieve with the Extension API:
 
 - Change the look of VS Code with a color or icon theme — [Theming](/api/extension-capabilities/theming)
-- Support a new programming language — [Language Extensions Overview](/api/language-extensions/overview)
 - Add custom components & views in the UI — [Extending the Workbench](/api/extension-capabilities/extending-workbench)
 - Create a Webview to display a custom webpage built with HTML/CSS/JS — [Webview Guide](/api/extension-guides/webview)
+- Support a new programming language — [Language Extensions Overview](/api/language-extensions/overview)
 - Build a Task Provider for auto-detecting build tasks — [Task Provider Guide](/api/extension-guides/task-provider)
-- Support debugging a specific runtime — [Debug Extension Guide](/api/extension-guides/debugger-extension)
+- Support debugging a specific runtime — [Debugger Extension Guide](/api/extension-guides/debugger-extension)
 
-If you'd like to learn more about the Extension API, refer to the [Extension Capabilities / Overview](/api/extension-capabilities/overview) page.
-
-We also have a list of guides and samples that you can play with and use as a starting point for your own extensions at [Extension Guides / Overview](/api/extension-guides/overview).
+If you'd like to have a more comprehensive overview of the Extension API, refer to the [Extension Capabilities Overview](/api/extension-capabilities/overview) page. [Extension Guides Overview](/api/extension-guides/overview) includes a list of code samples and guides that illustrate various Extension API usage.
 
 ## How to build extensions?
 
-Now that you have seen some of the cool things you can do using the VS Code API, it's time to build an extension! Building a good extension, however, could take a lot of effort. Here is how each section can help you with writing extension:
+Building a good extension can take a lot of effort. Here is how each section of the API doc can help you with:
 
-- **Get Started** teaches fundamental concepts for building VS Code extensions with the [Hello Code](https://github.com/Microsoft/vscode-extension-samples/tree/master/hellocode-sample) sample.
+- **Get Started** teaches fundamental concepts for building VS Code extensions with the [Hello World](https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-sample) sample.
 - **Working with Extensions** includes in-depth guides on extension development, such as [publishing](/api/advanced-topics/publishing-extension) and [testing](/api/advanced-topics/testing-extension) extensions.
 - **Extension Capabilities**  dissects VS Code's vast API into smaller categories and points you to more detailed topics.
 - **Extension Guides** contains guides and code samples that illustrate a specific part of VS Code API.

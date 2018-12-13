@@ -50,7 +50,7 @@ However, let's focus on `package.json` and `extensions.ts`, which are essential 
 
 Each VS Code extension must have a `package.json` as its [Extension Manifest](/api/references/extension-manifest). The `package.json` contains a mix of Node.js fields such as `scripts` and `dependencies` and VS Code specific fields such as `publisher`, `activationEvents` and `contributes`. You can find description of all VS Code specific fields in [Extension Manifest Reference](/api/references/extension-manifest). Here, we'll point out some important fields:
 
-- `name` and `publisher`: VS Code uses `<publisher>.<name>` as a unique ID for the extension. For example, the HelloCode sample has the ID `vscode-samples.hellocode-sample`.
+- `name` and `publisher`: VS Code uses `<publisher>.<name>` as a unique ID for the extension. For example, the HelloCode sample has the ID `vscode-samples.helloworld-sample`.
 - `main`: The extension entry point.
 - `activationEvents` and `contributes`: [Activation Events](/api/references/activation-events) and [Contribution Points](/api/references/contribution-points).
 - `engines.vscode`: This specifies the minimum version of VS Code API that the extension depends on.
@@ -58,7 +58,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
 
 ```json
 {
-	"name": "hellocode-sample",
+	"name": "helloworld-sample",
 	"description": "HelloWorld example for VS Code",
 	"version": "0.0.1",
 	"publisher": "vscode-samples",
@@ -106,7 +106,7 @@ import * as vscode from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "hellocode-sample" is now active!');
+	console.log('Congratulations, your extension "helloworld-sample" is now active!');
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
