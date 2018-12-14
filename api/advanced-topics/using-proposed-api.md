@@ -1,6 +1,10 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: f4d4e9e0-8901-405c-aaf5-faa16c32588b
 DateApproved: 12/6/2018
-MetaDescription:
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: Use Visual Studio Code's Proposed API
 ---
 
 # Using Proposed API
@@ -11,7 +15,7 @@ Proposed API solves the problem for us. Proposed API is a set of unstable API th
 
 ## Using Proposed API
 
-These are the steps for testing Proposed API in local development:
+These are the steps for testing Proposed API in local extension development:
 
 - Use [Insiders](/insiders) release of VS Code.
 - Add `"enableProposedApi": true` to your `package.json`.

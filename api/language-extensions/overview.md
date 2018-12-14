@@ -1,6 +1,10 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 8b70dba5-f71d-46dd-8da1-f5d44b9a6a96
 DateApproved: 12/6/2018
-MetaDescription:
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: Learn how to write a Language Extension (plug-in) to add support for a programming language in Visual Studio Code.
 ---
 
 # Language Extension Overview

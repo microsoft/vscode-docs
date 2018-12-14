@@ -1,9 +1,13 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 2bb06188-d394-4b98-872c-0bf26c8a674d
 DateApproved: 12/6/2018
-MetaDescription:
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: A guide to
 ---
 
-# Syntax Highlighting
+# Syntax Highlight Guide
 
 Syntax highlighting determines the color and style of source code displayed in the Visual Studio Code editor. It is responsible for colorizing keywords like `if` or `for` in JavaScript differently than strings and comments and variable names.
 
@@ -12,7 +16,7 @@ There are two components to syntax highlighting:
 * Breaking text into a list of tokens and scopes using a grammar
 * Then using a theme to map these scopes to specific colors and styles
 
-This document only discusses the first part: breaking text into tokens and scopes that existing themes can colorize. For more information about customizing the styling of different scopes in the editor, see the [page on theming](/api/references/theme-color)
+This document only discusses the first part: breaking text into tokens and scopes that existing color themes can colorize. For more information about customizing the styling of different scopes in the editor, see the [Color Theme Guide](/api/extension-guides/color-theme#syntax-colors)
 
 ## TextMate grammars
 

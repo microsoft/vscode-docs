@@ -1,5 +1,9 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: d22675fc-6609-43f2-a66b-8f2a52597195
 DateApproved: 12/6/2018
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn the details of what's possible with Visual Studio Code's rich extension (plug-in) API.
 ---
 
@@ -99,7 +103,8 @@ On the other hand, VS Code also offers a set of Debug Extension API, with which 
 - Track the lifecycle of debug sessions.
 - Create and manage breakpoints programmatically.
 
-## Core Extensions
+<!-- Add below content back after writing ./extending-core-functionalities.md  -->
+<!-- ## Core Extensions
 
 [Core extension points](extending-core-functionalities) are for very advanced users. These let you build a custom back end for many of VS Code's low-level functionality. For example, the `FileSystem` API can be used to support working with files over FTP or other protocols. Core extensions typically work transparently from a user's point of view.
 
@@ -107,4 +112,4 @@ On the other hand, VS Code also offers a set of Debug Extension API, with which 
 
 - Add support for working with remote files over FTP or SFTP.
 - Register new source control provider, such as Mercurial.
-- Implement a custom file search provider.
+- Implement a custom file search provider. -->

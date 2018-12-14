@@ -1,6 +1,10 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 8027f6fb-6c9e-4106-8ef1-f9b0ba1b7085
 DateApproved: 12/6/2018
-MetaDescription:
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: Explain the structure of a Visual Studio Code extension (plug-in)
 ---
 
 # Extension Anatomy

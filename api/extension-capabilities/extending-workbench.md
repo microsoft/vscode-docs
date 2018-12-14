@@ -1,6 +1,10 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: e0d5bd37-f020-4235-ad81-c977baaeb24f
 DateApproved: 12/6/2018
-MetaDescription:
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: Explain how to extend Visual Studio Code's workbench area with custom UI components
 ---
 
 # Extending Workbench
@@ -14,7 +18,7 @@ MetaDescription:
 - Editor Group
 - Status Bar
 
-As mentioned in [Principles and Patterns](/api/references/principle-and-patterns), VS Code does not provide access to the underlying DOM. Instead, various API points allow you to add your own components to the VS Code Workbench:
+As mentioned in [Principles and Patterns](/api/references/principle-and-patterns), VS Code does not provide access to the underlying DOM. Instead, various APIs allow you to add your own components to the VS Code Workbench:
 
 ![workbench-contribution](images/extending-workbench/workbench-contribution.png)
 

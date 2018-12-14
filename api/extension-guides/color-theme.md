@@ -1,6 +1,10 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 113b458a-3692-4ccf-a181-048bd572a120
 DateApproved: 12/6/2018
-MetaDescription:
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: A guide to creating Color Theme in Visual Studio Code
 ---
 
 # Color Theme
@@ -60,7 +64,7 @@ Once you have tweaked your theme colors using `workbench.colorCustomizations` an
 
 3. If you customized a theme as described above, select 'Start fresh'.
 
-   ![yo code theme](/docs/extensions/images/themes-snippets-colorizers/yocode-colortheme.png)
+   ![yo code theme](./images/color-theme/yocode-colortheme.png)
 
 4. Copy the theme file generated from your settings to the new extension.
 
@@ -91,7 +95,7 @@ To try out the new theme, copy the generated theme folder to a new folder under 
 
 Open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the drop-down list.  Arrow up and down to see a live preview of your theme.
 
-![select my theme](images/themes-snippets-colorizers/mytheme.png)
+![select my theme](images/color-theme/mytheme.png)
 
 After making changes to any theme file, it is necessary to reload VS Code with the **Reload Window** command.
 
