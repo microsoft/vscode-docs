@@ -9,6 +9,13 @@ MetaDescription: Learn how to publish Visual Studio Code extensions to the publi
 
 # Publishing Extension
 
+Once you have made a high-quality extension, you can publish it to [Visual Studio Code Extension MarketPlace](https://marketplace.visualstudio.com/vscode) so others could find, download and use your extension.
+
+TODO: PINE
+
+- Explain `publisher` and `displayName`
+- Point to Extension Manifest presentation tips
+
 ## vsce - Publishing tool reference
 
 [vsce](https://github.com/Microsoft/vsce) is the command line tool you'll use to publish extensions to the [Extension Marketplace](/docs/editor/extension-gallery).  You can also load extensions locally and share them via email or a UNC drive.
@@ -34,8 +41,6 @@ Successfully published uuid@0.0.1!
 For a reference on all the available commands, run `vsce --help`.
 
 ## Publishing extensions
-
----
 
 **Note:** Due to security concerns, `vsce` will not publish extensions which contain user provided SVG images.
 
