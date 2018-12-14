@@ -362,9 +362,9 @@ Yes, you can specify [Powerline](https://powerline.readthedocs.io) fonts with th
 
 Note that you want to specify the font family, not an individual font like **Meslo LG M DZ Regular for Powerline** where **Regular** is the specific font name.
 
-### How do I configure zsh on mac to jump words with ctrl+left/right arrow?
+### How do I configure zsh on macOS to jump words with Ctrl+Left/Right arrow?
 
-By default ctrl+left/right arrow will jump words in bash, you can configure the same for zsh by adding these keybindings:
+By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. You can configure the same for zsh by adding these keybindings:
 
 ```json
 {
