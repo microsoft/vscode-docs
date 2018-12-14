@@ -59,12 +59,12 @@ You should see the updated message showing up.
 Here are some ideas for you to try:
 
 - Give the `Hello World` command a new name.
-- [Contribute](/api/references/contribution-points) another command such as `Goodbye Cruel World`
+- [Contribute](/api/references/contribution-points) another command such as `Goodbye World`
 - Replace the `vscode.window.showInformationMessage` with another [VS Code API](/api/references/vscode-api) call to show a warning message.
 
 ## Debugging the extension
 
-The debugger and debug console allow you debug the program and inspect variables effectively. Here we have an extension that would show a message `Hello World!`, each time with an increasing exclamation mark. Let's find out how many exclamation marks the message would show by using the Debugger and the Debug Console.
+VS Code's built-in debugging functionality makes it easy to debug extensions. Set a breakpoint by clicking the gutter next to a line, and VS Code will hit the breakpoint. You can hover over variables in the editor or use the Debug View in the left to check a variable's value. The Debug Console allows you to evaluate expressions.
 
 <video autoplay loop muted playsinline controls>
   <source src="/api/get-started/your-first-extension/debug.mp4" type="video/mp4">
