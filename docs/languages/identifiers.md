@@ -86,6 +86,7 @@ JSON | `json`
 JSON with Comments | `jsonc`
 LaTeX | `latex`
 Less | `less`
+LyliPond | `lilypond`
 Lua | `lua`
 Makefile | `makefile`
 Markdown | `markdown`
