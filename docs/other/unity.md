@@ -75,8 +75,8 @@ At the start page of your visual studio 'your edition here'
 1. select top menu > **Tools** > **Get tools and features**
 2. click top tab > **individual components**
 3. select **all** > **.net 4.5.x targeting packs**
-4. click > **modify** 
- 4.1 - you will get a warning prompt regarding opened programs. If unity and/or any other programs except visual studio is running, close them down.
+4. click > **modify**
+4.1. you will get a warning prompt regarding opened programs. If unity and/or any other programs except visual studio is running, close them down.
 5. proceed and allow the install to finish.
 6. close down visual studio that was reopened.
 7. start unity
