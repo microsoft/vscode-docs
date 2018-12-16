@@ -66,6 +66,22 @@ The community is continually developing more and more valuable extensions for Un
 
 The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
+## Adding code completion to visual code
+
+open **visual studio** **NOT** visual studio code.
+
+At the start page of your visual studio 'your edition here'
+
+1. select top menu -> TOOLS -> 'Get tools and features'
+2. click top tab 'individual components'
+3. select all .net 4.5.x targeting packs
+4. click 'modify' - you will get a warning prompt regarding opened programs. If unity and/or any other programs except visual studio is running, close them down.
+5. proceed and allow the install to finish.
+6. close down visual studio that was reopened.
+7. start unity
+8. right click your assets folder and click 'open c# project"
+9. following all these steps in addition to the previously setup steps of visual code + unity you should now have code completion
+
 ## Next steps
 
 Read on to learn more about:
