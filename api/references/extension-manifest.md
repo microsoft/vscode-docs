@@ -35,7 +35,7 @@ Name | Required | Type | Details
 `dependencies` | | `object` | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
-`scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with [extra VS Code specific fields](/docs/extensions/publish-extension.md#pre-publish-step).
+`scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with extra VS Code specific fields such as [vscode:prepublish](/docs/extensions/publish-extension.md#prepublish-step) or [vscode:uninstall](/docs/extensionAPI/extension-manifest.md#extension-uninstall-hook).
 `icon` | | `string` | The path to the icon of at least 128x128 pixels (256x256 for Retina screens).
 
 Also check [npm's `package.json` reference](https://docs.npmjs.com/files/package.json).

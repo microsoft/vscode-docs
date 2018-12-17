@@ -369,7 +369,7 @@ export function activate(context: vscode.ExtensionContext) {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, { });
 
         // Get path to resource on disk
-        const onDiskPath = vscode.Uri.file(path.join(extensionPath, 'media', 'cat.gif'));
+        const onDiskPath = vscode.Uri.file(path.join(context.extensionPath, 'media', 'cat.gif'));
 
         // And get the special URI to use with the webview
         const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
@@ -407,11 +407,11 @@ export function activate(context: vscode.ExtensionContext) {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, {
             // Only allow the webview to access resources in our extension's media directory
             localResourceRoots: [
-                vscode.Uri.file(path.join(extensionPath, 'media'))
+                vscode.Uri.file(path.join(context.extensionPath, 'media'))
             ]
         });
 
-        const onDiskPath = vscode.Uri.file(path.join(extensionPath, 'media', 'cat.gif'));
+        const onDiskPath = vscode.Uri.file(path.join(context.extensionPath, 'media', 'cat.gif'));
         const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
 
         panel.webview.html = getWebviewContent(catGifSrc);
@@ -456,6 +456,8 @@ code {
     color: var(--vscode-editor-foreground);
 }
 ```
+
+Review the [Theme Color Reference](/api/references/theme-color) for the available variables.
 
 ## Scripts and message passing
 
@@ -826,7 +828,7 @@ function getWebviewContent() {
 }
 ```
 
-![persistance retrain](images/webview/persistence-retrain.gif)
+![persistence retrain](images/webview/persistence-retrain.gif)
 
 Notice how the counter does not reset now when the webview is hidden and then restored. No extra code required! With `retainContextWhenHidden`, the webview acts similarly to a background tab in a web browser. Scripts and other dynamic content are suspended, but immediately resumed once the webview becomes visible again. You cannot send messages to a hidden webview, even when `retainContextWhenHidden` is enabled.
 

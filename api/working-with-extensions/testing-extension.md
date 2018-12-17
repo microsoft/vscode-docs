@@ -100,19 +100,19 @@ You can run extension tests automatically on build machines like [Travis CI](htt
 
 In order to enable automated extension tests, the `vscode` npm module provides a test command that will:
 
-* download and unzip VS Code
-* launch your extension tests inside VS Code
-* print the results to the console and return with an exit code according to test success or failure
+1. Download and unzip VS Code;
+2. Launch your extension tests inside VS Code;
+3. Print the results to the console and return with an exit code according to test success or failure.
 
-To enable this test command, open your `package.json` and add the following entry to the `scripts` section:
+To enable this test command, make sure the following `scripts` entry is in your extension's `package.json`:
 
 ```json
 "test": "node ./node_modules/vscode/bin/test"
 ```
 
-You can then enable Travis CI easily with a top-level `.travis.yml` configuration like this:
+Here's a sample Travis CI `.travis.yml` configuration file:
 
-```
+```yaml
 sudo: false
 
 os:
