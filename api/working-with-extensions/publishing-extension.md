@@ -11,7 +11,7 @@ MetaDescription: Learn how to publish Visual Studio Code extensions to the publi
 
 Once you have made a high-quality extension, you can publish it to [Visual Studio Code Extension MarketPlace](https://marketplace.visualstudio.com/vscode) so others could find, download and use your extension.
 
-In the [Extension Anatomy](/api/get-started/extension-anatomy) section, we talked a bit about the `publisher` field. Although you can omit the field in extension development phase, it is necessary for you to register a `publisher` ID for publishing your extension to the MarketPlace.
+In the [Extension Anatomy](/api/get-started/extension-anatomy) section, we talked a bit about the `publisher` field. Although you can omit the field in extension development phase, you need to register a `publisher` ID for publishing your extension to the MarketPlace.
 
 You can see a complete reference of MarketPlace-specific fields and some tips on presenting your extensions in the [Extension Manifest reference](/api/references/extension-manifest).
 
@@ -29,19 +29,25 @@ npm install -g vsce
 
 ### Usage
 
-You'll use the `vsce` command directly from the command line in your extension root folder. For example, here is how you can quickly package an extension for testing and sharing purposes:
+You can use `vsce` to easily [package](#packaging-extensions) and [publish](#publishing-extensions) your extensions:
 
 ```bash
 $ cd myExtension
 $ vsce pacakge
 # myExtension.vsix generated
+$ vsce publish
+# <publisherID>.myExtension published to VS Code MarketPlace
 ```
 
-You can then install the extension by [installing from the VSIX extension file](/docs/editor/extension-gallery#_install-from-a-vsix).
-
-For publishing extensions, you would need to register an Azure DevOps account and add a Personal Access Token. Read the [Publishing Extensions](#publishing-extensions) section for instructions.
-
 For a reference on all the available `vsce` commands, run `vsce --help`.
+
+## Packaging extensions
+
+`vsce` can package your extension into a compressed `VSIX` file, from which users can [install your extension](https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix). Some extensions publish VSIX files to each GitHub release.
+
+For extension authors, they can run `vsce package` in extension root folder to create such VSIX files.
+
+For users who receive such a VSIX file, they can install the extension with `code --install-extension my-extension-0.0.1.vsix`.
 
 ## Publishing extensions
 
