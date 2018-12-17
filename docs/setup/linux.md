@@ -241,7 +241,7 @@ sudo touch /etc/apt/sources.list.d/vscode.list
 
 ### Cannot move or resize the window while X forwarding a remote window
 
-If you are using X forwarding to use VS Code remotely, you will need to use the native title bar to ensure you can properly manipulate the window. This is no longer the default behavior on linux, but you can switch to using the native title bar by setting `window.titleBarStyle` to `native`.
+If you are using X forwarding to use VS Code remotely, you will need to use the native title bar to ensure you can properly manipulate the window. The native title bar is no longer the default behavior on Linux, but you can switch to using it by setting `window.titleBarStyle` to `native`.
 
 ### Low contrast menu bar
 
