@@ -18,7 +18,7 @@ TODO: PINE
 
 ## vsce - Publishing tool reference
 
-[vsce](https://github.com/Microsoft/vsce) is the command line tool you'll use to publish extensions to the [Extension Marketplace](/docs/editor/extension-gallery).  You can also load extensions locally and share them via email or a UNC drive.
+[vsce](https://github.com/Microsoft/vsce) is the command line tool you'll use to publish extensions to the [Extension Marketplace](/docs/editor/extension-gallery.md).  You can also load extensions locally and share them via email or a UNC drive.
 
 ## Installation
 
@@ -30,9 +30,10 @@ npm install -g vsce
 
 ## Usage
 
-You'll use the `vsce` command directly from the command line. For example, here's how you can quickly publish an extension (after your `login` and `package`ing):
+You'll use the `vsce` command directly from the command line in your extension root folder. For example, here's how you can quickly publish an extension (after your `login` and `package`ing):
 
 ```bash
+$ cd myExtension
 $ vsce publish
 Publishing uuid@0.0.1...
 Successfully published uuid@0.0.1!
@@ -41,6 +42,8 @@ Successfully published uuid@0.0.1!
 For a reference on all the available commands, run `vsce --help`.
 
 ## Publishing extensions
+
+---
 
 **Note:** Due to security concerns, `vsce` will not publish extensions which contain user provided SVG images.
 
@@ -53,33 +56,37 @@ The publishing tool checks the following constraints:
 
 ---
 
-Visual Studio Code leverages [Azure DevOps Services](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
+Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
 
 ### Get a Personal Access Token
 
-First, make sure you have a Azure DevOps Services [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
+First, make sure you have an Azure DevOps [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
 
-In the following examples, the organization's name is `monacotools`. From your organization's home page (for example: `https://dev.azure.com/monacotools`), go to the **Security** page:
+In the following examples, the organization's name is `vscode`. From your organization's home page (for example: `https://dev.azure.com/vscode`), go to the **Security** page:
 
-![Security page](images/publishing-extension/publishers1.png)
+![Security page](images/publishing-extension/token1.png)
 
-Click **Add** to create a new Personal Access Token:
+Select `Personal access tokens` and click **New Token** to create a new Personal Access Token:
 
-![Add personal access token](images/publishing-extension/publishers2.png)
+![Create personal access token](images/publishing-extension/token2.png)
 
-Give the Personal Access Token a nice description, optionally extend its expiration date to 1 year, make it accessible to every organization and set the authorization to **all scopes**:
+Give the Personal Access Token a name, optionally extend its expiration date to 1 year, make it accessible to every organization, select a **custom defined** scope ruleset and click **Show all scopes**:
 
-![Personal access token details](images/publishing-extension/publishers3.png)
+![Personal access token details](images/publishing-extension/token3.png)
 
-The next screen will display your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
+Finally, scroll down the list of possible scopes until you find **Marketplace** and select both **Acquire** and **Manage**:
+
+![Personal access token details](images/publishing-extension/token4.png)
+
+Click **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
 
 ### Create a publisher
 
-A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/docs/extensionAPI/extension-manifest).
+A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/docs/extensionAPI/extension-manifest.md).
 
-Once you have a [Personal Access Token](/docs/extensions/publishing-extension.md#get-a-personal-access-token), you can create a new publisher using `vsce`:
+Once you have a [Personal Access Token](/docs/extensions/publish-extension.md#get-a-personal-access-token), you can create a new publisher using `vsce`:
 
 ```bash
 vsce create-publisher (publisher name)
@@ -219,12 +226,12 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 
 This will always invoke the [TypeScript](https://www.typescriptlang.org/) compiler whenever the extension is packaged.
 
-## Next Steps
+## Next steps
 
-* [Extension Marketplace](/docs/editor/extension-gallery) - Learn more about VS Code's public extension Marketplace.
-* [Testing Extensions](/docs/extensions/testing-extensions) - Add tests to your extension project to ensure high quality.
+* [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
+* [Testing Extensions](/docs/extensions/testing-extensions.md) - Add tests to your extension project to ensure high quality.
 
-## Common Questions
+## Common questions
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 
