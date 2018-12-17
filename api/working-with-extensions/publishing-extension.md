@@ -11,16 +11,15 @@ MetaDescription: Learn how to publish Visual Studio Code extensions to the publi
 
 Once you have made a high-quality extension, you can publish it to [Visual Studio Code Extension MarketPlace](https://marketplace.visualstudio.com/vscode) so others could find, download and use your extension.
 
-TODO: PINE
+In the [Extension Anatomy](/api/get-started/extension-anatomy) section, we talked a bit about the `publisher` field. Although you can omit the field in extension development phase, it is necessary for you to register a `publisher` ID for publishing your extension to the MarketPlace.
 
-- Explain `publisher` and `displayName`
-- Point to Extension Manifest presentation tips
+You can see a complete reference of MarketPlace-specific fields and some tips on presenting your extensions in the [Extension Manifest reference](/api/references/extension-manifest).
 
-## vsce - Publishing tool reference
+## vsce
 
-[vsce](https://github.com/Microsoft/vsce) is the command line tool you'll use to publish extensions to the [Extension Marketplace](/docs/editor/extension-gallery.md).  You can also load extensions locally and share them via email or a UNC drive.
+[vsce](https://github.com/Microsoft/vsce), short for "Visual Studio Code Extensions", is a command line tool for managing and publishing VS Code extensions.
 
-## Installation
+### Installation
 
 Make sure you have [Node.js](https://nodejs.org/) installed. Then run:
 
@@ -28,18 +27,21 @@ Make sure you have [Node.js](https://nodejs.org/) installed. Then run:
 npm install -g vsce
 ```
 
-## Usage
+### Usage
 
-You'll use the `vsce` command directly from the command line in your extension root folder. For example, here's how you can quickly publish an extension (after your `login` and `package`ing):
+You'll use the `vsce` command directly from the command line in your extension root folder. For example, here is how you can quickly package an extension for testing and sharing purposes:
 
 ```bash
 $ cd myExtension
-$ vsce publish
-Publishing uuid@0.0.1...
-Successfully published uuid@0.0.1!
+$ vsce pacakge
+# myExtension.vsix generated
 ```
 
-For a reference on all the available commands, run `vsce --help`.
+You can then install the extension by [installing from the VSIX extension file](/docs/editor/extension-gallery#_install-from-a-vsix).
+
+For publishing extensions, you would need to register an Azure DevOps account and add a Personal Access Token. Read the [Publishing Extensions](#publishing-extensions) section for instructions.
+
+For a reference on all the available `vsce` commands, run `vsce --help`.
 
 ## Publishing extensions
 
