@@ -9,7 +9,7 @@ MetaDescription: Learn how to publish Visual Studio Code extensions to the publi
 
 # Publishing Extension
 
-Once you have made a high-quality extension, you can publish it to [Visual Studio Code Extension MarketPlace](https://marketplace.visualstudio.com/vscode) so others could find, download and use your extension.
+Once you have made a high-quality extension, you can [publish](#publishing-extensions) it to [Visual Studio Code Extension MarketPlace](https://marketplace.visualstudio.com/vscode) so others could find, download and use your extension. Alternatively, you can [package](#packaging-extensions) an extension into the installable VSIX format and share it with other users.
 
 In the [Extension Anatomy](/api/get-started/extension-anatomy) section, we talked a bit about the `publisher` field. Although you can omit the field in extension development phase, you need to register a `publisher` ID for publishing your extension to the MarketPlace.
 
@@ -17,7 +17,7 @@ You can see a complete reference of MarketPlace-specific fields and some tips on
 
 ## vsce
 
-[vsce](https://github.com/Microsoft/vsce), short for "Visual Studio Code Extensions", is a command line tool for managing and publishing VS Code extensions.
+[vsce](https://github.com/Microsoft/vsce), short for "Visual Studio Code Extensions", is a command line tool for packaging, publishing and managing VS Code extensions.
 
 ### Installation
 
@@ -39,7 +39,7 @@ $ vsce publish
 # <publisherID>.myExtension published to VS Code MarketPlace
 ```
 
-For a reference on all the available `vsce` commands, run `vsce --help`.
+`vsce` can also search, get metadata of and unpublish extensions. For a reference on all the available `vsce` commands, run `vsce --help`.
 
 ## Packaging extensions
 
