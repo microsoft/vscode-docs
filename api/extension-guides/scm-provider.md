@@ -177,7 +177,7 @@ Using a `QuickDiffProvider`, your implementation is able to tell VS Code what's 
 
 You can combine this API with the [`registerTextDocumentContentProvider` method in the `workspace` namespace](/docs/extensionAPI/vscode-api.md#workspace), which lets you provide contents for arbitrary resources, given a `Uri`.
 
-## Next Steps
+## Next steps
 
 To learn more about VS Code extensibility model, try these topics:
 

@@ -282,7 +282,7 @@ To see editor rulers, define their location with `"editor.rulers"`
 
 - `editorRuler.foreground`: Color of the editor rulers.
 
-Code Lens:
+CodeLens:
 
 ![Code Lenses](images/theme-color/codelens.png)
 

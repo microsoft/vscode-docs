@@ -11,23 +11,24 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 **Contribution Points** is a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension registers **Contribution Points** to extend various functionalities within Visual Studio Code. Here is a list of all available **Contribution Points**:
 
-- [`configuration`](/api/references/contribution-points#contributes.configuration)
-- [`commands`](/api/references/contribution-points#contributes.commands)
-- [`menus`](/api/references/contribution-points#contributes.menus)
-- [`keybindings`](/api/references/contribution-points#contributes.keybindings)
-- [`languages`](/api/references/contribution-points#contributes.languages)
-- [`debuggers`](/api/references/contribution-points#contributes.debuggers)
-- [`breakpoints`](/api/references/contribution-points#contributes.breakpoints)
-- [`grammars`](/api/references/contribution-points#contributes.grammars)
-- [`themes`](/api/references/contribution-points#contributes.themes)
-- [`snippets`](/api/references/contribution-points#contributes.snippets)
-- [`jsonValidation`](/api/references/contribution-points#contributes.jsonValidation)
-- [`views`](/api/references/contribution-points#contributes.views)
-- [`viewsContainers`](/api/references/contribution-points#contributes.viewsContainers)
-- [`problemMatchers`](/api/references/contribution-points#contributes.problemMatchers)
-- [`problemPatterns`](/api/references/contribution-points#contributes.problemPatterns)
-- [`taskDefinitions`](/api/references/contribution-points#contributes.taskDefinitions)
-- [`colors`](/api/references/contribution-points#contributes.colors)
+* [`configuration`](/docs/extensionAPI/extension-points.md#contributesconfiguration)
+* [`commands`](/docs/extensionAPI/extension-points.md#contributescommands)
+* [`menus`](/docs/extensionAPI/extension-points.md#contributesmenus)
+* [`keybindings`](/docs/extensionAPI/extension-points.md#contributeskeybindings)
+* [`languages`](/docs/extensionAPI/extension-points.md#contributeslanguages)
+* [`debuggers`](/docs/extensionAPI/extension-points.md#contributesdebuggers)
+* [`breakpoints`](/docs/extensionAPI/extension-points.md#contributesbreakpoints)
+* [`grammars`](/docs/extensionAPI/extension-points.md#contributesgrammars)
+* [`themes`](/docs/extensionAPI/extension-points.md#contributesthemes)
+* [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
+* [`jsonValidation`](/docs/extensionAPI/extension-points.md#contributesjsonvalidation)
+* [`views`](/docs/extensionAPI/extension-points.md#contributesviews)
+* [`viewsContainers`](/docs/extensionAPI/extension-points.md#contributesviewscontainers)
+* [`problemMatchers`](/docs/extensionAPI/extension-points.md#contributesproblemmatchers)
+* [`problemPatterns`](/docs/extensionAPI/extension-points.md#contributesproblempatterns)
+* [`taskDefinitions`](/docs/extensionAPI/extension-points.md#contributestaskdefinitions)
+* [`colors`](/docs/extensionAPI/extension-points.md#contributescolors)
+* [`typescriptServerPlugins`](/docs/extensionAPI/extension-points.md#contributestypescriptserverplugins)
 
 ## contributes.configuration
 
@@ -62,7 +63,7 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 }
 ```
 
-![configuration extension point example](images/contribution-points/configuration.png)
+![configuration extension point example](images/extension-points/configuration.png)
 
 ## contributes.configurationDefaults
 
@@ -101,7 +102,7 @@ Contribute an entry consisting of a title and a command to invoke to the **Comma
 }
 ```
 
-![commands extension point example](images/contribution-points/commands.png)
+![commands extension point example](images/extension-points/commands.png)
 
 ## contributes.menus
 
@@ -119,12 +120,12 @@ Currently extension writers can contribute to:
 * The editor title menu bar - `editor/title`
 * The editor title context menu - `editor/title/context`
 * The debug callstack view context menu - `debug/callstack/context`
-* The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
-* [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
-* [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resource/context`
-* [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
-* The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
-* The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
+* The [SCM title menu](/docs/extensionAPI/api-scm.md#menus) - `scm/title`
+* [SCM resource groups](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resourceGroup/context`
+* [SCM resources](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resource/context`
+* [SCM change title](/docs/extensionAPI/api-scm.md#menus) menus - `scm/change/title`
+* The [View title menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/title`
+* The [View item menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/item/context`
 
 >**Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
@@ -145,7 +146,7 @@ In addition to a title, commands can also define icons which VS Code will show i
 }
 ```
 
-![menus extension point example](images/contribution-points/menus.png)
+![menus extension point example](images/extension-points/menus.png)
 
 ### Context specific visibility of Command Palette menu items
 
@@ -178,7 +179,7 @@ The **editor context menu**  has these default groups:
 * `9_cutcopypaste` - The second last default group with the basic editing commands.
 * `z_commands` - The last default group with an entry to open the Command Palette.
 
-![Menu Group Sorting](images/contribution-points/groupSorting.png)
+![Menu Group Sorting](images/extension-points/groupSorting.png)
 
 
 The **explorer context menu** has these default groups:
@@ -216,7 +217,7 @@ The order inside a group depends on the title or an order-attribute. The group-l
 
 ## contributes.keybindings
 
-Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/getstarted/keybindings) topic where key bindings are explained in detail.
+Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/getstarted/keybindings.md) topic where key bindings are explained in detail.
 
 Contributing a key binding will cause the Default Keyboard Shortcuts to display your rule, and every UI representation of the command will now show the key binding you have added. And, of course, when the user presses the key combination the command will be invoked.
 
@@ -239,18 +240,38 @@ Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` u
 }
 ```
 
-![keybindings extension point example](images/contribution-points/keybindings.png)
+![keybindings extension point example](images/extension-points/keybindings.png)
 
 ## contributes.languages
 
-Contribute definition of a language. This will introduce a new language or enrich the knowledge VS Code has about a language.
+Contribute the definition of a language. This will introduce a new language or enrich the knowledge VS Code has about a language.
 
-The main effects of `contributes.languages` are:
+In this context, a language is basically a string identifier that is associated to a file (See `TextDocument.getLanguageId()`).
 
-- Define a `languageId` that can be reused in other parts of VS Code API, such as `vscode.TextDocument.getLanguageId()` and the `onLanguage` Activation Events.
-  - You can contribute a human-readable using the `aliases` field. The first item in the list will be used as the human-readable label.
-- Associate file name extensions, file name patterns, files that begin with a specific line (such as hashbang), mimetypes to that `languageId`.
-- Contribute a set of [Declarative Language Features](/api/language-extensions/overview#declarative-language-features) for the contributed language. Learn more about the configurable editing features in the [Language Configuration Guide](/api/language-extensions/language-configuration-guide).
+VS Code uses three hints to determine the language a file will be associated with. Each "hint" can be enriched independently:
+
+1. the extension of the filename (`extensions` below)
+2. the filename (`filenames` below)
+3. the first line inside the file (`firstLine` below)
+
+When a file is opened by the user, these three rules are applied and a language is determined. VS Code will then emit an activationEvent `onLanguage:${language}` (e.g. `onLanguage:python` for the example below)
+
+The `aliases` property contains human readable names under which the language is known. The first item in this list will be picked as the language label (as rendered in the status bar on the right).
+
+The `configuration` property specifies a path to the language configuration file. The path is relative to the extension folder, and is typically `./language-configuration.json`. The file uses the JSON format and can contain the following properties:
+
+* `comments` - Defines the comment symbols
+  * `blockComment` - The begin and end token used to mark a block comment. Used by the 'Toggle Block Comment' command.
+  * `lineComment` - The begin token used to mark a line comment. Used by the 'Add Line Comment' command.
+* `brackets` - Defines the bracket symbols that influence the indentation of code between the brackets. Used by the editor to determine or correct the new indentation level when entering a new line.
+* `autoClosingPairs` - Defines the open and close symbols for the auto-close functionality. When an open symbol is entered, the editor will insert the close symbol automatically. Auto closing pairs optionally take a `notIn` parameter to deactivate a pair inside strings or comments.
+* `surroundingPairs` - Defines the open and close pairs used to surround a selected string.
+* `folding` - Defines when and how code should be folded in the editor
+  * `offSide` - Empty lines trailing a code section belong to the next folding section (used for indentation based languages such as Python or F#)
+  * `markers` - Regex for identifying markers for custom folding regions in the code
+* `wordPattern` - Regex which defines what is considered to be a word in the programming language.
+
+If your language configuration file name is or ends with `language-configuration.json`, you will get validation and editing support in VS Code.
 
 ### Example
 
@@ -265,6 +286,44 @@ The main effects of `contributes.languages` are:
         "firstLine": "^#!/.*\\bpython[0-9.-]*\\b",
         "configuration": "./language-configuration.json"
     }]
+}
+```
+
+language-configuration.json
+
+```json
+{
+    "comments": {
+        "lineComment": "//",
+        "blockComment": [ "/*", "*/" ]
+    },
+    "brackets": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"]
+    ],
+    "autoClosingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        { "open": "'", "close": "'", "notIn": ["string", "comment"] },
+        { "open": "/**", "close": " */", "notIn": ["string"] }
+    ],
+    "surroundingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["<", ">"],
+        ["'", "'"]
+    ],
+    "folding": {
+        "offSide": true,
+        "markers": {
+            "start": "^\\s*//#region",
+            "end": "^\\s*//#endregion"
+        }
+    },
+    "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)"
 }
 ```
 
@@ -340,7 +399,7 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 }
 ```
 
-For a full walkthrough on how to integrate a `debugger`, go to [Debuggers](/docs/extensions/example-debuggers).
+For a full walkthrough on how to integrate a `debugger`, go to [Debuggers](/docs/extensions/example-debuggers.md).
 
 ## contributes.breakpoints
 
@@ -381,9 +440,9 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 }
 ```
 
-See [Adding Language Colorization](/docs/extensions/themes-snippets-colorizers) for instructions on using the [yo code extension generator](/docs/extensions/yocode) to quickly package TextMate .tmLanguage files as VS Code extensions.
+See [Adding Language Colorization](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/extensions/yocode.md) to quickly package TextMate .tmLanguage files as VS Code extensions.
 
-![grammars extension point example](images/contribution-points/grammars.png)
+![grammars extension point example](images/extension-points/grammars.png)
 
 ## contributes.themes
 
@@ -401,13 +460,13 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 }
 ```
 
-![themes extension point example](images/contribution-points/themes.png)
+![themes extension point example](images/extension-points/themes.png)
 
-See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers) for instructions on using the [yo code extension generator](/docs/extensions/yocode) to quickly package TextMate .tmTheme files as VS Code extensions.
+See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/extensions/yocode.md) to quickly package TextMate .tmTheme files as VS Code extensions.
 
 ## contributes.snippets
 
-Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets.md#snippet-syntax).
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers.md) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets.md#snippet-syntax).
 
 The example below shows adding snippets for the Go language.
 
@@ -441,7 +500,7 @@ Contribute a view to VS Code. You must specify an identifier and name for the vi
 * `scm`: Source Control Management (SCM) view container in the Activity Bar
 * `debug`: Debug view container in the Activity Bar
 * `test`: Test view container in the Activity Bar
-* [Custom view containers](#contributes.viewsContainers) contributed by Extensions.
+* [Custom view containers](#contributesviewscontainers) contributed by Extensions.
 
 When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (e.g. `onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value.
 
@@ -459,7 +518,7 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
 }
 ```
 
-![views extension point example](images/contribution-points/views.png)
+![views extension point example](images/extension-points/views.png)
 
 Extension writers should create a [TreeView](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeView) by providing a [data provider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeDataProvider) through `createTreeView` API or register the [data provider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeDataProvider) directly through `registerTreeDataProvider` API to populate data. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
 
@@ -493,7 +552,7 @@ Contribute a view container into which [Custom views](#contributes.views) can be
 }
 ```
 
-![Custom views container](images/contribution-points/custom-views-container.png)
+![Custom views container](images/extension-points/custom-views-container.png)
 
 **Icon specifications**
 
@@ -585,7 +644,7 @@ The task definition is defined using JSON schema syntax for the `required` and `
 * `"required": [ "script" ]` defines that `script` attributes as mandatory. The `path` property is optional.
 * `"properties"` : { ... }` defines the additional properties and their types.
 
-When the extension actual creates a Task it needs to pass a `TaskDefinition` that conforms to the task definition contributed in the package.json file. For the `npm` example a task creation for the test script inside a package.json file looks like this:
+When the extension actually creates a Task, it needs to pass a `TaskDefinition` that conforms to the task definition contributed in the package.json file. For the `npm` example a task creation for the test script inside a package.json file looks like this:
 
 ```ts
 let task = new vscode.Task({ type: 'npm', script: 'test' }, ....);
@@ -626,7 +685,7 @@ Contributes [TypeScript server plugins](https://github.com/Microsoft/TypeScript/
 }
 ```
 
-The above example extension contributes the [`typescript-styled-plugin`](https://github.com/Microsoft/typescript-styled-plugin) which adds styled-component IntelliSense for JavaScript and TypeScript. This plugin will be loaded from the extension and must be listed as a `dependency`:
+The above example extension contributes the [`typescript-styled-plugin`](https://github.com/Microsoft/typescript-styled-plugin) which adds styled-component IntelliSense for JavaScript and TypeScript. This plugin will be loaded from the extension and must be installed as a normal NPM `dependency` in the extension:
 
 ```json
 {
@@ -638,9 +697,63 @@ The above example extension contributes the [`typescript-styled-plugin`](https:/
 
 TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript.
 
-## Next Steps
+### Plugin configuration
+
+Extensions can send configuration data to contributed TypeScript plugins through an API provided by VS Code's built-in TypeScript extension:
+
+```ts
+// In your VS Code extension
+
+export async function activate(context: vscode.ExtensionContext) {
+    // Get the TS extension
+    const tsExtension = vscode.extensions.getExtension('vscode.typescript-language-features');
+    if (!tsExtension) {
+        return;
+    }
+
+    await tsExtension.activate();
+
+    // Get the API from the TS extension
+    if (!tsExtension.exports || !tsExtension.exports.getAPI) {
+        return;
+    }
+
+    const api = tsExtension.exports.getAPI(0);
+    if (!api) {
+        return;
+    }
+
+    // Configure the 'my-typescript-plugin-id' plugin
+    api.configurePlugin('my-typescript-plugin-id', {
+        someValue: process.env['SOME_VALUE']
+    });
+}
+```
+
+The TypeScript server plugin receives the configuration data through an `onConfigurationChanged` method:
+
+```ts
+// In your TypeScript plugin
+
+import * as ts_module from 'typescript/lib/tsserverlibrary';
+
+export = function init({ typescript }: { typescript: typeof ts_module }) {
+    return {
+        create(info: ts.server.PluginCreateInfo) {
+            // Create new language service
+        },
+        onConfigurationChanged(config: any) {
+            // Receive configuration changes sent from VS Code
+        },
+    };
+};
+```
+
+This API allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/Microsoft/vscode-typescript-tslint-plugin/blob/master/src/index.ts) and [lit-html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.
+
+## Next steps
 
 To learn more about VS Code extensibility model, try these topic:
 
-* [Extension Manifest File](/docs/extensionAPI/extension-manifest) - VS Code package.json extension manifest file reference
-* [Activation Events](/docs/extensionAPI/activation-events) - VS Code activation events reference
+* [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
+* [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference

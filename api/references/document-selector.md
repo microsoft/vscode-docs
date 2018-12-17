@@ -81,7 +81,7 @@ vscode.languages.registerHoverProvider({ scheme: 'file', language: 'typescript' 
 
 Documents are usually stored on the file system, but not always: there are untitled documents, cached documents that Git uses, documents from remote sources like FTP, and so forth. If your feature relies on disk access, make sure to use a document selector with the `file` scheme.
 
-## Next Steps
+## Next steps
 
 To learn more about VS Code extensibility model, try these topic:
 

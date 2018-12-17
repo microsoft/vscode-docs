@@ -923,7 +923,7 @@ Most of the time, the code in the editor is incomplete and syntactically incorre
 
 When we were improving PHP support in VS Code, we realized the official PHP parser is not error tolerant and cannot be reused directly in the Language Server. Therefore, we worked on [Microsoft/tolerant-php-parser](https://github.com/Microsoft/tolerant-php-parser) and left detailed [notes](https://github.com/Microsoft/tolerant-php-parser/blob/master/docs/HowItWorks.md) that might help Language Server authors who need to implement an error tolerant parser.
 
-## Common Questions
+## Commone questions
 
 ### When I try to attach to the server, I get "cannot connect to runtime process (timeout after 5000ms)"?
 

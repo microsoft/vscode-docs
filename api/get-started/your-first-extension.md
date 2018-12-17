@@ -72,7 +72,7 @@ VS Code's built-in debugging functionality makes it easy to debug extensions. Se
 
 You can learn more about debugging Node.js apps in VS Code in the [Node.js Debugging Topic](/docs/nodejs/nodejs-debugging).
 
-## Next Steps
+## Next steps
 
 In the next topic, [Extension Anatomy](/api/get-started/extension-anatomy), we'll take a closer look at the source code of the `Hello World` sample and explain key concepts.
 

@@ -18,7 +18,7 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 * [`onFileSystem:${scheme}`](/api/references/activation-events#activationeventsonfilesystem)
 * [`onView:${viewId}`](/api/references/activation-events#activationeventsonview)
 * [`onUri`](/api/references/activation-events#activationeventsonuri)
-* [`onWebviewPanel`](/api/references/activation-events#activationeventsonwebviewpanel)
+* [`onWebviewPanel:${viewType}`](/docs/extensionAPI/activation-events.md#activationeventsonwebviewpanel)
 * [`*`](/api/references/activation-events#activationevents)
 
 We also provide an reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
@@ -79,7 +79,7 @@ There are two more fine-grained `onDebug` activation events:
 * `onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
 * `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
 
-**Rule of thumb:** If activation of a debug extensions is lightweight, use `onDebug`. If it is heavyweight, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`. See [Debug Type specific Hooks](/docs/extensionAPI/api-debugging.md#debug-type-specific-hooks) for more details on these methods.
+**Rule of thumb:** If activation of a debug extension is lightweight, use `onDebug`. If it is heavyweight, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`. See [Debug Type specific Hooks](/docs/extensionAPI/api-debugging.md#debug-type-specific-hooks) for more details on these methods.
 
 ## activationEvents.workspaceContains
 
@@ -166,7 +166,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 > **Note:** An extension **must** export an `activate()` function from its main module and it will be invoked **only once** by VS Code when any of the specified activation events is emitted. Also, an extension **should** export a `deactivate()` function from its main module to perform cleanup tasks on VS Code shutdown. Extension **must** return a Promise from `deactivate()` if the cleanup process is asynchronous. An extension may return `undefined` from `deactivate()` if the cleanup runs synchronously.
 
-## Next Steps
+## Next steps
 
 To learn more about VS Code extensibility model, try these topic:
 
