@@ -594,7 +594,7 @@ You can view available methods, parameter hints, short documentation, etc.
 
 ### Peek
 
-Select a symbol then type `kb(editor.action.peekImplementation)`. Alternatively, you can use the context menu.
+Select a symbol then type `kb(editor.action.peekDefinition)`. Alternatively, you can use the context menu.
 
 ![peek](images/tips-and-tricks/peek.gif)
 

@@ -85,7 +85,7 @@ and Vue properties (`methods`, `computed`) in the `scripts` section:
 
 ### Go to Definition, Peek definition
 
-VS Code through the Vue extension language service can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekImplementation)`). Put the cursor over the `App`, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `App` definition from `App.js`.
+VS Code through the Vue extension language service can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Put the cursor over the `App`, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `App` definition from `App.js`.
 
 ![Vue.js peek definition](images/vuejs/peek-definition.png)
 
