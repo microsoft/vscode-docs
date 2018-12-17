@@ -116,7 +116,7 @@ Once you save the `App.vue` file (`kb(workbench.action.files.save)`), restart th
 
 ## Linting
 
-Linters analyze your source code and can warn you about potential problems before you run your application. The Vue ESLint plugin (eslint-plugin-vue) checks for Vue.js specific syntax errors which are shown in the editor as red squigglies and are also displayed in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
+Linters analyze your source code and can warn you about potential problems before you run your application. The Vue ESLint plugin ([eslint-plugin-vue](https://www.npmjs.com/package/eslint-plugin-vue)) checks for Vue.js specific syntax errors which are shown in the editor as red squigglies and are also displayed in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
 
 Below you can see an error when the Vue linter detects more than one root element in a template:
 

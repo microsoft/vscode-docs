@@ -49,7 +49,7 @@ As part of building out this service, we've begun implementing LSIF support for 
 
 ## We need your feedback!
 
-We're excited to share this first look of the rich code navigation experience! We've got a lot of work left to do before this becomes something you can try out, but we wanted to start an open conversation with the community about what we're working on. If you're interested in chatting with our team, and taking part in a potential preview, you can sign-up [here](https://devdivdynamicsprod.microsoftcrmportals.com/richcodenav_signup). We look forward to sharing more updates in the near future!
+We're excited to share this first look of the rich code navigation experience! We've got a lot of work left to do before this becomes something you can try out, but we wanted to start an open conversation with the community about what we're working on. If you're interested in chatting with our team, and taking part in a potential preview, you can sign-up [here](http://aka.ms/rich-nav-signup). We look forward to sharing more updates in the near future!
 
 Happy reviewing!
 

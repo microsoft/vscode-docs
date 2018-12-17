@@ -239,6 +239,10 @@ sudo mkdir /etc/apt/sources.list.d
 sudo touch /etc/apt/sources.list.d/vscode.list
 ```
 
+### Cannot move or resize the window while X forwarding a remote window
+
+If you are using X forwarding to use VS Code remotely, you will need to use the native title bar to ensure you can properly manipulate the window. The native title bar is no longer the default behavior on Linux, but you can switch to using it by setting `window.titleBarStyle` to `native`.
+
 ### Low contrast menu bar
 
 If you are using Ubuntu 18.10 or a GTK theme that mixes light or dark context menus with the opposite theming for the application menu bar, you may experience a low contrast menu bar that is difficult to read when using the native title bar setting.
