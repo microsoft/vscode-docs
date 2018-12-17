@@ -13,11 +13,11 @@ VS Code supports running and debugging tests for your extension that require the
 
 ## Yo Code test scaffolding
 
-The basic [yo code generator](/docs/extensions/yocode) extension project includes a sample test as well as the necessary infrastructure to run it.
+The basic [yo code generator](/docs/extensions/yocode.md) extension project includes a sample test as well as the necessary infrastructure to run it.
 
 **Note**: The documentation below assumes that you created a TypeScript extension but the same also applies for a JavaScript extension. However, some file names may be different.
 
-After you've created a new extension and opened the project in VS Code, you can select the `Extension Tests` configuration from the dropdown at the top of the Debug View.
+After you've created a new extension and opened the project in VS Code, you can select the `Extension Tests` configuration from the drop-down at the top of the Debug View.
 
 ![launch tests](images/testing-extension/launch-tests.png)
 
@@ -31,9 +31,9 @@ The extension project comes with a `src/test` folder that includes an `index.ts`
 
 ```
 ├── src
-│   └── test
-│       ├── extension.test.ts
-│       └── index.ts
+│   └── test
+│       ├── extension.test.ts
+│       └── index.ts
 ```
 
 You can create more `test.ts` files under the `test` folder and they will automatically be built (to `out/test`) and run. The test runner will only consider files matching the name pattern `*.test.ts`.
@@ -88,55 +88,21 @@ This will give large benefits to performance when running tests
 
 ## Excluding test files from your extension package
 
-If you decide to share your extension, you may not want to include the tests in your extension package.  The [`.vscodeignore`](/docs/extensions/publish-extension.md#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/docs/extensions/publish-extension).  By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
+If you decide to share your extension, you may not want to include the tests in your extension package.  The [`.vscodeignore`](/docs/extensions/publish-extension.md#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/docs/extensions/publish-extension.md).  By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
 
 ```
 out/test/**
 ```
 
-## Running tests automatically on Travis CI build machines
+## Continuous Integration
 
-You can run extension tests automatically on build machines like [Travis CI](https://travis-ci.org).
+Extension tests can be run on CI services. The `vscode` npm module provides a built-in command (`bin/test`) which:
 
-In order to enable automated extension tests, the `vscode` npm module provides a test command that will:
+1. Downloads and unzips VS Code;
+2. Launches your extension tests inside VS Code;
+3. Prints the results to the console and exits with an appropriate status code.
 
-1. Download and unzip VS Code;
-2. Launch your extension tests inside VS Code;
-3. Print the results to the console and return with an exit code according to test success or failure.
-
-To enable this test command, make sure the following `scripts` entry is in your extension's `package.json`:
-
-```json
-"test": "node ./node_modules/vscode/bin/test"
-```
-
-Here's a sample Travis CI `.travis.yml` configuration file:
-
-```yaml
-sudo: false
-
-os:
-  - osx
-  - linux
-
-before_install:
-  - if [ $TRAVIS_OS_NAME == "linux" ]; then
-      export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0;
-      sh -e /etc/init.d/xvfb start;
-      sleep 3;
-    fi
-
-install:
-  - npm install
-  - npm run vscode:prepublish
-
-script:
-  - npm test --silent
-```
-
-The script above will run the tests on both Linux and macOS. Note that in order to run the tests on Linux, you need to have a `before_install` configuration as above to enable Linux to start VS Code from the build.
-
-There are some optional environment variables to configure the test runner:
+The command will expose some optional environment variables, which you can use to customize the build:
 
 | Name        | Description       |
 | ------------|-------------------|
@@ -146,13 +112,109 @@ There are some optional environment variables to configure the test runner:
 | `CODE_EXTENSIONS_PATH` | Location of the extensions to load (default is `process.cwd()`) |
 | `CODE_TESTS_WORKSPACE` | Location of a workspace to open for the test instance (default is CODE_TESTS_PATH) |
 
-## Running tests on Windows with AppVeyor
+### Azure Pipelines
 
-You can also run extension tests on Windows with [AppVeyor](https://www.appveyor.com/).
+<a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="/assets/api/working-with-extensions/testing-extension/pipelines-logo.png" width="318" /></a>
 
-## Next Steps
+You can create free projects on [Azure DevOps](https://azure.microsoft.com/services/devops/). This gives you source code hosting, planning boards, building and testing infrastructure, and more. On top of that, you get [10 free parallel jobs](https://azure.microsoft.com/services/devops/pipelines/) for building your projects across all 3 major platforms: Windows, macOS and Linux.
 
-* [Developing Extensions](/docs/extensions/developing-extensions) - Learn more about how to run and debug your extension.
-* [vsce](/docs/extensions/publish-extension) - Publish your extension with the VSCE command line tool.
-* [Extension Manifest file](/docs/extensionAPI/extension-manifest) - VS Code extension manifest file reference
-* [Extension API](/docs/extensionAPI/overview) - Learn about the VS Code extensibility APIs
+After registering and creating your new project, simply add the following `.azure-pipelines.yml` to the root of your extension's repository:
+
+```yaml
+jobs:
+- job: Windows
+  pool:
+    vmImage: 'vs2017-win2016'
+
+  steps:
+  - task: NodeTool@0
+    displayName: 'Use Node 8.x'
+    inputs:
+      versionSpec: 8.x
+
+  - task: Npm@1
+    displayName: 'Install dependencies'
+    inputs:
+      verbose: false
+
+  - task: Npm@1
+    displayName: 'Compile sources'
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: 'run compile'
+
+  - script: 'node node_modules/vscode/bin/test'
+    displayName: 'Run tests'
+
+- job: macOS
+  pool:
+    vmImage: 'macOS-10.13'
+
+  steps:
+  - task: NodeTool@0
+    displayName: 'Use Node 8.x'
+    inputs:
+      versionSpec: 8.x
+
+  - task: Npm@1
+    displayName: 'Install dependencies'
+    inputs:
+      verbose: false
+
+  - task: Npm@1
+    displayName: 'Compile sources'
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: 'run compile'
+
+  - script: 'node node_modules/vscode/bin/test'
+    displayName: 'Run tests'
+
+- job: Linux
+  pool:
+    vmImage: 'ubuntu-16.04'
+
+  steps:
+  - task: NodeTool@0
+    displayName: 'Use Node 8.x'
+    inputs:
+      versionSpec: 8.x
+
+  - task: Npm@1
+    displayName: 'Install dependencies'
+    inputs:
+      verbose: false
+
+  - task: Npm@1
+    displayName: 'Compile sources'
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: 'run compile'
+
+  - script: |
+      set -e
+      /usr/bin/Xvfb :10 -ac >> /tmp/Xvfb.out 2>&1 &
+      disown -ar
+    displayName: 'Start xvfb'
+
+  - script: 'node node_modules/vscode/bin/test'
+    displayName: 'Run tests'
+    env:
+      DISPLAY: :10
+```
+
+Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts#get-your-first-build) in your DevOps project and point it to the `.azure-pipelines.yml` file. Trigger a build and voilá:
+
+![pipelines](images/testing-extension/pipelines.png)
+
+You can enable the build to run continuously when pushing to a branch and even on pull requests. [Click here](https://docs.microsoft.com/azure/devops/pipelines/build/triggers) to learn more.
+
+## Next steps
+
+* [Developing Extensions](/docs/extensions/developing-extensions.md) - Learn more about how to run and debug your extension.
+* [vsce](/docs/extensions/publish-extension.md) - Publish your extension with the VSCE command line tool.
+* [Extension Manifest file](/docs/extensionAPI/extension-manifest.md) - VS Code extension manifest file reference
+* [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs
