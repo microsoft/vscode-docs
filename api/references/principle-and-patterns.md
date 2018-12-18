@@ -120,7 +120,7 @@ You can create a `.vscodeignore` file to exclude some files from being included 
 * [Contribution Points](/docs/extensionAPI/extension-points) - VS Code contribution points reference
 * [Activation Events](/docs/extensionAPI/activation-events) - VS Code activation events reference
 
-## Commone questions
+## Common questions
 
 ### Can I use native Node.js modules with my extension?
 
