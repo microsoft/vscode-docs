@@ -18,7 +18,7 @@ MetaDescription: Explain how to extend Visual Studio Code's workbench area with 
 - Editor Group
 - Status Bar
 
-As mentioned in [Principles and Patterns](/api/references/principle-and-patterns), VS Code does not provide access to the underlying DOM. Instead, various APIs allow you to add your own components to the VS Code Workbench:
+VS Code provides various APIs that allow you to add your own components to the Workbench. For example, in the image below:
 
 ![workbench-contribution](images/extending-workbench/workbench-contribution.png)
 

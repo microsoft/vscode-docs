@@ -62,6 +62,7 @@
     "name": "Advanced Topics",
     "area": "advanced-topics",
     "topics": [
+      ["Extension Host", "/api/advanced-topics/extension-host"],
       // ["Extension Dependencies", "/api/advanced-topics/extension-dependencies"],
       ["Using Proposed API", "/api/advanced-topics/using-proposed-api"],
       // ["Exposing API", "/api/advanced-topics/exposing-api"],
