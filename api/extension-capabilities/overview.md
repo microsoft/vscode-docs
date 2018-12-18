@@ -17,7 +17,7 @@ Visual Studio Code offers many ways for extensions to extend its capabilities an
 
 ## Common Capabilities
 
-[Common capabilities](common-capabilities) are core pieces of functionality that you can use in any extension.
+[Common Capabilities](./common-capabilities) are core pieces of functionality that you can use in any extension.
 
 Some of these capabilities include:
 
@@ -30,18 +30,18 @@ Some of these capabilities include:
 
 ## Theming
 
-[Theming](theming) controls the look of VS Code, both the colors of source code in the editor and the colors of the VS Code user interface. If you've ever wanted to make it look like you're coding the Matrix by making VS Code different shades of green, or just wanted to create the ultimate, minimalist grayscale workspace, then themes are for you.
+[Theming](./theming) controls the look of VS Code, both the colors of source code in the editor and the colors of the VS Code user interface. If you've ever wanted to make it look like you're coding the Matrix by making VS Code different shades of green, or just wanted to create the ultimate, minimalist grayscale workspace, then themes are for you.
 
 **Extension Ideas**
 
-- Change the color highlighting of your source code.
-- Change the colors of the VS Code User Interface.
+- Change color of your source code.
+- Change colors of the VS Code User Interface.
 - Port an existing TextMate theme to VS Code.
 - Add custom file icons.
 
-## Declarative Language Support
+## Declarative Language Features
 
-[Declarative language support](/api/language-extensions/overview#declarative-language-support) extends existing programming languages or implement basic support for a new language. This is done declaratively, without writing any code. These extension points focus on text editing features, such as bracket matching and syntax highlighting. For more advanced features, like IntelliSense or debugging, see [Programmatic Language Features](/api/language-extensions/overview#programmatic-language-features).
+[Declarative Language Features](/api/language-extensions/overview#declarative-language-features) extend existing programming languages or implement basic support for a new language. This is done declaratively, without writing any code. The support mostly consist of text editing features, such as bracket matching and syntax highlighting. For more advanced features, like IntelliSense or debugging, see [Programmatic Language Features](/api/language-extensions/overview#programmatic-language-features).
 
 Snippets, for example, provide a rich and highly customizable syntax with support for advanced features like transformations and capitalization, while a good language grammar can completely change the coding experience.
 
@@ -55,16 +55,13 @@ Snippets, for example, provide a rich and highly customizable syntax with suppor
 
 ## Programmatic Language Features
 
-[Programmatic language features](/api/language-extensions/overview#programmatic-language-features) add rich programming language support. Hovers, Go to Definition, error reporting, IntelliSense, and CodeLens are just some examples of the various language features that extensions can provide.
+[Programmatic Language Features](/api/language-extensions/overview#programmatic-language-features) add rich programming language support. Hovers, Go to Definition, diagnostic errors, IntelliSense, and CodeLens are some examples of the various language features that extensions can provide. These language features are exposed through the [`vscode.languages.*`](/api/references/vscode-api#languages) API. An extension can either use these API in JavaScript directly, or write a Language Server and adapt it to VS Code using the VS Code [Language Server library](https://github.com/Microsoft/vscode-languageserver-node).
 
-Language features typically extend one of VS Code's existing programming languages or are built on the Declarative Language Support. They are written in TypeScript or JavaScript and run in a Node.js environment. Most language features can also be implemented by [language servers](/docs/extensions/example-language-server), an advanced approach that effectively makes your extension portable across editors.
-
-All of the language features extension points can be used for more than just implementing support for a programming language. For example, CodeLens and hovers are a great way to present additional information inline, while diagnostics can be used to highlight spelling or code style errors.
+Although we provide a listing of [language features](/api/language-extensions/programmatic-language-features) and their intended usage, nothing prevents you from using these API for other purposes. For example, For example, CodeLens and hovers are a great way to present additional information inline, while diagnostics can be used to highlight spelling or code style errors.
 
 **Extension Ideas**
 
-- Add decorations to text in the editor.
-- Add hovers that show previews of image URLs.
+- Add hovers that show sample usage of an API.
 - Report spelling or linter errors in source code using diagnostics.
 - Hook up VS Code to a new code formatter.
 - Provide rich, context-aware IntelliSense.
@@ -73,7 +70,7 @@ All of the language features extension points can be used for more than just imp
 
 ## Workbench Extensions
 
-[Workbench extension points](extending-workbench) extend VS Code's user interface. Add new right-click actions to the File Explorer, or even build a custom explorer using VS Code's high-level `TreeView` API. And, if your extension needs a fully customized user interface, use the Webview API to build your own document preview or user interface using standard HTML, CSS, and JavaScript.
+[Workbench Extensions](./extending-workbench) extend VS Code's user interface. Add new right-click actions to the File Explorer, or even build a custom explorer using VS Code's high-level `TreeView` API. And, if your extension needs a fully customized user interface, use the Webview API to build your own document preview or UI using standard HTML, CSS, and JavaScript.
 
 **Extension Ideas**
 
@@ -106,7 +103,7 @@ On the other hand, VS Code also offers a set of Debug Extension API, with which 
 <!-- Add below content back after writing ./extending-core-functionalities.md  -->
 <!-- ## Core Extensions
 
-[Core extension points](extending-core-functionalities) are for very advanced users. These let you build a custom back end for many of VS Code's low-level functionality. For example, the `FileSystem` API can be used to support working with files over FTP or other protocols. Core extensions typically work transparently from a user's point of view.
+[Core Extensions](extending-core-functionalities) are for very advanced users. These let you build a custom back end for many of VS Code's low-level functionality. For example, the `FileSystem` API can be used to support working with files over FTP or other protocols. Core extensions typically work transparently from a user's point of view.
 
 **Extension Ideas**
 

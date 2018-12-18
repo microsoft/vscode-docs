@@ -29,7 +29,7 @@ function commentLine() {
 }
 ```
 
-Some commands take arguments that control their behavior. Commands may also return a result. The `vscode.executeDefinitionProvider` command, for example, queries a document for definitions at a given position. It takes a document URI and a position as arguments, and returns a promise with a list of definitions:
+Some commands take arguments that control their behavior. Commands may also return a result. The API-like `vscode.executeDefinitionProvider` command, for example, queries a document for definitions at a given position. It takes a document URI and a position as arguments, and returns a promise with a list of definitions:
 
 ```ts
 import * as vscode from 'vscode';

@@ -9,7 +9,7 @@ MetaDescription: Common capabilities that Visual Studio Code extensions (plug-in
 
 # Common Capabilities
 
-Common Capabilities are important building blocks for your Visual Studio Code extensions. Almost all extensions use some of these functionalities. Here is how you can take advantage of them.
+Common Capabilities are important building blocks for your extensions. Almost all extensions use some of these functionalities. Here is how you can take advantage of them.
 
 ## Command
 
@@ -46,7 +46,7 @@ The extension context is available to the `activate` function in the [Extension 
 
 ## Display Notifications
 
-Almost all extensions need to present information to the user at some point. VS Code offers three API methods for displaying notification messages of different severity:
+Almost all extensions need to present information to the user at some point. VS Code offers three APIs for displaying notification messages of different severity:
 
 - [`window.showInformationMessage`](/api/references/vscode-api#window.showInformationMessage)
 - [`window.showWarningMessage`](/api/references/vscode-api#window.showWarningMessage)

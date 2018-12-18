@@ -4,7 +4,7 @@ ContentId: A9D40038-7837-4320-8C2D-E0CA5769AA69
 DateApproved: 12/6/2018
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: Visual Studio Code language extensions contribute new programming language features. These guidelines present the language extension points and how to implement them.
+MetaDescription: Visual Studio Code language extensions contribute programming language features. These guidelines present the language features available in Visual Studio Code and explain the API.
 ---
 
 # Programmatic Language Features
