@@ -55,9 +55,9 @@ Snippets, for example, provide a rich and highly customizable syntax with suppor
 
 ## Programmatic Language Features
 
-[Programmatic Language Features](/api/language-extensions/overview#programmatic-language-features) add rich programming language support. Hovers, Go to Definition, diagnostic errors, IntelliSense, and CodeLens are some examples of the various language features that extensions can provide. These language features are exposed through the [`vscode.languages.*`](/api/references/vscode-api#languages) API. An extension can either use these API in JavaScript directly, or write a Language Server and adapt it to VS Code using the VS Code [Language Server library](https://github.com/Microsoft/vscode-languageserver-node).
+[Programmatic Language Features](/api/language-extensions/overview#programmatic-language-features) add rich programming language support. Hovers, Go to Definition, diagnostic errors, IntelliSense, and CodeLens are some examples of the various language features that extensions can provide. These language features are exposed through the [`vscode.languages.*`](/api/references/vscode-api#languages) API. An extension can either use these API directly, or write a Language Server and adapt it to VS Code using the VS Code [Language Server library](https://github.com/Microsoft/vscode-languageserver-node).
 
-Although we provide a listing of [language features](/api/language-extensions/programmatic-language-features) and their intended usage, nothing prevents you from using these API for other purposes. For example, For example, CodeLens and hovers are a great way to present additional information inline, while diagnostics can be used to highlight spelling or code style errors.
+Although we provide a listing of [language features](/api/language-extensions/programmatic-language-features) and their intended usage, nothing prevents you from using these API creatively. For example, CodeLens and hovers are a great way to present additional information inline, while diagnostics can be used to highlight spelling or code style errors.
 
 **Extension Ideas**
 
