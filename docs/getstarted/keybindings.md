@@ -246,7 +246,6 @@ resourceScheme | True when the resource Uri scheme matches. Example: `"resourceS
 resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
 resourceExtname | True when the Explorer or editor filename extension matches. Example: `"resourceExtname == .js"`
 resourceLangId | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
-resourceIsFile | True if resource is a file.
 **Explorer contexts** |
 explorerViewletVisible | True if Explorer view is visible.
 explorerViewletFocus | True if Explorer view has keyboard focus.
