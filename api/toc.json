@@ -62,6 +62,7 @@
     "name": "Advanced Topics",
     "area": "advanced-topics",
     "topics": [
+      ["Extension Host", "/api/advanced-topics/extension-host"],
       // ["Extension Dependencies", "/api/advanced-topics/extension-dependencies"],
       ["Using Proposed API", "/api/advanced-topics/using-proposed-api"],
       // ["Exposing API", "/api/advanced-topics/exposing-api"],
@@ -80,8 +81,7 @@
       ["Extension Manifest", "/api/references/extension-manifest"],
       ["Commands", "/api/references/commands"],
       ["Theme Color", "/api/references/theme-color"],
-      ["Document Selector", "/api/references/document-selector"],
-      ["Principles and Patterns", "/api/references/principle-and-patterns"]
+      ["Document Selector", "/api/references/document-selector"]
     ]
   }
 ]

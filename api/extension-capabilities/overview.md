@@ -15,6 +15,8 @@ Visual Studio Code offers many ways for extensions to extend its capabilities an
 - Links to more detailed topics for using these functionalities
 - A few extension ideas
 
+However, we also impose [restrictions](#restrictions) upon extensions to ensure the stability and performance of VS Code. For example, extensions cannot access the DOM of VS Code UI.
+
 ## Common Capabilities
 
 [Common Capabilities](./common-capabilities) are core pieces of functionality that you can use in any extension.
@@ -110,3 +112,13 @@ On the other hand, VS Code also offers a set of Debug Extension API, with which 
 - Add support for working with remote files over FTP or SFTP.
 - Register new source control provider, such as Mercurial.
 - Implement a custom file search provider. -->
+
+## Restrictions
+
+There are certain restrictions we impose upon extensions. Here are the restrictions and their purposes.
+
+### No DOM Access
+
+Extensions have no access to the DOM of VS Code UI. You **cannot** write an extension that applies custom CSS to VS Code or adds a HTML element to VS Code UI.
+
+At VS Code, we're continually trying to optimize use of the underlying web technologies to deliver an always available, highly responsive editor and we will continue to tune our use of the DOM as these technologies and our product evolve. To ensure that extensions cannot interfere with the stability and performance of VS Code, and that we can continue to improve the DOM of VS Code without breaking existing extensions, we run extensions in an [Extension Host](/api/advanced-topics/extension-host) process and prevent direct access to the DOM.
