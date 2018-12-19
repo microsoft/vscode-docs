@@ -81,8 +81,7 @@
       ["Extension Manifest", "/api/references/extension-manifest"],
       ["Commands", "/api/references/commands"],
       ["Theme Color", "/api/references/theme-color"],
-      ["Document Selector", "/api/references/document-selector"],
-      ["Principles and Patterns", "/api/references/principle-and-patterns"]
+      ["Document Selector", "/api/references/document-selector"]
     ]
   }
 ]

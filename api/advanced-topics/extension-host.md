@@ -9,7 +9,7 @@ MetaDescription: The Visual Studio Code Extension Host is responsible for managi
 
 # Extension Host
 
-As you learned in the [Extension Anatomy](/api/get-started/extension-anatomy) topic, an extension exposes the `activate` and `deactivate` methods, and VS Code will manage the lifecycle of the extension. This section provides more details on the **Extension Host** that manages the extensions.
+As you learned in the [Extension Anatomy](/api/get-started/extension-anatomy) topic, an extension exposes the `activate` and `deactivate` methods and VS Code will manage its lifecycle. This topic provides more details on the **Extension Host** that manages all running extensions.
 
 **Extension host** is a Node.js process in VS Code responsible for loading and running extensions. Although you don't need to worry about the Extension Host when you are writing extensions, it is still useful to know what the Extension Host does to your extension.
 
@@ -19,6 +19,6 @@ VS Code aims to deliver a stable and performant editor to end users, and misbeha
 
 - Impacting startup performance
 - Slowing down UI operations
-- Modify the UI
+- Modifying the UI
 
-Additionally, VS Code lets extensions declare its [Activation Events](/api/references/activation-events) and loads them lazily. For example, the Markdown extension should only be loaded when a user opens a Markdown file. This makes sure extensions do not consume unnecessary CPU and memory.
+Additionally, VS Code lets extensions declare its [Activation Events](/api/references/activation-events) and loads them lazily. For example, the Markdown extension should only be loaded when a user opens a Markdown file. This makes sure that extensions do not consume unnecessary CPU and memory.
