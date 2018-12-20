@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 11/8/2018
+DateApproved: 12/12/2018
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -246,7 +246,6 @@ resourceScheme | True when the resource Uri scheme matches. Example: `"resourceS
 resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
 resourceExtname | True when the Explorer or editor filename extension matches. Example: `"resourceExtname == .js"`
 resourceLangId | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
-resourceIsFile | True if resource is a file.
 **Explorer contexts** |
 explorerViewletVisible | True if Explorer view is visible.
 explorerViewletFocus | True if Explorer view has keyboard focus.
@@ -258,8 +257,8 @@ findWidgetVisible | Editor Find widget is visible.
 suggestWidgetVisible | Suggestion widget (IntelliSense) is visible.
 suggestWidgetMultipleSuggestions | Multiple suggestions are displayed.
 renameInputVisible | Rename input text box is visible.
-referenceSearchVisible | Find All References peek window is open.
-inReferenceSearchEditor | The Find All References peek window editor has focus.
+referenceSearchVisible | Peek References peek window is open.
+inReferenceSearchEditor | The Peek References peek window editor has focus.
 config.editor.stablePeek | Keep peek editors open (controlled by `editor.stablePeek` setting).
 quickFixWidgetVisible | Quick Fix widget is visible.
 parameterHintsVisible | Parameter hints are visible (controlled by `editor.parameterHints` setting).
@@ -416,12 +415,12 @@ Key|Command|Command id
 `kb(editor.action.triggerParameterHints)`|Trigger Parameter Hints|`editor.action.triggerParameterHints`
 `kb(editor.action.formatDocument)`|Format Document|`editor.action.formatDocument`
 `kb(editor.action.formatSelection)`|Format Selection|`editor.action.formatSelection`
-`kb(editor.action.goToDeclaration)`|Go to Definition|`editor.action.goToDeclaration`
+`kb(editor.action.revealDefinition)`|Go to Definition|`editor.action.revealDefinition`
 `kb(editor.action.showHover)`|Show Hover|`editor.action.showHover`
-`kb(editor.action.previewDeclaration)`|Peek Definition|`editor.action.previewDeclaration`
-`kb(editor.action.openDeclarationToTheSide)`|Open Definition to the Side|`editor.action.openDeclarationToTheSide`
+`kb(editor.action.peekDefinition)`|Peek Definition|`editor.action.peekDefinition`
+`kb(editor.action.revealDefinitionAside)`|Open Definition to the Side|`editor.action.revealDefinitionAside`
 `kb(editor.action.quickFix)`|Quick Fix|`editor.action.quickFix`
-`kb(editor.action.referenceSearch.trigger)`|Show References|`editor.action.referenceSearch.trigger`
+`kb(editor.action.referenceSearch.trigger)`|Peek References|`editor.action.referenceSearch.trigger`
 `kb(editor.action.rename)`|Rename Symbol|`editor.action.rename`
 `kb(editor.action.inPlaceReplace.down)`|Replace with Next Value|`editor.action.inPlaceReplace.down`
 `kb(editor.action.inPlaceReplace.up)`|Replace with Previous Value|`editor.action.inPlaceReplace.up`

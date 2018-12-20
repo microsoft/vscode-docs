@@ -98,7 +98,7 @@ In order to orient ourselves within the codebase, let's play around with some ex
 
     <img src="/assets/blogs/2017/01/15/HoverHelp.png" width="200px" /><br />
 
-4. Simply placing your cursor within the span of the name `database`, allows you to quickly see all other references to it within the same file, and right-clicking and selecting `Find All References` allows you to see uses of it project wide.
+4. Simply placing your cursor within the span of the name `database`, allows you to quickly see all other references to it within the same file, and right-clicking and selecting **Peek References** allows you to see uses of it project wide.
 
     <img src="/assets/blogs/2017/01/15/WordHighlight.png" width="300px" />
 

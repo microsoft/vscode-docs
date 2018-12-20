@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Go
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
 PageTitle: Go with Visual Studio Code
-DateApproved: 11/8/2018
+DateApproved: 12/12/2018
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Go.
 ---
 # Go in Visual Studio Code
@@ -47,9 +47,9 @@ The extension's signature help also uses `godef` and `godoc`. You can choose to 
 
 Code navigation features are available in the context menu in the editor.
 
-- **Go To Definition** `kb(editor.action.goToDeclaration)` - Go to the source code of the type definition.
-- **Peek Definition** `kb(editor.action.previewDeclaration)` - Bring up a Peek window with the type definition.
-- **Find All References** `kb(editor.action.referenceSearch.trigger)` - Find all references for the type.
+- **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
+- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window with the type definition.
+- **Peek References** `kb(editor.action.referenceSearch.trigger)` - Show all references for the type.
 
 You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
 

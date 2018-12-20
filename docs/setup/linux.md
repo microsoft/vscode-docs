@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 11/8/2018
+DateApproved: 12/12/2018
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -239,16 +239,24 @@ sudo mkdir /etc/apt/sources.list.d
 sudo touch /etc/apt/sources.list.d/vscode.list
 ```
 
+### Cannot move or resize the window while X forwarding a remote window
+
+If you are using X forwarding to use VS Code remotely, you will need to use the native title bar to ensure you can properly manipulate the window. The native title bar is no longer the default behavior on Linux, but you can switch to using it by setting `window.titleBarStyle` to `native`.
+
 ### Low contrast menu bar
 
-If you are using Ubuntu 18.10 or a GTK theme that mixes light or dark context menus with the opposite theming for the application menu bar, you may experience a low contrast menu bar that is difficult to read.
+If you are using Ubuntu 18.10 or a GTK theme that mixes light or dark context menus with the opposite theming for the application menu bar, you may experience a low contrast menu bar that is difficult to read when using the native title bar setting.
 
 There are two possible workarounds for this:
 
-* Try out the VS Code custom title bar style by configuring the setting `window.titleBarStyle` to `custom`.
+* Switch to the VS Code custom title bar style by configuring the setting `window.titleBarStyle` to `custom`.
 * Change your GTK theme. You can do this by installing the Gnome Tweaks application and using the previous default theme `Adwaita`.
 
 Information on this issue can be tracked in issue [62593](https://github.com/Microsoft/vscode/issues/62593).
+
+### Broken cursor in editor with display scaling enabled
+
+Due to an upstream [issue](https://github.com/electron/electron/issues/14787) with Electron, the mouse cursor may render incorrectly with scaling enabled. If you notice that the usual text cursor is not being rendered inside the editor as you would expect, try falling back to the native menu bar by configuring the setting `window.titleBarStyle` to `native`.
 
 ### Repository changed its origin value
 

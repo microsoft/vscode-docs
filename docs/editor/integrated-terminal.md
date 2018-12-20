@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 11/8/2018
+DateApproved: 12/12/2018
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -50,7 +50,9 @@ Key|Command
 
 ## Configuration
 
-The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10 and cmd.exe on earlier versions of Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell using the `terminal.integrated.shellArgs.*` settings.
+The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10 and cmd.exe on earlier versions of Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in user [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell using the `terminal.integrated.shellArgs.*` user settings.
+
+>**Note:** For [enhanced security](/docs/getstarted/settings.md#settings-and-security), such settings can only be defined in user settings and not at workspace scope.
 
 ### Windows
 
@@ -361,3 +363,20 @@ Yes, you can specify [Powerline](https://powerline.readthedocs.io) fonts with th
 ```
 
 Note that you want to specify the font family, not an individual font like **Meslo LG M DZ Regular for Powerline** where **Regular** is the specific font name.
+
+### How do I configure zsh on macOS to jump words with Ctrl+Left/Right arrow?
+
+By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. You can configure the same for zsh by adding these keybindings:
+
+```json
+{
+  "key": "ctrl+left",
+  "command": "workbench.action.terminal.sendSequence",
+  "args": { "text": "\u001bb" }
+},
+{
+  "key": "ctrl+right",
+  "command": "workbench.action.terminal.sendSequence",
+  "args": { "text": "\u001bf" }
+}
+```

@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Ember Tutorial
 ContentId: 4a60ed36-93ff-4ff3-b650-ce74baa405ca
 PageTitle: Ember JavaScript Tutorial in Visual Studio Code
-DateApproved: 11/19/2018
+DateApproved: 12/12/2018
 MetaDescription: Ember JavaScript tutorial showing IntelliSense and code navigation support in the Visual Studio Code editor.
 ---
 # Using Ember in Visual Studio Code
@@ -75,7 +75,7 @@ If you select a method, you'll also get parameter help:
 
 ### Go to Definition, Peek definition
 
-Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or **Peek Definition** (`kb(editor.action.peekImplementation)`). Put the cursor over `Application`, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `Application` definition from `ember_application` Type Declaration file.
+Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Put the cursor over `Application`, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `Application` definition from `ember_application` Type Declaration file.
 
 ![react peek definition](images/emberjs/peek-definition.png)
 

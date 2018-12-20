@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 11/8/2018
+DateApproved: 12/12/2018
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 # Contribution Points - package.json
@@ -685,7 +685,7 @@ Contributes [TypeScript server plugins](https://github.com/Microsoft/TypeScript/
 }
 ```
 
-The above example extension contributes the [`typescript-styled-plugin`](https://github.com/Microsoft/typescript-styled-plugin) which adds styled-component IntelliSense for JavaScript and TypeScript. This plugin will be loaded from the extension and must be listed as a `dependency`:
+The above example extension contributes the [`typescript-styled-plugin`](https://github.com/Microsoft/typescript-styled-plugin) which adds styled-component IntelliSense for JavaScript and TypeScript. This plugin will be loaded from the extension and must be installed as a normal NPM `dependency` in the extension:
 
 ```json
 {
@@ -696,6 +696,60 @@ The above example extension contributes the [`typescript-styled-plugin`](https:/
 ```
 
 TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript.
+
+### Plugin configuration
+
+Extensions can send configuration data to contributed TypeScript plugins through an API provided by VS Code's built-in TypeScript extension:
+
+```ts
+// In your VS Code extension
+
+export async function activate(context: vscode.ExtensionContext) {
+    // Get the TS extension
+    const tsExtension = vscode.extensions.getExtension('vscode.typescript-language-features');
+    if (!tsExtension) {
+        return;
+    }
+
+    await tsExtension.activate();
+
+    // Get the API from the TS extension
+    if (!tsExtension.exports || !tsExtension.exports.getAPI) {
+        return;
+    }
+
+    const api = tsExtension.exports.getAPI(0);
+    if (!api) {
+        return;
+    }
+
+    // Configure the 'my-typescript-plugin-id' plugin
+    api.configurePlugin('my-typescript-plugin-id', {
+        someValue: process.env['SOME_VALUE']
+    });
+}
+```
+
+The TypeScript server plugin receives the configuration data through an `onConfigurationChanged` method:
+
+```ts
+// In your TypeScript plugin
+
+import * as ts_module from 'typescript/lib/tsserverlibrary';
+
+export = function init({ typescript }: { typescript: typeof ts_module }) {
+    return {
+        create(info: ts.server.PluginCreateInfo) {
+            // Create new language service
+        },
+        onConfigurationChanged(config: any) {
+            // Receive configuration changes sent from VS Code
+        },
+    };
+};
+```
+
+This API allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/Microsoft/vscode-typescript-tslint-plugin/blob/master/src/index.ts) and [lit-html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.
 
 ## Next steps
 

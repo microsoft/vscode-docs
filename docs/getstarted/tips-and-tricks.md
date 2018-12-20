@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 11/8/2018
+DateApproved: 12/12/2018
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -594,13 +594,13 @@ You can view available methods, parameter hints, short documentation, etc.
 
 ### Peek
 
-Select a symbol then type `kb(editor.action.peekImplementation)`. Alternatively, you can use the context menu.
+Select a symbol then type `kb(editor.action.peekDefinition)`. Alternatively, you can use the context menu.
 
 ![peek](images/tips-and-tricks/peek.gif)
 
 ### Go to Definition
 
-Select a symbol then type `kb(editor.action.goToDeclaration)`. Alternatively, you can use the context menu or `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS).
+Select a symbol then type `kb(editor.action.revealDefinition)`. Alternatively, you can use the context menu or `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS).
 
 ![go to definition](images/tips-and-tricks/goto_definition.gif)
 
@@ -608,11 +608,15 @@ You can go back to your previous location with the **Go** > **Back** command or 
 
 You can also see the type definition if you press `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) when you are hovering over the type.
 
-### Find All References
+### Peek References
 
 Select a symbol then type `kb(editor.action.referenceSearch.trigger)`. Alternatively, you can use the context menu.
 
-![find all references](images/tips-and-tricks/find_all_references.gif)
+![peek references](images/tips-and-tricks/find_all_references.gif)
+
+### Find All References view
+
+Select a symbol then type `kb(references-view.find)` to open the References view showing all your file's symbols in a dedicated view.
 
 ### Rename Symbol
 

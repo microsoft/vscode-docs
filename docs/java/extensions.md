@@ -65,5 +65,19 @@ You can use [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJa
 
 ## Recommended extensions for cloud (Azure) development
 
-Along with Java language support, if you are deploying your applications to the cloud, especially Azure, please visit [Azure Extensions](https://code.visualstudio.com/docs/azure/extensions) to find all the helpful extensions.
+### Team development
+
+* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps servers, allowing you to easily monitory builds, pull requests, and work items for your TFVC or Git source repositories.
+
+### Internet of Things
+
+* The [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) for VS Code makes it easy to develop and connect your [IoT applications to Azure](https://docs.microsoft.com//azure/index#pivot=services&panel=iot). With this extension, you can interact with Azure IoT Hub, manage devices connected to Azure IoT Hub, and develop with code snippets for Azure IoT Hub.
+
+### General tools
+
+* The [Azure Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=bradygaster.azuretoolsforvscode) adds commands to the **Command Palette** (`kb(workbench.action.showCommands)`) that make it easy to create and access Azure resources directly from VS Code. For example, you can create App Service Web Apps and Functions, Storage accounts, and browse to any number of resources in the Azure Portal.
+
+* The [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author ARM templates in VS Code.
+
+Please visit [Azure Extensions](https://code.visualstudio.com/docs/azure/extensions) to find more Azure extensions.
 
