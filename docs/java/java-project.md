@@ -20,30 +20,30 @@ This document will give you an overview of how to use [Maven for Java](https://m
 ### Exploring Maven project
 Once a Maven extensin is activated, it automatically scans `pom.xml` in your workspace, and displays all Maven projectes and their modules in the side bar.
 
-![Maven Explorer]
+![Maven Explorer](images/java-project/maven-explorer.gif)
 
 ### Working with POM.xml
 The extension enables you to generate effective POM.
 
-![Generate Effective POM]
+![Generate Effective POM](images/java-project/maven-effective-pom.gif)
 
 [comment]:# (editing POM.xml)
 
 ### Execute Maven commands and goals
 By right click each Maven project in the explorer, you can run Maven goals conveniently.
 
-![Run Maven Goal]
+![Run Maven Goal](images/java-project/maven-run.gif)
 
 The extension also preserves history of goals for each project, so you can fast re-run previous command, which is very useful especially when you're running a long custom one. There're 2 entries for it:
 
 1. Command Palette -> Select `Maven: History ...` -> Select a project -> Select command from the history
 2. Right-click a project -> Click `History ...` -> Select command from history
 
-![Re-run history]
+![Re-run history](images/java-project/maven-history.gif)
 
 For each plug-in you use with your project, the extension also provides you a easy way to access the goals within each plugin
 
-![Run plug-in goal]
+![Run plug-in goal](images/java-project/maven-plugin-goal.gif)
 
 ### Generate project from maven Archetype
 
@@ -52,7 +52,7 @@ There are 2 entries for it:
 1. Command Palette -> select `Maven: Generate from Maven Archetype`
 2. Right-click on a folder -> Click `Generate from Maven Archetype`
 
-![Generate Project from Archetype]
+![Generate Project from Archetype](images/java-project/maven-archetype.gif)
 
 ### Additional Resources
 
@@ -67,7 +67,7 @@ Project Management in Visual Studio Code is mainly provided by [Java Dependency 
 In addition to creating project through Maven Archetype, you can also use the following command to create a simple Java project
 Command Palette -> select `Java: Create Java Project`
 
-![Creating Project](images/java-debugging/create-project.gif)
+![Creating Project](images/java-project/create-project.gif)
 
 If you're creating a Spring Boot project, you can also use the [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension, see [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md)
 
@@ -75,7 +75,7 @@ If you're creating a Spring Boot project, you can also use the [Spring Initializ
 
 The extension also provide you a hierachy view of your project and dependencies, which supplements the original file view and outline provided by Visual Studio Code so you don't need to expand multiple sub-folders to just view your Java package.
 
-![Creating Project](images/java-debugging/package-viewer.gif)
+![Creating Project](images/java-project/package-viewer.gif)
 
 ## Next steps
 

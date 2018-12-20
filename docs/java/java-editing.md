@@ -11,13 +11,64 @@ MetaDescription: Editing Java in Visual Studio Code with IntelliSense, Refactori
 
 As a code editor-centric development tool, Visual Studio Code has a lot of editing related [features](https://code.visualstudio.com/docs/editor/codebasics). In this document, we will go through couple Java specific things which are helpful with Java code.
 
-## Code Navigating
+## Code Editing and Navigating
 
-// Spring
+With the support of [outline view](https://code.visualstudio.com/updates/v1_25#_outline-view), you can easily navigate your method within the same class. Editing code is easy with the support of IntelliSense. You can also use code snippets and various code actions such as generating Getters/Setters to further boost your productivity.
 
-// Outline
+![Code Editing](images/java-editing/code-editing.gif)
 
-## IntelliSense
+Java support in Visual Studio Code can also detect issues within your code automatically, and even provides you quick fix suggestions on the fly.
+
+![IntelliCode](images/java-editing/quick-fix.gif)
+
+### Search for symbols
+
+You can search for symbols in the current file or workspace to navigate your code more quickly.
+
+To search for a symbol in the current file, use __Quick Open__ (`kb(workbench.action.quickOpen)`) then enter the '@' command, then enter the name of the symbol you're looking for. A list of potential matches will appear and be filtered as you type. Choose from the list of matches to navigate to its location.
+
+![Search in local file](images/java-editing/search-in-file.gif)
+
+To search for a symbol in the current workspace, start by pressing `kb(workbench.action.showAllSymbols)`, then enter the name of the symbol. A list of potential matches will appear as before. If you choose a match that was found in a file that's not already open, the file will be opened before navigating to the match's location. Alternatively, you can also use  __Quick Open__ (`kb(workbench.action.quickOpen)`) then enter the '#' command to search the current workspace. `kb(workbench.action.showAllSymbols)` is just the shortcut for the '#' commands, respectively, so everything works the same.
+
+![Search in workspace](images/java-editing/search-in-workspace.gif)
+
+### Peek Definition
+
+You can take a quick look at how a symbol was defined by using the Peek Definition feature. This feature displays a few lines of code near the definition inside a peek window so you can take a look without navigating away from your current location.
+
+To peek at a symbol's definition, place your cursor on the symbol anywhere it's used in your source code and then press `kb(editor.action.peekDefinition)`. Alternatively, you can choose __Peek Definition__ from the context menu (right-click, then choose __Peek Definition__).
+
+### Go to Definition
+
+You can also quickly navigate to where a symbol is defined by using the Go to Definition feature.
+
+To go to a symbol's definition, place your cursor on the symbol anywhere it is used in your source code and then press `kb(editor.action.revealDefinition)`. Alternatively, you can choose __Go to Definition__ from the context menu (right-click, then choose __Go to Definition__). When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section and you have to choose the definition that you want to go to.
+
+Other code editing features include:
+
+- Code formatting
+- Code snippets
+- Code outline
+- CodeLens (references)
+- Javadoc hovers
+- Rename
+- Highlights
+
+### Navigating code with Spring Boot
+
+[Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides even more navigation and code completion support for Spring Boot projects.
+
+* `@/` shows all defined request mappings (mapped path, request method, source location)
+* `@+` shows all defined beans (bean name, bean type, source location)
+* `@>` shows all functions (prototype implementation)
+* `@` shows all Spring annotations in the code
+
+![Search in workspace](images/java-editing/spring-navigation.png)
+
+To learn more about Spring Boot support with Visual Studio Code, please read [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
+
+### IntelliSense
 
 Code completion in Visual Studio Code for Java is provided by [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). Since the extensions is powered by the same [Java development tools (JDT)](https://www.eclipse.org/jdt/) behind Eclipse, you can expect the same level of competency from that.
 
@@ -39,7 +90,9 @@ Rename allows you to rename variables, classes, methods, packages, folders, and 
 
 ### Extract methods and variables
 
-## Code Snippets
+Extract to constant, method and local variables all come handy with Java on Visual Studio Code.
+
+![Refactor](images/java-editing/refactor.gif)
 
 ## Formatting
 
