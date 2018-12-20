@@ -9,27 +9,34 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Java in Visual Studio Code
 
-The Java support in Visual Studio Code is provided through [extensions](/docs/editor/extension-gallery.md) and optimized for lightweight Java projects with a simple, modern workflow. Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide essential language features such as project support, code completion, linting, debugging, testing, code formatting, snippets, as well as tooling integration including Maven and Tomcat.
+The Java support in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md) which make it not only a lightweight and performant code editor, but also a productive IDE with lots of popular Java tools integrated. It provides essential language features such as code completion, refactoring, linting, formatting, snippets along with convenient debugging and unit testing, as well as tooling and framework integration including Maven, Tomcat and Spring Boot. Leveraging all of Visual Studio Code's power, it's an excellent tool from quick code editing to full debugging and testing cycle for Java developers, especially those working on microservices or multiple programming languages at the same time.
+
+This article will give you an overview of different capabilities of Visual Studio Code for Java developers. For more detailed walkthrough of editing, running, and debugging, use the botton below.
+
+<a class="tutorial-next-btn" href="/docs/java/java-tutorial">Java Tutorial</a>
 
 > [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, macOS, Linux).
 
 ## Install Java Extensions
 
-VS Code is a fast editor and ships with great editing features. Add Java language support to VS Code by installing the popular Java extensions. To help set up Java on VS Code, there is a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains popular extensions we picked for most Java developers:
+VS Code is a fast editor and ships with great editing features. Add Java language support to VS Code by installing the popular Java extensions. To help set up Java on VS Code, there is a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains the most popular extensions for most Java developers:
 
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 3. [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 4. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
+5. [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
 There are also other popular Java extensions you can pick for your own needs, including:
 
-1. [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
+1. [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
-3. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
-4. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
+3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
+4. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
+5. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
+6. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
 
 Thanks to the great Java community around VS Code, the list doesn't end there. You can search for more Java extensions easily within VS Code:
 

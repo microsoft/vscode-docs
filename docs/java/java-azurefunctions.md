@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 9
 Area: java
 TOCTitle: Azure Functions in Java
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
@@ -233,5 +233,7 @@ Recently, we've also enabled remote debugging Azure Functions through the Functi
 
 You have created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
 
-- Review the [Java Functions developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-java) for more information on developing Java functions.
+- More information on developing Java Functions
+    - [Java Functions developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-java)
+    - [Quickstart with Maven](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-java-maven)
 - To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md).

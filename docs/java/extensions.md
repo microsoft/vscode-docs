@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 10
 Area: java
 TOCTitle: Extensions
 ContentId: 6076911c-276b-41a3-8510-0022c03c0ef6
@@ -21,66 +21,49 @@ To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](htt
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 3. [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 4. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
+5. [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-There are many other popular Java extensions you can pick from, including:
+There are many other Java extensions provided by Microsoft and Pivotal, including:
 
-1. [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
+1. [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
-3. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
-4. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
-5. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
+3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
+4. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
+5. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
+6. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
 
-Thanks to the great Java community around VS Code, the list doesn't end there. You can search for more Java extensions easily within the VS Code:
+## Popular Extensions from community
+
+Thanks to the great Java community around VS Code, there're a lot of great community driven extensions as well. You can search for more Java extensions easily within the VS Code:
 
 1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
 2. Filter the extensions list by typing 'java'.
 
+Here's just a couple of those
+
+1. [Java Linter](https://marketplace.visualstudio.com/items?itemName=faustinoaq.javac-linter)
+2. [Java Decompiler](https://marketplace.visualstudio.com/items?itemName=dgileadi.java-decompiler)
+3. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
+4. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
+
+We'd also appreciate all contributions to any of our existing extensions, as well as new Java extensions if you don't find what you're looking for in the marketplace. We're especially looking for help in areas such as supports for Gradle and other Java application servers.
+
+## Extensions with great Java support
+
+We'd also like to recommand couple other extensions we believe are great to make VS Code even better for Java developers.
+
+1. [IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) provides developer a AI/ML powered IntelliSense which will boost your productivity with contextual code recommendations.
+2. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
+
+## Extension for container development
+
+You can use [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension to build docker images and work with image registries.
+
+[Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension provides an explorer view to manage clusters and the nodes inside. It also provides advanced syntax support for editing Kubernetes manifest files.
+
 ## Recommended extensions for cloud (Azure) development
 
-Along with Java language support, if you are deploying your applications to the cloud, especially Azure, there is an [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Services.
+Along with Java language support, if you are deploying your applications to the cloud, especially Azure, please visit [Azure Extensions](https://code.visualstudio.com/docs/azure/extensions) to find all the helpful extensions.
 
-Here's a list of Azure extensions supporting Java:
-
-### App Services (Websites)
-
-* The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension lets you quickly browse, create, manage, and deploy Azure App Service websites.
-
-### Functions (serverless computing)
-
-* The [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension lets you quickly browse, create, manage, deploy, and even debug Azure functions locally.
-
-### Micro-Services
-
-* The [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension makes it easy to develop and deploy containerized micro-service based applications using Docker containers. Use [Azure DevOps](https://docs.microsoft.com/azure/devops) to create a CI/CD pipeline to build your containerized applications, deploy them to the [Azure Container Registry](https://docs.microsoft.com//azure/container-registry/), run websites directly in [Azure App Services](https://docs.microsoft.com//azure/app-service/), and run multi-container systems at scale using the [Azure Container Service](https://docs.microsoft.com//azure/container-service/).
-
-* The [Kubernetes Tools](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension lets you quickly develop Kubernetes manifests and HELM charts, then deploy containerized micro-service based applications to local or Azure Kubernetes cluster and live debug your applications running in containers of a Kubernetes cluster. It also makes it easy to browse and manage your Kubernetes cluster in VS Code. Furthermore it provides seamless integration with Draft to streamline Kubernetes development.
-
-### Storage
-
-* The [Azure Data Lake Tools](https://marketplace.visualstudio.com/items?itemName=usqlextpublisher.usql-vscode-ext) make it easy to develop U-SQL projects against [Azure Data Lake](https://docs.microsoft.com//azure/data-lake-store/)! This extension provides a cross-platform, light-weight, keyboard-focused authoring experience for U-SQL while maintaining a full set of development functions.
-
-### Databases
-
-* The [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension lets you create, manage, and query Cosmos DB accounts, including support for Mongo, Graphs, Tables, and DocumentDB databases.
-
-* The [Microsoft SQL](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) extension provides support for developing [Microsoft SQL Server](https://www.microsoft.com//sql-server/sql-server-2016), [Azure SQL Database](https://docs.microsoft.com//azure/sql-database/) and [SQL Data Warehouse](https://docs.microsoft.com//azure/sql-data-warehouse/) with a rich set of functionalities. For example, create and manage connection profiles and most recently used connections. Write T-SQL script with IntelliSense, snippets, syntax colorizations, error validations and GO batch separator. Execute scripts, view the results in a document, and save results to json or csv file format and view in the editor.
-
-### Team development
-
-* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps servers, allowing you to easily monitory builds, pull requests, and work items for your TFVC or Git source repositories.
-
-### Internet of Things
-
-* The [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) for VS Code makes it easy to develop and connect your [IoT applications to Azure](https://docs.microsoft.com//azure/index#pivot=services&panel=iot). With this extension, you can interact with Azure IoT Hub, manage devices connected to Azure IoT Hub, and develop with code snippets for Azure IoT Hub.
-
-### General tools
-
-* The [Azure Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=bradygaster.azuretoolsforvscode) adds commands to the **Command Palette** (`kb(workbench.action.showCommands)`) that make it easy to create and access Azure resources directly from VS Code. For example, you can create App Service Web Apps and Functions, Storage accounts, and browse to any number of resources in the Azure Portal.
-
-* The [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Find All References (Shift+F12) as well as Errors and Warnings, making it quick and easy to author ARM templates in VS Code.
-
-* The [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) provide an enhanced editing experience when authoring Azure CLI 2.0 commands, with full completions (IntelliSense), the ability to invoke one or more commands in the terminal, and the ability to easily view and format results as a separate JSON document.
-
-* The [Azure Application Insights](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.application-insights) extension brings information from your production services right into the editor (via CodeLens), helping you to find and fix issues even faster.
