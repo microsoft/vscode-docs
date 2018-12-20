@@ -17,7 +17,9 @@ A handful of features within VS Code require network communication to work, such
 
 If you are behind a firewall which needs to whitelist domains used by VS Code, here's the list of hostnames you should allow communication to go through:
 
-* `vscode-update.azurewebsites.net`
+* `update.code.visualstudio.com`
+* `code.visualstudio.com`
+* `go.microsoft.com`
 * `vscode.blob.core.windows.net`
 * `marketplace.visualstudio.com`
 * `*.gallerycdn.vsassets.io`
