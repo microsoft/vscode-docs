@@ -178,10 +178,17 @@ Format on paste
 "editor.formatOnPaste": true
 ```
 
-Change the font size
+Change the font size of various UI elements
 
 ```json
-"editor.fontSize": 18
+// Main editor
+"editor.fontSize": 18,
+// Terminal panel
+"terminal.integrated.fontSize": 14,
+// Output panel
+"[log]": {
+    "editor.fontSize": 15
+}
 ```
 
 Change the zoom level
