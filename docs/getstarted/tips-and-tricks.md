@@ -186,7 +186,7 @@ Change the font size of various UI elements
 // Terminal panel
 "terminal.integrated.fontSize": 14,
 // Output panel
-"[log]": {
+"[Log]": {
     "editor.fontSize": 15
 }
 ```
