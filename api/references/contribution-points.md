@@ -404,11 +404,11 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 
 ![themes extension point example](images/contribution-points/themes.png)
 
-See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/extensions/yocode.md) to quickly package TextMate .tmTheme files as VS Code extensions.
+See the [Color Theme Guide](/api/extension-guides/color-theme) on how to create a Color Theme.
 
 ## contributes.snippets
 
-Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers.md) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets.md#snippet-syntax).
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets.md#snippet-syntax).
 
 The example below shows adding snippets for the Go language.
 
@@ -697,5 +697,5 @@ This API allows VS Code extensions to synchronize VS Code settings with a TypeSc
 
 To learn more about VS Code extensibility model, try these topic:
 
-* [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
-* [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
+* [Extension Manifest File](/api/references/extension-manifest) - VS Code package.json extension manifest file reference
+* [Activation Events](/api/references/activation-events) - VS Code activation events reference

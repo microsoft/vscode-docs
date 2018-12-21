@@ -13,7 +13,7 @@ Visual Studio Code supports running and debugging tests for your extension. Thes
 
 ## Yo Code test scaffolding
 
-The basic [yo code generator](/docs/extensions/yocode.md) extension project includes a sample test as well as the necessary infrastructure to run it.
+If you are using the [yo code generator](https://github.com/Microsoft/vscode-generator-code), the generated projects include a sample test and instructions for running the tests.
 
 **Note**: The documentation below assumes that you created a TypeScript extension but the same also applies for a JavaScript extension. However, some file names may be different.
 
@@ -88,7 +88,7 @@ This will give large benefits to performance when running tests
 
 ## Excluding test files from your extension package
 
-If you decide to share your extension, you may not want to include the tests in your extension package.  The [`.vscodeignore`](/docs/extensions/publish-extension.md#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/docs/extensions/publish-extension.md).  By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
+If you decide to share your extension, you may not want to include the tests in your extension package.  The [`.vscodeignore`](/docs/extensions/publish-extension.md#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/api/working-with-extensions/publishing-extension).  By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
 
 ```
 out/test/**

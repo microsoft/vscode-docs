@@ -27,8 +27,8 @@ Name | Required | Type | Details
 `galleryBanner` | | `object` | Helps format the Marketplace header to match your icon.  See details below.
 `preview` | | `boolean` | Sets the extension to be flagged as a Preview in the Marketplace.
 `main` | | `string` | The entry point to your extension.
-[`contributes`](/docs/extensionAPI/extension-points.md) | | `object` | An object describing the extension's [contributions](/docs/extensionAPI/extension-points.md).
-[`activationEvents`](/docs/extensionAPI/activation-events.md) | | `array` | An array of the [activation events](/docs/extensionAPI/activation-events.md) for this extension.
+[`contributes`](/api/references/contribution-points) | | `object` | An object describing the extension's [contributions](/api/references/contribution-points).
+[`activationEvents`](/api/references/activation-events) | | `array` | An array of the [activation events](/api/references/activation-events) for this extension.
 `badges` | | `array` | Array of [approved](/docs/extensionAPI/extension-manifest.md#approved-badges) badges to display in the sidebar of the Marketplace's extension page. Each badge is an object containing 3 properties: `url` for the badge's image URL, `href` for the link users will follow when clicking the badge and `description`.
 `markdown` | | `string` | Controls the Markdown rendering engine used in the Marketplace. Either `github` (default) or `standard`.
 `qna` | | `marketplace` (default), `string`, `false` | Controls the **Q & A** link in the Marketplace. Set to `marketplace` to enable the default Marketplace Q & A site. Set to a string to provide the URL of a custom Q & A site. Set to `false` to disable Q & A altogether.
@@ -314,6 +314,6 @@ There are several Node.js modules available on npmjs to help with writing VSCode
 
 To learn more about VS Code extensibility model, try these topic:
 
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
-* [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
-* [Extension Marketplace](/docs/editor/extension-gallery.md) - Read more about the VS Code Extension Marketplace
+* [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference
+* [Activation Events](/api/references/activation-events) - VS Code activation events reference
+* [Extension Marketplace](/docs/editor/extension-gallery) - Read more about the VS Code Extension Marketplace
