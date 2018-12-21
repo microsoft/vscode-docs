@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 11/08/2018
+DateApproved: 12/21/2018
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -226,6 +226,8 @@ You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, 
 ## Use of the PYTHONPATH variable
 
 The [PYTHONPATH](https://docs.python.org/3.7/using/cmdline.html#envvar-PYTHONPATH) environment variable specifies additional locations where the Python interpreter should look for modules. The value of PYTHONPATH can contain multiple path values separated by `os.pathsep` (semicolons on Windows, colons on Linux/macOS). Invalid paths are ignored.
+
+> **Note**: you must set the PYTHONPATH variable through your operating system as VS Code doesn't provide a means to set environment variables directly.
 
 In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, and any other operation that depends on Python resolving modules. For example, suppose you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this, add the path to `src` to PYTHONPATH.
 
