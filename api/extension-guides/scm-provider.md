@@ -17,7 +17,7 @@ VS Code itself ships with one Source Control provider, the Git extension, which 
 
 This documentation will help you build an extension which can make any SCM system work with VS Code.
 
-> **Note:** that you can always refer to the [`vscode` namespace API reference](/docs/extensionAPI/vscode-api.md#scm) in our documentation.
+> **Note:** that you can always refer to the [`vscode` namespace API reference](/api/references/vscode-api#scm) in our documentation.
 
 ## Source Control Model
 
@@ -115,7 +115,7 @@ For example, Git supports staging multiple files by adding the `git.stage` comma
 stage(...resourceStates: SourceControlResourceState[]): Promise<void>;
 ```
 
-When creating them, `SourceControl` and `SourceControlResourceGroup` instances require you to provide an `id` string. These values will be populated in the `scmProvider` and `scmResourceGroup` context keys, respectively. You can rely on these [context keys](/docs/getstarted/keybindings.md#when-clause-contexts) in the `when` clauses of your menu items. Here's how Git is able to show a menu item for its `git.stage` command:
+When creating them, `SourceControl` and `SourceControlResourceGroup` instances require you to provide an `id` string. These values will be populated in the `scmProvider` and `scmResourceGroup` context keys, respectively. You can rely on these [context keys](/docs/getstarted/keybindings#when-clause-contexts) in the `when` clauses of your menu items. Here's how Git is able to show a menu item for its `git.stage` command:
 
 ```json
 {
@@ -175,7 +175,7 @@ export interface SourceControl {
 
 Using a `QuickDiffProvider`, your implementation is able to tell VS Code what's the `Uri` of the original resource that matches the resource which `Uri` is provided as an argument.
 
-You can combine this API with the [`registerTextDocumentContentProvider` method in the `workspace` namespace](/docs/extensionAPI/vscode-api.md#workspace), which lets you provide contents for arbitrary resources, given a `Uri`.
+You can combine this API with the [`registerTextDocumentContentProvider` method in the `workspace` namespace](/api/references/vscode-api#workspace), which lets you provide contents for arbitrary resources, given a `Uri`.
 
 ## Next steps
 

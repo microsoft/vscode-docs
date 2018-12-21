@@ -52,9 +52,9 @@ $ vsce publish
 The publishing tool checks the following constraints:
 
 - The icon provided in `package.json` may not be an SVG.
-- The badges provided in the `package.json` may not be SVGs unless they are from [trusted badge providers](/docs/extensionAPI/extension-manifest.md#approved-badges).
+- The badges provided in the `package.json` may not be SVGs unless they are from [trusted badge providers](/api/references/extension-manifest#approved-badges).
 - Image URLs in `README.md` and `CHANGELOG.md` need to resolve to `https` URLs.
-- Images in `README.md` and `CHANGELOG.md` may not be SVGs unless they are from [trusted badge providers](/docs/extensionAPI/extension-manifest.md#approved-badges).
+- Images in `README.md` and `CHANGELOG.md` may not be SVGs unless they are from [trusted badge providers](/api/references/extension-manifest#approved-badges).
 
 ---
 
@@ -88,7 +88,7 @@ Click **Create** and you'll be presented with your newly created Personal Access
 
 A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
 
-Once you have a [Personal Access Token](/docs/extensions/publish-extension.md#get-a-personal-access-token), you can create a new publisher using `vsce`:
+Once you have a [Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token), you can create a new publisher using `vsce`:
 
 ```bash
 vsce create-publisher (publisher name)
@@ -124,7 +124,7 @@ For example, if you want to update an extension's version from 1.0.0 to 1.1.0, y
 vsce publish minor
 ```
 
-This will modify the extension's `package.json` [version](/docs/extensionAPI/extension-manifest.md#fields) attribute before publishing the extension.
+This will modify the extension's `package.json` [version](/api/references/extension-manifest#fields) attribute before publishing the extension.
 
 You can also specify a complete SemVer compatible version on the command line:
 
@@ -188,7 +188,7 @@ Here are some tips for making your extension look great on the Marketplace:
 - You can set the banner background color by setting `galleryBanner.color` to the intended hex value in `package.json`.
 - You can set an icon by setting `icon` to a relative path to a squared `128px` PNG file included in your extension, in `package.json`.
 
-Also see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
+Also see [Marketplace Presentation Tips](/api/references/extension-manifest#marketplace-presentation-tips).
 
 ### `.vscodeignore`
 

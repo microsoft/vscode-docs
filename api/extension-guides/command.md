@@ -168,7 +168,7 @@ You do not need an `onCommand` activation event for internal commands but you mu
 
 By default, all user facing commands contributed through the `commands` section of the `package.json` show up in the Command Palette. However, many commands are only relevant in certain circumstances, such as when there is an active text editor of a given language or when the user has a certain configuration option set.
 
-The [`menus.commandPalette`](/api/references/contribution-points#contributes.menus) contribution point lets you restrict when a command should show in the Command Palette. It takes the id of the target command and a [when clause](/docs/getstarted/keybindings.md#when-clause-contexts) that controls when the command is shown:
+The [`menus.commandPalette`](/api/references/contribution-points#contributes.menus) contribution point lets you restrict when a command should show in the Command Palette. It takes the id of the target command and a [when clause](/docs/getstarted/keybindings#when-clause-contexts) that controls when the command is shown:
 
 ```json
 {

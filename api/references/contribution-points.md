@@ -106,7 +106,7 @@ Contribute an entry consisting of a title and a command to invoke to the **Comma
 
 ## contributes.menus
 
-Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/getstarted/keybindings.md#when-clause-contexts).
+Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/getstarted/keybindings#when-clause-contexts).
 
 In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu.
 
@@ -408,7 +408,7 @@ See the [Color Theme Guide](/api/extension-guides/color-theme) on how to create 
 
 ## contributes.snippets
 
-Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets.md#snippet-syntax).
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets#snippet-syntax).
 
 The example below shows adding snippets for the Go language.
 
@@ -549,7 +549,7 @@ This problem matcher can now be used in a `tasks.json` file via a name reference
 }
 ```
 
-Also see: [Defining a Problem Matcher](/docs/editor/tasks.md#defining-a-problem-matcher)
+Also see: [Defining a Problem Matcher](/docs/editor/tasks#defining-a-problem-matcher)
 
 ## contributes.problemPatterns
 
@@ -611,7 +611,7 @@ Contributes new themable colors. These colors can be used by the extension in ed
 }
 ```
 
-Color default values can be defined for light, dark and high contrast theme and can either be a reference to an existing color or a [Color Hex Value](/docs/getstarted/theme-color-reference.md#colorformats).
+Color default values can be defined for light, dark and high contrast theme and can either be a reference to an existing color or a [Color Hex Value](/docs/getstarted/theme-color-reference#colorformats).
 
 ## contributes.typescriptServerPlugins
 

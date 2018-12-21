@@ -55,7 +55,7 @@ The setting supports a simple model with a set of common token types such as 'co
 Once you have tweaked your theme colors using `workbench.colorCustomizations` and `editor.tokenColorCustomizations`, it's time to create the actual theme.
 
 1. Generate a theme file using the **Developer: Generate Color Theme from Current Settings** command from the **Command Palette**
-2. Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode), to generate a new theme extension:
+2. Use VS Code's [Yeoman](http://yeoman.io) extension generator to generate a new theme extension:
 
    ```bash
    npm install -g yo generator-code
@@ -91,9 +91,26 @@ You can also use an existing TextMate theme by telling the extension generator t
 
 ## Test a new Color Theme
 
-To try out the new theme, copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
+To try out the new theme, first create a `.vscode/launch.json` file:
 
-Open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the drop-down list.  Arrow up and down to see a live preview of your theme.
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "theme",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceRoot}"
+      ]
+    }
+  ]
+}
+```
+
+Then open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the drop-down list. Arrow up and down to see a live preview of your theme.
 
 ![select my theme](images/color-theme/mytheme.png)
 

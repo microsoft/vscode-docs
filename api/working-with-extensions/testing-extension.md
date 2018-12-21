@@ -88,7 +88,7 @@ This will give large benefits to performance when running tests
 
 ## Excluding test files from your extension package
 
-If you decide to share your extension, you may not want to include the tests in your extension package.  The [`.vscodeignore`](/docs/extensions/publish-extension.md#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/api/working-with-extensions/publishing-extension).  By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
+If you decide to share your extension, you may not want to include the tests in your extension package.  The [`.vscodeignore`](/api/working-with-extensions/publishing-extension#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/api/working-with-extensions/publishing-extension).  By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
 
 ```
 out/test/**
