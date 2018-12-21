@@ -13,7 +13,7 @@ As a code editor-centric development tool, Visual Studio Code has a lot of editi
 
 ## Code Editing and Navigating
 
-With the support of [outline view](https://code.visualstudio.com/updates/v1_25#_outline-view), you can easily navigate your method within the same class. Editing code is easy with the support of IntelliSense. You can also use code snippets and various code actions such as generating Getters/Setters to further boost your productivity.
+With the support of [outline view](https://code.visualstudio.com/updates/v1_25#_outline-view), you can easily navigate your method within the same class. Editing code is easy with the support of IntelliSense. You can also use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
 
 ![Code Editing](images/java-editing/code-editing.gif)
 

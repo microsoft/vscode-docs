@@ -3,80 +3,81 @@ Order: 1
 Area: java
 TOCTitle: Java Tutorial
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
-PageTitle: Build Java Apps with Visual Studio Code
+PageTitle: Writing Java with Visual Studio Code
 DateApproved: 5/30/2018
 MetaDescription: Java tutorial showing Java language support in the Visual Studio Code editor
 ---
 
-1. single file experience - for creating a project, go to project management
+# Writing Java with Visual Studio Code
 
-2. edit code - more details go to code editing
-
-3. run and debug essential -  for more details, goto debug
-
-4. introduce other capabilities, testing, tomcat/jetty, spring boot, and cloud integration
-
-5. explain launch.json
-
-# Java Apps with Visual Studio Code
-
-This tutorial shows you how to create a simple Java web application with Visual Studio Code. You'll learn how to run, debug, and edit the Java web app locally.
-
-## Scenario
-
+This tutorial shows you how to write and run a simple Hello World program in Java with Visual Studio Code, as well as couple advanced features which you can explore more with other documents in this section.
 
 ## Before you begin
 
-Before running and deploying this sample, you must have the Java SE Development Kit (JDK) and Apache Maven build tools on your local development environment. If you don't have, please install them.
+Before going through this tutorial, you must have the Java SE Development Kit (JDK) and Apache Maven build tools on your local development environment. If you don't have, please install them.
 
-Download and install the Java SE Development Kit (JDK), version 8:
+Download and install the Java SE Development Kit (JDK). Java support on Visual Studio Code works with all major Java version up to 11, below is a link for version 8:
 
-<a class="tutorial-next-btn" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" style="background-color:#68217A">Download JDK</a>
+<a class="tutorial-install-extension-btn" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" style="background-color:#68217A">Download JDK</a>
 
 >**Note**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
 
 Download Apache Maven version 3 or greater:
 
-<a class="tutorial-next-btn" href="https://maven.apache.org/download.cgi" target="_blank" style="background-color:#68217A">Download Apache Maven</a>
+<a class="tutorial-install-extension-btn" href="https://maven.apache.org/download.cgi" target="_blank" style="background-color:#68217A">Download Apache Maven</a>
 
 Install Apache Maven for your local development environment:
 
-<a class="tutorial-next-btn" href="https://maven.apache.org/install" target="_blank" style="background-color:#68217A">Install Apache Maven</a>
+<a class="tutorial-install-extension-btn" href="https://maven.apache.org/install" target="_blank" style="background-color:#68217A">Install Apache Maven</a>
 
-## Download and test the Spring Boot app
-
-
-
->**Note**: You can install Visual Studio Code from [https://code.visualstudio.com](https://code.visualstudio.com/) and Git from [https://git-scm.com](https://git-scm.com/).
+## Install Visual Studio Code and Java Extensions
 
 
-If you don't have the Java language extensions installed for VS Code, you will be prompted to install the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). Follow the instructions and reload VS Code after the installation.
+>**Note**: You can install Visual Studio Code from [https://code.visualstudio.com](https://code.visualstudio.com/).
 
-![Install Java Extensions](images/java-tutorial/install-extensions.gif)
+To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains these popular extensions:
 
-Once you have the Java Extension Pack installed, it will automatically build the project for you (this may take several minutes). You can run the application within VS Code by pressing `kb(workbench.action.debug.start)` and selecting the **Java** environment. The Java Debug extension will generate a debugging configuration file `launch.json` for you under a `.vscode` folder in your project. You can see build progress in the VS Code Status Bar and when everything is finished, the final active debug configuration is displayed.
+1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
+3. [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
+4. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
+5. [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 
-![debug configuration in the Status Bar](images/java-tutorial/debugging-status-bar.png)
+<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-You can learn more about how VS Code launches your application in Debugging [Launch Configurations](/docs/editor/debugging.md#launch-configurations). Press `kb(workbench.action.debug.start)` again to launch the debugger.
+You can also select which ones you would like to install separately, for this tutorial, only [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) are needed.
 
-## Make a change
+## Create the program
 
-Let's now edit `HelloController.java` to change "Greetings from Spring Boot!" to something else like "Hello World". VS Code provides a great editing experience for Java, check out [Editing and Navigating Code](/docs/languages/java.md#editing-and-navigating-code) to learn about VS Code's editing and code navigation features.
+Create a folder for your Java program and use Visual Studio Code to open the folder. Within Visual Studio Code, you can then create a new file `Hello.java`. When you open that file, the Java Langauge Server will automatically be activated and when it finishes loading, you will see a thrumbs up sign on the status bar.
 
+![Create Project](images/java-tutorial/create-file.gif)
 
-## Debug the application
+Visual Studio Code also support more complex Java projects, see [Java Project](/docs/java/java-project.md).
 
-Set a breakpoint (`kb(editor.debug.action.toggleBreakpoint)`) in the application source code, and reload your browser to hit the breakpoint.
+>**Note**: The Java Langauge Server might not work properly if you just open a Java file in Visual Studio Code without opening its folder.
 
-![Debug Application](images/java-tutorial/debugging.png)
+## Editing code
 
-If you would like to learn more about debugging Java with VS Code, you can read [Java Debugging](/docs/java/java-debugging.md).
+In Visual Studio Code, you can easily use code snippet to start your program. It also provide IntelliSense for code completion.
 
-Congratulations, you have your first Spring Boot web app running locally! Read on to learn how to host it in the cloud.
+![Edit Code](images/java-tutorial/edit-code.gif)
 
-## Next steps
+To learn more about Java code editing in Visual Studio Code, see [Java Editing](/docs/java/java-editing.md).
 
-*
-*
-*
+## Running and debugging your program
+
+It's super easy to run and debug Java in Visual Studio Code. You can either click `F5` or use the `Run|Debug` button on the code lens to see it running. You can also use various refactor within the editor.
+
+![Run and Debug](images/java-tutorial/run-debug.gif)
+
+The debugger also support advanced features such as hot code replacement and conditional breakpoint, see [Java Debug](/docs/java/java-debugging.md) for more details.
+
+## Other features
+
+Now you've seen how easy it is to write Java program with Visual Stuio Code. The editor actually has much more capability to support your Java workload.
+
+* [Editing Java](/docs/java/java-editing.md) explains how to navigate and edit Java in more details.
+* [Maven Support, Java Package and Dependency Management](/docs/java/java-project.md) shows you how it provides you a project view and works with Maven.
+* [Testing](/docs/java/java-resting.md) provides comprehensive supports for JUnit and TestNG framework.
+* [Spring Boot Support](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great support for Spring Boot, Tomcat and Jetty.
