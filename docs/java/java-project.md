@@ -75,12 +75,14 @@ If you're creating a Spring Boot project, you can also use the [Spring Initializ
 
 The extension also provides you a hierarchy view of your project and dependencies, which supplements the original file view and outline provided by Visual Studio Code so you don't need to expand multiple sub-folders to just view your Java package.
 
-![Creating Project](images/java-project/package-viewer.gif)
+![Package Viewer](images/java-project/package-viewer.gif)
+
+![Hierarchical View](images/java-project/hierarchical.gif)
 
 ## Next steps
 
 Read on to find out about:
 
-* [Debugging](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
-* [Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
+* [Editing Java](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
+* [Debugging Java](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
 * [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
