@@ -18,7 +18,7 @@ This document will give you an overview of how to use [Maven for Java](https://m
 [Maven](http://maven.apache.org/) is a software tool that helps you manage Java projects, and automate application builds. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension for Visual Studio Code provides you a fully integrated experience, allowing you to explore Maven project, execute Maven commands and perform the goals of build lifecycle and plugins.
 
 ### Exploring Maven project
-Once a Maven extensin is activated, it automatically scans `pom.xml` in your workspace, and displays all Maven projectes and their modules in the side bar.
+Once a Maven extension is activated, it automatically scans `pom.xml` in your workspace, and displays all Maven projects and their modules in the side bar.
 
 ![Maven Explorer](images/java-project/maven-explorer.gif)
 
@@ -73,7 +73,7 @@ If you're creating a Spring Boot project, you can also use the [Spring Initializ
 
 ### Package and Dependency View
 
-The extension also provide you a hierachy view of your project and dependencies, which supplements the original file view and outline provided by Visual Studio Code so you don't need to expand multiple sub-folders to just view your Java package.
+The extension also provides you a hierarchy view of your project and dependencies, which supplements the original file view and outline provided by Visual Studio Code so you don't need to expand multiple sub-folders to just view your Java package.
 
 ![Creating Project](images/java-project/package-viewer.gif)
 

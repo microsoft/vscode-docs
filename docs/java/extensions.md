@@ -25,14 +25,12 @@ To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](htt
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-There are many other Java extensions provided by Microsoft and Pivotal, including:
+There are also great extensions provided by Pivotal and Microsoft for Spring Boot development, including:
 
 1. [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
-4. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
-5. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
-6. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
+
 
 ## Popular Extensions from community
 
@@ -43,16 +41,19 @@ Thanks to the great Java community around VS Code, there're a lot of great commu
 
 Here's just a couple of those
 
-1. [Java Linter](https://marketplace.visualstudio.com/items?itemName=faustinoaq.javac-linter)
-2. [Java Decompiler](https://marketplace.visualstudio.com/items?itemName=dgileadi.java-decompiler)
-3. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
-4. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
+1. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
+2. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
+3. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
+4. [Java Linter](https://marketplace.visualstudio.com/items?itemName=faustinoaq.javac-linter)
+5. [Java Decompiler](https://marketplace.visualstudio.com/items?itemName=dgileadi.java-decompiler)
+6. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
+7. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
 
 We'd also appreciate all contributions to any of our existing extensions, as well as new Java extensions if you don't find what you're looking for in the marketplace. We're especially looking for help in areas such as supports for Gradle and other Java application servers.
 
 ## Extensions with great Java support
 
-We'd also like to recommand couple other extensions we believe are great to make VS Code even better for Java developers.
+We'd also like to recommend couple other extensions we believe are great to make VS Code even better for Java developers.
 
 1. [IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) provides developer a AI/ML powered IntelliSense which will boost your productivity with contextual code recommendations.
 2. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.

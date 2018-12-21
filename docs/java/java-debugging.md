@@ -72,11 +72,11 @@ VS Code can run and debug single Java files without any project.
 
 ### Debugging external files
 
-The Java debugger also supports external source files. This lets you debug third party classes when they are inside a JAR or a source attachment. Set your breakpoints in those classes before you start debugging. You can also attach missing source with a zip/jar file using the Context menu `Attach Source` so you can browse into those code whild debugging.
+The Java debugger also supports external source files. This lets you debug third party classes when they are inside a JAR or a source attachment. Set your breakpoints in those classes before you start debugging. You can also attach missing source with a zip/jar file using the Context menu `Attach Source` so you can browse into those code while debugging.
 
 ![Debug Single File](images/java-debugging/attach-source.gif)
 
-Java 9 is supported with VS Code as well.
+Java 9 is supported with VS Code Java Debugger as well.
 
 ![Java 9 Support](images/java-debugging/java9.gif)
 
@@ -100,7 +100,7 @@ The debugger also lets you evaluate expressions in the **WATCH** window as well 
 
 ### Conditional breakpoint
 
-With the help of espression evaluation, the debugger also support conditional breakpoint. You can set your breakpoint to break when expression evaluates to true.
+With the help of expression evaluation, the debugger also supports conditional breakpoint. You can set your breakpoint to break when expression evaluates to true.
 
 ![Conditional Breakpoint](images/java-debugging/conditional-bp.gif)
 
@@ -179,7 +179,7 @@ Detailed troubleshooting guide could be found in our [GitHub Repository](https:/
 
 ## Feedback and Questions
 
-You can find the full list of issues at [Issue Tracker](https://github.com/Microsoft/vscode-java-debug/issues). You can submit a [bug or feature suggestion](https://github.com/Microsoft/vscode-java-debug/issues/new), and participate in the community driven [Gitter](https://gitter.im/Microsoft/vscode-java-debug) channel.
+You can find the full list of issues at [Issue Tracker](https://github.com/Microsoft/vscode-java-debug/issues). You can submit a [bug or feature suggestion](https://github.com/Microsoft/vscode-java-debug/issues/new) and participate in the community driven [Gitter](https://gitter.im/Microsoft/vscode-java-debug) channel.
 
 ## Next steps
 

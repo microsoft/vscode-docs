@@ -3,25 +3,25 @@ Order: 11
 Area: java
 TOCTitle: Extensions
 ContentId: 2ad03b46-0779-4c9a-897e-6e6b628f598a
-PageTitle: Java on Visual Studio Code Wiki and FAQ
+PageTitle: Java on Visual Studio Code FAQ and Wiki
 DateApproved: 12/30/2018
-MetaDescription: Java on Visual Studio Code Frequent Asked Questions
+MetaDescription: Java on Visual Studio Code Frequent Asked Questions and Troubleshoot Guide
 ---
-# Frequent Asked Questions
+# Frequent Asked Questions and Toubleshoot Guide
 
 Thanks for your interest in Java on Visual Studio Code! This FAQ will hopefully answer some of the questions you may have.
 
 ## Q: Are these Java extensions open source?
 
-Absolutely. All the [Java Extensions](/docs/java/extensions.md) are open source. You can find their corresponding repositories on GitHub from the marketplace pages.
+Absolutely. All the [Java Extensions](/docs/java/extensions.md) provided by Red Hat, Microsoft and Pivotal are open source, as well as most ones supported by community. You can find their corresponding repositories on GitHub from the marketplace pages.
 
 ## Q: Are there any other feature coming to Java on Visual Studio Code?
 
 Definitely. We use GitHub Issues to track most of our incoming requests and planned work for each of our extensions. Currently we're working on bringing more refactoring features and linting to enhance the editing productivity, as well as some performance improvements to make it even faster.
 
-Most of our work are collected from and prioritized by customer feedbacks. If you're interested in providing your thoughts, you can either go directly to our project repositories or use this [Survey Link](https://www.research.net/r/vscodejava).
+Most of our work are collected from and prioritized by customer feedbacks. If you're interested in providing your thoughts, you can either go directly to our project repositories or use this [Survey Link](https://www.research.net/r/vscodejava) to share your thoughts.
 
-At the same time, we do have limited capacity within the team and we'd really like to encourage more contribution from the great Java community. So if you're passionate about your idea and would like to help our fellow Java developers, welcome to join us! Some areas worth considering including Gradle support, code analysis and test coverage tools, profiler, additional framework support including DropWizard, JavaFX, JPA, Play, Akka, OSGi.
+At the same time, we do have limited capacity within the team and we'd really like to encourage more contribution from the great Java community. If you're passionate about your idea and would like to help our fellow Java developers, welcome to join us! Some areas worth considering including Gradle support, code analysis and test coverage tools, profiler, additional framework support including DropWizard, JavaFX, JPA, Play, Akka, OSGi.
 
 ## Q: Where can I find the latest progress of Java support on Visual Studio Code?
 
@@ -31,7 +31,7 @@ While you're using Java within VS Code, you might also see a *Release Notes* onc
 
 ## Q: Will this be available for Visual Studio?
 
-Currently we don't plan to extend the Java support to Visual Studio. There's already great IDEs for Java and we're focusing our energy on VS Code to provide a lightweight experience in a polyglot editor.
+Currently we don't plan to extend the Java support to Visual Studio. There's already great IDEs for Java and we're focusing on VS Code to provide a lightweight experience in a polyglot editor.
 
 ## Work and Troubleshoot with Java Language Server
 

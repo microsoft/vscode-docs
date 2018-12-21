@@ -74,7 +74,7 @@ If you don't have an Azure subscription, you can sign up for a [free Azure accou
 1. Go to [Azure portal](https://portal.azure.com/) and click the '+' to **Create a resource** .
 2. Click **Databases**, and then click **Azure Cosmos DB** to create your database.
 3. Select **SQL (Document DB) API** and type in other information for your database.
-4. Navigate to the database you have created, and click **Keys** and copy your **URI** and **PRIMARY KEY** for your database.
+4. Navigate to the database you have created, click **Keys** and copy your **URI** and **PRIMARY KEY** for your database.
 
 ### Config your project
 
