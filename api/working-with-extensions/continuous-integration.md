@@ -25,7 +25,7 @@ The command will expose some optional environment variables, which you can use t
 | `CODE_EXTENSIONS_PATH` | Location of the extensions to load (default is `process.cwd()`) |
 | `CODE_TESTS_WORKSPACE` | Location of a workspace to open for the test instance (default is CODE_TESTS_PATH) |
 
-### Azure Pipelines
+## Azure Pipelines
 
 <a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="/assets/api/advanced-topics/continuous-integration/pipelines-logo.png" width="318" /></a>
 

@@ -239,7 +239,7 @@ Injection grammars let you extend an existing grammar. An injection grammar is a
 
 - Highlighting keywords such as `TODO` in comments.
 - Add more specific scope information to an existing grammar.
-- Adding highlighting for a new language to markdown fenced code blocks.
+- Adding highlighting for a new language to Markdown fenced code blocks.
 
 ### Creating a basic injection grammar
 
