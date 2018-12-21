@@ -49,7 +49,7 @@ Once the debugger is activated, you will find `Run|Debug` on the CodeLens of you
 
 ![CodeLens](images/java-debugging/java-codelens.gif)
 
-### Clicking `kb(workbench.action.debug.start)```
+### Clicking `kb(workbench.action.debug.start)`
 Once you click `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and create the `launch.json` configuration file for you.
 
 ![Resolving Main Class](images/java-debugging/resolve-main.gif)

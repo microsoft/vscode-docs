@@ -9,7 +9,7 @@ MetaDescription: See how you can test your Java code in Visual Studio Code.
 MetaSocialImage:
 ---
 
-# Testing
+# Testing Java with Visual Studio Code
 
 Testing Java in Visual Studio Code is enabled by [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extension. It's a lightweight extension to run and debug Java test cases. The extension supports following test frameworks:
 
