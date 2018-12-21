@@ -39,7 +39,7 @@ The process seems more complicated, but it provides two major benefits:
 - The Language Server can be written in any language
 - The Language Server can be reused to provide smart editing features for multiple editors
 
-For a more in-depth guide, head over to the [Smart Editing LSP Guide](https://vscode-ext-docs.azurewebsites.net/api/language-extensions/smart-editing-lsp-guide).
+For a more in-depth guide, head over to the [Language Server Extension Guide](https://vscode-ext-docs.azurewebsites.net/api/language-extensions/language-server-extension-guide).
 
 ---
 

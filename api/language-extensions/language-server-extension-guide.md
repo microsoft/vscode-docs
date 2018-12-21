@@ -7,9 +7,16 @@ DateApproved: 12/6/2018
 MetaDescription: Learn how to create Language Servers to provide rich language features in Visual Studio Code.
 ---
 
-# Smart Editing LSP Guide
+# Language Server Extension Guide
 
-## A Brief Overview of Language Server and Language Server Protocol
+As you have seen in the [Programmatic Language Features](/api/language-extensions/programmatic-language-features) topic, it's possible to implement Language Features by directly using `languages.*` API. Language Server Extension, however, provides an alternative way of implementing such language support.
+
+This topic:
+
+- Explains the benefits of Language Server Extension.
+- Walks you through building a Language Server using the [`Microsoft/vscode-languageserver-node`](https://github.com/Microsoft/vscode-languageserver-node) library. You can also jump directly to the code in [lsp-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample).
+
+## Why Language Server?
 
 Language Server is a special kind of Visual Studio Code extension that powers the editing experience for many programming languages. With Language Servers, you can implement autocomplete, error-checking (diagnostics), jump-to-definition and many other [language features](/api/language-extensions/programmatic-language-features) supported in VS Code.
 
@@ -23,7 +30,7 @@ Finally, integrating multiple language toolings with multiple code editors could
 
 To solve those problems, Microsoft specified [Language Server Protocol](https://microsoft.github.io/language-server-protocol) which standardizes the communication between language tooling and code editor. This way, Language Servers can be implemented in any language and run in its own process to avoid performance cost, as they communicate with the code editor through the Language Server Protocol. Furthermore, any LSP-compliant language toolings can integrate with multiple LSP-compliant code editors, and any LSP-compliant code editors can easily pickup multiple LSP-compliant language toolings. LSP is a win for both language tooling providers and code editor vendors!
 
-![LSP Languages and Editors](images/smart-editing-lsp-guide/lsp-languages-editors.png)
+![LSP Languages and Editors](images/language-server-extension-guide/lsp-languages-editors.png)
 
 In this guide, we will:
 
@@ -47,7 +54,7 @@ As briefly stated above there are two benefits of running the Language Server in
 
 Here is an illustration of VS Code running two Language Server extensions. The HTML Language Client and PHP Language Client are normal VS Code extensions written in TypeScript. Each of them instantiates a corresponding Language Server and communicates with them through LSP. Although the PHP Language Server is written in PHP, it can still communicate with the PHP Language Client through LSP.
 
-![LSP Illustration](images/smart-editing-lsp-guide/lsp-illustration.png)
+![LSP Illustration](images/language-server-extension-guide/lsp-illustration.png)
 
 This guide will teach you how to build a Language Client / Server using our [Node SDK](https://github.com/Microsoft/vscode-languageserver-node). The remaining document assumes that you are familiar with normal [extension development](/docs/extensions/overview) for VS Code.
 
@@ -523,17 +530,17 @@ ANY browser. ANY host. ANY OS. Open Source.
 
 The `Extension Development Host` instance will then look like this:
 
-![Validating a text file](images/smart-editing-lsp-guide/validation.png)
+![Validating a text file](images/language-server-extension-guide/validation.png)
 
 ### Debugging both Client and Server
 
 Debugging the client code is as easy as debugging a normal extension. Set a breakpoint in the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Developing Extensions](/docs/extensions/developing-extensions).
 
-![Debugging the client](images/smart-editing-lsp-guide/debugging-client.png)
+![Debugging the client](images/language-server-extension-guide/debugging-client.png)
 
 Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the Debug view and select the launch configuration `Attach to Server` and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server.
 
-![Debugging the server](images/smart-editing-lsp-guide/debugging-server.png)
+![Debugging the server](images/language-server-extension-guide/debugging-server.png)
 
 ### Logging Support for Language Server
 
@@ -541,11 +548,11 @@ If you are using `vscode-languageclient` to implement the client, you can specif
 
 For **lsp-sample**, you can set this setting: `"languageServerExample.trace.server": "verbose"`. Now head to the channel "Language Server Example". You should see the logs:
 
-![LSP Log](images/smart-editing-lsp-guide/lsp-log.png)
+![LSP Log](images/language-server-extension-guide/lsp-log.png)
 
 As Language Servers can be chatty (5 seconds of real-world usage can produce 5000 lines of log), we also provide a tool to visualize and filter the communication between Language Client / Server. You can save all logs from the channel into a file, and load that file with the [Language Server Protocol Inspector](https://github.com/Microsoft/language-server-protocol-inspector) at https://microsoft.github.io/language-server-protocol/inspector.
 
-![LSP Inspector](images/smart-editing-lsp-guide/lsp-inspector.png)
+![LSP Inspector](images/language-server-extension-guide/lsp-inspector.png)
 
 ### Using Configuration Settings in the Server
 
@@ -639,7 +646,7 @@ connection.onDidChangeConfiguration(change => {
 
 Starting the client again and changing the setting to maximum report 1 problem results in the following validation:
 
-![Maximum One Problem](images/smart-editing-lsp-guide/validationOneProblem.png)
+![Maximum One Problem](images/language-server-extension-guide/validationOneProblem.png)
 
 ### Adding additional Language Features
 
@@ -704,7 +711,7 @@ connection.onInitialize((params): InitializeResult => {
 
 The screen shot below shows the completed code running on a plain text file:
 
-![Code Complete](images/smart-editing-lsp-guide/codeComplete.png)
+![Code Complete](images/language-server-extension-guide/codeComplete.png)
 
 ### Testing The Language Server
 

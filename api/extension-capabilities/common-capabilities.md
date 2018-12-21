@@ -24,7 +24,7 @@ Learn more about commands at the [Extension Guides / Command](/api/extension-gui
 
 ## Configuration
 
-An extension can contribute extension-specific settings with [`contributes.configuration`](/api/references/contribution-points#contributes.configuration) and read them using [`workspace.getConfiguration`](/api/references/vscode-api#workspace.getConfiguration).
+An extension can contribute extension-specific settings with the [`contributes.configuration`](/api/references/contribution-points#contributes.configuration) Contribution Point and read them using the [`workspace.getConfiguration`](/api/references/vscode-api#workspace.getConfiguration) API.
 
 ## Keybinding
 

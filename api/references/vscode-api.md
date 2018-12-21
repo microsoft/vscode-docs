@@ -69,7 +69,7 @@ The VS Code API uses the `undefined` and `null` TypeScript types where appropria
 
 ## API Listing
 
-This file is compiled from the [`vscode.d.ts`](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts) file from the VS Code repository.
+This listing is compiled from the [`vscode.d.ts`](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts) file from the VS Code repository.
 
 ## commands
 

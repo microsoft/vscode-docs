@@ -7,11 +7,11 @@ DateApproved: 12/6/2018
 MetaDescription: Learn how to write a Language Extension (plug-in) to add support for a programming language in Visual Studio Code.
 ---
 
-# Language Extension Overview
+# Language Extensions Overview
 
 Visual Studio Code provides smart editing features for different programming languages through Language Extensions. VS Code doesn't provide built-in language support but offers a set of APIs that enable rich language features. For example, it is a bundled [HTML](https://github.com/Microsoft/vscode/tree/master/extensions/html) extension that allows VS Code to show syntax highlighting for HTML files. Similarly, when you type `console.` and `log` shows up in IntelliSense, it is the [Typescript Language Features](https://github.com/Microsoft/vscode/tree/master/extensions/typescript-language-features) extension at work.
 
-Smart editing features can be roughly put into two categories:
+Language features can be roughly put into two categories:
 
 ## Declarative language features
 
@@ -23,12 +23,13 @@ Declarative language features are defined in configuration files. Examples inclu
 - Bracket autoclosing
 - Bracket autosurrounding
 - Comment toggling
-- Folding (legacy)
+- Auto indentation
+- Folding (by markers)
 
 We have three guides for writing Language Extensions that provide Declarative Language Features.
 
-- [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide): VS Code uses TextMate grammar for syntax highlighting. This guide will walk you through converting an existing TextMate grammar into a VS Code extension.
-- [Snippet Completion Guide](/api/language-extensions/snippet-guide): Extension authors can provide handy snippets for any language. Learn how to add an idiomatic framework usage as a snippet, or create a snippet for using the latest ECMAScript syntax.
+- [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide): VS Code uses TextMate grammar for syntax highlighting. This guide will walk you through writing a simple TextMate grammar and converting it into a VS Code extension.
+- [Snippet Completion Guide](/api/language-extensions/snippet-guide): This guide explains how to bundle a set of snippets into an extension.
 - [Language Configuration Guide](/api/language-extensions/language-configuration-guide): VS Code allows extensions to define a **language configuration** for any programming language. This file controls basic editing features such as comment toggling, bracket matching/surrounding and region folding (legacy).
 
 ## Programmatic language features
@@ -42,6 +43,7 @@ Programmatic Language Features include auto completion, error checking, and jump
 - Error checking
 - Formatting
 - Refactoring
+- Folding
 
 For a complete list of Programmatic Language Features, see [Language Features](/api/language-extensions/language-features).
 
@@ -53,9 +55,9 @@ By standardizing the communication between a Language Server (a static code anal
 
 In the [Language Features](/api/language-extensions/language-features) listing, you can find a listing of all VS Code language features and how they map to the [Language Server Protocol Specification](https://microsoft.github.io/language-server-protocol/specification).
 
-We offer an in-depth guide that explains how to implement rich language features in VS Code:
+We offer an in-depth guide that explains how to implement a Language Server extension in VS Code:
 
-- [Smart Editing LSP Guide](/api/language-extensions/smart-editing-lsp-guide)
+- [Language Server Extension Guide](/api/language-extensions/language-server-extension-guide)
 
 ![multi-editor](images/overview/multi-editor.png)
 

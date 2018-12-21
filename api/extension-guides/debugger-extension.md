@@ -13,7 +13,7 @@ Visual Studio Code's debugging architecture allows extension authors to easily i
 
 VS Code ships with one built-in debugger extension, the [Node.js](https://nodejs.org) debugger extension, which is an excellent showcase for the many debugger features supported by VS Code:
 
-![VS Code Debug Features](images/debug-extension/debug-features.png)
+![VS Code Debug Features](images/debugger-extension/debug-features.png)
 
 This screenshot shows the following debugging features:
 
@@ -34,7 +34,7 @@ VS Code implements a generic (language-agnostic) debugger UI based on an abstrac
 Because debuggers typically do not implement this protocol, some intermediary is needed to "adapt" the debugger to the protocol.
 This intermediary is typically a standalone process that communicates with the debugger.
 
-![VS Code Debug Architecture](images/debug-extension/debug-arch1.png)
+![VS Code Debug Architecture](images/debugger-extension/debug-arch1.png)
 
 We call this intermediary the **Debug Adapter** (or **DA** for short) and the abstract protocol that is used between the DA and VS Code is the **Debug Adapter Protocol** (**DAP** for short).
 Since the Debug Adapter Protocol is independent from VS Code, it has its own [web site](https://microsoft.github.io/debug-adapter-protocol/) where you can find an [introduction and overview](https://microsoft.github.io/debug-adapter-protocol/overview), the detailed [specification](https://microsoft.github.io/debug-adapter-protocol/specification), and some lists with [known implementations and supporting tools](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/).
@@ -46,7 +46,7 @@ For this reason VS Code provides an contribution point, `debuggers`, where a deb
 
 So in its most minimal form, a debugger extension is just a declarative contribution of a debug adapter implementation and the extension is basically a packaging container for the debug adapter without any additional code.
 
-![VS Code Debug Architecture 2](images/debug-extension/debug-arch2.png)
+![VS Code Debug Architecture 2](images/debugger-extension/debug-arch2.png)
 
 A more realistic debugger extension contributes many or all of the following declarative items to VS Code:
 
@@ -88,7 +88,7 @@ To try Mock Debug:
 
 A debug session starts and you can "step" through the readme file, set and hit breakpoints, and run into exceptions (if the word `exception` appears in a line).
 
-![Mock Debugger running](images/debug-extension/mock-debug.gif)
+![Mock Debugger running](images/debugger-extension/mock-debug.gif)
 
 Before using Mock Debug as a starting point for your own development, we recommend to uninstall the pre-built version first:
 
@@ -123,7 +123,7 @@ After the full build, a _watcher task_ is started that transpiles any changes yo
 
 After transpiling the source, a new VS Code window labelled "[Extension Development Host]" appears with the Mock Debug extension now running in debug mode. From that window open your `mock test` project with the `readme.md` file, start a debug session with 'F5', and then step through it:
 
-![Debugging Extension and Server](images/debug-extension/debug-mock-session.png)
+![Debugging Extension and Server](images/debugger-extension/debug-mock-session.png)
 
 Since you are running the extension in debug mode, you could now set and hit breakpoints in `src/extension.ts` but as I've mentioned above, there is not much interesting code executing in the extension. The interesting code runs in the debug adapter which is a separate process.
 
@@ -131,12 +131,12 @@ In order to debug the debug adapter itself, we have to run it in debug mode. Thi
 
 Since we already had an active debug session for the extension the VS Code debugger UI now enters _multi session_ mode which is indicated by seeing the names of the two debug sessions **Extension** and **Server** showing up in the CALL STACK view:
 
-![Debugging Extension and Server](images/debug-extension/debug-extension-server.png)
+![Debugging Extension and Server](images/debugger-extension/debugger-extension-server.png)
 
 Now we are able to debug both the extension and the DA simultaneously.
 A faster way to arrive here is by using the **Extension + Server** launch configuration which launches both sessions automatically.
 
-An alternative, even simpler approach for debugging the extension and the DA can be found [below](#alternative-approach-to-develop-a-debug-extension).
+An alternative, even simpler approach for debugging the extension and the DA can be found [below](#alternative-approach-to-develop-a-debugger-extension).
 
 Set a breakpoint at the beginning of method `launchRequest(...)` in file `src/mockDebug.ts` and as a last step configure the mock debugger to connect to the DA server by adding a `debugServer` attribute for port `4711` to your mock test launch config:
 
@@ -303,7 +303,7 @@ Since VS Code runs on different platforms, we have to make sure that the DA prog
 
 The **initialConfigurations** define the initial content of the default `launch.json` for this debugger. This information is used when a project does not have a `launch.json` and a user starts a debug session or clicks on the gear icon in the debug viewlet. In this case VS Code lets the user pick a debug environment and then creates the corresponding `launch.json`:
 
-![Debugger Quickpick](images/debug-extension/debug-init-config.png)
+![Debugger Quickpick](images/debugger-extension/debug-init-config.png)
 
 Instead of defining the initial content of the `launch.json` statically in the `package.json`, it is possible to compute the initial configurations dynamically by implementing a `DebugConfigurationProvider` (for details see the section [Using a DebugConfigurationProvider below](#using-a-debugconfigurationprovider)).
 

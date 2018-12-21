@@ -9,7 +9,7 @@ MetaDescription: A guide to using commands programmatically in Visual Studio Cod
 
 # Commands
 
-Commands trigger actions in Visual Studio Code. If you have ever [configured a keybinding](/docs/getstarted/keybindings), then you've worked with commands. Commands are also used by extensions to expose functionality to users, bind to actions in VS Code's user interface, and implement internal logic.
+Commands trigger actions in Visual Studio Code. If you have ever [configured a keybinding](/docs/getstarted/keybindings), then you've worked with commands. Commands are also used by extensions to expose functionality to users, bind to actions in VS Code's UI, and implement internal logic.
 
 ## Using Commands
 

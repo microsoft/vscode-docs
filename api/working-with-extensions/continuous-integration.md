@@ -112,12 +112,3 @@ Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/g
 ![pipelines](images/continuous-integration/pipelines.png)
 
 You can enable the build to run continuously when pushing to a branch and even on pull requests. [Click here](https://docs.microsoft.com/azure/devops/pipelines/build/triggers) to learn more.
-
-## Next steps
-
-* [Developing Extensions](/docs/extensions/developing-extensions) - Learn more about how to run and debug your extension.
-* [vsce](/docs/extensions/publish-extension) - Publish your extension with the VSCE command line tool.
-* [Extension Manifest file](/docs/extensionAPI/extension-manifest) - VS Code extension manifest file reference
-* [Extension API](/docs/extensionAPI/overview) - Learn about the VS Code extensibility APIs
-
-
