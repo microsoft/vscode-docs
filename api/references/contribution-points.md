@@ -692,10 +692,3 @@ export = function init({ typescript }: { typescript: typeof ts_module }) {
 ```
 
 This API allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/Microsoft/vscode-typescript-tslint-plugin/blob/master/src/index.ts) and [lit-html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.
-
-## Next steps
-
-To learn more about VS Code extensibility model, try these topic:
-
-* [Extension Manifest File](/api/references/extension-manifest) - VS Code package.json extension manifest file reference
-* [Activation Events](/api/references/activation-events) - VS Code activation events reference

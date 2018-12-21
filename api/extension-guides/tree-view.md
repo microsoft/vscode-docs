@@ -67,7 +67,7 @@ Example:
 }
 ```
 
-When the user opens the view, VS Code will then emit an activationEvent [`onView:${viewId}`](/api/references/activation-events#activationEvents.onView) (e.g. `onView:nodeDependencies` for the example above). You can also control the visibility of the view by providing the `when` context value.
+When the user opens the view, VS Code will then emit an activationEvent [`onView:${viewId}`](/api/references/activation-events#onView) (e.g. `onView:nodeDependencies` for the example above). You can also control the visibility of the view by providing the `when` context value.
 
 ## View Actions
 

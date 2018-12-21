@@ -13,7 +13,7 @@ In the last topic, you were able to get a basic extension running. How does it w
 
 The `Hello World` extension does 3 things:
 
-- Registers the [`onCommand`](/api/references/activation-events#activationEvents.onCommand) [**Activation Event**](/api/references/activation-events): `onCommand:extension.helloWorld`, so the extension becomes activated when user runs the `Hello World` command.
+- Registers the [`onCommand`](/api/references/activation-events#onCommand) [**Activation Event**](/api/references/activation-events): `onCommand:extension.helloWorld`, so the extension becomes activated when user runs the `Hello World` command.
 - Uses the [`contributes.commands`](/api/references/contribution-points#contributes.commands) [**Contribution Point**](/api/references/contribution-points) to make the command `Hello World` available in the Command Palette, and bind it to a command ID `extension.helloWorld`.
 - Uses the [`commands.registerCommand`](/api/references/vscode-api#commands.registerCommand) [**VS Code API**](/api/references/vscode-api) to bind a function to the registered command ID `extension.helloWorld`.
 
