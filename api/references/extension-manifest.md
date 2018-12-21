@@ -301,7 +301,7 @@ This script gets executed when the extension is completely uninstalled from VS C
 
 ## Useful Node modules
 
-There are several Node.js modules available on npmjs to help with writing VSCode extensions. You can include these in your extension's `dependencies` section.
+There are several Node.js modules available on npmjs to help with writing VS Code extensions. You can include these in your extension's `dependencies` section.
 
 * [vscode-nls](https://www.npmjs.com/package/vscode-nls) - Support for externalization and localization.
 * [vscode-uri](https://www.npmjs.com/package/vscode-uri) - The URI implementation used by VS Code and its extensions.

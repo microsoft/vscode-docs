@@ -382,12 +382,12 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
         diagnostics.push(diagnostic);
     }
 
-    // Send the computed diagnostics to VSCode.
+    // Send the computed diagnostics to VS Code.
     connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
 
 connection.onDidChangeWatchedFiles(_change => {
-    // Monitored files have change in VSCode
+    // Monitored files have change in VS Code
     connection.console.log('We received an file change event');
 });
 
@@ -430,19 +430,19 @@ connection.onCompletionResolve(
 
 /*
 connection.onDidOpenTextDocument((params) => {
-    // A text document got opened in VSCode.
+    // A text document got opened in VS Code.
     // params.uri uniquely identifies the document. For documents store on disk this is a file URI.
     // params.text the initial full content of the document.
     connection.console.log(`${params.textDocument.uri} opened.`);
 });
 connection.onDidChangeTextDocument((params) => {
-    // The content of a text document did change in VSCode.
+    // The content of a text document did change in VS Code.
     // params.uri uniquely identifies the document.
     // params.contentChanges describe the content changes to the document.
     connection.console.log(`${params.textDocument.uri} changed: ${JSON.stringify(params.contentChanges)}`);
 });
 connection.onDidCloseTextDocument((params) => {
-    // A text document got closed in VSCode.
+    // A text document got closed in VS Code.
     // params.uri uniquely identifies the document.
     connection.console.log(`${params.textDocument.uri} closed.`);
 });
@@ -506,7 +506,7 @@ documents.onDidChangeContent(async (change) => {
         diagnostics.push(diagnostic);
     }
 
-    // Send the computed diagnostics to VSCode.
+    // Send the computed diagnostics to VS Code.
     connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
 ```
@@ -621,7 +621,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
         diagnostics.push(diagnostic);
     }
 
-    // Send the computed diagnostics to VSCode.
+    // Send the computed diagnostics to VS Code.
     connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
 ```

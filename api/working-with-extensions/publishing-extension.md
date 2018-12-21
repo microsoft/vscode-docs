@@ -16,7 +16,6 @@ This topics covers:
 - Using [`vsce`](#vsce), the CLI tool for managing VS Code extensions
 - [Packaging](#packaging-extensions), [publishing](#publishing-extensions) and [unpublishing](#unpublishing-extensions) extensions
 - [Registering a `publisherId`](#create-a-publisher) necessary for publishing extensions
--
 
 ## vsce
 
@@ -36,7 +35,7 @@ You can use `vsce` to easily [package](#packaging-extensions) and [publish](#pub
 
 ```bash
 $ cd myExtension
-$ vsce pacakge
+$ vsce package
 # myExtension.vsix generated
 $ vsce publish
 # <publisherID>.myExtension published to VS Code MarketPlace

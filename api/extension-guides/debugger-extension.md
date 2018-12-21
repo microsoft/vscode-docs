@@ -317,7 +317,7 @@ Mock Debug binds a variable `AskForProgramName` to the command `extension.mock-d
 ```ts
 vscode.commands.registerCommand('extension.mock-debug.getProgramName', config => {
     return vscode.window.showInputBox({
-        placeHolder: "Please enter the name of a markdown file in the workspace folder",
+        placeHolder: "Please enter the name of a Markdown file in the workspace folder",
         value: "readme.md"
     });
 });
