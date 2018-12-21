@@ -2473,7 +2473,7 @@ of the folder that has been opened. There is no workspace when just a file but n
 folder has been opened.</p>
 <p>The workspace offers support for <a href="#workspace.createFileSystemWatcher">listening</a> to fs
 events and for <a href="#workspace.findFiles">finding</a> files. Both perform well and run <em>outside</em>
-the editor-process so that they should be always used instead of Node.js-equivalents.</p>
+the editor-process so that they should be always used instead of nodejs-equivalents.</p>
 </div>
 
 #### Variables

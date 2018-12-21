@@ -39,6 +39,7 @@
       ["Icon Theme", "/api/extension-guides/icon-theme"],
       ["Tree View", "/api/extension-guides/tree-view"],
       ["Webview", "/api/extension-guides/webview"],
+      ["Virtual Documents", "/api/extension-guides/virtual-documents"],
       ["Task Provider", "/api/extension-guides/task-provider"],
       ["Source Control", "/api/extension-guides/scm-provider"],
       ["Debugger Extension", "/api/extension-guides/debugger-extension"],
