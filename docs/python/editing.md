@@ -49,13 +49,7 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
     "~/.local/lib/Google/google_appengine/lib" ]
 ```
 
-The `python.autoComplete.preloadModules` setting also allows you speed up autocomplete for specific packages by preloading their information. For example:
-
-```json
-"python.autoComplete.preloadModules": ["numpy", "pandas", "matplotlib"],
-```
-
-Finally, the `python.autocomplete.addBrackets` setting (default false) determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to true:
+The `python.autocomplete.addBrackets` setting (default false) also determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to true:
 
 ```json
   "python.autoComplete.addBrackets": true,
@@ -89,7 +83,11 @@ On first use of the **Python: Run Selection/Line in Python Terminal** command, V
 
 ## Jupyter code cells
 
-[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open source project that lets you easily combine Markdown text and executable Python source code on one canvas. If you're using an Anaconda environment or any other environment in which the [Jupyter package](https://pypi.org/project/jupyter/) is installed, you can define  Jupyter-like code cells within Python code using a `#%%` comment:
+[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open source project that lets you easily combine Markdown text and executable Python source code on one canvas.
+
+To work with Jupyter, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+With an appropriate environment activated, you can define  Jupyter-like code cells within Python code using a `#%%` comment:
 
 ```python
 #%%
@@ -109,15 +107,19 @@ You can also run code cells using the **Python: Run Selection/Line in Python Ter
 
 ### Open Jupyter notebooks
 
-You can also open a Jupyter notebook file (`.ipynb`) in VS Code, and the Python extension prompts you to import the notebook as a Python code file.
+When you've activated an environment with Jupyter installed (as described in the previous section), you can import a Jupyter notebook file (`.ipynb`) in VS Code as Python code. Once you've imported the file, you can run the code as you would with any other Python file and also use the VS Code debugger. Opening and debugging notebooks in VS Code is a convenient way to find and resolve code bugs, which is difficult to do directly in a Jupyter notebook.
+
+When you open a notebook file, the Python extension prompts you to import the notebook as a Python code file:
 
 ![Prompt to import a Jupyter notebook file](images/editing/jupyter-prompt.png)
 
-In you choose **Import**, the notebook's cells are delimited in the Python file with `#%%` comments; Markdown cells are converted wholly to comments preceded with `#%% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
+If you choose **Import**, wait a few seconds, then VS Code opens the converted notebook in an untitled file. The notebook's cells are delimited in the Python file with `#%%` comments; Markdown cells are converted wholly to comments preceded with `#%% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
 
 ![Jupyter notebook running in VS Code and the Python interactive window](images/editing/jupyter-notebook.png)
 
 If you open the file without importing, it appears as plain text.
+
+> **Note:** The first time you run code in a notebook file, the Python extension starts a Jupyter server. It may take some time for the server to start up and for the **Python Interactive** window to appear with the results of the code.
 
 ## Formatting
 
@@ -136,8 +138,12 @@ The following settings apply to the individual formatters. The Python extension 
 | Formatter | Install steps | Arguments setting<br/>(python.formatting.) | Custom path setting<br/>(python.formatting.) |
 | --- | --- | --- | --- |
 | autopep8 | pip install pep8<br/>pip install --upgrade autopep8 | autopep8Args | autopep8Path |
-| black | pip install black | blackArgs | blackPath |
+| black (see note) | pip install black | blackArgs | blackPath |
 | yapf | pip install yapf | yapfArgs | yapfPath |
+
+>> **Note**: By default, the Black formatter doesn't work with Python 2. Attempting to use it may display the message "Formatter black is not installed. Install?" However, Black can be installed only in Python 3 environments, so the installation fails on a Python 2 with the message "Could not find a version that satisfies the requirement black' No matching distribution found for black."
+>
+> To work around this issue and use the Black formatter with Python 2, set the `python.formatting.blackPath` setting to the location of a pre-existing installation of Black.
 
 When using custom arguments, each top-level element of an argument string that's separated by space on the command line must be a separate item in the args list. For example:
 
