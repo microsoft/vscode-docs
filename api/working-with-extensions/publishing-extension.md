@@ -16,6 +16,7 @@ This topics covers:
 - Using [`vsce`](#vsce), the CLI tool for managing VS Code extensions
 - [Packaging](#packaging-extensions), [publishing](#publishing-extensions) and [unpublishing](#unpublishing-extensions) extensions
 - [Registering a `publisherId`](#create-a-publisher) necessary for publishing extensions
+-
 
 ## vsce
 
@@ -153,6 +154,14 @@ For users who receive such a VSIX file, they can install the extension with `cod
 ### Sharing privately with others
 
 If you want to share your extension with others privately, you can send them your packaged extension `.vsix` file.
+
+## Your extension folder
+
+To load an extension, you need to copy the files to your VS Code extensions folder `.vscode/extensions`. Depending on your platform, it is located in the following folders:
+
+* **Windows** `%USERPROFILE%\.vscode\extensions`
+* **macOS** `~/.vscode/extensions`
+* **Linux** `~/.vscode/extensions`
 
 ## Visual Studio Code compatibility
 
