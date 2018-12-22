@@ -169,7 +169,7 @@ Here are the Extensions view filters:
 * `@outdated` - Show outdated installed extensions. A newer version is available on the Marketplace.
 * `@enabled` - Show enabled installed extensions. Extensions can be individually enabled/disabled.
 * `@recommended` - Show recommended extensions. Grouped as Workspace specific or general use.
-* `@category` - Show extensions belonging to specified category. Below are a few of supported categories. For a complete list, type `@category` and follow the options in the suggestion list
+* `@category` - Show extensions belonging to specified category. Below are a few of supported categories. For a complete list, type `@category` and follow the options in the suggestion list:
     * `@category:themes`
     * `@category:formatters`
     * `@category:linters`
@@ -253,11 +253,9 @@ VS Code prompts a user to install the recommended extensions when a workspace is
 
 Here are a few topics you may find interesting...
 
-* [Publishing to the Marketplace](/docs/extensions/publish-extension.md) - Publish your own extension to the VS Code Marketplace.
-* [Extension Generator](/docs/extensions/yocode.md) - Learn how the `yo code` extension generator can scaffold out a new extension.
-* [Extending Visual Studio Code](/docs/extensions/overview.md) - Start learning about VS Code extensibility.
+* [Extending Visual Studio Code](/docs/extensions/overview.md) - Start learning about the VS Code extension API.
 * [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension.
-* [Troubleshooting Extensions](/docs/extensions/developing-extensions.md#troubleshooting-extensions) - See our troubleshooting guide if an extension isn't working properly.
+* [Publishing to the Marketplace](/docs/extensions/publish-extension.md) - Publish your own extension to the VS Code Marketplace.
 
 ## Common questions
 
