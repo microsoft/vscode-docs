@@ -12,9 +12,9 @@ MetaSocialImage: images/tutorial/social.png
 
 The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 
-**For general debugging features** such as inspecting variables, setting breakpoints, and other activities that aren't language dependent, review [VS Code debugging](/docs/editor/debugging.md).
+**For general debugging features** such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/editor/debugging.md).
 
-This present article addresses only those considerations that are specific to Python, mainly Python-specific debugging *configurations*, including the necessary steps for specific app types and remote debugging.
+This article addresses only those considerations that are specific to Python, mainly Python-specific debugging *configurations*, including the necessary steps for specific app types and remote debugging.
 
 ## Initialize configurations
 
@@ -52,11 +52,11 @@ By default, VS Code shows only the most common configurations provided by the Py
 
 See [Debugging specific app types](#debugging-specific-app-types) for details on all of these configurations.
 
-While debugging, the Status Bar shows the current configuration on the lower left, with the current debugging interpreter to the right. Selecting the configuration brings up the list from which you can choose a different configuration:
+During debugging, the Status Bar shows the current configuration on the lower left; to its right is the current debugging interpreter. Selecting the configuration brings up a list from which you can choose a different configuration:
 
 ![Debugging Status Bar](images/debugging/debug-status-bar.png)
 
-By default, the debugger uses the same `python.pythonPath` workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `pythonPath` in the applicable debugger configuration. Alternately, select the named interpreter on the Status Bar to select a different one.
+By default, the debugger uses the same `python.pythonPath` workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `pythonPath` in the applicable debugger configuration. Alternatively, click on the name of the interpreter in the Status Bar to select a different one.
 
 ## Set configuration options
 
@@ -81,7 +81,7 @@ When you first create `launch.json`, there are two standard configurations that 
 
 The specific settings are described in the following sections. You can also add other settings, such as `args`, that aren't included in the standard configurations.
 
-> **Tip**: It's often helpful in a project to create a configuration that runs a specific startup file. For example, if you always want to always launch `startup.py` with the arguments `--port 1593` whenever you start the debugger, create a configuration entry as follows:
+> **Tip**: It's often helpful in a project to create a configuration that runs a specific startup file. For example, if you always want to launch `startup.py` with the arguments `--port 1593` when you start the debugger, create a configuration entry as follows:
 >
 > ```json
 > {
@@ -154,7 +154,7 @@ Specifies arguments to pass to the Python program. Each element of the argument 
 
 ### `stopOnEntry`
 
-When set to true, breaks the debugger at the first line of the program being debugged. If omitted (the default) or set to false, the debugger runs the program to the first breakpoint.
+When set to true, breaks the debugger at the first line of the program being debugged. If omitted (the default) or set to `False`, the debugger runs the program to the first breakpoint.
 
 ### `console`
 
@@ -228,7 +228,7 @@ In some scenarios you need to debug a Python script that's invoked locally by an
 
 1. In the terminal, install the ptvsd package with `python -m pip install --upgrade ptvsd`.
 
-1. In the terminal, start Python with the script, for example, `python3 myscript.py`. You should see the "Waiting for debugger attach" message that's included in the code, and the script halts at the `ptvsd.wait_for_attach()` call.
+1. In the terminal, start Python with the script--for example, with `python3 myscript.py`. You should see the "Waiting for debugger attach" message that's included in the code, and the script halts at the `ptvsd.wait_for_attach()` call.
 
 1. Switch to the Debug view, select **Python: Attach** from the debugger drop-down list, and start the debugger.
 
@@ -246,7 +246,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Remote computer: open the port you wish to use for debugging in the appropriate firewall or other networking configuration.
 
-1. Remote computer: there are two ways to specify how to attach to the remote process. Do note that you may need to specify the remote computer's private IP address, if applicable (Linux VMs on Azure, for example, have both a public and private address). If you use the public IP address, you might see the error "Cannot assign requested address".
+1. Remote computer: there are two ways to specify how to attach to the remote process. Note that you may need to specify the remote computer's private IP address, if applicable (Linux VMs on Azure, for example, have both a public and private address). If you use the public IP address, you might see the error "Cannot assign requested address."
 
    1. In the source code, add the following lines, replacing `address` with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
 
@@ -268,7 +268,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
        python3 -m ptvsd --host 1.2.3.4 --port 3000 -m myproject
        ```
 
-       This starts the package `myproject` using `python3`, with the remote computer's private IP address of `1.2.3.4` and listening on port `3000` (you can also start the remote Python process specifying a file path instead of using `-m`).
+       This starts the package `myproject` using `python3`, with the remote computer's private IP address of `1.2.3.4` and listening on port `3000` (you can also start the remote Python process by specifying a file path instead of using `-m`).
 
 1. Local computer: **Only if you modified the source code on the remote computer as outlined above**, then in the source code, add a commented-out copy of the same code added on the remote computer. Adding these lines makes sure that the source code on both computers matches line by line.
 
@@ -282,9 +282,9 @@ Remote debugging allows you to step through a program locally within VS Code whi
     #ptvsd.wait_for_attach()
     ```
 
-1. Local computer: switch to Debug View in VS Code, select the **Python: Attach** configuration, then select the settings (gear) icon to open `launch.json` to that configuration.
+1. Local computer: switch to Debug View in VS Code, select the **Python: Attach** configuration, and select the settings (gear) icon to open `launch.json` to that configuration.
 
-1. Local computer: Modify the configuration so that `remoteRoot` provide the location of the program on the remote computer's file system. Also modify `host` and `port` to match the values in the `ptvsd.enable_attach` call added to the source code, except that you need to use the remote computer's public IP address for `host`. You might also change `name` to specifically identify the configuration. For example:
+1. Local computer: Modify the configuration so that `remoteRoot` provides the location of the program on the remote computer's file system. Also modify `host` and `port` to match the values in the `ptvsd.enable_attach` call added to the source code, except that you need to use the remote computer's public IP address for `host`. You might also change `name` to specifically identify the configuration. For example:
 
     ```js
     {
@@ -308,13 +308,13 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Local computer: start the VS Code debugger using the modified **Python Attach** configuration. VS Code should stop on your locally-set breakpoints, allowing you to step through the code, examine variables, and perform all other debugging actions. Expressions that you enter in the **Debug Console** are run on the remote computer as well.
 
-    Text output to stdout, as from `print` statements, appear on both computers. Other output, such as graphical plots from a package like matplotlib, however, appear only on the remote computer.
+    Text output to stdout, as from `print` statements, appears on both computers. Other outputs, such as graphical plots from a package like matplotlib, however, appear only on the remote computer.
 
 1. During remote debugging, the debugging toolbar appears as below:
 
     ![Debugging toolbar during remote debugging](images/debugging/remote-debug-toolbar.png)
 
-    On this toolbar, the disconnect button (`kb(workbench.action.debug.stop)`) stops the debugger and allows the remote program to run to completion. The restart button (`kb(workbench.action.debug.restart)`) restarts the debugger on the local computer but does **not** restart the remote program. You use the restart button only when you've already restarted the remote program and need to reattach the debugger.
+    On this toolbar, the disconnect button (`kb(workbench.action.debug.stop)`) stops the debugger and allows the remote program to run to completion. The restart button (`kb(workbench.action.debug.restart)`) restarts the debugger on the local computer but does **not** restart the remote program. Use the restart button only when you've already restarted the remote program and need to reattach the debugger.
 
 ### Debugging over SSH
 
@@ -328,7 +328,7 @@ On the remote computer:
     AllowTcpForwarding yes
     ```
 
-1. Restart the SSH server. On Linux/macOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, then select **Restart**.
+1. Restart the SSH server. On Linux/macOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, and select **Restart**.
 
 1. Start the Python program and let it wait for the debugger to attach as described in the previous section.
 
@@ -355,7 +355,7 @@ The configuration drop-down provides a variety of different options for general 
 | Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, adds `"jinja": true` for enabling template debugging, and adds `"pyramid": true` to ensure that the program is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
 | PySpark | Runs the program using PySpark instead of the default interpreter, using platform-specific values for `pythonPath` as shown earlier under the [pythonPath option](#pythonpath). |
 | Scrapy | Specifies `"module": "scrapy"`  and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
-| Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
+| Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]`. |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
 
@@ -450,12 +450,12 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
     ptvsd.enable_attach(address=('0.0.0.0', 3000), redirect_output=True)
 
     # The debug server has started and you can now use VS Code to attach to the application for debugging
-    print("Google App Engine has started, ready to attach the debugger")
+    print("Google App Engine has started; ready to attach the debugger")
     ```
-1. Create a `launch.json` configuring using the **Attach (Remote Debug)** configuration as a template. Make sure the port value match what's in the source code above.
+1. Create a `launch.json` configuration using the **Attach (Remote Debug)** configuration as a template. Make sure the port value matches what's in the source code above.
 1. Add `"preLaunchTask": "python"` to `launch.json`.
 1. From the Command Palette, run the **Run Build Task** command. This opens the Tasks output window where you see various messages.
-1. Once you see the message "Google App Engine has started, ready to attach the debugger", start the VS Code debugger using the remote debugging configuration.
+1. Once you see the message "Google App Engine has started; ready to attach the debugger," start the VS Code debugger using the remote debugging configuration.
 1. Set breakpoints where you want, then start the browser to start the app.
 
 <a name="debugger-not-working"></a>
@@ -465,7 +465,7 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
 There are many reasons why the debugger may not work. Oftentimes the debug console reveals specific causes, but two specific reasons are as follows:
 
 - The path to the python executable is incorrect: check the value of `pythonPath` in your user settings.
-- Invalid expressions in the watch window (see example below): clear all expressions from the Watch window and restart the debugger.
+- There are invalid expressions in the watch window (as in the example below): clear all expressions from the Watch window and restart the debugger.
 
     ```python
     Traceback (most recent call last):
