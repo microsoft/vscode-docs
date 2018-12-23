@@ -36,7 +36,7 @@ If you'd like to have a more comprehensive overview of the Extension API, refer 
 Building a good extension can take a lot of effort. Here is how each section of the API doc can help you with:
 
 - **Get Started** teaches fundamental concepts for building extensions with the [Hello World](https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-sample) sample.
-- **Working with Extensions** includes in-depth guides on various extension development topics, such as [publishing](/api/advanced-topics/publishing-extension) and [testing](/api/advanced-topics/testing-extension) extensions.
+- **Working with Extensions** includes in-depth guides on various extension development topics, such as [publishing](/api/working-with-extensions/publishing-extension) and [testing](/api/working-with-extensions/testing-extension) extensions.
 - **Extension Capabilities** dissects VS Code's vast API into smaller categories and points you to more detailed topics.
 - **Extension Guides** includes guides and code samples that explains specific usages of VS Code Extension API.
 - **Language Extensions** illustrates how to add support for a programming language with guides and code samples.
