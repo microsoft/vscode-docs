@@ -81,7 +81,7 @@ When you first create `launch.json`, there are two standard configurations that 
 
 The specific settings are described in the following sections. You can also add other settings, such as `args`, that aren't included in the standard configurations.
 
-> **Tip**: It's often helpful in a project to create a configuration that runs a specific startup file. For example, if you always want to launch `startup.py` with the arguments `--port 1593` when you start the debugger, create a configuration entry as follows:
+> **Tip**: It's often helpful in a project to create a configuration that runs a specific startup file. For example, if you want to always launch `startup.py` with the arguments `--port 1593` when you start the debugger, create a configuration entry as follows:
 >
 > ```json
 > {
@@ -154,7 +154,7 @@ Specifies arguments to pass to the Python program. Each element of the argument 
 
 ### `stopOnEntry`
 
-When set to true, breaks the debugger at the first line of the program being debugged. If omitted (the default) or set to `False`, the debugger runs the program to the first breakpoint.
+When set to `True`, breaks the debugger at the first line of the program being debugged. If omitted (the default) or set to `False`, the debugger runs the program to the first breakpoint.
 
 ### `console`
 
@@ -228,7 +228,7 @@ In some scenarios you need to debug a Python script that's invoked locally by an
 
 1. In the terminal, install the ptvsd package with `python -m pip install --upgrade ptvsd`.
 
-1. In the terminal, start Python with the script--for example, with `python3 myscript.py`. You should see the "Waiting for debugger attach" message that's included in the code, and the script halts at the `ptvsd.wait_for_attach()` call.
+1. In the terminal, start Python with the script, for example, `python3 myscript.py`. You should see the "Waiting for debugger attach" message that's included in the code, and the script halts at the `ptvsd.wait_for_attach()` call.
 
 1. Switch to the Debug view, select **Python: Attach** from the debugger drop-down list, and start the debugger.
 
