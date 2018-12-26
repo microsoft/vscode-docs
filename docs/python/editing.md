@@ -141,9 +141,9 @@ The following settings apply to the individual formatters. The Python extension 
 | black (see note) | pip install black | blackArgs | blackPath |
 | yapf | pip install yapf | yapfArgs | yapfPath |
 
->> **Note**: By default, the Black formatter doesn't work with Python 2. Attempting to use it may display the message "Formatter black is not installed. Install?" However, Black can be installed only in Python 3 environments, so the installation fails on a Python 2 with the message "Could not find a version that satisfies the requirement black' No matching distribution found for black."
+> **Note**: By default, the Black formatter can't be installed when a Python 2 environment is active. Attempting to do so may display the message "Formatter black is not installed. Install?" Because  Black can be installed only in Python 3 environments, choosing "Install" with a Python 2 environment fails with the message "Could not find a version that satisfies the requirement 'black' No matching distribution found for black."
 >
-> To work around this issue and use the Black formatter with Python 2, set the `python.formatting.blackPath` setting to the location of a pre-existing installation of Black.
+> To work around this issue and use the Black formatter with Python 2, set the `python.formatting.blackPath` setting to the location of a pre-existing installation of Black. For example, you can install Black in a Python 3 environment, when point to its install location using `python.formatting.blackPath`.
 
 When using custom arguments, each top-level element of an argument string that's separated by space on the command line must be a separate item in the args list. For example:
 
