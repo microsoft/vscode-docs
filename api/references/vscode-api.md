@@ -1117,7 +1117,7 @@ not cause a failure of the whole operation.</p>
 
 <a name="languages.registerRenameProvider"></a><span class="ts" id=2385 data-target="#details-2385" data-toggle="collapse"><span class="ident">registerRenameProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#RenameProvider">RenameProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-2385">
-<div class="comment"><p>Register a reference provider.</p>
+<div class="comment"><p>Register a rename provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
 by their <a href="#languages.match">score</a> and the best-matching provider is used. Failure
 of the selected provider will cause a failure of the whole operation.</p>
