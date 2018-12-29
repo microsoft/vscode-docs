@@ -189,7 +189,7 @@ Shell commands need special treatment when it comes to commands and arguments th
   "command": "dir 'folder with spaces'"
 }
 ```
-* if a command and arguments are provided the task system will used single quotes if the command or arguments contain spaces. For `cmd.exe` double quotes are used. So a shell command like below is executed in PowerShell as `dir 'folder with spaces'`.
+* if a command and arguments are provided the task system will use single quotes if the command or arguments contain spaces. For `cmd.exe` double quotes are used. So a shell command like below is executed in PowerShell as `dir 'folder with spaces'`.
 ```json
 {
   "label": "dir",
