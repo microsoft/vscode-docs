@@ -26,11 +26,11 @@ The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscja
 
 Here's a brief instruction with TestNG
 
-![Test Explorer](images/java-testing/testng.gif)
+![Test Explorer with TestNG](images/java-testing/testng.gif)
 
 And with JUnit5
 
-![Test Explorer](images/java-testing/test-junit5.gif)
+![Test Explorer with JUnit5](images/java-testing/test-junit5.gif)
 
 The JUnit 5 support also covers frequently used annotations such as `@DisplayName` and `@ParameterizedTest`
 

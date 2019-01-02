@@ -3,13 +3,13 @@ Order: 5
 Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
-PageTitle: Maven Support, Java Package and Dependency Management in Visual Studio Code
+PageTitle: Maven Support, Java Package, and Dependency Management in Visual Studio Code
 DateApproved: 12/30/2018
 MetaDescription: Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
 
-# Maven Support, Java Package and Dependency Management in Visual Studio Code
+# Java Project Management in VS Code
 
 This document will give you an overview of how to use [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) and [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension to manage your project within Visual Studio Code.
 
@@ -18,11 +18,13 @@ This document will give you an overview of how to use [Maven for Java](https://m
 [Maven](http://maven.apache.org/) is a software tool that helps you manage Java projects, and automate application builds. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension for Visual Studio Code provides you a fully integrated experience, allowing you to explore Maven project, execute Maven commands and perform the goals of build lifecycle and plugins.
 
 ### Exploring Maven project
+
 Once a Maven extension is activated, it automatically scans `pom.xml` in your workspace, and displays all Maven projects and their modules in the side bar.
 
-![Maven Explorer](images/java-project/maven-explorer.gif)
+![Maven Explorer](images/java-project/maven-explorer.png)
 
 ### Working with POM.xml
+
 The extension enables you to generate effective POM.
 
 ![Generate Effective POM](images/java-project/maven-effective-pom.gif)
@@ -30,6 +32,7 @@ The extension enables you to generate effective POM.
 [comment]:# (editing POM.xml)
 
 ### Execute Maven commands and goals
+
 By right click each Maven project in the explorer, you can run Maven goals conveniently.
 
 ![Run Maven Goal](images/java-project/maven-run.gif)
@@ -48,9 +51,11 @@ For each plug-in you use with your project, the extension also provides you a ea
 ### Generate project from maven Archetype
 
 Another handy feature provided by this extension is to generate Maven project from Archetype. The extension loads archetypes listed in local/remote catalog. After selection, the extension sends `mvn archetype:generate -D...` to terminal.
+
 There are 2 entries for it:
-1. Command Palette -> select `Maven: Generate from Maven Archetype`
-2. Right-click on a folder -> Click `Generate from Maven Archetype`
+
+1. From the Command Palette, select **Maven: Generate from Maven Archetype**.
+2. Right-click on a folder and select **Generate from Maven Archetype**.
 
 ![Generate Project from Archetype](images/java-project/maven-archetype.gif)
 

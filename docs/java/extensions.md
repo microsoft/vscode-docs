@@ -31,7 +31,6 @@ There are also great extensions provided by Pivotal and Microsoft for Spring Boo
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
-
 ## Popular Extensions from community
 
 Thanks to the great Java community around VS Code, there're a lot of great community driven extensions as well. You can search for more Java extensions easily within the VS Code:
@@ -81,4 +80,3 @@ You can use [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJa
 * The [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author ARM templates in VS Code.
 
 Please visit [Azure Extensions](https://code.visualstudio.com/docs/azure/extensions) to find more Azure extensions.
-

@@ -42,14 +42,16 @@ You can manually install the extension pack from the Extensions view (`kb(workbe
 
 ## Use
 
-It's very easy to run and debug your Java application as we provide serveral entry points for that.
+It's very easy to run and debug your Java application as we provide several entry points for that.
 
 ### CodeLens
-Once the debugger is activated, you will find `Run|Debug` on the CodeLens of your `main()` function.
+
+Once the debugger is activated, you will find **Run|Debug** on the CodeLens of your `main()` function.
 
 ![CodeLens](images/java-debugging/java-codelens.gif)
 
 ### Clicking `kb(workbench.action.debug.start)`
+
 Once you click `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and create the `launch.json` configuration file for you.
 
 ![Resolving Main Class](images/java-debugging/resolve-main.gif)

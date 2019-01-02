@@ -1,13 +1,13 @@
 ---
 Order: 11
 Area: java
-TOCTitle: Extensions
+TOCTitle: FAQ
 ContentId: 2ad03b46-0779-4c9a-897e-6e6b628f598a
 PageTitle: Java on Visual Studio Code FAQ and Wiki
 DateApproved: 12/30/2018
-MetaDescription: Java on Visual Studio Code Frequent Asked Questions and Troubleshoot Guide
+MetaDescription: Java on Visual Studio Code Frequent Asked Questions and Troubleshooting Guide
 ---
-# Frequent Asked Questions and Toubleshoot Guide
+# Frequent Asked Questions
 
 Thanks for your interest in Java on Visual Studio Code! This FAQ will hopefully answer some of the questions you may have.
 
@@ -35,7 +35,8 @@ Currently we don't plan to extend the Java support to Visual Studio. There's alr
 
 ## Work and Troubleshoot with Java Language Server
 
-You can visit the [Java for Visual Studio Code wiki] to find answers regarding
+You can visit the [Java for Visual Studio Code wiki] to find answers regarding:
+
 1. ["Classpath is incomplete" warning](https://github.com/redhat-developer/vscode-java/wiki/%22Classpath-is-incomplete%22-warning)
 2. [Annotation Processing support for Maven projects](https://github.com/redhat-developer/vscode-java/wiki/Annotation-Processing-support-for-Maven-projects)
 3. [Contribute a Java extension](https://github.com/redhat-developer/vscode-java/wiki/Contribute-a-Java-Extension)
@@ -43,4 +44,3 @@ You can visit the [Java for Visual Studio Code wiki] to find answers regarding
 5. [Lombok Support](https://github.com/redhat-developer/vscode-java/wiki/Lombok-support)
 6. [Using a Proxy](https://github.com/redhat-developer/vscode-java/wiki/Using-a-Proxy)
 7. [Troubleshooting](https://github.com/redhat-developer/vscode-java/wiki/Troubleshooting)
-

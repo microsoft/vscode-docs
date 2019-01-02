@@ -48,13 +48,13 @@ You can also select which extensions you would like to install separately. For t
 
 ## Create the program
 
-Create a folder for your Java program and open the folder with Visual Studio Code. Within Visual Studio Code, you can then create a new file `Hello.java`. When you open that file, the Java Langauge Server will automatically be activated as you can see a rocket icon on the right of the status bar. When it finishes loading, you will see a thrumbs up icon instead.
+Create a folder for your Java program and open the folder with Visual Studio Code. Within Visual Studio Code, you can then create a new file `Hello.java`. When you open that file, the Java Language Server will automatically be activated as you can see a rocket icon on the right of the status bar. When it finishes loading, you will see a thumbs up icon instead.
 
 ![Create Project](images/java-tutorial/create-file.gif)
 
 Visual Studio Code also support more complex Java projects, see [Java Project](/docs/java/java-project.md).
 
->**Note**: The Java Langauge Server might not work properly if you just open a Java file in Visual Studio Code without opening its folder.
+>**Note**: The Java Language Server might not work properly if you just open a Java file in Visual Studio Code without opening its folder.
 
 ## Editing code
 
