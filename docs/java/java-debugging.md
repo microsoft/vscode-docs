@@ -58,7 +58,7 @@ It's possible that there might be multiple debugging configuration for your proj
 
 ![Java Debugging](images/java-debugging/java-debug.gif)
 
-If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations). For more details, please read [Launch configurations](https://vscode-docs-master.azurewebsites.net/docs/editor/debugging#_launch-configurations)
+If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations). For more details, please read [Launch configurations](/docs/editor/debugging.md#launch-configurations)
 
 There's also a convenient setting for debugging `current file` so the editor knows which file is currently active and choose it as the entry point.
 
