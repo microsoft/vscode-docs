@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Tomcat and Jetty
 ContentId: 4f5e169c-d91d-46b7-8c36-b695b5862313
 PageTitle: Tomcat and Jetty support in Visual Studio Code
-DateApproved: 12/30/2018
+DateApproved: 1/2/2019
 MetaDescription: Tomcat and Jetty extensions for Java developer using Visual Studio Code.
 ---
 

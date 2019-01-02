@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
 PageTitle: Maven Support, Java Package, and Dependency Management in Visual Studio Code
-DateApproved: 12/30/2018
+DateApproved: 1/2/2019
 MetaDescription: Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
@@ -59,11 +59,11 @@ There are 2 entries for it:
 
 ![Generate Project from Archetype](images/java-project/maven-archetype.gif)
 
-### Additional Resources
+### Additional resources
 
 Please visit the [GitHub Repo](https://github.com/Microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/Microsoft/vscode-maven/tree/master) and [troubleshooting guide](https://github.com/Microsoft/vscode-maven/blob/master/Troubleshooting.md).
 
-## Project Management
+## Project management
 
 Project Management in Visual Studio Code is mainly provided by [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency). This extension provides features including creating project as well as viewing the package structure of the project and its dependencies.
 
@@ -76,7 +76,7 @@ Command Palette -> select `Java: Create Java Project`
 
 If you're creating a Spring Boot project, you can also use the [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension, see [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md)
 
-### Package and Dependency View
+### Package and dependency view
 
 The extension also provides you a hierarchy view of your project and dependencies, which supplements the original file view and outline provided by Visual Studio Code so you don't need to expand multiple sub-folders to just view your Java package.
 

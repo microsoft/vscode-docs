@@ -4,16 +4,16 @@ Area: java
 TOCTitle: Editing Code
 ContentId: 843e139a-9e3c-4b4f-95d1-32a9a7480e8e
 PageTitle: Editing Java in Visual Studio Code
-DateApproved: 12/13/2018
+DateApproved: 1/2/2019
 MetaDescription: Editing Java in Visual Studio Code with IntelliSense, Refactoring and Formatting.
 ---
 # Editing Java in Visual Studio Code
 
 As a code editor-centric development tool, Visual Studio Code has a lot of editing [features](/docs/editor/codebasics.md). In this document, we will go through a few Java specific things which are helpful when working with Java.
 
-## Code Editing and Navigating
+## Code editing and navigation
 
-With the support of [outline view](https://code.visualstudio.com/updates/v1_25#_outline-view), you can conveniently navigate your methods within the same class. Editing code is also easy with the support of IntelliSense. You can use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
+With the support of [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate your methods within the same class. Editing code is also easy with the support of IntelliSense. You can use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
 
 ![Code Editing](images/java-editing/code-editing.gif)
 

@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Extensions
 ContentId: 6076911c-276b-41a3-8510-0022c03c0ef6
 PageTitle: Java Extensions for Visual Studio Code
-DateApproved: 5/30/2018
+DateApproved: 1/2/2019
 MetaDescription: Popular Java Extensions for Visual Studio Code
 ---
 # Java Extensions for Visual Studio Code
@@ -31,14 +31,14 @@ There are also great extensions provided by Pivotal and Microsoft for Spring Boo
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
-## Popular Extensions from community
+## Popular extensions from the community
 
 Thanks to the great Java community around VS Code, there're a lot of great community driven extensions as well. You can search for more Java extensions easily within the VS Code:
 
 1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
 2. Filter the extensions list by typing 'java'.
 
-Here's just a couple of those
+Here's just a couple of those:
 
 1. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
 2. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
@@ -48,7 +48,7 @@ Here's just a couple of those
 6. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
 7. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
 
-We'd also appreciate all contributions to any of our existing extensions, as well as new Java extensions if you don't find what you're looking for in the marketplace. We're especially looking for help in areas such as supports for Gradle and other Java application servers.
+We'd also appreciate all contributions to any of our existing extensions, as well as new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as supports for Gradle and other Java application servers.
 
 ## Extensions with great Java support
 
@@ -79,4 +79,4 @@ You can use [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJa
 
 * The [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author ARM templates in VS Code.
 
-Please visit [Azure Extensions](https://code.visualstudio.com/docs/azure/extensions) to find more Azure extensions.
+Please visit [Azure Extensions](/docs/azure/extensions.md) to find more Azure extensions.

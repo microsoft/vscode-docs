@@ -4,12 +4,12 @@ Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Java in Visual Studio Code
-DateApproved: 3/7/2018
+DateApproved: 1/2/2019
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in Visual Studio Code
 
-The Java support in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md) which make it not only a lightweight and performant code editor, but also a productive IDE with lots of popular Java tools integrated. It provides essential language features such as code completion, refactoring, linting, formatting, code snippets along with convenient debugging and unit test supports. It also integrates tooling and frameworks including Maven, Tomcat, Jetty and Spring Boot. Leveraging all power from Visual Studio Code, it's an excellent tool from quick code editing to full debugging and testing cycle for Java developers. It's a great choice for your Java work if you're looking for a tool which
+The Java support in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md) which make it not only a lightweight and performant code editor, but also a productive IDE with lots of popular Java tools integrated. It provides essential language features such as code completion, refactoring, linting, formatting, code snippets along with convenient debugging and unit test support. It also integrates tooling and frameworks including Maven, Tomcat, Jetty and Spring Boot. Leveraging all power from Visual Studio Code, it's an excellent tool from quick code editing to full debugging and testing cycle for Java developers. It's a great choice for your Java work if you're looking for a tool which
 
 - Is fast and lightweight, free and open source
 - Supports multiple, or all the programming language you use
@@ -83,7 +83,7 @@ There're also other editing related features available for Java, such as refacto
 
 [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug). It works with [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users debugging Java code using Visual Studio Code.
 
-Starting a debugging session is easy, with just a click on the `Run|Debug` button available at the CodeLens of your `main()` function, or simply hit `kb(workbench.action.debug.start)`. The debugger will automatically generate the proper configuration for you.
+Starting a debugging session is easy, click on the **Run|Debug** button available at the CodeLens of your `main()` function, or press `kb(workbench.action.debug.start)`. The debugger will automatically generate the proper configuration for you.
 
 ![Resolving Main Class](images/java/resolve-main.gif)
 
@@ -119,7 +119,7 @@ Learn more about Java in VS Code
 * [Code Editing and Navigation](/docs/java/java-editing.md)
 * [Java Debugging](/docs/java/java-debugging.md)
 * [Java Testing](/docs/java/java-testing.md)
-* [Maven Support, Java Package and Dependency Management](/docs/java/java-project.md)
+* [Maven Support, Java Package, and Dependency Management](/docs/java/java-project.md)
 * [Spring Boot with VS Code](/docs/java/java-spring-boot.md)
 * [Tomcat and Jetty Support](/docs/java/java-tomcat-jetty.md)
 

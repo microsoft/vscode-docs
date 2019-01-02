@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Debugging
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
 PageTitle: Java Debug in Visual Studio Code
-DateApproved: 5/30/2018
+DateApproved: 1/2/2019
 MetaDescription: See how you can debug your Java code locally, and in the cloud.
 MetaSocialImage:
 ---
@@ -48,7 +48,7 @@ Once the debugger is activated, you will find **Run|Debug** on the CodeLens of y
 
 ![CodeLens](images/java-debugging/java-codelens.gif)
 
-### Clicking `kb(workbench.action.debug.start)`
+### Clicking F5
 
 Once you click `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging.
 
@@ -112,7 +112,7 @@ Another advanced feature the debugger supports is 'Hot Code' replacement. Hot co
 
 ### Logpoints
 
-[Logpoints](https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach#_introducing-logpoints) is also supported by Java Debugger. Logpoints allow you to send output to debug console without editing code. They’re different from breakpoints because they don’t stop the execution flow of your application.
+[Logpoints](/blogs/2018/07/12/introducing-logpoints-and-auto-attach.md#introducing-logpoints) is also supported by Java Debugger. Logpoints allow you to send output to debug console without editing code. They’re different from breakpoints because they don’t stop the execution flow of your application.
 
 ![Hot Code Replacement](images/java-debugging/logpoints.gif)
 
@@ -170,14 +170,14 @@ Below are all the configurations available for `Launch` and `Attach`, for more d
 - `java.debug.settings.showQualifiedNames`: show fully qualified class names in "Variables" viewlet, defaults to `false`.
 - `java.debug.settings.maxStringLength`: the maximum length of string displayed in "Variables" or "Debug Console" viewlet, the string longer than this length will be trimmed, defaults to `0` which means no trim is performed.
 - `java.debug.settings.enableHotCodeReplace`: enable hot code replace for Java code. Make sure the auto build is not disabled for [VSCode Java](https://github.com/redhat-developer/vscode-java). See the [wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
-- `java.debug.settings.enableRunDebugCodeLens`: enable the code lens provider for the run and debug buttons over main entry points, defaults to `true`.
+- `java.debug.settings.enableRunDebugCodeLens`: enable the CodeLens provider for the run and debug buttons over main entry points, defaults to `true`.
 - `java.debug.settings.forceBuildBeforeLaunch`: force building the workspace before launching java program, defaults to `true`.
 
 ## Troubleshooting
 
 Detailed troubleshooting guide could be found in our [GitHub Repository](https://github.com/Microsoft/vscode-java-debug/blob/master/Troubleshooting.md).
 
-## Feedback and Questions
+## Feedback and questions
 
 You can find the full list of issues at [Issue Tracker](https://github.com/Microsoft/vscode-java-debug/issues). You can submit a [bug or feature suggestion](https://github.com/Microsoft/vscode-java-debug/issues/new) and participate in the community driven [Gitter](https://gitter.im/Microsoft/vscode-java-debug) channel.
 
