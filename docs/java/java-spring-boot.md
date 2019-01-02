@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 7
 Area: java
 TOCTitle: Spring Boot
 ContentId: d37118cf-1b5b-4aee-9727-52fcfcac16bd
@@ -7,17 +7,23 @@ PageTitle: Spring Boot support in Visual Studio Code
 DateApproved: 5/30/2018
 MetaDescription: Spring Boot extensions for Java developer using Visual Studio Code editor.
 ---
+
 # Spring Boot in Visual Studio Code
 
 Visual Studio Code is an ideal lightweight development environment for Spring Boot application developers and there are several useful VS Code extensions including:
 
-* [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
+* [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 * [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
+* [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
 ## Prerequisites
 
+A working Java Environment with essential extensions are needed, including
 * [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/), version 1.8.
 * [Apache Maven](https://maven.apache.org/), version 3.0 or later.
+* [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+
+For more details, please refer to [Java Tutorial](/docs/java/java-tutorial.md#_before-you-begin)
 
 ## Create the project
 
@@ -29,11 +35,27 @@ Once you have the extension installed, open the **Command Palette** (`kb(workben
 
 ![Spring Initializr](images/java-spring-boot/spring-initializr.gif)
 
+## Edit the project
+
+The [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension allows you to edit dependencies after generating a new Spring Boot project.
+
+Navigate to your `pom.xml` file and right click to select `Edit starters`. The  **Command Palette** will show the dependencies you already have beginning with a `√` . You can search for other dependencies you want to add to your project. Or you can click on the existing dependencies to remove them.
+
+![Spring Initializr-edit](images/java-spring-boot/spring-initializr-edit.gif)
+
 ## Develop the application
 
-The [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml` and `.java` files.
+The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml` and `.java` files.
 
-The extension supports quick navigate through source code, smart code completions, quick access to running apps, and live application information. Similar code completion and validation features are also available for `.properties` and `.yml` files.
+The extension supports quick navigate through source code, smart code completions, quick access to running apps, live application information and code templates. Similar code completion and validation features are also available for `.properties` and `.yml` files.
+
+![Spring code editing](images/java-spring-boot/spring-code-edit.gif)
+
+## Run the application
+
+In addition to click `kb(workbench.action.debug.start)` to run your application, there's another convenient extension [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) with which you can view and manage all available Spring Boot projects in your workspace as well as quickly start, stop or debug your project.
+
+![Spring Dashboard](images/java-spring-boot/spring-dashboard.gif)
 
 ## Connect with data services
 
@@ -52,7 +74,7 @@ If you don't have an Azure subscription, you can sign up for a [free Azure accou
 1. Go to [Azure portal](https://portal.azure.com/) and click the '+' to **Create a resource** .
 2. Click **Databases**, and then click **Azure Cosmos DB** to create your database.
 3. Select **SQL (Document DB) API** and type in other information for your database.
-4. Navigate to the database you have created, and click **Keys** and copy your **URI** and **PRIMARY KEY** for your database.
+4. Navigate to the database you have created, click **Keys** and copy your **URI** and **PRIMARY KEY** for your database.
 
 ### Config your project
 
@@ -66,7 +88,7 @@ If you don't have an Azure subscription, you can sign up for a [free Azure accou
     azure.documentdb.database=your-documentdb-databasename
     ```
 
-## Run and debug the application
+### Run and debug the application
 
 You can press `kb(workbench.action.debug.start)` to run your application. To check the result, open [Azure portal](https://portal.azure.com/) and access your Cosmos DB. Click **Data Explorer**, and next choose **Documents**. You will see data being shown if it is successfully written into Cosmos DB. You can also browse your data entries in Cosmos DB with [Azure Cosmos DB Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb).
 
