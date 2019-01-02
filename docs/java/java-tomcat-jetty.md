@@ -10,7 +10,7 @@ MetaDescription: Tomcat and Jetty extensions for Java developer using Visual Stu
 
 # Tomcat and Jetty support in VS Code
 
-Although Visual Studio Code is a code editor-centric development tool, we know that for certain Java workloads, server integration is very useful. With Visual Studio Code, you can find extensions for popular application servers, for example [Tomcat](http://tomcat.apache.org/) and [Jetty](http://www.eclipse.org/jetty/), which are very helpful when working with those servers locally.
+Although Visual Studio Code is a code editor-centric development tool, we know that for certain Java workloads, server integration is very useful. With Visual Studio Code, you can find extensions for popular application servers, for example [Tomcat](http://tomcat.apache.org/) and [Jetty](http://www.eclipse.org/jetty/), which are helpful when working with those servers locally.
 
 For [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard), see [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
 

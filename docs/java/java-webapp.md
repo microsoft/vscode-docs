@@ -10,7 +10,7 @@ MetaDescription: Java web app tutorial showing how to build and deploy a Java we
 
 # Java Web Apps with Visual Studio Code
 
-This tutorial shows you how to create a simple Java web application with Visual Studio Code. You'll learn how to run, debug, and edit the Java web app locally and eventually on the cloud.
+This tutorial shows you how to create a Java web application with Visual Studio Code. You'll learn how to run, debug, and edit the Java web app locally and eventually on the cloud.
 
 ## Scenario
 
@@ -95,7 +95,7 @@ The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-a
 - View a Web App's log files
 - Swap Deployment Slots
 
-To install the Azure App Service extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure app service` to filter the results. Select the Microsoft [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. For a more command line Maven-centric experience, you can also check out the [Maven plugin for Azure App Service Linux tutorial](https://docs.microsoft.com/azure/app-service/containers/quickstart-java).
+To install the Azure App Service extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure app service` to filter the results. Select the Microsoft [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. For a more command-line Maven-centric experience, you can also check out the [Maven plugin for Azure App Service Linux tutorial](https://docs.microsoft.com/azure/app-service/containers/quickstart-java).
 
 ### Create a new Web App
 
@@ -106,13 +106,13 @@ Once the extension is installed, you can take the following steps to create a ne
 3. Enter a unique name for the new Web App.
 4. Select a location for the new Web App.
 5. Select the OS as `Linux`.
-6. Select the runtime of the Web App, e.g.`Tomcat 8.5 (JRE8)`.
+6. Select the runtime of the Web App, for example `Tomcat 8.5 (JRE8)`.
 
 ![Create a Web App](images/java-webapp/create-webapp.png)
 
 ### Build and deploy to a Web App
 
-The deploy process leverages the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension (installed along with the Azure Functions extension as an dependency) and you need to sign in with your Azure subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
+The deploy process leverages the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension (installed along with the Azure Functions extension as a dependency) and you need to sign in with your Azure subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
 To log into Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign into your account using the **Device Login** flow. Click on **Copy & Open** to open your default browser.
 

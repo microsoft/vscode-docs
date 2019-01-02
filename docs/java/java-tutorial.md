@@ -10,7 +10,7 @@ MetaDescription: Java tutorial showing basic Java language support in the Visual
 
 # Writing Java with Visual Studio Code
 
-This tutorial shows you how to write and run a simple Hello World program in Java with Visual Studio Code, as well as a couple advanced features which you can explore more with the editor by reading other documents in this section.
+This tutorial shows you how to write and run a simple Hello World program in Java with Visual Studio Code. It also covers a few advanced features, which you can explore by reading other documents in this section.
 
 ## Before you begin
 
@@ -34,7 +34,7 @@ Install Apache Maven for your local development environment:
 
 >**Note**: You can install Visual Studio Code from [https://code.visualstudio.com](https://code.visualstudio.com/).
 
-To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains these popular extensions:
+To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which contains these popular extensions:
 
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
@@ -52,7 +52,7 @@ Create a folder for your Java program and open the folder with Visual Studio Cod
 
 ![Create Project](images/java-tutorial/create-file.gif)
 
-Visual Studio Code also support more complex Java projects, see [Project Management](/docs/java/java-project.md).
+Visual Studio Code also supports more complex Java projects, see [Project Management](/docs/java/java-project.md).
 
 >**Note**: The Java Language Server might not work properly if you open a standalone Java file in Visual Studio Code without opening its folder.
 
@@ -70,7 +70,7 @@ It is easy to run and debug Java in Visual Studio Code. You can either click `kb
 
 ![Run and Debug](images/java-tutorial/run-debug.gif)
 
-The debugger also supports advanced features such as Hot Code replacement and conditional breakpoints, see [Java Debug](/docs/java/java-debugging.md) for more details.
+The debugger also supports advanced features such as Hot Code replacement and conditional breakpoints. For more information, see [Java Debugging](/docs/java/java-debugging.md).
 
 ## More features
 
@@ -80,6 +80,6 @@ Now you've seen how easy it is to write a simple Java program with Visual Studio
 * [Debugging](/docs/java/java-debugging.md) illustrates all the key features provided for Java debug.
 * [Testing](/docs/java/java-resting.md) provides comprehensive supports for JUnit and TestNG framework.
 * [Maven Support, Java Package, and Dependency Management](/docs/java/java-project.md) shows you how it provides you a project view and works with Maven.
-* [Spring Boot Support](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great support for Spring Boot, Tomcat and Jetty.
+* [Spring Boot Support](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great support for Spring Boot, Tomcat, and Jetty.
 
 To learn how to work with Java Web App in VS Code, read [Java Web App](/docs/java/java-webapp.md).

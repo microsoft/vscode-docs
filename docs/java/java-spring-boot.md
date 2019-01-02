@@ -18,7 +18,7 @@ Visual Studio Code is an ideal lightweight development environment for Spring Bo
 
 ## Prerequisites
 
-A working Java Environment with essential extensions are needed, including
+A working Java environment with essential extensions installed is needed, including
 * [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/), version 1.8.
 * [Apache Maven](https://maven.apache.org/), version 3.0 or later.
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
@@ -39,27 +39,27 @@ Once you have the extension installed, open the **Command Palette** (`kb(workben
 
 The [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension allows you to edit dependencies after generating a new Spring Boot project.
 
-Navigate to your `pom.xml` file and right click to select `Edit starters`. The  **Command Palette** will show the dependencies you already have beginning with a `√` . You can search for other dependencies you want to add to your project. Or you can click on the existing dependencies to remove them.
+Navigate to your `pom.xml` file and right-click to select `Edit starters`. The  **Command Palette** will show the dependencies you already have beginning with a `√` . You can search for other dependencies you want to add to your project. Or you can click on the existing dependencies to remove them.
 
 ![Spring Initializr-edit](images/java-spring-boot/spring-initializr-edit.gif)
 
 ## Develop the application
 
-The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml` and `.java` files.
+The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml`, and `.java` files.
 
-The extension supports quick navigate through source code, smart code completions, quick access to running apps, live application information and code templates. Similar code completion and validation features are also available for `.properties` and `.yml` files.
+The extension supports quick navigate through source code, smart code completions, quick access to running apps, live application information, and code templates. Similar code completion and validation features are also available for `.properties` and `.yml` files.
 
 ![Spring code editing](images/java-spring-boot/spring-code-edit.gif)
 
 ## Run the application
 
-In addition to click `kb(workbench.action.debug.start)` to run your application, there's another convenient extension [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) with which you can view and manage all available Spring Boot projects in your workspace as well as quickly start, stop or debug your project.
+In addition to click `kb(workbench.action.debug.start)` to run your application, there's another convenient extension [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) with which you can view and manage all available Spring Boot projects in your workspace as well as quickly start, stop, or debug your project.
 
 ![Spring Dashboard](images/java-spring-boot/spring-dashboard.gif)
 
 ## Connect with data services
 
-[Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is a globally-distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
+[Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is a globally distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
 
 The [Spring Boot Starter](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) makes it easy to store data in and retrieve data from your Azure Cosmos DB with SQL API.
 
@@ -71,10 +71,10 @@ If you don't have an Azure subscription, you can sign up for a [free Azure accou
 
 ### Create an Azure Cosmos DB entity on Azure
 
-1. Go to [Azure portal](https://portal.azure.com/) and click the '+' to **Create a resource** .
+1. Go to [Azure portal](https://portal.azure.com/) and click the '+' to **Create a resource**.
 2. Click **Databases**, and then click **Azure Cosmos DB** to create your database.
 3. Select **SQL (Document DB) API** and type in other information for your database.
-4. Navigate to the database you have created, click **Keys** and copy your **URI** and **PRIMARY KEY** for your database.
+4. Navigate to the database you have created, click **Keys**, and copy your **URI** and **PRIMARY KEY** for your database.
 
 ### Config your project
 

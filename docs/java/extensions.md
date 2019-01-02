@@ -33,12 +33,12 @@ There are also great extensions provided by Pivotal and Microsoft for Spring Boo
 
 ## Popular extensions from the community
 
-Thanks to the great Java community around VS Code, there're a lot of great community driven extensions as well. You can search for more Java extensions easily within the VS Code:
+Thanks to the great Java community around VS Code, there are a lot of great community driven extensions as well. You can search for more Java extensions easily within the VS Code:
 
 1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
 2. Filter the extensions list by typing 'java'.
 
-Here's just a couple of those:
+Here are a few useful extensions:
 
 1. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
 2. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
@@ -48,13 +48,13 @@ Here's just a couple of those:
 6. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
 7. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
 
-We'd also appreciate all contributions to any of our existing extensions, as well as new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as supports for Gradle and other Java application servers.
+We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as support for Gradle and other Java application servers.
 
 ## Extensions with great Java support
 
 We'd also like to recommend couple other extensions we believe are great to make VS Code even better for Java developers.
 
-1. [IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) provides developer a AI/ML powered IntelliSense which will boost your productivity with contextual code recommendations.
+1. [IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) provides developer a AI/ML powered IntelliSense, which will boost your productivity with contextual code recommendations.
 2. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
 
 ## Extension for container development
@@ -75,7 +75,7 @@ You can use [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJa
 
 ### General tools
 
-* The [Azure Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=bradygaster.azuretoolsforvscode) adds commands to the **Command Palette** (`kb(workbench.action.showCommands)`) that make it easy to create and access Azure resources directly from VS Code. For example, you can create App Service Web Apps and Functions, Storage accounts, and browse to any number of resources in the Azure Portal.
+* The [Azure Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=bradygaster.azuretoolsforvscode) adds commands to the **Command Palette** (`kb(workbench.action.showCommands)`) that make it easy to create and access Azure resources directly from VS Code. For example, you can create App Service Web Apps and Functions, Storage accounts, and browse to any number of resources in the Azure portal.
 
 * The [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author ARM templates in VS Code.
 

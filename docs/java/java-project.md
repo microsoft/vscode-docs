@@ -33,26 +33,28 @@ The extension enables you to generate effective POM.
 
 ### Execute Maven commands and goals
 
-By right click each Maven project in the explorer, you can run Maven goals conveniently.
+By right-clicking each Maven project in the explorer, you can conveniently run Maven goals.
 
 ![Run Maven Goal](images/java-project/maven-run.gif)
 
-The extension also preserves history of goals for each project, so you can fast re-run previous command, which is very useful especially when you're running a long custom one. There're 2 entries for it:
+The extension also preserves history of goals for each project, so you can quickly rerun the previous command, which is useful when you're running a long custom goal.
 
-1. Command Palette -> Select `Maven: History ...` -> Select a project -> Select command from the history
-2. Right-click a project -> Click `History ...` -> Select command from history
+There are two way to rerun a goal:
 
-![Re-run history](images/java-project/maven-history.gif)
+1. Command Palette > Select **Maven: History** > Select a project > Select command from the history.
+2. Right-click a project > Click **History** > Select command from history
 
-For each plug-in you use with your project, the extension also provides you a easy way to access the goals within each plugin
+![Rerun history](images/java-project/maven-history.gif)
+
+For each plug-in you use with your project, the extension also provides you an easy way to access the goals within each plugin.
 
 ![Run plug-in goal](images/java-project/maven-plugin-goal.gif)
 
 ### Generate project from maven Archetype
 
-Another handy feature provided by this extension is to generate Maven project from Archetype. The extension loads archetypes listed in local/remote catalog. After selection, the extension sends `mvn archetype:generate -D...` to terminal.
+Another handy feature provided by this extension is to generate a Maven project from Archetype. The extension loads archetypes listed in local/remote catalog. After selection, the extension sends `mvn archetype:generate -D...` to terminal.
 
-There are 2 entries for it:
+There are two ways to generate a Maven project:
 
 1. From the Command Palette, select **Maven: Generate from Maven Archetype**.
 2. Right-click on a folder and select **Generate from Maven Archetype**.
@@ -61,16 +63,15 @@ There are 2 entries for it:
 
 ### Additional resources
 
-Please visit the [GitHub Repo](https://github.com/Microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/Microsoft/vscode-maven/tree/master) and [troubleshooting guide](https://github.com/Microsoft/vscode-maven/blob/master/Troubleshooting.md).
+Visit the [GitHub Repo](https://github.com/Microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/Microsoft/vscode-maven/tree/master) and a [troubleshooting guide](https://github.com/Microsoft/vscode-maven/blob/master/Troubleshooting.md).
 
 ## Project management
 
-Project Management in Visual Studio Code is mainly provided by [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency). This extension provides features including creating project as well as viewing the package structure of the project and its dependencies.
+Project Management in Visual Studio Code is provided by [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency). This extension provides features including creating project as well as viewing the package structure of the project and its dependencies.
 
 ### Create project
 
-In addition to creating project through Maven Archetype, you can also use the following command to create a simple Java project
-Command Palette -> select `Java: Create Java Project`
+In addition to creating project through Maven Archetype, you can also use the following command to create a simple Java project: Command Palette > select **Java: Create Java Project**.
 
 ![Creating Project](images/java-project/create-project.gif)
 
@@ -78,7 +79,7 @@ If you're creating a Spring Boot project, you can also use the [Spring Initializ
 
 ### Package and dependency view
 
-The extension also provides you a hierarchy view of your project and dependencies, which supplements the original file view and outline provided by Visual Studio Code so you don't need to expand multiple sub-folders to just view your Java package.
+The extension also provides you a hierarchy view of your project and dependencies, which supplements the original file view and outline provided by Visual Studio Code so you don't need to expand multiple subfolders to just view your Java package.
 
 ![Package Viewer](images/java-project/package-viewer.gif)
 

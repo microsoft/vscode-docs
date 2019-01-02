@@ -7,7 +7,7 @@ PageTitle: Building Azure Functions in Java with Visual Studio Code
 DateApproved: 1/2/2019
 MetaDescription: Using Visual Studio Code for developing, debugging and deploying your Java Azure Functions application.
 ---
-# Azure Functions in Java with Visual Studio Code
+# Azure Functions in Java with VS Code
 
 Azure Functions let you execute your source code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
 
@@ -30,7 +30,7 @@ The [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azu
 - Create new Function from template.
 - Debug Function projects locally.
 - View Azure Function Apps.
-- Create, delete, start, stop and restart Azure Function Apps.
+- Create, delete, start, stop, and restart Azure Function Apps.
 - JSON IntelliSense for `function.json`, `host.json` and `proxies.json` files.
 
 In this tutorial, we will leverage this extension to create a Java Azure Functions App. For a more command line Maven-centric experience, you can also check out the [Maven Functions Tutorial](https://docs.microsoft.com/en-gb/azure/azure-functions/functions-create-first-java-maven). The Java support of this extension leverages a lot from the [Maven Plugin for Azure Functions](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-functions-maven-plugin).
