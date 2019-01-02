@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Java in Visual Studio Code
 
-The Java support in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md), which make it not only a lightweight and performant code editor, but also a productive IDE with lots of popular Java tools integrated. It provides essential language features such as code completion, refactoring, linting, formatting, code snippets along with convenient debugging and unit test support. It also integrates tooling and frameworks including Maven, Tomcat, Jetty, and Spring Boot. Leveraging all power from Visual Studio Code, it's an excellent tool from quick code editing to full debugging and testing cycle for Java developers. It's a great choice for your Java work if you're looking for a tool which
+The Java support in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md), which make it not only a lightweight and performant code editor, but also a productive IDE with lots of popular Java tools integrated. It provides essential language features such as code completion, refactoring, linting, formatting, and code snippets along with convenient debugging and unit test support. VS Code can also integrate tooling and frameworks such as Maven, Tomcat, Jetty, and Spring Boot. Leveraging the power of Visual Studio Code, Java developers get an excellent tool for both quick code editing and also the full debugging and testing cycle. It's a great choice for your Java work if you're looking for a tool which
 
 - Is fast and lightweight, free, and open source
 - Supports multiple, or all the programming language you use
