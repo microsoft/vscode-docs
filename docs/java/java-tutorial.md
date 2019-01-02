@@ -10,7 +10,7 @@ MetaDescription: Java tutorial showing basic Java language support in the Visual
 
 # Writing Java with Visual Studio Code
 
-This tutorial shows you how to write and run a simple Hello World program in Java with Visual Studio Code, as well as a couple advanced features which you can explore more with the editor and reading other documents in this section.
+This tutorial shows you how to write and run a simple Hello World program in Java with Visual Studio Code, as well as a couple advanced features which you can explore more with the editor by reading other documents in this section.
 
 ## Before you begin
 
@@ -48,13 +48,13 @@ You can also select which extensions you would like to install separately. For t
 
 ## Create the program
 
-Create a folder for your Java program and open the folder with Visual Studio Code. Within Visual Studio Code, you can then create a new file `Hello.java`. When you open that file, the Java Language Server will automatically be activated as you can see a rocket icon on the right of the status bar. When it finishes loading, you will see a thumbs up icon instead.
+Create a folder for your Java program and open the folder with Visual Studio Code. Within Visual Studio Code, you can then create a new file `Hello.java`. When you open that file, the Java Language Server will automatically be activated as you can see a :rocket: icon on the right of the status bar. When it finishes loading, you will see a :thumbsup: icon instead.
 
 ![Create Project](images/java-tutorial/create-file.gif)
 
-Visual Studio Code also support more complex Java projects, see [Java Project](/docs/java/java-project.md).
+Visual Studio Code also support more complex Java projects, see [Project Management](/docs/java/java-project.md).
 
->**Note**: The Java Language Server might not work properly if you just open a Java file in Visual Studio Code without opening its folder.
+>**Note**: The Java Language Server might not work properly if you open a standalone Java file in Visual Studio Code without opening its folder.
 
 ## Editing code
 
@@ -62,11 +62,11 @@ In Visual Studio Code, you can easily use code snippet to scaffold your class an
 
 ![Edit Code](images/java-tutorial/edit-code.gif)
 
-To learn more about Java code editing in Visual Studio Code, see [Java Editing](/docs/java/java-editing.md).
+You can also use various refactor methods within the editor. To learn more about Java code editing in Visual Studio Code, see [Java Editing](/docs/java/java-editing.md).
 
 ## Running and debugging your program
 
-It's super easy to run and debug Java in Visual Studio Code. You can either click `F5` or use the `Run|Debug` button on the code lens to see it running. You can also use various refactor methods within the editor.
+It's super easy to run and debug Java in Visual Studio Code. You can either click `F5` or use the `Run|Debug` button on the code lens to see it running. Just set a breakpoint and you can see all your variables and threads on the left.
 
 ![Run and Debug](images/java-tutorial/run-debug.gif)
 
@@ -74,9 +74,12 @@ The debugger also supports advanced features such as hot code replacement and co
 
 ## More features
 
-Now you've seen how easy it is to write Java program with Visual Studio Code. The editor has much more capability to offer for your Java workload.
+Now you've seen how easy it is to write a simple Java program with Visual Studio Code. The editor has much more capability to offer for your Java workload.
 
 * [Editing Java](/docs/java/java-editing.md) explains how to navigate and edit Java in more details.
-* [Maven Support, Java Package and Dependency Management](/docs/java/java-project.md) shows you how it provides you a project view and works with Maven.
+* [Debugging](/docs/java/java-debugging.md) illustrates all the key features provided for Java debug.
 * [Testing](/docs/java/java-resting.md) provides comprehensive supports for JUnit and TestNG framework.
+* [Maven Support, Java Package and Dependency Management](/docs/java/java-project.md) shows you how it provides you a project view and works with Maven.
 * [Spring Boot Support](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great support for Spring Boot, Tomcat and Jetty.
+
+To learn how to work with Java Web App in VS Code, read [Java Web App](/docs/java/java-webapp.md).
