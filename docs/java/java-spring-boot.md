@@ -112,5 +112,5 @@ Alternatively, you can also use Maven to package and run your project as steps b
 ## Next steps
 
 * To deploy your web app, see the [Deploy a Java Application to Azure](/docs/java/java-webapp.md) tutorial.
-* To containerize a web app and deploy as a Docker container, check out the [Java Container Tutorial](/docs/java/java-container.md).
+* To containerize a web app and deploy as a Docker container, check out the [Working with Docker](/docs/azure/docker.md).
 * To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md).

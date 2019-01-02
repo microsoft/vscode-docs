@@ -15,11 +15,11 @@ This document will give you an overview of how to use [Maven for Java](https://m
 
 ## Maven
 
-[Maven](http://maven.apache.org/) is a software tool that helps you manage Java projects, and automate application builds. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension for Visual Studio Code provides you a fully integrated experience, allowing you to explore Maven project, execute Maven commands and perform the goals of build lifecycle and plugins.
+[Maven](http://maven.apache.org/) is a software tool that helps you manage Java projects, and automate application builds. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension for Visual Studio Code provides you a fully integrated Maven support, allowing you to explore Maven project, execute Maven commands and perform the goals of build lifecycle and plugins.
 
 ### Exploring Maven project
 
-Once a Maven extension is activated, it automatically scans `pom.xml` in your workspace, and displays all Maven projects and their modules in the side bar.
+Once a Maven project is loaded, the extension will be activated and it will automatically scans `pom.xml` in your workspace, and displays all Maven projects and their modules in the side bar.
 
 ![Maven Explorer](images/java-project/maven-explorer.png)
 
@@ -86,8 +86,9 @@ The extension also provides you a hierarchy view of your project and dependencie
 
 ## Next steps
 
-Read on to find out about:
+Read on to find out more about:
 
-* [Editing Java](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
-* [Debugging Java](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
+* [Java Editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
+* [Java Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
+* [Java Testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
 * [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

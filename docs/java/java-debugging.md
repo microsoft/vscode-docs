@@ -11,9 +11,7 @@ MetaSocialImage:
 
 # Debugging Java in Visual Studio Code
 
-Visual Studio Code is great at debugging Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension.
-
-It's a lightweight Java debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug) which extends the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java).
+Visual Studio Code allows you to debug Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension. It's a lightweight Java debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug) which extends the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java).
 
 Here's a list of supported debugging features:
 
@@ -52,7 +50,7 @@ Once the debugger is activated, you will find **Run|Debug** on the CodeLens of y
 
 ### Clicking `kb(workbench.action.debug.start)`
 
-Once you click `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and create the `launch.json` configuration file for you.
+Once you click `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging.
 
 ![Resolving Main Class](images/java-debugging/resolve-main.gif)
 
@@ -60,7 +58,7 @@ It's possible that there might be multiple debugging configuration for your proj
 
 ![Java Debugging](images/java-debugging/java-debug.gif)
 
-If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application.
+If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations). For more details, please read [Launch configurations](https://vscode-docs-master.azurewebsites.net/docs/editor/debugging#_launch-configurations)
 
 There's also a convenient setting for debugging `current file` so the editor knows which file is currently active and choose it as the entry point.
 
@@ -187,5 +185,9 @@ You can find the full list of issues at [Issue Tracker](https://github.com/Micro
 
 Read on to find out about:
 
-* [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger with your project for any language.
+* [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
+
+And for Java:
+
+* [Java Testing](/docs/java/java-testing.md)
 * [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

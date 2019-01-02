@@ -9,11 +9,11 @@ MetaDescription: Editing Java in Visual Studio Code with IntelliSense, Refactori
 ---
 # Editing Java in Visual Studio Code
 
-As a code editor-centric development tool, Visual Studio Code has a lot of editing [features](https://code.visualstudio.com/docs/editor/codebasics). In this document, we will go through a few Java specific things which are helpful when working with Java.
+As a code editor-centric development tool, Visual Studio Code has a lot of editing [features](/docs/editor/codebasics.md). In this document, we will go through a few Java specific things which are helpful when working with Java.
 
 ## Code Editing and Navigating
 
-With the support of [outline view](https://code.visualstudio.com/updates/v1_25#_outline-view), you can conveniently navigate your method within the same class. Editing code is also easy with the support of IntelliSense. You can use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
+With the support of [outline view](https://code.visualstudio.com/updates/v1_25#_outline-view), you can conveniently navigate your methods within the same class. Editing code is also easy with the support of IntelliSense. You can use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
 
 ![Code Editing](images/java-editing/code-editing.gif)
 
@@ -64,7 +64,7 @@ To learn more about Spring Boot support with Visual Studio Code, please read [Sp
 
 Code completion in Visual Studio Code for Java is provided by [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). Since the extensions is powered by the same [Java development tools (JDT)](https://www.eclipse.org/jdt/) behind Eclipse, you can expect the same level of competency from that.
 
-In additional, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open source projects on GitHub each with over 100 stars, so it’s trained on best practices. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
+In additional, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open source projects on GitHub each with over 100 stars, so it’s trained on most common usages from high quality projects. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
 
 ![IntelliCode](images/java-editing/intellicode.gif)
 

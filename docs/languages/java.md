@@ -9,17 +9,17 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Java in Visual Studio Code
 
-The Java support in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md) which make it not only a lightweight and performant code editor, but also a productive IDE with lots of popular Java tools integrated. It provides essential language features such as code completion, refactoring, linting, formatting, code snippets along with convenient debugging and unit testing, as well as tooling and framework integration including Maven, Tomcat and Spring Boot. Leveraging all power from Visual Studio Code, it's an excellent tool from quick code editing to full debugging and testing cycle for Java developers. It's a great choice for your Java work if you're looking for a tool which
+The Java support in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md) which make it not only a lightweight and performant code editor, but also a productive IDE with lots of popular Java tools integrated. It provides essential language features such as code completion, refactoring, linting, formatting, code snippets along with convenient debugging and unit test supports. It also integrates tooling and frameworks including Maven, Tomcat, Jetty and Spring Boot. Leveraging all power from Visual Studio Code, it's an excellent tool from quick code editing to full debugging and testing cycle for Java developers. It's a great choice for your Java work if you're looking for a tool which
 
-1. is fast and lightweight, free and open source
-2. supports multiple, or all the programming language you use
-3. helps start your Java journey without installing and learning a complex IDE
-4. provides great microservices support including popular framework, container tooling and cloud integration
-5. improves your productivity through smartness and collaboration features
+- Is fast and lightweight, free and open source
+- Supports multiple, or all the programming language you use
+- Helps start your Java journey without installing and learning a complex IDE
+- Provides great microservices support including popular framework, container tooling and cloud integration
+- Improves your productivity through smartness and collaboration features
 
-This article will give you an overview of different capabilities of Visual Studio Code for Java developers. For a quick walkthrough of editing, running, and debugging Java program with Visual Studio Code, use the button below.
+This article will give you an overview of different capabilities of Visual Studio Code for Java developers. For a quick walkthrough of editing, running, and debugging Java program with Visual Studio Code, click the button below.
 
-<a class="tutorial-next-btn" href="/docs/java/java-tutorial">Java Tutorial</a>
+<a class="tutorial-install-extension-btn" href="/docs/java/java-tutorial">Java Tutorial</a>
 
 > [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, macOS, Linux).
 
@@ -57,9 +57,11 @@ This document describes some of the key features included in those Java extensio
 
 Maven, Eclipse and Gradle Java project are supported through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](https://www.eclipse.org/m2e/) which provides Maven support and [Buildship](https://github.com/eclipse/buildship) which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).
 
-With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate projects from [Maven Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html), browse through all the Maven projects within your workspace, and execute Maven goals easily from an embedded explorer. Project can also be created and managed by [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency). More details could be found in [Maven Support, Java Package and Dependency Management in Visual Studio Code](/docs/java/java-project.md).
+With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate projects from [Maven Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html), browse through all the Maven projects within your workspace, and execute Maven goals easily from an embedded explorer. Project can also be created and managed by [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency).
 
 ![Project Management](images/java/package-viewer.gif)
+
+More details could be found in [Maven Support, Java Package and Dependency Management in Visual Studio Code](/docs/java/java-project.md).
 
 Visual Studio Code also supports standalone Java files without project, see [Java Tutorial with VS Code](/docs/java/java-tutorial.md).
 
@@ -67,7 +69,7 @@ Visual Studio Code also supports standalone Java files without project, see [Jav
 
 ### IntelliSense
 
-VS Code also supports code completion and IntelliSense for Java through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). [IntelliSense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
+[IntelliSense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules. VS Code supports code completion and IntelliSense for Java through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). It also provides AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) by putting what you're most likely to use at the top of your completion list.
 
 ![IntelliSense](images/java/intellisense.gif)
 
@@ -81,7 +83,7 @@ There're also other editing related features available for Java, such as refacto
 
 [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug). It works with [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users debugging Java code using Visual Studio Code.
 
-Starting a debugging session is easy, with just a click on the `Run|Debug` button available at the CodeLens of your *main()* function, or simply hit `kb(workbench.action.debug.start)`. The debugger will automatically generate the proper configuration for you.
+Starting a debugging session is easy, with just a click on the `Run|Debug` button available at the CodeLens of your `main()` function, or simply hit `kb(workbench.action.debug.start)`. The debugger will automatically generate the proper configuration for you.
 
 ![Resolving Main Class](images/java/resolve-main.gif)
 
