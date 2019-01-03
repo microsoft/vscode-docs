@@ -225,7 +225,7 @@ You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, 
 
 ## Use of the PYTHONPATH variable
 
-The [PYTHONPATH](https://docs.python.org/3.7/using/cmdline.html#envvar-PYTHONPATH) environment variable specifies additional locations where the Python interpreter should look for modules. The value of PYTHONPATH can contain multiple path values separated by `os.pathsep` (semicolons on Windows, colons on Linux/macOS). Invalid paths are ignored.
+The [PYTHONPATH](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH) environment variable specifies additional locations where the Python interpreter should look for modules. The value of PYTHONPATH can contain multiple path values separated by `os.pathsep` (semicolons on Windows, colons on Linux/macOS). Invalid paths are ignored.
 
 > **Note**: you must set the PYTHONPATH variable through your operating system as VS Code doesn't provide a means to set environment variables directly.
 
@@ -233,7 +233,7 @@ In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, a
 
 It's recommended that you set the PYTHONPATH variable in an [Environment variable definitions file](#environment-variable-definitions-file), described earlier.
 
-> **Note**: PYTHONPATH does **not**, repeat **not**, specify a path to a Python interpreter itself, and thus you **never** use it with the `python.pythonPath` setting. Clearly, the environment variable was badly named, but...[c'est la vie](https://www.dictionary.com/browse/c-est-la-vie). So make sure to read the [PYTHONPATH documentation](https://docs.python.org/3.7/using/cmdline.html#envvar-PYTHONPATH) several times and fix in your mind that PYTHONPATH is **not** a path to an interpreter.
+> **Note**: PYTHONPATH does **not**, repeat **not**, specify a path to a Python interpreter itself, and thus you **never** use it with the `python.pythonPath` setting. Clearly, the environment variable was badly named, but...[c'est la vie](https://www.dictionary.com/browse/c-est-la-vie). So make sure to read the [PYTHONPATH documentation](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH) several times and fix in your mind that PYTHONPATH is **not** a path to an interpreter.
 
 ## Next steps
 
