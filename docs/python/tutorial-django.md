@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: python
 TOCTitle: Django Tutorial
 ContentId: 3c0948f9-85a5-4dd4-a461-59788dbfce4c

@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 10
 Area: python
 TOCTitle: Deploy to Azure App Service
 ContentId: 1d4ae3ac-5d53-4e29-bf70-d97f1186c6c2
@@ -244,8 +244,6 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
     ![Checking deployment files through the App Service explorer](images/deploy-azure/expand-files-node.png)
 
     You can also expand the `antenv` folder, which is where App Service creates a virtual environment with your dependencies, and verify that the packages you named in `requirements.txt` are installed in `antenv/lib/python3.7/site-packages`.
-
-    > **Tip**: Be mindful that it's easy to misinterpret the file and folder structure because the App Service extension sorts all files and folders alphabetically and indents files slightly more than folders, which makes those files seem like children of a folder rather than peers. (See [issue 631](https://github.com/Microsoft/vscode-azureappservice/issues/631) in the App Service extension GitHub repo.)
 
 1. Right-click the App Service again and select **Browse Website** to view your running app (you may need to refresh the browser if the previous page was cached):
 

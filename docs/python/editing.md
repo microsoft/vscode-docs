@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 12/21/2018
+DateApproved: 01/03/2019
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -17,7 +17,7 @@ The Python extension provides many features for editing Python source code in Vi
 - [Formatting](#formatting)
 - [Refactoring](#refactoring)
 
-Also see [Linting](/docs/python/linting.md).
+Also see [Linting](/docs/python/linting.md) and [Jupyter Support](/docs/python/jupyter-support.md).
 
 ## Autocomplete and IntelliSense
 
@@ -80,46 +80,6 @@ The command opens the Python Terminal if necessary; you can also open the intera
 On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line is not run. If you encounter this behavior, try the command again when the REPL has finished loading.
 
 > **Note**: At present, using `kbstyle(Shift+Enter)` keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
-
-## Jupyter code cells
-
-[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open source project that lets you easily combine Markdown text and executable Python source code on one canvas.
-
-To work with Jupyter, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
-
-With an appropriate environment activated, you can define  Jupyter-like code cells within Python code using a `#%%` comment:
-
-```python
-#%%
-msg = "Hello World"
-print(msg)
-```
-
-When the Python extension detects a code cell, it adds a **Run Cell** or **Run All Cells** CodeLens above the comment:
-
-![Jupyter adornments for code cells in the VS Code editor](images/editing/code-cells-01.png)
-
-Selecting either command starts Jupyter (if necessary, which might take a minute), then runs the cell(s) in the Python interactive window.
-
-![Code cells running in a Python Interactive window](images/editing/code-cells-02.png)
-
-You can also run code cells using the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `#%%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
-
-### Open Jupyter notebooks
-
-When you've activated an environment with Jupyter installed (as described in the previous section), you can import a Jupyter notebook file (`.ipynb`) in VS Code as Python code. Once you've imported the file, you can run the code as you would with any other Python file and also use the VS Code debugger. Opening and debugging notebooks in VS Code is a convenient way to find and resolve code bugs, which is difficult to do directly in a Jupyter notebook.
-
-When you open a notebook file, the Python extension prompts you to import the notebook as a Python code file:
-
-![Prompt to import a Jupyter notebook file](images/editing/jupyter-prompt.png)
-
-If you choose **Import**, wait a few seconds, then VS Code opens the converted notebook in an untitled file. The notebook's cells are delimited in the Python file with `#%%` comments; Markdown cells are converted wholly to comments preceded with `#%% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
-
-![Jupyter notebook running in VS Code and the Python interactive window](images/editing/jupyter-notebook.png)
-
-If you open the file without importing, it appears as plain text.
-
-> **Note:** The first time you run code in a notebook file, the Python extension starts a Jupyter server. It may take some time for the server to start up and for the **Python Interactive** window to appear with the results of the code.
 
 ## Formatting
 
