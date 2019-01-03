@@ -76,4 +76,4 @@ In addition to opening a Jupyter notebook, you can also use one of the following
 - **Python: Export Current Python File and Output as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file and includes output from code cells.
 - **Python: Export Python Interactive window as Jupyter Notebook**: creates a Jupyter notebook from the contents of the Python interactive window.
 
-After exporting the contents, VS Code displays a prompt through whcih you can open the notebook in a browser.
+After exporting the contents, VS Code displays a prompt through which you can open the notebook in a browser.
