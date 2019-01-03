@@ -14,7 +14,7 @@ This tutorial shows you how to write and run a simple Hello World program in Jav
 
 ## Before you begin
 
-Before going through this tutorial, you must have the Java SE Development Kit (JDK) and Apache Maven build tools on your local development environment. If you don't have, please install them.
+Before going through this tutorial, you must have the Java SE Development Kit (JDK) and Apache Maven build tools on your local development environment. If you don't have them installed, you can do so now.
 
 Download and install the Java SE Development Kit (JDK). Java support on Visual Studio Code works with all major Java version up to 11, below is a link for version 8:
 
@@ -58,7 +58,7 @@ Visual Studio Code also supports more complex Java projects, see [Project Manage
 
 ## Editing code
 
-In Visual Studio Code, you can easily use code snippet to scaffold your class and method. It also provides IntelliSense for code completion.
+In Visual Studio Code, you can easily use code snippets to scaffold your class and method. VS Code also provides IntelliSense for code completion.
 
 ![Edit Code](images/java-tutorial/edit-code.gif)
 
@@ -79,7 +79,7 @@ Now you've seen how easy it is to write a simple Java program with Visual Studio
 * [Editing Java](/docs/java/java-editing.md) explains how to navigate and edit Java in more details.
 * [Debugging](/docs/java/java-debugging.md) illustrates all the key features provided for Java debug.
 * [Testing](/docs/java/java-resting.md) provides comprehensive supports for JUnit and TestNG framework.
-* [Maven Support, Java Package, and Dependency Management](/docs/java/java-project.md) shows you how it provides you a project view and works with Maven.
+* [Java Project Management](/docs/java/java-project.md) shows you how it provides you a project view and works with Maven.
 * [Spring Boot Support](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great support for Spring Boot, Tomcat, and Jetty.
 
 To learn how to work with Java Web App in VS Code, read [Java Web App](/docs/java/java-webapp.md).

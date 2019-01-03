@@ -9,11 +9,11 @@ MetaDescription: Editing Java in Visual Studio Code with IntelliSense, Refactori
 ---
 # Editing Java in Visual Studio Code
 
-As a code editor-centric development tool, Visual Studio Code has a lot of editing [features](/docs/editor/codebasics.md). In this document, we will go through a few Java-specific things, which are helpful when working with Java.
+Visual Studio Code is a source code editor first and foremost with rich editing [features](/docs/editor/codebasics.md). In this document, we will go through a few Java-specific features, which are helpful when working with Java.
 
 ## Code editing and navigation
 
-With the support of [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate your methods within the same class. Editing code is also easy with the support of IntelliSense. You can use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
+With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate your methods within the same class. Editing code is also easy with IntelliSense for smart code completions and signature details. You can use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
 
 ![Code Editing](images/java-editing/code-editing.gif)
 
@@ -31,7 +31,7 @@ To search for a symbol in the current file, use __Quick Open__ (`kb(workbench.ac
 
 ![Search in local file](images/java-editing/search-in-file.gif)
 
-To search for a symbol in the current workspace, start by pressing `kb(workbench.action.showAllSymbols)`, then enter the name of the symbol. A list of potential matches will appear as before. If you choose a match that was found in a file that's not already open, the file will be opened before navigating to the match's location. Alternatively, you can also use  __Quick Open__ (`kb(workbench.action.quickOpen)`) then enter the '#' command to search the current workspace. `kb(workbench.action.showAllSymbols)` is just the shortcut for the '#' commands, respectively, so everything works the same.
+To search for a symbol in the current workspace, start by pressing `kb(workbench.action.showAllSymbols)`, then enter the name of the symbol. A list of potential matches will appear as before. If you choose a match that was found in a file that's not already open, the file will be opened before navigating to the match's location. Alternatively, you can also use  __Quick Open__ (`kb(workbench.action.quickOpen)`) then enter the '#' command to search the current workspace. `kb(workbench.action.showAllSymbols)` is just the shortcut for the '#' commands, so everything works the same.
 
 ![Search in workspace](images/java-editing/search-in-workspace.gif)
 
@@ -49,7 +49,7 @@ To go to a symbol's definition, place your cursor on the symbol anywhere it is u
 
 ### Navigating code with Spring Boot
 
-[Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides even more navigation and code completion support for Spring Boot projects.
+[Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for Spring Boot projects.
 
 * `@/` shows all defined request mappings (mapped path, request method, source location)
 * `@+` shows all defined beans (bean name, bean type, source location)
@@ -62,9 +62,9 @@ To learn more about Spring Boot support with Visual Studio Code, please read [Sp
 
 ### IntelliSense
 
-Code completion in Visual Studio Code for Java is provided by [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). Since the extension is powered by the same [Java development tools (JDT)](https://www.eclipse.org/jdt/) behind Eclipse, you can expect the same level of competency from that.
+Code completion in Visual Studio Code for Java is provided by [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). The extension is powered by the same [Java development tools (JDT)](https://www.eclipse.org/jdt/) behind Eclipse, so you can expect the same level of support.
 
-In additional, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open source projects on GitHub each with over 100 stars, so it’s trained on most common usages from high quality projects. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
+In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open source projects on GitHub each with over 100 stars, so it’s trained on the most common usages from high quality projects. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
 
 ![IntelliCode](images/java-editing/intellicode.gif)
 
@@ -76,13 +76,13 @@ Here we will show you the most used refactoring features for Java in Visual Stud
 
 ### Rename
 
-Rename allows you to rename variables, classes, methods, packages, folders, and almost any Java identifiers. When you rename an identifier, all references to that identifier are also renamed. The shortcut to invoke the Rename refactoring is `F2`. When you invoke the shortcut on an identifier in the editor, a small box displays within the editor itself where you can change the identifier name. When you press Enter, all references to that identifier are changed, too.
+Rename allows you to rename variables, classes, methods, packages, folders, and almost any Java identifiers. When you rename an identifier, all references to that identifier are also renamed. The shortcut to invoke the Rename refactoring is `kb(editor.action.rename)`. When you invoke the shortcut on an identifier in the editor, a small box displays within the editor itself where you can change the identifier name. When you press `kbstyle(Enter)`, all references to that identifier are changed too.
 
 ![Rename](images/java-editing/rename.gif)
 
 ### Extract methods and variables
 
-Extract to constant, method, and local variables all come handy with Java on Visual Studio Code.
+Extract to constant, method, and local variables all come in handy with Java on Visual Studio Code.
 
 ![Refactor](images/java-editing/refactor.gif)
 
