@@ -116,11 +116,11 @@ In order to start a debug session, first select the configuration named **Launch
 
 Alternatively you can run your configuration through the **Command Palette** (`kb(workbench.action.showCommands)`), by filtering on **Debug: Select and Start Debugging** or typing `'debug '`, and selecting the configuration you want to debug.
 
-As soon as a debugging session starts, the **DEBUG CONSOLE** panel is displayed and shows debugging output, and the Status Bar turns orange:
+As soon as a debugging session starts, the **DEBUG CONSOLE** panel is displayed and shows debugging output, and the Status Bar changes color (orange for default color themes):
 
 ![debug session](images/debugging/debug-session.png)
 
-In addition, the _debug status_ appears in the Status Bar showing the active debug configuration. By clicking on the debug status, a user can change the active launch configuration and start debugging without needing to open the Debug view.
+In addition, the **debug status** appears in the Status Bar showing the active debug configuration. By clicking on the debug status, a user can change the active launch configuration and start debugging without needing to open the Debug view.
 
 ![Debug status](images/debugging/debug-status.png)
 
@@ -141,9 +141,9 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 
 ### Run mode
 
-In addition to _debugging_ a program, VS Code supports _running_ the program. The **Debug: Start Without Debugging** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running, and pressing the **Stop** button terminates the program.
+In addition to debugging a program, VS Code supports **running** the program. The **Debug: Start Without Debugging** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running, and pressing the **Stop** button terminates the program.
 
->**Tip**: The **Run** action is always available, but not all debugger extensions support 'Run'. In this case 'Run' will be the same as 'Debug'.
+>**Tip**: The **Run** action is always available, but not all debugger extensions support 'Run'. In this case, 'Run' will be the same as 'Debug'.
 
 ## Breakpoints
 
@@ -337,7 +337,7 @@ Using multi-target debugging is simple: after you've started a first debug sessi
 
 ### Compound launch configurations
 
-An alternative way to start multiple debug sessions is by using a _compound_ launch configuration. A compound launch configuration lists the names of two or more launch configurations that should be launched in parallel. Compound launch configurations show up in the `launch configuration` drop-down menu.
+An alternative way to start multiple debug sessions is by using a **compound** launch configuration. A compound launch configuration lists the names of two or more launch configurations that should be launched in parallel. Compound launch configurations are displayed in the launch configuration drop-down menu.
 
 ```json
 {
