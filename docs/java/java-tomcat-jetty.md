@@ -16,11 +16,11 @@ For [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=
 
 ## Tomcat
 
-With the [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension, you can manage all your local Tomcat servers within the editor and easily debug and run your war package on Tomcat and link Tomcat into workspace.
+With the [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension, you can manage all your local Tomcat servers within the editor and easily debug and run your `war` package on Tomcat and link Tomcat into your workspace.
 
 ![Tomcat](images/java-tomcat-jetty/tomcat.gif)
 
-You can also create new Tomcat server from explorer using the `Add` button and run war package on it. You can also create the server during the deployment.
+You can also create a new Tomcat server from the explorer using the **Add** button and run a `war` package on it. You can also create the server during the deployment.
 
 ![Create Server](images/java-tomcat-jetty/tomcat-create-server.gif)
 
@@ -34,10 +34,10 @@ The extension includes the following features:
 
 * Add Jetty Server from download directory
 * Start/Restart/Stop/Delete Jetty Server
-* Run/Debug/Delete war package
-* Reveal war package in file explorer
+* Run/Debug/Delete `war` package
+* Reveal `war` package in file explorer
 * Open Server homepage
-* Open war package homepage
+* Open `war` package homepage
 
 ![Jetty](images/java-tomcat-jetty/jetty.gif)
 

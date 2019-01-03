@@ -9,20 +9,20 @@ MetaDescription: Working with Kubernetes in Visual Studio Code
 ---
 # Working with Kubernetes in VS Code
 
-This document will walk you through the process of deploying an application to [Kubernetes](https://kubernetes.io/) with Visual Studio Code. [Kubernetes](https://kubernetes.io/) is an open-source system for automating deployment, scaling, and management of containerized applications. We will show you how to will create a Kubernetes cluster, write a Kubernetes manifest file (usually written in YAML) which tells Kubernetes everything it needs to know about the application, and then finally deploy the application to the Kubernetes cluster.
+This document will walk you through the process of deploying an application to [Kubernetes](https://kubernetes.io/) with Visual Studio Code. [Kubernetes](https://kubernetes.io/) is an open-source system for automating deployment, scaling, and management of containerized applications. We will show you how to create a Kubernetes cluster, write a Kubernetes manifest file (usually written in YAML), which tells Kubernetes everything it needs to know about the application, and then finally deploy the application to the Kubernetes cluster.
 
 ## Before you begin
 
-You would need to have tools for [Docker](https://docker.com/) and [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/). See the [Install Docker](https://docs.docker.com/install/) documentation for details on setting Docker up for your machine and [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/). Before proceeding further, verify you can run Docker and kubectl commands from the shell.
+You will need to have tools for [Docker](https://docker.com/) and [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/). See the [Install Docker](https://docs.docker.com/install/) documentation for details on setting up Docker on your machine and [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/). Before proceeding further, verify you can run Docker and kubectl commands from the shell.
 
-You can create a local Kubernetes cluster with [minikube](https://kubernetes.io/docs/getting-started-guides/minikube/) or an Azure Kubernetes cluster in [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/). In this tutorial, we will use [Azure Container Service(AKS)](https://docs.microsoft.com/azure/aks/) and you will need to have your [Azure](https://www.azure.com) account ready for the deployment steps.
+You can create a local Kubernetes cluster with [minikube](https://kubernetes.io/docs/getting-started-guides/minikube/) or an Azure Kubernetes cluster in [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/). In this tutorial, we will use [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/) and you will need to have your [Azure](https://www.azure.com) account ready for the deployment steps.
 
-In addition if you want to iteratively run and debug containers directly in Azure Kubernetes Service (AKS), you could install
-[Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). There's also an additional [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) which helps boost remote debugging performance for Java application running in [Azure Dev Spaces](https://docs.microsoft.com/en-us/azure/dev-spaces/).
+In addition, if you want to iteratively run and debug containers directly in Azure Kubernetes Service (AKS), you can install the
+[Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) extension. There's also an additional [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) extension, which helps boost remote debugging performance for Java application running in [Azure Dev Spaces](https://docs.microsoft.com/en-us/azure/dev-spaces/).
 
 ## Install the Kubernetes extension
 
-For a fully integrated Kubernetes experience, you can install the [Kubernetes Tools](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension which lets you quickly develop Kubernetes manifests and HELM charts. With the extension, you can also deploy containerized micro-service based applications to local or Azure Kubernetes clusters and debug your live applications running in containers on Kubernetes clusters. It also makes it easy to browse and manage your Kubernetes clusters in VS Code and provides seamless integration with Draft to streamline Kubernetes development.
+For a fully integrated Kubernetes experience, you can install the [Kubernetes Tools](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension, which lets you quickly develop Kubernetes manifests and HELM charts. With the extension, you can also deploy containerized micro-service based applications to local or Azure Kubernetes clusters and debug your live applications running in containers on Kubernetes clusters. It also makes it easy to browse and manage your Kubernetes clusters in VS Code and provides seamless integration with [Draft](https://draft.sh/) to streamline Kubernetes development.
 
 To install the Kubernetes extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for "kubernetes". Select the Microsoft [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension.
 
@@ -30,7 +30,7 @@ To install the Kubernetes extension, open the Extensions view (`kb(workbench.vie
 
 ## Containerize and publish the application
 
-You can follow the [Working with Docker](/docs/azure/docker.md) tutorial to build your project, generate a Docker image  and push it to a public or private container registry through the Microsoft [Docker Extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker).
+You can follow the [Working with Docker](/docs/azure/docker.md) tutorial to build your project, generate a Docker image, and push it to a public or private container registry through the Microsoft [Docker Extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker).
 
 ## Create and config a Kubernetes cluster
 
@@ -50,7 +50,7 @@ You can create a Kubernetes cluster running on Azure using the Kubernetes extens
 
 ## Deploy the application to Azure Kubernetes Service
 
-The Kubernetes extension provides auto-completion, code snippets and verification for the Kubernetes manifest file. For example, once you type `Deployment`, a manifest file with fundamental structure is auto-generated for you. You only need to enter your app name, image and port manually.
+The Kubernetes extension provides autocompletion, code snippets, and verification for the Kubernetes manifest file. For example, once you type 'Deployment', a manifest file with fundamental structure is autogenerated for you. You only need to enter your app name, image, and port manually.
 
 ![Create manifest](images/kubernetes/create-manifest.gif)
 
@@ -64,7 +64,7 @@ Once your manifest file is ready, you only need one command to start a deploymen
 
 ### Checking on your deployment
 
-After deployment, the Kubernetes extension can help you check the status of your application. From the Explorer, click on **Workloads**, right click on **Pods** and then choose **Get** to see whether the application has started. To view the status of your app, select **Services**, right click on your app, and then click **Get**. The status will be printed in the Integrated Terminal. Once your application has an `EXTERNAL_IP`, you can open a browser and see your web app running.
+After deployment, the Kubernetes extension can help you check the status of your application. From the Explorer, click on **Workloads**, right click on **Pods** and then choose **Get** to see whether the application has started. To view the status of your app, select **Services**, right click on your app, and then click **Get**. The status will be printed to the Integrated Terminal. Once your application has an `EXTERNAL_IP`, you can open a browser and see your web app running.
 
 ![Check status](images/kubernetes/check-status.gif)
 
