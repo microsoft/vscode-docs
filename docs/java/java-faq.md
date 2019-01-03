@@ -23,6 +23,10 @@ Most of our work is collected from and prioritized by customer feedback. If you'
 
 We do have limited capacity within the team and we'd really like to encourage more contributions from the great Java community. If you're passionate about your idea and would like to help fellow Java developers, you're welcome to join us! Some areas worth considering including Gradle support, code analysis and test coverage tools, profiler, and additional framework support including DropWizard, JavaFX, JPA, Play, Akka, OSGi.
 
+## Can I use keyboard shortcuts from other IDE?
+
+Sure. [Keymap extensions](/docs/getstarted/keybindings.md#keymap-extensions) in VS Code modify the VS Code shortcuts to match those of other editors. You can find [IntelliJ IDEA Keybindings](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings), [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings) as well as keymaps for other popular editors in [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) of extensions in the Marketplace.
+
 ## Where can I find the latest progress of Java support on Visual Studio Code?
 
 We're currently publishing our updates at [The Visual Studio Blog](https://blogs.msdn.microsoft.com/visualstudio/tag/java/), which will report all our major features and improvements.
