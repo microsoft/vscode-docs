@@ -265,7 +265,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
    1. Launch the remote process through ptvsd, for example:
 
        ```bash
-       python3 -m ptvsd --host 1.2.3.4 --port 3000 -m myproject
+       python3 -m ptvsd --host 1.2.3.4 --port 3000 --wait -m myproject
        ```
 
        This starts the package `myproject` using `python3`, with the remote computer's private IP address of `1.2.3.4` and listening on port `3000` (you can also start the remote Python process by specifying a file path instead of using `-m`).

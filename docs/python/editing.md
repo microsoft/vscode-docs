@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 10/29/2018
+DateApproved: 01/03/2019
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -17,7 +17,7 @@ The Python extension provides many features for editing Python source code in Vi
 - [Formatting](#formatting)
 - [Refactoring](#refactoring)
 
-Also see [Linting](/docs/python/linting.md).
+Also see [Linting](/docs/python/linting.md) and [Jupyter Support](/docs/python/jupyter-support.md).
 
 ## Autocomplete and IntelliSense
 
@@ -49,13 +49,7 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
     "~/.local/lib/Google/google_appengine/lib" ]
 ```
 
-The `python.autoComplete.preloadModules` setting also allows you speed up autocomplete for specific packages by preloading their information. For example:
-
-```json
-"python.autoComplete.preloadModules": ["numpy", "pandas", "matplotlib"],
-```
-
-Finally, the `python.autocomplete.addBrackets` setting (default false) determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to true:
+The `python.autocomplete.addBrackets` setting (default false) also determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to true:
 
 ```json
   "python.autoComplete.addBrackets": true,
@@ -87,38 +81,6 @@ On first use of the **Python: Run Selection/Line in Python Terminal** command, V
 
 > **Note**: At present, using `kbstyle(Shift+Enter)` keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
 
-## Jupyter code cells
-
-[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open source project that lets you easily combine Markdown text and executable Python source code on one canvas. If you're using an Anaconda environment or any other environment in which the [Jupyter package](https://pypi.org/project/jupyter/) is installed, you can define  Jupyter-like code cells within Python code using a `#%%` comment:
-
-```python
-#%%
-msg = "Hello World"
-print(msg)
-```
-
-When the Python extension detects a code cell, it adds a **Run Cell** or **Run All Cells** CodeLens above the comment:
-
-![Jupyter adornments for code cells in the VS Code editor](images/editing/code-cells-01.png)
-
-Selecting either command starts Jupyter (if necessary, which might take a minute), then runs the cell(s) in the Python interactive window.
-
-![Code cells running in a Python Interactive window](images/editing/code-cells-02.png)
-
-You can also run code cells using the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `#%%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
-
-### Open Jupyter notebooks
-
-You can also open a Jupyter notebook file (`.ipynb`) in VS Code, and the Python extension prompts you to import the notebook as a Python code file.
-
-![Prompt to import a Jupyter notebook file](images/editing/jupyter-prompt.png)
-
-In you choose **Import**, the notebook's cells are delimited in the Python file with `#%%` comments; Markdown cells are converted wholly to comments preceded with `#%% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
-
-![Jupyter notebook running in VS Code and the Python interactive window](images/editing/jupyter-notebook.png)
-
-If you open the file without importing, it appears as plain text.
-
 ## Formatting
 
 The Python extension supports source code formatting using either [autopep8](https://pypi.org/project/autopep8/) (the default), [black](https://github.com/ambv/black), or [yapf](https://yapf.now.sh/).
@@ -136,8 +98,12 @@ The following settings apply to the individual formatters. The Python extension 
 | Formatter | Install steps | Arguments setting<br/>(python.formatting.) | Custom path setting<br/>(python.formatting.) |
 | --- | --- | --- | --- |
 | autopep8 | pip install pep8<br/>pip install --upgrade autopep8 | autopep8Args | autopep8Path |
-| black | pip install black | blackArgs | blackPath |
+| black (see note) | pip install black | blackArgs | blackPath |
 | yapf | pip install yapf | yapfArgs | yapfPath |
+
+> **Note**: By default, the Black formatter can't be installed when a Python 2 environment is active. Attempting to do so may display the message "Formatter black is not installed. Install?". If you try to install Black in response, another message appears saying "Could not find a version that satisfies the requirement black' No matching distribution found for black."
+>
+> To work around this issue and use the Black formatter with Python 2, first install Black in a Python 3 environment. Then set the `python.formatting.blackPath` setting to that install location.
 
 When using custom arguments, each top-level element of an argument string that's separated by space on the command line must be a separate item in the args list. For example:
 
@@ -207,7 +173,6 @@ Invoked by:
 - Right-click in editor and select **Sort Imports** (no selection is required)
 - Command Palette (`kb(workbench.action.showCommands)`), then **Python Refactor: Sort Imports**
 - Assign a keyboard shortcut to the `python.sortImports` command
-- Saving a file when [sort on save](#sort-imports-on-save) is enabled.
 
 ![Sorting import statements](images/editing/sortImports.gif)
 
