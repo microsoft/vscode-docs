@@ -173,7 +173,6 @@ Invoked by:
 - Right-click in editor and select **Sort Imports** (no selection is required)
 - Command Palette (`kb(workbench.action.showCommands)`), then **Python Refactor: Sort Imports**
 - Assign a keyboard shortcut to the `python.sortImports` command
-- Saving a file when [sort on save](#sort-imports-on-save) is enabled.
 
 ![Sorting import statements](images/editing/sortImports.gif)
 
