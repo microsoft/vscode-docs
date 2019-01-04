@@ -72,7 +72,7 @@ A pre-configured set of syntax tokens ('comments', 'strings', ...) is available 
 
 ![Advanced Token Color Customization](images/themes/token_color_customization_advanced.png)
 
->**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work. Go [here](/docs/extensions/themes-snippets-colorizers.md#textmate-theme-rules) for more information
+>**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work. Go [here](/api/extension-guides/color-theme.md) for more information.
 
 Again, to customize a specific theme only, use the following syntax:
 
@@ -88,9 +88,9 @@ Again, to customize a specific theme only, use the following syntax:
 
 Creating and publishing a theme extension is quite easy. Customize your colors in your user settings then generate a theme definition file with the **Developer: Generate Color Theme From Current Settings** command.
 
-VS Code's Yeoman [extension generator](/docs/extensions/yocode.md) will help you generate the rest of the extension.
+VS Code's Yeoman [extension generator](/api/get-started/your-first-extension.md) will help you generate the rest of the extension.
 
-See the [Adding a new Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-theme) topic in our Extension Authoring section to learn more.
+See the [Create a new Color Theme](/api/extension-guides/color-theme.md#create-a-new-color-theme) topic in our Extension API section to learn more.
 
 ## Remove default themes
 
@@ -131,7 +131,7 @@ The active File Icon theme is persisted in your user [settings](/docs/getstarted
 
 ## Creating your own File Icon Theme
 
-You can create your own File Icon Theme from icons (preferably SVG), see the [Adding a new Icon Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-icon-theme) topic in our Extension Authoring section for details.
+You can create your own File Icon Theme from icons (preferably SVG), see the [Icon Theme](/api/extension-guides/icon-theme.md) topic in our Extension API section for details.
 
 ## Next steps
 
@@ -139,5 +139,6 @@ Themes are just one way to customize VS Code. If you'd like to learn more about 
 
 * [Settings](/docs/getstarted/settings) -  Learn how to configure VS Code to your preferences through user and workspace settings.
 * [Snippets](/docs/editor/userdefinedsnippets.md) - Add additional snippets to your favorite language.
-* [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code.
-* [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) - You can package themes, snippets and language colorizers for use in VS Code.
+* [Extension API](/api) - Learn about other ways to extend VS Code.
+* [Color Theme](/api/extension-guides/color-theme.md) - Color Theme extension API.
+* [Icon Theme](/api/extension-guides/icon-theme.md) - Icon Theme extension API.

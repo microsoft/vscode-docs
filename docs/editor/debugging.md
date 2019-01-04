@@ -390,7 +390,7 @@ To learn about VS Code's task running support, go to:
 
 To write your own debugger extension, visit:
 
-* [Debuggers](/docs/extensions/example-debuggers.md) - Uses a mock sample to illustrate the steps required to create a VS Code debug extension.
+* [Debugger Extension](/api/extension-guides/debugger-extension.md) - Uses a mock sample to illustrate the steps required to create a VS Code debug extension.
 
 ## Common questions
 

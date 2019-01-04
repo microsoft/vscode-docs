@@ -622,7 +622,7 @@ To learn about VS Code's task running support, go to:
 
 To write your own debugger extension, visit:
 
-* [Debuggers](/docs/extensions/example-debuggers.md) - Steps to create a VS Code debug extension starting from a mock sample
+* [Debugger Extension](/api/extension-guides/debugger-extension.md) - Steps to create a VS Code debug extension starting from a mock sample
 
 ## Common questions
 

@@ -351,7 +351,7 @@ In the **Extensions** view, click **Show Recommended Extensions** in the **More 
 
 ### Creating my own extension
 
-Are you interested in creating your own extension? You can learn how to do this in the [extension documentation](/docs/extensions/overview.md), specifically check out the [documentation on contribution points](/docs/extensionAPI/extension-points.md).
+Are you interested in creating your own extension? You can learn how to do this in the [Extension API documentation](/api), specifically check out the [documentation on contribution points](/api/references/contribution-points.md).
 
 * configuration
 * commands
