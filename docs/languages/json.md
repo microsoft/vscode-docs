@@ -124,13 +124,13 @@ To map a schema that is defined in the User or Workspace settings, use the `sche
 
 ### Mapping a Schema in an Extension
 
-Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/api/references/contribution-points.md#contributes.jsonValidation
-n).
+Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/api/references/contribution-points.md#contributes.jsonValidation).
 
 ### Define Snippets in JSON Schemas
 
-JSON schemas describe the shape of the JSON file, as well as value sets and default values which are used by the JSON language support to provide completion proposals.
-If you are a schema author and want to provide even more customized completion proposals, you can also specify snippets in the schema. The following example shows a schema for a key binding settings file defining a snippet:
+JSON schemas describe the shape of the JSON file, as well as value sets and default values which are used by the JSON language support to provide completion proposals. If you are a schema author and want to provide even more customized completion proposals, you can also specify snippets in the schema.
+
+The following example shows a schema for a key binding settings file defining a snippet:
 
 ```json
 {
