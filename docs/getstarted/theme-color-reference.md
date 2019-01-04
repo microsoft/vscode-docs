@@ -208,6 +208,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.inactiveModifiedBorder`: Border on the top of modified (dirty) inactive tabs in an active group.
 - `tab.unfocusedActiveModifiedBorder`: Border on the top of modified (dirty) active tabs in an unfocused group.
 - `tab.unfocusedInactiveModifiedBorder`: Border on the top of modified (dirty) inactive tabs in an unfocused group.
+- `editorPane.background`: Background color of the editor pane visible on the left and right side of the centered editor layout.
 
 ## Editor colors
 
@@ -336,7 +337,7 @@ Errors and warnings:
 Unused source code:
 
 - `editorUnnecessaryCode.border`: Border of unnecessary (unused) source code in the editor.
-- `editorUnnecessaryCode.opacity`: Opacity of unnecessary (unused) source code in the editor.
+- `editorUnnecessaryCode.opacity`: Opacity of unnecessary (unused) source code in the editor. For example, `"#000000c0"` will render the code with 75% opacity.
 
 The gutter contains the glyph margins and the line numbers:
 
@@ -551,6 +552,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 
 ## Welcome page
 
+- `welcomePage.background`: Background color for the Welcome page.
 - `welcomePage.buttonBackground`: Background color for the buttons on the Welcome page.
 - `welcomePage.buttonHoverBackground`: Hover background color for the buttons on the Welcome page.
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
@@ -590,6 +592,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 The theme colors for breadcrumbs navigation:
 
 - `breadcrumb.foreground`: Color of breadcrumb items.
+- `breadcrumb.background`: Background color of breadcrumb items.
 - `breadcrumb.focusForeground`: Color of focused breadcrumb items.
 - `breadcrumb.activeSelectionForeground`: Color of selected breadcrumb items.
 - `breadcrumbPicker.background`: Background color of breadcrumb item picker.
