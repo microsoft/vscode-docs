@@ -336,8 +336,8 @@ Errors and warnings:
 
 Unused source code:
 
-- `editorUnnecessaryCode.border`: Border of unnecessary (unused) source code in the editor.
-- `editorUnnecessaryCode.opacity`: Opacity of unnecessary (unused) source code in the editor. For example, `"#000000c0"` will render the code with 75% opacity.
+- `editorUnnecessaryCode.border`: Border color of unnecessary (unused) source code in the editor.
+- `editorUnnecessaryCode.opacity`: Opacity of unnecessary (unused) source code in the editor. For example, `"#000000c0"` will render the code with 75% opacity. For high contrast themes, use the `"editorUnnecessaryCode.border"` theme color to underline unnecessary code instead of fading it out.
 
 The gutter contains the glyph margins and the line numbers:
 
