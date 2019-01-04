@@ -724,7 +724,7 @@ The best way to solve this is to make your webview stateless. Use [message passi
 Scripts running inside a webview can use the `getState` and `setState` methods to save off and restore a JSON serializable state object. This state is persisted even the webview content itself is destroyed when a webview panel becomes hidden. The state is destroyed when the webview panel is destroyed.
 
 ```js
-// Inside  a webview script
+// Inside a webview script
 const vscode = acquireVsCodeApi();
 
 const counter = document.getElementById('lines-of-code-counter');
