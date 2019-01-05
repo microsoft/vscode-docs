@@ -129,7 +129,7 @@ Examples:
         "group": "inline"
       },
       {
-        "command": "nodeDependencies.deletentry",
+        "command": "nodeDependencies.deleteEntry",
         "when": "view == nodeDependencies && viewItem == dependency"
       }
     ]
