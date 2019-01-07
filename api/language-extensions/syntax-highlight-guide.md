@@ -20,7 +20,7 @@ This document only discusses the first part: breaking text into tokens and scope
 
 ## TextMate grammars
 
-VS Code uses [TextMate grammars][tm-grammars] to break text into a list of tokens. TextMate grammars are a structured collection of [ruby regular expressions](https://macromates.com/manual/en/regular_expressions) and are typically written as a plist or json. You can find a good introduction to TextMate grammars [here](http://www.apeth.com/nonblog/stories/TextMatebundle.html), and you can take a look at existing TextMate grammars to learn more about how they work.
+VS Code uses [TextMate grammars][tm-grammars] to break text into a list of tokens. TextMate grammars are a structured collection of [ruby regular expressions](https://macromates.com/manual/en/regular_expressions) and are typically written as a plist or json. You can find a good introduction to TextMate grammars [here](https://www.apeth.com/nonblog/stories/textmatebundle.html), and you can take a look at existing TextMate grammars to learn more about how they work.
 
 ### Tokens and scopes
 
