@@ -144,7 +144,20 @@ This can be configured using the `terminal.integrated.rightClickBehavior` settin
 
 ### Forcing key bindings to pass through the terminal
 
-While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose key bindings will skip processing by the shell and instead be processed by the VS Code key binding system. By default, this includes all terminal key bindings in addition to a select few commonly used key bindings.
+While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands which skip being processed by the shell and instead get sent to the VS Code keybinding system, the `terminal.integrated.commandsToSkipShell` setting can be used to customize this. Commands can then be added to this list by adding the command name to the list, and removed by adding the command name to the list prefixed with a `-`.
+
+```js
+{
+  "terminal.integrated.commandsToSkipShell": [
+    // Ensure the toggle sidebar visibility keybinding skips the shell
+    "workbench.action.toggleSidebarVisibility"
+    // Send quick open's keybinding to the shell
+    "-workbench.action.quickOpen",
+  ]
+}
+```
+
+Look at the setting details to see the complete list of default commands.
 
 ### Find
 
