@@ -17,7 +17,7 @@ A View Container contains a list of views that is displayed next to the built-in
 
 ![View Container](images/tree-view/view-container.png)
 
-To contribute a View Container, you should first register it using [`contributes.viewContainers`](/api/references/contribution-points#contributes.viewsContainers) Contribution Point in `package.json`. You have to specify following required fields:
+To contribute a View Container, you should first register it using [`contributes.viewsContainers`](/api/references/contribution-points#contributes.viewsContainers) Contribution Point in `package.json`. You have to specify following required fields:
 
 - `id`: The name of the new view container you're creating
 - `title`: The name which will show up at the top of the view container
@@ -25,7 +25,7 @@ To contribute a View Container, you should first register it using [`contributes
 
 ```json
 "contributes": {
-  "viewContainers": {
+  "viewsContainers": {
     "activitybar": [
       {
         "id": "package-explorer",
