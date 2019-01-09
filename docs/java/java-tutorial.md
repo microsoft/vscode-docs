@@ -78,7 +78,7 @@ Now you've seen how easy it is to write a simple Java program with Visual Studio
 
 * [Editing Java](/docs/java/java-editing.md) explains how to navigate and edit Java in more details.
 * [Debugging](/docs/java/java-debugging.md) illustrates all the key features provided for Java debug.
-* [Testing](/docs/java/java-resting.md) provides comprehensive supports for JUnit and TestNG framework.
+* [Testing](/docs/java/java-testing.md) provides comprehensive supports for JUnit and TestNG framework.
 * [Java Project Management](/docs/java/java-project.md) shows you how it provides you a project view and works with Maven.
 * [Spring Boot Support](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great support for Spring Boot, Tomcat, and Jetty.
 
