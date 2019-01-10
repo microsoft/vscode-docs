@@ -66,21 +66,24 @@ The community is continually developing more and more valuable extensions for Un
 
 The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-## Adding code completion to visual code
+## Adding code completion to visual code (For recent version of Unity)
 
-open **visual studio** **NOT** visual studio code.
+If you are installing VSCode for the first time you might be missing targeting packs which unlocks Unitys code-completion in VSCode.
 
-At the start page of your visual studio 'your edition here'
+First Unity 2017.x releases started to reference .NET 4.6 assemblies then switched to 4.7.x after, so if do not know what to target version to go for, you are safe to go for one of those.
 
-1. select top menu > **Tools** > **Get tools and features**
-2. click top tab > **individual components**
-3. select **all** > **.net 4.5.x targeting packs**
-4. click > **modify**
-5. proceed and allow the install to finish.
-6. close down visual studio that was reopened.
-7. start unity
-8. right click your assets folder and click `open c# project`
-9. following all these steps in addition to the previously setup steps of visual code + unity you should now have code completion
+Here are the provided links to aquire the targeting packs:
+
+* [For the targeting pack on Windows: Microsoft .NET Framework 4.6 Targeting Pack for Windows](https://www.microsoft.com/en-us/download/details.aspx?id=48136)
+* [For the .NET SDK on MacOS: Download and install the .NET, Software Development Kit](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial#macos)
+
+Steps:
+
+1. Preferred to not have either VSCode or Unity running.
+2. Download and install the targeting pack that relates to your targeted framework version / preferred version from one of the above links.
+2. Start unity
+3. Create and/or open an existing script in VSCode, through unity.
+4. Following all these steps in addition to the previously setup steps of visual code + unity you should now have code completion functioning now.
 
 ## Next steps
 
