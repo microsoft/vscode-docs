@@ -70,12 +70,10 @@ The extensions shown above are dynamically queried. Click on an extension tile a
 
 If you are installing VSCode for the first time you might be missing targeting packs which unlocks Unitys code-completion in VSCode.
 
-First Unity 2017.x releases started to reference .NET 4.6 assemblies then switched to 4.7.x after, so if do not know what to target version to go for, you are safe to go for one of those.
-
 Here are the provided links to aquire the targeting packs:
 
-* [For the targeting pack on Windows: Microsoft .NET Framework 4.6 Targeting Pack for Windows](https://www.microsoft.com/en-us/download/details.aspx?id=48136)
-* [For the .NET SDK on MacOS: Download and install the .NET, Software Development Kit](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial#macos)
+* [For the targeting pack on Windows: .NET Framework 4.6](https://www.microsoft.com/en-us/download/details.aspx?id=48136)
+* [For the .NET SDK on MacOS: Download the .NET SDK](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial#macos)
 
 Steps:
 
