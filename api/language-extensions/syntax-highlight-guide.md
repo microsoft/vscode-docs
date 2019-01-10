@@ -153,7 +153,7 @@ The `embeddedLanguages` contribution point maps a scope in the embedded language
         "grammars": [
             {
                 "path": "./syntaxes/abc.tmLanguage.json",
-                "scopeName": "souce.abc",
+                "scopeName": "source.abc",
                 "embeddedLanguages": {
                     "meta.embedded.block.javascript": "source.js"
                 }
