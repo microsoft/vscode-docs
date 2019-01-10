@@ -124,17 +124,17 @@ a
 The example grammar produces the following scopes (listed left-to-right from most specific to least specific scope):
 
 ```
-a               keyword.letter, souce.abc
-(               punctuation.paren.open, expression.group, souce.abc
-    b           expression.group, souce.abc
-)               punctuation.paren.close, expression.group, souce.abc
+a               keyword.letter, source.abc
+(               punctuation.paren.open, expression.group, source.abc
+    b           expression.group, source.abc
+)               punctuation.paren.close, expression.group, source.abc
 x               source.abc
-(               punctuation.paren.open, expression.group, souce.abc
-    (           punctuation.paren.open, expression.group, expression.group, souce.abc
-        c       keyword.letter, expression.group, expression.group, souce.abc
-        xyz     expression.group, expression.group, souce.abc
-    )           punctuation.paren.close, expression.group, expression.group, souce.abc
-)               punctuation.paren.close, expression.group, souce.abc
+(               punctuation.paren.open, expression.group, source.abc
+    (           punctuation.paren.open, expression.group, expression.group, source.abc
+        c       keyword.letter, expression.group, expression.group, source.abc
+        xyz     expression.group, expression.group, source.abc
+    )           punctuation.paren.close, expression.group, expression.group, source.abc
+)               punctuation.paren.close, expression.group, source.abc
 (               source.abc
 a               keyword.letter, source.abc
 ```
