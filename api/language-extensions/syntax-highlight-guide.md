@@ -195,7 +195,7 @@ Remember, if you are contributing a grammar to a language that VS Code already k
 
 ### Using YAML to write a grammar
 
-As a grammar grows more complex, it can become difficult understand and maintain it as json. If you find yourself writing complex regular expressions or needing to add comments to explain aspects of the grammar, consider using yaml to define your grammar instead.
+As a grammar grows more complex, it can become difficult to understand and maintain it as json. If you find yourself writing complex regular expressions or needing to add comments to explain aspects of the grammar, consider using yaml to define your grammar instead.
 
 Yaml grammars have the exact same structure as a json based grammar but allow you to use yaml's more concise syntax, along with features such as multi-line strings and comments.
 
