@@ -168,6 +168,8 @@ See more in [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.m
 
 ### Tune your settings
 
+By default VS Code shows the Settings editor, you can find settings listed below in a search bar, but you can still edit the underlying `settings.json` file by using the **Open Settings (JSON)** command or by changing your default settings editor with the `workbench.settings.editor` setting.
+
 Open User Settings `settings.json`
 
 Keyboard Shortcut: `kb(workbench.action.openSettings)`
