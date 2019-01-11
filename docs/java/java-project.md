@@ -25,11 +25,13 @@ Once a Maven project is loaded, the extension will be activated and it will auto
 
 ### Working with POM.xml
 
-The extension enables you to generate effective POM.
+The extension provides code snippets and auto completion for adding maven dependencies based on local maven repository. See how easy it is to add a new dependency to your pom.xml with those convenient features.
+
+![POM Editing Assistance](images/java-project/maven-pom-editing.gif)
+
+The extension also enables you to generate effective POM.
 
 ![Generate Effective POM](images/java-project/maven-effective-pom.gif)
-
-[comment]:# (editing POM.xml)
 
 ### Execute Maven commands and goals
 
