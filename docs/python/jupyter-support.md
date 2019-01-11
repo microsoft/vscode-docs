@@ -68,6 +68,22 @@ If you open the file without importing, it appears as plain text.
 
 > **Note:** The first time you run code in a notebook file, the Python extension starts a Jupyter server. It may take some time for the server to start up and for the **Python Interactive** window to appear with the results of the code.
 
+## Debug a Jupyter notebook
+
+The Visual Studio Code debugger lets you step through your code, set breakpoints, examine state, and analyze problems. Using the debugger is a helpful way to find and correct issues in notebook code.
+
+1. In VS Code, activate a Python environment in which Jupyter is installed, as described at the beginning of this article.
+
+1. Import the notebook's *.ipynb* file into VS Code as described in the previous section. (Download the file first if you're using a cloud-based Jupyter environment such as [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).)
+
+1. Follow the instructions to configure and run the debugger as described on [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger), using your imported *.ipynb* file, of course, and setting a breakpoint in an appropriate location in your notebook code.
+
+1. To familiarize yourself with the general debugging features of VS Code, such as inspecting variables, setting breakpoints, and other activities, review [VS Code debugging](/docs/editor/debugging.md).
+
+1. As you find issues, stop the debugger, correct your code, save the file, and run the debugger again.
+
+1. When you're satisfied that all your code is correct. Save the file, then export the notebook as described in the following section. You can then upload the notebook to your normal Jupyter environment.
+
 ## Export a Jupyter notebook
 
 In addition to opening a Jupyter notebook, you can also use one of the following commands from the Command Palette (`kb(workbench.action.showCommands)`) to export content from VS Code to a Jupyter notebook (with the `.ipynb` extension).
@@ -76,4 +92,4 @@ In addition to opening a Jupyter notebook, you can also use one of the following
 - **Python: Export Current Python File and Output as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file and includes output from code cells.
 - **Python: Export Python Interactive window as Jupyter Notebook**: creates a Jupyter notebook from the contents of the Python interactive window.
 
-After exporting the contents, VS Code displays a prompt through whcih you can open the notebook in a browser.
+After exporting the contents, VS Code displays a prompt through which you can open the notebook in a browser.
