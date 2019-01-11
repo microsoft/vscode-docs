@@ -229,17 +229,17 @@ Selection colors are visible when selecting one or more characters. In addition 
 
 - `editor.selectionBackground`: Color of the editor selection.
 - `editor.selectionForeground`: Color of the selected text for high contrast.
-- `editor.inactiveSelectionBackground`: Color of the selection in an inactive editor. The color must not be opaque to not hide underlying decorations.
-- `editor.selectionHighlightBackground`: Color for regions with the same content as the selection. The color must not be opaque to not hide underlying decorations.
+- `editor.inactiveSelectionBackground`: Color of the selection in an inactive editor. The color must not be opaque so as not to hide underlying decorations.
+- `editor.selectionHighlightBackground`: Color for regions with the same content as the selection. The color must not be opaque so as not to hide underlying decorations.
 - `editor.selectionHighlightBorder`: Border color for regions with the same content as the selection.
 
 Word highlight colors are visible when the cursor is inside a symbol or a word. Depending on the language support available for the file type, all matching references and declarations are highlighted and read and write accesses get different colors. If document symbol language support is not available, this falls back to word highlighting.
 
 ![occurrences](images/theme-color-reference/occurrences.png)
 
-- `editor.wordHighlightBackground`: Background color of a symbol during read-access, for example when reading a variable. The color must not be opaque to not hide underlying decorations.
+- `editor.wordHighlightBackground`: Background color of a symbol during read-access, for example when reading a variable. The color must not be opaque so as not to hide underlying decorations.
 - `editor.wordHighlightBorder`: Border color of a symbol during read-access, for example when reading a variable.
-- `editor.wordHighlightStrongBackground`: Background color of a symbol during write-access, for example when writing to a variable. The color must not be opaque to not hide underlying decorations.
+- `editor.wordHighlightStrongBackground`: Background color of a symbol during write-access, for example when writing to a variable. The color must not be opaque so as not to hide underlying decorations.
 - `editor.wordHighlightStrongBorder`: Border color of a symbol during write-access, for example when writing to a variable.
 
 Find colors depend on the current find string in the Find/Replace dialog.
@@ -247,8 +247,8 @@ Find colors depend on the current find string in the Find/Replace dialog.
 ![Find matches](images/theme-color-reference/findmatches.png)
 
 - `editor.findMatchBackground`: Color of the current search match.
-- `editor.findMatchHighlightBackground`: Color of the other search matches. The color must not be opaque to not hide underlying decorations.
-- `editor.findRangeHighlightBackground`: Color the range limiting the search (Enable 'Find in Selection' in the find widget). The color must not be opaque to not hide underlying decorations.
+- `editor.findMatchHighlightBackground`: Color of the other search matches. The color must not be opaque so as not to hide underlying decorations.
+- `editor.findRangeHighlightBackground`: Color the range limiting the search (Enable 'Find in Selection' in the find widget). The color must not be opaque so as not to hide underlying decorations.
 - `editor.findMatchBorder`: Border color of the current search match.
 - `editor.findMatchHighlightBorder`: Border color of the other search matches.
 - `editor.findRangeHighlightBorder`: Border color the range limiting the search (Enable 'Find in Selection' in the find widget).
@@ -257,7 +257,7 @@ The hover highlight is shown behind the symbol for which a hover is shown.
 
 ![Hover Highlight](images/theme-color-reference/hoverhighlight.png)
 
-- `editor.hoverHighlightBackground`: Highlight below the word for which a hover is shown. The color must not be opaque to not hide underlying decorations.
+- `editor.hoverHighlightBackground`: Highlight below the word for which a hover is shown. The color must not be opaque so as not to hide underlying decorations.
 
 The current line is typically shown as either background highlight or a border (not both).
 
@@ -276,7 +276,7 @@ The range highlight is visible when selecting a search result.
 
 ![Range Highlight](images/theme-color-reference/rangehighlight.png)
 
-- `editor.rangeHighlightBackground`: Background color of highlighted ranges, used by Quick Open, Symbol in File and Find features. The color must not be opaque to not hide underlying decorations.
+- `editor.rangeHighlightBackground`: Background color of highlighted ranges, used by Quick Open, Symbol in File and Find features. The color must not be opaque so as not to hide underlying decorations.
 - `editor.rangeHighlightBorder`: Background color of the border around highlighted ranges.
 
 To see the editor white spaces, enable **Toggle Render Whitespace**.
@@ -310,11 +310,11 @@ Overview ruler:
 This ruler is located beneath the scroll bar on the right edge of the editor and gives an overview of the decorations in the editor.
 
 - `editorOverviewRuler.border`: Color of the overview ruler border.
-- `editorOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches. The color must not be opaque to not hide underlying decorations.
-- `editorOverviewRuler.rangeHighlightForeground`: Overview ruler marker color for highlighted ranges, like by the Quick Open, Symbol in File and Find features. The color must not be opaque to not hide underlying decorations.
-- `editorOverviewRuler.selectionHighlightForeground`: Overview ruler marker color for selection highlights. The color must not be opaque to not hide underlying decorations.
-- `editorOverviewRuler.wordHighlightForeground`: Overview ruler marker color for symbol highlights. The color must not be opaque to not hide underlying decorations.
-- `editorOverviewRuler.wordHighlightStrongForeground`: Overview ruler marker color for write-access symbol highlights. The color must not be opaque to not hide underlying decorations.
+- `editorOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches. The color must not be opaque so as not to hide underlying decorations.
+- `editorOverviewRuler.rangeHighlightForeground`: Overview ruler marker color for highlighted ranges, like by the Quick Open, Symbol in File and Find features. The color must not be opaque so as not to hide underlying decorations.
+- `editorOverviewRuler.selectionHighlightForeground`: Overview ruler marker color for selection highlights. The color must not be opaque so as not to hide underlying decorations.
+- `editorOverviewRuler.wordHighlightForeground`: Overview ruler marker color for symbol highlights. The color must not be opaque so as not to hide underlying decorations.
+- `editorOverviewRuler.wordHighlightStrongForeground`: Overview ruler marker color for write-access symbol highlights. The color must not be opaque so as not to hide underlying decorations.
 - `editorOverviewRuler.modifiedForeground`: Overview ruler marker color for modified content.
 - `editorOverviewRuler.addedForeground`: Overview ruler marker color for added content.
 - `editorOverviewRuler.deletedForeground`: Overview ruler marker color for deleted content.
@@ -350,9 +350,9 @@ The gutter contains the glyph margins and the line numbers:
 
 For coloring inserted and removed text, use either a background or a border color but not both.
 
-- `diffEditor.insertedTextBackground`: Background color for text that got inserted. The color must not be opaque to not hide underlying decorations.
+- `diffEditor.insertedTextBackground`: Background color for text that got inserted. The color must not be opaque so as not to hide underlying decorations.
 - `diffEditor.insertedTextBorder`: Outline color for the text that got inserted.
-- `diffEditor.removedTextBackground`: Background color for text that got removed. The color must not be opaque to not hide underlying decorations.
+- `diffEditor.removedTextBackground`: Background color for text that got removed. The color must not be opaque so as not to hide underlying decorations.
 - `diffEditor.removedTextBorder`: Outline color for text that got removed.
 - `diffEditor.border`: Border color between the two text editors.
 
@@ -412,13 +412,13 @@ Merge conflict decorations are shown when the editor contains special diff range
 
 ![Merge ranges](images/theme-color-reference/merge-ranges.png)
 
-- `merge.currentHeaderBackground`: Current header background in inline merge conflicts. The color must not be opaque to not hide underlying decorations.
-- `merge.currentContentBackground`: Current content background in inline merge conflicts. The color must not be opaque to not hide underlying decorations.
-- `merge.incomingHeaderBackground`: Incoming header background in inline merge conflicts. The color must not be opaque to not hide underlying decorations.
-- `merge.incomingContentBackground`: Incoming content background in inline merge conflicts. The color must not be opaque to not hide underlying decorations.
+- `merge.currentHeaderBackground`: Current header background in inline merge conflicts. The color must not be opaque so as not to hide underlying decorations.
+- `merge.currentContentBackground`: Current content background in inline merge conflicts. The color must not be opaque so as not to hide underlying decorations.
+- `merge.incomingHeaderBackground`: Incoming header background in inline merge conflicts. The color must not be opaque so as not to hide underlying decorations.
+- `merge.incomingContentBackground`: Incoming content background in inline merge conflicts. The color must not be opaque so as not to hide underlying decorations.
 - `merge.border`: Border color on headers and the splitter in inline merge conflicts.
-- `merge.commonContentBackground`: Common ancestor content background in inline merge-conflicts. The color must not be opaque to not hide underlying decorations.
-- `merge.commonHeaderBackground`: Common ancestor header background in inline merge-conflicts. The color must not be opaque to not hide underlying decorations.
+- `merge.commonContentBackground`: Common ancestor content background in inline merge-conflicts. The color must not be opaque so as not to hide underlying decorations.
+- `merge.commonHeaderBackground`: Common ancestor header background in inline merge-conflicts. The color must not be opaque so as not to hide underlying decorations.
 - `editorOverviewRuler.currentContentForeground`: Current overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.commonContentForeground`: Common ancestor overview ruler foreground for inline merge conflicts.
