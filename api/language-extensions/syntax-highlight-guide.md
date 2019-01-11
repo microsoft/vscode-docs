@@ -124,17 +124,17 @@ a
 The example grammar produces the following scopes (listed left-to-right from most specific to least specific scope):
 
 ```
-a               keyword.letter, souce.abc
-(               punctuation.paren.open, expression.group, souce.abc
-    b           expression.group, souce.abc
-)               punctuation.paren.close, expression.group, souce.abc
+a               keyword.letter, source.abc
+(               punctuation.paren.open, expression.group, source.abc
+    b           expression.group, source.abc
+)               punctuation.paren.close, expression.group, source.abc
 x               source.abc
-(               punctuation.paren.open, expression.group, souce.abc
-    (           punctuation.paren.open, expression.group, expression.group, souce.abc
-        c       keyword.letter, expression.group, expression.group, souce.abc
-        xyz     expression.group, expression.group, souce.abc
-    )           punctuation.paren.close, expression.group, expression.group, souce.abc
-)               punctuation.paren.close, expression.group, souce.abc
+(               punctuation.paren.open, expression.group, source.abc
+    (           punctuation.paren.open, expression.group, expression.group, source.abc
+        c       keyword.letter, expression.group, expression.group, source.abc
+        xyz     expression.group, expression.group, source.abc
+    )           punctuation.paren.close, expression.group, expression.group, source.abc
+)               punctuation.paren.close, expression.group, source.abc
 (               source.abc
 a               keyword.letter, source.abc
 ```
@@ -153,7 +153,7 @@ The `embeddedLanguages` contribution point maps a scope in the embedded language
         "grammars": [
             {
                 "path": "./syntaxes/abc.tmLanguage.json",
-                "scopeName": "souce.abc",
+                "scopeName": "source.abc",
                 "embeddedLanguages": {
                     "meta.embedded.block.javascript": "source.js"
                 }
@@ -195,7 +195,7 @@ Remember, if you are contributing a grammar to a language that VS Code already k
 
 ### Using YAML to write a grammar
 
-As a grammar grows more complex, it can become difficult understand and maintain it as json. If you find yourself writing complex regular expressions or needing to add comments to explain aspects of the grammar, consider using yaml to define your grammar instead.
+As a grammar grows more complex, it can become difficult to understand and maintain it as json. If you find yourself writing complex regular expressions or needing to add comments to explain aspects of the grammar, consider using yaml to define your grammar instead.
 
 Yaml grammars have the exact same structure as a json based grammar but allow you to use yaml's more concise syntax, along with features such as multi-line strings and comments.
 
