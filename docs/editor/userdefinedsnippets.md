@@ -133,6 +133,11 @@ For inserting the current date and time:
 * `CURRENT_SECOND` The current second
 
 
+For inserting line or block comments, honoring the current language:
+* `BLOCK_COMMENT_START ` output: in PHP `/*` or in HTML `<!--` and ...
+* `BLOCK_COMMENT_END ` output: in PHP `*/` or in HTML `-->` and ...
+
+
 ### Variable transforms
 
 Transformations allow you to modify the value of a variable before it is inserted. The definition of a transformation consists of three parts:
