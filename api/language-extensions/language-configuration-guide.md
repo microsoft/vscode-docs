@@ -60,7 +60,7 @@ Here is a [Language Configuration Sample](https://github.com/Microsoft/vscode-ex
 	},
 	"wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)",
 	"indentationRules": {
-		"increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$",
+		"increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*))$",
 		"decreaseIndentPattern": "^((?!.*?\\/\\*).*\\*\/)?\\s*[\\}\\]].*$"
 	}
 }
@@ -201,7 +201,7 @@ In VS Code, there are three kinds of folding:
 ```json
 {
 	"indentationRules": {
-		"increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$",
+		"increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*))$",
 		"decreaseIndentPattern": "^((?!.*?\\/\\*).*\\*\/)?\\s*[\\)\\}\\]].*$"
 	}
 }
