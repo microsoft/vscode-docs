@@ -38,7 +38,7 @@ Parent scope information is also used for theming. When a theme targets a scope,
 
 ### Contributing a basic grammar
 
-VS Code supports json TextMate grammars. These are contributed through the `grammars` [contribution point](api/references/contribution-points).
+VS Code supports json TextMate grammars. These are contributed through the `grammars` [contribution point](/api/references/contribution-points).
 
 Each grammar contribution specifies: the identifier of the language the grammar applies to, the top level scope name for the tokens of the grammar, and the relative path to a grammar file. The example below shows a grammar contribution for a fictional `abc` language:
 

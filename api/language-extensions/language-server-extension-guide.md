@@ -95,7 +95,7 @@ The above installs all dependencies and opens the **lsp-sample** workspace conta
 
 Let's first take a look at `/package.json`, which describes the capabilities of the Language Client. There are three interesting sections:
 
-First look the [`activationEvents`](api/references/activation-events):
+First look the [`activationEvents`](/api/references/activation-events):
 
 ```json
 "activationEvents": [
