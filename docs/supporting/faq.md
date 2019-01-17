@@ -98,7 +98,7 @@ If you have updated to macOS 10.14 (Mojave), you might have noticed that fonts i
 A workaround for this is to run:
 
 ```bash
-defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+defaults write com.microsoft.VSCode.helper CGFontRenderingFontSmoothingDisabled -bool NO
 ```
 
 from a terminal followed by restarting your computer.
