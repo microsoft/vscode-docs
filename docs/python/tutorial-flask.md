@@ -347,7 +347,7 @@ In this section you create a single page using a template. In the sections that 
         </head>
         <body>
             {%if name %}
-                <strong>Hello there, {{ name }}!</strong> It's {{ date.strftime("%A, %d %B, %Y at %X") }}.
+                <strong>Hello there, \{{ name }}!</strong> It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
             {% else %}
                 What's your name? Provide it after /hello/ in the URL.
             {% endif %}
@@ -404,7 +404,7 @@ The following sections demonstrate both types of static files.
 
     ```html
     {%if name %}
-        <span class="message">Hello there, {{ name }}!</span> It's {{ date.strftime("%A, %d %B, %Y at %X") }}.
+        <span class="message">Hello there, \{{ name }}!</span> It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
     {% else %}
         <span class="message">What's your name? Provide it after /hello/ in the URL.</span>
     {% endif %}
