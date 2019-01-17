@@ -90,7 +90,7 @@ Yes you can! Check out the [example language server](/api/language-extensions/la
 
 ### What if I don't want to create a full language service, can I reuse existing TextMate bundles?
 
-Yes, you can also add support for your favorite language through TextMate colorizers. See the[Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide.md) in the Extension API section to learn how to integrate TextMate `.tmLanguage` syntax files into VS Code.
+Yes, you can also add support for your favorite language through TextMate colorizers. See the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide.md) in the Extension API section to learn how to integrate TextMate `.tmLanguage` syntax files into VS Code.
 
 ### Can I map additional file extensions to a language?
 
