@@ -341,7 +341,7 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 }
 ```
 
-For a full walkthrough on how to integrate a `debugger`, go to [Debuggers](/docs/extensions/example-debuggers).
+For a full walkthrough on how to integrate a `debugger`, go to [Debugger Extension](/api/extension-guides/debugger-extension).
 
 ## contributes.breakpoints
 

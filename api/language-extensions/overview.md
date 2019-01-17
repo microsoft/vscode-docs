@@ -45,7 +45,7 @@ Programmatic Language Features include auto completion, error checking, and jump
 - Refactoring
 - Folding
 
-For a complete list of Programmatic Language Features, see [Language Features](/api/language-extensions/language-features).
+Here is a complete list of [Programmatic Language Features](/api/language-extensions/programmatic-language-features).
 
 ![multi-ls](images/overview/multi-ls.png)
 
@@ -53,7 +53,7 @@ For a complete list of Programmatic Language Features, see [Language Features](/
 
 By standardizing the communication between a Language Server (a static code analysis tool) and a Language Client (usually a source code editor), the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) allows extension authors to write one code analysis program and reuse it in multiple editors.
 
-In the [Language Features](/api/language-extensions/language-features) listing, you can find a listing of all VS Code language features and how they map to the [Language Server Protocol Specification](https://microsoft.github.io/language-server-protocol/specification).
+In the [Programmatic Language Features](/api/language-extensions/programmatic-language-features) listing, you can find a listing of all VS Code language features and how they map to the [Language Server Protocol Specification](https://microsoft.github.io/language-server-protocol/specification).
 
 We offer an in-depth guide that explains how to implement a Language Server extension in VS Code:
 

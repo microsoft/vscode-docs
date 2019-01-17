@@ -15,7 +15,7 @@ In the [Your First Extension](/api/get-started/your-first-extension) topic, you 
 
 This section includes topics that help you develop high-quality VS Code extension. For example, you can learn
 
-- How to add [integration tests](/api/working-with-extensions/testing-extensions) for your extension
+- How to add [integration tests](/api/working-with-extensions/testing-extension) for your extension
 - How to publish your extension to the [VS Code Marketplace](https://marketplace.visualstudio.com/)
 - How to set up [Continuous Integration](/api/working-with-extensions/continuous-integration) for your extension
 

@@ -472,7 +472,7 @@ In production, you also need to set `DEBUG=False` in `settings.py`, which necess
     <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}" />
     ```
 
-1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
+1. Also in `templates/hello/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
 
     ```html
     <span class="message">Hello, there \{{ name }}!</span> It's \{{ date | date:'l, d F, Y' }} at \{{ date | time:'H:i:s' }}.

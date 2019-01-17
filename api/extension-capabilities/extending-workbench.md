@@ -27,9 +27,9 @@ VS Code provides various APIs that allow you to add your own components to the W
 - Editor Group: The built-in [Markdown extension](https://github.com/Microsoft/vscode/tree/master/extensions/markdown-language-features) adds a [Webview](#webview) next to other editors in the Editor Group
 - Status Bar: The [VSCodeVim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) adds a [Status Bar Item](#status-bar-item) in the Status Bar
 
-## View Container
+## Views Container
 
-With the [`contributes.viewContainers`](/api/references/contribution-points#contributes.viewsContainers) Contribution Point, you can add new View Containers that display next to the five built-in View Containers. Learn more at the [Tree View](/api/extension-guides/tree-view) topic.
+With the [`contributes.viewsContainers`](/api/references/contribution-points#contributes.viewsContainers) Contribution Point, you can add new Views Containers that display next to the five built-in Views Containers. Learn more at the [Tree View](/api/extension-guides/tree-view) topic.
 
 ## Tree View
 

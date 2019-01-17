@@ -724,7 +724,7 @@ The best way to solve this is to make your webview stateless. Use [message passi
 Scripts running inside a webview can use the `getState` and `setState` methods to save off and restore a JSON serializable state object. This state is persisted even the webview content itself is destroyed when a webview panel becomes hidden. The state is destroyed when the webview panel is destroyed.
 
 ```js
-// Inside  a webview script
+// Inside a webview script
 const vscode = acquireVsCodeApi();
 
 const counter = document.getElementById('lines-of-code-counter');
@@ -838,5 +838,5 @@ Although `retainContextWhenHidden` may be appealing, keep in mind that this has 
 
 If you'd like to learn more about VS Code extensibility, try these topics:
 
-* [Extending Visual Studio Code](/docs/extensions/overview) - Learn about other ways to extend VS Code
-* [Additional Extension Examples](/docs/extensions/samples) - Take a look at our list of example extension projects.
+* [Extension API](/api) - Learn about the full VS Code Extension API.
+* [Extension Capabilities](/api/extension-capabilities/overview) - Take a look at other ways to extend VS Code.

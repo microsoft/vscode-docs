@@ -21,7 +21,7 @@ In Visual Studio Code, there are two types of themes:
 As you can see in the illustration, Color Theme defines two mappings:
 
 - The `colors` mapping that controls colors for UI Components.
-- The `tokenColors` mapping that controls colors for each source code token (your source code is broken into tokens by a [grammar](http://localhost:3000/api/language-extensions/syntax-highlight-guide)).
+- The `tokenColors` mapping that controls colors for each source code token (your source code is broken into tokens by a [grammar](/api/language-extensions/syntax-highlight-guide)).
 
 We have a [Color Theme Guide](/api/extension-guides/color-theme) and a [Color Theme Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/theme-sample) that illustrates how to create a theme.
 

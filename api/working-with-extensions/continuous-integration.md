@@ -27,7 +27,7 @@ The command will expose some optional environment variables, which you can use t
 
 ## Azure Pipelines
 
-<a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="/assets/api/advanced-topics/continuous-integration/pipelines-logo.png" width="318" /></a>
+<a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="/assets/api/working-with-extensions/continuous-integration/pipelines-logo.png" width="318" /></a>
 
 You can create free projects on [Azure DevOps](https://azure.microsoft.com/services/devops/). This gives you source code hosting, planning boards, building and testing infrastructure, and more. On top of that, you get [10 free parallel jobs](https://azure.microsoft.com/services/devops/pipelines/) for building your projects across all 3 major platforms: Windows, macOS and Linux.
 
@@ -107,7 +107,7 @@ jobs:
       DISPLAY: :10
 ```
 
-Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts#get-your-first-build) in your DevOps project and point it to the `build.yml` file. Trigger a build and voilá:
+Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts#get-your-first-build) in your DevOps project and point it to the `build.yml` file. Trigger a build and voilà:
 
 ![pipelines](images/continuous-integration/pipelines.png)
 

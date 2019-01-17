@@ -17,7 +17,7 @@ A View Container contains a list of views that is displayed next to the built-in
 
 ![View Container](images/tree-view/view-container.png)
 
-To contribute a View Container, you should first register it using [`contributes.viewContainers`](/api/references/contribution-points#contributes.viewsContainers) Contribution Point in `package.json`. You have to specify following required fields:
+To contribute a View Container, you should first register it using [`contributes.viewsContainers`](/api/references/contribution-points#contributes.viewsContainers) Contribution Point in `package.json`. You have to specify following required fields:
 
 - `id`: The name of the new view container you're creating
 - `title`: The name which will show up at the top of the view container
@@ -25,15 +25,15 @@ To contribute a View Container, you should first register it using [`contributes
 
 ```json
 "contributes": {
-    "viewContainers": {
-        "activitybar": [
-            {
-                "id": "package-explorer",
-				"title": "Package Explorer",
-				"icon": "media/dep.svg"
-            }
-        ]
-    }
+  "viewsContainers": {
+    "activitybar": [
+      {
+        "id": "package-explorer",
+        "title": "Package Explorer",
+        "icon": "media/dep.svg"
+      }
+    ]
+  }
 }
 ```
 
@@ -55,15 +55,15 @@ Example:
 
 ```json
 "contributes": {
-    "views": {
-        "package-explorer": [
-            {
-                "id": "nodeDependencies",
-                "name": "Node Dependencies",
-                "when": "explorer"
-            }
-        ]
-    }
+  "views": {
+    "package-explorer": [
+      {
+        "id": "nodeDependencies",
+        "name": "Node Dependencies",
+        "when": "explorer"
+      }
+    ]
+  }
 }
 ```
 
@@ -84,56 +84,56 @@ Examples:
 
 ```json
 "contributes": {
-    "commands": [
-        {
-            "command": "nodeDependencies.refreshEntry",
-            "title": "Refresh",
-            "icon": {
-                "light": "resources/light/refresh.svg",
-                "dark": "resources/dark/refresh.svg"
-            }
-        },
-        {
-            "command": "nodeDependencies.addEntry",
-            "title": "Add"
-        },
-        {
-            "command": "nodeDependencies.editEntry",
-            "title": "Edit",
-            "icon": {
-                "light": "resources/light/edit.svg",
-                "dark": "resources/dark/edit.svg"
-            }
-        },
-        {
-            "command": "nodeDependencies.deleteEntry",
-            "title": "Delete"
-        }
-    ],
-    "menus": {
-        "view/title": [
-            {
-                "command": "nodeDependencies.refreshEntry",
-                "when": "view == nodeDependencies",
-                "group": "navigation"
-            },
-            {
-                "command": "nodeDependencies.addEntry",
-                "when": "view == nodeDependencies"
-            }
-        ],
-        "view/item/context": [
-            {
-                "command": "nodeDependencies.editEntry",
-                "when": "view == nodeDependencies && viewItem == dependency",
-                "group": "inline"
-            },
-            {
-                "command": "nodeDependencies.deletentry",
-                "when": "view == nodeDependencies && viewItem == dependency"
-            }
-        ]
+  "commands": [
+    {
+      "command": "nodeDependencies.refreshEntry",
+      "title": "Refresh",
+      "icon": {
+        "light": "resources/light/refresh.svg",
+        "dark": "resources/dark/refresh.svg"
+      }
+    },
+    {
+      "command": "nodeDependencies.addEntry",
+      "title": "Add"
+    },
+    {
+      "command": "nodeDependencies.editEntry",
+      "title": "Edit",
+      "icon": {
+        "light": "resources/light/edit.svg",
+        "dark": "resources/dark/edit.svg"
+      }
+    },
+    {
+      "command": "nodeDependencies.deleteEntry",
+      "title": "Delete"
     }
+  ],
+  "menus": {
+    "view/title": [
+      {
+        "command": "nodeDependencies.refreshEntry",
+        "when": "view == nodeDependencies",
+        "group": "navigation"
+      },
+      {
+        "command": "nodeDependencies.addEntry",
+        "when": "view == nodeDependencies"
+      }
+    ],
+    "view/item/context": [
+      {
+        "command": "nodeDependencies.editEntry",
+        "when": "view == nodeDependencies && viewItem == dependency",
+        "group": "inline"
+      },
+      {
+        "command": "nodeDependencies.deleteEntry",
+        "when": "view == nodeDependencies && viewItem == dependency"
+      }
+    ]
+  }
 }
 ```
 

@@ -23,12 +23,12 @@ vscode.languages.registerHoverProvider('javascript', {
 });
 ```
 
-As you see above, the [`vscode.languages.registerHoverProvider`](/api/references/vscode-api#languages.registerHoverProvider) API provides an easy way to provide hover contents to JavaScript files. After this extension gets activated, whenever you hover over some JavaScript code, VS Code queries all [`HoverProvider`](/api/references/vscode-api#HoverProvider) for JavaScript and shows the result in a Hover widget. The [Language Feature Listing](#language-features-listing) and illustrated gif below provides an easy way for you to locate which VS Code API / LSP Method you extension needs.
+As you see above, the [`vscode.languages.registerHoverProvider`](/api/references/vscode-api#languages.registerHoverProvider) API provides an easy way to provide hover contents to JavaScript files. After this extension gets activated, whenever you hover over some JavaScript code, VS Code queries all [`HoverProvider`](/api/references/vscode-api#HoverProvider) for JavaScript and shows the result in a Hover widget. The [Language Feature Listing](#language-features-listing) and illustrated gif below provides an easy way for you to locate which VS Code API / LSP Method your extension needs.
 
 An alternative approach is to implement a Language Server that speaks [Language Server Protocol](https://microsoft.github.io/language-server-protocol/). The way it works is:
 
 - An extension provides a Language Client and a Language Server for JavaScript.
-- The Language Client is like any other VS Code extension, running in the Node.js Extension Host context. When it gets activated, it spawns the Language Server in another process and communicate with it through [Language Server Protocol](https://microsoft.github.io/language-server-protocol/).
+- The Language Client is like any other VS Code extension, running in the Node.js Extension Host context. When it gets activated, it spawns the Language Server in another process and communicates with it through [Language Server Protocol](https://microsoft.github.io/language-server-protocol/).
 - You hover over JavaScript code in VS Code
 - VS Code informs the Language Client of the hover
 - The Language Client queries the Language Server for a hover result and sends it back to VS Code

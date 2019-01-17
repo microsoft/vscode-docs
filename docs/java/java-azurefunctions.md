@@ -1,13 +1,13 @@
 ---
-Order: 6
+Order: 9
 Area: java
 TOCTitle: Azure Functions in Java
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
 PageTitle: Building Azure Functions in Java with Visual Studio Code
-DateApproved: 8/13/2018
+DateApproved: 1/2/2019
 MetaDescription: Using Visual Studio Code for developing, debugging and deploying your Java Azure Functions application.
 ---
-# Azure Functions in Java with Visual Studio Code
+# Azure Functions in Java with VS Code
 
 Azure Functions let you execute your source code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
 
@@ -30,7 +30,7 @@ The [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azu
 - Create new Function from template.
 - Debug Function projects locally.
 - View Azure Function Apps.
-- Create, delete, start, stop and restart Azure Function Apps.
+- Create, delete, start, stop, and restart Azure Function Apps.
 - JSON IntelliSense for `function.json`, `host.json` and `proxies.json` files.
 
 In this tutorial, we will leverage this extension to create a Java Azure Functions App. For a more command line Maven-centric experience, you can also check out the [Maven Functions Tutorial](https://docs.microsoft.com/en-gb/azure/azure-functions/functions-create-first-java-maven). The Java support of this extension leverages a lot from the [Maven Plugin for Azure Functions](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-functions-maven-plugin).
@@ -41,7 +41,7 @@ To install the Azure Functions extension, open the Extensions view (`kb(workbenc
 
 Once you've installed the Azure Functions extension, you can easily create a new project by:
 
-1. Click **Create New Project** button on the **AZURE FUNCTIONS** Explorer view.
+1. Click **Create New Project** button on the **FUNCTIONS** Explorer within the **Azure** tab.
 2. Select target folder.
 3. Select Java the target language.
 4. Fill in the parameters.
@@ -60,10 +60,10 @@ public class Function {
     @FunctionName("HttpTrigger-Java")
     public HttpResponseMessage<String> httpHandler(
             @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext context
-    ) {
+            final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
+        // Parse query parameter
         String query = request.getQueryParameters().get("name");
         String name = request.getBody().orElse(query);
 
@@ -227,9 +227,13 @@ The tool will then figure out the rest for you. Once it's connected to the runni
 
 Now you can set a break point and attach to your cloud function using VS Code. When you launch a debug session with the above configuration, you can step through it just like you did locally. It's also useful if you don't have .Net Core and the Azure Functions CLI core tool installed on your local environment and you want to jump start within the cloud directly.
 
+Recently, we've also enabled remote debugging Azure Functions through the Functions Extension. To use this feature, you need to set `azureFunctions.enableRemoteDebugging` to true. And the entrance is called `Attach debugger`. Details could be found [Remote Debugging Java Functions in VS Code](https://github.com/Microsoft/vscode-azurefunctions/blob/master/docs/remotedebug.md).
+
 ## Next steps
 
 You have created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
 
-- Review the [Java Functions developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-java) for more information on developing Java functions.
+- More information on developing Java Functions
+    - [Java Functions developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-java)
+    - [Quickstart with Maven](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-java-maven)
 - To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md).

@@ -49,7 +49,7 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
     "~/.local/lib/Google/google_appengine/lib" ]
 ```
 
-The `python.autocomplete.addBrackets` setting (default false) also determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to true:
+The `python.autocomplete.addBrackets` setting (default `false`) also determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to `true`:
 
 ```json
   "python.autoComplete.addBrackets": true,

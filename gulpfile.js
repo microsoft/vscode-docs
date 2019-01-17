@@ -55,7 +55,15 @@ gulp.task('build-dist', done => {
   $.cd('vscode-website')
   // Run setup to fetch vscode-website-dist
   $.echo('BRANCH is ' + BRANCH)
-  $.exec(`scripts/setup.sh ${GITHUB_TOKEN} ${BRANCH}`)
+  const setup = $.exec(`scripts/setup.sh ${GITHUB_TOKEN} ${BRANCH}`)
+  if (setup.code !== 0) {
+    console.log('Failed to setup')
+    done(setup.stderr)
+  }
   // Run build to sync changes to vscode-website-dist
-  $.exec(`scripts/build.sh ${BRANCH}`)
+  const build = $.exec(`scripts/build.sh ${BRANCH}`)
+  if (build.code !== 0) {
+    console.log('Failed to build')
+    done(build.stderr)
+  }
 })

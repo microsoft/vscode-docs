@@ -41,7 +41,7 @@ On the extension details page, you can read the extension's README as well as re
 
 ![extension contributions](images/extension-gallery/extension-contributions.png)
 
-If an extension is an Extension Pack, the **Dependencies** section will display which extensions will be installed when you install the pack. [Extension Packs](/docs/extensionAPI/extension-manifest.md#extension-packs) bundle separate extensions together so they can be easily installed at one time.
+If an extension is an Extension Pack, the **Dependencies** section will display which extensions will be installed when you install the pack. [Extension Packs](/api/references/extension-manifest.md#extension-packs) bundle separate extensions together so they can be easily installed at one time.
 
 ![extension dependencies](images/extension-gallery/extension-dependencies.png)
 
@@ -169,7 +169,7 @@ Here are the Extensions view filters:
 * `@outdated` - Show outdated installed extensions. A newer version is available on the Marketplace.
 * `@enabled` - Show enabled installed extensions. Extensions can be individually enabled/disabled.
 * `@recommended` - Show recommended extensions. Grouped as Workspace specific or general use.
-* `@category` - Show extensions belonging to specified category. Below are a few of supported categories. For a complete list, type `@category` and follow the options in the suggestion list
+* `@category` - Show extensions belonging to specified category. Below are a few of supported categories. For a complete list, type `@category` and follow the options in the suggestion list:
     * `@category:themes`
     * `@category:formatters`
     * `@category:linters`
@@ -217,7 +217,7 @@ code --install-extension myextension.vsix
 
 You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
 
-If you'd like to learn more about packaging and publishing extensions, see our [Publishing Extensions](/docs/extensions/publish-extension.md) topic in the Extension Authoring section.
+If you'd like to learn more about packaging and publishing extensions, see our [Publishing Extensions](/api/working-with-extensions/publishing-extension.md) topic in the Extension API.
 
 ## Workspace recommended extensions
 
@@ -253,11 +253,9 @@ VS Code prompts a user to install the recommended extensions when a workspace is
 
 Here are a few topics you may find interesting...
 
-* [Publishing to the Marketplace](/docs/extensions/publish-extension.md) - Publish your own extension to the VS Code Marketplace.
-* [Extension Generator](/docs/extensions/yocode.md) - Learn how the `yo code` extension generator can scaffold out a new extension.
-* [Extending Visual Studio Code](/docs/extensions/overview.md) - Start learning about VS Code extensibility.
-* [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension.
-* [Troubleshooting Extensions](/docs/extensions/developing-extensions.md#troubleshooting-extensions) - See our troubleshooting guide if an extension isn't working properly.
+* [Extension API](/api) - Start learning about the VS Code extension API.
+* [Your First Extension](/api/get-started/your-first-extension.md) - Try creating a simple Hello World extension.
+* [Publishing to the Marketplace](/api/working-with-extensions/publishing-extension.md) - Publish your own extension to the VS Code Marketplace.
 
 ## Common questions
 
