@@ -43,19 +43,27 @@ gulp.task('build-dist', done => {
 
   // Copy over MD/asset files
   $.mkdir('vscode-website/vscode-docs')
-  $.cp('-R', ['../blogs', '../docs', '../images', '../release-notes', '../tutorials', '../build'], 'vscode-website/vscode-docs')
+  $.cp('-R', ['../blogs', '../docs', '../images', '../release-notes', '../tutorials', '../build', '../api'], 'vscode-website/vscode-docs')
 
   // Clone tas-client
   $.exec(`git clone ${TAS_URL} vscode-website/tas-client`)
   $.cd('vscode-website/tas-client')
-  $.exec('git checkout tags/v1.4-beta')
+  $.exec('git checkout tags/v1.8-beta')
   $.cd('../..')
 
   // Go to vscode-website
   $.cd('vscode-website')
   // Run setup to fetch vscode-website-dist
   $.echo('BRANCH is ' + BRANCH)
-  $.exec(`scripts/setup.sh ${GITHUB_TOKEN} ${BRANCH}`)
+  const setup = $.exec(`scripts/setup.sh ${GITHUB_TOKEN} ${BRANCH}`)
+  if (setup.code !== 0) {
+    console.log('Failed to setup')
+    done(setup.stderr)
+  }
   // Run build to sync changes to vscode-website-dist
-  $.exec(`scripts/build.sh ${BRANCH}`)
+  const build = $.exec(`scripts/build.sh ${BRANCH}`)
+  if (build.code !== 0) {
+    console.log('Failed to build')
+    done(build.stderr)
+  }
 })

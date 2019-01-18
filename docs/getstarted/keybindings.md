@@ -138,7 +138,7 @@ The following is an example overriding the `kbstyle(Enter)` key to print some te
 
 The type command will receive `{"text": "Hello World"}` as its first argument and add "Hello World" to the file instead of producing the default command.
 
-For more information on commands that take arguments, refer to [Complex Commands](/docs/extensionAPI/vscode-api-commands.md).
+For more information on commands that take arguments, refer to [Built-in Commands](/api/references/commands.md).
 
 ## Removing a specific key binding rule
 
@@ -219,7 +219,7 @@ Accepted scan codes:
 
 VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times.
 
-Below are the some of the possible `when` clause contexts which evaluate to Boolean true/false:
+Below are the some of the possible `when` clause contexts which evaluate to Boolean true/false. For conditional expressions, you can use either equality `==` (`"editorLangId == typescript"`) or inequality `!=` (`"resourceExtname != .js"`).
 
 Context name | True when
 ------------ | ------------
@@ -246,7 +246,6 @@ resourceScheme | True when the resource Uri scheme matches. Example: `"resourceS
 resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
 resourceExtname | True when the Explorer or editor filename extension matches. Example: `"resourceExtname == .js"`
 resourceLangId | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
-resourceIsFile | True if resource is a file.
 **Explorer contexts** |
 explorerViewletVisible | True if Explorer view is visible.
 explorerViewletFocus | True if Explorer view has keyboard focus.

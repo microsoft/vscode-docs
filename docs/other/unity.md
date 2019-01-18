@@ -66,6 +66,22 @@ The community is continually developing more and more valuable extensions for Un
 
 The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
+## Enabling code completion (For recent versions of Unity)
+
+If you are installing VS Code for the first time, you might be missing targeting packs required for Unity's code-completion (IntelliSense) in VS Code.
+
+Targeting pack download links:
+
+* [Windows: .NET Framework 4.6 Targeting Pack](https://www.microsoft.com/en-us/download/details.aspx?id=48136)
+* [macOS: Download .NET SDK](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial#macos)
+
+Steps:
+
+1. Stop VS Code or Unity running.
+2. Download and install the targeting pack for your targeted framework version / preferred version from one of the above links.
+3. Start Unity.
+4. Create and/or open an existing script in VS Code, through Unity, and you should now see code completions.
+
 ## Next steps
 
 Read on to learn more about:

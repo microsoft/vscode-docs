@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 11/26/2018
+DateApproved: 01/14/2019
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -30,7 +30,7 @@ To successfully complete this tutorial, you must do the following:
    - (macOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
    - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
-1. On Windows, make sure the location of your Python interpreter is included in your PATH environment variable. You can check this by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Windows Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include that folder.
+1. On Windows, make sure the location of your Python interpreter (that is, the folder where it's installed, like `c:\python32`) is included in your PATH environment variable. You can check this by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Windows Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include that folder.
 
 1. On MacOS, make sure the location of your VS Code installation is included in your PATH environment variable.  See [the setup instructions](/docs/setup/mac.md#launching-from-the-command-line) for more information.
 
@@ -177,7 +177,7 @@ If you restart the debugger, remember that you set `stopOnEntry` in the configur
 
 To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Debug > Stop debugging** menu command.
 
-For full details, see [Debugging configurations](/docs/python/debugging.md), which includes notes on how to use a use a specific Python interpreter for debugging.
+For full details, see [Debugging configurations](/docs/python/debugging.md), which includes notes on how to use a specific Python interpreter for debugging.
 
 > **Tip: Use Logpoints instead of print statements**: Developers often litter source code with `print` statements to quickly inspect variables without necessarily stepping through each line of code in a debugger. In VS Code, you can instead use **Logpoints**. A Logpoint is like a breakpoint except that it logs a message to the console and doesn't stop the program. For more information, see [Logpoints](/docs/editor/debugging.md#logpoints) in the main VS Code debugging article.
 

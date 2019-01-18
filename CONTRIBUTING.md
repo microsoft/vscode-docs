@@ -93,6 +93,16 @@ Topic metadata enables certain functionalities for the topics such as table of c
 
 Use the full product name "Visual Studio Code" in the topic MetaDescription and the first use in a topic. You can use the shortened "VS Code" after that throughout the rest of the content. Do not use "VSCode" (no space) or "Code".
 
+### Metadata for /api docs
+
+**For Writer**:
+
+* **MetaDescription** - The meta description for this page which helps for search
+
+**For Doc Maintainer**:
+
+* **DateApproved** - This is set when the page is actually published on the VS Code portal.
+
 ## Formatting
 
 ### Headings & Right Nav

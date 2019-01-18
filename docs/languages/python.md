@@ -102,7 +102,11 @@ If you open a [Jupyter notebook](http://jupyter.org/) file (`.ipynb`) in VS Code
 
 ![Jupyter notebook running in VS Code and the Python interactive window](images/python/jupyter.png)
 
-For more information, see [Editing - Jupyter code cells](/docs/python/editing.md#jupyter-code-cells).
+You can also connect to a remote Jupyter server for running the code.
+
+Furthermore, importing a notebook into VS Code allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and opening it again as a notebook in Jupyter or upload to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+
+For more information, see [Jupyter support](/docs/python/jupyter-support.md).
 
 ## Unit testing
 

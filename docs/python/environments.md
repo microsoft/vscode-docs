@@ -1,10 +1,10 @@
 ---
-Order: 5
+Order: 6
 Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 11/08/2018
+DateApproved: 01/17/2019
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -36,7 +36,7 @@ The Python extension uses the selected environment for running Python code (usin
 
 > **Tip**: To prevent automatic activation of a selected environment, add  `"python.terminal.activateEnvironment": false` to your `settings.json` file.
 
-> **Note**: The `python:pythonPath` setting doesn't affect debugging. See [Choose a debugging environment](#choose-a-debugging-environment).
+> **Note**: By default, VS Code uses the interpreter identified by `python:pythonPath` setting when debugging code. You can override this behavior by specifying a different path in the `pythonPath` property of a debug configuration. See [Choose a debugging environment](#choose-a-debugging-environment).
 
 The Status Bar always shows the current interpreter.
 
@@ -64,13 +64,13 @@ Changing interpreters with the **Python: Select Interpreter** command doesn't af
 
 ### Choose a debugging environment
 
-The `python.pythonPath` setting specifies the Python interpreter to use for debugging. Because the setting can exist in `launch.json` as well as workspace and user settings files, the following order of precedence is used:
+By default, the `python.pythonPath` setting specifies the Python interpreter to use for debugging. However, if you have a `pythonPath` property in the debug configuration of `launch.json`, that interpreter is used instead. To be more specific, VS Code applies the following order of precedence when determining which interpreter to use for debugging:
 
-1. `launch.json`
-1. Workspace `settings.json`
-1. User `settings.json`
+1. `pythonPath` property of the selected debug configuration in `launch.json`
+1. `python.pythonPath` setting in the workspace `settings.json`
+1. `python.pythonPath` setting in the user `settings.json`
 
-For more details, see [Debugging](/docs/python/debugging.md).
+For more details on debug configuration, see [Debugging configurations](/docs/python/debugging.md).
 
 ## Where the extension looks for environments
 
@@ -225,13 +225,15 @@ You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, 
 
 ## Use of the PYTHONPATH variable
 
-The [PYTHONPATH](https://docs.python.org/3.7/using/cmdline.html#envvar-PYTHONPATH) environment variable specifies additional locations where the Python interpreter should look for modules. The value of PYTHONPATH can contain multiple path values separated by `os.pathsep` (semicolons on Windows, colons on Linux/macOS). Invalid paths are ignored.
+The [PYTHONPATH](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH) environment variable specifies additional locations where the Python interpreter should look for modules. The value of PYTHONPATH can contain multiple path values separated by `os.pathsep` (semicolons on Windows, colons on Linux/macOS). Invalid paths are ignored.
+
+> **Note**: you must set the PYTHONPATH variable through your operating system as VS Code doesn't provide a means to set environment variables directly.
 
 In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, and any other operation that depends on Python resolving modules. For example, suppose you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this, add the path to `src` to PYTHONPATH.
 
 It's recommended that you set the PYTHONPATH variable in an [Environment variable definitions file](#environment-variable-definitions-file), described earlier.
 
-> **Note**: PYTHONPATH does **not**, repeat **not**, specify a path to a Python interpreter itself, and thus you **never** use it with the `python.pythonPath` setting. Clearly, the environment variable was badly named, but...[c'est la vie](https://www.dictionary.com/browse/c-est-la-vie). So make sure to read the [PYTHONPATH documentation](https://docs.python.org/3.7/using/cmdline.html#envvar-PYTHONPATH) several times and fix in your mind that PYTHONPATH is **not** a path to an interpreter.
+> **Note**: PYTHONPATH does **not**, repeat **not**, specify a path to a Python interpreter itself, and thus you **never** use it with the `python.pythonPath` setting. Clearly, the environment variable was badly named, but...[c'est la vie](https://www.dictionary.com/browse/c-est-la-vie). So make sure to read the [PYTHONPATH documentation](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH) several times and fix in your mind that PYTHONPATH is **not** a path to an interpreter.
 
 ## Next steps
 

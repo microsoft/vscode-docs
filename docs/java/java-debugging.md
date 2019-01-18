@@ -1,18 +1,17 @@
 ---
-Order: 7
+Order: 3
 Area: java
-TOCTitle: Debugging and Testing
+TOCTitle: Debugging
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
-PageTitle: Debugging and Testing Java in Visual Studio Code
-DateApproved: 5/30/2018
-MetaDescription: See how you can debug and test your Java code locally, and in the cloud.
+PageTitle: Java Debug in Visual Studio Code
+DateApproved: 1/2/2019
+MetaDescription: See how you can debug your Java code locally, and in the cloud.
 MetaSocialImage:
 ---
+
 # Debugging Java in Visual Studio Code
 
-Visual Studio Code is great at debugging Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension.
-
-It's a lightweight Java debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug) which extends the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java).
+Visual Studio Code allows you to debug Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension. It's a lightweight Java debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug), which extends the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java).
 
 Here's a list of supported debugging features:
 
@@ -25,13 +24,13 @@ Here's a list of supported debugging features:
 - Call Stacks
 - Threads
 - Debug Console
+- Evaluation
+- Hot Code Replace
 
-The Java debugger is an open source project which welcomes contributors to collaborate through GitHub repositories:
+The Java debugger is an open source project, which welcomes contributors to collaborate through GitHub repositories:
 
 - [Debugger for Java Extension](https://github.com/Microsoft/vscode-java-debug)
 - [Java Debugger Server for Visual Studio Code](https://github.com/Microsoft/java-debug)
-
-To run and debug JUnit test, you can also install the [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extensions, which is another lightweight extension you can use to manage tests in your projects.
 
 ## Install
 
@@ -41,21 +40,29 @@ You can manually install the extension pack from the Extensions view (`kb(workbe
 
 ## Use
 
-It's very easy to run and debug your Java application:
+It's easy to run and debug your Java application as we provide several entry points for that.
 
-- Launch VS Code.
-- Open a Java project (Maven/Gradle/Eclipse).
-- Open a Java file to activate the extensions.
-- (Optional) Add debug configurations and edit the `launch.json` configuration file.
-- Press `kb(workbench.action.debug.start)`.
+### CodeLens
 
-![Java Debugging](images/java-debugging/java-debug.gif)
+Once the debugger is activated, you will find **Run|Debug** on the CodeLens of your `main()` function.
 
-If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application.
+![CodeLens](images/java-debugging/java-codelens.gif)
+
+### Clicking F5
+
+Once you click `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging.
 
 ![Resolving Main Class](images/java-debugging/resolve-main.gif)
 
-You can also configure the `launch.json` yourself to set customized settings or attach to another Java process.
+It's possible that there might be multiple debugging configurations for your project and you can always add and modify those then select the desired one to run.
+
+![Java Debugging](images/java-debugging/java-debug.gif)
+
+If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations). For more details, please read [Launch configurations](/docs/editor/debugging.md#launch-configurations)
+
+There's also a convenient setting for debugging `current file` so the editor knows which file is currently active and choose it as the entry point.
+
+![Java Debugging](images/java-debugging/current-file.gif)
 
 ### Debugging single files
 
@@ -65,7 +72,11 @@ VS Code can run and debug single Java files without any project.
 
 ### Debugging external files
 
-The Java debugger also supports external source files. This lets you debug third party classes when they are inside a JAR or a source attachment. Set your breakpoints in those classes before you start debugging. Java 9 is supported with VS Code as well.
+The Java debugger also supports external source files. This lets you debug third party classes when they are inside a JAR or a source attachment. Set your breakpoints in those classes before you start debugging. You can also attach missing source code with a `zip/jar` file using the Context menu **Attach Source** action.
+
+![Debug Single File](images/java-debugging/attach-source.gif)
+
+Java 9 is supported with VS Code Java Debugger as well.
 
 ![Java 9 Support](images/java-debugging/java9.gif)
 
@@ -81,9 +92,17 @@ Step filter is supported by the extension to filter out types that you do not wi
 
 ![Step Filter](images/java-debugging/step-filter.gif)
 
+### Expression evaluation
+
 The debugger also lets you evaluate expressions in the **WATCH** window as well as the Debug Console. You can also use this feature for conditional breakpoint setting.
 
 ![Expression Evaluation](images/java-debugging/expression-evaluation.gif)
+
+### Conditional breakpoint
+
+With the help of expression evaluation, the debugger also supports conditional breakpoint. You can set your breakpoint to break when expression evaluates to true.
+
+![Conditional Breakpoint](images/java-debugging/conditional-bp.gif)
 
 ### Hot Code replacement
 
@@ -91,30 +110,38 @@ Another advanced feature the debugger supports is 'Hot Code' replacement. Hot co
 
 ![Hot Code Replacement](images/java-debugging/hcr.gif)
 
+### Logpoints
+
+[Logpoints](/blogs/2018/07/12/introducing-logpoints-and-auto-attach.md#introducing-logpoints) is also supported by Java Debugger. Logpoints allow you to send output to debug console without editing code. They’re different from breakpoints because they don’t stop the execution flow of your application.
+
+![Hot Code Replacement](images/java-debugging/logpoints.gif)
+
 ## Configuration
 
 There are many options and settings available to configure the debugger. For example, configuring the current working directory (cwd) and environment variables is easily done with launch options.
 
 ![Configure Variables](images/java-debugging/cwd-env.gif)
 
-Consult the documentation for the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension for help in setting up your project.
+Consult the documentation for the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension for help with setting up your project.
+
+Below are all the configurations available for `Launch` and `Attach`, for more information about how to write the `launch.json` file, refer to [Debugging](/docs/editor/debugging.md).
 
 ### Launch
 
-- `mainClass` (required) - The main class of the program (fully qualified name, e.g. [mymodule/]com.xyz.MainClass).
-- `args` - The command line arguments passed to the program.
+- `mainClass` (required) - The fully qualified class name (e.g. [java module name/]com.xyz.MainApp) or the java file path of the program entry.
+- `args` - The command-line arguments passed to the program. Use `"${command:SpecifyProgramArgs}"` to prompt for program arguments. It accepts a string or an array of string.
 - `sourcePaths` - The extra source directories of the program. The debugger looks for source code from project settings by default. This option allows the debugger to look for source code in extra directories.
-- `modulePaths` - The module paths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
-- `classPaths` - The class paths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
-- `encoding` - The `file.encoding` setting for the JVM. If not specified, 'UTF-8' will be used. Possible values can be found in [Supported Encodings](https://docs.oracle.com/javase/8/docs/technotes/guides/intl/encoding.doc.html).
-- `vmArgs` - The extra options and system properties for the JVM (e.g. -Xms\<size\> -Xmx\<size\> -D\<name\>=\<value\>).
-- `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. This setting also works when the debugger looks for the specified main class when launching a program. It is required for expression evaluation.
-- `cwd` - The working directory of the program.
+- `modulePaths` - The modulepaths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
+- `classPaths` - The classpaths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
+- `encoding` - The `file.encoding` setting for the JVM. If not specified, 'UTF-8' will be used. Possible values can be found in http://docs.oracle.com/javase/8/docs/technotes/guides/intl/encoding.doc.html.
+- `vmArgs` - The extra options and system properties for the JVM (for example -Xms\<size\> -Xmx\<size\> -D\<name\>=\<value\>), it accepts a string or an array of string.
+- `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. This setting also works when the debugger looks for the specified main class when launching a program. It is required when the workspace has multiple Java projects, otherwise the expression evaluation and conditional breakpoint may not work.
+- `cwd` - The working directory of the program. Defaults to `${workspaceFolder}`.
 - `env` - The extra environment variables for the program.
 - `stopOnEntry` - Automatically pause the program after launching.
 - `console` - The specified console to launch the program. Defaults to `internalConsole`.
-  - `internalConsole` - VS Code Debug Console (input stream not supported).
-  - `integratedTerminal` - VS Code Integrated Terminal.
+  - `internalConsole` - VS Code debug console (input stream not supported).
+  - `integratedTerminal` - VS Code integrated terminal.
   - `externalTerminal` - External terminal that can be configured in user settings.
 - `stepFilters` - Skip specified classes or methods when stepping.
   - `classNameFilters` - Skip the specified classes when stepping. Class names should be fully qualified. Wildcard is supported.
@@ -126,9 +153,9 @@ Consult the documentation for the [Language Support for Java by Red Hat](https:/
 
 - `hostName` (required) - The host name or IP address of remote debuggee.
 - `port` (required) - The debug port of remote debuggee.
-- `timeout` - Timeout value before reconnecting, in milliseconds (default to 30000ms).
+- `timeout` - Time out value before reconnecting, in milliseconds (default to 30000 ms).
 - `sourcePaths` - The extra source directories of the program. The debugger looks for source code from project settings by default. This option allows the debugger to look for source code in extra directories.
-- `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. This setting also works when the debugger looks for the specified main class when launching a program.
+- `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. It is required when the workspace has multiple java projects, otherwise the expression evaluation and conditional breakpoint may not work.
 - `stepFilters` - Skip specified classes or methods when stepping.
   - `classNameFilters` - Skip the specified classes when stepping. Class names should be fully qualified. Wildcard is supported.
   - `skipSynthetics` - Skip synthetic methods when stepping.
@@ -137,30 +164,30 @@ Consult the documentation for the [Language Support for Java by Red Hat](https:/
 
 ### User Settings
 
-- `java.debug.logLevel` - Minimum level of debugger logs that are sent to VS Code, defaults to `warn`.
-- `java.debug.settings.showHex` - Show numbers in hex format in the **VARIABLES** view, defaults to `false`.
-- `java.debug.settings.showStaticVariables` - Show static variables in the **VARIABLES** view, defaults to `true`.
-- `java.debug.settings.showQualifiedNames` - Show fully qualified class names in the **VARIABLES** view, defaults to `false`.
-- `java.debug.settings.maxStringLength` - Maximum length of strings displayed in the **VARIABLES** view or Debug Console. Strings longer than this length will be trimmed. Default is `0` which means no trim is performed.
-- `java.debug.settings.enableHotCodeReplace` - Enable Hot Code replacement for Java source code. Make sure the auto build is not disabled for [VS Code Java](https://github.com/redhat-developer/vscode-java). See the [wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
+- `java.debug.logLevel`: minimum level of debugger logs that are sent to VS Code, defaults to `warn`.
+- `java.debug.settings.showHex`: show numbers in hex format in "Variables" viewlet, defaults to `false`.
+- `java.debug.settings.showStaticVariables`: show static variables in "Variables" viewlet, defaults to `true`.
+- `java.debug.settings.showQualifiedNames`: show fully qualified class names in "Variables" viewlet, defaults to `false`.
+- `java.debug.settings.maxStringLength`: the maximum length of string displayed in "Variables" or "Debug Console" viewlet, the string longer than this length will be trimmed, defaults to `0` which means no trim is performed.
+- `java.debug.settings.enableHotCodeReplace`: enable hot code replace for Java code. Make sure the auto build is not disabled for [VSCode Java](https://github.com/redhat-developer/vscode-java). See the [wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
+- `java.debug.settings.enableRunDebugCodeLens`: enable the CodeLens provider for the run and debug buttons over main entry points, defaults to `true`.
+- `java.debug.settings.forceBuildBeforeLaunch`: force building the workspace before launching java program, defaults to `true`.
 
-## Feedback and Questions
+## Troubleshooting
 
-You can find the full list of issues at [Issue Tracker](https://github.com/Microsoft/vscode-java-debug/issues). You can submit a [bug or feature suggestion](https://github.com/Microsoft/vscode-java-debug/issues/new), and participate in the community driven [Gitter](https://gitter.im/Microsoft/vscode-java-debug) channel.
+Detailed troubleshooting guide could be found in our [GitHub Repository](https://github.com/Microsoft/vscode-java-debug/blob/master/Troubleshooting.md).
 
-## Run JUnit Tests
+## Feedback and questions
 
-[Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) allows you to run and debug your test cases.
-
-![JUnit Support](images/java-debugging/junit.gif)
-
-You can also manage your test cases with **TEST EXPLORER**.
-
-![Test Explorer](images/java-debugging/test-explorer.png)
+You can find the full list of issues at [Issue Tracker](https://github.com/Microsoft/vscode-java-debug/issues). You can submit a [bug or feature suggestion](https://github.com/Microsoft/vscode-java-debug/issues/new) and participate in the community driven [Gitter](https://gitter.im/Microsoft/vscode-java-debug) channel.
 
 ## Next steps
 
 Read on to find out about:
 
-* [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger with your project for any language.
+* [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
+
+And for Java:
+
+* [Java Testing](/docs/java/java-testing.md)
 * [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

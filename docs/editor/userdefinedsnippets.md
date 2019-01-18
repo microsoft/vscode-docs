@@ -132,6 +132,23 @@ For inserting the current date and time:
 * `CURRENT_MINUTE` The current minute
 * `CURRENT_SECOND` The current second
 
+For inserting line or block comments, honoring the current language:
+
+* `BLOCK_COMMENT_START` Example output: in PHP `/*` or in HTML `<!--`
+* `BLOCK_COMMENT_END ` Example output: in PHP `*/` or in HTML `-->`
+* `LINE_COMMENT` Example output: in PHP `//` or in HTML `<!-- -->`
+
+The snippet below inserts `/* Hello World */` in JavaScript files and `<!-- Hello World -->` in HTML files:
+
+```json
+{
+    "hello": {
+        "scope": "javascript,html",
+        "prefix": "hello",
+        "body": "$BLOCK_COMMENT_START Hello World $BLOCK_COMMENT_END"
+    }
+}
+```
 
 ### Variable transforms
 
@@ -204,7 +221,7 @@ text        ::= .*
 
 ## Using TextMate snippets
 
-You can also use existing TextMate snippets (.tmSnippets) with VS Code. See the [Using TextMate Snippets](/docs/extensions/themes-snippets-colorizers.md#using-textmate-snippets) topic in our Extension Authoring section to learn more.
+You can also use existing TextMate snippets (.tmSnippets) with VS Code. See the [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) topic in our Extension API section to learn more.
 
 ## Assign keybindings to snippets
 
@@ -240,11 +257,11 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 ## Next steps
 
 * [Command Line](/docs/editor/command-line.md) - VS Code has a rich command line interface to open or diff files and install extensions.
-* [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code.
-* [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) - You can package themes, snippets and language colorizers for use in VS Code.
+* [Extension API](/api) - Learn about other ways to extend VS Code.
+* [Snippet Guide](/api/language-extensions/snippet-guide.md) - You can package snippets for use in VS Code.
 
 ## Common questions
 
 ### What if I want to use existing TextMate snippets from a .tmSnippet file?
 
-You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/docs/extensions/themes-snippets-colorizers.md#using-textmate-snippets) in our Extension Authoring documentation.
+You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) in our Extension API documentation.

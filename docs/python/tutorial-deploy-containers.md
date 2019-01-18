@@ -1,10 +1,10 @@
 ---
-Order: 10
+Order: 11
 Area: python
 TOCTitle: Deploy with containers
 ContentId: e3f4006c-ab3f-4444-909b-fb045afcdf09
 PageTitle: Deploy Python web apps to Azure App Service using Docker containers
-DateApproved: 10/03/2018
+DateApproved: 01/14/2019
 MetaDescription: How to create Docker containers for Python web apps and deploy to Azure App Service
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -82,7 +82,7 @@ If you don't already have an app you'd like to work with, use one of the followi
 
 - [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md).
 
-After verifying that your app runs properly, generate a `requirements.txt` file using `pip freeze > requirements.txt` (which are included in the samples) so that those dependencies can be automatically installed in the Docker image.
+After verifying that your app runs properly, generate a `requirements.txt` file (using `pip freeze > requirements.txt`, for example) so that those dependencies can be automatically installed in the Docker image. The samples each include a `requirements.txt` file.
 
 ## Create a container registry
 
@@ -284,11 +284,11 @@ With the necessary `Dockerfile` in place, you're ready to build the Docker image
 1. Run and test your container locally by using the following command, replacing `<image_name>` with your specific image, and changing the port numbers as needed. For web apps, you can then open browser to `localhost:<port>` to see the running app.
 
     ```bash
-    # For Django sample
-    docker run --rm -it -p 8000:8000 <image_name>
-
     # For Flask sample
     docker run --rm -it -p 5000:5000 <image_name>
+
+    # For Django sample
+    docker run --rm -it -p 8000:8000 <image_name>
     ```
 
 ### Two useful features of the Docker extension
@@ -339,7 +339,7 @@ With an image built and pushed to a registry, you can use the Docker extension i
 
 1. Creating the app service takes a few minutes, and you see progress in VS Code's Output panel.
 
-1. Once completed, you **must** also add a setting named `WEBSITES_PORT` to the App Service to specify the port on which the container is listening, such as 8000 (in the Django sample) or 5000 (in the Flask sample). To do this, switch to the **Azure: App Service** explorer, expand the node for your new App Service (refresh if necessary), then right-click **Application Settings** and select **Add New Setting**. At the prompts enter `WEBSITES_PORT` as the key and the port number for the value.
+1. Once completed, you **must** also add a setting named `WEBSITES_PORT` (notice the plural "WEBSITES") to the App Service to specify the port on which the container is listening, such as 5000 (in the Flask sample) or 8000 (in the Django sample). To do this, switch to the **Azure: App Service** explorer, expand the node for your new App Service (refresh if necessary), then right-click **Application Settings** and select **Add New Setting**. At the prompts enter `WEBSITES_PORT` as the key and the port number for the value.
 
     ![Context menu command on an App Service for Add New Setting](images/deploy-containers/add-app-service-setting.png)
 
