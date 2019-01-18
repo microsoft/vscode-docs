@@ -132,6 +132,23 @@ For inserting the current date and time:
 * `CURRENT_MINUTE` The current minute
 * `CURRENT_SECOND` The current second
 
+For inserting line or block comments, honoring the current language:
+
+* `BLOCK_COMMENT_START` Example output: in PHP `/*` or in HTML `<!--`
+* `BLOCK_COMMENT_END ` Example output: in PHP `*/` or in HTML `-->`
+* `LINE_COMMENT` Example output: in PHP `//` or in HTML `<!-- -->`
+
+The snippet below inserts `/* Hello World */` in JavaScript files and `<!-- Hello World -->` in HTML files:
+
+```json
+{
+    "hello": {
+        "scope": "javascript,html",
+        "prefix": "hello",
+        "body": "$BLOCK_COMMENT_START Hello World $BLOCK_COMMENT_END"
+    }
+}
+```
 
 ### Variable transforms
 

@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Django Tutorial
 ContentId: 3c0948f9-85a5-4dd4-a461-59788dbfce4c
 PageTitle: Python and Django tutorial in Visual Studio Code
-DateApproved: 09/19/2018
+DateApproved: 01/14/2019
 MetaDescription: Python Django tutorial using the best Python IDE, demonstrating IntelliSense, code navigation, and debugging for both code and templates.
 ---
 # Use Django in Visual Studio Code
@@ -432,6 +432,8 @@ Static files are pieces of content that your web app returns as-is for certain r
 
 Serving static files in Django is something of an art, especially when deploying to production. What's shown here is a simple approach that works with the Django development server and also a production server like gunicorn. A full treatment of static files, however, is beyond the scope of this tutorial, so for more information, see [Managing static files](https://docs.djangoproject.com/en/2.1/howto/static-files/) in the Django documentation.
 
+In production, you also need to set `DEBUG=False` in `settings.py`, which necessitates some additional work when using containers. For details, see [Issue 13](https://github.com/Microsoft/python-sample-vscode-django-tutorial/issues/13).
+
 ### Ready the app for static files
 
 1. In the project's `web_project/urls.py`, add the following `import` statement:
@@ -470,7 +472,7 @@ Serving static files in Django is something of an art, especially when deploying
     <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}" />
     ```
 
-1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
+1. Also in `templates/hello/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
 
     ```html
     <span class="message">Hello, there \{{ name }}!</span> It's \{{ date | date:'l, d F, Y' }} at \{{ date | time:'H:i:s' }}.

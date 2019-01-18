@@ -85,5 +85,5 @@ Documents are usually stored on the file system, but not always: there are untit
 
 To learn more about VS Code extensibility model, try these topic:
 
-* [Extension Manifest File](/docs/extensionAPI/extension-manifest) - VS Code package.json extension manifest file reference
-* [Contribution Points](/docs/extensionAPI/extension-points) - VS Code contribution points reference
+* [Extension Manifest File](/api/references/extension-manifest) - VS Code package.json extension manifest file reference
+* [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference

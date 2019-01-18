@@ -334,7 +334,7 @@ In this section you create a single page using a template. In the sections that 
 
 1. Start the program (inside or outside of the debugger, using `kb(workbench.action.debug.run)`), navigate to a /hello/name URL, and observe the results. Notice that the inline HTML, if you happen to write bad code like this, doesn't get rendered as HTML because the templating engine automatically escapes values used in placeholders. Automatic escaping prevent accidental vulnerabilities to injection attacks: developers often gather input from one page, or the URL, and use it as a value in another page through a template placeholder. Escaping also serves as a reminder that it's again best to keep HTML out of the code entirely.
 
-    For this reason, modify the template and view function as follows to make each piece of content more specifically. While you're at it, also move more of the text (including the title) and formatting concerns into the template:
+    For this reason, modify the template and view function as follows to identify each piece of content more specifically. While you're at it, also move more of the text (including the title) and formatting concerns into the template and also handle the case where no name is given:
 
     In `templates/hello_there.html`:
 
@@ -346,7 +346,11 @@ In this section you create a single page using a template. In the sections that 
             <title>Hello, Flask</title>
         </head>
         <body>
-            <strong>Hello there, \{{ name }}!</strong> It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
+            {%if name %}
+                <strong>Hello there, \{{ name }}!</strong> It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
+            {% else %}
+                What's your name? Provide it after /hello/ in the URL.
+            {% endif %}
         </body>
     </html>
     ```
@@ -355,7 +359,7 @@ In this section you create a single page using a template. In the sections that 
 
     ```python
     @app.route("/hello/<name>")
-    def hello_there(name):
+    def hello_there(name = None):
         return render_template(
             "hello_there.html",
             name=name,
@@ -399,7 +403,11 @@ The following sections demonstrate both types of static files.
 1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
 
     ```html
-    <span class="message">Hello, there \{{ name }}!</span>. It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
+    {%if name %}
+        <span class="message">Hello there, \{{ name }}!</span> It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
+    {% else %}
+        <span class="message">What's your name? Provide it after /hello/ in the URL.</span>
+    {% endif %}
     ```
 
 1. Run the app, navigate to a /hello/name URL, and observe that the message renders in blue. Stop the app when you're done.

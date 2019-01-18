@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 10/29/2018
+DateApproved: 01/17/2019
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -56,7 +56,7 @@ During debugging, the Status Bar shows the current configuration on the lower le
 
 ![Debugging Status Bar](images/debugging/debug-status-bar.png)
 
-By default, the debugger uses the same `python.pythonPath` workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `pythonPath` in the applicable debugger configuration. Alternatively, click on the name of the interpreter in the Status Bar to select a different one.
+By default, the debugger uses the same `python.pythonPath` workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `pythonPath` in `launch.json` for the applicable debugger configuration as described in the next section. Alternately, select the named interpreter on the Status Bar to select a different one, which updates `python.pythonPath`.
 
 ## Set configuration options
 
@@ -126,7 +126,7 @@ You can also rely on a relative path from the workspace root. For example, if th
 
 Points to the Python interpreter to be used for debugging, which can be a folder containing a Python interpreter. The value can use variables like `${workspaceFolder}` and `${workspaceFolder}/.venv`.
 
-If not specified, this setting defaults to the interpreter identified in the `python.pythonPath` setting, which is equivalent to using the value `${config:python.pythonPath}`. To use a different interpreter, specify its path instead.
+If not specified, this setting defaults to the interpreter identified in the `python.pythonPath` setting, which is equivalent to using the value `${config:python.pythonPath}`. To use a different interpreter, specify its path instead in the `pythonPath` property of a debug configuration.
 
 You can specify platform-specific paths by placing `pythonPath` within a parent object named `osx`, `windows`, or `linux`. For example, the configuration for PySpark uses the following values:
 

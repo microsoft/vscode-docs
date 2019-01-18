@@ -56,7 +56,7 @@ Here is an illustration of VS Code running two Language Server extensions. The H
 
 ![LSP Illustration](images/language-server-extension-guide/lsp-illustration.png)
 
-This guide will teach you how to build a Language Client / Server using our [Node SDK](https://github.com/Microsoft/vscode-languageserver-node). The remaining document assumes that you are familiar with normal [extension development](/docs/extensions/overview) for VS Code.
+This guide will teach you how to build a Language Client / Server using our [Node SDK](https://github.com/Microsoft/vscode-languageserver-node). The remaining document assumes that you are familiar with VS Code [Extension API](/api).
 
 ### LSP Sample — A simple Language Server for plain text files
 
@@ -95,7 +95,7 @@ The above installs all dependencies and opens the **lsp-sample** workspace conta
 
 Let's first take a look at `/package.json`, which describes the capabilities of the Language Client. There are three interesting sections:
 
-First look the [`activationEvents`](api/references/activation-events):
+First look the [`activationEvents`](/api/references/activation-events):
 
 ```json
 "activationEvents": [
@@ -534,7 +534,7 @@ The `Extension Development Host` instance will then look like this:
 
 ### Debugging both Client and Server
 
-Debugging the client code is as easy as debugging a normal extension. Set a breakpoint in the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Developing Extensions](/docs/extensions/developing-extensions).
+Debugging the client code is as easy as debugging a normal extension. Set a breakpoint in the client code and debug the extension by pressing `kb(workbench.action.debug.start)`.
 
 ![Debugging the client](images/language-server-extension-guide/debugging-client.png)
 
@@ -865,7 +865,8 @@ The following language features are currently supported in a language server alo
 * _Document Links_: compute and resolve links inside a document.
 * _Document Colors_: compute and resolve colors inside a document to provide color picker in editor.
 
-The [Language Extension Guidelines](/docs/extensionAPI/language-support) topic describes each of the language features above and provides guidance on how to implement them either through the language server protocol or by using the extensibility API directly from your extension.
+The [Programatic Language Features](/api/language-extensions/programmatic-language-features
+) topic describes each of the language features above and provides guidance on how to implement them either through the language server protocol or by using the extensibility API directly from your extension.
 
 ### Incremental Text Document Synchronization
 

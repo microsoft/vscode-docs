@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 12/21/2018
+DateApproved: 01/17/2019
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -36,7 +36,7 @@ The Python extension uses the selected environment for running Python code (usin
 
 > **Tip**: To prevent automatic activation of a selected environment, add  `"python.terminal.activateEnvironment": false` to your `settings.json` file.
 
-> **Note**: The `python:pythonPath` setting doesn't affect debugging. See [Choose a debugging environment](#choose-a-debugging-environment).
+> **Note**: By default, VS Code uses the interpreter identified by `python:pythonPath` setting when debugging code. You can override this behavior by specifying a different path in the `pythonPath` property of a debug configuration. See [Choose a debugging environment](#choose-a-debugging-environment).
 
 The Status Bar always shows the current interpreter.
 
@@ -64,13 +64,13 @@ Changing interpreters with the **Python: Select Interpreter** command doesn't af
 
 ### Choose a debugging environment
 
-The `python.pythonPath` setting specifies the Python interpreter to use for debugging. Because the setting can exist in `launch.json` as well as workspace and user settings files, the following order of precedence is used:
+By default, the `python.pythonPath` setting specifies the Python interpreter to use for debugging. However, if you have a `pythonPath` property in the debug configuration of `launch.json`, that interpreter is used instead. To be more specific, VS Code applies the following order of precedence when determining which interpreter to use for debugging:
 
-1. `launch.json`
-1. Workspace `settings.json`
-1. User `settings.json`
+1. `pythonPath` property of the selected debug configuration in `launch.json`
+1. `python.pythonPath` setting in the workspace `settings.json`
+1. `python.pythonPath` setting in the user `settings.json`
 
-For more details, see [Debugging](/docs/python/debugging.md).
+For more details on debug configuration, see [Debugging configurations](/docs/python/debugging.md).
 
 ## Where the extension looks for environments
 

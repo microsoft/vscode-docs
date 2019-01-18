@@ -358,7 +358,7 @@ A better approach for expensive debug extensions is to use more fine-grained act
 Once you have created your debugger extension you can publish it to the Marketplace:
 
 * Update the attributes in the `package.json` to reflect the naming and purpose of your debugger extension.
-* Upload to the Marketplace as described in [Share an Extension](/docs/extensions/publish-extension) section.
+* Upload to the Marketplace as described in [Publishing Extension](/api/working-with-extensions/publishing-extension).
 
 ## Alternative approach to develop a debugger extension
 
