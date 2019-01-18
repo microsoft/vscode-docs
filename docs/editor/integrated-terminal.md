@@ -248,22 +248,14 @@ This can happen if you run VS Code in compatibility mode which may be turned on 
 
 ### Can I use Cmder's shell with the terminal on Windows?
 
-Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to create a `vscode.bat` file in your cmder path with the following contents (edit the cmder path if necessary):
-
-```bat
-@echo off
-SET CurrentWorkingDirectory=%CD%
-SET CMDER_ROOT=C:\cmder
-CALL "%CMDER_ROOT%\vendor\init.bat"
-CD /D %CurrentWorkingDirectory%
-```
-
-then in your VS Code user settings, add the following to your `settings.json` file:
+Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to add the following settings to your `settings.json` file:
 
 ```json
 "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
-"terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vscode.bat"]
+"terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vendor\\init.bat"]
 ```
+
+You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
 
 ### Can I use Cygwin's shell with the terminal on Windows?
 
