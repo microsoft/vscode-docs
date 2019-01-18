@@ -13,13 +13,13 @@ Extensions can filter their features based on document selectors by language, fi
 
 ## Text documents not on disk
 
-Not all text documents are stored on disk, for example, newly created documents. Unless specified, a document selector applies to **all** document types. Use the [DocumentFilter](https://code.visualstudio.com/docs/extensionAPI/vscode-api#DocumentFilter) `scheme` property to narrow down on certain schemes, for example `{ scheme: 'file', language: 'typescript' }` for TypeScript files that are stored on disk.
+Not all text documents are stored on disk, for example, newly created documents. Unless specified, a document selector applies to **all** document types. Use the [DocumentFilter](/api/references/vscode-api#DocumentFilter) `scheme` property to narrow down on certain schemes, for example `{ scheme: 'file', language: 'typescript' }` for TypeScript files that are stored on disk.
 
 ## Document selectors
 
-The Visual Studio Code extension API combines language-specific features, like IntelliSense, with document selectors through the [DocumentSelector](https://code.visualstudio.com/docs/extensionAPI/vscode-api#DocumentSelector) type. They are an easy mechanism to narrow down functionality to a specific language.
+The Visual Studio Code extension API combines language-specific features, like IntelliSense, with document selectors through the [DocumentSelector](/api/references/vscode-api#DocumentSelector) type. They are an easy mechanism to narrow down functionality to a specific language.
 
-The snippet below registers a [HoverProvider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#HoverProvider) for TypeScript files and the document selector is the `typescript` language identifier string.
+The snippet below registers a [HoverProvider](/api/references/vscode-api#HoverProvider) for TypeScript files and the document selector is the `typescript` language identifier string.
 
 ```ts
 vscode.languages.registerHoverProvider('typescript', {
@@ -29,7 +29,7 @@ vscode.languages.registerHoverProvider('typescript', {
 })
 ```
 
-A document selector can be more than just a language identifier and more complex selectors can use a [DocumentFilter](https://code.visualstudio.com/docs/extensionAPI/vscode-api#DocumentFilter) to filter based on the `scheme` and file location through a `pattern` path glob-pattern:
+A document selector can be more than just a language identifier and more complex selectors can use a [DocumentFilter](/api/references/vscode-api#DocumentFilter) to filter based on the `scheme` and file location through a `pattern` path glob-pattern:
 
 ```ts
 vscode.languages.registerHoverProvider({ pattern: '**/test/**' }, {

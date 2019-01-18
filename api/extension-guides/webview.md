@@ -19,8 +19,8 @@ Think of a webview as an `iframe` within VS Code that your extension controls. A
 
 ### VS Code API Usage
 
-- [`window.createWebviewPanel`](https://code.visualstudio.com/docs/extensionAPI/vscode-api#window.createWebviewPanel)
-- [`window.registerWebviewPanelSerializer`](https://code.visualstudio.com/docs/extensionAPI/vscode-api#window.registerWebviewPanelSerializer)
+- [`window.createWebviewPanel`](/api/references/vscode-api#window.createWebviewPanel)
+- [`window.registerWebviewPanelSerializer`](/api/references/vscode-api#window.registerWebviewPanelSerializer)
 
 ## Should I use a webview?
 

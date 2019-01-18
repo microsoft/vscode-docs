@@ -408,7 +408,7 @@ See the [Color Theme Guide](/api/extension-guides/color-theme) on how to create 
 
 ## contributes.snippets
 
-Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets#snippet-syntax).
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets#_snippet-syntax).
 
 The example below shows adding snippets for the Go language.
 
@@ -462,7 +462,7 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
 
 ![views extension point example](images/contribution-points/views.png)
 
-Extension writers should create a [TreeView](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeView) by providing a [data provider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeDataProvider) through `createTreeView` API or register the [data provider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeDataProvider) directly through `registerTreeDataProvider` API to populate data. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
+Extension writers should create a [TreeView](/api/references/vscode-api#TreeView) by providing a [data provider](/api/references/vscode-api#TreeDataProvider) through `createTreeView` API or register the [data provider](/api/references/vscode-api#TreeDataProvider) directly through `registerTreeDataProvider` API to populate data. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
 
 ## contributes.viewsContainers
 
@@ -549,7 +549,7 @@ This problem matcher can now be used in a `tasks.json` file via a name reference
 }
 ```
 
-Also see: [Defining a Problem Matcher](/docs/editor/tasks#defining-a-problem-matcher)
+Also see: [Defining a Problem Matcher](/docs/editor/tasks#_defining-a-problem-matcher)
 
 ## contributes.problemPatterns
 
@@ -611,7 +611,7 @@ Contributes new themable colors. These colors can be used by the extension in ed
 }
 ```
 
-Color default values can be defined for light, dark and high contrast theme and can either be a reference to an existing color or a [Color Hex Value](/docs/getstarted/theme-color-reference#colorformats).
+Color default values can be defined for light, dark and high contrast theme and can either be a reference to an existing color or a [Color Hex Value](/api/references/theme-color#color-formats).
 
 ## contributes.typescriptServerPlugins
 
