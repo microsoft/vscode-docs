@@ -171,6 +171,11 @@ interface TaskDescription {
      * output.
      */
     problemMatcher?: string | ProblemMatcher | (string | ProblemMatcher)[];
+
+    /**
+     * Defines when and how a task is run.
+     */
+    runOptions?: RunOptions;
 }
 
 interface PresentationOptions {
@@ -362,5 +367,29 @@ interface ProblemPattern {
      * last problem pattern in a multi line problem matcher.
      */
     loop?: boolean;
+}
+
+/**
+ * A description to when and how run a task.
+ */
+interface RunOptions {
+
+    /**
+     * Controls how variables are evaluated whan a task is executed through
+     * the `Rerun Last Task command`.
+     * The default is `true`, meaning that variables will be re-evaluated when
+     * a task is rerun. When set to `false` the resolved variable values from
+     * the previous run of the task will be used.
+     */
+    reevaluateOnRerun?: boolean;
+
+    /**
+     * Specifies when a task is run.
+     *
+     * Valid values are:
+     *   "default": The task will only be run when executed through the `Run Task` command.
+     *   "folderOpen": The task will be run when the folder it is in is opened.
+     */
+    runOn?: string;
 }
 ```
