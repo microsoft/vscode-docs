@@ -375,10 +375,10 @@ interface ProblemPattern {
 interface RunOptions {
 
     /**
-     * Controls how variables are evaluated whan a task is executed through
-     * the `Rerun Last Task command`.
+     * Controls how variables are evaluated when a task is executed through
+     * the Rerun Last Task command.
      * The default is `true`, meaning that variables will be re-evaluated when
-     * a task is rerun. When set to `false` the resolved variable values from
+     * a task is rerun. When set to `false`, the resolved variable values from
      * the previous run of the task will be used.
      */
     reevaluateOnRerun?: boolean;
@@ -387,8 +387,8 @@ interface RunOptions {
      * Specifies when a task is run.
      *
      * Valid values are:
-     *   "default": The task will only be run when executed through the `Run Task` command.
-     *   "folderOpen": The task will be run when the folder it is in is opened.
+     *   "default": The task will only be run when executed through the Run Task command.
+     *   "folderOpen": The task will be run when the containing folder is opened.
      */
     runOn?: string;
 }
