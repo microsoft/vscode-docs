@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 An "environment" in Python is the context in which a Python program runs. An environment consists of an interpreter and any number of installed packages. The Python extension for VS Code provide helpful integration features for working with different environments.
 
-> **Note**: If you're looking to get started with Python in Visual Studio Code, refer to the [Tutorial](/docs/python/python-tutorial.md).
+> **Note**: If you're looking to get started with Python in Visual Studio Code, refer to the tutorial [Getting Started with Python in VS Code](/docs/python/python-tutorial.md).
 
 ## Select and activate an environment
 
