@@ -4,17 +4,19 @@ Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python in Visual Studio Code
-DateApproved: 10/10/2018
+DateApproved: 01/21/2019
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Linting Python in Visual Studio Code
 
-Linting highlights syntactical and stylistic errors in your Python source code. By default, linting for Python is enabled in Visual Studio Code using [Pylint](https://www.pylint.org), and you can enable other linters of your choice.
+Linting highlights syntactical and stylistic problems in your Python source code, which oftentimes helps you identify and correct subtle programming errors or just unconventional coding practices. For example, linting detects use of an uninitialized or undefined variable, calls to undefined functions, and even more subtle issues such as attempting to redefine a built-in types or functions. Linting is thus distinct from [Formatting](editing.md#formatting) because linting analyzes how the code runs and detects errors whereas formatting simply restructures how code *appears*.
+
+By default, linting for Python is enabled in Visual Studio Code using [Pylint](https://www.pylint.org), and you can enable other linters of your choice. You can easily enable and disable all linting by using the **Python: Enable Linting** command.
 
 ## Enable linters
 
-To enable linters other than the default PyLint, open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Python: Select Linter** command. This command adds `"python.linting<linter>Enabled": true` to your settings, where `<linter>` is the name of the chosen linter. See [Specific linters](#specific-linters) for details.
+To enable linters other than the default PyLint, open the Command Palette (`kb(workbench.action.showCommands)` or **View** > **Command Palette**) and select the **Python: Select Linter** command. This command adds `"python.linting<linter>Enabled": true` to your settings, where `<linter>` is the name of the chosen linter. See [Specific linters](#specific-linters) for details.
 
 Enabling a linter prompts you to install the required packages in your selected environment for the chosen linter.
 
@@ -46,7 +48,7 @@ To change the linting behavior across all enabled linters, modify the following 
 | Maximum number of linting messages | maxNumberOfProblems | `100` |
 | Exclude file and folder patterns | ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]`  |
 
-You can easily change `python.linting.enabled` by using the **Python: Enable Linting** command.
+You can easily change `python.linting.enabled` by using the **Python: Enable Linting** command, which prompts you to select the value **On** or **Off**.
 
 When enabling `lintOnSave`, you might also want to enable the generic `files.autoSave` option (see [Save / Auto Save](/docs/editor/codebasics.md#save-auto-save)). The combination provides frequent linting feedback in your code as you type.
 
@@ -79,7 +81,7 @@ Note that if a top-level element is a single value, as delineated by quotation m
 
 A custom path is generally unnecessary as the Python extension resolves the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting. For example, if your selected interpreter is a virtual environment but you want to use a linter that's installed in a global environment, then set the appropriate path setting to point to the global environment's linter.
 
-The sections that follow provide additional details for those individual linters linked in the table. In general, custom rules must be specified in a separate file as required by the linter you're using.
+The sections that follow provide additional details for those individual linters linked in the table. In general, custom rules must be specified in a separate file as required by the linter you're using. For exact details on linter customizations, refer to the documentation for that linter.
 
 ## Pylint
 
