@@ -184,11 +184,17 @@ An array of additional options that may contain the following:
 
 | Option | Description |
 | --- | --- |
-| `"RedirectOutput"` (default) | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
-| `"DebugStdLib"` | Enabled debugging of standard library functions. |
-| `"Django"` | Activates debugging features specific to the Django web framework. |
-| `"Sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
-| `"Pyramid"` | When set to true, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
+| `"redirectOutput"` (default) | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
+| `"debugStdLib"` | Enables debugging of standard library functions and third-party library code. If this option is omitted, the VS Code debugger can step through only your programs code and automatically steps over any standard or third-party library code. |
+| `"django"` | Activates debugging features specific to the Django web framework. |
+| `"sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
+| `"pyramid"` | When set to true, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
+
+For example, to enable stepping into standard and third-party library code, and to activate Django debugging features, add the following line to your debug configuration:
+
+```json
+"debugOptions": ["debugStdLib", "django"],
+```
 
 ### `env`
 
