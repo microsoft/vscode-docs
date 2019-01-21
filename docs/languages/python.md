@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python in Visual Studio Code
-DateApproved: 11/07/2018
+DateApproved: 01/21/2019
 MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, snippets, linting).
 ---
 # Python in Visual Studio Code
@@ -17,7 +17,7 @@ This article provides only an overview of the different capabilities of the Pyth
 
 ## Install Python and the Python extension
 
-The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python 3.6 from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [the latest Python from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 Once you have a version of Python installed, activate it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
 
@@ -106,7 +106,7 @@ You can also connect to a remote Jupyter server for running the code.
 
 Furthermore, importing a notebook into VS Code allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and opening it again as a notebook in Jupyter or upload to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
 
-For more information, see [Jupyter support](/docs/python/jupyter-support.md).
+For more information, see [Jupyter support in VS Code](/docs/python/jupyter-support.md).
 
 ## Unit testing
 
