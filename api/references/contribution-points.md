@@ -640,6 +640,25 @@ The above example extension contributes the [`typescript-styled-plugin`](https:/
 
 TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript.
 
+## contributes.resourceLabelFormatters
+
+Contributes resource label formatters that specify how to display URIs everywhere in the workbench. For example here's how an extension could contribute a formatter for URIs with scheme `remotehub`:
+```json
+"contributes": {
+   "resourceLabelFormatters": [
+        {
+            "scheme": "remotehub",
+            "formatting": {
+                "label": "${path}",
+                "separator": "/",
+                "workspaceSuffix": "GitHub"
+            }
+        }
+    ]
+}
+```
+This means that all URIs that have a scheme `remotehub` will get rendered by showing only the `path` segment of the URI and the separator will be `/`. Workspaces which have the `remotehub` URI will have the GitHub suffix in their label.
+
 ### Plugin configuration
 
 Extensions can send configuration data to contributed TypeScript plugins through an API provided by VS Code's built-in TypeScript extension:
