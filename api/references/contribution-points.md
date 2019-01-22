@@ -189,6 +189,7 @@ The **explorer context menu** has these default groups:
 * `3_compare` - Commands related to comparing files in the diff editor.
 * `4_search` - Commands related to searching in the search view.
 * `5_cutcopypaste` - Commands related to cutting, copying and pasting of files.
+* `6_copypath` - Commands related to copying file paths.
 * `7_modification` - Commands related to the modification of a files.
 
 The **editor tab context menu** has these default groups:
