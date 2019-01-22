@@ -20,7 +20,7 @@ Most of these features just work out of the box, while some may require basic co
 
 IntelliSense shows you intelligent code completion, hover info, and signature information so that you can write code more quickly and correctly.
 
-<video src="images/javascript/intellisense.mp4" placeholder="images/javascript/intellisense-placeholder.png" autoplay loop controls muted>
+<video src="/docs/languages/javascript/intellisense.mp4" placeholder="images/javascript/intellisense-placeholder.png" autoplay loop controls muted>
     Sorry you're browser doesn't support HTML 5 video.
 </video>
 
@@ -58,7 +58,7 @@ See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for more 
 
 VS Code includes basic JavaScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
 
-<video src="images/javascript/snippets.mp4" placeholder="images/javascript/snippets-placeholder.png" autoplay loop controls muted>
+<video src="/docs/languages/javascript/snippets.mp4" placeholder="images/javascript/snippets-placeholder.png" autoplay loop controls muted>
     Sorry you're browser doesn't support HTML 5 video.
 </video>
 
@@ -71,13 +71,13 @@ You can install extensions to get additional snippers or define your own snippet
 
 VS Code's JavaScript IntelliSense understands many standard [JSDoc](http://usejsdoc.org) annotations, and uses this to show typing information and documentation in [suggestions](#intellisense), [quick info](#quick-info), and [signature help](#signature-help). You can optionally even use the type information from JS Doc comments to [type check of your JavaScript](#type-checking).
 
-<video src="images/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
+<video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry you're browser doesn't support HTML 5 video.
 </video>
 
 To quickly create a JS Doc comment for JavaScript function, just type `/**` before the function declaration and select the `JS Doc Comment` snippet suggestion:
 
-<video src="images/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
+<video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry you're browser doesn't support HTML 5 video.
 </video>
 
@@ -131,7 +131,7 @@ You can use JSX syntax in both normal `*.js` files and in `*.jsx` files.
 
 VS Code also include JSX specific features such as auto-closing of JSX tags:
 
-<video src="images/javascript/tag-complete.mp4" placeholder="images/javascript/tag-complete-placeholder.png" autoplay loop controls muted>
+<video src="/docs/languages/javascript/tag-complete.mp4" placeholder="images/javascript/tag-complete-placeholder.png" autoplay loop controls muted>
     Sorry you're browser doesn't support HTML 5 video.
 </video>
 
@@ -194,7 +194,7 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 
 VS Code automatically suggests some common code simplifications such as converting a chain of `.then` calls on a promise to use `async` and `await`
 
-<video src="images/javascript/code-suggestions-convert-async.mp4" placeholder="images/javascript/code-suggestions-convert-async-placeholder.png" autoplay loop controls muted>
+<video src="/docs/languages/javascript/code-suggestions-convert-async.mp4" placeholder="images/javascript/code-suggestions-convert-async-placeholder.png" autoplay loop controls muted>
     Sorry you're browser doesn't support HTML 5 video.
 </video>
 
