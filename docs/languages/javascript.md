@@ -157,7 +157,7 @@ You can also navigate back and forth between a Go file and its test implementati
 
 Press `kb(editor.action.rename)` to rename the symbol under the cursor across your JavaScript project:
 
-![Renaming a variable](images/javascript/rename.pngs)
+![Renaming a variable](images/javascript/rename.png)
 
 ## Refactoring
 
