@@ -240,6 +240,9 @@ gulp.task('default', gulp.series('sass', function(cb) {
 
 ```javascript
 // Less configuration
+var gulp = require('gulp');
+var less = require('gulp-less');
+
 gulp.task('less', function(cb) {
     gulp.src('*.less')
         .pipe(less())
