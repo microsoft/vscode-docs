@@ -223,35 +223,36 @@ Place the following code in the `gulpfile.js` file:
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
-gulp.task('sass', function() {
+gulp.task('sass', function(cb) {
     gulp.src('*.scss')
         .pipe(sass())
         .pipe(gulp.dest(function(f) {
             return f.base;
-        }))
+        }));
+    cb();
 });
 
-gulp.task('default', ['sass'], function() {
-    gulp.watch('*.scss', ['sass']);
-})
+gulp.task('default', gulp.series('sass', function(cb) {
+    gulp.watch('*.scss', gulp.series('sass'));
+    cb();    
+}));
 ```
 
 ```javascript
 // Less configuration
-var gulp = require('gulp');
-var less = require('gulp-less');
-
-gulp.task('less', function() {
+gulp.task('less', function(cb) {
     gulp.src('*.less')
         .pipe(less())
         .pipe(gulp.dest(function(f) {
             return f.base;
-        }))
+        }));
+    cb();
 });
 
-gulp.task('default', ['less'], function() {
-    gulp.watch('*.less', ['less']);
-})
+gulp.task('default', gulp.series('less', function(cb) {
+    gulp.watch('*.less', gulp.series('less'));
+    cb();    
+}));
 ```
 
 What is happening here?
