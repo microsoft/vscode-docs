@@ -52,7 +52,7 @@ To define a basic JavaScript project, just add a `jsconfig.json` at the root of 
 
 See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for more advanced `jsconfig.json` configuration.
 
-> **Tip:** To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the `JavaScript: Go to Project Configuration` command. This will open the `jsconfig.json` that the file belongs to or prompt you if it is not part of any JavaScript project.
+> **Tip:** To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This will open the `jsconfig.json` that the file belongs to or prompt you if it is not part of any JavaScript project.
 
 ## Snippets
 
@@ -62,19 +62,19 @@ VS Code includes basic JavaScript [snippets](/docs/editor/userdefinedsnippets.md
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-You can install extensions to get additional snippers or define your own snippets for JavaScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
+You can install extensions to get additional snippets or define your own snippets for JavaScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
 
-> **Tip*:** You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> **Tip**: You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## JS Doc support
 
-VS Code's JavaScript IntelliSense understands many standard [JSDoc](http://usejsdoc.org) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [quick info](#quick-info), and [signature help](#signature-help). You can optionally even use the type information from JS Doc comments to [type check of your JavaScript](#type-checking).
+VS Code's JavaScript IntelliSense understands many standard [JSDoc](http://usejsdoc.org) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [hover info](#hover-information), and [signature help](#signature-help). You can optionally even use the type information from JS Doc comments to [type check of your JavaScript](#type-checking).
 
 <video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-To quickly create a JS Doc comment for JavaScript function, just type `/**` before the function declaration and select the `JS Doc Comment` snippet suggestion:
+To quickly create a JS Doc comment for JavaScript function, just type `/**` before the function declaration and select the **JS Doc Comment** snippet suggestion:
 
 <video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
@@ -84,7 +84,7 @@ To disable JSDoc comment suggestions, set `"jsDocCompletion.enabled": false`.
 
 ## Hover Information
 
-Hover over a JavaScript symbol to quickly see type its type information and relevant documentation:
+Hover over a JavaScript symbol to quickly see its type information and relevant documentation:
 
 ![Hovering over a JavaScript variable to see its type information](images/javascript/hover.png)
 
@@ -106,7 +106,9 @@ Just start typing to see [suggestions](#intellisense) for all available JavaScri
 
 ![Global symbols are shown in the suggestion list](images/javascript/auto-import-before.png)
 
-If you choose one of these auto import suggestions, VS Code adds an import for it. In this example, VS Code adds an import for `Button` from [material-ui](https://material-ui.com) has been added to the top of the file:
+If you choose one of these auto import suggestions, VS Code adds an import for it.
+
+In this example, VS Code adds an import for `Button` from [material-ui](https://material-ui.com) to the top of the file:
 
 ![After selecting a symbol from a different file, an import is added for it automatically](images/javascript/auto-import-after.png)
 
@@ -116,7 +118,7 @@ To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
 ## Formatting
 
-The built-in JavaScript formatter providers basic code formatting with reasonable defaults:
+The built-in JavaScript formatter providers basic code formatting with reasonable defaults.
 
 Use the `javascript.format.*` [settings](/docs/getstarted/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it. For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code marketplace.
 
@@ -150,8 +152,6 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 - **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
 - **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
 
-You can also navigate back and forth between a Go file and its test implementation using the **Go: Toggle Test File** command.
-
 ## Rename
 
 Press `kb(editor.action.rename)` to rename the symbol under the cursor across your JavaScript project:
@@ -179,7 +179,7 @@ Unused JavaScript code—such the else block of an `if` statement that is always
 
 ![unreachable source code faded out](images/javascript/unreachable.png)
 
-You can quickly remove this unused code by placing the cursor on it and triggering the quick fix command (`kb(editor.action.quickFix)) or clicking on the lightbulb.
+You can quickly remove this unused code by placing the cursor on it and triggering the quick fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
 
 To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in JavaScript by setting:
 
