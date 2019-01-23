@@ -21,7 +21,7 @@ Most of these features just work out of the box, while some may require basic co
 IntelliSense shows you intelligent code completion, hover info, and signature information so that you can write code more quickly and correctly.
 
 <video src="/docs/languages/javascript/intellisense.mp4" placeholder="images/javascript/intellisense-placeholder.png" autoplay loop controls muted>
-    Sorry you're browser doesn't support HTML 5 video.
+    Sorry, your browser doesn't support HTML 5 video.
 </video>
 
 VS Code provides IntelliSense within your JavaScript projects and for many npm libraries such as `React`, `lodash`, and `express` along with support for platforms such as websites, `node`, or IoT.
@@ -33,11 +33,11 @@ See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for infor
 A [jsconfig.json](/docs/languages/jsconfig.md) file defines a JavaScript project in VS Code. While `jsconfig.json` files are not required, there are some cases when you will want to one:
 
 - If not all JavaScript files in your workspace should be part of your JavaScript project. A `jsconfig.json` lets you exclude some files from showing up in IntelliSense.
-- If you want to ensure that a set of JavaScript files in your workspace are treated as a single project. This is useful if you are working with legacy code that uses implicit globals dependencies instead of `imports` for dependencies.
+- If you want to ensure that a set of JavaScript files in your workspace is treated as a single project. This is useful if you are working with legacy code that uses implicit globals dependencies instead of `imports` for dependencies.
 - If your workspace contains more than one project context, such as front-end and back-end JavaScript code. In this situation, you should add a `jsconfig.json` file at the root folder for each of these projects project so that they are treated as separate projects.
 - You are using the TypeScript compiler to down-level compile JavaScript source code.
 
-To define a basic JavaScript project, just add a simple `jsconfig.json` at the root of your workspace:
+To define a basic JavaScript project, just add a `jsconfig.json` at the root of your workspace:
 
 ```json
 {
@@ -59,26 +59,25 @@ See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for more 
 VS Code includes basic JavaScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
 
 <video src="/docs/languages/javascript/snippets.mp4" placeholder="images/javascript/snippets-placeholder.png" autoplay loop controls muted>
-    Sorry you're browser doesn't support HTML 5 video.
+    Sorry, your browser doesn't support HTML 5 video.
 </video>
 
 You can install extensions to get additional snippers or define your own snippets for JavaScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
 
 > **Tip*:** You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
-
 ## JS Doc support
 
-VS Code's JavaScript IntelliSense understands many standard [JSDoc](http://usejsdoc.org) annotations, and uses this to show typing information and documentation in [suggestions](#intellisense), [quick info](#quick-info), and [signature help](#signature-help). You can optionally even use the type information from JS Doc comments to [type check of your JavaScript](#type-checking).
+VS Code's JavaScript IntelliSense understands many standard [JSDoc](http://usejsdoc.org) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [quick info](#quick-info), and [signature help](#signature-help). You can optionally even use the type information from JS Doc comments to [type check of your JavaScript](#type-checking).
 
 <video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
-    Sorry you're browser doesn't support HTML 5 video.
+    Sorry, your browser doesn't support HTML 5 video.
 </video>
 
 To quickly create a JS Doc comment for JavaScript function, just type `/**` before the function declaration and select the `JS Doc Comment` snippet suggestion:
 
 <video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
-    Sorry you're browser doesn't support HTML 5 video.
+    Sorry, your browser doesn't support HTML 5 video.
 </video>
 
 To disable JSDoc comment suggestions, set `"jsDocCompletion.enabled": false`.
@@ -93,7 +92,7 @@ You can also shows quick info at the current cursor position with the `kb(editor
 
 ## Signature Help
 
-As you write a JavaScript function call, VS Code shows information about the function signature and highlight the parameter that you are currently completing:
+As you write a JavaScript function call, VS Code shows information about the function signature and highlights the parameter that you are currently completing:
 
 ![Signature help for some DOM methods](images/javascript/signature-help.png)
 
@@ -101,7 +100,7 @@ Signature help is shown automatically when you type a `(` or `,` within a functi
 
 ## Auto imports
 
-Automatic imports speed up coding by suggesting available variables throughout your project and its dependencies. When you select one of these suggestion, VS Code automatically adds an imports for it to the top of the file.
+Automatic imports speed up coding by suggesting available variables throughout your project and its dependencies. When you select one of these suggestions, VS Code automatically adds an import for it to the top of the file.
 
 Just start typing to see [suggestions](#intellisense) for all available JavaScript symbols in your current project. Auto import suggestions show where they will be imported from:
 
@@ -129,10 +128,10 @@ All of VS Code's JavaScript features also work with [JSX](https://reactjs.org/do
 
 You can use JSX syntax in both normal `*.js` files and in `*.jsx` files.
 
-VS Code also include JSX specific features such as auto-closing of JSX tags:
+VS Code also includes JSX-specific features such as autoclosing of JSX tags:
 
 <video src="/docs/languages/javascript/tag-complete.mp4" placeholder="images/javascript/tag-complete-placeholder.png" autoplay loop controls muted>
-    Sorry you're browser doesn't support HTML 5 video.
+    Sorry, your browser doesn't support HTML 5 video.
 </video>
 
 Set `"javascript.autoClosingTags"` to `false` to disable JSX tag closing.
@@ -178,7 +177,7 @@ See [Refactorings](/docs/editor/refactoring.md) for more information about refac
 
 Unused JavaScript code—such the else block of an `if` statement that is always true or an unreferenced import—is faded out in the editor:
 
-![](images/javascript/unreachable.png)
+![unreachable source code faded out](images/javascript/unreachable.png)
 
 You can quickly remove this unused code by placing the cursor on it and triggering the quick fix command (`kb(editor.action.quickFix)) or clicking on the lightbulb.
 
@@ -195,7 +194,7 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 VS Code automatically suggests some common code simplifications such as converting a chain of `.then` calls on a promise to use `async` and `await`
 
 <video src="/docs/languages/javascript/code-suggestions-convert-async.mp4" placeholder="images/javascript/code-suggestions-convert-async-placeholder.png" autoplay loop controls muted>
-    Sorry you're browser doesn't support HTML 5 video.
+    Sorry, your browser doesn't support HTML 5 video.
 </video>
 
 Set `"javascript.suggestionActions.enabled"` to `false` to disable suggestions.
@@ -226,7 +225,7 @@ The `javascript.updateImportsOnFileMove.enabled` setting controls this behavior.
 
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not included a built-in JavaScript linter, many JavaScript linter [extensions](/docs/editor/extension-gallery.md) available in the marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/editor/extension-gallery.md) available in the marketplace.
 
 <div class="marketplace-extensions-javascript-linters-curated"></div>
 
@@ -248,7 +247,7 @@ VS Code comes with great debugging support for JavaScript. Set breakpoints, insp
 
 ### Debug client side
 
-You can debug your client side code using a browser debugger such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) or [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug).
+You can debug your client-side code using a browser debugger such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) or [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug).
 
 ### Debug server side
 
@@ -273,7 +272,7 @@ Read on to find out about:
 * [IntelliSense](/docs/editor/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
-* [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript which brings structure and strong typing to your JavaScript code.
+* [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript, which brings structure and strong typing to your JavaScript code.
 
 Watch these introductory videos:
 
@@ -286,11 +285,11 @@ Watch these introductory videos:
 
 VS Code supports **JSX** and **React Native**. You will get IntelliSense for **React/JSX** and **React Native** from automatically downloaded type declaration (typings) files from the [npmjs](https://www.npmjs.com) type declaration file repository. Additionally, you can install the popular [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native) from  the Marketplace.
 
-To enable ES6 import statements for **React Native**, you need to set the `allowSyntheticDefaultImports` compiler option to `true`. This tells the compiler to create synthetic default members and you get IntelliSense. **React Native** uses **Babel** behind the scenes to create the proper run-time code with default members. If you also want to do debugging of **React Native** code then you can install the [React Native Extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
+To enable ES6 import statements for **React Native**, you need to set the `allowSyntheticDefaultImports` compiler option to `true`. This tells the compiler to create synthetic default members and you get IntelliSense. **React Native** uses **Babel** behind the scenes to create the proper run-time code with default members. If you also want to do debugging of **React Native** code, you can install the [React Native Extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
 
 ### IntelliSense is not working for external libraries
 
-`Automatic Type Acquisition` works for dependencies downloaded by npm (specified in `package.json`), Bower (specified in `bower.json`), and for many of the most common libraries listed in your folder structure (i.e. `jquery-3.1.1.min.js`).
+`Automatic Type Acquisition` works for dependencies downloaded by npm (specified in `package.json`), Bower (specified in `bower.json`), and for many of the most common libraries listed in your folder structure (for example `jquery-3.1.1.min.js`).
 
 **ES6 Style imports are not working.**
 
