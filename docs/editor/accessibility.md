@@ -76,6 +76,10 @@ You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Ac
 
 ![accessibility status](images/accessibility/status.png)
 
+## Terminal accessibility
+
+Output in the terminal can be navigated through by using the scroll commands available in the command palette (press F1 and search "Terminal Scroll").
+
 ## Debugger accessibility
 
 The VS Code debugger UI is user accessible and has the following features:
