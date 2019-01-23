@@ -3,7 +3,7 @@ Order: 1
 Area: functions
 TOCTitle: Getting started
 PageTitle: Node.js Deployment with Visual Studio Code
-MetaDescription: Node.js Deployment to Azure Functions with Visual Studio Code
+MetaDescription: Try Azure Functions for free with Visual Studio Code
 DateApproved: 2/9/2018
 ---
 # Deploy to Azure using Azure Functions
@@ -11,8 +11,6 @@ DateApproved: 2/9/2018
 This tutorial walks you through creating and deploying a JavaScript Azure Functions application using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. Create a new app, add functions and deploy in a matter of minutes from Visual Studio Code.
 
 ## Prerequisites
-
-If you don't have an Azure account, [sign up today](https://azure.microsoft.com/en-us/free/serverless?utm_source=campaign&utm_campaign=vscode-tutorial-functions-extension&mktingSource=vscode-tutorial-functions-extension) for a free 30-day account with $200 in Azure credits to try out any combination of services.
 
 You need [Visual Studio Code](https://code.visualstudio.com/) installed along with [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
 
@@ -28,7 +26,7 @@ $ brew install azure-functions-core-tools
 **On Windows**, install using [npm](https://npmjs.com).
 
 ```bash
-$ npm install -g azure-functions-core-tools@core
+$ npm install -g azure-functions-core-tools@2
 ```
 
 **On Linux**, follow the instructions in the Azure Functions Core Tools [GitHub repository](https://github.com/Azure/azure-functions-core-tools#linux).
@@ -38,13 +36,6 @@ $ npm install -g azure-functions-core-tools@core
 The Azure Functions extension is used to create, manage, and deploy Functions Apps on Azure.
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azurefunctions">Install the Azure Functions extension</a>
-
-## Sign in
-
-Once the extension is installed, log into your Azure account - in the Activity Bar, click on the Azure logo to show the **Azure Functions** explorer. Click **Sign in to Azure...** and follow the instructions.
-
-
-![sign in to Azure](images/functions-extension/sign-in.png)
 
 ## Prerequisite check
 

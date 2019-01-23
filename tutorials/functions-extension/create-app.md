@@ -3,7 +3,7 @@ Order: 2
 Area: functions
 TOCTitle: Create the application
 PageTitle: Create the application
-MetaDescription: Node.js Deployment to Azure Functions with Visual Studio Code
+MetaDescription: Try Azure Functions for free with Visual Studio Code
 DateApproved: 2/9/2018
 ---
 # Create your local Function App
