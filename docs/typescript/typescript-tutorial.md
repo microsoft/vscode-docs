@@ -24,7 +24,7 @@ The easiest way to install TypeScript is through npm, the [Node.js Package Manag
 npm install -g typescript
 ```
 
-You can test your install by checking the version or help.
+You can test your install by checking the version.
 
 ```bash
 tsc --version
