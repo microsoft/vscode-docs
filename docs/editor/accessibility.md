@@ -78,7 +78,7 @@ You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Ac
 
 ## Terminal accessibility
 
-Output in the terminal can be navigated through by using the scroll commands available in the command palette (press F1 and search "Terminal Scroll").
+Output in the Integrated Terminal can be navigated through by using the scroll commands available in the Command Palette (press `kbstyle(F1)` and search for "Terminal Scroll").
 
 ## Debugger accessibility
 

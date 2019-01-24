@@ -2,7 +2,7 @@
 Order: 1
 Area: functions
 TOCTitle: Getting started
-PageTitle: Node.js Deployment with Visual Studio Code
+PageTitle: Azure Functions with Visual Studio Code
 MetaDescription: Try Azure Functions for free with Visual Studio Code
 DateApproved: 2/9/2018
 ---
