@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 01/17/2019
+DateApproved: 01/21/2019
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -184,11 +184,17 @@ An array of additional options that may contain the following:
 
 | Option | Description |
 | --- | --- |
-| `"RedirectOutput"` (default) | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
-| `"DebugStdLib"` | Enabled debugging of standard library functions. |
-| `"Django"` | Activates debugging features specific to the Django web framework. |
-| `"Sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
-| `"Pyramid"` | When set to true, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
+| `"redirectOutput"` (default) | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
+| `"debugStdLib"` | Enables debugging of standard library functions and third-party library code. If this option is omitted, the VS Code debugger can step through only your programs code and automatically steps over any standard or third-party library code. |
+| `"django"` | Activates debugging features specific to the Django web framework. |
+| `"sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
+| `"pyramid"` | When set to true, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
+
+For example, to enable stepping into standard and third-party library code, and to activate Django debugging features, add the following line to your debug configuration:
+
+```json
+"debugOptions": ["debugStdLib", "django"],
+```
 
 ### `env`
 
@@ -481,6 +487,32 @@ There are many reasons why the debugger may not work. Oftentimes the debug conso
         self._block_lock.release()
     RuntimeError: release unlocked lock
     ```
+
+## API to access the debugger from other extensions
+
+The Python extension exposes an API that allows other VS Code extensions to launch the Python debugger.
+
+Detailed information on APIs can be found on the [VS Code API page](/api/references/vscode-api), including the general API patterns followed by the specific API below.
+
+<a name="debug.getRemoteLauncherCommand"></a><span class="ts" id=py0001 data-target="#details-py0001" data-toggle="collapse"><span class="ident">getRemoteLauncherCommand</span>(<span class="ident">host</span>:<span class="type-intrinsic">string</span>, <span class="ident">port</span>: <span class="type-intrinsic">number</span>, <span class="ident">waitUntilDebuggerAttaches</span><span>:</span><span class="type-intrinsic">boolean</span><span> = true</span>): <span class="type-ref">Promise</span>&lt;<span class="type-intrinsic">string</span>[]&gt;</span>
+<div class="details collapse" id="details-py0001">
+<div class="comment"><p>Generate an array of strings for commands to pass to the Python executable to launch the debugger for remote debugging. Callers can append another array of strings to specify what they want to launch along with relevant arguments to Python, such as `['/Users/..../pythonVSCode/pythonFiles/experimental/ptvsd_launcher.py', '--host', 'localhost', '--port', '57039', '--wait']`.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="host"></a><span class="ts" id=py0002 data-target="#details-py0002" data-toggle="collapse"><span class="ident">host</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>Specifies the host string to use in the `--host` argument of the debugger command.</p>
+</div></td></tr>
+<tr><td><a name="port"></a><span class="ts" id=py0003 data-target="#details-py0003" data-toggle="collapse"><span class="ident">port</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>Specifies the port number to use in the `--port` argument of the debugger command.</p>
+</div></td></tr>
+<tr><td><a name="waitUntilDebuggerAttaches"></a><span class="ts" id=py0003 data-target="#details-py0003" data-toggle="collapse"><span class="ident">waitUntilDebuggerAttaches</span><span>: </span><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>When true (the default), includes the `--wait` argument in the debugger command.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><span class="type-ref"">string</span>[]</span></td><td><div class="comment"><p>The array of strings for commands to pass to the Python executable to launch the debugger for remote debugging.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
 
 ## Next steps
 

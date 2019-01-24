@@ -21,7 +21,9 @@ Also see [Linting](/docs/python/linting.md) and [Jupyter Support](/docs/python/j
 
 ## Autocomplete and IntelliSense
 
-Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations. To customize the behavior of the analysis engine, see the [code analysis settings](settings-reference.md#code-analysis-settings) and [autocomplete settings](settings-reference.md#autocomplete-settings).
+Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations. For general instructions on using these features, see [IntelliSense](/docs/editor/intellisense.md).
+
+To customize the behavior of the analysis engine, see the [code analysis settings](settings-reference.md#code-analysis-settings) and [autocomplete settings](settings-reference.md#autocomplete-settings).
 
 You can also customize the general behavior of autocomplete and IntelliSense, even to disable these features entirely. See [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense).
 
