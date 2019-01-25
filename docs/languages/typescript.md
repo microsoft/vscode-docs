@@ -49,6 +49,10 @@ Another option is to install the TypeScript compiler locally in your project (`n
 
 ## Quick fixes - TBD
 
+## Organize Imports - TBD
+
+`editor.codeActionsOnSave`
+
 ## Linting - TBD
 
 ## JSDoc support

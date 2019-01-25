@@ -51,21 +51,6 @@ A simple `tsconfig.json` looks like this for ES5, **CommonJS** [modules](http://
 
 Now when you create a `.ts` file as part of the project we will offer up rich editing experiences and syntax validation.
 
-### typescript.reportStyleChecksAsWarnings
-
-By default, VS Code TypeScript displays code style issues as warnings instead of errors. This applies to:
-
-- Variable is declared but never used
-- Property is declared but its value is never read
-- Unreachable code detected
-- Unused label
-- Fall through case in switch
-- Not all code paths return a value
-
-Treating these as warnings is consistent with other tools, such as TSLint. These will still be displayed as errors when you run `tsc` from the command line.
-
-You can disable this behavior by setting: `"typescript.reportStyleChecksAsWarnings": false` in the User Settings file.
-
 ## Transpiling TypeScript into JavaScript
 
 VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md). We can use this to transpile `.ts` files into `.js` files. Another benefit of using VS Code tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editor/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
@@ -76,6 +61,7 @@ VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/
 
 Open VS Code on an empty folder and create a `HelloWorld.ts` file, place the following code in that file...
 
+<!-- TODO: change code example here -->
 ```ts
 class Startup {
     public static main(): number {
@@ -221,6 +207,12 @@ If your workspace has a specific TypeScript version, you can switch between the 
 
 You can switch back to the version of TypeScript that comes with VS Code by clicking on the TypeScript version in the Status Bar again.
 
+## Mixed TypeScript and JavaScript projects
+
+It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
+
+>**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
+
 ## Next steps
 
 Read on to find out about:
@@ -240,3 +232,20 @@ VS Code ships with a recent stable version of the TypeScript language service an
 ### Can I use the version of TypeScript that ships with VS 2015?
 
 No, the TypeScript language service which ships with Visual Studio 2015 and 2017 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
+
+### Why are errors reported as warnings?
+<!-- TODO, cleanup here -->
+typescript.reportStyleChecksAsWarnings
+
+By default, VS Code TypeScript displays code style issues as warnings instead of errors. This applies to:
+
+- Variable is declared but never used
+- Property is declared but its value is never read
+- Unreachable code detected
+- Unused label
+- Fall through case in switch
+- Not all code paths return a value
+
+Treating these as warnings is consistent with other tools, such as TSLint. These will still be displayed as errors when you run `tsc` from the command line.
+
+You can disable this behavior by setting: `"typescript.reportStyleChecksAsWarnings": false` in the User Settings file.

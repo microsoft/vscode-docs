@@ -134,31 +134,4 @@ When your JavaScript project is growing too large and performance slows, it is o
 
 >**Tip:** Sometimes changes to configuration, such as adding or editing a `jsconfig.json` file are not picked up correctly. Running the **Reload JavaScript Project** command should reload the project and pick up the changes.
 
-## Down Level Compilation with TypeScript Compiler
-
-The following compiler options in `jsconfig.json` apply when `tsc` is used for down level compiling of ES6 JavaScript to an older version:
-
-Option | Description
-----------|----------
-`module`|Specify module code generation. The values are "commonjs", "system", "umd", "amd", "es6", "es2015"
-`diagnostics`|Show diagnostic information.
-`emitBOM`|Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files.
-`inlineSourceMap`|Emit a single file with source maps instead of having a separate file.
-`inlineSources`|Emit the source alongside the sourcemaps within a single file; requires --inlineSourceMap to be set.
-`jsx`|Specify JSX code generation: "preserve" or "react".
-`reactNamespace`|Specifies the object invoked for createElement and __spread when targeting 'react' JSX emit.
-`mapRoot`|Specifies the location as an uri in a string where debugger should locate map files instead of generated locations.
-`noEmit`|Do not emit output.
-`noEmitHelpers`|Do not generate custom helper functions like __extends in compiled output.
-`noEmitOnError`|Do not emit outputs if any type checking errors were reported.
-`noResolve`|Do not resolve triple-slash references or module import targets to the input files.
-`outFile`|Concatenate and emit output to single file.
-`outDir`|Redirect output structure to the directory.
-`removeComments`|Do not emit comments to output.
-`rootDir`|Specifies the root directory of input files. Use to control the output directory structure with --outDir.
-`sourceMap`| Generates corresponding '.map' file.
-`sourceRoot`| Specifies the location where debugger should locate JavaScript files instead of source locations.
-`stripInternal`|`do not emit declarations for code that has an '@internal' annotation.
-`watch`|Watch input files.
-`emitDecoratorMetadata`|Emit design-type metadata for decorated declarations in source.
-`noImplicitUseStrict`|Do not emit "use strict" directives in module output.
+<!-- TODO: Links + more info -->

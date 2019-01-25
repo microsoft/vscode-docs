@@ -93,6 +93,8 @@ same error you would get from the command line
 
 See https://github.com/Microsoft/TypeScript/blob/master/src/tsconfig-base.json and vscode projects
 
+<!-- TODO: installing and using @types/node to call node api (process.args maybe?) -->
+
 ## Debugging
 
 Open helloworld.ts and just F5
