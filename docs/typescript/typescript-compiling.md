@@ -31,6 +31,10 @@ tsc --help
 
 Another option is to install the TypeScript compiler locally in your project (`npm install --save-dev typescript`) and has the benefit of avoiding possible interactions with other TypeScript projects you may have.
 
+### compiler versus language service
+
+just mention using different versions of each `tsc` and `typescript`
+
 ## tsconfig.json
 
 Typically the first step in any new TypeScript project is to add in a `tsconfig.json` file. This defines the TypeScript [project settings](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) such as the compiler options and the files that should be included. To do this, open up the folder where you want to store your source and add in a new file named `tsconfig.json`. Once in this file, IntelliSense (`kb(editor.action.triggerSuggest)`) will help you along the way.
@@ -63,21 +67,16 @@ Open VS Code on an empty folder and create a `HelloWorld.ts` file, place the fol
 
 <!-- TODO: change code example here -->
 ```ts
-class Startup {
-    public static main(): number {
-        console.log('Hello World');
-        return 0;
-    }
-}
-
-Startup.main();
+let message : string = "Hello World";
+console.log(message);
 ```
 
 To test that you have the TypeScript compiler `tsc` installed correctly and a working Hello World program, open a terminal and type `tsc HelloWorld.ts`. You can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) directly in VS Code.
 
-![build and run Hello World](images/typescript/build-hello-world.png)
+![build and run Hello World](images/typescript/build-hello-world.png) TBD
 
 You should now see the transpiled `HelloWorld.js` JavaScript file which you can run if you have [Node.js](https://nodejs.org) installed, by typing `node HelloWorld.js`.
+
 
 ### Step 2: Run the TypeScript build
 
@@ -142,15 +141,13 @@ You can also use the keyboard to open the list `kb(workbench.actions.view.proble
 
 ## JavaScript source map support
 
-TypeScript debugging supports JavaScript source maps. Enable this by setting the `sourceMaps` attribute to `true` in the project's launch configuration file `launch.json`. In addition, you can specify a TypeScript file with the `program` attribute.
-
-To generate source maps for your TypeScript files, compile with the `--sourcemap` option or set the `sourceMap` property in the `tsconfig.json` file to `true`.
+TypeScript debugging supports JavaScript source maps. To generate source maps for your TypeScript files, compile with the `--sourcemap` option or set the `sourceMap` property in the `tsconfig.json` file to `true`.
 
 In-lined source maps (a source map where the content is stored as a data URL instead of a separate file) are also supported, although in-lined source is not yet supported.
 
-## Setting a different outFiles for generated files
+## Output location for generated files
 
-If generated (transpiled) JavaScript files do not live next to their source, you can help the VS Code debugger locate them by setting the `outFiles` attribute in the launch configuration. Whenever you set a breakpoint in the original source, VS Code tries to find the generated source by searching the files specified by glob patterns in `outFiles`.
+`out` in tsconfig.json
 
 ## Hiding derived JavaScript files
 
@@ -217,7 +214,7 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 Read on to find out about:
 
-* [TBD JavaScript](/docs/languages/javascript.md) - we have several JavaScript specific features in VS Code
+* [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - TBD
 
 ## Common questions
 

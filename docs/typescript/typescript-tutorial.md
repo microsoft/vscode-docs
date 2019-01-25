@@ -32,13 +32,26 @@ tsc --version
 
 ## Hello World
 
+mkdir HelloWorld
+cd HelloWorld
+code .
+
+create a HelloWorld.ts
+
+```typescript
+let message : string = "Hello World";
+console.log(message);
+```
+
 using terminal, default is powershell, link to topic
 
 tsc .\helloworld.ts
 
 if you have Node.js installed, you can do `node helloworld.js`
 
-Doesn't look too different from `helloworld.ts`
+HelloWorld.js Doesn't look too different from `helloworld.ts`
+
+show the output
 
 ## IntelliSense
 
@@ -99,11 +112,11 @@ See https://github.com/Microsoft/TypeScript/blob/master/src/tsconfig-base.json a
 
 Open helloworld.ts and just F5
 
-need sourcemaps
+need sourcemaps, set in tsconfig.json and rebuild
 
-## Compiling skip this?
+## Compiling - skip this?
 
-build from VS Code Terminal run task
+go to compiling topic build from VS Code Terminal run task
 
 also watch
 
@@ -111,7 +124,7 @@ also watch
 
 OK, read on to find out about:
 
-* [TBD JavaScript](/docs/languages/javascript.md) - we have several JavaScript specific features in VS Code
+* [Compiling TypeScript](/docs/typescript/typescript-compiling.md) - TBD tasks, compiler options
 
 ## Common questions
 

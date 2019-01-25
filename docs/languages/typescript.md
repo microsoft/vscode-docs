@@ -47,6 +47,8 @@ Another option is to install the TypeScript compiler locally in your project (`n
 `kb(editor.action.formatDocument)`: formats the whole document.
 `kb(editor.action.formatSelection)`: formats the currently selected source code.
 
+mention formatting options but don't show exhaustive list.
+
 ## Quick fixes - TBD
 
 ## Organize Imports - TBD
