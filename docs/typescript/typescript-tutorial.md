@@ -45,8 +45,11 @@ From the File Explorer, create a new file called `helloworld.ts`.
 Now add the following TypeScript code. You'll notice the TypeScript keyword `let` and the `string` type declaration.
 
 ```typescript
-let message : string = "Hello World";
-console.log(message);
+function sayHello(name: string): void {
+    console.log(`Hello ${name}!`);
+}
+
+sayHello(process.argv[2]);
 ```
 
 To compile your TypeScript code, you can open the [Integrated Terminal](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.toggleTerminal)`) and typing `tsc helloworld.ts`. This will compile and create a new `HelloWorld.js` JavaScript file.
@@ -60,8 +63,10 @@ If you have Node.js installed, you can run `node helloworld.js`.
 If you open `helloworld.js`, you'll see that it doesn't look very different from `helloworld.ts`. The type information has been removed and `let` is now `var`.
 
 ```javascript
-var message = "Hello World";
-console.log(message);
+function sayHello(name) {
+    console.log(`Hello ${name}!`);
+}
+sayHello(process.argv[2]);
 ```
 
 ## IntelliSense

@@ -66,11 +66,12 @@ VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/
 
 Open VS Code on an empty folder and create a `helloworld.ts` file, place the following code in that file...
 
-<!-- TODO: change code example here -->
-
 ```typescript
-let message : string = "Hello World";
-console.log(message);
+function sayHello(name: string): void {
+    console.log(`Hello ${name}!`);
+}
+
+sayHello(process.argv[2]);
 ```
 
 To test that you have the TypeScript compiler `tsc` installed correctly and a working Hello World program, open a terminal and type `tsc helloworld.ts`. You can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) directly in VS Code.
@@ -245,9 +246,7 @@ VS Code ships with a recent stable version of the TypeScript language service an
 
 No, the TypeScript language service which ships with Visual Studio 2015 and 2017 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
 
-### Why are errors reported as warnings?
-<!-- TODO, cleanup here -->
-typescript.reportStyleChecksAsWarnings
+### Why are some errors reported as warnings?
 
 By default, VS Code TypeScript displays code style issues as warnings instead of errors. This applies to:
 
@@ -260,4 +259,4 @@ By default, VS Code TypeScript displays code style issues as warnings instead of
 
 Treating these as warnings is consistent with other tools, such as TSLint. These will still be displayed as errors when you run `tsc` from the command line.
 
-You can disable this behavior by setting: `"typescript.reportStyleChecksAsWarnings": false` in the User Settings file.
+You can disable this behavior by setting `"typescript.reportStyleChecksAsWarnings": false` in the User Settings file.

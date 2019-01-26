@@ -39,14 +39,11 @@ code .
 Now create a `HelloWorld.ts` file with the following content
 
 ```ts
-class Startup {
-    public static main(): number {
-        console.log('Hello World');
-        return 0;
-    }
+function sayHello(name: string): void {
+    console.log(`Hello ${name}!`);
 }
 
-Startup.main();
+sayHello('Dave');
 ```
 
 Pressing `kb(workbench.action.tasks.build)` or running **Run Build Task** from the global **Terminal** menu show the following picker:
