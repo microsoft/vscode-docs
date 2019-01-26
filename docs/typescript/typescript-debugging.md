@@ -12,7 +12,7 @@ MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
 
 ## JavaScript source map support
 
-TBD This is now the launch.json default
+<!-- TODO: This is now the launch.json default -->
 
 TypeScript debugging supports JavaScript source maps. Enable this by setting the `sourceMaps` attribute to `true` in the project's launch configuration file `launch.json`. In addition, you can specify a TypeScript file with the `program` attribute.
 
@@ -37,11 +37,11 @@ typescript site
 
 ## Next steps
 
-OK, read on to find out about:
+Read on to find out about:
 
-* [TBD JavaScript](/docs/languages/javascript.md) - we have several JavaScript specific features in VS Code
+<!-- TODO: Fill in Next steps -->
+* [JavaScript](/docs/languages/javascript.md) - Learn about JavaScript specific features in VS Code.
 
 ## Common questions
 
-### TBD How do I resolve a TypeScript "Cannot compile external module" error?
-
+<!-- TODO: fill in Common questions-->

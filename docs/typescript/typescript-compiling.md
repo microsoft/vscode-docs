@@ -66,17 +66,17 @@ VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/
 Open VS Code on an empty folder and create a `HelloWorld.ts` file, place the following code in that file...
 
 <!-- TODO: change code example here -->
-```ts
+```typescript
 let message : string = "Hello World";
 console.log(message);
 ```
 
 To test that you have the TypeScript compiler `tsc` installed correctly and a working Hello World program, open a terminal and type `tsc HelloWorld.ts`. You can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) directly in VS Code.
 
-![build and run Hello World](images/typescript/build-hello-world.png) TBD
+<!-- TODO: new image -->
+![build and run Hello World](images/typescript/build-hello-world.png)
 
 You should now see the transpiled `HelloWorld.js` JavaScript file which you can run if you have [Node.js](https://nodejs.org) installed, by typing `node HelloWorld.js`.
-
 
 ### Step 2: Run the TypeScript build
 
@@ -214,7 +214,7 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 Read on to find out about:
 
-* [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - TBD
+* [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Configure the debugger for your TypeScript project.
 
 ## Common questions
 
