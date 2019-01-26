@@ -12,7 +12,7 @@ MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
 
 [TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The TypeScript language specification can be found [here](https://github.com/Microsoft/TypeScript/tree/master/doc).
 
-## Installing the TypeScript compiler
+## Install the TypeScript compiler
 
 Visual Studio Code includes TypeScript language support but does not include the TypeScript compiler, `tsc`. You will need to install the TypeScript compiler either globally or in your workspace to transpile TypeScript source code to JavaScript (`tsc HelloWorld.ts`).
 
@@ -97,7 +97,7 @@ By default, TypeScript includes all the `.ts` files in the current folder and su
 
 Now to build from the terminal, you can just type `tsc` and the TypeScript compiler knows to look at your `tsconfig.json` for project settings and compiler options.
 
-### Changing the build output
+### Change the build output
 
 Having the generated JavaScript file in the same folder at the TypeScript source will quickly get cluttered on larger projects, so you can specify the output directory for the compiler with the `outDir` attribute.
 
