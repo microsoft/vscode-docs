@@ -30,7 +30,7 @@ tsc --version
 
 ## Hello World
 
-Let's start with a simple Hello World example. Create a new folder `HelloWorld` and launch VS Code.
+Let's start with a simple Hello World Node.js example. Create a new folder `HelloWorld` and launch VS Code.
 
 ```
 mkdir HelloWorld
