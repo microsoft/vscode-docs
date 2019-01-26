@@ -215,7 +215,9 @@ Click on the reference count to quickly browse a list of references:
 
 When you move or rename a file that is imported by other files in your JavaScript project, VS Code can automatically update all import paths that reference the moved file:
 
-![](TODO)
+<video src="/docs/languages/javascript/update-imports.mp4" placeholder="images/javascript/update-imports-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
 
 The `javascript.updateImportsOnFileMove.enabled` setting controls this behavior. Valid settings values are:
 
