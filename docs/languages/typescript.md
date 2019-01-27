@@ -41,13 +41,23 @@ Another option is to install the TypeScript compiler locally in your project (`n
 
 <!-- TODO mjbvz -->
 
+Keep in mind that when using JS Docs with TypeScript code, you should not include type annotations. The TypeScript compiler only uses TypeScript type annotations and ignores those from JS Docs.
+
 ## Hover information
 
-<!-- TODO mjbvz -->
+Hover over a TypescriptScript symbol to quickly see its type information and relevant documentation:
 
-## Signature Help
+![](TODO)
 
-<!-- TODO mjbvz -->
+You can also shows quick info at the current cursor position with the `kb(editor.action.showHover)` keyboard shortcut.
+
+## Signature help
+
+As you write a TypeScript function call, VS Code shows information about the function signature and highlights the parameter that you are currently completing:
+
+![](TODO)
+
+Signature help is shown automatically when you type a `(` or `,` within a function call. Use `kb(editor.action.triggerParameterHints)`  to manually trigger signature help.
 
 ## Auto imports
 
@@ -65,17 +75,38 @@ Auto imports requires TypeScript 2.6+ and are enabled by default. You can disabl
 
 ## Formating
 
-<!-- TODO mjbvz -->
+VS Code includes a TypeScript formatter that providers basic code formatting with reasonable defaults.
+
+Use the `typescript.format.*` [settings](/docs/getstarted/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
+
+For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code marketplace.
 
 ## JSX and auto closing tags
 
-<!-- TODO mjbvz -->
+VS Code's TypeScript features also work with [JSX](https://reactjs.org/docs/introducing-jsx.html). To use JSX in your TypeScript, use the `*.tsx` file extension instead of the normal `*.ts`:
+
+![](TODO)
+
+VS Code also includes JSX-specific features such as autoclosing of JSX tags in TypeScript:
+
+![](TODO)
+
+Set `"typescript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 ## Code navigation
 
-`kb(workbench.action.gotoSymbol)`: lists all defined symbols of the current open TypeScript and lets you navigate in it.
+Code navigation lets you quickly navigate TypeScript projects.
 
-`kb(workbench.action.showAllSymbols)`: lets you search all symbols defined in the current project or file scope. You need to have a TypeScript file open in the active editor.
+- **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
+- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
+- **Peek References** `kb(editor.action.referenceSearch.trigger)` - Show all references to a symbol.
+- **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
+- **Go to Implementation** `kb(editor.action.goToImplementation)` - Go to the implementations of an interface or abstract method.
+
+You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
+
+- **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
+- **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
 
 ## Rename
 
@@ -133,7 +164,9 @@ As with the references CodeLens, you can click on the implementation count to qu
 
 ## Linters
 
-<!-- TODO mjbvz -->
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/editor/extension-gallery.md) available in the marketplace.
+
+[TS Lint](https://github.com/palantir/tslint) is a popular TypeScript linter. The [TS Lint extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) integrates TS Lint into VS Code so you can see linting errors right in the editor and even quickly many of fix them with [quick fixes](#quick-fixes).
 
 ## TypeScript extensions
 

@@ -120,7 +120,9 @@ To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
 The built-in JavaScript formatter providers basic code formatting with reasonable defaults.
 
-Use the `javascript.format.*` [settings](/docs/getstarted/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it. For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code marketplace.
+Use the `javascript.format.*` [settings](/docs/getstarted/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
+
+For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code marketplace.
 
 ## JSX and auto closing tags
 
@@ -140,7 +142,7 @@ Set `"javascript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 ## Code navigation
 
-Use code navigation to quickly navigate through your JavaScript code.
+Code navigation lets you quickly navigate JavaScript projects.
 
 - **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
 - **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
