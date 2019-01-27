@@ -8,7 +8,8 @@ DateApproved: 12/12/2018
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/Languages_typescript.png
 ---
-# Editing TypeScript
+
+# TypeScript in Visual Studio Code
 
 [TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The TypeScript language specification can be found [here](https://github.com/Microsoft/TypeScript/tree/master/doc).
 
@@ -32,34 +33,21 @@ tsc --version
 
 Another option is to install the TypeScript compiler locally in your project (`npm install --save-dev typescript`) and has the benefit of avoiding possible interactions with other TypeScript projects you may have.
 
-## IntelliSense and ATA TBD
+## IntelliSense
 
-## Goto Symbol & Show All Symbols
-
-`kb(workbench.action.gotoSymbol)`: lists all defined symbols of the current open TypeScript and lets you navigate in it.
-
-`kb(workbench.action.showAllSymbols)`: lets you search all symbols defined in the current project or file scope. You need to have a TypeScript file open in the active editor.
-
-## Refactoring - TBD
-
-## Format Code
-
-`kb(editor.action.formatDocument)`: formats the whole document.
-`kb(editor.action.formatSelection)`: formats the currently selected source code.
-
-mention formatting options but don't show exhaustive list.
-
-## Quick fixes - TBD
-
-## Organize Imports - TBD
-
-`editor.codeActionsOnSave`
-
-## Linting - TBD
+<!-- TODO mjbvz -->
 
 ## JSDoc support
 
-VS Code offers **JSDoc** support for TypeScript. Besides syntax coloring, we help you enter **JSDoc** comments. Type `/**` and it will auto insert the closing `*/`. Pressing `kbstyle(Enter)` inside a **JSDoc** block will indent the next line and auto insert a `*`.
+<!-- TODO mjbvz -->
+
+## Hover information
+
+<!-- TODO mjbvz -->
+
+## Signature Help
+
+<!-- TODO mjbvz -->
 
 ## Auto imports
 
@@ -74,6 +62,48 @@ If you choose one of the suggestion from another file or module, VS Code will au
 ![After selecting a symbol from a different file, an import is added for it automatically](images/typescript/auto-import-post.png)
 
 Auto imports requires TypeScript 2.6+ and are enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
+
+## Formating
+
+<!-- TODO mjbvz -->
+
+## JSX and auto closing tags
+
+<!-- TODO mjbvz -->
+
+## Code navigation
+
+`kb(workbench.action.gotoSymbol)`: lists all defined symbols of the current open TypeScript and lets you navigate in it.
+
+`kb(workbench.action.showAllSymbols)`: lets you search all symbols defined in the current project or file scope. You need to have a TypeScript file open in the active editor.
+
+## Rename
+
+<!-- TODO mjbvz -->
+
+## Refactoring
+
+<!-- TODO mjbvz -->
+
+## Quick fixes
+
+<!-- TODO mjbvz -->
+
+## Unused variables and unreachable code
+
+<!-- TODO mjbvz -->
+
+## Organize Imports
+
+<!-- TODO mjbvz -->
+
+## Code suggestions
+
+<!-- TODO mjbvz -->
+
+## Update imports on file move
+
+<!-- TODO mjbvz -->
 
 ## References CodeLens
 
@@ -96,6 +126,14 @@ The TypeScript implementations CodeLens displays the number of implementors of a
 You can enable this by setting `"typescript.implementationsCodeLens.enabled": true`.
 
 As with the references CodeLens, you can click on the implementation count to quickly browse a list of all implementations.
+
+## Debugging
+
+<!-- TODO mjbvz -->
+
+## Linters
+
+<!-- TODO mjbvz -->
 
 ## TypeScript extensions
 
