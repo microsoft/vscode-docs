@@ -18,9 +18,9 @@ If you have any problems, feel free to file an issue for this tutorial in the [V
 
 Docker is a system that allows you to deploy and run apps using **containers** rather than setting up dedicated environments like virtual machines. A container is a lightweight runtime environment that shares the resources of the host operating system with other containers. Docker is the layer that sits above the operating system to manage resources on behalf of containers.
 
-A container is specifically an instance of a Docker **image**, an executable package that contains everything needed to run your app: app code, configuration files, runtimes, and all of app's dependencies. A image can be used to instantiate any number of identical containers, which is especially useful when scaling out a cloud-based web app. Because container images are much smaller than virtual machine images, instances can be started and stopped much more quickly than virtual machines, enabling your app to be highly responsive to varying loads at a minimal cost. (When used to scale web apps, containers are often managed in **clusters**, which are then managed by an orchestration agent such as [Kubernetes](https://wikipedia.org/wiki/Kubernetes).)
+A container is specifically an instance of a Docker **image**, an executable package that contains everything needed to run your app: app code, configuration files, runtimes, and all of app's dependencies. An image can be used to instantiate any number of identical containers, which is especially useful when scaling out a cloud-based web app. Because container images are much smaller than virtual machine images, instances can be started and stopped much more quickly than virtual machines, enabling your app to be highly responsive to varying loads at a minimal cost. (When used to scale web apps, containers are often managed in **clusters**, which are then managed by an orchestration agent such as [Kubernetes](https://wikipedia.org/wiki/Kubernetes).)
 
-Images, for their part, are built in multiple **layers**. The lowest or **base** layers of an image are typically common elements like the Python runtime; the higher layers the contain more specialized elements like your app code. Because of layering, it takes very little time to rebuild an image when changing only the top layer with your app code. Similarly, when you push an image to a **container registry**, an online repository for images from which you can deploy to cloud services like Azure, only the modified layers need be uploaded and redeployed. As a result, using containers has only a very small impact on your develop-test-deploy loop.
+Images, for their part, are built in multiple **layers**. The lowest or **base** layers of an image are typically common elements like the Python runtime; the higher layers the contain more specialized elements like your app code. Because of layering, it takes very little time to rebuild an image when changing only the top layer with your app code. Similarly, when you push an image to a **container registry**, an online repository for images from which you can deploy to cloud services like Azure, only the modified layers need be uploaded and redeployed. As a result, using containers has only a small impact on your develop-test-deploy loop.
 
 You will experience the basics of containers and images in the course of this tutorial. For additional background, including helpful diagrams, refer to the [Docker documentation](https://docs.docker.com/get-started/).
 
@@ -34,7 +34,7 @@ If you don't have an Azure account, [sign up now](https://azure.microsoft.com/fr
 
 ### Visual Studio Code, Docker, and Python runtime
 
-Install the following:
+Install the following software:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Docker Community Edition](https://www.docker.com/community-edition). To verify your installation, run the command `docker --version`, which should show output like `Docker version 18.06.1-ce, build e68fc7a`.
@@ -170,7 +170,7 @@ The following steps summarize the configuration used in the [python-sample-vscod
     #RUN pip install --no-cache-dir -r /requirements.txt
     ```
 
-1. The `uwsgi.ini` file, which is in the `hello_app` folder of the sample, provides configuration arguments for the uwsgi server. For the sample, the configuration below says that the Flask app object is found in the `hello_app/webapp.py` module, and that it's named (that is, "callable" as) `app`. The other value are additional common uwsgi settings:
+1. The `uwsgi.ini` file, which is in the `hello_app` folder of the sample, provides configuration arguments for the uwsgi server. For the sample, the configuration below says that the Flask app object is found in the `hello_app/webapp.py` module, and that it's named (that is, "callable" as) `app`. The other values are additional common uwsgi settings:
 
     ```ini
     [uwsgi]
@@ -293,7 +293,7 @@ With the necessary `Dockerfile` in place, you're ready to build the Docker image
 
 ### Two useful features of the Docker extension
 
-The Docker extension provides a simple UI to manage and even run your images rather than using the Docker CLI. Just expand the **Image** node in the Docker explorer, right click any image, and select any of the menu items:
+The Docker extension provides a simple UI to manage and even run your images rather than using the Docker CLI. Just expand the **Image** node in the Docker explorer, right-click any image, and select any of the menu items:
 
 ![Managing images with the Docker extension](images/deploy-containers/manage-images.png)
 
@@ -335,7 +335,7 @@ With an image built and pushed to a registry, you can use the Docker extension i
 
     An **App Service Plan** defines the physical resources (an underlying virtual machine) that hosts the running container. For this tutorial, B1 is the least expensive plan that supports Docker containers. (For more information, see [App Service plan overview](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) in the Azure documentation.)
 
-    The name of the App Service must be unique across all of Azure, so you typically use a company or personal name. For production sites, you typically configure the App Service with a separately-registered domain name.
+    The name of the App Service must be unique across all of Azure, so you typically use a company or personal name. For production sites, you typically configure the App Service with a separately registered domain name.
 
 1. Creating the app service takes a few minutes, and you see progress in VS Code's Output panel.
 
@@ -349,7 +349,7 @@ With an image built and pushed to a registry, you can use the Docker extension i
 
 ## Make changes and redeploy
 
-Because you inevitably make changes to your app, you end up rebuilding and redeploying your container many times. Fortunately, the process is very simple:
+Because you inevitably make changes to your app, you end up rebuilding and redeploying your container many times. Fortunately, the process is simple:
 
 1. Make changes to your app and test locally.
 
@@ -388,7 +388,7 @@ From within VS Code, you can view (or "tail") logs from the running site on Azur
 
 Congratulations on completing this walkthrough of deploying a containerized Python app to Azure App Service!
 
-As noted earlier, you can learn more about the Docker and App Service extensions by visiting their respective repositories on GitHub: [vscode-docker](https://github.com/Microsoft/vscode-docker) and [vscode-azureappservice](https://github.com/Microsoft/vscode-azureappservice). Issues and contributions are also very welcome.
+As noted earlier, you can learn more about the Docker and App Service extensions by visiting their respective repositories on GitHub: [vscode-docker](https://github.com/Microsoft/vscode-docker) and [vscode-azureappservice](https://github.com/Microsoft/vscode-azureappservice). Issues and contributions are also welcome.
 
 To learn more about Azure services that you can use from Python, including data storage along with AI and Machine Learning services, visit [Azure Python Developer Center](https://docs.microsoft.com/python/azure/?view=azure-python).
 

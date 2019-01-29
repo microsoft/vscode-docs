@@ -48,7 +48,7 @@ To select a debugging configuration, select the Debug View in the sidebar, then 
 
 By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and in the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to scroll down to see  all the Python options):
 
-![Adding a new Python debugging configurations](images/debugging/add-configuration.png)
+![Adding a new Python debugging configuration](images/debugging/add-configuration.png)
 
 See [Debugging specific app types](#debugging-specific-app-types) for details on all of these configurations.
 
@@ -180,7 +180,7 @@ As an example, say `${workspaceFolder}` contains a `py_code` folder containing `
 
 ### `debugOptions`
 
-An array of additional options that may contain the following:
+An array of additional options:
 
 | Option | Description |
 | --- | --- |
@@ -214,7 +214,7 @@ In your Python code, you can call `breakpoint()` at any point where you want to 
 
 ## Attach to a local script
 
-In some scenarios you need to debug a Python script that's invoked locally by another process. For example, you may be debugging a web server that runs different Python scripts for specific processing jobs. In such cases, you need to attach the VS Code debugger to the script once it's been launched:
+In some scenarios, you need to debug a Python script that's invoked locally by another process. For example, you may be debugging a web server that runs different Python scripts for specific processing jobs. In such cases, you need to attach the VS Code debugger to the script once it's been launched:
 
 1. Run VS Code, open the folder or workspace containing the script, and create a `launch.json` for that workspace if one doesn't exist already.
 
@@ -248,11 +248,11 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Both computers: make sure that identical source code is available.
 
-1. Both computers: install [ptvsd](https://pypi.org/project/ptvsd/) using `python -m pip install --upgrade ptvsd` into your environment (while using a form of virtual environment is not required, it is strongly recommended).
+1. Both computers: install [ptvsd](https://pypi.org/project/ptvsd/) using `python -m pip install --upgrade ptvsd` into your environment (while using a form of virtual environment is not required, it is a recommended best practice).
 
 1. Remote computer: open the port you wish to use for debugging in the appropriate firewall or other networking configuration.
 
-1. Remote computer: there are two ways to specify how to attach to the remote process. Note that you may need to specify the remote computer's private IP address, if applicable (Linux VMs on Azure, for example, have both a public and private address). If you use the public IP address, you might see the error "Cannot assign requested address."
+1. Remote computer: there are two ways to specify how to attach to the remote process. You may need to specify the remote computer's private IP address, if applicable (Linux VMs on Azure, for example, have both a public and private address). If you use the public IP address, you might see the error "Cannot assign requested address."
 
    1. In the source code, add the following lines, replacing `address` with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
 
@@ -312,7 +312,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
     > **Tip**: setting a single breakpoint on the statement immediately following the `ptvsd.wait_for_attach()` line may not work. Set at least one other breakpoint on another statement.
 
-1. Local computer: start the VS Code debugger using the modified **Python Attach** configuration. VS Code should stop on your locally-set breakpoints, allowing you to step through the code, examine variables, and perform all other debugging actions. Expressions that you enter in the **Debug Console** are run on the remote computer as well.
+1. Local computer: start the VS Code debugger using the modified **Python Attach** configuration. VS Code should stop on your locally set breakpoints, allowing you to step through the code, examine variables, and perform all other debugging actions. Expressions that you enter in the **Debug Console** are run on the remote computer as well.
 
     Text output to stdout, as from `print` statements, appears on both computers. Other outputs, such as graphical plots from a package like matplotlib, however, appear only on the remote computer.
 
@@ -324,7 +324,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 ### Debugging over SSH
 
-In some cases you may want or need to use a secure connection to the remote computer when debugging. On Windows computers, you may need to install [OpenSSH](http://sshwindows.sourceforge.net/) to have the `ssh` command.
+In some cases, you may want or need to use a secure connection to the remote computer when debugging. On Windows computers, you may need to install [OpenSSH](http://sshwindows.sourceforge.net/) to have the `ssh` command.
 
 On the remote computer:
 
@@ -460,7 +460,7 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
     ```
 1. Create a `launch.json` configuration using the **Attach (Remote Debug)** configuration as a template. Make sure the port value matches what's in the source code above.
 1. Add `"preLaunchTask": "python"` to `launch.json`.
-1. From the Command Palette, run the **Run Build Task** command. This opens the Tasks output window where you see various messages.
+1. From the Command Palette, run the **Run Build Task** command. This command opens the Tasks output window where you see various messages.
 1. Once you see the message "Google App Engine has started; ready to attach the debugger," start the VS Code debugger using the remote debugging configuration.
 1. Set breakpoints where you want, then start the browser to start the app.
 
