@@ -56,7 +56,7 @@ From within VS Code, select a Python 3 interpreter by opening the **Command Pale
 
 ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
-The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
+The command presents a list of available interpreters that VS Code can find automatically, including virtual environments. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
 
 Selecting an interpreter sets the `python.pythonPath` value in your workspace settings to the path of the interpreter. To see the setting, select **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS), then select the **Workspace Settings** tab.
 
@@ -264,6 +264,12 @@ python -m pip install matplotlib
 Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
 
 ![matplotlib output](images/tutorial/plot-output.png)
+
+### Use a virtual environment
+
+A best practice among Python developers is to avoid installing packages into a global interpreter environment, as we did in the previous section. You instead use a project-specific *virtual environment* that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments, which reduces many complications that can arise from conflicting package versions.
+
+For examples of creating and activating a virtual environment and installing packages, see the [Django tutorial](/docs/python/tutorial-django.md) and the [Flask tutorial](/docs/python/tutorial-flask.md).
 
 ## Next steps
 
