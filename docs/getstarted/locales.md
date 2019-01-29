@@ -82,3 +82,11 @@ Below is an example of using the `--locale` command line switch to set the VS Co
 ```bash
 code . --locale=fr
 ```
+
+**Note**: You must have the appropriate Language Pack installed for the language you specify with the command line switch. If the matching Language Pack is not installed, VS Code will display English.
+
+## Common questions
+
+### Unable to write to file because the file is dirty
+
+This notification may mean that your `locale.json` file wasn't saved after a previous change. Make sure the file is saved and try to install the Language Pack again.
