@@ -71,7 +71,7 @@ The following steps give you a quick walkthrough of working with tests in VS Cod
 
 1. VS Code displays tests results directly in the editor, where you can see that one test passed and one failed:
 
-    ![Test result adornments on a unit test methods](images/unit-testing/result-adornments.png)
+    ![Test result adornments on a unit test method](images/unit-testing/result-adornments.png)
 
     VS Code also shows test results in the **Python Test Log** output panel (use the **View** > **Output** menu command to show the **Output** panel, then select **Python Test Log** from the drop-down on the right side):
 
@@ -192,7 +192,7 @@ The behavior of unit testing with Python is driven by both general settings and 
 The default arguments for UnitTest are as follows:
 
 - `-v` sets default verbosity. Remove this argument for simpler output.
-- `-s .` specifies the starting directory for discovering tests. If you have tests in a "test" folder, you can change this to `-s test` (meaning `"-s", "test"` in the arguments array).
+- `-s .` specifies the starting directory for discovering tests. If you have tests in a "test" folder, change the argument to `-s test` (meaning `"-s", "test"` in the arguments array).
 - `-p *test*.py` is the discovery pattern used to look for tests. In this case, it's any `.py` file that includes the word "test". If you name test files differently, such as appending "\_test" to every filename, then use a pattern like `*_test.py` in the appropriate argument of the array.
 
 To stop a test run on the first failure, add the fail fast option `"-f"` to the arguments array.

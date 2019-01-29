@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Linting Python in Visual Studio Code
 
-Linting highlights syntactical and stylistic problems in your Python source code, which oftentimes helps you identify and correct subtle programming errors or just unconventional coding practices. For example, linting detects use of an uninitialized or undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine a built-in types or functions. Linting is thus distinct from [Formatting](editing.md#formatting) because linting analyzes how the code runs and detects errors whereas formatting simply restructures how code *appears*.
+Linting highlights syntactical and stylistic problems in your Python source code, which oftentimes helps you identify and correct subtle programming errors or unconventional coding practices that can lead to errors. For example, linting detects use of an uninitialized or undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine built-in types or functions. Linting is thus distinct from [Formatting](editing.md#formatting) because linting analyzes how the code runs and detects errors whereas formatting simply restructures how code *appears*.
 
 By default, linting for Python is enabled in Visual Studio Code using [Pylint](https://www.pylint.org), and you can enable other linters of your choice. You can easily enable and disable all linting by using the **Python: Enable Linting** command.
 
@@ -77,7 +77,7 @@ Custom arguments are specified in the appropriate arguments setting for each lin
 "python.linting.pydocstyleArgs": ["--ignore=D400", "--ignore=D4"]
 ```
 
-Note that if a top-level element is a single value, as delineated by quotation marks or braces, is still a single item in the list even if the value itself contains spaces.
+Note that if a top-level element is a single value, as delineated by quotation marks or braces, is still appears as a single item in the list even if the value itself contains spaces.
 
 A custom path is generally unnecessary as the Python extension resolves the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting. For example, if your selected interpreter is a virtual environment but you want to use a linter that's installed in a global environment, then set the appropriate path setting to point to the global environment's linter.
 
@@ -124,7 +124,7 @@ For the complete list of Pylint messages, see [readable-pylint-messages](https:/
 
 ### Command-line arguments and configuration files
 
-See [Pylint command line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options) for general switches. Command line arguments can be used to load Pylint plugins, such as that for Django:
+See [Pylint command line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options) for general switches. Command-line arguments can be used to load Pylint plugins, such as the plugin for Django:
 
 ```json
 "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
@@ -251,7 +251,7 @@ By default, Flake8 ignores E121, E123, E126, E226, E24, and E704.
 
 Flake8 user options are read from the `C:\Users\<username>\.flake8` (Windows) or `~/.config/flake8` (macOS/Linux) file.
 
-At the project level, options are read from the `[flake8]` section of a `tox.ini`, `setup.cfg` or `.flake8` file.
+At the project level, options are read from the `[flake8]` section of a `tox.ini`, `setup.cfg`, or `.flake8` file.
 
 For details, see [Flake8 configuration](http://flake8.pycqa.org/en/latest/user/configuration.html).
 
