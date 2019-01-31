@@ -41,7 +41,7 @@ You can also run code cells using the **Python: Run Selection/Line in Python Ter
 
 The Python interactive window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells).
 
-To use the window as a console, open it with the **Python: Show Python Interactive window** command from the Command Palette. You can then type in code, using Enter to go to a new line and Shift+Enter to run the code.
+To use the window as a console, open it with the **Python: Show Python Interactive window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
 
 To use the window with a file, use the **Run Current File in Python Interactive window** command from the Command Palette.
 

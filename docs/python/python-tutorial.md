@@ -237,7 +237,7 @@ plt.plot(x, np.sin(x))       # Plot the sine of each x point
 plt.show()                   # Display the plot
 ```
 
-> **Tip**: if you enter the above code by hand, you may find that auto-completions change the names after the `as` keywords when you press Enter at the end of a line. To avoid this, type a space, then Enter.
+> **Tip**: If you enter the above code by hand, you may find that auto-completions change the names after the `as` keywords when you press `kbstyle(Enter)` at the end of a line. To avoid this, type a space, then `kbstyle(Enter)`.
 
 Next, try running the file in the debugger using the "Python: Current file" configuration as described in the last section. (If you still have `"stopOnEntry": true` in that configuration, you need to select the run command again to continue.)
 
