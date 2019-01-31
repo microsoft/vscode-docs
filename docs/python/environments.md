@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Using Python environments in VS Code
 
-An "environment" in Python is the context in which a Python program runs. An environment consists of an interpreter and any number of installed packages. The Python extension for VS Code provide helpful integration features for working with different environments.
+An "environment" in Python is the context in which a Python program runs. An environment consists of an interpreter and any number of installed packages. The Python extension for VS Code provides helpful integration features for working with different environments.
 
 > **Note**: If you're looking to get started with Python in Visual Studio Code, refer to the tutorial [Getting Started with Python in VS Code](/docs/python/python-tutorial.md).
 
@@ -18,7 +18,7 @@ An "environment" in Python is the context in which a Python program runs. An env
 
 By default, the Python extension looks for and uses the first Python interpreter it finds in the system path. If it doesn't find an interpreter, it issues a warning. On macOS, the extension also issues a warning if you're using the OS-installed Python interpreter, because you typically want to use an interpreter you install directly. In either case, you can disable these warnings by setting `python.disableInstallationCheck` to `true` in your user [settings](/docs/getstarted/settings.md).
 
-To select an specific environment, use the **Python: Select Interpreter** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+To select a specific environment, use the **Python: Select Interpreter** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![Python: Select Interpreter command](images/environments/select-interpreters-command.png)
 
@@ -80,7 +80,7 @@ The extension automatically looks for interpreters in the following locations:
 - Virtual environments located directly under the workspace (project) folder.
 - Virtual environments located in the folder identified by the `python.venvPath` setting (see [General settings](/docs/python/settings-reference.md#general-settings)), which can contain multiple virtual environments. The extension looks for virtual environments in the first-level subfolders of `venvPath`.
 - Interpreters installed by [pyenv](https://github.com/pyenv/pyenv).
-- A [pipenv](https://docs.pipenv.org/) environment for the workplace folder. If one is found then no other interpreters are searched for or listed as pipenv expects to manage all aspects of the environment.
+- A [pipenv](https://docs.pipenv.org/) environment for the workplace folder. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects of the environment.
 - Conda environments that contain a Python interpreter. VS Code does not show conda environments that don't contain an interpreter.
 - Interpreters installed in a `.direnv` folder for [direnv](https://direnv.net/) under the workspace (project) folder.
 
@@ -120,7 +120,7 @@ For examples of using virtual environment in projects, see the [Django tutorial]
 
 ### Conda environments
 
-A conda environment is a Python environment that's managed using the `conda` package manager (see [Getting started with conda](https://conda.io/docs/user-guide/getting-started.html) (conda.io)). Conda works very well to create environments with interrelated dependencies as well as binary packages. Unlike virtual environments, which are scoped to a project, conda environments are available globally on any given computer. This availability makes it easy to configure several distinct conda environments and then choose the appropriate one for any given project.
+A conda environment is a Python environment that's managed using the `conda` package manager (see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) (conda.io)). Conda works well to create environments with interrelated dependencies as well as binary packages. Unlike virtual environments, which are scoped to a project, conda environments are available globally on any given computer. This availability makes it easy to configure several distinct conda environments and then choose the appropriate one for any given project.
 
 As noted earlier, the Python extension automatically detects existing conda environments provided that the environment contains a Python interpreter. For example, the following command creates a conda environment with the Python 3.4 interpreter and several libraries, which VS Code then shows in the list of available interpreters:
 
@@ -189,7 +189,7 @@ An environment variable definitions file is a simple text file containing key-va
 
 By default, the Python extension loads a file named `.env` in the current workspace folder, as identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General settings](/docs/python/settings-reference.md#general-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
-A debug configuration also contains an `envFile` property that also defaults to the `.env` file in the current workspace (see [Debugging - Set configuration options](/docs/python/debugging.md#set-configuration-options)). This property allows you to easily set variables for debugging purposes that replace those used in the default `.env` file.
+A debug configuration also contains an `envFile` property that also defaults to the `.env` file in the current workspace (see [Debugging - Set configuration options](/docs/python/debugging.md#set-configuration-options)). This property allows you to easily set variables for debugging purposes that replace variables specified in the default `.env` file.
 
 For example, when developing a web application, you might want to easily switch between development and production servers. Instead of coding the different URLs and other settings into your application directly, you could use separate definitions files for each. For example:
 
@@ -229,7 +229,7 @@ The [PYTHONPATH](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH)
 
 > **Note**: you must set the PYTHONPATH variable through your operating system as VS Code doesn't provide a means to set environment variables directly.
 
-In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, and any other operation that depends on Python resolving modules. For example, suppose you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this, add the path to `src` to PYTHONPATH.
+In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, and any other operation that depends on Python resolving modules. For example, suppose you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this problem, add the path to `src` to PYTHONPATH.
 
 It's recommended that you set the PYTHONPATH variable in an [Environment variable definitions file](#environment-variable-definitions-file), described earlier.
 

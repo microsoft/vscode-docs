@@ -4,35 +4,79 @@ Area: python
 TOCTitle: Unit Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Unit Testing Python in Visual Studio Code
-DateApproved: 11/19/2018
+DateApproved: 01/30/2019
 MetaDescription: Unit Testing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Python unit tests in Visual Studio Code
 
-The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/) and [Nose](https://nose.readthedocs.io/en/latest/). To use either pytest and Nose, they must be installed into the current Python environment (the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
+The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/). [Nose](https://nose.readthedocs.io/en/latest/) is also supported, although the framework itself is in maintenance mode.
 
-After [enabling a test framework](#enable-a-test-framework), use the **Python: Discover Unit Tests** command to scan the project for tests according to the discovery patterns of the currently selected test framework (see [Test discovery](#test-discovery). Once discovered, Visual Studio Code provides a variety of means to run tests (see [Run tests](#run-tests)) and debug tests (see [Debug tests](#debug-tests)). VS Code displays unit test output in the **Python Test Log** panel, including errors caused when a test framework is not installed.
+After [enabling a test framework](#enable-a-test-framework), use the **Python: Discover Unit Tests** command to [scan the project for tests](#test-discovery) according to the discovery patterns of the currently selected test framework. Once discovered, Visual Studio Code provides a variety of means to [run tests](#run-tests) and [debug tests](#debug-tests). VS Code displays unit test output in the **Python Test Log** panel, including errors caused when a test framework is not installed. With PyTest, failed tests also appear in the **Problems** panel.
 
-> **Tip**: a useful repository containing a variety of unit tests, applied to different sorting algorithms, is [https://github.com/gwtw/py-sorting](https://github.com/gwtw/py-sorting).
+## A little background on unit testing
 
-For a general background on unit testing, see [Unit Testing](https://wikipedia.org/wiki/Unit_testing) on Wikipedia.
+(If you're already familiar with unit testing, you can skip to the [walkthroughs](#example-test-walkthroughs).)
 
-## An example test and walkthrough
+A *unit* is a specific piece of code to be tested, such as a function or a class. *Unit tests* are then other pieces of code that specifically exercise the code unit with a full range of different inputs, including boundary and edge cases.
 
-Python tests are Python classes that are saved in separate files from the code being tested. How you write tests and how you save test files depends on the conventions of the framework you're using. Once you've written tests and have enabled a test framework, VS Code locates those tests and provides you with various commands to run and debug them.
+For example, say you have a function to validate the format of an account number that a user enters in a web form:
 
-The following steps give you a quick walkthrough of working with tests in VS Code. The sections that follow then go into more detail about test discovery, running tests, and debugging tests.
+```python
+def validate_account_number_format(account_string):
+    # Return false if invalid, true if valid
+    # ...
+```
 
-1. Enable the unittest framework by adding the following entries to your user (or workspace) settings. We recommend explicitly enabling one framework and disabling the others as shown here:
+Unit tests are concerned only with the unit's *interface*&mdash;its arguments and return values&mdash;not with its implementation (which is why no code is shown here in the function body; often you'd be using other well-tested libraries to help implement the function). In this example, the function accepts any string and returns true if that string contains a properly formatted account number, false otherwise.
 
-    ```json
-    "python.unitTest.unittestEnabled": true,
-    "python.unitTest.pyTestEnabled": false,
-    "python.unitTest.nosetestsEnabled": false,
-    ```
+To thoroughly test this function, you want to throw at it every conceivable input: valid strings, mistyped strings (off by one or two characters, or containing invalid characters), strings that are too short or too long, blank strings, null arguments, strings containing control characters (non-text codes), string containing HTML, strings containing injection attacks (such as SQL commands or JavaScript code), and so on. It's especially important to test security cases like injection attacks if the validated string is later used in database queries or displayed in the app's UI.
 
-1. Create a file named `inc_dec.py` with the following code to be tested:
+For each input, you then define the function's expected return value (or values). In this example, again, the function should return true for only properly formatted strings. (Whether the number itself is a real account is a different matter that would be handled elsewhere through a database query.)
+
+With all the arguments and expected return values in hand, you now write the tests themselves, which are simply pieces of code that call the function with a particular input, then compare the actual return value with the expected return value (this comparison is called an *assertion*):
+
+```python
+# Import the code to be tested
+import validator
+
+# Import the unit test framework (this is a hypothetical module)
+import test_framework
+
+# This is a generalized example, not specific to a test framework
+class Test_TestAccountValidator(test_framework.TestBaseClass):
+    def test_validator_valid_string():
+        # The exact assertion call depends on the framework as well
+        assert(validate_account_number_format("1234567890"), true)
+
+    # ...
+
+    def test_validator_blank_string():
+        # The exact assertion call depends on the framework as well
+        assert(validate_account_number_format(""), false)
+
+    # ...
+
+    def test_validator_sql_injection():
+        # The exact assertion call depends on the framework as well
+        assert(validate_account_number_format("drop database master"), false)
+
+    # ... tests for all other cases
+```
+
+The exact structure of the code depends on the unit test framework you're using, and specific examples are provided later in this article. In any case, as you can see, each test is very simple: invoke the function with an argument and assert the expected return value.
+
+The combined results of all the tests is your test report, which tells you whether the function (the unit), is behaving as expected across all test cases. That is, when a unit passes all of its tests, you can be confident that it's functioning properly. (The practice of *test-driven development* is where you actually write the tests first, then write the code to pass more and more tests until all of them pass.)
+
+Because unit tests are small, isolated piece of code (in unit testing you avoid external dependencies and use mock data or otherwise simulated inputs), they're quick and inexpensive to run. This characteristic means means that you can run unit tests early and often. Developers typically run unit tests even before committing code to a repository; gated check-in systems can also run unit tests before merging a commit. Many continuous integration systems also run unit tests after every build. Running the unit test early and often means that you quickly catch *regressions,* which are unexpected changes in the behavior of code that previously passed all its unit tests. Because the test failure can easily be traced to a particular code change, it's easy to find and remedy the cause of the failure, which is undoubtedly better than discovering a problem much later in the process!
+
+For a general background on unit testing, see [Unit Testing](https://wikipedia.org/wiki/Unit_testing) on Wikipedia. For a variety of useful unit test examples, see [https://github.com/gwtw/py-sorting](https://github.com/gwtw/py-sorting), a repository with tests for different sorting algorithms.
+
+## Example test walkthroughs
+
+Python tests are Python classes that reside in separate files from the code being tested. Each test framework specifies the structure and naming of tests and test files. Once you write tests and enable a test framework, VS Code locates those tests and provides you with various commands to run and debug them.
+
+For this section, create a folder and open it in VS Code. Then create a file named `inc_dec.py` with the following code to be tested:
 
     ```python
     def increment(x):
@@ -42,50 +86,7 @@ The following steps give you a quick walkthrough of working with tests in VS Cod
         return x - 1
     ```
 
-1. Create a file named `test1.py` that contains a test class with two test methods, one of which is intentionally set to fail for the purposes of demonstration:
-
-    ```python
-    import unittest
-    import inc_dec
-
-    class Test_TestIncrementDecrement(unittest.TestCase):
-        def test_increment(self):
-            self.assertEqual(inc_dec.increment(3), 4)
-
-        def test_decrement(self):
-            self.assertEqual(inc_dec.decrement(3), 4)
-
-    if __name__ == '__main__':
-        unittest.main()
-    ```
-
-1. When using unittest, VS Code by default looks for tests whenever you save a recognized test file. The unittest framework specifically looks for files with "test" anywhere in the filename, as in `test1.py`. Once VS Code recognizes tests, it provides several ways to run those tests as shown later in [Running tests](#running-tests). The most obvious means are CodeLens adornments that appear directly in the editor and allow you to easily run a single test method or a test class:
-
-    ![Test adornments that appear in the VS Code editor for unit test code](images/unit-testing/editor-adornments.png)
-
-    > **Note**: At present, the Python extension doesn't provide a setting to turn the adornments on or off. To suggest a different behavior, file an issue on the [vscode-python repository](https://github.com/Microsoft/vscode-python/issues).
-
-1. For this walkthrough, select **Run Test** above the **class** to run all the tests in the class.
-
-    ![Run test adornments on a unit test class](images/unit-testing/run-test-adornment.png)
-
-1. VS Code displays tests results directly in the editor, where you can see that one test passed and one failed:
-
-    ![Test result adornments on a unit test methods](images/unit-testing/result-adornments.png)
-
-    VS Code also shows test results in the **Python Test Log** output panel (use the **View** > **Output** menu command to show the **Output** panel, then select **Python Test Log** from the drop-down on the right side):
-
-    ![Test results in the Python Test Log output panel](images/unit-testing/python-test-log-output.png)
-
-1. To more closely analyze a test, set a breakpoint on first the line in the `test_decrement` function, that reads `self.assertEqual(inc_dec.decrement(3), 4)`. Then select the **Debug Test** adornment above that function. VS Code starts the debugger and pauses at the breakpoint. In this case, you can use the **Debug Console** panel to enter `inc_dec.decrement(3)` and see the actual result is 2 and that the expected result of 4 is incorrect. Stop the debugger and correct that line of code:
-
-    ```python
-    self.assertEqual(inc_dec.decrement(3), 2)
-    ```
-
-1. Save the file and run the test again to see that it passes.
-
-> **Note**: running or debugging a unit test does not automatically save the test file. Always be sure to save changes to a test before running it, otherwise you'll likely be confused by the results because they still reflect the previous version of the file!
+With this code, you can experience working with tests in VS Code as described in the sections that follow.
 
 ## Enable a test framework
 
@@ -93,7 +94,11 @@ Unit testing in Python is disabled by default. To enable unit testing, set *one 
 
 It's important that you enable only a single test framework at a time. For this reason, when you enable one framework also be sure to disable the others.
 
-To enable unittest, for example, use the following settings:
+When you enable a test framework, VS Code prompts you to install the framework package if it's not already present in the currently activated environment:
+
+![VS Code prompt to install a test framework when enabled](images/unit-testing/install-framework.png)
+
+### Settings to enable unittest
 
 ```json
 "python.unitTest.unittestEnabled": true,
@@ -101,7 +106,7 @@ To enable unittest, for example, use the following settings:
 "python.unitTest.nosetestsEnabled": false,
 ```
 
-To enable pyTest:
+### Settings to enable pytest
 
 ```json
 "python.unitTest.unittestEnabled": false,
@@ -109,12 +114,51 @@ To enable pyTest:
 "python.unitTest.nosetestsEnabled": false,
 ```
 
-To enable Nose:
+### Settings to enable Nose
 
 ```json
 "python.unitTest.unittestEnabled": false,
 "python.unitTest.pyTestEnabled": false,
 "python.unitTest.nosetestsEnabled": true,
+```
+
+## Create tests
+
+Each test framework has its own conventions for naming test files and structuring the tests within, as described in the following sections. Each case includes two test methods, one of which is intentionally set to fail for the purposes of demonstration.
+
+Because Nose is in maintenance mode and not recommended for new projects, only unittest and pytest examples are shown in the sections that follow. (Nose2, the successor to Nose, is just unittest with plugins, and so it follows the unittest patterns shown here.)
+
+### Tests in unittest
+
+Create a file named `test_unittest.py` that contains a test class with two test methods:
+
+```python
+import inc_dec    # The code to test
+import unittest   # The test framework
+
+class Test_TestIncrementDecrement(unittest.TestCase):
+    def test_increment(self):
+        self.assertEqual(inc_dec.increment(3), 4)
+
+    def test_decrement(self):
+        self.assertEqual(inc_dec.decrement(3), 4)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+### Tests in pytest
+
+Create a file named `test_pytest.py` that contains two test methods:
+
+```python
+import inc_dec    # The code to test
+
+def test_increment():
+    assert inc_dec.increment(3) == 4
+
+def test_decrement():
+    assert inc_dec.decrement(3) == 4
 ```
 
 ## Test discovery
@@ -123,27 +167,46 @@ VS Code uses the currently enabled unit testing framework to discover tests. You
 
 `python.unitTest.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning test discovery is performed automatically whenever you save a test file. To disable this feature, set the value to `false`.
 
-Test discovery applies the discovery patterns specified in the arguments setting for the current test framework:  `python.unitTest.unittestArgs`, `python.unitTest.pyTestArgs`, or `python.unitTest.nosetestArgs` as described under [Test configuration settings](#test-configuration-settings).
+Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
+
+- `python.unitTest.unittestArgs`: Looks for any Python (`.py`) file with "test" in the name in the top-level project folder. All test files must be importable modules or packages. You can customize the file matching pattern with the `-p` configuration setting, and customize the folder with the `-t` setting.
+
+- `python.unitTest.pyTestArgs`: Looks for any Python (`.py`) file whose name begins with "test\_" or ends with "\_test", located anywhere within the current folder and all subfolders.
 
 > **Tip**: Sometimes unit tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, create an empty file named `__init__.py` in that folder.
+
+Once VS Code recognizes tests, it provides several ways to run those tests as described in [Run tests](#run-tests). The most obvious means are CodeLens adornments that appear directly in the editor and allow you to easily run a single test method or, with unittest, a test class:
+
+![Test adornments that appear in the VS Code editor for unittest code](images/unit-testing/editor-adornments-unittest.png)
+
+![Test adornments that appear in the VS Code editor for pytest code](images/unit-testing/editor-adornments-pytest.png)
+
+
+> **Note**: At present, the Python extension doesn't provide a setting to turn the adornments on or off. To suggest a different behavior, file an issue on the [vscode-python repository](https://github.com/Microsoft/vscode-python/issues).
+
+If discovery fails (for example, the test framework isn't installed), you see a notification on the status bar. Selecting the notification provides more information:
+
+![Status bar showing that test discovery failed](images/unit-testing/discovery-failed-status-bar.png)
+
+If discovery succeeds, the status bar shows **Run Tests** instead:
+
+![Status bar showing successful test discovery failed](images/unit-testing/discovery-succeeded-status-bar.png)
 
 ## Run tests
 
 You run tests using any of the following actions:
 
-- Select `Run Tests` on the Status Bar (which can change appearance based on results),
+- With a test file open, select the **Run Test** CodeLens adornment that appears above a test method or a class, as shown in the previous section. This command runs only that one method or only those tests in the class.
 
-    ![Test command on the VS Code status bar](images/unit-testing/status-bar-run-tests.png)
+- Select **Run Tests** on the Status Bar (which can change appearance based on results),
 
-    then select one of the commands like `Run All Tests` or `Run Failed Unit Tests`:
+    ![Test command on the VS Code status bar](images/unit-testing/discovery-succeeded-status-bar.png)
+
+    then select one of the commands like **Run All Unit Tests** or **Run Failed Unit Tests**:
 
     ![Test commands that appear after using the Run Tests status bar command](images/unit-testing/run-test-commands.png)
 
-- Right-click a file in Explorer and select `Run Unit Tests`, which runs the tests in that one file.
-
-- Open a test file and select the `Run Test` CodeLens adornment that appears above a test class or a method. This command runs only those tests in the class or runs that one test method, respectively.
-
-    ![Python unit testing commands in the editor](images/unit-testing/editor-adornments.png)
+- Right-click a file in Explorer and select **Run All Unit Tests**, which runs the tests in that one file.
 
 - From the **Command Palette**, select any of the run unit test commands:
 
@@ -160,9 +223,45 @@ You run tests using any of the following actions:
     | Run Unit Test Method | Prompts for the name of a test to run, providing auto-completion for test names. |
     | Show Unit Test Output | Opens the Python Test Log panel with information about passing and failing tests, as well as errors and skipped tests. |
 
+After a test run, VS Code displays results directly with the CodeLens adornments in the editor. Here, you can see that that one test passed and one failed. In the case of unittest, you can also see that the test class as a whole failed because at least one of its tests failed. In the case of pytest, failed tests are also adorned with a red underline.
+
+![Test result adornments on a unittest class](images/unit-testing/result-adornments-unittest.png)
+
+![Test result adornments on pytest methods](images/unit-testing/result-adornments-pytest.png)
+
+VS Code also shows test results in the **Python Test Log** output panel (use the **View** > **Output** menu command to show the **Output** panel, then select **Python Test Log** from the drop-down on the right side):
+
+![Test results in the Python Test Log output panel](images/unit-testing/python-test-log-output.png)
+
+With PyTest, failed tests also appear in the **Problems** panel, where you can double-click on an issue to navigate directly to the test:
+
+![Test results for pytest in the Problems panel](images/unit-testing/python-test-problems-output.png)
+
 ## Debug tests
 
-Because unit tests themselves are source code, they are prone to code defects just like the production code they test. For this reason, you may occasionally need to step through unit tests in the debugger.
+Because unit tests themselves are source code, they are prone to code defects just like the production code they test. For this reason, you may occasionally need to step through and analyze unit tests in the debugger.
+
+For example, the `test_decrement` functions given earlier are failing because the assertion itself is faulty. The following steps demonstrate how to analyze the test:
+
+1. Set a breakpoint on first the line in the `test_decrement` function.
+
+1. Select the **Debug Test** adornment above that function. VS Code starts the debugger and pauses at the breakpoint.
+
+1. In the **Debug Console** panel, enter `inc_dec.decrement(3)` to see that the actual result is 2, whereas the expected result specified in the test is the incorrect value of 4.
+
+1. Stop the debugger and correct the faulty code:
+
+    ```python
+    # unittest
+    self.assertEqual(inc_dec.decrement(3), 2)
+
+    # pytest
+    assert inc_dec.decrement(3) == 4
+    ```
+
+1. Save the file and run the tests again to confirm that they pass, and see that the CodeLens adornments also indicate passing status.
+
+    > **Note**: running or debugging a unit test does not automatically save the test file. Always be sure to save changes to a test before running it, otherwise you'll likely be confused by the results because they still reflect the previous version of the file!
 
 The **Python: Debug All Tests** and **Python: Debug Unit Test Method** commands (on both the Command Palette and Status Bar menu) launch the debugger for all tests and a single test method, respectively.
 
@@ -192,7 +291,7 @@ The behavior of unit testing with Python is driven by both general settings and 
 The default arguments for UnitTest are as follows:
 
 - `-v` sets default verbosity. Remove this argument for simpler output.
-- `-s .` specifies the starting directory for discovering tests. If you have tests in a "test" folder, you can change this to `-s test` (meaning `"-s", "test"` in the arguments array).
+- `-s .` specifies the starting directory for discovering tests. If you have tests in a "test" folder, change the argument to `-s test` (meaning `"-s", "test"` in the arguments array).
 - `-p *test*.py` is the discovery pattern used to look for tests. In this case, it's any `.py` file that includes the word "test". If you name test files differently, such as appending "\_test" to every filename, then use a pattern like `*_test.py` in the appropriate argument of the array.
 
 To stop a test run on the first failure, add the fail fast option `"-f"` to the arguments array.

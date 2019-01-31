@@ -4,14 +4,14 @@ Area: python
 TOCTitle: Jupyter Support
 ContentId: 779b7ad3-0aaa-4632-9998-0d8f964c0599
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 01/03/2019
+DateApproved: 01/30/2019
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 
 # Working with Jupyter Notebooks in Visual Studio Code
 
-[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open source project that lets you easily combine Markdown text and executable Python source code on one canvas called a *notebook*.
+[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a *notebook*.
 
 To work with Jupyter notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -36,6 +36,14 @@ Selecting either command starts Jupyter (if necessary, which might take a minute
 ![Code cells running in a Python Interactive window](images/jupyter/code-cells-02.png)
 
 You can also run code cells using the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `#%%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
+
+### Python interactive window
+
+The Python interactive window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells).
+
+To use the window as a console, open it with the **Python: Show Python Interactive window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
+
+To use the window with a file, use the **Run Current File in Python Interactive window** command from the Command Palette.
 
 ## Connect to a remote Jupyter server
 

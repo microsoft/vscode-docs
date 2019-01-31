@@ -232,7 +232,7 @@ An example `extensions.json` could be:
 ```json
 {
     "recommendations": [
-        "eg2.tslint",
+        "ms-vscode.vscode-typescript-tslint-plugin",
         "dbaeumer.vscode-eslint",
         "msjsdiag.debugger-for-chrome"
     ]

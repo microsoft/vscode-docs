@@ -3,10 +3,16 @@ Order: 5
 Area: functions
 TOCTitle: Deploy the website
 PageTitle: Deploy the website
-MetaDescription: Node.js Deployment to Azure Functions with Visual Studio Code
+MetaDescription: Try Azure Functions for free with Visual Studio Code
 DateApproved: 2/9/2018
 ---
 # Deploy your App using Azure Functions
+
+If you don't have an Azure account, [sign up today](https://azure.microsoft.com/en-us/free/serverless?utm_source=campaign&utm_campaign=vscode-tutorial-functions-extension&mktingSource=vscode-tutorial-functions-extension) for a free 30-day account with $200 in Azure credits to try out any combination of services.
+
+Once created, log in to your Azure account - in the Activity Bar, click on the Azure logo to show the **Azure Functions** explorer. Click **Sign in to Azure...** and choose your account in the browser.
+
+![sign in to Azure](images/functions-extension/sign-in.png)
 
 In the **AZURE FUNCTIONS** explorer, click the blue up arrow icon to deploy your app to Azure Functions.
 
@@ -14,7 +20,7 @@ In the **AZURE FUNCTIONS** explorer, click the blue up arrow icon to deploy your
 
 > **Tip:** You can also deploy from the **Command Palette** (`kb(workbench.action.showCommands)`) by typing 'deploy to function app' and running the **Azure Functions: Deploy to Function App** command.
 
-From here follow the prompts. Choose the directory that you currently have open, select your active Azure subscription, and then choose **Create New Function App**.
+From here follow the prompts. Choose the directory that you currently have open, select your Azure subscription, and then choose **Create New Function App**.
 
 1. Type a globally unique name for your Function App and press `kbstyle(Enter)`. Valid characters for a function app name are 'a-z', '0-9', and '-'.
 

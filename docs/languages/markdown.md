@@ -316,7 +316,7 @@ Read on to find out about:
 
 Not installed with VS Code but there are spell checking extensions. Check the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
 
-### Does VS Code support [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)?
+### Does VS Code support GitHub Flavored Markdown?
 
 No, VS Code targets the [CommonMark](http://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification which you can read about in this [update](https://githubengineering.com/a-formal-spec-for-github-markdown).
 

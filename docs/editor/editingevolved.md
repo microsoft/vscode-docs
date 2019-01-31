@@ -13,6 +13,8 @@ Visual Studio Code has a high productivity code editor which, when combined with
 
 ## Quick file navigation
 
+>**Tip:** You can open any file by its name when you type `kb(workbench.action.quickOpen)` (**Quick Open**).
+
 The Explorer is great for navigating between files when you are exploring a project. However, when you are working on a task, you will find yourself quickly jumping between the same set of files. VS Code provides two powerful commands to navigate in and across files with easy-to-use key bindings.
 
 Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files open in an editor group. To open one of these files, use `kbstyle(Tab)` again to pick the file you want to navigate to, then release `kbstyle(Ctrl)` to open it.
@@ -20,8 +22,6 @@ Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files open i
 ![Quick Navigation](images/editingevolved/quicknav.png)
 
 Alternatively, you can use `kb(workbench.action.navigateBack)` and `kb(workbench.action.navigateForward)` to navigate between files and edit locations. If you are jumping around between different lines of the same file, these shortcuts allow you to navigate between those locations easily.
-
->**Tip:** You can open any file by its name when you type `kb(workbench.action.quickOpen)` (**Quick Open**).
 
 ## Go to Definition
 

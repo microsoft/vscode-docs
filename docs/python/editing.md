@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 01/03/2019
+DateApproved: 01/29/2019
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -75,7 +75,7 @@ The **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+En
 
 Source code that runs in the terminal/REPL is cumulative until the current instance of the terminal is closed.
 
-The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. Note that initial startup might take a few moments especially if the first statement you run is an `import`.
+The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. (Initial startup might take a few moments especially if the first statement you run is an `import`.)
 
 On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line is not run. If you encounter this behavior, try the command again when the REPL has finished loading.
 
@@ -83,7 +83,9 @@ On first use of the **Python: Run Selection/Line in Python Terminal** command, V
 
 ## Formatting
 
-The Python extension supports source code formatting using either [autopep8](https://pypi.org/project/autopep8/) (the default), [black](https://github.com/ambv/black), or [yapf](https://yapf.now.sh/).
+Formatting makes code easier to read by human beings by applying specific rules and conventions for line spacing, indents, spacing around operators, and so on (see an example on the [autopep8](https://pypi.org/project/autopep8/) page). Formatting doesn't affect the functionality of the code itself. ([Linting](/docs/python/linting.md), on the other hand, analyzes code for common syntactical, stylistic, and functional errors as well as unconventional programming practices that can lead to errors. Although there is a little overlap between formatting and linting, the two capabilities are complementary.)
+
+The Python extension supports source code formatting using either [autopep8](https://pypi.org/project/autopep8/) (the default), [black](https://github.com/ambv/black), or [yapf](https://github.com/google/yapf).
 
 ### General formatting settings
 
