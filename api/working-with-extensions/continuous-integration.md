@@ -24,8 +24,8 @@ The command will expose some optional environment variables, which you can use t
 | `CODE_TESTS_PATH` | Location of the tests to execute (default is `process.cwd()/out/test` or `process.cwd()/test`) |
 | `CODE_EXTENSIONS_PATH` | Location of the extensions to load (default is `process.cwd()`) |
 | `CODE_TESTS_WORKSPACE` | Location of a workspace to open for the test instance (default is CODE_TESTS_PATH) |
-| `CODE_LOCALE` | Language of VS Code to use when running the tests (default is english) |
-| `CODE_DISABLE_EXTENSIONS` | Allows to disable all other extensions except the one that is being tested |
+| `CODE_LOCALE` | Display language to use when running the tests (default is English) |
+| `CODE_DISABLE_EXTENSIONS` | Disable all other extensions except the one that is being tested |
 
 ## Azure Pipelines
 
