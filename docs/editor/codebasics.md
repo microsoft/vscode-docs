@@ -49,9 +49,9 @@ The **Go To Definition** and **Open Link** gestures will also respect this setti
 
 ### Shrink/expand selection
 
-Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`.
+Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.expand)`.
 
-Here's an example of expanding the selection with `kb(editor.action.smartSelect.grow)`:
+Here's an example of expanding the selection with `kb(editor.action.smartSelect.expand)`:
 
 ![Expand selection](images/codebasics/expandselection.gif)
 

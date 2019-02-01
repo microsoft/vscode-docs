@@ -70,7 +70,7 @@ Key|Command
 `kb(expandlineSelection)`|Select current line
 `kb(editor.action.selectHighlights)`|Select all occurrences of current selection
 `kb(editor.action.changeAll)`|Select all occurrences of current word
-`kb(editor.action.smartSelect.grow)`|Expand selection
+`kb(editor.action.smartSelect.expand)`|Expand selection
 `kb(editor.action.smartSelect.shrink)`|Shrink selection
 `kbstyle(Shift+Alt)` + drag mouse |Column selection
 `kb(cursorColumnSelectup)`|Column selection up

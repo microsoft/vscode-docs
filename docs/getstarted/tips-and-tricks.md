@@ -517,7 +517,7 @@ Keyboard Shortcut: `kb(editor.action.moveLinesUpAction)` or `kb(editor.action.mo
 
 ### Shrink / expand selection
 
-Keyboard Shortcut: `kb(editor.action.smartSelect.shrink)` or `kb(editor.action.smartSelect.grow)`
+Keyboard Shortcut: `kb(editor.action.smartSelect.shrink)` or `kb(editor.action.smartSelect.expand)`
 
 ![shrink expand selection](images/tips-and-tricks/shrink_expand_selection.gif)
 

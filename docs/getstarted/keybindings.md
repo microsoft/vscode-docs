@@ -424,8 +424,8 @@ Key|Command|Command id
 `kb(editor.action.rename)`|Rename Symbol|`editor.action.rename`
 `kb(editor.action.inPlaceReplace.down)`|Replace with Next Value|`editor.action.inPlaceReplace.down`
 `kb(editor.action.inPlaceReplace.up)`|Replace with Previous Value|`editor.action.inPlaceReplace.up`
-`kb(editor.action.smartSelect.grow)`|Expand AST Select|`editor.action.smartSelect.grow`
-`kb(editor.action.smartSelect.shrink)`|Shrink AST Select|`editor.action.smartSelect.shrink`
+`kb(editor.action.smartSelect.expand)`|Expand AST Selection|`editor.action.smartSelect.expand`
+`kb(editor.action.smartSelect.shrink)`|Shrink AST Selection|`editor.action.smartSelect.shrink`
 `kb(editor.action.trimTrailingWhitespace)`|Trim Trailing Whitespace|`editor.action.trimTrailingWhitespace`
 `kb(workbench.action.editor.changeLanguageMode)`|Change Language Mode|`workbench.action.editor.changeLanguageMode`
 

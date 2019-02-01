@@ -218,7 +218,7 @@
                                         "when": "textInputFocus" },
 { "key": "ctrl+k ctrl+i",         "command": "editor.action.showHover",
                                         "when": "editorTextFocus" },
-{ "key": "shift+alt+right",       "command": "editor.action.smartSelect.grow",
+{ "key": "shift+alt+right",       "command": "editor.action.smartSelect.expand",
                                         "when": "editorTextFocus" },
 { "key": "shift+alt+left",        "command": "editor.action.smartSelect.shrink",
                                         "when": "editorTextFocus" },
