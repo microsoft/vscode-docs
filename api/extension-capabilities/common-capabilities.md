@@ -40,7 +40,8 @@ There are three options for storing data:
 
 - [`ExtensionContext.workspaceState`](/api/references/vscode-api#ExtensionContext.workspaceState): A workspace storage where you can write key/value pairs. VS Code manages the storage and will restore it when the same workspace is opened again.
 - [`ExtensionContext.globalState`](/api/references/vscode-api#ExtensionContext.globalState): A global storage where you can write key/value pairs. VS Code manages the storage and will restore it for each extension activation.
-- [`ExtensionContext.storagePath`](/api/references/vscode-api#ExtensionContext.storagePath): A path pointing to a local directory where your extension has write/read access. This is a good option if you need to store large files.
+- [`ExtensionContext.storagePath`](/api/references/vscode-api#ExtensionContext.storagePath): A workspace specific storage path pointing to a local directory where your extension has write/read access. This is a good option if you need to store large files that is accessible only from current workspace.
+- [`ExtensionContext.globalStoragePath`](/api/references/vscode-api#ExtensionContext.globalStoragePath): A global storage path pointing to a local directory where your extension has write/read access. This is a good option if you need to store large files that is accessible from all workspaces.
 
 The extension context is available to the `activate` function in the [Extension Entry File](/api/get-started/extension-anatomy#extension-entry-file).
 
