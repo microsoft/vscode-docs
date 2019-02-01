@@ -519,7 +519,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "workbench.editor.closeOnFileDelete": false,
 
   // Controls whether tabs are closed in most recently used order or from left to right.
-  "workbench.editor.closeTabsInMRUOrder": true,
+  "workbench.editor.focusRecentEditorAfterClose": true,
 
   // Controls whether opened editors show as preview. Preview editors are reused until they are pinned (e.g. via double click or editing) and show up with an italic font style.
   "workbench.editor.enablePreview": true,
