@@ -80,7 +80,7 @@ To quickly create a JS Doc comment for JavaScript function, just type `/**` befo
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-To disable JSDoc comment suggestions, set `"jsDocCompletion.enabled": false`.
+To disable JSDoc comment suggestions, set `"javascript.suggest.completeJSDocs": false`.
 
 ## Hover Information
 
