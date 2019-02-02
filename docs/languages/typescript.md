@@ -37,15 +37,35 @@ Another option is to install the TypeScript compiler locally in your project (`n
 
 <!-- TODO mjbvz -->
 
+## Snippets
+
+VS Code includes basic JavaScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
+
+<video src="/docs/languages/javascript/snippets.mp4" placeholder="images/javascript/snippets-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
+
+You can install extensions to get additional snippets or define your own snippets for JavaScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
+
+> **Tip**: You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+
 ## JSDoc support
 
-<!-- TODO mjbvz -->
+VS Code's JavaScript IntelliSense understands many standard [JSDoc](http://usejsdoc.org) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [hover info](#hover-information), and [signature help](#signature-help).
 
-Keep in mind that when using JS Docs with TypeScript code, you should not include type annotations. The TypeScript compiler only uses TypeScript type annotations and ignores those from JS Docs.
+![TypeScript language within VS Code](images/typescript/jsdocs.png)
+
+Keep in mind that when using JS Doc for TypeScript code, you should not include type annotations. The TypeScript compiler only uses TypeScript type annotations and ignores those from JS Doc.
+
+<video src="/docs/languages/typescript/jsdoc-autofill.mp4" placeholder="images/typescript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
+
+To disable JSDoc comment suggestions in TypeScript, set `"typescript.suggest.completeJSDocs": false`.
 
 ## Hover information
 
-Hover over a TypescriptScript symbol to quickly see its type information and relevant documentation:
+Hover over a TypeScript symbol to quickly see its type information and relevant documentation:
 
 ![](TODO)
 
