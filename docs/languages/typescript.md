@@ -146,7 +146,7 @@ Press `kb(editor.action.rename)` to rename the symbol under the cursor across yo
 
 VS Code includes some handy refactorings for TypeScript such as **Extract function** and **Extract constant**. Just select the source code you'd like to extract and then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
 
-![TypeScript refactoring](images/typescript/TODo.png)
+![TypeScript refactoring](images/typescript/refactorings.png)
 
 Available refactorings include:
 
@@ -159,13 +159,20 @@ See [Refactorings](/docs/editor/refactoring.md) for more information about refac
 
 ## Quick fixes
 
-<!-- TODO mjbvz -->
+Quick fixes are suggested edits that address simple coding errors. Example quick fixes include:
+
+- Adding a missing `this` to a member access.
+- Fixing a misspelled property name.
+- Removing unreachable code or unused imports
+- Declaring
+
+When you move your cursor on to a TypeScript error, VS Code shows a lightbulb that indicates that quick fixes are available. Click the lightbulb or press `kb(editor.action.quickFix)` to show a list of available quick fixes and [refactorings](#refactoring).
 
 ## Unused variables and unreachable code
 
 Unused TypeScript code—such the else block of an `if` statement that is always true or an unreferenced import—is faded out in the editor:
 
-![Unreachable source code faded out](TODO)
+![Unreachable source code faded out](images/typescript/unreachable.png)
 
 You can quickly remove this unused code by placing the cursor on it and triggering the quick fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
 
@@ -202,7 +209,9 @@ Organize imports can also be automatically when you save a TypeScript file by se
 
 VS Code automatically suggests some common code simplifications such as converting a chain of `.then` calls on a promise to use `async` and `await`
 
-![](TODO)
+<video src="/docs/languages/typescript/code-suggestions-convert-async.mp4" placeholder="images/typescript/code-suggestions-convert-async-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
 
 Set `"typescript.suggestionActions.enabled"` to `false` to disable suggestions.
 
@@ -230,11 +239,27 @@ As with the references CodeLens, you can click on the implementation count to qu
 
 ## Update imports on file move
 
-<!-- TODO mjbvz -->
+When you move or rename a file that is imported by other files in your TypeScript project, VS Code can automatically update all import paths that reference the moved file.
+
+The `typescript.updateImportsOnFileMove.enabled` setting controls this behavior. Valid settings values are:
+
+* `"prompt"` - The default. Asks if paths should be updated for each file move.
+* `"always"` - Always automatically update paths.
+* `"never"` - Do not update paths automatically and do not prompt.
 
 ## Debugging
 
-<!-- TODO mjbvz -->
+VS Code comes with great debugging support for TypeScript, including support for sourcemaps. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See more about debugging [here](/docs/editor/debugging.md).
+
+### Debug client side
+
+You can debug your client-side code using a browser debugger such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) or [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug).
+
+### Debug server side
+
+Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can read a tutorial for Node.js debugging [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application).
+
+![debug data inspection](images/javascript/debug_data_inspection.gif)
 
 ## Linters
 
