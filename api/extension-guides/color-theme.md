@@ -91,30 +91,13 @@ You can also use an existing TextMate theme by telling the extension generator t
 
 ## Test a new Color Theme
 
-To try out the new theme, first create a `.vscode/launch.json` file:
+To try out the new theme, press F5 to launch an Extension Development Host window.
 
-```json
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "theme",
-      "type": "extensionHost",
-      "request": "launch",
-      "runtimeExecutable": "${execPath}",
-      "args": [
-        "--extensionDevelopmentPath=${workspaceRoot}"
-      ]
-    }
-  ]
-}
-```
-
-Then open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the drop-down list. Arrow up and down to see a live preview of your theme.
+There, open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the drop-down list. Arrow up and down to see a live preview of your theme.
 
 ![select my theme](images/color-theme/mytheme.png)
 
-After making changes to any theme file, it is necessary to reload VS Code with the **Reload Window** command.
+Changes to the theme file are applied live in the `Extension Development Host` window.
 
 ## Publishing a Theme to the Extension Marketplace
 
