@@ -13,7 +13,7 @@ MetaSocialImage: images/typescript/Languages_typescript.png
 
 [TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The TypeScript language specification can be found [here](https://github.com/Microsoft/TypeScript/tree/master/doc).
 
-![TypeScript language within VS Code](images/typescript/typescript_hero.png)
+![Working with TypeScript in Visual Studio Code](images/typescript/overview.png)
 
 ## Installing the TypeScript compiler
 
@@ -73,15 +73,15 @@ To disable JSDoc comment suggestions in TypeScript, set `"typescript.suggest.com
 
 Hover over a TypeScript symbol to quickly see its type information and relevant documentation:
 
-![](TODO)
+![Hover for a lodash function](images/typescript/hover.png)
 
-You can also shows quick info at the current cursor position with the `kb(editor.action.showHover)` keyboard shortcut.
+You can also shows the hover info at the current cursor position with the `kb(editor.action.showHover)` keyboard shortcut.
 
 ## Signature help
 
 As you write a TypeScript function call, VS Code shows information about the function signature and highlights the parameter that you are currently completing:
 
-![](TODO)
+![Signature help for the lodash capitalize function](images/typescript/signature-help.png)
 
 Signature help is shown automatically when you type a `(` or `,` within a function call. Use `kb(editor.action.triggerParameterHints)`  to manually trigger signature help.
 
@@ -111,11 +111,13 @@ For more specialized code formatting styles, try installing one of the formattin
 
 VS Code's TypeScript features also work with [JSX](https://reactjs.org/docs/introducing-jsx.html). To use JSX in your TypeScript, use the `*.tsx` file extension instead of the normal `*.ts`:
 
-![](TODO)
+![IntelliSense in JSX](images/typescript/jsx.png)
 
 VS Code also includes JSX-specific features such as autoclosing of JSX tags in TypeScript:
 
-![](TODO)
+<video src="/docs/languages/typescript/jsx-tag-complete.mp4" placeholder="images/typescript/jsx-tag-complete-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
 
 Set `"typescript.autoClosingTags"` to `false` to disable JSX tag closing.
 
@@ -136,11 +138,24 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 ## Rename
 
-<!-- TODO mjbvz -->
+Press `kb(editor.action.rename)` to rename the symbol under the cursor across your TypeSCriptScript project:
+
+![Renaming a method](images/typescript/rename.png)
 
 ## Refactoring
 
-<!-- TODO mjbvz -->
+VS Code includes some handy refactorings for TypeScript such as **Extract function** and **Extract constant**. Just select the source code you'd like to extract and then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
+
+![TypeScript refactoring](images/typescript/TODo.png)
+
+Available refactorings include:
+
+- Extract to method or function.
+- Extract to constant.
+- Convert between named imports and namespace imports.
+- Move to new file.
+
+See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
 ## Quick fixes
 
@@ -154,19 +169,24 @@ Unused TypeScript code—such the else block of an `if` statement that is always
 
 You can quickly remove this unused code by placing the cursor on it and triggering the quick fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
 
-To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in JavaScript by setting:
+To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in TypeScriptScript by setting:
 
 ```json
-"[javascript]": {
-    "editor.showUnused"`:  false
-}
+"[typescript]": {
+    "editor.showUnused":  false
+},
+"[typescriptreact]": {
+    "editor.showUnused":  false
+},
 ```
 
 ## Organize Imports
 
 The *Organize Imports* source code action sorts the imports in a TypeScript file and removes and unused imports:
 
-![](TODO)
+<video src="/docs/languages/typescript/organize-imports.mp4" placeholder="images/typescript/organize-imports-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
 
 You can run *Organize Imports* from the `Source Action...` context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
 
@@ -174,7 +194,7 @@ Organize imports can also be automatically when you save a TypeScript file by se
 
 ```json
 "editor.codeActionsOnSave": {
-     "source.organizeImports": true
+    "source.organizeImports": true
 }
 ```
 

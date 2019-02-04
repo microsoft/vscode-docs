@@ -162,9 +162,9 @@ Press `kb(editor.action.rename)` to rename the symbol under the cursor across yo
 
 ## Refactoring
 
-The JavaScript language service includes handy refactorings such as **Extract function** and **Extract constant**. Just select the source code you'd like to extract and then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
+VS Code includes some handy refactorings for JavaScript such as **Extract function** and **Extract constant**. Just select the source code you'd like to extract and then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
 
-![JavaScript refactoring](images/javascript/refactoring.png)
+![JavaScript refactoring](images/javascript/TODO.png)
 
 Available refactorings include:
 
@@ -187,8 +187,11 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 
 ```json
 "[javascript]": {
-    "editor.showUnused"`:  false
-}
+    "editor.showUnused":  false
+},
+"[javascriptreact]": {
+    "editor.showUnused":  false
+},
 ```
 
 ## Code suggestions
