@@ -14,7 +14,7 @@ Visual Studio Code includes built-in JavaScript IntelliSense, debugging, formatt
 
 ![Working with JavaScript in Visual Studio Code](images/javascript/overview.png)
 
-Most of these features just work out of the box, while some may require basic configuration to get the best experience. This page summarizes the JavaScript features that VS Code ships with. Extensions from the [VS Code Marketplace](https://marketplace.visualstudio.com) can augment or change most of these built-in features. For a more in-depth guide to using these JavaScript features in VS Code, see [Working with JavaScript](/docs/nodejs/working-with-javascript.md).
+Most of these features just work out of the box, while some may require basic configuration to get the best experience. This page summarizes the JavaScript features that VS Code ships with. Extensions from the [VS Code Marketplace](https://marketplace.visualstudio.com) can augment or change most of these built-in features. For a more in-depth guide on how these feature work and can be configured, see [Working with JavaScript](/docs/nodejs/working-with-javascript.md).
 
 ## IntelliSense
 
@@ -24,20 +24,20 @@ IntelliSense shows you intelligent code completion, hover info, and signature in
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-VS Code provides IntelliSense within your JavaScript projects and for many npm libraries such as `React`, `lodash`, and `express` along with support for platforms such as websites, `node`, or IoT.
+VS Code provides IntelliSense within your JavaScript projects; for many npm libraries such as `React`, `lodash`, and `express`; and for other platforms such `node`, serverless, or IoT.
 
 See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for information about VS Code's JavaScript IntelliSense, how to configure it, and help troubleshooting common IntelliSense problems.
 
 ## JavaScript projects (jsconfig.json)
 
-A [jsconfig.json](/docs/languages/jsconfig.md) file defines a JavaScript project in VS Code. While `jsconfig.json` files are not required, there are some cases when you will want to one:
+A [jsconfig.json](/docs/languages/jsconfig.md) file defines a JavaScript project in VS Code. While `jsconfig.json` files are not required, you will want to create one in cases such as:
 
-- If not all JavaScript files in your workspace should be part of your JavaScript project. A `jsconfig.json` lets you exclude some files from showing up in IntelliSense.
-- If you want to ensure that a set of JavaScript files in your workspace is treated as a single project. This is useful if you are working with legacy code that uses implicit globals dependencies instead of `imports` for dependencies.
-- If your workspace contains more than one project context, such as front-end and back-end JavaScript code. In this situation, you should add a `jsconfig.json` file at the root folder for each of these projects project so that they are treated as separate projects.
+- If not all JavaScript files in your workspace should be considered part of a single JavaScript project. `jsconfig.json` files let you exclude some files from showing up in IntelliSense.
+- To ensure that a subset of JavaScript files in your workspace are treated as a single project. This is useful if you are working with legacy code that uses implicit globals dependencies instead of `imports` for dependencies.
+- If your workspace contains more than one project context, such as front-end and back-end JavaScript code. For multi-project workspaces, create a `jsconfig.json` at the root folder of each project project.
 - You are using the TypeScript compiler to down-level compile JavaScript source code.
 
-To define a basic JavaScript project, just add a `jsconfig.json` at the root of your workspace:
+To define a basic JavaScript project, add a `jsconfig.json` at the root of your workspace:
 
 ```json
 {
@@ -52,7 +52,7 @@ To define a basic JavaScript project, just add a `jsconfig.json` at the root of 
 
 See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for more advanced `jsconfig.json` configuration.
 
-> **Tip:** To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This will open the `jsconfig.json` that the file belongs to or prompt you if it is not part of any JavaScript project.
+> **Tip:** To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This command opens the `jsconfig.json` that the JavaScript file belongs to. A notification is shown if the file is not part of any `jsconfig.json` project.
 
 ## Snippets
 
@@ -62,19 +62,19 @@ VS Code includes basic JavaScript [snippets](/docs/editor/userdefinedsnippets.md
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-You can install extensions to get additional snippets or define your own snippets for JavaScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
+There are many extensions that provide additional snippets, including snippets for popular frameworks such as Redux or Angular. You can even [define your own snippets](/docs/editor/userdefinedsnippets.md).
 
-> **Tip**: You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> **Tip**: To disable snippets suggestions, set `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. The `editor.snippetSuggestions` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## JS Doc support
 
-VS Code's JavaScript IntelliSense understands many standard [JSDoc](http://usejsdoc.org) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [hover info](#hover-information), and [signature help](#signature-help). You can optionally even use the type information from JS Doc comments to [type check of your JavaScript](#type-checking).
+VS Code understands many standard [JSDoc](http://usejsdoc.org) annotations, and uses these annotations to provide rich [IntelliSense](#intellisense). You can optionally even use the type information from JSDoc comments to [type check your JavaScript](#type-checking).
 
 <video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-To quickly create a JS Doc comment for JavaScript function, just type `/**` before the function declaration and select the **JS Doc Comment** snippet suggestion:
+Quickly create JS Doc comments for functions by typing `/**` before the function declaration, and select the `JS Doc Comment` snippet suggestion:
 
 <video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
@@ -84,19 +84,19 @@ To disable JSDoc comment suggestions, set `"javascript.suggest.completeJSDocs": 
 
 ## Hover Information
 
-Hover over a JavaScript symbol to quickly see its type information and relevant documentation:
+Hover over a JavaScript symbol to quickly see its type information and relevant documentation.
 
 ![Hovering over a JavaScript variable to see its type information](images/javascript/hover.png)
 
-You can also shows quick info at the current cursor position with the `kb(editor.action.showHover)` keyboard shortcut.
+The `kb(editor.action.showHover)` keyboard shortcut shows this hover info at the current cursor position.
 
 ## Signature Help
 
-As you write a JavaScript function call, VS Code shows information about the function signature and highlights the parameter that you are currently completing:
+As you write JavaScript function calls, VS Code shows information about the function signature and highlights the parameter that you are currently completing:
 
 ![Signature help for some DOM methods](images/javascript/signature-help.png)
 
-Signature help is shown automatically when you type a `(` or `,` within a function call. Use `kb(editor.action.triggerParameterHints)`  to manually trigger signature help.
+Signature help is shown automatically when you type a `(` or `,` within a function call. Press `kb(editor.action.triggerParameterHints)`  to manually trigger signature help.
 
 ## Auto imports
 
@@ -114,15 +114,15 @@ In this example, VS Code adds an import for `Button` from [material-ui](https://
 
 To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
-> **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code your code with the `javascript.preferences.quoteStyle` and `javascript.preferences.quoteStyle` settings.
+> **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code your code with the `javascript.preferences.quoteStyle` and `javascript.preferences.importModuleSpecifier` settings.
 
 ## Formatting
 
-The built-in JavaScript formatter providers basic code formatting with reasonable defaults.
+VS Code's built-in JavaScript formatter providers basic code formatting with reasonable defaults.
 
-Use the `javascript.format.*` [settings](/docs/getstarted/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
+The `javascript.format.*` [settings](/docs/getstarted/settings.md) configure the built-in formatter. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
 
-For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code marketplace.
+For more specialized code formatting styles, try installing one of the JavaScript formatting extensions from the [marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## JSX and auto closing tags
 
@@ -164,7 +164,7 @@ Press `kb(editor.action.rename)` to rename the symbol under the cursor across yo
 
 VS Code includes some handy refactorings for JavaScript such as **Extract function** and **Extract constant**. Just select the source code you'd like to extract and then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
 
-![JavaScript refactoring](images/javascript/TODO.png)
+![JavaScript refactoring](images/javascript/refactorings.png)
 
 Available refactorings include:
 
