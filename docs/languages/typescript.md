@@ -35,7 +35,13 @@ Another option is to install the TypeScript compiler locally in your project (`n
 
 ## IntelliSense
 
-<!-- TODO mjbvz -->
+IntelliSense shows you intelligent code completion, hover info, and signature information so that you can write code more quickly and correctly.
+
+<video src="/docs/languages/typescript/intellisense.mp4" placeholder="images/typescript/intellisense-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
+
+VS Code provides IntelliSense for individual TypeScript files as well as TypeScript `tsconfig.json` projects.
 
 ## Snippets
 
@@ -142,19 +148,43 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 ## Unused variables and unreachable code
 
-<!-- TODO mjbvz -->
+Unused TypeScript code—such the else block of an `if` statement that is always true or an unreferenced import—is faded out in the editor:
+
+![Unreachable source code faded out](TODO)
+
+You can quickly remove this unused code by placing the cursor on it and triggering the quick fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
+
+To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in JavaScript by setting:
+
+```json
+"[javascript]": {
+    "editor.showUnused"`:  false
+}
+```
 
 ## Organize Imports
 
-<!-- TODO mjbvz -->
+The *Organize Imports* source code action sorts the imports in a TypeScript file and removes and unused imports:
+
+![](TODO)
+
+You can run *Organize Imports* from the `Source Action...` context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
+
+Organize imports can also be automatically when you save a TypeScript file by setting:
+
+```json
+"editor.codeActionsOnSave": {
+     "source.organizeImports": true
+}
+```
 
 ## Code suggestions
 
-<!-- TODO mjbvz -->
+VS Code automatically suggests some common code simplifications such as converting a chain of `.then` calls on a promise to use `async` and `await`
 
-## Update imports on file move
+![](TODO)
 
-<!-- TODO mjbvz -->
+Set `"typescript.suggestionActions.enabled"` to `false` to disable suggestions.
 
 ## References CodeLens
 
@@ -177,6 +207,10 @@ The TypeScript implementations CodeLens displays the number of implementors of a
 You can enable this by setting `"typescript.implementationsCodeLens.enabled": true`.
 
 As with the references CodeLens, you can click on the implementation count to quickly browse a list of all implementations.
+
+## Update imports on file move
+
+<!-- TODO mjbvz -->
 
 ## Debugging
 

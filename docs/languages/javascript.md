@@ -179,7 +179,7 @@ See [Refactorings](/docs/editor/refactoring.md) for more information about refac
 
 Unused JavaScript code—such the else block of an `if` statement that is always true or an unreferenced import—is faded out in the editor:
 
-![unreachable source code faded out](images/javascript/unreachable.png)
+![Unreachable source code faded out](images/javascript/unreachable.png)
 
 You can quickly remove this unused code by placing the cursor on it and triggering the quick fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
 
