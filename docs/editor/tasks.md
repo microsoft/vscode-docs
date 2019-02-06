@@ -276,6 +276,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
   - *dedicated*: The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However, the output of a different task is presented in a different terminal.
   - *new*: Every execution of that task is using a new clean terminal.
 - **clear**: Controls whether the terminal is cleared before this task is run. Default is `false`.
+- **group**: Controls whether the task is executed in a specific terminal group using split panes. Tasks in the same group (specified by a string value) will use split terminals to present instead of a new terminal panel.
 
 You can modify the terminal panel behavior for auto-detected tasks as well. For example, if you want to change the output behavior for the **npm: run lint** from the ESLint example from above, add the `presentation` property to it:
 
