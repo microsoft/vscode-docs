@@ -12,8 +12,6 @@ MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
 
 Visual Studio Code supports TypeScript debugging through its built-in [Node.js debugger](/docs/nodejs/nodejs-debugging.md) and also through [extensions](/docs/editor/extension-gallery.md) like [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) to support client-side TypeScript debugging.
 
-<!-- TODO: hero image -->
-
 ## JavaScript source map support
 
 TypeScript debugging supports JavaScript source maps. To generate source maps for your TypeScript files, compile with the `--sourcemap` option or set the `sourceMap` property in the `tsconfig.json` file to `true`.
@@ -140,23 +138,6 @@ Update the `launch.json` to specify the local file URL to `helloweb.html`:
 The Debug view configuration dropdown will now show the new configuration **Launch Chrome against localhost**. If you run that configuration, your browser will launch with your web page. Open `helloweb.ts` in the editor and click the left gutter to add a breakpoint (it will be displayed as a red circle). Press `kb(workbench.action.debug.start)` to start the debug session, which launches the browser and hits your breakpoint in `helloweb.ts`.
 
 ![client-side debug breakpoint](images/debugging/client-side-debug-breakpoint.png)
-
-<!-- React, Vue, Angular -->
-
-<!-- Does React work? -->
-
-## Debugging recipes
-
-vscode-recipes
-
-typescript site
-
-## Next steps
-
-Read on to find out about:
-
-<!-- TODO: Fill in Next steps -->
-* [JavaScript](/docs/languages/javascript.md) - Learn about JavaScript specific features in VS Code.
 
 ## Common questions
 

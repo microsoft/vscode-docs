@@ -158,8 +158,6 @@ In `helloworld.ts`, set a breakpoint by clicking on the left gutter of the edito
 
 See [Debugging TypeScript](/docs/typescript/typescript-debugging.md) to learn more about VS Code's built-in debugging support for TypeScript and how you can configure the debugger for your project scenarios.
 
-<!-- TODO: installing and using @types/node to call node api (process.args maybe?) -->
-
 ## Next steps
 
 This tutorial was a quick introduction to using VS Code for TypeScript development. Read on to learn more about using VS Code's compiling and debugging support for TypeScript:
