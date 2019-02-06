@@ -136,6 +136,9 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.invalidItemForeground`: List/Tree foreground color for invalid items, for example an unresolved root in explorer.
 - `list.errorForeground`: Foreground color of list items containing errors.
 - `list.warningForeground`: Foreground color of list items containing warnings.
+- `listFilterWidget.background`: List/Tree Filter background color of typed text when searching inside the list/tree.
+- `listFilterWidget.outline`: List/Tree Filter Widget's outline color of typed text when searching inside the list/tree.
+- `listFilterWidget.noMatchesOutline`: List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
 
 ## Activity Bar
 
