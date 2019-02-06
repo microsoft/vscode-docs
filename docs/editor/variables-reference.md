@@ -51,9 +51,15 @@ So you will have the following values for each variable:
 
 >**Tip**: Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
 
+### Variables scoped per workspace folder
+
+By appending the root folder's name to a variable (separated by a colon), it is possible to reach into sibling root folders of a workspace. Without the root folder name, the variable is scoped to the same folder where it is used.
+
+For example, in a multi root workspace with folders `Server` and `Client`, a `${workspaceFolder:Client}` refers to the path of the `Client` root.
+
 ## Environment variables
 
-You can also reference environment variables through **${env:Name}** syntax (for example, `${env:PATH}`).
+You can also reference environment variables through the **${env:Name}** syntax (for example, `${env:PATH}`).
 
 ```json
 {
@@ -68,22 +74,81 @@ You can also reference environment variables through **${env:Name}** syntax (for
 
 **Note**: Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
 
-## Settings, command variables, and input variables
+## Configuration variables
 
-You can reference VS Code settings and commands using the following syntax:
+You can reference VS Code settings (aka "configurations") through **${config:Name}** syntax (for example, `${config:editor.fontSize}`).
 
-* **${config:Name}** - example: `${config:editor.fontSize}`
-* **${command:CommandID}** - example: `${command:explorer.newFolder}`
+## Command variables
 
-If simple variable substitution isn't enough, you can also get input from the user of your task or launch by adding an `inputs` section to your `tasks.json` or `launch.json` file. An input has the properties:
+If the predefined variables from above are not sufficent, you can use any VS Code command as a variable through the **${command:commandID}** syntax.
 
-- **id**: The identifier for your input. Used to refer to an input in the format of `${input:id}` in the `tasks` section of `tasks.json`.
-- **description**: Shown in the quick input or quick pick and can be used to provide context for the input.
-- **type**: Distinguishes what kind of user input will be collected.
-  - *promptString*: Shows a quick input to get a string from the user.
-  - *pickString*: Shows a quick pick let the user select from several options.
-- **options**: Only applicable to `"type": "pickString"`. This an array of options for the user to pick from.
-- **default**: The default value that will be used if the user doesn't enter something else. For `"type": "pickString"`this must be one of the options.
+When a command variable is interpolated, the command is run and the variable is substituted by the command's (string) result. The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API.
+
+An example for this functionality can be found in VS Code's Node.js debugger extension which provides an interactive command `extension.pickNodeProcess` for selecting a single process from the list of all running Node.js processes. The command returns the process ID of the selected process. This makes it possible to use the `extension.pickNodeProcess` command in an **Attach by Process ID** launch configuration in the following way:
+
+```json
+{
+    "configurations": [
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach by Process ID",
+            "processId": "${command:extension.pickNodeProcess}"
+        }
+    ]
+}
+```
+
+## Input variables
+
+*Command variables* are already powerful but they lack a mechanism to configure the command being run to a specific use case. E.g. it is not possible to pass a *prompt message* or a *default value* to a generic "user input prompt".
+
+This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the "inputs" section of launch.json and tasks.json, where additional configuration attributes are specified.
+
+The following example shows the overall structure of a task.json that makes use of input variables:
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "task name",
+            "command": "${input:variableID}",
+            // ...
+        }
+    ],
+    "inputs": [
+        {
+            "id": "variableID",
+            "type": "type of input variable",
+            // type specific configuration attributes
+        }
+    ]
+}
+```
+
+Currently VS Code supports three types of input variables:
+- **promptString**: Shows a *quick input* to get a string from the user.
+- **pickString**: Shows a *quick pick* to let the user select from several options.
+- **command**: Runs an arbitrary command.
+
+Each type requires additional configuration attributes:
+
+`promptString`:
+
+- **description**: Shown in the quick input provides context for the input.
+- **default**: Default value that will be used if the user doesn't enter something else.
+
+`pickString`:
+
+- **description**: Shown in the quick pick provides context for the input.
+- **options**:  An array of options for the user to pick from.
+- **default**: Default value that will be used if the user doesn't enter something else. It must be one of the option values.
+
+`Command`:
+
+- **command**: Command being run on variable interpolation.
+- **args**: Optional option bag passed to the command's implementation.
+
 
 Below is an example of a `tasks.json` that illustrates the use of `inputs` using Angular CLI:
 
@@ -104,17 +169,17 @@ Below is an example of a `tasks.json` that illustrates the use of `inputs` using
     ],
     "inputs": [
         {
+            "type": "pickString",
             "id": "componentType",
             "description": "What type of component do you want to create?",
-            "default": "component",
-            "type": "pickString",
-            "options": ["component", "directive", "pipe", "service", "class", "guard", "interface", "enum", "enum"]
+            "options": ["component", "directive", "pipe", "service", "class", "guard", "interface", "enum", "enum"],
+            "default": "component"
         },
         {
+            "type": "promptString",
             "id": "componentName",
             "description": "Name your component.",
-            "default": "my-new-component",
-            "type": "promptString"
+            "default": "my-new-component"
         }
     ]
 }
@@ -124,11 +189,30 @@ Running the example:
 
 ![Inputs Example](images/tasks/run-input-example.gif)
 
-## Variables scoped per workspace folder
+The following example shows how to use a user input variable of type `command` in a debug configuration that lets the user pick a test case from a list of all test cases found in a specific folder. It is assumed that some extension provides an `extension.mochaSupport.testPicker` command that locates all test cases in a configurable location and shows a picker UI to pick one of them.
 
-By appending the root folder's name to a variable (separated by a colon), it is possible to reach into sibling root folders of a workspace. Without the root folder name, the variable is scoped to the same folder where it is used.
-
-For example, in a multi root workspace with folders `Server` and `Client`, a `${workspaceFolder:Client}` refers to the path of the `Client` root.
+```json
+{
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run specific test",
+            "program": "${workspaceFolder}/${input:pickTest}"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "pickTest",
+            "type": "command",
+            "command": "extension.mochaSupport.testPicker",
+            "args": {
+                "testFolder": "${workspaceFolder}/tests",
+            }
+        }
+    ]
+}
+```
 
 ## Common questions
 
