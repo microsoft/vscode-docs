@@ -14,7 +14,7 @@ Visual Studio Code includes built-in JavaScript IntelliSense, debugging, formatt
 
 ![Working with JavaScript in Visual Studio Code](images/javascript/overview.png)
 
-Most of these features just work out of the box, while some may require basic configuration to get the best experience. This page summarizes the JavaScript features that VS Code ships with. Extensions from the [VS Code Marketplace](https://marketplace.visualstudio.com) can augment or change most of these built-in features. For a more in-depth guide on how these feature work and can be configured, see [Working with JavaScript](/docs/nodejs/working-with-javascript.md).
+Most of these features just work out of the box, while some may require basic configuration to get the best experience. This page summarizes the JavaScript features that VS Code ships with. Extensions from the [VS Code Marketplace](https://marketplace.visualstudio.com) can augment or change most of these built-in features. For a more in-depth guide on how these features work and can be configured, see [Working with JavaScript](/docs/nodejs/working-with-javascript.md).
 
 ## IntelliSense
 
@@ -34,7 +34,7 @@ A [jsconfig.json](/docs/languages/jsconfig.md) file defines a JavaScript project
 
 - If not all JavaScript files in your workspace should be considered part of a single JavaScript project. `jsconfig.json` files let you exclude some files from showing up in IntelliSense.
 - To ensure that a subset of JavaScript files in your workspace are treated as a single project. This is useful if you are working with legacy code that uses implicit globals dependencies instead of `imports` for dependencies.
-- If your workspace contains more than one project context, such as front-end and back-end JavaScript code. For multi-project workspaces, create a `jsconfig.json` at the root folder of each project project.
+- If your workspace contains more than one project context, such as front-end and back-end JavaScript code. For multi-project workspaces, create a `jsconfig.json` at the root folder of each project.
 - You are using the TypeScript compiler to down-level compile JavaScript source code.
 
 To define a basic JavaScript project, add a `jsconfig.json` at the root of your workspace:
@@ -321,7 +321,7 @@ When you want to use ES6 style imports but some type declaration (typings) files
 
 Yes, you can. You can see this working using JavaScript source maps in the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) topic.
 
-### How do I disable Syntax Validation when using non ES6 constructs?
+### How do I disable Syntax Validation when using non-ES6 constructs?
 
 Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `javascript.validate.enable` [setting](/docs/getstarted/settings.md).
 

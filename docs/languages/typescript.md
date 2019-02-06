@@ -45,19 +45,19 @@ VS Code provides IntelliSense for individual TypeScript files as well as TypeScr
 
 ## Snippets
 
-VS Code includes basic JavaScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
+VS Code includes basic TypeScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
 
 <video src="/docs/languages/javascript/snippets.mp4" placeholder="images/javascript/snippets-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-You can install extensions to get additional snippets or define your own snippets for JavaScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
+You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
 
 > **Tip**: You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## JSDoc support
 
-VS Code's JavaScript IntelliSense understands many standard [JSDoc](http://usejsdoc.org) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [hover info](#hover-information), and [signature help](#signature-help).
+VS Code's TypeScript IntelliSense understands many standard [JSDoc](http://usejsdoc.org) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [hover info](#hover-information), and [signature help](#signature-help).
 
 ![TypeScript language within VS Code](images/typescript/jsdocs.png)
 
@@ -75,7 +75,7 @@ Hover over a TypeScript symbol to quickly see its type information and relevant 
 
 ![Hover for a lodash function](images/typescript/hover.png)
 
-You can also shows the hover info at the current cursor position with the `kb(editor.action.showHover)` keyboard shortcut.
+You can also show the hover info at the current cursor position with the `kb(editor.action.showHover)` keyboard shortcut.
 
 ## Signature help
 
@@ -93,11 +93,11 @@ Just start typing to see [suggestions](#intellisense) for all available TypeScri
 
 ![Global symbols are shown in the suggestion list](images/typescript/auto-import-pre.png)
 
-If you choose one of the suggestion from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
+If you choose one of the suggestions from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
 
 ![After selecting a symbol from a different file, an import is added for it automatically](images/typescript/auto-import-post.png)
 
-Auto imports requires TypeScript 2.6+ and are enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
+The Auto imports feature requires TypeScript 2.6+ and is enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
 
 ## Formating
 
@@ -138,7 +138,7 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 ## Rename
 
-Press `kb(editor.action.rename)` to rename the symbol under the cursor across your TypeSCriptScript project:
+Press `kb(editor.action.rename)` to rename the symbol under the cursor across your TypeScript project:
 
 ![Renaming a method](images/typescript/rename.png)
 
@@ -189,13 +189,13 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 
 ## Organize Imports
 
-The *Organize Imports* source code action sorts the imports in a TypeScript file and removes and unused imports:
+The **Organize Imports** source code action sorts the imports in a TypeScript file and removes and unused imports:
 
 <video src="/docs/languages/typescript/organize-imports.mp4" placeholder="images/typescript/organize-imports-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-You can run *Organize Imports* from the `Source Action...` context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
+You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
 
 Organize imports can also be automatically when you save a TypeScript file by setting:
 
@@ -277,9 +277,11 @@ VS Code provides many features for TypeScript out of the box. In addition to wha
 
 ## Next steps
 
-Read on to find out about:
+To learn more, see:
 
-* [JavaScript](/docs/languages/javascript.md) - we have several JavaScript specific features in VS Code
+* [TypeScript tutorial](/docs/typescript/typescript-tutorial.md) - Create a simple Hello World TypeScript in VS Code.
+* [Compiling TypeScript](/docs/typescript/typescript-compiling.md) - Compile TypeScript to a JavaScript target version.
+* [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Learn about debugging TypeScript both server and client-side with VS Code.
 
 ## Common questions
 
