@@ -11,17 +11,17 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 
 **Activation Events** is a set of JSON declarations that you make in the `activationEvents` field of `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension becomes activated when the **Activation Event** happens. Here is a list of all available **Activation Events**:
 
-* [`onLanguage`](/api/references/activation-events#onLanguage)
-* [`onCommand`](/api/references/activation-events#onCommand)
-* [`onDebug`](/api/references/activation-events#onDebug)
-    * [`onDebugInitialConfigurations`](/api/references/activation-events#onDebugInitialConfigurations)
-    * [`onDebugResolve`](/api/references/activation-events#onDebugResolve)
-* [`workspaceContains`](/api/references/activation-events#workspaceContains)
-* [`onFileSystem`](/api/references/activation-events#onFileSystem)
-* [`onView`](/api/references/activation-events#onView)
-* [`onUri`](/api/references/activation-events#onUri)
-* [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
-* [`*`](/api/references/activation-events#all)
+- [`onLanguage`](/api/references/activation-events#onLanguage)
+- [`onCommand`](/api/references/activation-events#onCommand)
+- [`onDebug`](/api/references/activation-events#onDebug)
+  - [`onDebugInitialConfigurations`](/api/references/activation-events#onDebugInitialConfigurations)
+  - [`onDebugResolve`](/api/references/activation-events#onDebugResolve)
+- [`workspaceContains`](/api/references/activation-events#workspaceContains)
+- [`onFileSystem`](/api/references/activation-events#onFileSystem)
+- [`onView`](/api/references/activation-events#onView)
+- [`onUri`](/api/references/activation-events#onUri)
+- [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
+- [`*`](/api/references/activation-events#all)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
 
@@ -80,8 +80,8 @@ This activation event is emitted and interested extensions will be activated bef
 
 These are two more fine-grained `onDebug` activation events:
 
-* `onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
-* `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
+- `onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
+- `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
 
 **Rule of thumb:** If activation of a debug extension is lightweight, use `onDebug`. If it is heavyweight, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`. See [Using a DebugConfigurationProvider](/api/extension-guides/debugger-extension#using-a-debugconfigurationprovider) for more details on these methods.
 
@@ -99,7 +99,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 ## onFileSystem
 
-This activation event is emitted and interested extensions will be activated whenever a file or folder from a specific *scheme* is read. This is usually the `file`-scheme, but with custom file system providers more schemes come into place, e.g `ftp` or `ssh`.
+This activation event is emitted and interested extensions will be activated whenever a file or folder from a specific _scheme_ is read. This is usually the `file`-scheme, but with custom file system providers more schemes come into place, e.g `ftp` or `ssh`.
 
 ```json
 ...
@@ -154,7 +154,7 @@ For example, the declaration of onWebviewPanel below:
 
 will cause the extension to be activated when VS Code needs to restore a webview with the viewType: `catCoding`. The viewType is set in the call to `window.createWebviewPanel` and you will need to have another activation event (for example, onCommand) to initially activate your extension and create the webview.
 
-## *
+## \*
 
 This activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
 

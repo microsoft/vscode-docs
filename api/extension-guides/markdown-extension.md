@@ -44,14 +44,14 @@ To contribute a markdown-it plugin, first add a `"markdown.markdownItPlugins"` c
 Then, in the extension's main `activation` function, return an object with a function named `extendMarkdownIt`. This function takes the current markdown-it instance and must return a new markdown-it instance:
 
 ```ts
-import * as vscode from 'vscode'
+import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    return {
-        extendMarkdownIt(md: any) {
-            return md.use(require('markdown-it-emoji'));
-        }
+  return {
+    extendMarkdownIt(md: any) {
+      return md.use(require('markdown-it-emoji'));
     }
+  };
 }
 ```
 
@@ -67,8 +67,8 @@ The [markdown-emoji](https://marketplace.visualstudio.com/items?itemName=bierner
 
 You may also want to review:
 
-* [Guidelines](https://github.com/markdown-it/markdown-it/blob/master/docs/development.md) for markdown-it plugin developers
-* [Existing markdown-it plugins](https://www.npmjs.com/browse/keyword/markdown-it-plugin)
+- [Guidelines](https://github.com/markdown-it/markdown-it/blob/master/docs/development.md) for markdown-it plugin developers
+- [Existing markdown-it plugins](https://www.npmjs.com/browse/keyword/markdown-it-plugin)
 
 ## Adding advanced functionality with scripts
 

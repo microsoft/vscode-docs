@@ -20,7 +20,7 @@ This guide will cover the different ways in which you can create themes.
 
 The easiest way to create a new workbench color theme is to start with an existing color theme and customize it. First switch to the color theme that you want to modify, then open your [settings](/docs/getstarted/settings) and make changes to the `workbench.colorCustomizations` setting. Changes are applied live to your VS Code instance.
 
-The following, for example,  would change the color of the title bar:
+The following, for example, would change the color of the title bar:
 
 ```json
 {
@@ -85,9 +85,9 @@ You can also use an existing TextMate theme by telling the extension generator t
 }
 ```
 
->**Tip:** Give your color definition file the `.color-theme.json` suffix and you will get hovers, code completion, color decorators, and color pickers when editing.
+> **Tip:** Give your color definition file the `.color-theme.json` suffix and you will get hovers, code completion, color decorators, and color pickers when editing.
 
->**Tip:** [ColorSublime](https://colorsublime.github.io) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"https://raw.githubusercontent.com/Colorsublime/Colorsublime-Themes/master/themes/(name).tmTheme"`
+> **Tip:** [ColorSublime](https://colorsublime.github.io) has hundreds of existing TextMate themes to choose from. Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"https://raw.githubusercontent.com/Colorsublime/Colorsublime-Themes/master/themes/(name).tmTheme"`
 
 ## Test a new Color Theme
 

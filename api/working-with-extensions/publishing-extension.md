@@ -140,7 +140,7 @@ You can unpublish an extension with the vsce tool by specifying the extension id
 vsce unpublish (publisher name).(extension name)
 ```
 
->**Note:** When you unpublish an extension, the Marketplace will remove any extension statistics it has collected. You may want to update your extension rather than unpublish it.
+> **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics it has collected. You may want to update your extension rather than unpublish it.
 
 ## Packaging extensions
 
@@ -158,9 +158,9 @@ If you want to share your extension with others privately, you can send them you
 
 To load an extension, you need to copy the files to your VS Code extensions folder `.vscode/extensions`. Depending on your platform, it is located in the following folders:
 
-* **Windows** `%USERPROFILE%\.vscode\extensions`
-* **macOS** `~/.vscode/extensions`
-* **Linux** `~/.vscode/extensions`
+- **Windows** `%USERPROFILE%\.vscode\extensions`
+- **macOS** `~/.vscode/extensions`
+- **Linux** `~/.vscode/extensions`
 
 ## Visual Studio Code compatibility
 
@@ -220,15 +220,15 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 
 ```json
 {
-    "name": "uuid",
-    "version": "0.0.1",
-    "publisher": "joaomoreno",
-    "engines": {
-        "vscode": "0.10.x"
-    },
-    "scripts": {
-        "vscode:prepublish": "tsc"
-    }
+  "name": "uuid",
+  "version": "0.0.1",
+  "publisher": "joaomoreno",
+  "engines": {
+    "vscode": "0.10.x"
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc"
+  }
 }
 ```
 
@@ -236,8 +236,8 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 
 ## Next steps
 
-* [Extension Marketplace](/docs/editor/extension-gallery) - Learn more about VS Code's public extension Marketplace.
-* [Testing Extensions](/api/working-with-extensions/testing-extension) - Add tests to your extension project to ensure high quality.
+- [Extension Marketplace](/docs/editor/extension-gallery) - Learn more about VS Code's public extension Marketplace.
+- [Testing Extensions](/api/working-with-extensions/testing-extension) - Add tests to your extension project to ensure high quality.
 
 ## Common questions
 
@@ -247,7 +247,7 @@ One easy mistake to make when creating the PAT (Personal Access Token) is to not
 
 ### I can't unpublish my extension through the `vsce` tool?
 
-You may have changed your extension ID or publisher name. You can also manage your extensions directly on the Marketplace by going to the [manage page](https://marketplace.visualstudio.com/manage).  You can update or unpublish your extension from your publisher manage page.
+You may have changed your extension ID or publisher name. You can also manage your extensions directly on the Marketplace by going to the [manage page](https://marketplace.visualstudio.com/manage). You can update or unpublish your extension from your publisher manage page.
 
 ### Why does vsce not preserve file attributes?
 

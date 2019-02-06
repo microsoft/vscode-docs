@@ -164,13 +164,14 @@ vscode.window.registerTreeDataProvider('nodeDependencies', new DepNodeProvider()
 
 See [nodeDependencies.ts](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample/src/nodeDependencies.ts) for the implementation.
 
-
 ## TreeView
 
 If you would like to perform some UI operations on the view programatically, you can use `window.createTreeView` instead of `window.registerTreeDataProvider`. This will give access to the view which you can use for performing view operations.
 
 ```typescript
-vscode.window.createTreeView('ftpExplorer', { treeDataProvider: new FtpTreeDataProvider() });
+vscode.window.createTreeView('ftpExplorer', {
+  treeDataProvider: new FtpTreeDataProvider()
+});
 ```
 
 See [ftpExplorer.ts](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample/src/ftpExplorer.ts) for the implementation.

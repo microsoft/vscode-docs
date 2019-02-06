@@ -66,15 +66,15 @@ function createResourceUri(relativePath: string): vscode.Uri {
   return vscode.Uri.file(absolutePath);
 }
 
-const gitSCM = vscode.scm.createSourceControl('git', "Git");
+const gitSCM = vscode.scm.createSourceControl('git', 'Git');
 
-const index = gitSCM.createResourceGroup('index', "Index");
+const index = gitSCM.createResourceGroup('index', 'Index');
 index.resourceStates = [
   { resourceUri: createResourceUri('README.md') },
   { resourceUri: createResourceUri('src/test/api.ts') }
 ];
 
-const workingTree = gitSCM.createResourceGroup('workingTree', "Changes");
+const workingTree = gitSCM.createResourceGroup('workingTree', 'Changes');
 workingTree.resourceStates = [
   { resourceUri: createResourceUri('.travis.yml') },
   { resourceUri: createResourceUri('README.md') }
@@ -181,8 +181,8 @@ You can combine this API with the [`registerTextDocumentContentProvider` method 
 
 To learn more about VS Code extensibility model, try these topics:
 
-* [SCM API Reference](/api/references/vscode-api#scm) - Read the full SCM API documentation
-* [Git Extension](https://github.com/Microsoft/vscode/tree/master/extensions/git) - Learn by reading the Git extension implementation
-* [Extension API Overview](/api) - Learn about the full VS Code extensibility model.
-* [Extension Manifest File](/api/references/extension-manifest) - VS Code package.json extension manifest file reference
-* [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference
+- [SCM API Reference](/api/references/vscode-api#scm) - Read the full SCM API documentation
+- [Git Extension](https://github.com/Microsoft/vscode/tree/master/extensions/git) - Learn by reading the Git extension implementation
+- [Extension API Overview](/api) - Learn about the full VS Code extensibility model.
+- [Extension Manifest File](/api/references/extension-manifest) - VS Code package.json extension manifest file reference
+- [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference

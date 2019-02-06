@@ -13,8 +13,8 @@ Syntax highlighting determines the color and style of source code displayed in t
 
 There are two components to syntax highlighting:
 
-* Breaking text into a list of tokens and scopes using a grammar
-* Then using a theme to map these scopes to specific colors and styles
+- Breaking text into a list of tokens and scopes using a grammar
+- Then using a theme to map these scopes to specific colors and styles
 
 This document only discusses the first part: breaking text into tokens and scopes that existing color themes can colorize. For more information about customizing the styling of different scopes in the editor, see the [Color Theme Guide](/api/extension-guides/color-theme#syntax-colors)
 
@@ -44,23 +44,21 @@ Each grammar contribution specifies: the identifier of the language the grammar 
 
 ```json
 {
-    "contributes": {
-        "languages": [
-            {
-                "id": "abc",
-                "extensions": [
-                    ".abc"
-                ]
-            }
-        ],
-        "grammars": [
-            {
-                "language": "abc",
-                "scopeName": "source.abc",
-                "path": "./syntaxes/abc.tmGrammar.json"
-            }
-        ]
-    }
+  "contributes": {
+    "languages": [
+      {
+        "id": "abc",
+        "extensions": [".abc"]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "abc",
+        "scopeName": "source.abc",
+        "path": "./syntaxes/abc.tmGrammar.json"
+      }
+    ]
+  }
 }
 ```
 
@@ -70,36 +68,29 @@ The example `abc` grammar marks the letters `a`, `b`, and `c` as keywords, and n
 
 ```json
 {
-	"scopeName": "source.abc",
-	"patterns": [
-		{ "include": "#expression" }
-	],
-	"repository": {
-		"expression": {
-			"patterns": [
-				{ "include": "#letter" },
-				{ "include": "#paren-expression" }
-			]
-		},
-		"letter": {
-			"match": "a|b|c",
-			"name": "keyword.letter"
-		},
-		"paren-expression": {
-			"begin": "\\(",
-			"end": "\\)",
-			"beginCaptures": {
-				"0": { "name": "punctuation.paren.open" }
-			},
-			"endCaptures": {
-				"0": { "name": "punctuation.paren.close" }
-			},
-			"name": "expression.group",
-			"patterns": [
-				{ "include": "#expression" }
-			]
-		}
-	}
+  "scopeName": "source.abc",
+  "patterns": [{ "include": "#expression" }],
+  "repository": {
+    "expression": {
+      "patterns": [{ "include": "#letter" }, { "include": "#paren-expression" }]
+    },
+    "letter": {
+      "match": "a|b|c",
+      "name": "keyword.letter"
+    },
+    "paren-expression": {
+      "begin": "\\(",
+      "end": "\\)",
+      "beginCaptures": {
+        "0": { "name": "punctuation.paren.open" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.paren.close" }
+      },
+      "name": "expression.group",
+      "patterns": [{ "include": "#expression" }]
+    }
+  }
 }
 ```
 
@@ -149,17 +140,17 @@ The `embeddedLanguages` contribution point maps a scope in the embedded language
 
 ```json
 {
-    "contributes": {
-        "grammars": [
-            {
-                "path": "./syntaxes/abc.tmLanguage.json",
-                "scopeName": "source.abc",
-                "embeddedLanguages": {
-                    "meta.embedded.block.javascript": "source.js"
-                }
-            }
-        ]
-    }
+  "contributes": {
+    "grammars": [
+      {
+        "path": "./syntaxes/abc.tmLanguage.json",
+        "scopeName": "source.abc",
+        "embeddedLanguages": {
+          "meta.embedded.block.javascript": "source.js"
+        }
+      }
+    ]
+  }
 }
 ```
 
@@ -219,8 +210,8 @@ Trigger the scope inspector from the command palette with the `Developer: Inspec
 
 ```json
 {
-    "key": "cmd+alt+shift+i",
-    "command": "editor.action.inspectTMScopes"
+  "key": "cmd+alt+shift+i",
+  "command": "editor.action.inspectTMScopes"
 }
 ```
 
@@ -249,17 +240,15 @@ For this example, we'll create a very simple injection grammar that highlights `
 
 ```json
 {
-    "contributes": {
-        "grammars": [
-            {
-                "path": "./syntaxes/injection.json",
-                "scopeName": "todo-comment.injection",
-                "injectTo": [
-                    "source.js"
-                ]
-            }
-        ]
-    }
+  "contributes": {
+    "grammars": [
+      {
+        "path": "./syntaxes/injection.json",
+        "scopeName": "todo-comment.injection",
+        "injectTo": ["source.js"]
+      }
+    ]
+  }
 }
 ```
 
@@ -267,19 +256,19 @@ The grammar itself is a standard TextMate grammar except for the top level `inje
 
 ```json
 {
-    "scopeName": "todo-comment.injection",
-	"injectionSelector": "L:comment.line.double-slash",
-	"patterns": [
-		{
-			"include": "#todo-keyword"
-		}
-	],
-	"repository": {
-		"todo-keyword": {
-			"match": "TODO",
-			"name": "keyword.todo"
-		}
-	}
+  "scopeName": "todo-comment.injection",
+  "injectionSelector": "L:comment.line.double-slash",
+  "patterns": [
+    {
+      "include": "#todo-keyword"
+    }
+  ],
+  "repository": {
+    "todo-keyword": {
+      "match": "TODO",
+      "name": "keyword.todo"
+    }
+  }
 }
 ```
 
@@ -293,20 +282,18 @@ An extension that highlights sql queries in javascript strings for example may u
 
 ```json
 {
-    "contributes": {
-        "grammars": [
-            {
-                "path": "./syntaxes/injection.json",
-                "scopeName": "sql-string.injection",
-                "injectTo": [
-                    "source.js"
-                ],
-                "embeddedLanguages": {
-                    "meta.embedded.inline.sql": "source.sql"
-                }
-            }
-        ]
-    }
+  "contributes": {
+    "grammars": [
+      {
+        "path": "./syntaxes/injection.json",
+        "scopeName": "sql-string.injection",
+        "injectTo": ["source.js"],
+        "embeddedLanguages": {
+          "meta.embedded.inline.sql": "source.sql"
+        }
+      }
+    ]
+  }
 }
 ```
 
@@ -314,29 +301,27 @@ An extension that highlights sql queries in javascript strings for example may u
 
 There is one additional complication for injection languages embedded languages: by default, VS Code treats all tokens within a string as string contents and all tokens with a comment as token content. Since features such as bracket matching and auto closing pairs are disabled inside of strings and comments, if the embedded language appears inside a string or comment, these features will also be disabled in the embedded language.
 
-To override this behavior, you can use a `meta.embedded.*` scope to reset VS Code's marking of tokens as string or comment content. It is a good idea to always wrap  embedded language in a `meta.embedded.*` scope to make sure VS Code treats the embedded language properly.
+To override this behavior, you can use a `meta.embedded.*` scope to reset VS Code's marking of tokens as string or comment content. It is a good idea to always wrap embedded language in a `meta.embedded.*` scope to make sure VS Code treats the embedded language properly.
 
 If you can't add a `meta.embedded.*` scope to your grammar, you can alternatively use `tokenTypes` in the grammar's contribution point to map specific scopes to content mode. The `tokenTypes` section below ensures that any content in the `my.sql.template.string` scope is treated as source code:
 
 ```json
 {
-    "contributes": {
-        "grammars": [
-            {
-                "path": "./syntaxes/injection.json",
-                "scopeName": "sql-string.injection",
-                "injectTo": [
-                    "source.js"
-                ],
-                "embeddedLanguages": {
-                    "my.sql.template.string": "source.sql"
-                },
-                "tokenTypes": {
-                    "my.sql.template.string": "other"
-                }
-            }
-        ]
-    }
+  "contributes": {
+    "grammars": [
+      {
+        "path": "./syntaxes/injection.json",
+        "scopeName": "sql-string.injection",
+        "injectTo": ["source.js"],
+        "embeddedLanguages": {
+          "my.sql.template.string": "source.sql"
+        },
+        "tokenTypes": {
+          "my.sql.template.string": "other"
+        }
+      }
+    ]
+  }
 }
 ```
 

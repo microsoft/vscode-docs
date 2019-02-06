@@ -25,7 +25,7 @@ The `editor.action.addCommentLine` command, for example, comments the currently 
 import * as vscode from 'vscode';
 
 function commentLine() {
-    vscode.commands.executeCommand('editor.action.addCommentLine');
+  vscode.commands.executeCommand('editor.action.addCommentLine');
 }
 ```
 
@@ -35,20 +35,20 @@ Some commands take arguments that control their behavior. Commands may also retu
 import * as vscode from 'vscode';
 
 async function printDefinitionsForActiveEditor() {
-    const activeEditor = vscode.window.activeTextEditor;
-    if (!activeEditor) {
-        return;
-    }
+  const activeEditor = vscode.window.activeTextEditor;
+  if (!activeEditor) {
+    return;
+  }
 
-    const definitions = await vscode.commands.executeCommand<vscode.Location[]>(
-        'vscode.executeDefinitionProvider',
-        activeEditor.document.uri,
-        activeEditor.selection.active
-    );
+  const definitions = await vscode.commands.executeCommand<vscode.Location[]>(
+    'vscode.executeDefinitionProvider',
+    activeEditor.document.uri,
+    activeEditor.selection.active
+  );
 
-    for (const definition of definitions) {
-        console.log(definition);
-    }
+  for (const definition of definitions) {
+    console.log(definition);
+  }
 }
 ```
 
@@ -61,26 +61,32 @@ To find available commands:
 
 Commands URIs are links that execute a given command. They can be used as clickable links in hover text, completion item details, or inside of webviews.
 
-A command URI uses the `command` scheme followed by the command name. The command URI for the `editor.action.addCommentLine` command, for example,  is `command:editor.action.addCommentLine`. Here's a hover provider that shows a link in the comments of the current line in the active text editor:
+A command URI uses the `command` scheme followed by the command name. The command URI for the `editor.action.addCommentLine` command, for example, is `command:editor.action.addCommentLine`. Here's a hover provider that shows a link in the comments of the current line in the active text editor:
 
 ```ts
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
+  vscode.languages.registerHoverProvider(
+    'javascript',
+    new class implements vscode.HoverProvider {
+      provideHover(
+        _document: vscode.TextDocument,
+        _position: vscode.Position,
+        _token: vscode.CancellationToken
+      ): vscode.ProviderResult<vscode.Hover> {
+        const commentCommandUri = vscode.Uri.parse(`command:editor.action.addCommentLine`);
+        const contents = new vscode.MarkdownString(`[Add comment](${commentCommandUri})`);
 
-    vscode.languages.registerHoverProvider('javascript', new class implements vscode.HoverProvider {
-        provideHover(_document: vscode.TextDocument, _position: vscode.Position, _token: vscode.CancellationToken): vscode.ProviderResult<vscode.Hover> {
-            const commentCommandUri = vscode.Uri.parse(`command:editor.action.addCommentLine`);
-            const contents = new vscode.MarkdownString(`[Add comment](${commentCommandUri})`)
+        // To enable command URIs in Markdown content, you must set the `isTrusted` flag.
+        // When creating trusted Markdown string, make sure to properly sanitize all the
+        // input content so that only expected command URIs can be executed
+        contents.isTrusted = true;
 
-            // To enable command URIs in Markdown content, you must set the `isTrusted` flag.
-            // When creating trusted Markdown string, make sure to properly sanitize all the
-            // input content so that only expected command URIs can be executed
-            contents.isTrusted = true;
-
-            return new vscode.Hover(contents);
-        }
-    });
+        return new vscode.Hover(contents);
+      }
+    }()
+  );
 }
 ```
 
@@ -90,15 +96,24 @@ The list of arguments to the command is passed as a JSON array that has been pro
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    vscode.languages.registerHoverProvider('javascript', new class implements vscode.HoverProvider {
-        provideHover(document: vscode.TextDocument, _position: vscode.Position, _token: vscode.CancellationToken): vscode.ProviderResult<vscode.Hover> {
-            const args = [{ resourceUri: document.uri }];
-            const commentCommandUri = vscode.Uri.parse(`command:git.stage?${encodeURIComponent(JSON.stringify(args))}`);
-            const contents = new vscode.MarkdownString(`[Stage file](${commentCommandUri})`)
-            contents.isTrusted = true;
-            return new vscode.Hover(contents);
-        }
-    });
+  vscode.languages.registerHoverProvider(
+    'javascript',
+    new class implements vscode.HoverProvider {
+      provideHover(
+        document: vscode.TextDocument,
+        _position: vscode.Position,
+        _token: vscode.CancellationToken
+      ): vscode.ProviderResult<vscode.Hover> {
+        const args = [{ resourceUri: document.uri }];
+        const commentCommandUri = vscode.Uri.parse(
+          `command:git.stage?${encodeURIComponent(JSON.stringify(args))}`
+        );
+        const contents = new vscode.MarkdownString(`[Stage file](${commentCommandUri})`);
+        contents.isTrusted = true;
+        return new vscode.Hover(contents);
+      }
+    }()
+  );
 }
 ```
 
@@ -112,13 +127,13 @@ export function activate(context: vscode.ExtensionContext) {
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    const command = 'myExtension.sayHello';
+  const command = 'myExtension.sayHello';
 
-    const commandHandler = (name?: string = 'world') => {
-        console.log(`Hello ${name}!!!`);
-    };
+  const commandHandler = (name?: string = 'world') => {
+    console.log(`Hello ${name}!!!`);
+  };
 
-    context.subscriptions.push(vscode.commands.registerCommand(command, commandHandler));
+  context.subscriptions.push(vscode.commands.registerCommand(command, commandHandler));
 }
 ```
 
@@ -130,14 +145,14 @@ The handler function will be invoked whenever the `myExtension.sayHello` command
 
 ```json
 {
-    "contributes": {
-        "commands": [
-            {
-                "command": "myExtension.sayHello",
-                "title": "Say Hello"
-            }
-        ]
-    }
+  "contributes": {
+    "commands": [
+      {
+        "command": "myExtension.sayHello",
+        "title": "Say Hello"
+      }
+    ]
+  }
 }
 ```
 
@@ -149,9 +164,7 @@ We still need to call `registerCommand` to actually tie the command id to the ha
 
 ```json
 {
-    "activationEvents": [
-        "onCommand:myExtension.sayHello"
-    ]
+  "activationEvents": ["onCommand:myExtension.sayHello"]
 }
 ```
 
@@ -172,16 +185,16 @@ The [`menus.commandPalette`](/api/references/contribution-points#contributes.men
 
 ```json
 {
-    "contributes": {
-        "menus": {
-            "commandPalette": [
-                {
-                    "command": "myExtension.sayHello",
-                    "when": "editorLangId == markdown"
-                }
-            ]
+  "contributes": {
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "myExtension.sayHello",
+          "when": "editorLangId == markdown"
         }
+      ]
     }
+  }
 }
 ```
 

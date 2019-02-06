@@ -13,9 +13,9 @@ You can customize your active Visual Studio Code [color theme](/docs/getstarted/
 
 ```json
 {
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#00AA00"
-    }
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#00AA00"
+  }
 }
 ```
 
@@ -169,23 +169,23 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
 - `editorGroup.border`: Color to separate multiple editor groups from each other.
 
-    ![editorGroup.border](images/theme-color/editorGroup-border.gif)
+  ![editorGroup.border](images/theme-color/editorGroup-border.gif)
 
 - `editorGroup.dropBackground`: Background color when dragging editors around.
 
-    ![editorGroup.dropBackground](images/theme-color/editorGroup-dropbackground.gif)
+  ![editorGroup.dropBackground](images/theme-color/editorGroup-dropbackground.gif)
 
 - `editorGroupHeader.noTabsBackground`: Background color of the editor group title header when Tabs are disabled (set `"workbench.editor.showTabs": false`).
 
-    ![editorGroupHeader.noTabsBackground](images/theme-color/editorgroupheader-notabsbackground.gif)
+  ![editorGroupHeader.noTabsBackground](images/theme-color/editorgroupheader-notabsbackground.gif)
 
 - `editorGroupHeader.tabsBackground`: Background color of the Tabs container.
 
-    ![editorGroupHeader.tabsBackground](images/theme-color/editorgroupheader-tabsbackground.gif)
+  ![editorGroupHeader.tabsBackground](images/theme-color/editorgroupheader-tabsbackground.gif)
 
 - `editorGroupHeader.tabsBorder`: Border color of the editor group title header when tabs are enabled.
 
-    ![editorGroupHeader.tabsBorder](images/theme-color/editorgroupheader-tabsborder.gif)
+  ![editorGroupHeader.tabsBorder](images/theme-color/editorgroupheader-tabsborder.gif)
 
 - `editorGroup.emptyBackground`: Background color of an empty editor group.
 - `editorGroup.focusedEmptyBorder`: Border color of an empty editor group that is focused.
@@ -212,7 +212,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
 ## Editor colors
 
-The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customizing a Color Theme](/docs/getstarted/themes#_customizing-a-color-theme) for  details on updating a Color Theme and the available token types.
+The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customizing a Color Theme](/docs/getstarted/themes#_customizing-a-color-theme) for details on updating a Color Theme and the available token types.
 
 All other editor colors are listed here:
 
