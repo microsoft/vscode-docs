@@ -243,9 +243,9 @@ Next, try running the file in the debugger using the "Python: Current file" conf
 
 Unless you're using an Anaconda distribution or have previously installed the `matplotlib` package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'". Such a message indicates that the required package isn't available in your system.
 
-To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`)). This command opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system (commands may require elevation if the Python interpreter is installed in a protected area of the file system):
+To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`)). This command opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system:
 
-> **Note**: If you are unable to install the package or encounter other problems, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
+> **Note**: The commands may require elevation if the Python interpreter is installed in a protected area of the file system; if you don't have admin privileges on the computer you're using, you may not be allowed to install the package. In that case, you need to use a *virtual environment* instead (see [Environments](/docs/python/environments.md#global-virtual-and-conda-environments)). If you are unable to install the package or encounter other problems, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ```bash
 # Don't use with Anaconda distributions because they include matplotlib already.
