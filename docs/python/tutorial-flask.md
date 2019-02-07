@@ -355,9 +355,10 @@ In this section, you create a single page using a template. In the sections that
     </html>
     ```
 
-    In `app.py`:
+    In `app.py`, change how you invoke the template and add a route to recognize the case without a name:
 
     ```python
+    @app.route("/hello/")
     @app.route("/hello/<name>")
     def hello_there(name = None):
         return render_template(
@@ -400,7 +401,7 @@ The following sections demonstrate both types of static files.
 
     Flask's [`url_for` tag](http://flask.pocoo.org/docs/0.12/api/#flask.url_for) that's used here creates the appropriate path to the file. Because it can accept variables as arguments, `url_for` allows you to programmatically control the generated path, if desired.
 
-1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
+1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag (and also displays a message if you just use a hello/ URL without a name):
 
     ```html
     {%if name %}
@@ -562,7 +563,7 @@ With the code snippet in place, you can quickly create templates for the Home, A
 
 1. Repeat the previous step to create `templates/contact.html` using `Contact us` and `<p>Contact page for the Visual Studio Code Flask tutorial.</p>` in the two content blocks.
 
-1. In `app.py`, add functions for the /about and /contact routes that refer to their respective page templates. Also modify the `home` function to use the `home.html` template.
+1. In `app.py`, add functions for the /about/ and /contact/ routes that refer to their respective page templates. Also modify the `home` function to use the `home.html` template.
 
     ```python
     # Replace the existing home function with the one below
@@ -571,11 +572,11 @@ With the code snippet in place, you can quickly create templates for the Home, A
         return render_template("home.html")
 
     # New functions
-    @app.route("/about")
+    @app.route("/about/")
     def about():
         return render_template("about.html")
 
-    @app.route("/contact")
+    @app.route("/contact/")
     def contact():
         return render_template("contact.html")
     ```
@@ -626,14 +627,15 @@ Throughout this tutorial, all the app code is contained in a single `app.py` fil
     def home():
         return render_template("home.html")
 
-    @app.route("/about")
+    @app.route("/about/")
     def about():
         return render_template("about.html")
 
-    @app.route("/contact")
+    @app.route("/contact/")
     def contact():
         return render_template("contact.html")
 
+    @app.route("/hello/")
     @app.route("/hello/<name>")
     def hello_there(name):
         return render_template(
