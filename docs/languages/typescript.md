@@ -99,7 +99,7 @@ If you choose one of the suggestions from another file or module, VS Code will a
 
 The Auto imports feature requires TypeScript 2.6+ and is enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
 
-## Formating
+## Formatting
 
 VS Code includes a TypeScript formatter that providers basic code formatting with reasonable defaults.
 
