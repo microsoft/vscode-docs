@@ -14,7 +14,7 @@ There are many scenarios where the focus of a developer is on reading and compre
 
 To do this today you typically check out a branch or clone a repository, open your preferred development tool, and finally you can read and navigate the code. Now, wouldn't it be cool if you could do this without first cloning the repo? You could do this all right from within your tool and still get the code comprehension features like hover, go to definition and find all references. The blog post [A first look at rich code navigation](https://code.visualstudio.com/blogs/2018/12/04/rich-navigation) illustrates this scenario for a Pull Request review.
 
-The goal of the Language Server Index Format (LISF, pronounced like "else if") is to support rich code navigation in development tools or a Web UI without having to checkout code. This is similar in spirit as the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) which simplified the integration of rich code editing capabilities into adevelopment tool.
+The goal of the Language Server Index Format (LISF, pronounced like "else if") is to support rich code navigation in development tools or a Web UI without having to checkout code. This is similar in spirit to the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) which simplified the integration of rich code editing capabilities into a development tool.
 
 Why not simply use a corresponding LSP language servers? LSP provides rich code authoring features like auto complete or format on type and also support rich code navigation. To provide these features efficiently a language server requires to have all the code files available on a local disk. It also reads parts or all of the files into memory and computes abstract syntax trees to power the features. The goal of the Language Server Index Format is to augment the LSP protocol to support rich code navigation features without these requirements. LSIF defines a standard format for language servers or other programming tools to emit their knowledge about a code workspace. This dumped information can later be used to answer LSP requests for the same workspace without running a language server.
 
@@ -62,15 +62,15 @@ In the above example the concrete value is:
 
 A client tool would retrieve the hover content from a language server by sending a `textDocument/hover` request for document `file:///Users/dirkb/sample.ts` at position `{line: 0, character: 10}`.
 
-LSIF defines a format that language servers or standalone tools emit to describe the tuple `['textDocument/hover', 'file:///Users/dirkb/sample.ts', {line: 0, character: 10}]` that resolves the request for the above hover. The data can then be taken and persisted into a database.
+LSIF defines a format that language servers or standalone tools emit to describe that the tuple `['textDocument/hover', 'file:///Users/dirkb/sample.ts', {line: 0, character: 10}]` resolves to the above hover. The data can then be taken and persisted into a database.
 
 LSP requests are position based, however results often only vary for ranges and not for single positions. In the above hover example the hover value is the same for all positions of the identifier `bar`. This means the same hover value is returned when a user hovers over `b` in `bar` or over `r` in `bar`. To make the emitted data more compact the LSIF uses ranges instead of positions. For this example a LSIF tool emits the tuple `['textDocument/hover', 'file:///Users/dirkb/sample.ts', { start: { line: 0, character: 9 }, end: { line: 0, character: 12 }]` which includes range information.
 
 
-LSIF uses graphs to emit this information. In the graph an LSP request is represented with edges and documents. The ranges or request results (e.g the hover) are represented using vertices. This format has the following benefits:
+LSIF uses graphs to emit this information. In the graph an LSP request is represented using an edge. Documents, ranges or request results (e.g the hover) are represented using vertices. This format has the following benefits:
 
-- for a given code range there can be different results. For example, a user is interested in the hover value, the location of the definition of the range, or to find all references for this range. LSIF therefore links these results with the range.
-- extending the format with additional request types can easily be done by adding new edge kints.
+- for a given code range there can be different results. For a given identifier range, a user is interested in the hover value, the location of the definition, or to find all references. LSIF therefore links these results with the range.
+- extending the format with additional request types or results can easily be done by adding new edge or vertex kinds.
 - it is possible to emit data as soon as it is available. This enables streaming rather than having to store large amounts of data in memory. For example, emitting data for a document should be done for each file as the parsing progresses.
 
 For the Hover example the emitted LSIF graph data looks as follows:
