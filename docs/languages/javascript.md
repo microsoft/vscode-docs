@@ -194,6 +194,25 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 },
 ```
 
+## Organize Imports
+
+The *Organize Imports* source code action sorts the imports in a JavaScript file and removes and unused imports:
+
+<!-- TODO: replace with js specific example -->
+<video src="/docs/languages/javascript/organize-imports.mp4" placeholder="images/javascript/organize-imports-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
+
+You can run *Organize Imports* from the `Source Action...` context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
+
+Organize imports can also be automatically when you save a JavaScript file by setting:
+
+```json
+"editor.codeActionsOnSave": {
+    "source.organizeImports": true
+}
+```
+
 ## Code suggestions
 
 VS Code automatically suggests some common code simplifications such as converting a chain of `.then` calls on a promise to use `async` and `await`
