@@ -35,7 +35,7 @@ The `id` is the identifier for the icon theme. It is currently only used interna
 
 ### Icon Set File
 
-The icon set file is a JSON file consisting file icon associations and icon definitions.
+The icon set file is a JSON file consisting of file icon associations and icon definitions.
 
 An icon association maps a file type ('file', 'folder', 'json-file'...) to an icon definition. Icon definitions define where the icon is located: That can be an image file or also glyph in a font.
 
@@ -116,8 +116,8 @@ The `light` and the `highContrast` section have the same file association proper
 
 ### Font definitions
 
-The 'fonts' section lets you declare any number of glyph fonts that you want to use.
-You can later reference these font in the icon definitions. The font declared first will be used as the default if an icon definition does not specify a font id.
+The `fonts` section lets you declare any number of glyph fonts that you want to use.
+You can later reference these fonts in the icon definitions. The font declared first will be used as the default if an icon definition does not specify a font id.
 
 Copy the font file into your extension and set the path accordingly.
 It is recommended to use [WOFF](https://developer.mozilla.org/docs/Web/Guide/WOFF) fonts.
