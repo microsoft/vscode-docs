@@ -535,7 +535,11 @@ code {
 }
 ```
 
-Review the [Theme Color Reference](/api/references/theme-color) for the available variables.
+Review the [Theme Color Reference](/api/references/theme-color) for the available theme variables. The following font related variables are also defined:
+
+- `-vscode-editor-font-family` — Editor font family (from the `editor.fontFamily` setting).
+- `-vscode-editor-font-weight` — Editor font size (from the `editor.fontWeight` setting).
+- `-vscode-editor-font-size` — Editor font weight (from the `editor.fontWeight` setting).
 
 ## Scripts and message passing
 
