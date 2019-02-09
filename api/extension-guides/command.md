@@ -105,10 +105,10 @@ export function activate(context: vscode.ExtensionContext) {
         _token: vscode.CancellationToken
       ): vscode.ProviderResult<vscode.Hover> {
         const args = [{ resourceUri: document.uri }];
-        const commentCommandUri = vscode.Uri.parse(
+        const stageCommandUri = vscode.Uri.parse(
           `command:git.stage?${encodeURIComponent(JSON.stringify(args))}`
         );
-        const contents = new vscode.MarkdownString(`[Stage file](${commentCommandUri})`);
+        const contents = new vscode.MarkdownString(`[Stage file](${stageCommandUri})`);
         contents.isTrusted = true;
         return new vscode.Hover(contents);
       }
@@ -137,7 +137,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-The handler function will be invoked whenever the `myExtension.sayHello` command is executed, be it pragmatically with `executeCommand`, from the VS Code UI, or through a keybinding.
+The handler function will be invoked whenever the `myExtension.sayHello` command is executed, be it programmatically with `executeCommand`, from the VS Code UI, or through a keybinding.
 
 ### Creating a user facing command
 
@@ -160,7 +160,7 @@ The `commands` contribution tells VS Code that your extension provides a given c
 
 ![The contributed command in the Command Palette](images/commands/palette.png)
 
-We still need to call `registerCommand` to actually tie the command id to the handler. This means that if the user selects the `myExtension.sayHello` command from the Command Palette but our extension has not been activated yet, nothing will happen. To prevent this, extensions must register a `onCommand` `activiationEvent` for all user facing commands:
+We still need to call `registerCommand` to actually tie the command id to the handler. This means that if the user selects the `myExtension.sayHello` command from the Command Palette but our extension has not been activated yet, nothing will happen. To prevent this, extensions must register an `onCommand` `activiationEvent` for all user facing commands:
 
 ```json
 {
@@ -174,7 +174,7 @@ You do not need an `onCommand` activation event for internal commands but you mu
 
 - Can be invoked using the Command Palette.
 - Can be invoked using a keybinding.
-- Can be invoked through the VS Code UI, such as though an the editor title bar.
+- Can be invoked through the VS Code UI, such as through the editor title bar.
 - Is intended as an API for other extensions to consume.
 
 ### Controlling when a command shows up in the Command Palette
