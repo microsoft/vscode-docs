@@ -93,7 +93,7 @@ You can also use an existing TextMate theme by telling the extension generator t
 
 To try out the new theme, press F5 to launch an Extension Development Host window.
 
-There, open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the drop-down list. Arrow up and down to see a live preview of your theme.
+There, open the Color Theme picker with **File** > **Preferences** > **Color Theme** and you can see your theme in the drop-down list. Arrow up and down to see a live preview of your theme.
 
 ![select my theme](images/color-theme/mytheme.png)
 
@@ -107,7 +107,7 @@ If you'd like to share your new theme with the community, you can publish it to 
 
 We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/api/references/extension-manifest#marketplace-presentation-tips).
 
-## Adding a new Color Ids
+## Adding a new Color Id
 
 Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
 
