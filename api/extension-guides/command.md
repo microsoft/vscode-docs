@@ -160,7 +160,7 @@ The `commands` contribution tells VS Code that your extension provides a given c
 
 ![The contributed command in the Command Palette](images/commands/palette.png)
 
-We still need to call `registerCommand` to actually tie the command id to the handler. This means that if the user selects the `myExtension.sayHello` command from the Command Palette but our extension has not been activated yet, nothing will happen. To prevent this, extensions must register a `onCommand` `activiationEvent` for all user facing commands:
+We still need to call `registerCommand` to actually tie the command id to the handler. This means that if the user selects the `myExtension.sayHello` command from the Command Palette but our extension has not been activated yet, nothing will happen. To prevent this, extensions must register an `onCommand` `activiationEvent` for all user facing commands:
 
 ```json
 {
