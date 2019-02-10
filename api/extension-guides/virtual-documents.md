@@ -47,13 +47,13 @@ vscode.commands.registerCommand('cowsay.say', async () => {
 
 The command prompts for input, creates an uri of the `cowsay`-scheme, opens a document for the uri, and finally opens an editor for that document. In step 3, opening the document, the provider is being asked to provide contents for that uri.
 
-With this we have a fully function text document content provider. The next sections describe how virtual documents can be updated and how UI commands can be registered for virtual documents.
+With this we have a fully functional text document content provider. The next sections describe how virtual documents can be updated and how UI commands can be registered for virtual documents.
 
 ### Update Virtual Documents
 
 Depending on the scenario virtual documents might change. To support that, providers can implement a `onDidChange`-event. It must be fired for an uri and the editor will then ask for the new contents - assuming the document is still in use.
 
-The `vscode.Event`-type defines the contract for eventing in VS Code the easiest way to implement an event is `vscode.EventEmitter`, like so:
+The `vscode.Event`-type defines the contract for eventing in VS Code. The easiest way to implement an event is `vscode.EventEmitter`, like so:
 
 ```ts
 const myProvider = class implements vscode.TextDocumentContentProvider {
@@ -65,7 +65,7 @@ const myProvider = class implements vscode.TextDocumentContentProvider {
 };
 ```
 
-That's all what's needed to make vs code listen for changes of virtual document. The next section will add an editor action that uses the event emitter.
+That's all what's needed to make VS code listen for changes of virtual document. The next section will add an editor action that uses the event emitter.
 
 ### Add Editor Commands
 
@@ -110,13 +110,13 @@ To top things with an editor command a declarative part in `package.json` is nee
 }
 ```
 
-This references the `cowsay.backwards`-command that defined in the `contributes/commands`-section and says it should appear in the editor title menu (the toolbar in the upper right corner). Now, just that would mean the command always shows, for every editor. That's what the `when`-clause is used for - it describes what condition must be true to show the action. In this sample it stats that the scheme of the document in the editor must be the `cowsay`-scheme. The configuration is then repeated for the `commandPalette`-menu -it shows all commands by default.
+This references the `cowsay.backwards`-command that defined in the `contributes/commands`-section and says it should appear in the editor title menu (the toolbar in the upper right corner). Now, just that would mean the command always shows, for every editor. That's what the `when`-clause is used for - it describes what condition must be true to show the action. In this sample it states that the scheme of the document in the editor must be the `cowsay`-scheme. The configuration is then repeated for the `commandPalette`-menu - it shows all commands by default.
 
 ![cowsay-bwd](images/virtual-documents/cowsay-bwd.png)
 
 ### Events and Visibility
 
-Document providers are first class citizens in VS Code, their contents appears in regular text documents, they use the same infrastructure as files etc. However, that also means that "your" documents cannot hide, they will appear in `onDidOpenTextDocument` and `onDidCloseTextDocument`-events, they are part of `vscode.workspace.textDocuments` and more. The rule for everyone is check the `scheme` of documents and then decide if you wanna do something with/for the document.
+Document providers are first class citizens in VS Code, their contents appears in regular text documents, they use the same infrastructure as files etc. However, that also means that "your" documents cannot hide, they will appear in `onDidOpenTextDocument` and `onDidCloseTextDocument`-events, they are part of `vscode.workspace.textDocuments` and more. The rule for everyone is check the `scheme` of documents and then decide if you want to do something with/for the document.
 
 ### File System API
 
