@@ -84,6 +84,22 @@ Valid values for `"apply"`:
 * `"ifSingle"` - Default. Automatically apply the Code Action if only one is available. Otherwise, show the context menu.
 * `"never"` — Always show the Code Action context menu, even if only a single Code Action is available.
 
+When a code action keybinding is configured with `"preferred": true`, only preferred quick fixes and refactorings are shown. A preferred quick fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings may exist—each extracting to a different scope in the file—the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
+
+This keybinding uses `"preferred": true` to create a refactoring that always tries to extract the selected code to a constant in the local scope:
+
+```json
+{
+  "key": "shift+ctrl+e",
+  "command": "editor.action.codeAction",
+  "args": {
+    "kind": "refactor.extract.constant",
+    "preferred": true,
+    "apply": "ifsingle"
+  }
+}
+```
+
 ## Extensions with refactorings
 
 You can find extensions that support refactoring by looking in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). You can go to the Extensions view (`kb(workbench.view.extensions)`) and type 'refactor' in the search box. You can then sort by install count or ratings to see which extensions are popular.
