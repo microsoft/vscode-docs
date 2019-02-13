@@ -327,7 +327,7 @@ For example, the when clause below is true only when the File Explorer has focus
 There is a key-value pair operator for `when` clauses. The expression `key =~ value` treats the right hand side as a regular expression to match against the left hand side. For example, to contribute context menu items for all Docker files, one could use:
 
 ```json
-   "when": "resourceFileName =~ /docker/"
+   "when": "resourceFilename =~ /docker/"
 ```
 
 ## Custom keybindings for refactorings
