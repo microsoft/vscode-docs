@@ -241,18 +241,15 @@ sudo touch /etc/apt/sources.list.d/vscode.list
 
 ### Cannot move or resize the window while X forwarding a remote window
 
-If you are using X forwarding to use VS Code remotely, you will need to use the native title bar to ensure you can properly manipulate the window. The native title bar is no longer the default behavior on Linux, but you can switch to using it by setting `window.titleBarStyle` to `native`.
+If you are using X forwarding to use VS Code remotely, you will need to use the native title bar to ensure you can properly manipulate the window. You can switch to using it by setting `window.titleBarStyle` to `native`.
 
-### Low contrast menu bar
+### Using the custom title bar
 
-If you are using Ubuntu 18.10 or a GTK theme that mixes light or dark context menus with the opposite theming for the application menu bar, you may experience a low contrast menu bar that is difficult to read when using the native title bar setting.
+*Applies to 1.32*
 
-There are two possible workarounds for this:
+The custom title bar along with the menus that go with it was enabled by default on Linux for a few months. While we can say this was a success on Windows, the customer response on Linux suggests otherwise. After listening to feedback, we have decided to make the final decision to make this setting opt-in on Linux, making native the default. Please allow us to explain this decision for transparency.
 
-* Switch to the VS Code custom title bar style by configuring the setting `window.titleBarStyle` to `custom`.
-* Change your GTK theme. You can do this by installing the Gnome Tweaks application and using the previous default theme `Adwaita`.
-
-Information on this issue can be tracked in issue [62593](https://github.com/Microsoft/vscode/issues/62593).
+The custom title bar provides a set of key benefits for Windows users including great theming and better accessibility with better keyboard navigation and screen reader support. Unfortunately, these benefits do not translate as well to the Linux platform. Linux has a variety of desktop enviroments and window managers that can make our theming look foreign to many users and accessibility concerns do not warrant the change in default for the majority of users. To empower users needing these accessibility improvements, we will only enable the custom title bar when running in accessibility mode. As always, the setting will be available to configure as you wish under `window.titleBarStyle`
 
 ### Broken cursor in editor with display scaling enabled
 
