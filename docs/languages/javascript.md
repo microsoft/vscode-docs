@@ -181,7 +181,7 @@ Unused JavaScript code—such the else block of an `if` statement that is always
 
 ![Unreachable source code faded out](images/javascript/unreachable.png)
 
-You can quickly remove this unused code by placing the cursor on it and triggering the quick fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
+You can quickly remove this unused code by placing the cursor on it and triggering the Quick Fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
 
 To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in JavaScript by setting:
 
@@ -196,14 +196,14 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 
 ## Organize Imports
 
-The *Organize Imports* source code action sorts the imports in a JavaScript file and removes and unused imports:
+The **Organize Imports** Source Action sorts the imports in a JavaScript file and removes any unused imports:
 
 <!-- TODO: replace with js specific example -->
 <video src="/docs/languages/javascript/organize-imports.mp4" placeholder="images/javascript/organize-imports-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-You can run *Organize Imports* from the `Source Action...` context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
+You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
 
 Organize imports can also be automatically when you save a JavaScript file by setting:
 

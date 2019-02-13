@@ -13,7 +13,7 @@ MetaDescription: Refactoring source code in Visual Studio Code.
 
 ![refactoring hero image](images/refactoring/refactoring-hero.png)
 
-For example, a common refactoring used to avoid duplicating code (a maintenance headache) is the [Extract Method](https://refactoring.com/catalog/extractMethod.html), where you select source code that you'd like to reuse elsewhere and pull it out into its own shared method.
+For example, a common refactoring used to avoid duplicating code (a maintenance headache) is the [Extract Method](https://refactoring.com/catalog/extractMethod.html) refactoring, where you select source code that you'd like to reuse elsewhere and pull it out into its own shared method.
 
 Refactorings are provided by a language service and VS Code has built-in support for TypeScript and JavaScript refactoring through the [TypeScript](https://www.typescriptlang.org/) language service. Refactoring support for other programming languages is provided through VS Code [extensions](/docs/editor/extension-gallery.md) which contribute language services. The UI and commands for refactoring are the same across languages, and in this topic we'll demonstrate refactoring support with the TypeScript language service.
 
@@ -84,9 +84,9 @@ Valid values for `"apply"`:
 * `"ifSingle"` - Default. Automatically apply the Code Action if only one is available. Otherwise, show the context menu.
 * `"never"` — Always show the Code Action context menu, even if only a single Code Action is available.
 
-When a code action keybinding is configured with `"preferred": true`, only preferred quick fixes and refactorings are shown. A preferred quick fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings may exist—each extracting to a different scope in the file—the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
+When a Code Action keybinding is configured with `"preferred": true`, only preferred Quick Fixes and refactorings are shown. A preferred Quick Fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings may exist—each extracting to a different scope in the file—the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
 
-This keybinding uses `"preferred": true` to create a refactoring that always tries to extract the selected code to a constant in the local scope:
+This keybinding uses `"preferred": true` to create a refactoring that always tries to extract the selected source code to a constant in the local scope:
 
 ```json
 {
