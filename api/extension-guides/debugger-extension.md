@@ -309,12 +309,12 @@ Instead of defining the initial content of the `launch.json` statically in the `
 The **variables** contribution binds "variables" to "commands". These variables can be used in the launch configuration using the **\${command:xyz}** syntax and the variables are substituted by the value returned from the bound command when a debug session is started.
 
 The implementation of a command lives in the extension and it can range from a simple expression with no UI, to sophisticated functionality based on the UI features available in the extension API.
-Mock Debug binds a variable `AskForProgramName` to the command `extension.mock-debug.getProgramName`. The [implementation](https://github.com/Microsoft/vscode-mock-debug/blob/431857ca27e618e2e7164628ff41fa8cedd01bff/src/extension.ts#L33) of this command in `src/extension.ts` uses the `showInputBox` to let the user enter a program name:
+Mock Debug binds a variable `AskForProgramName` to the command `extension.mock-debug.getProgramName`. The [implementation](https://github.com/Microsoft/vscode-mock-debug/blob/606454ff3bd669867a38d9b2dc7b348d324a3f6b/src/extension.ts#L21-L26) of this command in `src/extension.ts` uses the `showInputBox` to let the user enter a program name:
 
 ```ts
 vscode.commands.registerCommand('extension.mock-debug.getProgramName', config => {
   return vscode.window.showInputBox({
-    placeHolder: 'Please enter the name of a Markdown file in the workspace folder',
+    placeHolder: 'Please enter the name of a markdown file in the workspace folder',
     value: 'readme.md'
   });
 });
