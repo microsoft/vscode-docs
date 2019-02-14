@@ -185,9 +185,9 @@ If VS Code does not automatically locate an interpreter you want to use, you can
 
 ## Environment variable definitions file
 
-An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used for comments. Multiline values are not supported.
+An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used for comments. Multiline values are not supported, but values can refer to any other environment variable that's already defined in the system or earlier in the file. For more information, see [Variable substitution](#variable-substitution).
 
-By default, the Python extension loads a file named `.env` in the current workspace folder, as identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General settings](/docs/python/settings-reference.md#general-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
+By default, the Python extension looks for and loads a file named `.env` in the current workspace folder, then applies those definitions. The file is identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General settings](/docs/python/settings-reference.md#general-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
 A debug configuration also contains an `envFile` property that also defaults to the `.env` file in the current workspace (see [Debugging - Set configuration options](/docs/python/debugging.md#set-configuration-options)). This property allows you to easily set variables for debugging purposes that replace variables specified in the default `.env` file.
 
@@ -222,6 +222,25 @@ MYPROJECT_DBPASSWORD=kKKfa98*11@
 ```
 
 You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, then set the `envFile` property in the debug configuration to `${workspaceFolder}/dev.env`.
+
+### Variable substitution
+
+When defining an environment variables in a definitions file, you can use the value of any existing environment variable with the following general syntax:
+
+```bash
+<VARIABLE>=...${EXISTING_VARIABLE}...
+```
+
+where `...` means any other text as used in the value. The curly braces are required.
+
+Within this syntax, the following rules apply:
+
+- Variables are processed in the order they appear in the `.env` file, so you can use any variable that's defined earlier in the file.
+- Single or double quotes don't affect substituted value and are included in the defined value. For example, if the value of `VAR1` is `abcedfg`, then `VAR2='${OTHERVAR}'` assigns the value `'abcedfg'` to `VAR2`.
+- The `$` character can be escaped with a backslash, as in `\$`.
+- You can use recursive substitution, such as `PYTHONPATH=$PROJ_DIR:${PYTHONPATH}`.
+- You can use only simple substitution; nesting such as `${_${OTHERVAR}_EX}` is not supported.
+- Entries with unsupported syntax are left as-is.
 
 ## Use of the PYTHONPATH variable
 
