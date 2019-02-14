@@ -21,7 +21,7 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onView`](/api/references/activation-events#onView)
 - [`onUri`](/api/references/activation-events#onUri)
 - [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
-- [`*`](/api/references/activation-events#all)
+- [`*`](/api/references/activation-events#start-up)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
 
@@ -154,9 +154,9 @@ For example, the declaration of onWebviewPanel below:
 
 will cause the extension to be activated when VS Code needs to restore a webview with the viewType: `catCoding`. The viewType is set in the call to `window.createWebviewPanel` and you will need to have another activation event (for example, onCommand) to initially activate your extension and create the webview.
 
-## \*
+## Start up
 
-This activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
+The `*` activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
 
 ```json
 ...
