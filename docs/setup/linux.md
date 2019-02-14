@@ -245,11 +245,11 @@ If you are using X forwarding to use VS Code remotely, you will need to use the 
 
 ### Using the custom title bar
 
-*Applies to 1.32*
+**Note**: Applies to the upcoming 1.32 release.
 
-The custom title bar along with the menus that go with it was enabled by default on Linux for a few months. While we can say this was a success on Windows, the customer response on Linux suggests otherwise. After listening to feedback, we have decided to make the final decision to make this setting opt-in on Linux, making native the default. Please allow us to explain this decision for transparency.
+The custom title bar and menus were enabled by default on Linux for several months. The custom title bar has been a success on Windows, but the customer response on Linux suggests otherwise. Based on feedback, we have decided to make this setting opt-in on Linux and leave the native title bar as the default.
 
-The custom title bar provides a set of key benefits for Windows users including great theming and better accessibility with better keyboard navigation and screen reader support. Unfortunately, these benefits do not translate as well to the Linux platform. Linux has a variety of desktop enviroments and window managers that can make our theming look foreign to many users and accessibility concerns do not warrant the change in default for the majority of users. To empower users needing these accessibility improvements, we will only enable the custom title bar when running in accessibility mode. As always, the setting will be available to configure as you wish under `window.titleBarStyle`
+The custom title bar provides many benefits including great theming support and better accessibility through keyboard navigation and screen readers. Unfortunately, these benefits do not translate as well to the Linux platform. Linux has a variety of desktop environments and window managers that can make the VS Code theming look foreign to users. For users needing the accessibility improvements, we enable the custom title bar when running in accessibility mode when a screen reader is detected. You can still manually set the title bar with the **Window: Title Bar Style** (`window.titleBarStyle`) setting.
 
 ### Broken cursor in editor with display scaling enabled
 
