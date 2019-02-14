@@ -24,7 +24,7 @@ IntelliSense shows you intelligent code completion, hover info, and signature in
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-VS Code provides IntelliSense within your JavaScript projects; for many npm libraries such as `React`, `lodash`, and `express`; and for other platforms such `node`, serverless, or IoT.
+VS Code provides IntelliSense within your JavaScript projects; for many npm libraries such as `React`, `lodash`, and `express`; and for other platforms such as `node`, serverless, or IoT.
 
 See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for information about VS Code's JavaScript IntelliSense, how to configure it, and help troubleshooting common IntelliSense problems.
 
