@@ -21,7 +21,7 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onView`](/api/references/activation-events#onView)
 - [`onUri`](/api/references/activation-events#onUri)
 - [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
-- [`*`](/api/references/activation-events#start-up)
+- [`*`](/api/references/activation-events#Start-up)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
 
