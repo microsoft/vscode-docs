@@ -166,7 +166,7 @@ Yeoman will walk you through some basic questions to scaffold the new extension.
 
 - `Language Id` — A unique identifier for your language.
 - `Language Name` — A human readable name for your language.
-- `Scope names` - Root TextMate scope name for your grammar
+- `Scope names` — Root TextMate scope name for your grammar
 
 ![Filling in the 'new language' questions](images/syntax-highlighting/yo-new-language-questions.png)
 
