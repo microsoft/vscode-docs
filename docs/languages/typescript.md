@@ -170,7 +170,7 @@ When you move your cursor on to a TypeScript error, VS Code shows a lightbulb th
 
 ## Unused variables and unreachable code
 
-Unused TypeScript code—such the else block of an `if` statement that is always true or an unreferenced import—is faded out in the editor:
+Unused TypeScript code, such the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
 
 ![Unreachable source code faded out](images/typescript/unreachable.png)
 

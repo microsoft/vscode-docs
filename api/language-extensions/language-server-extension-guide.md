@@ -58,7 +58,7 @@ Here is an illustration of VS Code running two Language Server extensions. The H
 
 This guide will teach you how to build a Language Client / Server using our [Node SDK](https://github.com/Microsoft/vscode-languageserver-node). The remaining document assumes that you are familiar with VS Code [Extension API](/api).
 
-### LSP Sample — A simple Language Server for plain text files
+### LSP Sample - A simple Language Server for plain text files
 
 Let's build a simple Language Server extension that implements autocomplete and diagnostics for plain text files. We will also cover the syncing of configurations between Client / Server.
 

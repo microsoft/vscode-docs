@@ -82,9 +82,9 @@ Valid values for `"apply"`:
 
 * `"first"` - Always automatically apply the first available Code Action.
 * `"ifSingle"` - Default. Automatically apply the Code Action if only one is available. Otherwise, show the context menu.
-* `"never"` — Always show the Code Action context menu, even if only a single Code Action is available.
+* `"never"` - Always show the Code Action context menu, even if only a single Code Action is available.
 
-When a Code Action keybinding is configured with `"preferred": true`, only preferred Quick Fixes and refactorings are shown. A preferred Quick Fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings may exist—each extracting to a different scope in the file—the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
+When a Code Action keybinding is configured with `"preferred": true`, only preferred Quick Fixes and refactorings are shown. A preferred Quick Fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings may exist, each extracting to a different scope in the file, the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
 
 This keybinding uses `"preferred": true` to create a refactoring that always tries to extract the selected source code to a constant in the local scope:
 

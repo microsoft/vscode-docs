@@ -25,7 +25,7 @@ IntelliSense for JavaScript libraries and frameworks is powered by TypeScript ty
 
 Many popular libraries ship with typings files so you get IntelliSense for them automatically. For libraries that do not include typings, VS Code's `Automatic Type Acquisition` will automatically install community maintained typings file for you.
 
-Automatic type acquisition requires [npmjs](https://www.npmjs.com) — the Node.js package manager — which is included with the [Node.js](https://nodejs.org) runtime. In this image you can see IntelliSense, including the method signature, parameter info, and the method's documentation for the popular [lodash](https://lodash.com/) library.
+Automatic type acquisition requires [npmjs](https://www.npmjs.com), the Node.js package manager, which is included with the [Node.js](https://nodejs.org) runtime. In this image you can see IntelliSense, including the method signature, parameter info, and the method's documentation for the popular [lodash](https://lodash.com/) library.
 
 ![lodash typings](images/working-with-javascript/lodash-typings.png)
 

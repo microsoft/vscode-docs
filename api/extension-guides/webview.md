@@ -505,9 +505,9 @@ In general, webviews should be as restrictive as possible in loading local resou
 
 Webview can use CSS to change their appearance based on VS Code's current theme. VS Code groups themes into three categories, and adds a special class to the `body` element to indicate the current theme:
 
-- `vscode-light` — Light themes.
-- `vscode-dark` — Dark themes.
-- `vscode-high-contrast` — High contrast themes.
+- `vscode-light` - Light themes.
+- `vscode-dark` - Dark themes.
+- `vscode-high-contrast` - High contrast themes.
 
 The following CSS changes the text color of the webview based on the user's current theme:
 
