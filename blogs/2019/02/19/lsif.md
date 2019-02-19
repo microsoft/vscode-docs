@@ -7,7 +7,7 @@ Date: 2019-02-19
 ShortDescription: Rich Code Navigation without Checkout
 Author: Dirk Bäumer
 ---
-## The Language Server Index Format (LSIF)
+# The Language Server Index Format (LSIF)
 
 February 19, 2019 by Dirk Bäumer
 
