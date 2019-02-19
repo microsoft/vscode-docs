@@ -177,7 +177,7 @@ See [Refactorings](/docs/editor/refactoring.md) for more information about refac
 
 ## Unused variables and unreachable code
 
-Unused JavaScript code—such the else block of an `if` statement that is always true or an unreferenced import—is faded out in the editor:
+Unused JavaScript code, such the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
 
 ![Unreachable source code faded out](images/javascript/unreachable.png)
 

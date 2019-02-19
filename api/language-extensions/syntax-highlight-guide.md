@@ -130,11 +130,11 @@ x               source.abc
 a               keyword.letter, source.abc
 ```
 
-Note that text that is not matched by one of the rules—such as the string `xyz`—is included in the current scope. The last paren at the end of the file is not part of the an `expression.group` since the `end` rule is not matched.
+Note that text that is not matched by one of the rules, such as the string `xyz`, is included in the current scope. The last paren at the end of the file is not part of the an `expression.group` since the `end` rule is not matched.
 
 ### Embedded languages
 
-If your grammar include embedded languages within the parent language—such as css style blocks in html—you can use the `embeddedLanguages` contribution point to tell VS Code to treat the embedded language as distinct from the parent language. This ensures that bracket matching, commenting, and other basic language features work as expected in the embedded language.
+If your grammar include embedded languages within the parent language, such as CSS style blocks in HTML, you can use the `embeddedLanguages` contribution point to tell VS Code to treat the embedded language as distinct from the parent language. This ensures that bracket matching, commenting, and other basic language features work as expected in the embedded language.
 
 The `embeddedLanguages` contribution point maps a scope in the embedded language to a top level language scope. In the example below, any tokens in the `meta.embedded.block.javascript` scope will be treated as javascript content:
 
@@ -164,8 +164,8 @@ To quickly create a new grammar extension, use [VS Code's Yeoman templates](/api
 
 Yeoman will walk you through some basic questions to scaffold the new extension. The important questions for creating a new grammar are:
 
-- `Language Id` — A unique identifier for your language.
-- `Language Name` — A human readable name for your language.
+- `Language Id` - A unique identifier for your language.
+- `Language Name` - A human readable name for your language.
 - `Scope names` - Root TextMate scope name for your grammar
 
 ![Filling in the 'new language' questions](images/syntax-highlighting/yo-new-language-questions.png)
