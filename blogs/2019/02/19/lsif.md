@@ -21,7 +21,7 @@ The goal of the Language Server Index Format (LISF, pronounced like "else if") i
 
 Why not simply use an existing LSP language server? The LSP provides rich code authoring features like auto complete, format on type, and rich code navigation. To provide these features efficiently, a language server requires all source code files be available on a local disk. LSP language servers may also read parts or all of the files into memory and compute abstract syntax trees to power these features. The goal of the Language Server Index Format is to augment the LSP protocol to support rich code navigation features without these requirements. The LSIF defines a standard format for language servers or other programming tools to emit their knowledge about a code workspace. This persisted information can later be used to answer LSP requests for the same workspace without running a language server.
 
-## The Language Server Index Format
+## Language Server Index Format
 
 LSIF builds on LSP and it uses the same data types as defined in LSP. At a high level, LSIF models the data returned from language server requests. Same as LSP, LSIF doesn't contain any program symbol information nor does the LSIF define any symbol semantics (for example, what makes the definition of a symbol or whether a method overrides another method). The LSIF therefore doesn't define a symbol database, which is consistent with the LSP approach.
 
@@ -36,7 +36,11 @@ function bar(): void {
 
 Hovering over `bar()` shows the following hover information in Visual Studio Code:
 
+---
+
 ![Hover over Bar](./hover.png)
+
+---
 
 This hover information is expressed in LSP using the `Hover` type:
 
