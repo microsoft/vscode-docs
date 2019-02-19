@@ -4,13 +4,13 @@ Area: python
 TOCTitle: Unit Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Unit Testing Python in Visual Studio Code
-DateApproved: 01/30/2019
+DateApproved: 02/19/2019
 MetaDescription: Unit Testing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Python unit tests in Visual Studio Code
 
-The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/). [Nose](https://nose.readthedocs.io/en/latest/) is also supported, although the framework itself is in maintenance mode.
+The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/). [Nose](https://nose.readthedocs.io/en/latest/) is also supported, although the framework itself is in maintenance mode.
 
 After [enabling a test framework](#enable-a-test-framework), use the **Python: Discover Unit Tests** command to [scan the project for tests](#test-discovery) according to the discovery patterns of the currently selected test framework. Once discovered, Visual Studio Code provides a variety of means to [run tests](#run-tests) and [debug tests](#debug-tests). VS Code displays unit test output in the **Python Test Log** panel, including errors caused when a test framework is not installed. With PyTest, failed tests also appear in the **Problems** panel.
 
@@ -68,7 +68,7 @@ The exact structure of the code depends on the unit test framework you're using,
 
 The combined results of all the tests is your test report, which tells you whether the function (the unit), is behaving as expected across all test cases. That is, when a unit passes all of its tests, you can be confident that it's functioning properly. (The practice of *test-driven development* is where you actually write the tests first, then write the code to pass more and more tests until all of them pass.)
 
-Because unit tests are small, isolated piece of code (in unit testing you avoid external dependencies and use mock data or otherwise simulated inputs), they're quick and inexpensive to run. This characteristic means means that you can run unit tests early and often. Developers typically run unit tests even before committing code to a repository; gated check-in systems can also run unit tests before merging a commit. Many continuous integration systems also run unit tests after every build. Running the unit test early and often means that you quickly catch *regressions,* which are unexpected changes in the behavior of code that previously passed all its unit tests. Because the test failure can easily be traced to a particular code change, it's easy to find and remedy the cause of the failure, which is undoubtedly better than discovering a problem much later in the process!
+Because unit tests are small, isolated piece of code (in unit testing you avoid external dependencies and use mock data or otherwise simulated inputs), they're quick and inexpensive to run. This characteristic means that you can run unit tests early and often. Developers typically run unit tests even before committing code to a repository; gated check-in systems can also run unit tests before merging a commit. Many continuous integration systems also run unit tests after every build. Running the unit test early and often means that you quickly catch *regressions,* which are unexpected changes in the behavior of code that previously passed all its unit tests. Because the test failure can easily be traced to a particular code change, it's easy to find and remedy the cause of the failure, which is undoubtedly better than discovering a problem much later in the process!
 
 For a general background on unit testing, see [Unit Testing](https://wikipedia.org/wiki/Unit_testing) on Wikipedia. For a variety of useful unit test examples, see [https://github.com/gwtw/py-sorting](https://github.com/gwtw/py-sorting), a repository with tests for different sorting algorithms.
 

@@ -22,7 +22,7 @@ If you have any problems, feel free to file an issue for this tutorial in the [V
 
 To successfully complete this tutorial, complete the following requirements:
 
-1. Install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+1. Install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). For details on installing extensions, see [Extension marketplace](/docs/editor/extension-gallery.md). The Python extension is named **Python** and published by Microsoft.
 
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
    - (All operating systems) A download from [python.org](https://www.python.org/downloads/); you can typically use the **Download Python 3.7.2** button that appears first on the page (or whatever is the latest version).
