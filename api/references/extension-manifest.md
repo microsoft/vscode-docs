@@ -180,6 +180,7 @@ We allow badges from the following URL prefixes:
 * cdn.travis-ci.com
 * cdn.travis-ci.org
 * ci.appveyor.com
+* cla.opensource.microsoft.com
 * codacy.com
 * codeclimate.com
 * codecov.io
