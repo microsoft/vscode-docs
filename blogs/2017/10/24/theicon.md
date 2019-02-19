@@ -32,7 +32,7 @@ For complete transparency, we want to share some history as we think it helps to
 
 ## Welcome to the family
 
-Back in [March](https://blogs.msdn.microsoft.com/visualstudio/2017/03/08/iterations-on-infinity/), we (the broader Visual Studio team) set out to create a "family" feel across all of the developer tools we produce. If you read that blog post again, you can see that we had to work within a set of "challenging" corporate branding guidelines (for example, a single color).
+Back in [March](https://devblogs.microsoft.com/visualstudio/iterations-on-infinity), we (the broader Visual Studio team) set out to create a "family" feel across all of the developer tools we produce. If you read that blog post again, you can see that we had to work within a set of "challenging" corporate branding guidelines (for example, a single color).
 
 It is easy to blame the guidelines, but at the same time, having a set of products that are easily and broadly recognizable is a valuable asset. Instead, we took on the challenge of working within the constraints while also working across the company to evolve the guidelines and address the problems we faced.
 

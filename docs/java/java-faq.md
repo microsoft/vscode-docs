@@ -29,7 +29,7 @@ Sure. [Keymap extensions](/docs/getstarted/keybindings.md#keymap-extensions) in 
 
 ## Where can I find the latest progress of Java support on Visual Studio Code?
 
-We're currently publishing our updates at [The Visual Studio Blog](https://blogs.msdn.microsoft.com/visualstudio/tag/java/), which will report all our major features and improvements.
+We're currently publishing our updates at [The Visual Studio Blog](https://devblogs.microsoft.com/visualstudio/tag/java/), which will report all our major features and improvements.
 
 While you're using Java within VS Code, you might also see a *Release Notes* once you update the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). That will give you an overview on the notable updates included in the extensions.
 
