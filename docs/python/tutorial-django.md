@@ -817,7 +817,7 @@ With your models in place and the database migrated, you can store and retrieve 
                 {% for message in message_list %}
                     <tr>
                         <td>\{{ message.log_date | date:'d M Y' }}</td>
-                        <td>\{{ message.log_date | date:'H:i:s' }}</td>
+                        <td>\{{ message.log_date | time:'H:i:s' }}</td>
                         <td>
                             \{{ message.message }}
                         </td>
