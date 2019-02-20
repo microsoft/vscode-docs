@@ -32,7 +32,7 @@ Right-click the Storage Account that was just created and click **Configure Stat
 
 2. Enter **index.html** for the 404 error document name.
 
-  **Note:** Index.html is used for the error document because modern SPAs will handle errors in the client. For classic static websites, use the error document to customize your 404 page.
+  **Note:** Index.html is used for the error document because modern Single Page Applications (SPAs) such as React will handle errors in the client. For classic static websites, use the error document to customize your 404 page.
 
 
 With Static Website hosting enabled, your configured index document will be served by default along with all of your static assets.
