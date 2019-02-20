@@ -126,6 +126,7 @@ Currently extension writers can contribute to:
 - [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
 - The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
 - The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
+- The macOS Touch Bar - `touchBar`
 
 > **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
