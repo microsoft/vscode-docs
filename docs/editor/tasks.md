@@ -271,6 +271,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
   - *silent* - The terminal panel is brought to front only if the output is not scanned for errors and warnings.
 - **focus**: Controls whether the terminal is taking input focus or not. Default is `false`.
 - **echo**: Controls whether the executed command is echoed in the terminal. Default is `true`.
+- **showReuseMessage**: Controls whether to show the "Terminal will be reused by tasks, press any key to close it" message.
 - **panel**: Controls whether the terminal instance is shared between task runs. Possible values are:
   - *shared*: The terminal is shared and the output of other task runs are added to the same terminal.
   - *dedicated*: The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However, the output of a different task is presented in a different terminal.
