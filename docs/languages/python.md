@@ -104,7 +104,7 @@ If you open a [Jupyter notebook](http://jupyter.org/) file (`.ipynb`) in VS Code
 
 You can also connect to a remote Jupyter server for running the code.
 
-Furthermore, importing a notebook into VS Code allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and opening it again as a notebook in Jupyter or upload to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+Furthermore, importing a notebook into VS Code allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in Jupyter or upload to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
 
 For more information, see [Jupyter support](/docs/python/jupyter-support.md).
 
