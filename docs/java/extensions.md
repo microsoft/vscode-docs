@@ -22,6 +22,7 @@ To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](htt
 3. [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 4. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
 5. [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
+6. [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
@@ -50,12 +51,12 @@ Here are a few useful extensions:
 
 We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as support for Gradle and other Java application servers.
 
-## Extensions with great Java support
+## Recommended extensions with great Java support
 
 We'd also like to recommend couple other extensions we believe are great to make VS Code even better for Java developers.
 
-1. [IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) provides developer a AI/ML powered IntelliSense, which will boost your productivity with contextual code recommendations.
-2. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
+1. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
+2. [LeetCode](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-leetcode) helps you sharpen your coding skills by solving LeetCode problems with Visual Studio Code.
 
 ## Extension for container development
 
