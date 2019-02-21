@@ -15,7 +15,7 @@ Visual Studio Code provides many features as a Java language editor. You can als
 
 ## Recommended extensions
 
-To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains these popular extensions:
+To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which contains these popular extensions:
 
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
@@ -34,7 +34,7 @@ There are also great extensions provided by Pivotal and Microsoft for Spring Boo
 
 ## Popular extensions from the community
 
-Thanks to the great Java community around VS Code, there are a lot of great community driven extensions as well. You can search for more Java extensions easily within the VS Code:
+Thanks to the great Java community around VS Code, there are many great community-created extensions as well. You can search for more Java extensions easily within the VS Code:
 
 1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
 2. Filter the extensions list by typing 'java'.
@@ -78,6 +78,6 @@ You can use [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJa
 
 * The [Azure Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=bradygaster.azuretoolsforvscode) adds commands to the **Command Palette** (`kb(workbench.action.showCommands)`) that make it easy to create and access Azure resources directly from VS Code. For example, you can create App Service Web Apps and Functions, Storage accounts, and browse to any number of resources in the Azure portal.
 
-* The [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author ARM templates in VS Code.
+* The [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author Azure Resource Manager templates in VS Code.
 
-Please visit [Azure Extensions](/docs/azure/extensions.md) to find more Azure extensions.
+Visit [Azure Extensions](/docs/azure/extensions.md) to find more Azure extensions.

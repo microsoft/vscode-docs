@@ -87,14 +87,15 @@ The extension also has a hierarchy view of your project and dependencies, which 
 
 ![Hierarchical View](images/java-project/hierarchical.gif)
 
-### Multiple Source Folders
-If you have muleiple sub-folders that have source code for your project, you can easily add these folders to source parth, then all the code inside will be correctly compiled.
+### Multiple source folders
 
-![Multiple Source](images/java-project/multiple-source.gif)
+If you have multiple sub-folders that have source code for your project, you can easily add these folders to source path, then all the code inside will be correctly compiled.
+
+![Multiple source folders](images/java-project/multiple-source.gif)
 
 ### Standalone Java file support
 
-Visual Studio Code also supports Java files without a project. The solution is folder based, so all you need to do is open a folder with Visual Studio Code, and all the Java files within the folder will be properly compiled with all language features available. You can also run and debug them.
+Visual Studio Code also supports Java files without a project. The solution is folder-based, so all you need to do is open a folder with Visual Studio Code, and all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
 
 ![Standalone Files](images/java-project/standalone.gif)
 
