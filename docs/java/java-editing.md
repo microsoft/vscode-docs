@@ -86,6 +86,12 @@ Extract to constant, method, and local variables all come in handy with Java on 
 
 ![Refactor](images/java-editing/refactor.gif)
 
+### Generate Getters and Setters
+
+You can bulk generate getters and setters for all new member variables.
+
+![GettersSetters](images/java-editing/getter-setter.gif)
+
 ## Formatting
 
 [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) also provides [formatting settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings). You can export an Eclipse formatter file and then use it for your project in VS Code.
