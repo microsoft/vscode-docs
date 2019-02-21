@@ -26,6 +26,7 @@ The command will expose some optional environment variables, which you can use t
 | `CODE_TESTS_WORKSPACE`    | Location of a workspace to open for the test instance (default is CODE_TESTS_PATH)             |
 | `CODE_LOCALE`             | Display language to use when running the tests (default is English)                            |
 | `CODE_DISABLE_EXTENSIONS` | Disable all other extensions except the one that is being tested                               |
+| `CODE_TESTS_DATA_DIR`     | Allows to specify the user-data-dir for the tests to use and thus enables to run multiple tests at the same time |
 
 ## Azure Pipelines
 
