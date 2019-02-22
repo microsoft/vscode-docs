@@ -126,7 +126,7 @@ The following formatter settings are now available for JavaScript:
 
 ### TypeScript Update
 
-VS Code now ships with TypeScript 1.8.9, which includes some fixes over [TypeScript 1.8.2](https://blogs.msdn.microsoft.com/typescript/2016/02/22/announcing-typescript-1-8-2/).
+VS Code now ships with TypeScript 1.8.9, which includes some fixes over [TypeScript 1.8.2](https://devblogs.microsoft.com/typescript/announcing-typescript-1-8-2/).
 
 ### Formatting options
 
