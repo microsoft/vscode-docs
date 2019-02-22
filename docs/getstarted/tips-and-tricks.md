@@ -248,8 +248,8 @@ Removes these files / folders from your editor window.
 
 ```json
 "files.exclude": {
-        "somefolder/": true,
-        "somefile": true
+    "somefolder/": true,
+    "somefile": true
 }
 ```
 
