@@ -13,7 +13,17 @@ If you don't see an answer to your question here, check our previously [reported
 
 ## What is the difference between VS Code and VS Community?
 
-Visual Studio Code is a streamlined code editor with support for development operations like debugging, task running and version control. It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs.
+Its unclear at this stage. Only VS Code is used on the website and download links.
+
+## Which version of VS Code to use (regarding licensing)?
+
+If you want open-source version of VS Code (and have some time to spare) - 
+a. build from source by using https://github.com/Microsoft/vscode 
+b. configure your own setup if you want regular **pre-built binaries of stable releases**. see https://github.com/atom/atom & similar repos for examples.
+
+If you want proprietary version of VS Code -
+It includes proprietary services and features that may not be open-source; eg:- telemetry. Use the download links on https://code.visualstudio.com/ to get a **stable pre-built binary for VS Code for your platform.**
+
 
 ## Which OS's are supported?
 
