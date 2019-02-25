@@ -22,10 +22,6 @@ These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Ais
 
 Regarding fixes, if you want to find out when a fix to your issue is available in a VS Code update, please check the **milestone** assigned to the issue.
 
-## Insider's Channel
-
-There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The setting is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart VS Code to install prerelease builds. For more details, refer to [How can I test prerelease versions of VS Code?](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code).
-
 ## Editor - Find/Replace improvements
 
 In regex mode:
