@@ -62,7 +62,7 @@ You can set the file or folder that the test instance should open by inserting t
 
 ```json
 "args": [
-    "file or folder name",
+    "${workspaceFolder}/file or folder name",
     "--extensionDevelopmentPath=${workspaceFolder}",
     "--extensionTestsPath=${workspaceFolder}/out/test"
 ]
