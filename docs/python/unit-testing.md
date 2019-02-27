@@ -78,13 +78,13 @@ Python tests are Python classes that reside in separate files from the code bein
 
 For this section, create a folder and open it in VS Code. Then create a file named `inc_dec.py` with the following code to be tested:
 
-    ```python
-    def increment(x):
-        return x + 1
+```python
+def increment(x):
+    return x + 1
 
-    def decrement(x):
-        return x - 1
-    ```
+def decrement(x):
+    return x - 1
+```
 
 With this code, you can experience working with tests in VS Code as described in the sections that follow.
 
