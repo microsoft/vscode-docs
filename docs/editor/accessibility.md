@@ -76,6 +76,14 @@ You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Ac
 
 ![accessibility status](images/accessibility/status.png)
 
+## Screen reader mode
+
+When VS Code detects that a screen reader is being used, it goes into screen reader optimized mode for the UI such as the editor and Integrated Terminal. The Status Bar displays **Screen Reader Optimized** in the lower right and you can exit screen reader mode by clicking on the display text.
+
+![screen reader optimized mode](images/accessibility/screen-reader-mode.png)
+
+Certain features such as folding, minimap (code overview), and word wrap are disabled when in screen reader mode. You can control whether VS Code uses screen reader mode with the **Editor: Accessibility Support** setting (`editor.accessibilitySupport`) and the values are `on`, `off`, or the default `auto` to automatically detect a screen reader through querying the platform.
+
 ## Terminal accessibility
 
 Output in the Integrated Terminal can be navigated through by using the scroll commands available in the Command Palette (press `kbstyle(F1)` and search for "Terminal Scroll").
