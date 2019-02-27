@@ -1,22 +1,35 @@
+---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 26f0c0d6-1ea8-4cc1-bd10-9fa744056e7c
+DateApproved: 12/6/2018
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: Bundling Visual Studio Code extensions (plug-ins) with webpack.
+---
+
 # Bundling Extension
 
-Popular extensions often grow quickly in size. They are authored in multiple source files and depend on modules from [npm](https://www.npmjs.com). Decomposition and reuse are best pratice when developing but they come at a cost when installing and running extensions. Loading 100 small files is much slower than loading 1 large file. That's why we recommend bundling. Bundling is the process of combining multiple small source files into a single file.
+Visual Studio Code extensions often grow quickly in size. They are authored in multiple source files and depend on modules from [npm](https://www.npmjs.com). Decomposition and reuse are development best practices but they come at a cost when installing and running extensions. Loading 100 small files is much slower than loading one large file. That's why we recommend bundling. Bundling is the process of combining multiple small source files into a single file.
 
-For JavaScript different bundlers are available, popular once are [rollup.js](https://rollupjs.org), [Parcel](https://parceljs.org), and [webpack](https://webpack.js.org/). This tutorial will focus on *webpack*, however, concepts and benefits of all bundlers are similar.
+For JavaScript, different bundlers are available. Popular ones are [rollup.js](https://rollupjs.org), [Parcel](https://parceljs.org), and [webpack](https://webpack.js.org/). This tutorial will focus on **webpack**, however, concepts and benefits of all bundlers are similar.
 
-## Using Webpack
+## Using webpack
 
-Webpack is a development tool that's available from [npm](https://www.npmjs.com). To acquire webpack and its command line interface, open the terminal and type:
+Webpack is a development tool that's available from [npm](https://www.npmjs.com). To acquire webpack and its command-line interface, open the terminal and type:
 
-`npm i --save-dev webpack webpack-cli`
+```bash
+npm i --save-dev webpack webpack-cli
+```
 
-This will install webpack and update your extension's `package.json`-file. Webpack is a JavaScript bundler but most extensions are written in TypeScript and only compiled to JavaScript. With the help of a loader webpack understands TypeScript - use the following to install one:
+This will install webpack and update your extension's `package.json` file to include webpack in the `devDependencies`. Webpack is a JavaScript bundler but many VS Code extensions are written in TypeScript and only compiled to JavaScript. With the help of a loader `ts-loader`, webpack can understand TypeScript. Use the following to install `ts-loader`:
 
-`npm i --save-dev ts-loader`
+```bash
+npm i --save-dev ts-loader
+```
 
-### Configure Webpack
+### Configure webpack
 
-With all tools installed webpack can be setup. By convention a `webpack.config.js`-file contains the configuration that instructs webpack how to bundle your extension. The following is a sample configuration for vscode extensions and should provide a good starting point:
+With all tools installed, webpack can now be configured. By convention, a `webpack.config.js` file contains the configuration to instruct webpack to bundle your extension. The sample configuration below is for VS Code extensions and should provide a good starting point:
 
 ```js
 /*---------------------------------------------------------------------------------------------
@@ -61,17 +74,21 @@ const config = {
 module.exports = config;
 ```
 
-The file is [available](https://github.com/Microsoft/vscode-extension-samples/blob/master/webpack-sample/webpack.config.js) as part of the [webpack-extension](https://github.com/Microsoft/vscode-extension-samples/blob/master/webpack-sample) sample. Webpack configuration files are normal JavaScript modules that must export a configuration-object. In the sample above the following is defined
+The file is [available](https://github.com/Microsoft/vscode-extension-samples/blob/master/webpack-sample/webpack.config.js) as part of the [webpack-extension](https://github.com/Microsoft/vscode-extension-samples/blob/master/webpack-sample) sample. Webpack configuration files are normal JavaScript modules that must export a configuration object.
 
-* The `target` is node because extensions run in a nodejs-context
-* The entry point webpack should use. This compares to the `main`-property in `package.json` with the ceveat that you provide webpack with a "source" entry point, usually `src/extension.ts`, and not the "output" entry point. That's because webpack understands TypeScript, making a separate TypeScript compile step redundant.
-* the `output` configuration tells webpack where to place the produced bundle-file. By convention, that is the `dist`-folder, in this sample webpack will produce a `dist/extension.js`-file.
-* the `resolve` and `module/rules` configurations are there to support TypeScript and JavaScript input files.
-* the `externals` configuration is used to declare exclusions, e.g. files and modules that cannot be included in the bundle. The `vscode`-module cannot be bundled because it doesn't exists on disk but is created by VS Code on-the-fly when being required. Depending on the node-modules an extension uses more exclusion might be neccessary.
+In the sample above, the following are defined:
 
-### Run Webpack
+* The `target` is 'node' because extensions run in a Node.js context.
+* The entry point webpack should use. This is similar to the `main` property in `package.json` except that you provide webpack with a "source" entry point, usually `src/extension.ts`, and not an "output" entry point. The webpack bundler understands TypeScript, so a separate TypeScript compile step is redundant.
+* The `output` configuration tells webpack where to place the generated bundle file. By convention, that is the `dist` folder. In this sample, webpack will produce a `dist/extension.js` file.
+* The `resolve` and `module/rules` configurations are there to support TypeScript and JavaScript input files.
+* The `externals` configuration is used to declare exclusions, for example files and modules that should not be included in the bundle. The `vscode` module should not be bundled because it doesn't exists on disk but is created by VS Code on-the-fly when required. Depending on the node modules that an extension uses, more exclusion may be necessary.
 
-With the `webpack.config.js`-file in hand webpack can be invoked. Invoking can be done via the terminal but to reduce repetition npm-scripts help. Merge these entries into the `scripts`-section in `package.json`:
+### Run webpack
+
+With the `webpack.config.js` file created, webpack can be invoked. You can run webpack from the command-line but to reduce repetition, using npm scripts is helpful.
+
+Merge these entries into the `scripts` section in `package.json`:
 
 ```json
 "scripts": {
@@ -81,15 +98,17 @@ With the `webpack.config.js`-file in hand webpack can be invoked. Invoking can b
 },
 ```
 
-The `compile` and `watch` scripts are for development, they produce the bundle file, the `vscode:prepublish` is being picked up by `vsce` and run before publishing an extension. The difference is in the [mode](https://webpack.js.org/concepts/mode/) and that controls the level of optimization. Using `production` yeilds in the smallest bundles but also takes longest, that's why `none` is used for development. To run above scripts, open the terminal and type `npm run compile` or select `F1 > Run Task`.
+The `compile` and `watch` scripts are for development and they produce the bundle file. The `vscode:prepublish` is used by `vsce`, the VS Code packaging and publishing tool, and run before publishing an extension. The difference is in the [mode](https://webpack.js.org/concepts/mode/) and that controls the level of optimization. Using `production` yields the smallest bundle but also takes longer, so `none` is used for development. To run above scripts, open a terminal and type `npm run compile` or select **Tasks: Run Task** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-### Run Extension
+### Run the extension
 
-Before running, the `main`-property in `package.json` must point to the bundle, according to the configuration above that must be [`"./dist/extension"`](https://github.com/Microsoft/vscode-references-view/blob/d649d01d369e338bbe70c86e03f28269cbf87027/package.json#L26). With that, the extension can be executed and tested. When debugging also make sure to update the `outFiles`-property in the `launch.json`-file.
+Before you can run the extension, the `main` property in `package.json` must point to the bundle, which for the configuration above is [`"./dist/extension"`](https://github.com/Microsoft/vscode-references-view/blob/d649d01d369e338bbe70c86e03f28269cbf87027/package.json#L26). With that change, the extension can now be executed and tested. For debugging configuration, make sure to update the `outFiles` property in the `launch.json` file.
 
 ### Publishing
 
-Before publishing, update the `.vscodeignore`-file. Everything that's now bundled into the `dist/extension.js`-file can be excluded, that is usually the `out`-folder (in case you didn't delete it yet) and most importantly the `node_modules` folder. A typical ignore-file looks like this:
+Before publishing, you should update the `.vscodeignore` file. Everything that's now bundled into the `dist/extension.js` file can be excluded, usually the `out` folder (in case you didn't delete it yet) and most importantly, the `node_modules` folder.
+
+A typical `.vsignore` file looks like this:
 
 ```
 .vscode
@@ -100,25 +119,30 @@ tsconfig.json
 webpack.config.json
 ```
 
-## Migrate Extension
+## Migrate the extension
 
-Migrating an existing extension to use webpack is easy and very similar to the getting started guide above. A real world sample that adopted webpack for VS Code's references viewlet is this pull request: https://github.com/Microsoft/vscode-references-view/pull/50.
+Migrating an existing extension to use webpack is easy and very similar to the getting started guide above. A real world sample that adopted webpack is the VS Code's References view through this [pull request](https://github.com/Microsoft/vscode-references-view/pull/50).
 
-* add `webpack`, `webpack-cli`, and `ts-loader` as dev-dependencies
-* *update* npm scripts so that webpack is used for development, *update* the `launch.json`-file
-* add and tweak the `webpack.config.js` configuration file
-* *update* `.vscodeignore` to exclude node_modules et al
-* enjoy an extension that installs and loads much faster
+There you can see:
 
-## Trouble Shooting
+* Add `webpack`, `webpack-cli`, and `ts-loader` as dev-dependencies.
+* Update npm scripts so that webpack is used for development.
+* Update the debugger configuration `launch.json` file.
+* Add and tweak the `webpack.config.js` configuration file.
+* Update `.vscodeignore` to exclude `node_modules` and intermediate output files.
+* Enjoy an extension that installs and loads much faster!
+
+## Trouble shooting
 
 ### Minification
 
-Bundling in `production`-mode also performs code minification. Minification compacts source code by removing whitespace and comments and by changing variable- and function-names into something ugly but short. That also means that code using `Function.prototype.name` works differently and that you should might have to disable minification.
+Bundling in `production` mode also performs code minification. Minification compacts source code by removing whitespace and comments and by changing variable  and function names into something ugly but short. Source code that uses `Function.prototype.name` works differently and so you might have to disable minification.
 
-### Webpack: Critical dependencies
+### webpack critical dependencies
 
-When running webpack you might encounter a warning like `Critical dependencies: the request of a dependency is an expression`. Such warnings must be taken serious and likely mean you bundle won't work. The message means that webpack cannot statically determine how to bundle some dependency. This is usually caused by a dynamic require-statement, e.g. `require(someDynamicVariable)`, and means you should
+When running webpack, you might encounter a warning like **Critical dependencies: the request of a dependency is an expression**. Such warnings must be taken seriously and likely your bundle won't work. The message means that webpack cannot statically determine how to bundle some dependency. This is usually caused by a dynamic `require` statement, for example `require(someDynamicVariable)`.
 
-* Try to make the dependency static so that it can be bundled, or
-* Exclude that dependency via the `externals`-configuration. Then also make sure that those JS-files aren't excluded from the packaged extension, using a negated glob pattern in `.vscodeignore`, e.g. `!node_modules/mySpecialModule`
+To address the warning, you should either:
+
+* Try to make the dependency static so that it can be bundled.
+* Exclude that dependency via the `externals` configuration. Also make sure that those JavaScript files aren't excluded from the packaged extension, using a negated glob pattern in `.vscodeignore`, for example `!node_modules/mySpecialModule`.
