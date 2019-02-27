@@ -27,11 +27,11 @@ This will install webpack and update your extension's `package.json` file to inc
 npm i --save-dev ts-loader
 ```
 
-### Configure webpack
+## Configure webpack
 
 With all tools installed, webpack can now be configured. By convention, a `webpack.config.js` file contains the configuration to instruct webpack to bundle your extension. The sample configuration below is for VS Code extensions and should provide a good starting point:
 
-```js
+```javascript
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
@@ -84,7 +84,7 @@ In the sample above, the following are defined:
 * The `resolve` and `module/rules` configurations are there to support TypeScript and JavaScript input files.
 * The `externals` configuration is used to declare exclusions, for example files and modules that should not be included in the bundle. The `vscode` module should not be bundled because it doesn't exists on disk but is created by VS Code on-the-fly when required. Depending on the node modules that an extension uses, more exclusion may be necessary.
 
-### Run webpack
+## Run webpack
 
 With the `webpack.config.js` file created, webpack can be invoked. You can run webpack from the command-line but to reduce repetition, using npm scripts is helpful.
 
@@ -100,11 +100,11 @@ Merge these entries into the `scripts` section in `package.json`:
 
 The `compile` and `watch` scripts are for development and they produce the bundle file. The `vscode:prepublish` is used by `vsce`, the VS Code packaging and publishing tool, and run before publishing an extension. The difference is in the [mode](https://webpack.js.org/concepts/mode/) and that controls the level of optimization. Using `production` yields the smallest bundle but also takes longer, so `none` is used for development. To run above scripts, open a terminal and type `npm run compile` or select **Tasks: Run Task** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-### Run the extension
+## Run the extension
 
 Before you can run the extension, the `main` property in `package.json` must point to the bundle, which for the configuration above is [`"./dist/extension"`](https://github.com/Microsoft/vscode-references-view/blob/d649d01d369e338bbe70c86e03f28269cbf87027/package.json#L26). With that change, the extension can now be executed and tested. For debugging configuration, make sure to update the `outFiles` property in the `launch.json` file.
 
-### Publishing
+## Publishing
 
 Before publishing, you should update the `.vscodeignore` file. Everything that's now bundled into the `dist/extension.js` file can be excluded, usually the `out` folder (in case you didn't delete it yet) and most importantly, the `node_modules` folder.
 
@@ -119,7 +119,7 @@ tsconfig.json
 webpack.config.json
 ```
 
-## Migrate the extension
+## Migrate an existing extension
 
 Migrating an existing extension to use webpack is easy and very similar to the getting started guide above. A real world sample that adopted webpack is the VS Code's References view through this [pull request](https://github.com/Microsoft/vscode-references-view/pull/50).
 

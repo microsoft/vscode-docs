@@ -14,8 +14,8 @@
     "topics": [
       ["Testing Extension", "/api/working-with-extensions/testing-extension"],
       ["Publishing Extension", "/api/working-with-extensions/publishing-extension"],
-      ["Continuous Integration", "/api/working-with-extensions/continuous-integration"],
-      ["Bundling Extension", "/api/working-with-extensions/bundling-extension"]
+      ["Bundling Extension", "/api/working-with-extensions/bundling-extension"],
+      ["Continuous Integration", "/api/working-with-extensions/continuous-integration"]
       // ["Profiling Extension", "/api/advanced-topics/profiling-extension"],
     ]
   },
