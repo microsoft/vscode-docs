@@ -200,6 +200,8 @@ The `workbench.action.terminal.sendSequence` command can be used to send a speci
 }
 ```
 
+This feature supports [variable substitution](https://code.visualstudio.com/docs/editor/variables-reference).
+
 Note that the command only works with the `\u0000` format for using characters via their character code (not `\x00`). You can read more about these hex code and the sequences terminals work with on the following resources:
 
 - [XTerm Control Sequences](http://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
