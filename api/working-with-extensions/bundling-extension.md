@@ -110,7 +110,7 @@ Before publishing, you should update the `.vscodeignore` file. Everything that's
 
 A typical `.vsignore` file looks like this:
 
-```
+```bash
 .vscode
 node_modules
 out/
@@ -132,7 +132,7 @@ There you can see:
 * Update `.vscodeignore` to exclude `node_modules` and intermediate output files.
 * Enjoy an extension that installs and loads much faster!
 
-## Trouble shooting
+## Troubleshooting
 
 ### Minification
 

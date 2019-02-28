@@ -281,9 +281,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether the hover should remain visible when mouse is moved over it.
   "editor.hover.sticky": true,
 
-  // The number of spaces used for indentation or 'tabSize' to use the value from `editor.tabSize#`. This setting is overridden based on the file contents when `#editor.detectIndentation` is on.
-  "editor.indentSize": "tabSize",
-
   // Insert spaces when pressing `Tab`. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
   "editor.insertSpaces": true,
 

@@ -67,7 +67,7 @@ Here’s an example of how a development tool could use the DAP to communicate w
 
 ![breakpoint](breakpoint.png)
 
-We assume that the user has already started a debug session, but is currently stopped at the entry point of his program and wants to set (and later hit) a breakpoint.
+We assume that the user has already started a debug session, but is currently stopped at the entry point of their program and wants to set (and later hit) a breakpoint.
 
 - The user sets one or more breakpoints in a specific source file by clicking in the breakpoint gutter. The development tool sends a `setBreakpoints` request to the Debug Adapter which registers the breakpoint with the gdb debugger.
 - The user then presses the **Continue** button to resume execution. The tool sends a `continue` request to the Debug Adapter which translates this into the corresponding gdb command.
