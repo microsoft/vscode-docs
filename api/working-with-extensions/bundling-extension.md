@@ -125,7 +125,7 @@ Migrating an existing extension to use webpack is easy and very similar to the g
 
 There you can see:
 
-* Add `webpack`, `webpack-cli`, and `ts-loader` as dev-dependencies.
+* Add `webpack`, `webpack-cli`, and `ts-loader` as `devDependencies`.
 * Update npm scripts so that webpack is used for development.
 * Update the debugger configuration `launch.json` file.
 * Add and tweak the `webpack.config.js` configuration file.
