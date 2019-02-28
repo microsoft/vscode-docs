@@ -239,6 +239,7 @@ isMac | True when the OS is macOS
 isWindows | True when the OS is Windows
 **Mode contexts** |
 inDebugMode | A debug session is running.
+debugType | True when debug type matches. Example: `"debugType == 'node'"`.
 inSnippetMode | The editor is in snippet mode.
 inQuickOpen | The Quick Open drop-down has focus.
 **Resource contexts** |
