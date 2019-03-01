@@ -7511,7 +7511,7 @@ a symbolic links, in that use <code>FileType.File | FileType.SymbolicLink</code>
 
 
 
-<div class="comment"><p>A line based folding range. To be valid, start and end line must a zero or larger and smaller than the number of lines in the document.
+<div class="comment"><p>A line based folding range. To be valid, start and end line must be bigger than zero and smaller than the number of lines in the document.
 Invalid ranges will be ignored.</p>
 </div>
 
