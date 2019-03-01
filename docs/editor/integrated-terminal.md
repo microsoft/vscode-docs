@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code has an integrated terminal so you can work i
 ---
 # Integrated Terminal
 
-In Visual Studio Code, you can open an integrated terminal, initially starting at the root of your workspace. This can be very convenient as you don't have to switch windows or alter the state of an existing terminal to perform a quick command line task.
+In Visual Studio Code, you can open an integrated terminal, initially starting at the root of your workspace. This can be convenient as you don't have to switch windows or alter the state of an existing terminal to perform a quick command-line task.
 
 To open the terminal:
 
@@ -23,7 +23,7 @@ To open the terminal:
 
 ## Managing multiple terminals
 
-You can create multiple terminals open to different locations and easily navigate between them. Terminal instances can be added by clicking the plus icon on the top-right of the **TERMINAL** panel or by triggering the `kb(workbench.action.terminal.new)` command. This creates another entry in the drop-down list that can be used to switch between them.
+You can create multiple terminals open to different locations and easily navigate between them. Terminal instances can be added by clicking the plus icon on the top-right of the **TERMINAL** panel or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the drop-down list that can be used to switch between them.
 
 ![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
 
@@ -69,7 +69,7 @@ Correctly configuring your shell on Windows is a matter of locating the right ex
 "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe"
 ```
 
-There is also the convenience command `Select Default Shell` that can be accessed through the command palette which can detect and set this for you.
+There is also the convenience command, **Terminal: Select Default Shell** that can be accessed through the Command Palette, which can detect and set this for you.
 
 >**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr` can be redirected.
 
@@ -146,7 +146,7 @@ This can be configured using the `terminal.integrated.rightClickBehavior` settin
 
 ### Forcing key bindings to pass through the terminal
 
-While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands which skip being processed by the shell and instead get sent to the VS Code keybinding system, the `terminal.integrated.commandsToSkipShell` setting can be used to customize this. Commands can then be added to this list by adding the command name to the list, and removed by adding the command name to the list prefixed with a `-`.
+While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands, which skip being processed by the shell and instead get sent to the VS Code keybinding system. You can customize this list with the `terminal.integrated.commandsToSkipShell` setting. Commands can be added to this list by adding the command name to the list, and removed by adding the command name to the list prefixed with a `-`.
 
 ```js
 {
@@ -200,7 +200,7 @@ The `workbench.action.terminal.sendSequence` command can be used to send a speci
 }
 ```
 
-This feature supports [variable substitution](https://code.visualstudio.com/docs/editor/variables-reference).
+This feature supports [variable substitution](/docs/editor/variables-reference.md).
 
 Note that the command only works with the `\u0000` format for using characters via their character code (not `\x00`). You can read more about these hex code and the sequences terminals work with on the following resources:
 
