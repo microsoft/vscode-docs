@@ -267,9 +267,7 @@ export function activate(context: vscode.ExtensionContext) {
         {}
       );
 
-      panel.webview.html = getWebviewContent(
-        'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif'
-      );
+      panel.webview.html = getWebviewContent(cats['Coding Cat']);
 
       // After 5sec, pragmatically close the webview panel
       const timeout = setTimeout(() => panel.dispose(), 5000);
@@ -323,9 +321,7 @@ export function activate(context: vscode.ExtensionContext) {
           columnToShowIn,
           {}
         );
-        currentPanel.webview.html = getWebviewContent(
-          'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif'
-        );
+        currentPanel.webview.html = getWebviewContent(cats['Coding Cat']);
 
         // Reset when the current panel is closed
         currentPanel.onDidDispose(
