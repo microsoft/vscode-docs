@@ -65,7 +65,7 @@ You can easily host your MongoDB databases in the cloud on Azure with [Cosmos DB
 
 The Cosmos DB extension includes the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension which allows you to sign into Azure. If you don't have an Azure Subscription, you can [sign up today](https://azure.microsoft.com/en-us/free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
-To log into Azure, use the **Sign in to Azure** command in the Cosmos DB Explorer or **Azure: Sign In*** from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign into your account using the Device Login flow. Click on **Copy & Open** to open your default browser.
+To log into Azure, use the **Sign in to Azure** command in the Cosmos DB Explorer or **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign into your account using the Device Login flow. Click on **Copy & Open** to open your default browser.
 
 ![Azure Login](images/mongodb/devicelogin.png)
 
