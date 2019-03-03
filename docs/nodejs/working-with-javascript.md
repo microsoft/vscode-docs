@@ -9,6 +9,8 @@ MetaDescription: Working with JavaScript in Visual Studio Code
 ---
 # Working with JavaScript
 
+This topic describes some of the advanced JavaScript features supported by Visual Studio Code. Using the TypeScript language service, VS Code can provide smart completions (IntelliSense) as well as type checking for JavaScript.
+
 ## IntelliSense
 
 Visual Studio Code's JavaScript [IntelliSense](/docs/editor/intellisense.md) provides intelligent code completion, parameter info,  references search, and many other advanced language features. Our JavaScript IntelliSense is powered by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) developed by the TypeScript team. While IntelliSense should just work for most JavaScript projects without any configuration, you can make IntelliSense even more useful with [JS Docs](/docs/languages/javascript#js-doc-support) or by configuring a `jsconfig.json` project.
@@ -128,7 +130,7 @@ It is possible to have mixed TypeScript and JavaScript projects. To start migrat
 
 > **Note:** `jsconfig.json` is the same as a `tsconfig.json` file, only with `allowJs` set to true. See [the documentation for `tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) here to see other available options.
 
-## Type checking JavaScript code
+## Type checking JavaScript
 
 VS Code allows you to leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files. This is a great way to catch common programming mistakes. These type checks also enable some exciting [Quick Fixes]() for JavaScript, including **Add missing import** and **Add missing property**.
 
@@ -257,7 +259,7 @@ declare var CAN_NOTIFY: number;
 
 `d.ts` files are type declarations. In this case, `globals.d.ts` lets TypeScript know that a global `CAN_NOTIFY` exists and that a `webkitNotifications` property exists on `window`. You can read more about writing `d.ts` [here](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html). `d.ts` files do not change how JavaScript is evaluated, they are used only for providing better JavaScript language support.
 
-## Tasks
+## Using tasks
 
 ### Using the TypeScript compiler
 
