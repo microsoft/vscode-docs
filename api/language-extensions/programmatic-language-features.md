@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A9D40038-7837-4320-8C2D-E0CA5769AA69
-DateApproved: 12/6/2018
+DateApproved: 2/6/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code language extensions contribute programming language features. These guidelines present the language features available in Visual Studio Code and explain the API.
@@ -15,9 +15,7 @@ Programmatic Language Features is a set of smart-editing features powered by the
 vscode.languages.registerHoverProvider('javascript', {
   provideHover(document, position, token) {
     return {
-      contents: [
-        'Hover Content'
-      ]
+      contents: ['Hover Content']
     };
   }
 });
@@ -51,27 +49,27 @@ This listing includes the following items for each language feature:
 - Related VS Code API
 - Related LSP methods
 
-| VS Code API | LSP method |
-| --- | --- |
-| [`createDiagnosticCollection`](/api/references/vscode-api#languages.createDiagnosticCollection) | [PublishDiagnostics](https://microsoft.github.io/language-server-protocol/specification#textDocument_publishDiagnostics) |
-| [`registerCompletionItemProvider`](/api/references/vscode-api#languages.registerCompletionItemProvider) | [Completion](https://microsoft.github.io/language-server-protocol/specification#textDocument_completion) & [Completion Resolve](https://microsoft.github.io/language-server-protocol/specification#completionItem_resolve) |
-| [`registerHoverProvider`](/api/references/vscode-api#languages.registerHoverProvider) | [Hover](https://microsoft.github.io/language-server-protocol/specification#textDocument_hover) |
-| [`registerSignatureHelpProvider`](/api/references/vscode-api#languages.registerSignatureHelpProvider) | [SignatureHelp](https://microsoft.github.io/language-server-protocol/specification#textDocument_signatureHelp) |
-| [`registerDefinitionProvider`](/api/references/vscode-api#languages.registerDefinitionProvider) | [Definition](https://microsoft.github.io/language-server-protocol/specification#textDocument_definition) |
-| [`registerTypeDefinitionProvider`](/api/references/vscode-api#languages.registerTypeDefinitionProvider) | [TypeDefinition](https://microsoft.github.io/language-server-protocol/specification#textDocument_typeDefinition) |
-| [`registerImplementationProvider`](/api/references/vscode-api#languages.registerImplementationProvider) | [Implementation](https://microsoft.github.io/language-server-protocol/specification#textDocument_implementation) |
-| [`registerReferenceProvider`](/api/references/vscode-api#languages.registerReferenceProvider) | [References](https://microsoft.github.io/language-server-protocol/specification#textDocument_references) |
-| [`registerDocumentHighlightProvider`](/api/references/vscode-api#languages.registerDocumentHighlightProvider) | [DocumentHighlight](https://microsoft.github.io/language-server-protocol/specification#textDocument_documentHighlight) |
-| [`registerDocumentSymbolProvider`](/api/references/vscode-api#languages.registerDocumentSymbolProvider) | [DocumentSymbol](https://microsoft.github.io/language-server-protocol/specification#textDocument_documentSymbol) |
-| [`registerCodeActionsProvider`](/api/references/vscode-api#languages.registerCodeActionsProvider) | [CodeAction](https://microsoft.github.io/language-server-protocol/specification#textDocument_codeAction) |
-| [`registerCodeLensProvider`](/api/references/vscode-api#languages.registerCodeLensProvider) | [CodeLens](https://microsoft.github.io/language-server-protocol/specification#textDocument_codeLens) & [CodeLens Resolve](https://microsoft.github.io/language-server-protocol/specification#codeLens_resolve) |
-| [`registerDocumentLinkProvider`](/api/references/vscode-api#languages.registerDocumentLinkProvider) | [DocumentLink](https://microsoft.github.io/language-server-protocol/specification#textDocument_documentLink) & [DocumentLink](https://microsoft.github.io/language-server-protocol/specification#documentLink_resolve) |
-| [`registerColorProvider`](/api/references/vscode-api#languages.registerDocumentColorProvider) | [DocumentColor](https://microsoft.github.io/language-server-protocol/specification#textDocument_documentColor) & [Color Presentation](https://microsoft.github.io/language-server-protocol/specification#textDocument_colorPresentation) |
-| [`registerDocumentFormattingEditProvider`](/api/references/vscode-api#languages.registerDocumentFormattingEditProvider) | [Formatting](https://microsoft.github.io/language-server-protocol/specification#textDocument_formatting) |
-| [`registerDocumentRangeFormattingEditProvider`](/api/references/vscode-api#languages.registerDocumentRangeFormattingEditProvider) | [RangeFormatting](https://microsoft.github.io/language-server-protocol/specification#textDocument_rangeFormatting) |
-| [`registerOnTypeFormattingEditProvider`](/api/references/vscode-api#languages.registerOnTypeFormattingEditProvider) | [OnTypeFormatting](https://microsoft.github.io/language-server-protocol/specification#textDocument_onTypeFormatting) |
-| [`registerRenameProvider`](/api/references/vscode-api#languages.registerRenameProvider) | [Rename](https://microsoft.github.io/language-server-protocol/specification#textDocument_rename) & [Prepare Rename](https://microsoft.github.io/language-server-protocol/specification#textDocument_prepareRename) |
-| [`registerFoldingRangeProvider`](/api/references/vscode-api#languages.registerFoldingRangeProvider) | [FoldingRange](https://microsoft.github.io/language-server-protocol/specification#textDocument_foldingRange) |
+| VS Code API                                                                                                                       | LSP method                                                                                                                                                                                                                               |
+| --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`createDiagnosticCollection`](/api/references/vscode-api#languages.createDiagnosticCollection)                                   | [PublishDiagnostics](https://microsoft.github.io/language-server-protocol/specification#textDocument_publishDiagnostics)                                                                                                                 |
+| [`registerCompletionItemProvider`](/api/references/vscode-api#languages.registerCompletionItemProvider)                           | [Completion](https://microsoft.github.io/language-server-protocol/specification#textDocument_completion) & [Completion Resolve](https://microsoft.github.io/language-server-protocol/specification#completionItem_resolve)               |
+| [`registerHoverProvider`](/api/references/vscode-api#languages.registerHoverProvider)                                             | [Hover](https://microsoft.github.io/language-server-protocol/specification#textDocument_hover)                                                                                                                                           |
+| [`registerSignatureHelpProvider`](/api/references/vscode-api#languages.registerSignatureHelpProvider)                             | [SignatureHelp](https://microsoft.github.io/language-server-protocol/specification#textDocument_signatureHelp)                                                                                                                           |
+| [`registerDefinitionProvider`](/api/references/vscode-api#languages.registerDefinitionProvider)                                   | [Definition](https://microsoft.github.io/language-server-protocol/specification#textDocument_definition)                                                                                                                                 |
+| [`registerTypeDefinitionProvider`](/api/references/vscode-api#languages.registerTypeDefinitionProvider)                           | [TypeDefinition](https://microsoft.github.io/language-server-protocol/specification#textDocument_typeDefinition)                                                                                                                         |
+| [`registerImplementationProvider`](/api/references/vscode-api#languages.registerImplementationProvider)                           | [Implementation](https://microsoft.github.io/language-server-protocol/specification#textDocument_implementation)                                                                                                                         |
+| [`registerReferenceProvider`](/api/references/vscode-api#languages.registerReferenceProvider)                                     | [References](https://microsoft.github.io/language-server-protocol/specification#textDocument_references)                                                                                                                                 |
+| [`registerDocumentHighlightProvider`](/api/references/vscode-api#languages.registerDocumentHighlightProvider)                     | [DocumentHighlight](https://microsoft.github.io/language-server-protocol/specification#textDocument_documentHighlight)                                                                                                                   |
+| [`registerDocumentSymbolProvider`](/api/references/vscode-api#languages.registerDocumentSymbolProvider)                           | [DocumentSymbol](https://microsoft.github.io/language-server-protocol/specification#textDocument_documentSymbol)                                                                                                                         |
+| [`registerCodeActionsProvider`](/api/references/vscode-api#languages.registerCodeActionsProvider)                                 | [CodeAction](https://microsoft.github.io/language-server-protocol/specification#textDocument_codeAction)                                                                                                                                 |
+| [`registerCodeLensProvider`](/api/references/vscode-api#languages.registerCodeLensProvider)                                       | [CodeLens](https://microsoft.github.io/language-server-protocol/specification#textDocument_codeLens) & [CodeLens Resolve](https://microsoft.github.io/language-server-protocol/specification#codeLens_resolve)                           |
+| [`registerDocumentLinkProvider`](/api/references/vscode-api#languages.registerDocumentLinkProvider)                               | [DocumentLink](https://microsoft.github.io/language-server-protocol/specification#textDocument_documentLink) & [DocumentLink](https://microsoft.github.io/language-server-protocol/specification#documentLink_resolve)                   |
+| [`registerColorProvider`](/api/references/vscode-api#languages.registerDocumentColorProvider)                                     | [DocumentColor](https://microsoft.github.io/language-server-protocol/specification#textDocument_documentColor) & [Color Presentation](https://microsoft.github.io/language-server-protocol/specification#textDocument_colorPresentation) |
+| [`registerDocumentFormattingEditProvider`](/api/references/vscode-api#languages.registerDocumentFormattingEditProvider)           | [Formatting](https://microsoft.github.io/language-server-protocol/specification#textDocument_formatting)                                                                                                                                 |
+| [`registerDocumentRangeFormattingEditProvider`](/api/references/vscode-api#languages.registerDocumentRangeFormattingEditProvider) | [RangeFormatting](https://microsoft.github.io/language-server-protocol/specification#textDocument_rangeFormatting)                                                                                                                       |
+| [`registerOnTypeFormattingEditProvider`](/api/references/vscode-api#languages.registerOnTypeFormattingEditProvider)               | [OnTypeFormatting](https://microsoft.github.io/language-server-protocol/specification#textDocument_onTypeFormatting)                                                                                                                     |
+| [`registerRenameProvider`](/api/references/vscode-api#languages.registerRenameProvider)                                           | [Rename](https://microsoft.github.io/language-server-protocol/specification#textDocument_rename) & [Prepare Rename](https://microsoft.github.io/language-server-protocol/specification#textDocument_prepareRename)                       |
+| [`registerFoldingRangeProvider`](/api/references/vscode-api#languages.registerFoldingRangeProvider)                               | [FoldingRange](https://microsoft.github.io/language-server-protocol/specification#textDocument_foldingRange)                                                                                                                             |
 
 ## Provide Diagnostics
 
@@ -118,14 +116,13 @@ function onChange() {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Report diagnostics for open editors. Minimally, this needs to happen on every save. Better, diagnostics should be computed based on the un-saved contents of the editor.
+> Report diagnostics for open editors. Minimally, this needs to happen on every save. Better, diagnostics should be computed based on the un-saved contents of the editor.
 
->**Advanced**
+> **Advanced**
 >
->Report diagnostics not only for the open editors but for all resources in the open folder, no matter whether they have ever been opened in an editor or not.
-
+> Report diagnostics not only for the open editors but for all resources in the open folder, no matter whether they have ever been opened in an editor or not.
 
 ## Show Code Completion Proposals
 
@@ -171,13 +168,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->You don't support resolve providers.
+> You don't support resolve providers.
 
->**Advanced**
+> **Advanced**
 >
->You support resolve providers that compute additional information for completion proposal the user selects. This information is displayed along-side the selected item.
+> You support resolve providers that compute additional information for completion proposal the user selects. This information is displayed along-side the selected item.
 
 ## Show Hovers
 
@@ -221,13 +218,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Show type information and include documentation if available.
+> Show type information and include documentation if available.
 
->**Advanced**
+> **Advanced**
 >
->Colorize method signatures in the same style you colorize the code.
+> Colorize method signatures in the same style you colorize the code.
 
 ## Help With Function and Method Signatures
 
@@ -273,13 +270,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Ensure that the signature help contains the documentation of the parameters of the function or method.
+> Ensure that the signature help contains the documentation of the parameters of the function or method.
 
->**Advanced**
+> **Advanced**
 >
->Nothing additional.
+> Nothing additional.
 
 ## Show Definitions of a Symbol
 
@@ -323,13 +320,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->If a symbol is ambivalent, you can show multiple definitions.
+> If a symbol is ambivalent, you can show multiple definitions.
 
->**Advanced**
+> **Advanced**
 >
->Nothing additional.
+> Nothing additional.
 
 ## Find All References to a Symbol
 
@@ -374,13 +371,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Return the location (resource URI and range) for all references.
+> Return the location (resource URI and range) for all references.
 
->**Advanced**
+> **Advanced**
 >
->Nothing additional.
+> Nothing additional.
 
 ## Highlight All Occurrences of a Symbol in a Document
 
@@ -424,13 +421,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->You return the ranges in the editor's document where the references are being found.
+> You return the ranges in the editor's document where the references are being found.
 
->**Advanced**
+> **Advanced**
 >
->Nothing additional.
+> Nothing additional.
 
 ## Show all Symbol Definitions Within a Document
 
@@ -474,13 +471,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Return all symbols in the document. Define the kinds of symbols such as variables, functions, classes, methods, etc.
+> Return all symbols in the document. Define the kinds of symbols such as variables, functions, classes, methods, etc.
 
->**Advanced**
+> **Advanced**
 >
->Nothing additional.
+> Nothing additional.
 
 ## Show all Symbol Definitions in Folder
 
@@ -524,13 +521,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Return all symbols define by the source code within the open folder. Define the kinds of symbols such as variables, functions, classes, methods, etc.
+> Return all symbols define by the source code within the open folder. Define the kinds of symbols such as variables, functions, classes, methods, etc.
 
->**Advanced**
+> **Advanced**
 >
->Nothing additional.
+> Nothing additional.
 
 ## Possible Actions on Errors or Warnings
 
@@ -575,13 +572,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Provide Code Actions for error/warning correcting actions.
+> Provide Code Actions for error/warning correcting actions.
 
->**Advanced**
+> **Advanced**
 >
->In addition, provide source code manipulation actions such as refactoring. For example, **Extract Method**.
+> In addition, provide source code manipulation actions such as refactoring. For example, **Extract Method**.
 
 ## CodeLens - Show Actionable Context Information Within Source Code
 
@@ -631,13 +628,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Define the CodeLens results that are available for a document.
+> Define the CodeLens results that are available for a document.
 
->**Advanced**
+> **Advanced**
 >
->Bind the CodeLens results to a command by responding to `codeLens/resolve`.
+> Bind the CodeLens results to a command by responding to `codeLens/resolve`.
 
 ## Show Color Decorators
 
@@ -686,13 +683,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Return all color references in the document. Provide color presentations for the color formats supported (for example rgb(...), hsl(...)).
+> Return all color references in the document. Provide color presentations for the color formats supported (for example rgb(...), hsl(...)).
 
->**Advanced**
+> **Advanced**
 >
->Nothing additional.
+> Nothing additional.
 
 ## Format Source Code in an Editor
 
@@ -735,13 +732,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Don't provide formatting support.
+> Don't provide formatting support.
 
->**Advanced**
+> **Advanced**
 >
->You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted correctly and are not lost.
+> You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted correctly and are not lost.
 
 ## Format the Selected Lines in an Editor
 
@@ -786,13 +783,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Don't provide formatting support.
+> Don't provide formatting support.
 
->**Advanced**
+> **Advanced**
 >
->You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost.
+> You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost.
 
 ## Incrementally Format Code as the User Types
 
@@ -842,13 +839,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Don't provide formatting support.
+> Don't provide formatting support.
 
->**Advanced**
+> **Advanced**
 >
->You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost.
+> You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost.
 
 ## Rename Symbols
 
@@ -893,10 +890,10 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
->**Basic**
+> **Basic**
 >
->Don't provide rename support.
+> Don't provide rename support.
 
->**Advanced**
+> **Advanced**
 >
->Return the list of all workspace edits that need to be performed, for example all edits across all files that contain references to the symbol.
+> Return the list of all workspace edits that need to be performed, for example all edits across all files that contain references to the symbol.

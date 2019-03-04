@@ -93,7 +93,7 @@ At the same time, the grammar used to colorize JavaScript was also updated to su
 
 ## TypeScript Update
 
-The TypeScript language service was updated to version [1.7.5](https://blogs.msdn.com/b/typescript/archive/2015/11/30/announcing-typescript-1-7.aspx).
+The TypeScript language service was updated to version [1.7.5](https://devblogs.microsoft.com/typescript/announcing-typescript-1-7).
 
 ## JSX Support
 

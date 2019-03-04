@@ -10,51 +10,30 @@ DateApproved: 6/27/2018
 
 Now that you have a static website, let's deploy it to the cloud using Azure Storage. Azure Storage is simple file store/CDN with a built-in web server which makes it great for hosting static sites extremely fast.
 
-## Create your account
+## Create a Storage Account
 
-In this section, we will setup our Azure Storage account and blob container.
+In this section, you'll create and configure an Azure Storage Account and Blob Container.
 
-1. Login to [Azure Portal](https://portal.azure.com)
+In the **AZURE STORAGE** explorer, right-click on your subscription and choose **Create Storage Account**.
 
-2. Select **Storage accounts** from the left side menu bar.
+![Create Storage Account](images/static-website/create-storage-account.png)
 
-   > **Note**: If you don't see **Storage accounts**, select **All services** from the top of the menu, find it in the full list, and star it to dock it in your menu bar.
+1. Type a globally unique name for your Storage Account and press `kbstyle(Enter)`. Valid characters for an app name are 'a-z' and '0-9'.
 
-   ![Sign into Storage Explorer](images/static-website/storage/1-portal-select-storage.png)
+2. Create a new Resource Group and accept the default name.
 
-3. Click either **+ Add** or **Create Storage Accounts** to create a new account.
+3. Choose a location in a [region](https://azure.microsoft.com/en-us/regions/) near you or near other services you may need to access.
 
-   ![Create new storage account](images/static-website/storage/2-portal-new-storage.png)
+Right-click the Storage Account that was just created and click **Configure Static Website...**
 
-4. Fill in a **Name** for your storage account and the **Resource group**.
+![Create Storage Account](images/static-website/configure-static-website.png)
 
-   Note the storage account name must be globally unique, so just add some random numbers to the end if the name you want is taken.
+1. Enter **index.html** for the index document name.
 
-5. Select **StorageV2 (general purpose v2)** for **Account kind**
+2. Enter **index.html** for the 404 error document name.
 
-   Static website hosting is only available for accounts using GPv2.
+  **Note:** Index.html is used for the error document because modern Single Page Applications (SPAs) such as React will handle errors in the client. For classic static websites, use the error document to customize your 404 page.
 
-   ![Add name and Resource Group](images/static-website/storage/3-portal-config-storage.png)
-
-6. When you're ready, click **Create** and wait for the account to be created.
-
-## Create your storage
-
-1. When account creation is complete, you will get a notification (the bell icon in the top menu bar).
-
-   Click **Go to resource**.
-
-2. Select **Static Website (preview)** from the left side menu bar and enable static site hosting.
-
-  > **Note**: Be sure to include the name of your index document.
-
-   ![Confirm container](images/static-website/storage/8-portal-config-static-site.png)
-
-## Your site URL
-
-Within the **Static Website (preview)** configuration options, copy the URL for your website. This will be the primary endpoint for your app.
-
-`https://<storage-account-name>.z4.web.core.windows.net/`
 
 With Static Website hosting enabled, your configured index document will be served by default along with all of your static assets.
 

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 12/12/2018
+DateApproved: 2/6/2019
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -248,8 +248,8 @@ Removes these files / folders from your editor window.
 
 ```json
 "files.exclude": {
-        "somefolder/": true,
-        "somefile": true
+    "somefolder/": true,
+    "somefile": true
 }
 ```
 
@@ -500,6 +500,10 @@ You can select blocks of text by holding `kbstyle(Shift+Alt)` (`kbstyle(Shift+Op
 ![Column text selection](images/tips-and-tricks/column-select.gif)
 
 You can also use [keyboard shortcuts](/docs/editor/codebasics.md#column-box-selection) to trigger column selection.
+
+### Fast scrolling
+
+Pressing the `kbstyle(Alt)` key enables fast scrolling in the editor and Explorers. By default, fast scrolling uses a 5X speed multiplier but you can control the multiplier with the **Editor: Fast Scroll Sensitivity** (`editor.fastScrollSensitivity`) setting.
 
 ### Copy line up / down
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Refactoring
 ContentId: 481dfd3a-d847-4ed3-b37b-7fc8d234a4c2
 PageTitle: Refactoring source code in Visual Studio Code
-DateApproved: 12/12/2018
+DateApproved: 2/6/2019
 MetaDescription: Refactoring source code in Visual Studio Code.
 ---
 # Refactoring
@@ -13,7 +13,7 @@ MetaDescription: Refactoring source code in Visual Studio Code.
 
 ![refactoring hero image](images/refactoring/refactoring-hero.png)
 
-For example, a common refactoring used to avoid duplicating code (a maintenance headache) is [Extract Method](https://refactoring.com/catalog/extractMethod.html) where you select source code that you'd like to reuse elsewhere and pull it out into its own shared method.
+For example, a common refactoring used to avoid duplicating code (a maintenance headache) is the [Extract Method](https://refactoring.com/catalog/extractMethod.html) refactoring, where you select source code that you'd like to reuse elsewhere and pull it out into its own shared method.
 
 Refactorings are provided by a language service and VS Code has built-in support for TypeScript and JavaScript refactoring through the [TypeScript](https://www.typescriptlang.org/) language service. Refactoring support for other programming languages is provided through VS Code [extensions](/docs/editor/extension-gallery.md) which contribute language services. The UI and commands for refactoring are the same across languages, and in this topic we'll demonstrate refactoring support with the TypeScript language service.
 
@@ -41,13 +41,13 @@ When working with classes, you can also extract a value to a new property.
 
 ## Rename symbol
 
-Renaming is common operation related to refactoring source code and VS Code has a separate **Rename Symbol** command (`kb(editor.action.rename)`). Some languages support rename symbol across files. Press `kb(editor.action.rename)` and then type the new desired name and press `kbstyle(Enter)`. All usages of the symbol will be renamed, across files.
+Renaming is a common operation related to refactoring source code and VS Code has a separate **Rename Symbol** command (`kb(editor.action.rename)`). Some languages support rename symbol across files. Press `kb(editor.action.rename)` and then type the new desired name and press `kbstyle(Enter)`. All usages of the symbol will be renamed, across files.
 
 ![Rename](images/refactoring/rename.png)
 
 ## Keybindings for Code Actions
 
-The `editor.action.codeAction` command lets you configure keybindings for specific Code Actions. This keybinding for example triggers the **Extract function** refactoring Code Actions:
+The `editor.action.codeAction` command lets you configure keybindings for specific Code Actions. This keybinding, for example, triggers the **Extract function** refactoring Code Actions:
 
 ```json
 {
@@ -82,7 +82,23 @@ Valid values for `"apply"`:
 
 * `"first"` - Always automatically apply the first available Code Action.
 * `"ifSingle"` - Default. Automatically apply the Code Action if only one is available. Otherwise, show the context menu.
-* `"never"` — Always show the Code Action context menu, even if only a single Code Action is available.
+* `"never"` - Always show the Code Action context menu, even if only a single Code Action is available.
+
+When a Code Action keybinding is configured with `"preferred": true`, only preferred Quick Fixes and refactorings are shown. A preferred Quick Fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings may exist, each extracting to a different scope in the file, the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
+
+This keybinding uses `"preferred": true` to create a refactoring that always tries to extract the selected source code to a constant in the local scope:
+
+```json
+{
+  "key": "shift+ctrl+e",
+  "command": "editor.action.codeAction",
+  "args": {
+    "kind": "refactor.extract.constant",
+    "preferred": true,
+    "apply": "ifsingle"
+  }
+}
+```
 
 ## Extensions with refactorings
 
@@ -102,4 +118,4 @@ You can find extensions that support refactoring by looking in the VS Code [Mark
 
 ### Why don't I see any lightbulbs when there are errors in my code?
 
-Lightbulbs (Code Actions) are only shown when your cursor is on the text showing the error. Hover can show the error description but you need to move the cursor or select text to see lightbulbs for Quick Fixes and refactorings.
+Lightbulbs (Code Actions) are only shown when your cursor hovers over the text showing the error. Hovering over the text will show the error description, but you need to move the cursor or select text to see lightbulbs for Quick Fixes and refactorings.

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f328d7e0-8982-4510-b7fb-975188eca502
-DateApproved: 12/6/2018
+DateApproved: 2/6/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code extensions can filter their features based on Document Selectors by language, file type, and location.
@@ -23,30 +23,36 @@ The snippet below registers a [HoverProvider](/api/references/vscode-api#HoverPr
 
 ```ts
 vscode.languages.registerHoverProvider('typescript', {
-    provideHover(doc: vscode.TextDocument) {
-        return new vscode.Hover('For *all* TypeScript documents.');
-    }
-})
+  provideHover(doc: vscode.TextDocument) {
+    return new vscode.Hover('For *all* TypeScript documents.');
+  }
+});
 ```
 
 A document selector can be more than just a language identifier and more complex selectors can use a [DocumentFilter](/api/references/vscode-api#DocumentFilter) to filter based on the `scheme` and file location through a `pattern` path glob-pattern:
 
 ```ts
-vscode.languages.registerHoverProvider({ pattern: '**/test/**' }, {
+vscode.languages.registerHoverProvider(
+  { pattern: '**/test/**' },
+  {
     provideHover(doc: vscode.TextDocument) {
-        return new vscode.Hover('For documents inside `test`-folders only');
+      return new vscode.Hover('For documents inside `test`-folders only');
     }
-})
+  }
+);
 ```
 
 The next snippet uses the `scheme` filter and combines it with a language identifier. The `untitled` scheme is for new files that have not yet been saved to disk.
 
 ```ts
-vscode.languages.registerHoverProvider({ scheme: 'untitled', language: 'typescript' }, {
+vscode.languages.registerHoverProvider(
+  { scheme: 'untitled', language: 'typescript' },
+  {
     provideHover(doc: vscode.TextDocument) {
-        return new vscode.Hover('For new, unsaved TypeScript documents only');
+      return new vscode.Hover('For new, unsaved TypeScript documents only');
     }
-})
+  }
+);
 ```
 
 ## Document scheme
@@ -58,23 +64,26 @@ The importance of this comes into play when features rely on reading/writing fil
 ```ts
 // 👎 too lax
 vscode.languages.registerHoverProvider('typescript', {
-    provideHover(doc: vscode.TextDocument) {
-        const { size } = fs.statSync(doc.uri.fsPath); // ⚠️ what about 'untitled:/Untitled1.ts' or others?
-        return new vscode.Hover(`Size in bytes is ${size}`);
-    }
-})
+  provideHover(doc: vscode.TextDocument) {
+    const { size } = fs.statSync(doc.uri.fsPath); // ⚠️ what about 'untitled:/Untitled1.ts' or others?
+    return new vscode.Hover(`Size in bytes is ${size}`);
+  }
+});
 ```
 
 The hover provider above wants to display the size of a document on disk but it fails to check whether the document is actually stored on disk. For example, it could be newly created and not yet saved. The correct way would be to tell VS Code that the provider can only work with files on disk.
 
 ```ts
 // 👍 only works with files on disk
-vscode.languages.registerHoverProvider({ scheme: 'file', language: 'typescript' }, {
+vscode.languages.registerHoverProvider(
+  { scheme: 'file', language: 'typescript' },
+  {
     provideHover(doc: vscode.TextDocument) {
-        const { size } = fs.statSync(doc.uri.fsPath);
-        return new vscode.Hover(`Size in bytes is ${size}`);
+      const { size } = fs.statSync(doc.uri.fsPath);
+      return new vscode.Hover(`Size in bytes is ${size}`);
     }
-})
+  }
+);
 ```
 
 ## Summary
@@ -85,5 +94,5 @@ Documents are usually stored on the file system, but not always: there are untit
 
 To learn more about VS Code extensibility model, try these topic:
 
-* [Extension Manifest File](/api/references/extension-manifest) - VS Code package.json extension manifest file reference
-* [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference
+- [Extension Manifest File](/api/references/extension-manifest) - VS Code package.json extension manifest file reference
+- [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference

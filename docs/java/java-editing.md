@@ -17,7 +17,7 @@ With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can
 
 ![Code Editing](images/java-editing/code-editing.gif)
 
-Java support in Visual Studio Code detects issues within your code automatically, and provides you quick fix suggestions on the fly.
+Java support in Visual Studio Code detects issues within your code automatically, and provides you with Quick Fix suggestions.
 
 ![Quick Fix](images/java-editing/quick-fix.gif)
 
@@ -58,13 +58,13 @@ To go to a symbol's definition, place your cursor on the symbol anywhere it is u
 
 ![Search in workspace](images/java-editing/spring-navigation.png)
 
-To learn more about Spring Boot support with Visual Studio Code, please read [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
+To learn more about Spring Boot support with Visual Studio Code, read [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
 
 ### IntelliSense
 
 Code completion in Visual Studio Code for Java is provided by [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). The extension is powered by the same [Java development tools (JDT)](https://www.eclipse.org/jdt/) behind Eclipse, so you can expect the same level of support.
 
-In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open source projects on GitHub each with over 100 stars, so it’s trained on the most common usages from high quality projects. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
+In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open-source projects on GitHub each with over 100 stars, so it’s trained on the most common usages from high quality projects. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
 
 ![IntelliCode](images/java-editing/intellicode.gif)
 
@@ -85,6 +85,12 @@ Rename allows you to rename variables, classes, methods, packages, folders, and 
 Extract to constant, method, and local variables all come in handy with Java on Visual Studio Code.
 
 ![Refactor](images/java-editing/refactor.gif)
+
+### Generate getters and setters
+
+You can bulk generate getters and setters for all new member variables.
+
+![GettersSetters](images/java-editing/getter-setter.gif)
 
 ## Formatting
 

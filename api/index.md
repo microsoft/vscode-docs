@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
-DateApproved: 12/6/2018
+DateApproved: 2/6/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code has a rich extension API. Learn how to create your own extensions for VS Code.
@@ -23,11 +23,11 @@ If you are looking for published extensions, head to the [VS Code Extension Mark
 
 Here are some examples of what you can achieve with the Extension API:
 
-- Change the look of VS Code with a color or icon theme — [Theming](/api/extension-capabilities/theming)
-- Add custom components & views in the UI — [Extending the Workbench](/api/extension-capabilities/extending-workbench)
-- Create a Webview to display a custom webpage built with HTML/CSS/JS — [Webview Guide](/api/extension-guides/webview)
-- Support a new programming language — [Language Extensions Overview](/api/language-extensions/overview)
-- Support debugging a specific runtime — [Debugger Extension Guide](/api/extension-guides/debugger-extension)
+- Change the look of VS Code with a color or icon theme - [Theming](/api/extension-capabilities/theming)
+- Add custom components & views in the UI - [Extending the Workbench](/api/extension-capabilities/extending-workbench)
+- Create a Webview to display a custom webpage built with HTML/CSS/JS - [Webview Guide](/api/extension-guides/webview)
+- Support a new programming language - [Language Extensions Overview](/api/language-extensions/overview)
+- Support debugging a specific runtime - [Debugger Extension Guide](/api/extension-guides/debugger-extension)
 
 If you'd like to have a more comprehensive overview of the Extension API, refer to the [Extension Capabilities Overview](/api/extension-capabilities/overview) page. [Extension Guides Overview](/api/extension-guides/overview) also includes a list of code samples and guides that illustrate various Extension API usage.
 

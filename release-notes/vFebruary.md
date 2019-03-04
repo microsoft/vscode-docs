@@ -118,7 +118,7 @@ Salsa undoubtedly provides a much better experience writing JavaScript applicati
 
 ## Languages - TypeScript
 
-VS Code now ships with the latest [TypeScript 1.8.2](https://blogs.msdn.microsoft.com/typescript/2016/02/22/announcing-typescript-1-8-2/) version.
+VS Code now ships with the latest [TypeScript 1.8.2](https://devblogs.microsoft.com/typescript/announcing-typescript-1-8-2/) version.
 
 ### Migration Notes
 

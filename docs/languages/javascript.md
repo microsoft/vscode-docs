@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 12/12/2018
+DateApproved: 2/6/2019
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -24,7 +24,7 @@ IntelliSense shows you intelligent code completion, hover info, and signature in
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-VS Code provides IntelliSense within your JavaScript projects; for many npm libraries such as `React`, `lodash`, and `express`; and for other platforms such `node`, serverless, or IoT.
+VS Code provides IntelliSense within your JavaScript projects; for many npm libraries such as `React`, `lodash`, and `express`; and for other platforms such as `node`, serverless, or IoT.
 
 See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for information about VS Code's JavaScript IntelliSense, how to configure it, and help troubleshooting common IntelliSense problems.
 
@@ -177,11 +177,11 @@ See [Refactorings](/docs/editor/refactoring.md) for more information about refac
 
 ## Unused variables and unreachable code
 
-Unused JavaScript code—such the else block of an `if` statement that is always true or an unreferenced import—is faded out in the editor:
+Unused JavaScript code, such the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
 
 ![Unreachable source code faded out](images/javascript/unreachable.png)
 
-You can quickly remove this unused code by placing the cursor on it and triggering the quick fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
+You can quickly remove this unused code by placing the cursor on it and triggering the Quick Fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
 
 To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in JavaScript by setting:
 
@@ -192,6 +192,25 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 "[javascriptreact]": {
     "editor.showUnused":  false
 },
+```
+
+## Organize Imports
+
+The **Organize Imports** Source Action sorts the imports in a JavaScript file and removes any unused imports:
+
+<!-- TODO: replace with js specific example -->
+<video src="/docs/languages/javascript/organize-imports.mp4" placeholder="images/javascript/organize-imports-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
+
+You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
+
+Organize imports can also be automatically when you save a JavaScript file by setting:
+
+```json
+"editor.codeActionsOnSave": {
+    "source.organizeImports": true
+}
 ```
 
 ## Code suggestions
@@ -326,3 +345,7 @@ Yes, you can. You can see this working using JavaScript source maps in the [Node
 Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `javascript.validate.enable` [setting](/docs/getstarted/settings.md).
 
 With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code. Since VS Code's JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
+
+### Can I use other JavaScript tools like Flow?
+
+Yes, but some of [Flow's](https://flow.org) language features such as type and error checking may interfere with VS Code's built-in JavaScript support. To learn how to disable VS Code's built-in JavaScript support, see [Disable JavaScript support](/docs/nodejs/working-with-javascript.md#disable-javascript-support).

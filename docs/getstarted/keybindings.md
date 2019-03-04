@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 12/12/2018
+DateApproved: 2/6/2019
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -239,6 +239,7 @@ isMac | True when the OS is macOS
 isWindows | True when the OS is Windows
 **Mode contexts** |
 inDebugMode | A debug session is running.
+debugType | True when debug type matches. Example: `"debugType == 'node'"`.
 inSnippetMode | The editor is in snippet mode.
 inQuickOpen | The Quick Open drop-down has focus.
 **Resource contexts** |
@@ -327,7 +328,7 @@ For example, the when clause below is true only when the File Explorer has focus
 There is a key-value pair operator for `when` clauses. The expression `key =~ value` treats the right hand side as a regular expression to match against the left hand side. For example, to contribute context menu items for all Docker files, one could use:
 
 ```json
-   "when": "resourceFileName =~ /docker/"
+   "when": "resourceFilename =~ /docker/"
 ```
 
 ## Custom keybindings for refactorings

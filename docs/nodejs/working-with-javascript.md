@@ -4,11 +4,12 @@ Area: nodejs
 TOCTitle: Working with JavaScript
 PageTitle: Working with JavaScript in Visual Studio Code
 ContentId: 3e5af2a6-7669-4b5d-b19f-78077af14fda
+DateApproved: 2/6/2018
 MetaDescription: Working with JavaScript in Visual Studio Code
-DateApproved:
 ---
-
 # Working with JavaScript
+
+This topic describes some of the advanced JavaScript features supported by Visual Studio Code. Using the TypeScript language service, VS Code can provide smart completions (IntelliSense) as well as type checking for JavaScript.
 
 ## IntelliSense
 
@@ -26,7 +27,7 @@ IntelliSense for JavaScript libraries and frameworks is powered by TypeScript ty
 
 Many popular libraries ship with typings files so you get IntelliSense for them automatically. For libraries that do not include typings, VS Code's `Automatic Type Acquisition` will automatically install community maintained typings file for you.
 
-Automatic type acquisition requires [npmjs](https://www.npmjs.com) — the Node.js package manager — which is included with the [Node.js](https://nodejs.org) runtime. In this image you can see IntelliSense, including the method signature, parameter info, and the method's documentation for the popular [lodash](https://lodash.com/) library.
+Automatic type acquisition requires [npmjs](https://www.npmjs.com), the Node.js package manager, which is included with the [Node.js](https://nodejs.org) runtime. In this image you can see IntelliSense, including the method signature, parameter info, and the method's documentation for the popular [lodash](https://lodash.com/) library.
 
 ![lodash typings](images/working-with-javascript/lodash-typings.png)
 
@@ -129,7 +130,7 @@ It is possible to have mixed TypeScript and JavaScript projects. To start migrat
 
 > **Note:** `jsconfig.json` is the same as a `tsconfig.json` file, only with `allowJs` set to true. See [the documentation for `tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) here to see other available options.
 
-## Type checking JavaScript code
+## Type checking JavaScript
 
 VS Code allows you to leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files. This is a great way to catch common programming mistakes. These type checks also enable some exciting [Quick Fixes]() for JavaScript, including **Add missing import** and **Add missing property**.
 
@@ -258,7 +259,7 @@ declare var CAN_NOTIFY: number;
 
 `d.ts` files are type declarations. In this case, `globals.d.ts` lets TypeScript know that a global `CAN_NOTIFY` exists and that a `webkitNotifications` property exists on `window`. You can read more about writing `d.ts` [here](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html). `d.ts` files do not change how JavaScript is evaluated, they are used only for providing better JavaScript language support.
 
-## Tasks
+## Using tasks
 
 ### Using the TypeScript compiler
 
@@ -291,3 +292,11 @@ The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 Jav
 Once you have added this, you can start **Babel** with the `kb(workbench.action.tasks.build)` (**Run Build Task**) command and it will compile all files from the `src` directory into the `lib` directory.
 
 > **Tip:** For help with Babel CLI see the instructions [here](https://babeljs.io/docs/setup/#installation). The example above uses the CLI option.
+
+## Disable JavaScript support
+
+If you prefer to use JavaScript language features supported by other JavaScript language tools such as [Flow](https://flow.org/), you can disable VS Code's built-in JavaScript support. You do this by disabling the built-in TypeScript language extension **TypeScript and JavaScript Language Features** (vscode.typescript-language-features) which also provides the JavaScript language support.
+
+To disable JavaScript/TypeScript support, go to the Extensions view (`kb(workbench.view.extensions)`) and filter on built-in extensions (**Show Built-in Extensions** in the **...** **More Actions** dropdown), then type 'typescript'. Select the **TypeScript and JavaScript Language Features** extension and press the **Disable** button. VS Code built-in extensions can not be uninstalled, only disabled, and can be re-enabled at any time.
+
+![TypeScript and JavaScript Language Features extension](images/working-with-javascript/disable-TS-language.png)

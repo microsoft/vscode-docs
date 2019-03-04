@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
-DateApproved: 12/6/2018
+DateApproved: 2/6/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to provide debugger extensions (plug-ins) for Visual Studio Code through a Debug Adapter.
@@ -42,7 +42,7 @@ The history of and motivation behind DAP is explained in this [blog post](https:
 
 Since debug adapters are independent from VS Code and can be used in [other developments tools](https://microsoft.github.io/debug-adapter-protocol/implementors/tools/), they do not match VS Code's extensibility architecture which is based on extensions and contribution points.
 
-For this reason VS Code provides an contribution point, `debuggers`, where a debug adapter can be contributed under a specific debug type (e.g. `node` for the Node.js debugger). VS Code launches the registered DA whenever the user starts a debug session of that type.
+For this reason VS Code provides a contribution point, `debuggers`, where a debug adapter can be contributed under a specific debug type (e.g. `node` for the Node.js debugger). VS Code launches the registered DA whenever the user starts a debug session of that type.
 
 So in its most minimal form, a debugger extension is just a declarative contribution of a debug adapter implementation and the extension is basically a packaging container for the debug adapter without any additional code.
 
@@ -75,16 +75,16 @@ Since creating a debug adapter from scratch is a bit heavy for this tutorial, we
 Before delving into the development setup for mock-debug, let's first install a [pre-built version](https://marketplace.visualstudio.com/items/andreweinand.mock-debug)
 from the VS Code Marketplace and play with it:
 
-* Switch to the Extensions viewlet and type "mock" to search for the Mock Debug extension,
-* "Install" and "Reload" the extension.
+- Switch to the Extensions viewlet and type "mock" to search for the Mock Debug extension,
+- "Install" and "Reload" the extension.
 
 To try Mock Debug:
 
-* Create a new empty folder `mock test` and open it in VS Code.
-* Create a file `readme.md` and enter several lines of arbitrary text.
-* Switch to the Debug view and press the gear icon.
-* VS Code will let you select an "environment" in order to create a default launch configuration. Pick "Mock Debug".
-* Press the green Start button and then Enter to confirm the suggested file `readme.md`.
+- Create a new empty folder `mock test` and open it in VS Code.
+- Create a file `readme.md` and enter several lines of arbitrary text.
+- Switch to the Debug view and press the gear icon.
+- VS Code will let you select an "environment" in order to create a default launch configuration. Pick "Mock Debug".
+- Press the green Start button and then Enter to confirm the suggested file `readme.md`.
 
 A debug session starts and you can "step" through the readme file, set and hit breakpoints, and run into exceptions (if the word `exception` appears in a line).
 
@@ -92,8 +92,8 @@ A debug session starts and you can "step" through the readme file, set and hit b
 
 Before using Mock Debug as a starting point for your own development, we recommend to uninstall the pre-built version first:
 
-* Switch to the Extensions viewlet and click on the gear icon of the Mock Debug extension.
-* Run the "Uninstall" action and then "Reload" the window.
+- Switch to the Extensions viewlet and click on the gear icon of the Mock Debug extension.
+- Run the "Uninstall" action and then "Reload" the window.
 
 ## Development Setup for Mock Debug
 
@@ -109,13 +109,13 @@ Open the project folder `vscode-mock-debug` in VS Code.
 
 What's in the package?
 
-* `package.json` is the manifest for the mock-debug extension:
+- `package.json` is the manifest for the mock-debug extension:
   - It lists the contributions of the mock-debug extension.
   - The `compile` and `watch` scripts are used to transpile the TypeScript source into the `out` folder and watch for subsequent source modifications.
   - The dependencies `vscode-debugprotocol`, `vscode-debugadapter`, and `vscode-debugadapter-testsupport` are NPM modules that simplify the development of node-based debug adapters.
-* `src/mockRuntime.ts` is a _mock_ runtime with a simple debug API.
-* The code that _adapts_ the runtime to the Debug Adapter Protocol lives in `src/mockDebug.ts`. Here you find the handlers for the various requests of the DAP.
-* Since the implementation of debugger extension lives in the debug adapter, there is no need to have extension code at all (i.e. code that runs in the extension host process). However, Mock Debug has a small `src/extension.ts` because it illustrates what can be done in the extension code of a debugger extension.
+- `src/mockRuntime.ts` is a _mock_ runtime with a simple debug API.
+- The code that _adapts_ the runtime to the Debug Adapter Protocol lives in `src/mockDebug.ts`. Here you find the handlers for the various requests of the DAP.
+- Since the implementation of debugger extension lives in the debug adapter, there is no need to have extension code at all (i.e. code that runs in the extension host process). However, Mock Debug has a small `src/extension.ts` because it illustrates what can be done in the extension code of a debugger extension.
 
 Now build and launch the Mock Debug extension by selecting the **Extension** launch configuration and hitting `F5`.
 Initially, this will do a full transpile of the TypeScript sources into the `out` folder.
@@ -142,17 +142,17 @@ Set a breakpoint at the beginning of method `launchRequest(...)` in file `src/mo
 
 ```json
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "mock",
-            "request": "launch",
-            "name": "mock test",
-            "program": "${workspaceFolder}/readme.md",
-            "stopOnEntry": true,
-            "debugServer": 4711
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "mock",
+      "request": "launch",
+      "name": "mock test",
+      "program": "${workspaceFolder}/readme.md",
+      "stopOnEntry": true,
+      "debugServer": 4711
+    }
+  ]
 }
 ```
 
@@ -173,84 +173,81 @@ Like every VS Code extension, the `package.json` declares the fundamental proper
 
 ```json
 {
-    "name": "mock-debug",
-    "displayName": "Mock Debug",
-    "version": "0.24.0",
-    "publisher": "...",
-    "description": "Starter extension for developing debug adapters for VS Code.",
-    "author": {
-        "name": "...",
-        "email": "..."
-    },
-    "engines": {
-        "vscode": "^1.17.0",
-        "node": "^7.9.0"
-    },
-    "icon": "images/mock-debug-icon.png",
-    "categories": [ "Debuggers" ],
+  "name": "mock-debug",
+  "displayName": "Mock Debug",
+  "version": "0.24.0",
+  "publisher": "...",
+  "description": "Starter extension for developing debug adapters for VS Code.",
+  "author": {
+    "name": "...",
+    "email": "..."
+  },
+  "engines": {
+    "vscode": "^1.17.0",
+    "node": "^7.9.0"
+  },
+  "icon": "images/mock-debug-icon.png",
+  "categories": ["Debuggers"],
 
-    "contributes": {
-        "breakpoints": [
-            { "language": "markdown" }
-        ],
-        "debuggers": [{
-            "type": "mock",
-            "label": "Mock Debug",
+  "contributes": {
+    "breakpoints": [{ "language": "markdown" }],
+    "debuggers": [
+      {
+        "type": "mock",
+        "label": "Mock Debug",
 
-            "program": "./out/mockDebug.js",
-            "runtime": "node",
+        "program": "./out/mockDebug.js",
+        "runtime": "node",
 
-            "configurationAttributes": {
-                "launch": {
-                    "required": ["program"],
-                    "properties": {
-                        "program": {
-                            "type": "string",
-                            "description": "Absolute path to a text file.",
-                            "default": "${workspaceFolder}/${command:AskForProgramName}"
-                        },
-                        "stopOnEntry": {
-                            "type": "boolean",
-                            "description": "Automatically stop after launch.",
-                            "default": true
-                        }
-                    }
-                }
-            },
-
-            "initialConfigurations": [
-                {
-                    "type": "mock",
-                    "request": "launch",
-                    "name": "Ask for file name",
-                    "program": "${workspaceFolder}/${command:AskForProgramName}",
-                    "stopOnEntry": true
-                }
-            ],
-
-            "configurationSnippets": [
-                {
-                    "label": "Mock Debug: Launch",
-                    "description": "A new configuration for launching a mock debug program",
-                    "body": {
-                        "type": "mock",
-                        "request": "launch",
-                        "name": "${2:Launch Program}",
-                        "program": "^\"\\${workspaceFolder}/${1:Program}\""
-                    }
-                }
-            ],
-
-            "variables": {
-                "AskForProgramName": "extension.mock-debug.getProgramName"
+        "configurationAttributes": {
+          "launch": {
+            "required": ["program"],
+            "properties": {
+              "program": {
+                "type": "string",
+                "description": "Absolute path to a text file.",
+                "default": "${workspaceFolder}/${command:AskForProgramName}"
+              },
+              "stopOnEntry": {
+                "type": "boolean",
+                "description": "Automatically stop after launch.",
+                "default": true
+              }
             }
-        }]
-    },
+          }
+        },
 
-    "activationEvents": [
-        "onDebug",
-        "onCommand:extension.mock-debug.getProgramName"
+        "initialConfigurations": [
+          {
+            "type": "mock",
+            "request": "launch",
+            "name": "Ask for file name",
+            "program": "${workspaceFolder}/${command:AskForProgramName}",
+            "stopOnEntry": true
+          }
+        ],
+
+        "configurationSnippets": [
+          {
+            "label": "Mock Debug: Launch",
+            "description": "A new configuration for launching a mock debug program",
+            "body": {
+              "type": "mock",
+              "request": "launch",
+              "name": "${2:Launch Program}",
+              "program": "^\"\\${workspaceFolder}/${1:Program}\""
+            }
+          }
+        ],
+
+        "variables": {
+          "AskForProgramName": "extension.mock-debug.getProgramName"
+        }
+      }
     ]
+  },
+
+  "activationEvents": ["onDebug", "onCommand:extension.mock-debug.getProgramName"]
 }
 ```
 
@@ -269,35 +266,35 @@ Since VS Code runs on different platforms, we have to make sure that the DA prog
 
 1. If your DA implementation needs different executables on different platforms, the **program** attribute can be qualified for specific platforms like this:
 
-    ```json
-    "debuggers": [{
-        "type": "gdb",
-        "windows": {
-            "program": "./bin/gdbDebug.exe",
-        },
-        "osx": {
-            "program": "./bin/gdbDebug.sh",
-        },
-        "linux": {
-            "program": "./bin/gdbDebug.sh",
-        }
-    }]
-    ```
+   ```json
+   "debuggers": [{
+       "type": "gdb",
+       "windows": {
+           "program": "./bin/gdbDebug.exe",
+       },
+       "osx": {
+           "program": "./bin/gdbDebug.sh",
+       },
+       "linux": {
+           "program": "./bin/gdbDebug.sh",
+       }
+   }]
+   ```
 
 1. A combination of both approaches is possible too. The following example is from the Mono DA which is implemented as a mono application that needs a runtime on macOS and Linux but not on Windows:
 
-    ```json
-    "debuggers": [{
-        "type": "mono",
-        "program": "./bin/monoDebug.exe",
-        "osx": {
-            "runtime": "mono"
-        },
-        "linux": {
-            "runtime": "mono"
-        }
-    }]
-    ```
+   ```json
+   "debuggers": [{
+       "type": "mono",
+       "program": "./bin/monoDebug.exe",
+       "osx": {
+           "runtime": "mono"
+       },
+       "linux": {
+           "runtime": "mono"
+       }
+   }]
+   ```
 
 **configurationAttributes** declares the schema for the `launch.json` attributes that are available for this debugger. This schema is used for validating the `launch.json` and supporting IntelliSense and hover help when editing the launch configuration.
 
@@ -309,21 +306,21 @@ Instead of defining the initial content of the `launch.json` statically in the `
 
 **configurationSnippets** define launch configuration snippets that get surfaced in IntelliSense when editing the `launch.json`. As a convention, prefix the `label` attribute of a snippet by the debug environment name so that it can be clearly identified when presented in a list of many snippet proposals.
 
-The **variables** contribution binds "variables" to "commands". These variables can be used in the launch configuration using the **${command:xyz}** syntax and the variables are substituted by the value returned from the bound command when a debug session is started.
+The **variables** contribution binds "variables" to "commands". These variables can be used in the launch configuration using the **\${command:xyz}** syntax and the variables are substituted by the value returned from the bound command when a debug session is started.
 
 The implementation of a command lives in the extension and it can range from a simple expression with no UI, to sophisticated functionality based on the UI features available in the extension API.
-Mock Debug binds a variable `AskForProgramName` to the command `extension.mock-debug.getProgramName`. The [implementation](https://github.com/Microsoft/vscode-mock-debug/blob/431857ca27e618e2e7164628ff41fa8cedd01bff/src/extension.ts#L33) of this command in `src/extension.ts` uses the `showInputBox` to let the user enter a program name:
+Mock Debug binds a variable `AskForProgramName` to the command `extension.mock-debug.getProgramName`. The [implementation](https://github.com/Microsoft/vscode-mock-debug/blob/606454ff3bd669867a38d9b2dc7b348d324a3f6b/src/extension.ts#L21-L26) of this command in `src/extension.ts` uses the `showInputBox` to let the user enter a program name:
 
 ```ts
 vscode.commands.registerCommand('extension.mock-debug.getProgramName', config => {
-    return vscode.window.showInputBox({
-        placeHolder: "Please enter the name of a Markdown file in the workspace folder",
-        value: "readme.md"
-    });
+  return vscode.window.showInputBox({
+    placeHolder: 'Please enter the name of a markdown file in the workspace folder',
+    value: 'readme.md'
+  });
 });
 ```
 
-The variable can now be used in any string typed value of a launch configuration as **${command:AskForProgramName}**.
+The variable can now be used in any string typed value of a launch configuration as **\${command:AskForProgramName}**.
 
 ## Using a DebugConfigurationProvider
 
@@ -348,8 +345,8 @@ This catch-all `onDebug` is triggered as soon as any debug functionality is used
 
 A better approach for expensive debug extensions is to use more fine-grained activation events:
 
-* `onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
-* `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
+- `onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
+- `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
 
 **Rule of thumb:** If activation of a debug extensions is cheap, use `onDebug`. If it is expensive, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`.
 
@@ -357,8 +354,8 @@ A better approach for expensive debug extensions is to use more fine-grained act
 
 Once you have created your debugger extension you can publish it to the Marketplace:
 
-* Update the attributes in the `package.json` to reflect the naming and purpose of your debugger extension.
-* Upload to the Marketplace as described in [Publishing Extension](/api/working-with-extensions/publishing-extension).
+- Update the attributes in the `package.json` to reflect the naming and purpose of your debugger extension.
+- Upload to the Marketplace as described in [Publishing Extension](/api/working-with-extensions/publishing-extension).
 
 ## Alternative approach to develop a debugger extension
 

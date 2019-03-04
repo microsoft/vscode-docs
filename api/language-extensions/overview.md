@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8b70dba5-f71d-46dd-8da1-f5d44b9a6a96
-DateApproved: 12/6/2018
+DateApproved: 2/6/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to write a Language Extension (plug-in) to add support for a programming language in Visual Studio Code.
@@ -35,7 +35,7 @@ We have three guides for writing Language Extensions that provide Declarative La
 ## Programmatic language features
 
 Programmatic Language Features include auto completion, error checking, and jump to definition. These features are often powered by a Language Server, a program that analyzes your project to provide the dynamic features.
- One example is the [`typescript-language-features`](https://github.com/Microsoft/vscode/tree/master/extensions/typescript-language-features) extension bundled in VS Code. It utilizes the [TypeScript Language Service](https://github.com/Microsoft/TypeScript/wiki/Using-the-Language-Service-API) to offer Programmatic Language Features such as:
+One example is the [`typescript-language-features`](https://github.com/Microsoft/vscode/tree/master/extensions/typescript-language-features) extension bundled in VS Code. It utilizes the [TypeScript Language Service](https://github.com/Microsoft/TypeScript/wiki/Using-the-Language-Service-API) to offer Programmatic Language Features such as:
 
 - Hover information ([`vscode.languages.registerHoverProvider`](/api/references/vscode-api#languages.registerHoverProvider))
 - Auto completion ([`vscode.languages.registerCompletionItemProvider`](/api/references/vscode-api#languages.registerCompletionItemProvider))

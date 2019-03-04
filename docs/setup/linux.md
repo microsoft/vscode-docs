@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 12/12/2018
+DateApproved: 2/6/2019
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -241,18 +241,15 @@ sudo touch /etc/apt/sources.list.d/vscode.list
 
 ### Cannot move or resize the window while X forwarding a remote window
 
-If you are using X forwarding to use VS Code remotely, you will need to use the native title bar to ensure you can properly manipulate the window. The native title bar is no longer the default behavior on Linux, but you can switch to using it by setting `window.titleBarStyle` to `native`.
+If you are using X forwarding to use VS Code remotely, you will need to use the native title bar to ensure you can properly manipulate the window. You can switch to using it by setting `window.titleBarStyle` to `native`.
 
-### Low contrast menu bar
+### Using the custom title bar
 
-If you are using Ubuntu 18.10 or a GTK theme that mixes light or dark context menus with the opposite theming for the application menu bar, you may experience a low contrast menu bar that is difficult to read when using the native title bar setting.
+**Note**: Applies to the upcoming 1.32 release.
 
-There are two possible workarounds for this:
+The custom title bar and menus were enabled by default on Linux for several months. The custom title bar has been a success on Windows, but the customer response on Linux suggests otherwise. Based on feedback, we have decided to make this setting opt-in on Linux and leave the native title bar as the default.
 
-* Switch to the VS Code custom title bar style by configuring the setting `window.titleBarStyle` to `custom`.
-* Change your GTK theme. You can do this by installing the Gnome Tweaks application and using the previous default theme `Adwaita`.
-
-Information on this issue can be tracked in issue [62593](https://github.com/Microsoft/vscode/issues/62593).
+The custom title bar provides many benefits including great theming support and better accessibility through keyboard navigation and screen readers. Unfortunately, these benefits do not translate as well to the Linux platform. Linux has a variety of desktop environments and window managers that can make the VS Code theming look foreign to users. For users needing the accessibility improvements, we recommend enabling the custom title bar when running in accessibility mode using a screen reader. You can still manually set the title bar with the **Window: Title Bar Style** (`window.titleBarStyle`) setting.
 
 ### Broken cursor in editor with display scaling enabled
 

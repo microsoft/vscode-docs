@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 995c7085-5fc0-44e0-a171-30a759c0b7da
-DateApproved: 12/6/2018
+DateApproved: 2/6/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using commands programmatically in Visual Studio Code extensions (plug-ins)
@@ -25,7 +25,7 @@ The `editor.action.addCommentLine` command, for example, comments the currently 
 import * as vscode from 'vscode';
 
 function commentLine() {
-    vscode.commands.executeCommand('editor.action.addCommentLine');
+  vscode.commands.executeCommand('editor.action.addCommentLine');
 }
 ```
 
@@ -35,20 +35,20 @@ Some commands take arguments that control their behavior. Commands may also retu
 import * as vscode from 'vscode';
 
 async function printDefinitionsForActiveEditor() {
-    const activeEditor = vscode.window.activeTextEditor;
-    if (!activeEditor) {
-        return;
-    }
+  const activeEditor = vscode.window.activeTextEditor;
+  if (!activeEditor) {
+    return;
+  }
 
-    const definitions = await vscode.commands.executeCommand<vscode.Location[]>(
-        'vscode.executeDefinitionProvider',
-        activeEditor.document.uri,
-        activeEditor.selection.active
-    );
+  const definitions = await vscode.commands.executeCommand<vscode.Location[]>(
+    'vscode.executeDefinitionProvider',
+    activeEditor.document.uri,
+    activeEditor.selection.active
+  );
 
-    for (const definition of definitions) {
-        console.log(definition);
-    }
+  for (const definition of definitions) {
+    console.log(definition);
+  }
 }
 ```
 
@@ -61,26 +61,32 @@ To find available commands:
 
 Commands URIs are links that execute a given command. They can be used as clickable links in hover text, completion item details, or inside of webviews.
 
-A command URI uses the `command` scheme followed by the command name. The command URI for the `editor.action.addCommentLine` command, for example,  is `command:editor.action.addCommentLine`. Here's a hover provider that shows a link in the comments of the current line in the active text editor:
+A command URI uses the `command` scheme followed by the command name. The command URI for the `editor.action.addCommentLine` command, for example, is `command:editor.action.addCommentLine`. Here's a hover provider that shows a link in the comments of the current line in the active text editor:
 
 ```ts
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
+  vscode.languages.registerHoverProvider(
+    'javascript',
+    new class implements vscode.HoverProvider {
+      provideHover(
+        _document: vscode.TextDocument,
+        _position: vscode.Position,
+        _token: vscode.CancellationToken
+      ): vscode.ProviderResult<vscode.Hover> {
+        const commentCommandUri = vscode.Uri.parse(`command:editor.action.addCommentLine`);
+        const contents = new vscode.MarkdownString(`[Add comment](${commentCommandUri})`);
 
-    vscode.languages.registerHoverProvider('javascript', new class implements vscode.HoverProvider {
-        provideHover(_document: vscode.TextDocument, _position: vscode.Position, _token: vscode.CancellationToken): vscode.ProviderResult<vscode.Hover> {
-            const commentCommandUri = vscode.Uri.parse(`command:editor.action.addCommentLine`);
-            const contents = new vscode.MarkdownString(`[Add comment](${commentCommandUri})`)
+        // To enable command URIs in Markdown content, you must set the `isTrusted` flag.
+        // When creating trusted Markdown string, make sure to properly sanitize all the
+        // input content so that only expected command URIs can be executed
+        contents.isTrusted = true;
 
-            // To enable command URIs in Markdown content, you must set the `isTrusted` flag.
-            // When creating trusted Markdown string, make sure to properly sanitize all the
-            // input content so that only expected command URIs can be executed
-            contents.isTrusted = true;
-
-            return new vscode.Hover(contents);
-        }
-    });
+        return new vscode.Hover(contents);
+      }
+    }()
+  );
 }
 ```
 
@@ -90,15 +96,24 @@ The list of arguments to the command is passed as a JSON array that has been pro
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    vscode.languages.registerHoverProvider('javascript', new class implements vscode.HoverProvider {
-        provideHover(document: vscode.TextDocument, _position: vscode.Position, _token: vscode.CancellationToken): vscode.ProviderResult<vscode.Hover> {
-            const args = [{ resourceUri: document.uri }];
-            const commentCommandUri = vscode.Uri.parse(`command:git.stage?${encodeURIComponent(JSON.stringify(args))}`);
-            const contents = new vscode.MarkdownString(`[Stage file](${commentCommandUri})`)
-            contents.isTrusted = true;
-            return new vscode.Hover(contents);
-        }
-    });
+  vscode.languages.registerHoverProvider(
+    'javascript',
+    new class implements vscode.HoverProvider {
+      provideHover(
+        document: vscode.TextDocument,
+        _position: vscode.Position,
+        _token: vscode.CancellationToken
+      ): vscode.ProviderResult<vscode.Hover> {
+        const args = [{ resourceUri: document.uri }];
+        const stageCommandUri = vscode.Uri.parse(
+          `command:git.stage?${encodeURIComponent(JSON.stringify(args))}`
+        );
+        const contents = new vscode.MarkdownString(`[Stage file](${stageCommandUri})`);
+        contents.isTrusted = true;
+        return new vscode.Hover(contents);
+      }
+    }()
+  );
 }
 ```
 
@@ -112,17 +127,17 @@ export function activate(context: vscode.ExtensionContext) {
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    const command = 'myExtension.sayHello';
+  const command = 'myExtension.sayHello';
 
-    const commandHandler = (name?: string = 'world') => {
-        console.log(`Hello ${name}!!!`);
-    };
+  const commandHandler = (name?: string = 'world') => {
+    console.log(`Hello ${name}!!!`);
+  };
 
-    context.subscriptions.push(vscode.commands.registerCommand(command, commandHandler));
+  context.subscriptions.push(vscode.commands.registerCommand(command, commandHandler));
 }
 ```
 
-The handler function will be invoked whenever the `myExtension.sayHello` command is executed, be it pragmatically with `executeCommand`, from the VS Code UI, or through a keybinding.
+The handler function will be invoked whenever the `myExtension.sayHello` command is executed, be it programmatically with `executeCommand`, from the VS Code UI, or through a keybinding.
 
 ### Creating a user facing command
 
@@ -130,14 +145,14 @@ The handler function will be invoked whenever the `myExtension.sayHello` command
 
 ```json
 {
-    "contributes": {
-        "commands": [
-            {
-                "command": "myExtension.sayHello",
-                "title": "Say Hello"
-            }
-        ]
-    }
+  "contributes": {
+    "commands": [
+      {
+        "command": "myExtension.sayHello",
+        "title": "Say Hello"
+      }
+    ]
+  }
 }
 ```
 
@@ -145,13 +160,11 @@ The `commands` contribution tells VS Code that your extension provides a given c
 
 ![The contributed command in the Command Palette](images/commands/palette.png)
 
-We still need to call `registerCommand` to actually tie the command id to the handler. This means that if the user selects the `myExtension.sayHello` command from the Command Palette but our extension has not been activated yet, nothing will happen. To prevent this, extensions must register a `onCommand` `activiationEvent` for all user facing commands:
+We still need to call `registerCommand` to actually tie the command id to the handler. This means that if the user selects the `myExtension.sayHello` command from the Command Palette but our extension has not been activated yet, nothing will happen. To prevent this, extensions must register an `onCommand` `activiationEvent` for all user facing commands:
 
 ```json
 {
-    "activationEvents": [
-        "onCommand:myExtension.sayHello"
-    ]
+  "activationEvents": ["onCommand:myExtension.sayHello"]
 }
 ```
 
@@ -161,7 +174,7 @@ You do not need an `onCommand` activation event for internal commands but you mu
 
 - Can be invoked using the Command Palette.
 - Can be invoked using a keybinding.
-- Can be invoked through the VS Code UI, such as though an the editor title bar.
+- Can be invoked through the VS Code UI, such as through the editor title bar.
 - Is intended as an API for other extensions to consume.
 
 ### Controlling when a command shows up in the Command Palette
@@ -172,16 +185,16 @@ The [`menus.commandPalette`](/api/references/contribution-points#contributes.men
 
 ```json
 {
-    "contributes": {
-        "menus": {
-            "commandPalette": [
-                {
-                    "command": "myExtension.sayHello",
-                    "when": "editorLangId == markdown"
-                }
-            ]
+  "contributes": {
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "myExtension.sayHello",
+          "when": "editorLangId == markdown"
         }
+      ]
     }
+  }
 }
 ```
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-DateApproved: 12/6/2018
+DateApproved: 2/6/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
@@ -40,21 +40,19 @@ You can create more `test.ts` files under the `test` folder and they will automa
 
 ## Launch tests configuration
 
-The `Extension Tests` configuration is defined in the project's `.vscode\launch.json` file.  It is similar the `Extension` configuration with the addition of the `--extensionTestsPath` argument which points to the compiled test files (assuming this is a TypeScript project).
+The `Extension Tests` configuration is defined in the project's `.vscode\launch.json` file. It is similar the `Extension` configuration with the addition of the `--extensionTestsPath` argument which points to the compiled test files (assuming this is a TypeScript project).
 
 ```json
 {
-    "name": "Extension Tests",
-    "type": "extensionHost",
-    "request": "launch",
-    "runtimeExecutable": "${execPath}",
-    "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionTestsPath=${workspaceFolder}/out/test"
-    ],
-    "outFiles": [
-        "${workspaceFolder}/out/test/**/*.js"
-    ]
+  "name": "Extension Tests",
+  "type": "extensionHost",
+  "request": "launch",
+  "runtimeExecutable": "${execPath}",
+  "args": [
+    "--extensionDevelopmentPath=${workspaceFolder}",
+    "--extensionTestsPath=${workspaceFolder}/out/test"
+  ],
+  "outFiles": ["${workspaceFolder}/out/test/**/*.js"]
 }
 ```
 
@@ -64,7 +62,7 @@ You can set the file or folder that the test instance should open by inserting t
 
 ```json
 "args": [
-    "file or folder name",
+    "${workspaceFolder}/file or folder name",
     "--extensionDevelopmentPath=${workspaceFolder}",
     "--extensionTestsPath=${workspaceFolder}/out/test"
 ]
@@ -88,7 +86,7 @@ This will give large benefits to performance when running tests
 
 ## Excluding test files from your extension package
 
-If you decide to share your extension, you may not want to include the tests in your extension package.  The [`.vscodeignore`](/api/working-with-extensions/publishing-extension#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/api/working-with-extensions/publishing-extension).  By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
+If you decide to share your extension, you may not want to include the tests in your extension package. The [`.vscodeignore`](/api/working-with-extensions/publishing-extension#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/api/working-with-extensions/publishing-extension). By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
 
 ```
 out/test/**
@@ -96,4 +94,4 @@ out/test/**
 
 ## Next steps
 
-* [Continuous Integration](/api/working-with-extensions/continuous-integration) - Run your extension tests in a Continuous Integration service such as Azure DevOps.
+- [Continuous Integration](/api/working-with-extensions/continuous-integration) - Run your extension tests in a Continuous Integration service such as Azure DevOps.

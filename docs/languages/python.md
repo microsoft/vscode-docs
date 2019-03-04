@@ -23,7 +23,7 @@ Once you have a version of Python installed, activate it using the **Python: Sel
 
 You configure the Python extension through settings. See the [Settings reference](/docs/python/settings-reference.md).
 
-## Run Python in the Terminal
+## Run Python code
 
 To experience Python, create a file (using the [File Explorer](/docs/getstarted/userinterface.md#explorer)) named `hello.py` and paste in the following code (assuming Python 3):
 
@@ -31,7 +31,7 @@ To experience Python, create a file (using the [File Explorer](/docs/getstarted/
 print("Hello World")
 ```
 
-The Python extension then provides shortcuts to run Python source code in the currently selected interpreter (**Python: Select Interpreter** in the Command Palette):
+The Python extension then provides shortcuts to run Python code in the currently selected interpreter (**Python: Select Interpreter** in the Command Palette):
 
 - In the text editor: right-click anywhere in the editor and select **Run Python File in Terminal**. If invoked on a selection, only that selection is run.
 - In Explorer: right-click a Python file and select **Run Python File in Terminal**.
@@ -104,7 +104,7 @@ If you open a [Jupyter notebook](http://jupyter.org/) file (`.ipynb`) in VS Code
 
 You can also connect to a remote Jupyter server for running the code.
 
-Furthermore, importing a notebook into VS Code allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and opening it again as a notebook in Jupyter or upload to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+Furthermore, importing a notebook into VS Code allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in Jupyter or upload to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
 
 For more information, see [Jupyter support](/docs/python/jupyter-support.md).
 

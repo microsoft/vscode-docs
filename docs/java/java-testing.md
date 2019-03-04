@@ -40,6 +40,10 @@ The JUnit 5 support also covers frequently used annotations such as `@DisplayNam
 
 Visit the [GitHub repository](https://github.com/Microsoft/vscode-java-test) of the [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) for more details on commands and settings.
 
+You can also view the Test Report and navigate to source from there.
+
+![Test Report](images/java-testing/report.gif)
+
 ## Next steps
 
 Read on to find out about:

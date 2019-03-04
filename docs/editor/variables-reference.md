@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 12/12/2018
+DateApproved: 2/6/2019
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
@@ -80,7 +80,7 @@ You can reference VS Code settings (aka "configurations") through **${config:Nam
 
 ## Command variables
 
-If the predefined variables from above are not sufficent, you can use any VS Code command as a variable through the **${command:commandID}** syntax.
+If the predefined variables from above are not sufficient, you can use any VS Code command as a variable through the **${command:commandID}** syntax.
 
 When a command variable is interpolated, the command is run and the variable is substituted by the command's (string) result. The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API.
 
@@ -101,11 +101,12 @@ An example for this functionality can be found in VS Code's Node.js debugger ext
 
 ## Input variables
 
-*Command variables* are already powerful but they lack a mechanism to configure the command being run to a specific use case. E.g. it is not possible to pass a *prompt message* or a *default value* to a generic "user input prompt".
+Command variables are already powerful but they lack a mechanism to configure the command being run to a specific use case. E.g. it is not possible to pass a *prompt message* or a *default value* to a generic "user input prompt".
 
 This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the "inputs" section of launch.json and tasks.json, where additional configuration attributes are specified.
 
-The following example shows the overall structure of a task.json that makes use of input variables:
+The following example shows the overall structure of a `task.json` that makes use of input variables:
+
 ```json
 {
     "version": "2.0.0",
@@ -127,8 +128,9 @@ The following example shows the overall structure of a task.json that makes use 
 ```
 
 Currently VS Code supports three types of input variables:
-- **promptString**: Shows a *quick input* to get a string from the user.
-- **pickString**: Shows a *quick pick* to let the user select from several options.
+
+- **promptString**: Shows an input box to get a string from the user.
+- **pickString**: Shows a Quick Pick dropdown to let the user select from several options.
 - **command**: Runs an arbitrary command.
 
 Each type requires additional configuration attributes:

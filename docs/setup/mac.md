@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
 PageTitle: Running Visual Studio Code on macOS
-DateApproved: 12/12/2018
+DateApproved: 2/6/2019
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
@@ -14,7 +14,7 @@ MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for macOS.
 2. Double-click on the downloaded archive to expand the contents.
 3. Drag `Visual Studio Code.app` to the `Applications` folder, making it available in the `Launchpad`.
-4. Add VS Code to your Dock by right-clicking on the icon and choosing `Options`, `Keep in Dock`.
+4. Add VS Code to your Dock by right-clicking on the icon to bring up the context menu and choosing **Options**, **Keep in Dock**.
 
 ## Launching from the command line
 
@@ -40,7 +40,7 @@ EOF
 
 Start a new terminal to pick up your `.bash_profile` changes.
 
-**Note**: The leading slash `\` is required to prevent `$PATH` from expanding during the concatenation. You should remove the leading slash if you want to run the export command directly in a terminal.
+**Note**: The leading slash `\` is required to prevent `$PATH` from expanding during the concatenation. Remove the leading slash if you want to run the export command directly in a terminal.
 
 ## Touch Bar support
 
@@ -50,7 +50,7 @@ Out of the box VS Code adds actions to navigate in editor history as well as the
 
 ## Mojave privacy protections
 
-After upgrading to macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave and is not specific to VS Code, you may see the dialogs when running other applications as well. You should see the dialog only once for each type of personal data and it is fine to choose **Don't Allow** since VS Code does not need access to those folders. You can read a more detailed explanation [here](https://discuss.atom.io/t/why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc).
+After upgrading to macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave and is not specific to VS Code. The same dialogs may be displayed when running other applications as well. The dialog is shown once for each type of personal data and it is fine to choose **Don't Allow** since VS Code does not need access to those folders. You can read a more detailed explanation [here](https://discuss.atom.io/t/why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc).
 
 ## Updates
 
@@ -60,13 +60,13 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 ## Preferences menu
 
-You can configure VS Code through [settings](/docs/getstarted/settings.md), [color themes](/docs/getstarted/themes.md) and [custom keybindings](/docs/getstarted/keybindings.md) and you will often see mention in our documentation of the **File** > **Preferences** menu group.  On a macOS, the **Preferences** menu group is under **Code**, not **File**.
+You can configure VS Code through [settings](/docs/getstarted/settings.md), [color themes](/docs/getstarted/themes.md), and [custom keybindings](/docs/getstarted/keybindings.md) and you will often see mention of the **File** > **Preferences** menu group.  On a macOS, the **Preferences** menu group is under **Code**, not **File**.
 
 ## Next steps
 
 Once you have installed VS Code, these topics will help you learn more about VS Code:
 
-* [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
+* [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript, and tools like Yeoman.
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation around VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences settings.
 

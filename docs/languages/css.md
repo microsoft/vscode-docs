@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, SCSS and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, SCSS, and Less support in Visual Studio Code
-DateApproved: 12/12/2018
+DateApproved: 2/6/2019
 MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less
@@ -234,7 +234,7 @@ gulp.task('sass', function(cb) {
 
 gulp.task('default', gulp.series('sass', function(cb) {
     gulp.watch('*.scss', gulp.series('sass'));
-    cb();    
+    cb();
 }));
 ```
 
@@ -254,7 +254,7 @@ gulp.task('less', function(cb) {
 
 gulp.task('default', gulp.series('less', function(cb) {
     gulp.watch('*.less', gulp.series('less'));
-    cb();    
+    cb();
 }));
 ```
 

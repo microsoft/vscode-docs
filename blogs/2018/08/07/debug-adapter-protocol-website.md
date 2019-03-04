@@ -92,7 +92,7 @@ These characteristics are similar to those of the Language Server Protocol publi
 
 Now we have followed suit for the Debug Adapter Protocol by moving the DAP specification from its [old location](https://github.com/Microsoft/vscode-debugadapter-node) to a new website [https://microsoft.github.io/debug-adapter-protocol](https://microsoft.github.io/debug-adapter-protocol/) and a corresponding repository [https://github.com/Microsoft/debug-adapter-protocol](https://github.com/Microsoft/debug-adapter-protocol).
 
-This move should emphasize that the Debug Adapter Protocol in not specific to Visual Studio Code. For example, Visual Studio is now also [supporting this protocol](https://blogs.msdn.microsoft.com/visualstudio/2018/03/26/adding-support-for-debug-adapters-to-visual-studio-ide/).
+This move should emphasize that the Debug Adapter Protocol in not specific to Visual Studio Code. For example, Visual Studio is now also [supporting this protocol](https://devblogs.microsoft.com/visualstudio/adding-support-for-debug-adapters-to-visual-studio-ide).
 
 In the new location we provide:
 

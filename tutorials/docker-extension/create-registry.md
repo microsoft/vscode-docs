@@ -14,7 +14,26 @@ You need a container registry to push your app image to once the image is built.
 
 [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) (ACR) is a private, secure, hosted registry for your images. ACR is used in this tutorial, however ACR uses all the same tools and processes as other registry options so the steps are consistent regardless.
 
-Follow this guide to [Setup an Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) and be sure to log into your registry from the Docker CLI.
+Create an Azure Container Registry by signing in to the [Azure portal](https://portal.azure.com) then selecting **Create a resource** > **Containers** > **Container Registry**.
+
+![Dashboard](images/docker-extension/qs-portal-01.png)
+
+Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. For this tutorial select **'Basic'** for the **SKU**. Select **Create** to deploy the ACR instance.
+
+![Creation](images/docker-extension/qs-portal-03.png)
+
+Once the Registry is created, click **Access Keys** from the left menu and **Enable** the Admin User option.
+
+![Creation](images/docker-extension/auth-portal-01.png)
+
+With the admin user account enabled, log into your registry from the Docker CLI using the following command.
+
+```bash
+$ docker login <registryname>.azurecr.io  # Copy from "Login Server"
+Username:   # Copy from "Username"
+Password:   # Copy from "Password"
+Login Succeeded
+```
 
 ## Using Docker Hub
 

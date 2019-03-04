@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 12/12/2018
+DateApproved: 2/6/2019
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/Languages_typescript.png
 ---
@@ -97,9 +97,9 @@ If you choose one of the suggestions from another file or module, VS Code will a
 
 ![After selecting a symbol from a different file, an import is added for it automatically](images/typescript/auto-import-post.png)
 
-The Auto imports feature requires TypeScript 2.6+ and is enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
+You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
 
-## Formating
+## Formatting
 
 VS Code includes a TypeScript formatter that providers basic code formatting with reasonable defaults.
 
@@ -170,7 +170,7 @@ When you move your cursor on to a TypeScript error, VS Code shows a lightbulb th
 
 ## Unused variables and unreachable code
 
-Unused TypeScript code—such the else block of an `if` statement that is always true or an unreferenced import—is faded out in the editor:
+Unused TypeScript code, such the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
 
 ![Unreachable source code faded out](images/typescript/unreachable.png)
 
@@ -265,7 +265,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can 
 
 [Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/editor/extension-gallery.md) available in the marketplace.
 
-[TS Lint](https://github.com/palantir/tslint) is a popular TypeScript linter. The [TS Lint extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) integrates TS Lint into VS Code so you can see linting errors right in the editor and even quickly many of fix them with [quick fixes](#quick-fixes).
+[TSLint](https://github.com/palantir/tslint) is a popular TypeScript linter. The [TSLint extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) integrates TSLint into VS Code so you can see linting errors right in the editor and even quickly many of fix them with [quick fixes](#quick-fixes).
 
 ## TypeScript extensions
 
