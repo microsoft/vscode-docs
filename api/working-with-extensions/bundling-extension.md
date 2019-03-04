@@ -104,6 +104,29 @@ The `compile` and `watch` scripts are for development and they produce the bundl
 
 Before you can run the extension, the `main` property in `package.json` must point to the bundle, which for the configuration above is [`"./dist/extension"`](https://github.com/Microsoft/vscode-references-view/blob/d649d01d369e338bbe70c86e03f28269cbf87027/package.json#L26). With that change, the extension can now be executed and tested. For debugging configuration, make sure to update the `outFiles` property in the `launch.json` file.
 
+## Tests
+
+Often extensions have unit-tests. With webpack and correct layering, in which sources don't depend on tests, that means that the produced bundle doesn't contain any test code. That's good because tests shouldn't be shipped to extension users. To run tests a simple compile is suffienct, in the sample a `test-compile`-script exists. It invokes the TypeScript-compiler which compiles into the `out` folder. That and the following snippet for the `launch.json` is enough to run tests.
+
+```json
+{
+    "name": "Extension Tests",
+    "type": "extensionHost",
+    "request": "launch",
+    "runtimeExecutable": "${execPath}",
+    "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/out/test"
+    ],
+    "outFiles": [
+        "${workspaceFolder}/out/test/**/*.js"
+    ],
+    "preLaunchTask": "npm: test-compile"
+}
+```
+
+This way of running tests is just like it is for non-webpacked extensions. There is no strong reason to webpack tests as separate bundle because they aren't part of the published portion of an extension.
+
 ## Publishing
 
 Before publishing, you should update the `.vscodeignore` file. Everything that's now bundled into the `dist/extension.js` file can be excluded, usually the `out` folder (in case you didn't delete it yet) and most importantly, the `node_modules` folder.
