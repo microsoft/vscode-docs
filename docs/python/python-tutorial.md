@@ -258,7 +258,7 @@ python -m pip install matplotlib
 
 # Linux (Debian)
 sudo apt-get install python3-tk
-python -m pip install matplotlib
+python3 -m pip install matplotlib
 ```
 
 Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
