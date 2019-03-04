@@ -206,6 +206,10 @@ If set to `true`, enables debugging of [gevent monkey-patched code](http://www.g
 
 In your Python code, you can call `breakpoint()` at any point where you want to pause the debugger during a debugging session.
 
+## Breakpoint validation
+
+The Python extension automatically detects breakpoints that are set on non-executable lines, such as `pass` statements or the middle of a multiline statement. In such cases, running the debugger moves the breakpoint to nearest valid line to ensure that code execution stops at that point.
+
 ## Attach to a local script
 
 In some scenarios, you need to debug a Python script that's invoked locally by another process. For example, you may be debugging a web server that runs different Python scripts for specific processing jobs. In such cases, you need to attach the VS Code debugger to the script once it's been launched:
