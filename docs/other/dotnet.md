@@ -19,7 +19,7 @@ MetaTags:
 
 Install the following:
 
-- [.NET Core](https://microsoft.com/net/core).
+- [.NET Core](https://dotnet.microsoft.com/download).
 - The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
 
 ## Create a "Hello World" app
