@@ -96,7 +96,7 @@ You can bulk generate getters and setters for all new member variables.
 
 [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) also provides [formatting settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings). You can export an Eclipse formatter file and then use it for your project in VS Code.
 
-In addition, there's a [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension, which you can use with either existing `checkstyle` configurations or your own customized files.
+In addition, there's a [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension, which you can use with either existing `checkstyle` configurations (Google's or Sun's Check) or your own customized files. When opening or saving a Java file, the extension will check the file format and provide quick fixes if possible.
 
 ![Checkstyle](images/java-editing/checkstyle.gif)
 
