@@ -132,7 +132,7 @@ After a few moments, the command creates a `launch.json` file that contains a nu
 
 These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python: Current File (Integrated Terminal)**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
->> **WARNING**: Due to a [current bug in the debugger](https://github.com/Microsoft/vscode-python/issues/4223), the `stopOnEntry` setting that's discussed in the following paragraphs may not work for you. As a workaround, set a breakpoint on the first line and do **not** add `stopOnEntry` to the configuration.
+>> **WARNING**: Due to a [current bug in the debugger](https://github.com/Microsoft/vscode-python/issues/4223), the following discussion of the `stopOnEntry` setting doesn't work and causes the debugger to fail to start. Instead, set a breakpoint on the first line and do **not** add `stopOnEntry` to the configuration.
 >
 > Affected paragraphs:
 >
@@ -153,7 +153,7 @@ These different configurations are fully explained in [Debugging configurations]
 
 > **Tip:** If you need to specify the exact folder containing the interpreter to use for debugging, include an entry for `pythonPath` in the configuration, such as `"pythonPath": "${workspaceFolder}"` or `"pythonPath": "${workspaceFolder}/.venv"`.
 
-Switch to `hello.py` in the editor, then run the debugger by selecting the arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. The debugger stops at the first line of the file breakpoint (or the first line if `stopOnEntry` is set to true). The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
+Switch to `hello.py` in the editor, then run the debugger by selecting the arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. The debugger stops at the first line of the file breakpoint (or the first line if `stopOnEntry` is set to true). The current line is indicated with a yellow arrow in the left margin. If you're stopped on the first line and examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
 
 ![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
 
