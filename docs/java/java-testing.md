@@ -17,12 +17,16 @@ Testing Java in Visual Studio Code is enabled by the [Java Test Runner](https://
 - JUnit 5 (v5.1.0+)
 - TestNG (v6.8.0+)
 
+>**Note**: More information about the test frameworks could be found at [JUnit](https://junit.org/) and [TestNG](https://testng.org/).
+
 The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) works with the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extensions to provide the following features:
 
 - Run test cases
 - Debug test cases
 - View test report
 - View tests in Test Explorer
+
+Once the test runner is activated, you will find **Run|Debug** on the CodeLens of your test functions. Easily click that will run the individual test cases. You can also access and run a gropu of test cases from Test Explorer. Refer to [Debugging](/docs/java/java-debugging.md) for more details regarding debugging your test cases.
 
 Here's a brief session with TestNG:
 
