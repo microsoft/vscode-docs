@@ -82,7 +82,7 @@ In the sample above, the following are defined:
 * The entry point webpack should use. This is similar to the `main` property in `package.json` except that you provide webpack with a "source" entry point, usually `src/extension.ts`, and not an "output" entry point. The webpack bundler understands TypeScript, so a separate TypeScript compile step is redundant.
 * The `output` configuration tells webpack where to place the generated bundle file. By convention, that is the `dist` folder. In this sample, webpack will produce a `dist/extension.js` file.
 * The `resolve` and `module/rules` configurations are there to support TypeScript and JavaScript input files.
-* The `externals` configuration is used to declare exclusions, for example files and modules that should not be included in the bundle. The `vscode` module should not be bundled because it doesn't exists on disk but is created by VS Code on-the-fly when required. Depending on the node modules that an extension uses, more exclusion may be necessary.
+* The `externals` configuration is used to declare exclusions, for example files and modules that should not be included in the bundle. The `vscode` module should not be bundled because it doesn't exist on disk but is created by VS Code on-the-fly when required. Depending on the node modules that an extension uses, more exclusion may be necessary.
 
 ## Run webpack
 
@@ -106,7 +106,7 @@ Before you can run the extension, the `main` property in `package.json` must poi
 
 ## Tests
 
-Often extensions have unit-tests. With webpack and correct layering, in which sources don't depend on tests, that means that the produced bundle doesn't contain any test code. That's good because tests shouldn't be shipped to extension users. To run tests a simple compile is suffienct, in the sample a `test-compile`-script exists. It invokes the TypeScript-compiler which compiles into the `out` folder. That and the following snippet for the `launch.json` is enough to run tests.
+Extension authors often write unit tests for their extension source code. With the correct architectural layering, where the extension source code doesn't depend on tests, the webpack produced bundle shouldn't contain any test code. To run unit tests, only a simple compile is necessary. In the sample, there is a `test-compile` script, which uses the TypeScript compiler to compile the extension into the `out` folder. With that intermediate JavaScript available, the following snippet for `launch.json` is enough to run tests.
 
 ```json
 {
@@ -125,7 +125,7 @@ Often extensions have unit-tests. With webpack and correct layering, in which so
 }
 ```
 
-This way of running tests is just like it is for non-webpacked extensions. There is no strong reason to webpack tests as separate bundle because they aren't part of the published portion of an extension.
+This configuration for running tests is the same for non-webpacked extensions. There is no reason to webpack unit tests because they are not part of the published portion of an extension.
 
 ## Publishing
 
@@ -144,7 +144,7 @@ webpack.config.json
 
 ## Migrate an existing extension
 
-Migrating an existing extension to use webpack is easy and very similar to the getting started guide above. A real world sample that adopted webpack is the VS Code's References view through this [pull request](https://github.com/Microsoft/vscode-references-view/pull/50).
+Migrating an existing extension to use webpack is easy and similar to the getting started guide above. A real world sample that adopted webpack is the VS Code's References view through this [pull request](https://github.com/Microsoft/vscode-references-view/pull/50).
 
 There you can see:
 
