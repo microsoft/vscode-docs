@@ -132,22 +132,28 @@ After a few moments, the command creates a `launch.json` file that contains a nu
 
 These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python: Current File (Integrated Terminal)**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
-To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
-
-```json
-{
-    "name": "Python: Current File (Integrated Terminal)",
-    "type": "python",
-    "request": "launch",
-    "program": "${file}",
-    "console": "integratedTerminal",
-    "stopOnEntry": true
-},
-```
+>> **WARNING**: Due to a [current bug in the debugger](https://github.com/Microsoft/vscode-python/issues/4223), the following discussion of the `stopOnEntry` setting doesn't work and causes the debugger to fail to start. Instead, set a breakpoint on the first line and do **not** add `stopOnEntry` to the configuration.
+>
+> Affected paragraphs:
+>
+> To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
+>
+> ```json
+> {
+>     "name": "Python: Current File (Integrated Terminal)",
+>     "type": "python",
+>     "request": "launch",
+>     "program": "${file}",
+>     "console": "integratedTerminal",
+>     "stopOnEntry": true
+> },
+> ```
+>
+> Save `launch.json` after making changes.
 
 > **Tip:** If you need to specify the exact folder containing the interpreter to use for debugging, include an entry for `pythonPath` in the configuration, such as `"pythonPath": "${workspaceFolder}"` or `"pythonPath": "${workspaceFolder}/.venv"`.
 
-Save `launch.json`, switch to `hello.py` in the editor, then run the debugger by selecting the arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. Because `stopOnEntry` is set to true, the debugger stops on the first line of the file. The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
+Switch to `hello.py` in the editor, then run the debugger by selecting the arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. The debugger stops at the first line of the file breakpoint (or the first line if `stopOnEntry` is set to true). The current line is indicated with a yellow arrow in the left margin. If you're stopped on the first line and examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
 
 ![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
 
@@ -173,7 +179,7 @@ msg.split()
 
 Select the green arrow again to run the program to completion. "Hello World" appears in the **Python Debug Console** if you switch back to it, and VS Code exits debugging mode once the program is complete.
 
-If you restart the debugger, remember that you set `stopOnEntry` in the configuration so that the debugger stops before running any code. To run all the way to the first breakpoint, remove that entry from the configuration.
+If you restart the debugger, the debugger again stops on the first breakpoint, (or the first line is `stopOnEntry` is set to true, in which case the debugger stops before any code is run.)
 
 To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Debug > Stop debugging** menu command.
 
