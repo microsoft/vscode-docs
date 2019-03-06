@@ -37,8 +37,8 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
 
 ```json
 "python.autoComplete.extraPaths": [
-    "C:/Program Files (x86)/Google/google_appengine"
-    "C:/Program Files (x86)/Google/google_appengine/lib/flask-0.12", ]
+    "C:/Program Files (x86)/Google/google_appengine",
+    "C:/Program Files (x86)/Google/google_appengine/lib/flask-0.12"]
 ```
 
 **macOS/Linux:**
