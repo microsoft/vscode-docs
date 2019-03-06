@@ -31,7 +31,7 @@ You can also customize the general behavior of autocomplete and IntelliSense, ev
 
 ### Enable IntelliSense for custom package locations
 
-To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). For example, you might have installed Google App Engine installed in custom locations, specified in `app.yaml` you use Flask. In this case you'd specify those locations as follows:
+To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). For example, you might have installed Google App Engine installed in custom locations, specified in `app.yaml` if you use Flask. In this case you'd specify those locations as follows:
 
 **Windows:**
 
