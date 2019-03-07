@@ -46,7 +46,7 @@ The Python extension supports code completion and IntelliSense using the current
 
 IntelliSense quickly shows methods, class members, and documentation as you type, and you can trigger completions at any time with `kb(editor.action.triggerSuggest)`. You can also hover over identifiers for more information about them.
 
-![IntelliSense and autocomplete for Python code](images/editing/python-editing.gif)
+![IntelliSense and autocomplete for Python code](images/python/python-editing.gif)
 
 > **Tip**: Check out the [IntelliCode extension for VS Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context.
 
