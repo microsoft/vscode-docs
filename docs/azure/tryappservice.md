@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 7
 Area: azure
 TOCTitle: Try Azure App Service
 ContentId: d99d21e4-f799-48ba-a7bc-58953d71c39d
