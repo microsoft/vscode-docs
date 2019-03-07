@@ -119,7 +119,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 1. `kbstyle(Ctrl+click)` the `http://127.0.0.1:8000/` URL in the terminal output window to open your default browser to that address. If Django is installed correctly and the project is valid, you see the default page shown below. The VS Code terminal output window also shows the server log.
 
-    ![Django tutorial: default view of empty Django project](images/djanto-tutorial/django-empty-project-success.png)
+    ![Django tutorial: default view of empty Django project](images/django-tutorial/django-empty-project-success.png)
 
 1. When you're done, close the browser window and stop the server in VS Code using `kbstyle(Ctrl+C)` as indicated in the terminal output window.
 
@@ -168,7 +168,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 1. In the VS Code Terminal, again with the virtual environment activated, run the development server with `python manage.py runserver` and open a browser to  `http://127.0.0.1:8000/` to see a page that renders "Hello, Django".
 
-    ![Django tutorial: the basic Django app running in a browser](images/djanto-tutorial/app-in-browser-01.png)
+    ![Django tutorial: the basic Django app running in a browser](images/django-tutorial/app-in-browser-01.png)
 
 ## Create a debugger launch profile
 
@@ -204,11 +204,11 @@ You're probably already wondering if there's an easier way to run the server and
 
 1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration drop-down list (which reads **Python: Current File**) select the **Python: Django** configuration:
 
-    ![Django tutorial: selecting the Django debugging configuration](images/djanto-tutorial/debug-select-configuration.png)
+    ![Django tutorial: selecting the Django debugging configuration](images/django-tutorial/debug-select-configuration.png)
 
 1. Test the configuration by selecting the **Debug** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
 
-    ![Django tutorial: start debugging/continue arrow on the debug toolbar](images/djanto-tutorial/debug-continue-arrow.png)
+    ![Django tutorial: start debugging/continue arrow on the debug toolbar](images/django-tutorial/debug-continue-arrow.png)
 
 1. `kbstyle(Ctrl+click)` the `http://127.0.0.1:8000/` URL in the terminal output window to open the browser and see that the app is running properly.
 
@@ -268,15 +268,15 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     The breakpoint appears as a red dot in the left margin:
 
-    ![Django tutorial: a breakpoint set on the first line of the hello_there function](images/djanto-tutorial/debug-breakpoint-set.png)
+    ![Django tutorial: a breakpoint set on the first line of the hello_there function](images/django-tutorial/debug-breakpoint-set.png)
 
 1. Start the debugger by selecting the **Debug** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
 
-    ![Django tutorial: start debugging/continue arrow on the debug toolbar](images/djanto-tutorial/debug-continue-arrow.png)
+    ![Django tutorial: start debugging/continue arrow on the debug toolbar](images/django-tutorial/debug-continue-arrow.png)
 
     Observe that the status bar changes color to indicate debugging:
 
-    ![Django tutorial: appearance of the debugging status bar](images/djanto-tutorial/debug-status-bar.png)
+    ![Django tutorial: appearance of the debugging status bar](images/django-tutorial/debug-status-bar.png)
 
     A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
 
@@ -284,13 +284,13 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Output appears in a "Python Debug Console" terminal. Open a browser and navigate to `http://127.0.0.1:8000/hello/VSCode`. Before the page renders, VS Code pauses the program at the breakpoint you set. The small yellow arrow on the breakpoint indicates that it's the next line of code to run.
 
-    ![Django tutorial: VS Code paused at a breakpoint](images/djanto-tutorial/debug-program-paused.png)
+    ![Django tutorial: VS Code paused at a breakpoint](images/django-tutorial/debug-program-paused.png)
 
 1. Use Step Over to run the `now = datetime.now()` statement.
 
 1. On the left side of the VS Code window, you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [VS Code debugging](/docs/editor/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb(debug.setVariable)`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes only to correct values when the code didn't produce the right value to begin with.
 
-    ![Django tutorial: local variables and arguments in VS Code during debugging](images/djanto-tutorial/debug-local-variables.png)
+    ![Django tutorial: local variables and arguments in VS Code during debugging](images/django-tutorial/debug-local-variables.png)
 
 1. When a program is paused, the **Debug Console** panel (which is different from the "Python Debug Console" in the Terminal panel) lets you experiment with expressions and try out bits of code using the current state of the program. For example, once you've stepped over the line `now = datetime.now()`, you might experiment with different date/time formats. In the editor, select the code that reads `now.strftime("%A, %d %B, %Y at %X")`, then right-click and select **Debug: Evaluate** to send that code to the debug console, where it runs:
 
@@ -316,7 +316,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
 
-    ![Django tutorial: result of the modified program](images/djanto-tutorial/debug-run-result.png)
+    ![Django tutorial: result of the modified program](images/django-tutorial/debug-run-result.png)
 
 1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Debug** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
 
@@ -330,7 +330,7 @@ During your work with Django or any other library, you may want to examine the c
 
 - **Peek Definition** (`kb(editor.action.peekDefinition)`, also on the right-click context menu), is similar, but displays the class definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `kbstyle(Escape)` to close the Peek window or use the **x** in the upper right corner.
 
-    ![Django tutorial: Peek Definition showing the Flask class inline](images/djanto-tutorial/peek-definition.png)
+    ![Django tutorial: Peek Definition showing the Flask class inline](images/django-tutorial/peek-definition.png)
 
 ## Use a template to render a page
 
@@ -611,11 +611,11 @@ With the code snippet in place, you can quickly create templates for the Home, A
 
 1. In the `templates/hello` folder, create a new file named `home.html`, Then start typing `djext` to see the snippet appear as a completion:
 
-    ![Django tutorial: autocompletion for the djextlayout code snippet](images/djanto-tutorial/autocomplete-for-code-snippet.png)
+    ![Django tutorial: autocompletion for the djextlayout code snippet](images/django-tutorial/autocomplete-for-code-snippet.png)
 
     When you select the completion, the snippet's code appears with the cursor on the snippet's insertion point:
 
-    ![Django tutorial: insertion of the djextlayout code snippet](images/djanto-tutorial/code-snippet-inserted.png)
+    ![Django tutorial: insertion of the djextlayout code snippet](images/django-tutorial/code-snippet-inserted.png)
 
 1. At the insertion point in the "title" block, write `Home`, and in the "content" block, write `<p>Home page for the Visual Studio Code Django tutorial.</p>`, then save the file. These lines are the only unique parts of the extended page template:
 
@@ -648,7 +648,7 @@ With the code snippet in place, you can quickly create templates for the Home, A
 
 With all the page templates in place, save `views.py`, run the app, and open a browser to the home page to see the results. Navigate between the pages to verify that the page templates are properly extending the base template.
 
-![Django tutorial: app rendering a common nav bar from the base template](images/djanto-tutorial/full-app.png)
+![Django tutorial: app rendering a common nav bar from the base template](images/django-tutorial/full-app.png)
 
 ## Work with data, data models, and migrations
 
@@ -788,7 +788,7 @@ With your models in place and the database migrated, you can store and retrieve 
 
 1. Run the app and open a browser to the home page. Select the **Log Message** link on the nav bar, which should display the message logging page:
 
-    ![Django tutorial: the message logging page added to the app](images/djanto-tutorial/message-logging-page.png)
+    ![Django tutorial: the message logging page added to the app](images/django-tutorial/message-logging-page.png)
 
 1. Enter a message, select **Log**, and you should be taken back to the home page. The home page doesn't yet show any of the logged messages yet (which you remedy in a moment). Feel free to log a few more messages as well. If you want, peek in the database using a tool like SQLite Browser to see that records have been created. Open the database as read-only, or otherwise remember to close the database before using the app, otherwise the app will fail because the database is locked.
 
@@ -885,7 +885,7 @@ With your models in place and the database migrated, you can store and retrieve 
 
 1. Start the app and open a browser to the home page, which should now display messages:
 
-    ![Django tutorial: app home page displaying message from the database](images/djanto-tutorial/app-with-message-list.png)
+    ![Django tutorial: app home page displaying message from the database](images/django-tutorial/app-with-message-list.png)
 
 1. Stop the app when you're done.
 
@@ -897,11 +897,11 @@ Fortunately, the Python Extension for VS Code provides template debugging when y
 
 1. In `templates/hello/home.html`, set breakpoints on both the `{% if message_list %}` and `{% for message in message_list %}` lines, as indicated by the yellow arrows in the image below:
 
-    ![Django tutorial: breakpoints set in a Django page template](images/djanto-tutorial/template-breakpoints.png)
+    ![Django tutorial: breakpoints set in a Django page template](images/django-tutorial/template-breakpoints.png)
 
 1. Run the app in the debugger and open a browser to the home page. (If you're already running the debugger, you don't have to restart the app after setting breakpoints; just refresh the page.) Observe that VS Code breaks into the debugger in the template on the `{% if %}` statement and shows all the context variables in the **Variables** pane:
 
-    ![Django tutorial: debugger stopped at breakpoints in the page template](images/djanto-tutorial/template-debugger.png)
+    ![Django tutorial: debugger stopped at breakpoints in the page template](images/django-tutorial/template-debugger.png)
 
 1. Use the Step Over (`kb(workbench.action.debug.stepOver)`) command to step through the template code. Observe that the debugger steps over all declarative statements and pauses at any procedural code. For example, stepping through the `{% for message in message_list %}` loops lets you examine each value in `message` and lets you step to lines like `<td>\{{ message.log_date | date:'d M Y' }}</td>`.
 
@@ -950,11 +950,11 @@ Perform the following steps to enable the administrative interface:
 
 1. A login page appears, courtesy of `django.contrib.auth`. Enter your superuser credentials.
 
-    ![Django tutorial: default Django login prompt](images/djanto-tutorial/login-prompt.png)
+    ![Django tutorial: default Django login prompt](images/django-tutorial/login-prompt.png)
 
 1. Once you're authenticated, you see the default administration page, through which you can manage users and groups:
 
-    ![Django tutorial: the default Django administrative interface](images/djanto-tutorial/default-admin-interface.png)
+    ![Django tutorial: the default Django administrative interface](images/django-tutorial/default-admin-interface.png)
 
 You can customize the administrative interface as much as you like. For example, you could provide capabilities to edit and remove entries in the database. For more information on making customizations, refer to the [Django admin site documentation](https://docs.djangoproject.com/en/2.1/ref/contrib/admin/).
 
