@@ -31,14 +31,14 @@ You can also customize the general behavior of autocomplete and IntelliSense, ev
 
 ### Enable IntelliSense for custom package locations
 
-To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). For example, you might have installed Google App Engine installed in custom locations, in which case you'd specify those locations as follows:
+To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). For example, you might have installed Google App Engine installed in custom locations, specified in `app.yaml` if you use Flask. In this case you'd specify those locations as follows:
 
 **Windows:**
 
 ```json
 "python.autoComplete.extraPaths": [
     "C:/Program Files (x86)/Google/google_appengine",
-    "C:/Program Files (x86)/Google/google_appengine/lib" ]
+    "C:/Program Files (x86)/Google/google_appengine/lib/flask-0.12"]
 ```
 
 **macOS/Linux:**
@@ -46,7 +46,7 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
 ```json
 "python.autoComplete.extraPaths": [
     "~/.local/lib/Google/google_appengine",
-    "~/.local/lib/Google/google_appengine/lib" ]
+    "~/.local/lib/Google/google_appengine/lib/flask-0.12" ]
 ```
 
 The `python.autocomplete.addBrackets` setting (default `false`) also determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to `true`:
