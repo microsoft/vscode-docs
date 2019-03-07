@@ -4,11 +4,11 @@ Area: python
 TOCTitle: Unit Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Unit Testing Python in Visual Studio Code
-DateApproved: 02/19/2019
-MetaDescription: Unit Testing Python in Visual Studio Code
+DateApproved: 03/07/2019
+MetaDescription: Unit Testing Python in Visual Studio Code including the Test Explorer
 MetaSocialImage: images/tutorial/social.png
 ---
-# Python unit tests in Visual Studio Code
+# Python unit testing in Visual Studio Code
 
 The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/). [Nose](https://nose.readthedocs.io/en/latest/) is also supported, although the framework itself is in maintenance mode.
 
@@ -175,22 +175,25 @@ Test discovery applies the discovery patterns for the current framework (which c
 
 > **Tip**: Sometimes unit tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, create an empty file named `__init__.py` in that folder.
 
+If discovery succeeds, the status bar shows **Run Tests** instead:
+
+![Status bar showing successful test discovery failed](images/unit-testing/discovery-succeeded-status-bar.png)
+
+If discovery fails (for example, the test framework isn't installed), you see a notification on the status bar. Selecting the notification provides more information:
+
+![Status bar showing that test discovery failed](images/unit-testing/discovery-failed-status-bar.png)
+
 Once VS Code recognizes tests, it provides several ways to run those tests as described in [Run tests](#run-tests). The most obvious means are CodeLens adornments that appear directly in the editor and allow you to easily run a single test method or, with unittest, a test class:
 
 ![Test adornments that appear in the VS Code editor for unittest code](images/unit-testing/editor-adornments-unittest.png)
 
 ![Test adornments that appear in the VS Code editor for pytest code](images/unit-testing/editor-adornments-pytest.png)
 
-
 > **Note**: At present, the Python extension doesn't provide a setting to turn the adornments on or off. To suggest a different behavior, file an issue on the [vscode-python repository](https://github.com/Microsoft/vscode-python/issues).
 
-If discovery fails (for example, the test framework isn't installed), you see a notification on the status bar. Selecting the notification provides more information:
+For Python, test discovery also activates the **Test Explorer** with an icon on the VS Code activity bar. The **Test Explorer** helps you visualize, navigate, and run unit tests:
 
-![Status bar showing that test discovery failed](images/unit-testing/discovery-failed-status-bar.png)
-
-If discovery succeeds, the status bar shows **Run Tests** instead:
-
-![Status bar showing successful test discovery failed](images/unit-testing/discovery-succeeded-status-bar.png)
+![The VS Code Test Explorer for Python unit tests](images/unit-testing/test-explorer.png)
 
 ## Run tests
 
@@ -205,6 +208,16 @@ You run tests using any of the following actions:
     then select one of the commands like **Run All Unit Tests** or **Run Failed Unit Tests**:
 
     ![Test commands that appear after using the Run Tests status bar command](images/unit-testing/run-test-commands.png)
+
+- In **Test Explorer**:
+
+  - To run all discovered tests, select the play button at the top of **Test Explorer**:
+
+      ![Running all tests through Test Explorer](images/unit-testing/test-explorer-run-all-tests.png)
+
+  - To run a specific group of tests, or a single test, select the file, class, or test, then select the play button to the right of that item:
+
+      ![Running tests at specific scopes through Test Explorer](images/unit-testing/test-explorer-run-scoped-tests.png)
 
 - Right-click a file in Explorer and select **Run All Unit Tests**, which runs the tests in that one file.
 
@@ -223,11 +236,9 @@ You run tests using any of the following actions:
     | Run Unit Test Method | Prompts for the name of a test to run, providing auto-completion for test names. |
     | Show Unit Test Output | Opens the Python Test Log panel with information about passing and failing tests, as well as errors and skipped tests. |
 
-After a test run, VS Code displays results directly with the CodeLens adornments in the editor. Here, you can see that that one test passed and one failed. In the case of unittest, you can also see that the test class as a whole failed because at least one of its tests failed. In the case of pytest, failed tests are also adorned with a red underline.
+After a test run, VS Code displays results directly with the CodeLens adornments in the editor and in **Test Explorer**. Results are shown both for individual tests as well as any classes and files containing those tests. Failed tests are also adorned in the editor with a red underline.
 
-![Test result adornments on a unittest class](images/unit-testing/result-adornments-unittest.png)
-
-![Test result adornments on pytest methods](images/unit-testing/result-adornments-pytest.png)
+![Test results on a unittest class and in Test Explorer](images/unit-testing/test-results.png)
 
 VS Code also shows test results in the **Python Test Log** output panel (use the **View** > **Output** menu command to show the **Output** panel, then select **Python Test Log** from the drop-down on the right side):
 
@@ -245,7 +256,7 @@ For example, the `test_decrement` functions given earlier are failing because th
 
 1. Set a breakpoint on first the line in the `test_decrement` function.
 
-1. Select the **Debug Test** adornment above that function. VS Code starts the debugger and pauses at the breakpoint.
+1. Select the **Debug Test** adornment above that function or the "bug" icon for that test in **Test Explorer**. VS Code starts the debugger and pauses at the breakpoint.
 
 1. In the **Debug Console** panel, enter `inc_dec.decrement(3)` to see that the actual result is 2, whereas the expected result specified in the test is the incorrect value of 4.
 
@@ -263,7 +274,7 @@ For example, the `test_decrement` functions given earlier are failing because th
 
     > **Note**: running or debugging a unit test does not automatically save the test file. Always be sure to save changes to a test before running it, otherwise you'll likely be confused by the results because they still reflect the previous version of the file!
 
-The **Python: Debug All Tests** and **Python: Debug Unit Test Method** commands (on both the Command Palette and Status Bar menu) launch the debugger for all tests and a single test method, respectively.
+The **Python: Debug All Tests** and **Python: Debug Unit Test Method** commands (on both the Command Palette and Status Bar menu) launch the debugger for all tests and a single test method, respectively. You can also use the "bug" icons in **Test Explorer** to launch the debugger for all tests in a selected scope as well as all discovered tests.
 
 The debugger works the same for unit tests as for other Python code, including breakpoints, variable inspection, and so on. For more information, see [Python debugging configurations](/docs/python/debugging.md) and the general VS Code [Debugging](/docs/editor/debugging.md) article.
 
