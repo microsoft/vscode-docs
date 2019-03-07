@@ -77,6 +77,8 @@ You can find the VS Code licenses, third party notices and [Chromium](https://ww
 
 To learn why Visual Studio Code, the product, has a different license than vscode, the open source [GitHub repository](https://github.com/microsoft/vscode), see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
 
+If you are not satisified by the above explanation.
+
 ## Can I run prerelease versions of VS Code?
 
 Want an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build is updated nightly so you'll get the latest bug fixes and feature updates from the day before.
