@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python in Visual Studio Code
-DateApproved: 11/07/2018
+DateApproved: 03/07/2019
 MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, snippets, linting).
 ---
 # Python in Visual Studio Code
@@ -46,7 +46,7 @@ The Python extension supports code completion and IntelliSense using the current
 
 IntelliSense quickly shows methods, class members, and documentation as you type, and you can trigger completions at any time with `kb(editor.action.triggerSuggest)`. You can also hover over identifiers for more information about them.
 
-![IntelliSense and autocomplete for Python code](images/editing/vscode/python-editing.gif)
+![IntelliSense and autocomplete for Python code](images/editing/python-editing.gif)
 
 > **Tip**: Check out the [IntelliCode extension for VS Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context.
 
@@ -139,4 +139,3 @@ The extensions shown above are dynamically queried. Click on an extension tile a
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 - [Django tutorial](/docs/python/tutorial-django.md)
 - [Flask tutorial](/docs/python/tutorial-flask.md)
-
