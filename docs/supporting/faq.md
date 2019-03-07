@@ -71,16 +71,17 @@ Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep
 
 ### Location
 
+Assuming you agreed to the EULA(https://code.visualstudio.com/license). And installed or downloaded Visual Studio Code.
+
 You can find the VS Code licenses, third party notices and [Chromium](https://www.chromium.org) Open Source credit list under your VS Code installation location `resources\app` folder. VS Code's `ThirdPartyNotices.txt`, Chromium's `Credits_*.html`, and VS Code's English language `LICENSE.txt` are available under `resources\app`. Localized versions of `LICENSE.txt` by Language ID are under `resources\app\licenses`.
 
 ### Why does Visual Studio Code have a different license than the vscode GitHub repository?
 
 ~~To learn why Visual Studio Code, the product, has a different license than vscode, the open source [GitHub repository](https://github.com/microsoft/vscode), see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.~~
 
-See [issue #60](https://github.com/Microsoft/vscode/issues/60) for reference.
-TL;DR for issue #60:- We started out with this model, thought it would be open-source friendly.
+See [issue #60](https://github.com/Microsoft/vscode/issues/60) for reference. **TL;DR - We started out with this model, thought it would be open-source friendly.**
 
-Note:- We agree that in hindsight, that was slightly misleading. Visual Studio Code, the product can be licensed like Atom, a similar product; but is not. **Don't worry. We are dedicated to resolving this issue as soon as possible.**
+Note:- We agree that in hindsight, that was slightly misleading. Visual Studio Code, the product can be licensed like Atom, a similar product; but is not. **We are dedicated to resolving this as soon as possible.**
 
 ## Can I run prerelease versions of VS Code?
 
