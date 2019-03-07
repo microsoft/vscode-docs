@@ -81,7 +81,7 @@ You can find the VS Code licenses, third party notices and [Chromium](https://ww
 
 See [issue #60](https://github.com/Microsoft/vscode/issues/60) for reference. **TL;DR - We started out with this model, thought it would be open-source friendly.**
 
-Note:- We agree that in hindsight, that was slightly misleading. Visual Studio Code, the product can be licensed like Atom, a similar product; but is not. **We are dedicated to resolving this as soon as possible.**
+We agree that in hindsight this weird model was misleading. Visual Studio Code, the product can be like Atom; but is not. **We are dedicated to resolving this as soon as possible.**
 
 ## Can I run prerelease versions of VS Code?
 
