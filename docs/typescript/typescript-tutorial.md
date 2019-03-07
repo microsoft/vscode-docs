@@ -164,6 +164,7 @@ This tutorial was a quick introduction to using VS Code for TypeScript developme
 
 * [Compiling TypeScript](/docs/typescript/typescript-compiling.md) - Use VS Code's powerful task system for compiling TypeScript.
 * [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Configure the debugger for your TypeScript project.
+* [Learning Node.js e-book](https://azure.microsoft.com/resources/learning-node-js-development/) - Learn the fundamentals of Node.js, from setup to deploying apps in the cloud.
 
 ## Common questions
 

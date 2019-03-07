@@ -204,3 +204,4 @@ There is much more to explore with Visual Studio Code, please try the following 
 * [Node.js debugging](/docs/nodejs/nodejs-debugging.md) - Learn more about VS Code's built-in Node.js debugging.
 * [Debugging recipes](/docs/nodejs/debugging-recipes.md) - Examples for scenarios like client-side and container debugging.
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake. Showing Errors and Warnings.
+* [Learning Node.js e-book](https://azure.microsoft.com/resources/learning-node-js-development/) - Learn the fundamentals of Node.js, from setup to deploying apps in the cloud.
