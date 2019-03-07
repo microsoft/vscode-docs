@@ -25,7 +25,7 @@ Autocomplete and IntelliSense are provided for all files within the current work
 
 You can also customize the general behavior of autocomplete and IntelliSense, even to disable these features entirely. See [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense).
 
-![IntelliSense and autocomplete for Python code](images/editing/vscode/python-editing.gif)
+![IntelliSense and autocomplete for Python code](images/editing/python-editing.gif)
 
 > **Tip**: Check out the [IntelliCode extension for VS Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context. For more information, see the [IntelliCode for VS Code FAQ](https://docs.microsoft.com/visualstudio/intellicode/intellicode-visual-studio-code).
 
