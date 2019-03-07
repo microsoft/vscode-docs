@@ -75,9 +75,12 @@ You can find the VS Code licenses, third party notices and [Chromium](https://ww
 
 ### Why does Visual Studio Code have a different license than the vscode GitHub repository?
 
-To learn why Visual Studio Code, the product, has a different license than vscode, the open source [GitHub repository](https://github.com/microsoft/vscode), see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
+~~To learn why Visual Studio Code, the product, has a different license than vscode, the open source [GitHub repository](https://github.com/microsoft/vscode), see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.~~
 
-If you are not satisified by the above explanation.
+See [issue #60](https://github.com/Microsoft/vscode/issues/60) for reference.
+TL;DR for issue #60:- We started out with this model, thought it would be open-source friendly.
+
+Note:- We agree that in hindsight, that was slightly misleading. Visual Studio Code, the product can be licensed like Atom, a similar product; but is not. **Don't worry. We are dedicated to resolving this issue as soon as possible.**
 
 ## Can I run prerelease versions of VS Code?
 
