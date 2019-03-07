@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 6
 Area: azure
 TOCTitle: Kubernetes
 ContentId: d0ece2e4-8dd2-4c0d-a773-604542651c9e

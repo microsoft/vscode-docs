@@ -48,6 +48,7 @@ Here are a few useful extensions:
 5. [Java Decompiler](https://marketplace.visualstudio.com/items?itemName=dgileadi.java-decompiler)
 6. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
 7. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
+8. [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel)
 
 We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as support for Gradle and other Java application servers.
 
