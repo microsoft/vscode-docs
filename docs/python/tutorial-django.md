@@ -334,9 +334,11 @@ During your work with Django or any other library, you may want to examine the c
 
 ## Use a template to render a page
 
-The app you've created so far in this tutorial generates only plain text web pages from Python code. Although it's possible to generate HTML directly in code, developers typically avoid such a practice because it's vulnerable to cross-site scripting (XSS) attacks. Instead, developers separate HTML markup from the code-generated data that gets inserted into that markup. **Templates** are a common approach to achieve this separation.
+The app you've created so far in this tutorial generates only plain text web pages from Python code. Although it's possible to generate HTML directly in code, developers avoid such a practice because it opens the app to [cross-site scripting (XSS) attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). In the `hello_there` function of this tutorial, for example, one might think to format the output in code with something like `content = "<h1>Hello there, " + clean_name + "!</h1>`, where the result in `content` is given directly to a browser. This opening allows an attacker to place malicious HTML, including JavaScript code, in the URL that ends up in `clean_name` and thus ends up being run in the browser.
 
-A template is an HTML file that contains placeholders for values that the code provides at run time. The Django templating engine takes care of making the substitutions when rendering the page. The code, therefore, concerns itself only with data values and the template concerns itself only with markup. Django templates provide flexible options such as template inheritance, which allows you to define a base page with common markup and then build upon that base with page-specific additions.
+A much better practice is to keep HTML out of your code entirely by using **templates**, so that your code is concerned only with data values and not with rendering.
+
+In Django, a template is an HTML file that contains placeholders for values that the code provides at run time. The Django templating engine then takes care of making the substitutions when rendering the page, and provides automatic escaping to prevent XSS attacks (that is, if you tried using HTML in a data value, you would see the HTML rendered only as plain text). The code, therefore, concerns itself only with data values and the template concerns itself only with markup. Django templates provide flexible options such as template inheritance, which allows you to define a base page with common markup and then build upon that base with page-specific additions.
 
 In this section, you start by creating a single page using a template. In subsequent sections, you configure the app to serve static files and then create multiple pages to the app that each contains a nav bar from a base template. Django templates also support control flow and iteration, as you see later in this tutorial in the context of template debugging.
 
@@ -348,54 +350,7 @@ In this section, you start by creating a single page using a template. In subseq
 
 1. Inside the `hello` folder, create a folder named `templates`, and then another subfolder named `hello` to match the app name (this two-tiered folder structure is typical Django convention).
 
-1. In the `templates/hello` folder, create a file named `hello_there.html` with the contents below. This template contains two placeholders named "title" and "content", which are delineated by pairs of curly braces, `\{{` and `}}`.
-
-    ```html
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset="utf-8" />
-            <title>\{{ title }}</title>
-        </head>
-        <body>
-            \{{ content }}
-        </body>
-    </html>
-    ```
-
-1. At the top of `views.py`, add the following import statement:
-
-    ```python
-    from django.shortcuts import render
-    ```
-
-1. Also in `views.py`, modify the `hello_there` function to use `django.shortcuts.render` method to load a template and to provide the *template context* (the set of variables for use within the template). `render_template` assumes that the first argument is relative to the `templates` folder. Typically, developers name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.
-
-    ```python
-    # You can also remove the import re statement that's no longer used
-
-    def hello_there(request, name):
-        now = datetime.now()
-        formatted_now = now.strftime("%A, %d %B, %Y at %X")
-
-        # BAD CODE! Avoid inline HTML for security reason, plus templates automatically escape HTML content.
-        content = "<strong>Hello there, " + name + "!</strong> It's " + formatted_now
-
-        return render(
-            request,
-            'hello/hello_there.html',
-            {
-                'title': 'Hello, Django',
-                'content': content,
-            }
-        )
-    ```
-
-1. Start the program (inside or outside of the debugger, using `kb(workbench.action.debug.run)`), navigate to a /hello/name URL, and observe the results. Notice that the inline HTML, if you happen to write bad code like this, doesn't get rendered as HTML because the templating engine automatically escapes values used in placeholders. Automatic escaping prevent accidental vulnerabilities to injection attacks: developers often gather input from one page, or the URL, and use it as a value in another page through a template placeholder. Escaping also serves as a reminder that it's again best to keep HTML out of the code entirely.
-
-    For this reason, modify the template and view function as follows to make each piece of content more specifically. While you're at it, move more of the text (including the title) into the template, along with the date/time formatting (using Django's built-in [date filter](https://docs.djangoproject.com/en/2.1/ref/templates/builtins/#date) and [time filter](https://docs.djangoproject.com/en/2.1/ref/templates/builtins/#time)):
-
-    Replace the contents of `templates/hello/hello_there.html` with the following:
+1. In the `templates/hello` folder, create a file named `hello_there.html` with the contents below. This template contains two placeholders for data values named "name", and "date", which are delineated by pairs of curly braces, `\{{` and `}}`. All other invariant text is part of the template, along with formatting markup (such as `<strong>`). As you can see, template placeholders can also include formatting, the expressions after the pipe `|` symbols, in this case using Django's built-in [date filter](https://docs.djangoproject.com/en/2.1/ref/templates/builtins/#date) and [time filter](https://docs.djangoproject.com/en/2.1/ref/templates/builtins/#time).  The code, then needs only to pass the datetime *value* rather than a pre-formatted string:
 
     ```html
     <!DOCTYPE html>
@@ -410,7 +365,13 @@ In this section, you start by creating a single page using a template. In subseq
     </html>
     ```
 
-    Replace the `hello_there` function in `views.py` with the following:
+1. At the top of `views.py`, add the following import statement:
+
+    ```python
+    from django.shortcuts import render
+    ```
+
+1. Also in `views.py`, modify the `hello_there` function to use `django.shortcuts.render` method to load a template and to provide the *template context*. The context is simply the set of variables for use within the template. The `render` function takes the request object, followed by the path to to the template *relative to the `templates` folder*, then the context object. (Developers typically name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.)
 
     ```python
     def hello_there(request, name):
@@ -424,7 +385,11 @@ In this section, you start by creating a single page using a template. In subseq
         )
     ```
 
-1. Run the app again and navigate to a /hello/name URL to observe the expected result, then stop the app when you're done.
+    You can see that the code is now much simpler, and concerned only with data values, because the markup and formatting is all contained in the template.
+
+1. Start the program (inside or outside of the debugger, using `kb(workbench.action.debug.run)`), navigate to a /hello/name URL, and observe the results.
+
+1. Also try navigating to a /hello/name URL using a name like `<a%20value%20that%20could%20be%20HTML>` to see Django's automatic escaping at work. The "name" value shows up as plain text in the browser rather than as rendering an actual element.
 
 ## Serve static files
 

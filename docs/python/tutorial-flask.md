@@ -284,59 +284,18 @@ During your work with Flask or any other library, you may want to examine the co
 
 ## Use a template to render a page
 
-The app you've created so far in this tutorial generates only plain text web pages from Python code. Although it's possible to generate HTML directly in code, developers typically avoid such a practice because it's vulnerable to cross-site scripting (XSS) attacks. Instead, developers separate HTML markup from the code-generated data that gets inserted into that markup. **Templates** are a common approach to achieve this separation.
+The app you've created so far in this tutorial generates only plain text web pages from Python code. Although it's possible to generate HTML directly in code, developers avoid such a practice because it opens the app to [cross-site scripting (XSS) attacks](http://flask.pocoo.org/docs/1.0/security/#cross-site-scripting-xss). In the `hello_there` function of this tutorial, for example, one might think to format the output in code with something like `content = "<h1>Hello there, " + clean_name + "!</h1>`, where the result in `content` is given directly to a browser. This opening allows an attacker to place malicious HTML, including JavaScript code, in the URL that ends up in `clean_name` and thus ends up being run in the browser.
+
+A much better practice is to keep HTML out of your code entirely by using **templates**, so that your code is concerned only with data values and not with rendering.
 
 - A template is an HTML file that contains placeholders for values that the code provides at run time. The templating engine takes care of making the substitutions when rendering the page. The code, therefore, concerns itself only with data values and the template concerns itself only with markup.
-- The default templating engine for Flask is [Jinja](http://jinja.pocoo.org/), which is installed automatically when you install Flask. This engine provides flexible options including template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
+- The default templating engine for Flask is [Jinja](http://jinja.pocoo.org/), which is installed automatically when you install Flask. This engine provides flexible options including automatic escaping (to prevent XSS attacks) and template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
 
 In this section, you create a single page using a template. In the sections that follow, you configure the app to serve static files, and then create multiple pages to the app that each contains a nav bar from a base template.
 
 1. Inside the `hello_flask` folder, create a folder named `templates`, which is where Flask looks for templates by default.
 
-1. In the `templates` folder, create a file named `hello_there.html` with the contents below. This template contains two placeholders named "title" and "content", which are delineated by pairs of curly braces, `\{{` and `}}`.
-
-    ```html
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset="utf-8" />
-            <title>\{{ title }}</title>
-        </head>
-        <body>
-            \{{ content }}
-        </body>
-    </html>
-    ```
-
-1. In `app.py`, import Flask's `render_template` function near the top of the file:
-
-    ```python
-    from flask import render_template
-    ```
-
-1. Also in `app.py`, modify the `hello_there` function to use `render_template` to load a template and apply the named values. `render_template` assumes that the first argument is relative to the `templates` folder. Typically, developers name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.
-
-    ```python
-    @app.route("/hello/<name>")
-    def hello_there(name):
-        now = datetime.now()
-        formatted_now = now.strftime("%A, %d %B, %Y at %X")
-
-        # BAD CODE! Avoid inline HTML for security reason, plus templates automatically escape HTML content.
-        content = "<strong>Hello there, " + name + "!</strong> It's " + formatted_now
-
-        return render_template(
-            "hello_there.html",
-            title="Hello, Flask",
-            content=content
-        )
-    ```
-
-1. Start the program (inside or outside of the debugger, using `kb(workbench.action.debug.run)`), navigate to a /hello/name URL, and observe the results. Notice that the inline HTML, if you happen to write bad code like this, doesn't get rendered as HTML because the templating engine automatically escapes values used in placeholders. Automatic escaping prevent accidental vulnerabilities to injection attacks: developers often gather input from one page, or the URL, and use it as a value in another page through a template placeholder. Escaping also serves as a reminder that it's again best to keep HTML out of the code entirely.
-
-    For this reason, modify the template and view function as follows to identify each piece of content more specifically. While you're at it, also move more of the text (including the title) and formatting concerns into the template and also handle the case where no name is given:
-
-    In `templates/hello_there.html`:
+1. In the `templates` folder, create a file named `hello_there.html` with the contents below. This template contains two placeholders named "name" and "date", which are delineated by pairs of curly braces, `\{{` and `}}`. As you can see, you can also include formatting code in the template directly:
 
     ```html
     <!DOCTYPE html>
@@ -355,7 +314,15 @@ In this section, you create a single page using a template. In the sections that
     </html>
     ```
 
-    In `app.py`, change how you invoke the template and add a route to recognize the case without a name:
+    > **Tip**: Flask developers often use the [flask-babel](https://pythonhosted.org/Flask-Babel/) extension for date formatting, rather than `strftime`, as flask-babel takes locales and timezones into consideration.
+
+1. In `app.py`, import Flask's `render_template` function near the top of the file:
+
+    ```python
+    from flask import render_template
+    ```
+
+1. Also in `app.py`, modify the `hello_there` function to use `render_template` to load a template and apply the named values (and add a route to recognize the case without a name). `render_template` assumes that the first argument is relative to the `templates` folder. Typically, developers name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.
 
     ```python
     @app.route("/hello/")
@@ -368,9 +335,11 @@ In this section, you create a single page using a template. In the sections that
         )
     ```
 
-    > **Tip**: Flask developers often use the [flask-babel](https://pythonhosted.org/Flask-Babel/) extension for date formatting, rather than `strftime`, as flask-babel takes locales and timezones into consideration.
+    You can see that the code is now much simpler, and concerned only with data values, because the markup and formatting is all contained in the template.
 
-1. Run the app again and navigate to a /hello/name URL to observe the expected result, then stop the app when you're done.
+1. Start the program (inside or outside of the debugger, using `kb(workbench.action.debug.run)`), navigate to a /hello/name URL, and observe the results.
+
+1. Also try navigating to a /hello/name URL using a name like `<a%20value%20that%20could%20be%20HTML>` to see Flask's automatic escaping at work. The "name" value shows up as plain text in the browser rather than as rendering an actual element.
 
 ## Serve static files
 
