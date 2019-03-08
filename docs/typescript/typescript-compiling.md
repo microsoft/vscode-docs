@@ -222,7 +222,7 @@ It is possible to have mixed TypeScript and JavaScript projects. To enable JavaS
 Read on to find out about:
 
 * [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Configure the debugger for your TypeScript project.
-* [Learning Node.js e-book](https://azure.microsoft.com/resources/learning-node-js-development/) - Learn the fundamentals of Node.js, from setup to deploying apps in the cloud.
+<!-- * [Learning Node.js e-book](https://azure.microsoft.com/resources/learning-node-js-development/) - Learn the fundamentals of Node.js, from setup to deploying apps in the cloud. -->
 
 ## Common questions
 
