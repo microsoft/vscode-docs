@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Portable Mode
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
 PageTitle: Portable Mode in Visual Studio Code
-DateApproved: 3/7/2019
+DateApproved: 3/9/2019
 MetaDescription: Visual Studio Code supports a Portable Mode.
 ---
 # Portable Mode
@@ -24,7 +24,7 @@ Portable mode is supported on the ZIP download for Windows and Linux, as well as
 After unzipping the VS Code download, simply create a `data` folder within Code's folder:
 
 ```
-|- VSCode-win32-x64-1.25.0-insider
+|- VSCode-win32-x64-1.32.1-insider
 |   |- Code.exe (or code executable)
 |   |- data
 |   |- ...
@@ -76,12 +76,14 @@ You can also migrate an existing installation to Portable mode:
 Here's the desired outcome on **Windows**:
 
 ```
-|- VSCode-win32-x64-1.25.0-insider
+|- VSCode-win32-x64-1.32.1-insider
 |   |- Code.exe (or code executable)
 |   |- data
-|   |   |- user-data
+|   |   |- code
 |   |   |   |- ...
-|   |   |- extensions
+|   |   |   |- extensions
+|   |   |   |- ...
+|   |   |- user-data
 |   |   |   |- ...
 |   |- ...
 ```
