@@ -131,7 +131,7 @@ This configuration for running tests is the same for non-webpacked extensions. T
 
 Before publishing, you should update the `.vscodeignore` file. Everything that's now bundled into the `dist/extension.js` file can be excluded, usually the `out` folder (in case you didn't delete it yet) and most importantly, the `node_modules` folder.
 
-A typical `.vsignore` file looks like this:
+A typical `.vscodeignore` file looks like this:
 
 ```bash
 .vscode
