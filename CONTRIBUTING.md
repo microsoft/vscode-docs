@@ -141,7 +141,7 @@ For links within our own documentation, use a site relative link like `/docs/edi
 
 To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page.md#subheading-title)`.
 
-Note the subheading title is lowercase and subheading title words are separated by '-' dashes.
+Note the subheading title is lowercase and subheading title words are separated by '-' hyphens.
 
 >For example: `[Keyboard Shortcuts](/docs/editor/codebasics.md#keyboard-shortcuts)` - links to https://code.visualstudio.com/docs/editor/codebasics#_keyboard-shortcuts.
 
