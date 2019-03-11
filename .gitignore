@@ -1,0 +1,10 @@
+_build
+node_modules
+
+.DS_Store
+.vscode/spell.json
+
+.idea
+
+*.sublime-project
+*.sublime-workspace
