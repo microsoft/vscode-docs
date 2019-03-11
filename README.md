@@ -1,8 +1,7 @@
-<center>
-<img alt="vscode logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Visual_Studio_Code_1.18_icon.svg/1200px-Visual_Studio_Code_1.18_icon.svg.png" width="100px">
-</center>
-
-# Visual Studio Code Documentation
+<p align="center">
+  <img alt="vscode logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Visual_Studio_Code_1.18_icon.svg/1200px-Visual_Studio_Code_1.18_icon.svg.png" width="100px" />
+  <h1 align="center">Visual Studio Code Documentation</h1>
+</p>
 
 You've found the Visual Studio Code documentation GitHub repository, which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
 
@@ -26,7 +25,23 @@ If you landed here looking for other information about VS Code, head over to [ou
 
 ## Contributing to the documentation
 
-To contribute with new topics/information or make changes to existing documentation, see [contributing](https://github.com/Microsoft/vscode-docs/blob/master/CONTRIBUTING.md#contributing) for instructions and guidelines.
+To contribute with new topics / information or make changes to existing documentation, see [Contributing](./CONTRIBUTING.md#contributing) for instructions and guidelines.
+
+## Cloning
+
+For small fixes, you can use the Edit button on each page to directly edit the Markdown file on GitHub. If you plan to clone the repo to make significant changes, read along.
+
+We have adopted [Git LFS](https://git-lfs.github.com/) to store the images in this repo. Bare `git clone` will take 1.4GB+, and we recommend the following setup:
+
+- Install [Git LFS](https://git-lfs.github.com/).
+- Run `git lfs install`. You only need to run this once.
+- `GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:Microsoft/vscode-docs.git`. This only downloads text files that amount to ~16MB.
+- `git lfs pull -I <PATTERN>`, where `<PATTERN>` is a string of comma-separated globs. For example:
+    - `git lfs pull -I "docs/nodejs"`: Only download images in `docs/nodejs`.
+    - `git lfs pull -I "release-notes/images/1_3*/*"`: Only download images in latest release notes.
+    - `git lfs pull`: Download all images in this repo.
+
+The history of this repo before we adopt LFS can be found at [microsoft/vscode-docs-archive](https://github.com/Microsoft/vscode-docs-archive).
 
 ## Feedback
 
