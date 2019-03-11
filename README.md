@@ -23,26 +23,6 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 
 If you landed here looking for other information about VS Code, head over to [our website](https://code.visualstudio.com) for additional information.
 
-## Contributing to the documentation
-
-To contribute with new topics / information or make changes to existing documentation, see [Contributing](./CONTRIBUTING.md#contributing) for instructions and guidelines.
-
-## Cloning
-
-For small fixes, you can use the Edit button on each page to directly edit the Markdown file on GitHub. If you plan to clone the repo to make significant changes, read along.
-
-We have adopted [Git LFS](https://git-lfs.github.com/) to store the images in this repo. Bare `git clone` will take 1.4GB+, and we recommend the following setup:
-
-- Install [Git LFS](https://git-lfs.github.com/).
-- Run `git lfs install`. You only need to run this once.
-- `GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:Microsoft/vscode-docs.git`. This only downloads text files that amount to ~16MB.
-- `git lfs pull -I <PATTERN>`, where `<PATTERN>` is a string of comma-separated globs. For example:
-    - `git lfs pull -I "docs/nodejs"`: Only download images in `docs/nodejs`.
-    - `git lfs pull -I "release-notes/images/1_3*/*"`: Only download images in latest release notes.
-    - `git lfs pull`: Download all images in this repo.
-
-The history of this repo before we adopt LFS can be found at [microsoft/vscode-docs-archive](https://github.com/Microsoft/vscode-docs-archive).
-
 ## Feedback
 
 If you want to give documentation feedback, please use the feedback control located at the bottom of each documentation page.
@@ -53,28 +33,32 @@ To enter documentation bugs, please create a [new GitHub issue](https://github.c
 
 If you think the issue is with the VS Code product itself, please enter issues [here](https://github.com/Microsoft/vscode/issues).
 
-## Editing
+## Contributing
 
-In order to edit the VS Code documentation, ensure that you have [Git](https://git-scm.com/downloads) installed.
+To contribute with new topics / information or make changes to existing documentation, please read the [Contributing Guideline](./CONTRIBUTING.md#contributing).
 
-Clone a copy of the repo:
+### Workflow
 
-```
-git clone https://github.com/Microsoft/vscode-docs.git
-```
+The two suggested workflows are:
 
-VS Code itself is great for reviewing and editing [Markdown](https://code.visualstudio.com/docs/languages/markdown) with nice preview support.
-
-If you want to use VS Code, simply navigate to the `vscode-docs` directory and launch VS Code from there:
-
-```
-cd vscode-docs
-code .
-```
-
-You can open any of the Markdown files and see a preview with the **Open Preview to the Side** button in the upper right of the editor.
+- For small changes, use the "Edit" button on each page to edit the Markdown file directly on GitHub.
+- If you plan to make significant changes or preview the Markdown files in VS Code, [clone](#cloning) the repo to [edit and preview](https://code.visualstudio.com/docs/languages/markdown) the files directly in VS Code.
 
 ![Markdown Preview Button](images/MDPreviewButton.png)
+
+### Cloning
+
+We have adopted [Git LFS](https://git-lfs.github.com/) to store the images in this repo. Bare `git clone` will take 1.4GB+, and we recommend the following setup:
+
+- Install [Git LFS](https://git-lfs.github.com/).
+- `git lfs install`. You only need to run this once.
+- `GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:Microsoft/vscode-docs.git`. This only downloads text files that amount to ~16MB.
+- `git lfs pull -I <PATTERN>`, where `<PATTERN>` is a string of comma-separated globs. For example:
+    - `git lfs pull -I "docs/nodejs"`: Only download images in `docs/nodejs`.
+    - `git lfs pull -I "release-notes/images/1_3*/*"`: Only download images in latest release notes.
+- Alternatively, use `git config lfs.fetchinclude "docs"`, so future `git lfs pull` only pulls images in `docs`.
+
+The history of this repo before we adopt LFS can be found at [microsoft/vscode-docs-archive](https://github.com/Microsoft/vscode-docs-archive).
 
 ## Publishing
 
