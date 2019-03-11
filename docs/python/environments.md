@@ -24,7 +24,7 @@ To select a specific environment, use the **Python: Select Interpreter** command
 
 You can switch environments at any time; switching environments helps you test different parts of your project with different interpreters or library versions as needed.
 
-The **Python: Select Interpreter** command displays a list of available global environments, conda environments, and virtual environments. (See [Where the extension looks for environments](#where-the-extension-looks-for-environments) in a later section for details, including the distinctions between these types of environments.) The following image, for example, shows several Anaconda and CPython installations along with a conda environment and a virtual environment (`env`) that's located within the workspace folder:
+The **Python: Select Interpreter** command displays a list of available global environments, conda environments, and virtual environments. (See the [Where the extension looks for environments](#where-the-extension-looks-for-environments) section for details, including the distinctions between these types of environments.) The following image, for example, shows several Anaconda and CPython installations along with a conda environment and a virtual environment (`env`) that's located within the workspace folder:
 
 ![List of interpreters](images/environments/interpreters-list.png)
 
@@ -34,7 +34,7 @@ Selecting an interpreter from the list adds an entry for `python.pythonPath` wit
 
 The Python extension uses the selected environment for running Python code (using the **Python: Run Python File in Terminal** command), providing language services (auto-complete, syntax checking, linting, formatting, etc.) when you have a `.py` file open in the editor, and opening a terminal with the **Terminal: Create New Integrated Terminal** command. In the latter case, VS Code automatically activated the selected environment.
 
-> **Tip**: To prevent automatic activation of a selected environment, add  `"python.terminal.activateEnvironment": false` to your `settings.json` file.
+> **Tip**: To prevent automatic activation of a selected environment, add  `"python.terminal.activateEnvironment": false` to your `settings.json` file (it can be placed anywhere as a sibling to the existing settings).
 
 > **Note**: By default, VS Code uses the interpreter identified by `python:pythonPath` setting when debugging code. You can override this behavior by specifying a different path in the `pythonPath` property of a debug configuration. See [Choose a debugging environment](#choose-a-debugging-environment).
 
@@ -138,47 +138,46 @@ For more information on the conda command line, see [Conda environments](https:/
 
 ### Manually specify an interpreter
 
-If VS Code does not automatically locate an interpreter you want to use, you can set the path to it manually in your Workspace Settings `settings.json` file:
+If VS Code does not automatically locate an interpreter you want to use, you can set the path to it manually in your Workspace Settings `settings.json` file. With any of the entries that follow, you can just add the line as a sibling to other existing settings.)
 
-1. Select the **File** (**Code** on macOS) > **Preferences** > **Settings** menu command (`kb(workbench.action.openSettings)`) to open your [Settings](/docs/getstarted/settings.md), select **Workspace**, and then do any of the following:
+First, select the **File** (**Code** on macOS) > **Preferences** > **Settings** menu command (`kb(workbench.action.openSettings)`) to open your [Settings](/docs/getstarted/settings.md), select **Workspace**.
 
-1. Create or modify an entry for `python.pythonPath` with the full path to the Python executable:
+Then do any of the following steps:
+
+1. Create or modify an entry for `python.pythonPath` with the full path to the Python executable (if you edit `settings.json` directly, add the line below as the setting ):
 
     For example:
 
     - Windows:
 
       ```json
-      "python.pythonPath": "c:/python36/python.exe"
+      "python.pythonPath": "c:/python36/python.exe",
       ```
 
     - macOS/Linux:
 
       ```json
-      "python.pythonPath": "/home/python36/python"
+      "python.pythonPath": "/home/python36/python",
       ```
 
 1. You can also use `python.pythonPath` to point to a virtual environment, for example:
 
     Windows:
+
     ```json
-    {
-        "python.pythonPath": "c:/dev/ala/venv/Scripts/python.exe"
-    }
+    "python.pythonPath": "c:/dev/ala/venv/Scripts/python.exe",
     ```
 
     macOS/Linux:
+
     ```json
-    {
-        "python.pythonPath": "/home/abc/dev/ala/venv/bin/python"
-    }
+    "python.pythonPath": "/home/abc/dev/ala/venv/bin/python",
+    ```
 
 1. You can use an environment variable in the path setting using the syntax `${env:VARIABLE}`. For example, if you've created a variable named `PYTHON_INSTALL_LOC` with a path to an interpreter, you can then use the following setting value:
 
     ```json
-    {
-        "python.pythonPath": "${env:PYTHON_INSTALL_LOC}"
-    }
+    "python.pythonPath": "${env:PYTHON_INSTALL_LOC}",
     ```
 
     By using an environment variable, you can easily transfer a project between operating systems where the paths are different, just be sure to set the environment variable on the operating system first.
@@ -238,7 +237,7 @@ Within this syntax, the following rules apply:
 - Variables are processed in the order they appear in the `.env` file, so you can use any variable that's defined earlier in the file.
 - Single or double quotes don't affect substituted value and are included in the defined value. For example, if the value of `VAR1` is `abcedfg`, then `VAR2='${OTHERVAR}'` assigns the value `'abcedfg'` to `VAR2`.
 - The `$` character can be escaped with a backslash, as in `\$`.
-- You can use recursive substitution, such as `PYTHONPATH=$PROJ_DIR:${PYTHONPATH}`.
+- You can use recursive substitution, such as `PYTHONPATH=${PROJ_DIR}:${PYTHONPATH}` (where `PROJ_DIR` is any other environment variable).
 - You can use only simple substitution; nesting such as `${_${OTHERVAR}_EX}` is not supported.
 - Entries with unsupported syntax are left as-is.
 
