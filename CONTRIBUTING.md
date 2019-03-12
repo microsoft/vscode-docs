@@ -26,7 +26,7 @@ To contribute to [VS Code documentation](https://code.visualstudio.com/docs), yo
 * [Changing a commit message](https://help.github.com/articles/changing-a-commit-message/)
 * [How to squash commits](https://help.github.com/articles/about-pull-request-merges/)
 
-The vscode-docs repository supports [Git LFS](https://git-lfs.github.com/) to allow you to avoid bringing down large image files when you clone the repository. See the [README](readme.md#contributing) section for details on enabling Git LFS for your local repositiory.
+The vscode-docs repository supports [Git LFS](https://git-lfs.github.com/) to allow you to avoid bringing down large image files when you clone the repository. See the [README](README.md#contributing) section for details on enabling Git LFS for your local repositiory.
 
 ## Documentation intent
 
