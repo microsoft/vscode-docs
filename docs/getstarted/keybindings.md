@@ -262,7 +262,7 @@ referenceSearchVisible | Peek References peek window is open.
 inReferenceSearchEditor | The Peek References peek window editor has focus.
 config.editor.stablePeek | Keep peek editors open (controlled by `editor.stablePeek` setting).
 quickFixWidgetVisible | Quick Fix widget is visible.
-parameterHintsVisible | Parameter hints are visible (controlled by `editor.parameterHints` setting).
+parameterHintsVisible | Parameter hints are visible (controlled by `editor.parameterHints.enabled` setting).
 parameterHintsMultipleSignatures | Multiple parameter hints are displayed.
 **Integrated terminal contexts** |
 terminalFocus | An integrated terminal has focus.

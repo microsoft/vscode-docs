@@ -1,6 +1,6 @@
 # Visual Studio Code Documentation
 
-You've found the GitHub repository that houses the source for the VS Code docs at <https://code.visualstudio.com/docs>.
+You've found the GitHub repository that contains the source for the Visual Studio Code documentation at <https://code.visualstudio.com/docs>.
 
 ## Contribute to VS Code documentation
 
@@ -34,7 +34,7 @@ The documentation is not intended to provide:
 
 * An introduction to coding or software development
 * Tutorials on technologies independent from VS Code
-* Promotion of third-party tools, plug-ins or services
+* Promotion of third-party tools, plug-ins, or services
 * Excessive detail or advanced walkthroughs
 
 The documentation should target developers learning to use VS Code or searching for quick answers to commonly asked questions.  Other forums such as blog posts can provide more detailed content elaborating on specific scenarios.
@@ -50,12 +50,15 @@ This repository contains the following folders:
 * \getstarted
 * \editor
 * \languages
-* \extensions
-* \extensionAPI
+* \nodejs
+* \typescript
+* \python
+* \java
+* \azure
 * \other
 * \supporting
 
-Within these folders you'll find the Markdown files used for the content. Each of these folders also contains an \images folder that references the images (such as screenshots) used in the topics.
+Within these folders, you'll find the Markdown files used for the content. Each of these folders also contains an \images folder that references the images (such as screenshots) used in the topics.
 
 ### Branches
 
@@ -79,13 +82,13 @@ The topics in this repository use Markdown.  Here is a good overview of [Markdow
 
 Topic metadata enables certain functionalities for the topics such as table of contents order, topic descriptions, and online search optimization as well as aiding Microsoft in evaluating the effectiveness of the content.
 
-* **Order** - This is the order that is used in the left rail TOC, the page is left out of the TOC if this is blank
-* **Area** - General area within VS Code
-* **TOCTitle** - The title used in the left rail Table of Contents for this page
-* **PageTitle** - The title used in the HTML title for the page and in search results
-* **ContentId** - A GUID which uniquely identifies the topic to DevDiv doc reporting.
-* **DateApproved** - This is set when the page is actually published on the VS Code portal. You can ignore it.
-* **MetaDescription** - The meta description for this page which helps for search. Use sentence structure limited to 300 characters.
+* **Order** - This is the order that is used in the left rail TOC, the page is left out of the TOC if this is blank.
+* **Area** - General area within VS Code. Corresponds to the high-level Table of Contents (TOC) node.
+* **TOCTitle** - The title used in the left rail Table of Contents for this page.
+* **PageTitle** - The title used in the HTML title for the page and in search results.
+* **ContentId** - A GUID that uniquely identifies the topic to DevDiv doc reporting.
+* **DateApproved** - This is set when the page is published on the VS Code website. You can ignore it.
+* **MetaDescription** - The meta description for this page, which helps for search. Use sentence structure limited to 300 characters.
 * **MetaSocialImage** - Optional. Used for og:image in page header for sharing on social media. Should be 1024 x 512 .png.
 * **MetaTags** - Optional. Further tags for this page again for search.
 
@@ -97,17 +100,17 @@ Use the full product name "Visual Studio Code" in the topic MetaDescription and 
 
 **For Writer**:
 
-* **MetaDescription** - The meta description for this page which helps for search
+* **MetaDescription** - The meta description for this page, which helps for search.
 
 **For Doc Maintainer**:
 
-* **DateApproved** - This is set when the page is actually published on the VS Code portal.
+* **DateApproved** - This is set when the page is published on the VS Code website.
 
 ## Formatting
 
 ### Headings & Right Nav
 
-H2 subheadings `##` end up in the right hand jump list for the document (this happens in our compile script).  It's a good idea to include h2 subheadings to help users get an overview of the doc and quickly navigate to the major topics.
+H2 subheadings `##` end up in the right-hand jump list for the document (the jump list is created by our compile script).  It's a good idea to include h2 subheadings to help users get an overview of the doc and quickly navigate to the major topics.
 
 ### Text formatting
 
@@ -118,7 +121,7 @@ Use bold for VS Code commands and UI elements.
 
 Limit the use of bold for emphasis unless it is crucial to get the user's attention. Avoid the use of italics for emphasis since italics doesn't render well on the code.visualstudio.com site.
 
-Use inline code formatting (backticks) for settings, filename and JSON attributes.
+Use inline code formatting (backticks) for settings, filename, and JSON attributes.
 
     `files.exclude`
     `tasks.json`
@@ -135,7 +138,7 @@ For links within our own documentation, use a site relative link like `/docs/edi
 
 >For example: `[Why VS Code](/docs/editor/whyvscode.md)` - links to the **Why Visual Studio Code** page
 
->**Correction:** For this repo to ease content development you should add the .md suffix.  We will parse these out for the website deployment.
+>**Note:** For navigation on GitHub, you should add the .md suffix.  The suffix is removed during conversion to HTML.
 
 ### Bookmarks
 
@@ -147,7 +150,7 @@ Note the subheading title is lowercase and subheading title words are separated 
 
 ### Images
 
-Images are important to bring the product to life - even if people can't try the product, these really help them to see what they are missing.
+Images are important to bring the product to life and clarify the written content.
 
 For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`.
 
@@ -157,11 +160,11 @@ When you link to an image, the path and filename are case-sensitive.  The conven
 
 ### Key bindings
 
-The VS Code portal is able to show the correct key bindings depending on the reader's operating system (macOS, Windows or Linux).
+The VS Code website is able to show the correct key bindings depending on the reader's operating system (macOS, Windows, or Linux).
 
-To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command name is included in parentheses.
+To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command identifier is included in parentheses.
 
->For a list of key bindings and the relevant `Command Ids` review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings).
+>For a list of key bindings and the relevant `Command Ids`, review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings).
 
 If you are listing out multiple key bindings, you can use a table.
 
@@ -173,11 +176,11 @@ If you are listing out multiple key bindings, you can use a table.
 
 ### Source Code
 
-For source code we use the fenced code block notation ```` ``` ````.
+For source code, we use the fenced code block notation ```` ``` ````.
 
->**Note:** You can add an optional language identifier to enable syntax highlighting in your fenced code block. E.g. ```` ```json ```` or ```` ```javascript ````. [Read more →](https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting)
+>**Note:** You can add an optional language identifier to enable syntax highlighting in your fenced code block. For example, ```` ```json ```` or ```` ```javascript ````. [Read more →](https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting)
 
-Some JavaScript code...
+An example of JavaScript source code:
 
 ```javascript
 function fancyAlert(arg) {
