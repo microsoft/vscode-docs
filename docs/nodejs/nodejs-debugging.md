@@ -611,10 +611,6 @@ In case you didn't already read the Node.js section, take a look at:
 
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - End to end Node scenario with a sample application
 
-<!-- And if you are new to Node.js:
-
-* [Learning Node.js e-book](https://azure.microsoft.com/resources/learning-node-js-development/) - Learn the fundamentals of Node.js, from setup to deploying apps in the cloud. -->
-
 To see tutorials on the basics of Node.js debugging, check out these videos:
 
 * [Intro Video - Debugging](/docs/introvideos/debugging.md) - Introductory video showcasing the basics of debugging.
