@@ -9,29 +9,22 @@ Author: Kai Maetzel
 ---
 # Event-Stream Package Security Update
 
-**Update**: December 7, 2018
+**Update**: March 15, 2019
 
 We have been working with extension authors to get their extensions and dependencies updated.
 
 Below is the current list of blocked extensions:
 
-* `beisen.codecake-extension`
-* `DrMueller.ts-arrange2`
+* `edb.vandelay`
 * `JacobeanResearchandDevelopmentLLC.vscode-scxml-preview`
 * `joaquin6.package-watch`
-* `jonsmithers.open-in-vim`
 * `KazuoCode.gthubsum`
 * `MaxGotovkin.tslens`
 * `mf.magicspace`
 * `Restbird.vscode-restbird`
-* `rijndael.vscode-ursharp`
 * `roboceo.robojsx-plugin`
-* `taosheng.less-class`
-* `taosheng.uyun-class`
-* `taosheng.uyun-less-class`
 * `tboevil.webpaste`
 * `tintrinh.php-refactor`
-* `xuyl.vue-recommend-style`
 
 ---
 
