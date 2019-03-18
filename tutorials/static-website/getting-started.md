@@ -25,7 +25,7 @@ In this tutorial, we will deploy your static site to Azure Storage by doing the 
 
 ## Prerequisites
 
-**Azure Account** - If you don't have an Azure account, [sign up today](https://azure.microsoft.com/en-us/free/?utm_source=campaign&utm_campaign=vscode-tutorial-static-website&mktingSource=vscode-tutorial-static-website) for a free 30-day account with $200 in Azure credits to try out any combination of services.
+**Azure Account** - If you don't have an Azure account, [sign up today](https://azure.microsoft.com/en-us/free/?utm_source=campaign&utm_campaign=vscode-tutorial-static-website&mktingSource=vscode-tutorial-static-website) for a free account with $200 in Azure credits to try out any combination of services.
 
 **Node.js** - Download [Node.js and npm](https://nodejs.org/en/download), we recommend the LTS (long term support) version.
 
