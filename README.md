@@ -52,7 +52,7 @@ We have adopted [Git LFS](https://git-lfs.github.com/) to store the images in th
 
 - Install [Git LFS](https://git-lfs.github.com/).
 - `git lfs install`. You only need to run this once.
-- `GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:Microsoft/vscode-docs.git`. This only downloads text files that amount to ~16MB.
+- `GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/Microsoft/vscode-docs.git`. This only downloads text files that amount to ~16MB.
 - `git lfs pull -I <PATTERN>`, where [`<PATTERN>`](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-fetch.1.ronn#include-and-exclude) is a string of comma-separated globs. For example:
     - `git lfs pull -I "docs/nodejs"`. Only download images in `docs/nodejs`.
     - `git lfs pull -I "release-notes/images/1_3*/*"`. Only download images in latest release notes.
