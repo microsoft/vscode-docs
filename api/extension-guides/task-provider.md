@@ -11,7 +11,7 @@ MetaDescription: Learn how to contribute tasks to Visual Studio Code through an 
 
 Users normally define [tasks](/docs/editor/tasks) in Visual Studio Code in a `tasks.json` file. However, there are some tasks during software development that can be automatically detected by VS Code. This topic describes how extensions can auto-detect and provide tasks to end-users.
 
-This guide teachs you how to build a Task Provider that auto-detects tasks defined in [Rakefiles](https://ruby.github.io/rake/). The complete source code is at: https://github.com/Microsoft/vscode-extension-samples/tree/master/task-provider-sample.
+This guide teaches you how to build a Task Provider that auto-detects tasks defined in [Rakefiles](https://ruby.github.io/rake/). The complete source code is at: https://github.com/Microsoft/vscode-extension-samples/tree/master/task-provider-sample.
 
 ## Task Definition
 
@@ -38,7 +38,7 @@ To uniquely identify a task in the system, an extension contributing a task need
 ]
 ```
 
-This contributes a task definition for `rake` tasks. The task definition has two attributes `task` and `file`. `task` is the name of the Rake task and `file` points to the Rake file that contains the task. The `task` property is required, the `file` property is optional. If the `file` attribute is omitted, the rake file in the root of the workspace folder is used.
+This contributes a task definition for `rake` tasks. The task definition has two attributes `task` and `file`. `task` is the name of the Rake task and `file` points to the `Rakefile` that contains the task. The `task` property is required, the `file` property is optional. If the `file` attribute is omitted, the `Rakefile` in the root of the workspace folder is used.
 
 ## Task provider
 
@@ -65,7 +65,7 @@ The `resolveTask` method returns `undefined` and is currently not called by VS C
 
 The `getRakeTasks` implementation does the following:
 
-- Lists all rake tasks defined in a rake file using the `rake -AT -f Rakefile` command.
+- Lists all rake tasks defined in a `Rakefile` using the `rake -AT -f Rakefile` command.
 - Parses the stdio output.
 - For every listed task, creates a `vscode.Task` implementation.
 
@@ -98,4 +98,4 @@ let task = new vscode.Task(
 
 For every task listed in the output, a corresponding VS Code task is created using the above pattern and then returns the array of all tasks from the `getRakeTasks` call.
 
-The `ShellExecution` executes the `rake compile` command in the shell that is specific for the OS (for example under Windows the command would be executed in PowerShell, under Ubuntu in bash). If the task should directly execute a process (without spawning a shell), the `vscode.ProcessExecution` can be used. `ProcessExecution` has the advantage that the extension has full control over the arguments passed to the process. Using `ShellExecution` makes use of the shell command interpretation (like wildcard expanding under bash). If the `ShellExecution` is created with a single command line, then the extension needs to ensure proper quoting and escaping (for example to handle white spaces) inside the command.
+The `ShellExecution` executes the `rake compile` command in the shell that is specific for the OS (for example under Windows the command would be executed in PowerShell, under Ubuntu it'd be executed in bash). If the task should directly execute a process (without spawning a shell), `vscode.ProcessExecution` can be used. `ProcessExecution` has the advantage that the extension has full control over the arguments passed to the process. Using `ShellExecution` makes use of the shell command interpretation (like wildcard expansion under bash). If the `ShellExecution` is created with a single command line, then the extension needs to ensure proper quoting and escaping (for example to handle whitespace) inside the command.
