@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 01/17/2019
+DateApproved: 03/18/2019
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -128,13 +128,17 @@ As noted earlier, the Python extension automatically detects existing conda envi
 conda create -n env-01 python=3.4 scipy=0.15.0 astroid babel
 ```
 
-> **Tip:** If you create a new conda environment while VS Code is running, use the **Reload Window** command to refresh the environment list shown with **Python: Select Interpreter**; otherwise you may not see the environment there. It might take a short time to appear; if you don't see it at first, wait 15 seconds then try using the command again.
-
-In contrast, if you fail to specify an interpreter as with `conda create --name env-00`, the environment won't appear in the list.
+In contrast, if you fail to specify an interpreter, as with `conda create --name env-00`, the environment won't appear in the list.
 
 For more information on the conda command line, see [Conda environments](https://conda.io/docs/user-guide/tasks/manage-environments.html) (conda.io).
 
-> **Note:** Although the Python extension for VS Code doesn't currently have direct integration with conda environment.yml files, VS Code itself is a great YAML editor.
+Additional notes:
+
+- If you create a new conda environment while VS Code is running, use the **Reload Window** command to refresh the environment list shown with **Python: Select Interpreter**; otherwise you may not see the environment there. It might take a short time to appear; if you don't see it at first, wait 15 seconds then try using the command again.
+
+- Although the Python extension for VS Code doesn't currently have direct integration with conda environment.yml files, VS Code itself is a great YAML editor.
+
+- Conda environments can't be automatically activated in the VS Code integrated terminal if the default shell is set to PowerShell. To change the shell, see [Integrated terminal - Configuration](/docs/editor/integrated-terminal.md#configuration).
 
 ### Manually specify an interpreter
 
