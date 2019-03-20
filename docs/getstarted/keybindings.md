@@ -58,9 +58,8 @@ Pick a command with the keybinding you think is overloaded and you can see if mu
 
 All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
 
-* To configure keyboard shortcuts the way you want, open **Keyboard Shortcuts** editor and click on the link `keybindings.json`.
-* This will open the **Default Keyboard Shortcuts** on the left and your `keybindings.json` file where you can overwrite the default bindings on the right.
-* The list above isn't exhaustive. More commands may be listed under "Here are other available commands" in **Default Keyboard Shortcuts**.
+* To configure keyboard shortcuts the way you want, open **Keyboard Shortcuts** editor and click on **{}** button on the right of the editor title bar.
+* This will open your `keybindings.json` file where you can overwrite the [Default Keybindings](/docs/getstarted/keybindings.md#default-keybindings).
 
 ## Keyboard rules
 
@@ -348,6 +347,12 @@ The `editor.action.codeAction` command lets you configure keybindings for specif
 This is covered in depth in the [Refactoring](/docs/editor/refactoring.md#keybindings-for-code-actions) topic where you can learn about different kinds of Code Actions and how to prioritize them in the case of multiple possible refactorings.
 
 ## Default Keyboard Shortcuts
+
+You can view all default keyboard shortcuts in VS Code in the **Keyboard Shortcuts** editor
+
+![Default Keyboard Shortcuts](images/keybinding/default-keyboard-shortcuts.png)
+
+or as a JSON using the command **Preferences: Open Default Keyboard Shortcuts (JSON)** (`kb(workbench.action.openDefaultKeybindingsFile)`)
 
 >**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts). You can view the currently active keyboard shortcuts in VS Code in the **Command Palette** (**View** -> **Command Palette**) or in the **Keyboard Shortcuts** editor (**File** > **Preferences** > **Keyboard Shortcuts**).
 
