@@ -15,11 +15,15 @@ Visual Studio Code is a source code editor first and foremost with rich editing 
 
 With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate your methods within the same class. Editing code is also easy with IntelliSense for smart code completions and signature details. You can use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
 
-![Code Editing](images/java-editing/code-editing.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/code-editing.mp4" type="video/mp4">
+</video>
 
 Java support in Visual Studio Code detects issues within your code automatically, and provides you with Quick Fix suggestions.
 
-![Quick Fix](images/java-editing/quick-fix.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/quick-fix.mp4" type="video/mp4">
+</video>
 
 As a Java editor, it also supports CodeLens (references) and Javadoc hovers and highlights out of box.
 
@@ -29,11 +33,15 @@ You can search for symbols in the current file or workspace to navigate your cod
 
 To search for a symbol in the current file, use __Quick Open__ (`kb(workbench.action.quickOpen)`) then enter the '@' command, then enter the name of the symbol you're looking for. A list of potential matches will appear and be filtered as you type. Choose from the list of matches to navigate to its location.
 
-![Search in local file](images/java-editing/search-in-file.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/search-in-file.mp4" type="video/mp4">
+</video>
 
 To search for a symbol in the current workspace, start by pressing `kb(workbench.action.showAllSymbols)`, then enter the name of the symbol. A list of potential matches will appear as before. If you choose a match that was found in a file that's not already open, the file will be opened before navigating to the match's location. Alternatively, you can also use  __Quick Open__ (`kb(workbench.action.quickOpen)`) then enter the '#' command to search the current workspace. `kb(workbench.action.showAllSymbols)` is just the shortcut for the '#' commands, so everything works the same.
 
-![Search in workspace](images/java-editing/search-in-workspace.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/search-in-workspace.mp4" type="video/mp4">
+</video>
 
 ### Peek Definition
 
@@ -56,7 +64,7 @@ To go to a symbol's definition, place your cursor on the symbol anywhere it is u
 * `@>` shows all functions (prototype implementation)
 * `@` shows all Spring annotations in the code
 
-![Search in workspace](images/java-editing/spring-navigation.png)
+![Spring Navigation](images/java-editing/spring-navigation.png)
 
 To learn more about Spring Boot support with Visual Studio Code, read [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
 
@@ -66,7 +74,9 @@ Code completion in Visual Studio Code for Java is provided by [Language Support 
 
 In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open-source projects on GitHub each with over 100 stars, so it’s trained on the most common usages from high quality projects. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
 
-![IntelliCode](images/java-editing/intellicode.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/intellicode.mp4" type="video/mp4">
+</video>
 
 IntelliCode works well with popular Java libraries and frameworks like Java SE and Spring. It will help you whether you are doing monolithic web apps or modern microservices.
 
@@ -78,19 +88,25 @@ Here we will show you the most used refactoring features for Java in Visual Stud
 
 Rename allows you to rename variables, classes, methods, packages, folders, and almost any Java identifiers. When you rename an identifier, all references to that identifier are also renamed. The shortcut to invoke the Rename refactoring is `kb(editor.action.rename)`. When you invoke the shortcut on an identifier in the editor, a small box displays within the editor itself where you can change the identifier name. When you press `kbstyle(Enter)`, all references to that identifier are changed too.
 
-![Rename](images/java-editing/rename.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/rename.mp4" type="video/mp4">
+</video>
 
 ### Extract methods and variables
 
 Extract to constant, method, and local variables all come in handy with Java on Visual Studio Code.
 
-![Refactor](images/java-editing/refactor.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/refactor.mp4" type="video/mp4">
+</video>
 
 ### Generate getters and setters
 
 You can bulk generate getters and setters for all new member variables.
 
-![GettersSetters](images/java-editing/getter-setter.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/getter-setter.mp4" type="video/mp4">
+</video>
 
 ## Formatting
 
@@ -98,6 +114,8 @@ You can bulk generate getters and setters for all new member variables.
 
 In addition, there's a [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension, which you can use with either existing `checkstyle` configurations (Google's or Sun's Check) or your own customized files. When opening or saving a Java file, the extension will check the file format and provide quick fixes if possible.
 
-![Checkstyle](images/java-editing/checkstyle.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/checkstyle.mp4" type="video/mp4">
+</video>
 
 For more details about [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle), visit its [GitHub Repository](https://github.com/jdneo/vscode-checkstyle).

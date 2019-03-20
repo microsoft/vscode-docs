@@ -13,6 +13,13 @@ Visual Studio Code provides many features as a Java language editor. You can als
 
 > **Tip:** To see how to install and manage your extensions, refer to the [extension documentation](/docs/editor/extension-gallery.md).
 
+Thanks to the great Java community around VS Code, you can search for a great number of Java extensions easily within VS Code:
+
+1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
+2. Filter the extensions list by typing "java".
+
+![Java Extensions](images/extensions/extensions.png)
+
 ## Recommended extensions
 
 To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which contains these popular extensions:
