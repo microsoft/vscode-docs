@@ -356,7 +356,7 @@ or as a JSON file using the command **Preferences: Open Default Keyboard Shortcu
 
 >**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts). You can view the currently active keyboard shortcuts in VS Code in the **Command Palette** (**View** -> **Command Palette**) or in the **Keyboard Shortcuts** editor (**File** > **Preferences** > **Keyboard Shortcuts**).
 
-Some commands included below do not have default keyboard shortcuts and so are displayed as `kbstyle(unassigned)`) but you can assign your own keybindings.
+Some commands included below do not have default keyboard shortcuts and so are displayed as `kbstyle(unassigned)` but you can assign your own keybindings.
 
 ### Basic Editing
 
