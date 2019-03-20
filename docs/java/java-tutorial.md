@@ -52,7 +52,9 @@ You can also select which extensions you would like to install separately. For t
 
 Create a folder for your Java program and open the folder with Visual Studio Code. Within Visual Studio Code, you can then create a new file `Hello.java`. When you open that file, the Java Language Server will automatically be activated as you can see a rocket icon on the right of the Status bar. When it finishes loading, you will see a thumbs up icon instead.
 
-![Create Project](images/java-tutorial/create-file.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-tutorial/create-file.mp4" type="video/mp4">
+</video>
 
 Visual Studio Code also supports more complex Java projects, see [Project Management](/docs/java/java-project.md).
 
@@ -62,7 +64,9 @@ Visual Studio Code also supports more complex Java projects, see [Project Manage
 
 In Visual Studio Code, you can easily use code snippets to scaffold your class and method. VS Code also provides IntelliSense for code completion.
 
-![Edit Code](images/java-tutorial/edit-code.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-tutorial/edit-code.mp4" type="video/mp4">
+</video>
 
 You can also use various refactor methods within the editor. To learn more about Java code editing in Visual Studio Code, see [Java Editing](/docs/java/java-editing.md).
 
@@ -70,7 +74,9 @@ You can also use various refactor methods within the editor. To learn more about
 
 It is easy to run and debug Java in Visual Studio Code. You can either click `kb(workbench.action.debug.start)` or use the **Run|Debug** CodeLens options. Just set a breakpoint and you can see all your variables and threads in the Debug view.
 
-![Run and Debug](images/java-tutorial/run-debug.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-tutorial/run-debug.mp4" type="video/mp4">
+</video>
 
 The debugger also supports advanced features such as Hot Code replacement and conditional breakpoints. For more information, see [Java Debugging](/docs/java/java-debugging.md).
 
