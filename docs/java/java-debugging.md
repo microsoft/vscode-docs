@@ -27,14 +27,14 @@ Here's a list of supported debugging features:
 - Evaluation
 - Hot Code Replace
 
-The Java debugger is an open source project, which welcomes contributors to collaborate through GitHub repositories:
+The Java debugger is an open-source project, which welcomes contributors to collaborate through GitHub repositories:
 
 - [Debugger for Java Extension](https://github.com/Microsoft/vscode-java-debug)
 - [Java Debugger Server for Visual Studio Code](https://github.com/Microsoft/java-debug)
 
 ## Install
 
-For the debugger to work, you also need to have the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension installed. To make it easier, there is a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which bundles the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) and several other popular Java [extensions](/docs/java/extensions.md).
+For the debugger to work, you also need to have the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension installed. To make it easier, there is a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which bundles the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) and several other popular Java [extensions](/docs/java/extensions.md).
 
 You can manually install the extension pack from the Extensions view (`kb(workbench.view.extensions)`) by typing `vscode-java-pack` in the search box. You will also be prompted to install the Java Extension Pack when you edit a Java file in VS Code for the first time.
 
@@ -50,7 +50,7 @@ Once the debugger is activated, you will find **Run|Debug** on the CodeLens of y
 
 ### Clicking F5
 
-Once you click the `Run` button or `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging.
+Once you select **Run** or `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/debug-intro.mp4" type="video/mp4">
@@ -80,7 +80,7 @@ VS Code can run and debug single Java files without any project.
 
 ### Debugging external files
 
-The Java debugger also supports external source files. This lets you debug third party classes when they are inside a JAR or a source attachment. Set your breakpoints in those classes before you start debugging. You can also attach missing source code with a `zip/jar` file using the Context menu **Attach Source** action.
+The Java debugger also supports external source files. This lets you debug third-party classes when they are inside a JAR or a source attachment. Set your breakpoints in those classes before you start debugging. You can also attach missing source code with a `zip/jar` file using the Context menu **Attach Source** action.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/attach-source.mp4" type="video/mp4">
@@ -154,7 +154,7 @@ Below are all the configurations available for `Launch` and `Attach`, for more i
 
 ### Launch
 
-- `mainClass` (required) - The fully qualified class name (e.g. [java module name/]com.xyz.MainApp) or the java file path of the program entry.
+- `mainClass` (required) - The fully qualified class name (for example [java module name/]com.xyz.MainApp) or the java file path of the program entry.
 - `args` - The command-line arguments passed to the program. Use `"${command:SpecifyProgramArgs}"` to prompt for program arguments. It accepts a string or an array of string.
 - `sourcePaths` - The extra source directories of the program. The debugger looks for source code from project settings by default. This option allows the debugger to look for source code in extra directories.
 - `modulePaths` - The modulepaths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
