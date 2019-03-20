@@ -174,6 +174,7 @@ We allow badges from the following URL prefixes:
 - cdn.travis-ci.com
 - cdn.travis-ci.org
 - ci.appveyor.com
+- circleci.com
 - cla.opensource.microsoft.com
 - codacy.com
 - codeclimate.com
@@ -181,6 +182,7 @@ We allow badges from the following URL prefixes:
 - coveralls.io
 - david-dm.org
 - deepscan.io
+- dev.azure.com
 - gemnasium.com
 - githost.io
 - gitlab.com
@@ -194,6 +196,7 @@ We allow badges from the following URL prefixes:
 - snyk.io
 - travis-ci.com
 - travis-ci.org
+- visualstudio.com
 - vsmarketplacebadge.apphb.com
 - www.bithound.io
 - www.versioneye.com

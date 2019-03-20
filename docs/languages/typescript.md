@@ -189,7 +189,7 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 
 ## Organize Imports
 
-The **Organize Imports** source code action sorts the imports in a TypeScript file and removes and unused imports:
+The **Organize Imports** source code action sorts the imports in a TypeScript file and removes unused imports:
 
 <video src="/docs/languages/typescript/organize-imports.mp4" placeholder="images/typescript/organize-imports-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.

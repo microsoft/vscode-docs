@@ -141,7 +141,7 @@ For more information on commands that take arguments, refer to [Built-in Command
 
 ## Removing a specific key binding rule
 
-You can write a key binding rule that targets the removal of a specific default key binding. With the `keybindings.json`, it was always possible to redefine all the key bindings of VS Code, but it can be very difficult to make a small tweak, especially around overloaded keys, such as `kbstyle(Tab)` or `kbstyle(Escape)`. To remove a specific key binding, add a `-` to the `command` and the rule will be a removal rule.
+You can write a key binding rule that targets the removal of a specific default key binding. With the `keybindings.json`, it was always possible to redefine all the key bindings of VS Code, but it can be difficult to make a small tweak, especially around overloaded keys, such as `kbstyle(Tab)` or `kbstyle(Escape)`. To remove a specific key binding, add a `-` to the `command` and the rule will be a removal rule.
 
 Here is an example:
 
@@ -185,7 +185,7 @@ All the key bindings are rendered in the UI using the current system's keyboard 
 
 ![render key binding](images/keybinding/render-key-binding.png)
 
-When editing `keybindings.json`, VS Code highlights misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. For example, here is how the **Default Keyboard Shortcuts** rules look like when using a French (France) keyboard layout:
+When editing `keybindings.json`, VS Code highlights misleading key bindings, those that are represented in the file with the character produced under the standard US keyboard layout, but that need pressing keys with different labels under the current system's keyboard layout. For example, here is how the **Default Keyboard Shortcuts** rules look like when using a French (France) keyboard layout:
 
 ![keybindings.json guidance](images/keybinding/keybindings-json.png)
 
@@ -195,7 +195,7 @@ There is also a widget that helps input the key binding rule when editing `keybi
 
 >**Note:** On Linux, Visual Studio Code detects your current keyboard layout on start-up and then caches this information. For a good experience, we recommend restarting VS Code if you change your keyboard layout.
 
-## Keyboard layout independent bindings
+## Keyboard layout-independent bindings
 
 Using scan codes, it is possible to define keybindings which do not change with the change of the keyboard layout. For example:
 
@@ -261,7 +261,7 @@ referenceSearchVisible | Peek References peek window is open.
 inReferenceSearchEditor | The Peek References peek window editor has focus.
 config.editor.stablePeek | Keep peek editors open (controlled by `editor.stablePeek` setting).
 quickFixWidgetVisible | Quick Fix widget is visible.
-parameterHintsVisible | Parameter hints are visible (controlled by `editor.parameterHints` setting).
+parameterHintsVisible | Parameter hints are visible (controlled by `editor.parameterHints.enabled` setting).
 parameterHintsMultipleSignatures | Multiple parameter hints are displayed.
 **Integrated terminal contexts** |
 terminalFocus | An integrated terminal has focus.
@@ -352,11 +352,11 @@ You can view all default keyboard shortcuts in VS Code in the **Keyboard Shortcu
 
 ![Default Keyboard Shortcuts](images/keybinding/default-keyboard-shortcuts.png)
 
-or as a JSON using the command **Preferences: Open Default Keyboard Shortcuts (JSON)** (`kb(workbench.action.openDefaultKeybindingsFile)`)
+or as a JSON file using the command **Preferences: Open Default Keyboard Shortcuts (JSON)**.
 
 >**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts). You can view the currently active keyboard shortcuts in VS Code in the **Command Palette** (**View** -> **Command Palette**) or in the **Keyboard Shortcuts** editor (**File** > **Preferences** > **Keyboard Shortcuts**).
 
-Some commands included below do not have default keyboard shortcuts (`kbstyle(unassigned)`) but you can assign your own keybindings.
+Some commands included below do not have default keyboard shortcuts and so are displayed as `kbstyle(unassigned)` but you can assign your own keybindings.
 
 ### Basic Editing
 

@@ -115,7 +115,7 @@ You can configure advanced search options by clicking the ellipsis (**Toggle Sea
 
 ![Advanced search options](images/codebasics/searchadvanced.png)
 
-In the input box below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `!` to exclude those patterns from the search. `!example` will skip searching any folder or file named `example`. You can also use glob syntax:
+In the input box below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `!` to exclude those patterns from the search. `!example` will skip searching any folder or file named `example`. Use `,` to separate multiple patterns. You can also use glob syntax:
 
 * `*` to match one or more characters in a path segment
 * `?` to match on one character in a path segment

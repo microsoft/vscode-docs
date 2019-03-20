@@ -10,12 +10,12 @@ Topics submitted here will be published to the [Visual Studio Code](https://code
 If you are looking for the VS Code product GitHub repository, you can find it [here](https://github.com/Microsoft/vscode).
 
 ## Index
+
 1. [About Visual Studio Code](#visual-studio-code)
-2. [Contributing to the documentation](#contributing-to-the-documentation)
-3. [Feedback](#feedback)
-4. [Documentation Issues](#documentation-issues)
-5. [Editing](#editing)
-6. [Publishing](#publishing)
+2. [Feedback](#feedback)
+3. [Documentation Issues](#documentation-issues)
+4. [Contributing to the documentation](#contributing)
+5. [Publishing](#publishing)
 
 ## Visual Studio Code
 
@@ -29,9 +29,9 @@ If you want to give documentation feedback, please use the feedback control loca
 
 ## Documentation Issues
 
-To enter documentation bugs, please create a [new GitHub issue](https://github.com/Microsoft/vscode-docs/issues) (try to check if there isn't a topic about your issue already).
+To enter documentation bugs, please create a [new GitHub issue](https://github.com/Microsoft/vscode-docs/issues). Please check if there is existing issue first.
 
-If you think the issue is with the VS Code product itself, please enter issues [here](https://github.com/Microsoft/vscode/issues).
+If you think the issue is with the VS Code product itself, please enter issues in the VS Code product repo [here](https://github.com/Microsoft/vscode/issues).
 
 ## Contributing
 
@@ -52,7 +52,7 @@ We have adopted [Git LFS](https://git-lfs.github.com/) to store the images in th
 
 - Install [Git LFS](https://git-lfs.github.com/).
 - `git lfs install`. You only need to run this once.
-- `GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:Microsoft/vscode-docs.git`. This only downloads text files that amount to ~16MB.
+- `GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/Microsoft/vscode-docs.git`. This only downloads text files that amount to ~16MB.
 - `git lfs pull -I <PATTERN>`, where [`<PATTERN>`](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-fetch.1.ronn#include-and-exclude) is a string of comma-separated globs. For example:
     - `git lfs pull -I "docs/nodejs"`. Only download images in `docs/nodejs`.
     - `git lfs pull -I "release-notes/images/1_3*/*"`. Only download images in latest release notes.

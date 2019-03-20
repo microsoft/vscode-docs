@@ -90,6 +90,7 @@ Merge these entries into the `scripts` section in `package.json`:
   "vscode:prepublish": "webpack --mode production",
   "compile": "webpack --mode none",
   "watch": "webpack --mode none --watch",
+  "test-compile": "tsc -p ./",
 },
 ```
 

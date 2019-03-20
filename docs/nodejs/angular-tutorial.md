@@ -113,7 +113,7 @@ Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome` in 
 
 ![debugger for chrome](images/reactjs/debugger-for-chrome.png)
 
-Press the **Install** button for **Debugger for Chrome**. The button will change to **Installing** then, after completing the installation, it will change to **Reload**. Press **Reload** to restart VS Code and activate the extension.
+Press the **Install** button for **Debugger for Chrome**.
 
 ### Set a breakpoint
 

@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Flask Tutorial
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
 PageTitle: Python and Flask Tutorial in Visual Studio Code
-DateApproved: 03/07/2019
+DateApproved: 03/18/2019
 MetaDescription: Python Flask tutorial showing IntelliSense, debugging, and code navigation support in Visual Studio Code, the best Python IDE.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -195,26 +195,29 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Select the gear icon and select **Python** from the list that appears. VS Code creates and opens a `launch.json` file. This JSON file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
-1. Scroll down to and examine the configuration with the name "Python: Flask (0.11.x or later)". This configuration contains `"module": "flask",`, which tells VS Code to run Python with `-m flask` when it starts the debugger. It also defines the FLASK_APP environment variable in the `env` property to identify the startup file, which is `app.py` by default, but allows you to easily specify a different file. If you want to change the host and/or port, you can use the `args` array.
+1. Scroll down to and examine the configuration with the name "Python: Flask". This configuration contains `"module": "flask",`, which tells VS Code to run Python with `-m flask` when it starts the debugger. It also defines the FLASK_APP environment variable in the `env` property to identify the startup file, which is `app.py` by default, but allows you to easily specify a different file. If you want to change the host and/or port, you can use the `args` array.
 
     ```json
     {
-        "name": "Python: Flask (0.11.x or later)",
+        "name": "Python: Flask",
         "type": "python",
         "request": "launch",
         "module": "flask",
         "env": {
-            "FLASK_APP": "app.py"
+            "FLASK_APP": "app.py",
         },
         "args": [
             "run",
             "--no-debugger",
             "--no-reload"
-        ]
+        ],
+        "jinja": true
     },
     ```
 
     > **Note**: If the `env` entry in your configuration contains `"FLASK_APP": "${workspaceFolder}/app.py"`, change it to `"FLASK_APP": "app.py"` as shown above. Otherwise you may encounter error messages like "Cannot import module C" where C is the drive letter where your project folder resides.
+
+    > **Note**: Once `launch.json` is created, an **Add Configuration** button appears in the editor. That button displays a list of additional configurations to add to the beginning of the configuration list. (The **Debug** > **Add Configuration** menu command does the same action.) From that list you can also choose "Python: Flask", which creates a configuration named just "Flask" that's identical to the "Python: Flask" configuration with two added environment variables in the `env` list: `"FLASK_ENV": "development"` and `"FLASK_DEBUG": "0"`.
 
 1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration drop-down list (which reads **Python: Current File**) select the **Python: Flask (0.11.x or later)** configuration.
 

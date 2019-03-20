@@ -58,7 +58,9 @@ Maven, Eclipse, and Gradle Java projects are supported through [Language Support
 
 With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate projects from [Maven Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html), browse through all the Maven projects within your workspace, and execute Maven goals easily from an embedded explorer. Projects can also be created and managed with the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension.
 
-![Project Management](images/java/package-viewer.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/languages/java/package-viewer.mp4" type="video/mp4">
+</video>
 
 More details about Java project support can be found in [Java Project Management in Visual Studio Code](/docs/java/java-project.md).
 
@@ -70,7 +72,9 @@ Visual Studio Code also supports working with standalone Java files outside of a
 
 [IntelliSense](/docs/editor/intellisense.md) is a general term for language features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules. VS Code supports code completion and IntelliSense for Java through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). It also provides AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) by putting what you're most likely to use at the top of your completion list.
 
-![IntelliSense](images/java/intellisense.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
+</video>
 
 ### Navigating
 
@@ -84,7 +88,9 @@ There are also other editing related features available for Java, such as refact
 
 Starting a debugging session is easy, click on the **Run|Debug** button available at the CodeLens of your `main()` function, or press `kb(workbench.action.debug.start)`. The debugger will automatically generate the proper configuration for you.
 
-![Resolving Main Class](images/java/resolve-main.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/languages/java/resolve-main.mp4" type="video/mp4">
+</video>
 
 Although it's lightweight, the Java debugger supports advanced features such as expression evaluation, conditional breakpoints, and hot code replacement. For more debugging related information, visit [Java Debugging](/docs/java/java-debugging.md).
 
@@ -92,7 +98,9 @@ Although it's lightweight, the Java debugger supports advanced features such as 
 
 With the support from the [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extension, you can easily run, debug, and manage your JUnit and TestNG test cases.
 
-![TestNG](images/java/testng.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/languages/java/testng.mp4" type="video/mp4">
+</video>
 
 For more about testing, read [Testing Java](/docs/java/java-testing.md).
 
@@ -102,7 +110,9 @@ To further improve your Java productivity in VS Code, there are extensions for m
 
 The [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension includes an explorer to easily navigate and manage your Tomcat servers. You can create, start, debug, stop, and rename your Tomcat server with the extension.
 
-![Tomcat](images/java/tomcat.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/languages/java/tomcat.mp4" type="video/mp4">
+</video>
 
 See [Tomcat and Jetty Support](/docs/java/java-tomcat-jetty.md) to learn more about Tomcat and Jetty support with VS Code.
 
