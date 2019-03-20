@@ -16,11 +16,13 @@ This tutorial shows you how to write and run a simple Hello World program in Jav
 
 Before going through this tutorial, you must have the Java SE Development Kit (JDK) and Apache Maven build tools on your local development environment. If you don't have them installed, you can do so now.
 
-Download and install the Java SE Development Kit (JDK). Java support on Visual Studio Code works with all major Java version up to 11, below is a link for version 8:
+Download and install the Java SE Development Kit (JDK). Java support on Visual Studio Code works with all major Java version up to 11, see a few JDK distributions you can choose from:
 
-<a class="tutorial-install-extension-btn" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" style="background-color:#68217A">Download JDK</a>
+* [OpenJDK](https://adoptopenjdk.net/)
+* [Azul Zulu Enterprise for Azure](https://www.azul.com/downloads/azure-only/zulu/)
+* [Java SE Downloads by Oracle](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
->**Note**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
+>**Note**: After installing the JDK, you would need to configure your environment for Java development. The most common way is to set `JAVA_HOME` environment variable  to the install location of the JDK while you can also use `java.home` setting in Visual Studio Code settings (workspace then user settings) to configure it just for the editor.
 
 Download Apache Maven version 3 or greater:
 
