@@ -16,13 +16,11 @@ For [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=
 
 ## Tomcat
 
-With the [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension, you can manage all your local Tomcat servers within the editor and easily debug and run your `war` package on Tomcat and link Tomcat into your workspace.
+With the [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension, you can manage all your local Tomcat servers within the editor and easily debug and run your `war` package on Tomcat and link Tomcat into your workspace. You can also create a new Tomcat server from the explorer using the **Add** button and run a `war` package on it. You can also create the server during the deployment.
 
-![Tomcat](images/java-tomcat-jetty/tomcat.gif)
-
-You can also create a new Tomcat server from the explorer using the **Add** button and run a `war` package on it. You can also create the server during the deployment.
-
-![Create Server](images/java-tomcat-jetty/tomcat-create-server.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-tomcat-jetty/tomcat.mp4" type="video/mp4">
+</video>
 
 For running and debugging a package, you can right-click a server to select a `war` package to debug. More details could be found in the [GitHub repository](https://github.com/adashen/vscode-tomcat) of the [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension.
 
@@ -39,6 +37,8 @@ The extension includes the following features:
 * Open Server homepage
 * Open `war` package homepage
 
-![Jetty](images/java-tomcat-jetty/jetty.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-tomcat-jetty/jetty.mp4" type="video/mp4">
+</video>
 
 More details could be found in the [GitHub repository](https://github.com/summersun/vscode-jetty) of the [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension.

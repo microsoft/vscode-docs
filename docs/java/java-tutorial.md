@@ -16,11 +16,13 @@ This tutorial shows you how to write and run a simple Hello World program in Jav
 
 Before going through this tutorial, you must have the Java SE Development Kit (JDK) and Apache Maven build tools on your local development environment. If you don't have them installed, you can do so now.
 
-Download and install the Java SE Development Kit (JDK). Java support on Visual Studio Code works with all major Java version up to 11, below is a link for version 8:
+Download and install the Java SE Development Kit (JDK). Java support on Visual Studio Code works with all major Java version up to 11, see a few JDK distributions you can choose from:
 
-<a class="tutorial-install-extension-btn" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" style="background-color:#68217A">Download JDK</a>
+* [OpenJDK](https://adoptopenjdk.net/)
+* [Azul Zulu Enterprise for Azure](https://www.azul.com/downloads/azure-only/zulu/)
+* [Java SE Downloads by Oracle](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
->**Note**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
+>**Note**: After installing the JDK, you would need to configure your environment for Java development. The most common way is to set `JAVA_HOME` environment variable  to the install location of the JDK while you can also use `java.home` setting in Visual Studio Code settings (workspace then user settings) to configure it just for the editor.
 
 Download Apache Maven version 3 or greater:
 
@@ -50,7 +52,9 @@ You can also select which extensions you would like to install separately. For t
 
 Create a folder for your Java program and open the folder with Visual Studio Code. Within Visual Studio Code, you can then create a new file `Hello.java`. When you open that file, the Java Language Server will automatically be activated as you can see a rocket icon on the right of the Status bar. When it finishes loading, you will see a thumbs up icon instead.
 
-![Create Project](images/java-tutorial/create-file.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-tutorial/create-file.mp4" type="video/mp4">
+</video>
 
 Visual Studio Code also supports more complex Java projects, see [Project Management](/docs/java/java-project.md).
 
@@ -60,7 +64,9 @@ Visual Studio Code also supports more complex Java projects, see [Project Manage
 
 In Visual Studio Code, you can easily use code snippets to scaffold your class and method. VS Code also provides IntelliSense for code completion.
 
-![Edit Code](images/java-tutorial/edit-code.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-tutorial/edit-code.mp4" type="video/mp4">
+</video>
 
 You can also use various refactor methods within the editor. To learn more about Java code editing in Visual Studio Code, see [Java Editing](/docs/java/java-editing.md).
 
@@ -68,7 +74,9 @@ You can also use various refactor methods within the editor. To learn more about
 
 It is easy to run and debug Java in Visual Studio Code. You can either click `kb(workbench.action.debug.start)` or use the **Run|Debug** CodeLens options. Just set a breakpoint and you can see all your variables and threads in the Debug view.
 
-![Run and Debug](images/java-tutorial/run-debug.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-tutorial/run-debug.mp4" type="video/mp4">
+</video>
 
 The debugger also supports advanced features such as Hot Code replacement and conditional breakpoints. For more information, see [Java Debugging](/docs/java/java-debugging.md).
 

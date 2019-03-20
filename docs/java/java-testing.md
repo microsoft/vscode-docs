@@ -30,11 +30,15 @@ Once the test runner is activated, you will find **Run|Debug** on the CodeLens o
 
 Here's a brief session with TestNG:
 
-![Test Explorer with TestNG](images/java-testing/testng.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/testng.mp4" type="video/mp4">
+</video>
 
 And with JUnit5:
 
-![Test Explorer with JUnit5](images/java-testing/test-junit5.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/test-junit5.mp4" type="video/mp4">
+</video>
 
 The JUnit 5 support also covers frequently used annotations such as `@DisplayName` and `@ParameterizedTest`
 
@@ -46,7 +50,9 @@ Visit the [GitHub repository](https://github.com/Microsoft/vscode-java-test) of 
 
 You can also view the Test Report and navigate to source from there.
 
-![Test Report](images/java-testing/report.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/report.mp4" type="video/mp4">
+</video>
 
 ## Next steps
 
