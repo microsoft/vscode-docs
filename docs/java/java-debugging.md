@@ -75,7 +75,7 @@ There's also a convenient setting for debugging `current file` so the editor kno
 VS Code can run and debug single Java files without any project.
 
 <video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-debugging/single-file.mp4" type="video/mp4">
+  <source src="/docs/java/java-debugging/single-file-debugging.mp4" type="video/mp4">
 </video>
 
 ### Debugging external files
@@ -86,7 +86,7 @@ The Java debugger also supports external source files. This lets you debug third
   <source src="/docs/java/java-debugging/attach-source.mp4" type="video/mp4">
 </video>
 
-Java 9 is supported with VS Code Java Debugger as well.
+Java 9 and newer versions are supported with VS Code Java Debugger as well.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/java9.mp4" type="video/mp4">

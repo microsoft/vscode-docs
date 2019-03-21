@@ -44,7 +44,7 @@ The [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscj
 Navigate to your `pom.xml` file and right-click to select `Edit starters`. The  **Command Palette** will show the dependencies you already have beginning with a `√` . You can search for other dependencies you want to add to your project. Or you can click on the existing dependencies to remove them.
 
 <video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-spring-boot/spring-initializr-edit.mp4" type="video/mp4">
+  <source src="/docs/java/java-spring-boot/edit-starters.mp4" type="video/mp4">
 </video>
 
 ## Develop the application
