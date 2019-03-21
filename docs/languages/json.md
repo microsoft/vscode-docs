@@ -81,7 +81,8 @@ The following excerpt from User [settings](/docs/getstarted/settings.md) shows h
             "/.babelrc"
         ],
         "url": "http://json.schemastore.org/babelrc"
-    },
+    }
+]
 ```
 
 >**Tip:** Additionally to defining a schema for `.babelrc`, also make sure that `.babelrc` is associated to the JSON language mode. This is also done in the settings using the `files.association` array setting.
@@ -97,7 +98,8 @@ To map a schema that is located in the workspace, use a relative path. In this e
             "/*.foo.json"
         ],
         "url": "./myschema.json"
-    },
+    }
+]
 ```
 
 ### Mapping to a Schema Defined in Settings
@@ -119,7 +121,8 @@ To map a schema that is defined in the User or Workspace settings, use the `sche
                 }
             }
         }
-    },
+    }
+]
 ```
 
 ### Mapping a Schema in an Extension
