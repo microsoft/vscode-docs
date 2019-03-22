@@ -117,10 +117,16 @@ If you have multiple sub-folders that have source code for your project, you can
 
 ### Standalone Java file support
 
-Visual Studio Code also supports Java files without a project. The solution is folder-based, so all you need to do is open a folder with Visual Studio Code, and all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
+Visual Studio Code also supports Java files without a project (or an invisible project which it creates without affecting your folders). The solution is folder-based, so all you need to do is open a folder with Visual Studio Code, and all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
+</video>
+
+In case you need to bring additional jars as dependency, you can create a `lib/` folder in the root directory of the standalone files and drop your jars into it. Source for `foo.jar` is automatically detected if there's a `foo-sources.jar` in the `lib/` folder.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/lib.mp4" type="video/mp4">
 </video>
 
 ## Next steps
