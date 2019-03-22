@@ -47,7 +47,7 @@ By right-clicking each Maven project in the explorer, you can conveniently run M
 
 The extension also preserves the history of goals for each project, so you can quickly rerun the previous command, which is useful when you're running a long custom goal.
 
-There are two way to rerun a goal:
+There are two ways to rerun a goal:
 
 1. Command Palette > Select **Maven: History** > Select a project > Select command from the history.
 2. Right-click a project > Click **History** > Select command from history.
@@ -62,7 +62,7 @@ For each plug-in you use with your project, the extension also provides you an e
   <source src="/docs/java/java-project/maven-plugin-goal.mp4" type="video/mp4">
 </video>
 
-### Generate project from maven Archetype
+### Generate project from Maven Archetype
 
 Another handy feature provided by this extension is to generate a Maven project from [Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). The extension loads archetypes listed in local/remote catalogs. After selection, the extension sends `mvn archetype:generate -D...` to the terminal.
 
@@ -87,7 +87,7 @@ Project Management in Visual Studio Code is provided by the [Java Dependency Vie
 
 ### Create project
 
-In addition to creating a project through Maven Archetype, you can also use the following command to create a simple Java project: Command Palette > select **Java: Create Java Project**.
+In addition to creating a project through Maven Archetype, you can also use the following command to create a simple Java project: **Java: Create Java Project** from the Command Palette.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/create-project.mp4" type="video/mp4">
@@ -109,7 +109,7 @@ The extension also has a hierarchy view of your project and dependencies, which 
 
 ### Multiple source folders
 
-If you have multiple sub-folders that have source code for your project, you can easily add these folders to source path, then all the code inside will be correctly compiled.
+If you have multiple subfolders that have source code for your project, you can easily add these folders to source path, then all the code inside will be correctly compiled.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/multiple-source.mp4" type="video/mp4">
@@ -117,13 +117,13 @@ If you have multiple sub-folders that have source code for your project, you can
 
 ### Standalone Java file support
 
-Visual Studio Code also supports Java files without a project (or an invisible project which it creates without affecting your folders). The solution is folder-based, so all you need to do is open a folder with Visual Studio Code, and all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
+Visual Studio Code also supports Java files without a project (or an invisible project, which it creates without affecting your folders). The solution is folder-based, so you can open a folder with Visual Studio Code, and all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
 </video>
 
-In case you need to bring additional jars as dependency, you can create a `lib/` folder in the root directory of the standalone files and drop your jars into it. Source for `foo.jar` is automatically detected if there's a `foo-sources.jar` in the `lib/` folder.
+In case you need to bring additional JAR files as dependencies, you can create a `lib/` folder in the root directory of the standalone files and place your JAR files there. Source for `foo.jar` is automatically detected if there is a `foo-sources.jar` in the `lib/` folder.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/lib.mp4" type="video/mp4">
