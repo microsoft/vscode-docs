@@ -594,7 +594,6 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 
 The theme colors for breadcrumbs navigation:
 
-- `breadcrumb.background`: Background color of breadcrumb.
 - `breadcrumb.foreground`: Color of breadcrumb items.
 - `breadcrumb.background`: Background color of breadcrumb items.
 - `breadcrumb.focusForeground`: Color of focused breadcrumb items.
