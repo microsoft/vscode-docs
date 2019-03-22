@@ -102,6 +102,8 @@ Contribute an entry consisting of a title and a command to invoke to the **Comma
 }
 ```
 
+See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-guides/command) to learn more about using commands in VS Code extensions.
+
 ![commands extension point example](images/contribution-points/commands.png)
 
 ## contributes.menus
