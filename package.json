@@ -24,7 +24,7 @@
   },
   "lint-staged": {
     "*.{gif,mp4,jpg,png}": [
-      "git lfs --version"
+      "yarn check-lfs"
     ]
   }
 }
