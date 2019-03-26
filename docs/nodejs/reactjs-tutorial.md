@@ -114,7 +114,7 @@ To debug the client side React code, we'll need to install the [Debugger for Chr
 
 >Note: This tutorial assumes you have the Chrome browser installed. Microsoft also publishes a version of this extension for their [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browser.
 
-Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome` in the search box. You'll see several extensions which reference Chrome.
+Open the Extensions view (`kb(workbench.view.extensions)`) and type `chrome` in the search box. You'll see several extensions which reference Chrome.
 
 ![debugger for chrome](images/reactjs/debugger-for-chrome.png)
 
