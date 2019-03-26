@@ -217,9 +217,9 @@ The command will create a `.eslintrc.json` file in your project root:
 
 ESLint will now analyze open files and shows a warning in `index.js` about 'App' being defined but never used.
 
- ![App is unused](images/reactjs/app-is-unused.png)
+![App is unused](images/reactjs/app-is-unused.png)
 
- You can modify the ESLint [rules](https://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense in `.eslintrc.json`.
+You can modify the ESLint [rules](https://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense in `.eslintrc.json`.
 
 ![eslintrc IntelliSense](images/reactjs/eslintrc-intellisense.png)
 
