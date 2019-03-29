@@ -67,7 +67,7 @@ You might want to clone the repo without the 1.6GB images. Here are the steps:
     - `git lfs pull -I "release-notes/images/1_3*/*"`
     - You can do `git lfs pull -I <PATTERN>`, as long as `<PATTERN>` is comma-separated glob strings. For more patterns, see [Git LFS: Include and Exclude](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-fetch.1.ronn#include-and-exclude).
 
-The history of this repo before we adopt LFS can be found at [microsoft/vscode-docs-archive](https://github.com/Microsoft/vscode-docs-archive).
+The history of this repo before we adopted LFS can be found at [microsoft/vscode-docs-archive](https://github.com/Microsoft/vscode-docs-archive).
 
 ## Publishing
 
