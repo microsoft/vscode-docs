@@ -270,7 +270,7 @@ notificationFocus | Notification has keyboard focus.
 notificationCenterVisible | Notification Center is visible at the bottom right of VS Code.
 notificationToastsVisible | Notification toast is visible at the bottom right of VS Code.
 searchViewletVisible | Search view is open.
-sidebarVisible | Side Bar is displayed.
+sideBarVisible | Side Bar is displayed.
 sideBarFocus | Side Bar has focus.
 panelFocus | Panel has focus.
 editorIsOpen | True if one editor is open.
