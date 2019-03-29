@@ -48,28 +48,22 @@ The two suggested workflows are:
 
 ### Cloning
 
-If you plan to add or modify `{gif,mp4,jpg,png}` files, please follow the [Git LFS Setup](#git-lfs-setup).
+1. Install [Git LFS](https://git-lfs.github.com/).
+2. Run `git lfs install` to setup global git hooks. You only need to run this once per machine.
+3. `git clone git@github.com:Microsoft/vscode-docs.git`.
+4. Now you can `git add` binary files and commit them. They'll be tracked in LFS.
 
-If you only plan to edit the MD files, you can use the normal Git workflow. Notice that **images will be broken in Markdown Preview** because images are not retrieved locally:
+#### Cloning without binary files
 
-```bash
-git clone git@github.com:Microsoft/vscode-docs.git
-cd vscode-docs
-yarn
-```
+You might want to clone the repo without the 1.6GB images. Here are the steps:
 
-#### Git LFS Setup
-
-We have adopted [Git LFS](https://git-lfs.github.com/) to store the images in this repo. Here's the recommended setup:
-
-- Install [Git LFS](https://git-lfs.github.com/).
-- `GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/Microsoft/vscode-docs.git`. This only downloads text files that amount to ~16MB.
-- `cd vscode-docs`
-- `git lfs install` inside the `vscode-docs` repo. You only need to run this once.
-- `git lfs pull -I <PATTERN>`, where [`<PATTERN>`](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-fetch.1.ronn#include-and-exclude) is a string of comma-separated globs. For example:
-    - `git lfs pull -I "docs/nodejs"`. Only download images in `docs/nodejs`.
-    - `git lfs pull -I "release-notes/images/1_3*/*"`. Only download images in latest release notes.
-- Alternatively, use `git config lfs.fetchinclude "docs"` so future `git lfs pull` only pulls images in `docs`.
+1. Install [Git LFS](https://git-lfs.github.com/).
+2. Run `git lfs install` to setup global git hooks. You only need to run this once per machine.
+3. `GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:Microsoft/vscode-docs.git`. This clones the repo without image files.
+4. Now you can selectively checkout some binary files to work with. For example:
+    - `git lfs pull -I "docs/nodejs"`
+    - `git lfs pull -I "release-notes/images/1_3*/*"`
+    - You can do `git lfs pull -I <PATTERN>`, as long as `<PATTERN>` is comma-separated glob strings. For more patterns, see [Git LFS: Include and Exclude](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-fetch.1.ronn#include-and-exclude).
 
 The history of this repo before we adopt LFS can be found at [microsoft/vscode-docs-archive](https://github.com/Microsoft/vscode-docs-archive).
 
