@@ -59,7 +59,9 @@ You might want to clone the repo without the 1.6GB images. Here are the steps:
 
 1. Install [Git LFS](https://git-lfs.github.com/).
 2. Run `git lfs install` to setup global git hooks. You only need to run this once per machine.
-3. `GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:Microsoft/vscode-docs.git`. This clones the repo without image files.
+3. Clone the repo without binary files.
+3.1. macOS / Linux: `GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:Microsoft/vscode-docs.git`.
+3.2. Windows: `$env:GIT_LFS_SKIP_SMUDGE="1"; git clone git@github.com:Microsoft/vscode-docs.git`.
 4. Now you can selectively checkout some binary files to work with. For example:
     - `git lfs pull -I "docs/nodejs"`
     - `git lfs pull -I "release-notes/images/1_3*/*"`
