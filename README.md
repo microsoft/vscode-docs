@@ -53,7 +53,7 @@ If you plan to add or modify `{gif,mp4,jpg,png}` files, please follow the [Git L
 If you only plan to edit the MD files, you can use the normal Git workflow. Notice that **images will be broken in Markdown Preview** because images are not retrieved locally:
 
 ```bash
-git clone https://github.com/Microsoft/vscode-docs.git
+git clone git@github.com:Microsoft/vscode-docs.git
 cd vscode-docs
 yarn
 ```
