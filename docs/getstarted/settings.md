@@ -7,35 +7,44 @@ PageTitle: Visual Studio Code User and Workspace Settings
 DateApproved: 3/7/2019
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
-# User and Workspace Settings
+# User, Workspace, and Folder Settings
 
 It is easy to configure Visual Studio Code to your liking through its various settings. Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
 
-![VS Code settings](images/settings/hero.png)
+[Default settings](/docs/getstarted/settings.md#default-settings) are listed towards the bottom of this page.
 
-VS Code provides two different scopes for settings:
+VS Code provides three different scopes for settings:
 
 * **User Settings** - Settings that apply globally to any instance of VS Code you open.
-* **Workspace Settings** - Settings stored inside your workspace and only apply when the workspace is opened.
+* **Workspace Settings** - Settings that only apply when the workspace is opened and are stored inside your workspace file.
+* **Folder Settings** - Settings that apply only when that folder is opened and are stored inside the folder's .vscode subfolder.
 
-Workspace settings override user settings.
+Folder settings override workplace settings which override user settings.
 
-## Creating User and Workspace Settings
+### Workspace versus Folder Settings
 
-To open your user and workspace settings, use the following VS Code menu command:
+The use of the word "workspace" to refer to a folder that has been opened by itself is deprecated but it still in use on the page and elsewhere.
+
+If you have an open workspace (which always has its own `.code-settings` file), then the settings UI's "Workspace" tab will be for that open workspace's settings.  A third tab (not shown below) will be displayed for an open top-level folder's settings.
+
+If you opened a folder by itself and not within a workspace, then the settings UI's tab label "Workspace" is being used in its deprecated sense.  The tab is for that open folder's settings as shown below.
+
+## Editing User, Workspace, and Folder Settings
+
+To open your settings, use the following VS Code menu command:
 
 * On Windows/Linux - **File** > **Preferences** > **Settings**
 * On macOS - **Code** > **Preferences** > **Settings**
 
 You can also open the Settings editor from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
 
-In the example below, the color theme and the icon theme have been changed.
+In the screenshot below, the user has changed the settings for the color theme and the icon theme.
 
 ![Example Settings](images/settings/settings.png)
 
 Changes to settings are reloaded by VS Code as you change them. Modified settings are now indicated with a _blue line_ similar to modified lines in the editor. The gear icon opens a context menu with options to reset the setting to its default value as well as copy setting as JSON.
 
->**Note:** Workspace settings are useful for sharing project specific settings across a team.
+>**Note:** Workspace and folder settings are useful for sharing project specific settings across a team.
 
 ## Settings editor
 
@@ -45,7 +54,7 @@ When you open the settings editor, you can search and discover settings you are 
 
 **Note**: VS Code extensions can also add their own custom settings and they will be visible under an **Extensions** section.
 
-### Edit settings
+### Editing a setting
 
 Each setting can be edited by either a **checkbox**, an **input** or by a **drop-down**. Simply edit the text or select the option you want to change to the desired settings.
 
@@ -57,21 +66,18 @@ Default settings are represented in groups so that you can navigate them easily.
 
 ![Settings Groups](images/settings/settings-groups.png)
 
-Below is a [copy of the default settings](/docs/getstarted/settings.md#default-settings) that come with VS Code.
-
 ## Settings file locations
 
-By default VS Code shows the Settings editor, but you can still edit the underlying `settings.json` file by using the **Open Settings (JSON)** command or by changing your default settings editor with the `workbench.settings.editor` setting.
+An alternative to the settings UI is to edit the underlying JSON in the settings files.
 
-Depending on your platform, the user settings file is located here:
+* User settings are in a location that depends on your platform:
+    * **Windows** `%APPDATA%\Code\User\settings.json`
+    * **macOS** `$HOME/Library/Application Support/Code/User/settings.json`
+    * **Linux** `$HOME/.config/Code/User/settings.json`
 
-* **Windows** `%APPDATA%\Code\User\settings.json`
-* **macOS** `$HOME/Library/Application Support/Code/User/settings.json`
-* **Linux** `$HOME/.config/Code/User/settings.json`
+* [Workspace settings](/docs/editor/multi-root-workspaces.md#settings) are stored in a file with the extension `.code-settings`.  It may be stored anywhere within or outside of the workspace's open folders.
 
-The workspace setting file is located under the `.vscode` folder in your root folder.
-
->**Note:** In case of a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
+* Folder settings are stored in a folder's `.vscode` subfolder.
 
 ## Language specific editor settings
 
@@ -85,7 +91,7 @@ To customize your editor by language, run the global command **Preferences: Conf
 
 If you have a file open and you want to customize the editor for this file type, click on the Language Mode in the Status Bar to the bottom-right of the VS Code window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings**. Selecting this opens the Settings editor with the language entry where you can add applicable settings.
 
-You can also configure language based settings by directly opening `settings.json`. You can scope them to the workspace by placing them in the workspace settings just like other settings. If you have settings defined for a language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
+You can also configure language based settings by directly editing the settings JSON. You can scope them to a workspace or folder by placing them in the corresponding settings just like other settings. If you have settings defined for a language in more than one place, then folder settings take precedence over workspace settings, which take precedence over user settings.
 
 The following examples customize editor settings for language modes `typescript` and `markdown`.
 
@@ -108,9 +114,9 @@ You can use IntelliSense in Settings editor to help you find allowed language ba
 
 ## Settings and security
 
-Some settings allow you to specify an executable that VS Code will run to perform certain operations. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
+Some settings allow you to specify an executable that VS Code will run to perform certain operations. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace or folder scope.
 
-Here is the list of settings not supported in workspace settings:
+Here is the list of settings not supported in workspace or folder settings:
 
 * `git.path`
 * `terminal.integrated.shell.linux`
@@ -123,7 +129,7 @@ Here is the list of settings not supported in workspace settings:
 * `terminal.external.osxExec`
 * `terminal.external.linuxExec`
 
-The first time you open a workspace which defines any of these settings, VS Code will warn you and subsequently always ignore the values after that.
+The first time you open a workspace or folder which defines any of these settings, VS Code will warn you and subsequently always ignore the values after that.
 
 ## Default settings
 
@@ -2029,6 +2035,6 @@ If you try to change a setting (for example turning on Auto Save or selecting a 
 
 The easiest way to reset VS Code back to the default settings is to clear your user `settings.json` file contents in the Settings editor. Delete everything between the two curly braces, save the file, and VS Code will go back to using the default values.
 
-### When does it make sense to use workspace settings?
+### When does it make sense to use workspace or folder settings?
 
-If you're using a workspace that needs custom settings but you don't want to apply them to your other VS Code projects. A good example is language-specific linting rules.
+If you're using a workspace or folder that needs custom settings but you don't want to apply them to your other VS Code workspaces or folders. A good example is language-specific linting rules.
