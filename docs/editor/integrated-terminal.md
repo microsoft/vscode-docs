@@ -346,19 +346,21 @@ To resolve this issue, you need to track down where the old `npm` is installed a
 Once you have the path to npm, you can find the old node_modules by resolving the symlink by running a command something like this:
 
 ```bash
-ls -la /usr/local/bin | grep npm
+ls -la /usr/local/bin | grep "np[mx]"
 ```
 
 This will give you the resolved path at the end:
 
 ```bash
 ... npm -> ../lib/node_modules/npm/bin/npm-cli.js
+... npx -> ../lib/node_modules/npm/bin/npx-cli.js
 ```
 
 From there, removing the files and relaunching VS Code should fix the issue:
 
 ```bash
 rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
+rm -R /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
 ```
 
 ### Can I use Powerline fonts in the Integrated Terminal?
