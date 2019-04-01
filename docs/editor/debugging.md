@@ -199,6 +199,7 @@ Here are some optional attributes available to all launch configurations:
 * `postDebugTask` - to launch a task at the very end of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (in the workspace's `.vscode` folder).
 * `internalConsoleOptions` - this attribute controls the visibility of the Debug Console panel during a debugging session.
 * `debugServer` - **for debug extension authors only**: this attribute allows you to connect to a specified port instead of launching the debug adapter.
+* `serverReadyAction` - if you want to open a URL in a web browser whenever the program under debugging outputs a specific message to the debug console or integrated terminal. For details see section [Automatically open a URI when debugging a server program](https://code.visualstudio.com/docs/editor/debugging#_remote-debugging) below.
 
 Many debuggers support some of the following attributes:
 
@@ -372,6 +373,62 @@ An alternative way to start multiple debug sessions is by using a **compound** l
 VS Code does not itself support remote debugging: this is a feature of the debug extension you are using, and you should consult the extension's page in the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Debuggers&sortBy=Downloads) for support and details.
 
 There is, however, one exception: the Node.js debugger included in VS Code supports remote debugging. See the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) topic to learn how to configure this.
+
+## Automatically open a URI when debugging a server program
+
+Developing a web program typically requires opening a specific URL in a web browser in order to hit the server code in the debugger. VS Code has a built-in feature "**serverReadyAction**" to automate this task.
+
+Here is an example of a simple [Node.js Express](https://expressjs.com) application:
+
+```javascript
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+});
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+});
+```
+
+This application first installs a "Hello World" handler for the "/" URL and then starts to listen for HTTP connections on port 3000. The port is announced in the Debug Console and typically the developer would now type `http://localhost:3000` into their browser application.
+
+The **serverReadyAction** feature makes it possible to add a structured property `serverReadyAction` to any launch config and select an "action" to be performed:
+
+```json
+{
+  "type": "node",
+  "request": "launch",
+  "name": "Launch Program",
+  "program": "${workspaceFolder}/app.js",
+
+  "serverReadyAction": {
+    "pattern": "listening on port ([0-9]+)",
+    "uriFormat": "http://localhost:%s",
+    "action": "openExternally"
+  }
+}
+```
+
+Here the `pattern` property describes the regular expression for matching the program's output string that announces the port. The pattern for the port number is put into parenthesis so that it is available as a regular expression capture group. In this example, we are extracting only the port number, but it is also possible to extract a full URI.
+
+The `uriFormat` property describes how the port number is turned into a URI. The first `%s` is substituted by the first capture group of the matching pattern.
+
+The resulting URI is then opened outside of VS Code ("externally") with the standard application configured for the URI's scheme.
+
+Alternatively, the `action` can be set to `debugWithChrome`. In this case, VS Code starts a Chrome debug session for the URI (which requires that the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension is installed). In this mode, a `webRoot` property can be added that is passed to the Chrome debug session.
+
+To simplify things a bit, most properties are optional and we use the following fallback values:
+
+* **pattern**: `"listening on.* (https?://\\S+|[0-9]+)"` which matches the commonly used messages "listening on port 3000" or "Now listening on: https://localhost:5001".
+* **uriFormat**: `"http://localhost:%s"`
+* **webRoot**: `"${workspaceFolder}"`
+
+And here the **serverReadyAction** feature in action:
+
+![Server ready feature in action](images/debugging/server-ready.gif)
 
 ## Next steps
 
