@@ -23,12 +23,11 @@ You can install it simply by running:
 sudo snap install --classic code # or code-insiders
 ```
 
-Once installed, the Snap daemon will take care of automatically updating VS Code in the backrgound. You will get an in-product update notification whenever a new update is available.
+Once installed, the Snap daemon will take care of automatically updating VS Code in the background. You will get an in-product update notification whenever a new update is available.
 
-**Note:** If `snap` isn't available in your Linux distribution, please check the following [guide](https://docs.snapcraft.io/installing-snapd/6735) which can help you get that set up..
+**Note:** If `snap` isn't available in your Linux distribution, please check the following [guide](https://docs.snapcraft.io/installing-snapd/6735), which can help you get that set up.
 
 Learn more about snaps from the [official documentation](https://docs.snapcraft.io/snap-documentation/3781).
-
 
 ### Debian and Ubuntu based distributions
 
@@ -60,7 +59,7 @@ sudo apt-get update
 sudo apt-get install code # or code-insiders
 ```
 
-### RHEL, Fedora and CentOS based distributions
+### RHEL, Fedora, and CentOS based distributions
 
 We currently ship the stable 64-bit VS Code in a yum repository, the following script will install the key and repository:
 
@@ -83,11 +82,11 @@ yum check-update
 sudo yum install code
 ```
 
-Note that due to the manual signing process and the system we use to publish, the yum repo may lag behind and not get the latest version of VS Code immediately.
+Due to the manual signing process and the system we use to publish, the yum repo may lag behind and not get the latest version of VS Code immediately.
 
-### openSUSE and SLE based distributions
+### openSUSE and SLE-based distributions
 
-The yum repository above also works for openSUSE and SLE based systems, the following script will install the key and repository:
+The yum repository above also works for openSUSE and SLE-based systems, the following script will install the key and repository:
 
 ```bash
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -107,7 +106,6 @@ There is a community maintained Arch User Repository (AUR) [package for VS Code]
 
 To get more information about the installation from the AUR, please consult the following wiki entry:
 [Install AUR Packages](https://wiki.archlinux.org/index.php/Arch_User_Repository#Build_and_install_the_package).
-
 
 ### Nix package for NixOS (or any Linux distribution using Nix package manager)
 
@@ -163,7 +161,7 @@ sudo update-alternatives --set editor /usr/bin/code
 
 Once you have installed VS Code, these topics will help you learn more about it:
 
-* [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
+* [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript, and tools like Yeoman.
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.
 
