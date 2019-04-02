@@ -11,6 +11,25 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 
 ## Installation
 
+### Snap
+
+Visual Studio Code is officially distributed as a Snap package in the [Snap Store](https://snapcraft.io/store):
+
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/code)
+
+You can install it simply by running:
+
+```bash
+sudo snap install --classic code # or code-insiders
+```
+
+Once installed, the Snap daemon will take care of automatically updating VS Code in the backrgound. You will get an in-product update notification whenever a new update is available.
+
+**Note:** If `snap` isn't available in your Linux distribution, please check the following [guide](https://docs.snapcraft.io/installing-snapd/6735) which can help you get that set up..
+
+Learn more about snaps from the [official documentation](https://docs.snapcraft.io/snap-documentation/3781).
+
+
 ### Debian and Ubuntu based distributions
 
 The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868), either through the graphical software center if it's available, or through the command line with:
@@ -111,6 +130,8 @@ Note that 32-bit and .tar.gz binaries are also available on the [download page](
 ## Updates
 
 VS Code ships monthly and you can see when a new release is available by checking [Updates](/updates). If the VS Code repository was installed correctly, then your system package manager should handle auto-updating in the same way as other packages on the system.
+
+**Note:** Updates are automatic and run in the background for the [Snap package](#snap).
 
 ## Node.js
 
