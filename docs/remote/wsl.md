@@ -1,0 +1,119 @@
+---
+Order: 4
+Area: remote
+TOCTitle: WSL
+PageTitle: Developing in the Windows Subsystem for Linux
+ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
+MetaDescription: Using VS Code Remote with the Windows Subsystem for Linux (WSL)
+DateApproved: 1/30/2019
+---
+# Developing in the Windows Subsystem for Linux (WSL)
+
+## Basics
+
+The **[Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl)** allows you to take advantage of a Linux based tool-chain right from the comfort of Windows. Historically Windows-based developer tools have had to interact with WSL through mounted file shares (e.g.` /mnt/c`). While this works in concept, differences between Windows and Linux can make this workflow difficult. Conversely, Linux-based developer tools do not work unless they are text based since WSL was not intended to house a full Linux desktop operating system.
+
+The optimized **Visual Studio Code Remote - WSL extension** allows you take advantage of VS Code's full feature set from anywhere in WSL - regardless of whether the files you want to edit exist on the Linux side or a mounted Windows filesystem. When using the capability, VS Code selectively runs certain extensions inside WSL to optimize your experience.
+
+![WSL Architecture](images/wsl/architecture-wsl.png)
+
+Given source code **does not even need to exist on the Windows filesystem** for it to work, the approach provides a **local-quality development experience** including full IntelliSense, debugging, and more **regardless of where your code is located**.
+
+## Getting started
+
+### Installation
+
+To get started you need to:
+
+1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) along with your preferred Linux distribution. We strongly recommending using **WSL 2** (VM mode) due to known **limitations in  WSL 1**. See [known limitations](#wsl-1-limitations) for details.
+
+2. Install [Visual Studio Code](https://aka.ms/vscode-remote/download) on the **Windows** side (not in WSL).
+
+    > **Dogfooding Note:** Install [VS Code for Windows with built-in WSL support from here](https://aka.ms/vscode-remote/download) by clicking on the the latest Win 64 (win32-x64-user setup) version with the  `Released` column checked. This version can live side-by-side with other VS Code versions and no additional extensions are required.
+
+3. <strike>Install the **[Remote Development](https://aka.ms/vscode-remote/download/extension)** VS Code extension</strike>
+
+### Open a folder in WSL
+
+Opening a folder inside the Windows Subsystem for Linux in VS Code is very similar to opening up a Windows folder from the command prompt.
+
+1. Open a **WSL terminal window** (using the start menu item or by typing `wsl` from the command prompt).
+
+2. Navigate to a folder you'd like to open in VS Code (including, but not limited to, Windows filesystem mounts like `/mnt/c`)
+
+3. Type **`code .`** in the terminal. When doing this for the first time you should see VS Code fetching components needed to run in WSL. This should only take short while, and is only needed once.
+
+    > **Note:** `code-wsl` is the temporary command. Once the feature is released, you'll be able to just use `code .` like you would in a Windows command prompt.
+
+4. After a moment, a new VS Code window will appear and you'll see a notification letting you know VS Code is opening the folder in WSL.
+
+   ![WSL Starting notification](images/wsl//wsl-starting-notification.png)
+
+    VS Code will now continue to configure itself in WSL, and install any VS Code extensions you are running locally inside WSL to optimize performance. VS Code will keep you up to date as it makes progress.
+    
+
+4. Once finished, you now see a WSL indicator in the bottom left corner, and you'll be able to use VS Code as you would normally!
+
+    ![WSL Status Bar Item](images/wsl/wsl-statusbar-indicator.png)
+
+That's it! Any VS Code operations you perform in this window will executed in the WSL environment including everything from editing and file operations, to debugging, terminals, and more.
+
+### Managing extensions
+
+You can install additional extensions at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or in WSL based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](../../api/advanced-topics/remote-extensions.md) for details on resolving these issues.
+
+### Opening a terminal in WSL
+
+If you've already connected to WSL, **any terminal window** you open in VS Code will automatically run inside WSL. As with external WSL terminal windows, you can also **use the `code` CLI** to perform a number of operations such as opening a new file or folder. Type `code --help` to what is available from the command line.
+
+![Using the code CLI](images/wsl/code-command-in-terminal.png)
+
+### Debugging in WSL
+
+Once you've connected to WSL, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application up inside WSL and attach the debugger to it.
+
+See the [debugging](../editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
+
+## Known Limitations
+
+### WSL 1 Specific Limitations
+
+This section contains a list of common know issues with WSL 1. The intent is not to provide a complete list of issues, but to highlight some of the commonly problems seen with WSL 1.
+
+For a more complete list see [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) on GitHub that are tagged with WSL. 
+
+#### Common limitations in WSL 1
+
+| Issue | Existing issues | 
+|---|---|
+Non-empty folders in the open workspace can't be renamed | https://github.com/Microsoft/WSL/issues/3395, https://github.com/Microsoft/WSL/issues/1956
+Local proxy settings are not reused by VS Code running in WSL which can prevent extensions from working without adding a global `HTTP_PROXY` and `HTTPS_PROXY` environment variable with the appropriate proxy information. |
+
+#### Golang in WSL 1
+
+| Issue | Existing issues | 
+|---|---|
+Delve debugger doesnt work under WSL | https://github.com/go-delve/delve/issues/810 https://github.com/Microsoft/vscode-go/issues/926 |
+
+#### Node.js in WSL 1
+
+| Issue | Existing issues |
+|---|---|
+Node.js auto-attach don't work under WSL | https://github.com/Microsoft/vscode/issues/47497 |
+Debugging doesn't work in multi root workspaces | https://github.com/Microsoft/vscode/issues/44451 |
+Debugging doesn't work | https://github.com/Microsoft/vscode/issues/44906 |
+Node process is left hanging on WSL when debugger is stopped | https://github.com/Microsoft/vscode/issues/48755 |
+Unable to debug with integrated terminal (WSL) | https://github.com/Microsoft/vscode/issues/50445 |
+NodeJS Error: spawn EACCES (different variants of this error) | https://github.com/Microsoft/WSL/issues/3886 |
+Webpack HMR not working | https://github.com/Microsoft/WSL/issues/2709 |
+Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/issues/2657 |
+
+## Common questions
+
+### As an extension author what do I need to do?
+
+The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, there are situations where adjustments will need to be made. We recommend you should test your extension to be sure you do not need to make updates. See [Adding Remote Support to Extensions](../../api/advanced-topics/remote-extensions.md) for details.
+
+## Reporting Issues
+
+When reporting issues please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
