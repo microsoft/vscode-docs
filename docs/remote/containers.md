@@ -67,11 +67,11 @@ VS Code will then provision a container, but this can take a moment the first ti
 
 After it's done, VS Code will automatically connect to the container. The local filesystem will be automatically mapped into the container so you can interact with it just as you would if it was running locally. You will see a status bar item  in the bottom left corner so that you can tell which VS Code windows are running in a container.
 
-### Creating configuration files for existing projects
+## Creating configuration files for existing projects
 
 The key to configuring VS Code to adapt to a wide variety of container-based scenarios is `devcontainer.json`. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. The file is either located at `.devcontainer/devcontainer.json` with other files related to your dev container or as a stand alone dot-prefixed `.devcontainer.json` file.
 
-> **Note:** VS Code Remote - Containers does not currently support Alpine or Windows based containers.
+> **Note:**  Alpine or Windows based containers are not currently supported.
 
 You can get started in one of three ways:
 
@@ -114,7 +114,7 @@ You can get started in one of three ways:
 
 From here, you can [alter your configuration](#setting-up-a-folder-to-run-in-a-container) to install additional tools like Git in the container, automatically install extensions, expose additional ports, or set runtime arguments and more!
 
-#### Adapting configuration files
+### Adapting configuration files
 
 VS Code's dev container configuration files can be adapted to fit into a number of different existing workflows. For example, you can:
 
@@ -125,7 +125,7 @@ VS Code's dev container configuration files can be adapted to fit into a number 
 
 We'll cover more information these and other scenarios later in this document, but note that the [vscode-dev-containers GitHub repository](https://aka.ms/vscode-dev-containers) provides a number of dev container definitions made up of these configuration files that you can use to help get you up and running or to find examples you can use to update existing container configuration files.
 
-#### Adding configuration files to public or private repos
+### Adding configuration files to public or private repos
 
 You can easily share a customized dev container definition for your project by simply adding files like `.devcontainer/devcontainer.json` to source control. By including these files in your repository, anyone that opens a local copy of your repo in VS Code will be automatically asked if they want reopen the folder in a container instead if the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension installed.
 
@@ -133,7 +133,7 @@ You can easily share a customized dev container definition for your project by s
 
 Beyond the advantages of having your team use a consistent environment and tool-chain, doing this can make it easier for new contributors or team members to get productive quickly. First-time contributors will require less guidance and are less likely to either submit issues or contribute code with issues that are related to environment setup.
 
-### Attaching to running containers
+## Attaching to running containers
 
 VS Code supports two models for interacting with containers. One is to configure a folder you open to always run inside of a container. While this can be useful in many situations, in other situations you may have your own workflow and simply "attach" VS Code to an already running containers.
 
@@ -153,7 +153,7 @@ In either case, you will be asked to **select the exposed port** VS Code should 
 -->
 After a brief moment, a new window will appear and you'll be connected to the running container!
 
-### Managing extensions
+## Managing extensions
 
 You can install additional extensions in the container at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or in the container based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](../../api/advanced-topics/remote-extensions.md) for details on resolving these issues.
 
@@ -168,19 +168,19 @@ If there are extensions that you would like to always have installed in any cont
 ]
 ```
 
-### Opening a terminal in a container
+## Opening a terminal in a container
 
 If you've already connected to a container, **any terminal window** you open in VS Code will automatically run in the. You can also **use the `code` CLI this terminal window** to perform a number of operations such as opening a new file or folder on the remote host! Type `code --help` to what is available from the command line.
 
 ![Using the code CLI](images/containers/code-command-in-terminal.png)
 
-### Debugging in a container
+## Debugging in a container
 
 Once a folder has been opened in a container, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application up inside the container and attach the debugger to it.
 
 See the [debugging](../editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
-## Setting up a folder to run in a container
+## In-depth: Setting up a folder to run in a container
 
 There are a few different ways VS Code Remote - Containers can be used to develop an application inside a fully containerized environment. In general, there are two primary scenarios that drive interest in this development style:
 
@@ -206,7 +206,7 @@ In its most basic form, you can create a dev sandbox by simply selecting a base 
 
 You can use the **Remote-Containers: Create Container Configuration File...** command in the command palette (Cmd/Ctrl+Shift+P) to select from a few base image to get you started and customize from there.
 
-> **Note:** VS Code Remote - Containers does not currently support Alpine or Windows based containers.
+> **Note:**  Alpine or Windows based containers are not currently supported.
 
 Note that, if you are not able to find an image that meets your needs or just want to automate the installation of additional software, you can also **[create a custom image using a `Dockerfile`](#using-a-dockerfile)**. See [below](#using-a-dockerfile) for details.
 
@@ -267,7 +267,7 @@ VS Code Remote can also be used in conjunction with existing container configura
 
 When the application you looking for a customized sandbox or are working with an application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Docker: Create Container Configuration File...** command in the command palette (Cmd/Ctrl+Shift+P) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
 
-> **Note:** VS Code Remote - Containers does not currently support Alpine or Windows based containers.
+> **Note:**  Alpine or Windows based containers are not currently supported.
 
 You may want to install other tools like `git` inside the container, which you can easily [do manually](#installing-additional-software-in-the-sandbox). However, you can also create a custom `Dockerfile` specifically for development that includes these dependencies. The **[vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers)** contains a number of examples you can use as a starting point.
 
@@ -321,7 +321,7 @@ In some cases, a single container environment simply doesn't cut it. Fortunately
 2. [Extend your existing Docker Compose configuration](#extending-your-docker-compose-file-for-development) for development.
 3. Use the command line (e.g. `docker-compose up`) and [attach to an already running container](#attaching-to-running-containers).
 
-> **Note:** VS Code Remote - Containers does not currently support Alpine or Windows based containers.
+> **Note:**  Alpine or Windows based containers are not currently supported.
 
 VS Code can be configured to **automatically start any needed containers** for a particular servince in Docker Compose configuration if they are not already running. This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above. To reuse `docker-compose.yml` unmodified, just create a `.devcontainer/devcontainer.json` with the following properties:
 
