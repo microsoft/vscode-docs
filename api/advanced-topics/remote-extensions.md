@@ -3,21 +3,20 @@ ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
 DateApproved: 3/22/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: A guide to adding VS Code Remote Support to Extensions
+MetaDescription: A guide to adding VS Code Remote Development Support to Extensions
 ---
 
-# Adding VS Code Remote Support to Extensions
+# Adding VS Code Remote Development Support to Extensions
 
-While many developers edit, build, deploy, and debug on their local machines, there are an increasing number of situations where you may need to interact with a codebase or runtime on the other side of an OS boundary. **[VS Code Remote](../../docs/remote/remote-overview.md)** addresses these needs by allowing your local VS Code installation and any extension provided features to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical).
+While many developers edit, build, deploy, and debug on their local machines, there are an increasing number of situations where you may need to interact with a codebase or runtime on the other side of an OS boundary. **[VS Code Remote Development](../../docs/remote/remote-overview.md)** extensions addresses these needs by allowing your local VS Code installation and any extension provided features to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical).
 
 When using the capability, VS Code selectively runs certain extensions on the remote machine to optimize your experience. Given **no source code needs to be on your local machine** to use the capability, the approach provides dramatic performance and fidelity benefits over using network shares or synchronizing files.
 
-
-As an extension author, you may be wondering how to test your extensions to validate they work as expected when running in a remote environment. While many extensions will work unmodified, some extensions will need to be changed to function as expected. This article will briefly summarize the VS Code Remote architecture, explain how to test your extensions, and cover tips on modifying them to work if you encounter issues.
+As an extension author, you may be wondering how to test your extensions to validate they work as expected when running in a remote environment. While many extensions will work unmodified, some extensions will need to be changed to function as expected. This article will briefly summarize the VS Code Remote Development architecture, explain how to test your extensions, and cover tips on modifying them to work if you encounter issues.
 
 ## Architecture and extension types
 
-While transparent to the user, VS Code Remote uses a mix of local and remotely running extensions to provide its full-fidelity development experience. VS Code attempts to infer the correct location if not specified based on the type of functionality it exposes.
+While transparent to the user, VS Code Remote Development extensions use a mix of local and remotely running extensions to provide its full-fidelity development experience. VS Code attempts to infer the correct location if not specified based on the type of functionality it exposes.
 
 Currently VS Code distinguishes the following two classes of extensions:
 
@@ -31,17 +30,15 @@ When you install an extension, VS Code attempts to automatically determine the t
 
 VS Code APIs are designed to automatically run on the correct side (local or remote) when used from either UI or Workspace extensions. However, if your extension makes use of local APIs not provided VS Code itself you may see some issues.
 
-As a result, we recommend that you use VS Code Remote to **test** your extensions. Specifically, we recommend testing your extension using a local **[dev container](../../docs/remote/containers.md)** since container environments are cross-platform and easy to set up but restrict port file system access. WSL, on the other hand, is typically the least restrictive with SSH being somewhere in the middle. In most cases, only small adjustments are needed (if any) to resolve issues. See [common problems](#common-problems) fore more information.
+As a result, we recommend that you use VS Code Remote Development to **test** your own extensions. Specifically, we recommend testing your extension using a local **[dev container](../../docs/remote/containers.md)** since container environments are cross-platform and easy to set up but restrict port file system access. WSL, on the other hand, is typically the least restrictive with SSH being somewhere in the middle. In most cases, only small adjustments are needed (if any) to resolve issues. See [common problems](#common-problems) fore more information.
 
 ## Testing and debugging your extension
 
-While you can test your extension in VS Code Remote by installing it from the marketplace, if you encounter a problem you'll want to be able to test a development version of your extension. This section will outline how this can be accomplished.
+While you can test your extension in VS Code Remote Development by installing your extension from the marketplace, if you encounter a problem you'll want to be able to test a development version of your extension. This section will outline how this can be accomplished.
 
 ### Installing a development version of your extension for testing
 
-Currently, unless your extension runs locally, the marketplace version your extension will always be installed if you specify that it should be used when running in a remote environment. While this makes sense in most situations, you may want to use an unpublished version of your extension to test.
-
-To install an unpublished version of your extension, package the extension as a `VSIX` and manually install it in an opened VS Code window that is connected to a running remote environment.
+Currently, any extensions that are automatically installed inside WSL, SSH hosts, or containers will be the marketplace, not what is present on your local machine. While this makes sense in most situations, you may want to use an unpublished version of your extension to test. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into an VS Code window that is already connected to the running remote environment you are using to test. Just follow these steps:
 
 1. Use `vsce package` to package your extension as a VSIX.
 2. Connect to a [development container](../../docs/remote/containers.md), [SSH host](../../docs/remote/ssh.md), or [WSL environment](../../docs/remote/wsl.md).
@@ -52,7 +49,7 @@ To install an unpublished version of your extension, package the extension as a 
 
 ### Debugging your extension in a remote environment
 
-You can test and debug your extension in a remote environment by making a simple change to your extensions's `launch.json` file. Set `"devContainer": true` in the extension launch configuration:
+You can test and debug your extension in a remote environment by making a simple change to your extensions's `launch.json` file. First, set `"devContainer": true`:
 
 ```json
 {
@@ -70,18 +67,18 @@ You can test and debug your extension in a remote environment by making a simple
 },
 ```
 
-Next, create a `devContainer.json` with this contents in the `.vscode` directory:
+Next, create either `.devcontainer/devcontainer.json` or `.devcontainer.json` with the [appropriate contents](../../docs/remote/containers.md#creating-configuration-files-for-existing-projects) for your project. For example:
 
 ```json
 {
     "name": "Extension Dev Container",
-    "image": "ubuntu:1804"
+    "image": "ubuntu:bionic"
 }
 ```
 
 If you now press F5, a new dev container will be created with the extension project mounted into the container when it starts. Then the VS Code debugger attaches to the remote extension host so you can debug your extension code while it is sitting inside the container.
 
-> **Note:** Currently VS Code Remote needs to open the extension folder as its workspace folder because mounting inside the dev container is tied to the workspace and not (yet) to the "extensionDevelopmentPath". See [here](https://github.com/Microsoft/vscode-remote/issues/518) for details.
+> **Note:** Currently VS Code Remote Development needs to open the extension folder as its workspace folder because mounting inside the dev container is tied to the workspace and not (yet) to the "extensionDevelopmentPath". See [here](https://github.com/Microsoft/vscode-remote/issues/518) for details.
 
 ## Common problems
 
@@ -97,12 +94,12 @@ If the location is incorrect, you can explicitly specify which category the exte
 "extensionKind": "ui"
 ```
 
-A value of `ui` will force the extension to run on the client. A value of `workspace` will force the extension to run inside the VS Code Remote server.
+A value of `ui` will force the extension to run on the client. A value of `workspace` will force the extension to run inside the VS Code Remote Development server.
 
 You can test whether switching your extension to a UI extension will solve your problem with the provisional `_workbench.uiExtensions` in `settings.json`. This allows you to test in-marketplace versions of extensions without having to modify their `package.json` file. The value of the setting is an array of extension IDs. For example to specify that the Docker extension should run as a UI extension you would add the following:
 
 ````json
-"_workbench.uiExtensions" : [
+"workbench.uiExtensions" : [
     "liximomo.sftp"
 ]
 ````
@@ -110,7 +107,7 @@ You can test whether switching your extension to a UI extension will solve your 
 On the other hand, if you want to test a UI extension to see if it functions as a Workspace extension, simply add a minus before the extension ID. For example, this will force the Chrome Debugger extension into Workspace mode:
 
 ````json
-"_workbench.uiExtensions" : [
+"workbench.uiExtensions" : [
     "-msjsdiag.debugger-for-chrome"
 ]
 ````
@@ -305,7 +302,7 @@ Even if you are not using `keytar`, the "Helper Extension" pattern can allow you
 
 ### Accessing local or remote APIs using a Helper Extension
 
-When building an extension that supports VS Code Remote, you may run into cases where you have code in a Workspace Extension that needs to relies on a local command, module, or runtime. In others you may have a UI Extension that makes use of many local APIs and has a few features that need to interact directly with the workspace files.
+When building an extension that supports VS Code Remote Development, you may run into cases where you have code in a Workspace Extension that needs to relies on a local command, module, or runtime. In others you may have a UI Extension that makes use of many local APIs and has a few features that need to interact directly with the workspace files.
 
 To get this kind of "split" functionality working, you can create a "Helper" Extension that encapsulates the needed functionality and exposes a set of private VS Code commands. Your primary main Workspace or UI Extension can then execute these commands and VS Code will automatically handle routing them to wherever your Helper extension happens to be running.
 
@@ -323,6 +320,8 @@ To illustrate how the Helper Extension pattern can cover a wide variety of scena
 
 ![Basic Helper Extension Architecture](images/remote-extensions/basic-helper.png)
 
+The key to the definition of a helper extension to add `"api": "none"` to `package.json` so that both UI and Workspace extensions can add the helper as a dependency. This tells VS Code that it can safely ignore any synchronous APIs returned as a part of the extension's activation function as all cross-extension communication with it will be done through commands.
+
 *package.json (Helper Extension)*
 
 ```json
@@ -336,7 +335,7 @@ To illustrate how the Helper Extension pattern can cover a wide variety of scena
 }
 ```
 
-Specifying `"api": "none"` in the example above ensures that both UI and  Workspace extensions can add the helper as a dependency. The "echo" command does not need to be added to the list of contributions and instead can just be registered in the extension code.
+While the `package.json` above activates when an `_helper-extension.echo` command command is executed, the command is private and is therefore not added to the contributions list. Instead, it is justed registered in the extension code.
 
 *extension.ts (Helper Extension)*
 
@@ -527,9 +526,9 @@ This pattern can be abstracted so it can easily be reused with multiple classes 
 
 **[Click here to see a complete example.](https://aka.ms/vscode-remote/samples/remote-api-with-events)**
 
-### Branching logic when running in the VS Code Remote server
+### Branching logic when running in the VS Code Remote Development server
 
-While a core goal of VS Code Remote's design is to avoid branching logic, you may find yourself in a situation where want to do something differently if the extension is running locally. In this case, you can detect whether the extension is running in the VS Code Remote server using the following code:
+While a core goal of VS Code Remote Development's design is to avoid branching logic, you may find yourself in a situation where want to do something differently if the extension is running locally. In this case, you can detect whether the extension is running in the VS Code Remote Development server using the following code:
 
 ```typescript
 import * as path from 'path';
@@ -562,8 +561,7 @@ There are a few extension problems that could be resolved with some added functi
 | Problem | Description | GitHub issue |
 |---------|-------------|--------------|
 | **Sign-in: keychain access** | Extensions that use a local keyring / keychain / cert store to persist secrets from a Workspace extension may encounter issues given these are persisted remotely. This is particularly problematic in the Linux and by extension Docker. An [example `keytar` proxy API](https://github.com/Chuxel/vscode-remote-keytar) has been created, but the question is whether we want to publish this or do something else. | [#536](https://github.com/Microsoft/vscode-remote/issues/536), workaround exists |
-| **Blocked ports, blank webviews** | When working inside a Docker container or SSH server, ports are not automatically forwarded and there currently is no API to programmatically forward a port from an extension. Use of localhost servers (either started by the extension or a dependant CLI) force an extra step for end users. Migrating any WebView content away from using a localhost server towards [message passing](webview.md#scripts-and-message-passing) will resolve this problem, but we are investigating alternate solutions. | [#478](https://github.com/Microsoft/vscode-internalbacklog/issues/478), [#531](https://github.com/Microsoft/vscode-remote/issues/531) |
-| **Absolute path settings** | Some extensions have configuration settings that require an absolute path. However, this absolute path can vary depending on where you have connected. We are investigating allowing developers to specify "endpoint" specific settings. | [#641](https://github.com/Microsoft/vscode-remote/issues/641) |
+| **Blocked ports** | When working inside a Docker container or SSH server, ports are not automatically forwarded and there currently is no API to programmatically forward a port from an extension. WebViews can be adapted as [described above](#using-the-webview-api), but other scenarios currently require users to manally forward or expose ports. | [#531](https://github.com/Microsoft/vscode-remote/issues/531) |
 | **Local access to remote workspace files** | In some cases you may need to download a file from a UI extension (or helper) that is contained in the remote workspace. We are investigating options for how extensions might be able to accomplish this task. | [#640](https://github.com/Microsoft/vscode-remote/issues/640) |
 
 ## Reporting Issues

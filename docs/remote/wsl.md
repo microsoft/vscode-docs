@@ -4,7 +4,7 @@ Area: remote
 TOCTitle: WSL
 PageTitle: Developing in the Windows Subsystem for Linux
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
-MetaDescription: Using VS Code Remote with the Windows Subsystem for Linux (WSL)
+MetaDescription: Using VS Code Remote Development with the Windows Subsystem for Linux (WSL)
 DateApproved: 1/30/2019
 ---
 # Developing in the Windows Subsystem for Linux (WSL)
@@ -50,7 +50,7 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
    ![WSL Starting notification](images/wsl//wsl-starting-notification.png)
 
     VS Code will now continue to configure itself in WSL, and install any VS Code extensions you are running locally inside WSL to optimize performance. VS Code will keep you up to date as it makes progress.
-    
+
 
 4. Once finished, you now see a WSL indicator in the bottom left corner, and you'll be able to use VS Code as you would normally!
 
@@ -80,18 +80,18 @@ See the [debugging](../editor/debugging.md) documentation for details on configu
 
 This section contains a list of common know issues with WSL 1. The intent is not to provide a complete list of issues, but to highlight some of the commonly problems seen with WSL 1.
 
-For a more complete list see [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) on GitHub that are tagged with WSL. 
+For a more complete list see [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) on GitHub that are tagged with WSL.
 
 #### Common limitations in WSL 1
 
-| Issue | Existing issues | 
+| Issue | Existing issues |
 |---|---|
 Non-empty folders in the open workspace can't be renamed | https://github.com/Microsoft/WSL/issues/3395, https://github.com/Microsoft/WSL/issues/1956
 Local proxy settings are not reused by VS Code running in WSL which can prevent extensions from working without adding a global `HTTP_PROXY` and `HTTPS_PROXY` environment variable with the appropriate proxy information. |
 
 #### Golang in WSL 1
 
-| Issue | Existing issues | 
+| Issue | Existing issues |
 |---|---|
 Delve debugger doesnt work under WSL | https://github.com/go-delve/delve/issues/810 https://github.com/Microsoft/vscode-go/issues/926 |
 
