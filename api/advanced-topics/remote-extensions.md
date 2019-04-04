@@ -243,7 +243,7 @@ openExternal(<any>vscode.Uri.parse('mailto:vscode@microsoft.com'));
 
 > **NOTE:** We are investigating automatically shim'ing `opn` to make this process easier. See [#807](https://github.com/Microsoft/vscode-remote/issues/807). [A complete example `opn` node module shim can be found here](https://github.com/Microsoft/vscode-dev-containers/tree/clantz/extension-samples/example-extensions/opn-shim) in the meantime.
 
-#### Using the WebView API
+## Using the WebView API
 
 > **Note:** The `vscode.previewHtml` command has been deprecated in favor of a new WebView API. The previewHTML command is not supported remotely and will be removed from VS Code in the future.
 
@@ -255,7 +255,7 @@ However, any content local to your extension should be accessed using the `vscod
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src vscode-resource: https:; script-src vscode-resource:; style-src vscode-resource:;">
 ```
 
-##### Using content or services hosted in a web server started by the extension
+#### Using content or services hosted in a web server started by the extension
 
 While VS Code transparently deals with executing its own APIs on the correct side (local or remote), the WebView is effectively a mini-browser that can do things outside of VS Code's API set. When the WebView points at a web service or server outside of VS Code itself, VS Code simply does not know about it and therefore cannot transparently handle this kind of content. In the Container and SSH cases, it's import to note that local ports (like those of any web server your extension starts) is on will often be blocked. Consider this illustration:
 
@@ -290,23 +290,49 @@ With this change, the WebView traffic will instead use VS Code's existing commun
 
 See the [API guide](../extension-guides/webview.md) for more details.
 
-#### Persisting secrets
+## Persisting secrets
 
 If your Workspace Extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a libsecret based keyring on Linux) rather than the one on the remote machine. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a Docker container.
 
-Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have used the node `keytar` module to persist secrets - which faces all of the problems outlined above.
+Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) to persist secrets. For this reason, if **you use `keytar`**, VS Code will **automatically and transparently run it locally** so it uses your local OS's keychain / keyring / cert store.
 
-> **NOTE:** We are investigating automatically forwarding `keytar` to Workspace Extensions to make this process easier. See [#536](https://github.com/Microsoft/vscode-remote/issues/536). [A complete `keytar` proxy example can be found here](https://github.com/Microsoft/vscode-dev-containers/tree/clantz/extension-samples/example-extensions/remote-keytar) in the meantime.
+If cannot our would prefer not to use `keytar`, you can opt to use a "Helper Extension" to run your secret persistance code locally from a Workspace Extension. See [below](#access-local-or-remote-apis-using-a-helper-extension) for details.
 
-Even if you are not using `keytar`, the "Helper Extension" pattern can allow you to use your existing secret persistence implementation from a Workspace Extension. The secret persistence code will sit in a separate UI Helper Extension that you Workspace Extension uses to read and write the information locally. See [below](#access-local-or-remote-apis-using-a-helper-extension) for details.
+## Branching logic when running remotely
 
-### Accessing local or remote APIs using a Helper Extension
+While a core goal of VS Code Remote Development's design is to avoid branching logic, you may find yourself in a situation where want to do something differently if the extension is running locally. In this case, you can detect whether the extension is running in the VS Code Remote Development server using the following code:
 
-When building an extension that supports VS Code Remote Development, you may run into cases where you have code in a Workspace Extension that needs to relies on a local command, module, or runtime. In others you may have a UI Extension that makes use of many local APIs and has a few features that need to interact directly with the workspace files.
+```typescript
+import * as path from 'path';
+
+function isRemote() {
+    return (process.argv[0].indexOf(`${path.sep}.vscode-remote${path.sep}bin${path.sep}`) > 0);
+}
+```
+
+You can also add a `settings.json` property to allow you to flip into "remote mode" for various testing scenarios.
+
+```typescript
+import * as path from 'path';
+import * as vscode from 'vscode';
+
+const settings = vscode.workspace.getConfiguration('your.settings.namespace.here');
+
+function isRemote() {
+    return (
+        process.argv[0].indexOf(`${path.sep}.vscode-remote${path.sep}bin${path.sep}`) > 0 ||
+        settings.settings.get('simulateRemote', false)
+    );
+}
+```
+
+## Accessing local or remote APIs using a Helper Extension
+
+While VS Code's APIs are designed to run in the correct location automatically, you may run into cases where you have code in a Workspace Extension that needs to relies on a local, non-VS Code provided API, command, module, or runtime. In others you may have a UI Extension that makes use of many local APIs and has a few features that need to interact directly with the workspace files.
 
 To get this kind of "split" functionality working, you can create a "Helper" Extension that encapsulates the needed functionality and exposes a set of private VS Code commands. Your primary main Workspace or UI Extension can then execute these commands and VS Code will automatically handle routing them to wherever your Helper extension happens to be running.
 
-#### Helper Extension Examples
+### Helper Extension Examples
 
 Often it is easiest to understand a concept by looking at examples. With that in mind, here are several you can jump to that show what is described below:
 
@@ -314,7 +340,7 @@ Often it is easiest to understand a concept by looking at examples. With that in
 - [Proxying an existing API - Basic](https://aka.ms/vscode-remote/samples/remote-api)
 - [Proxying an existing API - API Class w/Events](https://aka.ms/vscode-remote/samples/remote-api-with-events)
 
-#### Basic Helper Extension
+### Basic Helper Extension
 
 To illustrate how the Helper Extension pattern can cover a wide variety of scenarios, let's start with a basic example where we will surface an "echo" command in a UI Helper Extension that can be called by a Workspace Extension.
 
@@ -380,7 +406,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 **[Click here to see a complete example.](https://aka.ms/vscode-remote/samples/helper-extension)**
 
-#### Proxying an existing API
+### Proxying an existing API
 
 In some cases, you may have an existing node module that is used in many places in your extension and updating each location to use a command is too time-consuming. If you are only using async functions on the module (or these functions return a promise), you can create a drop-in replacement **proxy API module** that executes an **API Bridge** command in a Helper Extension to call the actual API.
 
@@ -460,7 +486,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 **[Click here to see a complete example.](https://aka.ms/vscode-remote/samples/remote-api)**
 
-#### Proxying APIs with Events
+### Proxying APIs with Events
 
 A more difficult situation arises if you need to remotely access an API that has an event. These bi-directional APIs often use objects instead of straight modules which further complicates things. To resolve these challenges, you can use a pattern that establishes an **API Bridge** command on in a Helper Extension and an **Event Bridge** in your main extension that handles the execution of event callbacks.
 
@@ -526,41 +552,12 @@ This pattern can be abstracted so it can easily be reused with multiple classes 
 
 **[Click here to see a complete example.](https://aka.ms/vscode-remote/samples/remote-api-with-events)**
 
-### Branching logic when running in the VS Code Remote Development server
-
-While a core goal of VS Code Remote Development's design is to avoid branching logic, you may find yourself in a situation where want to do something differently if the extension is running locally. In this case, you can detect whether the extension is running in the VS Code Remote Development server using the following code:
-
-```typescript
-import * as path from 'path';
-
-function isRemote() {
-    return (process.argv[0].indexOf(`${path.sep}.vscode-remote${path.sep}bin${path.sep}`) > 0);
-}
-```
-
-You can also add a `settings.json` property to allow you to flip into "remote mode" for various testing scenarios.
-
-```typescript
-import * as path from 'path';
-import * as vscode from 'vscode';
-
-const settings = vscode.workspace.getConfiguration('your.settings.namespace.here');
-
-function isRemote() {
-    return (
-        process.argv[0].indexOf(`${path.sep}.vscode-remote${path.sep}bin${path.sep}`) > 0 ||
-        settings.settings.get('simulateRemote', false)
-    );
-}
-```
-
-### Known issues
+## Known issues
 
 There are a few extension problems that could be resolved with some added functionality for Workspace Extensions. The following is a list of known issues under consideration:
 
 | Problem | Description | GitHub issue |
 |---------|-------------|--------------|
-| **Sign-in: keychain access** | Extensions that use a local keyring / keychain / cert store to persist secrets from a Workspace extension may encounter issues given these are persisted remotely. This is particularly problematic in the Linux and by extension Docker. An [example `keytar` proxy API](https://github.com/Chuxel/vscode-remote-keytar) has been created, but the question is whether we want to publish this or do something else. | [#536](https://github.com/Microsoft/vscode-remote/issues/536), workaround exists |
 | **Blocked ports** | When working inside a Docker container or SSH server, ports are not automatically forwarded and there currently is no API to programmatically forward a port from an extension. WebViews can be adapted as [described above](#using-the-webview-api), but other scenarios currently require users to manally forward or expose ports. | [#531](https://github.com/Microsoft/vscode-remote/issues/531) |
 | **Local access to remote workspace files** | In some cases you may need to download a file from a UI extension (or helper) that is contained in the remote workspace. We are investigating options for how extensions might be able to accomplish this task. | [#640](https://github.com/Microsoft/vscode-remote/issues/640) |
 
