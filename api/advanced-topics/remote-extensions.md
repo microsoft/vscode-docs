@@ -146,6 +146,14 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
+### Persisting secrets
+
+If your Workspace Extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a libsecret based keyring on Linux) rather than the one on the remote machine. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a Docker container.
+
+Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) to persist secrets. For this reason, if **you use `keytar`**, VS Code will **automatically and transparently run it locally** so it uses your local OS's keychain / keyring / cert store.
+
+If cannot our would prefer not to use `keytar`, you can opt to use a "Helper Extension" to run your secret persistance code locally from a Workspace Extension. See [below](#access-local-or-remote-apis-using-a-helper-extension) for details.
+
 ### Using client APIs from a Workspace Extension
 
 #### APIs that automatically run in the correct location
@@ -290,14 +298,6 @@ With this change, the WebView traffic will instead use VS Code's existing commun
 
 See the [API guide](../extension-guides/webview.md) for more details.
 
-## Persisting secrets
-
-If your Workspace Extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a libsecret based keyring on Linux) rather than the one on the remote machine. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a Docker container.
-
-Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) to persist secrets. For this reason, if **you use `keytar`**, VS Code will **automatically and transparently run it locally** so it uses your local OS's keychain / keyring / cert store.
-
-If cannot our would prefer not to use `keytar`, you can opt to use a "Helper Extension" to run your secret persistance code locally from a Workspace Extension. See [below](#access-local-or-remote-apis-using-a-helper-extension) for details.
-
 ## Branching logic when running remotely
 
 While a core goal of VS Code Remote Development's design is to avoid branching logic, you may find yourself in a situation where want to do something differently if the extension is running locally. In this case, you can detect whether the extension is running in the VS Code Remote Development server using the following code:
@@ -326,9 +326,9 @@ function isRemote() {
 }
 ```
 
-## Accessing local or remote APIs using a Helper Extension
+## Accessing local APIs using a Helper Extension
 
-While VS Code's APIs are designed to run in the correct location automatically, you may run into cases where you have code in a Workspace Extension that needs to relies on a local, non-VS Code provided API, command, module, or runtime. In others you may have a UI Extension that makes use of many local APIs and has a few features that need to interact directly with the workspace files.
+While VS Code's APIs are designed to run in the correct location automatically, you may run into cases where you have code in a Workspace Extension that needs to relies on a local, non-VS Code provided API, command, module, or runtime. In others, you may have a UI Extension that makes use of many local APIs and has a few features that need to interact directly with remote workspace files.
 
 To get this kind of "split" functionality working, you can create a "Helper" Extension that encapsulates the needed functionality and exposes a set of private VS Code commands. Your primary main Workspace or UI Extension can then execute these commands and VS Code will automatically handle routing them to wherever your Helper extension happens to be running.
 
@@ -412,7 +412,7 @@ In some cases, you may have an existing node module that is used in many places 
 
 ![ApiBridge Architecture](images/remote-extensions/api-bridge.png)
 
-For example, imagine the [simple echo command above](#accessing-local-or-remote-apis-using-a-helper-extension) was part of common node module.
+For example, imagine the [simple echo command above](#accessing-local-apis-using-a-helper-extension) was part of common node module.
 
 *example-api.ts*
 ```typescript
@@ -433,7 +433,7 @@ export async function setEchoTimer(msg: string, delay: number): Promise<void> {
 
 ```
 
-To allow this API to be called remotely, the [Helper Extension](#accessing-local-or-remote-apis-using-a-helper-extension) can be modified to introduce a private **API Bridge** command designed call any method on the API surface.
+To allow this API to be called remotely, the [Helper Extension](#accessing-local-apis-using-a-helper-extension) can be modified to introduce a private **API Bridge** command designed call any method on the API surface.
 
 *extension.ts (Helper Extension)*
 ```typescript
