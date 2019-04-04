@@ -10,7 +10,7 @@ MetaDescription: Get the best out of Visual Studio Code for JavaScript developme
 
 # JavaScript in Visual Studio Code
 
-Visual Studio Code includes built-in JavaScript IntelliSense, debugging, formatting, code navigation, refactorings, and many other advanced language features.
+Visual Studio Code includes built-in JavaScript IntelliSense, debugging, formatting, code navigation[^1], refactorings, and many other advanced language features.
 
 ![Working with JavaScript in Visual Studio Code](images/javascript/overview.png)
 
@@ -144,8 +144,8 @@ Set `"javascript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 Code navigation lets you quickly navigate JavaScript projects.
 
-- **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
-- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
+- **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.[^1]
+- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.[^1]
 - **Peek References** `kb(editor.action.referenceSearch.trigger)` - Show all references to a symbol.
 - **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
 
@@ -349,3 +349,5 @@ With `javascript.validate.enable: false`, you disable all built-in syntax checki
 ### Can I use other JavaScript tools like Flow?
 
 Yes, but some of [Flow's](https://flow.org) language features such as type and error checking may interfere with VS Code's built-in JavaScript support. To learn how to disable VS Code's built-in JavaScript support, see [Disable JavaScript support](/docs/nodejs/working-with-javascript.md#disable-javascript-support).
+
+[^1]: Because of a [bug in TypeScript](https://github.com/Microsoft/TypeScript/issues/6209), _Go to definition_ and _Peek definition_ don’t work if TypeScript typings exist.
