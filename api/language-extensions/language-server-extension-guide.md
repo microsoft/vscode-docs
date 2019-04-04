@@ -28,7 +28,7 @@ Additionally, language features can be resource intensive. For example, to corre
 
 Finally, integrating multiple language toolings with multiple code editors could involve significant effort. From language toolings' perspective, they need to adapt to code editors with different APIs. From code editors' perspective, they cannot expect any uniform API from language toolings. This makes implementing language support for `M` languages in `N` code editors the work of `M * N`.
 
-To solve those problems, Microsoft specified [Language Server Protocol](https://microsoft.github.io/language-server-protocol) which standardizes the communication between language tooling and code editor. This way, Language Servers can be implemented in any language and run in its own process to avoid performance cost, as they communicate with the code editor through the Language Server Protocol. Furthermore, any LSP-compliant language toolings can integrate with multiple LSP-compliant code editors, and any LSP-compliant code editors can easily pickup multiple LSP-compliant language toolings. LSP is a win for both language tooling providers and code editor vendors!
+To solve those problems, Microsoft specified [Language Server Protocol](https://microsoft.github.io/language-server-protocol) which standardizes the communication between language tooling and code editor. This way, Language Servers can be implemented in any language and run in their own process to avoid performance cost, as they communicate with the code editor through the Language Server Protocol. Furthermore, any LSP-compliant language toolings can integrate with multiple LSP-compliant code editors, and any LSP-compliant code editors can easily pickup multiple LSP-compliant language toolings. LSP is a win for both language tooling providers and code editor vendors!
 
 ![LSP Languages and Editors](images/language-server-extension-guide/lsp-languages-editors.png)
 
@@ -673,11 +673,11 @@ connection.onCompletion(
 connection.onCompletionResolve(
   (item: CompletionItem): CompletionItem => {
     if (item.data === 1) {
-      (item.detail = 'TypeScript details'),
-        (item.documentation = 'TypeScript documentation');
+      item.detail = 'TypeScript details';
+      item.documentation = 'TypeScript documentation';
     } else if (item.data === 2) {
-      (item.detail = 'JavaScript details'),
-        (item.documentation = 'JavaScript documentation');
+      item.detail = 'JavaScript details';
+      item.documentation = 'JavaScript documentation';
     }
     return item;
   }

@@ -229,7 +229,7 @@ In addition to the global menu bar, task commands can be accessed using the **Co
 
 ### Compound tasks
 
-You can also compose tasks out of simpler tasks with the `dependsOn` property. For example, if you have a workspace with a client and server folder and both contain a build script, you can create a task that starts both build scripts in separate terminals.
+You can also compose tasks out of simpler tasks with the `dependsOn` property. For example, if you have a workspace with a client and server folder and both contain a build script, you can create a task that starts both build scripts in separate terminals. If you list more than one task in the `dependsOn` property, they are executed in parallel.
 
 The `tasks.json` file looks like this:
 

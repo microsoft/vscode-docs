@@ -33,7 +33,9 @@ To install, launch VS Code and from the Extensions view (`kb(workbench.view.exte
 
 Once you have the extension installed, open the **Command Palette** (`kb(workbench.action.showCommands)`) and type `Spring Initializr` to start generating a Maven or Gradle project and then follow the wizard.
 
-![Spring Initializr](images/java-spring-boot/spring-initializr.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-spring-boot/spring-initializr.mp4" type="video/mp4">
+</video>
 
 ## Edit the project
 
@@ -41,7 +43,9 @@ The [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscj
 
 Navigate to your `pom.xml` file and right-click to select `Edit starters`. The  **Command Palette** will show the dependencies you already have beginning with a `√` . You can search for other dependencies you want to add to your project. Or you can click on the existing dependencies to remove them.
 
-![Spring Initializr-edit](images/java-spring-boot/spring-initializr-edit.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-spring-boot/edit-starters.mp4" type="video/mp4">
+</video>
 
 ## Develop the application
 
@@ -49,13 +53,17 @@ The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivo
 
 The extension supports quick navigate through source code, smart code completions, quick access to running apps, live application information, and code templates. Similar code completion and validation features are also available for `.properties` and `.yml` files.
 
-![Spring code editing](images/java-spring-boot/spring-code-edit.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-spring-boot/spring-code-edit.mp4" type="video/mp4">
+</video>
 
 ## Run the application
 
 In addition to click `kb(workbench.action.debug.start)` to run your application, there's another convenient extension [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) with which you can view and manage all available Spring Boot projects in your workspace as well as quickly start, stop, or debug your project.
 
-![Spring Dashboard](images/java-spring-boot/spring-dashboard.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-spring-boot/spring-dashboard.mp4" type="video/mp4">
+</video>
 
 ## Connect with data services
 

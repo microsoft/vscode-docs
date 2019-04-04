@@ -27,32 +27,42 @@ Once a Maven project is loaded, the extension will be activated and it will auto
 
 The extension provides code snippets and auto completion for adding Maven dependencies based on local Maven repositories. See how easy it is to add a new dependency to your `pom.xml` with those convenient features.
 
-![POM Editing Assistance](images/java-project/maven-pom-editing.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/maven-pom-editing.mp4" type="video/mp4">
+</video>
 
 The extension also enables you to generate effective POM.
 
-![Generate Effective POM](images/java-project/maven-effective-pom.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/maven-effective-pom.mp4" type="video/mp4">
+</video>
 
 ### Execute Maven commands and goals
 
 By right-clicking each Maven project in the explorer, you can conveniently run Maven goals.
 
-![Run Maven Goal](images/java-project/maven-run.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/maven-run.mp4" type="video/mp4">
+</video>
 
 The extension also preserves the history of goals for each project, so you can quickly rerun the previous command, which is useful when you're running a long custom goal.
 
-There are two way to rerun a goal:
+There are two ways to rerun a goal:
 
 1. Command Palette > Select **Maven: History** > Select a project > Select command from the history.
 2. Right-click a project > Click **History** > Select command from history.
 
-![Rerun history](images/java-project/maven-history.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/maven-history.mp4" type="video/mp4">
+</video>
 
 For each plug-in you use with your project, the extension also provides you an easy way to access the goals within each plugin.
 
-![Run plug-in goal](images/java-project/maven-plugin-goal.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/maven-plugin-goal.mp4" type="video/mp4">
+</video>
 
-### Generate project from maven Archetype
+### Generate project from Maven Archetype
 
 Another handy feature provided by this extension is to generate a Maven project from [Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). The extension loads archetypes listed in local/remote catalogs. After selection, the extension sends `mvn archetype:generate -D...` to the terminal.
 
@@ -61,7 +71,9 @@ There are two ways to generate a Maven project:
 1. From the Command Palette, select **Maven: Generate from Maven Archetype**.
 2. Right-click on a folder and select **Generate from Maven Archetype**.
 
-![Generate Project from Archetype](images/java-project/maven-archetype.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/maven-archetype.mp4" type="video/mp4">
+</video>
 
 ### Additional resources
 
@@ -75,9 +87,11 @@ Project Management in Visual Studio Code is provided by the [Java Dependency Vie
 
 ### Create project
 
-In addition to creating a project through Maven Archetype, you can also use the following command to create a simple Java project: Command Palette > select **Java: Create Java Project**.
+In addition to creating a project through Maven Archetype, you can also use the following command to create a simple Java project: **Java: Create Java Project** from the Command Palette.
 
-![Creating Project](images/java-project/create-project.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/create-project.mp4" type="video/mp4">
+</video>
 
 If you're creating a Spring Boot project, you can also use the [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension, see [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
 
@@ -85,21 +99,35 @@ If you're creating a Spring Boot project, you can also use the [Spring Initializ
 
 The extension also has a hierarchy view of your project and dependencies, which supplements the file view and outline provided by Visual Studio Code, so you don't need to expand multiple subfolders to just view your Java package.
 
-![Package Viewer](images/java-project/package-viewer.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/package-viewer.mp4" type="video/mp4">
+</video>
 
-![Hierarchical View](images/java-project/hierarchical.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/hierarchical.mp4" type="video/mp4">
+</video>
 
 ### Multiple source folders
 
-If you have multiple sub-folders that have source code for your project, you can easily add these folders to source path, then all the code inside will be correctly compiled.
+If you have multiple subfolders that have source code for your project, you can easily add these folders to source path, then all the code inside will be correctly compiled.
 
-![Multiple source folders](images/java-project/multiple-source.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/multiple-source.mp4" type="video/mp4">
+</video>
 
 ### Standalone Java file support
 
-Visual Studio Code also supports Java files without a project. The solution is folder-based, so all you need to do is open a folder with Visual Studio Code, and all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
+Visual Studio Code also supports Java files without a project (or an invisible project, which it creates without affecting your folders). The solution is folder-based, so you can open a folder with Visual Studio Code, and all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
 
-![Standalone Files](images/java-project/standalone.gif)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
+</video>
+
+In case you need to bring additional JAR files as dependencies, you can create a `lib/` folder in the root directory of the standalone files and place your JAR files there. Source for `foo.jar` is automatically detected if there is a `foo-sources.jar` in the `lib/` folder.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/lib.mp4" type="video/mp4">
+</video>
 
 ## Next steps
 
