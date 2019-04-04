@@ -150,9 +150,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 If your Workspace Extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a libsecret based keyring on Linux) rather than the one on the remote machine. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a Docker container.
 
-Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) to persist secrets. For this reason, if **you use `keytar`**, VS Code will **automatically and transparently run it locally** so it uses your local OS's keychain / keyring / cert store.
+Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code will **automatically and transparently** run the `keytar` module locally if referenced in an extension so it can take advantage of the local OS keychain / keyring / cert store.
 
-If cannot our would prefer not to use `keytar`, you can opt to use a "Helper Extension" to run your secret persistance code locally from a Workspace Extension. See [below](#access-local-or-remote-apis-using-a-helper-extension) for details.
+If you prefer not to use `keytar`, you can instead use a "Helper Extension" to run your secret persistance code. See [below](#access-local-or-remote-apis-using-a-helper-extension) for details.
 
 ### Using client APIs from a Workspace Extension
 
