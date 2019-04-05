@@ -4,7 +4,7 @@ Area: remote
 TOCTitle: SSH
 PageTitle: Developing on Remote Machines
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
-MetaDescription: Developing on Remote Machines using VS Code Remote and SSH
+MetaDescription: Developing on Remote Machines using VS Code Remote Development and SSH
 DateApproved: 2/25/2019
 ---
 # Developing on Remote Machines Using SSH
