@@ -155,7 +155,7 @@ After a brief moment, a new window will appear and you'll be connected to the ru
 
 ## Managing extensions
 
-You can install additional extensions in the container at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or in the container based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](../../api/advanced-topics/remote-extensions.md) for details on resolving these issues.
+You can install additional extensions in the container at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or in the container based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
 
 ### "Always installed" extensions
 
@@ -178,7 +178,7 @@ If you've already connected to a container, **any terminal window** you open in 
 
 Once a folder has been opened in a container, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application up inside the container and attach the debugger to it.
 
-See the [debugging](../editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
+See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
 ## In-depth: Setting up a folder to run in a container
 
@@ -475,7 +475,7 @@ Similarly, the "dev container definitions" found in the [vscode-dev-containers r
 
 ### As an extension author what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, there are situations where adjustments will need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Support to Extensions](../../api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, there are situations where adjustments will need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Reporting Issues
 

@@ -4,10 +4,10 @@ Area: remote
 TOCTitle: SSH
 PageTitle: Developing on Remote Machines
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
-MetaDescription: Developing on Remote Machines using VS Code Remote Development and SSH
+MetaDescription: Developing on Remote Machines or VMs using VS Code Remote Development and SSH
 DateApproved: 2/25/2019
 ---
-# Developing on Remote Machines Using SSH
+# Developing on Remote Machines or VMs Using SSH
 
 ## Basics
 
@@ -25,7 +25,7 @@ The result is that VS Code can provide a **local-quality development experience*
 
 To get started you need to:
 
-1. Install a [supported SSH client](troubleshooting.md#installing-a-supported-ssh-client).
+1. Install a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client).
 
     > **Note:** PuTTY is not supported on Windows and an [OpenSSH compatible](troubleshooting.md#installing-a-supported-ssh-client) `ssh` command must be in the path.
 
@@ -35,7 +35,7 @@ To get started you need to:
 
 3. <strike>Install the **[Remote Development](https://aka.ms/vscode-remote/download/extension)** VS Code extension</strike>
 
-4. [Optional] Set `"remote.SSH.showLoginTerminal": true` in `settings.json` if your SSH server has multi-factor authentication configured. [More details](troubleshooting.md#ssh-auth-issues).
+4. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](#troubleshooting.md#enabling-alternate-ssh-authentication-methods).
 
 ### Connect to a remote host
 
@@ -43,9 +43,9 @@ To get started you need to:
 
 Visual Studio Code uses **[SSH configuration files](https://linux.die.net/man/5/ssh_config)** and requires **[SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication)** to connect to your host. To get started, follow these steps:
 
-1. First, **configure key based authentication** on the host you plan to use. If you are new to SSH or are running into trouble, see [here for additional information](troubleshooting.md#configuring-key-based-authentication) on setting this up.
+1. First, **configure key based authentication** on the host you plan to use. If you are new to SSH or are running into trouble, see [here for additional information](/docs/remote/troubleshooting.md#configuring-key-based-authentication) on setting this up.
 
-    > **Azure Linux VM / PuTTY Tip:** If you've already set up key based authentication using PuTTYGen, you will need to convert your private key for use in other OpenSSH clients. See [here for details](troubleshooting.md#reusing-a-key-generated-in-puttygen).
+    > **Azure Linux VM / PuTTY Tip:** If you've already set up key based authentication using PuTTYGen, you will need to convert your private key for use in other OpenSSH clients. See [here for details](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
 
 2. Run **Remote-SSH: New Window...** from the command palette (Cmd/Ctrl+Shift+P) and enter the host and username in the input box as follows: `user@hostname` (on Windows `user@domain@hostname` is also supported).
 
@@ -53,7 +53,7 @@ Visual Studio Code uses **[SSH configuration files](https://linux.die.net/man/5/
 
 3. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up to date using a progress notification and you can see a detailed log in the `Dev Containers` terminal window.
 
-    > **Note:** If you see errors about bad SSH file permissions when connecting, [see here for details](troubleshooting.md#fixing-ssh-file-permission-errors) on the correct settings.
+    > **Note:** If you see errors about bad SSH file permissions when connecting, [see here for details](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) on the correct settings.
 
 4. After you are connected, you'll see a empty window and you can then open a folder or workspace on the remote machine using **File > Open...** or **File > Open Workspace...**
 
@@ -79,7 +79,7 @@ Set the `"remote.SSH.configFile"` property in `settings.json` if you want to use
 
 ### Managing extensions
 
-You can install additional extensions in the container at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or remotely based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](../../api/advanced-topics/remote-extensions.md) for details on resolving these issues.
+You can install additional extensions in the container at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or remotely based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
 
 ### Forwarding a port / creating SSH tunnel
 
@@ -113,7 +113,7 @@ If you've already connected to a remote host, **any terminal window** you open i
 
 Once you are connected to a remote host, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application up on the remote host and attach the debugger to it.
 
-See the [debugging](../editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
+See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
 ## Known Limitations
 
@@ -128,25 +128,25 @@ See the [debugging](../editor/debugging.md) documentation for details on configu
 
 ### How do I setup a SSH client on ...?
 
-See [here](troubleshooting.md#installing-a-supported-ssh-client) details on installing supported clients.
+See [here](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) details on installing supported clients.
 
 ### How do I setup a SSH server on ...?
 
-See [here](troubleshooting.md#installing-a-supported-ssh-server) for details on setting up a SSH server for your host.
+See [here](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) for details on setting up a SSH server for your host.
 
 ### How do I fix SSH errors about "bad permissions"?
 
-See [here](troubleshooting.md#fixing-ssh-permission-errors) for details on resolving these types of errors.
+See [here](/docs/remote/troubleshooting.md#fixing-ssh-permission-errors) for details on resolving these types of errors.
 
 ### Can I use VS Code when I only have SFTP/FTP filesystem access to my remote host (no shell access)?
 
 Some cloud platforms only provide remote filesystem access for developers rather than direct shell access. VS Code Remote was not designed with this use case in mind since it negates the performance and user experience fidelity benefits VS Code's remote model provides.
 
-However, this use case can typically be handled by combining extensions like [SFTP](https://marketplace.visualstudio.com/items?itemName=liximomo.sftp) with remote debugging features for [Node.js](../nodejs/nodejs-debugging.md#remote-debugging), [Python](../python/debugging.md#remote-debugging) [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), and more.
+However, this use case can typically be handled by combining extensions like [SFTP](https://marketplace.visualstudio.com/items?itemName=liximomo.sftp) with remote debugging features for [Node.js](/docs/nodejs/nodejs-debugging.md#remote-debugging), [Python](/docs/python/debugging.md#remote-debugging) [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), and more.
 
 ### As an extension author what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, there are situations where adjustments will need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Support to Extensions](../../api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, there are situations where adjustments will need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Reporting Issues
 
