@@ -317,7 +317,9 @@ In some cases, a single container environment simply doesn't cut it. Fortunately
 
 > **Note:**  Alpine or Windows based containers are not currently supported.
 
-VS Code can be configured to **automatically start any needed containers** for a particular servince in Docker Compose configuration if they are not already running. This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above. To reuse `docker-compose.yml` unmodified, just create a `.devcontainer/devcontainer.json` with the following properties:
+VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file (if they are not already running). This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above. However, since you may want to use some of the containers after you shut down VS Code, VS Code does not attempt to shut them down automatically.
+
+To reuse `docker-compose.yml` unmodified, just create a `.devcontainer/devcontainer.json` with the following properties:
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -409,11 +411,11 @@ version: '3'
     command: sleep infinity
 ```
 
-### Stopping containers
+### Stopping containers with Docker Compose
 
-You can use `docker-compose stop` to stop the running containers and disconnect VS Code once you are done.
+Since you may want to use some of the containers after you shut down VS Code, VS Code does not attempt to shut them down automatically. You can use `docker-compose stop` or the Docker extension to stop the running containers after you've closed the folder, workspace, or quit VS Code.
 
-> **Note:** This injection will happen whenever a container is created. Therefore, when you want to continue development on the container use `docker-compose stop` (instead of `down`) to stop but not destroy the containers. In this way the VS Code Remote server and the extensions do not need to be installed on the next start.
+> **Note:** The VS Code Remote Server and any specified extensions will be injected whenever a container is created. Therefore, you can save yourself time by using `docker-compose stop` instead of `down` to stop (but not destroy) the containers.
 
 ### Docker Compose samples
 
