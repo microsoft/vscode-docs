@@ -82,7 +82,7 @@ If you now press F5, a new dev container will be created with the extension proj
 
 ## Common problems
 
-In some cases extensions will require modifications to work properly in a remote environment. This section will outline how to resolve a number of issues that extensions may encounter when running remotely.
+VS Code's base APIs are designed to automatically run in the right location regardless of where your extension happens to be located. With this in mind, there are a few APIs of particular interest that will help you avoid unexpected impacts.
 
 ### Incorrect execution location
 
@@ -156,32 +156,6 @@ Visual Studio Code does not provide a secret persistence mechanism itself, but m
 
 If you prefer not to use `keytar`, you can instead use a "Helper Extension" to run your secret persistance code. See [below](#access-local-or-remote-apis-using-a-helper-extension) for details.
 
-### Using client APIs from a Workspace Extension
-
-#### APIs that automatically run in the correct location
-
-VS Code's base APIs are designed to automatically run in the right location regardless of where your extension happens to be located. With this in mind, there are a few APIs of particular interest that you will want to take advantage of unexpected impacts.
-
-#### Using VS Code or extension provided commands
-
-VS Code automatically handles routing any executed commands to the correct location. You can freely invoke any simple or complex command (including those provided by other extensions) without worrying about impacts. If you have a set of extensions that need to interact with one another, exposing functionality using a private command can help you avoid unexpected impacts. Private commands are prefixed with an underscore ("_"). For example:
-
-```typescript
-import * as vscode from 'vscode';
-
-export async function activate(context: vscode.ExtensionContext) {
-    // Register the private echo command
-    const echoCommand = vscode.commands.registerCommand('_private.command.called.echo',
-        (value: string) => {
-            return value;
-        }
-    );
-    context.subscriptions.push(echoCommand);
-}
-```
-
-See the [command API guide](command.md) for details on working with commands.
-
 #### Using the clipboard
 
 Historically, extension authors have relied on Node.js modules like "clipboardy" interact with the clipboard from an extension. Unfortunately, if you use these modules from a Workspace Extension, you will be interacting with the remote clipboard instead of the local one.
@@ -217,11 +191,11 @@ if (clipboard) {
 }
 ```
 
-#### Opening something in the local browser or application
+#### Opening something in a local browser or application
 
-Using node modules like `opn` to launch a browser or application is useful when everything is running locally, but these will try to launch the browser remotely if you attempt to use the module from a Workspace extension.
+Spawning a process or using a module like `opn` to launch a browser or other application for particular URI can work well for local scenarios, but Workspace extensions run remotely which can cause the the application to launch on the wrong side.
 
-Thankfully, recent versions of VS Code include the `vscode.env.openExternal` method that can launch the default registered application on your local operating system for any URI you pass into it.
+Thankfully, recent versions of VS Code include the `vscode.env.openExternal` method that can launch the default registered application on your local operating system for any URI you pass into it. Even better `vscode.env.openExternal` **does automatic port forwarding!** You can use it to point to a local web server on a remote machine and serve up content even if that port is blocked externally.
 
 For example:
 
@@ -235,9 +209,7 @@ vscode.env.openExternal(vscode.Uri.parse('https://code.visualstudio.com'));
 vscode.env.openExternal(vscode.Uri.parse('mailto:vscode@microsoft.com'));
 ```
 
-Even better `vscode.env.openExternal` **does automatic port forwarding!** You can use it to point to a local web server on a remote machine and serve up content even if that port is blocked externally.
-
-You can also use feature detection to fall back on an alternate approach if your extension needs to support older versions of VS Code. For example:
+If you want to support older versions of VS Code, you can use feature detection to fall back on a node module like `opn` if the API is missing. For example:
 
 ```typescript
 import * as vscode from 'vscode';
@@ -254,7 +226,33 @@ openExternal(<any>vscode.Uri.parse('https://code.visualstudio.com'));
 openExternal(<any>vscode.Uri.parse('mailto:vscode@microsoft.com'));
 ```
 
+If you need to do something more sophisticated like launch an arbitrary application, you can use a Helper Extension. See [below](#accessing-local-apis-using-a-helper-extension) for details.
+
 > **NOTE:** We are investigating automatically shim'ing `opn` to make this process easier. See [#807](https://github.com/Microsoft/vscode-remote/issues/807). [A complete example `opn` node module shim can be found here](https://github.com/Microsoft/vscode-dev-containers/tree/clantz/extension-samples/example-extensions/opn-shim) in the meantime.
+
+#### Communicating between extensions using commands
+
+Some extensions return APIs as a part of their activation function that are intended for other extensions to use (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI extensions or all Workspace extensions), these will not work between UI and Workspace extensions.
+
+Fortunately, VS Code automatically routes any executed commands to the correct extension regardless of its location. You can freely invoke any simple or complex command (including those provided by other extensions) without worrying about impacts. If you have a set of extensions that need to interact with one another, exposing functionality using a private command can help you avoid unexpected impacts. Private commands are prefixed with an underscore ("_"). For example:
+
+```typescript
+import * as vscode from 'vscode';
+
+export async function activate(context: vscode.ExtensionContext) {
+    // Register the private echo command
+    const echoCommand = vscode.commands.registerCommand('_private.command.called.echo',
+        (value: string) => {
+            return value;
+        }
+    );
+    context.subscriptions.push(echoCommand);
+}
+```
+
+See the [command API guide](command.md) for details on working with commands.
+
+You can also use the command interface in more sophisticated ways to bridge APIs between extensions or to invoke custom local APIs from Workspace. See [Accessing local APIs using a Helper Extension](#accessing-local-apis-using-a-helper-extension) for details.
 
 ## Using the WebView API
 
