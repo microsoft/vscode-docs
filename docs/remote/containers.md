@@ -107,8 +107,7 @@ You can get started in one of three ways:
     {
         "name": "[Optional] Your project name here",
         "dockerComposeFile": "docker-compose.yml",
-        "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
-        "volume": "name-of-volume-where-source-code-is-located"
+        "service": "the-name-of-the-service-you-want-to-work-with-in-vscode"
     }
     ```
 
@@ -153,7 +152,7 @@ You can install additional extensions in the container at any time by using the 
 
 ### "Always installed" extensions
 
-If there are extensions that you would like to always have installed in any container, you can update the `devcontainer.extensions` property in `settings.json`. For example, if you wanted to install the  *GitLens* and *Resource Monitor* extensions, you would specify their extension IDs as follows:
+If there are extensions that you would like to always have installed in any container, you can update the `remote.containers.defaultExtensions` property in `settings.json`. For example, if you wanted to install the  *GitLens* and *Resource Monitor* extensions, you would specify their extension IDs as follows:
 
 ```json
 "remote.containers.defaultExtensions": [
@@ -319,7 +318,7 @@ To reuse `docker-compose.yml` unmodified, just create a `.devcontainer/devcontai
 |----------|------|-------------|
 | `dockerComposeFile` | string  or array| Path or an ordered list list of paths to Docker Compose files relative to the workspace root. |
 | `service` | string | The name of the service you want to work on. |
-| `volume` | string | The path that the source code can be found inside the container ("app" in the example above). |
+| `workspaceFolder` | string | [Optional] The path that the source code can be found inside the container. |
 | `name` | string | [Optional] A display name for the container. |
 | `extensions` | array | [Optional] An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
 | `devPort` | integer | [Optional] A specific port that the VS Code Remote server should use in the container. Defaults 8000 unless that port is already active. |
@@ -330,8 +329,7 @@ Foe example:
 {
     "name": "[Optional] Your project name here",
     "dockerComposeFile": "docker-compose.yml",
-    "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
-    "volume": "name-of-volume-where-source-code-is-located"
+    "service": "the-name-of-the-service-you-want-to-work-with-in-vscode"
 }
 ```
 
@@ -356,7 +354,7 @@ version: '3'
       # Mounts the project folder to '/workspace'. The target path inside the container
       # should match should match what your application expects. In this case, the
       # compose file is in a sub-folder, so we will mount '..'. We'll then reference
-      # this volume '.devcontainer/devcontainer.json' so VS Code starts here.
+      # this as the workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
       volumes:
         - ..:/workspace
 
@@ -374,7 +372,7 @@ This same file can provide additional port mappings, etc as needed. All you need
         ".devcontainer/docker-compose.yml"
     ],
     "service": "your-service-name-here",
-    "volume": "workspace"
+    "workspaceFolder": "/workspace"
 }
 ```
 
