@@ -31,9 +31,11 @@ To get started you need to:
 
 2. Install [Visual Studio Code](https://aka.ms/vscode-remote/download)
 
-    > **Dogfooding Note:** Install [VS Code with built-in SSH support from here](https://aka.ms/vscode-remote/download) by clicking on the latest version for your OS with the  `Released` column checked. This version can live side-by-side with other VS Code versions and no additional extensions are required.
+    > **Dogfooding Note:** You need to install a private build called [Code-WSL from here](https://aka.ms/vscode-remote/download) by clicking on the latest version for your OS with the  `Released` column checked. This version can live side-by-side with other VS Code versions and no additional extensions are required.
 
-3. <strike>Install the **[Remote Development](https://aka.ms/vscode-remote/download/extension)** VS Code extension</strike>
+3. Install the **[Remote Development](https://aka.ms/vscode-remote/download/extension)** extension pack
+
+    > **Dogfooding Note (UPDATED):** You will now need to install an internal copy of the [Remote Development Extension](https://aka.ms/vscode-remote/download/extension) in Code - WSL. The first time you install it, you will be prompted to paste in a GitHub auth token so that it can download private versions of the extensions. You only need to give "Repo" scope and this token will not be required once we release.
 
 4. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](#troubleshooting.md#enabling-alternate-ssh-authentication-methods).
 
@@ -88,7 +90,7 @@ You can install additional extensions in on the SSH host at any time by using th
 If there are extensions that you would like to always have installed on any SSH host, you can update the `remote.SSH.extensions` property in `settings.json`. For example, if you wanted to install the  *GitLens* and *Resource Monitor* extensions, you would specify their extension IDs as follows:
 
 ```json
-"remote.SSH.extensions": [
+"remote.SSH.defaultExtensions": [
     "eamodio.gitlens",
     "mutantdino.resourcemonitor"
 ]

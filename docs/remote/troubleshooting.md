@@ -4,7 +4,7 @@ Area: remote
 TOCTitle: Troubleshooting
 PageTitle: Remote Tips and Troubleshooting
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
-MetaDescription: VS Code Remote Tips and Troubleshooting
+MetaDescription: VS Code Remote Development Tips and Troubleshooting for SSH, Containers, and WSL
 DateApproved: 2/25/2019
 ---
 # Troubleshooting Tips for VS Code Remote Development

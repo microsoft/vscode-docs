@@ -299,7 +299,7 @@ const panel = vscode.window.createWebviewPanel(
         ]
     });
 
-// Reference the "port" variable as in any full URIs in your HTML.
+// Reference the "port" variable in any full URIs you reference in your HTML.
 panel.webview.html =  `<!DOCTYPE html>
     <body>
         <!-- This will resolve to the dynamic server port on the remote machine -->
