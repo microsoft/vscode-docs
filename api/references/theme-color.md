@@ -453,8 +453,10 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.activeBackground`: Status Bar item background color when clicking.
 - `statusBarItem.hoverBackground`: Status Bar item background color when hovering.
 - `statusBarItem.prominentForeground`: Status Bar prominent items foreground color.
-- `statusBarItem.prominentBackground`: Status Bar prominent items background color. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
-- `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
+- `statusBarItem.prominentBackground`: Status Bar prominent items background color.
+- `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering.
+
+Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
 
 ## Title Bar colors
 
