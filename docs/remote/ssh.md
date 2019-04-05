@@ -31,9 +31,11 @@ To get started you need to:
 
 2. Install [Visual Studio Code](https://aka.ms/vscode-remote/download)
 
-    > **Dogfooding Note:** Install [VS Code with built-in SSH support from here](https://aka.ms/vscode-remote/download) by clicking on the latest version for your OS with the  `Released` column checked. This version can live side-by-side with other VS Code versions and no additional extensions are required.
+    > **Dogfooding Note:** You need to install a private build called [Code-WSL from here](https://aka.ms/vscode-remote/download) by clicking on the latest version for your OS with the  `Released` column checked. This version can live side-by-side with other VS Code versions and no additional extensions are required.
 
-3. <strike>Install the **[Remote Development](https://aka.ms/vscode-remote/download/extension)** VS Code extension</strike>
+3. Install the **[Remote Development](https://aka.ms/vscode-remote/download/extension)** extension pack
+
+    > **Dogfooding Note (UPDATED):** You will now need to install an internal copy of the [Remote Development Extension](https://aka.ms/vscode-remote/download/extension) in Code - WSL. The first time you install it, you will be prompted to paste in a GitHub auth token so that it can download private versions of the extensions. You only need to give "Repo" scope and this token will not be required once we release.
 
 4. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](#troubleshooting.md#enabling-alternate-ssh-authentication-methods).
 
@@ -79,7 +81,20 @@ Set the `"remote.SSH.configFile"` property in `settings.json` if you want to use
 
 ## Managing extensions
 
-You can install additional extensions in the container at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or remotely based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
+While "personalization" extensions (along with a few others) install on your local VS Code instance, most installed extensions will reside on a particular remote host. This allows you to install whatever extensions you need for a given task now and jump back later at the exact same place  where you left off - even when connecting from another machine.
+
+You can install additional extensions in on the SSH host at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or remotely based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
+
+### "Always installed" extensions
+
+If there are extensions that you would like to always have installed on any SSH host, you can update the `remote.SSH.extensions` property in `settings.json`. For example, if you wanted to install the  *GitLens* and *Resource Monitor* extensions, you would specify their extension IDs as follows:
+
+```json
+"remote.SSH.defaultExtensions": [
+    "eamodio.gitlens",
+    "mutantdino.resourcemonitor"
+]
+```
 
 ## Forwarding a port / creating SSH tunnel
 
@@ -133,6 +148,10 @@ See [here](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) de
 ### How do I setup a SSH server on ...?
 
 See [here](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) for details on setting up a SSH server for your host.
+
+### Can I sign into my SSH server with another/additional authentication mechanism like a password?
+
+Yes, with some additional configuration. See [here](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) for information on the correct settings.
 
 ### How do I fix SSH errors about "bad permissions"?
 
