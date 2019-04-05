@@ -272,22 +272,30 @@ While VS Code transparently deals with executing its own APIs on the correct sid
 While we recommend using the [message passing](../extension-guides/webview.m#scripts-and-message-passing) pattern rather than using a local web server to serve up content or data, you can resolve this problem by **adding a port mapping** when you create the WebView. As of VS Code v1.33, the WebView will automatically map any ports you specify in both the local and remote cases. This also allows you to use a static port in your web content even if your web server is on a dynamic port. For example:
 
 ```typescript
-const dynamicPort = getExpressServerPort();
+const staticPort = 3000;
+const dynamicServerPort = getExpressServerPort();
 
+// If VS Code version is >= 1.33, we can use port mapping, otherwise do not attempt to map.
+const [ major, minor, ...rest ] = <number[]>vscode.version.split('.').map((ver) => parseInt(ver));
+const port = ( major > 1 || (major === 1 && minor >= 33)) ? staticPort : dynamicServerPort;
+
+// Create WebView and pass portMapping in
 const panel = vscode.window.createWebviewPanel(
     'remoteMappingExample',
     'Remote Mapping Example',
-    vscode.ViewColumn.One, {
+    vscode.ViewColumn.One, <any>{
         portMapping: [
-            // Map localhost:3000 in the webview to the express server port on the remote host
-            { port: 3000, resolvedPort: dynamicPort }
+            // Map localhost:3000 in the webview to the express server port on the remote host.
+            // This setting will simply be ignored in versions of VS Code < 1.33.
+            { port: port, resolvedPort: dynamicServerPort }
         ]
     });
 
+// Reference the "port" variable as the port in any full URIs or use relative paths.
 panel.webview.html =  `<!DOCTYPE html>
     <body>
-        <!-- This will resolve to the dynamic port on the remote machine -->
-        <img src="http://localhost:3000/canvas.png">
+        <!-- This will resolve to the dynamic server port on the remote machine -->
+        <img src="http://localhost:${port}/canvas.png">
     </body>
     </html>`;
 ```
