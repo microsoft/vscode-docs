@@ -31,7 +31,7 @@ To get started you need to:
 
 2. Install [Visual Studio Code](https://aka.ms/vscode-remote/download)
 
-    > **Dogfooding Note:** You need to install a private build called [Code-WSL from here](https://aka.ms/vscode-remote/download) by clicking on the latest version for your OS with the  `Released` column checked. This version can live side-by-side with other VS Code versions and no additional extensions are required.
+    > **Dogfooding Note:** You will need to install a private build called [Code-WSL from here](https://aka.ms/vscode-remote/download) by clicking on the latest version for your OS with the  `Released` column checked. This version can live side-by-side with other VS Code versions.
 
 3. Install the **[Remote Development](https://aka.ms/vscode-remote/download/extension)** extension pack
 
