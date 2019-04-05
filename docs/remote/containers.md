@@ -455,7 +455,7 @@ See the following examples dev containers for additional information:
 
 Currently you can only connect to one container per VS Code window. However, you can spin up multiple containers and [attach to them](#attaching-to-running-containers) from different VS Code windows to work around this limitation.
 
-### The Docker / Kubernetes extension does not work when I am connected to a container. I also cannot build container images or deploy from my container. How do I fix this?
+### The Docker / Kubernetes extension does not work when I am connected to a container. I also cannot build container images or deploy from my container. How can I fix this?
 
 You can resolve these issue by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes)in the container. See the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker), [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose), and [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) dev container definitions for details.
 
