@@ -24,7 +24,7 @@ Currently VS Code distinguishes the following two classes of extensions:
 
 - **Workspace Extensions**: These extensions access files inside a workspace and they therefore must run inside the Development Container. A typical example of a Workspace Extension is an extension that provides language features like IntelliSense, adds a debugger, or needs to operate directly on the files of the workspace.
 
-When you install an extension, VS Code attempts to automatically determine the type of extension and install and run it in the correct location - UI Extensions run in VS Code's **[local Extension Host](extension-host.md)** while Workspace Extensions run in a **Remote Extension Host** that sits in a small server. This server is automatically installed (or updated) once you open a folder in WSL, in a Docker container, or on a remote SSH host. VS Code also automatically manages starting and stopping the server as needed.
+When you install an extension, VS Code attempts to automatically determine the type of extension and install and run it in the correct location - UI Extensions run in VS Code's **[local Extension Host](extension-host.md)** while Workspace Extensions run in a **Remote Extension Host** that sits in a small **VS Code Remote Server**. This server is automatically installed (or updated) once you open a folder in WSL, in a Docker container, or on a remote SSH host. VS Code also automatically manages starting and stopping the server as needed.
 
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
@@ -94,9 +94,9 @@ If the location is incorrect, you can explicitly specify which category the exte
 "extensionKind": "ui"
 ```
 
-A value of `ui` will force the extension to run on the client. A value of `workspace` will force the extension to run inside the VS Code Remote Development server.
+A value of `ui` will force the extension to run on the client. A value of `workspace` will force the extension to run inside the VS Code Remote Server.
 
-You can test whether switching your extension to a UI extension will solve your problem with the provisional `_workbench.uiExtensions` in `settings.json`. This allows you to test in-marketplace versions of extensions without having to modify their `package.json` file. The value of the setting is an array of extension IDs. For example to specify that the Docker extension should run as a UI extension you would add the following:
+You can test whether switching your extension to a UI extension will solve your problem with the `workbench.uiExtensions` option in `settings.json`. This allows you to test in-marketplace versions of extensions without having to modify their `package.json` file. The value of the setting is an array of extension IDs. For example to specify that the Docker extension should run as a UI extension you would add the following:
 
 ````json
 "workbench.uiExtensions" : [
@@ -128,6 +128,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Detect global storage root path has been created
     if ((<any>context).globalStoragePath) {
+
         // Verify the global storage path exists, create it if not
         const globalStoragePath = path.resolve((<any>context).globalStoragePath, '..');
         if (!fs.existsSync(globalStoragePath)) {
@@ -139,6 +140,7 @@ export function activate(context: vscode.ExtensionContext) {
         if (!fs.existsSync(extensionStoragePath)) {
             fs.mkdirSync(extensionStoragePath);
         }
+
     } else {
         // EXISTING LOGIC TO DETERMINE PATH GOES HERE
         extensionStoragePath = ...
@@ -219,7 +221,9 @@ if (clipboard) {
 
 Using node modules like `opn` to launch a browser or application is useful when everything is running locally, but these will try to launch the browser remotely if you attempt to use the module from a Workspace extension.
 
-Thankfully, recent versions of VS Code include the `vscode.env.openExternal` method that can launch the default registered application on your local operating system for any URI you pass into it. In addition, if you need to support older versions of VS Code, the `vscode.open` command can be used to open browser links in the default browser. For example:
+Thankfully, recent versions of VS Code include the `vscode.env.openExternal` method that can launch the default registered application on your local operating system for any URI you pass into it.
+
+For example:
 
 ```typescript
 import * as vscode from 'vscode';
@@ -227,12 +231,11 @@ import * as vscode from 'vscode';
 // Example 1 - Open the VS Code homepage in the default browser.
 vscode.env.openExternal(vscode.Uri.parse('https://code.visualstudio.com'));
 
-// Example 2 - Open the VS Code homepage in the default browser -- works on onlder versions of VS Code.
-vscode.commands.executeCommand('vscode.open', vscode.Uri.parse('https://code.visualstudio.com'));
-
-// Example 3 - Open the default email application.
+// Example 2 - Open the default email application.
 vscode.env.openExternal(vscode.Uri.parse('mailto:vscode@microsoft.com'));
 ```
+
+Even better `vscode.env.openExternal` **does automatic port forwarding!** You can use it to point to a local web server on a remote machine and serve up content even if that port is blocked externally.
 
 You can also use feature detection to fall back on an alternate approach if your extension needs to support older versions of VS Code. For example:
 
@@ -240,12 +243,14 @@ You can also use feature detection to fall back on an alternate approach if your
 import * as vscode from 'vscode';
 import * as opn from 'opn';
 
-const openExternal: any = (<any>vscode.env).openExternal ? (<any>vscode.env).openExternal : opn;
+const openExternal: any = (<any>vscode.env).openExternal
+    ? (<any>vscode.env).openExternal
+    : opn;
 
-// Example 1B - Open the VS Code homepage in the default browser.
+// Example 1A - Open the VS Code homepage in the default browser.
 openExternal(<any>vscode.Uri.parse('https://code.visualstudio.com'));
 
-// Example 3B - Open the default email application
+// Example 2A - Open the default email application
 openExternal(<any>vscode.Uri.parse('mailto:vscode@microsoft.com'));
 ```
 
@@ -253,7 +258,7 @@ openExternal(<any>vscode.Uri.parse('mailto:vscode@microsoft.com'));
 
 ## Using the WebView API
 
-> **Note:** The `vscode.previewHtml` command has been deprecated in favor of a new WebView API. The previewHTML command is not supported remotely and will be removed from VS Code in the future.
+> **Note:** The `vscode.previewHtml` command has been deprecated in favor of a new WebView API. The previewHTML command is not supported remotely was removed in VS Code version 1.33.
 
 Like the clipboard API, the [WebView API](../extension-guides/webview.md) will automatically run on the client if called from a Workspace extension.
 
@@ -265,18 +270,23 @@ However, any content local to your extension should be accessed using the `vscod
 
 #### Using content or services hosted in a web server started by the extension
 
-While VS Code transparently deals with executing its own APIs on the correct side (local or remote), the WebView is effectively a mini-browser that can do things outside of VS Code's API set. When the WebView points at a web service or server outside of VS Code itself, VS Code simply does not know about it and therefore cannot transparently handle this kind of content. In the Container and SSH cases, it's import to note that local ports (like those of any web server your extension starts) is on will often be blocked. Consider this illustration:
+While VS Code transparently deals with executing its own APIs on the correct side (local or remote), the WebView is effectively a mini-browser that can do things outside of VS Code's API set. When the WebView points at a web service or server outside of VS Code itself, VS Code simply does not know about it and therefore cannot transparently handle this kind of content. In the Container and SSH cases, it's import to note that local ports (like those of any web server your extension starts) is on will often be blocked.
+
+Consider this illustration:
 
 ![WebView Problem](images/remote-extensions/webview-problem.png)
 
-While we recommend using the [message passing](../extension-guides/webview.m#scripts-and-message-passing) pattern rather than using a local web server to serve up content or data, you can resolve this problem by **adding a port mapping** when you create the WebView. As of VS Code v1.33, the WebView will automatically map any ports you specify in both the local and remote cases. This also allows you to use a static port in your web content even if your web server is on a dynamic port. For example:
+While we recommend using the [message passing](../extension-guides/webview.m#scripts-and-message-passing) pattern rather than using a local web server to serve up content or data, you can resolve this problem by **adding a port mapping** when you create the WebView. As of VS Code v1.33, the WebView will automatically map any ports you specify in both the local and remote cases. This also allows you to use a static port in your web content even if your web server is on a dynamic port.
+
+For example:
 
 ```typescript
 const staticPort = 3000;
 const dynamicServerPort = getExpressServerPort();
 
 // If VS Code version is >= 1.33, we can use port mapping, otherwise do not attempt to map.
-const [ major, minor, ...rest ] = <number[]>vscode.version.split('.').map((ver) => parseInt(ver));
+const [ major, minor, ...rest ] = <number[]>(
+        vscode.version.split('.').map((str) => parseInt(str)));
 const port = ( major > 1 || (major === 1 && minor >= 33)) ? staticPort : dynamicServerPort;
 
 // Create WebView and pass portMapping in
@@ -291,7 +301,7 @@ const panel = vscode.window.createWebviewPanel(
         ]
     });
 
-// Reference the "port" variable as the port in any full URIs or use relative paths.
+// Reference the "port" variable as in any full URIs in your HTML.
 panel.webview.html =  `<!DOCTYPE html>
     <body>
         <!-- This will resolve to the dynamic server port on the remote machine -->
@@ -308,7 +318,7 @@ See the [API guide](../extension-guides/webview.md) for more details.
 
 ## Branching logic when running remotely
 
-While a core goal of VS Code Remote Development's design is to avoid branching logic, you may find yourself in a situation where want to do something differently if the extension is running locally. In this case, you can detect whether the extension is running in the VS Code Remote Development server using the following code:
+While a core goal of VS Code Remote Development's design is to avoid branching logic, you may find yourself in a situation where want to do something differently if the extension is running locally. In this case, you can detect whether the extension is running in the VS Code Remote Server using the following code:
 
 ```typescript
 import * as path from 'path';
@@ -508,10 +518,14 @@ const apiObjs: any = {};
 
 export async function activate(context: vscode.ExtensionContext) {
     const apiBridge = vscode.commands.registerCommand('_example-api.apiBridge', (...args: any[]) => {
+
+        // First arg is instance ID, second is the function name
         const instanceId = args[0];
         const fnName = args[1];
+
         // Get the instance or if the ID is new, create one.
         apiObjs[instanceId] = apiObjs[instanceId] || new ExampleApi();
+
         // If the function is one that registers an event, use a replacement callback
         if (fnName === 'registerEventHandler') {
             const eventName = args[2];
