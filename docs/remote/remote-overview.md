@@ -36,11 +36,11 @@ The result is that VS Code can provide a **local-quality development experience*
 
 The **[Remote Development extension pack](https://aka.ms/vscode-remote/download/extension)** includes three extensions that will quickly unlock the full power of VS Code in a variety of situations. Click on the links below to learn more.
 
-- **[SSH](ssh.md)** - Work with source code in any location by opening folders on a remote machine/VM using SSH.
-- **[Containers](containers.md)** - Work with a sandboxed toolchain or container based application by opening any folder inside (or mounted into) a container.
-- **[WSL](wsl.md)** - Get a Linux-powered development experience from the comfort of Windows by opening any folder in the Windows Subsystem for Linux.
+- **[SSH](/docs/remote/ssh.md)** - Work with source code in any location by opening folders on a remote machine/VM using SSH.
+- **[Containers](/docs/remote/containers.md)** - Work with a sandboxed toolchain or container based application by opening any folder inside (or mounted into) a container.
+- **[WSL](/docs/remote/wsl.md)** - Get a Linux-powered development experience from the comfort of Windows by opening any folder in the Windows Subsystem for Linux.
 
-While many extensions are expected to work unmodified in a remote environment, extension authors can get more information on testing and fixed remote related problems here: **[Adding Remote Support to Extensions](../../api/advanced-topics/remote-extensions.md)**
+While many extensions are expected to work unmodified in a remote environment, extension authors can get more information on testing and fixed remote related problems here: **[Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md)**
 
 ## Reporting Issues
 

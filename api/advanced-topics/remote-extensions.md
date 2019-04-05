@@ -8,7 +8,7 @@ MetaDescription: A guide to adding VS Code Remote Development Support to Extensi
 
 # Adding VS Code Remote Development Support to Extensions
 
-While many developers edit, build, deploy, and debug on their local machines, there are an increasing number of situations where you may need to interact with a codebase or runtime on the other side of an OS boundary. **[VS Code Remote Development](../../docs/remote/remote-overview.md)** extensions addresses these needs by allowing your local VS Code installation and any extension provided features to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical).
+While many developers edit, build, deploy, and debug on their local machines, there are an increasing number of situations where you may need to interact with a codebase or runtime on the other side of an OS boundary. **[VS Code Remote Development](/docs/remote/remote-overview.md)** extensions addresses these needs by allowing your local VS Code installation and any extension provided features to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical).
 
 When using the capability, VS Code selectively runs certain extensions on the remote machine to optimize your experience. Given **no source code needs to be on your local machine** to use the capability, the approach provides dramatic performance and fidelity benefits over using network shares or synchronizing files.
 
@@ -24,13 +24,13 @@ Currently VS Code distinguishes the following two classes of extensions:
 
 - **Workspace Extensions**: These extensions access files inside a workspace and they therefore must run inside the Development Container. A typical example of a Workspace Extension is an extension that provides language features like IntelliSense, adds a debugger, or needs to operate directly on the files of the workspace.
 
-When you install an extension, VS Code attempts to automatically determine the type of extension and install and run it in the correct location - UI Extensions run in VS Code's **[local Extension Host](extension-host.md)** while Workspace Extensions run in a **Remote Extension Host** that sits in a small **VS Code Remote Server**. This server is automatically installed (or updated) once you open a folder in WSL, in a Docker container, or on a remote SSH host. VS Code also automatically manages starting and stopping the server as needed.
+When you install an extension, VS Code attempts to automatically determine the type of extension and install and run it in the correct location - UI Extensions run in VS Code's **[local Extension Host](/api/advanced-topics/extension-host.md)** while Workspace Extensions run in a **Remote Extension Host** that sits in a small **VS Code Remote Server**. This server is automatically installed (or updated) once you open a folder in WSL, in a Docker container, or on a remote SSH host. VS Code also automatically manages starting and stopping the server as needed.
 
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
 VS Code APIs are designed to automatically run on the correct side (local or remote) when used from either UI or Workspace extensions. However, if your extension makes use of local APIs not provided VS Code itself you may see some issues.
 
-As a result, we recommend that you use VS Code Remote Development to **test** your own extensions. Specifically, we recommend testing your extension using a local **[dev container](../../docs/remote/containers.md)** since container environments are cross-platform and easy to set up but restrict port file system access. WSL, on the other hand, is typically the least restrictive with SSH being somewhere in the middle. In most cases, only small adjustments are needed (if any) to resolve issues. See [common problems](#common-problems) fore more information.
+As a result, we recommend that you use VS Code Remote Development to **test** your own extensions. Specifically, we recommend testing your extension using a local **[dev container](/docs/remote/containers.md)** since container environments are cross-platform and easy to set up but restrict port file system access. WSL, on the other hand, is typically the least restrictive with SSH being somewhere in the middle. In most cases, only small adjustments are needed (if any) to resolve issues. See [common problems](#common-problems) fore more information.
 
 ## Testing and debugging your extension
 
@@ -41,7 +41,7 @@ While you can test your extension in VS Code Remote Development by installing yo
 Currently, any extensions that are automatically installed inside WSL, SSH hosts, or containers will be the marketplace, not what is present on your local machine. While this makes sense in most situations, you may want to use an unpublished version of your extension to test. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into an VS Code window that is already connected to the running remote environment you are using to test. Just follow these steps:
 
 1. Use `vsce package` to package your extension as a VSIX.
-2. Connect to a [development container](../../docs/remote/containers.md), [SSH host](../../docs/remote/ssh.md), or [WSL environment](../../docs/remote/wsl.md).
+2. Connect to a [development container](/docs/remote/containers.md), [SSH host](/docs/remote/ssh.md), or [WSL environment](/docs/remote/wsl.md).
 3. Use the **Install from VSIX...** available in the Extension Viewlets `...` menu to install the extension in this specific window (not a local one).
 4. Reload when prompted.
 
@@ -67,7 +67,7 @@ You can test and debug your extension in a remote environment by making a simple
 },
 ```
 
-Next, create either `.devcontainer/devcontainer.json` or `.devcontainer.json` with the [appropriate contents](../../docs/remote/containers.md#creating-configuration-files-for-existing-projects) for your project. For example:
+Next, create either `.devcontainer/devcontainer.json` or `.devcontainer.json` with the [appropriate contents](/docs/remote/containers.md#creating-configuration-files-for-existing-projects) for your project. For example:
 
 ```json
 {
@@ -250,7 +250,7 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-See the [command API guide](command.md) for details on working with commands.
+See the [command API guide](/api/extension-guides/command.md) for details on working with commands.
 
 You can also use the command interface in more sophisticated ways to bridge APIs between extensions or to invoke custom local APIs from Workspace. See [Accessing local APIs using a Helper Extension](#accessing-local-apis-using-a-helper-extension) for details.
 
@@ -258,7 +258,7 @@ You can also use the command interface in more sophisticated ways to bridge APIs
 
 > **Note:** The `vscode.previewHtml` command has been deprecated in favor of a new WebView API. The previewHTML command is not supported remotely was removed in VS Code version 1.33.
 
-Like the clipboard API, the [WebView API](../extension-guides/webview.md) will automatically run on the client if called from a Workspace extension.
+Like the clipboard API, the [WebView API](/api/extension-guides/webview.md) will automatically run on the client if called from a Workspace extension.
 
 However, any content local to your extension should be accessed using the `vscode-resource` scheme instead of "localhost" or the file scheme. The `vscode-resource` scheme will automatically route to the correct location while localhost and the file scheme will not. Be sure to add the `vscode-resource` scheme into any content security policy on your page. E.g.:
 
@@ -274,7 +274,7 @@ Consider this illustration:
 
 ![WebView Problem](images/remote-extensions/webview-problem.png)
 
-While we recommend using the [message passing](../extension-guides/webview.m#scripts-and-message-passing) pattern rather than using a local web server to serve up content or data, you can resolve this problem by **adding a port mapping** when you create the WebView. As of VS Code v1.33, the WebView will automatically map any ports you specify in both the local and remote cases. This also allows you to use a static port in your web content even if your web server is on a dynamic port.
+While we recommend using the [message passing](/api/extension-guides/webview.m#scripts-and-message-passing) pattern rather than using a local web server to serve up content or data, you can resolve this problem by **adding a port mapping** when you create the WebView. As of VS Code v1.33, the WebView will automatically map any ports you specify in both the local and remote cases. This also allows you to use a static port in your web content even if your web server is on a dynamic port.
 
 For example:
 
@@ -312,7 +312,7 @@ With this change, the WebView traffic will instead use VS Code's existing commun
 
 ![WebView Solution](images/remote-extensions/webview-solution.png)
 
-See the [API guide](../extension-guides/webview.md) for more details.
+See the [API guide](/api/extension-guides/webview.md) for more details.
 
 ## Branching logic when running remotely
 

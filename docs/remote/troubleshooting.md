@@ -7,11 +7,11 @@ ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: VS Code Remote Tips and Troubleshooting
 DateApproved: 2/25/2019
 ---
-# Troubleshooting Tips for VS Code Remote
+# Troubleshooting Tips for VS Code Remote Development
 
 ## SSH
 
-Visual Studio Code Remote allows you to open any folder on a remote machine, VM, or container with a SSH server and take advantage of VS Code's full feature set. This article includes additional troubleshooting and configuration tips for setting up support for developing on remote machines using SSH. See the [primary article](ssh.md) for getting started information.
+Visual Studio Code Remote allows you to open any folder on a remote machine, VM, or container with a SSH server and take advantage of VS Code's full feature set. This article includes additional troubleshooting and configuration tips for setting up support for developing on remote machines using SSH. See the [primary article](/docs/remote/ssh.md) for getting started information.
 
 ### Configuring key based authentication
 
@@ -20,6 +20,7 @@ Visual Studio Code Remote allows you to open any folder on a remote machine, VM,
 You can set up SSH key based authentication for your remote host as follows:
 
 1. Check to see if `~/.ssh/id_rsa.pub` exists on macOS / Linux or `%USERPROFILE%\.ssh\id_rsa.pub` on Windows. If not, run the following command in a terminal / command prompt to generate a SSH key pair:
+
     ````bash
     ssh-keygen -t rsa -b 4096 -C "your@email-address.here"
     ````
@@ -29,10 +30,13 @@ You can set up SSH key based authentication for your remote host as follows:
 2. Add the contents of your **local** `id_rsa.pub` file to the appropriate `authorized_keys` file(s) on the remote host. How you do this depends on the operating systems involved.
 
     **macOS / Linux to macOS / Linux**: Run the following command in a terminal replacing `your-remote-linux-machine` with the host from your SSH config file.
+
     ````bash
     ssh-copy-id your-remote-linux-machine
     ````
+
     **Windows to macOS/Linux**: Run the following commands in a command prompt replacing `your-remote-linux-machine` with the host from your SSH config file.
+
     ````bash
     SET REMOTEHOST=user@your-remote-linux-machine
 
@@ -48,9 +52,9 @@ You can set up SSH key based authentication for your remote host as follows:
       2. **Remote Host:** Append the contents of this copied file into the following files (creating them if they do not exist):
           - `%USERPROFILE%\.ssh\authorized_keys`
           - `C:\ProgramData\ssh\administrator_authorized_keys` (if you are an Administrator)
-      3. **Remote Host:** Validate each file's [security permissions are correct](#ssh-server-file-and-folder-permissions).
+      3. **Remote Host:** Validate each file's [security permissions are correct](#fixing-ssh-file-permission-errors).
 
-#### Reusing a key generated in PuTTYGen
+### Reusing a key generated in PuTTYGen
 
 If you already used PuTTYGen to set up SSH public key authentication for the host you are connecting to, you will need to convert your private key for use in other SSH clients. Simply follow these steps:
 
@@ -65,6 +69,27 @@ Host example-azure-vm-with-exported-private-key
  HostName 192.168.0.128
  IdentityFile C:\path\to\your\exported\private\keyfile
 ````
+
+### Enabling alternate SSH authentication methods
+
+If one of the following conditions apply, you will need to enable the `remote.SSH.showLoginTerminal` setting:
+
+- Connecting with 2-factor authentication
+- Using password auth
+- Using an SSH key with a passphrase when the SSH agent is not running or accessible
+
+This setting will cause the terminal to be shown whenever vscode runs an ssh command. You will have to enter your auth code, password, or passphrase each time. A convenient way to work around this is to enable the `ControlMaster` feature that tells OpenSSH to multiple multiple SSH sessions over a single connection. Enable it in your SSH config file like this:
+
+```
+Host *
+    ControlMaster auto
+    ControlPath  ~/.ssh/sockets/%r@%h-%p
+    ControlPersist  600
+```
+
+Finally, run `mkdir -p ~/.ssh/sockets` to create the sockets folder.
+
+With this enabled, you will only have to enter your auth code/password/passphrase once.
 
 ### Fixing SSH file permission errors
 
@@ -102,24 +127,6 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /setowner %USERDOMAIN%\%USERNAME%
 icacls "%FILEORFOLDERTOUPDATE%" /c /reset
 icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%:F SYSTEM:F BUILTIN\Administrators:F
 ```
-
-### SSH auth issues
-
-If one of the following conditions apply, you will need to enable the `remote.SSH.showLoginTerminal` setting:
-- Connecting with 2-factor authentication
-- Using password auth
-- Using an SSH key with a passphrase when the SSH agent is not running or accessible
-
-This setting will cause the terminal to be shown whenever vscode runs an ssh command. You will have to enter your auth code, password, or passphrase each time. A convenient way to work around this is to enable the `ControlMaster` feature that tells OpenSSH to multiple multiple SSH sessions over a single connection. Enable it in your SSH config file like this:
-
-```
-Host *
-	ControlMaster auto
-	ControlPath  ~/.ssh/sockets/%r@%h-%p
-	ControlPersist  600
-```
-
-And run `mkdir -p ~/.ssh/sockets` to create the sockets folder. With this enabled, you will only have to enter your auth code/password/passphrase once.
 
 ### Installing a supported SSH client
 

@@ -25,7 +25,7 @@ Given source code **does not even need to exist on the Windows filesystem** for 
 
 To get started you need to:
 
-1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) along with your preferred Linux distribution. We strongly recommending using **WSL 2** (VM mode) due to known **limitations in  WSL 1**. See [known limitations](#wsl-1-limitations) for details.
+1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) along with your preferred Linux distribution. We strongly recommending using **WSL 2** (VM mode) due to known **limitations in  WSL 1**. See [known limitations](#wsl-1-specific-limitations) for details.
 
 2. Install [Visual Studio Code](https://aka.ms/vscode-remote/download) on the **Windows** side (not in WSL).
 
@@ -60,7 +60,7 @@ That's it! Any VS Code operations you perform in this window will executed in th
 
 ### Managing extensions
 
-You can install additional extensions at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or in WSL based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](../../api/advanced-topics/remote-extensions.md) for details on resolving these issues.
+You can install additional extensions at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or in WSL based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
 
 ### Opening a terminal in WSL
 
@@ -72,7 +72,7 @@ If you've already connected to WSL, **any terminal window** you open in VS Code 
 
 Once you've connected to WSL, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application up inside WSL and attach the debugger to it.
 
-See the [debugging](../editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
+See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
 ## Known Limitations
 
@@ -112,7 +112,7 @@ Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/i
 
 ### As an extension author what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, there are situations where adjustments will need to be made. We recommend you should test your extension to be sure you do not need to make updates. See [Adding Remote Support to Extensions](../../api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, there are situations where adjustments will need to be made. We recommend you should test your extension to be sure you do not need to make updates. See [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Reporting Issues
 
