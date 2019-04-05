@@ -77,39 +77,39 @@ Host example-remote-windows-machine
 
 Set the `"remote.SSH.configFile"` property in `settings.json` if you want to use a different config file than those listed.
 
-### Managing extensions
+## Managing extensions
 
 You can install additional extensions in the container at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or remotely based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
 
-### Forwarding a port / creating SSH tunnel
+## Forwarding a port / creating SSH tunnel
 
 Sometimes when developing you may need to access a port on a remote machine that is not publicly exposed. There are two ways to do this using a [SSH tunnel](https://www.ssh.com/ssh/tunneling/example) that "forwards" the desired remote port to your local machine.
 
-#### Temporarily forwarding a port
+### Temporarily forwarding a port
 
 If you want to *temporarily forward* a new port for the duration of the session, run the **Remote-SSH: Forward ports from active SSH Host...** command when connected.
 
 A toast notification will tell tell you the localhost port you should use to connect access the remote port. For example, if you forwarded a HTTP server running port 3000, the toast notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote http server using http://localhost:4123.
 
-#### Always forwarding a port
+### Always forwarding a port
 
 If you have ports that you **always want to forward** , you can use the the `LocalForward` directive in the same SSH config file you configured [above](#configure-a-remote-host). For example, if you wanted to forward ports 3000 and 27017 you could update the file as follows:
 
 ```
 Host remote-linux-machine
- User myuser
- HostName remote-linux-machine.mydomain
- LocalForward 127.0.0.1:3000 127.0.0.1:3000
- LocalForward 127.0.0.1:27017 127.0.0.1:27017
+    User myuser
+    HostName remote-linux-machine.mydomain
+    LocalForward 127.0.0.1:3000 127.0.0.1:3000
+    LocalForward 127.0.0.1:27017 127.0.0.1:27017
 ```
 
-### Opening a terminal on a remote host
+## Opening a terminal on a remote host
 
 If you've already connected to a remote host, **any terminal window** you open in VS Code will automatically run remotely. You can also **use the `code` CLI from a remote terminal** to perform a number of operations such as opening a new file or folder on the remote host! Type `code --help` to what is available from the command line.
 
 ![Using the code CLI](images/ssh/code-command-in-terminal.png)
 
-### Debugging on the SSH host
+## Debugging on the SSH host
 
 Once you are connected to a remote host, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application up on the remote host and attach the debugger to it.
 

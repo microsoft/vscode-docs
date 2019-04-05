@@ -44,15 +44,15 @@ You can set up SSH key based authentication for your remote host as follows:
     ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
     ````
 
+    <!-- to be uncommented when Windows SSH servers supported
     **Any OS to Windows 10 / Server 2016 OpenSSH Server**: Follow these manual steps:
-
-    > **Note:** Windows SSH servers are not yet supported!
 
       1. **Local:** Copy `~/.ssh/id_rsa.pub` on macOS / Linux or `%USERPROFILE%\.ssh\id_rsa.pub` on Windows to a temporary location on the remote Windows host.
       2. **Remote Host:** Append the contents of this copied file into the following files (creating them if they do not exist):
           - `%USERPROFILE%\.ssh\authorized_keys`
           - `C:\ProgramData\ssh\administrator_authorized_keys` (if you are an Administrator)
       3. **Remote Host:** Validate each file's [security permissions are correct](#fixing-ssh-file-permission-errors).
+    -->
 
 ### Reusing a key generated in PuTTYGen
 
@@ -63,12 +63,12 @@ If you already used PuTTYGen to set up SSH public key authentication for the hos
 3. Validate that the permissions on the file you exported only grant "Full Control to your user, Administrators, and SYSTEM.
 4. Open your SSH `config` file and add an `IdentityFile` keyword with the path to the key file. For example:
 
-````
-Host example-azure-vm-with-exported-private-key
- User myuser
- HostName 192.168.0.128
- IdentityFile C:\path\to\your\exported\private\keyfile
-````
+    ````
+    Host example-azure-vm-with-exported-private-key
+        User myuser
+        HostName 192.168.0.128
+        IdentityFile C:\path\to\your\exported\private\keyfile
+    ````
 
 ### Enabling alternate SSH authentication methods
 
@@ -110,13 +110,20 @@ The following are permissions that should be set correctly on your local machine
 
 The following are permissions that need to be correct on the remote machine you are connecting to.
 
+| Folder / File | Linux / macOS Permissions |
+|---------------|---------------------------|
+| `.ssh` in your user folder on the server | chmod 700 ~/.ssh |
+| `.ssh/authorized_keys` in your user folder on the server  | chmod 600 ~/.ssh/authorized_keys |
+
+<!-- to be uncommented once Windows servers are supported
 | Folder / File | Linux / macOS Permissions | Windows Permissions |
 |---------------|---------------------------|---------------------|
 | `.ssh` in your user folder on the server | chmod 700 ~/.ssh | Grant "Full Control" to your user, Administrators and SYSTEM. |
 | `.ssh/authorized_keys` in your user folder on the server  | chmod 600 ~/.ssh/authorized_keys | Grant "Full Control" to your user, Administrators and SYSTEM. |
 | `C:\ProgramData\ssh\administrator_authorized_keys` on the server |  | Grant "Full Control" permissions to SYSTEM and Administrators. Remove anything else. |
+-->
 
-##### Updating permissions on Windows using the command line
+#### Updating permissions on Windows using the command line
 
 If you'd prefer to use the command line to update permissions on Windows, you can use the `icacls` command. For example, this will set your user as the owner, clear out permissions, disable inheritance, and grant the needed permissions:
 
@@ -140,15 +147,13 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 
 ### Installing a supported SSH server
 
-> **Dogfooding Note:** Windows SSH Servers are not yet supported.
-
 | OS | Instructions |
 |----|--------------|
-| Windows 10 / Server 2016 | Install the [Windows OpenSSH Server](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse). |
-| Earlier Windows | Use [Cygwin to setup a SSH Server](http://innerdot.com/windows/setting-up-sshd-on-windows-to-allow-publickey-authentication). |
-| macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. | |
 | Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See [here](https://help.ubuntu.com/community/SSH?action=show) for additional setup instructions. |
 | RHL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
+| macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. | |
+<!--| Windows 10 / Server 2016 | Install the [Windows OpenSSH Server](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse). |
+| Earlier Windows | Use [Cygwin to setup a SSH Server](http://innerdot.com/windows/setting-up-sshd-on-windows-to-allow-publickey-authentication). |-->
 
 ## Reporting Issues
 
