@@ -19,7 +19,7 @@ Lots of tools exist to automate tasks like linting, building, packaging, testing
 
 ![VS Code can talk to a variety of external tools](images/tasks/tasks_hero.png)
 
-These tools are mostly run from the command line and automate jobs inside and outside the inner software development loop (edit, compile, test, and debug). Given their importance in the development life-cycle, it is very helpful to be able to run tools and analyze their results from within VS Code.
+These tools are mostly run from the command line and automate jobs inside and outside the inner software development loop (edit, compile, test, and debug). Given their importance in the development life-cycle, it is very helpful to be able to run tools and analyze their results from within VS Code. Tasks in VS Code can be configured to run scripts and start processes so that many of these existing tools can be used from within VS Code without having to enter a command line or write new code. Workspace or folder specific tasks are configured from the `tasks.json` file in the `.vscode` folder for a workspace. Extensions can also contribute tasks using a [Task Provider](/api/extension-guides/task-provider), and these contributed tasks can have additional, workspace-specific, configurations defined in the `tasks.json` file.
 
 >**Note:** Task support is only available when working on a workspace folder. It is not available when editing single files.
 
