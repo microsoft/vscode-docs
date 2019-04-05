@@ -119,9 +119,9 @@ From here, you can [alter your configuration](#in-depth-setting-up-a-folder-to-r
 VS Code's dev container configuration files can be adapted to fit into a number of different existing workflows. For example, you can:
 
 - Spin up a [stand-alone "sandbox" container](#working-with-a-stand-alone-dev-sandbox).
-- Work inside a dev container defined by a [Dockerfile](#using-a-dockerfile) or [docker-compose.yml](#using-docker-compose).
-- [Using Docker or Kubernetes](#working-with-docker-or-kubernetes-from-inside-a-container) from inside a dev container to build and deploy your app.
-- [Attaching to an already running container](#attaching-to-running-containers).
+- Work inside a dev container defined by an [image](#using-an-existing-container-image), [Dockerfile](#using-a-dockerfile) or [docker-compose.yml](#using-docker-compose).
+- [Use Docker or Kubernetes](#working-with-docker-or-kubernetes-from-inside-a-container) from inside a dev container to build and deploy your app.
+- [Attach to an already running container](#attaching-to-running-containers).
 
 We'll cover more information these and other scenarios later in this document, but note that the [vscode-dev-containers GitHub repository](https://aka.ms/vscode-dev-containers) provides a number of dev container definitions made up of these configuration files that you can use to help get you up and running or to find examples you can use to update existing container configuration files.
 
@@ -137,20 +137,10 @@ Beyond the advantages of having your team use a consistent environment and tool-
 
 VS Code supports two models for interacting with containers. One is to configure a folder you open to always run inside of a container. While this can be useful in many situations, in other situations you may have your own workflow and simply "attach" VS Code to an already running containers.
 
-<!--
-The only requirement for this attach model is that the container **expose a port** that VS Code use for a small VS Code Remote **server** it installs after connecting. (VS Code will handle installing it and starting/stopping it.) For example, this command will spin up a Node.js container and expose port 8000 for this purpose:
-
-```
-docker run -it -p 8000 node bash
-```
--->
 Once you have a container up and running, you can connect to it by running the **Remote-Containers: Attach to running Container...** command or using the **Docker Explorer** from the VS Code [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker). If you expand "Containers" in the Docker Explorer, you can right click on any container and select **Attach Visual Studio Code...**
 
 ![Docker Explorer screenshot](images/containers/attach-vs-code.png)
 
-<!--
-In either case, you will be asked to **select the exposed port** VS Code should use to interact with the container. In the example above, you would select port 8000.
--->
 After a brief moment, a new window will appear and you'll be connected to the running container!
 
 ## Managing extensions
