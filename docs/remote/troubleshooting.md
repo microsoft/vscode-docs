@@ -9,7 +9,7 @@ DateApproved: 2/25/2019
 ---
 # Troubleshooting Tips for VS Code Remote Development
 
-## SSH
+## SSH Tips
 
 Visual Studio Code Remote allows you to open any folder on a remote machine, VM, or container with a SSH server and take advantage of VS Code's full feature set. This article includes additional troubleshooting and configuration tips for setting up support for developing on remote machines using SSH. See the [primary article](/docs/remote/ssh.md) for getting started information.
 
@@ -43,16 +43,6 @@ You can set up SSH key based authentication for your remote host as follows:
     scp %USERPROFILE%\.ssh\id_rsa.pub %REMOTEHOST%:~/tmp.pub
     ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
     ````
-
-    <!-- to be uncommented when Windows SSH servers supported
-    **Any OS to Windows 10 / Server 2016 OpenSSH Server**: Follow these manual steps:
-
-      1. **Local:** Copy `~/.ssh/id_rsa.pub` on macOS / Linux or `%USERPROFILE%\.ssh\id_rsa.pub` on Windows to a temporary location on the remote Windows host.
-      2. **Remote Host:** Append the contents of this copied file into the following files (creating them if they do not exist):
-          - `%USERPROFILE%\.ssh\authorized_keys`
-          - `C:\ProgramData\ssh\administrator_authorized_keys` (if you are an Administrator)
-      3. **Remote Host:** Validate each file's [security permissions are correct](#fixing-ssh-file-permission-errors).
-    -->
 
 ### Reusing a key generated in PuTTYGen
 
@@ -115,14 +105,6 @@ The following are permissions that need to be correct on the remote machine you 
 | `.ssh` in your user folder on the server | chmod 700 ~/.ssh |
 | `.ssh/authorized_keys` in your user folder on the server  | chmod 600 ~/.ssh/authorized_keys |
 
-<!-- to be uncommented once Windows servers are supported
-| Folder / File | Linux / macOS Permissions | Windows Permissions |
-|---------------|---------------------------|---------------------|
-| `.ssh` in your user folder on the server | chmod 700 ~/.ssh | Grant "Full Control" to your user, Administrators and SYSTEM. |
-| `.ssh/authorized_keys` in your user folder on the server  | chmod 600 ~/.ssh/authorized_keys | Grant "Full Control" to your user, Administrators and SYSTEM. |
-| `C:\ProgramData\ssh\administrator_authorized_keys` on the server |  | Grant "Full Control" permissions to SYSTEM and Administrators. Remove anything else. |
--->
-
 #### Updating permissions on Windows using the command line
 
 If you'd prefer to use the command line to update permissions on Windows, you can use the `icacls` command. For example, this will set your user as the owner, clear out permissions, disable inheritance, and grant the needed permissions:
@@ -154,6 +136,10 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 | macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. | |
 <!--| Windows 10 / Server 2016 | Install the [Windows OpenSSH Server](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse). |
 | Earlier Windows | Use [Cygwin to setup a SSH Server](http://innerdot.com/windows/setting-up-sshd-on-windows-to-allow-publickey-authentication). |-->
+
+## Container Tips
+
+## WSP Tips
 
 ## Reporting Issues
 

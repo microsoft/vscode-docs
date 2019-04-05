@@ -266,7 +266,7 @@ However, any content local to your extension should be accessed using the `vscod
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src vscode-resource: https:; script-src vscode-resource:; style-src vscode-resource:;">
 ```
 
-#### Using content or services hosted in a web server started by the extension
+### Using content or services hosted in a web server started by the extension
 
 While VS Code transparently deals with executing its own APIs on the correct side (local or remote), the WebView is effectively a mini-browser that can do things outside of VS Code's API set. When the WebView points at a web service or server outside of VS Code itself, VS Code simply does not know about it and therefore cannot transparently handle this kind of content. In the Container and SSH cases, it's import to note that local ports (like those of any web server your extension starts) is on will often be blocked.
 
@@ -431,6 +431,7 @@ In some cases, you may have an existing node module that is used in many places 
 For example, imagine the [simple echo command above](#accessing-local-apis-using-a-helper-extension) was part of common node module.
 
 *example-api.ts*
+
 ```typescript
 import * as vscode from 'vscode';
 
@@ -452,6 +453,7 @@ export async function setEchoTimer(msg: string, delay: number): Promise<void> {
 To allow this API to be called remotely, the [Helper Extension](#accessing-local-apis-using-a-helper-extension) can be modified to introduce a private **API Bridge** command designed call any method on the API surface.
 
 *extension.ts (Helper Extension)*
+
 ```typescript
 import * as vscode from 'vscode';
 import * as exampleApi from './example-api';
@@ -472,6 +474,7 @@ export async function activate(context: vscode.ExtensionContext) {
 Next, we will create a drop-in replacement proxy node module that mirrors the API's function signatures but calls the API Bridge instead.
 
 *remote-example-api.ts (Replacement Node Module - Main Extension)*
+
 ```typescript
 import * as vscode from 'vscode';
 
@@ -511,6 +514,7 @@ A more difficult situation arises if you need to remotely access an API that has
 Under this model, the Helper Extension's API Bridge associates a unique identifier with each instance of the API object that is created. The API Bridge exposes a command that allows the main extension to call functions for a given API instance using this identifier. For functions that register event callbacks, the API Bridge uses a stub callback function that executes a command on the Event Bridge.
 
 *extension.ts (Helper Extension w/API Bridge)*
+
 ```typescript
 const apiObjs: any = {};
 
@@ -544,6 +548,7 @@ export async function activate(context: vscode.ExtensionContext) {
 The main extension then uses a **proxy class** (similar to one in the [the proxy module above](#proxying-an-existing-api) that mirrors the API class's function signatures, but instead executes commands on the API Bridge. The main extension then also exposes an Event Bridge command that fires callback functions registered using the proxy class. The proxy class's event registration functions associate the passed in callback function with an identifier. This identifier is then passed to the API Bridge to register the remote callback. When an event fires, the API Bridge executes the Event Bridge command and passes in this identifier so the appropriate callback can be invoked.
 
 *remote-example-api.ts (Replacement Node Module w/Event Bridge - Main Extension)*
+
 ```typescript
 const eventHandlers: any = {};
 

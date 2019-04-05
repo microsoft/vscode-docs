@@ -145,6 +145,8 @@ After a brief moment, a new window will appear and you'll be connected to the ru
 
 ## Managing extensions
 
+While "personalization" extensions (along with a few others) install locally, most installed extensions will reside inside a particular container. This allows you to install only the extensions you need for a given task in a container and seamlessly switch your entire tool-chain just by connecting to another one.
+
 You can install additional extensions in the container at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or in the container based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
 
 ### "Always installed" extensions
@@ -376,7 +378,7 @@ This same file can provide additional port mappings, etc as needed. All you need
 
 VS Code will then **automatically use both files** when starting up any containers or you can start them yourself from the command line as follows:
 
-```
+```bash
 docker-compose up -f docker-compose.yml -f .devcontainer/docker-compose.yml
 ```
 
