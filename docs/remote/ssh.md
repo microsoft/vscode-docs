@@ -41,7 +41,7 @@ To get started you need to:
 
 ### Connect to a remote host
 
-> **Dogfooding Note:** Windows SSH Servers are not yet supported.
+> **Note:** Windows SSH Servers are *not* yet supported (though Windows clients *are* supported).
 
 Visual Studio Code uses **[SSH configuration files](https://linux.die.net/man/5/ssh_config)** and requires **[SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication)** to connect to your host. To get started, follow these steps:
 
@@ -132,11 +132,12 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## Known Limitations
 
-- Only SSH key based authentication is currently supported.
-- The host you connect to must be running a Debian / Ubuntu based Linux distribution and `/bin/bash` must exist. (Windows hosts are not yet supported.)
-- Using PuTTY on Windows is not supported.
+- Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
+- Windows SSH Hosts are **not** yet supported. (Windows clients **are** supported.)
+- Linux hosts must have Bash (`/bin/bash`) installed.
+- PuTTY is not supported on Windows.
 - You cannot drag files out of the file explorer to your local filesystem to copy them.
-- Local proxy settings are not reused by the VS Code Remote server which can prevent extensions from working without adding a global `HTTP_PROXY` and `HTTPS_PROXY` environment variable with the appropriate proxy information.
+- Local proxy settings are not reused on the remote host which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (e.g. global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 - See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) on GitHub that are tagged with SSH.
 
 ## Common questions
@@ -159,13 +160,13 @@ See [here](/docs/remote/troubleshooting.md#fixing-ssh-permission-errors) for det
 
 ### Can I use VS Code when I only have SFTP/FTP filesystem access to my remote host (no shell access)?
 
-Some cloud platforms only provide remote filesystem access for developers rather than direct shell access. VS Code Remote was not designed with this use case in mind since it negates the performance and user experience fidelity benefits VS Code's remote model provides.
+Some cloud platforms only provide remote filesystem access for developers rather than direct shell access. VS Code Remote Development was not designed with this use case in mind since it negates the performance and user experience fidelity benefits that its model provides.
 
-However, this use case can typically be handled by combining extensions like [SFTP](https://marketplace.visualstudio.com/items?itemName=liximomo.sftp) with remote debugging features for [Node.js](/docs/nodejs/nodejs-debugging.md#remote-debugging), [Python](/docs/python/debugging.md#remote-debugging) [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), and more.
+However, this use case can typically be handled by combining extensions like [SFTP](https://marketplace.visualstudio.com/items?itemName=liximomo.sftp) with remote debugging features for [Node.js](/docs/nodejs/nodejs-debugging.md#remote-debugging), [Python](/docs/python/debugging.md#remote-debugging) [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), or others.
 
 ### As an extension author what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, there are situations where adjustments will need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Reporting Issues
 

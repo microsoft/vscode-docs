@@ -114,7 +114,7 @@ Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/i
 
 ### As an extension author what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, there are situations where adjustments will need to be made. We recommend you should test your extension to be sure you do not need to make updates. See [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Reporting Issues
 

@@ -353,8 +353,8 @@ version: '3'
     your-service-name-here:
       # Mounts the project folder to '/workspace'. The target path inside the container
       # should match should match what your application expects. In this case, the
-      # compose file is in a sub-folder, so we will mount '..'. We'll then reference
-      # this as the workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
+      # compose file is in a sub-folder, so we will mount '..'. We'll then reference this
+      # as the workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
       volumes:
         - ..:/workspace
 
@@ -437,8 +437,8 @@ See the following examples dev containers for additional information:
 
 - Alpine Linux or Windows container images are not yet supported. Most images come with a Debian or Ubuntu based flavor you can use instead. (Typically Alpine variations end in `-alpine`).
 - All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
-- VS Code Remote - Containers does **not** currently support the unofficial Ubuntu Docker **snap** package on Linux. Follow the official Docker install instructions such as using the [convenience script](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script).
-- Local proxy settings are not reused by the VS Code Remote server which can prevent extensions from working without adding a global `HTTP_PROXY` and `HTTPS_PROXY` environment variable with the appropriate proxy information.
+- The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the official Docker install instructions such as using the [convenience script](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script).
+- Local proxy settings are not reused inside the container which can prevent extensions from working unless the appropriate proxy information is configured (e.g. global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 - See [here for a list of active issues](https://aka.ms/vscode-remote/containers/issues) on GitHub that are tagged with Containers.
 
 ## Common questions
@@ -463,7 +463,7 @@ Similarly, the "dev container definitions" found in the [vscode-dev-containers r
 
 ### As an extension author what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, there are situations where adjustments will need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Reporting Issues
 
