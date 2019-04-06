@@ -22,15 +22,15 @@ Currently VS Code distinguishes the following two classes of extensions:
 
 - **UI Extensions**: These extensions make contributions to the UI only, do not access files in a workspace, and consequently can run entirely locally. Examples for UI extensions are themes, snippets, language grammars, keymaps.
 
-- **Workspace Extensions**: These extensions access files inside a workspace and they therefore must run inside the Development Container. A typical example of a Workspace Extension is an extension that provides language features like IntelliSense, adds a debugger, or needs to operate directly on the files of the workspace.
+- **Workspace Extensions**: These extensions access files inside a workspace or use that content to perform some other operation. A Workspace Extension could provide rich, multi-file language services, add a debugger, or perform an operation on multiple files in workspace (either itself or by firing a CLI command).
 
-When you install an extension, VS Code attempts to automatically determine the type of extension and install and run it in the correct location - UI Extensions run in VS Code's **[local Extension Host](/api/advanced-topics/extension-host.md)** while Workspace Extensions run in a **Remote Extension Host** that sits in a small **VS Code Remote Server**. This server is automatically installed (or updated) once you open a folder in WSL, in a Docker container, or on a remote SSH host. VS Code also automatically manages starting and stopping the server as needed.
+When you install an extension, VS Code will place it in the correct location based on its type - UI Extensions run in VS Code's **[local Extension Host](/api/advanced-topics/extension-host.md)** while Workspace Extensions run in a **Remote Extension Host** that sits in a small **VS Code Remote Server**. This server is automatically installed (or updated) once you open a folder in WSL, in a container, or on a remote SSH host. (VS Code also automatically manages starting and stopping the server, so users are often not aware of its presence.)
 
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
-VS Code APIs are designed to automatically run on the correct side (local or remote) when used from either UI or Workspace extensions. However, if your extension makes use of local APIs not provided VS Code itself you may see some issues.
+VS Code APIs are designed to automatically run on the correct side (local or remote) when used from either UI or Workspace extensions. However, if your extension makes use of local APIs not provided VS Code itself you may see some issues. As a result, we recommend that you use VS Code Remote Development to **test** your own extensions.
 
-As a result, we recommend that you use VS Code Remote Development to **test** your own extensions. Specifically, we recommend testing your extension using a local **[dev container](/docs/remote/containers.md)** since container environments are cross-platform and easy to set up but restrict port file system access. WSL, on the other hand, is typically the least restrictive with SSH being somewhere in the middle. In most cases, only small adjustments are needed (if any) to resolve issues. See [common problems](#common-problems) fore more information.
+Specifically, we recommend testing your extension using a local **[dev container](/docs/remote/containers.md)** since they are cross-platform, easy to set up, and restrict port and file system access by default. Combined with a very thin OS footprint, they tend to represent the environment your extension is most likely to hit a problem (if it has one at all). WSL, on the other hand, is typically the least restrictive with SSH being somewhere in the middle. In most cases, only small adjustments are needed (if any) to resolve issues. See [common problems](#common-problems) fore more information.
 
 ## Testing and debugging your extension
 
@@ -152,7 +152,14 @@ export function activate(context: vscode.ExtensionContext) {
 
 If your Workspace Extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a libsecret based keyring on Linux) rather than the one on the remote machine. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a Docker container.
 
-Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code will **automatically and transparently** run the `keytar` module locally if referenced in an extension so it can take advantage of the local OS keychain / keyring / cert store.
+Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code will **automatically and transparently** run the `keytar` module locally if referenced in an extension so it can take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.
+
+```typescript
+import * as keytar from 'keytar';
+
+await keytar.setPassword('my-service-name','my-account','iamal337d00d');
+const password = await keytar.getPassword('my-service-name','my-account');
+```
 
 If you prefer not to use `keytar`, you can instead use a "Helper Extension" to run your secret persistance code. See [below](#access-local-or-remote-apis-using-a-helper-extension) for details.
 
