@@ -1639,7 +1639,7 @@ when <a href="#window.showQuickPick">window.showQuickPick</a> does not offer the
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="alignment"></a><span class="ts" id=2214 data-target="#details-2214" data-toggle="collapse"><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a></span></td><td><div class="comment"><p>The alignment of the item.</p>
 </div></td></tr>
-<tr><td><a name="priority"></a><span class="ts" id=2215 data-target="#details-2215" data-toggle="collapse"><span class="ident">priority</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>The priority of the item. Higher values mean the item should be shown more to the left.</p>
+<tr><td><a name="priority"></a><span class="ts" id=2215 data-target="#details-2215" data-toggle="collapse"><span class="ident">priority</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>The priority of the item. Higher values (the lower the number the higher the priority) mean the item should be shown more to the left.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#StatusBarItem">StatusBarItem</a></span></td><td><div class="comment"><p>A new status bar item.</p>
