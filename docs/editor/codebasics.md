@@ -121,7 +121,7 @@ In the input box below the search box, you can enter patterns to include or excl
 * `?` to match on one character in a path segment
 * `**` to match any number of path segments, including none
 * `{}` to group conditions (for example `{**/*.html,**/*.txt}` matches all HTML and text files)
-* `[]` to declare a range of characters to match (for example `example.[0-9]` to match on `example.0`, `example.1`, …)
+* `[]` to declare a range of characters to match (`example.[0-9]` to match on `example.0`, `example.1`, …)
 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
 
