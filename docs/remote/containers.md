@@ -107,7 +107,8 @@ You can get started in one of three ways:
     {
         "name": "[Optional] Your project name here",
         "dockerComposeFile": "docker-compose.yml",
-        "service": "the-name-of-the-service-you-want-to-work-with-in-vscode"
+        "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
+        "workspaceFolder": "/default/workspace/path/in/container/to/open"
     }
     ```
 
