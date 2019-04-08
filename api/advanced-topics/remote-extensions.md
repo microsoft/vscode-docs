@@ -112,18 +112,16 @@ After this setting is in place, only versions of VS Code with support will get t
 
 ```TypeScript
 export function activate(context: vscode.ExtensionContext) {
-    let extensionStoragePath = '';
+    const extensionGlobalStoragePath = context.globalStoragePath;
 
-    // Verify the global storage path exists, create it if not
-    const globalStoragePath = path.resolve(context.globalStoragePath, '..');
-    if (!fs.existsSync(globalStoragePath)) {
-        fs.mkdirSync(globalStoragePath);
+    // Verify the cross-extension global storage path exists, create it if not
+    const storageBasePath = path.resolve(context.globalStoragePath, '..');
+    if (!fs.existsSync(storageBasePath)) {
+        fs.mkdirSync(storageBasePath);
     }
-
-    // Create extension's storage path
-    extensionStoragePath = (context.globalStoragePath;
-    if (!fs.existsSync(extensionStoragePath)) {
-        fs.mkdirSync(extensionStoragePath);
+    // Create extension's global storage path
+    if (!fs.existsSync(extensionGlobalStoragePath)) {
+        fs.mkdirSync(extensionGlobalStoragePath);
     }
 }
 ```
@@ -132,22 +130,25 @@ export function activate(context: vscode.ExtensionContext) {
 
 If your Workspace Extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a libsecret based keyring on Linux) rather than the one on the remote machine. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a Docker container.
 
-Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in an Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.
+Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in an Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above. For example:
 
 ```typescript
 import * as vscode from 'vscode';
 
-// Get the internal keytar module
-let keytar;
-try {
-    // Try node_modules.asar first
-    keytar = require(`${vscode.env.appRoot}/node_modules.asar/keytar`);
-}
-catch (err) {
-    keytar = require(`${vscode.env.appRoot}/node_modules/keytar`);
+function getCoreNodeModule(moduleName) {
+    try {
+        return require(`${vscode.env.appRoot}/node_modules.asar/${moduleName}`);
+    }
+    catch (err) { }
+    try {
+        return require(`${vscode.env.appRoot}/node_modules/${moduleName}`);
+    }
+    catch (err) { }
+    return undefined;
 }
 
 // Use it
+const keytar = getCoreNodeModule('keytar');
 await keytar.setPassword('my-service-name','my-account','iamal337d00d');
 const password = await keytar.getPassword('my-service-name','my-account');
 ```
