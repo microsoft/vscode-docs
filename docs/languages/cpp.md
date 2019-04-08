@@ -33,10 +33,10 @@ If you run into any issues or have suggestions for the Microsoft C/C++ extension
 
 For instructions on configuring VS Code for specific environments, see:
 
-- [Get Started with C++ and WSL](../cpp/cpp-config-wsl.md)
-- [Get Started with C++ and Mingw-w64](../cpp/cpp-config-mingw.md)
-- [Get Started with C++ and Clang/LLVM on MacOS](../cpp/cpp-config-clang-mac.md)
-- [Get Started with C++ MSVC](../cpp/cpp-config-msvc.md)
+* [Get Started with C++ and WSL](/docs/cpp/cpp-config-wsl.md)
+* [Get Started with C++ and Mingw-w64](/docs/cpp/cpp-config-mingw.md)
+* [Get Started with C++ and Clang/LLVM on macOS](/docs/cpp/cpp-config-clang-mac.md)
+* [Get Started with C++ MSVC](/docs/cpp/cpp-config-msvc.md)
 
 ## Editing Code
 
@@ -254,9 +254,9 @@ macOS:
 
 Read on to find out about:
 
-* [Configure VS Code for Windows Subsystem for Linux](../cpp/cpp-config-wsl.md)
-* [Configure VS Code for Mingw-w64 and GCC](../cpp/cpp-config-mingw.md)
-* [Configure VS Code for MacOS](../cpp/cpp-config-clang-mac.md)
+* [Configure VS Code for Windows Subsystem for Linux](/docs/cpp/cpp-config-wsl.md)
+* [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/cpp-config-mingw.md)
+* [Configure VS Code for macOS](/docs/cpp/cpp-config-clang-mac.md)
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
