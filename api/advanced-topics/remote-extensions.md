@@ -49,7 +49,7 @@ Currently, any extensions that are automatically installed inside WSL, SSH hosts
 
 ### Debugging your extension in a remote environment
 
-You can test and debug your extension in a remote environment by simply adding a `.devcontainer/devcontainer.json` or `.devcontainer.json` with the [appropriate contents](/docs/remote/containers.md#creating-configuration-files-for-existing-projects) into a test project folder. For example:
+You can test and debug your extension in a remote environment by simply adding a `.devcontainer/devcontainer.json` or `.devcontainer.json` with the [appropriate contents](/docs/remote/containers#creating-configuration-files-for-existing-projects) into a test project folder. For example:
 
 ```json
 {
@@ -58,9 +58,7 @@ You can test and debug your extension in a remote environment by simply adding a
 }
 ```
 
-Next, simply F5 and run **Remote-Containers: Open Folder in Container...** from the window that appears select the test project folder. After the window reloads with your test project content, the debugger will attach and you can use your extension provided features just as you would a local folder!
-
-The same approach also works for testing with a [SSH host](/docs/remote/ssh.md) or in the [WSL environment](/docs/remote/wsl.md)
+Next, simply F5 and run **Remote-Containers: Open Folder in Container...** from the window that appears select the test project folder. After the window reloads with your test project content, the debugger will attach and you can use your extension provided features just as you would a local folder. The same approach also works for testing with a [SSH host](/docs/remote/ssh) or in the [WSL environment](/docs/remote/wsl) and other [development containers](/docs/remote/containers)!
 
 ## Common problems
 
