@@ -7,7 +7,7 @@ PageTitle: Get Started with C++ and Windows Subsystem for Linux in Visual Studio
 DateApproved: 04/03/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and GDB on WSL installation with Ubuntu
 ---
-# Using C++ and WSL in Visual Studio Code
+# Using C++ and WSL in VS Code
 
 In this tutorial, you configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger on Ubuntu in the Windows Subsystem for Linux (WSL). GCC stands for GNU Compiler Collection; GDB is the GNU debugger. WSL is a Linux command-line environment within Windows that runs directly on the machine hardware, not in a virtual machine. One great advantage of using WSL over a remote Linux machine or container is that WSL provides direct access to the file system in Linux; you don't have to bother with setting up a remote communication pipeline such as ssh. In this tutorial, you'll edit the source code in VS Code on Windows, and then compile and debug it in WSL.
 
@@ -55,7 +55,7 @@ To successfully complete this tutorial, you must do the following steps:
    sudo apt-get install build-essential gdb
    ```
 
-## Create a workspace in Windows
+## Create a workspace
 
 At a Windows command prompt, create an empty folder called `projects` (just like you did on Ubuntu) where you can place your helloworld project, and other VS Code projects you might create. Then create a subfolder called `helloworld`, navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
@@ -236,9 +236,9 @@ By default, the C++ extension adds a breakpoint to the first line of `main`. The
 
 This same panel is also used for source control, debugging, searching and replacing text, and managing extensions. The buttons on the left control those views. You'll look at the **Debug View** later in this tutorial. You can find out more about the other views in the VS Code documentation.
 
-## Get the path to the system headers
+## Set path to system headers
 
-Now that you have a source file, you can use it to easily get the Windows path to the system headers in your Linux distro. You need to specify this value in the file mappings in `launch.json` file so that GDB can step into system headers if you press `kb(editor.debug.action.stepInto)`** during debugging.
+Now that you have a source file, you can use it to easily get the Windows path to the system headers in your Linux distro. You need to specify this value in the file mappings in `launch.json` file so that GDB can step into system headers if you press `kb(editor.debug.action.stepInto)` during debugging.
 
 1. In helloworld.cpp hover your mouse over the `string` in this statement: `vector<string> msg...`
 1. Right-click and choose **Go to definition** to open `stringfwd.h` in the editor.
@@ -313,7 +313,7 @@ Now you're ready to start stepping through the code.
 
 ## Set a watch
 
-Sometimes you might want to keep track of the value of a variable as your program executes. You can do this by setting a *watch* on the variable.
+Sometimes you might want to keep track of the value of a variable as your program executes. You can do this by setting a **watch** on the variable.
 
 1. Place the insertion point inside the loop. In the **Watch** window, click the plus sign and in the text box, type `word`, which is the name of the loop variable. Now view the Watch window as you step through the loop.
 

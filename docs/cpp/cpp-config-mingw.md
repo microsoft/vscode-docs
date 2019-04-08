@@ -7,7 +7,7 @@ PageTitle: Get Started with C++ and Mingw-w64 in Visual Studio Code
 DateApproved: 04/03/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a Mingw-w64 installation
 ---
-# Using Mingw-w64 in Visual Studio Code
+# Using Mingw in Visual Studio Code
 
 In this tutorial, you configure Visual Studio Code on Windows to use the g++ compiler and gdb debugger in [Mingw-w64](http://mingw-w64.org/doku.php/start). Mingw-w64 is a Linux development environment that runs on Windows.
 
@@ -31,7 +31,7 @@ To successfully complete this tutorial, you must do the following:
 1. In the Windows search box, type "path" and then choose "Edit the system environment variables" from the results list.
 1. Add the paths to your Bash shell and to your mingw-w64 `bin` folder to the Windows PATH environment variable. The extension will pass this environment variable to the Bash shell when it opens it.
 
-## Tell VS Code which Bash console to use
+## Configure Bash console to use
 
 If you do not have Windows Subsystem for Linux (WSL) installed, you can skip to the next section.
 
@@ -278,7 +278,7 @@ Now we're ready to start stepping through the code.
 
 ## Set a watch
 
-Sometimes you might want to keep track of the value of a variable as your program executes. You can do this by setting a *watch* on the variable.
+Sometimes you might want to keep track of the value of a variable as your program executes. You can do this by setting a **watch** on the variable.
 
 1. Place the insertion point inside the loop. In the **Watch** window, click the plus sign and in the text box, type `word`, which is the name of the loop variable. Now view the Watch window as you step through the loop.
 

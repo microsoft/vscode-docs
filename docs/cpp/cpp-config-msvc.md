@@ -24,7 +24,7 @@ To successfully complete this tutorial, you must do the following:
    - If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. If it's not installed, then check the box and click the **Modify** button in the installer.
    - Or, download the standalone toolset by clicking the Visual Studio Build Tools link on the [Downloads page](https://visualstudio.microsoft.com/downloads/#other) and follow the prompts. With the default settings, the download size is about 1GB and the size on disk is about 4GB. If you don't require CMake support (and the Windows SDK that it depends on) the size on disk should be about 3GB.
 
-## Start VS Code from a developer command prompt in a workspace folder
+## Start VS Code from the Developer Command Prompt
 
 To build and debug code with MSVC in VS Code, you need to start VS Code from a "Developer Command Prompt" for Visual Studio. (An ordinary Windows command prompt, or a Bash prompt, does not have the necessary environment variables set.)
 
@@ -53,7 +53,7 @@ By starting VS Code in a folder, that folder becomes your *workspace*. VS Code s
 
    ![Command Palette](images/cpp/command-palette.png)
 
-1. Start typing "C/C++" and then choose **Edit Configurations** from the list of suggestions. VS Code creates a file called `c_cpp_properties.json` in the `.vscode` subfolder and populates it with some default settings. It then opens the file in the editor. If you have Visual Studio installed, the Microsoft C/C++ Extension should detect it and automatically populate the `compilerPath` setting for you. If not, you should add or update the `compilerPath` setting and paste in the path to cl.exe. In a default Visual Studio 2017 Build Tools installation, it looks something like this, depending on which specific version you have installed: `C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe`.
+1. Start typing "C/C++" and then choose **Edit Configurations** from the list of suggestions. VS Code creates a file called `c_cpp_properties.json` in the `.vscode` subfolder and populates it with some default settings. It then opens the file in the editor. If you have Visual Studio installed, the Microsoft C/C++ Extension should detect it and automatically populate the `compilerPath` setting for you. If not, you should add or update the `compilerPath` setting and paste in the path to cl.exe. In a default Visual Studio 2017 Build Tools installation, it looks something like this, depending on which specific version you have installed: "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe".
 
 1. Ensure the `intelliSenseMode` value is set to `"msvc-x64"`.
 
@@ -240,7 +240,7 @@ Now we're ready to start stepping through the code.
 
 ## Set a watch
 
-Sometimes you might want to keep track of the value of a variable as your program executes. You can do this by setting a *watch* on the variable.
+Sometimes you might want to keep track of the value of a variable as your program executes. You can do this by setting a **watch** on the variable.
 
 1. Place the insertion point inside the loop. In the **Watch** window, click the plus sign and in the text box, type `word`, which is the name of the loop variable. Now view the Watch window as you step through the loop.
 

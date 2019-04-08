@@ -7,7 +7,7 @@ PageTitle: Get Started with C++ and Clang/LLVM in Visual Studio Code on macOS
 DateApproved: 04/03/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target Clang/LLVM
 ---
-# Using Clang/LLVM in Visual Studio Code
+# Using Clang in Visual Studio Code
 
 In this tutorial, you configure Visual Studio Code on macOS to use the Clang/LLVM compiler and debugger. The configuration applies to a single workspace (folder hierarchy), but you can easily copy the configuration files to other workspaces where the same settings are required. After configuring VS Code, you will compile and debug a simple program to get familiar with the VS Code user interface. After completing this tutorial, you will be ready to create and configure your own workspace, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you about Clang or the C++ language. For those subjects, there are many good resources available on the Web.
 
@@ -21,9 +21,9 @@ To successfully complete this tutorial, you must do the following steps:
 
 1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 
-## Add VS Code to the PATH environment variable
+## Add VS Code to your PATH
 
-In order to start VS Code from the command line, we'll need to add it to the PATH. This only needs to be done once, on first use.
+In order to start VS Code from the command line, we'll need to add it to the PATH environment variable. This only needs to be done once, on first use.
 
 1. Open VS Code
 1. Press `kb(workbench.action.showCommands)` to open the Command Palette.
@@ -34,7 +34,7 @@ In order to start VS Code from the command line, we'll need to add it to the PAT
 1. You should see a notification in the lower right of the VS Code window that tells you that VS Code was successfully added to the PATH.
 1. Close VS Code.
 
-## Start VS Code in a workspace folder
+## Start VS Code in a folder
 
 In the macOS Terminal, create an empty folder called "projects" and then a subfolder called "helloworld". Navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
@@ -244,7 +244,7 @@ Now we're ready to start stepping through the code.
 
 ## Set a watch
 
-Sometimes you might want to keep track of the value of a variable as your program executes. You can do this by setting a *watch* on the variable.
+Sometimes you might want to keep track of the value of a variable as your program executes. You can do this by setting a **watch** on the variable.
 
 1. Place the insertion point inside the loop. In the **Watch** window, click the plus sign and in the text box, type `word`, which is the name of the loop variable. Now view the Watch window as you step through the loop.
 
