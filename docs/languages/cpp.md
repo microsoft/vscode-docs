@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: C++
 ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
 PageTitle: C++ programming with Visual Studio Code
-DateApproved: 8/22/2017
+DateApproved: 04/03/2019
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 MetaSocialImage: images/cpp/languages_cpp.png
 ---
@@ -14,7 +14,7 @@ C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension
 
 ![cpp hero](images/cpp/cpp-hero.png)
 
-If you just want a lightweight tool to edit your C++ files, Visual Studio Code is a great choice but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of the Visual Studio IDE such as [Visual Studio Community](https://visualstudio.microsoft.com/vs/community).
+If you just want a lightweight tool to edit your C++ files, Visual Studio Code is a great choice. But if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of the Visual Studio IDE such as [Visual Studio Community](https://visualstudio.microsoft.com/vs/community).
 
 If you run into any issues or have suggestions for the Microsoft C/C++ extension, please file [issues and suggestions on GitHub](https://github.com/Microsoft/vscode-cpptools/issues). If you haven't already provided feedback, please take this [quick survey](https://www.research.net/r/VBVV6C6) to help shape this extension for your needs.
 
@@ -29,144 +29,14 @@ If you run into any issues or have suggestions for the Microsoft C/C++ extension
 
 ![cpp extension](images/cpp/cpp-extension.png)
 
-With the C/C++ extension installed, open a folder that contains your C/C++ source code. VS Code will place various settings files into a `.vscode` subfolder.
-
 **Note**: The C/C++ extension does not include a C++ compiler or debugger. You will need to install these tools or use those already installed on your computer. Popular C++ compilers are [mingw-w64](http://www.mingw-w64.org/) for Windows, Clang for [XCode](https://developer.apple.com/xcode/) for macOS, and [GCC](https://gcc.gnu.org/) on Linux. Make sure your compiler executable is in your platform path so the extension can find it. The extension also supports the [Windows Subsystem for Linux](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/Windows%20Subsystem%20for%20Linux.md).
 
-### Configuring IntelliSense
+For instructions on configuring VS Code for specific environments, see:
 
-The extension will attempt to determine your folder's basic configuration info based on compilers it finds on your system. If for any reason, that configuration is incomplete, you can generate a `c_cpp_properties.json` file by running the **C/Cpp: Edit configurations** command from the **Command Palette** (`kb(workbench.action.showCommands)` and add the missing information.
-
-If a `#include` file or one of its dependencies cannot be found, you can also click on the red squiggles under the include statements to view suggestions for how to update your configuration.
-
-![browse path light bulb](images/cpp/cpp-lightbulb.png)
-
-This will generate a `c_cpp_properties.json` file that allows you to add additional paths and defines to properly enable code navigation and auto-completion.
-
-Below you can see that the MinGW C++ compiler has been set as the default compiler for Windows. The extension will use that information to determine the system include path and defines so that they don't need to be added to `c_cpp_properties.json`.
-
-```json
-{
-    "name": "Win32",
-    "includePath": [
-        "${workspaceFolder}"
-    ],
-    "defines": [
-        "_DEBUG",
-        "UNICODE"
-    ],
-    "compilerPath": "C:\\mingw-w64\\bin\\gcc.exe",
-    "intelliSenseMode": "clang-x64",
-    "browse": {
-        "path": [
-            "${workspaceFolder}"
-        ],
-        "limitSymbolsToIncludedHeaders": true,
-        "databaseFilename": ""
-    }
-}
-```
-
-### Building your code
-
-**If you want to build your application from VS Code, you will need to generate a `tasks.json` file:**
-
-* Open the **Command Palette** (`kb(workbench.action.showCommands)`).
-* Select the **Tasks: Configure Task** command, click **Create tasks.json file from templates**, and you will see a list of task runner templates.
-* Select **Others** to create a task which runs an external command.
-* Change the `command` to the command line expression you use to build your application (for example `g++`).
-* Add any required args (for example `-g` to build for debugging).
-* You can also change the `label` to be more descriptive.
-
-You should now see a `tasks.json` file in your workspace `.vscode` folder that looks something like:
-
-```json
-{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build hello world",
-            "type": "shell",
-            "command": "g++",
-            "args": [
-                "-g", "helloworld.cpp"
-            ]
-        }
-    ]
-}
-```
-
-If you'd like to be able to build your application with **Tasks: Run Build Task** (`kb(workbench.action.tasks.build)`), you can add it to the `build` group.
-
-```json
-{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build hello world",
-            "type": "shell",
-            "command": "g++",
-            "args": [
-                "-g", "helloworld.cpp"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        }
-    ]
-}
-
-```
-
-For more information on tasks, see [Integrate with External Tools via Tasks](/docs/editor/tasks.md).
-
-### Debugging your code
-
-**To enable debugging, you will need to generate a `launch.json` file:**
-
-* Navigate to the Debug view by clicking the Debug icon in the Sidebar.
-* In the **Debug** view, click the **Configure** icon.
-* Select `C++ (GDB/LLDB)` (to use GDB or LLDB) or `C++ (Windows)` (to use the Visual Studio Windows Debugger) from the **Select Environment** drop-down list. This creates a `launch.json` file for editing with two configurations:
-  * **C++ Launch** defines the properties for launching your application when you start debugging.
-  * **C++ Attach** defines the properties for attaching to a process that's already running.
-* Update the `program` property with the path to the program you are debugging.
-* If you want your application to build when you start debugging, add a `preLaunchTask` property with the name of the build task you created in `tasks.json` ("build hello world" in the example above).
-
-Below is an example using the MinGW GDB debugger:
-
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(gdb) Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/a.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true,
-            "MIMode": "gdb",
-            "miDebuggerPath": "C:\\mingw\\bin\\gdb.exe",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            "preLaunchTask": "build hello world"
-        }
-    ]
-}
-```
-
-To learn more, see [Configuring launch.json for C/C++ debugging](https://github.com/Microsoft/vscode-cpptools/blob/master/launch.md).
-
-If you are debugging with GDB on Windows, see [Windows Debugging with GDB](#windows-debugging-with-gdb).
+- [Get Started with C++ and WSL](../cpp/cpp-config-wsl.md)
+- [Get Started with C++ and Mingw-w64](../cpp/cpp-config-mingw.md)
+- [Get Started with C++ and Clang/LLVM on MacOS](../cpp/cpp-config-clang-mac.md)
+- [Get Started with C++ MSVC](../cpp/cpp-config-msvc.md)
 
 ## Editing Code
 
@@ -271,6 +141,10 @@ For example:
 ```
 
 Cygwin/MinGW debugging on Windows supports both attach and launch debugging scenarios.
+
+To learn more, see [Configuring launch.json for C/C++ debugging](https://github.com/Microsoft/vscode-cpptools/blob/master/launch.md).
+
+If you are debugging with GDB on Windows, see [Windows Debugging with GDB](#windows-debugging-with-gdb).
 
 ### Conditional Breakpoints
 
@@ -380,6 +254,9 @@ macOS:
 
 Read on to find out about:
 
+* [Configure VS Code for Windows Subsystem for Linux](../cpp/cpp-config-wsl.md)
+* [Configure VS Code for Mingw-w64 and GCC](../cpp/cpp-config-mingw.md)
+* [Configure VS Code for MacOS](../cpp/cpp-config-clang-mac.md)
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
