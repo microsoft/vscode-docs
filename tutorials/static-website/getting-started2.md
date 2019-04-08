@@ -4,9 +4,9 @@ Area: staticsite
 TOCTitle: Getting started 2
 PageTitle: Website deployment with Azure Storage
 MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
-DateApproved: 6/27/2018
+DateApproved: 4/8/2019
 ---
-# Deploy a static website to Azure 2
+# Deploy a static website to Azure
 
 This tutorial walks you through deploying a static website, such as an Angular or React [SPA](https://en.wikipedia.org/wiki/Single-page_application) or simple HTML/CSS/JavaScript site, to Azure using [Azure Storage](https://docs.microsoft.com/en-us/azure/storage).
 
