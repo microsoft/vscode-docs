@@ -100,30 +100,30 @@ However, if your extension relies on current VS Code pathing conventions (e.g. `
 
 If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStoragePath` and `storagePath` properties provide "safe" paths that you can use to read/write global workspace specific information in a file.
 
-If your extension needs to support older versions of VS Code, you may want to use feature detection to determine if the properties described above are present and if not and fall back on your current logic. For example:
+It was added to version 1.30 of VS Code, so you can update your `engines.vscode` value in `package.json` to avoid having to do feature detection:
+
+```json
+"engines": {
+    "vscode": ">=1.31.0"
+}
+```
+
+After this setting is in place, only versions of VS Code with support will get the updated version of the extension once you publish it. You can then use it as follows:
 
 ```TypeScript
 export function activate(context: vscode.ExtensionContext) {
     let extensionStoragePath = '';
 
-    // Detect global storage root path has been created
-    if ((<any>context).globalStoragePath) {
+    // Verify the global storage path exists, create it if not
+    const globalStoragePath = path.resolve(context.globalStoragePath, '..');
+    if (!fs.existsSync(globalStoragePath)) {
+        fs.mkdirSync(globalStoragePath);
+    }
 
-        // Verify the global storage path exists, create it if not
-        const globalStoragePath = path.resolve((<any>context).globalStoragePath, '..');
-        if (!fs.existsSync(globalStoragePath)) {
-            fs.mkdirSync(globalStoragePath);
-        }
-
-        // Create extension's storage path
-        extensionStoragePath = (<any>context).globalStoragePath;
-        if (!fs.existsSync(extensionStoragePath)) {
-            fs.mkdirSync(extensionStoragePath);
-        }
-
-    } else {
-        // EXISTING LOGIC TO DETERMINE PATH GOES HERE
-        extensionStoragePath = ...
+    // Create extension's storage path
+    extensionStoragePath = (context.globalStoragePath;
+    if (!fs.existsSync(extensionStoragePath)) {
+        fs.mkdirSync(extensionStoragePath);
     }
 }
 ```
@@ -132,11 +132,22 @@ export function activate(context: vscode.ExtensionContext) {
 
 If your Workspace Extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a libsecret based keyring on Linux) rather than the one on the remote machine. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a Docker container.
 
-Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code will **automatically and transparently** run the `keytar` module locally if referenced in an extension so it can take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.
+Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in an Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.
 
 ```typescript
-import * as keytar from 'keytar';
+import * as vscode from 'vscode';
 
+// Get the internal keytar module
+let keytar;
+try {
+    // Try node_modules.asar first
+    keytar = require(`${vscode.env.appRoot}/node_modules.asar/keytar`);
+}
+catch (err) {
+    keytar = require(`${vscode.env.appRoot}/node_modules/keytar`);
+}
+
+// Use it
 await keytar.setPassword('my-service-name','my-account','iamal337d00d');
 const password = await keytar.getPassword('my-service-name','my-account');
 ```
@@ -147,7 +158,15 @@ If you prefer not to use `keytar`, you can instead use a "Helper Extension" to r
 
 Historically, extension authors have relied on Node.js modules like "clipboardy" interact with the clipboard from an extension. Unfortunately, if you use these modules from a Workspace Extension, you will be interacting with the remote clipboard instead of the local one.
 
-Fortunately, VS Code now has a clipboard API that solves this problem. It will always run locally regardless of the type of extension that calls it.
+Fortunately, VS Code now has a clipboard API that solves this problem. It will always run locally regardless of the type of extension that calls it. It was added to version 1.30 of VS Code, so you can update your `engines.vscode` value in `package.json` to avoid having to do feature detection:
+
+```json
+"engines": {
+    "vscode": ">=1.30.0"
+}
+```
+
+After this setting is in place, only versions of VS Code with support will get the updated version of the extension once you publish it. You can then use it as follows:
 
 ```typescript
 import * as vscode from 'vscode';
@@ -158,25 +177,7 @@ const text = await vscode.env.clipboard.readText();
 await vscode.env.clipboard.writeText('some text to put in clipboard');
 ```
 
-Given this is a new API, you may want to check for the existence it and fall back on your existing implementation for older versions of VS Code.
-
-```typescript
-import * as vscode from 'vscode';
-import * as clipboardy from 'clipboardy';
-
-const clipboard = (<any>vscode.env).clipboard;
-
-// Read from clipboard
-const text = clipboard ? await clipboard.readText() : clipboardy.readSync();
-// Write to clipboard
-const textToWrite = 'some text to put in clipboard';
-if (clipboard) {
-    await clipboard.writeText(textToWrite);
-} else {
-    await clipboardy.write(textToWrite);
-
-}
-```
+Note that you can do feature detection instead of updating the engine version if you would prefer by checking to see if `(<any>vscode.env).clipboard` exists and falling back to your current logic if not. However, we generally recommend just updating the engine version instead.
 
 #### Opening something in a local browser or application
 
@@ -184,7 +185,15 @@ Spawning a process or using a module like `opn` to launch a browser or other app
 
 Thankfully, recent versions of VS Code include the `vscode.env.openExternal` method that can launch the default registered application on your local operating system for any URI you pass into it. Even better `vscode.env.openExternal` **does automatic port forwarding!** You can use it to point to a local web server on a remote machine and serve up content even if that port is blocked externally.
 
-For example:
+It was added to version 1.31 of VS Code, so you can update your `engines.vscode` value in `package.json` to avoid having to do feature detection:
+
+```json
+"engines": {
+    "vscode": ">=1.31.0"
+}
+```
+
+After this setting is in place, only versions of VS Code with support will get the updated version of the extension once you publish it. You can then use it as follows:
 
 ```typescript
 import * as vscode from 'vscode';
@@ -196,22 +205,7 @@ vscode.env.openExternal(vscode.Uri.parse('https://code.visualstudio.com'));
 vscode.env.openExternal(vscode.Uri.parse('mailto:vscode@microsoft.com'));
 ```
 
-If you want to support older versions of VS Code, you can use feature detection to fall back on a node module like `opn` if the API is missing. For example:
-
-```typescript
-import * as vscode from 'vscode';
-import * as opn from 'opn';
-
-const openExternal: any = (<any>vscode.env).openExternal
-    ? (<any>vscode.env).openExternal
-    : opn;
-
-// Example 1A - Open the VS Code homepage in the default browser.
-openExternal(<any>vscode.Uri.parse('https://code.visualstudio.com'));
-
-// Example 2A - Open the default email application
-openExternal(<any>vscode.Uri.parse('mailto:vscode@microsoft.com'));
-```
+Note that you can do feature detection instead of updating the engine version if you would prefer by checking to see if `(<any>vscode.env).openExternal` exists and falling back to your current logic if not. However, we generally recommend just updating the engine version instead.
 
 If you need to do something more sophisticated like launch an arbitrary application, you can use a Helper Extension. See [below](#accessing-local-apis-using-a-helper-extension) for details.
 
@@ -261,18 +255,21 @@ Consider this illustration:
 
 ![WebView Problem](images/remote-extensions/webview-problem.png)
 
-While we recommend using the [message passing](/api/extension-guides/webview.m#scripts-and-message-passing) pattern rather than using a local web server to serve up content or data, you can resolve this problem by **adding a port mapping** when you create the WebView. As of VS Code v1.33, the WebView will automatically map any ports you specify in both the local and remote cases. This also allows you to use a static port in your web content even if your web server is on a dynamic port.
+While we recommend using the [message passing](/api/extension-guides/webview.m#scripts-and-message-passing) pattern rather than using a local web server to serve up content or data, you can resolve this problem by **adding a port mapping** when you create the WebView. This is applied in both the local and remote cases, so you can use always use a static port in your web content even if your web server is on a dynamic port.
 
-For example:
+It was added to version 1.34 of VS Code, so you can update your `engines.vscode` value in `package.json` to avoid having to do feature detection:
+
+```json
+"engines": {
+    "vscode": ">=1.34.0"
+}
+```
+
+After this setting is in place, only versions of VS Code with support will get the updated version of the extension once you publish it. You can then use it as follows:
 
 ```typescript
 const staticPort = 3000;
 const dynamicServerPort = getExpressServerPort();
-
-// If VS Code version is >= 1.33, we can use port mapping, otherwise do not attempt to map.
-const [ major, minor, ...rest ] = <number[]>(
-        vscode.version.split('.').map((str) => parseInt(str)));
-const port = ( major > 1 || (major === 1 && minor >= 33)) ? staticPort : dynamicServerPort;
 
 // Create WebView and pass portMapping in
 const panel = vscode.window.createWebviewPanel(
@@ -281,8 +278,7 @@ const panel = vscode.window.createWebviewPanel(
     vscode.ViewColumn.One, <any>{
         portMapping: [
             // Map localhost:3000 in the webview to the express server port on the remote host.
-            // This setting will simply be ignored in versions of VS Code < 1.33.
-            { port: port, resolvedPort: dynamicServerPort }
+            { port: staticPort, resolvedPort: dynamicServerPort }
         ]
     });
 
@@ -290,7 +286,7 @@ const panel = vscode.window.createWebviewPanel(
 panel.webview.html =  `<!DOCTYPE html>
     <body>
         <!-- This will resolve to the dynamic server port on the remote machine -->
-        <img src="http://localhost:${port}/canvas.png">
+        <img src="http://localhost:${staticPort}/canvas.png">
     </body>
     </html>`;
 ```
