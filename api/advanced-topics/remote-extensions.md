@@ -49,36 +49,18 @@ Currently, any extensions that are automatically installed inside WSL, SSH hosts
 
 ### Debugging your extension in a remote environment
 
-You can test and debug your extension in a remote environment by making a simple change to your extensions's `launch.json` file. First, set `"devContainer": true`:
+You can test and debug your extension in a remote environment by simply adding a `.devcontainer/devcontainer.json` or `.devcontainer.json` with the [appropriate contents](/docs/remote/containers.md#creating-configuration-files-for-existing-projects) into a test project folder. For example:
 
 ```json
 {
-    "name": "Run Extension",
-    "type": "extensionHost",
-    "request": "launch",
-    "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
-    ],
-    "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-    ],
-    "preLaunchTask": "npm: watch",
-    "devContainer": true
-},
-```
-
-Next, create either `.devcontainer/devcontainer.json` or `.devcontainer.json` with the [appropriate contents](/docs/remote/containers#creating-configuration-files-for-existing-projects) for your project. For example:
-
-```json
-{
-    "name": "Extension Dev Container",
+    "name": "Test Project",
     "image": "ubuntu:bionic"
 }
 ```
 
-If you now press F5, a new dev container will be created with the extension project mounted into the container when it starts. Then the VS Code debugger attaches to the remote extension host so you can debug your extension code while it is sitting inside the container.
+Next, simply F5 and run **Remote-Containers: Open Folder in Container...** from the window that appears select the test project folder. After the window reloads with your test project content, the debugger will attach and you can use your extension provided features just as you would a local folder!
 
-> **Note:** Currently VS Code Remote Development needs to open the extension folder as its workspace folder because mounting inside the dev container is tied to the workspace and not (yet) to the "extensionDevelopmentPath". See [here](https://github.com/Microsoft/vscode-remote/issues/518) for details.
+The same approach also works for testing with a [SSH host](/docs/remote/ssh.md) or in the [WSL environment](/docs/remote/wsl.md)
 
 ## Common problems
 
@@ -320,34 +302,6 @@ With this change, the WebView traffic will instead use VS Code's existing commun
 ![WebView Solution](images/remote-extensions/webview-solution.png)
 
 See the [API guide](/api/extension-guides/webview) for more details.
-
-## Branching logic when running remotely
-
-While a core goal of VS Code Remote Development's design is to avoid branching logic, you may find yourself in a situation where want to do something differently if the extension is running locally. In this case, you can detect whether the extension is running in the VS Code Remote Server using the following code:
-
-```typescript
-import * as path from 'path';
-
-function isRemote() {
-    return (process.argv[0].indexOf(`${path.sep}.vscode-remote${path.sep}bin${path.sep}`) > 0);
-}
-```
-
-You can also add a `settings.json` property to allow you to flip into "remote mode" for various testing scenarios.
-
-```typescript
-import * as path from 'path';
-import * as vscode from 'vscode';
-
-const settings = vscode.workspace.getConfiguration('your.settings.namespace.here');
-
-function isRemote() {
-    return (
-        process.argv[0].indexOf(`${path.sep}.vscode-remote${path.sep}bin${path.sep}`) > 0 ||
-        settings.settings.get('simulateRemote', false)
-    );
-}
-```
 
 ## Accessing local APIs using a Helper Extension
 
