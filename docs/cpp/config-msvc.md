@@ -41,6 +41,7 @@ mkdir helloworld
 cd helloworld
 code .
 ```
+
 By starting VS Code in a folder, that folder becomes your *workspace*. VS Code stores user settings that are specific to that workspace in `.vscode/settings.json`. In this tutorial, we'll add three additional files to the `.vscode` folder to configure the workspace to target MSVC:
 
 - `c_cpp_properties.json` to specify the compiler path
@@ -118,13 +119,14 @@ Next, create a `tasks.json` file to tell VS code how to build (compile) the prog
 }
 
 ```
- The `label` value will be used in the VS Code Command Palette and can be whatever name you like. The `command` value says that we are using `cl.exe`, the MSVC compiler. The `args` array specifies the command-line arguments that will be passed to the compiler that was specified in the previous step. They must appear in the order expected by the compiler.  In this example, we are specifying the exception handling mode (EHsc) and telling the compiler to produce a debug build with symbols (Zi). The `/Fe:` argument tells the compiler to name the executable "helloworld.exe".
+
+The `label` value will be used in the VS Code Command Palette and can be whatever name you like. The `command` value says that we are using `cl.exe`, the MSVC compiler. The `args` array specifies the command-line arguments that will be passed to the compiler that was specified in the previous step. They must appear in the order expected by the compiler.  In this example, we are specifying the exception handling mode (EHsc) and telling the compiler to produce a debug build with symbols (Zi). The `/Fe:` argument tells the compiler to name the executable "helloworld.exe".
 
 The `group` value specifies that this task will be run when you press `kb(workbench.action.tasks.build)`.
 
 ## Configure debug settings
 
-Next, you'll create a `launch.json` file to configure VS Code to launch GDB on WSL when you press *`kb(workbench.action.debug.start)`* to debug the program.
+Next, you'll create a `launch.json` file to configure VS Code to launch GDB on WSL when you press `kb(workbench.action.debug.start)` to debug the program.
 
 1. From the main menu, choose **Debug > Add Configuration...** and then choose **C/C++ Windows (Launch)**. This causes the `launch.json` file to be created and opened. Replace the contents of the file with this
 

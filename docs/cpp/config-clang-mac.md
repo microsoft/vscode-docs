@@ -125,7 +125,7 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 
 ## Configure debug settings
 
-Next, we'll configure VS Code to launch gdb when we press *`kb(workbench.action.debug.start)`* to debug the program. Note that
+Next, we'll configure VS Code to launch gdb when we press `kb(workbench.action.debug.start)` to debug the program. Note that
 the program name `helloworld.out` matches what we specified in `tasks.json`.
 
 By default, the C++ extension adds a breakpoint to the first line of `main`. The `stopAtEntry` value is set to `true` to cause the debugger to stop on that breakpoint. You can set this to `false` if you prefer to ignore it.

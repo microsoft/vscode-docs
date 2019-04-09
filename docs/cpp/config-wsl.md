@@ -157,7 +157,7 @@ Next, create a `tasks.json` file to tell VS code how to build (compile) the prog
 
 ## Configure debug settings
 
-Next, you'll create a `launch.json` file to configure VS Code to launch GDB on WSL when you press *`kb(workbench.action.debug.start)`* to debug the program. From the main menu, choose **Debug > Add Configuration...** and then choose **C++ (GDB/LLDB)**. VS Code creates the file and opens it in the editor. The `program` setting specifies the program you want to debug. Set it to `helloworld.out` to match what you specified in `tasks.json`.
+Next, you'll create a `launch.json` file to configure VS Code to launch GDB on WSL when you press `kb(workbench.action.debug.start)` to debug the program. From the main menu, choose **Debug > Add Configuration...** and then choose **C++ (GDB/LLDB)**. VS Code creates the file and opens it in the editor. The `program` setting specifies the program you want to debug. Set it to `helloworld.out` to match what you specified in `tasks.json`.
 
 The path to the executable must be a literal path; you can't use `$HOME` in `launch.json` with WSL. You will have to substitute your actual Linux user name in the `program` and `cwd` properties.
 
