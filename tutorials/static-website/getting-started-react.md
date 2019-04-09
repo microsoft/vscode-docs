@@ -1,7 +1,7 @@
 ---
 Order:
 Area: staticsite
-TOCTitle: Getting started 2
+TOCTitle: Getting started react
 PageTitle: Website deployment with Azure Storage
 MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
 DateApproved: 4/8/2019
