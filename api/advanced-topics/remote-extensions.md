@@ -38,7 +38,7 @@ While you can test your extension in VS Code Remote Development by installing yo
 
 ### Installing a development version of your extension for testing
 
-Currently, any extensions that are automatically installed inside WSL, SSH hosts, or containers will be the marketplace, not what is present on your local machine. While this makes sense in most situations, you may want to use an unpublished version of your extension to test. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into an VS Code window that is already connected to the running remote environment you are using to test. Just follow these steps:
+Currently, any time VS Code automatically installs an extension on a SSH host or inside a container or WSL, the marketp place version is used (not what is present on your local machine). While this makes sense in most situations, you may want to use an unpublished version of your extension to test. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into an VS Code window that is already connected to the running remote environment you are using to test. Just follow these steps:
 
 1. Use `vsce package` to package your extension as a VSIX.
 2. Connect to a [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
@@ -104,7 +104,7 @@ It was added to version 1.30 of VS Code, so you can update your `engines.vscode`
 
 ```json
 "engines": {
-    "vscode": ">=1.31.0"
+    "vscode": "^1.31.0"
 }
 ```
 
@@ -163,7 +163,7 @@ Fortunately, VS Code now has a clipboard API that solves this problem. It will a
 
 ```json
 "engines": {
-    "vscode": ">=1.30.0"
+    "vscode": "^1.30.0"
 }
 ```
 
@@ -190,7 +190,7 @@ It was added to version 1.31 of VS Code, so you can update your `engines.vscode`
 
 ```json
 "engines": {
-    "vscode": ">=1.31.0"
+    "vscode": "^1.31.0"
 }
 ```
 
@@ -262,7 +262,7 @@ It was added to version 1.34 of VS Code, so you can update your `engines.vscode`
 
 ```json
 "engines": {
-    "vscode": ">=1.34.0"
+    "vscode": "^1.34.0"
 }
 ```
 
