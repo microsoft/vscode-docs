@@ -155,7 +155,7 @@ const password = await keytar.getPassword('my-service-name','my-account');
 
 If you prefer not to use `keytar`, you can instead use a "Helper Extension" to run your secret persistance code. See [below](#access-local-or-remote-apis-using-a-helper-extension) for details.
 
-#### Using the clipboard
+### Using the clipboard
 
 Historically, extension authors have relied on Node.js modules like "clipboardy" interact with the clipboard from an extension. Unfortunately, if you use these modules from a Workspace Extension, you will be interacting with the remote clipboard instead of the local one.
 
@@ -180,7 +180,7 @@ await vscode.env.clipboard.writeText('some text to put in clipboard');
 
 Note that you can do feature detection instead of updating the engine version if you would prefer by checking to see if `(<any>vscode.env).clipboard` exists and falling back to your current logic if not. However, we generally recommend just updating the engine version instead.
 
-#### Opening something in a local browser or application
+### Opening something in a local browser or application
 
 Spawning a process or using a module like `opn` to launch a browser or other application for particular URI can work well for local scenarios, but Workspace extensions run remotely which can cause the the application to launch on the wrong side.
 
@@ -212,7 +212,7 @@ If you need to do something more sophisticated like launch an arbitrary applicat
 
 > **NOTE:** We are investigating automatically shim'ing `opn` to make this process easier. See [#807](https://github.com/Microsoft/vscode-remote/issues/807). [A complete example `opn` node module shim can be found here](https://github.com/Microsoft/vscode-dev-containers/tree/clantz/extension-samples/example-extensions/opn-shim) in the meantime.
 
-#### Communicating between extensions using commands
+### Communicating between extensions using commands
 
 Some extensions return APIs as a part of their activation function that are intended for other extensions to use (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI extensions or all Workspace extensions), these will not work between UI and Workspace extensions.
 
