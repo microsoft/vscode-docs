@@ -1,7 +1,7 @@
 ---
 Order: 3
 Area: cpp
-TOCTitle: CLang on macOS
+TOCTitle: Clang on macOS
 ContentId: 6ef32219-81ad-4d73-84b8-8d4384a45f8a
 PageTitle: Get Started with C++ and Clang/LLVM in Visual Studio Code on macOS
 DateApproved: 04/03/2019
@@ -125,7 +125,7 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 
 ## Configure debug settings
 
-Next, we'll configure VS Code to launch gdb when we press *F5* to debug the program. Note that
+Next, we'll configure VS Code to launch gdb when we press *`kb(workbench.action.debug.start)`* to debug the program. Note that
 the program name `helloworld.out` matches what we specified in `tasks.json`.
 
 By default, the C++ extension adds a breakpoint to the first line of `main`. The `stopAtEntry` value is set to `true` to cause the debugger to stop on that breakpoint. You can set this to `false` if you prefer to ignore it.

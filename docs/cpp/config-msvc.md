@@ -124,7 +124,7 @@ The `group` value specifies that this task will be run when you press `kb(workbe
 
 ## Configure debug settings
 
-Next, you'll create a `launch.json` file to configure VS Code to launch GDB on WSL when you press *F5* to debug the program.
+Next, you'll create a `launch.json` file to configure VS Code to launch GDB on WSL when you press *`kb(workbench.action.debug.start)`* to debug the program.
 
 1. From the main menu, choose **Debug > Add Configuration...** and then choose **C/C++ Windows (Launch)**. This causes the `launch.json` file to be created and opened. Replace the contents of the file with this
 

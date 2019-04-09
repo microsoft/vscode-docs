@@ -142,7 +142,7 @@ Next, create a `tasks.json` file to tell VS code how to build (compile) the prog
 
 ## Configure debug settings
 
-Next, we'll configure VS Code to launch the GCC debugger (gdb.exe) when you press *F5*. Note that
+Next, we'll configure VS Code to launch the GCC debugger (gdb.exe) when you press *`kb(workbench.action.debug.start)`*. Note that
 the program name `helloworld.exe` matches what you specified in `tasks.json`. You will need to adjust your `miDebuggerPath` value to exactly match the path to your Mingw-w64 installation.
 
 By default, the C++ extension adds a breakpoint to the first line of `main`. The `stopAtEntry` value is set to `true` to cause the debugger to stop on that breakpoint. You can set this to `false` if you prefer to ignore it.

@@ -1,7 +1,7 @@
 ---
 Order: 2
 Area: cpp
-TOCTitle: GCC/GDB on Linux
+TOCTitle: GCC on Windows Subsystem for Linux
 ContentId: dc79a06a-6665-478c-9298-a1fc9cf8010d
 PageTitle: Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code
 DateApproved: 04/03/2019
@@ -157,7 +157,7 @@ Next, create a `tasks.json` file to tell VS code how to build (compile) the prog
 
 ## Configure debug settings
 
-Next, you'll create a `launch.json` file to configure VS Code to launch GDB on WSL when you press *F5* to debug the program. From the main menu, choose **Debug > Add Configuration...** and then choose **C++ (GDB/LLDB)**. VS Code creates the file and opens it in the editor. The `program` setting specifies the program you want to debug. Set it to `helloworld.out` to match what you specified in `tasks.json`.
+Next, you'll create a `launch.json` file to configure VS Code to launch GDB on WSL when you press *`kb(workbench.action.debug.start)`* to debug the program. From the main menu, choose **Debug > Add Configuration...** and then choose **C++ (GDB/LLDB)**. VS Code creates the file and opens it in the editor. The `program` setting specifies the program you want to debug. Set it to `helloworld.out` to match what you specified in `tasks.json`.
 
 The path to the executable must be a literal path; you can't use `$HOME` in `launch.json` with WSL. You will have to substitute your actual Linux user name in the `program` and `cwd` properties.
 
@@ -238,7 +238,7 @@ This same panel is also used for source control, debugging, searching and replac
 
 ## Set path to system headers
 
-Now that you have a source file, you can use it to easily get the Windows path to the system headers in your Linux distro. You need to specify this value in the file mappings in `launch.json` file so that GDB can step into system headers if you press `kb(editor.debug.action.stepInto)` during debugging.
+Now that you have a source file, you can use it to easily get the Windows path to the system headers in your Linux distro. You need to specify this value in the file mappings in `launch.json` file so that GDB can step into system headers if you press `kb(workbench.action.debug.stepInto)` during debugging.
 
 1. In helloworld.cpp hover your mouse over the `string` in this statement: `vector<string> msg...`
 1. Right-click and choose **Go to definition** to open `stringfwd.h` in the editor.
