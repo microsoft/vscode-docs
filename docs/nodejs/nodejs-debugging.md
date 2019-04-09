@@ -48,7 +48,6 @@ Starting with VS Code 1.11, the default value for the `protocol` attribute is `a
 If your runtime supports both protocols, here are a few additional reasons for using the `inspector` protocol over `legacy`:
 
 * It can be more stable when debugging very large JavaScript objects. The legacy protocol can become painfully slow when sending large values between the client and server.
-* If you are using an ES6 Proxy in your app, you can prevent a Node v7+ runtime from crashing when being debugged via the `inspector` protocol. This issue is tracked in [Microsoft/vscode#12749](https://github.com/Microsoft/vscode/issues/12749).
 * Debugging via the `inspector` protocol can handle some trickier source map setups. If you have trouble setting breakpoints in source mapped files, try using `inspector`.
 
 We try to keep feature parity between both protocol implementations but this becomes more and more difficult because the technology underlying `legacy` is deprecated whereas the new `inspector` evolves quickly. For this reason, we specify the supported protocols  if a features is not supported by both `legacy` and `inspector`.
