@@ -15,7 +15,7 @@ If you don't see an answer to your question here, check our previously [reported
 
 Visual Studio Code is a streamlined code editor with support for development operations like debugging, task running and version control. It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs.
 
-## Which OS's are supported?
+## Which OSs are supported?
 
 VS Code runs on macOS, Linux, and Windows. See [Requirements](requirements) for the supported versions. You can find more platform specific details under [SETUP](/docs/setup/setup-overview.md).
 
