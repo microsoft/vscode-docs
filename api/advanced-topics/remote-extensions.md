@@ -49,16 +49,32 @@ Currently, any time VS Code automatically installs an extension on a SSH host or
 
 ### Debugging your extension in a remote environment
 
-You can test and debug your extension in a remote environment by simply adding a `.devcontainer/devcontainer.json` or `.devcontainer.json` with the [appropriate contents](/docs/remote/containers#creating-configuration-files-for-existing-projects) into a test project folder. For example:
+#### Using a development container
 
-```json
-{
-    "name": "Test Project",
-    "image": "ubuntu:bionic"
-}
-```
+You can edit and debug your extension in a container by following these steps.
 
-Next, simply F5 and run **Remote-Containers: Open Folder in Container...** from the window that appears select the test project folder. After the window reloads with your test project content, the debugger will attach and you can use your extension provided features just as you would a local folder. The same approach also works for testing with a [SSH host](/docs/remote/ssh) or in the [WSL environment](/docs/remote/wsl) and other [development containers](/docs/remote/containers)!
+1. Add a `.devcontainer/devcontainer.json` or `.devcontainer.json` file with the [appropriate contents](/docs/remote/containers#creating-configuration-files-for-existing-projects) to your extension source code folder. For example:
+
+    ```json
+    {
+        "name": "Extension Container",
+        "image": "ubuntu:bionic"
+    }
+    ```
+
+2. Run **Remote-Containers: Reopen Folder in Container** and in a moment your VS Code will set up the container and connect. You can now edit your source code as you would in the local case.
+
+3. Finally, **F5 / use the the debug panel** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running inside this same container with the debugger attached to it.
+
+#### Using SSH or WSL
+
+You can edit and debug your extension on a remote **[SSH host](/docs/remote/ssh)** or in **[WSL](/docs/remote/wsl)** by following similar steps to the container case.
+
+1. For SSH, you'll need to instead open a copy of the extension project on the remote host (e.g. by using the **Remote-SSH: New Window...** command, and then File > Open to select the a cloned copy of the extension.) For WSL, open the local folder containing your extension project in WSL (e.g. by using **File > New WSL Window** and then File > Open to select the folder).
+
+2. Once the folder is open on the SSH host / in WSL, you can edit your source code as you would in the local case.
+
+3. Finally, **F5 / use the the debug panel** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running on the SSH Host / in WSL with the debugger attached to it.
 
 ## Common problems
 
@@ -283,7 +299,7 @@ const panel = vscode.window.createWebviewPanel(
         ]
     });
 
-// Reference the "port" variable in any full URIs you reference in your HTML.
+// Reference the "staticPort" variable in any full URIs you reference in your HTML.
 panel.webview.html =  `<!DOCTYPE html>
     <body>
         <!-- This will resolve to the dynamic server port on the remote machine -->
