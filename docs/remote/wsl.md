@@ -25,7 +25,9 @@ Given source code **does not even need to exist on the Windows filesystem** for 
 
 To get started you need to:
 
-1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) along with your preferred Linux distribution. We strongly recommending using **WSL 2** (VM mode) due to known **limitations in  WSL 1**. See [known limitations](#wsl-1-specific-limitations) for details.
+1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) along with your preferred Linux distribution.
+
+    > **Note:** WSL does have some [known limitations](#known-limitations) for certain types of development that can also affect your VS Code experience.
 
 2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/) on the **Windows** side (not in WSL).
 
@@ -55,7 +57,6 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
     VS Code will now continue to configure itself in WSL, and install any VS Code extensions you are running locally inside WSL to optimize performance. VS Code will keep you up to date as it makes progress.
 
-
 4. Once finished, you now see a WSL indicator in the bottom left corner, and you'll be able to use VS Code as you would normally!
 
     ![WSL Status Bar Item](images/wsl/wsl-statusbar-indicator.png)
@@ -80,26 +81,24 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## Known Limitations
 
-### WSL 1 Specific Limitations
-
-This section contains a list of common know issues with WSL 1. The intent is not to provide a complete list of issues, but to highlight some of the commonly problems seen with WSL 1.
+This section contains a list of common know issues with WSL. The intent is not to provide a complete list of issues, but to highlight some of the commonly problems seen with WSL.
 
 For a more complete list see [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) on GitHub that are tagged with WSL.
 
-#### Common limitations in WSL 1
+#### Common limitations in WSL
 
 | Issue | Existing issues |
 |---|---|
 Non-empty folders in the open workspace can't be renamed | https://github.com/Microsoft/WSL/issues/3395, https://github.com/Microsoft/WSL/issues/1956
 Local proxy settings are not reused by VS Code running in WSL which can prevent extensions from working without adding a global `HTTP_PROXY` and `HTTPS_PROXY` environment variable with the appropriate proxy information. |
 
-#### Golang in WSL 1
+#### Golang in WSL
 
 | Issue | Existing issues |
 |---|---|
-Delve debugger doesnt work under WSL | https://github.com/go-delve/delve/issues/810 https://github.com/Microsoft/vscode-go/issues/926 |
+Delve debugger doesn't work under WSL | https://github.com/go-delve/delve/issues/810 https://github.com/Microsoft/vscode-go/issues/926 |
 
-#### Node.js in WSL 1
+#### Node.js in WSL
 
 | Issue | Existing issues |
 |---|---|

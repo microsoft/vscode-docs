@@ -134,8 +134,6 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 | Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See [here](https://help.ubuntu.com/community/SSH?action=show) for additional setup instructions. |
 | RHL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
 | macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. | |
-<!--| Windows 10 / Server 2016 | Install the [Windows OpenSSH Server](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse). |
-| Earlier Windows | Use [Cygwin to setup a SSH Server](http://innerdot.com/windows/setting-up-sshd-on-windows-to-allow-publickey-authentication). |-->
 
 ## Container Tips
 
