@@ -33,13 +33,15 @@ To get started you can:
     >
     > You will also need to add your user to the `docker` group after installation as follows: `sudo usermod -aG docker $USER`.
 
-2. Install [Visual Studio Code](https://aka.ms/vscode-remote/download)
+2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/)
 
-    > **Dogfooding Note:** You will need to install a private build called [Code-WSL from here](https://aka.ms/vscode-remote/download) by clicking on the latest version for your OS with the  `Released` column checked. This version can live side-by-side with other VS Code versions.
+    > **Dogfooding Note:** You currently need to install a private build called [Code-WSL from here](https://aka.ms/vscode-remote/download) by clicking on the latest version for your OS with the  `Released` column checked. This version can live side-by-side with other VS Code versions. However, we will be sun-setting this build soon and replacing it with VS Code - Insiders.
 
 3. Install the **[Remote Development](https://aka.ms/vscode-remote/download/extension)** extension pack
 
-    > **Dogfooding Note (UPDATED):** You will now need to install an internal copy of the [Remote Development Extension](https://aka.ms/vscode-remote/download/extension) in Code - WSL. The first time you install it, you will be prompted to paste in a GitHub auth token so that it can download private versions of the extensions. You only need to give "Repo" scope and this token will not be required once we release.
+    > **Dogfooding Note (UPDATED):** Set up the dogfooding version of the Remote Development extensions as follows:
+    > 1. Sign into a Microsoft associated GitHub account from a browser and download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in Code - WSL.
+    > 2. The first time the Selfhost Remote Extensions starts, you will be prompted to paste in a [GitHub access token](https://github.com/settings/tokens) so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope and this token will not be required once we release.
 
 The extension supports two primary operating models. One is to use a container as your [full-time development environment](#creating-configuration-files-for-existing-projects) while the other is to [attach to a running container](#attaching-to-running-containers) for targeted use. We will cover how to use a container as your full-time development environment first.
 
