@@ -2,14 +2,14 @@
 Order: 3
 Area: remote
 TOCTitle: Containers
-PageTitle: Developing Inside a Container
+PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
-MetaDescription: Developing Inside a Container Using VS Code Remote Development
+MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
 DateApproved: 4/2/2019
 ---
-# Developing Inside a Container
+# Developing inside a Container
 
-## Basics
+## Introduction
 
 The **Visual Studio Code Remote - Containers extension** can adapt to a variety of different container-based workflows. It allows you to open any folder inside (or mounted into) a container and take advantage of VS Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a "development container" with a set of extensions installed inside of it to optimize the experience.
 
@@ -108,7 +108,7 @@ You can install additional extensions in the container at any time by using the 
 
 ### "Always installed" extensions
 
-If there are extensions that you would like to always have installed in any container, you can update the `remote.containers.defaultExtensions` property in `settings.json`. For example, if you wanted to install the  *GitLens* and *Resource Monitor* extensions, you would specify their extension IDs as follows:
+If there are extensions that you would like to always have installed in any container, you can update the `remote.containers.defaultExtensions` property in `settings.json`. For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/itemdetails?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/itemdetails?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
 
 ```json
 "remote.containers.defaultExtensions": [

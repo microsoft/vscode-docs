@@ -2,14 +2,14 @@
 Order: 5
 Area: remote
 TOCTitle: Troubleshooting
-PageTitle: Remote Tips and Troubleshooting
+PageTitle: Visual Studio Code Remote tips and troubleshooting
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
-MetaDescription: VS Code Remote Development Tips and Troubleshooting for SSH, Containers, and WSL
+MetaDescription: Visual Studio Code Remote Development tips and troubleshooting for SSH, Containers, and WSL
 DateApproved: 2/25/2019
 ---
-# Troubleshooting Tips for VS Code Remote Development
+# Troubleshooting for Remote Development
 
-## SSH Tips
+## SSH tips
 
 Visual Studio Code Remote allows you to open any folder on a remote machine, VM, or container with a SSH server and take advantage of VS Code's full feature set. This article includes additional troubleshooting and configuration tips for setting up support for developing on remote machines using SSH. See the [primary article](/docs/remote/ssh.md) for getting started information.
 
@@ -135,11 +135,10 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 | RHL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
 | macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. | |
 
-## Container Tips
+## Container tips
 
-## WSP Tips
+## WSL tips
 
-## Reporting Issues
+## Reporting issues
 
-When reporting issues please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
-)
+When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.

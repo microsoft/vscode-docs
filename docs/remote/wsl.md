@@ -2,14 +2,14 @@
 Order: 4
 Area: remote
 TOCTitle: WSL
-PageTitle: Developing in the Windows Subsystem for Linux
+PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
-MetaDescription: Using VS Code Remote Development with the Windows Subsystem for Linux (WSL)
+MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
 DateApproved: 1/30/2019
 ---
-# Developing in the Windows Subsystem for Linux (WSL)
+# Developing in WSL
 
-## Basics
+## Introduction
 
 The **[Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl)** allows you to take advantage of a Linux based tool-chain right from the comfort of Windows. Historically Windows-based developer tools have had to interact with WSL through mounted file shares (e.g.` /mnt/c`). While this works in concept, differences between Windows and Linux can make this workflow difficult. Conversely, Linux-based developer tools do not work unless they are text based since WSL was not intended to house a full Linux desktop operating system.
 
@@ -79,26 +79,26 @@ Once you've connected to WSL, you can use VS Code's debugger in the same way you
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
-## Known Limitations
+## Known limitations
 
 This section contains a list of common know issues with WSL. The intent is not to provide a complete list of issues, but to highlight some of the commonly problems seen with WSL.
 
 For a more complete list see [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) on GitHub that are tagged with WSL.
 
-#### Common limitations in WSL
+### Common limitations in WSL
 
 | Issue | Existing issues |
 |---|---|
 Non-empty folders in the open workspace can't be renamed | https://github.com/Microsoft/WSL/issues/3395, https://github.com/Microsoft/WSL/issues/1956
 Local proxy settings are not reused by VS Code running in WSL which can prevent extensions from working without adding a global `HTTP_PROXY` and `HTTPS_PROXY` environment variable with the appropriate proxy information. |
 
-#### Golang in WSL
+### Golang in WSL
 
 | Issue | Existing issues |
 |---|---|
 Delve debugger doesn't work under WSL | https://github.com/go-delve/delve/issues/810 https://github.com/Microsoft/vscode-go/issues/926 |
 
-#### Node.js in WSL
+### Node.js in WSL
 
 | Issue | Existing issues |
 |---|---|
@@ -113,10 +113,10 @@ Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/i
 
 ## Common questions
 
-### As an extension author what do I need to do?
+### As an extension author, what do I need to do?
 
 The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
-## Reporting Issues
+## Reporting issues
 
 When reporting issues please file them against the https://github.com/Microsoft/vscode-remote/issues repository.

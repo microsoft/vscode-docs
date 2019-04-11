@@ -2,14 +2,14 @@
 Order: 2
 Area: remote
 TOCTitle: SSH
-PageTitle: Developing on Remote Machines
+PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
-MetaDescription: Developing on Remote Machines or VMs using VS Code Remote Development and SSH
+MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
 DateApproved: 2/25/2019
 ---
-# Developing on Remote Machines or VMs Using SSH
+# Developing using SSH
 
-## Basics
+## Introduction
 
 **Visual Studio Code Remote - SSH extension** allows you to open a remote folder on any remote machine, VM, or container with a running SSH server and take full advantage of VS Code's feature set. The SSH extension supports a large number of scenarios given nearly every desktop and server operating system has an optional SSH server that can be configured. Once connected to a server, you can interact with files, folders, and workspaces sitting anywhere on the remote filesystem and install extensions that will be available from any machine you use to connect to it.
 
@@ -89,7 +89,7 @@ You can install additional extensions in on the SSH host at any time by using th
 
 ### "Always installed" extensions
 
-If there are extensions that you would like to always have installed on any SSH host, you can update the `remote.SSH.extensions` property in `settings.json`. For example, if you wanted to install the  *GitLens* and *Resource Monitor* extensions, you would specify their extension IDs as follows:
+If there are extensions that you would like to always have installed on any SSH host, you can update the `remote.SSH.extensions` property in `settings.json`. For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/itemdetails?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/itemdetails?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
 
 ```json
 "remote.SSH.defaultExtensions": [
@@ -132,7 +132,7 @@ Once you are connected to a remote host, you can use VS Code's debugger in the s
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
-## Known Limitations
+## Known limitations
 
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
 - Windows SSH Hosts are **not** yet supported. (Windows clients **are** supported.)
