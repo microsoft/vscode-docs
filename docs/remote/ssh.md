@@ -27,7 +27,7 @@ To get started you need to:
 
 1. Install a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client).
 
-    > **Note:** PuTTY is not supported on Windows and an [OpenSSH compatible](troubleshooting.md#installing-a-supported-ssh-client) `ssh` command must be in the path.
+    > **Note:** PuTTY is not supported on Windows since an [OpenSSH compatible](troubleshooting.md#installing-a-supported-ssh-client) `ssh` command must be in the path.
 
 2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/)
 

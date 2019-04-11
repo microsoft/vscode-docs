@@ -47,56 +47,42 @@ The extension supports two primary operating models. One is to use a container a
 
 ### Quick start: Open a folder in a container
 
-For this quick start, we'll reuse some existing configurations in the VS Code dev container definition repository. Just follow these steps:
+For this quick start, we'll set up one of your existing project folders to work in a container. Just follow these steps:
 
-1. Clone the [vscode-dev-containers GitHub repository](https://github.com/Microsoft/vscode-dev-containers.git) to access some sample dev container configurations for different tool stacks.
+1. Start VS Code and open a folder with a project you'd like to work with inside a container.
 
-    ```bash
-    git clone https://github.com/Microsoft/vscode-dev-containers.git
-    ```
+2. Run the **Remote-Docker: Create Container Configuration File...** command from the command pallette (Cmd/Ctrl+Shift+P).
 
-2. Start VS Code.
+3. You'll be asked to pick a **dev container definition** to use as a starting point for your container. All of these come from the from the **[vscode-dev-containers repository](http://aka.ms/vscode-dev-containers)** if you'd like to take a look at their contents before picking one. If you have a [`Dockerfile`](https://docs.docker.com/engine/reference/builder/) in your project, you also have the option to use it instead.
 
-3. Run the **Remote-Containers: Open Folder in Container...** command from the command palette.
+    > **Note:** VS Code Remote - Containers does not currently support Alpine or Windows based containers.
 
-4. Select the folder with the tool stack you want to try out from `containers` folder of the cloned `vscode-dev-containers` repository.
+4. You'll see a notification asking you if you'd like to reopen the folder in the container. Click the Reopen Folder in Container button.
 
-You should see the window refresh and a status bar item will tell you its opening the folder.
+    ![Dev config file reopen notification](images/containers/dev-container-reopen-prompt.png)
 
-![Dev Container "Opening Remote..." Status Bar Item](images/containers/dev-container-opening-remote.png)
+5. The window refresh and a status bar item will tell you its opening the folder.
 
-VS Code will then provision a container, but this can take a moment the first time you do it. If you want to get a more detailed view of progress, opening up the `Dev Containers` terminal window.
+    ![Dev Container "Opening Remote..." Status Bar Item](images/containers/dev-container-opening-remote.png)
 
-![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+    VS Code will then provision a container, but this can take a moment the first time you do it. If you want to get a more detailed view of progress, opening up the `Dev Containers` terminal window.
 
-After it's done, VS Code will automatically connect to the container. The local filesystem will be automatically mapped into the container so you can interact with it just as you would if it was running locally. You will see a status bar item  in the bottom left corner so that you can tell which VS Code windows are running in a container.
+    ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+
+6. After it's done, VS Code will automatically connect to the container. The local filesystem will be automatically mapped into the container so you can interact with it just as you would if it was running locally. You will see a status bar item  in the bottom left corner so that you can tell which VS Code windows are running in a container.
 
 ## Creating configuration files for existing projects
 
 The key to configuring VS Code to adapt to a wide variety of container-based scenarios is `devcontainer.json`. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. The file is either located at `.devcontainer/devcontainer.json` with other files related to your dev container or as a stand alone dot-prefixed `.devcontainer.json` file.
 
-> **Note:**  Alpine or Windows based containers are not currently supported.
-
-To get started:
-
-1. Open the folder with your project in VS Code.
-
-2. Run the **Remote-Docker: Create Container Configuration File...** command from the command pallette (Cmd/Ctrl+Shift+P).
-
-3. Pick a [`Dockerfile`](https://docs.docker.com/engine/reference/builder/) or one of the **dev container definitions** from the **[vscode-dev-containers repository](http://aka.ms/vscode-dev-containers)** when prompted as a starting point.
-
-4. Edit the configuration as needed and then run the **Remote-Containers: Reopen Folder in Container** command.
-
-### Adapting configuration files
-
-The `devcontainer.json` file can be adapted to fit into a number of different workflows. For example, you can:
+The **Remote-Docker: Create Container Configuration File...** command from the command pallette adds a `devcontainer.json` file among others that you can then adapt to your needs. For example, you can:
 
 - Spin up a [stand-alone "sandbox" container](#working-with-a-stand-alone-dev-sandbox).
 - Work inside a dev container defined by an [image](#using-an-existing-container-image), [Dockerfile](#using-a-dockerfile) or [docker-compose.yml](#using-docker-compose).
 - [Use Docker or Kubernetes](#working-with-docker-or-kubernetes-from-inside-a-container) from inside a dev container to build and deploy your app.
 - [Attach to an already running container](#attaching-to-running-containers).
 
-The [vscode-dev-containers repository](http://aka.ms/vscode-dev-containers) can be a good resource for creating or editing configurations by hand. Check out the [existing Dockerfile](https://aka.ms/vscode-remote/samples/existing-dockerfile) and [existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-dockerfile) definitions for simple starter templates. From here, you can [alter your configuration](#in-depth-setting-up-a-folder-to-run-in-a-container) to install additional tools like Git in the container, automatically install extensions, expose additional ports, set runtime arguments, [extend your an existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend), and more!
+The [vscode-dev-containers repository](http://aka.ms/vscode-dev-containers) can also be a good starting resource for adapting for examples of adapting `devcontainer.json` to different scenarios. From here, you can [alter your configuration](#in-depth-setting-up-a-folder-to-run-in-a-container) to install additional tools like Git in the container, automatically install extensions, expose additional ports, set runtime arguments, reuse or [extend your existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend), and more.
 
 Finally, if nothing here meets your needs, you can also spin up containers in any way you see fit and [attach to a running container](#attaching-to-running-containers).
 
