@@ -365,7 +365,7 @@ version: '3'
 
 ### Stopping containers with Docker Compose
 
-Since you may want to use some of the containers after you shut down VS Code, VS Code does not attempt to shut them down automatically. You can use `docker-compose stop` or the Docker extension to stop the running containers after you've closed the folder, workspace, or quit VS Code.
+Since you may want to use some of the containers after you shut down VS Code, VS Code does **not** attempt to shut them down automatically by default. You can change this behavior by adding `"shutdownAction": "stopCompose` to `devcontainer.json`.  Otherwise, you can use `docker-compose stop` to stop any running containers after you've shut down VS Code.
 
 > **Note:** The VS Code Remote Server and any specified extensions will be injected whenever a container is created. Therefore, you can save yourself time by using `docker-compose stop` instead of `down` to stop (but not destroy) the containers.
 
