@@ -9,8 +9,6 @@ DateApproved: 4/2/2019
 ---
 # Developing inside a Container
 
-## Introduction
-
 The **Visual Studio Code Remote - Containers extension** can adapt to a variety of different container-based workflows. It allows you to open any folder inside (or mounted into) a container and take advantage of VS Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a "development container" with a set of extensions installed inside of it to optimize the experience.
 
 These **development containers** typically come with a basic tool stack (Python, node, Go, etc.) and its prerequisites (e.g. `pylint` for Python). This container may be used to actually run an application or be focused exclusively on sandboxing tools, libraries, runtimes, or other utilities that need to be run against a codebase. However, the Containers extension also supports **attaching** to existing running containers to cover triage scenarios or for cases where you may be using other container orchestrators.

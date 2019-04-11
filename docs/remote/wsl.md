@@ -9,8 +9,6 @@ DateApproved: 1/30/2019
 ---
 # Developing in WSL
 
-## Introduction
-
 The **[Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl)** allows you to take advantage of a Linux based tool-chain right from the comfort of Windows. Historically Windows-based developer tools have had to interact with WSL through mounted file shares (e.g.` /mnt/c`). While this works in concept, differences between Windows and Linux can make this workflow difficult. Conversely, Linux-based developer tools do not work unless they are text based since WSL was not intended to house a full Linux desktop operating system.
 
 The optimized **Visual Studio Code Remote - WSL extension** allows you take advantage of VS Code's full feature set from anywhere in WSL - regardless of whether the files you want to edit exist on the Linux side or a mounted Windows filesystem. When using the capability, VS Code selectively runs certain extensions inside WSL to optimize your experience.

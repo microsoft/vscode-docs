@@ -9,8 +9,6 @@ DateApproved: 2/25/2019
 ---
 # Developing using SSH
 
-## Introduction
-
 **Visual Studio Code Remote - SSH extension** allows you to open a remote folder on any remote machine, VM, or container with a running SSH server and take full advantage of VS Code's feature set. The SSH extension supports a large number of scenarios given nearly every desktop and server operating system has an optional SSH server that can be configured. Once connected to a server, you can interact with files, folders, and workspaces sitting anywhere on the remote filesystem and install extensions that will be available from any machine you use to connect to it.
 
 When using the capability, VS Code selectively runs certain extensions on the remote machine to optimize your experience. Given **no source code needs to be on your local machine** to use the capability, the approach provides dramatic performance and fidelity benefits over using network shares or synchronizing files.

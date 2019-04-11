@@ -3,10 +3,9 @@ ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
 DateApproved: 3/22/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: A guide to adding VS Code Remote Development Support to Extensions
+MetaDescription: A guide to adding Visual Studio Code Remote Development support to extensions
 ---
-
-# Adding VS Code Remote Development Support to Extensions
+# Supporting Remote Development
 
 While many developers edit, build, deploy, and debug on their local machines, there are an increasing number of situations where you may need to interact with a codebase or runtime on the other side of an OS boundary. **[VS Code Remote Development](/docs/remote/remote-overview)** extensions addresses these needs by allowing your local VS Code installation and any extension provided features to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical).
 
