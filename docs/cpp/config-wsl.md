@@ -51,7 +51,7 @@ To successfully complete this tutorial, you must do the following steps:
 
    From the command prompt, install the GNU compiler tools and the GDB debugger by typing:
 
-   ```cmd
+   ```bash
    sudo apt-get install build-essential gdb
    ```
 
@@ -59,7 +59,7 @@ To successfully complete this tutorial, you must do the following steps:
 
 At a Windows command prompt, create an empty folder called `projects` (just like you did on Ubuntu) where you can place your helloworld project, and other VS Code projects you might create. Then create a subfolder called `helloworld`, navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
-    ```cmd
+    ```bash
     mkdir projects
     cd projects
     mkdir helloworld
@@ -80,7 +80,7 @@ Press `kb(workbench.action.showCommands)` to open the Command Palette. It looks 
 
 Start typing "C/C++" and then choose **Edit Configurations** from the list of suggestions. VS Code creates a file called `c_cpp_properties.json` in the `.vscode` subfolder and populates it with some default settings. It then opens the file in the editor. Find the `compilerPath` setting and paste in the path to the `bin` folder in WSL so that the line looks like this: `"compilerPath": "/usr/bin/g++"`.
 
-The `compilerPath` setting is the most important setting in your configuration. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide lots of useful information to you as you write code. This information is called *IntelliSense* and you'll see some examples later in this tutorial.
+The `compilerPath` setting is the most important setting in your configuration. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide lots of useful information to you as you write code. This information is called **IntelliSense** and you'll see some examples later in this tutorial.
 
 The only other change is to set `intelliSenseMode` to `gcc-x64`. This setting helps the IntelliSense feature provide the correct information for GCC. For this tutorial, you don't need to be concerned with the other settings.
 
@@ -127,7 +127,7 @@ Next, create a `tasks.json` file to tell VS code how to build (compile) the prog
     ```
 
     ```json
-        {
+    {
         "version": "2.0.0",
         "tasks": [
             {
@@ -240,7 +240,7 @@ This same panel is also used for source control, debugging, searching and replac
 
 Now that you have a source file, you can use it to easily get the Windows path to the system headers in your Linux distro. You need to specify this value in the file mappings in `launch.json` file so that GDB can step into system headers if you press `kb(workbench.action.debug.stepInto)` during debugging.
 
-1. In helloworld.cpp hover your mouse over the `string` in this statement: `vector<string> msg...`
+1. In `helloworld.cpp`, hover your mouse over the `string` in this statement: `vector<string> msg...`
 1. Right-click and choose **Go to definition** to open `stringfwd.h` in the editor.
 1. Right click on the tab with the file name and choose **Copy path**.
 1. Navigate back to `launch.json` and replace the path in this value with the path you just copied. Then delete everything in your new path back to `usr/`. This gives VS Code the information it needs to find the `usr` folder for your specific distro; it can find the header files from there. The end result will look something like this, but not exactly, so be sure to use your actual path:
