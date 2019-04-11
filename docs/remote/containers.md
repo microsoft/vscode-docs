@@ -61,7 +61,7 @@ For this quick start, we'll set up one of your existing project folders to work 
 
     ![Dev config file reopen notification](images/containers/dev-container-reopen-prompt.png)
 
-5. The window will then reload, but since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates. If you want to get a more detailed view of progress, take a look at the the "Dev Containers" terminal window.
+5. The window will then reload, but since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates. If you want to get a more detailed view of progress, take a look at the "Dev Containers" terminal window.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
