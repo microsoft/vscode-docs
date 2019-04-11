@@ -50,6 +50,15 @@ The **[Remote Development extension pack](https://aka.ms/vscode-remote/download/
 
 While many extensions are expected to work unmodified in a remote environment, extension authors can get more information on testing and fixed remote related problems here: **[Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md)**
 
-## Reporting issues
+## Questions, Feedback, Contributing
 
-When reporting issues please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
+> **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
+
+Have a question or feedback? There are many ways to interact with us.
+
+- See the [FAQ](/docs/remote/faq.md) or the [troubleshooting guide](https://aka.ms/vscode-remote/troubleshooting).
+- Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
+- [Up-vote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new)
+- Contribute a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
+- Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
+- ...and more. See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.

@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 4/2/2019
+DateApproved: 4/11/2019
 ---
 # Developing inside a Container
 
@@ -429,10 +429,15 @@ If you are remotely running your containers in Docker, you can configure your lo
 
 The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
-### More Questions
+## More Questions, Feedback, Contributing
 
-See the [FAQ](/docs/remote/troubleshooting.md#general-faq) and [troubleshooting](/docs/remote/troubleshooting.md#containers-tips) article.
+> **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
-## Reporting Issues
+Have a question or feedback? There are many ways to interact with us.
 
-When reporting issues please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
+- See the [FAQ](/docs/remote/faq.md) or the [troubleshooting guide](/docs/remote/troubleshooting.md#ssh-tips).
+- Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
+- [Up-vote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new)
+- Contribute a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
+- Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
+- ...and more. See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
