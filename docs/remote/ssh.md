@@ -134,7 +134,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
 - Windows SSH Hosts are **not** yet supported. (Windows clients **are** supported.)
-- Linux hosts must have Bash (`/bin/bash`) installed.
+- Linux hosts must have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed.
 - PuTTY is not supported on Windows.
 - You cannot drag files out of the file explorer to your local filesystem to copy them.
 - Local proxy settings are not reused on the remote host which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (e.g. global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
@@ -158,6 +158,14 @@ Yes, with some additional configuration. See [here](/docs/remote/troubleshooting
 
 See [here](/docs/remote/troubleshooting.md#fixing-ssh-permission-errors) for details on resolving these types of errors.
 
+### What Linux library dependencies does the VS Code Remote Server have?
+
+Most Linux distributions will not require additional dependency installation steps. Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed.
+
+### What are the connectivity requirements for the VS Code Remote Server beyond SSH?
+
+The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and VS Code client is accomplished through an authenticated, secure SSH tunnel.
+
 ### Can I use VS Code when I only have SFTP/FTP filesystem access to my remote host (no shell access)?
 
 Some cloud platforms only provide remote filesystem access for developers rather than direct shell access. VS Code Remote Development was not designed with this use case in mind since it negates the performance and user experience fidelity benefits that its model provides.
@@ -167,6 +175,10 @@ However, this use case can typically be handled by combining extensions like [SF
 ### As an extension author what do I need to do?
 
 The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+
+### More Questions
+
+See the [FAQ](/docs/remote/troubleshooting.md#general-faq) and [troubleshooting](/docs/remote/troubleshooting.md#ssh-tips) article.
 
 ## Reporting Issues
 

@@ -111,9 +111,17 @@ Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/i
 
 ## Common questions
 
+### I'm seeing an error about a missing library or dependency, how do I fix this?
+
+Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
+
 ### As an extension author, what do I need to do?
 
 The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+
+### More Questions
+
+See the [FAQ](/docs/remote/troubleshooting.md#general-faq) and [troubleshooting](/docs/remote/troubleshooting.md#wsl-tips) article.
 
 ## Reporting issues
 

@@ -53,7 +53,7 @@ For this quick start, we'll set up one of your existing project folders to work 
 
 3. You'll be asked to pick a **dev container definition** to use as a starting point for your container. All of these come from the from the **[vscode-dev-containers repository](http://aka.ms/vscode-dev-containers)** if you'd like to take a look at their contents before picking one. If you have a [`Dockerfile`](https://docs.docker.com/engine/reference/builder/) in your project, you also have the option to use it instead.
 
-    > **Note:** VS Code Remote - Containers does not currently support Alpine or Windows based containers.
+    > **Note:** VS Code Remote - Containers does not currently support Alpine and Windows based containers.
 
 4. You'll see a notification asking you if you'd like to reopen the folder in the container. Click the **Reopen Folder in Container** button.
 
@@ -93,6 +93,8 @@ Beyond the advantages of having your team use a consistent environment and tool-
 VS Code supports two models for interacting with containers. One is to configure a folder you open to always run inside of a container. While this can be useful in many situations, in other situations you may have your own workflow and simply "attach" VS Code to an already running containers.
 
 Once you have a container up and running, you can connect to it by running the **Remote-Containers: Attach to running Container...** command or using the **Docker Explorer** from the VS Code [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker). If you expand "Containers" in the Docker Explorer, you can right click on any container and select **Attach Visual Studio Code...**
+
+> **Note:**  Alpine and Windows based containers are not currently supported.
 
 ![Docker Explorer screenshot](images/containers/attach-vs-code.png)
 
@@ -155,7 +157,7 @@ In its most basic form, you can create a dev sandbox by simply selecting a base 
 
 You can use the **Remote-Containers: Create Container Configuration File...** command in the command palette (Cmd/Ctrl+Shift+P) to select from a few base image to get you started and customize from there.
 
-> **Note:**  Alpine or Windows based containers are not currently supported.
+> **Note:**  Alpine and Windows based containers are not currently supported.
 
 Note that, if you are not able to find an image that meets your needs or just want to automate the installation of additional software, you can also **[create a custom image using a `Dockerfile`](#using-a-dockerfile)**. See [below](#using-a-dockerfile) for details.
 
@@ -209,7 +211,7 @@ Finally, you can also use a `Dockerfile` to create a custom image with all the n
 
 When the application you looking for a customized sandbox or are working with an application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Docker: Create Container Configuration File...** command in the command palette (Cmd/Ctrl+Shift+P) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
 
-> **Note:**  Alpine or Windows based containers are not currently supported.
+> **Note:**  Alpine and Windows based containers are not currently supported.
 
 You may want to install other tools like `git` inside the container, which you can easily [do manually](#installing-additional-software-in-the-sandbox). However, you can also create a custom `Dockerfile` specifically for development that includes these dependencies. The **[vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers)** contains a number of examples you can use as a starting point.
 
@@ -264,7 +266,7 @@ In some cases, a single container environment simply doesn't cut it. Fortunately
 2. [Extend your existing Docker Compose configuration](#extending-your-docker-compose-file-for-development) for development.
 3. Use the command line (e.g. `docker-compose up`) and [attach to an already running container](#attaching-to-running-containers).
 
-> **Note:**  Alpine or Windows based containers are not currently supported.
+> **Note:**  Alpine and Windows based containers are not currently supported.
 
 VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file (if they are not already running). This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above. However, since you may want to use some of the containers after you shut down VS Code, VS Code does not attempt to shut them down automatically.
 
@@ -403,6 +405,14 @@ See the following examples dev containers for additional information:
 
 ## Common questions
 
+### I am seeing errors when trying to mount the local filesystem into a container, how do I fix this?
+
+Right-click on the Docker task bar item and select Settings.  On Windows, go to the Shared Drives tab and check the drive(s) where your source code is located. On macOS, go the File Sharing tab and be sure the folder containing your source code is under a file path specified in the list.
+
+### I'm seeing an error about a missing library or dependency, how do I fix this?
+
+Some extensions rely on libraries not found in the certain Docker images. See [above](#installing-additional-software-in-the-sandbox) for a few options to resolve the problem.
+
 ### How can I connect to multiple containers?
 
 Currently you can only connect to one container per VS Code window. However, you can spin up multiple containers and [attach to them](#attaching-to-running-containers) from different VS Code windows to work around this limitation.
@@ -411,19 +421,17 @@ Currently you can only connect to one container per VS Code window. However, you
 
 You can resolve these issue by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes)in the container. See the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker), [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose), and [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) dev container definitions for details.
 
-### Are development containers intended to define how an application is deployed?
+### Can I access remote containers?
 
-No. A development container is an environment that you can use to develop your application even before you are ready to build or deploy. While deployment and development containers may resemble one another, you often will not include tools in a deployment image that you will want during development. The set of "dev container definitions" found in the [vscode-dev-containers repo](https://aka.ms/vscode-dev-containers) are intended to help jump start the process of creating a development container by including a set of well-known container build or deployment files and a `devcontainer.json` file. This file provides a home for tooling and edit-time related settings and a pointer to the image (or files that define the image) that should be used for the development container. However, their use is entirely optional, and you can [attach to a running container](#attaching-to-running-containers) in other container-based workflows and scenarios.
-
-### Are development containers intended to define how an application is built? Like Buildpacks?
-
-No. The [Buildpack](https://buildpacks.io/) concept focuses on taking source code and generating deployable container images through a series of defined steps. A dev container is an environment you can use to develop your application even before you are ready to build. They are therefore complementary concepts. The `devcontainer.json` file is not intended to define how your application should be built, but rather provides a home for tooling and edit-time related settings and a pointer to an image or image definition files. Today it supports pointing to an existing image (which could be generated by a Buildpack), a Dockerfile, or one or more `docker-compose.yml` files, but more will be added as the community has interest. In all cases, you can also opt to [attach to a running container](#attaching-to-running-containers) if you prefer to use an alternate container build or deployment workflow.
-
-Similarly, the "dev container definitions" found in the [vscode-dev-containers repo](https://aka.ms/vscode-dev-containers) can help jump start the process of creating a dev container when you do not have an existing image, `Dockerfile`, or `docker-compose.yml`. These can also act as samples if you do have existing container files. However, they are not intended to define how an application should be built.
+If you are remotely running your containers in Docker, you can configure your local `docker` command to connect to the remote machine. However, you'll want to take care in ensuring you're authenticating your connection. This approach is also generally not recommended outside of development environments. You can [read this article](https://www.kevinkuszyk.com/2016/11/28/connect-your-docker-client-to-a-remote-docker-host/) for information on setting this up.
 
 ### As an extension author what do I need to do?
 
 The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+
+### More Questions
+
+See the [FAQ](/docs/remote/troubleshooting.md#general-faq) and [troubleshooting](/docs/remote/troubleshooting.md#containers-tips) article.
 
 ## Reporting Issues
 
