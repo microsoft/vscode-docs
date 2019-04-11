@@ -169,8 +169,9 @@ You can use the following properties in a `.devcontainer/devcontainer.json` in y
 | `name` | string | [Optional] A display name for the container. |
 | `extensions` | array | [Optional] An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
 | `appPort` | integer, string, or array | [Optional] A port or array of ports that should be made available locally when the container is running (beyond those already exposed by the container image). |
-| `devPort` | integer | [Optional] A specific port that the VS Code Remote server should use in the container. |
 | `runArgs` | array | [Optional] An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. |
+| `shutdownAction` | enum: `none`, `stopContainer` | [Optional] Default is `stopContainer`. Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. |
+| `devPort` | integer | [Optional] A specific port that the VS Code Remote server should use in the container. |
 
 For example:
 
@@ -220,8 +221,9 @@ You can use the following properties in `.devcontainer/devcontainer.json` config
 | `name` | string | [Optional] A display name for the container. |
 | `extensions` | array | [Optional] An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
 | `appPort` | integer, string, or array | [Optional] A port or array of ports that should be made available locally when the container is running (beyond those already exposed by the container image). |
-| `devPort` | integer | [Optional] A specific port that the VS Code Remote server should use in the container. |
 | `runArgs` | array | [Optional] An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. |
+| `shutdownAction` | enum: `none`, `stopContainer` | [Optional] Default is `stopContainer`. Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. |
+| `devPort` | integer | [Optional] A specific port that the VS Code Remote server should use in the container. |
 
 For example:
 
@@ -275,6 +277,7 @@ To reuse `docker-compose.yml` unmodified, just create a `.devcontainer/devcontai
 | `workspaceFolder` | string | [Optional] The default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container.) Defaults to `"/"`. |
 | `name` | string | [Optional] A display name for the container. |
 | `extensions` | array | [Optional] An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
+| `shutdownAction` | enum: `none`, `stopCompose` | [Optional] Default is `none`. Indicates whether VS Code should execute `docker-compose stop` when the VS Code window is closed / shut down. |
 | `devPort` | integer | [Optional] A specific port that the VS Code Remote server should use in the container. |
 
 Foe example:
@@ -284,7 +287,8 @@ Foe example:
     "name": "[Optional] Your project name here",
     "dockerComposeFile": "docker-compose.yml",
     "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
-    "workspaceFolder": "/default/workspace/path/in/container/to/open"
+    "workspaceFolder": "/default/workspace/path/in/container/to/open",
+    "shutdownAction": "stopCompose"
 }
 ```
 
@@ -327,7 +331,8 @@ This same file can provide additional port mappings, etc as needed. All you need
         ".devcontainer/docker-compose.yml"
     ],
     "service": "your-service-name-here",
-    "workspaceFolder": "/workspace"
+    "workspaceFolder": "/workspace",
+    "shutdownAction": "stopCompose"
 }
 ```
 
