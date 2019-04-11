@@ -384,6 +384,10 @@ From within VS Code, you can view (or "tail") logs from the running site on Azur
 
 1. Navigate within the app to see additional output for various HTTP requests.
 
+## Clean up resources
+
+The various Azure resources you created in this tutorial can incur ongoing costs. To clean them up, its best to visit [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
+
 ## Next steps
 
 Congratulations on completing this walkthrough of deploying a containerized Python app to Azure App Service!
