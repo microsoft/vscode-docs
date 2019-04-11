@@ -145,15 +145,6 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 - _context_ - Context object with uri and range
 - _(returns)_ - A promise that resolves to an array of ColorPresentation objects.
 
-`vscode.previewHtml` - Render the HTML of the resource in an editor view.
-
-**🚨 The previewHtml command is deprecated. Please use the [Webview API](/api/extension-guides/webview) instead**
-
-- _uri_ - Uri of the resource to preview.
-- _column_ - (optional) Column in which to preview.
-- _label_ - (optional) An human readable string that is used as title for the preview.
-- _options_ - (optional) Options for controlling webview environment.
-
 `vscode.openFolder` - Open a folder or workspace in the current window or new window depending on the newWindow argument.
 
 - _uri_ - (optional) Uri of the folder or workspace file to open. If not provided, a native dialog will ask the user for the folder
