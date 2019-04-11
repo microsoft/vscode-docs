@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Azure Functions
 ContentId: 3685dbc0-5700-4456-8133-6f0db8e25e55
 PageTitle: Crate and deploy Python code to Azure Functions
-DateApproved: 01/14/2019
+DateApproved: 04/11/2019
 MetaDescription: How to create and deploy Python code to Azure Functions
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -127,7 +127,7 @@ You can see that `scriptFile` identifies the startup file for the code, which mu
 
 The `bindings` element the contains two objects, one to describe incoming requests, and the other to describe the HTTP response. You can see that for incoming requests (`"direction": "in"`), the function responds to HTTP get or post requests and doesn't require authentication. The response (`"direction": "in"`) is an HTTP response that returns whatever value is returned from the `main` function.
 
-### __init.py__
+### \_\_init.py\_\_
 
 When you create a new function, Azure Functions provides default Python code in `__init__.py`:
 
@@ -192,12 +192,14 @@ The important parts of the code are as follows:
 
     ```bash
     # Mac OS/Linux
-    curl --header "Content-Type: application/json" --request POST --data {"name":"VS Code"} http://localhost:7071/api/HttpExample
+    curl --header "Content-Type: application/json" --request POST \
+        --data {"name":"VS Code"} http://localhost:7071/api/HttpExample
     ```
 
     ```ps
     # Windows (needs escaping on the quotes)
-    curl --header "Content-Type: application/json" --request POST --data {"""name""":"""VS Code"""} http://localhost:7071/api/HttpExample
+    curl --header "Content-Type: application/json" --request POST \
+        --data {"""name""":"""VS Code"""} http://localhost:7071/api/HttpExample
     ```
 
     Alternately, create a file like `data.json` that contains `{"name":"VS Code"}` and use the command `curl --header "Content-Type: application/json" --request POST --data @data.json http://localhost:7071/api/HttpExample`.
