@@ -7,17 +7,27 @@ ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development FAQs, tips and troubleshooting for SSH, Containers, and WSL
 DateApproved: 2/25/2019
 ---
-# Remote Development FAQ, Tips, & Tricks
+# Remote FAQ, Tips, & Tricks
 
-This article covers frequently asked questions and troubleshooting tips and tricks for Visual Studio Code Remote Development extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with their capabilities. See [open issues](https://aka.ms/vscode-remote/issues) for additional details on known problems and workarounds.
+This article covers frequently asked questions and troubleshooting tips and tricks for the Visual Studio Code Remote Development extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities.
 
 ## FAQ
 
-### How do VS Code Remote Development extensions secure access to the remote machine / VM / container?
+### How does do the Remote Development extensions work?
 
-Visual Studio Code Remote Development uses existing, well known transports like secure shell to authenticate and secure traffic. No ports need to be publicly opened beyond those used by these well-known, secure transports for the capability to function. The VS Code Remote Server that is injected runs as the same user you used to sign into the machine which ensures VS Code and its extensions are not given improper elevated access without permission. The server is started and stopped by VS Code and is not wired into any user / global login or startup scripts.
+Visual Studio Code Remote Development allows your local VS Code installation and any extension provided features to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical) through selective execution of certain commands on "remote server". This "VS Code Remote Server" is quickly installed by VS Code when you connect to a remote endpoint. When in use, it automatically installs certain extensions on the remote machine to optimize your experience.
 
-### What are the connectivity requirements for the VS Code Remote Server?
+![Architecture summary](images/troubleshooting/architecture.png)
+
+### How do the Remote Development extensions secure access to the remote machine / VM / container?
+
+Visual Studio Code Remote Development uses existing, well known transports like secure shell to authenticate and secure traffic. No ports need to be publicly opened beyond those used by these well-known, secure transports for the capability to function. The VS Code Remote Server that is injected runs as the same user you used to sign into the machine which ensures VS Code and its extensions are not given improper elevated access without permission. The server is started and stopped by VS Code and is not wired into any user / global login or startup scripts. VS Code will manage its lifecycle.
+
+### Can the Remote Server be installed or used on its own?
+
+No. The server is a component of the Remote Development extensions and expects a VS Code client to be present. It is installed and updated automatically by VS Code when it connects to an endpoint and is not intended or licensed for use by other clients.
+
+### What are the connectivity requirements for the Remote Server running on the remote machine / VM / container?
 
 The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and VS Code client is accomplished through...
 
@@ -25,9 +35,9 @@ The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `up
 - Containers: An authenticated, random port automatically exposed via the Docker CLI.
 - WSL: An authenticated, random local TCP port.
 
-### What Linux library dependencies does the VS Code Remote Server have?
+### What Linux library dependencies does the Remote Server have?
 
-Most Linux distributions will not require additional dependency installation steps. Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed.
+Most Linux distributions will not require additional dependency installation steps. For SSH, Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed which could be missing from certain stripped down distributions. However, Alpine Linux is not currently supported.
 
 ### As an extension author what do I need to do?
 
@@ -43,9 +53,9 @@ No. The [Buildpack](https://buildpacks.io/) concept focuses on taking source cod
 
 Similarly, the "dev container definitions" found in the [vscode-dev-containers repo](https://aka.ms/vscode-dev-containers) can help jump start the process of creating a dev container when you do not have an existing image, `Dockerfile`, or `docker-compose.yml`. These can also act as samples if you do have existing container files. However, they are not intended to define how an application should be built.
 
-### Are the Visual Studio Code Remote Development extensions open source?
+### Are any of the Visual Studio Code Remote Development extensions or their components open source?
 
-The Visual Studio Code Remote Development extensions are free to use with an [open roadmap](https://aka.ms/vscode-remote/feedback), but are not currently open source. See the [license](https://go.microsoft.com/fwlink/?linkid=2077057) for additional details.
+The Visual Studio Code Remote Development extensions and their related components are free to use with an [open roadmap](https://aka.ms/vscode-remote/feedback), but are not currently open source. See the [license](https://go.microsoft.com/fwlink/?linkid=2077057) for additional details.
 
 ### GDPR and VS Code
 
