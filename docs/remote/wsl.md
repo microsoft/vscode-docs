@@ -117,7 +117,7 @@ Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/i
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
 
-### What are the connectivity requirements for the Remote Server running in WSL?
+### What are the connectivity requirements for the VS Code Remote Server when it is running in WSL?
 
 The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through am authenticated, random local TCP port.
 

@@ -158,11 +158,11 @@ Yes, with some additional configuration. See [here](/docs/remote/troubleshooting
 
 See [here](/docs/remote/troubleshooting.md#fixing-ssh-permission-errors) for details on resolving these types of errors.
 
-### What Linux library dependencies does the VS Code Remote Server have?
+### What Linux packages / libraries need to be installed on remote SSH hosts?
 
-Most Linux distributions will not require additional dependency installation steps. Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed.
+Most Linux distributions will not require additional dependency installation steps. Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed which can be missing from some very stripped down distributions.
 
-### What are the connectivity requirements for the Remote Server running on the remote machine / VM?
+### What are the connectivity requirements for the VS Code Remote Server when it is running on a remote machine / VM?
 
 The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, secure SSH tunnel.
 

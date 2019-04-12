@@ -47,27 +47,21 @@ The extension supports two primary operating models. One is to use a container a
 
 For this quick start, we'll set up one of your existing project folders to work in a container. Just follow these steps:
 
-1. Start VS Code and open a folder with a project you'd like to work with inside a container.
+1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the command pallette, and select a folder you'd like to use.
 
-2. Run the **Remote-Docker: Create Container Configuration File...** command from the command pallette (Cmd/Ctrl+Shift+P).
+2. You'll be asked to pick a **dev container definition** to use as a starting point for your container. All of these come from the from the **[vscode-dev-containers repository](http://aka.ms/vscode-dev-containers)** if you'd like to take a look at their contents before picking one. If you have a [`Dockerfile`](https://docs.docker.com/engine/reference/builder/) in your project, you also have the option to use it instead.
 
-3. You'll be asked to pick a **dev container definition** to use as a starting point for your container. All of these come from the from the **[vscode-dev-containers repository](http://aka.ms/vscode-dev-containers)** if you'd like to take a look at their contents before picking one. If you have a [`Dockerfile`](https://docs.docker.com/engine/reference/builder/) in your project, you also have the option to use it instead.
+    > **Note:** VS Code Remote - Containers does not currently support Alpine or Windows based containers.
 
-    > **Note:** VS Code Remote - Containers does not currently support Alpine and Windows based containers.
-
-4. You'll see a notification asking you if you'd like to reopen the folder in the container. Click the **Reopen Folder in Container** button.
-
-    ![Dev config file reopen notification](images/containers/dev-container-reopen-prompt.png)
-
-5. The window will then reload, but since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates. If you want to get a more detailed view of progress, take a look at the "Dev Containers" terminal window.
+3. The window will then reload, but since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates. If you want to get a more detailed view of progress, take a look at the "Dev Containers" terminal window.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-6. After it's done, VS Code will automatically connect to the container. The local filesystem will be automatically mapped into the container so you can interact with it just as you would if it was running locally.
+4. After it's done, VS Code will automatically connect to the container. The local filesystem will be automatically mapped into the container so you can interact with it just as you would if it was running locally.
 
 ## Creating configuration files for existing projects
 
-The key to configuring VS Code to adapt to a wide variety of container-based scenarios is `devcontainer.json`. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. The file is either located at `.devcontainer/devcontainer.json` with other files related to your dev container or as a stand alone dot-prefixed `.devcontainer.json` file.
+The key to configuring VS Code to adapt to a wide variety of container-based scenarios is `devcontainer.json`. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. The file is either located at `.devcontainer/devcontainer.json` with other files related to your dev container or as a stand alone dot-prefixed `.devcontainer.json` file. In the quick start above, one of these files added to your project with the appropriate settings after you selected a definition.
 
 The **Remote-Docker: Create Container Configuration File...** command from the command pallette adds a `devcontainer.json` file among others that you can then adapt to your needs. For example, you can:
 
@@ -427,7 +421,7 @@ You can resolve these issue by forwarding the Docker socket and installing the D
 
 If you are remotely running your containers in Docker, you can configure your local `docker` command to connect to the remote machine. However, you'll want to take care in ensuring you're authenticating your connection. This approach is also generally not recommended outside of development environments. You can [read this article](https://www.kevinkuszyk.com/2016/11/28/connect-your-docker-client-to-a-remote-docker-host/) for information on setting this up.
 
-### What are the connectivity requirements for the Remote Server running in the container?
+#### What are the connectivity requirements for the VS Code Remote Server when it is running in a container?
 
 The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, random port automatically exposed via the Docker CLI.
 
