@@ -167,13 +167,14 @@ You can use the following properties in a `.devcontainer/devcontainer.json` in y
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `image` | string | The name of an image in a container registry (e.g. [DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)) that VS Code should use to provision the dev container. |
+| `image` | string | Required. The name of an image in a container registry (e.g. [DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)) that VS Code should use to provision the dev container. |
 | `name` | string | [Optional] A display name for the container. |
-| `extensions` | array | [Optional] An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
-| `appPort` | integer, string, or array | [Optional] A port or array of ports that should be made available locally when the container is running (beyond those already exposed by the container image). |
-| `runArgs` | array | [Optional] An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. |
-| `shutdownAction` | enum: `none`, `stopContainer` | [Optional] Default is `stopContainer`. Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. |
-| `devPort` | integer | [Optional] A specific port that the VS Code Remote server should use in the container. |
+| `extensions` | array | [Optional] Defaults to `[]`. An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
+| `appPort` | integer, string, or array | [Optional] Defaults to `[]`. A port or array of ports that should be made available locally when the container is running (beyond those already exposed by the container image). |
+| `runArgs` | array | [Optional] Defaults to `[]`. An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. |
+| `overrideCommand` | boolean | [Optional] Defaults to `true`. Tells VS Code whether it should run `sleep infinity` when starting the container instead of the default command to prevent the container from immediatley shutting down if the default command fails. |
+| `shutdownAction` | enum: `none`, `stopContainer` | [Optional] Defaults to `stopContainer`. Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. |
+| `devPort` | integer | [Optional] Defaults to a random, available port. Allows you to force a specific port that the VS Code Remote server should use in the container. |
 
 For example:
 
@@ -219,13 +220,14 @@ You can use the following properties in `.devcontainer/devcontainer.json` config
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `dockerFile` | string | The location of the [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the root of the workspace. You can find a number of sample Dockerfiles for different runtimes [in this repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/dev-containers). |
+| `dockerFile` | string | Required. The location of the [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the root of the workspace. You can find a number of sample Dockerfiles for different runtimes [in this repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/dev-containers). |
 | `name` | string | [Optional] A display name for the container. |
 | `extensions` | array | [Optional] An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
-| `appPort` | integer, string, or array | [Optional] A port or array of ports that should be made available locally when the container is running (beyond those already exposed by the container image). |
-| `runArgs` | array | [Optional] An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. |
-| `shutdownAction` | enum: `none`, `stopContainer` | [Optional] Default is `stopContainer`. Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. |
-| `devPort` | integer | [Optional] A specific port that the VS Code Remote server should use in the container. |
+| `appPort` | integer, string, or array | [Optional] Defaults to `[]`. A port or array of ports that should be made available locally when the container is running (beyond those already exposed by the container image). |
+| `runArgs` | array | [Optional] Defaults to `[]`. An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. |
+| `overrideCommand` | boolean | [Optional] Defaults to `true`. Tells VS Code whether it should run `sleep infinity` when starting the container instead of the default command to prevent the container from immediatley shutting down if the default command fails. |
+| `shutdownAction` | enum: `none`, `stopContainer` | [Optional] Defaults to `stopContainer`. Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. |
+| `devPort` | integer | [Optional] Defaults to a random, available port. Allows you to force a specific port that the VS Code Remote server should use in the container. |
 
 For example:
 
@@ -274,13 +276,13 @@ To reuse `docker-compose.yml` unmodified, just create a `.devcontainer/devcontai
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `dockerComposeFile` | string  or array| Path or an ordered list list of paths to Docker Compose files relative to the workspace root. |
-| `service` | string | The name of the service you want to work on. |
-| `workspaceFolder` | string | [Optional] The default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container.) Defaults to `"/"`. |
+| `dockerComposeFile` | string  or array | Required. Path or an ordered list list of paths to Docker Compose files relative to the workspace root. |
+| `service` | string | Required. The name of the service you want to work on. |
+| `workspaceFolder` | string | [Optional] Defaults to `"/"`. Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container.)  |
 | `name` | string | [Optional] A display name for the container. |
-| `extensions` | array | [Optional] An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
-| `shutdownAction` | enum: `none`, `stopCompose` | [Optional] Default is `none`. Indicates whether VS Code should execute `docker-compose stop` when the VS Code window is closed / shut down. |
-| `devPort` | integer | [Optional] A specific port that the VS Code Remote server should use in the container. |
+| `extensions` | array | [Optional] Defaults to `[]`. An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
+| `shutdownAction` | enum: `none`, `stopCompose` | [Optional] Defaults to `none`. Indicates whether VS Code should execute `docker-compose stop` when the VS Code window is closed / shut down. |
+| `devPort` | integer | [Optional] Defaults to a random, available port. Allows you to force a specific port that the VS Code Remote server should use in the container. |
 
 Foe example:
 
