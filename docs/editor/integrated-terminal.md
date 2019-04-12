@@ -387,3 +387,11 @@ By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. You can co
   "args": { "text": "\u001bf" }
 }
 ```
+
+### How do I fix the error "ConnectNamedPipe failed: Windows error 232"
+
+This error can occur due to anti-virus software intercepting winpty from creating a pty. To workaround this you can exclude the following file from your anti-virus scanning:
+
+```
+<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
+```
