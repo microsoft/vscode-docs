@@ -9,13 +9,13 @@ DateApproved: 4/11/2019
 ---
 # Developing using SSH
 
-**Visual Studio Code Remote - SSH extension** allows you to open a remote folder on any remote machine, VM, or container with a running SSH server and take full advantage of VS Code's feature set. The SSH extension supports a large number of scenarios given nearly every desktop and server operating system has an optional SSH server that can be configured. Once connected to a server, you can interact with files, folders, and workspaces sitting anywhere on the remote filesystem and install extensions that will be available from any machine you use to connect to it.
+**Visual Studio Code Remote - SSH extension** allows you to open a remote folder on any remote machine, VM, or container with a running SSH server and take full advantage of VS Code's feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
 
-When using the capability, VS Code selectively runs certain extensions on the remote machine to optimize your experience. Given **no source code needs to be on your local machine** to use the capability, the approach provides dramatic performance and fidelity benefits over using network shares or synchronizing files.
+When using the capability, VS Code runs certain extensions on the remote machine to optimize your experience. Given **no source code needs to be on your local machine**, this approach provides dramatic performance and fidelity benefits over using network shares or synchronizing files.
 
 ![SSH Architecture](images/ssh/architecture-ssh.png)
 
-The result is that VS Code can provide a **local-quality development experience** including full IntelliSense, debugging, and more **regardless of where your code is hosted**.
+The result is that VS Code can provide a **local-quality development experience** including full IntelliSense (completions), debugging, and more **regardless of where your code is hosted**.
 
 ## Getting started
 
@@ -28,8 +28,6 @@ To get started you need to:
     > **Note:** PuTTY is not supported on Windows since an [OpenSSH compatible](troubleshooting.md#installing-a-supported-ssh-client) `ssh` command must be in the path.
 
 2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/)
-
-    > **Dogfooding Note:** You currently need to install a private build called [Code-WSL from here](https://aka.ms/vscode-remote/download) by clicking on the latest version for your OS with the  `Released` column checked. This version can live side-by-side with other VS Code versions. However, we will be sun-setting this build soon and replacing it with VS Code - Insiders.
 
 3. Install the **[Remote Development](https://aka.ms/vscode-remote/download/extension)** extension pack
 
@@ -53,19 +51,17 @@ Visual Studio Code uses **[SSH configuration files](https://linux.die.net/man/5/
 
     ![Illustration of user@host input box](images/ssh/ssh-user@box.png)
 
-3. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up to date using a progress notification and you can see a detailed log in the `Dev Containers` terminal window.
+3. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up to date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
 
     > **Note:** If you see errors about bad SSH file permissions when connecting, [see here for details](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) on the correct settings.
 
-4. After you are connected, you'll see a empty window and you can then open a folder or workspace on the remote machine using **File > Open...** or **File > Open Workspace...**
+4. After you are connected, you'll be in an empty window. You can then open a folder or workspace on the remote machine using **File > Open...** or **File > Open Workspace...**
 
 5. After a moment the folder or workspace you selected will open. Install **any extensions** you want to use on this host from the extension panel.
 
 #### Remembering hosts you connect to frequently
 
-If you have a few hosts you use frequently, you can add them to a SSH config fie so they automatically appear in the host dropdown.
-
-Just run **Remote-SSH: Open SSH Configuration File...** and add the host to the file using the [SSH config file format](https://linux.die.net/man/5/ssh_config). For example:
+If you have a few hosts you use frequently, you can add them to an SSH config fie so they automatically appear in the host dropdown. Run **Remote-SSH: Open SSH Configuration File...** and add the host to the file using the [SSH config file format](https://linux.die.net/man/5/ssh_config). For example:
 
 ```
 Host example-remote-linux-machine
@@ -81,13 +77,13 @@ Set the `"remote.SSH.configFile"` property in `settings.json` if you want to use
 
 ## Managing extensions
 
-While "personalization" extensions (along with a few others) install on your local VS Code instance, most installed extensions will reside on a particular remote host. This allows you to install whatever extensions you need for a given task now and jump back later at the exact same place  where you left off - even when connecting from another machine.
+While "personalization" extensions (along with a few others) install on your local VS Code instance, most installed extensions will reside on a particular remote host. This allows you to install the right extensions for a given workspace now and jump back later at the exact same place where you left off - even when connecting from another machine.
 
-You can install additional extensions in on the SSH host at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or remotely based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
+When installing extensions, VS Code infers whether the extension should be run locally or remotely based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
 
 ### "Always installed" extensions
 
-If there are extensions that you would like to always have installed on any SSH host, you can update the `remote.SSH.extensions` property in `settings.json`. For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/itemdetails?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/itemdetails?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
+If there are extensions that you would like to always have installed on any SSH host, you can specify which ones using the `remote.SSH.extensions` property in `settings.json`. For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/itemdetails?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/itemdetails?itemName=mutantdino.resourcemonitor) extensions, specify their extension IDs as follows:
 
 ```json
 "remote.SSH.defaultExtensions": [
@@ -104,11 +100,11 @@ Sometimes when developing you may need to access a port on a remote machine that
 
 If you want to *temporarily forward* a new port for the duration of the session, run the **Remote-SSH: Forward ports from active SSH Host...** command when connected.
 
-A toast notification will tell tell you the localhost port you should use to connect access the remote port. For example, if you forwarded a HTTP server running port 3000, the toast notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote http server using http://localhost:4123.
+A toast notification will tell tell you the localhost port you should use to access the remote port. For example, if you forwarded a HTTP server listening on port 3000, the toast notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote http server using http://localhost:4123.
 
 ### Always forwarding a port
 
-If you have ports that you **always want to forward** , you can use the the `LocalForward` directive in the same SSH config file you configured [above](#configure-a-remote-host). For example, if you wanted to forward ports 3000 and 27017 you could update the file as follows:
+If you have ports that you **always want to forward**, you can use the the `LocalForward` directive in the same SSH config file you configured [above](#configure-a-remote-host). For example, if you wanted to forward ports 3000 and 27017 you could update the file as follows:
 
 ```
 Host remote-linux-machine
@@ -126,7 +122,7 @@ If you've already connected to a remote host, **any terminal window** you open i
 
 ## Debugging on the SSH host
 
-Once you are connected to a remote host, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application up on the remote host and attach the debugger to it.
+Once you are connected to a remote host, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application on the remote host and attach the debugger to it.
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
