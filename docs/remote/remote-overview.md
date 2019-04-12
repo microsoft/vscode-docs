@@ -32,13 +32,11 @@ The result is that VS Code can provide a **local-quality development experience*
 ## Getting started
 
 > **Dogfooding Notes (UPDATED):**
-> 1. You currently need to install a private build called [Code-WSL from here](https://aka.ms/vscode-remote/download) by clicking on the latest version for your OS with the  `Released` column checked. This version can live side-by-side with other VS Code versions. We will be sunsetting this build soon and replacing it with VS Code - Insiders.
+> 1. You currently need to install a private versions of the VS Code Remote Development extensions. Go get started first download [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders). The old Code - WSL build is now **deprecated**.
 >
-> 2. Next, sign into a Microsoft associated GitHub account from a browser and download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in Code - WSL.
+> 2. Next, sign into a Microsoft associated GitHub account from a browser and download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code - Insiders.
 >
 > 3. Finally, the first time the Selfhost Remote Extensions starts, you will be prompted to paste in a [GitHub access token](https://github.com/settings/tokens) so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope and this token will not be required once we release.
->
-> **Azure Account Extension Note**: If you are testing an extension that relies on the Azure Account extension, *please install these two extensions manually* each time you have connected to a new endpoint for the first time (SSH server, container, WSL): [VSIX 1](https://microsoft-my.sharepoint.com/:u:/p/clantz/EWQbzQs3NRBBh_0EFRkJ5I8BMHqTXnJtTg0Dd50gn0FYLQ?e=4TBeVI), [VSIX 2](https://microsoft-my.sharepoint.com/:u:/p/clantz/EbqAKI2YZ6tHuyAfsS944SwB-HgOofXMIXbkSaNUx5yCWg?e=0SS9lM).
 
 ### Remote Development extension pack
 

@@ -29,11 +29,14 @@ To get started you need to:
 
 2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/)
 
+    > **Dogfooding Note (UPDATED)**: Code - WSL is deprecated. Use VS Code - Insiders now.
+
 3. Install the **[Remote Development](https://aka.ms/vscode-remote/download/extension)** extension pack
 
     > **Dogfooding Note (UPDATED):** Set up the dogfooding version of the Remote Development extensions as follows:
-    > 1. Sign into a Microsoft associated GitHub account from a browser and download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in Code - WSL.
+    > 1. Sign into a Microsoft associated GitHub account from a browser and download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code - Insiders.
     > 2. The first time the Selfhost Remote Extensions starts, you will be prompted to paste in a [GitHub access token](https://github.com/settings/tokens) so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope and this token will not be required once we release.
+
 
 4. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](#troubleshooting.md#enabling-alternate-ssh-authentication-methods).
 
