@@ -57,7 +57,7 @@ To successfully complete this tutorial, you must do the following steps:
 
 ## Create a workspace
 
-In Windows, you will need an empty folder called `projects` (just like you did on Ubuntu) where you can place your helloworld project, and other VS Code projects you might create. 
+In Windows, you will need an empty folder called `projects` (just like you now have on Ubuntu) where you can place your helloworld project, and other VS Code projects you might create. 
 
 1. Type **cmd** in the Windows search box and then choose **Windows command prompt**. 
 1. Enter the following commands:
