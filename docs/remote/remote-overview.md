@@ -32,11 +32,11 @@ The result is that VS Code can provide a **local-quality development experience*
 ## Getting started
 
 > **Dogfooding Notes (UPDATED):**
-> 1. You currently need to install a private versions of the VS Code Remote Development extensions. Go get started first download [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders). The old Code - WSL build is now **deprecated**.
->
-> 2. Next, sign into a Microsoft associated GitHub account from a browser and download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code - Insiders.
->
-> 3. Finally, the first time the Selfhost Remote Extensions starts, you will be prompted to paste in a [GitHub access token](https://github.com/settings/tokens) so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope and this token will not be required once we release.
+> 1. You currently need to install a private versions of the VS Code Remote Development extensions. First download [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders).
+> 2. Next, sign into a Microsoft GitHub org associated GitHub account from a browser.
+> 3. Download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code – Insiders.
+> 4. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
+> 5. Reload / restart VS Code - Insiders.
 
 ### Remote Development extension pack
 
