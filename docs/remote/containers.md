@@ -228,7 +228,7 @@ For example:
 ```json
 {
     "name": "My Container App",
-    "dockerFile": ".devcontainer/Dockerfile",
+    "dockerFile": "Dockerfile",
     "appPort": 3000,
     "extensions": [
         "dbaeumer.vscode-eslint"
@@ -241,7 +241,7 @@ The example below uses `runArgs` to change the security policy to enable the ptr
 ```json
 {
     "name": "My Container App",
-    "dockerFile": ".devcontainer/Dockerfile",
+    "dockerFile": "Dockerfile",
     "extensions": [
         "ms-vscode.go"
     ],
@@ -283,7 +283,7 @@ Foe example:
 ```json
 {
     "name": "[Optional] Your project name here",
-    "dockerComposeFile": "docker-compose.yml",
+    "dockerComposeFile": "../docker-compose.yml",
     "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
     "workspaceFolder": "/default/workspace/path/in/container/to/open",
     "shutdownAction": "stopCompose"
@@ -325,8 +325,8 @@ This same file can provide additional port mappings, etc as needed. All you need
 {
     "name": "[Optional] Your project name here",
     "dockerComposeFile": [
-        "docker-compose.yml",
-        ".devcontainer/docker-compose.yml"
+        "../docker-compose.yml",
+        "docker-compose.yml"
     ],
     "service": "your-service-name-here",
     "workspaceFolder": "/workspace",
