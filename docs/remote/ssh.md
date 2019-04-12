@@ -162,9 +162,9 @@ See [here](/docs/remote/troubleshooting.md#fixing-ssh-permission-errors) for det
 
 Most Linux distributions will not require additional dependency installation steps. Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed.
 
-### What are the connectivity requirements for the VS Code Remote Server beyond SSH?
+### What are the connectivity requirements for the Remote Server running on the remote machine / VM?
 
-The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and VS Code client is accomplished through an authenticated, secure SSH tunnel.
+The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, secure SSH tunnel.
 
 ### Can I use VS Code when I only have SFTP/FTP filesystem access to my remote host (no shell access)?
 
