@@ -166,6 +166,14 @@ If you are remotely running your containers in Docker, you can configure your lo
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
 
-## Reporting issues
+## Questions, Feedback, Contributing
 
-When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
+> **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
+
+Have a question or feedback? There are many ways to interact with us.
+
+- Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
+- [Up-vote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new)
+- Contribute a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
+- Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
+- ...and more. See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.

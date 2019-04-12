@@ -47,27 +47,21 @@ The extension supports two primary operating models. One is to use a container a
 
 For this quick start, we'll set up one of your existing project folders to work in a container. Just follow these steps:
 
-1. Start VS Code and open a folder with a project you'd like to work with inside a container.
+1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the command pallette, and select a folder you'd like to use.
 
-2. Run the **Remote-Docker: Create Container Configuration File...** command from the command pallette (Cmd/Ctrl+Shift+P).
+2. You'll be asked to pick a **dev container definition** to use as a starting point for your container. All of these come from the from the **[vscode-dev-containers repository](http://aka.ms/vscode-dev-containers)** if you'd like to take a look at their contents before picking one. If you have a [`Dockerfile`](https://docs.docker.com/engine/reference/builder/) in your project, you also have the option to use it instead.
 
-3. You'll be asked to pick a **dev container definition** to use as a starting point for your container. All of these come from the from the **[vscode-dev-containers repository](http://aka.ms/vscode-dev-containers)** if you'd like to take a look at their contents before picking one. If you have a [`Dockerfile`](https://docs.docker.com/engine/reference/builder/) in your project, you also have the option to use it instead.
+    > **Note:** VS Code Remote - Containers does not currently support Alpine or Windows based containers.
 
-    > **Note:** VS Code Remote - Containers does not currently support Alpine and Windows based containers.
-
-4. You'll see a notification asking you if you'd like to reopen the folder in the container. Click the **Reopen Folder in Container** button.
-
-    ![Dev config file reopen notification](images/containers/dev-container-reopen-prompt.png)
-
-5. The window will then reload, but since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates. If you want to get a more detailed view of progress, take a look at the "Dev Containers" terminal window.
+3. The window will then reload, but since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates. If you want to get a more detailed view of progress, take a look at the "Dev Containers" terminal window.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-6. After it's done, VS Code will automatically connect to the container. The local filesystem will be automatically mapped into the container so you can interact with it just as you would if it was running locally.
+4. After it's done, VS Code will automatically connect to the container. The local filesystem will be automatically mapped into the container so you can interact with it just as you would if it was running locally.
 
 ## Creating configuration files for existing projects
 
-The key to configuring VS Code to adapt to a wide variety of container-based scenarios is `devcontainer.json`. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. The file is either located at `.devcontainer/devcontainer.json` with other files related to your dev container or as a stand alone dot-prefixed `.devcontainer.json` file.
+The key to configuring VS Code to adapt to a wide variety of container-based scenarios is `devcontainer.json`. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. The file is either located at `.devcontainer/devcontainer.json` with other files related to your dev container or as a stand alone dot-prefixed `.devcontainer.json` file. In the quick start above, one of these files added to your project with the appropriate settings after you selected a definition.
 
 The **Remote-Docker: Create Container Configuration File...** command from the command pallette adds a `devcontainer.json` file among others that you can then adapt to your needs. For example, you can:
 
@@ -405,33 +399,39 @@ See the following examples dev containers for additional information:
 - Local proxy settings are not reused inside the container which can prevent extensions from working unless the appropriate proxy information is configured (e.g. global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 - See [here for a list of active issues](https://aka.ms/vscode-remote/containers/issues) on GitHub that are tagged with Containers.
 
-## Common questions
+## Questions, Feedback, Contributing
 
-### I am seeing errors when trying to mount the local filesystem into a container, how do I fix this?
+### Common questions
+
+#### I am seeing errors when trying to mount the local filesystem into a container, how do I fix this?
 
 Right-click on the Docker task bar item and select Settings.  On Windows, go to the Shared Drives tab and check the drive(s) where your source code is located. On macOS, go the File Sharing tab and be sure the folder containing your source code is under a file path specified in the list.
 
-### I'm seeing an error about a missing library or dependency, how do I fix this?
+#### I'm seeing an error about a missing library or dependency, how do I fix this?
 
 Some extensions rely on libraries not found in the certain Docker images. See [above](#installing-additional-software-in-the-sandbox) for a few options to resolve the problem.
 
-### How can I connect to multiple containers?
+#### How can I connect to multiple containers?
 
 Currently you can only connect to one container per VS Code window. However, you can spin up multiple containers and [attach to them](#attaching-to-running-containers) from different VS Code windows to work around this limitation.
 
-### The Docker / Kubernetes extension does not work when I am connected to a container. I also cannot build container images or deploy from my container. How can I fix this?
+#### The Docker / Kubernetes extension does not work when I am connected to a container. I also cannot build container images or deploy from my container. How can I fix this?
 
 You can resolve these issue by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes)in the container. See the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker), [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose), and [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) dev container definitions for details.
 
-### Can I access remote containers?
+#### Can I access remote containers?
 
 If you are remotely running your containers in Docker, you can configure your local `docker` command to connect to the remote machine. However, you'll want to take care in ensuring you're authenticating your connection. This approach is also generally not recommended outside of development environments. You can [read this article](https://www.kevinkuszyk.com/2016/11/28/connect-your-docker-client-to-a-remote-docker-host/) for information on setting this up.
 
-### As an extension author what do I need to do?
+#### What are the connectivity requirements for the VS Code Remote Server when it is running in a container?
+
+The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, random port automatically exposed via the Docker CLI.
+
+#### As an extension author what do I need to do?
 
 The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
-## More Questions, Feedback, Contributing
+### More Questions, Feedback, Contributing
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 

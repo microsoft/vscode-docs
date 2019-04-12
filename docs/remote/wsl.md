@@ -109,17 +109,23 @@ NodeJS Error: spawn EACCES (different variants of this error) | https://github.c
 Webpack HMR not working | https://github.com/Microsoft/WSL/issues/2709 |
 Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/issues/2657 |
 
-## Common questions
+## Questions, Feedback, Contributing
 
-### I'm seeing an error about a missing library or dependency, how do I fix this?
+### Common questions
+
+#### I'm seeing an error about a missing library or dependency, how do I fix this?
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
 
-### As an extension author, what do I need to do?
+### What are the connectivity requirements for the VS Code Remote Server when it is running in WSL?
+
+The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through am authenticated, random local TCP port.
+
+#### As an extension author, what do I need to do?
 
 The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
-## More Questions, Feedback, Contributing
+### More Questions, Feedback, & Contributing
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
