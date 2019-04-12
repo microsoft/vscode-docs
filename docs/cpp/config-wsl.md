@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: GCC on Windows Subsystem for Linux
 ContentId: dc79a06a-6665-478c-9298-a1fc9cf8010d
 PageTitle: Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code
-DateApproved: 04/03/2019
+DateApproved: 04/12/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and GDB on WSL installation with Ubuntu
 ---
 # Using C++ and WSL in VS Code
@@ -57,16 +57,20 @@ To successfully complete this tutorial, you must do the following steps:
 
 ## Create a workspace
 
-At a Windows command prompt, create an empty folder called `projects` (just like you did on Ubuntu) where you can place your helloworld project, and other VS Code projects you might create. Then create a subfolder called `helloworld`, navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
+In Windows, you will need an empty folder called `projects` (just like you now have on Ubuntu) where you can place your helloworld project, and other VS Code projects you might create. 
 
-    ```bash
-    mkdir projects
-    cd projects
-    mkdir helloworld
-    cd helloworld
-    code .
-    ```
-By starting VS Code in a folder, that folder becomes your "workspace". When you first open the folder, VS Code creates a subfolder called `.vscode` and adds a file called `settings.json` to that folder. You can look at that file if you like but we won't be concerned with it in this tutorial. Our task is to add three additional files to the `.vscode` folder that will tell VS Code how to compile and debug our program:
+1. Type **cmd** in the Windows search box and then choose **Windows command prompt**. 
+1. Enter the following commands:
+
+   ```cmd
+   mkdir projects
+   cd projects
+   mkdir helloworld
+   cd helloworld
+   code .
+   ```
+
+The **code .** command opens VS Code for Windows in the current working folder, which becomes your *workspace*. When you first open the folder, VS Code creates a subfolder called `.vscode` and adds a file called `settings.json` to it. You can look at that file if you like but we won't be concerned with it in this tutorial. Our task is to add three additional files to the `.vscode` folder that will tell VS Code how to compile and debug our program:
 
 - `c_cpp_properties.json` to specify the compiler path
 - `tasks.json` to specify how to build the executable
@@ -121,12 +125,12 @@ Next, create a `tasks.json` file to tell VS code how to build (compile) the prog
 
 1. Go ahead and replace the entire file contents with the following code snippet, but be sure to replace the placeholders with your actual Linux user name (the $HOME environment variable doesn't work here for WSL). To see your Linux user name, from the Bash shell type:
 
-    ```bash
+   ```bash
     cd $HOME
     pwd
-    ```
+   ```
 
-    ```json
+   ```json
     {
         "version": "2.0.0",
         "tasks": [
@@ -147,7 +151,7 @@ Next, create a `tasks.json` file to tell VS code how to build (compile) the prog
             }
         ]
     }
-    ```
+   ```
 
     The `command` setting specifies the program to run; in this case that is g++.exe. The `args` array specifies the command-line arguments that will be passed to g++. These arguments must be specified in the order expected by the compiler. You are telling g++ on WSL to grab the source file in our current workspace directory on Windows, compile it, then place the executable file in our `helloworld` folder under the `$HOME/projects/helloworld` folder in WSL.
 
@@ -210,7 +214,7 @@ By default, the C++ extension adds a breakpoint to the first line of `main`. The
 1. In the main VS Code menu, click on **File > New File** and name it `helloworld.cpp`.
 1. Paste in this source code:
 
-    ```cpp
+   ```cpp
     #include <iostream>
     #include <vector>
     #include <string>
@@ -228,7 +232,7 @@ By default, the C++ extension adds a breakpoint to the first line of `main`. The
         }
         cout << endl;
     }
-    ```
+   ```
 
 1. Now press `kb(workbench.action.files.save)` to save the file. Notice how all the files you have just edited appear in the **File Explorer** view in the left panel of VS Code:
 
