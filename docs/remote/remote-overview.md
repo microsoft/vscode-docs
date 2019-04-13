@@ -21,7 +21,7 @@ For example, you may want to:
 - Debug a problem with an **application running somewhere else** such as a customer site or in the cloud.
 - Develop your Linux-deployed applications using the **Windows Subsystem for Linux**.
 
-The **[Visual Studio Code Remote Development](https://aka.ms/vscode-remote/download/extension)** extension pack addresses these needs by allowing your local VS Code installation and any extension provided features to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical). When using the capability, VS Code selectively runs certain extensions on the remote machine to optimize your experience.
+**[Visual Studio Code Remote Development](https://aka.ms/vscode-remote/download/extension)** addresses these needs by allowing your local VS Code installation and any extension provided features to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical). When using the capability, VS Code selectively runs certain extensions on the remote machine to optimize your experience.
 
 ![Architecture](images/remote-overview/architecture.png)
 
