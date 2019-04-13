@@ -27,7 +27,7 @@ To successfully complete this tutorial, you must do the following:
 
 1. Install [Mingw-w64](http://mingw-w64.org/doku.php/download/mingw-builds) to a folder that has no spaces in its path (in other words, NOT the default location of C:/Program Files/). In this tutorial, we assume it is installed under `C:\Mingw-w64`.
 
-1. Install a shell program such as Bash. If you have installed Git for Windows, you already have a Bash shell that the extension can discover and use for its integrated Terminal. If you don't have Git for Windows installed, then you can install bash.exe as part of [MSYS2](https://sourceforge.net/projects/msys2/).
+1. Install a shell program such as Bash(PowerShell is also OK). If you have installed Git for Windows, you already have a Bash shell that the extension can discover and use for its integrated Terminal. If you don't have Git for Windows installed, then you can install bash.exe as part of [MSYS2](https://sourceforge.net/projects/msys2/).
 1. In the Windows search box, type "path" and then choose "Edit the system environment variables" from the results list.
 1. Add the paths to your Bash shell and to your mingw-w64 `bin` folder to the Windows PATH environment variable. The extension will pass this environment variable to the Bash shell when it opens it.
 
@@ -150,6 +150,7 @@ By default, the C++ extension adds a breakpoint to the first line of `main`. The
 Your complete `launch.json` file should look something like this:
 
 ```json
+{
    "version": "0.2.0",
     "configurations": [
 
