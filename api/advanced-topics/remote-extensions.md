@@ -57,7 +57,7 @@ You can edit and debug your extension in a container by following these steps.
     ```json
     {
         "name": "Extension Container",
-        "image": "ubuntu:bionic"
+        "image": "debian:9"
     }
     ```
 

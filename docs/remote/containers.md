@@ -47,7 +47,9 @@ The extension supports two primary operating models. One is to use a container a
 
 ### Quick start: Open a folder in a container
 
-For this quick start, we'll set up one of your existing project folders to work in a container. Just follow these steps:
+In this quick start, we'll set up one of your existing project folders to work in a container. However, if you'd prefer to try out a sample instead, you can clone the [vscode-dev-containers repository]([https://](http://aka.ms/vscode-dev-containers) and simply run **Remote-Containers: Open Folder in Container...** command and select on one of the folders in the `containers` directory.
+
+Just follow these steps to get your own project up and running:
 
 1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the command pallette, and select a folder you'd like to use.
 
