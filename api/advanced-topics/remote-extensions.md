@@ -197,9 +197,9 @@ Note that you can do feature detection instead of updating the engine version if
 
 ### Opening something in a local browser or application
 
-Spawning a process or using a module like `opn` to launch a browser or other application for particular URI can work well for local scenarios, but Workspace extensions run remotely which can cause the the application to launch on the wrong side.
+Spawning a process or using a module like `opn` to launch a browser or other application for particular URI can work well for local scenarios, but Workspace extensions run remotely which can cause the the application to launch on the wrong side. VS Code Remote Development **partially** shims the `opn` node module to allow existing extensions to function. You can call the module with a URI and VS Code will cause the default application for the URI to appear on the client side. However, this is not a complete implementation as options are not support and a `child_process` object is not returned.
 
-Thankfully, recent versions of VS Code include the `vscode.env.openExternal` method that can launch the default registered application on your local operating system for any URI you pass into it. Even better `vscode.env.openExternal` **does automatic port forwarding!** You can use it to point to a local web server on a remote machine and serve up content even if that port is blocked externally.
+Instead of relying on a 3rd party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better `vscode.env.openExternal` **does automatic port forwarding!** You can use it to point to a local web server on a remote machine and serve up content even if that port is blocked externally.
 
 It was added to version 1.31 of VS Code, so you can update your `engines.vscode` value in `package.json` to avoid having to do feature detection:
 
@@ -224,8 +224,6 @@ vscode.env.openExternal(vscode.Uri.parse('mailto:vscode@microsoft.com'));
 Note that you can do feature detection instead of updating the engine version if you would prefer by checking to see if `(<any>vscode.env).openExternal` exists and falling back to your current logic if not. However, we generally recommend just updating the engine version instead.
 
 If you need to do something more sophisticated like launch an arbitrary application, you can use a Helper Extension. See [below](#accessing-local-apis-using-a-helper-extension) for details.
-
-> **NOTE:** We are investigating automatically shim'ing `opn` to make this process easier. See [#807](https://github.com/Microsoft/vscode-remote/issues/807). [A complete example `opn` node module shim can be found here](https://github.com/Microsoft/vscode-dev-containers/tree/clantz/extension-samples/example-extensions/opn-shim) in the meantime.
 
 ### Communicating between extensions using commands
 
@@ -554,7 +552,7 @@ There are a few extension problems that could be resolved with some added functi
 
 | Problem | Description | GitHub issue |
 |---------|-------------|--------------|
-| **Blocked ports** | When working inside a Docker container or SSH server, ports are not automatically forwarded and there currently is no API to programmatically forward a port from an extension. WebViews can be adapted as [described above](#using-the-webview-api), but other scenarios currently require users to manally forward or expose ports. | [#531](https://github.com/Microsoft/vscode-remote/issues/531) |
+| **Blocked ports** | When working inside a Docker container or SSH server, ports are not automatically forwarded and there currently is no API to programmatically forward a port from an extension. WebViews can be adapted as [described above](#using-the-webview-api), but other scenarios currently require users to manually forward or expose ports. | [#531](https://github.com/Microsoft/vscode-remote/issues/531) |
 | **Local access to remote workspace files** | In some cases you may need to download a file from a UI extension (or helper) that is contained in the remote workspace. We are investigating options for how extensions might be able to accomplish this task. | [#640](https://github.com/Microsoft/vscode-remote/issues/640) |
 
 ## Reporting Issues
