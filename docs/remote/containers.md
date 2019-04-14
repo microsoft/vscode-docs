@@ -43,6 +43,12 @@ To get started you can:
     > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
     > 4. Reload / restart VS Code - Insiders.
 
+4. [Optional] On Windows, we recommend **disabling automatic line ending conversion** for Git on the **Windows side**. If you clone (or pull) a repository on the Windows side with this setting enabled, all files will appear to be modified in the source control panel when you open the folder this same folder in a container. Instead, use a `.gitattribute` file in your repo to force CRLF as needed.
+
+    ````bash
+    git config --global core.autocrlf false
+    ````
+
 The extension supports two primary operating models. One is to use a container as your [full-time development environment](#creating-configuration-files-for-existing-projects) while the other is to [attach to a running container](#attaching-to-running-containers) for targeted use. We will cover how to use a container as your full-time development environment first.
 
 ### Quick start: Open a folder in a container

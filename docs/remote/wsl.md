@@ -39,6 +39,12 @@ To get started you need to:
     > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
     > 4. Reload / restart VS Code - Insiders.
 
+4. [Optional] We recommend **disabling automatic line ending conversion** for Git on the **Windows side**. If you clone (or pull) a repository on the Windows side with this setting enabled, all files will appear to be modified in the source control panel when you open the folder this same folder in WSL side . Instead, use a `.gitattribute` file in your repo to force CRLF as needed.
+
+    ````bash
+    git config --global core.autocrlf false
+    ````
+
 ### Open a folder in WSL
 
 Opening a folder inside the Windows Subsystem for Linux in VS Code is very similar to opening up a Windows folder from the command prompt.
