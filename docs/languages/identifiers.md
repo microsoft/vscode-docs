@@ -98,6 +98,7 @@ Pug | `jade`
 Python | `python`
 R | `r`
 Razor (cshtml) | `razor`
+Razor .Net Core | `aspnetcorerazor`
 Ruby | `ruby`
 Rust | `rust`
 SCSS | `scss` (syntax using curly brackets), `sass` (indented syntax)
