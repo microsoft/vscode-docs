@@ -10,7 +10,7 @@ MetaSocialImage: images/csharp/languages_csharp.png
 ---
 # Working with C&#35;
 
-The C# support in Visual Studio Code is optimized for cross-platform .NET Core development (see [working with .NET Core and VS Code](/docs/other/dotnet.md) for another relevant article). Our focus with VS Code is to be a great editor for cross-platform C# development.
+The C# support in Visual Studio Code is optimized for cross-platform .NET Core development (see [working with .NET Core and VS Code](/docs/languages/dotnet.md) for another relevant article). Our focus with VS Code is to be a great editor for cross-platform C# development.
 
 ![C# language within VS Code](images/csharp/c_sharp_hero.png)
 
@@ -113,11 +113,11 @@ There are some basic quick fixes supported in VS Code. You will see a lightbulb 
 
 Read on to find out about:
 
-* [.NET Core Development](/docs/other/dotnet.md) - get up and running with cross-platform .NET
+* [.NET Core Development](/docs/languages/dotnet.md) - get up and running with cross-platform .NET
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
-* [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
+* [Tasks](/docs/editor/tasks.md) - Use tasks to build your project and more.
+* [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger with your project.
+* [Unity development](/docs/other/unity.md) - Learn about using VS Code with your Unity projects.
 
 ## Common questions
 
