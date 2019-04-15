@@ -61,7 +61,7 @@ You can edit and debug your extension in a container by following these steps.
     }
     ```
 
-2. Edit your `launch.json` to add a second argument in the `args` list that points to a test project or your test data. For example, if your test data is in a `data` folder in your workspace, you'd add `${workspaceFolder/data}` as follows:
+2. Edit your `launch.json` to add a second argument to the `args` property that points to the path of a test project or your test data in your workspace folder or that will be in the container when it starts (Note: You cannot use the workspace folder itself.) For example, if your test data is in a `data` folder in your workspace, you'd add `${workspaceFolder}/data` as follows:
 
     ```json
     {
