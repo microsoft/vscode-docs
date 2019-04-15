@@ -61,9 +61,28 @@ You can edit and debug your extension in a container by following these steps.
     }
     ```
 
-2. Run **Remote-Containers: Reopen Folder in Container** and in a moment your VS Code will set up the container and connect. You can now edit your source code as you would in the local case.
+2. Edit your `launch.json` to add a second argument in the `args` list that points to a test project or your test data. For example, if your test data is in a `data` folder in your workspace, you'd add `${workspaceFolder/data}` as follows:
 
-3. Finally, **F5 / use the the debug panel** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running inside this same container with the debugger attached to it.
+    ```json
+    {
+        "name": "Launch Extension",
+        "type": "extensionHost",
+        "request": "launch",
+        "runtimeExecutable": "${execPath}",
+        "args": [
+            "--extensionDevelopmentPath=${workspaceRoot}",
+            "${workspaceFolder}/data"
+        ],
+        "stopOnEntry": false,
+        "sourceMaps": true,
+        "outFiles": ["${workspaceRoot}/dist/**/*.js"],
+        "preLaunchTask": "npm"
+    }
+    ```
+
+3. Run **Remote-Containers: Reopen Folder in Container** and in a moment your VS Code will set up the container and connect. You can now edit your source code as you would in the local case.
+
+4. Finally, **F5 / use the the debug panel** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running inside this same container with the debugger attached to it.
 
 #### Using SSH or WSL
 
