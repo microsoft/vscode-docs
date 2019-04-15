@@ -81,9 +81,19 @@ Set the `"remote.SSH.configFile"` property in `settings.json` if you want to use
 
 ## Managing extensions
 
-While "personalization" extensions (along with a few others) install on your local VS Code instance, most installed extensions will reside on a particular remote host. This allows you to install the right extensions for a given workspace now and jump back later at the exact same place where you left off - even when connecting from another machine.
+VS Code runs extensions two one of places: locally on the UI / client side, or remotely on the SSH host. While "personalization" extensions (along with a few others) install on on the UI side, most installed extensions will reside on the SSH host. This behavior ensures you have smooth experience and allows you to install any needed extensions for a given Workspace on a SSH host from your local machine and pick up exactly where you left of from a different machine later - complete with extensions.
 
-When installing extensions, VS Code infers whether the extension should be run locally or remotely based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
+You can tell if an extension is installed on a particular SSH host by the presence of an indicator next to the extension's icon in the extension panel when you are connected. (Locally installed extensions will not have this indicator.)
+
+![Installed Workspace Extension Indicator](images/common/installed-remote-indicator.png)
+
+> **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
+
+The **Disabled** category also contains a list of extensions you have installed locally, but are not active because they need to run on the Workspace / SSH host side. You can click the **Install** button on any of them you want to install on your remote host.
+
+![Disabled Extensions w/Install Button](images/ssh/ssh-disabled-extensions.png)
+
+Any other extensions you search for or install will automatically be installed in the correct location when you are connected!
 
 ### "Always installed" extensions
 
@@ -95,6 +105,19 @@ If there are extensions that you would like to always have installed on any SSH 
     "mutantdino.resourcemonitor"
 ]
 ```
+
+### Advanced: Forcing an extension to run locally / remotely
+
+Extensions typically are designed and tested to for use in one side or the other, not both. However, you can force an extension to run in a particular location  `settings.json`.For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+
+````json
+"_workbench.uiExtensions" : [
+    "peterjausovec.vscode-docker",
+    "-msjsdiag.debugger-for-chrome"
+]
+````
+
+Typically this should only be used for testing unless otherwise noted in the extension's documentation as it **can break extensions**. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Forwarding a port / creating SSH tunnel
 

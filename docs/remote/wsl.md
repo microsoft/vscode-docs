@@ -71,6 +71,19 @@ That's it! Any VS Code operations you perform in this window will executed in th
 
 You can install additional extensions at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or in WSL based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
 
+### Advanced: Forcing an extension to run locally / remotely
+
+VS Code runs extensions two one of places: locally on the UI / client side, or remotely on the Workspace / WSL side. Extensions typically are designed and tested to for use in one side or the other, not both. However, you can force an extension to run in a particular location  `settings.json`.For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+
+````json
+"_workbench.uiExtensions" : [
+    "peterjausovec.vscode-docker",
+    "-msjsdiag.debugger-for-chrome"
+]
+````
+
+ Typically this should only be used for testing unless otherwise noted in the extension's documentation as it **can break extensions**. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+
 ### Opening a terminal in WSL
 
 If you've already connected to WSL, **any terminal window** you open in VS Code will automatically run inside WSL. As with external WSL terminal windows, you can also **use the `code` CLI** to perform a number of operations such as opening a new file or folder. Type `code --help` to what is available from the command line.

@@ -113,15 +113,15 @@ A value of `ui` will force the extension to run on the client. A value of `works
 You can test whether switching your extension to a UI extension will solve your problem with the `workbench.uiExtensions` option in `settings.json`. This allows you to test in-marketplace versions of extensions without having to modify their `package.json` file. The value of the setting is an array of extension IDs. For example to specify that the Docker extension should run as a UI extension you would add the following:
 
 ````json
-"workbench.uiExtensions" : [
-    "liximomo.sftp"
+"_workbench.uiExtensions" : [
+    "peterjausovec.vscode-docker"
 ]
 ````
 
 On the other hand, if you want to test a UI extension to see if it functions as a Workspace extension, simply add a minus before the extension ID. For example, this will force the Chrome Debugger extension into Workspace mode:
 
 ````json
-"workbench.uiExtensions" : [
+"_workbench.uiExtensions" : [
     "-msjsdiag.debugger-for-chrome"
 ]
 ````
@@ -301,8 +301,9 @@ It was added to version 1.34 of VS Code, so you can update your `engines.vscode`
 After this setting is in place, only versions of VS Code with support will get the updated version of the extension once you publish it. You can then use it as follows:
 
 ```typescript
-const staticPort = 3000;
+const STATIC_PORT = 3000;
 const dynamicServerPort = getExpressServerPort();
+const webviewPort = STATIC_PORT;
 
 // Create WebView and pass portMapping in
 const panel = vscode.window.createWebviewPanel(
@@ -311,15 +312,15 @@ const panel = vscode.window.createWebviewPanel(
     vscode.ViewColumn.One, <any>{
         portMapping: [
             // Map localhost:3000 in the webview to the express server port on the remote host.
-            { port: staticPort, resolvedPort: dynamicServerPort }
+            { webviewPort: webviewPort, extensionHostPort: dynamicServerPort }
         ]
     });
 
-// Reference the "staticPort" variable in any full URIs you reference in your HTML.
+// Reference the "webviewPort" variable in any full URIs you reference in your HTML.
 panel.webview.html =  `<!DOCTYPE html>
     <body>
         <!-- This will resolve to the dynamic server port on the remote machine -->
-        <img src="http://localhost:${staticPort}/canvas.png">
+        <img src="http://localhost:${webviewPort}/canvas.png">
     </body>
     </html>`;
 ```
@@ -328,7 +329,20 @@ With this change, the WebView traffic will instead use VS Code's existing commun
 
 ![WebView Solution](images/remote-extensions/webview-solution.png)
 
-See the [API guide](/api/extension-guides/webview) for more details.
+The engine setting above will ensure only versions of VS Code with this API get your extension update. Previous versions of VS Code will simply get the older version of your extension. However, if you want to be able to service multiple versions of VS Code, you can change the code above slightly to handle this as follows:
+
+```TypeScript
+const STATIC_PORT = 3000;
+const dynamicServerPort = getExpressServerPort();
+// Use STATIC_PORT in VS Code >= 1.34 (w/ portMapping support) and the dynamicServerPort in older
+// versions where the portMapping property will simply be ignored.
+const [ major, minor, ...rest ] = <number[]>vscode.version.split('.').map((ver) => parseInt(ver));
+const webviewPort = ( major > 1 || (major === 1 && minor >= 34)) ? STATIC_PORT : dynamicServerPort;
+```
+
+However, we generally recommend just updating the engine version instead as this will require less testing.
+
+See the [WebView API guide](/api/extension-guides/webview) for more details on its use.
 
 ## Accessing local APIs using a Helper Extension
 
