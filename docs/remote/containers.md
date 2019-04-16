@@ -45,7 +45,7 @@ To get started you can:
 
 The extension supports two primary operating models. One is to use a container as your [full-time development environment](#creating-configuration-files-for-existing-projects) while the other is to [attach to a running container](#attaching-to-running-containers) for targeted use. We will cover how to use a container as your full-time development environment first.
 
-### Quick start: Try out a dev container
+### Quick start: Try a dev container
 
 You can quickly take a tour of what VS Code Remote Development can do or try out a new technology stack without installing anything locally in a few easy steps:
 
