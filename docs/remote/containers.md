@@ -27,9 +27,7 @@ To get started you can:
 
 1. Install [Docker Desktop for Mac/Windows](https://www.docker.com/products/docker-desktop) or [Docker CE/EE for Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
-    > **Linux Note:** Follow the **official** Docker install instructions such as using the [convenience script](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script). Do **not** use the unofficial Ubuntu snap package.
-    >
-    > You will also need to add your user to the `docker` group after installation as follows: `sudo usermod -aG docker $USER`.
+    > **Linux Note:** Follow the **official** Docker install instructions such as using the [convenience script](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script) (rather than the unoffical Ubuntu snap package) and add your user to the `docker` group after installation as follows: `sudo usermod -aG docker $USER`.
 
 2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/)
 
@@ -43,11 +41,7 @@ To get started you can:
     > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
     > 4. Reload / restart VS Code - Insiders.
 
-4. [Optional] On Windows, we recommend **disabling automatic line ending conversion** for Git on the **Windows side**. If you clone (or pull) a repository on the Windows side with this setting enabled, all files will appear to be modified in the source control panel when you open this same folder in a container. Instead, use a `.gitattribute` file in your repo to force CRLF as needed.
-
-    ````bash
-    git config --global core.autocrlf false
-    ````
+4. [Optional] On Windows, we recommend **disabling automatic line ending conversion** for Git on the **Windows side** given Linux (and thus Containers) use different line endings. Run this command to update the setting before cloning a repository: `git config --global core.autocrlf false`
 
 The extension supports two primary operating models. One is to use a container as your [full-time development environment](#creating-configuration-files-for-existing-projects) while the other is to [attach to a running container](#attaching-to-running-containers) for targeted use. We will cover how to use a container as your full-time development environment first.
 
@@ -175,7 +169,9 @@ VS Code runs extensions two one of places: locally on the UI / client side, or r
 
 ## Opening a terminal in a container
 
-If you've already connected to a container, **any terminal window** you open in VS Code will automatically run in the. You can also **use the `code` CLI this terminal window** to perform a number of operations such as opening a new file or folder on the remote host! Type `code --help` to what is available from the command line.
+Opening a terminal in a container is simple. Once connected, **any terminal window** you open in VS Code (e.g. using **Terminal > New Terminal**) will automatically run in the container rather than locally.
+
+You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder in the container! Type `code-insiders --help` to what is available from the command line.
 
 ![Using the code CLI](images/containers/code-command-in-terminal.png)
 

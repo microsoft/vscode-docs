@@ -39,11 +39,7 @@ To get started you need to:
     > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
     > 4. Reload / restart VS Code - Insiders.
 
-4. [Optional] We recommend **disabling automatic line ending conversion** for Git on the **Windows side**. If you clone (or pull) a repository on the Windows side with this setting enabled, all files will appear to be modified in the source control panel when you open this same folder in WSL side . Instead, use a `.gitattribute` file in your repo to force CRLF as needed.
-
-    ````bash
-    git config --global core.autocrlf false
-    ````
+4. [Optional] On Windows, we recommend **disabling automatic line ending conversion** for Git on the **Windows side** given Linux (and thus WSL) use different line endings. Run this command to update the setting before cloning a repository: `git config --global core.autocrlf false`
 
 ### Open a folder in WSL
 
@@ -86,7 +82,9 @@ VS Code runs extensions two one of places: locally on the UI / client side, or r
 
 ### Opening a terminal in WSL
 
-If you've already connected to WSL, **any terminal window** you open in VS Code will automatically run inside WSL. As with external WSL terminal windows, you can also **use the `code` CLI** to perform a number of operations such as opening a new file or folder. Type `code --help` to what is available from the command line.
+Opening a terminal in a container is simple. Once connected, **any terminal window** you open in VS Code (e.g. using **Terminal > New Terminal**) will automatically run in WSL than locally.
+
+You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder in WSL! Type `code-insiders --help` to what is available from the command line.
 
 ![Using the code CLI](images/wsl/code-command-in-terminal.png)
 
