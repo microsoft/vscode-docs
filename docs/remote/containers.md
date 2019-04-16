@@ -222,6 +222,7 @@ You can use the following properties in a `.devcontainer/devcontainer.json` in y
 | `image` | string | Required. The name of an image in a container registry (e.g. [DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)) that VS Code should use to provision the dev container. |
 | `name` | string | [Optional] A display name for the container. |
 | `extensions` | array | [Optional] Defaults to `[]`. An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
+| `context` | string | [Optional] Defaults to `"."`. Path that the Docker build should be run from relative to `devcontainer.json`. For example, a value of `".."` would allow you to reference content in sibling directories. |
 | `appPort` | integer, string, or array | [Optional] Defaults to `[]`. A port or array of ports that should be made available locally when the container is running (beyond those already exposed by the container image). |
 | `runArgs` | array | [Optional] Defaults to `[]`. An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. |
 | `overrideCommand` | boolean | [Optional] Defaults to `true`. Tells VS Code whether it should run `sleep infinity` when starting the container instead of the default command to prevent the container from immediatley shutting down if the default command fails. |
