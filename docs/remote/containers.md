@@ -51,23 +51,51 @@ To get started you can:
 
 The extension supports two primary operating models. One is to use a container as your [full-time development environment](#creating-configuration-files-for-existing-projects) while the other is to [attach to a running container](#attaching-to-running-containers) for targeted use. We will cover how to use a container as your full-time development environment first.
 
-### Quick start: Open a folder in a container
+### Quick start: Try out a dev container
 
-In this quick start, we will cover how to set up an existing project folder to use a container as your full-time development environment. However, if you'd prefer to try out a sample instead, you can clone the [vscode-dev-containers repository](http://aka.ms/vscode-dev-containers), run the **Remote-Containers: Open Folder in Container...** command, and select one of the folders in the `containers` directory.
+You can quickly take a tour of what VS Code Remote Development can do or try out a new technology stack without installing anything locally in a few easy steps:
 
-Just follow these steps to get your own project up and running:
+1. Clone the [vscode-dev-containers repository](http://aka.ms/vscode-dev-containers).
 
-1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the command pallette, and select a folder you'd like to use.
+    ```bash
+    git clone https://github.com/Microsoft/vscode-dev-containers
+    ```
 
-2. You'll be asked to pick a **dev container definition** to use as a starting point for your container. All of these come from the from the **[vscode-dev-containers repository](http://aka.ms/vscode-dev-containers)** if you'd like to take a look at their contents before picking one. If you have a [`Dockerfile`](https://docs.docker.com/engine/reference/builder/) in your project, you also have the option to use it instead.
+2. Start VS Code and click on the Remote Development quick actions status bar item.
 
-    > **Note:** VS Code Remote - Containers does not currently support Alpine or Windows based containers.
+    ![Quick actions status bar item](images/common/remote-dev-status-bar.png)
 
-3. The window will then reload, but since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates. If you want to get a more detailed view of progress, take a look at the "Dev Containers" terminal window.
+3. Select **Remote-Containers: Open Folder in Container...** from the scoped command palette that appears.
+
+4. Select one of the folders in the `containers` directory of the cloned copy of the vscode-dev-containers repository that interests you.
+
+5. The window will then reload, but since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-4. After it's done, VS Code will automatically connect to the container. The local filesystem will be automatically mapped into the container so you can interact with it just as you would if it was running locally.
+After it's done, VS Code will automatically connect to the container. The local filesystem will be automatically mapped into the container so you can interact with it just as you would if it was running locally!
+
+### Quick start: Open a folder in a container
+
+Next, we will cover how to set up an existing project folder to use a container as your full-time development environment. The steps are very similar to those above. Just follow these steps to get your own project up and running:
+
+1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the command pallette.
+
+2. Select the folder you'd like to open in a container.
+
+3. You'll then be asked to pick a **dev container definition** to use as a starting point for your container. If there is a [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) in the folder, you also have the option to use it instead.
+
+    ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
+
+    > **Note:** VS Code Remote - Containers does not currently support Alpine or Windows based containers.
+
+    All of these come from the **[vscode-dev-containers repository](http://aka.ms/vscode-dev-containers)** if you'd like to take a look at their contents before picking one.
+
+4. Once you pick an option, the needed configuration files like `devcontainer.json` will be added to the folder and the window will then reload. Since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates.
+
+    ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+
+After it's done, VS Code will automatically connect to the container. The local filesystem will be automatically mapped into the container so you can interact with it just as you would if it was running locally!
 
 ## Creating configuration files for existing projects
 
