@@ -19,7 +19,7 @@ To successfully complete this tutorial, you must do the following steps:
 
 1. Install [Visual Studio Code](/download) and follow the setup instructions in [Visual Studio Code on macOS](/docs/setup/mac.md).
 
-1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-VS Code.cpptools).
+1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 
 ## Add VS Code to your PATH
 
