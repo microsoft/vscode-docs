@@ -7,9 +7,9 @@ ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and WSL
 DateApproved: 4/11/2019
 ---
-# Remote Development Tips & Tricks
+# Remote Development Tips and Tricks
 
-This article covers troubleshooting tips and tricks for each of the Visual Studio Code Remote Development extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities.
+This article covers troubleshooting tips and tricks for each of the Visual Studio Code Remote Development extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension.
 
 ## SSH Tips
 
@@ -19,7 +19,7 @@ This article covers troubleshooting tips and tricks for each of the Visual Studi
 
 You can set up SSH key based authentication for your remote host as follows:
 
-1. Check to see if `~/.ssh/id_rsa.pub` exists on macOS / Linux or `%USERPROFILE%\.ssh\id_rsa.pub` on Windows. If not, run the following command in a terminal / command prompt to generate a SSH key pair:
+1. Check to see if `~/.ssh/id_rsa.pub` exists on macOS / Linux or `%USERPROFILE%\.ssh\id_rsa.pub` on Windows. If not, run the following command in a terminal / command prompt to generate an SSH key pair:
 
     ````bash
     ssh-keygen -t rsa -b 4096 -C "your@email-address.here"
@@ -27,7 +27,7 @@ You can set up SSH key based authentication for your remote host as follows:
 
     > **Tip:** Don't have `ssh-keygen`? Install [a supported client](#installing-a-supported-ssh-client).
 
-2. Add the contents of your **local** `id_rsa.pub` file to the appropriate `authorized_keys` file(s) on the remote host. How you do this depends on the operating systems involved.
+2. Add the contents of your **local** `id_rsa.pub` file to the appropriate `authorized_keys` file(s) on the remote host. How you do this depends on the operating system.
 
     **macOS / Linux to macOS / Linux**: Run the following command in a terminal replacing `your-remote-linux-machine` with the host from your SSH config file.
 
@@ -46,7 +46,9 @@ You can set up SSH key based authentication for your remote host as follows:
 
 ### Reusing a key generated in PuTTYGen
 
-If you already used PuTTYGen to set up SSH public key authentication for the host you are connecting to, you will need to convert your private key for use in other SSH clients. Simply follow these steps:
+If you already used PuTTYGen to set up SSH public key authentication for the host you are connecting to, you will need to convert your private key for use in other SSH clients.
+
+Follow these steps:
 
 1. Load the private key you created back into PuTTYGen
 2. Select **Conversions > Export OpenSSH key** and select a location to export the key such as `%USERPROFILE%\.ssh`.
@@ -68,7 +70,9 @@ If one of the following conditions apply, you will need to enable the `remote.SS
 - Using password auth
 - Using an SSH key with a passphrase when the SSH agent is not running or accessible
 
-This setting will cause the terminal to be shown whenever vscode runs an ssh command. You will have to enter your auth code, password, or passphrase each time. A convenient way to work around this is to enable the `ControlMaster` feature that tells OpenSSH to multiple multiple SSH sessions over a single connection. Enable it in your SSH config file like this:
+This setting will cause the terminal to be shown whenever VS Code runs an SSH command. You will have to enter your auth code, password, or passphrase each time. A convenient way to work around this is to enable the `ControlMaster` feature that tells OpenSSH to run multiple SSH sessions over a single connection.
+
+Enable it in your SSH config file like this:
 
 ```
 Host *
@@ -91,10 +95,10 @@ The following are permissions that should be set correctly on your local machine
 
 | Folder / File | Linux / macOS Permissions | Windows Permissions |
 |---------------|---------------------------|---------------------|
-| `.ssh` in your user folder | chmod 700 ~/.ssh | Grant "Full Control" to your user, Administrators and SYSTEM. |
-| `.ssh/config` in your user folder | chmod 600 ~/.ssh | Grant "Full Control" to your user, Administrators and SYSTEM. |
-| `.ssh/id_rsa.pub` in your user folder | chmod 600 ~/.ssh/id_rsa.pub | Grant "Full Control" to your user, Administrators and SYSTEM. |
-| Any other key file | chmod 600 /path/to/key/file| Grant "Full Control" to your user, Administrators and SYSTEM.|
+| `.ssh` in your user folder | chmod 700 ~/.ssh | Grant "Full Control" to your user, Administrators, and SYSTEM. |
+| `.ssh/config` in your user folder | chmod 600 ~/.ssh | Grant "Full Control" to your user, Administrators, and SYSTEM. |
+| `.ssh/id_rsa.pub` in your user folder | chmod 600 ~/.ssh/id_rsa.pub | Grant "Full Control" to your user, Administrators, and SYSTEM. |
+| Any other key file | chmod 600 /path/to/key/file| Grant "Full Control" to your user, Administrators, and SYSTEM.|
 
 #### SSH server file and folder permissions
 
@@ -121,7 +125,7 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 
 | OS | Instructions |
 |----|--------------|
-| Windows 10 / Server 2016 | Install the [Windows OpenSSH Client](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse). |
+| Windows 10 / Server 2016 | Install the [Windows OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
 | Earlier Windows | Install [Git for Windows](https://git-scm.com/download/win) and select the **Use Git and optional Unix tools from the Command Prompt** option or manually add `C:\Program Files\Git\usr\bin` into your PATH. |
 | macOS | No steps required. |
 | Debian/Ubuntu | Run `sudo apt-get install openssh-client` |
@@ -166,14 +170,14 @@ If you are remotely running your containers in Docker, you can configure your lo
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
 
-## Questions, Feedback, Contributing
+## Questions and Feedback
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
-Have a question or feedback? There are many ways to interact with us.
+Have a question or feedback?
 
-- Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
-- [Up-vote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new)
-- Contribute a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
+- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
+- Add a [feature requests](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
+- Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
 - Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
-- ...and more. See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
+- See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
