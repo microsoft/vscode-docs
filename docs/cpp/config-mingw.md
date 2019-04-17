@@ -58,7 +58,7 @@ You can use any other shell by specifying its full path in this setting.
    code .
    ```
 
-The **code .** command opens VS Code for Windows in the current working folder, which becomes your *workspace*. Our task is to add three files to the workspace that will tell VS Code how to compile and debug our program. VSCode will place these files in a `.vscode` subfolder that it will create for us:
+The **code .** command opens VS Code in the current working folder, which becomes your **workspace**. Our task is to add three files to the workspace that will tell VS Code how to compile and debug our program. VS Code will place these files in a `.vscode` subfolder that it will create for us:
 
 - `c_cpp_properties.json` to specify the compiler path
 - `tasks.json` to specify how to build the executable

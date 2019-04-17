@@ -11,7 +11,7 @@ MetaDescription: Configuring the C++ extension in Visual Studio Code to target C
 
 In this tutorial, you configure Visual Studio Code on macOS to use the Clang/LLVM compiler and debugger. The configuration applies to a single workspace (folder hierarchy), but you can easily copy the configuration files to other workspaces where the same settings are required. After configuring VS Code, you will compile and debug a simple program to get familiar with the VS Code user interface. After completing this tutorial, you will be ready to create and configure your own workspace, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you about Clang or the C++ language. For those subjects, there are many good resources available on the Web.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/VS Code-docs/issues).
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ To successfully complete this tutorial, you must do the following steps:
 
 1. Install [Visual Studio Code](/download) and follow the setup instructions in [Visual Studio Code on macOS](/docs/setup/mac.md).
 
-1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-VS Code.cpptools).
 
 ## Add VS Code to your PATH
 
@@ -46,7 +46,7 @@ cd helloworld
 code .
 ```
 
-The **code .** command opens VS Code for Mac in the current working directory, which becomes your *workspace*. Our task is to add three files to the workspace that will tell VS Code how to compile and debug our program. VSCode will place these files in a `.vscode` subdirectory that it will create for us:
+The **code .** command opens VS Code in the current working directory, which becomes your ***workspace***. Our task is to add three files to the workspace that will tell VS Code how to compile and debug our program. VS Code will place these files in a `.vscode` subdirectory that it will create for us:
 
 - `c_cpp_properties.json` to specify the compiler path
 - `tasks.json` to specify how to build the executable
