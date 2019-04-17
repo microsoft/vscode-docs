@@ -322,7 +322,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 ### Debugging over SSH
 
-In some cases, you may want or need to use a secure connection to the remote computer when debugging. On Windows computers, you may need to install [OpenSSH](http://sshwindows.sourceforge.net/) or [Windows 10 OpenSSH](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse) to have the `ssh` command.
+In some cases, you may want or need to use a secure connection to the remote computer when debugging. On Windows computers, you may need to install [OpenSSH](http://sshwindows.sourceforge.net/) or [Windows 10 OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) to have the `ssh` command.
 
 On the remote computer:
 
