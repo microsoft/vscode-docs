@@ -41,55 +41,54 @@ To get started you can:
     > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
     > 4. Reload / restart VS Code - Insiders.
 
-4. [Optional] On Windows, we recommend **disabling automatic line ending conversion** for Git on the **Windows side** given Linux (and thus Containers) use different line endings. Run this command to update the setting before cloning a repository: `git config --global core.autocrlf false`
+4. **[Windows]** Disable automatic line ending conversion for Git on the *Windows side* (given Linux and Windows use different line endings). Run: `git config --global core.autocrlf false`
 
 The extension supports two primary operating models. One is to use a container as your [full-time development environment](#creating-configuration-files-for-existing-projects) while the other is to [attach to a running container](#attaching-to-running-containers) for targeted use. We will cover how to use a container as your full-time development environment first.
 
 ### Quick start: Try a dev container
 
-You can quickly take a tour of what VS Code Remote Development can do or try out a new technology stack without installing anything locally in a few easy steps:
+Let's start out by using a sample project to try things out.
 
-1. Clone the [vscode-dev-containers repository](http://aka.ms/vscode-dev-containers).
+1. Clone one of the sample repositories below.
 
     ```bash
-    git clone https://github.com/Microsoft/vscode-dev-containers
+    git clone https://github.com/Microsoft/vscode-remote-try-node
+    git clone https://github.com/Microsoft/vscode-remote-try-python
+    git clone https://github.com/Microsoft/vscode-remote-try-go
+    git clone https://github.com/Microsoft/vscode-remote-try-java
     ```
 
-2. Start VS Code and click on the Remote Development quick actions status bar item.
+2. Start VS Code and click on quick actions status bar item.
 
     ![Quick actions status bar item](images/common/remote-dev-status-bar.png)
 
-3. Select **Remote-Containers: Open Folder in Container...** from the scoped command palette that appears.
+3. Select **Remote-Containers: Open Folder in Container...** command from the command list that appears and selected the cloned project.
 
-4. Select one of the folders in the `containers` directory of the cloned copy of the vscode-dev-containers repository that interests you.
-
-5. The window will then reload, but since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates.
+4. The window will then reload, but since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-After it's done, VS Code will automatically connect to the container. The local filesystem will be automatically mapped into the container so you can interact with it just as you would if it was running locally!
+After it's done, VS Code will automatically connect to the container with the local file system mapped into it. You can interact with it just as you would if it was running locally! Try editing and debugging to see what you can do!
 
 ### Quick start: Open a folder in a container
 
-Next, we will cover how to set up an existing project folder to use a container as your full-time development environment. The steps are very similar to those above. Just follow these steps to get your own project up and running:
+Next, we will cover how to set up an existing project folder to use a container as your full-time development environment. The steps are very similar to those above.
 
-1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the command pallette.
+1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the command pallette and select the folder you'd like to open in a container.
 
-2. Select the folder you'd like to open in a container.
-
-3. You'll then be asked to pick a **dev container definition** to use as a starting point for your container. If there is a [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) in the folder, you also have the option to use it instead.
+2. You'll be asked to pick a **dev container definition** to use as a starting point for your container. If there is a [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) in the folder you selected, you also have the option use it as a starting point instead.
 
     ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
 
     > **Note:** VS Code Remote - Containers does not currently support Alpine or Windows based containers.
 
-    All of these come from the **[vscode-dev-containers repository](http://aka.ms/vscode-dev-containers)** if you'd like to take a look at their contents before picking one.
+    If you want to check out their contents before picking one, see the [vscode-dev-containers repository](http://aka.ms/vscode-dev-containers). Once you pick an option, any needed configuration files like `devcontainer.json` will be added to the folder and the window will then reload.
 
-4. Once you pick an option, the needed configuration files like `devcontainer.json` will be added to the folder and the window will then reload. Since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates.
+3. Since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-After it's done, VS Code will automatically connect to the container. The local filesystem will be automatically mapped into the container so you can interact with it just as you would if it was running locally!
+After it's done, VS Code will automatically connect to the container and you can interact with it just as you would if it was running locally! Next time you open this same folder, the settings you chose will be reused.
 
 ## Creating configuration files for existing projects
 
@@ -102,7 +101,7 @@ The **Remote-Docker: Create Container Configuration File...** command from the c
 - [Use Docker or Kubernetes](#working-with-docker-or-kubernetes-from-inside-a-container) from inside a dev container to build and deploy your app.
 - [Attach to an already running container](#attaching-to-running-containers).
 
-The [vscode-dev-containers repository](http://aka.ms/vscode-dev-containers) is a good starting resource for examples of adapting `devcontainer.json` to different scenarios. From here, you can [alter your configuration](#in-depth-setting-up-a-folder-to-run-in-a-container) to install additional tools like Git in the container, automatically install extensions, expose additional ports, set runtime arguments, reuse or [extend your existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend), and more.
+The [vscode-dev-containers repository](http://aka.ms/vscode-dev-containers) is a good starting resource for examples of adapting `devcontainer.json` to different scenarios. From here, you can [alter your configuration](#indepth-setting-up-a-folder-to-run-in-a-container) to install additional tools like Git in the container, automatically install extensions, expose additional ports, set runtime arguments, reuse or [extend your existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend), and more.
 
 Finally, if nothing here meets your needs, you can also spin up containers in any way you see fit and [attach to a running container](#attaching-to-running-containers).
 
