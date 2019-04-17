@@ -87,7 +87,7 @@ You can tell if an extension is installed on a particular SSH host by the presen
 
 ![Installed Workspace Extension Indicator](images/common/installed-remote-indicator.png)
 
-> **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
+> **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 The **Disabled** category also contains a list of extensions you have installed locally, but are not active because they need to run on the Workspace / SSH host side. You can click the **Install** button on any of them you want to install on your remote host.
 
@@ -108,16 +108,20 @@ If there are extensions that you would like to always have installed on any SSH 
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-Extensions typically are designed and tested to for use in one side or the other, not both. However, you can force an extension to run in a particular location  `settings.json`.For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+Extensions typically are designed and tested to for use in one side or the other, not both. However, you can force an extension to run in a particular location  `settings.json`. For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ````json
-"_workbench.uiExtensions" : [
-    "peterjausovec.vscode-docker",
-    "-msjsdiag.debugger-for-chrome"
+"remote.extensionKind" : [
+    "ui": [
+        "peterjausovec.vscode-docker",
+    ],
+    "workspace": [
+        "msjsdiag.debugger-for-chrome"
+    ]
 ]
 ````
 
-Typically this should only be used for testing unless otherwise noted in the extension's documentation as it **can break extensions**. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Forwarding a port / creating SSH tunnel
 
@@ -199,7 +203,7 @@ However, this use case can typically be handled by combining extensions like [SF
 
 ### As an extension author what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ### Questions or feedback
 

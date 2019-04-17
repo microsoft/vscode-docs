@@ -46,7 +46,7 @@ The **[Remote Development extension pack](https://aka.ms/vscode-remote/download/
 - **[Containers](/docs/remote/containers.md)** - Work with a sandboxed toolchain or container based application by opening any folder inside (or mounted into) a container.
 - **[WSL](/docs/remote/wsl.md)** - Get a Linux-powered development experience from the comfort of Windows by opening any folder in the Windows Subsystem for Linux.
 
-While many extensions are expected to work unmodified in a remote environment, extension authors can get more information on testing and fixed remote related problems here: **[Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md)**
+While many extensions are expected to work unmodified in a remote environment, extension authors can get more information on testing and fixed remote related problems here: **[Supporting Remote Development](/api/advanced-topics/remote-extensions.md)**
 
 ## Questions or feedback
 

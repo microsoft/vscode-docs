@@ -84,7 +84,7 @@ Next, we will cover how to set up an existing project folder to use a container 
 
     If you want to check out their contents before picking one, see the [vscode-dev-containers repository](http://aka.ms/vscode-dev-containers).
 
-3. Once you pick an option, any needed configuration files like `devcontainer.json` will be added to the folder and the window will then reload. VS Code will then provision a container and progress notification will provide status updates.
+3. Once you pick an option, any needed configuration files like `devcontainer.json` will be added to the folder and the window will then reload. VS Code will then provision a container and a progress notification will provide status updates.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
@@ -133,7 +133,7 @@ You can tell if an extension is installed in a particular container by the prese
 
 ![Installed Workspace Extension Indicator](images/common/installed-remote-indicator.png)
 
-> **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
+> **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 The **Disabled** category also contains a list of extensions you have installed locally, but are not active because they need to run in the container. You can click the **Install** button on any of them you want to install on your remote host.
 
@@ -154,16 +154,20 @@ If there are extensions that you would like to always have installed in any cont
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-VS Code runs extensions two one of places: locally on the UI / client side, or remotely on the Workspace / container side. Extensions typically are designed and tested to for use in one side or the other, not both. However, you can force an extension to run in a particular location  `settings.json`.For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+VS Code runs extensions two one of places: locally on the **UI** / client side, or remotely on the **Workspace** / container side. Extensions typically are designed and tested to for use in one side or the other, not both. However, you can force an extension to run in a particular location  `settings.json`. For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ````json
-"_workbench.uiExtensions" : [
-    "peterjausovec.vscode-docker",
-    "-msjsdiag.debugger-for-chrome"
+"remote.extensionKind" : [
+    "ui": [
+        "peterjausovec.vscode-docker",
+    ],
+    "workspace": [
+        "msjsdiag.debugger-for-chrome"
+    ]
 ]
 ````
 
- Typically this should only be used for testing unless otherwise noted in the extension's documentation as it **can break extensions**. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Opening a terminal in a container
 
@@ -482,7 +486,7 @@ The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `up
 
 ### As an extension author what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Questions or feedback
 

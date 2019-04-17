@@ -65,20 +65,24 @@ That's it! Any VS Code operations you perform in this window will executed in th
 
 ### Managing extensions
 
-You can install additional extensions at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or in WSL based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see [Adding Remote Support to Extensions](/api/advanced-topics/remote-extensions.md) for details on resolving these issues.
+You can install additional extensions at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or in WSL based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-VS Code runs extensions two one of places: locally on the UI / client side, or remotely on the Workspace / WSL side. Extensions typically are designed and tested to for use in one side or the other, not both. However, you can force an extension to run in a particular location  `settings.json`.For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+VS Code runs extensions two one of places: locally on the UI / client side, or remotely on the Workspace / WSL side. Extensions typically are designed and tested to for use in one side or the other, not both. However, you can force an extension to run in a particular location  `settings.json`. For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ````json
-"_workbench.uiExtensions" : [
-    "peterjausovec.vscode-docker",
-    "-msjsdiag.debugger-for-chrome"
+"remote.extensionKind" : [
+    "ui": [
+        "peterjausovec.vscode-docker",
+    ],
+    "workspace": [
+        "msjsdiag.debugger-for-chrome"
+    ]
 ]
 ````
 
- Typically this should only be used for testing unless otherwise noted in the extension's documentation as it **can break extensions**. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ### Opening a terminal in WSL
 
@@ -138,7 +142,7 @@ The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `up
 
 ### As an extension author, what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Questions or feedback
 

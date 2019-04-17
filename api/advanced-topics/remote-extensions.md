@@ -114,19 +114,16 @@ If the location is incorrect, you can explicitly specify which location category
 
 A value of `ui` will force the extension to run on the client. A value of `workspace` will force the extension to run inside the VS Code Remote Server.
 
-You can test whether switching your extension to a UI extension will solve your problem with the `workbench.uiExtensions` option in `settings.json`. This allows you to test in-marketplace versions of extensions without having to modify their `package.json` file. The value of the setting is an array of extension IDs. For example to specify that the Docker extension should run as a UI extension you would add the following:
+You can **test** whether switching your extension to a UI extension will solve your problem with the `remote.extensionKind` option in `settings.json`. This allows you to test in-marketplace versions of extensions without having to modify their `package.json` file. The value of the setting is an array of extension IDs. For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ````json
-"_workbench.uiExtensions" : [
-    "peterjausovec.vscode-docker"
-]
-````
-
-On the other hand, if you want to test a UI extension to see if it functions as a Workspace extension, simply add a minus before the extension ID. For example, this will force the Chrome Debugger extension into Workspace mode:
-
-````json
-"_workbench.uiExtensions" : [
-    "-msjsdiag.debugger-for-chrome"
+"remote.extensionKind" : [
+    "ui": [
+        "peterjausovec.vscode-docker",
+    ],
+    "workspace": [
+        "msjsdiag.debugger-for-chrome"
+    ]
 ]
 ````
 
