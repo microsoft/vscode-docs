@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: GCC on Windows Subsystem for Linux
 ContentId: dc79a06a-6665-478c-9298-a1fc9cf8010d
 PageTitle: Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code
-DateApproved: 04/12/2019
+DateApproved: 04/17/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and GDB on WSL installation with Ubuntu
 ---
 # Using C++ and WSL in VS Code
@@ -70,7 +70,7 @@ In Windows, you will need an empty folder called `projects` (just like you now h
    code .
    ```
 
-The **code .** command opens VS Code for Windows in the current working folder, which becomes your *workspace*. When you first open the folder, VS Code creates a subfolder called `.vscode` and adds a file called `settings.json` to it. You can look at that file if you like but we won't be concerned with it in this tutorial. Our task is to add three additional files to the `.vscode` folder that will tell VS Code how to compile and debug our program:
+The **code .** command opens VS Code for Windows in the current working folder, which becomes your *workspace*. Our task is to add three files to the workspace that will tell VS Code how to compile and debug our program. VSCode will place these files in a `.vscode` subfolder that it will create for us:
 
 - `c_cpp_properties.json` to specify the compiler path
 - `tasks.json` to specify how to build the executable
