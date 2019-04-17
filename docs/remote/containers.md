@@ -458,47 +458,45 @@ See the following examples dev containers for additional information:
 - Local proxy settings are not reused inside the container which can prevent extensions from working unless the appropriate proxy information is configured (e.g. global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 - See [here for a list of active issues](https://aka.ms/vscode-remote/containers/issues) on GitHub that are tagged with Containers.
 
-## Questions, Feedback, Contributing
+## Common questions
 
-### Common questions
-
-#### I am seeing errors when trying to mount the local filesystem into a container, how do I fix this?
+### I am seeing errors when trying to mount the local filesystem into a container, how do I fix this?
 
 Right-click on the Docker task bar item and select Settings.  On Windows, go to the Shared Drives tab and check the drive(s) where your source code is located. On macOS, go the File Sharing tab and be sure the folder containing your source code is under a file path specified in the list.
 
-#### I'm seeing an error about a missing library or dependency, how do I fix this?
+### I'm seeing an error about a missing library or dependency, how do I fix this?
 
 Some extensions rely on libraries not found in the certain Docker images. See [above](#installing-additional-software-in-the-sandbox) for a few options to resolve the problem.
 
-#### How can I connect to multiple containers?
+### How can I connect to multiple containers?
 
 Currently you can only connect to one container per VS Code window. However, you can spin up multiple containers and [attach to them](#attaching-to-running-containers) from different VS Code windows to work around this limitation.
 
-#### The Docker / Kubernetes extension does not work when I am connected to a container. I also cannot build container images or deploy from my container. How can I fix this?
+### The Docker / Kubernetes extension does not work when I am connected to a container. I also cannot build container images or deploy from my container. How can I fix this?
 
 You can resolve these issue by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes)in the container. See the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker), [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose), and [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) dev container definitions for details.
 
-#### Can I access remote containers?
+### Can I access remote containers?
 
 If you are remotely running your containers in Docker, you can configure your local `docker` command to connect to the remote machine. However, you'll want to take care in ensuring you're authenticating your connection. This approach is also generally not recommended outside of development environments. You can [read this article](https://www.kevinkuszyk.com/2016/11/28/connect-your-docker-client-to-a-remote-docker-host/) for information on setting this up.
 
-#### What are the connectivity requirements for the VS Code Remote Server when it is running in a container?
+### What are the connectivity requirements for the VS Code Remote Server when it is running in a container?
 
 The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, random port automatically exposed via the Docker CLI.
 
-#### As an extension author what do I need to do?
+### As an extension author what do I need to do?
 
 The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
-### More Questions, Feedback, Contributing
+## Questions or feedback
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
-Have a question or feedback? There are many ways to interact with us.
+Have a question or feedback?
 
 - See the [FAQ](/docs/remote/faq.md) or the [troubleshooting guide](/docs/remote/troubleshooting.md#ssh-tips).
-- Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
-- [Up-vote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new)
-- Contribute a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
+- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
+- Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
+- Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
 - Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
-- ...and more. See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
+- See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.

@@ -11,7 +11,7 @@ DateApproved: 4/11/2019
 
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code Remote Development extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension.
 
-## SSH Tips
+## SSH tips
 
 ### Configuring key based authentication
 
@@ -139,7 +139,7 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 | RHL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
 | macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. | |
 
-## Container Tips
+## Container tips
 
 ### Enabling file sharing in Docker Desktop
 
@@ -164,20 +164,20 @@ You can use Docker and Kubernetes related CLIs and extensions from inside your d
 
 If you are remotely running your containers in Docker, you can configure your local `docker` command to connect to the remote machine. However, you'll want to take care in ensuring you're authenticating your connection. This approach is also generally not recommended outside of development environments. You can [read this article](https://www.kevinkuszyk.com/2016/11/28/connect-your-docker-client-to-a-remote-docker-host/) for information on setting this up.
 
-## WSL Tips
+## WSL tips
 
 ### Resolving errors about missing dependencies
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
 
-## Questions and Feedback
+## Questions and feedback
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
 Have a question or feedback?
 
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
-- Add a [feature requests](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
+- Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 - Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
 - Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
 - See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
