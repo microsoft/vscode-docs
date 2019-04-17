@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Mingw on Windows
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
 PageTitle: Get Started with C++ and Mingw-w64 in Visual Studio Code
-DateApproved: 04/03/2019
+DateApproved: 04/17/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a Mingw-w64 installation
 ---
 # Using Mingw in Visual Studio Code
@@ -58,7 +58,7 @@ You can use any other shell by specifying its full path in this setting.
    code .
    ```
 
-By starting VS Code in a folder, that folder becomes your "workspace". When you first open the folder, VS Code creates a subfolder called `.vscode` and adds a file called `settings.json` to that folder. You can look at that file if you like but you won't be concerned with it anymore in this tutorial. The next task is to add three additional files to the `.vscode` folder that will tell VS Code how to compile and debug your program:
+The **code .** command opens VS Code in the current working folder, which becomes your **workspace**. Our task is to add three files to the workspace that will tell VS Code how to compile and debug our program. VS Code will place these files in a `.vscode` subfolder that it will create for us:
 
 - `c_cpp_properties.json` to specify the compiler path
 - `tasks.json` to specify how to build the executable

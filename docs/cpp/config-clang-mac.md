@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Clang on macOS
 ContentId: 6ef32219-81ad-4d73-84b8-8d4384a45f8a
 PageTitle: Get Started with C++ and Clang/LLVM in Visual Studio Code on macOS
-DateApproved: 04/03/2019
+DateApproved: 04/17/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target Clang/LLVM
 ---
 # Using Clang in Visual Studio Code
@@ -46,7 +46,7 @@ cd helloworld
 code .
 ```
 
-By starting VS Code in a folder, that folder becomes your *workspace*. VS Code stores user settings that are specific to that workspace in `.vscode/settings.json`. In this tutorial, we'll add three additional files to the `.vscode` folder:
+The **code .** command opens VS Code in the current working directory, which becomes your ***workspace***. Our task is to add three files to the workspace that will tell VS Code how to compile and debug our program. VS Code will place these files in a `.vscode` subdirectory that it will create for us:
 
 - `c_cpp_properties.json` to specify the compiler path
 - `tasks.json` to specify how to build the executable

@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Microsoft C++
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
 PageTitle: Configure Visual Studio Code for Microsoft C++
-DateApproved: 04/03/2019
+DateApproved: 04/17/2019
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows.
 ---
 # Configure VS Code for Microsoft C++
@@ -42,7 +42,7 @@ cd helloworld
 code .
 ```
 
-By starting VS Code in a folder, that folder becomes your *workspace*. VS Code stores user settings that are specific to that workspace in `.vscode/settings.json`. In this tutorial, we'll add three additional files to the `.vscode` folder to configure the workspace to target MSVC:
+The **code .** command opens VS Code in the current working folder, which becomes your ****workspace****. Our task is to add three files to the workspace that will tell VS Code how to compile and debug our program. VS Code will place these files in a `.vscode` subfolder that it will create for us:
 
 - `c_cpp_properties.json` to specify the compiler path
 - `tasks.json` to specify how to build the executable
@@ -85,7 +85,7 @@ Your complete `c_cpp_properties.json` file should like something like this:
 
 ## Create a build task
 
-Next, create a `tasks.json` file to tell VS code how to build (compile) the program. This task will invoke the g++ compiler on WSL to create an executable file based on the source code.
+Next, create a `tasks.json` file to tell VS code how to build (compile) the program. This task will invoke the Microsoft C++ compiler (cl.exe) to create an executable file based on the source code.
 
 1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Add a default build task** then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
 
@@ -104,7 +104,7 @@ Next, create a `tasks.json` file to tell VS code how to build (compile) the prog
                 "/Zi",
                 "/Fe:",
                 "helloworld.exe",
-                "main.cpp"
+                "helloworld.cpp"
             ],
             "group":  {
                 "kind": "build",
@@ -126,11 +126,12 @@ The `group` value specifies that this task will be run when you press `kb(workbe
 
 ## Configure debug settings
 
-Next, you'll create a `launch.json` file to configure VS Code to launch GDB on WSL when you press `kb(workbench.action.debug.start)` to debug the program.
+Next, you'll create a `launch.json` file to configure VS Code to launch the debugger when you press `kb(workbench.action.debug.start)` to debug the program.
 
 1. From the main menu, choose **Debug > Add Configuration...** and then choose **C/C++ Windows (Launch)**. This causes the `launch.json` file to be created and opened. Replace the contents of the file with this
 
 ```json
+{
    "version": "0.2.0",
     "configurations": [
         {
@@ -199,7 +200,7 @@ You can press the TAB key to insert the selected member; then, when you add the 
 
 1. When the task starts, you should see the integrated Terminal window appear below the code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful MSVC build, the output looks something like this:
 
-![G++ build output in terminal](images/msvc/msvc-task-in-terminal.png)
+![MSVC build output in terminal](images/msvc/msvc-task-in-terminal.png)
 
 1. As the message instructs, press any key to close the build message; the terminal now returns to the shell command prompt.
 
