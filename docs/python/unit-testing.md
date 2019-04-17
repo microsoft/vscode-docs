@@ -245,7 +245,7 @@ For example, the `test_decrement` functions given earlier are failing because th
     self.assertEqual(inc_dec.decrement(3), 2)
 
     # pytest
-    assert inc_dec.decrement(3) == 4
+    assert inc_dec.decrement(3) == 2
     ```
 
 1. Save the file and run the tests again to confirm that they pass, and see that the CodeLens adornments also indicate passing status.
