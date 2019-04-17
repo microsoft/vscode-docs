@@ -132,24 +132,20 @@ After a few moments, the command creates a `launch.json` file that contains a nu
 
 These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python: Current File (Integrated Terminal)**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
->> **WARNING**: Due to a [current bug in the debugger](https://github.com/Microsoft/vscode-python/issues/4223), the following discussion of the `stopOnEntry` setting doesn't work and causes the debugger to fail to start. Instead, set a breakpoint on the first line and do **not** add `stopOnEntry` to the configuration.
->
-> Affected paragraphs:
->
-> To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
->
-> ```json
-> {
->     "name": "Python: Current File (Integrated Terminal)",
->     "type": "python",
->     "request": "launch",
->     "program": "${file}",
->     "console": "integratedTerminal",
->     "stopOnEntry": true
-> },
-> ```
->
-> Save `launch.json` after making changes.
+To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
+
+```json
+{
+    "name": "Python: Current File (Integrated Terminal)",
+    "type": "python",
+    "request": "launch",
+    "program": "${file}",
+    "console": "integratedTerminal",
+    "stopOnEntry": true
+},
+```
+
+Save `launch.json` after making changes.
 
 > **Tip:** If you need to specify the exact folder containing the interpreter to use for debugging, include an entry for `pythonPath` in the configuration, such as `"pythonPath": "${workspaceFolder}"` or `"pythonPath": "${workspaceFolder}/.venv"`.
 
