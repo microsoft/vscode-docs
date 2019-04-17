@@ -7,7 +7,7 @@ ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
 DateApproved: 4/11/2019
 ---
-# Developing using SSH
+# Remote Development using SSH
 
 **Visual Studio Code Remote - SSH extension** allows you to open a remote folder on any remote machine, VM, or container with a running SSH server and take full advantage of VS Code's feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
 
@@ -165,53 +165,51 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 - Local proxy settings are not reused on the remote host which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (e.g. global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 - See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) on GitHub that are tagged with SSH.
 
-## Questions, Feedback, Contributing
+## Common questions
 
-### Common questions
-
-#### How do I setup a SSH client on ...?
+### How do I setup a SSH client on ...?
 
 See [here](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) details on installing supported clients.
 
-#### How do I setup a SSH server on ...?
+### How do I setup a SSH server on ...?
 
 See [here](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) for details on setting up a SSH server for your host.
 
-#### Can I sign into my SSH server with another/additional authentication mechanism like a password?
+### Can I sign into my SSH server with another/additional authentication mechanism like a password?
 
 Yes, with some additional configuration. See [here](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) for information on the correct settings.
 
-#### How do I fix SSH errors about "bad permissions"?
+### How do I fix SSH errors about "bad permissions"?
 
 See [here](/docs/remote/troubleshooting.md#fixing-ssh-permission-errors) for details on resolving these types of errors.
 
-#### What Linux packages / libraries need to be installed on remote SSH hosts?
+### What Linux packages / libraries need to be installed on remote SSH hosts?
 
 Most Linux distributions will not require additional dependency installation steps. Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed which can be missing from some very stripped down distributions.
 
-#### What are the connectivity requirements for the VS Code Remote Server when it is running on a remote machine / VM?
+### What are the connectivity requirements for the VS Code Remote Server when it is running on a remote machine / VM?
 
 The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, secure SSH tunnel.
 
-#### Can I use VS Code when I only have SFTP/FTP filesystem access to my remote host (no shell access)?
+### Can I use VS Code when I only have SFTP/FTP filesystem access to my remote host (no shell access)?
 
 Some cloud platforms only provide remote filesystem access for developers rather than direct shell access. VS Code Remote Development was not designed with this use case in mind since it negates the performance and user experience fidelity benefits that its model provides.
 
 However, this use case can typically be handled by combining extensions like [SFTP](https://marketplace.visualstudio.com/items?itemName=liximomo.sftp) with remote debugging features for [Node.js](/docs/nodejs/nodejs-debugging.md#remote-debugging), [Python](/docs/python/debugging.md#remote-debugging) [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), or others.
 
-#### As an extension author what do I need to do?
+### As an extension author what do I need to do?
 
 The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See [Adding Remote Development Support to Extensions](/api/advanced-topics/remote-extensions.md) for details.
 
-### More Questions, Feedback, Contributing
+### Questions or feedback
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
-Have a question or feedback? There are many ways to interact with us.
+Have a question or feedback?
 
 - See the [FAQ](/docs/remote/faq.md) or the [troubleshooting guide](/docs/remote/troubleshooting.md#ssh-tips).
-- Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
-- [Up-vote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new)
-- Contribute a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
+- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
+- Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
+- Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
 - Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
-- ...and more. See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
+- See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
