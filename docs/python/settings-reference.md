@@ -68,13 +68,19 @@ The language server settings apply when `python.jediEnabled` is `false`.
 
 The `disabled`, `errors`, `warnings`, and `information` settings can contain the following values:
 
-| Value | Default type | Message text |
+| Value | Default type | Description or message text |
 | --- | --- | --- |
 | "not-callable" | Warning | (object may not be callable) |
-| "used-before-assignment" | Warning | (unknown variable '{0}') |
+| "undefined-variable" | Warning | (unknown variable '{0}') |
 | "unresolved-import" | Warning | "Unable to resolve 'module_name'. IntelliSense may be missing for this module." |
+| "too-many-function-arguments" | Warning | Too many arguments have been provided to a function call. |
+| "too-many-positional-arguments-before-star" | Warning | Too many arguments have been provided before a starred argument. |
+| "positional-argument-after-keyword" | Warning | A positional argument has been provided after a keyword argument. |
+| "unknown-parameter-name" | Warning | The keyword argument name provided is unknown. |
+| "parameter-already-specified" | Warning | A argument with this name has already been specified. |
+| "parameter-missing" | Warning | A required positional argument is missing. |
 
-To suppress the "used-before-assignment" messages, for example, use the setting `"python.analysis.disabled": ["used-before-assignment"]`.
+To suppress the "undefined-variable" messages, for example, use the setting `"python.analysis.disabled": ["undefined-variable"]`. To suppress those messages and "too-many-function-arguments" messages as well, use the setting `"python.analysis.disabled": ["undefined-variable", "too-many-function-arguments"]`.
 
 ## AutoComplete settings
 
