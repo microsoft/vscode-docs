@@ -85,7 +85,7 @@ Your complete `c_cpp_properties.json` file should like something like this:
 
 ## Create a build task
 
-Next, create a `tasks.json` file to tell VS code how to build (compile) the program. This task will invoke the Microsoft C++ compiler (cl.exe) to create an executable file based on the source code.
+Next, create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the Microsoft C++ compiler (cl.exe) to create an executable file based on the source code.
 
 1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Add a default build task** then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
 

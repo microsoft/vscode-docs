@@ -57,9 +57,9 @@ To successfully complete this tutorial, you must do the following steps:
 
 ## Create a workspace
 
-In Windows, you will need an empty folder called `projects` (just like you now have on Ubuntu) where you can place your helloworld project, and other VS Code projects you might create. 
+In Windows, you will need an empty folder called `projects` (just like you now have on Ubuntu) where you can place your helloworld project, and other VS Code projects you might create.
 
-1. Type **cmd** in the Windows search box and then choose **Windows command prompt**. 
+1. Type **cmd** in the Windows search box and then choose **Windows command prompt**.
 1. Enter the following commands:
 
    ```cmd
@@ -119,7 +119,7 @@ You might notice that there is also an `includePath` setting. You only need to s
 
 ## Create a build task
 
-Next, create a `tasks.json` file to tell VS code how to build (compile) the program. This task will invoke the g++ compiler on WSL to create an executable file based on the source code.
+Next, create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the g++ compiler on WSL to create an executable file based on the source code.
 
 1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Add a default build task** and then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
 
