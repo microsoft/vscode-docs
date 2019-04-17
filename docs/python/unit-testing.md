@@ -90,37 +90,15 @@ With this code, you can experience working with tests in VS Code as described in
 
 ## Enable a test framework
 
-Unit testing in Python is disabled by default. To enable unit testing, set *one and only one* of the following settings to true: `python.unitTest.unittestEnabled`, `python.unitTest.pyTestEnabled`, and `python.unitTest.nosetestsEnabled`. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings).
+Unit testing in Python is disabled by default. To enable unit testing, use the **Python: Configure Unit Tests** command on the Command Palette. This command prompts you to select a unit test framework, the folder containing unit tests, and the pattern used to identify test files.
 
-It's important that you enable only a single test framework at a time. For this reason, when you enable one framework also be sure to disable the others.
+You can also configure unit testing manually by setting *one and only one* of the following settings to true: `python.unitTest.unittestEnabled`, `python.unitTest.pyTestEnabled`, and `python.unitTest.nosetestsEnabled`. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+
+It's important that you enable only a single test framework at a time. For this reason, when you enable one framework also be sure to disable the others. The **Python: Configure Unit Tests** command does this automatically.
 
 When you enable a test framework, VS Code prompts you to install the framework package if it's not already present in the currently activated environment:
 
 ![VS Code prompt to install a test framework when enabled](images/unit-testing/install-framework.png)
-
-### Settings to enable unittest
-
-```json
-"python.unitTest.unittestEnabled": true,
-"python.unitTest.pyTestEnabled": false,
-"python.unitTest.nosetestsEnabled": false,
-```
-
-### Settings to enable pytest
-
-```json
-"python.unitTest.unittestEnabled": false,
-"python.unitTest.pyTestEnabled": true,
-"python.unitTest.nosetestsEnabled": false,
-```
-
-### Settings to enable Nose
-
-```json
-"python.unitTest.unittestEnabled": false,
-"python.unitTest.pyTestEnabled": false,
-"python.unitTest.nosetestsEnabled": true,
-```
 
 ## Create tests
 
