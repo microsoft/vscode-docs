@@ -141,7 +141,6 @@ The **Disabled** category also contains a list of extensions you have installed 
 
 Any other extensions you search for or install will automatically be installed in the correct location when you are connected!
 
-
 ### "Always installed" extensions
 
 If there are extensions that you would like to always have installed in any container, you can update the `remote.containers.defaultExtensions` property in `settings.json`. For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/itemdetails?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/itemdetails?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
@@ -432,8 +431,6 @@ The following are some examples to get you started:
 - [Existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-docker-compose) - Inlcudes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
 
 - [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo) -  A simple Node.js web server that connects to a Mongo DB in a different container.
-
-- [Python & Redis](https://aka.ms/vscode-remote/samples/python-redis) - A simple Flask web app that connects to Redis in another container.
 
 - [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside the a dev container by simply volume mounting the Docker unix socket.
 
