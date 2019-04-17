@@ -47,7 +47,7 @@ The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `up
 
 Most Linux distributions will not require additional dependency installation steps. For SSH, Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed which could be missing from certain stripped down distributions. However, Alpine Linux is currently not supported.
 
-## Dev Containers
+## Dev containers
 
 ### Are "dev container definitions" supposed to define how an application is deployed?
 
@@ -59,30 +59,28 @@ No. The [Buildpack](https://buildpacks.io/) concept focuses on taking source cod
 
 Similarly, the "dev container definitions" found in the [vscode-dev-containers repo](https://aka.ms/vscode-dev-containers) can help jump start the process of creating a dev container when you do not have an existing image, `Dockerfile`, or `docker-compose.yml`. These can also act as samples if you do have existing container files. However, they are not intended to define how an application should be built.
 
-## Extensions Authors
+## Extensions authors
 
-### As an extension author what do I need to do?
+### As an extension author, what do I need to do?
 
 The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension (particularly in a container) to be sure that no updates are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-## License and Privacy
+## License and privacy
 
-### Are any of the Visual Studio Code Remote Development extensions or their components open source?
+### Are any of the Visual Studio Code Remote Development extensions or their components open-source?
 
-The Visual Studio Code Remote Development extensions and their related components are free to use with an [open roadmap](https://aka.ms/vscode-remote/feedback), but are not currently open source. See the [license](https://go.microsoft.com/fwlink/?linkid=2077057) for additional details.
+The Visual Studio Code Remote Development extensions and their related components are free to use with an [open roadmap](https://aka.ms/vscode-remote/feedback), but are not currently open-source. See the [license](https://go.microsoft.com/fwlink/?linkid=2077057) for additional details.
 
 ### GDPR and VS Code Remote Development
 
 The VS Code Remote Development extensions follow the GDPR policies as Visual Studio Code itself. See the [general FAQ](/docs/supporting/faq.md#gdpr-and-vs-code) for more details.
 
-## Questions, Feedback, Contributing
+## Questions or feedback
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
-Have a question or feedback? There are many ways to interact with us.
+Have a question or feedback?
 
-- Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
-- [Up-vote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new)
-- Contribute a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
-- Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
-- ...and more. See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
+- See [Remote Development Tips and Tricks](/docs/remote/troubleshooting.md).
+- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
+- Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
