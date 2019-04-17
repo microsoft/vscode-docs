@@ -486,6 +486,13 @@ There are many reasons why the debugger may not work. Oftentimes the debug conso
     RuntimeError: release unlocked lock
     ```
 
+- If you're working with a multi-threaded app that uses native thread APIs (such as the Win32 `CreateThread` function rather than the Python threading APIs), it's presently necessary to include the following code at the top of whatever file you wish debug:
+
+    ```python
+    import ptvsd
+    ptvsd.debug_this_thread()
+    ```
+
 ## Next steps
 
 - [Python environments](/docs/python/environments.md) - Control which Python interpreter is used for editing and debugging.
