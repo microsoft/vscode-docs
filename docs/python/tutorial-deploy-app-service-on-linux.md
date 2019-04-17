@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Deploy to Azure App Service
 ContentId: 1d4ae3ac-5d53-4e29-bf70-d97f1186c6c2
 PageTitle: Deploy Python web apps to Azure App Service on Linux
-DateApproved: 01/14/2019
+DateApproved: 04/18/2019
 MetaDescription: How to deploy Python web apps to Azure App Service on Linux
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -108,6 +108,18 @@ If you don't already have an app you'd like to work with, use one of the options
 1. Because you haven't deployed your own code to the App Service yet, you should see only the default app:
 
     ![Default Python app on App Service on Linux](images/deploy-azure/default-python-app.png)
+
+### (Optional) Upload an environment variable definitions file
+
+If you have an [environment variable definitions file](environments.md#environment-variable-definitions-file) (typically with the `.env` extension), you can use that file to configure the App Service environment as well:
+
+1. In the **Azure: App Service** explorer, expand the node for the desired App Service, then right-click the **Application Settings** node and select **Upload Local Settings**.
+
+1. VS Code prompts you for the location of your `.env` file, then uploads it to the App Service.
+
+1. Once the upload is complete, you can expand the **Application Settings** node to see the individual values. You can also view them on the Azure portal by navigating to the App Service and selecting **Configuration**.
+
+1. If you create settings directly on the Azure portal, you can save them in a definitions file by right-clicking the **Application Settings** node and selecting **Download Remote Settings**. This process makes sure that you have those settings in your repository and not only on the portal.
 
 ## Configure a custom startup file
 
