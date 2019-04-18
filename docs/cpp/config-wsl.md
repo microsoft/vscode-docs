@@ -133,6 +133,14 @@ Next, create a `tasks.json` file to tell VS Code how to build (compile) the prog
    ```json
     {
         "version": "2.0.0",
+        "windows": {
+            "options": {
+                "shell": {
+                    "executable": "c:\\windows\\sysnative\\bash.exe",
+                    "args": ["-c"]
+                }
+            }
+        },
         "tasks": [
             {
                 "label": "build hello world on WSL",
