@@ -167,7 +167,7 @@ The important parts of the code are as follows:
 
 ## Test and debug the function locally
 
-1. When you create the Functions project, the VS Code extension also creates a launch configuration in `.vscode/launch.json`, which contains a single configuration named "Attach to Python Functions." This configuration means you can just press F5 or use the Debug explorer to start the project:
+1. When you create the Functions project, the VS Code extension also creates a launch configuration in `.vscode/launch.json` that contains a single configuration named **Attach to Python Functions**. This configuration means you can just press F5 or use the Debug explorer to start the project:
 
     ![Debug explorer showing the Functions launch configuration](images/functions/launch-configuration.png)
 
@@ -184,9 +184,9 @@ The important parts of the code are as follows:
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
     ```
 
-1. Ctrl+click the URL in the output window to open a browser to that address, or start a browser and paste in the same URL. In either case, you can see that the endpoint is `api/<function_name>`, in this case `api/HttpExample`. But because you haven't specified a name parameter in the URL, the browser window should just show, "Please pass a name on the query string or in the request body".
+1. Ctrl+click the URL in the output window to open a browser to that address, or start a browser and paste in the same URL. In either case, you can see that the endpoint is `api/<function_name>`, in this case `api/HttpExample`. However, because that URL doesn't include a name parameter, the browser window should just show, "Please pass a name on the query string or in the request body" as appropriate for that path in the code.
 
-1. Now try the URL, `http://localhost:7071/api/HttpExample?name=VS%20Code` and you should see the message, "Hello VS Code!".
+1. Now try the URL, `http://localhost:7071/api/HttpExample?name=VS%20Code` and you should see the message, "Hello VS Code!", demonstrating that you've run that code path.
 
 1. To pass the name value in a JSON request body, you can use a tool like curl with the JSON inline:
 
@@ -197,7 +197,7 @@ The important parts of the code are as follows:
     ```
 
     ```ps
-    # Windows (needs escaping on the quotes)
+    # Windows (escaping on the quotes is necessary)
     curl --header "Content-Type: application/json" --request POST \
         --data {"""name""":"""VS Code"""} http://localhost:7071/api/HttpExample
     ```
@@ -212,23 +212,23 @@ The important parts of the code are as follows:
 
 In these steps, you use the Functions extension to create a "Function App" on Azure. A Function App is composed of a storage account for data, an App Service Plan, and an App Service (on Linux) that hosts your endpoints. All of these resources are organized within a single resource group.
 
-1. In the **Azure: Functions** explorer, select the **Deploy to Function App** command, or use the **Azure Functions: Deploy to Function App** command on the Command Palette. A "Function App" here is the Azure resource that hosts your code.
+1. In the **Azure: Functions** explorer, select the **Deploy to Function App** command, or use the **Azure Functions: Deploy to Function App** command on the Command Palette. A "Function App" here is again the Azure resource that hosts your code.
 
     ![Deploy to Function App command](images/functions/deploy-command.png)
 
 1. When prompted, select **Create New Function App in Azure**, and provide a name that's unique across Azure (typically using your personal or company name along with other unique identifiers; you can use letters, numbers, and hyphens). If you previously created a Function App, its name appears in this list of options.
 
-1. The extension then performs the following actions, which you can observe in VS Code popup messages and the output window. The process takes a few minutes the first time you deploy the project.
+1. The extension performs the following actions, which you can observe in VS Code popup messages and the output window the process takes a few minutes the first time you deploy the project):
 
     - Create a resource group using the name you gave (removing hyphens).
     - In that resource group, create the storage account, App Service Plan, and App Service to host your code.
-    - Deploys your code to that Function app.
+    - Deploy your code to the Function app.
 
     You can also see progress in the **Azure: Functions** explorer:
 
     ![Deployment progress indicator in the Azure: Functions explorer](images/functions/deploy-progress.png)
 
-1. Once deployment is complete, the output window shows the public endpoint on Azure.
+1. Once deployment is complete, the output window shows the public endpoint on Azure:
 
     ```
     HTTP Trigger Urls:
@@ -249,7 +249,7 @@ After your first deployment, you can make changes to your code, such as adding a
 
 1. In the VS Code file explorer, you should see a subfolder for your function name that again contains files named `__init__.py`, `function.json`, and `sample.dat`.
 
-1. Replace the code in `__init__.py` to match the following, which generates a string containing the value of PI to a number of digits speciied in the URL (this code uses only a URL parameter)
+1. Replace the code in `__init__.py` to match the following, which generates a string containing the value of PI to a number of digits specified in the URL (this code uses only a URL parameter)
 
     ```python
     import logging
@@ -322,7 +322,7 @@ After your first deployment, you can make changes to your code, such as adding a
 
 ## Clean up resources
 
-The Function App you created includes resources that can incur minimal costs (refer to [Functons Pricing](https://azure.microsoft.com/pricing/details/functions/)). To clean up the resources, right-click the Function App in the **Azure: Functions** explorer and select **Delete Function App**. You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
+The Function App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)). To clean up the resources, right-click the Function App in the **Azure: Functions** explorer and select **Delete Function App**. You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
 
 ## Next steps
 
