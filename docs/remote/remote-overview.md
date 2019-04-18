@@ -13,21 +13,20 @@ While many developers edit, build, deploy, and debug on their local machines, th
 
 For example, you may want to:
 
-- Avoid bugs by editing, building, or debugging an application using its **deployment OS** when your local machine runs a different one.
-- **Sandbox** your development environment to avoid accidentally impacting to your local **machine configuration**, allow you to better manage **multiple versions** of the same runtime, access tools or runtimes **not available** on your local OS, or reduce the risk of a **security issue** affecting your local OS.
-- Edit, build, or debug your application on **larger, faster, or more specialized hardware** than your local machine.
-- Continue to work on your **in-flight** changes or access an **existing** development environment from **multiple machines or locations**.
-- Edit, build, or debug an application with a number of network dependencies or frequently changing packages over a **low bandwidth or high latency** network connection by connecting to a machine close to these dependencies.
-- Debug a problem with an **application running somewhere else** such as a customer site or in the cloud.
+- Work on an app on its **deployment OS**, different from the one on your local machine.
+- **Sandbox** your development environment to avoid accidentally impacting to your local **machine configuration**.
+- Manage **multiple versions** of the same runtime or access tools or runtimes **not available** on your local OS.
 - Develop your Linux-deployed applications using the **Windows Subsystem for Linux**.
+- Access an **existing** development environment from **multiple machines or locations**.
+- Debug an **application running somewhere else** such as a customer site or in the cloud.
 
-**[Visual Studio Code Remote Development](https://aka.ms/vscode-remote/download/extension)** addresses these needs by allowing your local VS Code installation and any extension provided features to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical). When using the capability, VS Code selectively runs certain extensions on the remote machine to optimize your experience.
+**[Visual Studio Code Remote Development](https://aka.ms/vscode-remote/download/extension)** addresses these needs by allowing your local VS Code installation to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical).
 
 ![Architecture](images/remote-overview/architecture.png)
 
-Given **no source code needs to be on your local machine** to use the capability, the approach provides dramatic performance and fidelity benefits over using network shares or synchronizing files.
+Remote development means that **no source code needs to be on your local machine**, a big improvement over using network shares or synchronizing files.
 
-The result is that VS Code can provide a **local-quality development experience** including full IntelliSense, debugging, and more **regardless of where your code is hosted**.
+VS Code provides a **local-quality development experience** including full IntelliSense, debugging, and more **regardless of where your code is hosted**.
 
 ## Getting started
 
@@ -40,13 +39,15 @@ The result is that VS Code can provide a **local-quality development experience*
 
 ### Remote Development extension pack
 
-The **[Remote Development extension pack](https://aka.ms/vscode-remote/download/extension)** includes three extensions that will quickly unlock the full power of VS Code in a variety of situations. Click on the links below to learn more.
+The **[Remote Development extension pack](https://aka.ms/vscode-remote/download/extension)** includes three extensions that unlock the power of VS Code in a variety of situations.
 
-- **[SSH](/docs/remote/ssh.md)** - Work with source code in any location by opening folders on a remote machine/VM using SSH.
-- **[Containers](/docs/remote/containers.md)** - Work with a sandboxed toolchain or container based application by opening any folder inside (or mounted into) a container.
-- **[WSL](/docs/remote/wsl.md)** - Get a Linux-powered development experience from the comfort of Windows by opening any folder in the Windows Subsystem for Linux.
+Click on the links below to learn more:
 
-While many extensions are expected to work unmodified in a remote environment, extension authors can get more information on testing and fixed remote related problems here: **[Supporting Remote Development](/api/advanced-topics/remote-extensions.md)**
+- **[SSH](/docs/remote/ssh.md)** - Connect to any location by opening folders on a remote machine/VM using SSH.
+- **[Containers](/docs/remote/containers.md)** - Work with a sandboxed toolchain or container-based application inside (or mounted into) a container.
+- **[WSL](/docs/remote/wsl.md)** - Get a Linux-powered development experience in the Windows Subsystem for Linux.
+
+While most VS Code extensions should work unmodified in a remote environment, extension authors can learn more at [Supporting Remote Development](/api/advanced-topics/remote-extensions.md).
 
 ## Questions or feedback
 
@@ -54,9 +55,6 @@ While many extensions are expected to work unmodified in a remote environment, e
 
 Have a question or feedback?
 
-- See the [FAQ](/docs/remote/faq.md) or the [troubleshooting guide](https://aka.ms/vscode-remote/troubleshooting).
+- See the [FAQ](/docs/remote/faq.md) or [Tips and Tricks](https://aka.ms/vscode-remote/troubleshooting) topics.
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
-- Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
-- Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
-- Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
-- See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
+- Add a [feature request](https://aka.m/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
