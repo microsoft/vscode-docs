@@ -9,9 +9,9 @@ DateApproved: 1/30/2019
 ---
 # VS Code Remote Development
 
-VS Code Remote Development allows you to use a a container, a remote machine, or in the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl) as a full-featured development environment. With it, you can:
+The VS Code Remote Development extension pack allows you to use a container, remote machine, or the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl) as a full-featured development environment. You can:
 
-- Develop on the **same operating system** you deploy to or remotely use **larger or more specialized** hardware.
+- Develop on the **same operating system** you deploy to or use **larger or more specialized** hardware.
 - **Sandbox** your development environment to avoid impacting to your local **machine configuration**.
 - Make it easy for new contributors to **get started** and keep everyone on a **consistent environment**.
 - Use tools or runtimes **not available** on your local OS or manage **multiple versions** of them.
@@ -19,7 +19,7 @@ VS Code Remote Development allows you to use a a container, a remote machine, or
 - Access an **existing** development environment from **multiple machines or locations**.
 - Debug an **application running somewhere else** such as a customer site or in the cloud.
 
-Better yet, no source code needs to be on your local machine to get these benefits. Remote Development runs commands and extensions directly on the remote machine which provides a big experience improvement over using network shares or synchronizing files.
+Better yet, no source code needs to be on your local machine to get these benefits. Each extension can run commands and other extensions directly on the remote machine which provides a big experience improvement over using network shares or synchronizing files.
 
 ![Architecture](images/remote-overview/architecture.png)
 
@@ -44,7 +44,7 @@ Click on the links below to learn more:
 
 While most VS Code extensions should work unmodified in a remote environment, extension authors can learn more at [Supporting Remote Development](/api/advanced-topics/remote-extensions.md).
 
-## Questions or feedback
+### Questions or feedback
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
