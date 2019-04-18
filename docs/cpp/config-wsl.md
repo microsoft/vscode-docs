@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: GCC on Windows Subsystem for Linux
 ContentId: dc79a06a-6665-478c-9298-a1fc9cf8010d
 PageTitle: Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code
-DateApproved: 04/17/2019
+DateApproved: 04/18/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and GDB on WSL installation with Ubuntu
 ---
 # Using C++ and WSL in VS Code
@@ -54,7 +54,13 @@ To successfully complete this tutorial, you must do the following steps:
    ```bash
    sudo apt-get install build-essential gdb
    ```
+1. Verify that the install succeeded by navigating to the /user/bin directory and locating g++ and gdb:
 
+```bash
+cd $HOME
+cd ../../usr/bin
+ls g++ gdb
+```
 ## Create a workspace
 
 In Windows, you will need an empty folder called `projects` (just like you now have on Ubuntu) where you can place your helloworld project, and other VS Code projects you might create.
@@ -75,6 +81,10 @@ The **code .** command opens VS Code in the current working folder in Windows, w
 - `c_cpp_properties.json` to specify the compiler path
 - `tasks.json` to specify how to build the executable
 - `launch.json` to specify debugger settings
+
+## Set the default terminal
+
+In VS Code, press `kb(workbench.action.showCommands)` to open the Command Palette. Start typing "Terminal" and then choose **Terminal: Select Default Shell**. From the list of options, choose WSL.
 
 ## Configure the compiler path
 
