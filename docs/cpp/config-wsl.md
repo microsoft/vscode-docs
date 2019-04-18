@@ -54,13 +54,15 @@ To successfully complete this tutorial, you must do the following steps:
    ```bash
    sudo apt-get install build-essential gdb
    ```
+
 1. Verify that the install succeeded by navigating to the /user/bin directory and locating g++ and gdb:
 
-```bash
-cd $HOME
-cd ../../usr/bin
-ls g++ gdb
-```
+   ```bash
+   cd $HOME
+   cd ../../usr/bin
+   ls g++ gdb
+   ```
+
 ## Create a workspace
 
 In Windows, you will need an empty folder called `projects` (just like you now have on Ubuntu) where you can place your helloworld project, and other VS Code projects you might create.
