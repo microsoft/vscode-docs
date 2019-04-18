@@ -9,7 +9,7 @@ DateApproved: 1/30/2019
 ---
 # VS Code Remote Development
 
-The VS Code Remote Development extension pack allows you to use a container, remote machine, or the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl) as a full-featured development environment. You can:
+VS Code Remote Development allows you to use a container, remote machine, or the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl) as a full-featured development environment. You can:
 
 - Develop on the **same operating system** you deploy to or use **larger or more specialized** hardware.
 - **Sandbox** your development environment to avoid impacting to your local **machine configuration**.
@@ -19,7 +19,7 @@ The VS Code Remote Development extension pack allows you to use a container, rem
 - Access an **existing** development environment from **multiple machines or locations**.
 - Debug an **application running somewhere else** such as a customer site or in the cloud.
 
-Better yet, no source code needs to be on your local machine to get these benefits. Each extension can run commands and other extensions directly on the remote machine which provides a big experience improvement over using network shares or synchronizing files.
+Better yet, **no source code** needs to be on your local machine to get these benefits. Each extensions in the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) can run commands and other extensions directly on a remote machine (virtual or physical) which provides a big experience improvement over using network shares or synchronizing files.
 
 ![Architecture](images/remote-overview/architecture.png)
 
@@ -38,9 +38,9 @@ The **[Remote Development extension pack](https://aka.ms/vscode-remote/download/
 
 Click on the links below to learn more:
 
-- **[SSH](/docs/remote/ssh.md)** - Connect to any location by opening folders on a remote machine/VM using SSH.
-- **[Containers](/docs/remote/containers.md)** - Work with a sandboxed toolchain or container-based application inside (or mounted into) a container.
-- **[WSL](/docs/remote/wsl.md)** - Get a Linux-powered development experience in the Windows Subsystem for Linux.
+- **[Remote - SSH](/docs/remote/ssh.md)** - Connect to any location by opening folders on a remote machine/VM using SSH.
+- **[Remote - Containers](/docs/remote/containers.md)** - Work with a sandboxed toolchain or container-based application inside (or mounted into) a container.
+- **[Remote - WSL](/docs/remote/wsl.md)** - Get a Linux-powered development experience in the Windows Subsystem for Linux.
 
 While most VS Code extensions should work unmodified in a remote environment, extension authors can learn more at [Supporting Remote Development](/api/advanced-topics/remote-extensions.md).
 
