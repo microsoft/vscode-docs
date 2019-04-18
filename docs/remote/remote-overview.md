@@ -19,7 +19,7 @@ VS Code Remote Development allows you to use a container, remote machine, or the
 - Access an **existing** development environment from **multiple machines or locations**.
 - Debug an **application running somewhere else** such as a customer site or in the cloud.
 
-Better yet, **no source code** needs to be on your local machine to get these benefits. Each extensions in the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) can run commands and other extensions directly on a remote machine (virtual or physical) which provides a big experience improvement over using network shares or synchronizing files.
+Better yet, **no source code** needs to be on your local machine to get these benefits. Each extension in the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) can run commands and other extensions directly inside a container, WSL, or on a remote machine. This approach provides big experience improvements over using network shares or synchronizing files since everything feels like it does when you run locally.
 
 ![Architecture](images/remote-overview/architecture.png)
 
