@@ -15,8 +15,8 @@ For example, you may want to:
 
 - Develop on the **same operating system** you deploy to or use **larger, faster, or more specialized** hardware than your local machine.
 - **Sandbox** your development environment to avoid accidentally impacting to your local **machine configuration**.
-- Make it easy for new contributors to **get started** or keep everyone on your team in a **consistent environment**.
-- Manage **multiple versions** of the same runtime or access tools or runtimes **not available** on your local OS.
+- Make it easy for new contributors to **get started** and keep everyone in a **consistent environment**.
+- Use tools or runtimes **not available** on your local OS or manage **multiple versions** of them.
 - Develop your Linux-deployed applications using the **Windows Subsystem for Linux**.
 - Access an **existing** development environment from **multiple machines or locations**.
 - Debug an **application running somewhere else** such as a customer site or in the cloud.
