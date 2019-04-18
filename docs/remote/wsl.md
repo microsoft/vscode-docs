@@ -23,13 +23,13 @@ Given source code **does not even need to exist on the Windows filesystem** for 
 
 To get started you need to:
 
-1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) along with your preferred Linux distribution.
+1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) along with your preferred Linux distribution. The Remote - WSL extension will use your **default distro** and use `wslconfig.exe` to configure the default as needed.
 
     > **Note:** WSL does have some [known limitations](#known-limitations) for certain types of development that can also affect your VS Code experience.
 
 2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/) on the **Windows** side (not in WSL).
 
-    > **Dogfooding Note (UPDATED)**: Code - WSL is deprecated. Use VS Code - Insiders now.
+    > **Dogfooding Note (UPDATED)**: The Code - WSL build is deprecated. Use VS Code - Insiders now.
 
 3. Install the **[Remote Development](https://aka.ms/vscode-remote/download/extension)** extension pack
 

@@ -330,13 +330,15 @@ With this change, the WebView traffic will instead use VS Code's existing commun
 
 ![WebView Solution](images/remote-extensions/webview-solution.png)
 
-The engine setting above will ensure only versions of VS Code with this API get your extension update. Previous versions of VS Code will simply get the older version of your extension. However, if you want to be able to service multiple versions of VS Code, you can change the code above slightly to handle this as follows:
+The engine setting above will **ensure only versions of VS Code with this API get your extension update**. Previous versions of VS Code will **simply get the older version** of your extension.
+
+However, if you need to be able to **release updates to multiple versions of VS Code**, you can change the code above slightly to handle this situation:
 
 ```TypeScript
 const STATIC_PORT = 3000;
 const dynamicServerPort = getExpressServerPort();
-// Use STATIC_PORT in VS Code >= 1.34 (w/ portMapping support) and the dynamicServerPort in older
-// versions where the portMapping property will simply be ignored.
+// Use STATIC_PORT in VS Code >= 1.34 (w/ portMapping support) and the dynamicServerPort
+// in older versions where the portMapping property will simply be ignored.
 const [ major, minor, ...rest ] = <number[]>vscode.version.split('.').map((ver) => parseInt(ver));
 const webviewPort = ( major > 1 || (major === 1 && minor >= 34)) ? STATIC_PORT : dynamicServerPort;
 ```

@@ -23,9 +23,9 @@ The result is that VS Code can provide a **local-quality development experience*
 
 To get started you need to:
 
-1. Install a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client).
+1. Install an [OpenSSH compatibile SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) if one is not already present.
 
-    > **Note:** PuTTY is not supported on Windows since an [OpenSSH compatible](troubleshooting.md#installing-a-supported-ssh-client) `ssh` command must be in the path.
+    > **Note:** PuTTY is not supported on Windows since a `ssh` command must be in the path.
 
 2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/)
 
@@ -39,7 +39,7 @@ To get started you need to:
     > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
     > 4. Reload / restart VS Code - Insiders.
 
-4. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](#troubleshooting.md#enabling-alternate-ssh-authentication-methods).
+4. **[Optional]** If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](#troubleshooting.md#enabling-alternate-ssh-authentication-methods).
 
 ### Connect to a remote host
 
