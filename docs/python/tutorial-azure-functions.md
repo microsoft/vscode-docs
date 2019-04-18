@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Azure Functions
 ContentId: 3685dbc0-5700-4456-8133-6f0db8e25e55
 PageTitle: Crate and deploy Python code to Azure Functions
-DateApproved: 04/11/2019
+DateApproved: 04/18/2019
 MetaDescription: How to create and deploy Python code to Azure Functions
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -125,7 +125,7 @@ The functions.json file provides the necessary configuration information for the
 
 You can see that `scriptFile` identifies the startup file for the code, which must contain an function named `main`. You can factor your code into multiple files so long as the file specified here contains a `main` function.
 
-The `bindings` element the contains two objects, one to describe incoming requests, and the other to describe the HTTP response. You can see that for incoming requests (`"direction": "in"`), the function responds to HTTP get or post requests and doesn't require authentication. The response (`"direction": "in"`) is an HTTP response that returns whatever value is returned from the `main` function.
+The `bindings` element the contains two objects, one to describe incoming requests, and the other to describe the HTTP response. You can see that for incoming requests (`"direction": "in"`), the function responds to HTTP get or post requests and doesn't require authentication. The response (`"direction": "out"`) is an HTTP response that returns whatever value is returned from the `main` function.
 
 ### \_\_init.py\_\_
 
