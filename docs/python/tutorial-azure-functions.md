@@ -161,9 +161,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 The important parts of the code are as follows:
 
 - You must import `func` from `azure.functions`; importing the logging module is optional but recommended.
-- The required `main` function receives a [func.HttpRequest](https://docs.microsoft.com/python/api/azure-functions/azure.functions.httprequest?view=azure-python) object named `req`, and returns a value of type [func.HttpResponse](https://docs.microsoft.com/python/api/azure-functions/azure.functions.httpresponse?view=azure-python).
-- The body of `main` then does whatever it wants to process the request and generate a response. In this case, the function looks for a `name` parameter in the URL. Failing that, it checks if the request body contains JSON with a `name` value.
-- If a name is found, the function returns the string "Hello" with the name; otherwise it returns an error message.
+- The required `main` function receives a `func.request`  object named `req`, and returns a value of type `func.HttpResponse`. You can learn more about the capabilities of these objects in the [func.HttpRequest](https://docs.microsoft.com/python/api/azure-functions/azure.functions.httprequest?view=azure-python) and [func.HttpResponse](https://docs.microsoft.com/python/api/azure-functions/azure.functions.httpresponse?view=azure-python) references.
+- The body of `main` then does whatever it wants to process the request and generate a response. In this case, the function looks for a `name` parameter in the URL. Failing that, it checks if the request body contains JSON (using the `func.HttpRequest.get_json` function) and that the JSON contains a `name` value (using the `get` method of the JSON object returned by `get_json`).
+- If a name is found, the function returns the string "Hello" with the name appended; otherwise it returns an error message.
 
 ## Test and debug the function locally
 
