@@ -150,9 +150,9 @@ By default, the C++ extension adds a breakpoint to the first line of `main`. The
 Your complete `launch.json` file should look something like this:
 
 ```json
+{
    "version": "0.2.0",
     "configurations": [
-
         {
             "name": "(gdb) Launch",
             "type": "cppdbg",

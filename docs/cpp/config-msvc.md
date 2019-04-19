@@ -196,7 +196,7 @@ You can press the TAB key to insert the selected member; then, when you add the 
 
 1. To run the build task that you defined in `tasks.json`, press `kb(workbench.action.tasks.build)` or from the main menu choose **View > Command Palette** and start typing "Tasks: Run Build Task". The option will appear before you finish typing.
 
-   **Note:** If you see an error message that looks like this: *cl.exe: command not found* it means you have not started VS Code from a developer command prompt. See the first section of this tutorial for more information.
+   **Note:** If you see an error message that looks like this: **cl.exe: command not found**, it means you have not started VS Code from a Developer command prompt. See the first section of this tutorial for more information.
 
 1. When the task starts, you should see the integrated Terminal window appear below the code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful MSVC build, the output looks something like this:
 
@@ -229,8 +229,11 @@ Now we're ready to start stepping through the code.
     ![Step over button](images/cpp/step-over-button.png)
 
     The **Step Over** command skip over all the internal function calls within the `vector` and `string` classes that are invoked when the `msg` variable is created and initialized. Notice the change in the **Variables** window on the left. In this case, the errors are expected because, although the variable names for the loop are now visible to the debugger, the statement has not executed yet, so there is nothing to read at this point. The contents of `msg` are visible, however, because that statement has completed.
+
 1. Press **Step over** again to advance to the next statement in this program (skipping over all the internal code that is executed to initialize the loop). Now, the **Variables** window shows information about the loop variables.
+
 1. Press **Step over** again to execute the `cout` statement. **Note** As of the March 2019 version of the extension, no output is displayed until the loop completes.
+
 1. If you like, you can keep pressing **Step over** until all the words in the vector have been printed to the console. But if you are curious, try pressing the **Step Into** button to step through source code in the C++ standard library!
 
     ![Breakpoint in gcc standard library header](images/msvc/msvc-system-header-stepping.png)
