@@ -1020,6 +1020,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - onFirstSessionStart: Show debug in status bar only after debug was started for the first time
   "debug.showInStatusBar": "onFirstSessionStart",
 
+  // Controls whether the debug sub-sessions are shown in the debug tool bar. When this setting is false the stop command on a sub-session will also stop the parent session.
+  "debug.showSubSessionsInToolBar": false,
+
   // Controls the location of the debug toolbar. Either `floating` in all views, `docked` in the debug view, or `hidden`.
   "debug.toolBarLocation": "floating",
 
@@ -1712,6 +1715,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - initial: A new split terminal will use the working directory that the parent terminal started with.
   //  - inherited: On macOS and Linux, a new split terminal will use the working directory of the parent terminal. On Windows, this behaves the same as initial.
   "terminal.integrated.splitCwd": "inherited",
+
+  // Whether to use ConPTY for Windows terminal process communication (requires Windows 10 build number 18309+). Winpty will be used if this is false.
+  "terminal.integrated.windowsEnableConpty": true,
 
 // Problems
 
