@@ -65,7 +65,7 @@ Visual Studio Code uses **[SSH configuration files](https://linux.die.net/man/5/
 
 #### Remembering hosts you connect to frequently
 
-If you have a few hosts you use frequently, you can add them to an SSH config fie so they automatically appear in the host dropdown. Run **Remote-SSH: Open SSH Configuration File...** and add the host to the file using the [SSH config file format](https://linux.die.net/man/5/ssh_config). For example:
+If you have a few hosts you use frequently, you can add them to an SSH config file so they automatically appear in the host dropdown. Run **Remote-SSH: Open SSH Configuration File...** and add the host to the file using the [SSH config file format](https://linux.die.net/man/5/ssh_config). For example:
 
 ```
 Host example-remote-linux-machine
@@ -149,7 +149,7 @@ Host remote-linux-machine
 
 Opening a terminal on the remote host is simple. Once connected, **any terminal window** you open in VS Code (e.g. using **Terminal > New Terminal**) will automatically run on the remote host rather than locally.
 
-You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder on the remote host! Type `code-insiders --help` to what is available from the command line.
+You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder on the remote host! Type `code-insiders --help` to see all the options available from the command line.
 
 ![Using the code CLI](images/ssh/code-command-in-terminal.png)
 
