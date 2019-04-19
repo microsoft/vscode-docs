@@ -26,9 +26,9 @@ To successfully complete this tutorial, you must do the following:
 
 ## Start VS Code from the Developer Command Prompt
 
-To build and debug code with MSVC in VS Code, you need to start VS Code from a "Developer Command Prompt" for Visual Studio. (An ordinary Windows command prompt, or a Bash prompt, does not have the necessary environment variables set.)
+To build and debug code with MSVC in VS Code, you need to start VS Code from a **Developer Command Prompt for Visual Studio**. (An ordinary Windows command prompt, or a Bash prompt, does not have the necessary environment variables set.)
 
-1. To open the developer command prompt, start typing "Developer" in the Windows Start menu, and you should see it appear in the list of suggestions. The exact name depends on which version of Visual Studio or the Visual Studio Build Tools you have installed. Click on the item to open the prompt.
+1. To open the Developer Command Prompt for VS, start typing "Developer" in the Windows Start menu, and you should see it appear in the list of suggestions. The exact name depends on which version of Visual Studio or the Visual Studio Build Tools you have installed. Click on the item to open the prompt.
 
 ![Developer Command Prompt](images/msvc/developer-cmd-prompt-menu.png)
 
@@ -196,7 +196,7 @@ You can press the TAB key to insert the selected member; then, when you add the 
 
 1. To run the build task that you defined in `tasks.json`, press `kb(workbench.action.tasks.build)` or from the main menu choose **View > Command Palette** and start typing "Tasks: Run Build Task". The option will appear before you finish typing.
 
-   **Note:** If you see an error message that looks like this: **cl.exe: command not found**, it means you have not started VS Code from a Developer command prompt. See the first section of this tutorial for more information.
+   **Note:** If you see an error message that looks like this: **cl.exe: command not found**, it means you have not started VS Code from a Developer Command Prompt for VS. See the first section of this tutorial for more information.
 
 1. When the task starts, you should see the integrated Terminal window appear below the code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful MSVC build, the output looks something like this:
 
