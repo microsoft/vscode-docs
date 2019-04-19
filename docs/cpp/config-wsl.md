@@ -49,7 +49,7 @@ To successfully complete this tutorial, you must do the following steps:
 
 1. Although you will be using VS Code to edit your code on Windows, you'll be compiling the code on Linux using the g++ compiler. You'll also debug on Linux using GDB. These tools are not installed by default on Ubuntu, so you have to install them. Fortunately, that task is quite easy!
 
-1. From the command prompt, first run `apt-get update` and `dist-upgrade` to bring the distro up to date. An out-of-date distro can sometimes interfere with attempts to install new packages.
+1. From the command prompt, first run `apt-get update` and `apt-get dist-upgrade` to bring the distro up to date. An out-of-date distro can sometimes interfere with attempts to install new packages.
 
    ```bash
    sudo apt-get update && sudo apt-get dist-upgrade
