@@ -25,7 +25,7 @@ To successfully complete this tutorial, complete the following requirements:
 1. Install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). For details on installing extensions, see [Extension marketplace](/docs/editor/extension-gallery.md). The Python extension is named **Python** and published by Microsoft.
 
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
-   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); you can typically use the **Download Python 3.7.1** button that appears first on the page (or whatever is the latest version).
+   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); you can typically use the **Download Python 3.7.3** button that appears first on the page (or whatever is the latest version).
    - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must install `pip` with [`get-pip.py`](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
    - (macOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
    - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
@@ -132,24 +132,20 @@ After a few moments, the command creates a `launch.json` file that contains a nu
 
 These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python: Current File (Integrated Terminal)**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
->> **WARNING**: Due to a [current bug in the debugger](https://github.com/Microsoft/vscode-python/issues/4223), the following discussion of the `stopOnEntry` setting doesn't work and causes the debugger to fail to start. Instead, set a breakpoint on the first line and do **not** add `stopOnEntry` to the configuration.
->
-> Affected paragraphs:
->
-> To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
->
-> ```json
-> {
->     "name": "Python: Current File (Integrated Terminal)",
->     "type": "python",
->     "request": "launch",
->     "program": "${file}",
->     "console": "integratedTerminal",
->     "stopOnEntry": true
-> },
-> ```
->
-> Save `launch.json` after making changes.
+To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
+
+```json
+{
+    "name": "Python: Current File (Integrated Terminal)",
+    "type": "python",
+    "request": "launch",
+    "program": "${file}",
+    "console": "integratedTerminal",
+    "stopOnEntry": true
+},
+```
+
+Save `launch.json` after making changes.
 
 > **Tip:** If you need to specify the exact folder containing the interpreter to use for debugging, include an entry for `pythonPath` in the configuration, such as `"pythonPath": "${workspaceFolder}"` or `"pythonPath": "${workspaceFolder}/.venv"`.
 

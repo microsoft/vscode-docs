@@ -65,7 +65,7 @@ Note: This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` a
 
 There are also default key bindings for column selection on macOS and Windows, but not on Linux.
 
-Key|Command|Command id
+Key|Command|Command ID
 ---|-------|----------
 `kb(cursorColumnSelectDown)`|Column Select Down|`cursorColumnSelectDown`
 `kb(cursorColumnSelectUp)`|Column Select Up|`cursorColumnSelectUp`
@@ -80,7 +80,7 @@ You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind 
 
 By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
 
-However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file. The easiest way to turn on `Auto Save` is with the **File** > **Auto Save** toggle which turns on and off save after a delay.
+However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file. The easiest way to turn on `Auto Save` is with the **File** > **Auto Save** toggle that turns on and off save after a delay.
 
 For more control over `Auto Save`, open User or Workspace [settings](/docs/getstarted/settings.md) and find the associated settings:
 
@@ -120,8 +120,8 @@ In the input box below the search box, you can enter patterns to include or excl
 * `*` to match one or more characters in a path segment
 * `?` to match on one character in a path segment
 * `**` to match any number of path segments, including none
-* `{}` to group conditions (e.g. `{**/*.html,**/*.txt}` matches all HTML and text files)
-* `[]` to declare a range of characters to match (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)
+* `{}` to group conditions (for example `{**/*.html,**/*.txt}` matches all HTML and text files)
+* `[]` to declare a range of characters to match (`example.[0-9]` to match on `example.0`, `example.1`, …)
 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
 
@@ -188,9 +188,9 @@ You can fold regions of source code using the folding icons on the gutter betwee
 
 You can also use the following actions:
 
-* Fold (`kb(editor.fold)`) folds the innermost un-collapsed region at the cursor.
+* Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor.
 * Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor.
-* Fold Recursively (`kb(editor.foldRecursively)`) folds the innermost un-collapsed region at the cursor and all regions inside that region.
+* Fold Recursively (`kb(editor.foldRecursively)`) folds the innermost uncollapsed region at the cursor and all regions inside that region.
 * Unfold Recursively (`kb(editor.unfoldRecursively)`) unfolds the region at the cursor and all regions inside that region.
 * Fold All (`kb(editor.foldAll)`) folds all regions in the editor.
 * Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor.
@@ -199,10 +199,9 @@ You can also use the following actions:
 
 Folding ranges are by default evaluated based on the indentation of lines. A folding range starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
 
-Since the 1.22 release, folding ranges can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding:
-- Markdown, HTML, CSS, LESS, SCSS and JSON
+Since the 1.22 release, folding ranges can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding: Markdown, HTML, CSS, LESS, SCSS, and JSON.
 
-If you prefer to switch back to indentation based folding for one (or all) of the languages above, use:
+If you prefer to switch back to indentation-based folding for one (or all) of the languages above, use:
 
 ```json
   "[html]": {
@@ -283,7 +282,7 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 * [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
 * [Code Navigation](/docs/editor/editingevolved.md) - Peek and Goto Definition, and more.
-* [Integrated Terminal](/docs/editor/integrated-terminal.md) - Learn about the integrated terminal for quickly performing command line tasks from within VS Code.
+* [Integrated Terminal](/docs/editor/integrated-terminal.md) - Learn about the integrated terminal for quickly performing command-line tasks from within VS Code.
 * [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 
@@ -305,4 +304,4 @@ You can control word wrap through the `editor.wordWrap` [setting](/docs/getstart
 
 You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.
 
-You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.
+You can also add vertical column rulers to the editor with the `editor.rulers` setting, which takes an array of column character positions where you'd like vertical rulers.

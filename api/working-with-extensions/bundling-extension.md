@@ -135,7 +135,7 @@ node_modules
 out/
 src/
 tsconfig.json
-webpack.config.json
+webpack.config.js
 ```
 
 ## Migrate an existing extension

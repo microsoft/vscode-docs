@@ -15,7 +15,7 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 
 Visual Studio Code is officially distributed as a Snap package in the [Snap Store](https://snapcraft.io/store):
 
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/code)
+[![Get it from the Snap Store](images/linux/snap-store.png)](https://snapcraft.io/code)
 
 You can install it simply by running:
 

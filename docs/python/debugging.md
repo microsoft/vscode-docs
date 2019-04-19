@@ -322,7 +322,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 ### Debugging over SSH
 
-In some cases, you may want or need to use a secure connection to the remote computer when debugging. On Windows computers, you may need to install [OpenSSH](http://sshwindows.sourceforge.net/) to have the `ssh` command.
+In some cases, you may want or need to use a secure connection to the remote computer when debugging. On Windows computers, you may need to install [OpenSSH](http://sshwindows.sourceforge.net/) or [Windows 10 OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) to have the `ssh` command.
 
 On the remote computer:
 
@@ -332,7 +332,7 @@ On the remote computer:
     AllowTcpForwarding yes
     ```
 
-1. Restart the SSH server. On Linux/macOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, and select **Restart**.
+1. Restart the SSH server. On Linux/macOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH or `sshd` in the list of services, and select **Restart**.
 
 1. Start the Python program and let it wait for the debugger to attach as described in the previous section.
 
@@ -484,6 +484,13 @@ There are many reasons why the debugger may not work. Oftentimes the debug conso
       File ".../visualstudio_py_debugger.py", line 1234, in unblock
         self._block_lock.release()
     RuntimeError: release unlocked lock
+    ```
+
+- If you're working with a multi-threaded app that uses native thread APIs (such as the Win32 `CreateThread` function rather than the Python threading APIs), it's presently necessary to include the following source code at the top of whichever file you wish to debug:
+
+    ```python
+    import ptvsd
+    ptvsd.debug_this_thread()
     ```
 
 ## Next steps
