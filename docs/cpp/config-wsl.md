@@ -49,11 +49,13 @@ To successfully complete this tutorial, you must do the following steps:
 
 1. Although you will be using VS Code to edit your code on Windows, you'll be compiling the code on Linux using the g++ compiler. You'll also debug on Linux using GDB. These tools are not installed by default on Ubuntu, so you have to install them. Fortunately, that task is quite easy!
 
-1. From the command prompt, first run `apt-get update` and `apt-get dist-upgrade` to bring the distro up to date. An out-of-date distro can sometimes interfere with attempts to install new packages.
+1. From the command prompt, first run `apt-get update` to update the Ubuntu package lists. An out-of-date distro can sometimes interfere with attempts to install new packages.
 
    ```bash
-   sudo apt-get update && sudo apt-get dist-upgrade
+   sudo apt-get update
    ```
+   
+   If you like, you can run **sudo apt-get update && sudo apt-get dist-upgrade** to also download the latest versions of the system packages, but this can take significantly longer depending on your connection speed.
 
 1. From the command prompt, install the GNU compiler tools and the GDB debugger by typing:
 
@@ -61,12 +63,11 @@ To successfully complete this tutorial, you must do the following steps:
    sudo apt-get install build-essential gdb
    ```
 
-1. Verify that the install succeeded by navigating to the /user/bin directory and locating g++ and gdb. If the filenames are not returned from the following command, try running the update and upgrade command again.
+1. Verify that the install succeeded by navigating to the /user/bin directory and locating g++ and gdb. If the filenames are not returned from the following command, try running the update command again.
 
    ```bash
-   cd $HOME
-   cd ../../usr/bin
-   ls g++ gdb
+   whereis g++
+   whereis gdb
    ```
 
 ## Create a workspace
@@ -90,9 +91,13 @@ The **code .** command opens VS Code in the current working folder in Windows, w
 - `tasks.json` to specify how to build the executable
 - `launch.json` to specify debugger settings
 
-## Set the default terminal
+## Set WSL as the default terminal (optional)
 
-In VS Code, press `kb(workbench.action.showCommands)` to open the Command Palette. Start typing "Terminal" and then choose **Terminal: Select Default Shell**. From the list of options, choose WSL.
+The default integrated terminal for VS Code is PowerShell, but PowerShell doesn't know about Linux or WSL, so we need to set VS Code to use a bash shell. You can configure that setting globally or on a per-workspace basis.
+
+If you are only using VS Code with WSL, then you might as well go ahead and set WSL as your default terminal globally. In VS Code, press `kb(workbench.action.showCommands)` to open the Command Palette. Start typing "Terminal" and then choose **Terminal: Select Default Shell**. From the list of options, choose WSL.
+
+But if you also use VS Code on Windows and would sometimes like to use PowerShell, then you can leave PowerShell as the default and set WSL as the terminal only for the current workspace in the tasks.json file .
 
 ## Configure the compiler path
 
