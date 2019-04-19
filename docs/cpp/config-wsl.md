@@ -54,8 +54,8 @@ To successfully complete this tutorial, you must do the following steps:
    ```bash
    sudo apt-get update
    ```
-   
-   If you like, you can run **sudo apt-get update && sudo apt-get dist-upgrade** to also download the latest versions of the system packages, but this can take significantly longer depending on your connection speed.
+
+   If you like, you can run `sudo apt-get update && sudo apt-get dist-upgrade` to also download the latest versions of the system packages, but this can take significantly longer depending on your connection speed.
 
 1. From the command prompt, install the GNU compiler tools and the GDB debugger by typing:
 
@@ -63,7 +63,7 @@ To successfully complete this tutorial, you must do the following steps:
    sudo apt-get install build-essential gdb
    ```
 
-1. Verify that the install succeeded by navigating to the /user/bin directory and locating g++ and gdb. If the filenames are not returned from the following command, try running the update command again.
+1. Verify that the install succeeded by locating g++ and gdb. If the filenames are not returned from the `whereis` command, try running the update command again.
 
    ```bash
    whereis g++
@@ -97,7 +97,7 @@ The default integrated terminal for VS Code is PowerShell, but PowerShell doesn'
 
 If you are only using VS Code with WSL, then you might as well go ahead and set WSL as your default terminal globally. In VS Code, press `kb(workbench.action.showCommands)` to open the Command Palette. Start typing "Terminal" and then choose **Terminal: Select Default Shell**. From the list of options, choose WSL.
 
-But if you also use VS Code on Windows and would sometimes like to use PowerShell, then you can leave PowerShell as the default and set WSL as the terminal only for the current workspace in the tasks.json file.
+But if you also use VS Code on Windows and would sometimes like to use PowerShell, then you can leave PowerShell as the default and set WSL as the terminal only for the current workspace in the `tasks.json` file.
 
 ## Configure the compiler path
 
@@ -190,7 +190,7 @@ Next, create a `tasks.json` file to tell VS Code how to build (compile) the prog
 
     The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false you'll have to run it from the Command Palette menu under "Run Build Task".
 
-    The `windows` setting tells VS Code to use the WSL Bash shell to run the commands that are defined in this file. If you set the default terminal to WSL globally in the earlier step in this tutorial, then you can remove the `windows` setting here.
+    The `windows.options.shell` setting tells VS Code to use the WSL Bash shell to run the commands that are defined in this file. If you set the default terminal to WSL globally in the earlier step in this tutorial, then you can remove the `windows` setting here.
 
 ## Configure debug settings
 
