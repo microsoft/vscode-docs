@@ -28,8 +28,10 @@ To get started you can:
 1. Install [Docker Desktop for Mac/Windows](https://www.docker.com/products/docker-desktop) or [Docker CE/EE for Linux](https://docs.docker.com/install/#supported-platforms).
 
     > **Linux Users:** Please follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms), add your user to the `docker` group after installation using `sudo usermod -aG docker $USER`, and re-login. *The Ubuntu Snap package is not supported*.
+    >
+    > **Windows Users:** See [here](/docs/remote/troubleshooting.md#tips-for-avoiding-docker-desktop-for-windows-pitfalls) for information on workarounds to common problems.
 
-2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/)
+2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/).
 
     > **Dogfooding Note (UPDATED)**: Code - WSL is deprecated. Use VS Code - Insiders now.
 
@@ -132,7 +134,7 @@ Once you have a container up and running, you can connect by either:
 
 1. Use **File > New Window** to open a local window local window.
 
-2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) and then install it from the extension panel if not already present.
+2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the extension panel if not already present.
 
 3. Go to the Docker panel and expand the Containers tree
 
@@ -155,7 +157,7 @@ In either case, you can view and manage your containers using one of the followi
 
 1. Use **File > New Window** to open a local window local window.
 
-2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) and then install it from the extension panel.
+2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the extension panel if not already present.
 
 3. You can then go to the Docker panel and expand the Containers tree to see what is running. Right click and select Stop Container to shut one down.
 

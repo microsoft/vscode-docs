@@ -148,11 +148,17 @@ The VS Code Remote - Containers extension can automatically mount your source co
 1. Right-click on the Docker task bar item and select Settings.
 2. On Windows, go to the Shared Drives tab and check the drive(s) where your source code is located. On macOS, go the File Sharing tab and be sure the folder containing your source code is under a file path specified in the list.
 
-### Resolving errors about missing Linux dependencies
+### Tips for avoiding Docker Desktop for Windows problems
 
-Some extensions rely on libraries not found in the certain Docker images. See the [primary containers article](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) for a few options on resolving this issue.
+Docker Desktop for Windows works well in many cases, but there are a number of "gotchas" to that can cause real headaches. The following are some tips to avoid them:
 
-### Resolving issues with too many files appearing modified in Git on Windows
+1. **Use a AD domain account or local administrator account when sharing drives. Do not use an AAD (email based) account.**  AAD (email based) accounts have well known issues as documented [here](https://github.com/docker/for-win/issues/132) and [here](https://github.com/docker/for-win/issues/1352). If you must use this type of account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this Microsoft Blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
+
+2. **Stick with alphanumeric passwords to avoid drive sharing problems.** When asked to share your drives on Windows, you will be asked for user name and password with admin priveleges on the machine. If you get incorrect username/password, this may be due to special characters in the password. For example, `!`, `[` and `]` are known to cause issues. Change your password to alphanumeric characters to resolve. See [here](https://github.com/moby/moby/issues/23992#issuecomment-234979036) for details.
+
+3. **Use your Docker ID to sign into Docker (not email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See [here](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
+
+### Resolving Git line ending issues (resulting in many modified files)
 
 Since Windows and Linux use different default line endings, you may see files that appear modified by seem to have no differences aside from the line endings.  To prevent this from happening, you can disable automatic line ending conversion and add a `.gitattributes` file to your folder.  Run
 
@@ -170,6 +176,10 @@ Optionally, you can add the following contents to a `.gitattributes` file to for
 *.{bat,[bB][aA][tT]} text eol=crlf
 ```
 
+### Resolving errors about missing Linux dependencies
+
+Some extensions rely on libraries not found in the certain Docker images. See the [primary containers article](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) for a few options on resolving this issue.
+
 ### Cleaning out unused containers and images
 
 If you see an error from Docker reporting that you are out of disk space, you can resolve this typically by cleaning out your unused containers and images. There are a few ways of doing this:
@@ -178,7 +188,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
  1. Use **File > New Window** to open a local window local window.
 
- 2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) and then install it from the extension panel.
+ 2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the extension panel if not already present.
 
  3. You can then go to the Docker panel and expand the Containers or Images tree, right-click, and select Remove Container / Image.
 
@@ -192,11 +202,13 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 4. Type `docker image prune` to remove any unused images.
 
 **Option 3: Use Docker Compose**:
+
 1. Open a terminal
 2. Go to the directory with your `docker-compose.yml` file
 3. Type `docker-compose down` stop and delete. If you have more than one Docker Compose file, can specify additional Docker Compose files with the `-f` argument.
 
 **Option 4: Delete all containers and images that are not running:**
+
 1. Open a terminal
 2. Type `docker system prune --all`
 
