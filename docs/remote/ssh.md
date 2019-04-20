@@ -83,17 +83,21 @@ Set the `"remote.SSH.configFile"` property in `settings.json` if you want to use
 
 VS Code runs extensions two one of places: locally on the UI / client side, or remotely on the SSH host. While "personalization" extensions (along with a few others) install on on the UI side, most installed extensions will reside on the SSH host. This behavior ensures you have smooth experience and allows you to install any needed extensions for a given Workspace on a SSH host from your local machine and pick up exactly where you left of from a different machine later - complete with extensions.
 
-You can tell if an extension is installed on a particular SSH host by the presence of an indicator next to the extension's icon in the extension panel when you are connected. (Locally installed extensions will not have this indicator.)
+## Managing extensions
 
-![Installed Workspace Extension Indicator](images/common/installed-remote-indicator.png)
+VS Code runs extensions two one of places: locally on the UI / client side, or in the container. While "personalization" extensions (along with a few others) install locally, most installed extensions will reside inside a particular SSH host. This allows you to install only the extensions you need for a given task in a container and seamlessly switch your entire tool-chain just by connecting to another one.
+
+If you search for an extension in the extension panel and install, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category it is in. There will be Local - Installed category and one for your remote SSH host.
+
+![Workspace Extension Category](images/ssh/ssh-installed-remote-indicator.png)
+
+![Local Extension Category](images/common/local-installed-extensions.png)
 
 > **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-The **Disabled** category also contains a list of extensions you have installed locally, but are not active because they need to run on the Workspace / SSH host side. You can click the **Install** button on any of them you want to install on your remote host.
+Local extensions that actually need to run as remotely will appear **Disabled** in the Local - Installed category. You can click the **Install** button on any of them you want to install on your remote host.
 
 ![Disabled Extensions w/Install Button](images/ssh/ssh-disabled-extensions.png)
-
-Any other extensions you search for or install will automatically be installed in the correct location when you are connected!
 
 ### "Always installed" extensions
 

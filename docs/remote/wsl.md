@@ -65,7 +65,19 @@ That's it! Any VS Code operations you perform in this window will executed in th
 
 ### Managing extensions
 
-You can install additional extensions at any time by using the extensions panel. VS Code automatically infers whether the extension should be run locally or in WSL based on a set of extension characteristics. If you are an extension author and are finding that your extension is not working properly, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+VS Code runs extensions two one of places: locally on the UI / client side, or in the container. While "personalization" extensions (along with a few others) install locally, most installed extensions will reside inside WSL.
+
+If you search for an extension in the extension panel and install, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category it is in. There will be Local - Installed category and one for WSL.
+
+![Workspace Extension Category](images/wsl/wsl-installed-remote-indicator.png)
+
+![Local Extension Category](images/wsl/wsl-local-installed-extensions.png)
+
+> **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+
+Local extensions that actually need to run as remotely will appear **Disabled** in the Local - Installed category. You can click the **Install** button on any of them you want to install on your remote host.
+
+![Disabled Extensions w/Install Button](images/wsl/wsl-disabled-extensions.png)
 
 ### Advanced: Forcing an extension to run locally / remotely
 

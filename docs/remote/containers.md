@@ -25,9 +25,9 @@ The result is that VS Code can provide a **local-quality development experience*
 
 To get started you can:
 
-1. Install Docker
-    - *Windows / macOS Users:* Install [Docker Desktop for Mac/Windows](https://www.docker.com/products/docker-desktop).
-    - *Linux Users:* Install [Docker CE/EE for Linux](https://docs.docker.com/install/#supported-platforms). Please follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms), add your user to the `docker` group after installation using `sudo usermod -aG docker $USER`, and re-login. *The Ubuntu Snap package is not supported*.
+1. Install [Docker Desktop for Mac/Windows](https://www.docker.com/products/docker-desktop) or [Docker CE/EE for Linux](https://docs.docker.com/install/#supported-platforms).
+
+    > **Linux Users:** Please follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms), add your user to the `docker` group after installation using `sudo usermod -aG docker $USER`, and re-login. *The Ubuntu Snap package is not supported*.
 
 2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/)
 
@@ -130,17 +130,17 @@ After a brief moment, a new window will appear and you'll be connected to the ru
 
 VS Code runs extensions two one of places: locally on the UI / client side, or in the container. While "personalization" extensions (along with a few others) install locally, most installed extensions will reside inside a particular container. This allows you to install only the extensions you need for a given task in a container and seamlessly switch your entire tool-chain just by connecting to another one.
 
-You can tell if an extension is installed in a particular container by the presence of an indicator next to the extension's icon in the extension panel when you are connected. (Locally installed extensions will not have this indicator.)
+If you search for an extension in the extension panel and install, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category it is in. There will be Local - Installed category and one for your container.
 
-![Installed Workspace Extension Indicator](images/common/installed-remote-indicator.png)
+![Workspace Extension Category](images/containers/containers-installed-remote-indicator.png)
+
+![Local Extension Category](images/common/local-installed-extensions.png)
 
 > **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-The **Disabled** category also contains a list of extensions you have installed locally, but are not active because they need to run in the container. You can click the **Install** button on any of them you want to install on your remote host.
+Local extensions that actually need to run as remotely will appear **Disabled** in the Local - Installed category. You can click the **Install** button on any of them you want to install on your remote host.
 
 ![Disabled Extensions w/Install Button](images/containers/containers-disabled-extensions.png)
-
-Any other extensions you search for or install will automatically be installed in the correct location when you are connected!
 
 ### "Always installed" extensions
 
