@@ -11,7 +11,7 @@ DateApproved: 4/11/2019
 
 The **Visual Studio Code Remote - Containers extension** can adapt to a variety of different container-based workflows. It allows you to open any folder inside (or mounted into) a container and take advantage of VS Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a "development container" with a set of extensions installed inside of it to optimize the experience.
 
-These **development containers** typically come with a basic tool stack (Python, node, Go, etc.) and its prerequisites (e.g. `pylint` for Python). This container may be used to actually run an application or be focused exclusively on sandboxing tools, libraries, runtimes, or other utilities that need to be run against a codebase. However, the Containers extension also supports **attaching** to existing running containers to cover triage scenarios or for cases where you may be using other container orchestrators.
+These **development containers** typically come with a well defined tool and runtime stack and their prerequisites. This container may be used to actually run an application or be focused exclusively on sandboxing tools, libraries, runtimes, or other utilities that need to be run against a codebase. However, the Containers extension also supports **attaching** to existing running containers to cover triage scenarios or for cases where you may be using other container orchestrators.
 
 With the exception of personalization extensions (e.g. themes), most extensions you install once connected will be tied to the container, which means that you can **seamlessly switch** your entire development environment by just connecting to a different container.
 
@@ -25,9 +25,9 @@ The result is that VS Code can provide a **local-quality development experience*
 
 To get started you can:
 
-1. Install [Docker Desktop for Mac/Windows](https://www.docker.com/products/docker-desktop) or [Docker CE/EE for Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-
-    > **Linux Note:** Follow the **official** Docker install instructions such as using the [convenience script](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script) (rather than the unoffical Ubuntu snap package) and add your user to the `docker` group after installation as follows: `sudo usermod -aG docker $USER`.
+1. Install Docker
+    - *Windows / macOS Users:* Install [Docker Desktop for Mac/Windows](https://www.docker.com/products/docker-desktop).
+    - *Linux Users:* Install [Docker CE/EE for Linux](https://docs.docker.com/install/#supported-platforms). Please follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms), add your user to the `docker` group after installation using `sudo usermod -aG docker $USER`, and re-login. *The Ubuntu Snap package is not supported*.
 
 2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/)
 
