@@ -22,7 +22,7 @@ You can set up SSH key based authentication for your remote host as follows:
 1. Check to see if `~/.ssh/id_rsa.pub` exists on macOS / Linux or `%USERPROFILE%\.ssh\id_rsa.pub` on Windows. If not, run the following command in a terminal / command prompt to generate an SSH key pair:
 
     ````bash
-    ssh-keygen -t rsa -b 4096 -C "your@email-address.here"
+    ssh-keygen -t rsa -b 4096
     ````
 
     > **Tip:** Don't have `ssh-keygen`? Install [a supported client](#installing-a-supported-ssh-client).

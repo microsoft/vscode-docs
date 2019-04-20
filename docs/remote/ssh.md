@@ -45,9 +45,9 @@ To get started you need to:
 
 > **Note:** Windows SSH Servers are *not* yet supported (though Windows clients *are* supported).
 
-Visual Studio Code uses **[SSH configuration files](https://linux.die.net/man/5/ssh_config)** and requires **[SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication)** to connect to your host. To get started, follow these steps:
+Visual Studio Code uses **[SSH configuration files](https://linux.die.net/man/5/ssh_config)** and requires **[SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication)** to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). To get started, follow these steps:
 
-1. First, **configure key based authentication** on the host you plan to use. If you are new to SSH or are running into trouble, see [here for additional information](/docs/remote/troubleshooting.md#configuring-key-based-authentication) on setting this up.
+1. First, **configure key based authentication** on the host you plan to use. If you are new to SSH or are running into trouble, see [here for additional information](/docs/remote/troubleshooting.md#configuring-key-based-authentication) on setting this up. If you followed the Azure VM tutorial, you can skip this step.
 
     > **Azure Linux VM / PuTTY Tip:** If you've already set up key based authentication using PuTTYGen, you will need to convert your private key for use in other OpenSSH clients. See [here for details](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
 
