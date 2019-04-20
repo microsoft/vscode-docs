@@ -184,6 +184,31 @@ Once a folder has been opened in a container, you can use VS Code's debugger in 
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
+## Seeing and managing containers
+
+By default, when VS Code shuts down, it will:
+- Automatically shut down containers if an `image` or `Dockerfile` is specified in `devcontainer.json`.
+- Leave the containers running if a Docker Compose file is specified to preserve command line workflows. However, you can change this behavior by adding `"shutdownAction": "stopCompose"` to the json file.
+
+In either case, you can view and manage your containers using one of the following options:
+
+- **Option 1: Use the Docker extension when *not* connected to a dev container.** While you can use the [Docker-in-Docker](https://aka.ms/vscode-remote/sample/docker-in-docker) approach to use the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from within a container, typically it is easiest to manage your containers from a separate local window so you don't accidentally shut down the container you are using. Use **File > New Window** to get a local window and then install it from the extension panel. You can then go to the Docker panel and expand the Containers tree to see what is running. Right click and select Stop Container to shut one down.
+
+- **Option 2: Use the Docker CLI**:
+   1. Open a terminal
+   2. Type `docker ps` to see running containers. Use `docker ps -a` to see stopped containers too.
+   3. Type `docker stop <Container ID>` from this list to stop a container.
+   4. ...or type `docker rm <Container ID>` to delete one instead.
+
+- **Option 3: Use Docker Compose**:
+    1. Open a terminal
+    2. Go to the directory with your `docker-compose.yml` file
+    3. Type `docker-compose top` to see running processes.
+    4. Type `docker-compose stop` to stop the containers. If you have more than one Docker Compose file, can specify additional Docker Compose files with the `-f` argument.
+    5. ...or type `docker-compose down` stop and delete them instead.
+
+If you want to clean out images or mass-delete containers, [see here](/docs/remote/troubleshooting.md#cleaning-out-unused-containers-and-images) for different options.
+
 ## In-depth: Setting up a folder to run in a container
 
 There are a few different ways VS Code Remote - Containers can be used to develop an application inside a fully containerized environment. In general, there are two primary scenarios that drive interest in this development style:
@@ -422,12 +447,6 @@ version: '3'
       - ..:/workspace
     command: sleep infinity
 ```
-
-### Stopping containers with Docker Compose
-
-Since you may want to use some of the containers after you shut down VS Code, VS Code does **not** attempt to shut them down automatically by default. You can change this behavior by adding `"shutdownAction": "stopCompose` to `devcontainer.json`.  Otherwise, you can use `docker-compose stop` to stop any running containers after you've shut down VS Code.
-
-> **Note:** The VS Code Remote Server and any specified extensions will be injected whenever a container is created. Therefore, you can save yourself time by using `docker-compose stop` instead of `down` to stop (but not destroy) the containers.
 
 ### Docker Compose samples
 

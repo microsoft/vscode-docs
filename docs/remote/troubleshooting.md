@@ -148,9 +148,48 @@ The VS Code Remote - Containers extension can automatically mount your source co
 1. Right-click on the Docker task bar item and select Settings.
 2. On Windows, go to the Shared Drives tab and check the drive(s) where your source code is located. On macOS, go the File Sharing tab and be sure the folder containing your source code is under a file path specified in the list.
 
-### Resolving errors about missing dependencies
+### Resolving errors about missing Linux dependencies
 
 Some extensions rely on libraries not found in the certain Docker images. See the [primary containers article](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) for a few options on resolving this issue.
+
+### Resolving issues with too many files appearing modified in Git on Windows
+
+Since Windows and Linux use different default line endings, you may see files that appear modified by seem to have no differences aside from the line endings.  To prevent this from happening, you can disable automatic line ending conversion and add a `.gitattributes` file to your folder.  Run
+
+```bash
+git config --global core.autocrlf false
+```
+
+You will need to re-clone the repository for this setting to take effect.
+
+Optionally, you can add the following contents to a `.gitattributes` file to force everything to be LF except for windows batch files that require CRLF:
+
+```yaml
+*.* text eol=lf
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+```
+
+### Cleaning out unused containers and images
+
+If you see an error from Docker reporting that you are out of disk space, you can resolve this typically by cleaning out your unused containers and images. There are a few ways of doing this:
+
+- **Option 1: Use the Docker extension when *not* connected to a dev container.** If you right click on containers and images in the Docker panel, you can delete anything you are not using.
+
+- **Option 2: Use the Docker CLI to pick containers to delete**:
+   1. Open a terminal
+   2. Type `docker ps -a` to see all containers
+   3. Type `docker rm <Container ID>` from this list to remove a container.
+   4. Type `docker image prune` to remove any unused images.
+
+- **Option 3: Use Docker Compose**:
+    1. Open a terminal
+    2. Go to the directory with your `docker-compose.yml` file
+    3. Type `docker-compose down` stop and delete. If you have more than one Docker Compose file, can specify additional Docker Compose files with the `-f` argument.
+
+- **Option 3: Delete all containers and images that are not running:**
+    1. Open a terminal
+    2. Type `docker system prune --all`
 
 ### Connecting to multiple containers
 
@@ -159,10 +198,6 @@ Currently you can only connect to one container per VS Code window. However, you
 ### Using Docker / Kubernetes from inside a dev container
 
 You can use Docker and Kubernetes related CLIs and extensions from inside your development container by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes) in the container. See the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker), [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose), and [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) dev container definitions for details.
-
-### Accessing remote containers
-
-If you are remotely running your containers in Docker, you can configure your local `docker` command to connect to the remote machine. However, you'll want to take care in ensuring you're authenticating your connection. This approach is also generally not recommended outside of development environments. You can [read this article](https://www.kevinkuszyk.com/2016/11/28/connect-your-docker-client-to-a-remote-docker-host/) for information on setting this up.
 
 ## WSL tips
 
