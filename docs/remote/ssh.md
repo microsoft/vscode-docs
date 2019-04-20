@@ -111,14 +111,10 @@ If there are extensions that you would like to always have installed on any SSH 
 Extensions typically are designed and tested to for use in one side or the other, not both. However, you can force an extension to run in a particular location  `settings.json`. For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ````json
-"remote.extensionKind" : [
-    "ui": [
-        "peterjausovec.vscode-docker",
-    ],
-    "workspace": [
-        "msjsdiag.debugger-for-chrome"
-    ]
-]
+"remote.extensionKind": {
+    "peterjausovec.vscode-docker": "ui",
+    "msjsdiag.debugger-for-chrome": "workspace"
+}
 ````
 
 Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
@@ -208,8 +204,6 @@ The VS Code extension API abstracts many extensions away from any changes so the
 ### Questions or feedback
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
-
-Have a question or feedback?
 
 - See the [FAQ](/docs/remote/faq.md) or the [troubleshooting guide](/docs/remote/troubleshooting.md#ssh-tips).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).

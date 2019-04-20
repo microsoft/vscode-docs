@@ -117,14 +117,10 @@ A value of `ui` will force the extension to run on the client. A value of `works
 You can **test** whether switching your extension to a UI extension will solve your problem with the `remote.extensionKind` option in `settings.json`. This allows you to test in-marketplace versions of extensions without having to modify their `package.json` file. The value of the setting is an array of extension IDs. For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ````json
-"remote.extensionKind" : [
-    "ui": [
-        "peterjausovec.vscode-docker",
-    ],
-    "workspace": [
-        "msjsdiag.debugger-for-chrome"
-    ]
-]
+"remote.extensionKind": {
+    "peterjausovec.vscode-docker": "ui",
+    "msjsdiag.debugger-for-chrome": "workspace"
+}
 ````
 
 ### Persisting extension data or state
@@ -591,11 +587,9 @@ There are a few extension problems that could be resolved with some added functi
 | **Blocked ports** | When working inside a Docker container or SSH server, ports are not automatically forwarded and there currently is no API to programmatically forward a port from an extension. WebViews can be adapted as [described above](#using-the-webview-api), but other scenarios currently require users to manually forward or expose ports. | [#531](https://github.com/Microsoft/vscode-remote/issues/531) |
 | **Local access to remote workspace files** | In some cases you may need to download a file from a UI extension (or helper) that is contained in the remote workspace. We are investigating options for how extensions might be able to accomplish this task. | [#640](https://github.com/Microsoft/vscode-remote/issues/640) |
 
-## Questions, Feedback, & Contributing
+## Questions and feedback
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
-
-Have a question or feedback? There are many ways to interact with us.
 
 - See the [FAQ](/docs/remote/faq.md) or the [troubleshooting guide](/docs/remote/troubleshooting.md#wsl-tips).
 - Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
