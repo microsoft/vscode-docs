@@ -69,7 +69,7 @@ Let's start out by using a sample project to try things out.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-After it's done, VS Code will automatically connect to the container with the local file system mapped into it. You can interact with it just as you would if it was running locally! Try editing and debugging to see what you can do!
+5. After it's done, VS Code will automatically connect to the container with the local file system mapped into it. Check out the `README` for the repository you cloned to see what to do next!
 
 ### Quick start: Open a folder in a container
 
