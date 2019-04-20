@@ -29,7 +29,7 @@ To get started you can:
 
     > **Linux Users:** Please follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms), add your user to the `docker` group after installation using `sudo usermod -aG docker $USER`, and re-login. *The Ubuntu Snap package is not supported*.
     >
-    > **Windows Users:** See [here](/docs/remote/troubleshooting.md#tips-for-avoiding-docker-desktop-for-windows-pitfalls) for information on workarounds to common problems.
+    > **Windows Users:** See [here](/docs/remote/troubleshooting.md#tips-for-avoiding-docker-desktop-for-windows-problems) for information on workarounds to common problems.
 
 2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/).
 
@@ -146,10 +146,10 @@ After a brief moment, a new window will appear and you'll be connected to the ru
 
 ## Managing containers
 
-By default, when the Remote - Containers extension will automatically start up any containers mentioned in `devcontainer.json`. When you close VS Code, it will either:
+By default, the Remote - Containers extension will automatically start up any containers mentioned in `devcontainer.json` when you open a folder in a container. When you close VS Code, it will either:
 
 - Automatically shut down the container if an image or Dockerfile is specified.
-- Leave the containers running if a Docker Compose file is specified to preserve command line workflows. However, you can change this behavior by adding `"shutdownAction": "stopCompose"` to the json file.
+- Leave the containers running if a Docker Compose file is specified. This is done to avoid impacting command line workflows, but you can change this behavior by adding `"shutdownAction": "stopCompose"` to `devcontainer.json`.
 
 In either case, you can view and manage your containers using one of the following options:
 
@@ -182,7 +182,7 @@ If you want to clean out images or mass-delete containers, [see here](/docs/remo
 
 ## Managing extensions
 
-VS Code runs extensions two one of places: locally on the UI / client side, or in the container. While "personalization" extensions (along with a few others) install locally, most installed extensions will reside inside a particular container. This allows you to install only the extensions you need for a given task in a container and seamlessly switch your entire tool-chain just by connecting to another one.
+VS Code runs extensions in one of two places: locally on the UI / client side, or in the container. While "personalization" extensions (along with a few others) install locally, most installed extensions will reside inside a particular container. This allows you to install only the extensions you need for a given task in a container and seamlessly switch your entire tool-chain just by connecting to another one.
 
 If you search for an extension in the extension panel and install, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category it is in. There will be Local - Installed category and one for your container.
 
@@ -509,6 +509,8 @@ See the following examples dev containers for additional information:
 
 Right-click on the Docker task bar item and select Settings.  On Windows, go to the Shared Drives tab and check the drive(s) where your source code is located. On macOS, go the File Sharing tab and be sure the folder containing your source code is under a file path specified in the list.
 
+See [here](/docs/remote/troubleshooting.md#tips-for-avoiding-docker-desktop-for-windows-problems) for information on workarounds to common Docker for Windows issues.
+
 ### I'm seeing an error about a missing library or dependency, how do I fix this?
 
 Some extensions rely on libraries not found in the certain Docker images. See [above](#installing-additional-software-in-the-sandbox) for a few options to resolve the problem.
@@ -517,13 +519,9 @@ Some extensions rely on libraries not found in the certain Docker images. See [a
 
 Currently you can only connect to one container per VS Code window. However, you can spin up multiple containers and [attach to them](#attaching-to-running-containers) from different VS Code windows to work around this limitation.
 
-### The Docker / Kubernetes extension does not work when I am connected to a container. I also cannot build container images or deploy from my container. How can I fix this?
+### The Docker / Kubernetes extension does not work and I cannot build or deploy container images when working inside a container. How can I fix this?
 
 You can resolve these issue by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes)in the container. See the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker), [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose), and [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) dev container definitions for details.
-
-### Can I access remote containers?
-
-If you are remotely running your containers in Docker, you can configure your local `docker` command to connect to the remote machine. However, you'll want to take care in ensuring you're authenticating your connection. This approach is also generally not recommended outside of development environments. You can [read this article](https://www.kevinkuszyk.com/2016/11/28/connect-your-docker-client-to-a-remote-docker-host/) for information on setting this up.
 
 ### What are the connectivity requirements for the VS Code Remote Server when it is running in a container?
 
@@ -537,7 +535,7 @@ The VS Code extension API abstracts many extensions away from any changes so the
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
-- See the [FAQ](/docs/remote/faq.md) or the [troubleshooting guide](/docs/remote/troubleshooting.md#ssh-tips).
+- See the [troubleshooting guide](/docs/remote/troubleshooting.md#containers-tips) or [FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
 - Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 - Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.

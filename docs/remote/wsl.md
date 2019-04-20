@@ -65,7 +65,7 @@ That's it! Any VS Code operations you perform in this window will executed in th
 
 ### Managing extensions
 
-VS Code runs extensions two one of places: locally on the UI / client side, or in the container. While "personalization" extensions (along with a few others) install locally, most installed extensions will reside inside WSL.
+VS Code runs extensions one of two places: locally on the UI / client side, or in WSL. While "personalization" extensions (along with a few others) install locally, most installed extensions will reside inside WSL.
 
 If you search for an extension in the extension panel and install, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category it is in. There will be Local - Installed category and one for WSL.
 
@@ -157,7 +157,7 @@ The VS Code extension API abstracts many extensions away from any changes so the
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
-- See the [FAQ](/docs/remote/faq.md) or the [troubleshooting guide](/docs/remote/troubleshooting.md#wsl-tips).
+- See the [troubleshooting guide](/docs/remote/troubleshooting.md#wsl-tips) or [FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
 - Add a [feature requests](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 - Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
