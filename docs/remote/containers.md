@@ -56,6 +56,10 @@ Let's start out by using a sample project to try things out.
     git clone https://github.com/Microsoft/vscode-remote-try-python
     git clone https://github.com/Microsoft/vscode-remote-try-go
     git clone https://github.com/Microsoft/vscode-remote-try-java
+    git clone https://github.com/Microsoft/vscode-remote-try-php
+    git clone https://github.com/Microsoft/vscode-remote-try-cpp
+    git clone https://github.com/Microsoft/vscode-remote-try-ruby
+    git clone https://github.com/Microsoft/vscode-remote-try-rust
     git clone https://github.com/Microsoft/vscode-remote-try-dotnetcore
     ```
 
