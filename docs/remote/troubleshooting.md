@@ -174,22 +174,31 @@ Optionally, you can add the following contents to a `.gitattributes` file to for
 
 If you see an error from Docker reporting that you are out of disk space, you can resolve this typically by cleaning out your unused containers and images. There are a few ways of doing this:
 
-- **Option 1: Use the Docker extension when *not* connected to a dev container.** If you right click on containers and images in the Docker panel, you can delete anything you are not using.
+**Option 1: Use the Docker extension from a local window.** While you can use the [Docker-in-Docker](https://aka.ms/vscode-remote/sample/docker-in-docker) approach to use the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from within a container, typically it is easiest to manage your containers from a separate local window so you don't accidentally shut down the container you are using.
 
-- **Option 2: Use the Docker CLI to pick containers to delete**:
-   1. Open a terminal
-   2. Type `docker ps -a` to see all containers
-   3. Type `docker rm <Container ID>` from this list to remove a container.
-   4. Type `docker image prune` to remove any unused images.
+ 1. Use **File > New Window** to open a local window local window.
 
-- **Option 3: Use Docker Compose**:
-    1. Open a terminal
-    2. Go to the directory with your `docker-compose.yml` file
-    3. Type `docker-compose down` stop and delete. If you have more than one Docker Compose file, can specify additional Docker Compose files with the `-f` argument.
+ 2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) and then install it from the extension panel.
 
-- **Option 3: Delete all containers and images that are not running:**
-    1. Open a terminal
-    2. Type `docker system prune --all`
+ 3. You can then go to the Docker panel and expand the Containers or Images tree, right-click, and select Remove Container / Image.
+
+     ![Docker Explorer screenshot](images/containers/docker-remove.png)
+
+**Option 2: Use the Docker CLI to pick containers to delete**:
+
+1. Open a terminal
+2. Type `docker ps -a` to see all containers
+3. Type `docker rm <Container ID>` from this list to remove a container.
+4. Type `docker image prune` to remove any unused images.
+
+**Option 3: Use Docker Compose**:
+1. Open a terminal
+2. Go to the directory with your `docker-compose.yml` file
+3. Type `docker-compose down` stop and delete. If you have more than one Docker Compose file, can specify additional Docker Compose files with the `-f` argument.
+
+**Option 4: Delete all containers and images that are not running:**
+1. Open a terminal
+2. Type `docker system prune --all`
 
 ### Connecting to multiple containers
 

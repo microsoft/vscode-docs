@@ -122,13 +122,61 @@ Beyond the advantages of having your team use a consistent environment and tool-
 
 VS Code supports two models for interacting with containers. One is to configure a folder you open to always run inside of a container. While this can be useful in many situations, in other situations you may have your own workflow and simply "attach" VS Code to an already running containers.
 
-Once you have a container up and running, you can connect to it by running the **Remote-Containers: Attach to running Container...** command or using the **Docker Explorer** from the VS Code [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker). If you expand "Containers" in the Docker Explorer, you can right click on any container and select **Attach Visual Studio Code...**
-
 > **Note:** Alpine and Windows based containers are not currently supported.
 
-![Docker Explorer screenshot](images/containers/attach-vs-code.png)
+Once you have a container up and running, you can connect by either:
+
+**Option 1: Run Remote-Docker: Attach to Running Container...** command from the command palette (<kbd>F1</kbd>) and selecting a container.
+
+**Option 2: Using the Docker extension from a local window**.
+
+1. Use **File > New Window** to open a local window local window.
+
+2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) and then install it from the extension panel if not already present.
+
+3. Go to the Docker panel and expand the Containers tree
+
+4. Right click and select Attach Visual Studio Code.
+
+    ![Docker Explorer screenshot](images/containers/docker-attach.png)
 
 After a brief moment, a new window will appear and you'll be connected to the running container!
+
+## Managing containers
+
+By default, when the Remote - Containers extension will automatically start up any containers mentioned in `devcontainer.json`. When you close VS Code, it will either:
+
+- Automatically shut down the container if an image or Dockerfile is specified.
+- Leave the containers running if a Docker Compose file is specified to preserve command line workflows. However, you can change this behavior by adding `"shutdownAction": "stopCompose"` to the json file.
+
+In either case, you can view and manage your containers using one of the following options:
+
+**Option 1: Use the Docker extension from a local window.** While you can use the [Docker-in-Docker](https://aka.ms/vscode-remote/sample/docker-in-docker) approach to use the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from within a container, typically it is easiest to manage your containers from a separate local window so you don't accidentally shut down the container you are using.
+
+1. Use **File > New Window** to open a local window local window.
+
+2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) and then install it from the extension panel.
+
+3. You can then go to the Docker panel and expand the Containers tree to see what is running. Right click and select Stop Container to shut one down.
+
+    ![Docker Explorer screenshot](images/containers/docker-stop.png)
+
+**Option 2: Use the Docker CLI**:
+
+1. Open a terminal
+2. Type `docker ps` to see running containers. Use `docker ps -a` to see stopped containers too.
+3. Type `docker stop <Container ID>` from this list to stop a container.
+4. ...or type `docker rm <Container ID>` to delete one instead.
+
+**Option 3: Use Docker Compose**:
+
+1. Open a terminal
+2. Go to the directory with your `docker-compose.yml` file
+3. Type `docker-compose top` to see running processes.
+4. Type `docker-compose stop` to stop the containers. If you have more than one Docker Compose file, can specify additional Docker Compose files with the `-f` argument.
+5. ...or type `docker-compose down` stop and delete them instead.
+
+If you want to clean out images or mass-delete containers, [see here](/docs/remote/troubleshooting.md#cleaning-out-unused-containers-and-images) for different options.
 
 ## Managing extensions
 
@@ -184,31 +232,6 @@ Once a folder has been opened in a container, you can use VS Code's debugger in 
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
-## Seeing and managing containers
-
-By default, when VS Code shuts down, it will:
-- Automatically shut down containers if an `image` or `Dockerfile` is specified in `devcontainer.json`.
-- Leave the containers running if a Docker Compose file is specified to preserve command line workflows. However, you can change this behavior by adding `"shutdownAction": "stopCompose"` to the json file.
-
-In either case, you can view and manage your containers using one of the following options:
-
-- **Option 1: Use the Docker extension when *not* connected to a dev container.** While you can use the [Docker-in-Docker](https://aka.ms/vscode-remote/sample/docker-in-docker) approach to use the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from within a container, typically it is easiest to manage your containers from a separate local window so you don't accidentally shut down the container you are using. Use **File > New Window** to get a local window and then install it from the extension panel. You can then go to the Docker panel and expand the Containers tree to see what is running. Right click and select Stop Container to shut one down.
-
-- **Option 2: Use the Docker CLI**:
-   1. Open a terminal
-   2. Type `docker ps` to see running containers. Use `docker ps -a` to see stopped containers too.
-   3. Type `docker stop <Container ID>` from this list to stop a container.
-   4. ...or type `docker rm <Container ID>` to delete one instead.
-
-- **Option 3: Use Docker Compose**:
-    1. Open a terminal
-    2. Go to the directory with your `docker-compose.yml` file
-    3. Type `docker-compose top` to see running processes.
-    4. Type `docker-compose stop` to stop the containers. If you have more than one Docker Compose file, can specify additional Docker Compose files with the `-f` argument.
-    5. ...or type `docker-compose down` stop and delete them instead.
-
-If you want to clean out images or mass-delete containers, [see here](/docs/remote/troubleshooting.md#cleaning-out-unused-containers-and-images) for different options.
-
 ## In-depth: Setting up a folder to run in a container
 
 There are a few different ways VS Code Remote - Containers can be used to develop an application inside a fully containerized environment. In general, there are two primary scenarios that drive interest in this development style:
@@ -235,7 +258,7 @@ As mentioned above, `.devcontainer/devcontainer.json` tells VS Code where to loo
 
 In its most basic form, you can create a dev sandbox by simply selecting a base container image from a source like [DockerHub](https://hub.docker.com) and then manually install any additional software like Git that may be missing.
 
-You can use the **Remote-Containers: Create Container Configuration File...** command in the command palette (Cmd/Ctrl+Shift+P) to select from a few base image to get you started and customize from there.
+You can use the **Remote-Containers: Create Container Configuration File...** command in the command palette (<kbd>F1</kbd>) to select from a few base image to get you started and customize from there.
 
 > **Note:**  Alpine and Windows based containers are not currently supported.
 
@@ -270,7 +293,7 @@ For example:
 }
 ```
 
-To open the folder in the container, simply run the **Remote-Containers: Open Folder in Container...** or **Remote: Reopen Folder in Container** command from the command palette (Cmd/Ctrl+Shift+P). Once the container has been created, the **local filesystem will be automatically mapped** into the container and you can start working with it from VS Code.
+To open the folder in the container, simply run the **Remote-Containers: Open Folder in Container...** or **Remote: Reopen Folder in Container** command from the command palette (<kbd>F1</kbd>). Once the container has been created, the **local filesystem will be automatically mapped** into the container and you can start working with it from VS Code.
 
 ### Installing additional software in the sandbox
 
@@ -291,7 +314,7 @@ Finally, you can also use a `Dockerfile` to create a custom image with all the n
 
 ### Using a Dockerfile
 
-When the application you looking for a customized sandbox or are working with an application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Docker: Create Container Configuration File...** command in the command palette (Cmd/Ctrl+Shift+P) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
+When the application you looking for a customized sandbox or are working with an application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Docker: Create Container Configuration File...** command in the command palette (<kbd>F1</kbd>) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
 
 > **Note:**  Alpine and Windows based containers are not currently supported.
 
