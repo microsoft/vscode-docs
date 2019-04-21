@@ -270,7 +270,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
 **Option 1: Use the Docker extension from a local window.** While you can use the [Docker-in-Docker](https://aka.ms/vscode-remote/sample/docker-in-docker) approach to use the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from within a container, typically it is easiest to manage your containers from a separate local window so you don't accidentally shut down the container you are using.
 
- 1. Use **File > New Window** to open a local window local window.
+ 1. Use **File > New Window** to open a local window.
 
  2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the extension panel if not already present.
 

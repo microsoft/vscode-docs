@@ -9,15 +9,13 @@ DateApproved: 4/11/2019
 ---
 # Developing inside a Container
 
-The **Visual Studio Code Remote - Containers extension** can adapt to a variety of different container-based workflows. It allows you to open any folder inside (or mounted into) a container and take advantage of VS Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a "development container" with a set of extensions installed inside of it to optimize the experience.
+The **Visual Studio Code Remote - Containers extension** lets you use a [Docker container](https://docker.com) as a full-featured development environment.  It allows you to open any folder inside (or mounted into) a container and take advantage of VS Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well defined tool and runtime stack. This container may be used to actually run an application or be focused exclusively on sandboxing tools, libraries, runtimes, or other utilities that need to be run against a codebase.
 
-These **development containers** typically come with a well defined tool and runtime stack and their prerequisites. This container may be used to actually run an application or be focused exclusively on sandboxing tools, libraries, runtimes, or other utilities that need to be run against a codebase. However, the Containers extension also supports **attaching** to existing running containers to cover triage scenarios or for cases where you may be using other container orchestrators.
-
-With the exception of personalization extensions (e.g. themes), most extensions you install once connected will be tied to the container, which means that you can **seamlessly switch** your entire development environment by just connecting to a different container.
+Workspace files are mounted from the local file system or copied or cloned into the container. Extensions are installed and run inside the container where they have full access to the tools, platform, and file system. This means that you can seamlessly switch your entire development environment by just connecting to a different container.
 
 ![Container Architecture](images/containers/architecture-containers.png)
 
-The result is that VS Code can provide a **local-quality development experience** including full IntelliSense, debugging, and more **regardless of where your code is hosted**.
+The result is that VS Code can provide a **local-quality development experience** including full IntelliSense (completions), debugging, and more **regardless of where your code is hosted**.
 
 ## Getting started
 
@@ -132,7 +130,7 @@ Once you have a container up and running, you can connect by either:
 
 **Option 2: Using the Docker extension from a local window**.
 
-1. Use **File > New Window** to open a local window local window.
+1. Use **File > New Window** to open a local window.
 
 2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the extension panel if not already present.
 
@@ -155,7 +153,7 @@ In either case, you can view and manage your containers using one of the followi
 
 **Option 1: Use the Docker extension from a local window.** While you can use the [Docker-in-Docker](https://aka.ms/vscode-remote/sample/docker-in-docker) approach to use the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from within a container, typically it is easiest to manage your containers from a separate local window so you don't accidentally shut down the container you are using.
 
-1. Use **File > New Window** to open a local window local window.
+1. Use **File > New Window** to open a local window.
 
 2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the extension panel if not already present.
 

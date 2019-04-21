@@ -9,7 +9,7 @@ DateApproved: 4/11/2019
 ---
 # Remote Development using SSH
 
-**Visual Studio Code Remote - SSH extension** allows you to open a remote folder on any remote machine, VM, or container with a running SSH server and take full advantage of VS Code's feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
+The **Visual Studio Code Remote - SSH extension** allows you to open a remote folder on any remote machine, VM, or container with a running SSH server and take full advantage of VS Code's feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
 
 When using the capability, VS Code runs certain extensions on the remote machine to optimize your experience. Given **no source code needs to be on your local machine**, this approach provides dramatic performance and fidelity benefits over using network shares or synchronizing files.
 
@@ -18,6 +18,8 @@ When using the capability, VS Code runs certain extensions on the remote machine
 The result is that VS Code can provide a **local-quality development experience** including full IntelliSense (completions), debugging, and more **regardless of where your code is hosted**.
 
 ## Getting started
+
+> **Note:** Windows OpenSSH Servers are *not* yet supported, but Windows clients *are* supported.
 
 ### Installation
 
@@ -53,9 +55,7 @@ Visual Studio Code uses **[SSH configuration files](https://linux.die.net/man/5/
 
     ![Illustration of user@host input box](images/ssh/ssh-user@box.png)
 
-    > **Note:** Windows SSH Servers are *not* yet supported (though Windows clients *are* supported).
-    >
-    > If you see errors about bad SSH file permissions when connecting, [see here for details](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) on the correct settings.
+    > **Note:** If you see errors about bad SSH file permissions when connecting, [see here for details](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) on the correct settings.
 
 3. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up to date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
 
