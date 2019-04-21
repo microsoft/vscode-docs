@@ -29,22 +29,22 @@ You can set up SSH key based authentication for your remote host as follows:
 
     > **Tip:** Don't have `ssh-keygen`? Install [a supported client](#installing-a-supported-ssh-client).
 
-2. Add the contents of your **local** `id_rsa.pub` file to the appropriate `authorized_keys` file(s) on the remote host. How you do this depends on the operating system.
+2. Add the contents of your **local** `id_rsa.pub` file to the appropriate `authorized_keys` file(s) on the remote host. How you do this depends on the operating systems involved.
 
-    - **macOS / Linux to macOS / Linux**: Run the following command in a **local terminal** replacing the user and host name as appropriate.
+    On **macOS / Linux**, run the following command in a **local terminal** replacing the user and host name as appropriate.
 
-        ````bash
-        ssh-copy-id your-user-name-on-host@host-fqdn-or-ip-goes-here
-        ````
+    ````bash
+    ssh-copy-id your-user-name-on-host@host-fqdn-or-ip-goes-here
+    ````
 
-    - **Windows to macOS/Linux**: Run the following commands in a **local command prompt** replacing the value of `REMOTEHOST` as appropriate.
+    On **Windows**, run the following commands in a **local command prompt** replacing the value of `REMOTEHOST` as appropriate.
 
-        ````bash
-        SET REMOTEHOST=your-user-name-on-host@host-fqdn-or-ip-goes-here
+    ````bash
+    SET REMOTEHOST=your-user-name-on-host@host-fqdn-or-ip-goes-here
 
-        scp %USERPROFILE%\.ssh\id_rsa.pub %REMOTEHOST%:~/tmp.pub
-        ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
-        ````
+    scp %USERPROFILE%\.ssh\id_rsa.pub %REMOTEHOST%:~/tmp.pub
+    ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
+    ````
 
 #### Improving your security with a dedicated key
 
@@ -55,12 +55,16 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     ```bash
     ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa-remote-ssh
     ```
+
     ...or in a **local command prompt** on Windows:
+
     ```bat
     ssh-keygen -t rsa -b 4096 -f %USERPROFILLE%\.ssh\id_rsa-remote-ssh
     ```
 
-2. Run **Remote-SSH: Open Configuration File...** in the command palette (<kbd>F1</kbd>), select a file, and add (or modify) the host you want to use as follows on macOS / Linux:
+2. Run **Remote-SSH: Open Configuration File...** in the command palette (<kbd>F1</kbd>), select an SSH config file, and add (or modify) the an entry for host you want to use.
+
+   **macOS / Linux**:
 
     ````yaml
     Host name-of-ssh-host-here
@@ -68,7 +72,9 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
         HostName host-fqdn-or-ip-goes-here
         IdentityFile $HOME/.ssh/id_rsa-remote-ssh
     ````
-    ...or on Windows:
+
+    **Windows**:
+
     ````yaml
     Host name-of-ssh-host-here
         User your-user-name-on-host
@@ -78,22 +84,21 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
 
 3. Add the contents the **local** `id_rsa-remote-ssh.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the remote host.
 
-    - **macOS / Linux to macOS / Linux**: Run the following command in a **local terminal** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2.
+    On **macOS / Linux**, run the following command in a **local terminal** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2:
 
-        ````bash
-        ssh-copy-id -f ~/.ssh/id_rsa-remote-ssh.pub name-of-ssh-host-here
-        ````
+    ````bash
+    ssh-copy-id -f ~/.ssh/id_rsa-remote-ssh.pub name-of-ssh-host-here
+    ````
 
-    - **Windows to macOS/Linux**: Run the following commands in a **local command prompt** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2.
+    ...or on **Windows**, run the following commands in a **local command prompt** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2.
 
-        ````bash
-        SET REMOTEHOST=name-of-ssh-host-here
-        SET PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa-remote-ssh.pub
+    ````bash
+    SET REMOTEHOST=name-of-ssh-host-here
+    SET PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa-remote-ssh.pub
 
-        scp %PATHOFIDENTITYFILE% %REMOTEHOST%:~/tmp.pub
-        ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
-        ````
-
+    scp %PATHOFIDENTITYFILE% %REMOTEHOST%:~/tmp.pub
+    ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
+    ````
 
 ### Reusing a key generated in PuTTYGen
 
