@@ -63,7 +63,7 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
 That's it! Any VS Code operations you perform in this window will executed in the WSL environment including everything from editing and file operations, to debugging, terminals, and more.
 
-### Managing extensions
+## Managing extensions
 
 VS Code runs extensions one of two places: locally on the UI / client side, or in WSL. While "personalization" extensions (along with a few others) install locally, most installed extensions will reside inside WSL.
 
@@ -93,7 +93,7 @@ VS Code runs extensions two one of places: locally on the UI / client side, or r
 
 Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-### Opening a terminal in WSL
+## Opening a terminal in WSL
 
 Opening a terminal in a container is simple. Once connected, **any terminal window** you open in VS Code (e.g. using **Terminal > New Terminal**) will automatically run in WSL than locally.
 
@@ -101,7 +101,7 @@ You can also **use the `code-insiders` CLI** from this same terminal window to p
 
 ![Using the code CLI](images/wsl/code-command-in-terminal.png)
 
-### Debugging in WSL
+## Debugging in WSL
 
 Once you've connected to WSL, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application up inside WSL and attach the debugger to it.
 
