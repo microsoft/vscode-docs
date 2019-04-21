@@ -15,6 +15,8 @@ This article covers troubleshooting tips and tricks for each of the Visual Studi
 
 ### Configuring key based authentication
 
+#### Quick start
+
 > **Azure Linux VM / PuTTY Tip:** If you've already set up key based authentication using PuTTYGen, you will need to convert your private key for use in other SSH clients. See [below](#reusing-a-key-generated-in-puttygen) for details.
 
 You can set up SSH key based authentication for your remote host as follows:
@@ -29,20 +31,69 @@ You can set up SSH key based authentication for your remote host as follows:
 
 2. Add the contents of your **local** `id_rsa.pub` file to the appropriate `authorized_keys` file(s) on the remote host. How you do this depends on the operating system.
 
-    **macOS / Linux to macOS / Linux**: Run the following command in a terminal replacing `your-remote-linux-machine` with the host from your SSH config file.
+    - **macOS / Linux to macOS / Linux**: Run the following command in a **local terminal** replacing the user and host name as appropriate.
 
-    ````bash
-    ssh-copy-id your-remote-linux-machine
+        ````bash
+        ssh-copy-id your-user-name-on-host@host-fqdn-or-ip-goes-here
+        ````
+
+    - **Windows to macOS/Linux**: Run the following commands in a **local command prompt** replacing the value of `REMOTEHOST` as appropriate.
+
+        ````bash
+        SET REMOTEHOST=your-user-name-on-host@host-fqdn-or-ip-goes-here
+
+        scp %USERPROFILE%\.ssh\id_rsa.pub %REMOTEHOST%:~/tmp.pub
+        ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
+        ````
+
+#### Improving your security with a dedicated key
+
+While using a single SSH key across all your SSH hosts can be convenient, if anyone gains access to your private key, they will have access to all of your hosts as well. You can solve this by creating a separate SSH key for your development hosts. Just follow these steps:
+
+1. Generate a separate SSH key in a different file by running the following in a **local terminal** on macOS / Linux:
+
+    ```bash
+    ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa-remote-ssh
+    ```
+    ...or in a **local command prompt** on Windows:
+    ```bat
+    ssh-keygen -t rsa -b 4096 -f %USERPROFILLE%\.ssh\id_rsa-remote-ssh
+    ```
+
+2. Run **Remote-SSH: Open Configuration File...** in the command palette (<kbd>F1</kbd>), select a file, and add (or modify) the host you want to use as follows on macOS / Linux:
+
+    ````yaml
+    Host name-of-ssh-host-here
+        User your-user-name-on-host
+        HostName host-fqdn-or-ip-goes-here
+        IdentityFile $HOME/.ssh/id_rsa-remote-ssh
+    ````
+    ...or on Windows:
+    ````yaml
+    Host name-of-ssh-host-here
+        User your-user-name-on-host
+        HostName host-fqdn-or-ip-goes-here
+        IdentityFile %USERPROFILLE%\.ssh\id_rsa-remote-ssh
     ````
 
-    **Windows to macOS/Linux**: Run the following commands in a command prompt replacing `your-remote-linux-machine` with the host from your SSH config file.
+3. Add the contents the **local** `id_rsa-remote-ssh.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the remote host.
 
-    ````bash
-    SET REMOTEHOST=user@your-remote-linux-machine
+    - **macOS / Linux to macOS / Linux**: Run the following command in a **local terminal** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2.
 
-    scp %USERPROFILE%\.ssh\id_rsa.pub %REMOTEHOST%:~/tmp.pub
-    ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
-    ````
+        ````bash
+        ssh-copy-id -f ~/.ssh/id_rsa-remote-ssh.pub name-of-ssh-host-here
+        ````
+
+    - **Windows to macOS/Linux**: Run the following commands in a **local command prompt** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2.
+
+        ````bash
+        SET REMOTEHOST=name-of-ssh-host-here
+        SET PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa-remote-ssh.pub
+
+        scp %PATHOFIDENTITYFILE% %REMOTEHOST%:~/tmp.pub
+        ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
+        ````
+
 
 ### Reusing a key generated in PuTTYGen
 
@@ -55,7 +106,7 @@ Follow these steps:
 3. Validate that the permissions on the file you exported only grant "Full Control to your user, Administrators, and SYSTEM.
 4. Open your SSH `config` file and add an `IdentityFile` keyword with the path to the key file. For example:
 
-    ````
+    ````yaml
     Host example-azure-vm-with-exported-private-key
         User myuser
         HostName 192.168.0.128
@@ -158,6 +209,8 @@ Docker Desktop for Windows works well in many cases, but there are a number of "
 
 3. **Use your Docker ID to sign into Docker (not email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See [here](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
+If you are still having trouble see the [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot/#verify-domain-user-has-permissions-for-shared-drives-volumes).
+
 ### Resolving Git line ending issues (resulting in many modified files)
 
 Since Windows and Linux use different default line endings, you may see files that appear modified by seem to have no differences aside from the line endings.  To prevent this from happening, you can disable automatic line ending conversion and add a `.gitattributes` file to your folder.  Run
@@ -179,6 +232,32 @@ Optionally, you can add the following contents to a `.gitattributes` file to for
 ### Resolving errors about missing Linux dependencies
 
 Some extensions rely on libraries not found in the certain Docker images. See the [primary containers article](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) for a few options on resolving this issue.
+
+### Speeding up containers in Docker Desktop
+
+By default, Docker Desktop only gives containers a fraction of your machine capacity. In most cases, this is enough, but if you are doing something that requires more capacity you can increase memory, CPU, or disk use.
+
+First, try [stopping any running containers](/docs/remote/containers.md#managing-containers) you are no longer using.
+
+If this doesn't solve your problem, you may want to see if CPU is actually your problem or if there is something else going on. An easy way to keep tabs on this this is to install the **[Resource Monitor extension](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor&ssr=false#overview)**. When installed in a container, it will provide you info about capacity for your containers in the status bar.
+
+![Resource use status bar](https://github.com/Njanderson/resmon/raw/master/images/example.png)
+
+If you'd like this extension to always be installed, add this to `settings.json`:
+
+```json
+"remote.containers.defaultExtensions": [
+    "mutantdino.resourcemonitor"
+]
+```
+
+If you determine that you need to give your container more of your machine's capacity, follow these steps:
+
+1. Right-click on the Docker task bar item and select Preferences...
+2. Click on Advanced to increase CPU, Memory, or Swap.
+3. Click on Disk to increase the amount of disk Docker is allowed to consumer on your machine.
+
+Finally, if the application is disk intensive, you should avoid using a volume mount of your local filesystem to store data files (e.g. database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead.
 
 ### Cleaning out unused containers and images
 
@@ -222,9 +301,41 @@ You can use Docker and Kubernetes related CLIs and extensions from inside your d
 
 ## WSL tips
 
+### Selecting the distribution used by Remote - WSL
+
+The Remote - WSL extension uses your **default distribution** which you can change using `wslconfig.exe`. For example:
+
+```bash
+wslconfig /setdefault Ubuntu
+```
+
+You can see which distributions you have installed using:
+
+```bash
+wslconfig /l
+```
+
 ### Resolving errors about missing dependencies
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
+
+### Resolving Git line ending issues (resulting in many modified files)
+
+Since Windows and Linux use different default line endings, you may see files that appear modified by seem to have no differences aside from the line endings.  To prevent this from happening, you can disable automatic line ending conversion and add a `.gitattributes` file to your folder.  Run
+
+```bash
+git config --global core.autocrlf false
+```
+
+You will need to re-clone the repository for this setting to take effect.
+
+Optionally, you can add the following contents to a `.gitattributes` file to force everything to be LF except for windows batch files that require CRLF:
+
+```yaml
+*.* text eol=lf
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+```
 
 ## Questions and feedback
 

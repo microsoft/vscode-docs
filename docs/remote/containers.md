@@ -114,7 +114,7 @@ Finally, if nothing here meets your needs, you can also spin up containers in an
 
 ### Adding configuration files to public or private repos
 
-You can easily share a customized dev container definition for your project by simply adding files like `.devcontainer/devcontainer.json` to source control. By including these files in your repository, anyone that opens a local copy of your repo in VS Code will be automatically asked if they want reopen the folder in a container instead if the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension installed.
+You can easily share a customized dev container definition for your project by simply adding files like `.devcontainer/devcontainer.json` to source control. By including these files in your repository, anyone that opens a local copy of your repo in VS Code will be automatically asked if they want reopen the folder in a container instead if the Remote - Containers extension installed.
 
 ![Dev config file reopen notification](images/containers/dev-container-reopen-prompt.png)
 

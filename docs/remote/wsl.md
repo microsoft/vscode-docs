@@ -141,6 +141,20 @@ Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/i
 
 ## Common questions
 
+### How do I change the distribution Remote - WSL uses?
+
+The Remote - WSL extension uses your **default distribution** which you can change using `wslconfig.exe`. For example:
+
+```bash
+wslconfig /setdefault Ubuntu
+```
+
+You can see which distributions you have installed using:
+
+```bash
+wslconfig /l
+```
+
 ### I'm seeing an error about a missing library or dependency, how do I fix this?
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
