@@ -39,7 +39,7 @@ You can set up SSH key based authentication for your remote host as follows:
 
     On **Windows**, run the following commands in a **local command prompt** replacing the value of `REMOTEHOST` as appropriate.
 
-    ````bash
+    ````bat
     SET REMOTEHOST=your-user-name-on-host@host-fqdn-or-ip-goes-here
 
     scp %USERPROFILE%\.ssh\id_rsa.pub %REMOTEHOST%:~/tmp.pub
@@ -92,7 +92,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
 
     ...or on **Windows**, run the following commands in a **local command prompt** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2.
 
-    ````bash
+    ````bat
     SET REMOTEHOST=name-of-ssh-host-here
     SET PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa-remote-ssh.pub
 
@@ -130,7 +130,7 @@ This setting will cause the terminal to be shown whenever VS Code runs an SSH co
 
 Enable it in your SSH config file like this:
 
-```
+```yaml
 Host *
     ControlMaster auto
     ControlPath  ~/.ssh/sockets/%r@%h-%p
@@ -169,7 +169,7 @@ The following are permissions that need to be correct on the remote machine you 
 
 If you'd prefer to use the command line to update permissions on Windows, you can use the `icacls` command. For example, this will set your user as the owner, clear out permissions, disable inheritance, and grant the needed permissions:
 
-```
+```bat
 SET FILEORFOLDERTOUPDATE="%USERPROFILE%\.ssh"
 
 icacls "%FILEORFOLDERTOUPDATE%" /c /setowner %USERDOMAIN%\%USERNAME%
@@ -310,13 +310,13 @@ You can use Docker and Kubernetes related CLIs and extensions from inside your d
 
 The Remote - WSL extension uses your **default distribution** which you can change using `wslconfig.exe`. For example:
 
-```bash
+```bat
 wslconfig /setdefault Ubuntu
 ```
 
 You can see which distributions you have installed using:
 
-```bash
+```bat
 wslconfig /l
 ```
 
