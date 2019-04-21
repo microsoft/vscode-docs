@@ -201,7 +201,7 @@ The VS Code extension API abstracts many extensions away from any changes so the
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
-- See the [troubleshooting guide](/docs/remote/troubleshooting.md#ssh-tips) or [FAQ](/docs/remote/faq.md).
+- See [Tips and Tricks](/docs/remote/troubleshooting.md#ssh-tips) or the [FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
 - Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 - Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).

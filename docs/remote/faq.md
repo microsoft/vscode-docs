@@ -81,6 +81,6 @@ The VS Code Remote Development extensions follow the GDPR policies as Visual Stu
 
 Have a question or feedback?
 
-- See [Remote Development Tips and Tricks](/docs/remote/troubleshooting.md).
+- See [Tips and Tricks](/docs/remote/troubleshooting.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
 - Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).

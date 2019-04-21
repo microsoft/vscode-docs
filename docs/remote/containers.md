@@ -99,13 +99,13 @@ After it's done, VS Code will automatically connect to the container and you can
 
 ## Creating configuration files for existing projects
 
-The key to configuring VS Code to adapt to a wide variety of container-based scenarios is `devcontainer.json`. The file's intent is similar to `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. The file is either located at `.devcontainer/devcontainer.json` with other files related to your dev container or as a stand alone dot-prefixed `.devcontainer.json` file.
+The key to configuring VS Code to adapt to a wide variety of container-based scenarios is `devcontainer.json`. The file's intent is similar to `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. The file is either located at `.devcontainer/devcontainer.json`  or `.devcontainer.json` (dot-prefixed).
 
 Commands like **Remote-Containers: Create Container Configuration File...** can be used to add this file to your project that you then adapt to your needs. For example, you can:
 
 - Spin up a [stand-alone "sandbox" container](#working-with-a-stand-alone-dev-sandbox).
 - Work inside a dev container defined by an [image](#using-an-existing-container-image), [Dockerfile](#using-a-dockerfile) or [docker-compose.yml](#using-docker-compose).
-- [Use Docker or Kubernetes](#working-with-docker-or-kubernetes-from-inside-a-container) from inside a dev container to build and deploy your app.
+- [Use Docker or Kubernetes](#using-docker-or-kubernetes-from-a-container) from inside a dev container to build and deploy your app.
 - [Attach to an already running container](#attaching-to-running-containers).
 
 The [vscode-dev-containers repository](http://aka.ms/vscode-dev-containers) is a good starting resource for examples of adapting `devcontainer.json` to different scenarios. From here, you can [alter your configuration](#indepth-setting-up-a-folder-to-run-in-a-container) to install additional tools like Git in the container, automatically install extensions, expose additional ports, set runtime arguments, reuse or [extend your existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend), and more.
@@ -228,7 +228,7 @@ You can also **use the `code-insiders` CLI** from this same terminal window to p
 
 ![Using the code CLI](images/containers/code-command-in-terminal.png)
 
-## Forwarding an additional port
+## Forwarding a port
 
 Sometimes when developing you may need to access a port in your container that you didn't add to `devcontainer.json`, your `Dockerfile`, or Docker Compose file. If you want to *temporarily forward* a new port for the duration of the session, run the **Remote-Containers: Forward Port...** command from the command palette (<kbd>F1</kbd>).
 
@@ -254,7 +254,7 @@ There are a few different ways VS Code Remote - Containers can be used to develo
 
   - [**Attach**](#attaching-to-running-containers): You can use an alternate workflow and simply attach to an already running container.
 
-  - In each case, you may also need to **[build container images and deploy to Docker or Kubernetes](#working-with-docker-or-kubernetes-from-inside-a-container)** from inside your container.
+  - In each case, you may also need to **[build container images and deploy to Docker or Kubernetes](#using-docker-or-kubernetes-from-a-container)** from inside your container.
 
 This section will walk you through how to configure your project for each of these situations. The **[vscode-dev-containers GitHub repository](https://aka.ms/vscode-dev-containers)** also contains a number of dev container definitions you may find useful to get you up and running quickly.
 
@@ -479,17 +479,19 @@ version: '3'
     command: sleep infinity
 ```
 
-### Docker Compose samples
+### Docker Compose dev container definitions
 
-The following are some examples to get you started:
+The following are some dev container definitions that use Docker Compose that you can use to get a more complete picture of the setup:
 
-- [Existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-docker-compose) - Inlcudes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
+- [Existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
 
-- [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo) -  A simple Node.js web server that connects to a Mongo DB in a different container.
+- [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo) -  A Node.js container that connects to a Mongo DB in a different container.
+
+- [Python & PostGreSQL](https://aka.ms/vscode-remote/samples/python-postgresl) -  A Python container that connects to PostGreSQL in a different container.
 
 - [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside the a dev container by simply volume mounting the Docker unix socket.
 
-## Working with Docker or Kubernetes from inside a container
+## Using Docker or Kubernetes from a container
 
 While you can build, deploy, and debug your application right inside a dev container, you may also need to test it by running it inside a set of production-like containers. Fortunately, by installing the needed Docker or Kubernetes CLIs, you can build and deploy your app's container images from inside your dev container. Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) or [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extensions.
 
@@ -541,7 +543,7 @@ The VS Code extension API abstracts many extensions away from any changes so the
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
-- See the [troubleshooting guide](/docs/remote/troubleshooting.md#containers-tips) or [FAQ](/docs/remote/faq.md).
+- See [Tips and Tricks](/docs/remote/troubleshooting.md#containers-tips) or the [FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
 - Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 - Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.

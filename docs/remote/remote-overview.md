@@ -48,6 +48,6 @@ While most VS Code extensions should work unmodified in a remote environment, ex
 
 > **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
 
-- See the [FAQ](/docs/remote/faq.md) or [Tips and Tricks](https://aka.ms/vscode-remote/troubleshooting) topics.
+- See [Tips and Tricks](https://aka.ms/vscode-remote/troubleshooting) or the [FAQ](/docs/remote/faq).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
 - Add a [feature request](https://aka.m/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
