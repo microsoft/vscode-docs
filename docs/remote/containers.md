@@ -228,6 +228,12 @@ You can also **use the `code-insiders` CLI** from this same terminal window to p
 
 ![Using the code CLI](images/containers/code-command-in-terminal.png)
 
+## Forwarding an additional port
+
+Sometimes when developing you may need to access a port in your container that you didn't add to `devcontainer.json`, your `Dockerfile`, or Docker Compose file. If you want to *temporarily forward* a new port for the duration of the session, run the **Remote-Containers: Forward Port...** command from the command palette (<kbd>F1</kbd>).
+
+After selecting a port, a toast notification will tell you the localhost port you should use to access the port in the container. For example, if you forwarded a HTTP server listening on port 3000, the toast notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote http server using http://localhost:4123.
+
 ## Debugging in a container
 
 Once a folder has been opened in a container, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application up inside the container and attach the debugger to it.

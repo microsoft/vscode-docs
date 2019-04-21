@@ -43,15 +43,15 @@ To get started you need to:
 
 ### Connect to a remote host
 
-> **Note:** Windows SSH Servers are *not* yet supported (though Windows clients *are* supported).
-
 Visual Studio Code uses **[SSH configuration files](https://linux.die.net/man/5/ssh_config)** and requires **[SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication)** to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). To get started, follow these steps:
+
+> **Note:** Windows SSH Servers are *not* yet supported (though Windows clients *are* supported).
 
 1. First, **configure key based authentication** on the host you plan to use. If you are new to SSH or are running into trouble, see [here for additional information](/docs/remote/troubleshooting.md#configuring-key-based-authentication) on setting this up. If you followed the Azure VM tutorial, you can skip this step.
 
     > **Azure Linux VM / PuTTY Tip:** If you've already set up key based authentication using PuTTYGen, you will need to convert your private key for use in other OpenSSH clients. See [here for details](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
 
-2. Run **Remote-SSH: New Window...** from the command palette (Cmd/Ctrl+Shift+P) and enter the host and username in the input box as follows: `user@hostname` (on Windows `user@domain@hostname` is also supported).
+2. Run **Remote-SSH: New Window...** from the command palette (Cmd/Ctrl+Shift+P) and enter the host and your user on the host in the input box as follows: `user@hostname`.
 
     ![Illustration of user@host input box](images/ssh/ssh-user@box.png)
 
@@ -69,12 +69,8 @@ If you have a few hosts you use frequently, you can add them to an SSH config fi
 
 ```
 Host example-remote-linux-machine
-    User myuser
-    HostName remote-linux-machine.mydomain.or.ip
-
-Host example-remote-windows-machine
-    User myuser@mydomain
-    HostName remote-windows-machine.mydomain.or.ip
+    User your-user-name-here
+    HostName host-fqdn-or-ip-goes-here
 ```
 
 Set the `"remote.SSH.configFile"` property in `settings.json` if you want to use a different config file than those listed.
@@ -127,7 +123,7 @@ Sometimes when developing you may need to access a port on a remote machine that
 
 If you want to *temporarily forward* a new port for the duration of the session, run the **Remote-SSH: Forward ports from active SSH Host...** command when connected.
 
-A toast notification will tell tell you the localhost port you should use to access the remote port. For example, if you forwarded a HTTP server listening on port 3000, the toast notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote http server using http://localhost:4123.
+After entering a port number, a toast notification will tell you the localhost port you should use to access the remote port. For example, if you forwarded a HTTP server listening on port 3000, the toast notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote http server using http://localhost:4123.
 
 ### Always forwarding a port
 

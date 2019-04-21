@@ -15,9 +15,9 @@ This article covers troubleshooting tips and tricks for each of the Visual Studi
 
 ### Configuring key based authentication
 
-#### Quick start
-
 > **Azure Linux VM / PuTTY Tip:** If you've already set up key based authentication using PuTTYGen, you will need to convert your private key for use in other SSH clients. See [below](#reusing-a-key-generated-in-puttygen) for details.
+
+#### Quick start
 
 You can set up SSH key based authentication for your remote host as follows:
 
@@ -29,7 +29,7 @@ You can set up SSH key based authentication for your remote host as follows:
 
     > **Tip:** Don't have `ssh-keygen`? Install [a supported client](#installing-a-supported-ssh-client).
 
-2. Add the contents of your **local** `id_rsa.pub` file to the appropriate `authorized_keys` file(s) on the remote host. How you do this depends on the operating systems involved.
+2. Add the contents of your **local** `id_rsa.pub` file to the appropriate `authorized_keys` file(s) on the remote host.
 
     On **macOS / Linux**, run the following command in a **local terminal** replacing the user and host name as appropriate.
 
@@ -62,9 +62,9 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     ssh-keygen -t rsa -b 4096 -f %USERPROFILLE%\.ssh\id_rsa-remote-ssh
     ```
 
-2. Run **Remote-SSH: Open Configuration File...** in the command palette (<kbd>F1</kbd>), select an SSH config file, and add (or modify) the an entry for host you want to use.
+2. Run **Remote-SSH: Open Configuration File...** in the command palette (<kbd>F1</kbd>), select an SSH config file, and add (or modify) a host entry as follows:
 
-   **macOS / Linux**:
+   *macOS / Linux:*
 
     ````yaml
     Host name-of-ssh-host-here
@@ -73,7 +73,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
         IdentityFile $HOME/.ssh/id_rsa-remote-ssh
     ````
 
-    **Windows**:
+    *Windows:*
 
     ````yaml
     Host name-of-ssh-host-here
@@ -109,12 +109,12 @@ Follow these steps:
 1. Load the private key you created back into PuTTYGen
 2. Select **Conversions > Export OpenSSH key** and select a location to export the key such as `%USERPROFILE%\.ssh`.
 3. Validate that the permissions on the file you exported only grant "Full Control to your user, Administrators, and SYSTEM.
-4. Open your SSH `config` file and add an `IdentityFile` keyword with the path to the key file. For example:
+4.  Run **Remote-SSH: Open Configuration File...** in the command palette (<kbd>F1</kbd>), select an SSH config file, and add (or modify) a host entry as follows:
 
     ````yaml
-    Host example-azure-vm-with-exported-private-key
-        User myuser
-        HostName 192.168.0.128
+    Host name-of-ssh-host-here
+        User your-user-name-on-host
+        HostName host-fqdn-or-ip-goes-here
         IdentityFile C:\path\to\your\exported\private\keyfile
     ````
 
@@ -246,7 +246,7 @@ First, try [stopping any running containers](/docs/remote/containers.md#managing
 
 If this doesn't solve your problem, you may want to see if CPU is actually your problem or if there is something else going on. An easy way to keep tabs on this this is to install the **[Resource Monitor extension](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor&ssr=false#overview)**. When installed in a container, it will provide you info about capacity for your containers in the status bar.
 
-![Resource use status bar](https://github.com/Njanderson/resmon/raw/master/images/example.png)
+![Resource use status bar](images/troubleshooting/resource-monitor.png)
 
 If you'd like this extension to always be installed, add this to `settings.json`:
 
