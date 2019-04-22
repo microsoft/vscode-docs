@@ -130,11 +130,6 @@ Delve debugger doesn't work under WSL | https://github.com/go-delve/delve/issues
 
 | Issue | Existing issues |
 |---|---|
-Node.js auto-attach don't work under WSL | https://github.com/Microsoft/vscode/issues/47497 |
-Debugging doesn't work in multi root workspaces | https://github.com/Microsoft/vscode/issues/44451 |
-Debugging doesn't work | https://github.com/Microsoft/vscode/issues/44906 |
-Node process is left hanging on WSL when debugger is stopped | https://github.com/Microsoft/vscode/issues/48755 |
-Unable to debug with integrated terminal (WSL) | https://github.com/Microsoft/vscode/issues/50445 |
 NodeJS Error: spawn EACCES (different variants of this error) | https://github.com/Microsoft/WSL/issues/3886 |
 Webpack HMR not working | https://github.com/Microsoft/WSL/issues/2709 |
 Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/issues/2657 |
