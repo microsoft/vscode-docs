@@ -15,7 +15,7 @@ The optimized **Visual Studio Code Remote - WSL extension** allows you take adva
 
 ![WSL Architecture](images/wsl/architecture-wsl.png)
 
-Given source code **does not even need to exist on the Windows filesystem** for it to work, the approach provides a **local-quality development experience** including full IntelliSense, debugging, and more **regardless of where your code is located**.
+Given source code **does not even need to exist on the Windows filesystem** for it to work, the approach provides a **local-quality development experience** including full IntelliSense (completions), debugging, and more **regardless of where your code is located**.
 
 ## Getting started
 
@@ -23,7 +23,7 @@ Given source code **does not even need to exist on the Windows filesystem** for 
 
 To get started you need to:
 
-1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) along with your preferred Linux distribution. The Remote - WSL extension will use your **default distro** and use `wslconfig.exe` to configure the default as needed.
+1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) along with your preferred Linux distribution. The Remote - WSL extension will use your **default distro**. Use `wslconfig.exe` to change your default as needed.
 
     > **Note:** WSL does have some [known limitations](#known-limitations) for certain types of development that can also affect your VS Code experience.
 
@@ -31,7 +31,7 @@ To get started you need to:
 
     > **Dogfooding Note (UPDATED)**: The Code - WSL build is deprecated. Use VS Code - Insiders now.
 
-3. Install the **[Remote Development](https://aka.ms/vscode-remote/download/extension)** extension pack
+3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack
 
     > **Dogfooding Note (UPDATED):** Set up the dogfooding version of the Remote Development extensions as follows:
     > 1. Sign into a Microsoft GitHub org associated GitHub account from a browser.
