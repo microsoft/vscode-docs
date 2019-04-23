@@ -103,13 +103,13 @@ The output that starts with the Azure Functions logo (you need to scroll the out
 
 ## Examine the code files
 
-In the newly-created function subfolder you see three files: `__init__.py` contains the function's code, `functions.json` describes the function to Azure Functions, and `sample.dat` is a sample data file. You can delete `sample.dat` if you way, as it exists only to show that you can add other files to the subfolder.
+In the newly-created function subfolder you see three files: `__init__.py` contains the function's code, `function.json` describes the function to Azure Functions, and `sample.dat` is a sample data file. You can delete `sample.dat` if you way, as it exists only to show that you can add other files to the subfolder.
 
-Let's look at `functions.json` first, then the code in `__init__.py`.
+Let's look at `function.json` first, then the code in `__init__.py`.
 
-### functions.json
+### function.json
 
-The functions.json file provides the necessary configuration information for the Azure Functions endpoint:
+The function.json file provides the necessary configuration information for the Azure Functions endpoint:
 
 ```json
 {
@@ -134,9 +134,9 @@ The functions.json file provides the necessary configuration information for the
 }
 ```
 
-You can see that `scriptFile` identifies the startup file for the code, which must contain an Python function named `main`. You can factor your code into multiple files so long as the file specified here contains a `main` function.
+You can see that `scriptFile` identifies the startup file for the code, which must contain a Python function named `main`. You can factor your code into multiple files so long as the file specified here contains a `main` function.
 
-The `bindings` element the contains two objects, one to describe incoming requests, and the other to describe the HTTP response. You can see that for incoming requests (`"direction": "in"`), the function responds to HTTP get or post requests and doesn't require authentication. The response (`"direction": "out"`) is an HTTP response that returns whatever value is returned from the `main` Python function.
+The `bindings` element the contains two objects, one to describe incoming requests, and the other to describe the HTTP response. For incoming requests (`"direction": "in"`), the function responds to HTTP GET or POST requests and doesn't require authentication. The response (`"direction": "out"`) is an HTTP response that returns whatever value is returned from the `main` Python function.
 
 ### \_\_init.py\_\_
 
@@ -173,7 +173,7 @@ The important parts of the code are as follows:
 
 - You must import `func` from `azure.functions`; importing the logging module is optional but recommended.
 - The required `main` Python function receives a `func.request`  object named `req`, and returns a value of type `func.HttpResponse`. You can learn more about the capabilities of these objects in the [func.HttpRequest](https://docs.microsoft.com/python/api/azure-functions/azure.functions.httprequest?view=azure-python) and [func.HttpResponse](https://docs.microsoft.com/python/api/azure-functions/azure.functions.httpresponse?view=azure-python) references.
-- The body of `main` then does whatever it wants to process the request and generate a response. In this case, the code looks for a `name` parameter in the URL. Failing that, it checks if the request body contains JSON (using `func.HttpRequest.get_json`) and that the JSON contains a `name` value (using the `get` method of the JSON object returned by `get_json`).
+- The body of `main` then processes the request and generates a response. In this case, the code looks for a `name` parameter in the URL. Failing that, it checks if the request body contains JSON (using `func.HttpRequest.get_json`) and that the JSON contains a `name` value (using the `get` method of the JSON object returned by `get_json`).
 - If a name is found, the code returns the string "Hello" with the name appended; otherwise it returns an error message.
 
 ## Test and debug the function locally
@@ -195,7 +195,7 @@ The important parts of the code are as follows:
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
     ```
 
-1. Ctrl+click the URL in the VS Code **Output** window to open a browser to that address, or start a browser and paste in the same URL. In either case, you can see that the endpoint is `api/<function_name>`, in this case `api/HttpExample`. However, because that URL doesn't include a name parameter, the browser window should just show, "Please pass a name on the query string or in the request body" as appropriate for that path in the code.
+1. `kbstyle(Ctrl+C)` the URL in the VS Code **Output** window to open a browser to that address, or start a browser and paste in the same URL. In either case, you can see that the endpoint is `api/<function_name>`, in this case `api/HttpExample`. However, because that URL doesn't include a name parameter, the browser window should just show, "Please pass a name on the query string or in the request body" as appropriate for that path in the code.
 
 1. Now try adding a name parameter to the use, such as `http://localhost:7071/api/HttpExample?name=VS%20Code`, and in the browser window you should see the message, "Hello VS Code!", demonstrating that you've run that code path.
 
@@ -314,7 +314,7 @@ After your first deployment, you can make changes to your code, such as adding a
         )
     ```
 
-1. Because the code supports only HTTP GET, modify `functions.json` so that the `"methods"` collection contains only `"get"` (that is, remove `"post"`). The whole file should appear as follows:
+1. Because the code supports only HTTP GET, modify `function.json` so that the `"methods"` collection contains only `"get"` (that is, remove `"post"`). The whole file should appear as follows:
 
     ```json
     {
