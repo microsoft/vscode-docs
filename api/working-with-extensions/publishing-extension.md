@@ -9,7 +9,7 @@ MetaDescription: Learn how to publish Visual Studio Code extensions to the publi
 
 # Publishing Extension
 
-Once you have made a high-quality extension, you can publish it to the [VS Code Extension MarketPlace](https://marketplace.visualstudio.com/vscode) so others could find, download and use your extension. Alternatively, you can [package](#packaging-extensions) an extension into the installable VSIX format and share it with other users.
+Once you have made a high-quality extension, you can publish it to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode) so others can find, download and use your extension. Alternatively, you can [package](#packaging-extensions) an extension into the installable VSIX format and share it with other users.
 
 This topics covers:
 
