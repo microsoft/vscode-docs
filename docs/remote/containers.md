@@ -26,16 +26,22 @@ To get started, follow these steps:
 1. Install and configure Docker.
 
     *Windows / Mac Users:*
-    1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
-    2. After installation, share any drives / folders that contain source code with Docker. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing**.
-    3. Windows only: We recommend disabling automatic line ending conversion for Git (given Linux and Windows use different line endings). Run this from a command prompt on the *Windows side*: `git config --global core.autocrlf false`
 
-    *Linux Users:*
-    1. Install and configure Docker CE/EE for Linux by following [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms). *The Ubuntu Snap package is not supported*.
-    2. After installing, add your user to the `docker` group by opening a terminal and running: `sudo usermod -aG docker $USER`
-    3. Sign out and back in again so changes take effect.
+    1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
+
+    2. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to use.
+
+    3. Windows only: Disable automatic line ending conversion for Git by running this from a command prompt on the *Windows side*: `git config --global core.autocrlf false`
 
     > **Note:** See [here](/docs/remote/troubleshooting.md#container-tips) for setup troubleshooting tips.
+
+    *Linux Users:*
+
+    1. Install and configure Docker CE/EE for Linux by following [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms). *The Ubuntu Snap package is not supported*.
+
+    2. Add your user to the `docker` group by opening a terminal and running: `sudo usermod -aG docker $USER`
+
+    3. Sign out and back in again so changes take effect.
 
 2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/).
 
