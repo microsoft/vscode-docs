@@ -144,10 +144,7 @@ After a brief moment, a new window will appear and you'll be connected to the ru
 
 ## Managing containers
 
-By default, the Remote - Containers extension will automatically start up any containers mentioned in `devcontainer.json` when you open a folder in a container. When you close VS Code, it will either:
-
-- Automatically shut down the container if an image or Dockerfile is specified.
-- Leave the containers running if a Docker Compose file is specified. This is done to avoid impacting command line workflows, but you can change this behavior by adding `"shutdownAction": "stopCompose"` to `devcontainer.json`.
+By default, the Remote - Containers extension will automatically start up any containers mentioned in `devcontainer.json` when you open a folder in a container. When you close VS Code, automatically shut down any containers you've connected to, but you can change this behavior by adding `"shutdownAction": "none"` to `devcontainer.json`.
 
 In either case, you can view and manage your containers using one of the following options:
 
@@ -391,7 +388,7 @@ To reuse `docker-compose.yml` unmodified, just create a `.devcontainer/devcontai
 | `workspaceFolder` | string | [Optional] Defaults to `"/"`. Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container.)  |
 | `name` | string | [Optional] A display name for the container. |
 | `extensions` | array | [Optional] Defaults to `[]`. An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
-| `shutdownAction` | enum: `none`, `stopCompose` | [Optional] Defaults to `none`. Indicates whether VS Code should execute `docker-compose stop` when the VS Code window is closed / shut down. |
+| `shutdownAction` | enum: `none`, `stopCompose` | [Optional] Defaults to `stopCompose`. Indicates whether VS Code should execute `docker-compose stop` when the VS Code window is closed / shut down. |
 | `devPort` | integer | [Optional] Defaults to a random, available port. Allows you to force a specific port that the VS Code Remote server should use in the container. |
 
 Foe example:
