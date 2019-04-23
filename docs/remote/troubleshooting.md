@@ -197,13 +197,6 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 
 ## Container tips
 
-### Enabling file sharing in Docker Desktop
-
-The VS Code Remote - Containers extension can automatically mount your source code into the container if (and only if) it's in an allowed location. You can update this as follows:
-
-1. Right-click on the Docker task bar item and select Settings.
-2. On Windows, go to the Shared Drives tab and check the drive(s) where your source code is located. On macOS, go the File Sharing tab and be sure the folder containing your source code is under a file path specified in the list.
-
 ### Tips for avoiding Docker Desktop for Windows problems
 
 Docker Desktop for Windows works well in many cases, but there are a number of "gotchas" to that can cause real headaches. The following are some tips to avoid them:
@@ -215,6 +208,13 @@ Docker Desktop for Windows works well in many cases, but there are a number of "
 3. **Use your Docker ID to sign into Docker (not email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See [here](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
 If you are still having trouble see the [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot/#verify-domain-user-has-permissions-for-shared-drives-volumes).
+
+### Enabling file sharing in Docker Desktop
+
+The VS Code Remote - Containers extension can automatically mount your source code into the container if (and only if) it's in an allowed location. You can update this as follows:
+
+1. Right-click on the Docker task bar item and select Settings.
+2. On Windows, go to the Shared Drives tab and check the drive(s) where your source code is located. On macOS, go the File Sharing tab and be sure the folder containing your source code is under a file path specified in the list.
 
 ### Resolving Git line ending issues (resulting in many modified files)
 

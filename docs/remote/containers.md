@@ -23,25 +23,27 @@ The result is that VS Code can provide a **local-quality development experience*
 
 To get started you can:
 
-1. Install [Docker Desktop for Mac/Windows](https://www.docker.com/products/docker-desktop) or [Docker CE/EE for Linux](https://docs.docker.com/install/#supported-platforms).
+1. **[Windows / Mac Users]** Install and configure [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
+   1.  After installing, you will need to share any drives / folders that contain source code with Docker. Right-click on the Docker task bar item, select Settings / Preferences, and add them to the Shared Drives / File Sharing tab.
+   2. Windows only: We recommend disabling automatic line ending conversion for Git on the *Windows side* (given Linux and Windows use different line endings). Run: `git config --global core.autocrlf false`
 
-    > **Linux Users:** Please follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms), add your user to the `docker` group after installation using `sudo usermod -aG docker $USER`, and re-login. *The Ubuntu Snap package is not supported*.
-    >
-    > **Windows Users:** See [here](/docs/remote/troubleshooting.md#tips-for-avoiding-docker-desktop-for-windows-problems) for information on workarounds to common problems.
+   > **Note:** See [here](/docs/remote/troubleshooting.md#container-tips) for more setup troubleshooting tips.
 
-2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/).
+2. **[Linux Users]** Install and configure [Docker CE/EE for Linux](https://docs.docker.com/install/#supported-platforms).
+   1. Please follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms). *The Ubuntu Snap package is not supported*.
+   2.  After installing, add your user to the `docker` group by running `sudo usermod -aG docker $USER` in a terminal and logging in again.
+
+3. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/).
 
     > **Dogfooding Note (UPDATED)**: Code - WSL is deprecated. Use VS Code - Insiders now.
 
-3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack
+4. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack
 
     > **Dogfooding Note (UPDATED):** Set up the dogfooding version of the Remote Development extensions as follows:
     > 1. Sign into a Microsoft GitHub org associated GitHub account from a browser.
     > 2. Download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code – Insiders.
     > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
     > 4. Reload / restart VS Code - Insiders.
-
-4. **[Windows]** Disable automatic line ending conversion for Git on the *Windows side* (given Linux and Windows use different line endings). Run: `git config --global core.autocrlf false`
 
 The extension supports two primary operating models. One is to use a container as your [full-time development environment](#creating-configuration-files-for-existing-projects) while the other is to [attach to a running container](#attaching-to-running-containers) for targeted use. We will cover how to use a container as your full-time development environment first.
 
