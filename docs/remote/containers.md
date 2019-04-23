@@ -23,23 +23,23 @@ The result is that VS Code can provide a **local-quality development experience*
 
 To get started, follow these steps:
 
-1. Install and configure Docker.
+1. Install and configure [Docker](https://www.docker.com/get-started) for your operating system.
 
     *Windows / Mac Users:*
 
     1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
 
-    2. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to use.
+    2. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container.
 
-    3. Windows only: Disable automatic line ending conversion for Git by running this from a command prompt on the *Windows side*: `git config --global core.autocrlf false`
+        > **Note**: See [here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) for tips on avoiding common problems with sharing.
 
-    > **Note:** See [here](/docs/remote/troubleshooting.md#container-tips) for setup troubleshooting tips.
+    3. Windows only: Disable automatic line ending conversion for Git by using a Windows command prompt to run: `git config --global core.autocrlf false`
 
     *Linux Users:*
 
-    1. Install and configure Docker CE/EE for Linux by following [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms). *The Ubuntu Snap package is not supported*.
+    1. Follow the [install instructions for your Linux distribution](https://docs.docker.com/install/#supported-platforms). *The Ubuntu Snap package is not supported*.
 
-    2. Add your user to the `docker` group by opening a terminal and running: `sudo usermod -aG docker $USER`
+    2. Add your user to the `docker` group by using a terminal to run: `sudo usermod -aG docker $USER`
 
     3. Sign out and back in again so changes take effect.
 
@@ -524,7 +524,7 @@ See the following examples dev containers for additional information:
 
 Right-click on the Docker task bar item and select Settings.  On Windows, go to the Shared Drives tab and check the drive(s) where your source code is located. On macOS, go the File Sharing tab and be sure the folder containing your source code is under a file path specified in the list.
 
-See [here](/docs/remote/troubleshooting.md#tips-for-avoiding-docker-desktop-for-windows-problems) for information on workarounds to common Docker for Windows issues.
+See [here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) for information on workarounds to common Docker for Windows issues.
 
 ### I'm seeing an error about a missing library or dependency, how do I fix this?
 

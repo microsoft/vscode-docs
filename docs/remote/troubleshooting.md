@@ -197,7 +197,7 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 
 ## Container tips
 
-### Tips for avoiding Docker Desktop for Windows problems
+### Docker Desktop for Windows tips
 
 Docker Desktop for Windows works well in many cases, but there are a number of "gotchas" to that can cause real headaches. The following are some tips to avoid them:
 
