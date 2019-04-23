@@ -62,7 +62,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     ssh-keygen -t rsa -b 4096 -f %USERPROFILLE%\.ssh\id_rsa-remote-ssh
     ```
 
-2. Run **Remote-SSH: Open Configuration File...** in the command palette (<kbd>F1</kbd>), select an SSH config file, and add (or modify) a host entry as follows:
+2. Run **Remote-SSH: Open Configuration File...** in the command palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
 
    *macOS / Linux:*
 
@@ -109,7 +109,7 @@ Follow these steps:
 1. Load the private key you created back into PuTTYGen
 2. Select **Conversions > Export OpenSSH key** and select a location to export the key such as `%USERPROFILE%\.ssh`.
 3. Validate that the permissions on the file you exported only grant "Full Control to your user, Administrators, and SYSTEM.
-4.  Run **Remote-SSH: Open Configuration File...** in the command palette (<kbd>F1</kbd>), select an SSH config file, and add (or modify) a host entry as follows:
+4.  Run **Remote-SSH: Open Configuration File...** in the command palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
 
     ````yaml
     Host name-of-ssh-host-here

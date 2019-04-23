@@ -21,21 +21,21 @@ The result is that VS Code can provide a **local-quality development experience*
 
 ### Installation
 
-To get started you can:
+To get started, follow these steps:
 
-1. Install and configure Docker
+1. Install and configure Docker.
 
-    **Windows / Mac Users:**
-    1. Install and configure [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
-    2. After installation, share any drives / folders that contain source code you want to use with Docker. Right-click on the **Docker task bar** item, and go to **Settings / Preferences > Shared Drives / File Sharing**.
+    *Windows / Mac Users:*
+    1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
+    2. After installation, share any drives / folders that contain source code with Docker. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing**.
     3. Windows only: We recommend disabling automatic line ending conversion for Git (given Linux and Windows use different line endings). Run this from a command prompt on the *Windows side*: `git config --global core.autocrlf false`
 
-    > **Note:** See [here](/docs/remote/troubleshooting.md#container-tips) for setup troubleshooting tips.
-
-    **Linux Users:**
+    *Linux Users:*
     1. Install and configure Docker CE/EE for Linux by following [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms). *The Ubuntu Snap package is not supported*.
     2. After installing, add your user to the `docker` group by opening a terminal and running: `sudo usermod -aG docker $USER`
     3. Sign out and back in again so changes take effect.
+
+    > **Note:** See [here](/docs/remote/troubleshooting.md#container-tips) for setup troubleshooting tips.
 
 2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/).
 
@@ -132,7 +132,7 @@ VS Code supports two models for interacting with containers. One is to configure
 
 Once you have a container up and running, you can connect by either:
 
-**Option 1: Run Remote-Docker: Attach to Running Container...** command from the command palette (<kbd>F1</kbd>) and selecting a container.
+**Option 1: Run Remote-Docker: Attach to Running Container...** command from the command palette (`kbstyle(F1)`) and selecting a container.
 
 **Option 2: Using the Docker extension from a local window**.
 
@@ -231,7 +231,7 @@ You can also **use the `code-insiders` CLI** from this same terminal window to p
 
 ## Forwarding a port
 
-Sometimes when developing you may need to access a port in your container that you didn't add to `devcontainer.json`, your `Dockerfile`, or Docker Compose file. If you want to *temporarily forward* a new port for the duration of the session, run the **Remote-Containers: Forward Port...** command from the command palette (<kbd>F1</kbd>).
+Sometimes when developing you may need to access a port in your container that you didn't add to `devcontainer.json`, your `Dockerfile`, or Docker Compose file. If you want to *temporarily forward* a new port for the duration of the session, run the **Remote-Containers: Forward Port...** command from the command palette (`kbstyle(F1)`).
 
 After selecting a port, a toast notification will tell you the localhost port you should use to access the port in the container. For example, if you forwarded a HTTP server listening on port 3000, the toast notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote http server using http://localhost:4123.
 
@@ -267,7 +267,7 @@ As mentioned above, `.devcontainer/devcontainer.json` tells VS Code where to loo
 
 In its most basic form, you can create a dev sandbox by simply selecting a base container image from a source like [DockerHub](https://hub.docker.com) and then manually install any additional software like Git that may be missing.
 
-You can use the **Remote-Containers: Create Container Configuration File...** command in the command palette (<kbd>F1</kbd>) to select from a few base image to get you started and customize from there.
+You can use the **Remote-Containers: Create Container Configuration File...** command in the command palette (`kbstyle(F1)`) to select from a few base image to get you started and customize from there.
 
 > **Note:**  Alpine and Windows based containers are not currently supported.
 
@@ -302,7 +302,7 @@ For example:
 }
 ```
 
-To open the folder in the container, simply run the **Remote-Containers: Open Folder in Container...** or **Remote: Reopen Folder in Container** command from the command palette (<kbd>F1</kbd>). Once the container has been created, the **local filesystem will be automatically mapped** into the container and you can start working with it from VS Code.
+To open the folder in the container, simply run the **Remote-Containers: Open Folder in Container...** or **Remote: Reopen Folder in Container** command from the command palette (`kbstyle(F1)`). Once the container has been created, the **local filesystem will be automatically mapped** into the container and you can start working with it from VS Code.
 
 ### Installing additional software in the sandbox
 
@@ -323,7 +323,7 @@ Finally, you can also use a `Dockerfile` to create a custom image with all the n
 
 ### Using a Dockerfile
 
-When the application you looking for a customized sandbox or are working with an application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Docker: Create Container Configuration File...** command in the command palette (<kbd>F1</kbd>) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
+When the application you looking for a customized sandbox or are working with an application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Docker: Create Container Configuration File...** command in the command palette (`kbstyle(F1)`) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
 
 > **Note:**  Alpine and Windows based containers are not currently supported.
 
