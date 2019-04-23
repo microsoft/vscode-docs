@@ -139,7 +139,7 @@ Host remote-linux-machine
 
 ## Opening a terminal on a remote host
 
-Opening a terminal on the remote host is simple. Once connected, **any terminal window** you open in VS Code (e.g. using **Terminal > New Terminal**) will automatically run on the remote host rather than locally.
+Opening a terminal on the remote host from VS Code is simple. Once connected, **any terminal window** you open in VS Code (e.g. using **Terminal > New Terminal**) will automatically run on the remote host rather than locally.
 
 You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder on the remote host! Type `code-insiders --help` to see all the options available from the command line.
 

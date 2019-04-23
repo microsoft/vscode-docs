@@ -95,7 +95,7 @@ Typically, this should only be used for testing unless otherwise noted in the ex
 
 ## Opening a terminal in WSL
 
-Opening a terminal in a container is simple. Once connected, **any terminal window** you open in VS Code (e.g. using **Terminal > New Terminal**) will automatically run in WSL than locally.
+Opening a terminal in WSL from VS Code is simple. Once folder is opened in WSL, **any terminal window** you open in VS Code (e.g. using **Terminal > New Terminal**) will automatically run in WSL than locally.
 
 You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder in WSL! Type `code-insiders --help` to what is available from the command line.
 
