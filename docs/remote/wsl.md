@@ -9,13 +9,13 @@ DateApproved: 4/11/2019
 ---
 # Developing in WSL
 
-The **[Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl)** allows you to take advantage of a Linux based tool-chain right from the comfort of Windows. Historically Windows-based developer tools have had to interact with WSL through mounted file shares (e.g.` /mnt/c`). While this works in concept, differences between Windows and Linux can make this workflow difficult. Conversely, Linux-based developer tools do not work unless they are text based since WSL was not intended to house a full Linux desktop operating system.
+The [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) allows you to take advantage of a Linux based tool-chain right from the comfort of Windows. Historically Windows-based developer tools have had to interact with WSL through mounted file shares (for example `/mnt/c`). While this works in concept, differences between Windows and Linux can make this workflow difficult. Conversely, Linux-based developer tools do not work unless they are text based since WSL was not intended to house a full Linux desktop operating system.
 
 The optimized **Visual Studio Code Remote - WSL extension** allows you take advantage of VS Code's full feature set from anywhere in WSL - regardless of whether the files you want to edit exist on the Linux side or a mounted Windows filesystem. When using the capability, VS Code selectively runs certain extensions inside WSL to optimize your experience.
 
 ![WSL Architecture](images/wsl/architecture-wsl.png)
 
-Given source code **does not even need to exist on the Windows filesystem** for it to work, the approach provides a **local-quality development experience** including full IntelliSense (completions), debugging, and more **regardless of where your code is located**.
+Given source code **does not even need to exist on the Windows filesystem** for it to work, the approach provides a **local-quality development experience** including full IntelliSense (completions), code navigation, and debugging, **regardless of where your code is located**.
 
 ## Getting started
 
@@ -23,21 +23,21 @@ Given source code **does not even need to exist on the Windows filesystem** for 
 
 To get started you need to:
 
-1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) along with your preferred Linux distribution. The Remote - WSL extension will use your **default distro**. Use `wslconfig.exe` to change your default as needed.
+1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution. The Remote - WSL extension will use your **default distro**. Use `wslconfig.exe` to change your default as needed.
 
     > **Note:** WSL does have some [known limitations](#known-limitations) for certain types of development that can also affect your VS Code experience.
 
-2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/) on the **Windows** side (not in WSL).
+2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) on the **Windows** side (not in WSL).
 
-    > **Dogfooding Note (UPDATED)**: The Code - WSL build is deprecated. Use VS Code - Insiders now.
+    > **Dogfooding Note (UPDATED)**: The Code - WSL build is deprecated. Use VS Code Insiders now.
 
 3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack
 
     > **Dogfooding Note (UPDATED):** Set up the dogfooding version of the Remote Development extensions as follows:
     > 1. Sign into a Microsoft GitHub org associated GitHub account from a browser.
-    > 2. Download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code – Insiders.
+    > 2. Download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code Insiders.
     > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
-    > 4. Reload / restart VS Code - Insiders.
+    > 4. Reload / restart VS Code Insiders.
 
 4. Disable automatic line ending conversion for Git on the **Windows side** (given Linux and Windows use different line endings). Run: `git config --global core.autocrlf false`
 
@@ -67,7 +67,7 @@ That's it! Any VS Code operations you perform in this window will executed in th
 
 VS Code runs extensions one of two places: locally on the UI / client side, or in WSL. While "personalization" extensions (along with a few others) install locally, most installed extensions will reside inside WSL.
 
-If you search for an extension in the extension panel and install, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category it is in. There will be Local - Installed category and one for WSL.
+If you search for an extension in the Extensions view and install, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category it is in. There will be **Local - Installed** category and one for WSL.
 
 ![Workspace Extension Category](images/wsl/wsl-installed-remote-indicator.png)
 
@@ -75,13 +75,13 @@ If you search for an extension in the extension panel and install, it will autom
 
 > **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-Local extensions that actually need to run as remotely will appear **Disabled** in the Local - Installed category. You can click the **Install** button on any of them you want to install on your remote host.
+Local extensions that actually need to run as remotely will appear **Disabled** in the **Local - Installed** category. You can click the **Install** button on any of them you want to install on your remote host.
 
 ![Disabled Extensions w/Install Button](images/wsl/wsl-disabled-extensions.png)
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-VS Code runs extensions two one of places: locally on the UI / client side, or remotely on the Workspace / WSL side. Extensions typically are designed and tested to for use in one side or the other, not both. However, you can force an extension to run in a particular location  `settings.json`. For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+VS Code runs extensions two one of places: locally on the UI / client side, or remotely on the Workspace / WSL side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location  in your `settings.json` file. For example, the setting below will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ````json
 "remote.extensionKind": {
@@ -95,7 +95,7 @@ Typically, this should only be used for testing unless otherwise noted in the ex
 
 ## Opening a terminal in WSL
 
-Opening a terminal in WSL from VS Code is simple. Once folder is opened in WSL, **any terminal window** you open in VS Code (e.g. using **Terminal > New Terminal**) will automatically run in WSL than locally.
+Opening a terminal in WSL from VS Code is simple. Once folder is opened in WSL, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run in WSL than locally.
 
 You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder in WSL! Type `code-insiders --help` to what is available from the command line.
 
@@ -154,9 +154,9 @@ wslconfig /l
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
 
-### What are the connectivity requirements for the VS Code Remote Server when it is running in WSL?
+### What are the connectivity requirements for the VS Code Server when it is running in WSL?
 
-The VS Code Remote Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through am authenticated, random local TCP port.
+The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through am authenticated, random local TCP port.
 
 ### As an extension author, what do I need to do?
 
@@ -164,7 +164,7 @@ The VS Code extension API abstracts many extensions away from any changes so the
 
 ## Questions or feedback
 
-> **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
+> **Dogfooding Note:**  When reporting issues, please file them against the [vscode-remote](https://github.com/Microsoft/vscode-remote/issues) repository.
 
 - See [Tips and Tricks](/docs/remote/troubleshooting.md#wsl-tips) or the [FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
