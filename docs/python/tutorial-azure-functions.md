@@ -10,29 +10,34 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Create and deploy Python code to Azure Functions
 
-This tutorial walks you through using Visual Studio Code to create a serverless HTTP endpoint with Python code using the [Azure Functions extension](https://marketplace.visualstudio.com/itemdetails?itemName=ms-azuretools.vscode-azurefunctions). [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python) itself, currently in Preview for Python, runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for VS Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
+This tutorial walks you through using Visual Studio Code to create a serverless HTTP endpoint with Python code using the [Azure Functions extension](https://marketplace.visualstudio.com/itemdetails?itemName=ms-azuretools.vscode-azurefunctions). [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python) runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for VS Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
 
 If you encounter any problems in the course of this tutorial, feel free to file an issue in the [Visual Studio Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure subscription, Visual Studio Code with the Azure Functions extension, and the Azure Functions core tools.
+Details for each of these are in the sections that follow:
 
-### Azure account
+- [An Azure subscription](#azure-subscription)
+- [Visual Studio Code with the Azure Functions extension](#visual-studio-code-python-and-the-azure-functions-extension)
+- The [Azure Functions Core Tools](#azure-functions-core-tools).
 
-If you don't have an Azure account, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension) for a free 30-day account with $200 in Azure credits to try out any combination of services.
+### Azure subscription
+
+If you don't have an Azure subscription, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension) for a free 30-day account with $200 in Azure credits to try out any combination of services.
 
 ### Visual Studio Code, Python, and the Azure Functions extension
 
 Install the following software:
 
 - [Visual Studio Code](https://code.visualstudio.com/).
-- Python and the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension as described on [Python Tutorial - Prerequisites](/docs/python/python-tutorial.md).
-- [Azure Functions extension](https://marketplace.visualstudio.com/itemdetails?itemName=ms-azuretools.vscode-azurefunctions). For general information, visit the [vscode-azurefunctions GitHub repository](https://github.com/Microsoft/vscode-azurefunctions).
+- Python 3.6.x as required by Azure Functions. [Python 3.6.8](https://www.python.org/downloads/release/python-368/) is the latest 3.6.x version.
+- The [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension as described on [Python Tutorial - Prerequisites](/docs/python/python-tutorial.md).
+- The [Azure Functions extension](https://marketplace.visualstudio.com/itemdetails?itemName=ms-azuretools.vscode-azurefunctions). For general information, visit the [vscode-azurefunctions GitHub repository](https://github.com/Microsoft/vscode-azurefunctions).
 
-### Install the Azure Functions core tools
+### Azure Functions Core Tools
 
-Follow the instructions for your operating system on [Work with Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2) in the Azure documentation. The core tools themselves are written in .NET Core and Node.js, which is why it's presently necessary, believe it or not, to install .NET Core and Node.js to work with Azure Functions in Python! Fortunately, you need install these components only once, after which VS Code automatically prompts you to install any updates.
+Follow the instructions for your operating system on [Work with Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2) in the Azure documentation. (The tools themselves are written in .NET Core, and the Core Tools package is best installed using the Node.js package manager, npm, which is why you need to install .NET Core and Node.js at present, even for Python code. Fortunately, you need install these components only once, after which VS Code automatically prompts you to install any updates.)
 
 ### Sign in to Azure
 
@@ -40,11 +45,13 @@ Once the Functions extension is installed, sign into your Azure account by navig
 
 ![Sign in to Azure through VS Code](images/functions/azure-sign-in.png)
 
-After signing in, verify that you see the email account of your Azure around in the Status Bar and your subscription(s) in the **Azure: Functions** explorer:
+After signing in, verify that you see the email account of your Azure subscription in the Status Bar:
 
 ![VS Code status bar showing Azure account](images/deploy-azure/azure-account-status-bar.png)
 
-![VS Code Azure App Service explorer showing subscriptions](images/deploy-azure/azure-subscription-view.png)
+The name you've assigned to your subscription also appears in the and your subscription(s) in the **Azure: Functions** explorer (the name shown in the image is "Primary"):
+
+![VS Code Azure App Service explorer showing subscriptions](images/functions/azure-subscription-view.png)
 
 > **Note**: If you see the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
 >
@@ -60,45 +67,49 @@ After signing in, verify that you see the email account of your Azure around in 
 
 ### Verify prerequisites
 
-To verify that all the Azure Functions tools are installed, select the **Terminal: Create New Integrated Terminal** command from the Command Palette, then run the command `func`. You should see output indicating that the core tools are present:
+To verify that all the Azure Functions tools are installed, select the **Terminal: Create New Integrated Terminal** command from the Command Palette (`kb(workbench.action.showCommands)`), then run the command `func`:
 
 ![Checking Azure Functions core tools prerequisites](images/functions/check-prereqs.png)
 
+The output that starts with the Azure Functions logo (you need to scroll the output upwards) indicates that the Azure Functions Core Tools are present.
+
 ## Create the Function
 
-1. Code for Azure Functions is managed within a Function "project," which you create first before creating the function itself. In **Azure: Function** explorer, select the **New Project** command icon, or open the Command Palette and select **Azure Functions: Create New Project**.
+1. Code for Azure Functions is managed within a Function "project," which you create first before creating the code. In **Azure: Functions** explorer (opened using the Azure icon on the left side), select the **New Project** command icon, or open the Command Palette and select **Azure Functions: Create New Project**.
 
     ![Create new project button in the Functions explorer](images/functions/project-create-new.png)
 
 1. In the prompts that follow:
 
-    - Specify the folder for the project (the default is the current folder open in VS Code)
+    - Specify a folder for the project. (The default is the current folder open in VS Code and you may want to create a subfolder separately.)
     - Select **Python** for the language.
     - Select **HTTP trigger** for the template. A function that uses an HTTP trigger is run whenever there's an HTTP request made to the function's endpoint. (You can see that there are a variety of other triggers for Azure Functions. To learn more, see [What can I do with Functions?](https://docs.microsoft.com/azure/azure-functions/functions-overview#what-can-i-do-with-functions) in the Azure documentation.)
     - Name your function "HttpExample" (rather than accepting the default "HTTPTrigger") to distinguish the function itself from the trigger. This name is used for a subfolder that contains the function's code along with configuration data, and also defines the name of the HTTP endpoint.
     - Select **Anonymous** for the authorization level, which makes the function publicly accessible to anyone.
+    - If promted with "Select how you would like to open your project," select **Open in current window**.
 
 1. After a short time you see a message that the new project was created. In the **Explorer** you see the subfolder created for the function, and VS Code opens the `__init__.py` file that contains the default function code:
 
     ![Result of creating a new Python functions project](images/functions/project-create-results.png)
 
-1. When `__init__.py` opens, VS Code might tell you that you don't have a Python interpreter selected. In that case, use the **Python: Select Interpreter** command from the Command Palette and select the virtual environment in the local `.env` folder (which was created as part of the project).
+    > **Note**
+    > If VS Code tells you that you don't have a Python interpreter selected when it opens `__init__.py`, use the **Python: Select Interpreter** command from the Command Palette and select the virtual environment in the local `.env` folder (which was created as part of the project).
+    >
+    > ![Selecting the virtual environment created with the project](images/functions/select-venv-interpreter.png)
 
-    ![Selecting the virtual environment created with the project](images/functions/select-venv-interpreter.png)
-
-> **Tip**: Whenever you want to create another function in the same project, use the **Create Function** command in the **Azure: Functions** explorer, or use the **Azure Functions: Create Function** command from the Command Palette. Both commands prompt you for a function name (which is the name of the endpoint), then creates a subfolder with the default files.
+> **Tip**: Whenever you want to create another function in the same project, use the **Create Function** command in the **Azure: Functions** explorer, or use the **Azure Functions: Create Function** command from the Command Palette (`kb(workbench.action.showCommands)`). Both commands prompt you for a function name (which is the name of the endpoint), then creates a subfolder with the default files.
 >
 > ![New Function command in the Azure: Functions explorer](images/functions/function-create-new.png)
 
 ## Examine the code files
 
-In the newly-created function subfolder you see three files: `__init__.py`, which contains the function's code, `functions.json`, which describes the function to Azure Functions, and `sample.dat`, which demonstrates that a function subfolder can contain additional files if needs be. You won't be using `sample.dat`, so you can delete it if you want.
+In the newly-created function subfolder you see three files: `__init__.py` contains the function's code, `functions.json` describes the function to Azure Functions, and `sample.dat` is a sample data file. You can delete `sample.dat` if you way, as it exists only to show that you can add other files to the subfolder.
 
 Let's look at `functions.json` first, then the code in `__init__.py`.
 
 ### functions.json
 
-The functions.json file provides the necessary configuration information for the function itself:
+The functions.json file provides the necessary configuration information for the Azure Functions endpoint:
 
 ```json
 {
@@ -123,9 +134,9 @@ The functions.json file provides the necessary configuration information for the
 }
 ```
 
-You can see that `scriptFile` identifies the startup file for the code, which must contain an function named `main`. You can factor your code into multiple files so long as the file specified here contains a `main` function.
+You can see that `scriptFile` identifies the startup file for the code, which must contain an Python function named `main`. You can factor your code into multiple files so long as the file specified here contains a `main` function.
 
-The `bindings` element the contains two objects, one to describe incoming requests, and the other to describe the HTTP response. You can see that for incoming requests (`"direction": "in"`), the function responds to HTTP get or post requests and doesn't require authentication. The response (`"direction": "out"`) is an HTTP response that returns whatever value is returned from the `main` function.
+The `bindings` element the contains two objects, one to describe incoming requests, and the other to describe the HTTP response. You can see that for incoming requests (`"direction": "in"`), the function responds to HTTP get or post requests and doesn't require authentication. The response (`"direction": "out"`) is an HTTP response that returns whatever value is returned from the `main` Python function.
 
 ### \_\_init.py\_\_
 
@@ -161,9 +172,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 The important parts of the code are as follows:
 
 - You must import `func` from `azure.functions`; importing the logging module is optional but recommended.
-- The required `main` function receives a `func.request`  object named `req`, and returns a value of type `func.HttpResponse`. You can learn more about the capabilities of these objects in the [func.HttpRequest](https://docs.microsoft.com/python/api/azure-functions/azure.functions.httprequest?view=azure-python) and [func.HttpResponse](https://docs.microsoft.com/python/api/azure-functions/azure.functions.httpresponse?view=azure-python) references.
-- The body of `main` then does whatever it wants to process the request and generate a response. In this case, the function looks for a `name` parameter in the URL. Failing that, it checks if the request body contains JSON (using the `func.HttpRequest.get_json` function) and that the JSON contains a `name` value (using the `get` method of the JSON object returned by `get_json`).
-- If a name is found, the function returns the string "Hello" with the name appended; otherwise it returns an error message.
+- The required `main` Python function receives a `func.request`  object named `req`, and returns a value of type `func.HttpResponse`. You can learn more about the capabilities of these objects in the [func.HttpRequest](https://docs.microsoft.com/python/api/azure-functions/azure.functions.httprequest?view=azure-python) and [func.HttpResponse](https://docs.microsoft.com/python/api/azure-functions/azure.functions.httpresponse?view=azure-python) references.
+- The body of `main` then does whatever it wants to process the request and generate a response. In this case, the code looks for a `name` parameter in the URL. Failing that, it checks if the request body contains JSON (using `func.HttpRequest.get_json`) and that the JSON contains a `name` value (using the `get` method of the JSON object returned by `get_json`).
+- If a name is found, the code returns the string "Hello" with the name appended; otherwise it returns an error message.
 
 ## Test and debug the function locally
 
@@ -171,7 +182,7 @@ The important parts of the code are as follows:
 
     ![Debug explorer showing the Functions launch configuration](images/functions/launch-configuration.png)
 
-1. When you start the debugger, a terminal opens showing output from Azure Functions, including a summary of the available endpoints:
+1. When you start the debugger, a terminal opens showing output from Azure Functions, including a summary of the available endpoints (your URL might be different if you used a name other than "HttpExample"):
 
     ```
     Hosting environment: Production
@@ -184,20 +195,21 @@ The important parts of the code are as follows:
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
     ```
 
-1. Ctrl+click the URL in the output window to open a browser to that address, or start a browser and paste in the same URL. In either case, you can see that the endpoint is `api/<function_name>`, in this case `api/HttpExample`. However, because that URL doesn't include a name parameter, the browser window should just show, "Please pass a name on the query string or in the request body" as appropriate for that path in the code.
+1. Ctrl+click the URL in the VS Code **Output** window to open a browser to that address, or start a browser and paste in the same URL. In either case, you can see that the endpoint is `api/<function_name>`, in this case `api/HttpExample`. However, because that URL doesn't include a name parameter, the browser window should just show, "Please pass a name on the query string or in the request body" as appropriate for that path in the code.
 
-1. Now try the URL, `http://localhost:7071/api/HttpExample?name=VS%20Code` and you should see the message, "Hello VS Code!", demonstrating that you've run that code path.
+1. Now try adding a name parameter to the use, such as `http://localhost:7071/api/HttpExample?name=VS%20Code`, and in the browser window you should see the message, "Hello VS Code!", demonstrating that you've run that code path.
 
 1. To pass the name value in a JSON request body, you can use a tool like curl with the JSON inline:
 
     ```bash
-    # Mac OS/Linux
+    # Mac OS/Linux: modify the URL if you're using a different function name
     curl --header "Content-Type: application/json" --request POST \
         --data {"name":"VS Code"} http://localhost:7071/api/HttpExample
     ```
 
     ```ps
-    # Windows (escaping on the quotes is necessary)
+    # Windows (escaping on the quotes is necessary; also modify the URL
+    # if you're using a different function name)
     curl --header "Content-Type: application/json" --request POST \
         --data {"""name""":"""VS Code"""} http://localhost:7071/api/HttpExample
     ```
@@ -210,7 +222,7 @@ The important parts of the code are as follows:
 
 ## Deploy the project to Azure Functions
 
-In these steps, you use the Functions extension to create a "Function App" on Azure. A Function App is composed of a storage account for data, an App Service Plan, and an App Service (on Linux) that hosts your endpoints. All of these resources are organized within a single resource group.
+In these steps, you use the Functions extension to create a "Function App" on Azure. A Function App is composed of a storage account for data, an App Service Plan (which corresponds to the Linux virtual machine on which the App Service runs), and an App Service (the hosting service for your endpoints that runs on the virtual machine). All of these resources are organized within a single resource group.
 
 1. In the **Azure: Functions** explorer, select the **Deploy to Function App** command, or use the **Azure Functions: Deploy to Function App** command on the Command Palette. A "Function App" here is again the Azure resource that hosts your code.
 
@@ -218,7 +230,7 @@ In these steps, you use the Functions extension to create a "Function App" on Az
 
 1. When prompted, select **Create New Function App in Azure**, and provide a name that's unique across Azure (typically using your personal or company name along with other unique identifiers; you can use letters, numbers, and hyphens). If you previously created a Function App, its name appears in this list of options.
 
-1. The extension performs the following actions, which you can observe in VS Code popup messages and the output window the process takes a few minutes the first time you deploy the project):
+1. The extension performs the following actions, which you can observe in VS Code popup messages and the **Output** window (the process takes a few minutes):
 
     - Create a resource group using the name you gave (removing hyphens).
     - In that resource group, create the storage account, App Service Plan, and App Service to host your code.
@@ -228,7 +240,7 @@ In these steps, you use the Functions extension to create a "Function App" on Az
 
     ![Deployment progress indicator in the Azure: Functions explorer](images/functions/deploy-progress.png)
 
-1. Once deployment is complete, the output window shows the public endpoint on Azure:
+1. Once deployment is complete, the **Output** window shows the public endpoint on Azure:
 
     ```
     HTTP Trigger Urls:
@@ -302,9 +314,31 @@ After your first deployment, you can make changes to your code, such as adding a
         )
     ```
 
-1. Because the code supports only HTTP GET, modify `functions.json` so that the `"methods"` collection contains only `"get"` (that is, remove `"post"`).
+1. Because the code supports only HTTP GET, modify `functions.json` so that the `"methods"` collection contains only `"get"` (that is, remove `"post"`). The whole file should appear as follows:
 
-1. Start the debugger by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. The output window should now show both endpoints in your project:
+    ```json
+    {
+      "scriptFile": "__init__.py",
+      "bindings": [
+        {
+          "authLevel": "anonymous",
+          "type": "httpTrigger",
+          "direction": "in",
+          "name": "req",
+          "methods": [
+            "get"
+          ]
+        },
+        {
+          "type": "http",
+          "direction": "out",
+          "name": "$return"
+        }
+      ]
+    }
+    ```
+
+1. Start the debugger by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. The **Output** window should now show both endpoints in your project:
 
     ```
     Http Functions:
@@ -316,9 +350,9 @@ After your first deployment, you can make changes to your code, such as adding a
 
 1. In a browser, or from curl, make a request to `http://localhost:7071/api/DigitsOfPi?digits=125` and observe the output. (You might notice that the code algorithm isn't entirely accurate, but we'll leave the improvements to you!) Stop the debugger when you're finished.
 
-1. Redeploy the code by using the **Deploy to Function App** in the **Azure: Functions** explorer. When prompted, select the Function App created previously.
+1. Redeploy the code by using the **Deploy to Function App** in the **Azure: Functions** explorer. If prompted, select the Function App created previously.
 
-1. Once deployment finishes (it takes a few minutes!), the output window shows the public endpoints with which you can repeat your tests.
+1. Once deployment finishes (it takes a few minutes!), the **Output** window shows the public endpoints with which you can repeat your tests.
 
 ## Clean up resources
 
@@ -338,11 +372,11 @@ There are also other Azure extensions for VS Code that you may find helpful. Jus
 
 ![Azure extensions for VS Code](images/deploy-containers/azure-extensions.png)
 
-A few favorites include:
+Some popular extensions are:
 
 - [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 - [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
 - [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 - [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
-And again, if you've encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+And again, if you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).

@@ -87,7 +87,7 @@ If you don't already have an app you'd like to work with, use one of the options
 
 ## Create the App Service
 
-1. In the **Azure: App Service** explorer, select the **+** command to create a new App Service, or open the Command Palette and select **Azure App Service: Create New Web App**. (In App Service terminology, a "web app" is a **host** for web app code, not the app code itself.)
+1. In the **Azure: App Service** explorer, select the **+** command to create a new App Service, or open the Command Palette (`kb(workbench.action.showCommands)`) and select **Azure App Service: Create New Web App**. (In App Service terminology, a "web app" is a **host** for web app code, not the app code itself.)
 
     ![Create new App Service button in the App Service explorer](images/deploy-azure/app-service-create-new.png)
 
@@ -295,11 +295,11 @@ There are also other Azure extensions for VS Code that you may find helpful. Jus
 
 ![Azure extensions for VS Code](images/deploy-containers/azure-extensions.png)
 
-A few favorites include:
+Some popular extensions are:
 
 - [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 - [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 - [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 - [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
-And again, if you've encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+And again, if you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
