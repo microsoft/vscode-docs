@@ -23,21 +23,25 @@ The result is that VS Code can provide a **local-quality development experience*
 
 To get started you can:
 
-1. **[Windows / Mac Users]** Install and configure [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
-   1.  After installing, you will need to share any drives / folders that contain source code with Docker. Right-click on the Docker task bar item, select Settings / Preferences, and add them to the Shared Drives / File Sharing tab.
-   2. Windows only: We recommend disabling automatic line ending conversion for Git on the *Windows side* (given Linux and Windows use different line endings). Run: `git config --global core.autocrlf false`
+1. Install and configure Docker
 
-   > **Note:** See [here](/docs/remote/troubleshooting.md#container-tips) for more setup troubleshooting tips.
+    **Windows / Mac Users:**
+    1. Install and configure [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
+    2. After installation, share any drives / folders that contain source code you want to use with Docker. Right-click on the **Docker task bar** item, and go to **Settings / Preferences > Shared Drives / File Sharing**.
+    3. Windows only: We recommend disabling automatic line ending conversion for Git (given Linux and Windows use different line endings). Run this from a command prompt on the *Windows side*: `git config --global core.autocrlf false`
 
-2. **[Linux Users]** Install and configure [Docker CE/EE for Linux](https://docs.docker.com/install/#supported-platforms).
-   1. Please follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms). *The Ubuntu Snap package is not supported*.
-   2.  After installing, add your user to the `docker` group by running `sudo usermod -aG docker $USER` in a terminal and logging in again.
+    > **Note:** See [here](/docs/remote/troubleshooting.md#container-tips) for setup troubleshooting tips.
 
-3. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/).
+    **Linux Users:**
+    1. Install and configure Docker CE/EE for Linux by following [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms). *The Ubuntu Snap package is not supported*.
+    2. After installing, add your user to the `docker` group by opening a terminal and running: `sudo usermod -aG docker $USER`
+    3. Sign out and back in again so changes take effect.
+
+2. Install [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders/).
 
     > **Dogfooding Note (UPDATED)**: Code - WSL is deprecated. Use VS Code - Insiders now.
 
-4. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack
+3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack
 
     > **Dogfooding Note (UPDATED):** Set up the dogfooding version of the Remote Development extensions as follows:
     > 1. Sign into a Microsoft GitHub org associated GitHub account from a browser.
