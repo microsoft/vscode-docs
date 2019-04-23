@@ -16,7 +16,7 @@ This tutorial walks you through using Visual Studio Code to deploy a Python appl
 
 - Apps are run with Python 3.7 using the [Gunicorn](https://gunicorn.org) web server.
 - The container includes [Flask](https://http://flask.pocoo.org) by default but not [Django](https://www.djangoproject.com).
-- To install Django and any other dependencies, you **must** provide a `requirements.txt` file and deploy to App Service using Git, as shown in this tutorial.
+- To install Django and any other dependencies, you **must** provide a `requirements.txt` file and deploy to App Service using Git, as shown in this tutorial. For App Service to install dependencies, `requirements.txt` must be deployed to the root folder.
 - Although the container can run Django and Flask apps automatically, provided the app matches an expected structure, you can also provide a custom startup command file through which you have full control over the Gunicorn command line. A custom startup command is typically required for Flask apps, but not Django apps.
 - The container definition itself is on the [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
 
@@ -177,6 +177,8 @@ As noted earlier, you must deploy to App Service on Linux using Git in order for
     1. Open a terminal for the environment with **Terminal: Create New Integrated Terminal**.
     1. Make sure you're in the root folder of the app, then run `pip freeze > requirements.txt`.
 
+    > **Tip**: be sure to place `requirements.txt` in the root folder, otherwise App Service won't find it and won't automatically install your dependencies.
+
 1. In your project folder, create a file named `.gitignore` with the following contents (change `.venv` if you're using a different folder for a virtual environment):
 
     ```gitignore
@@ -220,6 +222,15 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
     - **GitHub**: code is deployed from the selected branch of a GitHub repository, and happens automatically when you push commits to the repository. Selecting this option successively prompts you for the organization, repository, and branch to use.
 
 1. With both choices, the extension connects the App Service to the repository. You don't see indications of the connection in VS Code itself; on the Azure portal, you can examine the connect on the Azure portal in the App Service's **Deployment Center** page.
+
+1. To shorten delployemtn time, you can exclude VS Code files and your virtual environment by adding the following lines to the `.vscode/settings.json` file (replace `.env` with your particular virtual environment folder):
+
+    ```json
+    "appService.zipIgnorePattern": [
+        ".vscode{,/**}",
+        ".env{,/**}"
+    ],
+    ```
 
 1. To deploy the app:
 
