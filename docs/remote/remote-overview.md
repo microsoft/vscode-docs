@@ -9,7 +9,7 @@ DateApproved: 1/30/2019
 ---
 # VS Code Remote Development
 
-VS Code Remote Development allows you to use a container, remote machine, or the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl) as a full-featured development environment. You can:
+VS Code Remote Development allows you to use a container, remote machine, or the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as a full-featured development environment. You can:
 
 - Develop on the **same operating system** you deploy to or use **larger or more specialized** hardware.
 - **Sandbox** your development environment to avoid impacting to your local **machine configuration**.
@@ -19,18 +19,19 @@ VS Code Remote Development allows you to use a container, remote machine, or the
 - Access an **existing** development environment from **multiple machines or locations**.
 - Debug an **application running somewhere else** such as a customer site or in the cloud.
 
-Better yet, **no source code** needs to be on your local machine to get these benefits. Each extension in the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) can run commands and other extensions directly inside a container, WSL, or on a remote machine. This approach provides big experience improvements over using network shares or synchronizing files since everything feels like it does when you run locally.
+Better yet, **no source code** needs to be on your local machine to get these benefits. Each extension in the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) can run commands and other extensions directly inside a container, WSL, or on a remote machine. This approach is a big improvement over using network shares or synchronizing files since everything feels like it does when you run locally.
 
 ![Architecture](images/remote-overview/architecture.png)
 
 ## Getting started
 
 > **Dogfooding Notes (UPDATED):**
-> 1. You currently need to install a private versions of the VS Code Remote Development extensions. First download [Visual Studio Code - Insiders](https://code.visualstudio.com/insiders).
+
+> 1. You currently need to install a private versions of the VS Code Remote Development extensions. First download [Visual Studio Code Insiders](https://code.visualstudio.com/insiders).
 > 2. Next, sign into a Microsoft GitHub org associated GitHub account from a browser.
-> 3. Download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code – Insiders.
+> 3. Download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code Insiders.
 > 4. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
-> 5. Reload / restart VS Code - Insiders.
+> 5. Reload / restart VS Code Insiders.
 
 ### Remote Development extension pack
 
@@ -46,7 +47,7 @@ While most VS Code extensions should work unmodified in a remote environment, ex
 
 ## Questions or feedback
 
-> **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
+> **Dogfooding Note:**  When reporting issues, please file them against the [vscode-remote](https://github.com/Microsoft/vscode-remote/issues) repository.
 
 - See [Tips and Tricks](https://aka.ms/vscode-remote/troubleshooting) or the [FAQ](/docs/remote/faq).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).

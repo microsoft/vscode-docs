@@ -62,7 +62,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     ssh-keygen -t rsa -b 4096 -f %USERPROFILLE%\.ssh\id_rsa-remote-ssh
     ```
 
-2. Run **Remote-SSH: Open Configuration File...** in the command palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
+2. Run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
 
    *macOS / Linux:*
 
@@ -109,7 +109,7 @@ Follow these steps:
 1. Load the private key you created back into PuTTYGen
 2. Select **Conversions > Export OpenSSH key** and select a location to export the key such as `%USERPROFILE%\.ssh`.
 3. Validate that the permissions on the file you exported only grant "Full Control to your user, Administrators, and SYSTEM.
-4.  Run **Remote-SSH: Open Configuration File...** in the command palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
+4. Run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
 
     ````yaml
     Host name-of-ssh-host-here
@@ -120,10 +120,10 @@ Follow these steps:
 
 ### Enabling alternate SSH authentication methods
 
-If one of the following conditions apply, you will need to enable the `remote.SSH.showLoginTerminal` setting:
+If one of the following conditions applies, you will need to enable the `remote.SSH.showLoginTerminal` setting:
 
 - Connecting with 2-factor authentication
-- Using password auth
+- Using password authentication
 - Using an SSH key with a passphrase when the SSH agent is not running or accessible
 
 This setting will cause the terminal to be shown whenever VS Code runs an SSH command. You will have to enter your auth code, password, or passphrase each time. A convenient way to work around this is to enable the `ControlMaster` feature that tells OpenSSH to run multiple SSH sessions over a single connection.
@@ -143,7 +143,7 @@ With this enabled, you will only have to enter your auth code/password/passphras
 
 ### Fixing SSH file permission errors
 
-SSH can be very particular about file permissions and you can see errors like "WARNING: UNPROTECTED PRIVATE KEY FILE!" if set incorrectly. Update your permissions as follows.
+SSH can be particular about file permissions and you can see errors like "WARNING: UNPROTECTED PRIVATE KEY FILE!" if set incorrectly. Update your permissions as follows.
 
 #### SSH local file and folder permissions
 
@@ -167,7 +167,9 @@ The following are permissions that need to be correct on the remote machine you 
 
 #### Updating permissions on Windows using the command line
 
-If you'd prefer to use the command line to update permissions on Windows, you can use the `icacls` command. For example, this will set your user as the owner, clear out permissions, disable inheritance, and grant the needed permissions:
+If you'd prefer to use the command line to update permissions on Windows, you can use the `icacls` command.
+
+The example below will set your user as the owner, clear out permissions, disable inheritance, and grant the needed permissions:
 
 ```bat
 SET FILEORFOLDERTOUPDATE="%USERPROFILE%\.ssh"
@@ -201,9 +203,9 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 
 Docker Desktop for Windows works well in many cases, but there are a number of "gotchas" to that can cause real headaches. The following are some tips to avoid them:
 
-1. **Use a AD domain account or local administrator account when sharing drives. Do not use an AAD (email based) account.**  AAD (email based) accounts have well known issues as documented [here](https://github.com/docker/for-win/issues/132) and [here](https://github.com/docker/for-win/issues/1352). If you must use this type of account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
+1. **Use an AD domain account or local administrator account when sharing drives. Do not use an AAD (email-based) account.**  AAD (email-based) accounts have well known issues as documented [here](https://github.com/docker/for-win/issues/132) and [here](https://github.com/docker/for-win/issues/1352). If you must use this type of account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
 
-2. **Stick with alphanumeric passwords to avoid drive sharing problems.** When asked to share your drives on Windows, you will be asked for user name and password with admin priveleges on the machine. If you get incorrect username/password, this may be due to special characters in the password. For example, `!`, `[` and `]` are known to cause issues. Change your password to alphanumeric characters to resolve. See [here](https://github.com/moby/moby/issues/23992#issuecomment-234979036) for details.
+2. **Stick with alphanumeric passwords to avoid drive sharing problems.** When asked to share your drives on Windows, you will be asked for user name and password with admin privileges on the machine. If you get incorrect username/password, this may be due to special characters in the password. For example, `!`, `[` and `]` are known to cause issues. Change your password to alphanumeric characters to resolve. See [here](https://github.com/moby/moby/issues/23992#issuecomment-234979036) for details.
 
 3. **Use your Docker ID to sign into Docker (not email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See [here](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
@@ -262,7 +264,7 @@ If you determine that you need to give your container more of your machine's cap
 2. Click on Advanced to increase CPU, Memory, or Swap.
 3. Click on Disk to increase the amount of disk Docker is allowed to consumer on your machine.
 
-Finally, if the application is disk intensive, you should avoid using a volume mount of your local filesystem to store data files (e.g. database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead.
+Finally, if the application is disk intensive, you should avoid using a volume mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead.
 
 ### Cleaning out unused containers and images
 
@@ -272,7 +274,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
  1. Use **File > New Window** to open a local window.
 
- 2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the extension panel if not already present.
+ 2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view if not already present.
 
  3. You can then go to the Docker panel and expand the Containers or Images tree, right-click, and select Remove Container / Image.
 
@@ -344,7 +346,7 @@ Optionally, you can add the following contents to a `.gitattributes` file to for
 
 ## Questions and feedback
 
-> **Dogfooding Note:**  When reporting issues, please file them against the https://github.com/Microsoft/vscode-remote/issues repository.
+> **Dogfooding Note:**  When reporting issues, please file them against the [vscode-remote](https://github.com/Microsoft/vscode-remote/issues) repository.
 
 - See [Remote Development FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
