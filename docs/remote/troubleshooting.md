@@ -124,7 +124,7 @@ If one of the following conditions applies, you will need to enable the `remote.
 
 - Connecting with 2-factor authentication
 - Using password authentication
-- Using an SSH key with a passphrase when the SSH agent is not running or accessible
+- Using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible
 
 This setting will cause the terminal to be shown whenever VS Code runs an SSH command. You will have to enter your auth code, password, or passphrase each time. A convenient way to work around this is to enable the `ControlMaster` feature that tells OpenSSH to run multiple SSH sessions over a single connection.
 
@@ -140,6 +140,47 @@ Host *
 Finally, run `mkdir -p ~/.ssh/sockets` to create the sockets folder.
 
 With this enabled, you will only have to enter your auth code/password/passphrase once.
+
+
+### Setting up the SSH Agent
+
+If you are connecting to your SSH host using a key with a passphrase, you should ensure that the [SSH Agent](https://www.ssh.com/ssh/agent) is running. If it's running, VS Code will add your key to the agent so you don't have to enter your passphrase every time you open a remote VS Code window.
+
+After starting the agent, restart VS Code. To verify that the agent is running and is reachable from VS Code's environment, run `ssh-add -l` in a terminal in a local VS Code window. You should see a listing of the keys in the agent (or a message that it has no keys).
+
+#### Windows
+
+Start a powershell instance as Administrator, and run these commands.
+
+```powershell
+# Make sure you're running as an Administrator
+Set-Service ssh-agent -StartupType Automatic
+Start-Service ssh-agent
+Get-Service ssh-agent
+```
+
+#### Linux
+
+Add these lines to `~/.bash_profile` to ensure that the agent is started on every login.
+
+```bash
+if [ -z "$SSH_AUTH_SOCK" ]
+then
+   # Check for a currently running instance of the agent
+   RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+   if [ "$RUNNING_AGENT" = "0" ]
+   then
+        # Launch a new instance of the agent
+        ssh-agent -s &> .ssh/ssh-agent
+   fi
+   eval `cat .ssh/ssh-agent`
+fi
+```
+
+#### MacOS
+
+The agent should be running by default on MacOS.
+
 
 ### Fixing SSH file permission errors
 
@@ -197,44 +238,6 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 | RHL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
 | macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. | |
 
-### Setting up the SSH Agent
-
-If you are connecting to your SSH host using a key with a passphrase, you should ensure that the [SSH Agent](https://www.ssh.com/ssh/agent) is running. If it's running, VS Code will add your key to the agent so you don't have to enter your passphrase every time you open a remote VS Code window.
-
-After starting the agent, restart VS Code. To verify that the agent is running and is reachable from VS Code's environment, run `ssh-add -l` in a terminal in a local VS Code window. You should see a listing of the keys in the agent (or a message that it has no keys).
-
-#### Windows
-
-Start a powershell instance as Administrator, and run these commands.
-
-```powershell
-# Make sure you're running as an Administrator
-Set-Service ssh-agent -StartupType Automatic
-Start-Service ssh-agent
-Get-Service ssh-agent
-```
-
-#### Linux
-
-Add these lines to `~/.bash_profile` to ensure that the agent is started on every login.
-
-```bash
-if [ -z "$SSH_AUTH_SOCK" ]
-then
-   # Check for a currently running instance of the agent
-   RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
-   if [ "$RUNNING_AGENT" = "0" ]
-   then
-        # Launch a new instance of the agent
-        ssh-agent -s &> .ssh/ssh-agent
-   fi
-   eval `cat .ssh/ssh-agent`
-fi
-```
-
-#### MacOS
-
-The agent should be running by default on MacOS.
 
 ## Container tips
 
