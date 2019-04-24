@@ -39,7 +39,8 @@ To get started you need to:
     > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
     > 4. Reload / restart VS Code Insiders.
 
-4. Disable automatic line ending conversion for Git on the **Windows side** (given Linux and Windows use different line endings). Run: `git config --global core.autocrlf false`
+4. Disable automatic line ending conversion for Git on the **Windows side** by using a command prompt to run: `git config --global core.autocrlf false`
+
 
 ### Open a folder in WSL
 

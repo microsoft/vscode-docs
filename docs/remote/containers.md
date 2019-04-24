@@ -29,9 +29,9 @@ To get started, follow these steps:
 
     1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
 
-    2. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container.  If you hit trouble, see **[here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips)** for tips on avoiding common problems with sharing.
+    2. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you hit trouble, see **[here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips)** for tips on avoiding common problems with sharing.
 
-    3. Windows only: Disable automatic line ending conversion for Git by using a Windows command prompt to run: `git config --global core.autocrlf false`
+    3. *Windows Users:* Disable automatic line ending conversion for Git by using a Windows command prompt to run: `git config --global core.autocrlf false`
 
     *Linux Users:*
 
@@ -241,9 +241,39 @@ You can also **use the `code-insiders` CLI** from this same terminal window to p
 
 ## Forwarding a port
 
-Sometimes when developing you may need to access a port in your container that you didn't add to `devcontainer.json`, your `Dockerfile`, or Docker Compose file. If you want to **temporarily forward** a new port for the duration of the session, run the **Remote-Containers: Forward Port...** command from the Command Palette (`kbstyle(F1)`).
+Containers are isolated environments, so if you want to access a server, service, or other resource inside your container, you will need to "forward" the port to your host. You can either configure your container to always expose these ports or just forward them temporarily.
+
+### Temporarily forwarding a port
+
+Sometimes when developing you may need to access a port in your container that you didn't add to `devcontainer.json`, your `Dockerfile`, or Docker Compose file. If you want to **temporarily forward** a new port for the duration of the session, run the **Remote-Containers: Forward Port from Container...** command from the Command Palette (`kbstyle(F1)`).
 
 After selecting a port, a toast notification will tell you the localhost port you should use to access the port in the container. For example, if you forwarded a HTTP server listening on port 3000, the toast notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote http server using http://localhost:4123.
+
+### Always forwarding / exposing / publishing a port
+
+If you have ports you always want use from your host, you can set them up so they are always available. Specifically you can:
+
+1. **Use the appPort property:** If you reference an `image` or `Dockerfile` in `devcontainer.json`, you can use the  `appPort` property to publish ports to the host.
+
+    ```json
+    "appPort": [3000,"8921:5000"]
+    ```
+
+2. **Use the Dockerfile EXPOSE instruction:** You can add the port to your `Dockerfile` using the [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose).
+
+    ```Dockerfile
+    EXPOSE 3000
+    ```
+
+3. **Use the Docker Compose ports mapping:** The [`ports` mapping](https://docs.docker.com/compose/compose-file#ports) can easily be added your `docker-compose.yml` file to expose additional ports.
+
+    ```yaml
+    ports:
+    - "3000"
+    - "8921:5000"
+    ```
+
+In each case, you'll need to rebuild your container for the setting to take effect. You can do this by running the **Remote-Containers: Rebuild Container** command in the Command Palette (`kbstyle(F1)`) when you are connected to the container.
 
 ## Debugging in a container
 
