@@ -87,7 +87,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     On **macOS / Linux**, run the following command in a **local terminal** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2:
 
     ````bash
-    ssh-copy-id -f ~/.ssh/id_rsa-remote-ssh.pub name-of-ssh-host-here
+    ssh-copy-id -i ~/.ssh/id_rsa-remote-ssh.pub name-of-ssh-host-here
     ````
 
     ...or on **Windows**, run the following commands in a **local command prompt** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2.
