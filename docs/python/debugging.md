@@ -162,7 +162,7 @@ Specifies how program output is displayed.
 
 | Value | Where output is displayed |
 |--- | --- |
-| `"none"` | VS Code debug console |
+| `"internalConsole"` | VS Code debug console |
 | `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md) |
 | `"externalTerminal"` | Separate console window |
 
