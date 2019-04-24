@@ -11,7 +11,9 @@ Author: Chris Dias
 
 May 2, 2019 by The VS Code Team, [@code](https://twitter.com/code)
 
-Today we're excited to announce three new extensions for Visual Studio Code that enable seamless remote development in [Containers](https://www.docker.com/resources/what-container), physical or virtual machines, and the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl). You can get started right away by installing the [Remote Development Extension Pack](https://aka.ms/VSCodeRemoteExtensionPack).
+## TL&DR;
+
+Today we're excited to announce three new extensions for Visual Studio Code that enable seamless remote development in [Containers](https://www.docker.com/resources/what-container), physical or virtual machines, and the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl). You can [get started](#get-started) right away by installing the [Remote Development Extension Pack](https://aka.ms/VSCodeRemoteExtensionPack).
 
 **Note**: You'll need to use the [Insiders Build](https://code.visualstudio.com/insiders/) for now, but remote support will eventually be available in Stable.
 
@@ -19,23 +21,23 @@ Read on to learn how we got here.
 
 ## Remote development
 
-As the popularity of Visual Studio Code has grown, we've had the opportunity to talk to a broad set of users with different development environments, many vastly different than our own. And what you were are telling us is that more and more development is happening not only on the local machine, but also on remote environments.
+As the popularity of Visual Studio Code has grown, we've had the opportunity to talk to a broad set of users with different development environments, many vastly different than our own. And what you told us is that more and more development is happening not only on the local machine, but also on remote environments.
 
 Thousands of engineers at large enterprises such as [Facebook](https://nuclide.io/docs/features/remote/) work remotely against secure and powerful "developer VMs" and cloud-based services that scale beyond what even the best laptop can handle.
 
-We see Python developers who want to switch to VS Code but need to use development environments configured for a specific Python stack using [containers and virtual machines]( https://matttrent.com/remote-development/).
+We heard from Python developers who want to switch to VS Code but need to use development environments configured for a specific Python stack using [containers and virtual machines](https://matttrent.com/remote-development/).
 
 ![Vagrant Box testimonial](vagrant-box-testimonial.png)
 
 Data scientists often need massive storage and compute services to analyze large datasets that can't be stored or processed even on a robust desktop.
 
-[WSL](https://docs.microsoft.com/en-us/windows/wsl/about) is a great way to use your Windows based tools to build applications that deploy to and run on Linux. In fact, [the third most commented issue in the VS Code repository](https://github.com/Microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal running a in Linux distro on Windows. Doing development in WSL then is really just remote development from a Windows machine to a Linux environment, it just happens to be running on the same machine.
+[WSL](https://docs.microsoft.com/en-us/windows/wsl/about) is a great way to use your Windows based tools to build applications that deploy to and run on Linux. In fact, [the third most commented issue in the VS Code repository](https://github.com/Microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal running in a Linux distro on Windows. Doing development in WSL is really just remote development from a Windows machine to a Linux environment that happens to be running on the same machine.
 
 ![VS Code Ubuntu on Windows testimonial](vscode-ubuntu-windows-testimonial.png)
 
 ## Challenges
 
-In these conversations, we also keep hearing the same challenges developers face with remote development.
+In these conversations, we also kept hearing the same challenges repeated that developers face with remote development.
 
 For example:
 
