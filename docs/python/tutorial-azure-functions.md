@@ -49,7 +49,7 @@ After signing in, verify that you see the email account of your Azure subscripti
 
 ![VS Code status bar showing Azure account](images/deploy-azure/azure-account-status-bar.png)
 
-The name you've assigned to your subscription also appears in the **Azure: Functions** explorer (the name shown in the image is "Primary"):
+The name you've assigned to your subscription also appears in the **Azure: Functions** explorer ("Primary" in the image below):
 
 ![VS Code Azure App Service explorer showing subscriptions](images/functions/azure-subscription-view.png)
 
@@ -195,7 +195,7 @@ The important parts of the code are as follows:
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
     ```
 
-1. Copy (`kbstyle(Ctrl+C)`) the URL in the VS Code **Output** window to open a browser to that address, or start a browser and paste in the same URL. In either case, you can see that the endpoint is `api/<function_name>`, in this case `api/HttpExample`. However, because that URL doesn't include a name parameter, the browser window should just show, "Please pass a name on the query string or in the request body" as appropriate for that path in the code.
+1. Use `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on the URL in the VS Code **Output** window to open a browser to that address, or start a browser and paste in the same URL. In either case, you can see that the endpoint is `api/<function_name>`, in this case `api/HttpExample`. However, because that URL doesn't include a name parameter, the browser window should just show, "Please pass a name on the query string or in the request body" as appropriate for that path in the code.
 
 1. Now try adding a name parameter to the use, such as `http://localhost:7071/api/HttpExample?name=VS%20Code`, and in the browser window you should see the message, "Hello VS Code!", demonstrating that you've run that code path.
 
@@ -216,7 +216,7 @@ The important parts of the code are as follows:
 
     Alternately, create a file like `data.json` that contains `{"name":"VS Code"}` and use the command `curl --header "Content-Type: application/json" --request POST --data @data.json http://localhost:7071/api/HttpExample`.
 
-1. To test debugging the function, set a breakpoint on the line that reads, `name = req.params.get('name')`, and make a request to the URL again. The VS Code debugger should stop on that line, allowing you to examine variables and step through the code. (For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger).)
+1. To test debugging the function, set a breakpoint on the line that reads `name = req.params.get('name')` and make a request to the URL again. The VS Code debugger should stop on that line, allowing you to examine variables and step through the code. (For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger).)
 
 1. When you're satisfied that you've thoroughly tested the function locally, stop the debugger (with the **Debug** > **Stop Debugging** menu command or the **Disconnect** command on the debugging toolbar).
 
