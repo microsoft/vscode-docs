@@ -4,22 +4,22 @@ Area: python
 TOCTitle: Azure Functions
 ContentId: 3685dbc0-5700-4456-8133-6f0db8e25e55
 PageTitle: Crate and deploy Python code to Azure Functions
-DateApproved: 04/18/2019
+DateApproved: 04/24/2019
 MetaDescription: How to create and deploy Python code to Azure Functions
 MetaSocialImage: images/tutorial/social.png
 ---
-# Create and deploy Python code to Azure Functions
+# Deploy Python to Azure Functions
 
-This tutorial walks you through using Visual Studio Code to create a serverless HTTP endpoint with Python code using the [Azure Functions extension](https://marketplace.visualstudio.com/itemdetails?itemName=ms-azuretools.vscode-azurefunctions). [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python) runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for VS Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
+This tutorial walks you through using Visual Studio Code to create a serverless HTTP endpoint with Python using the [Azure Functions](https://marketplace.visualstudio.com/itemdetails?itemName=ms-azuretools.vscode-azurefunctions) extension. Microsoft [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python) runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for VS Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
 
-If you encounter any problems in the course of this tutorial, feel free to file an issue in the [Visual Studio Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you encounter any problems in the course of this tutorial, feel free to file an issue in the Visual Studio Code [documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
 Details for each of these are in the sections that follow:
 
-- [An Azure subscription](#azure-subscription)
-- [Visual Studio Code with the Azure Functions extension](#visual-studio-code-python-and-the-azure-functions-extension)
+- An [Azure subscription](#azure-subscription)
+- The [Visual Studio Code with the Azure Functions](#visual-studio-code-python-and-the-azure-functions-extension) extension
 - The [Azure Functions Core Tools](#azure-functions-core-tools).
 
 ### Azure subscription
@@ -49,7 +49,7 @@ After signing in, verify that you see the email account of your Azure subscripti
 
 ![VS Code status bar showing Azure account](images/deploy-azure/azure-account-status-bar.png)
 
-The name you've assigned to your subscription also appears in the and your subscription(s) in the **Azure: Functions** explorer (the name shown in the image is "Primary"):
+The name you've assigned to your subscription also appears in the **Azure: Functions** explorer (the name shown in the image is "Primary"):
 
 ![VS Code Azure App Service explorer showing subscriptions](images/functions/azure-subscription-view.png)
 
@@ -86,9 +86,9 @@ The output that starts with the Azure Functions logo (you need to scroll the out
     - Select **HTTP trigger** for the template. A function that uses an HTTP trigger is run whenever there's an HTTP request made to the function's endpoint. (You can see that there are a variety of other triggers for Azure Functions. To learn more, see [What can I do with Functions?](https://docs.microsoft.com/azure/azure-functions/functions-overview#what-can-i-do-with-functions) in the Azure documentation.)
     - Name your function "HttpExample" (rather than accepting the default "HTTPTrigger") to distinguish the function itself from the trigger. This name is used for a subfolder that contains the function's code along with configuration data, and also defines the name of the HTTP endpoint.
     - Select **Anonymous** for the authorization level, which makes the function publicly accessible to anyone.
-    - If promted with "Select how you would like to open your project," select **Open in current window**.
+    - If prompted with "Select how you would like to open your project," select **Open in current window**.
 
-1. After a short time you see a message that the new project was created. In the **Explorer** you see the subfolder created for the function, and VS Code opens the `__init__.py` file that contains the default function code:
+1. After a short time, you see a message that the new project was created. In the **Explorer**, you see the subfolder created for the function, and VS Code opens the `__init__.py` file that contains the default function code:
 
     ![Result of creating a new Python functions project](images/functions/project-create-results.png)
 
@@ -103,7 +103,7 @@ The output that starts with the Azure Functions logo (you need to scroll the out
 
 ## Examine the code files
 
-In the newly-created function subfolder you see three files: `__init__.py` contains the function's code, `function.json` describes the function to Azure Functions, and `sample.dat` is a sample data file. You can delete `sample.dat` if you way, as it exists only to show that you can add other files to the subfolder.
+In the newly created function subfolder, you see three files: `__init__.py` contains the function's code, `function.json` describes the function to Azure Functions, and `sample.dat` is a sample data file. You can delete `sample.dat` if you way, as it exists only to show that you can add other files to the subfolder.
 
 Let's look at `function.json` first, then the code in `__init__.py`.
 
@@ -136,7 +136,7 @@ The function.json file provides the necessary configuration information for the 
 
 You can see that `scriptFile` identifies the startup file for the code, which must contain a Python function named `main`. You can factor your code into multiple files so long as the file specified here contains a `main` function.
 
-The `bindings` element the contains two objects, one to describe incoming requests, and the other to describe the HTTP response. For incoming requests (`"direction": "in"`), the function responds to HTTP GET or POST requests and doesn't require authentication. The response (`"direction": "out"`) is an HTTP response that returns whatever value is returned from the `main` Python function.
+The `bindings` element contains two objects, one to describe incoming requests, and the other to describe the HTTP response. For incoming requests (`"direction": "in"`), the function responds to HTTP GET or POST requests and doesn't require authentication. The response (`"direction": "out"`) is an HTTP response that returns whatever value is returned from the `main` Python function.
 
 ### \_\_init.py\_\_
 
@@ -176,7 +176,7 @@ The important parts of the code are as follows:
 - The body of `main` then processes the request and generates a response. In this case, the code looks for a `name` parameter in the URL. Failing that, it checks if the request body contains JSON (using `func.HttpRequest.get_json`) and that the JSON contains a `name` value (using the `get` method of the JSON object returned by `get_json`).
 - If a name is found, the code returns the string "Hello" with the name appended; otherwise it returns an error message.
 
-## Test and debug the function locally
+## Test and debug locally
 
 1. When you create the Functions project, the VS Code extension also creates a launch configuration in `.vscode/launch.json` that contains a single configuration named **Attach to Python Functions**. This configuration means you can just press F5 or use the Debug explorer to start the project:
 
@@ -195,7 +195,7 @@ The important parts of the code are as follows:
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
     ```
 
-1. `kbstyle(Ctrl+C)` the URL in the VS Code **Output** window to open a browser to that address, or start a browser and paste in the same URL. In either case, you can see that the endpoint is `api/<function_name>`, in this case `api/HttpExample`. However, because that URL doesn't include a name parameter, the browser window should just show, "Please pass a name on the query string or in the request body" as appropriate for that path in the code.
+1. Copy (`kbstyle(Ctrl+C)`) the URL in the VS Code **Output** window to open a browser to that address, or start a browser and paste in the same URL. In either case, you can see that the endpoint is `api/<function_name>`, in this case `api/HttpExample`. However, because that URL doesn't include a name parameter, the browser window should just show, "Please pass a name on the query string or in the request body" as appropriate for that path in the code.
 
 1. Now try adding a name parameter to the use, such as `http://localhost:7071/api/HttpExample?name=VS%20Code`, and in the browser window you should see the message, "Hello VS Code!", demonstrating that you've run that code path.
 
@@ -216,11 +216,11 @@ The important parts of the code are as follows:
 
     Alternately, create a file like `data.json` that contains `{"name":"VS Code"}` and use the command `curl --header "Content-Type: application/json" --request POST --data @data.json http://localhost:7071/api/HttpExample`.
 
-1. To test debugging the function, set a breakpoint on the line that reads, `name = req.params.get('name')` and make a request to the URL again. The VS Code debugger should stop on that line, allowing you to examine variables and step through the code. (For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger).)
+1. To test debugging the function, set a breakpoint on the line that reads, `name = req.params.get('name')`, and make a request to the URL again. The VS Code debugger should stop on that line, allowing you to examine variables and step through the code. (For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger).)
 
 1. When you're satisfied that you've thoroughly tested the function locally, stop the debugger (with the **Debug** > **Stop Debugging** menu command or the **Disconnect** command on the debugging toolbar).
 
-## Deploy the project to Azure Functions
+## Deploy to Azure Functions
 
 In these steps, you use the Functions extension to create a "Function App" on Azure. A Function App is composed of a storage account for data, an App Service Plan (which corresponds to the Linux virtual machine on which the App Service runs), and an App Service (the hosting service for your endpoints that runs on the virtual machine). All of these resources are organized within a single resource group.
 
@@ -249,7 +249,7 @@ In these steps, you use the Functions extension to create a "Function App" on Az
 
 1. Use this endpoint to run the same tests you did locally, using URL parameters and/or requests with JSON data in the request body. You should see the same results from the public endpoint as you did locally.
 
-## Add a second function and redeploy
+## Add a second function
 
 After your first deployment, you can make changes to your code, such as adding additional functions, and redeploy to the same Functions App.
 
@@ -360,7 +360,7 @@ The Function App you created includes resources that can incur minimal costs (re
 
 ## Next steps
 
-Congratulations on completing this walkthrough of deploying Python code to Azure Functions! You're now well positioned to create many more serverless functions.
+Congratulations on completing this walkthrough of deploying Python code to Azure Functions! You're now ready to create many more serverless functions.
 
 As noted earlier, you can learn more about the Functions extension by visiting its GitHub repository, [vscode-azurefunctions](https://github.com/Microsoft/vscode-azurefunctions). Issues and contributions are also welcome.
 
