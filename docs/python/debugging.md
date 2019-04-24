@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 01/17/2019
+DateApproved: 04/24/2019
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -180,9 +180,13 @@ As an example, say `${workspaceFolder}` contains a `py_code` folder containing `
 
 ### `redirectOutput`
 
-When omitted (the default) or set to `true`, causes the debugger to print all output from the program into the VS Code debug output window. If omitted, all program output is not displayed in the debugger output window.
+When omitted or set to `True` (the default), causes the debugger to print all output from the program into the VS Code debug output window. If omitted, all program output is not displayed in the debugger output window.
 
 This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console.
+
+### `justMyCode`
+
+When omitted or set to `True` (the default), restricts debugging to user-written code only. Set to `False` to also enable debugging of standard library functions.
 
 ### `django`
 
