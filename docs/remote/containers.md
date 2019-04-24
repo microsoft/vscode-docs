@@ -29,9 +29,7 @@ To get started, follow these steps:
 
     1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
 
-    2. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container.
-
-        > **Note**: See [here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) for tips on avoiding common problems with sharing.
+    2. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you hit trouble, see **[here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips)** for tips on avoiding common problems with sharing.
 
     3. Windows only: Disable automatic line ending conversion for Git by using a Windows command prompt to run: `git config --global core.autocrlf false`
 
