@@ -231,12 +231,6 @@ VS Code runs extensions two one of places: locally on the **UI** / client side, 
 
 Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-## Opening a terminal in a container
-
-Opening a terminal in a container from VS Code is simple. Once you've opened a folder in a container, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run in the container rather than locally.
-
-You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder in the container. Type `code-insiders --help` to learn what is available from the command line.
-
 ![Using the code CLI](images/containers/code-command-in-terminal.png)
 
 ## Forwarding a port
@@ -256,7 +250,7 @@ If you have ports you always want use from your host, you can set them up so the
 1. **Use the appPort property:** If you reference an `image` or `Dockerfile` in `devcontainer.json`, you can use the  `appPort` property to publish ports to the host.
 
     ```json
-    "appPort": [3000,"8921:5000"]
+    "appPort": [3000, "8921:5000"]
     ```
 
 2. **Use the Dockerfile EXPOSE instruction:** You can add the port to your `Dockerfile` using the [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose).
@@ -274,6 +268,12 @@ If you have ports you always want use from your host, you can set them up so the
     ```
 
 In each case, you'll need to rebuild your container for the setting to take effect. You can do this by running the **Remote-Containers: Rebuild Container** command in the Command Palette (`kbstyle(F1)`) when you are connected to the container.
+
+## Opening a terminal in a container
+
+Opening a terminal in a container from VS Code is simple. Once you've opened a folder in a container, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run in the container rather than locally.
+
+You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder in the container. Type `code-insiders --help` to learn what is available from the command line.
 
 ## Debugging in a container
 
