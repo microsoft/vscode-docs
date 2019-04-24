@@ -183,9 +183,6 @@ When omitted (the default) or set to `true` causes the debugger to print all out
 
 This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console.
 
-### `debugStdLib`
-If set to `True`, activates debugging features specific to the Django web framework.
-
 ### `django`
 If set to `True`, activates debugging features specific to the Django web framework.
 
