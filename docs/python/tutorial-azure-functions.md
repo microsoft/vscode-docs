@@ -3,9 +3,9 @@ Order: 12
 Area: python
 TOCTitle: Azure Functions
 ContentId: 3685dbc0-5700-4456-8133-6f0db8e25e55
-PageTitle: Crate and deploy Python code to Azure Functions
+PageTitle: Create and deploy Python source code to Azure Functions
 DateApproved: 04/24/2019
-MetaDescription: How to create and deploy Python code to Azure Functions
+MetaDescription: How to create and deploy Python source code to Azure Functions
 MetaSocialImage: images/tutorial/social.png
 ---
 # Deploy Python to Azure Functions
@@ -18,8 +18,8 @@ If you encounter any problems in the course of this tutorial, feel free to file 
 
 Details for each of these are in the sections that follow:
 
-- An [Azure subscription](#azure-subscription)
-- The [Visual Studio Code with the Azure Functions](#visual-studio-code-python-and-the-azure-functions-extension) extension
+- An [Azure subscription](#azure-subscription).
+- The [Visual Studio Code with the Azure Functions](#visual-studio-code-python-and-the-azure-functions-extension) extension.
 - The [Azure Functions Core Tools](#azure-functions-core-tools).
 
 ### Azure subscription
@@ -249,7 +249,7 @@ In these steps, you use the Functions extension to create a "Function App" on Az
 
 1. Use this endpoint to run the same tests you did locally, using URL parameters and/or requests with JSON data in the request body. You should see the same results from the public endpoint as you did locally.
 
-## Add a second function
+## Add a second Function
 
 After your first deployment, you can make changes to your code, such as adding additional functions, and redeploy to the same Functions App.
 
