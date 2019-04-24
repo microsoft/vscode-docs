@@ -345,7 +345,7 @@ With an image built and pushed to a registry, you can use the Docker extension i
 
 1. The App Service restarts automatically when you change settings. You can also right-click the App Service and select **Restart** at any time.
 
-1. After the service has restarted, browse the site at `http://<name>.azurewebsites.net`. You can `kbstyle(Ctrl+click)` the URL in the Output panel, or right-click the App Service in the **Azure: App Service** explorer and select **Browse Website**.
+1. After the service has restarted, browse the site at `http://<name>.azurewebsites.net`. You can use `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on the URL in the Output panel, or right-click the App Service in the **Azure: App Service** explorer and select **Browse Website**.
 
 ## Make changes and redeploy
 
