@@ -12,7 +12,7 @@ DateApproved: 1/30/2019
 VS Code Remote Development allows you to use a container, remote machine, or the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as a full-featured development environment. You can:
 
 - Develop on the **same operating system** you deploy to or use **larger or more specialized** hardware.
-- **Sandbox** your development environment to avoid impacting to your local **machine configuration**.
+- **Sandbox** your development environment to avoid impacting your local **machine configuration**.
 - Make it easy for new contributors to **get started** and keep everyone on a **consistent environment**.
 - Use tools or runtimes **not available** on your local OS or manage **multiple versions** of them.
 - Develop your Linux-deployed applications using the **Windows Subsystem for Linux**.
