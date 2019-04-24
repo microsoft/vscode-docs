@@ -178,17 +178,22 @@ As an example, say `${workspaceFolder}` contains a `py_code` folder containing `
 | `${workspaceFolder}/py_code` | `../data/salaries.csv` |
 | `${workspaceFolder}/data` | `salaries.csv` |
 
-### `debugOptions`
+### `redirectOutput`
+When omitted (the default) or set to `true` causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window.
 
-An array of additional options:
+This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console.
 
-| Option | Description |
-| --- | --- |
-| `"RedirectOutput"` (default) | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
-| `"DebugStdLib"` | Enabled debugging of standard library functions. |
-| `"Django"` | Activates debugging features specific to the Django web framework. |
-| `"Sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
-| `"Pyramid"` | When set to true, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
+### `debugStdLib`
+If set to `True`, activates debugging features specific to the Django web framework.
+
+### `django`
+If set to `True`, activates debugging features specific to the Django web framework.
+
+### `sudo`
+If set to `True` and used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password.  
+
+### `pyramid`
+If set to `True`, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve).
 
 ### `env`
 
