@@ -19,8 +19,6 @@ The result is that VS Code can provide a **local-quality development experience*
 
 ## Getting started
 
-> **Note:** Windows OpenSSH Servers are **not** yet supported, but Windows clients **are** supported.
-
 ### Installation
 
 To get started you need to:
@@ -44,6 +42,8 @@ To get started you need to:
 4. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods).
 
 ### Connect to a remote host
+
+> **Note:** The remote host must be running a 64-bit Linux-based OS.
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -160,7 +160,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 ## Known limitations
 
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
-- Windows SSH Hosts are **not** yet supported. (Windows clients **are** supported.)
+- Windows and MacOS SSH Hosts are **not** yet supported. (Windows and MacOS clients **are** supported.)
 - Linux hosts must have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed.
 - PuTTY is not supported on Windows.
 - You cannot drag files out of the File Explorer to your local filesystem to copy them.

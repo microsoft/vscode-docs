@@ -151,10 +151,10 @@ The following are permissions that should be set correctly on your local machine
 
 | Folder / File | Linux / macOS Permissions | Windows Permissions |
 |---------------|---------------------------|---------------------|
-| `.ssh` in your user folder | chmod 700 ~/.ssh | Grant "Full Control" to your user, Administrators, and SYSTEM. |
-| `.ssh/config` in your user folder | chmod 600 ~/.ssh | Grant "Full Control" to your user, Administrators, and SYSTEM. |
-| `.ssh/id_rsa.pub` in your user folder | chmod 600 ~/.ssh/id_rsa.pub | Grant "Full Control" to your user, Administrators, and SYSTEM. |
-| Any other key file | chmod 600 /path/to/key/file| Grant "Full Control" to your user, Administrators, and SYSTEM.|
+| `.ssh` in your user folder | `chmod 700 ~/.ssh` | Grant "Full Control" to your user, Administrators, and SYSTEM. |
+| `.ssh/config` in your user folder | `chmod 600 ~/.ssh` | Grant "Full Control" to your user, Administrators, and SYSTEM. |
+| `.ssh/id_rsa.pub` in your user folder | `chmod 600 ~/.ssh/id_rsa.pub` | Grant "Full Control" to your user, Administrators, and SYSTEM. |
+| Any other key file | `chmod 600 /path/to/key/file` | Grant "Full Control" to your user, Administrators, and SYSTEM.|
 
 #### SSH server file and folder permissions
 
