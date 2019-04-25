@@ -122,18 +122,22 @@ The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) has
 
 If nothing there meets your needs, you can also independently spin up a container and then [attach to a running container](#attaching-to-running-containers).
 
-### Dev container configuration edit loop
+### Configuration edit loop
 
 Editing your container configuration is easy. Since rebuilding a container will "reset" the container to its starting contents (with the exception of your local source code), VS Code does not automatically rebuild if you edit a container configuration file (`devcontainer.json`, `Dockerfile`, `docker-compose.yml`). Instead, there are some commands that can be used to make editing your config easy. Here is the typical edit loop using these commands:
 
 1. *Start:* `kbstyle(F1)` > **Remote-Containers: Create Container Configuration File...**
 2. Edit the contents of the `.devcontainer` folder as required.
 3. *Try it:* `kbstyle(F1)` > **Remote-Containers: Reopen folder in Container**
-4. *On failure, or if you are unhappy with the results:*
+4. *On failure:*
    1. `kbstyle(F1)` > **Remote-Containers: Reopen Folder Locally**
    2. *In new local window:* Edit the contents of the `.devcontainer` folder as required.
    3. *Try it again:* Go back to the container window, `kbstyle(F1)` > **Remote-Containers: Reload Window**
    4. *Repeat as needed.*
+5. *If the build was successful, but you want to make more changes:*
+      1. Edit the contents of the `.devcontainer` folder as required when connected to the container.
+      2. `kbstyle(F1)` > **Remote-Containers: Rebuild Container**
+      3. *On failure:* Follow the same workflow above.
 
 ### Adding configuration files to public or private repositories
 
