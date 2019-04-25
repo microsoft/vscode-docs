@@ -9,13 +9,13 @@ DateApproved: 4/11/2019
 ---
 # Developing inside a Container
 
-The **Visual Studio Code Remote - Containers extension** lets you use a [Docker container](https://docker.com) as a full-featured development environment.  It allows you to open any folder inside (or mounted into) a container and take advantage of VS Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well defined tool and runtime stack. This container may be used to actually run an application or be focused exclusively on sandboxing tools, libraries, runtimes, or other utilities that need to be run against a codebase.
+The **Visual Studio Code Remote - Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of VS Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well defined tool and runtime stack. This container may be used to actually run an application or be focused exclusively on sandboxing tools, libraries, runtimes, or other utilities that need to be run against a codebase.
 
 Workspace files are mounted from the local file system or copied or cloned into the container. Extensions are installed and run inside the container where they have full access to the tools, platform, and file system. This means that you can seamlessly switch your entire development environment by just connecting to a different container.
 
 ![Container Architecture](images/containers/architecture-containers.png)
 
-The result is that VS Code can provide a **local-quality development experience** including full IntelliSense (completions), code navigation, and debugging, **regardless of where your code is hosted**.
+This lets VS Code provide a **local-quality development experience** — including full IntelliSense (completions), code navigation, and debugging — **regardless of where your code is hosted**.
 
 ## Getting started
 
@@ -29,7 +29,7 @@ To get started, follow these steps:
 
     1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
 
-    2. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you hit trouble, see **[here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips)** for tips on avoiding common problems with sharing.
+    2. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you run into trouble, see **[here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips)** for tips on avoiding common problems with sharing.
 
     3. *Windows Users:* Disable automatic line ending conversion for Git by using a Windows command prompt to run: `git config --global core.autocrlf false`
 
@@ -53,7 +53,7 @@ To get started, follow these steps:
     > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
     > 4. Reload / restart VS Code Insiders.
 
-The extension supports two primary operating models. One is to use a container as your [full-time development environment](#creating-configuration-files-for-existing-projects) while the other is to [attach to a running container](#attaching-to-running-containers) for targeted use. We will cover how to use a container as your full-time development environment first.
+The extension supports two primary operating models: you can use a container as your [full-time development environment](#creating-configuration-files-for-existing-projects) or you can [attach to a running container](#attaching-to-running-containers) for targeted use. We will cover how to use a container as your full-time development environment first.
 
 ### Quick start: Try a dev container
 
@@ -73,17 +73,17 @@ Let's start out by using a sample project to try things out.
     git clone https://github.com/Microsoft/vscode-remote-try-rust
     ```
 
-2. Start VS Code and click on quick actions Status Bar item.
+2. Start VS Code and click on quick actions Status Bar item in the lower left corner of the window.
 
     ![Quick actions status bar item](images/common/remote-dev-status-bar.png)
 
-3. Select **Remote-Containers: Open Folder in Container...** command from the command list that appears and selected the cloned project.
+3. Select **Remote-Containers: Open Folder in Container...** from the command list that appears, and open the root folder of the project you just cloned.
 
 4. The window will then reload, but since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-5. After it's done, VS Code will automatically connect to the container with the local file system mapped into it. Check out the `README.md` for the repository you cloned to see what to do next.
+5. After the container is built, VS Code automatically connects to it and maps the project folder from your local file system into the container. Check out the `README.md` for the repository you cloned to see what to do next.
 
 ### Quick start: Open a folder in a container
 
@@ -163,7 +163,7 @@ Run **Remote-Containers: Attach to Running Container...** command from the Comma
 
 1. Use **File > New Window** to open a new local window.
 
-2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view (search for "docker") if not already installed.
+2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view (search for "docker") if it is not already installed.
 
 3. Go to the Docker view and expand the **Containers** node in the explorer.
 
@@ -175,7 +175,7 @@ After a brief moment, a new window will appear and you'll be connected to the ru
 
 ## Managing containers
 
-By default, the Remote - Containers extension will automatically start up any containers mentioned in `devcontainer.json` when you open a folder in a container. When you close VS Code, it automatically shuts down any containers you've connected to, but you can change this behavior by adding `"shutdownAction": "none"` to `devcontainer.json`.
+By default, the Remote - Containers extension automatically starts the containers mentioned in the `devcontainer.json` when you open a folder in a container. When you close VS Code, the extension automatically shuts down the containers you've connected to. You can change this behavior by adding `"shutdownAction": "none"` to the `devcontainer.json`.
 
 You can also manually manage your containers using one of the following options:
 
@@ -593,7 +593,7 @@ See [here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) for 
 
 ### I'm seeing an error about a missing library or dependency, how do I fix this?
 
-Some extensions rely on libraries not found in the certain Docker images. See [above](#installing-additional-software-in-the-sandbox) for a few options to resolve the problem.
+Some extensions rely on libraries not found in the certain Docker images. See [above](#installing-additional-software-in-the-sandbox) for help resolving the problem.
 
 ### How can I connect to multiple containers?
 
@@ -607,9 +607,9 @@ You can resolve these issue by forwarding the Docker socket and installing the D
 
 The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, random port automatically exposed via the Docker CLI.
 
-### As an extension author, what do I need to do?
+### As an extension author, what do I need to do to make sure my extension works in dev containers?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work inside dev containers without any modification. However, we recommend that you test your extension in a dev container to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Questions or feedback
 
