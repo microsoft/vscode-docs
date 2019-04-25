@@ -364,25 +364,23 @@ Many images run as a root user by default. Some provide non-root users you can o
 For images that only provide a root user, while you manually create user with the `adduser` command, you can also automatically create one using a `Dockerfile`. For example, you can add the following to the end of your fileTo create a user called user-name-goes-here  and give it the ability to use `sudo`:
 
 ```Dockerfile
-RUN useradd -m user-name-goes-here
+
+ARG USERNAME=user-name-goes-here
+RUN useradd -m $USERNAME
+ENV HOME /home/$USERNAME
 
 # [Optional] Add sudo support
 RUN apt-get install -y sudo \
-    && echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user && \
-    chmod 0440 /etc/sudoers.d/user
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
+    chmod 0440 /etc/sudoers.d/$USERNAME
 
-# Set up the user
-USER user-name-goes-here
+# ** Anything else you want to do like clean up goes here **
 
+#[Optional] Set the default user
+USER $USERNAME
 ```
 
-### Other common Docker related errors and issues
-
-#### High CPU Utilization of Hyperkit in Mac
-
-There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, we have seen spikes happening when watching files and building. You likely are encountering this issue if you look at the Activity Monitor and see `com.docker.hyperkit` driving most of the CPU load when very little is going on. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
-
-#### E: Some index files failed to download. They have been ignored, or old ones used instead
+### Resolving Dockerfile build failures for images using Debian 8
 
 When building containers that use images based on Debian 8/Jessie like older versions of `node:8`, you may encounter this error and when building a Dockerfile. You may see terminal output like this:
 
@@ -409,6 +407,12 @@ There are two ways to solve this error:
     # Work around problems known issues with Debian Jessie
     RUN cat /etc/*-release | grep -q jessie && printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
     ```
+
+### Other common Docker related errors and issues
+
+#### High CPU Utilization of Hyperkit in Mac
+
+There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, we have seen spikes happening when watching files and building. You likely are encountering this issue if you look at the Activity Monitor and see `com.docker.hyperkit` driving most of the CPU load when very little is going on. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
 
 #### debconf: delaying package configuration, since apt-utils is not installed
 
