@@ -141,7 +141,6 @@ Finally, run `mkdir -p ~/.ssh/sockets` to create the sockets folder.
 
 With this enabled, you will only have to enter your auth code/password/passphrase once.
 
-
 ### Setting up the SSH Agent
 
 If you are connecting to your SSH host using a key with a passphrase, you should ensure that the [SSH Agent](https://www.ssh.com/ssh/agent) is running. If it's running, VS Code will add your key to the agent so you don't have to enter your passphrase every time you open a remote VS Code window.
@@ -180,7 +179,6 @@ fi
 #### MacOS
 
 The agent should be running by default on MacOS.
-
 
 ### Fixing SSH file permission errors
 
@@ -237,7 +235,6 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 | Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See [here](https://help.ubuntu.com/community/SSH?action=show) for additional setup instructions. |
 | RHL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
 | macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. | |
-
 
 ## Container tips
 
@@ -347,6 +344,59 @@ Currently you can only connect to one container per VS Code window. However, you
 ### Using Docker / Kubernetes from inside a dev container
 
 You can use Docker and Kubernetes related CLIs and extensions from inside your development container by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes) in the container. See the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker), [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose), and [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) dev container definitions for details.
+
+### Other common Docker related errors and issues
+
+#### High CPU Utilization of Hyperkit in Mac
+
+There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, we have seen spikes happening when watching files and building. You likely are encountering this issue if f you look at the Activity Monitor and see `com.docker.hyperkit` driving most of the CPU load when very little is going on. Follow the Docker issue for updates and fixes.
+
+#### E: Some index files failed to download. They have been ignored, or old ones used instead
+
+When building containers that use images based on Debian 8/Jessie like older versions of `node:8`, you may encounter this error and when building a Dockerfile. You may see terminal output like this:
+
+```text
+...
+Get:5 http://security.debian.org jessie/updates/main amd64 Packages [825 kB]
+Get:6 http://deb.debian.org jessie/main amd64 Packages [9098 kB]
+Fetched 10.1 MB in 6s (1458 kB/s)
+W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease  Unable to find expected entry 'main/binary-amd64/Packages' in Release file (Wrong sources.list entry or malformed file)
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+The command '/bin/sh -c apt-get update     && apt-get -y install --no-install-recommends apt-utils 2>&1' returned a non-zero code: 100
+Failed: Building an image from the Dockerfile.
+```
+
+This is a [well known issue](https://github.com/debuerreotype/docker-debian-artifacts/issues/66) caused by the Debian 8 being "Archived". Recent versions of these images typically have this problem resolved often by upgrading to Debian 9 / Stretch.
+
+There are two ways to solve this error:
+
+- Option 1: Remove any containers that depend the image, remove the image, and then try again. This should get you an updated image without the problem. See **[cleaning out unused containers and images](#cleaning-out-unused-containers-and-images)** for details.
+
+- Option 2: If you don't want to delete your containers or images, you can add this line into your `Dockerfile` before any `apt` or `apt-get` command to add the needed source lists for Jessie.
+
+    ```Dockerfile
+    # Work around problems known issues with Debian Jessie
+    RUN cat /etc/*-release | grep -q jessie && printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
+    ```
+
+#### debconf: delaying package configuration, since apt-utils is not installed
+
+This error can typically be safely ignored and is tricky to get rid of completely. However, you can reduce it to one message in standard out when installing the needed package by adding the following to your Dockerfile:
+
+```Dockerfile
+# Configure apt
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update \
+    && apt-get -y install --no-install-recommends apt-utils 2>&1
+
+## YOUR DOCKERFILE CONTENT GOES HERE
+
+ENV DEBIAN_FRONTEND=dialog
+```
+
+#### Warning: apt-key output should not be parsed (stdout is not a terminal)
+
+This warning is just that, a warning. It is telling you not to parse the output of apt-key, so as long as your script isn't, there's no problem. Put another way, you can ignore it. The reason this occurs in Dockerfiles is that the command is not running from a terminal.  Unfortunately, this error cannot be eliminated completely, but can be hidden in places where you know it is safe by piping to /dev/null.
 
 ## WSL tips
 
