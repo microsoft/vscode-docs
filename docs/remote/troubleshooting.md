@@ -366,7 +366,7 @@ The command '/bin/sh -c apt-get update     && apt-get -y install --no-install-re
 Failed: Building an image from the Dockerfile.
 ```
 
-This is a [well known issue](https://github.com/debuerreotype/docker-debian-artifacts/issues/66) caused by the Debian 8 being "Archived". Recent versions of these images typically have this problem resolved often by upgrading to Debian 9 / Stretch.
+This is a [well known issue](https://github.com/debuerreotype/docker-debian-artifacts/issues/66) caused by the Debian 8 being "archived". Recent versions of these images typically have this problem resolved often by upgrading to Debian 9 / Stretch.
 
 There are two ways to solve this error:
 

@@ -66,11 +66,11 @@ Let's start out by using a sample project to try things out.
     git clone https://github.com/Microsoft/vscode-remote-try-python
     git clone https://github.com/Microsoft/vscode-remote-try-go
     git clone https://github.com/Microsoft/vscode-remote-try-java
+    git clone https://github.com/Microsoft/vscode-remote-try-dotnetcore
     git clone https://github.com/Microsoft/vscode-remote-try-php
     git clone https://github.com/Microsoft/vscode-remote-try-cpp
     git clone https://github.com/Microsoft/vscode-remote-try-ruby
     git clone https://github.com/Microsoft/vscode-remote-try-rust
-    git clone https://github.com/Microsoft/vscode-remote-try-dotnetcore
     ```
 
 2. Start VS Code and click on quick actions Status Bar item.
@@ -231,8 +231,6 @@ VS Code runs extensions two one of places: locally on the **UI** / client side, 
 
 Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-![Using the code CLI](images/containers/code-command-in-terminal.png)
-
 ## Forwarding a port
 
 Containers are isolated environments, so if you want to access a server, service, or other resource inside your container, you will need to "forward" the port to your host. You can either configure your container to always expose these ports or just forward them temporarily.
@@ -275,6 +273,8 @@ Opening a terminal in a container from VS Code is simple. Once you've opened a f
 
 You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder in the container. Type `code-insiders --help` to learn what is available from the command line.
 
+![Using the code CLI](images/containers/code-command-in-terminal.png)
+
 ## Debugging in a container
 
 Once a folder has been opened in a container, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application up inside the container and attach the debugger to it.
@@ -295,7 +295,7 @@ There are a few different ways VS Code Remote - Containers can be used to develo
 
   - [Attach](#attaching-to-running-containers): You can use an alternate workflow and attach to an already running container.
 
-  - In each case, you may also need to [build container images and deploy to Docker or Kubernetes](#using-docker-or-kubernetes-from-a-container)fro m inside your container.
+  - In each case, you may also need to [build container images and deploy to Docker or Kubernetes](#using-docker-or-kubernetes-from-a-container)from inside your container.
 
 This section will walk you through how to configure your project for each of these situations. The [vscode-dev-containers GitHub repository](https://aka.ms/vscode-dev-containers) also contains a number of dev container definitions you may find useful to get you up and running quickly.
 
