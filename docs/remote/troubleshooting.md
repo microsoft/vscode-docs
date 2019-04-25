@@ -248,7 +248,7 @@ Docker Desktop for Windows works well in many cases, but there are a number of "
 
 3. **Use your Docker ID to sign into Docker (not email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See [here](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
-If you are still having trouble see the [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot/#verify-domain-user-has-permissions-for-shared-drives-volumes).
+If you are still having trouble see the [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot/#volumes).
 
 ### Enabling file sharing in Docker Desktop
 
@@ -349,7 +349,7 @@ You can use Docker and Kubernetes related CLIs and extensions from inside your d
 
 #### High CPU Utilization of Hyperkit in Mac
 
-There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, we have seen spikes happening when watching files and building. You likely are encountering this issue if f you look at the Activity Monitor and see `com.docker.hyperkit` driving most of the CPU load when very little is going on. Follow the Docker issue for updates and fixes.
+There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, we have seen spikes happening when watching files and building. You likely are encountering this issue if you look at the Activity Monitor and see `com.docker.hyperkit` driving most of the CPU load when very little is going on. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
 
 #### E: Some index files failed to download. They have been ignored, or old ones used instead
 

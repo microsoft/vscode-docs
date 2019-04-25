@@ -552,10 +552,15 @@ See the following examples dev containers for additional information:
 
 ## Known limitations
 
+- First time installs of Docker Desktop for Windows will require an additional "sharing" step to give your container access to local source code. However, this can cause issues with certain AAD based identities. See [here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) and [here](/docs/remote/troubleshooting.md#enabling-file-sharing-in-docker-desktop) for details and workarounds.
 - Alpine Linux or Windows container images are not yet supported. Most images come with a Debian or Ubuntu based flavor you can use instead. (Typically Alpine variations end in `-alpine`).
 - All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
-- The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the official Docker install instructions such as using the [convenience script](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script).
+- The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
 - Local proxy settings are not reused inside the container which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
+- Other notable Docker issues:
+  - If you see high CPU spikes for `com.docker.hyperkit` on Mac, this make be due to a [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759). See the Docker issue for details.
+  - If you see `W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease` or `E: Some index files failed to download. They have been ignored, or old ones used instead` when building a Docker image, you may be hitting another known Docker issue. See [here for a workaround](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
+  - See [here for other notable Docker-related issues](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues)
 - See [here for a list of active issues](https://aka.ms/vscode-remote/containers/issues) on GitHub that are tagged with Containers.
 
 ## Common questions
