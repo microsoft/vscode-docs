@@ -345,6 +345,36 @@ Currently you can only connect to one container per VS Code window. However, you
 
 You can use Docker and Kubernetes related CLIs and extensions from inside your development container by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes) in the container. See the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker), [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose), and [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) dev container definitions for details.
 
+### Adding a non-root user to your dev container
+
+Many images run as a root user by default. Some provide non-root users you can opt into using, while others do not. For containers with images that include a non-root user, you can use it from VS Code in one of two ways:
+
+- When referencing an `image` or `Dockerfile` add the following to your `devcontainer.json`:
+
+    ```json
+    "runArgs": ["-u", "user-name-goes-here"]
+    ```
+
+- If you are using Docker Compose instead, add the following to your service in `docker-compose.yml`:
+
+    ```yaml
+    user: user-name-goes-here
+    ```
+
+For images that only provide a root user, while you manually create user with the `adduser` command, you can also automatically create one using a `Dockerfile`. For example, the following will create a user called user-name-goes-here  and give it the ability to use `sudo`:
+
+```Dockerfile
+RUN useradd -m user-name-goes-here
+
+# [Optional] Add sudo support
+RUN apt-get install -y sudo \
+    && echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user && \
+    chmod 0440 /etc/sudoers.d/user
+
+# [Optional] Set the new user as the default
+USER user-name-goes-here
+```
+
 ### Other common Docker related errors and issues
 
 #### High CPU Utilization of Hyperkit in Mac
