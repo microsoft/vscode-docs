@@ -347,7 +347,7 @@ You can use Docker and Kubernetes related CLIs and extensions from inside your d
 
 ### Adding a non-root user to your dev container
 
-Many images run as a root user by default. Some provide non-root users you can opt into using, while others do not. For containers with images that include a non-root user, you can use it from VS Code in one of two ways:
+Many images run as a root user by default. Some provide non-root users you can opt into using, while others do not. If your image or Dockerfile provides a non-root user you have to opt into using (e.g. the default is still root), you can specify the user in one of two ways:
 
 - When referencing an `image` or `Dockerfile` add the following to your `devcontainer.json`:
 
@@ -361,10 +361,11 @@ Many images run as a root user by default. Some provide non-root users you can o
     user: user-name-goes-here
     ```
 
-For images that only provide a root user, while you manually create user with the `adduser` command, you can also automatically create one using a `Dockerfile`. For example, you can add the following to the end of your fileTo create a user called user-name-goes-here  and give it the ability to use `sudo`:
+Note that you do not need to do this if the default is to use this other user.
+
+For images that only provide a root user,  you can automatically create a non-root user with a `Dockerfile`. For example, this snippet will create a user called user-name-goes-here and give it the ability to use `sudo`:
 
 ```Dockerfile
-
 ARG USERNAME=user-name-goes-here
 RUN useradd -m $USERNAME
 ENV HOME /home/$USERNAME
@@ -404,7 +405,7 @@ There are two ways to solve this error:
 - Option 2: If you don't want to delete your containers or images, you can add this line into your `Dockerfile` before any `apt` or `apt-get` command to add the needed source lists for Jessie.
 
     ```Dockerfile
-    # Work around problems known issues with Debian Jessie
+    # Add archived sources to source list if base image uses Debian 8 / Jessie
     RUN cat /etc/*-release | grep -q jessie && printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
     ```
 
