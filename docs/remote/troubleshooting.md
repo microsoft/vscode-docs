@@ -361,7 +361,7 @@ Many images run as a root user by default. Some provide non-root users you can o
     user: user-name-goes-here
     ```
 
-For images that only provide a root user, while you manually create user with the `adduser` command, you can also automatically create one using a `Dockerfile`. For example, the following will create a user called user-name-goes-here  and give it the ability to use `sudo`:
+For images that only provide a root user, while you manually create user with the `adduser` command, you can also automatically create one using a `Dockerfile`. For example, you can add the following to the end of your fileTo create a user called user-name-goes-here  and give it the ability to use `sudo`:
 
 ```Dockerfile
 RUN useradd -m user-name-goes-here
@@ -371,8 +371,9 @@ RUN apt-get install -y sudo \
     && echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user && \
     chmod 0440 /etc/sudoers.d/user
 
-# [Optional] Set the new user as the default
+# Set up the user
 USER user-name-goes-here
+
 ```
 
 ### Other common Docker related errors and issues
@@ -426,7 +427,20 @@ ENV DEBIAN_FRONTEND=dialog
 
 #### Warning: apt-key output should not be parsed (stdout is not a terminal)
 
-This warning is just that, a warning. It is telling you not to parse the output of apt-key, so as long as your script isn't, there's no problem. Put another way, you can ignore it. The reason this occurs in Dockerfiles is that the command is not running from a terminal.  Unfortunately, this error cannot be eliminated completely, but can be hidden in places where you know it is safe by piping to /dev/null.
+This warning is just that, a warning. It is telling you not to parse the output of `apt-key`, so as long as your script isn't, there's no problem. Put another way, you can ignore it. The reason this occurs in `Dockerfiles` is that the command is not running from a terminal.  Unfortunately, this error cannot be eliminated completely, but can be hidden unless the `apt-key` command returns a non-zero exit code (indicating a failure).
+
+For example:
+```Dockerfile
+# (OUT=$(apt-key add - 2>&1) || echo $OUT) will only print the output if a non-zero exit code is hit
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | (OUT=$(apt-key add - 2>&1) || echo $OUT)
+```
+
+You can also set this environment variable to suppress the warning, but it looks a bit scary so be sure to add comments in your Dockerfile if you use it:
+
+```Dockerfile
+# Suppress an apt-key warning about standard out not being a terminal. Its use in this script is safe.
+ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
+```
 
 ## WSL tips
 
