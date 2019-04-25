@@ -60,7 +60,7 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
     ![WSL Status Bar Item](images/wsl/wsl-statusbar-indicator.png)
 
-That's it! Any VS Code operations you perform in this window will executed in the WSL environment including everything from editing and file operations, to debugging, terminals, and more.
+That's it! Any VS Code operations you perform in this window will be executed in the WSL environment including everything from editing and file operations, to debugging, terminals, and more.
 
 ## Managing extensions
 
