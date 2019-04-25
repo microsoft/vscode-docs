@@ -559,7 +559,7 @@ See the following examples dev containers for additional information:
 - Local proxy settings are not reused inside the container which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 - Other notable Docker issues:
   - If you see high CPU spikes for `com.docker.hyperkit` on Mac, this make be due to a [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759). See the Docker issue for details.
-  - If you see `W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease` or `E: Some index files failed to download. They have been ignored, or old ones used instead` when building a Docker image, you may be hitting another known Docker issue. See [here for a workaround](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
+  - If you see *W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease* or *E: Some index files failed to download. They have been ignored, or old ones used instead* when building a Dockerfile, you may be hitting another known Docker issue with Debian 8 (Jessie). See [here for a workaround](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
   - See [here for other notable Docker-related issues](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues)
 - See [here for a list of active issues](https://aka.ms/vscode-remote/containers/issues) on GitHub that are tagged with Containers.
 
