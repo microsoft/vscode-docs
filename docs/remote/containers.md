@@ -25,21 +25,21 @@ To get started, follow these steps:
 
 1. Install and configure [Docker](https://www.docker.com/get-started) for your operating system.
 
-    *Windows / Mac Users:*
+    **Windows / macOS**:
 
     1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
 
-    2. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you run into trouble, see **[here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips)** for tips on avoiding common problems with sharing.
+    2. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you run into trouble, see [here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) for tips on avoiding common problems with sharing.
 
-    3. *Windows Users:* Disable automatic line ending conversion for Git by using a Windows command prompt to run: `git config --global core.autocrlf false`
+    3. **Windows**: Disable automatic line ending conversion for Git by using a Windows command prompt to run: `git config --global core.autocrlf false`
 
-    *Linux Users:*
+    **Linux**:
 
-    1. Follow the [install instructions for your Linux distribution](https://docs.docker.com/install/#supported-platforms). *The Ubuntu Snap package is not supported*.
+    1. Follow the [install instructions for your Linux distribution](https://docs.docker.com/install/#supported-platforms). **Note**: The Ubuntu Snap package is not supported.
 
     2. Add your user to the `docker` group by using a terminal to run: `sudo usermod -aG docker $USER`
 
-    3. Sign out and back in again so changes take effect.
+    3. Sign out and back in again so your changes take effect.
 
 2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
@@ -53,7 +53,12 @@ To get started, follow these steps:
     > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
     > 4. Reload / restart VS Code Insiders.
 
-The extension supports two primary operating models: you can use a container as your [full-time development environment](#creating-configuration-files-for-existing-projects) or you can [attach to a running container](#attaching-to-running-containers) for targeted use. We will cover how to use a container as your full-time development environment first.
+The Remote - Containers extension supports two primary operating models:
+
+* You can use a container as your [full-time development environment](#creating-configuration-files-for-existing-projects).
+* You can [attach to a running container](#attaching-to-running-containers) for targeted use.
+
+We will cover how to use a container as your full-time development environment first.
 
 ### Quick start: Try a dev container
 
@@ -79,7 +84,7 @@ Let's start out by using a sample project to try things out.
 
 3. Select **Remote-Containers: Open Folder in Container...** from the command list that appears, and open the root folder of the project you just cloned.
 
-4. The window will then reload, but since the container does not exist yet, VS Code will provision one. This can take some time, so a progress notification will provide status updates.
+4. The window will then reload, but since the container does not exist yet, VS Code will create one. This may take some time and a progress notification will provide status updates.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
@@ -99,7 +104,7 @@ Next, we will cover how to set up an existing project folder to use a container 
 
     If you want to check out the contents of a dev container before picking one, see the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers).
 
-3. Once you pick a dev container definition, any needed configuration files like `devcontainer.json` are added to the folder and the VS Code window reloads. VS Code then begins provisioning a container and a progress notification shows status updates.
+3. Once you pick a dev container definition, any needed configuration files like `devcontainer.json` are added to the folder and the VS Code window reloads. VS Code then begins creating a container and a progress notification shows status updates.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
@@ -320,7 +325,7 @@ This section will walk you through how to configure your project for each of the
 
 ### `devcontainer.json`
 
-As mentioned above, `.devcontainer/devcontainer.json` tells VS Code where to look for the containers it should provision and or connect to. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. We'll cover the different properties of the file in the sections below.
+As mentioned above, `.devcontainer/devcontainer.json` tells VS Code where to look for the containers it should create or connect to. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. We'll cover the different properties of the file in the sections below.
 
 ### Working with a developer sandbox
 
@@ -338,7 +343,7 @@ You can use the following properties in a `.devcontainer/devcontainer.json` in y
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `image` | string | Required. The name of an image in a container registry ([DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) that VS Code should use to provision the dev container. |
+| `image` | string | Required. The name of an image in a container registry ([DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) that VS Code should use to create the dev container. |
 | `name` | string | [Optional] A display name for the container. |
 | `extensions` | array | [Optional] Defaults to `[]`. An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
 | `postCreateCommand` | string or array | [Optional] Defaults to none. A command or list of commands to run after the container hs created. (e.g. `yarn install`) |
