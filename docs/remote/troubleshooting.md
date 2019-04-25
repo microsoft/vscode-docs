@@ -15,7 +15,7 @@ This article covers troubleshooting tips and tricks for each of the Visual Studi
 
 ### Configuring key based authentication
 
-> **Azure Linux VM / PuTTY Tip:** If you've already set up key based authentication using PuTTYGen, you will need to convert your private key for use in other SSH clients. See [below](#reusing-a-key-generated-in-puttygen) for details.
+> **PuTTY Tip:** PuTTY for Windows is not a [supported client](#installing-a-supported-ssh-client), but if you've already set up key based authentication using PuTTYGen, you can convert your private key for use in other SSH clients. See [below](#reusing-a-key-generated-in-puttygen) for details.
 
 #### Quick start
 
