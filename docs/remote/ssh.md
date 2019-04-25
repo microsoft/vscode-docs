@@ -131,7 +131,7 @@ After entering a port number, a toast notification will tell you the localhost p
 
 ### Always forwarding a port
 
-If you have ports that you **always want to forward**, you can use the the `LocalForward` directive in the same SSH config file you configured [above](#configure-a-remote-host).
+If you have ports that you **always want to forward**, you can use the the `LocalForward` directive in the same SSH config file you created above in [Remembering hosts](#remembering-hosts-you-connect-to-frequently).
 
 For example, if you wanted to forward ports 3000 and 27017, you could update the file as follows:
 
