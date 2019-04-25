@@ -339,7 +339,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
 ### Connecting to multiple containers
 
-Currently you can only connect to one container per VS Code window. However, you can spin up multiple containers and [attach to them](#attaching-to-running-containers) from different VS Code windows to work around this limitation.
+Currently you can only connect to one container per VS Code window. However, you can spin up multiple containers and [attach to them](/docs/remote/containers.md#attaching-to-running-containers) from different VS Code windows to work around this limitation.
 
 ### Using Docker / Kubernetes from inside a dev container
 

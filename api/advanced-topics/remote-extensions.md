@@ -23,7 +23,7 @@ Currently VS Code distinguishes the following two classes of extensions:
 
 - **Workspace Extensions**: These extensions access files inside a workspace either for editing or to perform some other operation such as providing IntelliSense. A Workspace Extension could provide rich, multi-file language services, add a debugger, or perform an operation on multiple files in workspace (either itself or by firing a CLI command).
 
-When you install an extension, VS Code will place it in the correct location based on its type - UI Extensions run in VS Code's **[local Extension Host](/api/advanced-topics/extension-host)** while Workspace Extensions run in a **Remote Extension Host** that sits in a small **VS Code Remote Server**. This server is automatically installed (or updated) once you open a folder in WSL, in a container, or on a remote SSH host. (VS Code also automatically manages starting and stopping the server, so users are often not aware of its presence.)
+When you install an extension, VS Code will place it in the correct location based on its type - UI Extensions run in VS Code's **[local Extension Host](/api/advanced-topics/extension-host)** while Workspace Extensions run in a **Remote Extension Host** that sits in a small **VS Code Server**. This server is automatically installed (or updated) once you open a folder in WSL, in a container, or on a remote SSH host. (VS Code also automatically manages starting and stopping the server, so users are often not aware of its presence.)
 
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
@@ -112,7 +112,7 @@ If the location is incorrect, you can explicitly specify which location category
 "extensionKind": "ui"
 ```
 
-A value of `ui` will force the extension to run on the client. A value of `workspace` will force the extension to run inside the VS Code Remote Server.
+A value of `ui` will force the extension to run on the client. A value of `workspace` will force the extension to run inside the VS Code Server.
 
 You can **test** whether switching your extension to a UI extension will solve your problem with the `remote.extensionKind` option in `settings.json`. This allows you to test in-marketplace versions of extensions without having to modify their `package.json` file. The value of the setting is an array of extension IDs. For example, this will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
