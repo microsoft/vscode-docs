@@ -87,7 +87,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     On **macOS / Linux**, run the following command in a **local terminal** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2:
 
     ````bash
-    ssh-copy-id -f ~/.ssh/id_rsa-remote-ssh.pub name-of-ssh-host-here
+    ssh-copy-id -i ~/.ssh/id_rsa-remote-ssh.pub name-of-ssh-host-here
     ````
 
     ...or on **Windows**, run the following commands in a **local command prompt** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2.
@@ -191,7 +191,7 @@ The following are permissions that should be set correctly on your local machine
 | Folder / File | Linux / macOS Permissions | Windows Permissions |
 |---------------|---------------------------|---------------------|
 | `.ssh` in your user folder | `chmod 700 ~/.ssh` | Grant "Full Control" to your user, Administrators, and SYSTEM. |
-| `.ssh/config` in your user folder | `chmod 600 ~/.ssh` | Grant "Full Control" to your user, Administrators, and SYSTEM. |
+| `.ssh/config` in your user folder | `chmod 600 ~/.ssh/config` | Grant "Full Control" to your user, Administrators, and SYSTEM. |
 | `.ssh/id_rsa.pub` in your user folder | `chmod 600 ~/.ssh/id_rsa.pub` | Grant "Full Control" to your user, Administrators, and SYSTEM. |
 | Any other key file | `chmod 600 /path/to/key/file` | Grant "Full Control" to your user, Administrators, and SYSTEM.|
 
