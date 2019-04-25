@@ -53,7 +53,7 @@ To get started, follow these steps:
 
     > **PuTTY Tip:** If you've already set up key based authentication using PuTTYGen, you will need to convert your private key for use in other OpenSSH clients. See [here for details](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
 
-2. Run **Remote-SSH: Connect to Host** from the Command Palette (`kb(workbench.action.showCommands`) and enter the host and your user on the host in the input box as follows: `user@hostname`.
+2. Run **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) and enter the host and your user on the host in the input box as follows: `user@hostname`.
 
     ![Illustration of user@host input box](images/ssh/ssh-user@box.png)
 
@@ -75,13 +75,14 @@ For example:
 Host example-remote-linux-machine
     User your-user-name-here
     HostName host-fqdn-or-ip-goes-here
+    IdentityFile path-to-ssh-key
 ```
 
 Set the `"remote.SSH.configFile"` property in `settings.json` if you want to use a different config file than those listed.
 
 ## Managing extensions
 
-VS Code runs extensions one of two places: locally on the UI / client side, or remotely on the SSH host. While "personalization" extensions (along with a few others) install on on the UI side, most installed extensions will reside on the SSH host. This behavior ensures you have smooth experience and allows you to install any needed extensions for a given Workspace on a SSH host from your local machine and pick up exactly where you left of from a different machine later - complete with extensions.
+VS Code runs extensions one of two places: locally on the UI / client side, or remotely on the SSH host. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside on the SSH host. This behavior ensures you have smooth experience and allows you to install any needed extensions for a given Workspace on a SSH host from your local machine and pick up exactly where you left of from a different machine later - complete with extensions.
 
 If you search for an extension in the Extensions view and install, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category it is in. There will be **Local - Installed** category and one for your remote SSH host.
 
@@ -91,7 +92,7 @@ If you search for an extension in the Extensions view and install, it will autom
 
 > **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-Local extensions that actually need to run as remotely will appear **Disabled** in the **Local - Installed** category. You can click the **Install** button on any of them you want to install on your remote host.
+Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. You can click the **Install** button on any of them you want to install on your remote host.
 
 ![Disabled Extensions w/Install Button](images/ssh/ssh-disabled-extensions.png)
 
@@ -108,11 +109,11 @@ If there are extensions that you would like to always have installed on any SSH 
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location  in your `settings.json` file. For example, the setting below will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location  in your `settings.json` file. For example, the setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ````json
 "remote.extensionKind": {
-    "peterjausovec.vscode-docker": "ui",
+    "ms-azuretools.vscode-cosmosdb": "ui",
     "msjsdiag.debugger-for-chrome": "workspace"
 }
 ````
@@ -127,7 +128,7 @@ Sometimes when developing, you may need to access a port on a remote machine tha
 
 If you want to **temporarily forward** a new port for the duration of the session, run the **Remote-SSH: Forward Port from Active Host...** command when connected.
 
-After entering a port number, a toast notification will tell you the localhost port you should use to access the remote port. For example, if you forwarded a HTTP server listening on port 3000, the toast notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote http server using http://localhost:4123.
+After entering a port number, a notification will tell you the localhost port you should use to access the remote port. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote HTTP server using http://localhost:4123.
 
 ### Always forwarding a port
 
@@ -183,7 +184,7 @@ Yes, with some additional configuration. See [here](/docs/remote/troubleshooting
 
 ### How do I fix SSH errors about "bad permissions"?
 
-See [here](/docs/remote/troubleshooting.md#fixing-ssh-permission-errors) for details on resolving these types of errors.
+See [here](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) for details on resolving these types of errors.
 
 ### What Linux packages / libraries need to be installed on remote SSH hosts?
 
@@ -201,7 +202,7 @@ However, this use case can typically be handled by combining extensions like [SF
 
 ### As an extension author, what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no update are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no updates are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ### Questions or feedback
 

@@ -124,20 +124,22 @@ If nothing there meets your needs, you can also independently spin up a containe
 
 ### Configuration edit loop
 
-Editing your container configuration is easy. Since rebuilding a container will "reset" the container to its starting contents (with the exception of your local source code), VS Code does not automatically rebuild if you edit a container configuration file (`devcontainer.json`, `Dockerfile`, `docker-compose.yml`). Instead, there are some commands that can be used to make editing your config easy. Here is the typical edit loop using these commands:
+Editing your container configuration is easy. Since rebuilding a container will "reset" the container to its starting contents (with the exception of your local source code), VS Code does not automatically rebuild if you edit a container configuration file (`devcontainer.json`, `Dockerfile`, `docker-compose.yml`). Instead, there are some commands that can be used to make editing your config easier.
 
-1. *Start:* `kbstyle(F1)` > **Remote-Containers: Create Container Configuration File...**
+Here is the typical edit loop using these commands:
+
+1. Start by `kbstyle(F1)` > **Remote-Containers: Create Container Configuration File...**
 2. Edit the contents of the `.devcontainer` folder as required.
-3. *Try it:* `kbstyle(F1)` > **Remote-Containers: Reopen folder in Container**
-4. *On failure:*
+3. Try it with `kbstyle(F1)` > **Remote-Containers: Reopen folder in Container**.
+4. On failure:
    1. `kbstyle(F1)` > **Remote-Containers: Reopen Folder Locally**
-   2. *In new local window:* Edit the contents of the `.devcontainer` folder as required.
-   3. *Try it again:* Go back to the container window, `kbstyle(F1)` > **Remote-Containers: Reload Window**
-   4. *Repeat as needed.*
-5. *If the build was successful, but you want to make more changes:*
+   2. In a new local window: Edit the contents of the `.devcontainer` folder as required.
+   3. Try it again: Go back to the container window, `kbstyle(F1)` > **Remote-Containers: Reload Window**.
+   4. Repeat as needed.
+5. If the build was successful, but you want to make more changes:
       1. Edit the contents of the `.devcontainer` folder as required when connected to the container.
-      2. `kbstyle(F1)` > **Remote-Containers: Rebuild Container**
-      3. *On failure:* Follow the same workflow above.
+      2. `kbstyle(F1)` > **Remote-Containers: Rebuild Container**.
+      3. On failure: Follow the same workflow above.
 
 ### Adding configuration files to public or private repositories
 
@@ -210,7 +212,7 @@ If you want to clean out images or mass-delete containers, [see here](/docs/remo
 
 ## Managing extensions
 
-VS Code runs extensions in one of two places: locally on the UI / client side, or in the container. While extensions that affect the VS Code UI are installed locally, most extensions will reside inside a particular container. This allows you to install only the extensions you need for a given task in a container and seamlessly switch your entire tool-chain just by connecting to a new container.
+VS Code runs extensions in one of two places: locally on the UI / client side, or in the container. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside inside a particular container. This allows you to install only the extensions you need for a given task in a container and seamlessly switch your entire tool-chain just by connecting to a new container.
 
 If you search and install an extension from the Extensions view, it will automatically be installed in the correct location. You can tell where an extension is installed based on the category or group it is in. There will be a **Local - Installed** category and also one for your container.
 
@@ -237,11 +239,11 @@ If there are extensions that you would like always installed in any container, y
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-VS Code runs extensions two one of places: locally on the **UI** / client side, or remotely on the **Workspace** / container side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location in your User [settings](/docs/getstarted/settings.md). For example, the `remote.extensionKind` setting below will force the Docker extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+VS Code runs extensions two one of places: locally on the **UI** / client side, or remotely on the **Workspace** / container side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location in your User [settings](/docs/getstarted/settings.md). For example, the `remote.extensionKind` setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ````json
 "remote.extensionKind": {
-    "peterjausovec.vscode-docker": "ui",
+    "ms-azuretools.vscode-cosmosdb": "ui",
     "msjsdiag.debugger-for-chrome": "workspace"
 }
 ````
@@ -256,7 +258,7 @@ Containers are isolated environments, so if you want to access a server, service
 
 Sometimes when developing you may need to access a port in your container that you didn't add to `devcontainer.json`, your `Dockerfile`, or Docker Compose file. If you want to **temporarily forward** a new port for the duration of the session, run the **Remote-Containers: Forward Port from Container...** command from the Command Palette (`kbstyle(F1)`).
 
-After selecting a port, a toast notification will tell you the localhost port you should use to access the port in the container. For example, if you forwarded a HTTP server listening on port 3000, the toast notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote http server using http://localhost:4123.
+After selecting a port, a notification will tell you the localhost port you should use to access the port in the container. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote HTTP server using http://localhost:4123.
 
 ### Always forwarding / exposing / publishing a port
 
