@@ -103,7 +103,7 @@ The output that starts with the Azure Functions logo (you need to scroll the out
 
 ## Examine the code files
 
-In the newly created function subfolder, you see three files: `__init__.py` contains the function's code, `function.json` describes the function to Azure Functions, and `sample.dat` is a sample data file. You can delete `sample.dat` if you way, as it exists only to show that you can add other files to the subfolder.
+In the newly created function subfolder, you see three files: `__init__.py` contains the function's code, `function.json` describes the function to Azure Functions, and `sample.dat` is a sample data file. You can delete `sample.dat` if you want, as it exists only to show that you can add other files to the subfolder.
 
 Let's look at `function.json` first, then the code in `__init__.py`.
 
