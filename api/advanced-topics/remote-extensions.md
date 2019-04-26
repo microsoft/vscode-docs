@@ -130,7 +130,7 @@ However, if your extension relies on current VS Code pathing conventions (e.g. `
 
 If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStoragePath` and `storagePath` properties provide "safe" paths that you can use to read/write global workspace specific information in a file.
 
-It was added to version 1.30 of VS Code, so you can update your `engines.vscode` value in `package.json` to avoid having to do feature detection:
+These APIs were added in VS Code 1.31. To use them, start by updating your `engines.vscode` value in `package.json`:
 
 ```json
 "engines": {
@@ -138,7 +138,9 @@ It was added to version 1.30 of VS Code, so you can update your `engines.vscode`
 }
 ```
 
-After this setting is in place, only versions of VS Code with support will get the updated version of the extension once you publish it. You can then use it as follows:
+Now when you publish your extension, only users on VS Code 1.31 or newer will get the updated version.
+
+To use the APIs:
 
 ```TypeScript
 export function activate(context: vscode.ExtensionContext) {
@@ -221,7 +223,7 @@ Spawning a process or using a module like `opn` to launch a browser or other app
 
 Instead of relying on a 3rd party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better `vscode.env.openExternal` **does automatic port forwarding!** You can use it to point to a local web server on a remote machine and serve up content even if that port is blocked externally.
 
-It was added to version 1.31 of VS Code, so you can update your `engines.vscode` value in `package.json` to avoid having to do feature detection:
+This API was added in VS Code 1.31. To get started, update your `engines.vscode` value in `package.json`::
 
 ```json
 "engines": {
@@ -229,7 +231,9 @@ It was added to version 1.31 of VS Code, so you can update your `engines.vscode`
 }
 ```
 
-After this setting is in place, only versions of VS Code with support will get the updated version of the extension once you publish it. You can then use it as follows:
+Now when you publish your extension, only users on VS Code 1.34 or newer will get the updated version.
+
+To use the `vscode.env.openExternal` api:
 
 ```typescript
 import * as vscode from 'vscode';
@@ -240,8 +244,6 @@ vscode.env.openExternal(vscode.Uri.parse('https://code.visualstudio.com'));
 // Example 2 - Open the default email application.
 vscode.env.openExternal(vscode.Uri.parse('mailto:vscode@microsoft.com'));
 ```
-
-Note that you can do feature detection instead of updating the engine version if you would prefer by checking to see if `(<any>vscode.env).openExternal` exists and falling back to your current logic if not. However, we generally recommend just updating the engine version instead.
 
 If you need to do something more sophisticated like launch an arbitrary application, you can use a Helper Extension. See [below](#accessing-local-apis-using-a-helper-extension) for details.
 
