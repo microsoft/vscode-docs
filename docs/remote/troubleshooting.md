@@ -64,22 +64,11 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
 
 2. Run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
 
-   *macOS / Linux:*
-
     ````yaml
     Host name-of-ssh-host-here
         User your-user-name-on-host
         HostName host-fqdn-or-ip-goes-here
-        IdentityFile $HOME/.ssh/id_rsa-remote-ssh
-    ````
-
-    *Windows:*
-
-    ````yaml
-    Host name-of-ssh-host-here
-        User your-user-name-on-host
-        HostName host-fqdn-or-ip-goes-here
-        IdentityFile %USERPROFILE%\.ssh\id_rsa-remote-ssh
+        IdentityFile ~/.ssh/id_rsa-remote-ssh
     ````
 
 3. Add the contents the **local** `id_rsa-remote-ssh.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the remote host.

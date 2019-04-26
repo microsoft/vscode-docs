@@ -69,13 +69,17 @@ To get started, follow these steps:
 
 If you have a few hosts you use frequently, you can add them to an SSH config file so they automatically appear in the host dropdown. Run **Remote-SSH: Open Configuration File...** and add the host to the file using the [SSH config file format](https://linux.die.net/man/5/ssh_config).
 
-For example:
+For example, here are two example hosts:
 
 ```text
 Host example-remote-linux-machine
     User your-user-name-here
     HostName host-fqdn-or-ip-goes-here
-    IdentityFile path-to-ssh-key
+
+Host example-remote-linux-machine-with-identity-file
+    User your-user-name-on-host
+    HostName another-host-fqdn-or-ip-goes-here
+    IdentityFile ~/.ssh/id_rsa-remote-ssh
 ```
 
 Set the `"remote.SSH.configFile"` property in `settings.json` if you want to use a different config file than those listed.
