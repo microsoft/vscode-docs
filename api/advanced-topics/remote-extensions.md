@@ -271,25 +271,19 @@ You can also use the command interface in more sophisticated ways to bridge APIs
 
 ## Using the WebView API
 
-Like the clipboard API, the [WebView API](/api/extension-guides/webview) will automatically run on the client if called from a Workspace extension.
+Like the clipboard API, the [WebView API](/api/extension-guides/webview) is always run on user's local machine, even when used from a Workspace extension. This means that many webview based extensions should just work, even when used in remote workspaces. However there are some considerations to be aware to make sure that your webview extension works properly when run remotely.
 
-However, any content local to your extension should be accessed using the `vscode-resource` scheme instead of "localhost" or the file scheme. The `vscode-resource` scheme will automatically route to the correct location while localhost and the file scheme will not. Be sure to add the `vscode-resource` scheme into any content security policy on your page. E.g.:
+### Accessing localhost
 
-```html
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src vscode-resource: https:; script-src vscode-resource:; style-src vscode-resource:;">
-```
-
-### Using content or services hosted in a web server started by the extension
-
-While VS Code transparently deals with executing its own APIs on the correct side (local or remote), the WebView is effectively a mini-browser that can do things outside of VS Code's API set. When the WebView points at a web service or server outside of VS Code itself, VS Code simply does not know about it and therefore cannot transparently handle this kind of content. In the Container and SSH cases, it's import to note that local ports (like those of any web server your extension starts) is on will often be blocked.
-
-Consider this illustration:
+By default, `localhost` inside a webview resolves to the user's local machine. This means that for a remotely running workspace extension, the webviews it creates would not be able to access local servers spawned by the extension. Here's an illustration of the problem:
 
 ![WebView Problem](images/remote-extensions/webview-problem.png)
 
-While we recommend using the [message passing](/api/extension-guides/webview.m#scripts-and-message-passing) pattern rather than using a local web server to serve up content or data, you can resolve this problem by **adding a port mapping** when you create the WebView. This is applied in both the local and remote cases, so you can use always use a static port in your web content even if your web server is on a dynamic port.
+You can work around this by using the webview [message passing](/api/extension-guides/webview.m#scripts-and-message-passing) API instead of accessing localhost directly. Alternatively, you can **add a port mapping** to your the WebView so that certain ports are transparently forwarded to the remote machine where the extension is running.
 
-It was added to version 1.34 of VS Code, so you can update your `engines.vscode` value in `package.json` to avoid having to do feature detection:
+Port mapping maps a localhost port used inside your webview to an arbitrary port on the machine where your extension is running. If your workspace extension is running remotely and defines a port mapping, traffic will be automatically and securely forwarded from the local machine to the remote machine. If your extension is running locally, a port mapping simply remaps one localhost port to another. Webview port mapping works for both UI and workspace extensions, and in both local and remote workspaces.
+
+The port mapping API was added in VS Code 1.34. To use it, start by updating the `engines.vscode` value in your extension's `package.json`:
 
 ```json
 "engines": {
@@ -297,7 +291,9 @@ It was added to version 1.34 of VS Code, so you can update your `engines.vscode`
 }
 ```
 
-After this setting is in place, only versions of VS Code with support will get the updated version of the extension once you publish it. You can then use it as follows:
+Now when you publish your extension, only users on VS Code 1.34 or newer will get the updated version.
+
+To use create a port mapping, just pass in a `portMapping` object when you create your webview:
 
 ```typescript
 const STATIC_PORT = 3000;
@@ -308,9 +304,9 @@ const webviewPort = STATIC_PORT;
 const panel = vscode.window.createWebviewPanel(
     'remoteMappingExample',
     'Remote Mapping Example',
-    vscode.ViewColumn.One, <any>{
+    vscode.ViewColumn.One, {
         portMapping: [
-            // Map localhost:3000 in the webview to the express server port on the remote host.
+            // This maps localhost:3000 in the webview to the express server port on the remote host.
             { webviewPort: webviewPort, extensionHostPort: dynamicServerPort }
         ]
     });
@@ -324,26 +320,9 @@ panel.webview.html =  `<!DOCTYPE html>
     </html>`;
 ```
 
-With this change, the WebView traffic will instead use VS Code's existing communication channel to solve the problem.
+Now the WebView's traffic to `localhost:3000` will be transparently routed to the remote machine using VS Code's existing, secure communication channel:
 
 ![WebView Solution](images/remote-extensions/webview-solution.png)
-
-The engine setting above will **ensure only versions of VS Code with this API get your extension update**. Previous versions of VS Code will **simply get the older version** of your extension.
-
-However, if you need to be able to **release updates to multiple versions of VS Code**, you can change the code above slightly to handle this situation:
-
-```TypeScript
-const STATIC_PORT = 3000;
-const dynamicServerPort = getExpressServerPort();
-// Use STATIC_PORT in VS Code >= 1.34 (w/ portMapping support) and the dynamicServerPort
-// in older versions where the portMapping property will simply be ignored.
-const [ major, minor, ...rest ] = <number[]>vscode.version.split('.').map((ver) => parseInt(ver));
-const webviewPort = ( major > 1 || (major === 1 && minor >= 34)) ? STATIC_PORT : dynamicServerPort;
-```
-
-However, we generally recommend just updating the engine version instead as this will require less testing.
-
-See the [WebView API guide](/api/extension-guides/webview) for more details on its use.
 
 ## Accessing local APIs using a Helper Extension
 
