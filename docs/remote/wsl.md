@@ -110,7 +110,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 This section contains a list of common know issues with WSL. The intent is not to provide a complete list of issues but to highlight some of the common problems seen with WSL.
 
-For a more complete list see [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) on GitHub that are tagged with WSL.
+For a more complete list, see [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) on GitHub that are tagged with WSL.
 
 ### Common limitations in WSL
 
