@@ -289,7 +289,7 @@ You can also **use the `code-insiders` CLI** from this same terminal window to p
 
 ## Debugging in a container
 
-Once a folder has been opened in a container, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application up inside the container and attach the debugger to it.
+Once you've opened a folder in a container, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kbstyle(F5)`), the application will start on remote host and attach the debugger to it.
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 

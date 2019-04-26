@@ -102,7 +102,7 @@ You can also **use the `code-insiders` CLI** from this same terminal window to p
 
 ## Debugging in WSL
 
-Once you've connected to WSL, you can use VS Code's debugger in the same way you would when running the application locally. For example, the `launch` action will start the application up inside WSL and attach the debugger to it.
+Once you've opened a folder in WSL, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kbstyle(F5)`), the application will start on remote host and attach the debugger to it.
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
