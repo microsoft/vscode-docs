@@ -183,13 +183,13 @@ await keytar.setPassword('my-service-name','my-account','iamal337d00d');
 const password = await keytar.getPassword('my-service-name','my-account');
 ```
 
-If you prefer not to use `keytar`, you can instead use a "Helper Extension" to run your secret persistance code. See [below](#access-local-or-remote-apis-using-a-helper-extension) for details.
+If you prefer not to use `keytar`, you can instead use a "Helper Extension" to run your secret persistence code. See [below](#access-local-or-remote-apis-using-a-helper-extension) for details.
 
 ### Using the clipboard
 
-Historically, extension authors have relied on Node.js modules like "clipboardy" interact with the clipboard from an extension. Unfortunately, if you use these modules from a Workspace Extension, you will be interacting with the remote clipboard instead of the local one.
+Historically, extension authors have used Node.js modules such as "clipboardy" ti interact with the clipboard. Unfortunately, if you use these modules in a Workspace Extension, they will use the remote clipboard instead of the user's local one.
 
-Fortunately, VS Code now has a clipboard API that solves this problem. It will always run locally regardless of the type of extension that calls it. It was added to version 1.30 of VS Code, so you can update your `engines.vscode` value in `package.json` to avoid having to do feature detection:
+The VS Code clipboard API solves this problem. It is always run locally regardless of the type of extension that calls it. This API was added in VS Code 1.30, so to use it just update the `engines.vscode` value in `package.json` and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
 ```json
 "engines": {
@@ -197,18 +197,23 @@ Fortunately, VS Code now has a clipboard API that solves this problem. It will a
 }
 ```
 
-After this setting is in place, only versions of VS Code with support will get the updated version of the extension once you publish it. You can then use it as follows:
+Now when you publish your extension, only users on VS Code 1.30 or newer will get the updated version.
+
+To use the VS Code clipboard api in an extension:
 
 ```typescript
 import * as vscode from 'vscode';
 
-// Read from clipboard
-const text = await vscode.env.clipboard.readText();
-// Write to clipboard
-await vscode.env.clipboard.writeText('some text to put in clipboard');
-```
+export function activate(context: vscode.ExtensionContext) {
+    context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.command', async () => {
+        // Read from clipboard
+        const text = await vscode.env.clipboard.readText();
 
-Note that you can do feature detection instead of updating the engine version if you would prefer by checking to see if `(<any>vscode.env).clipboard` exists and falling back to your current logic if not. However, we generally recommend just updating the engine version instead.
+        // Write to clipboard
+        await vscode.env.clipboard.writeText(`It looks like you're copying "${text}". Would you like help?`);
+    }));
+}
+```
 
 ### Opening something in a local browser or application
 
