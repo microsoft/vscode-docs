@@ -37,6 +37,7 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. A configuration menu will open from the Command Pallete allowing you to choose the type of debug configuration you want for the opened file. For now, in the **Select a debug configuration** menu that appears, select **Python File**.
 ![Debug configurations menu](images/debugging/debug-configurations.png)
+
 > [!NOTE]
 > Starting a debugging session through the Debug Panel, **F5** or **Debug > Start Debugging**, when no configuration exists will also bring up the debug configuration menu.
 
