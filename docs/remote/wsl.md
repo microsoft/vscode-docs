@@ -50,7 +50,7 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
 3. Type **`code-insiders .`** in the terminal. When doing this for the first time you should see VS Code fetching components needed to run in WSL. This should only take short while, and is only needed once.
 
-4. After a moment, a new VS Code window will appear and you'll see a notification letting you know VS Code is opening the folder in WSL.
+4. After a moment, a new VS Code window will appear, and you'll see a notification letting you know VS Code is opening the folder in WSL.
 
    ![WSL Starting notification](images/wsl//wsl-starting-notification.png)
 
@@ -94,7 +94,7 @@ Typically, this should only be used for testing unless otherwise noted in the ex
 
 ## Opening a terminal in WSL
 
-Opening a terminal in WSL from VS Code is simple. Once folder is opened in WSL, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run in WSL than locally.
+Opening a terminal in WSL from VS Code is simple. Once folder is opened in WSL, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run in WSL rather than locally.
 
 You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder in WSL! Type `code-insiders --help` to what is available from the command line.
 
