@@ -231,7 +231,7 @@ This API was added in VS Code 1.31. To get started, update your `engines.vscode`
 }
 ```
 
-Now when you publish your extension, only users on VS Code 1.34 or newer will get the updated version.
+Now when you publish your extension, only users on VS Code 1.31 or newer will get the updated version.
 
 To use the `vscode.env.openExternal` api:
 
