@@ -309,13 +309,11 @@ Finally, if the application is disk intensive, you should avoid using a volume m
 
 If you see an error from Docker reporting that you are out of disk space, you can resolve this typically by cleaning out your unused containers and images. There are a few ways of doing this:
 
-**Option 1: Use the Docker extension from a local window.** While you can use the [Docker-in-Docker](https://aka.ms/vscode-remote/sample/docker-in-docker) approach to use the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from within a container, typically it is easiest to manage your containers from a separate local window so you don't accidentally shut down the container you are using.
+**Option 1: Use the Docker extension.**
 
- 1. Use **File > New Window** to open a local window.
+ 1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view if not already present.
 
- 2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view if not already present.
-
- 3. You can then go to the Docker panel and expand the Containers or Images tree, right-click, and select Remove Container / Image.
+ 2. You can then go to the Docker panel and expand the Containers or Images tree, right-click, and select Remove Container / Image.
 
      ![Docker Explorer screenshot](images/containers/docker-remove.png)
 

@@ -118,14 +118,12 @@ The **Remote-Containers: Create Container Configuration File...** command adds t
 
 For example, through a `devcontainer.json` file, you can:
 
-- Spin up a [stand-alone "sandbox" container](#working-with-a-stand-alone-dev-sandbox).
+- Spin up a [stand-alone "sandbox" container](#working-with-a-developer-sandbox).
 - Work inside a dev container defined by an [image](#using-an-existing-container-image), [Dockerfile](#using-a-dockerfile) or [docker-compose.yml](#using-docker-compose).
 - [Use Docker or Kubernetes](#using-docker-or-kubernetes-from-a-container) from inside a dev container to build and deploy your app.
 - [Attach to an already running container](#attaching-to-running-containers).
 
 The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) has examples of `devcontainer.json` for different scenarios. You can [alter your configuration](#indepth-setting-up-a-folder-to-run-in-a-container) to install additional tools such as Git in the container, automatically install extensions, expose additional ports, set runtime arguments, and reuse or [extend your existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend).
-
-If nothing there meets your needs, you can also independently spin up a container and then [attach to a running container](#attaching-to-running-containers).
 
 ### Configuration edit loop
 
@@ -133,12 +131,12 @@ Editing your container configuration is easy. Since rebuilding a container will 
 
 Here is the typical edit loop using these commands:
 
-1. Start by `kbstyle(F1)` > **Remote-Containers: Create Container Configuration File...**
+1. Start with `kbstyle(F1)` > **Remote-Containers: Create Container Configuration File...**
 2. Edit the contents of the `.devcontainer` folder as required.
 3. Try it with `kbstyle(F1)` > **Remote-Containers: Reopen folder in Container**.
 4. On failure:
-   1. `kbstyle(F1)` > **Remote-Containers: Reopen Folder Locally**
-   2. In a new local window: Edit the contents of the `.devcontainer` folder as required.
+   1. `kbstyle(F1)` > **Remote-Containers: Reopen Folder Locally** which will open a new local window.
+   2. In this local window: Edit the contents of the `.devcontainer` folder as required.
    3. Try it again: Go back to the container window, `kbstyle(F1)` > **Remote-Containers: Reload Window**.
    4. Repeat as needed.
 5. If the build was successful, but you want to make more changes:
@@ -168,13 +166,11 @@ Run **Remote-Containers: Attach to Running Container...** command from the Comma
 
 ### Option 2: Use the Docker extension
 
-1. Use **File > New Window** to open a new local window.
+1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view (search for "docker") if it is not already installed.
 
-2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view (search for "docker") if it is not already installed.
+2. Go to the Docker view and expand the **Containers** node in the explorer.
 
-3. Go to the Docker view and expand the **Containers** node in the explorer.
-
-4. Right click and select **Attach Visual Studio Code**.
+3. Right click and select **Attach Visual Studio Code**.
 
     ![Docker Explorer screenshot](images/containers/docker-attach.png)
 
@@ -186,15 +182,11 @@ By default, the Remote - Containers extension automatically starts the container
 
 You can also manually manage your containers using one of the following options:
 
-### Option 1: Use the Docker extension from a local window
+### Option 1: Use the Docker extension
 
-While you can use the [Docker-in-Docker](https://aka.ms/vscode-remote/sample/docker-in-docker) approach and use the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from within a container, it is easiest to manage your containers from a separate local window so you don't accidentally shut down the container you are using.
+1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view, if not already installed.
 
-1. Use **File > New Window** to open a local window.
-
-2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view, if not already installed.
-
-3. You can then go to the Docker view and expand the **Containers** node to see what containers are running. Right click and select **Stop Container** to shut one down.
+2. You can then go to the Docker view and expand the **Containers** node to see what containers are running. Right click and select **Stop Container** to shut one down.
 
     ![Docker Explorer screenshot](images/containers/docker-stop.png)
 
@@ -309,7 +301,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 There are a few different ways VS Code Remote - Containers can be used to develop an application inside a fully containerized environment. In general, there are two primary scenarios that drive interest in this development style:
 
-- **[Stand-Alone Dev Sandboxes](#working-with-a-stand-alone-dev-sandbox)**: Even if you are not deploying your application into a containerized environment, you may still want to isolate your build and runtime environment from your local OS or to edit, run, and debug code in an environment that is more representative of production. A single, stand-alone "dev sandbox" container can be used to achieve these goals even if you are not familiar with containers and/or do not deploy into a container in production. For example, today you may be running an some code on your local macOS or Windows machine that is ultimately deployed to a Linux VM or server in production.
+- **[Stand-Alone Dev Sandboxes](#working-with-a-developer-sandbox)**: Even if you are not deploying your application into a containerized environment, you may still want to isolate your build and runtime environment from your local OS or to edit, run, and debug code in an environment that is more representative of production. A single, stand-alone "dev sandbox" container can be used to achieve these goals even if you are not familiar with containers and/or do not deploy into a container in production. For example, today you may be running an some code on your local macOS or Windows machine that is ultimately deployed to a Linux VM or server in production.
 
 - **Container Deployed Applications**: In this case, you plan to deploy the application into one or more containers but would like to take advantage of the same benefits that stand-alone dev sandboxes provide. VS Code currently supports working with container based applications defined in a number of ways:
 
@@ -335,7 +327,7 @@ You can use the **Remote-Containers: Create Container Configuration File** comma
 
 > **Note:**  Alpine Linux and Windows based containers are not currently supported.
 
-Note that, if you are not able to find an image that meets your needs or just want to automate the installation of additional software, you can also [create a custom image using a `Dockerfile`](#using-a-dockerfile). See [Using a Dockerfile](#using-a-dockerfile) for details.
+If you are not able to find an image that meets your needs or just want to automate the installation of additional software, you can also [create a custom image using a `Dockerfile`](#using-a-dockerfile). See [Using a Dockerfile](#using-a-dockerfile) for details.
 
 ### Using an existing container image
 
@@ -567,7 +559,9 @@ The following are some dev container definitions that use Docker Compose that yo
 
 ## Using Docker or Kubernetes from a container
 
-While you can build, deploy, and debug your application right inside a dev container, you may also need to test it by running it inside a set of production-like containers. Fortunately, by installing the needed Docker or Kubernetes CLIs, you can build and deploy your app's container images from inside your dev container. Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) or [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extensions.
+While you can build, deploy, and debug your application right inside a dev container, you may also need to test it by running it inside a set of production-like containers. Fortunately, by installing the needed Docker or Kubernetes CLIs, you can build and deploy your app's container images from inside your dev container.
+
+Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) if you force it to run as a Workspace extension or [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extensions.
 
 See the following examples dev containers for additional information:
 
