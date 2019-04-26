@@ -282,9 +282,9 @@ To avoid having to set up Git a second time in your container, VS Code automatic
 Specifically add the following to the service you open in VS Code:
 
 ```yaml
-    volumes:
-    # This lets you avoid setting up Git again in the container
-    - ~/.gitconfig:/root/.gitconfig
+volumes:
+  # This lets you avoid setting up Git again in the container
+  - ~/.gitconfig:/root/.gitconfig
 ```
 
 If you do not have your email address set up locally, you may be prompted to do so.  You can do this on your local machine by running the following command:
