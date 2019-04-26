@@ -80,7 +80,7 @@ Local extensions that actually need to run remotely will appear **Disabled** in 
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-VS Code runs extensions two one of places: locally on the UI / client side, or remotely on the Workspace / WSL side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location  in your `settings.json` file. For example, the setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+VS Code runs extensions in one of two places: locally on the UI / client side, or remotely on the Workspace / WSL side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location  in your `settings.json` file. For example, the setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ````json
 "remote.extensionKind": {
