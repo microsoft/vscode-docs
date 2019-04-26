@@ -82,7 +82,7 @@ Set the `"remote.SSH.configFile"` property in `settings.json` if you want to use
 
 ## Managing extensions
 
-VS Code runs extensions one of two places: locally on the UI / client side, or remotely on the SSH host. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside on the SSH host. This behavior ensures you have smooth experience and allows you to install any needed extensions for a given Workspace on a SSH host from your local machine and pick up exactly where you left of from a different machine later - complete with extensions.
+VS Code runs extensions in one of two places: locally on the UI / client side, or remotely on the SSH host. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside on the SSH host. This behavior ensures you have smooth experience and allows you to install any needed extensions for a given Workspace on a SSH host from your local machine and pick up exactly where you left of from a different machine later - complete with extensions.
 
 If you search for an extension in the Extensions view and install, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category it is in. There will be **Local - Installed** category and one for your remote SSH host.
 

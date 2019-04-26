@@ -72,10 +72,6 @@ Let's start out by using a sample project to try things out.
     git clone https://github.com/Microsoft/vscode-remote-try-go
     git clone https://github.com/Microsoft/vscode-remote-try-java
     git clone https://github.com/Microsoft/vscode-remote-try-dotnetcore
-    git clone https://github.com/Microsoft/vscode-remote-try-php
-    git clone https://github.com/Microsoft/vscode-remote-try-cpp
-    git clone https://github.com/Microsoft/vscode-remote-try-ruby
-    git clone https://github.com/Microsoft/vscode-remote-try-rust
     ```
 
 2. Start VS Code and click on quick actions Status Bar item in the lower left corner of the window.
@@ -317,7 +313,7 @@ This section will walk you through how to configure your project for each of the
 
 ### devcontainer.json
 
-As mentioned above, `.devcontainer/devcontainer.json` tells VS Code where to look for the containers it should create or connect to. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. We'll cover the different properties of the file in the sections below.
+As mentioned above, `.devcontainer/devcontainer.json` or `.devcontainer.json` file tells VS Code where to look for the containers it should create or connect to. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. We'll cover the different properties of the file in the sections below.
 
 ### Working with a developer sandbox
 
