@@ -275,6 +275,26 @@ Optionally, you can add the following contents to a `.gitattributes` file to for
 *.{bat,[bB][aA][tT]} text eol=crlf
 ```
 
+### Avoid setting up Git in a container when using Docker Compose
+
+To avoid having to set up Git a second time in your container, VS Code automatically adds a volume mount to your local Git configuration when referencing an `image` or `Dockerfile`. The Docker Compose scenario gives you more control, but in this case requires adding an extra configuration line to your `docker-compose.yml` file.
+
+Specifically add the following to the service you open in VS Code:
+
+```yaml
+    volumes:
+    # This lets you avoid setting up Git again in the container
+    - ~/.gitconfig:/root/.gitconfig
+```
+
+If you do not have your email address set up locally, you may be prompted to do so.  You can do this on your local machine by running the following command:
+
+```bash
+git config --global user.email "your.email@address"
+```
+
+You can also opt to extend your configuration instead to achieve the same thing without modifying your existing Docker Compose file. See [here fore additional details](/docs/remote/containers.md#extending-your-docker-compose-file-for-development).
+
 ### Resolving errors about missing Linux dependencies
 
 Some extensions rely on libraries not found in the certain Docker images. See the [primary containers article](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) for a few options on resolving this issue.

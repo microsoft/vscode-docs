@@ -472,6 +472,14 @@ Foe example:
 }
 ```
 
+Note that you may want to alter your existing Docker Compose file to mount your local `.gitconfig` folder so you don't have to set up Git inside of the container if you install it. (See [below](#extending-your-docker-compose-file-for-development) if you'd prefer not to alter your existing files.)
+
+```yaml
+    volumes:
+    # This lets you avoid setting up Git again in the container
+    - ~/.gitconfig:/root/.gitconfig
+```
+
 After making edits, you can test by running the **Remote-Containers: Reopen Folder in Container** or **Remote-Containers: Rebuild Container** commands. Once the container is been created, the local filesystem is automatically mapped into the container and you can start working with it from VS Code.
 
 ### Extending your Docker Compose file for development
@@ -498,6 +506,9 @@ version: '3'
       # as the workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
       volumes:
         - ..:/workspace
+
+        # This lets you avoid setting up Git again in the container
+        - ~/.gitconfig:/root/.gitconfig
 
       # Overrides default command so things don't shut down after the process ends.
       command: sleep infinity
