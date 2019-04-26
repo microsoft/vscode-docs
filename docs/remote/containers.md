@@ -587,7 +587,7 @@ See the following examples dev containers for additional information:
 - Local proxy settings are not reused inside the container which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 - Other notable Docker issues:
   - If you see high CPU spikes for `com.docker.hyperkit` on Mac, this make be due to a [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759). See the Docker issue for details.
-  - If you see *W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease* or *E: Some index files failed to download. They have been ignored, or old ones used instead* when building a Dockerfile, you may be hitting another known Docker issue with Debian 8 (Jessie). See [here for a workaround](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
+  - If you see "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease" or "E: Some index files failed to download. They have been ignored, or old ones used instead" when building a Dockerfile, you may be hitting  known Docker issue with Debian 8 (Jessie). See [here for a workaround](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
   - See [here for other notable Docker-related issues](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues)
 - See [here for a list of active issues](https://aka.ms/vscode-remote/containers/issues) on GitHub that are tagged with Containers.
 
@@ -599,6 +599,10 @@ Right-click on the Docker task bar item and select **Settings**. On Windows, go 
 
 See [here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) for information on workarounds to common Docker for Windows issues.
 
+### I am seeing "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease" when building a Dockerfile, how do I fix this?
+
+You may be hitting known Docker issue with Debian 8 (Jessie). See [here for a workaround](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
+
 ### I'm seeing an error about a missing library or dependency, how do I fix this?
 
 Some extensions rely on libraries not found in the certain Docker images. See [above](#installing-additional-software-in-the-sandbox) for help resolving the problem.
@@ -607,13 +611,13 @@ Some extensions rely on libraries not found in the certain Docker images. See [a
 
 Currently you can only connect to one container per VS Code window. However, you can spin up multiple containers and [attach to them](#attaching-to-running-containers) from different VS Code windows to work around this limitation.
 
-### The Docker / Kubernetes extension does not work and I cannot build or deploy container images when working inside a container.
+### How can I build or deploy container images into my local Docker / Kubernetes install when working inside a container?
 
-You can resolve these issue by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes)in the container. See the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker), [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose), and [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) dev container definitions for details.
+You can build images and deploy containers by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes) in the container. See the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker), [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose), and [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) dev container definitions for details.
 
 ### What are the connectivity requirements for the VS Code Server when it is running in a container?
 
-The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, random port automatically exposed via the Docker CLI.
+The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, random, TCP port automatically exposed via the Docker CLI.
 
 ### As an extension author, what do I need to do to make sure my extension works in dev containers?
 

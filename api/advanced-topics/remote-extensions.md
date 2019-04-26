@@ -247,7 +247,7 @@ If you need to do something more sophisticated like launch an arbitrary applicat
 
 Some extensions return APIs as a part of their activation function that are intended for other extensions to use (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI extensions or all Workspace extensions), these will not work between UI and Workspace extensions.
 
-Fortunately, VS Code automatically routes any executed commands to the correct extension regardless of its location. You can freely invoke any simple or complex command (including those provided by other extensions) without worrying about impacts. If you have a set of extensions that need to interact with one another, exposing functionality using a private command can help you avoid unexpected impacts. Private commands are prefixed with an underscore ("_"). For example:
+Fortunately, VS Code automatically routes any executed commands to the correct extension regardless of its location. You can freely invoke any simple or complex command (including those provided by other extensions) without worrying about impacts. However, note that any parameters you pass in will be "stringified" in transit, so methods and functions will not appear on the other side and you cannot have any cyclic dependencies. If you have a set of extensions that need to interact with one another, exposing functionality using a private command can help you avoid unexpected impacts. Private commands are prefixed with an underscore ("_"). For example:
 
 ```typescript
 import * as vscode from 'vscode';

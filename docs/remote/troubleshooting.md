@@ -257,9 +257,9 @@ The VS Code Remote - Containers extension can automatically mount your source co
 1. Right-click on the Docker task bar item and select Settings.
 2. On Windows, go to the Shared Drives tab and check the drive(s) where your source code is located. On macOS, go the File Sharing tab and be sure the folder containing your source code is under a file path specified in the list.
 
-### Resolving Git line ending issues (resulting in many modified files)
+### Resolving Git line ending issues in containers (resulting in many modified files)
 
-Since Windows and Linux use different default line endings, you may see files that appear modified by seem to have no differences aside from the line endings.  To prevent this from happening, you can disable automatic line ending conversion and add a `.gitattributes` file to your folder.  Run
+Since Windows and Linux use different default line endings, you may see files that appear modified but seem to have no differences aside from the line endings.  To prevent this from happening, you can disable automatic line ending conversion and add a `.gitattributes` file to your folder.  Run
 
 ```bash
 git config --global core.autocrlf false
@@ -485,9 +485,9 @@ wslconfig /l
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
 
-### Resolving Git line ending issues (resulting in many modified files)
+### Resolving Git line ending issues in WSL (resulting in many modified files)
 
-Since Windows and Linux use different default line endings, you may see files that appear modified by seem to have no differences aside from the line endings.  To prevent this from happening, you can disable automatic line ending conversion and add a `.gitattributes` file to your folder.  Run
+Since Windows and Linux use different default line endings, you may see files that appear modified but seem to have no differences aside from the line endings.  To prevent this from happening, you can disable automatic line ending conversion and add a `.gitattributes` file to your folder.  Run
 
 ```bash
 git config --global core.autocrlf false

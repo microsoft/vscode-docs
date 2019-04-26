@@ -192,7 +192,7 @@ Most Linux distributions will not require additional dependency installation ste
 
 ### What are the connectivity requirements for the VS Code Server when it is running on a remote machine / VM?
 
-The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, secure SSH tunnel.
+The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, secure, SSH tunnel.
 
 ### Can I use VS Code when I only have SFTP/FTP filesystem access to my remote host (no shell access)?
 
@@ -202,7 +202,7 @@ However, this use case can typically be handled by combining extensions like [SF
 
 ### As an extension author, what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension to be sure that no updates are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you test your extension to be sure that no updates are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ### Questions or feedback
 
