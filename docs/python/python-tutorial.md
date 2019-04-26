@@ -30,6 +30,7 @@ To successfully complete this tutorial, complete the following requirements:
    - (macOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
    - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
+   > **Note** You can use the `py -0` command in the integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
 1. On MacOS, make sure the location of your VS Code installation is included in your PATH environment variable.  See [the setup instructions](/docs/setup/mac.md#launching-from-the-command-line) for more information.
 
 ## Start VS Code in a project (workspace) folder
@@ -160,8 +161,7 @@ A debug toolbar appears along the top with the following commands from left to r
 The Status Bar also changes color (orange in many themes) to indicate that you're in debug mode. The **Python Debug Console** also appears automatically in the lower right panel to show the commands being run, along with the program output.
 
 To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the next breakpoint. The now-defined `msg` variable appears in the **Local** pane.
-> [!TIP]
-> Debugging information can also be seen by hovering over code, such as variables. In the case of `msg`, hovering over the variable will display the string `Hello world` in a box above the variable.
+> **Tip** Debugging information can also be seen by hovering over code, such as variables. In the case of `msg`, hovering over the variable will display the string `Hello world` in a box above the variable.
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 
@@ -249,7 +249,7 @@ Unless you're using an Anaconda distribution or have previously installed the `m
 
 To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`)). This command opens a command prompt for your selected interpreter.
 
-A best practice among Python developers is to avoid installing packages into a global interpreter environment. You instead use a project-specific *virtual environment* that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments. Such isolation reduces many complications that can arise from conflicting package versions. To create a *virtual environment* and install the required packages, enter the following commands as appropriate for your operating system:
+A best practice among Python developers is to avoid installing packages into a global interpreter environment. You instead use a project-specific `virtual environment` that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments. Such isolation reduces many complications that can arise from conflicting package versions. To create a `virtual environment` and install the required packages, enter the following commands as appropriate for your operating system:
 
 > **Note**: For additional information about virtual environments, see [Environments](/docs/python/environments.md#global-virtual-and-conda-environments).
 
@@ -263,10 +263,12 @@ A best practice among Python developers is to avoid installing packages into a g
    ```
 
    **For macOS/Linux**
+
    ```bash
    python3 -m venv env
    source env/bin/activate
    ```
+
 1. Install the packages
 
    ```bash

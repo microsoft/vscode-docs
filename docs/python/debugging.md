@@ -20,8 +20,7 @@ This article addresses only those considerations that are specific to Python, ma
 
 A configuration drives VS Code's behavior during a debugging session. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace.
 
-> [!NOTE]
-> In order to change debugging configuration, your code must be stored in a folder.
+> **Note** In order to change debugging configuration, your code must be stored in a folder.
 
 To initialize debug configurations, first select the Debug View in the sidebar:
 
@@ -35,11 +34,10 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. Select the settings button (circled in the image above) or use the **Debug** > **Open configurations** menu command.
 
-1. A configuration menu will open from the Command Pallete allowing you to choose the type of debug configuration you want for the opened file. For now, in the **Select a debug configuration** menu that appears, select **Python File**.
+1. A configuration menu will open from the Command Palette allowing you to choose the type of debug configuration you want for the opened file. For now, in the **Select a debug configuration** menu that appears, select **Python File**.
 ![Debug configurations menu](images/debugging/debug-configurations.png)
 
-> [!NOTE]
-> Starting a debugging session through the Debug Panel, **F5** or **Debug > Start Debugging**, when no configuration exists will also bring up the debug configuration menu.
+> **Note** Starting a debugging session through the Debug Panel, **F5** or **Debug > Start Debugging**, when no configuration exists will also bring up the debug configuration menu.
 
 1. The Python extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
 ![Configuration json](images/debugging/configuration-json.png)
@@ -446,6 +444,7 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
 1. On Windows and Linux, replace the first item in `args` with the path to wherever Google App Engine is installed (the path shown in the source code above is for macOS).
 
 1. Create a file named `pydev_startup.py` in your project root with the following contents, modified as noted:
+
     ```python
     import sys
     import os
@@ -461,6 +460,7 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
     # The debug server has started and you can now use VS Code to attach to the application for debugging
     print("Google App Engine has started; ready to attach the debugger")
     ```
+
 1. Create a `launch.json` configuration using the **Attach (Remote Debug)** configuration as a template. Make sure the port value matches what's in the source code above.
 1. Add `"preLaunchTask": "python"` to `launch.json`.
 1. From the Command Palette, run the **Run Build Task** command. This command opens the Tasks output window where you see various messages.
