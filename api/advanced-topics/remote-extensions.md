@@ -7,33 +7,27 @@ MetaDescription: A guide to adding Visual Studio Code Remote Development support
 ---
 # Supporting Remote Development
 
-While many developers edit, build, deploy, and debug on their local machines, there are an increasing number of situations where you may need to interact with a codebase or runtime on the other side of an OS boundary. **[VS Code Remote Development](/docs/remote/remote-overview)** extensions addresses these needs by allowing your local Visual Studio Code installation and any extension provided features to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical).
+**[VS Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical). This includes the ability to use the same the VS Code extensions you love even while working in remote workspaces.
 
-When using the capability, VS Code selectively runs certain extensions on the remote machine to optimize your experience. Given **no source code needs to be on your local machine** to use the capability, the approach provides dramatic performance and fidelity benefits over using network shares or synchronizing files.
-
-As an extension author, you may be wondering how to test your extensions to validate that they work as expected when running in a remote environment. While many extensions will work unmodified, some extensions will need to be changed to function as expected. This article briefly summarizes the VS Code Remote Development architecture, explains how to test your extensions, and provides recommendations if you encounter issues.
+This article summarizes what extension authors need to know about VS Code Remote Development. This includes the [VS Code Remote Development extension architecture](#architecture-and-extension-types), how to [test your extension](#testing-and-debugging-your-extension) in remote workspaces, and recommendations on [what to do if your extension does not work properly when being run remotely](#common-problems). While many extensions will work in remote workspaces without any modifications, you may need to change some code so that your extension works properly in all environments, although these changes are often fairly minor.
 
 ## Architecture and extension types
 
-While transparent to the user, VS Code Remote Development extensions use a mix of local and remotely running extensions to provide its full-fidelity development experience. VS Code attempts to infer the correct location to run an extension, if not specified, based on the type of functionality it exposes.
+In order to make remote development as transparent as possible to users, VS Code distinguishes two classes of extensions:
 
-Currently VS Code distinguishes the following two classes of extensions:
+- **UI Extensions**: These extensions make contributions to the VS Code user interface and are always run on the user's local machine. UI extensions cannot directly access files in the workspace, or run scripts/tools installed in that workspace or on the machine. Example UI extensions include: themes, snippets, language grammars, and keymaps.
 
-- **UI Extensions**: These extensions make contributions to the UI only, do not access files in a workspace, and consequently can run entirely on the local machine. Examples of UI extensions are themes, snippets, language grammars, and keymaps.
+- **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, workspace extensions are run on the local machine. When in a remote workspace, workspace extensions are run on the remote machine. Workspace extensions can access files in the workspace to provide rich, multi-file language services; add a debugger; or perform complex operations on multiple files in workspace (either themselves or by invoking scripts/tools).
 
-- **Workspace Extensions**: These extensions access files inside a workspace either for editing or to perform some other operation such as providing IntelliSense. A Workspace Extension could provide rich, multi-file language services, add a debugger, or perform an operation on multiple files in workspace (either itself or by firing a CLI command).
-
-When you install an extension, VS Code will place it in the correct location based on its type - UI Extensions run in VS Code's **[local Extension Host](/api/advanced-topics/extension-host)** while Workspace Extensions run in a **Remote Extension Host** that sits in a small **VS Code Server**. This server is automatically installed (or updated) once you open a folder in WSL, in a container, or on a remote SSH host. (VS Code also automatically manages starting and stopping the server, so users are often not aware of its presence.)
+When a user installs an extension, VS Code automatically installs it to the correct location based on its type: ui extensions are run by VS Code's **[local Extension Host](/api/advanced-topics/extension-host)**, while Workspace Extensions are run by a **Remote Extension Host** that sits in a small **VS Code Server**. This server is automatically installed (or updated) when you open a folder in WSL, in a container, or on a remote SSH host. (VS Code also automatically manages starting and stopping the server, so users are often not aware of its presence.)
 
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
-The VS Code APIs are designed to automatically run on the correct side (local or remote) when used from either UI or Workspace extensions. However, if your extension makes use of local APIs not provided by VS Code you may see issues. As a result, we recommend that you use VS Code Remote Development to **test** your own extensions.
-
-Specifically, we recommend testing your extension using a local **[dev container](/docs/remote/containers)** since they are cross-platform, easy to set up, and restrict port and file system access by default. Combined with a very thin OS footprint, dev containers provide the environment where your extension is most likely to hit a problem (if it has one at all). WSL, on the other hand, is typically the least restrictive, with SSH being somewhere in the middle. In most cases, only small adjustments are needed (if any) to resolve issues. See [common problems](#common-problems) for more information.
+VS Code API's are designed to automatically run on the correct machine (either local or remote) when called from both UI or Workspace extensions. However, if your extension uses APIs not provided by VS Code — such using Node APIs or running shell scripts — it may not work properly when run remotely. We recommend that you test that all features of your extension work properly in both local and remote workspaces.
 
 ## Testing and debugging your extension
 
-While you can test your extension in VS Code Remote Development by installing your extension from the Marketplace, if you encounter a problem, you'll want to be able to test a development version of your extension. This section outlines how this can be accomplished.
+This section explains to test and debug a development version of your extension in remote workspaces. Specifically, we will look at how to test an extension using a local **[dev container](/docs/remote/containers)**. Dev containers are cross-platform, easy to set up, and restrict port and file system access. Combined with a very thin OS footprint, dev containers provide the environment where your extension is most likely to hit a problem (if it has one at all). WSL, on the other hand, is typically the least restrictive, with SSH being somewhere in the middle. In most cases, only small adjustments are needed (if any) to resolve issues. See [common problems](#common-problems) for more information.
 
 ### Installing a development version of your extension
 
