@@ -11,7 +11,7 @@ DateApproved: 4/11/2019
 
 The [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) allows you to take advantage of a Linux based tool-chain right from the comfort of Windows. Historically Windows-based developer tools have had to interact with WSL through mounted file shares (for example `/mnt/c`). While this works in concept, differences between Windows and Linux can make this workflow difficult. Conversely, Linux-based developer tools do not work unless they are text based since WSL was not intended to house a full Linux desktop operating system.
 
-The **Visual Studio Code Remote - WSL extension** allows you take advantage of VS Code's full feature set from anywhere in WSL - regardless of whether the files you want to edit exist on the Linux side or a mounted Windows filesystem. You'll have a rich development experience with IntelliSense (smart completions), code navigation, and debugging, while working on source code in Linux.
+The **Visual Studio Code Remote - WSL** extension allows you take advantage of VS Code's full feature set from anywhere in WSL - regardless of whether the files you want to edit exist on the Linux side or a mounted Windows filesystem. You'll have a rich development experience with IntelliSense (smart completions), code navigation, and debugging, while working on source code in Linux.
 
 ![WSL Architecture](images/wsl/architecture-wsl.png)
 
@@ -108,7 +108,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## Known limitations
 
-This section contains a list of common know issues with WSL. The intent is not to provide a complete list of issues, but to highlight some of the commonly problems seen with WSL.
+This section contains a list of common know issues with WSL. The intent is not to provide a complete list of issues but to highlight some of the common problems seen with WSL.
 
 For a more complete list see [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) on GitHub that are tagged with WSL.
 
