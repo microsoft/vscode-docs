@@ -271,8 +271,6 @@ You can also use the command interface in more sophisticated ways to bridge APIs
 
 ## Using the WebView API
 
-> **Note:** The `vscode.previewHtml` command has been deprecated in favor of a new WebView API. The previewHTML command is not supported remotely was removed in VS Code version 1.33.
-
 Like the clipboard API, the [WebView API](/api/extension-guides/webview) will automatically run on the client if called from a Workspace extension.
 
 However, any content local to your extension should be accessed using the `vscode-resource` scheme instead of "localhost" or the file scheme. The `vscode-resource` scheme will automatically route to the correct location while localhost and the file scheme will not. Be sure to add the `vscode-resource` scheme into any content security policy on your page. E.g.:
