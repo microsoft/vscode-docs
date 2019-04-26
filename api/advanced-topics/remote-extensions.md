@@ -96,28 +96,31 @@ You can edit and debug your extension on a remote **[SSH host](/docs/remote/ssh)
 
 ## Common problems
 
-VS Code's base APIs are designed to automatically run in the right location regardless of where your extension happens to be located. With this in mind, there are a few APIs that will help you avoid unexpected behavior.
+VS Code's APIs are designed to automatically run in the right location regardless of where your extension happens to be located. With this in mind, there are a few APIs that will help you avoid unexpected behavior.
 
 ### Incorrect execution location
 
-If your extension is not functioning as expected, it may be running in the wrong location. You can use the command **Developer: Show Running Extensions** to verify where the extension is running. You can also find any installed Workspace extensions in the  `~/.vscode-remote` folder on your remote machine / VM / container.
+If your extension is not functioning as expected, it may be running in the wrong location. Most commonly, this shows up as an extension running remotely when you expect it to only be run locally. You can use the **Developer: Show Running Extensions** command to see where an extension is running.
 
-If the location is incorrect, you can explicitly specify which location category the extension fits into using the `extensionKind` property in your extension's `package.json`.
+If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [`package.json`](/api/get-started/extension-anatomy#extension-manifest):
 
 ```json
 "extensionKind": "ui"
 ```
 
-A value of `ui` will force the extension to run on the client. A value of `workspace` will force the extension to run inside the VS Code Server.
+- `"extensionKind": "ui"` — Forces the extension to be a UI extension that is always run on the user's local machine.
+- `"extensionKind": "workspace"` — Forces the extension to be a workspace extension that will be run remotely by the VS Code Server for remote workspaces.
 
-You can **test** whether switching your extension to a UI extension will solve your problem with the `remote.extensionKind` option in `settings.json`. This allows you to test in-marketplace versions of extensions without having to modify their `package.json` file. The value of the setting is an array of extension IDs. For example, this will force the Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+You can also quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you wish to force the [Cosmos DB extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) to be a UI extension (instead of its Workspace default) and the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) to be a workspace extension (instead of its UI default), you would set:
 
-````json
+```json
 "remote.extensionKind": {
     "ms-azuretools.vscode-cosmosdb": "ui",
     "msjsdiag.debugger-for-chrome": "workspace"
 }
-````
+```
+
+Using `remote.extensionKind` allows you to quickly test published versions of extensions without having to modify their `package.json` and rebuild them.
 
 ### Persisting extension data or state
 
