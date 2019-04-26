@@ -55,7 +55,7 @@ To get started, follow these steps:
 
 The Remote - Containers extension supports two primary operating models:
 
-* You can use a container as your [full-time development environment](#creating-configuration-files-for-existing-projects).
+* You can use a container as your [full-time development environment](#creating-a-devcontainerjson-file-for-existing-projects).
 * You can [attach to a running container](#attaching-to-running-containers) for targeted use.
 
 We will cover how to use a container as your full-time development environment first.
@@ -110,7 +110,7 @@ Next, we will cover how to set up an existing project folder to use a container 
 
 After it's done, VS Code automatically connects to the container and you can interact with the folder just as you did when open locally. Next time you open the same folder, the configuration you chose will be reused.
 
-## Creating configuration files for existing projects
+## Creating a devcontainer.json file for existing projects
 
 VS Code's container configuration is stored in a `devcontainer.json` file. The file is similar to `launch.json` for debugging, but is used for launching (or attaching to) your development container instead. The file is located either at `.devcontainer/devcontainer.json`  or `.devcontainer.json` (dot-prefixed).
 
@@ -315,7 +315,7 @@ There are a few different ways VS Code Remote - Containers can be used to develo
 
 This section will walk you through how to configure your project for each of these situations. The [vscode-dev-containers GitHub repository](https://aka.ms/vscode-dev-containers) also contains a number of dev container definitions you may find useful to get you up and running quickly.
 
-### `devcontainer.json`
+### devcontainer.json
 
 As mentioned above, `.devcontainer/devcontainer.json` tells VS Code where to look for the containers it should create or connect to. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. We'll cover the different properties of the file in the sections below.
 
@@ -460,7 +460,7 @@ To reuse `docker-compose.yml` unmodified, just create a `.devcontainer/devcontai
 | `shutdownAction` | enum: `none`, `stopCompose` | [Optional] Defaults to `stopCompose`. Indicates whether VS Code should execute `docker-compose stop` when the VS Code window is closed / shut down. |
 | `devPort` | integer | [Optional] Defaults to a random, available port. Allows you to force a specific port that the VS Code Server should use in the container. |
 
-Foe example:
+For example:
 
 ```json
 {
@@ -500,11 +500,11 @@ For example, consider this additional `.devcontainer/docker-compose.yml` file:
 version: '3'
   services:
     your-service-name-here:
-      # Mounts the project folder to '/workspace'. The target path inside the container
-      # should match should match what your application expects. In this case, the
-      # compose file is in a sub-folder, so we will mount '..'. We'll then reference this
-      # as the workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
       volumes:
+        # Mounts the project folder to '/workspace'. The target path inside the container
+        # should match should match what your application expects. In this case, the
+        # compose file is in a sub-folder, so we will mount '..'. We'll then reference this
+        # as the workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
         - ..:/workspace
 
         # This lets you avoid setting up Git again in the container
