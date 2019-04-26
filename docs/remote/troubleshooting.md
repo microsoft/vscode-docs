@@ -19,7 +19,7 @@ This article covers troubleshooting tips and tricks for each of the Visual Studi
 
 #### Quick start
 
-You can set up SSH key based authentication for your remote host as follows:
+To set up SSH key based authentication for your remote host:
 
 1. Check to see if `~/.ssh/id_rsa.pub` exists on macOS / Linux or `%USERPROFILE%\.ssh\id_rsa.pub` on Windows. If not, run the following command in a terminal / command prompt to generate an SSH key pair:
 
@@ -48,7 +48,7 @@ You can set up SSH key based authentication for your remote host as follows:
 
 #### Improving your security with a dedicated key
 
-While using a single SSH key across all your SSH hosts can be convenient, if anyone gains access to your private key, they will have access to all of your hosts as well. You can solve this by creating a separate SSH key for your development hosts. Just follow these steps:
+While using a single SSH key across all your SSH hosts can be convenient, if anyone gains access to your private key, they will have access to all of your hosts as well. You can prevent this by creating a separate SSH key for your development hosts. Just follow these steps:
 
 1. Generate a separate SSH key in a different file by running the following in a **local terminal** on macOS / Linux:
 
@@ -102,7 +102,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
 
 ### Reusing a key generated in PuTTYGen
 
-If you already used PuTTYGen to set up SSH public key authentication for the host you are connecting to, you will need to convert your private key for use in other SSH clients.
+If you used PuTTYGen to set up SSH public key authentication for the host you are connecting to, you will need to convert your private key for use in other SSH clients.
 
 Follow these steps:
 
