@@ -19,7 +19,7 @@ In order to make remote development as transparent as possible to users, VS Code
 
 - **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, workspace extensions are run on the local machine. When in a remote workspace, workspace extensions are run on the remote machine. Workspace extensions can access files in the workspace to provide rich, multi-file language services; add a debugger; or perform complex operations on multiple files in workspace (either themselves or by invoking scripts/tools).
 
-When a user installs an extension, VS Code automatically installs it to the correct location based on its type: ui extensions are run by VS Code's **[local Extension Host](/api/advanced-topics/extension-host)**, while Workspace Extensions are run by a **Remote Extension Host** that sits in a small **VS Code Server**. This server is automatically installed (or updated) when you open a folder in WSL, in a container, or on a remote SSH host. (VS Code also automatically manages starting and stopping the server, so users are often not aware of its presence.)
+When a user installs an extension, VS Code automatically installs it to the correct location based on its type: UI Extensions are run by VS Code's **[local Extension Host](/api/advanced-topics/extension-host)**, while Workspace Extensions are run by a **Remote Extension Host** that sits in a small **VS Code Server**. This server is automatically installed (or updated) when you open a folder in WSL, in a container, or on a remote SSH host. (VS Code also automatically manages starting and stopping the server, so users are often not aware of its presence.)
 
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
@@ -27,7 +27,7 @@ VS Code API's are designed to automatically run on the correct machine (either l
 
 ## Testing and debugging your extension
 
-This section explains to test and debug a development version of your extension in remote workspaces. Specifically, we will look at how to test an extension using a local **[dev container](/docs/remote/containers)**. Dev containers are cross-platform, easy to set up, and restrict port and file system access. Combined with a very thin OS footprint, dev containers provide the environment where your extension is most likely to hit a problem (if it has one at all). WSL, on the other hand, is typically the least restrictive, with SSH being somewhere in the middle. In most cases, only small adjustments are needed (if any) to resolve issues. See [common problems](#common-problems) for more information.
+This section explains how to test and debug a development version of your extension in remote workspaces. Specifically, we will look at how to test an extension using a local **[dev container](/docs/remote/containers)**. Dev containers are cross-platform, easy to set up, and restrict port and file system access. Combined with a very thin OS footprint, dev containers provide the environment where your extension is most likely to hit a problem (if it has one at all). WSL, on the other hand, is typically the least restrictive, with SSH being somewhere in the middle. In most cases, only small adjustments are needed (if any) to resolve issues. See [common problems](#common-problems) for more information.
 
 ### Installing a development version of your extension
 
@@ -48,11 +48,7 @@ Follow these steps:
 
 You can edit and debug your extension in a container by following these steps.
 
-1. Add a `.devcontainer/devcontainer.json` or `.devcontainer.json` file with the [appropriate contents](/docs/remote/containers#creating-a-devcontainerjson-file-for-existing-projects) to your extension source code folder.
-
- Creating a devcontainer.json file for existing projects
-
-   For example:
+1. Add a `.devcontainer/devcontainer.json` or `.devcontainer.json` file with the [appropriate contents](/docs/remote/containers#creating-a-devcontainerjson-file-for-existing-projects) to your extension source code folder. For example:
 
     ```json
     {
@@ -80,7 +76,7 @@ You can edit and debug your extension in a container by following these steps.
     }
     ```
 
-3. Run **Remote-Containers: Reopen Folder in Container** and in a moment, your VS Code will set up the container and connect. You can now edit your source code as you would in the local case.
+3. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You can now edit your source code as you would in the local case.
 
 4. Finally, **F5 / use the the debug panel** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running inside this same container with the debugger attached to it.
 
@@ -96,7 +92,7 @@ You can edit and debug your extension on a remote **[SSH host](/docs/remote/ssh)
 
 ## Common problems
 
-VS Code's APIs are designed to automatically run in the right location regardless of where your extension happens to be located. With this in mind, there are a few APIs that will help you avoid unexpected behavior.
+VS Code's APIs are designed to automatically run in the right location regardless of where your extension happens to be located. With this in mind, there are a few APIs that will help you avoid unexpected behaviors.
 
 ### Incorrect execution location
 
@@ -148,7 +144,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.persistSomeData', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.persistSomeWorkspaceData', () => {
 
         // Create the extension's workspace storage folder if it does not already exist
         if (!fs.existsSync(context.storagePath)) {
@@ -156,14 +152,25 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         // Write a file to the workspace storage folder
-        fs.writeFileSync(path.join(context.storagePath, 'data.json'), JSON.stringify({ now: Date.now() }));
+        fs.writeFileSync(path.join(context.storagePath, 'workspace-data.json'), JSON.stringify({ now: Date.now() }));
+    }));
+
+    context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.persistSomeGlobalData', () => {
+
+        // Create the extension's global (cross-workspace) folder if it does not already exist
+        if (!fs.existsSync(context.globalStoragePath)) {
+            fs.mkdirSync(context.globalStoragePath);
+        }
+
+        // Write a file to the global storage folder for the extension
+        fs.writeFileSync(path.join(context.globalStoragePath, 'global-data.json'), JSON.stringify({ now: Date.now() }));
     }));
 }
 ```
 
 ### Persisting secrets
 
-If your Workspace Extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a libsecret based keyring on Linux) rather than the one on the remote machine. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a Docker container.
+If your Workspace Extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a libsecret based keyring on Linux) rather than the one on the remote machine. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a container.
 
 Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in an Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above. For example:
 
@@ -280,7 +287,7 @@ Like the clipboard API, the [WebView API](/api/extension-guides/webview) is alwa
 
 ### Accessing localhost
 
-By default, `localhost` inside a webview resolves to the user's local machine. This means that for a remotely running workspace extension, the webviews it creates would not be able to access local servers spawned by the extension. Here's an illustration of the problem:
+By default, `localhost` inside a webview resolves to the user's local machine. This means that for a remotely running workspace extension, the webviews it creates would not be able to access local servers spawned by the extension. Even if you use the IP of the machine, the ports you are connecting to will typically be blocked by default in a cloud VM or a container. Here's an illustration of the problem:
 
 ![WebView Problem](images/remote-extensions/webview-problem.png)
 
@@ -496,7 +503,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 ### Proxying APIs with Events
 
-A more difficult situation arises if you need to remotely access an API that has an event. These bi-directional APIs often use objects instead of straight modules which further complicates things. To resolve these challenges, you can use a pattern that establishes an **API Bridge** command on in a Helper Extension and an **Event Bridge** in your main extension that handles the execution of event callbacks.
+A more difficult situation arises if you need to remotely access an API that has an event. These bi-directional APIs often use objects instead of straight modules which further complicates things. To resolve these challenges, you can use a pattern that establishes an **API Bridge** command in a Helper Extension and an **Event Bridge** in your main extension that handles the execution of event callbacks.
 
 ![ApiBridge/ApiEventBridge Architecture](images/remote-extensions/api-event-bridge.png)
 
