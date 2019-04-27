@@ -92,7 +92,7 @@ Next, we will cover how to set up an existing project folder to use a container 
 
 1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette and select the folder you'd like to open in a container.
 
-2. Select a **dev container definition** from the filterable list to use as a starting point for your container. If there is a [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) in the folder you selected, you can also use these files instead.
+2. Select a **dev container definition** from the filterable list to use as a starting point for your container. If there is a [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) in the folder you selected, you will also be able to select one of these files to start from instead.
 
     > **Note:** Alpine Linux and Windows based containers are not currently supported.
 
