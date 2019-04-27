@@ -144,26 +144,32 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.persistSomeWorkspaceData', () => {
+    context.subscriptions.push(
+        vscode.commands.registerCommand('myAmazingExtension.persistWorkspaceData', () => {
 
-        // Create the extension's workspace storage folder if it does not already exist
+        // Create the extension's workspace storage folder if it doesn't already exist
         if (!fs.existsSync(context.storagePath)) {
             fs.mkdirSync(context.storagePath);
         }
 
         // Write a file to the workspace storage folder
-        fs.writeFileSync(path.join(context.storagePath, 'workspace-data.json'), JSON.stringify({ now: Date.now() }));
+        fs.writeFileSync(
+            path.join(context.storagePath, 'workspace-data.json'),
+            JSON.stringify({ now: Date.now() }));
     }));
 
-    context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.persistSomeGlobalData', () => {
+    context.subscriptions.push(
+        vscode.commands.registerCommand('myAmazingExtension.persistGlobalData', () => {
 
-        // Create the extension's global (cross-workspace) folder if it does not already exist
+        // Create the extension's global (cross-workspace) folder if it doesn't already exist
         if (!fs.existsSync(context.globalStoragePath)) {
             fs.mkdirSync(context.globalStoragePath);
         }
 
         // Write a file to the global storage folder for the extension
-        fs.writeFileSync(path.join(context.globalStoragePath, 'global-data.json'), JSON.stringify({ now: Date.now() }));
+        fs.writeFileSync(
+            path.join(context.globalStoragePath, 'global-data.json'),
+            JSON.stringify({ now: Date.now() }));
     }));
 }
 ```
