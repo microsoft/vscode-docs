@@ -148,7 +148,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('doStuff', async () => {
+    context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.persistSomeData', () => {
 
         // Create the extension's workspace storage folder if it does not already exist
         if (!fs.existsSync(context.storagePath)) {
@@ -157,7 +157,6 @@ export function activate(context: vscode.ExtensionContext) {
 
         // Write a file to the workspace storage folder
         fs.writeFileSync(path.join(context.storagePath, 'data.json'), JSON.stringify({ now: Date.now() }));
-        vscode.env.openExternal(vscode.Uri.file(context.storagePath));
     }));
 }
 ```
