@@ -218,7 +218,7 @@ To use the VS Code clipboard API in an extension:
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.command', async () => {
+    context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.clipboardIt', async () => {
         // Read from clipboard
         const text = await vscode.env.clipboard.readText();
 
@@ -249,11 +249,16 @@ To use the `vscode.env.openExternal` API:
 ```typescript
 import * as vscode from 'vscode';
 
-// Example 1 - Open the VS Code homepage in the default browser.
-vscode.env.openExternal(vscode.Uri.parse('https://code.visualstudio.com'));
+export async function activate(context: vscode.ExtensionContext) {
+    context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.openExternal', () => {
 
-// Example 2 - Open the default email application.
-vscode.env.openExternal(vscode.Uri.parse('mailto:vscode@microsoft.com'));
+        // Example 1 - Open the VS Code homepage in the default browser.
+        vscode.env.openExternal(vscode.Uri.parse('https://code.visualstudio.com'));
+
+        // Example 2 - Open the default email application.
+        vscode.env.openExternal(vscode.Uri.parse('mailto:vscode@microsoft.com'));
+    }));
+}
 ```
 
 If you need to do something more sophisticated like launch an arbitrary application, you can use a Helper Extension. See [below](#accessing-local-apis-using-a-helper-extension) for details.
