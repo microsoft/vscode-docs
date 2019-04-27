@@ -314,7 +314,7 @@ const panel = vscode.window.createWebviewPanel(
     });
 
 // Reference the "webviewPort" variable in any full URIs you reference in your HTML.
-panel.webview.html =  `<!DOCTYPE html>
+panel.webview.html = `<!DOCTYPE html>
     <body>
         <!-- This will resolve to the dynamic server port on the remote machine -->
         <img src="http://localhost:${webviewPort}/canvas.png">
@@ -328,13 +328,11 @@ Now the WebView's traffic to `localhost:3000` will be transparently routed to th
 
 ## Accessing local APIs using a Helper Extension
 
-While VS Code's APIs are designed to run in the correct location automatically, you may run into cases where you have code in a Workspace Extension that needs to relies on a local, non-VS Code provided API, command, module, or runtime. In others, you may have a UI Extension that makes use of many local APIs and has a few features that need to interact directly with remote workspace files.
+Some extensions are not cleanly classifiable as a purely Workspace Extension or as a purely UI extension. For example, a Workspace Extension may rely on local, non-VS Code provided APIs, commands, modules, or runtimes. Or a UI Extension may have some features that interact directly with remote workspace files. For cases such as these, you can split your extension into a workspace component and UI component using a "Helper" extension.
 
-To get this kind of "split" functionality working, you can create a "Helper" Extension that encapsulates the needed functionality and exposes a set of private VS Code commands. Your primary main Workspace or UI Extension can then execute these commands and VS Code will automatically handle routing them to wherever your Helper extension happens to be running.
+A "Helper" extension encapsulates the external functionality that your main extension needs and exposes this as a private API using VS Code commands. Your main Workspace or UI Extension can then communicate with the Helper extension using these commands, with VS Code automatically routing the commands to wherever the Helper extension happens to be running.
 
-### Helper Extension Examples
-
-Often it is easiest to understand a concept by looking at examples. With that in mind, here are several you can jump to that show what is described below:
+Here are a few examples of how "Helper" extensions can be used and how to implement them:
 
 - [Basic Helper Extension](https://aka.ms/vscode-remote/samples/helper-extension)
 - [Proxying an existing API - Basic](https://aka.ms/vscode-remote/samples/remote-api)
@@ -342,11 +340,11 @@ Often it is easiest to understand a concept by looking at examples. With that in
 
 ### Basic Helper Extension
 
-To illustrate how the Helper Extension pattern can cover a wide variety of scenarios, let's start with a basic example where we will surface an "echo" command in a UI Helper Extension that can be called by a Workspace Extension.
+Let's start with a basic "Helper" Extension. Here we will surface an "echo" command defined by a UI Helper Extension so that it can be invoked by our main Workspace Extension.
 
 ![Basic Helper Extension Architecture](images/remote-extensions/basic-helper.png)
 
-The key to the definition of a helper extension to add `"api": "none"` to `package.json` so that both UI and Workspace extensions can add the helper as a dependency. This tells VS Code that it can safely ignore any synchronous APIs returned as a part of the extension's activation function as all cross-extension communication with it will be done through commands.
+The key to defining a helper extension is setting `"api": "none"` in its `package.json`, which lets both UI and Workspace extensions add the helper as a extension dependency.
 
 *package.json (Helper Extension)*
 
@@ -361,7 +359,9 @@ The key to the definition of a helper extension to add `"api": "none"` to `packa
 }
 ```
 
-While the `package.json` above activates when an `_helper-extension.echo` command command is executed, the command is private and is therefore not added to the contributions list. Instead, it is justed registered in the extension code.
+Setting `"api": "none"` tells VS Code that it can safely ignore any synchronous APIs returned as a part of the extension's activation function, since all cross-extension communication with it will be done using commands.
+
+While the Helper Extension's `package.json` above activates when the `_helper-extension.echo` command is executed, the command is private and has not been added to the extension's contributions. Instead, we will register the command in our extension's `activate` function so that it can be used by our Workspace Extension:
 
 *extension.ts (Helper Extension)*
 
@@ -379,7 +379,7 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-The related main Workspace Extension can now add the Helper Extension as a dependency execute the registered private echo command. Once both are published to the marketplace, installing the main Workspace Extension would cause the Helper Extension to be installed as well.
+Now our main Workspace Extension can add the Helper Extension as a dependency. Once both extensions are published to the marketplace, installing the main Workspace Extension will install the Helper Extension as well.
 
 *package.json (Main Workspace Extension)*
 
@@ -393,13 +393,15 @@ The related main Workspace Extension can now add the Helper Extension as a depen
 }
 ```
 
+To communicate with the Helper Extension, our workspace extension simply invokes the private `_helper-extension.echo` command:
+
 *extension.ts (Main Workspace Extension)*
 
 ```typescript
 import * as vscode from 'vscode';
 
 export async function activate(context: vscode.ExtensionContext) {
-    // Execute the echo command
+    // Invoke the echo command on the helper extension
     await vscode.commands.executeCommand('_helper-extension.echo', 'Hello!');
 }
 ```
@@ -473,7 +475,7 @@ export async function setEchoTimer(message: string, delay: Number): Promise<void
  }
 ```
 
-Finally, any we update any imports that reference `example-api` in the main Workspace Extension to `remote-example-api`. At this point, the main extension will function like it did before but the API's function calls will be executed on the UI side instead.
+Finally, we update any imports that reference `example-api` in the main Workspace Extension to `remote-example-api`. At this point, the main extension will function like it did before but the API's function calls will be executed on the UI side instead.
 
 *extension.ts* (Main Workspace Extension)
 ```typescript
