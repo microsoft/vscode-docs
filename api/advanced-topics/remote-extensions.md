@@ -143,18 +143,22 @@ Now when you publish your extension, only users on VS Code 1.31 or newer will ge
 To use the APIs:
 
 ```TypeScript
-export function activate(context: vscode.ExtensionContext) {
-    const extensionGlobalStoragePath = context.globalStoragePath;
+import * as vscode from 'vscode';
+import * as fs from 'fs';
+import * as path from 'path';
 
-    // Verify the cross-extension global storage path exists, create it if not
-    const storageBasePath = path.resolve(context.globalStoragePath, '..');
-    if (!fs.existsSync(storageBasePath)) {
-        fs.mkdirSync(storageBasePath);
-    }
-    // Create extension's global storage path
-    if (!fs.existsSync(extensionGlobalStoragePath)) {
-        fs.mkdirSync(extensionGlobalStoragePath);
-    }
+export function activate(context: vscode.ExtensionContext) {
+    context.subscriptions.push(vscode.commands.registerCommand('doStuff', async () => {
+
+        // Create the extension's workspace storage folder if it does not already exist
+        if (!fs.existsSync(context.storagePath)) {
+            fs.mkdirSync(context.storagePath);
+        }
+
+        // Write a file to the workspace storage folder
+        fs.writeFileSync(path.join(context.storagePath, 'data.json'), JSON.stringify({ now: Date.now() }));
+        vscode.env.openExternal(vscode.Uri.file(context.storagePath));
+    }));
 }
 ```
 
@@ -223,7 +227,7 @@ Spawning a process or using a module like `opn` to launch a browser or other app
 
 Instead of relying on a 3rd party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better `vscode.env.openExternal` **does automatic port forwarding!** You can use it to point to a local web server on a remote machine and serve up content even if that port is blocked externally.
 
-This API was added in VS Code 1.31. To get started, update your `engines.vscode` value in `package.json`::
+This API was added in VS Code 1.31. To get started, update your `engines.vscode` value in `package.json`:
 
 ```json
 "engines": {
@@ -466,7 +470,7 @@ import * as vscode from 'vscode';
 
 // Use identical signature to echo in the original example-api module
 export async function echo(message: string): Promise<void> {
-   return await vscode.commands.executeCommand('_remote-api.apiBridge','echo', value);
+    return await vscode.commands.executeCommand('_remote-api.apiBridge','echo', value);
 }
 
 // This time for a different function with more arguments
