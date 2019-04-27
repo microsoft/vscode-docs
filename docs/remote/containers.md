@@ -31,7 +31,7 @@ To get started, follow these steps:
 
     2. Right-click on the Docker task bar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you run into trouble, see [here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) for tips on avoiding common problems with sharing.
 
-    3. **Windows**: Disable automatic line ending conversion for Git by using a Windows command prompt to run: `git config --global core.autocrlf false`
+    3. **Windows**: Disable automatic line ending conversion for Git by using a Windows command prompt to run: `git config --global core.autocrlf false` (If left enabled, this setting can cause files that you have not edited to appear modified due to line ending differences.)
 
     **Linux**:
 
@@ -80,7 +80,7 @@ Let's start out by using a sample project to try things out.
 
 3. Select **Remote-Containers: Open Folder in Container...** from the command list that appears, and open the root folder of the project you just cloned.
 
-4. The window will then reload, but since the container does not exist yet, VS Code will create one. This may take some time and a progress notification will provide status updates.
+4. The window will then reload, but since the container does not exist yet, VS Code will create one. This may take some time and a progress notification will provide status updates. Fortunately, this step will be skipped entirely the next time you open this same folder since the container will already exist.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
@@ -92,7 +92,7 @@ Next, we will cover how to set up an existing project folder to use a container 
 
 1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette and select the folder you'd like to open in a container.
 
-2. Select a **dev container definition** from the filterable list to use as a starting point for your container. If there is a [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) in the folder you selected, you can also use these files instead.
+2. Select a **dev container definition** from the filterable list to use as a starting point for your container. If there is a [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) in the folder you selected, you will also be able to select one of these files to start from instead.
 
     > **Note:** Alpine Linux and Windows based containers are not currently supported.
 
@@ -100,7 +100,7 @@ Next, we will cover how to set up an existing project folder to use a container 
 
     If you want to check out the contents of a dev container before picking one, see the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers).
 
-3. Once you pick a dev container definition, any needed configuration files like `devcontainer.json` are added to the folder and the VS Code window reloads. VS Code then begins creating a container and a progress notification shows status updates.
+3. Once you pick a dev container definition, any needed configuration files like `devcontainer.json` are added to the folder and the VS Code window reloads. VS Code then begins creating a container and a progress notification shows status updates. Fortunately, this step will be skipped entirely the next time you open this same folder since the container will already exist.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
