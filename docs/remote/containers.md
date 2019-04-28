@@ -580,7 +580,7 @@ See the following examples dev containers for additional information:
 
 ## Known limitations
 
-### Remote - Containers extension limitations
+### Remote - Containers limitations
 
 - Alpine Linux or Windows container images are not yet supported. Most images come with a Debian or Ubuntu based flavor you can use instead. (Typically Alpine variations end in `-alpine`).
 - All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
@@ -593,14 +593,18 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/containers/i
 
 - First time installs of Docker Desktop for Windows will require an additional "sharing" step to give your container access to local source code. However, step may not work with certain AAD (email based) identities. See [here](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) and [here](/docs/remote/troubleshooting.md#enabling-file-sharing-in-docker-desktop) for details and workarounds.
 - If you see high CPU spikes for `com.docker.hyperkit` on Mac, this may be due to a [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759). See the Docker issue for details.
-- If you see "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease" or "E: Some index files failed to download. They have been ignored, or old ones used instead" when building a Dockerfile, you may be hitting  known Docker issue with Debian 8 (Jessie). See [here for a workaround](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
+- If you see either of these messages building a Dockerfile, you may be hitting a known Docker issue with Debian 8 (Jessie):
+    ```text
+    W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease
+    E: Some index files failed to download. They have been ignored, or old ones used instead
+    ```
+    See [here for a workaround](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
 
 See [here for other notable Docker-related issues](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
 
 ### Extension limitations
 
-Many, but not all, extensions will work in a dev container without changes. See [here for a summary](/docs/remote/troubleshooting.md#tips-for-resolving-extension-issues) of common problems and tips for resolving them.
-
+Many extensions will work inside dev containers without modification. However, in some cases, certain features may require changes. If you run into an extension issue, [see here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extensiont-tips) that you can mention to the extension author when reporting the issue.
 ## Common questions
 
 ### I am seeing errors when trying to mount the local filesystem into a container, how do I fix this?

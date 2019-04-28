@@ -134,7 +134,7 @@ Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/i
 
 ### Extension limitations
 
-Many, but not all, extensions will work in WSL without changes. See [here for a summary](/docs/remote/troubleshooting.md#tips-for-resolving-extension-issues) of common problems and tips for resolving them.
+Many extensions will work in WSL without modification. However, in some cases, certain features may require changes. If you run into an extension issue, [see here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extensiont-tips) that you can mention to the extension author when reporting the issue.
 
 ## Common questions
 
