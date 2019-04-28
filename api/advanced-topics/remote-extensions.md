@@ -48,16 +48,7 @@ Follow these steps:
 
 You can edit and debug your extension in a container by following these steps.
 
-1. Add a `.devcontainer/devcontainer.json` or `.devcontainer.json` file with the [appropriate contents](/docs/remote/containers#creating-a-devcontainerjson-file-for-existing-projects) to your extension source code folder.
-
-For example:
-
-    ```json
-    {
-        "name": "Extension Container",
-        "image": "debian:9"
-    }
-    ```
+1. Add a `.devcontainer/devcontainer.json` or `.devcontainer.json` file with the [appropriate contents](/docs/remote/containers#creating-a-devcontainerjson-file-for-existing-projects) to your extension source code folder. Use the command `Remote-Containers: Create Configuration File...` to add a container configuration for your extension. From the list select the 'Node.js 8' definition. 
 
 2. Edit your `launch.json` to add a second argument to the `args` property that points to the path of a test project or your test data in your workspace folder or that will be in the container when it starts. (Note: You cannot use the workspace folder itself.) By default, the user's home folder (`$HOME`) is used. For example, if your test data is in a `data` folder in your workspace, you would add `${workspaceFolder}/data` as follows:
 
