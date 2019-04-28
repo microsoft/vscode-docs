@@ -132,6 +132,10 @@ NodeJS Error: spawn EACCES (different variants of this error) | https://github.c
 Webpack HMR not working | https://github.com/Microsoft/WSL/issues/2709 |
 Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/issues/2657 |
 
+### Extension limitations
+
+Many, but not all, extensions will work in WSL without changes. See [here for a summary](/docs/remote/troubleshooting.md#tips-for-resolving-extension-issues) of common problems and tips for resolving them.
+
 ## Common questions
 
 ### How do I change the distribution Remote - WSL uses?
