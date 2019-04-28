@@ -164,6 +164,8 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## Known limitations
 
+### Remote - SSH extension limitations
+
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
 - Windows and MacOS SSH Hosts are **not** yet supported. (Windows and MacOS clients **are** supported.)
 - Linux hosts must have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed.
@@ -171,6 +173,10 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 - You cannot drag files out of the File Explorer to your local filesystem to copy them.
 - Local proxy settings are not reused on the remote host which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 - See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) on GitHub that are tagged with SSH.
+
+### Extension limitations
+
+Many, but not all, extensions will work in a dev container without changes. See [here for a summary](/docs/remote/troubleshooting.md#tips-for-resolving-extension-issues) of common problems and tips for resolving them.
 
 ## Common questions
 
