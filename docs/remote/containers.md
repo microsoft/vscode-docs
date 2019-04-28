@@ -92,13 +92,13 @@ Next, we will cover how to set up an existing project folder to use a container 
 
 1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette and select the folder you'd like to open in a container.
 
-2. Select a **dev container definition** from the filterable list to use as a starting point for your container. If there is a [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) in the folder you selected, you will also be able to select one of these files to start from instead.
+2. Select a **dev container definition** from the filterable list to use as a starting point for your container. If there is a [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) in the folder you selected, you will also have the option to select one of these files to base your dev container on instead.
 
     > **Note:** Alpine Linux and Windows based containers are not currently supported.
 
     ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
 
-    If you want to check out the contents of a dev container before picking one, see the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers).
+    Each of the definitions in this list come from the the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), so you can browse the `containers` folder in the repository to see their contents before selecting one. 
 
 3. Once you pick a dev container definition, any needed configuration files like `devcontainer.json` are added to the folder and the VS Code window reloads. VS Code then begins creating a container and a progress notification shows status updates. Fortunately, this step will be skipped entirely the next time you open this same folder since the container will already exist.
 
