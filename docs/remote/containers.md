@@ -92,15 +92,15 @@ Next, we will cover how to set up an existing project folder to use a container 
 
 1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette and select the folder you'd like to open in a container.
 
-2. Select a **dev container definition** from the filterable list to use as a starting point for your container. If there is a [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) in the folder you selected, you will also have the option to select one of these files to base your dev container on instead.
+2. Next, pick a starting point for your dev container. You can select a **dev container definition** from a filterable list or an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one is in the folder you selected.
 
     > **Note:** Alpine Linux and Windows based containers are not currently supported.
 
     ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
 
-    Each of the definitions in this list come from the the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), so you can browse the `containers` folder in the repository to see their contents before selecting one. 
+    Note that each dev container definition in the pick list comes from  the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder in the repository to see the contents of each definition before selecting one. 
 
-3. Once you pick a dev container definition, any needed configuration files like `devcontainer.json` are added to the folder and the VS Code window reloads. VS Code then begins creating a container and a progress notification shows status updates. Fortunately, this step will be skipped entirely the next time you open this same folder since the container will already exist.
+3. After you pick a starting point for your container, VS Code will add configuration files like `devcontainer.json` to your folder and the window will reload. VS Code then begins creating your dev container and a progress notification provides status updates. Note that this step will be skipped entirely the next time you open this same folder since the container will already exist.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
