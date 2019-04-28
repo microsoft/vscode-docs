@@ -162,6 +162,12 @@ Once you are connected to a remote host, you can use VS Code's debugger in the s
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
+## SSH host specific settings
+
+VS Code's user settings will apply to both folders opened locally and on any SSH host. For most settings, this is really useful, but some settings are absolute paths that may vary between your local machine and different SSH hosts. You may also want to alter settings like the active theme based on whether you are connected to a SSH host or not.
+
+Fortunately, you can add host specific user settings to `~/.vscode-remote/data/Machine/settings.json` on the host that will override any local settings you have in place. You can quickly access them by running the **Preferences: Open Remote Settings** command from the command palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor.
+
 ## Known limitations
 
 ### Remote - SSH limitations

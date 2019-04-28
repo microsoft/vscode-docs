@@ -105,6 +105,12 @@ Once you've opened a folder in WSL, you can use VS Code's debugger in the same w
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
+## WSL specific settings
+
+VS Code's user settings will apply to both folders opened locally and in WSL. For most settings, this is really useful, but some settings are absolute paths that may vary between your local machine and WSL. You may also want to alter settings like the active theme based on whether you are connected to WSL or not.
+
+Fortunately, you can add WSL specific user settings to `~/.vscode-remote/data/Machine/settings.json` in WSL that will override any local settings you have in place. You can quickly access them by running the **Preferences: Open Remote Settings** command from the command palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor.
+
 ## Known limitations
 
 This section contains a list of common know issues with WSL. The intent is not to provide a complete list of issues but to highlight some of the common problems seen with WSL.
