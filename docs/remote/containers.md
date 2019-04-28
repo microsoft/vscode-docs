@@ -100,11 +100,11 @@ Next, we will cover how to set up an existing project folder to use a container 
 
     Note that each dev container definition in the pick list comes from  the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder in the repository to see the contents of each definition before selecting one. 
 
-3. After you pick a starting point for your container, VS Code will add configuration files like `devcontainer.json` to your folder and the window will reload. VS Code then begins creating your dev container and a progress notification provides status updates. Note that this step will be skipped entirely the next time you open this same folder since the container will already exist.
+3. After you pick a starting point for your container, VS Code adds any needed configuration files like `.devcontainer/devcontainer.json` to your folder and the window reloads. VS Code then begins creating your dev container and a progress notification provides you status updates. Note that this step will be skipped entirely the next time you open this same folder since the container will already exist.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-After it's done, VS Code automatically connects to the container and you can interact with the folder just as you did when open locally. Next time you open the same folder, the configuration you chose will be reused.
+4. After it's done, VS Code automatically connects to the container and you can interact with the folder just as you did when open locally. Next time you open the same folder, the configuration you chose will be reused.
 
 ## Creating a devcontainer.json file for existing projects
 
