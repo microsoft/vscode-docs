@@ -441,7 +441,7 @@ You can either:
 
 > **Note:**  Alpine Linux and Windows based containers are not currently supported.
 
-VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file (if they are not already running). This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above. However, since you may want to use some of the containers after you shut down VS Code, VS Code does not attempt to shut them down automatically.
+VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file (if they are not already running). This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above.
 
 To reuse `docker-compose.yml` unmodified, just create a `.devcontainer/devcontainer.json` with the following properties:
 
