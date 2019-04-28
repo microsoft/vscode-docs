@@ -344,6 +344,27 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 1. Open a terminal
 2. Type `docker system prune --all`
 
+### Adding another volume mount
+
+You can add a volume mount to any local folder using these steps:
+
+1. Configure the volume mount:
+
+   - When an **image or Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file:
+
+        ```json
+        "runArgs": ["-v","/local/source/path/goes/here:/target/path/in/container/goes/here"]
+        ```
+
+   - When an **Docker Compose** file is referenced, add the following to your `docker-compose.yml`:
+
+        ```json
+        volumes:
+          - /local/source/path/goes/here:/target/path/in/container/goes/here
+        ```
+
+2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the command palette (`kbstyle(F1)`) to pick up the change.
+
 ### Connecting to multiple containers
 
 Currently you can only connect to one container per VS Code window. However, you can spin up multiple containers and [attach to them](/docs/remote/containers.md#attaching-to-running-containers) from different VS Code windows to work around this limitation.
