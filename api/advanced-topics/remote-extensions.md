@@ -86,7 +86,7 @@ For example:
 
 You can edit and debug your extension on a remote [SSH host](/docs/remote/ssh) or in [WSL](/docs/remote/wsl) by following similar steps to the container case.
 
-1. For SSH, you'll need to instead open a copy of the extension project on the remote host (for example by using the **Remote-SSH: New Window...** command, and then **File** > **Open** to select the cloned copy of the extension.) For WSL, open the local folder containing your extension project in WSL (for example by using **File** > **New WSL Window** and then **File** > **Open** to select the folder).
+1. For SSH, you'll need to instead open a copy of the extension project on the remote host (for example by using the **Remote-SSH: Connect to Host...** command, and then **File** > **Open** to select the cloned copy of the extension.) For WSL, open the local folder containing your extension project in WSL (for example by using **File** > **New WSL Window** and then **File** > **Open** to select the folder).
 
 2. Once the folder is open on the SSH host / in WSL, you can edit your source code as you would in the local case.
 
