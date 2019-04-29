@@ -15,15 +15,15 @@ This article summarizes what extension authors need to know about VS Code Remote
 
 In order to make remote development as transparent as possible to users, VS Code distinguishes two classes of extensions:
 
-- **UI Extensions**: These extensions make contributions to the VS Code user interface and are always run on the user's local machine. UI extensions cannot directly access files in the workspace, or run scripts/tools installed in that workspace or on the machine. Example UI extensions include: themes, snippets, language grammars, and keymaps.
+- **UI Extensions**: These extensions make contributions to the VS Code user interface and are always run on the user's local machine. UI Extensions cannot directly access files in the workspace, or run scripts/tools installed in that workspace or on the machine. Example UI Extensions include: themes, snippets, language grammars, and keymaps.
 
-- **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, workspace extensions are run on the local machine. When in a remote workspace, workspace extensions are run on the remote machine. Workspace extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in workspace (either themselves or by invoking scripts/tools).
+- **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions are run on the local machine. When in a remote workspace, Workspace Extensions are run on the remote machine. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in workspace (either themselves or by invoking scripts/tools).
 
 When a user installs an extension, VS Code automatically installs it to the correct location based on its type: UI Extensions are run by VS Code's [local Extension Host](/api/advanced-topics/extension-host), while Workspace Extensions are run by a **Remote Extension Host** that sits in a small **VS Code Server**. This server is automatically installed (or updated) when you open a folder in Windows Subsystem for Linux (WSL), in a container, or on a remote SSH host. (VS Code also automatically manages starting and stopping the server, so users are often not aware of its presence.)
 
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
-VS Code APIs are designed to automatically run on the correct machine (either local or remote) when called from both UI or Workspace extensions. However, if your extension uses APIs not provided by VS Code — such using Node APIs or running shell scripts — it may not work properly when run remotely. We recommend that you test that all features of your extension work properly in both local and remote workspaces.
+VS Code APIs are designed to automatically run on the correct machine (either local or remote) when called from both UI or Workspace Extensions. However, if your extension uses APIs not provided by VS Code — such using Node APIs or running shell scripts — it may not work properly when run remotely. We recommend that you test that all features of your extension work properly in both local and remote workspaces.
 
 ## Testing and debugging your extension
 
@@ -232,7 +232,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 ### Opening something in a local browser or application
 
-Spawning a process or using a module like `opn` to launch a browser or other application for particular URI can work well for local scenarios, but Workspace extensions run remotely, which can cause the application to launch on the wrong side. VS Code Remote Development **partially** shims the `opn` node module to allow existing extensions to function. You can call the module with a URI and VS Code will cause the default application for the URI to appear on the client side. However, this is not a complete implementation, as options are not support and a `child_process` object is not returned.
+Spawning a process or using a module like `opn` to launch a browser or other application for particular URI can work well for local scenarios, but Workspace Extensions run remotely, which can cause the application to launch on the wrong side. VS Code Remote Development **partially** shims the `opn` node module to allow existing extensions to function. You can call the module with a URI and VS Code will cause the default application for the URI to appear on the client side. However, this is not a complete implementation, as options are not support and a `child_process` object is not returned.
 
 Instead of relying on a third-party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better, `vscode.env.openExternal` **does automatic port forwarding!** You can use it to point to a local web server on a remote machine and serve up content even if that port is blocked externally.
 
@@ -267,7 +267,7 @@ If you need to do something more sophisticated like launch an arbitrary applicat
 
 ### Communicating between extensions using commands
 
-Some extensions return APIs as a part of their activation function that are intended for other extensions to use (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI extensions or all Workspace extensions), these will not work between UI and Workspace extensions.
+Some extensions return APIs as a part of their activation function that are intended for other extensions to use (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI Extensions or all Workspace Extensions), these will not work between UI and Workspace Extensions.
 
 Fortunately, VS Code automatically routes any executed commands to the correct extension regardless of its location. You can freely invoke any command (including those provided by other extensions) without worrying about impacts.
 
@@ -305,7 +305,7 @@ By default, `localhost` inside a webview resolves to the user's local machine. T
 
 You can work around this by using the webview [message passing](/api/extension-guides/webview#scripts-and-message-passing) API instead of accessing localhost directly. Alternatively, you can **add a port mapping** to your webview so that certain ports are transparently forwarded to the remote machine where the extension is running.
 
-Port mapping maps a localhost port used inside your webview to an arbitrary port on the machine where your extension is running. If your workspace extension is running remotely and defines a port mapping, traffic will be automatically and securely forwarded from the local machine to the remote machine. If your extension is running locally, a port mapping simply remaps one localhost port to another. Webview port mapping works for both UI and workspace extensions, and in both local and remote workspaces.
+Port mapping maps a localhost port used inside your webview to an arbitrary port on the machine where your extension is running. If your workspace extension is running remotely and defines a port mapping, traffic will be automatically and securely forwarded from the local machine to the remote machine. If your extension is running locally, a port mapping simply remaps one localhost port to another. Webview port mapping works for both UI and Workspace Extensions, and in both local and remote workspaces.
 
 The port mapping API was added in VS Code 1.34. To use it, start by updating the `engines.vscode` value in your extension's `package.json`:
 
@@ -366,7 +366,7 @@ Let's start with a basic "Helper" Extension. Here we will surface an "echo" comm
 
 ![Basic Helper Extension Architecture](images/remote-extensions/basic-helper.png)
 
-The key to defining a helper extension is setting `"api": "none"` in its `package.json`, which lets both UI and Workspace extensions add the helper as an extension dependency.
+The key to defining a helper extension is setting `"api": "none"` in its `package.json`, which lets both UI and Workspace Extensions add the helper as an extension dependency.
 
 package.json (Helper Extension):
 
