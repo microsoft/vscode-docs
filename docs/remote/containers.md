@@ -80,7 +80,7 @@ Let's start out by using a sample project to try things out.
 
 3. Select **Remote-Containers: Open Folder in Container...** from the command list that appears, and open the root folder of the project you just cloned.
 
-4. The window will then reload, but since the container does not exist yet, VS Code will create one. This may take some time and a progress notification will provide status updates. Fortunately, this step will be skipped entirely the next time you open this same folder since the container will already exist.
+4. The window will then reload, but since the container does not exist yet, VS Code will create one. This may take some time, and a progress notification will provide status updates. Fortunately, this step will be skipped entirely the next time you open this same folder since the container will already exist.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
