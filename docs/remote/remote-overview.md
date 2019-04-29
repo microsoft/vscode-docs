@@ -27,7 +27,7 @@ Better yet, **no source code** needs to be on your local machine to get these be
 
 > **Dogfooding Notes (UPDATED):**
 
-> 1. You currently need to install a private versions of the VS Code Remote Development extensions. First download [Visual Studio Code Insiders](https://code.visualstudio.com/insiders).
+> 1. You currently need to install private versions of the VS Code Remote Development extensions. First download [Visual Studio Code Insiders](https://code.visualstudio.com/insiders).
 > 2. Next, sign into a Microsoft GitHub org associated GitHub account from a browser.
 > 3. Download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code Insiders.
 > 4. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
