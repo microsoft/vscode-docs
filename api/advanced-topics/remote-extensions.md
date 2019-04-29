@@ -79,7 +79,7 @@ You can edit and debug your extension in a container by following these steps.
 
 You can edit and debug your extension on a remote [SSH host](/docs/remote/ssh) or in [WSL](/docs/remote/wsl) by following similar steps to the container case.
 
-1. For SSH, you'll need to instead open a copy of the extension project on the remote host (for example by using the **Remote-SSH: Connect to Host...** command, and then **File** > **Open** to select the cloned copy of the extension.) For WSL, open the local folder containing your extension project in WSL (for example by using **File** > **New WSL Window** and then **File** > **Open** to select the folder).
+1. For SSH, you'll need to instead open a copy of the extension project on the remote host (for example, by using the **Remote-SSH: Connect to Host...** command, and then **File** > **Open** to select the cloned copy of the extension.) For WSL, open the local folder containing your extension project in WSL (for example by using **File** > **New WSL Window** and then **File** > **Open** to select the folder).
 
 2. Once the folder is open on the SSH host / in WSL, you can edit your source code as you would in the local case.
 
@@ -117,7 +117,7 @@ Using `remote.extensionKind` allows you to quickly test published versions of ex
 
 In some cases, your extension may need to persist state information that does not belong in `settings.json` or a separate workspace configuration file (for example `.eslintrc`). To solve this problem, VS Code provides a set of helpful storage properties on the `vscode.ExtensionContext` object passed to your extension during activation. If your extension already takes advantage of these properties, it should continue to function regardless of where it runs.
 
-However, if your extension relies on current VS Code pathing conventions (for example `~/.vscode`) or the presence certain OS folders (for example `~/.config/Code` on Linux) to persist data, you may run into problems. Fortunately, it should be simple to update your extension and avoid these challenges.
+However, if your extension relies on current VS Code pathing conventions (for example `~/.vscode`) or the presence of certain OS folders (for example `~/.config/Code` on Linux) to persist data, you may run into problems. Fortunately, it should be simple to update your extension and avoid these challenges.
 
 If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStoragePath` and `storagePath` properties provide "safe" paths that you can use to read/write global workspace-specific information in a file.
 
@@ -295,7 +295,7 @@ You can also use the command interface in more sophisticated ways to bridge APIs
 
 ## Using the Webview API
 
-Like the clipboard API, the [Webview API](/api/extension-guides/webview) is always run on user's local machine, even when used from a Workspace extension. This means that many webview-based extensions should just work, even when used in remote workspaces. However there are some considerations to be aware to make sure that your webview extension works properly when run remotely.
+Like the clipboard API, the [Webview API](/api/extension-guides/webview) is always run on the user's local machine, even when used from a Workspace extension. This means that many webview-based extensions should just work, even when used in remote workspaces. However there are some considerations to be aware of to make sure that your webview extension works properly when run remotely.
 
 ### Accessing localhost
 
@@ -303,7 +303,7 @@ By default, `localhost` inside a webview resolves to the user's local machine. T
 
 ![Webview problem](images/remote-extensions/webview-problem.png)
 
-You can work around this by using the webview [message passing](/api/extension-guides/webview.m#scripts-and-message-passing) API instead of accessing localhost directly. Alternatively, you can **add a port mapping** to your webview so that certain ports are transparently forwarded to the remote machine where the extension is running.
+You can work around this by using the webview [message passing](/api/extension-guides/webview#scripts-and-message-passing) API instead of accessing localhost directly. Alternatively, you can **add a port mapping** to your webview so that certain ports are transparently forwarded to the remote machine where the extension is running.
 
 Port mapping maps a localhost port used inside your webview to an arbitrary port on the machine where your extension is running. If your workspace extension is running remotely and defines a port mapping, traffic will be automatically and securely forwarded from the local machine to the remote machine. If your extension is running locally, a port mapping simply remaps one localhost port to another. Webview port mapping works for both UI and workspace extensions, and in both local and remote workspaces.
 
@@ -344,7 +344,7 @@ panel.webview.html = `<!DOCTYPE html>
     </html>`;
 ```
 
-Now the webview's traffic to `localhost:3000` will be transparently routed to the remote machine using VS Code's existing, secure communication channel:
+Now the webview's traffic to `localhost:3000` will be transparently routed to the remote machine using VS Code's existing secure communication channel:
 
 ![Webview Solution](images/remote-extensions/webview-solution.png)
 
@@ -458,7 +458,7 @@ export async function setEchoTimer(msg: string, delay: number): Promise<void> {
 
 ```
 
-To allow this API to be called remotely, the [Helper Extension](#accessing-local-apis-using-a-helper-extension) can be modified to introduce a private **API Bridge** command designed call any method on the API surface.
+To allow this API to be called remotely, the [Helper Extension](#accessing-local-apis-using-a-helper-extension) can be modified to introduce a private **API Bridge** command designed to call any method on the API surface.
 
 extension.ts (Helper Extension):
 
@@ -599,7 +599,7 @@ There are a few extension problems that could be resolved with some added functi
 
 - See [Tips and Tricks](/docs/remote/troubleshooting#ssh-tips) or the [FAQ](/docs/remote/faq).
 - Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
-- [Up-vote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new)
+- [Upvote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new)
 - Contribute a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
 - Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
 - ...and more. See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
