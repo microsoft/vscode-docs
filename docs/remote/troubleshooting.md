@@ -282,7 +282,7 @@ If you do not have your email address set up locally, you may be prompted to do 
 git config --global user.email "your.email@address"
 ```
 
-You can also opt to extend your configuration instead to achieve the same thing without modifying your existing Docker Compose file. See [here fore additional details](/docs/remote/containers.md#extending-your-docker-compose-file-for-development).
+You can also opt to extend your configuration instead to achieve the same thing without modifying your existing Docker Compose file. See [here for additional details](/docs/remote/containers.md#extending-your-docker-compose-file-for-development).
 
 ### Resolving errors about missing Linux dependencies
 
