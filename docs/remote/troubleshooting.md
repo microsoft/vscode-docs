@@ -215,14 +215,14 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 | Earlier Windows | Install [Git for Windows](https://git-scm.com/download/win) and select the **Use Git and optional Unix tools from the Command Prompt** option or manually add `C:\Program Files\Git\usr\bin` into your PATH. |
 | macOS | No steps required. |
 | Debian/Ubuntu | Run `sudo apt-get install openssh-client` |
-| RHL / Fedora / CentOS | Run `sudo yum install openssh-clients` |
+| RHEL / Fedora / CentOS | Run `sudo yum install openssh-clients` |
 
 ### Installing a supported SSH server
 
 | OS | Instructions |
 |----|--------------|
 | Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See [here](https://help.ubuntu.com/community/SSH?action=show) for additional setup instructions. |
-| RHL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
+| RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
 | macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. | |
 
 ## Container tips
