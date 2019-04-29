@@ -90,7 +90,7 @@ Next, we will cover how to set up an existing project folder to use a container 
 
     ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
 
-    Note that each dev container definition in the pick list comes from  the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder in the repository to see the contents of each definition before selecting one. 
+    Note that each dev container definition in the pick list comes from  the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder in the repository to see the contents of each definition before selecting one.
 
 3. After you pick a starting point for your container, VS Code adds any needed configuration files like `.devcontainer/devcontainer.json` to your folder and the window reloads. VS Code then begins creating your dev container and a progress notification provides you status updates. Note that this step will be skipped entirely the next time you open this same folder since the container will already exist.
 
@@ -343,20 +343,7 @@ If you are not able to find an image that meets your needs or just want to autom
 
 ### Using an existing container image
 
-You can use the following properties in a `.devcontainer/devcontainer.json` in your project root to configure VS Code for use with an existing container image:
-
-| Property | Type | Description |
-|----------|------|-------------|
-| `image` | string | Required. The name of an image in a container registry ([DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) that VS Code should use to create the dev container. |
-| `name` | string | [Optional] A display name for the container. |
-| `extensions` | array | [Optional] Defaults to `[]`. An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
-| `postCreateCommand` | string or array | [Optional] Defaults to none. A command or list of commands to run after the container is created. (e.g. `yarn install`) |
-| `context` | string | [Optional] Defaults to `"."`. Path that the Docker build should be run from relative to `devcontainer.json`. For example, a value of `".."` would allow you to reference content in sibling directories. |
-| `appPort` | integer, string, or array | [Optional] Defaults to `[]`. A port or array of ports that should be made available locally when the container is running (beyond those already exposed by the container image). |
-| `runArgs` | array | [Optional] Defaults to `[]`. An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. |
-| `overrideCommand` | boolean | [Optional] Defaults to `true`. Tells VS Code whether it should run `sleep infinity` when starting the container instead of the default command to prevent the container from immediately shutting down if the default command fails. |
-| `shutdownAction` | enum: `none`, `stopContainer` | [Optional] Defaults to `stopContainer`. Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. |
-| `devPort` | integer | [Optional] Defaults to a random, available port. Allows you to force a specific port that the VS Code Server should use in the container. |
+You can use the `image` property in a `.devcontainer/devcontainer.json` in your project root to configure VS Code for use with an existing container image. The image should reside in a container registry ([DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) that VS Code can use to create the dev container.
 
 For example:
 
@@ -370,6 +357,8 @@ For example:
     ]
 }
 ```
+
+See the [devcontainer.json reference](#devcontainerjson-reference) for other properties such as the `appPort` and `extensions` list.
 
 To open the folder in the container, run the **Remote-Containers: Open Folder in Container** or **Remote: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`). Once the container has been created, the **local filesystem will be automatically mapped** into the container and you can start working with it from VS Code.
 
@@ -400,19 +389,7 @@ To create a customized sandbox or application in a single container, you can use
 
 You may want to install other tools such as Git inside the container, which you can easily [do manually](#installing-additional-software-in-the-sandbox). However, you can also create a custom `Dockerfile` specifically for development that includes these dependencies. The [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) contains examples you can use as a starting point.
 
-You can use the following properties in `.devcontainer/devcontainer.json` to configure VS Code for use with your `Dockerfile`:
-
-| Property | Type | Description |
-|----------|------|-------------|
-| `dockerFile` | string | Required. The location of the [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes [in this repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/dev-containers). |
-| `name` | string | [Optional] A display name for the container. |
-| `extensions` | array | [Optional] An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
-| `postCreateCommand` | string or array | [Optional] Defaults to none. A command or list of commands to run after the container is created. (e.g. `yarn install`) |
-| `appPort` | integer, string, or array | [Optional] Defaults to `[]`. A port or array of ports that should be made available locally when the container is running (beyond those already exposed by the container image). |
-| `runArgs` | array | [Optional] Defaults to `[]`. An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. |
-| `overrideCommand` | boolean | [Optional] Defaults to `true`. Tells VS Code whether it should run `sleep infinity` when starting the container instead of the default command to prevent the container from immediately shutting down if the default command fails. |
-| `shutdownAction` | enum: `none`, `stopContainer` | [Optional] Defaults to `stopContainer`. Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. |
-| `devPort` | integer | [Optional] Defaults to a random, available port. Allows you to force a specific port that the VS Code Server should use in the container. |
+You can use the `dockerFile` property in `.devcontainer/devcontainer.json` to configure VS Code for use with your `Dockerfile`.
 
 For example:
 
@@ -426,6 +403,8 @@ For example:
     ]
 }
 ```
+
+See the [devcontainer.json reference](#devcontainerjson-reference) for other properties such as the `appPort` and `extensions` list.
 
 The example below uses `runArgs` to change the security policy to enable the ptrace system call for Go development container:
 
@@ -459,18 +438,7 @@ You can either:
 
 VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file (if they are not already running). This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above.
 
-To reuse `docker-compose.yml` unmodified, just create a `.devcontainer/devcontainer.json` with the following properties:
-
-| Property | Type | Description |
-|----------|------|-------------|
-| `dockerComposeFile` | string  or array | Required. Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. |
-| `service` | string | Required. The name of the service you want to work on. |
-| `workspaceFolder` | string | [Optional] Defaults to `"/"`. Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container.)  |
-| `name` | string | [Optional] A display name for the container. |
-| `extensions` | array | [Optional] Defaults to `[]`. An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
-| `postCreateCommand` | string or array | [Optional] Defaults to none. A command or list of commands to run after the container hs created. (e.g. `yarn install`) |
-| `shutdownAction` | enum: `none`, `stopCompose` | [Optional] Defaults to `stopCompose`. Indicates whether VS Code should execute `docker-compose stop` when the VS Code window is closed / shut down. |
-| `devPort` | integer | [Optional] Defaults to a random, available port. Allows you to force a specific port that the VS Code Server should use in the container. |
+To reuse a `docker-compose.yml` unmodified, you can use the `dockerComposeFile` and `service` properties in a `.devcontainer/devcontainer.json`.
 
 For example:
 
@@ -483,6 +451,8 @@ For example:
     "shutdownAction": "stopCompose"
 }
 ```
+
+See the [devcontainer.json reference](#devcontainerjson-reference) for other properties such as the `workspaceFolder` and `shutdownAction`.
 
 Note that you may want to alter your existing Docker Compose file to mount your local `.gitconfig` folder so you don't have to set up Git inside of the container if you install it. (See [below](#extending-your-docker-compose-file-for-development) if you'd prefer not to alter your existing files.)
 
@@ -593,6 +563,29 @@ See the following examples dev containers for additional information:
 - [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose) - Variation of Docker-in-Docker for situations where you are using Docker Compose instead of a single Dockerfile.
 
 - [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Includes the Docker CLI, kubectl, and Helm and illustrates how you can use them from inside a dev container to access a local Minikube or Docker provided Kubernetes cluster.
+
+## devcontainer.json  reference
+
+| Property | Type | Description |
+|----------|------|-------------|
+|**Container image**|||
+| `image` | string | The name of an image in a container registry ([DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) that VS Code should use to create the dev container. |
+|**Dockerfile**|||
+| `dockerFile` | string | The location of the [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes [in this repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/dev-containers). |
+|**Docker compose**|||
+| `dockerComposeFile` | string  or array | Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. |
+| `service` | string | The name of the service you want to work on. |
+|**General**|||
+| `name` | string | A display name for the container. |
+| `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
+| `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
+| `postCreateCommand` | string or array | A command or list of commands to run after the container is created (for example, `yarn install`). Defaults to none. |
+| `context` | string | Path that the Docker build should be run from relative to `devcontainer.json`. For example, a value of `".."` would allow you to reference content in sibling directories. Defaults to `"."`. |
+| `appPort` | integer, string, or array | A port or array of ports that should be made available locally when the container is running (beyond those already exposed by the container image). Defaults to `[]`. |
+| `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`. |
+| `overrideCommand` | boolean | Tells VS Code whether it should run `sleep infinity` when starting the container instead of the default command to prevent the container from immediately shutting down if the default command fails. Defaults to `true`. |
+| `shutdownAction` | enum: `none`, `stopContainer` | Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. Defaults to `stopContainer`. |
+| `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
 
 ## Known limitations
 
