@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Jupyter Support
 ContentId: 779b7ad3-0aaa-4632-9998-0d8f964c0599
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 01/30/2019
+DateApproved: 04/18/2019
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -25,13 +25,19 @@ You define Jupyter-like code cells within Python code using a `#%%` comment:
 #%%
 msg = "Hello World"
 print(msg)
+
+#%%
+msg = "Hello again"
+print(msg)
 ```
 
-When the Python extension detects a code cell, it adds a **Run Cell** or **Run All Cells** CodeLens above the comment:
+When the Python extension detects a code cell, it adds **Run Cell** and **Run Below** CodeLens adornments, as well as **Run Above** for all cells after the first:
 
 ![Jupyter adornments for code cells in the VS Code editor](images/jupyter/code-cells-01.png)
 
-Selecting either command starts Jupyter (if necessary, which might take a minute), then runs the cell(s) in the Python interactive window.
+**Run Cell** applies to only the one code cell. **Run Below** applies to that code cell and all that follow. **Run Above** applies to all the code cells up to, but not including, the cell with the adornment. You would use **Run Above**, for example, to initialize the state of the runtime environment before running that specific cell.
+
+Selecting a command starts Jupyter (if necessary, which might take a minute), then runs the appropriate cell(s) in the Python interactive window:
 
 ![Code cells running in a Python Interactive window](images/jupyter/code-cells-02.png)
 
@@ -39,7 +45,7 @@ You can also run code cells using the **Python: Run Selection/Line in Python Ter
 
 ### Python interactive window
 
-The Python interactive window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells).
+The Python interactive window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells). The window also supports [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/).
 
 To use the window as a console, open it with the **Python: Show Python Interactive window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
 

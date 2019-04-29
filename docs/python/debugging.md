@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 01/17/2019
+DateApproved: 04/25/2019
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -20,6 +20,8 @@ This article addresses only those considerations that are specific to Python, ma
 
 A configuration drives VS Code's behavior during a debugging session. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace.
 
+> **Note** In order to change debugging configuration, your code must be stored in a folder.
+
 To initialize debug configurations, first select the Debug View in the sidebar:
 
 ![Debug icon](images/debugging/debug-icon.png)
@@ -32,23 +34,24 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. Select the settings button (circled in the image above) or use the **Debug** > **Open configurations** menu command.
 
-1. In the **Select Environment** drop-down list that appears, select **Python**.
+1. A configuration menu will open from the Command Palette allowing you to choose the type of debug configuration you want for the opened file. For now, in the **Select a debug configuration** menu that appears, select **Python File**.
+![Debug configurations menu](images/debugging/debug-configurations.png)
 
-1. The Python extension then creates and opens a `launch.json` file that contains number of pre-defined configurations. You can modify configurations (to add arguments, for example), and also add custom configurations.
+> **Note** Starting a debugging session through the Debug Panel, **F5** or **Debug > Start Debugging**, when no configuration exists will also bring up the debug configuration menu.
+
+1. The Python extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
+![Configuration json](images/debugging/configuration-json.png)
 
 The details of configuration properties are covered later in this article under [Standard configuration and options](#set-configuration-options). Additional configurations are also described in this article under [Debugging specific app types](#debugging-specific-app-types).
 
-## Choose a configuration
-
-To select a debugging configuration, select the Debug View in the sidebar, then select an option of your choice from the drop-down list:
-
-![Selecting a debug configuration](images/debugging/debug-configurations.png)
-
-> **Note**: Previous versions of the Python extension used slightly different names for the configurations as shown in the above graphic, but they generally work the same.
+## Additional configurations
 
 By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and in the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to scroll down to see  all the Python options):
 
 ![Adding a new Python debugging configuration](images/debugging/add-configuration.png)
+
+Selecting the **Node.js: Gulp task** yields the following result:
+![Added a configuration](images/debugging/added-configuration.png)
 
 See [Debugging specific app types](#debugging-specific-app-types) for details on all of these configurations.
 
@@ -322,7 +325,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 ### Debugging over SSH
 
-In some cases, you may want or need to use a secure connection to the remote computer when debugging. On Windows computers, you may need to install [OpenSSH](http://sshwindows.sourceforge.net/) to have the `ssh` command.
+In some cases, you may want or need to use a secure connection to the remote computer when debugging. On Windows computers, you may need to install [OpenSSH](http://sshwindows.sourceforge.net/) or [Windows 10 OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) to have the `ssh` command.
 
 On the remote computer:
 
@@ -332,7 +335,7 @@ On the remote computer:
     AllowTcpForwarding yes
     ```
 
-1. Restart the SSH server. On Linux/macOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, and select **Restart**.
+1. Restart the SSH server. On Linux/macOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH or `sshd` in the list of services, and select **Restart**.
 
 1. Start the Python program and let it wait for the debugger to attach as described in the previous section.
 
@@ -441,6 +444,7 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
 1. On Windows and Linux, replace the first item in `args` with the path to wherever Google App Engine is installed (the path shown in the source code above is for macOS).
 
 1. Create a file named `pydev_startup.py` in your project root with the following contents, modified as noted:
+
     ```python
     import sys
     import os
@@ -456,6 +460,7 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
     # The debug server has started and you can now use VS Code to attach to the application for debugging
     print("Google App Engine has started; ready to attach the debugger")
     ```
+
 1. Create a `launch.json` configuration using the **Attach (Remote Debug)** configuration as a template. Make sure the port value matches what's in the source code above.
 1. Add `"preLaunchTask": "python"` to `launch.json`.
 1. From the Command Palette, run the **Run Build Task** command. This command opens the Tasks output window where you see various messages.
@@ -484,6 +489,13 @@ There are many reasons why the debugger may not work. Oftentimes the debug conso
       File ".../visualstudio_py_debugger.py", line 1234, in unblock
         self._block_lock.release()
     RuntimeError: release unlocked lock
+    ```
+
+- If you're working with a multi-threaded app that uses native thread APIs (such as the Win32 `CreateThread` function rather than the Python threading APIs), it's presently necessary to include the following source code at the top of whichever file you wish to debug:
+
+    ```python
+    import ptvsd
+    ptvsd.debug_this_thread()
     ```
 
 ## Next steps

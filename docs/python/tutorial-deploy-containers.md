@@ -345,7 +345,7 @@ With an image built and pushed to a registry, you can use the Docker extension i
 
 1. The App Service restarts automatically when you change settings. You can also right-click the App Service and select **Restart** at any time.
 
-1. After the service has restarted, browse the site at `http://<name>.azurewebsites.net`. You can `kbstyle(Ctrl+click)` the URL in the Output panel, or right-click the App Service in the **Azure: App Service** explorer and select **Browse Website**.
+1. After the service has restarted, browse the site at `http://<name>.azurewebsites.net`. You can use `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on the URL in the Output panel, or right-click the App Service in the **Azure: App Service** explorer and select **Browse Website**.
 
 ## Make changes and redeploy
 
@@ -384,6 +384,10 @@ From within VS Code, you can view (or "tail") logs from the running site on Azur
 
 1. Navigate within the app to see additional output for various HTTP requests.
 
+## Clean up resources
+
+The various Azure resources you created in this tutorial can incur ongoing costs. To clean them up, its best to visit [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
+
 ## Next steps
 
 Congratulations on completing this walkthrough of deploying a containerized Python app to Azure App Service!
@@ -396,11 +400,11 @@ There are also other Azure extensions for VS Code that you may find helpful. Jus
 
 ![Azure extensions for VS Code](images/deploy-containers/azure-extensions.png)
 
-A few favorites include:
+Some popular extensions are:
 
 - [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 - [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 - [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 - [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
-And again, if you've encountered any problems in the course of this tutorial, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+And again, if you encountered any problems in the course of this tutorial, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).

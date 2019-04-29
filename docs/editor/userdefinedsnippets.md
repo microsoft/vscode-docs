@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Creating snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Creating your own snippets in Visual Studio Code
-DateApproved: 3/7/2019
+DateApproved: 4/4/2019
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Creating your own snippets
@@ -51,7 +51,7 @@ Snippets are defined in a JSON format. The example below is a `For Loop` snippet
 
 In the example above:
 
-* `For Loop` is the snippet name.
+* `For_Loop` is the snippet name.
 * `prefix` defines how this snippet is selected from IntelliSense and tab completion. In this case `for`.
 * `body` is the content and either a single string or an array of strings of which each element will be inserted as separate line.
 * `description` is the description used in the IntelliSense drop down.

@@ -71,7 +71,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
         IdentityFile ~/.ssh/id_rsa-remote-ssh
     ````
 
-3. Add the contents the **local** `id_rsa-remote-ssh.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the remote host.
+3. Add the contents of the **local** `id_rsa-remote-ssh.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the remote host.
 
     On **macOS / Linux**, run the following command in a **local terminal** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2:
 
@@ -215,21 +215,21 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 | Earlier Windows | Install [Git for Windows](https://git-scm.com/download/win) and select the **Use Git and optional Unix tools from the Command Prompt** option or manually add `C:\Program Files\Git\usr\bin` into your PATH. |
 | macOS | No steps required. |
 | Debian/Ubuntu | Run `sudo apt-get install openssh-client` |
-| RHL / Fedora / CentOS | Run `sudo yum install openssh-clients` |
+| RHEL / Fedora / CentOS | Run `sudo yum install openssh-clients` |
 
 ### Installing a supported SSH server
 
 | OS | Instructions |
 |----|--------------|
 | Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See [here](https://help.ubuntu.com/community/SSH?action=show) for additional setup instructions. |
-| RHL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
+| RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
 | macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. | |
 
 ## Container tips
 
 ### Docker Desktop for Windows tips
 
-Docker Desktop for Windows works well in many cases, but there are a number of "gotchas" to that can cause real headaches. The following are some tips to avoid them:
+Docker Desktop for Windows works well in many cases, but there are a number of "gotchas" that can cause real headaches. The following are some tips to avoid them:
 
 1. **Use an AD domain account or local administrator account when sharing drives. Do not use an AAD (email-based) account.**  AAD (email-based) accounts have well known issues as documented [here](https://github.com/docker/for-win/issues/132) and [here](https://github.com/docker/for-win/issues/1352). If you must use this type of account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
 
@@ -282,7 +282,7 @@ If you do not have your email address set up locally, you may be prompted to do 
 git config --global user.email "your.email@address"
 ```
 
-You can also opt to extend your configuration instead to achieve the same thing without modifying your existing Docker Compose file. See [here fore additional details](/docs/remote/containers.md#extending-your-docker-compose-file-for-development).
+You can also opt to extend your configuration instead to achieve the same thing without modifying your existing Docker Compose file. See [here for additional details](/docs/remote/containers.md#extending-your-docker-compose-file-for-development).
 
 ### Resolving errors about missing Linux dependencies
 

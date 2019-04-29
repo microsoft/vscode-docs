@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 3/7/2019
+DateApproved: 4/4/2019
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -346,19 +346,21 @@ To resolve this issue, you need to track down where the old `npm` is installed a
 Once you have the path to npm, you can find the old node_modules by resolving the symlink by running a command something like this:
 
 ```bash
-ls -la /usr/local/bin | grep npm
+ls -la /usr/local/bin | grep "np[mx]"
 ```
 
 This will give you the resolved path at the end:
 
 ```bash
 ... npm -> ../lib/node_modules/npm/bin/npm-cli.js
+... npx -> ../lib/node_modules/npm/bin/npx-cli.js
 ```
 
 From there, removing the files and relaunching VS Code should fix the issue:
 
 ```bash
 rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
+rm -R /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
 ```
 
 ### Can I use Powerline fonts in the Integrated Terminal?
@@ -386,4 +388,12 @@ By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. You can co
   "command": "workbench.action.terminal.sendSequence",
   "args": { "text": "\u001bf" }
 }
+```
+
+### How do I fix the error "ConnectNamedPipe failed: Windows error 232"
+
+This error can occur due to anti-virus software intercepting winpty from creating a pty. To workaround this error, you can exclude the following file from your anti-virus scanning:
+
+```bash
+<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
 ```
