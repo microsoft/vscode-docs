@@ -90,7 +90,7 @@ Next, we will cover how to set up an existing project folder to use a container 
 
     ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
 
-    Note that each dev container definition in the pick list comes from  the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder in the repository to see the contents of each definition before selecting one. 
+    Note that each dev container definition in the pick list comes from  the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder in the repository to see the contents of each definition before selecting one.
 
 3. After you pick a starting point for your container, VS Code adds any needed configuration files like `.devcontainer/devcontainer.json` to your folder and the window reloads. VS Code then begins creating your dev container and a progress notification provides you status updates. Note that this step will be skipped entirely the next time you open this same folder since the container will already exist.
 
@@ -226,12 +226,12 @@ If there are extensions that you would like always installed in any container, y
 
 VS Code runs extensions in one of two places: locally on the **UI** / client side, or remotely on the **Workspace** / container side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location in your User [settings](/docs/getstarted/settings.md). For example, the `remote.extensionKind` setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
-````json
+```json
 "remote.extensionKind": {
     "ms-azuretools.vscode-cosmosdb": "ui",
     "msjsdiag.debugger-for-chrome": "workspace"
 }
-````
+```
 
 Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
