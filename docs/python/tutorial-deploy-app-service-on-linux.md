@@ -16,7 +16,7 @@ This tutorial walks you through using Visual Studio Code to deploy a Python appl
 
 - Apps are run with Python 3.7 using the [Gunicorn](https://gunicorn.org) web server.
 - The container includes [Flask](https://http://flask.pocoo.org) by default but not [Django](https://www.djangoproject.com).
-- To install Django and any other dependencies, you **must** provide a `requirements.txt` file and deploy to App Service using Git, as shown in this tutorial.
+- To install Django and any other dependencies, you **must** provide a `requirements.txt` file and deploy to App Service using Git, as shown in this tutorial. For App Service to install dependencies, `requirements.txt` must be deployed to the root folder.
 - Although the container can run Django and Flask apps automatically, provided the app matches an expected structure, you can also provide a custom startup command file through which you have full control over the Gunicorn command line. A custom startup command is typically required for Flask apps, but not Django apps.
 - The container definition itself is on the [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
 
@@ -87,7 +87,7 @@ If you don't already have an app you'd like to work with, use one of the options
 
 ## Create the App Service
 
-1. In the **Azure: App Service** explorer, select the **+** command to create a new App Service, or open the Command Palette and select **Azure App Service: Create New Web App**. (In App Service terminology, a "web app" is a **host** for web app code, not the app code itself.)
+1. In the **Azure: App Service** explorer, select the **+** command to create a new App Service, or open the Command Palette (`kb(workbench.action.showCommands)`) and select **Azure App Service: Create New Web App**. (In App Service terminology, a "web app" is a **host** for web app code, not the app code itself.)
 
     ![Create new App Service button in the App Service explorer](images/deploy-azure/app-service-create-new.png)
 
@@ -189,6 +189,8 @@ As noted earlier, you must deploy to App Service on Linux using Git in order for
     1. Open a terminal for the environment with **Terminal: Create New Integrated Terminal**.
     1. Make sure you're in the root folder of the app, then run `pip freeze > requirements.txt`.
 
+    > **Tip**: be sure to place `requirements.txt` in the root folder, otherwise App Service won't find it and won't automatically install your dependencies.
+
 1. In your project folder, create a file named `.gitignore` with the following contents (change `.venv` if you're using a different folder for a virtual environment):
 
     ```gitignore
@@ -232,6 +234,15 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
     - **GitHub**: code is deployed from the selected branch of a GitHub repository, and happens automatically when you push commits to the repository. Selecting this option successively prompts you for the organization, repository, and branch to use.
 
 1. With both choices, the extension connects the App Service to the repository. You don't see indications of the connection in VS Code itself; on the Azure portal, you can examine the connect on the Azure portal in the App Service's **Deployment Center** page.
+
+1. To shorten delployemtn time, you can exclude VS Code files and your virtual environment by adding the following lines to the `.vscode/settings.json` file (replace `.env` with your particular virtual environment folder):
+
+    ```json
+    "appService.zipIgnorePattern": [
+        ".vscode{,/**}",
+        ".env{,/**}"
+    ],
+    ```
 
 1. To deploy the app:
 
@@ -291,6 +302,10 @@ When you use the App Service extension in VS Code to set GitHub as the deploymen
 
 1. Once disconnected, you can configure a new connection directly on the portal, or you can use the App Service extension in VS Code to set the deployment source to GitHub again, selecting the desired branch.
 
+## Clean up resources
+
+The App Service you created includes a backing App Service Plan that can incur costs. To clean up the resources, right-click the App Service in the **Azure: App Service** explorer and select **Delete**. You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
+
 ## Next steps
 
 Congratulations on completing this walkthrough of deploying Python code to App Service on Linux!
@@ -303,11 +318,11 @@ There are also other Azure extensions for VS Code that you may find helpful. Jus
 
 ![Azure extensions for VS Code](images/deploy-containers/azure-extensions.png)
 
-A few favorites include:
+Some popular extensions are:
 
 - [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 - [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 - [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 - [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
-And again, if you've encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+And again, if you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
