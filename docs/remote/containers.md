@@ -347,7 +347,7 @@ You can use the **Remote-Containers: Create Container Configuration File** comma
 
 > **Note:**  Alpine Linux and Windows based containers are not currently supported.
 
-If you are not able to find an image that meets your needs or just want to automate the installation of additional software, you can also [create a custom image using a `Dockerfile`](#using-a-dockerfile). See [Using a Dockerfile](#using-a-dockerfile) for details.
+If you are not able to find an image that meets your needs or just want to automate the installation of additional software, you can also [create a custom image using a `Dockerfile`](#using-a-dockerfile).
 
 ### Using an existing container image
 
