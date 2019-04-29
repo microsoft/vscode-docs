@@ -229,7 +229,7 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 
 ### Docker Desktop for Windows tips
 
-Docker Desktop for Windows works well in many cases, but there are a number of "gotchas" to that can cause real headaches. The following are some tips to avoid them:
+Docker Desktop for Windows works well in many cases, but there are a number of "gotchas" that can cause real headaches. The following are some tips to avoid them:
 
 1. **Use an AD domain account or local administrator account when sharing drives. Do not use an AAD (email-based) account.**  AAD (email-based) accounts have well known issues as documented [here](https://github.com/docker/for-win/issues/132) and [here](https://github.com/docker/for-win/issues/1352). If you must use this type of account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
 
