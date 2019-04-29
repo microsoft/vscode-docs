@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 3/7/2019
+DateApproved: 4/4/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -535,9 +535,9 @@ Review the [Theme Color Reference](/api/references/theme-color) for the availabl
 
 The following font related variables are also defined:
 
-- `-vscode-editor-font-family` - Editor font family (from the `editor.fontFamily` setting).
-- `-vscode-editor-font-weight` - Editor font weight (from the `editor.fontWeight` setting).
-- `-vscode-editor-font-size` - Editor font size (from the `editor.fontWeight` setting).
+- `--vscode-editor-font-family` - Editor font family (from the `editor.fontFamily` setting).
+- `--vscode-editor-font-weight` - Editor font weight (from the `editor.fontWeight` setting).
+- `--vscode-editor-font-size` - Editor font size (from the `editor.fontWeight` setting).
 
 ## Scripts and message passing
 

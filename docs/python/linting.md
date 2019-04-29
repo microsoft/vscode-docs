@@ -16,7 +16,7 @@ By default, linting for Python is enabled in Visual Studio Code using [Pylint](h
 
 ## Enable linters
 
-To enable linters other than the default PyLint, open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Python: Select Linter** command. This command adds `"python.linting<linter>Enabled": true` to your settings, where `<linter>` is the name of the chosen linter. See [Specific linters](#specific-linters) for details.
+To enable linters other than the default PyLint, open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Python: Select Linter** command. This command adds `"python.linting.<linter>Enabled": true` to your settings, where `<linter>` is the name of the chosen linter. See [Specific linters](#specific-linters) for details.
 
 Enabling a linter prompts you to install the required packages in your selected environment for the chosen linter.
 
@@ -161,7 +161,7 @@ The generated file contains sections for all the Pylint options, along with docu
 
 ### Command-line arguments and configuration files
 
-See [pycodestyle Command Line Interface](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage) for general options. For example, to ignore error D400 (first line should end with a period), add the following line to your `settings.json` file:
+See [pydocstyle Command Line Interface](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage) for general options. For example, to ignore error D400 (first line should end with a period), add the following line to your `settings.json` file:
 
 ```json
 "python.linting.pydocstyleArgs": ["--ignore=D400"]

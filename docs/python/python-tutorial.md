@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 03/18/2019
+DateApproved: 04/25/2019
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -25,13 +25,12 @@ To successfully complete this tutorial, complete the following requirements:
 1. Install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). For details on installing extensions, see [Extension marketplace](/docs/editor/extension-gallery.md). The Python extension is named **Python** and published by Microsoft.
 
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
-   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); you can typically use the **Download Python 3.7.1** button that appears first on the page (or whatever is the latest version).
+   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); you can typically use the **Download Python 3.7.3** button that appears first on the page (or whatever is the latest version).
    - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must install `pip` with [`get-pip.py`](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
    - (macOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
    - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
-1. On Windows, make sure the location of your Python interpreter (that is, the folder where it's installed, like `c:\python32`) is included in your PATH environment variable. You can check the location by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Windows Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include that folder.
-
+   > **Note** You can use the `py -0` command in the integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
 1. On MacOS, make sure the location of your VS Code installation is included in your PATH environment variable.  See [the setup instructions](/docs/setup/mac.md#launching-from-the-command-line) for more information.
 
 ## Start VS Code in a project (workspace) folder
@@ -124,36 +123,32 @@ Then select the settings icon on the debug toolbar (or use the **Debug** > **Ope
 
 ![Debug toolbar settings command](images/tutorial/debug-settings.png)
 
-After a few moments, the command creates a `launch.json` file that contains a number of configurations, which appear in the configurations drop-down:
+Selecting the settings icon automatically opens a configuration menu from the Command Palette, allowing you to select the type of debug configuration you would like for the opened file.
 
 ![Debug configurations after launch.json is created](images/tutorial/debug-configurations.png)
 
 **Note**: VS Code uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.
 
-These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python: Current File (Integrated Terminal)**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
+These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python File**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter. Once selected the Python extension creates and opens a `launch.json` file that contains a pre-defined configuration based on your selection.
 
->> **WARNING**: Due to a [current bug in the debugger](https://github.com/Microsoft/vscode-python/issues/4223), the following discussion of the `stopOnEntry` setting doesn't work and causes the debugger to fail to start. Instead, set a breakpoint on the first line and do **not** add `stopOnEntry` to the configuration.
->
-> Affected paragraphs:
->
-> To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
->
-> ```json
-> {
->     "name": "Python: Current File (Integrated Terminal)",
->     "type": "python",
->     "request": "launch",
->     "program": "${file}",
->     "console": "integratedTerminal",
->     "stopOnEntry": true
-> },
-> ```
->
-> Save `launch.json` after making changes.
+To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in the generated `launch.json` file, so that the whole configuration appears as follows:
+
+```json
+{
+    "name": "Python: Current File",
+    "type": "python",
+    "request": "launch",
+    "program": "${file}",
+    "console": "integratedTerminal",
+    "stopOnEntry": true
+},
+```
+
+Save `launch.json` after making changes.
 
 > **Tip:** If you need to specify the exact folder containing the interpreter to use for debugging, include an entry for `pythonPath` in the configuration, such as `"pythonPath": "${workspaceFolder}"` or `"pythonPath": "${workspaceFolder}/.venv"`.
 
-> **Tip:** To specify command-line arguments for the Python program, add a line `"args": []` to the configuration, and place each argument as elements inside the `[]` list. For examples, see [Debugging - args]((/docs/python/debugging.md#args).
+> **Tip:** To specify command-line arguments for the Python program, add a line `"args": []` to the configuration, and place each argument as elements inside the `[]` list. For examples, see [Debugging - args](/docs/python/debugging.md#args).
 
 Switch to `hello.py` in the editor, then run the debugger by selecting the arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. The debugger stops at the first line of the file breakpoint (or the first line if `stopOnEntry` is set to true). The current line is indicated with a yellow arrow in the left margin. If you're stopped on the first line and examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
 
@@ -165,7 +160,8 @@ A debug toolbar appears along the top with the following commands from left to r
 
 The Status Bar also changes color (orange in many themes) to indicate that you're in debug mode. The **Python Debug Console** also appears automatically in the lower right panel to show the commands being run, along with the program output.
 
-To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the next breakpoint. The now-defined `msg` variable appears in the **Local** pane
+To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the next breakpoint. The now-defined `msg` variable appears in the **Local** pane.
+> **Tip** Debugging information can also be seen by hovering over code, such as variables. In the case of `msg`, hovering over the variable will display the string `Hello world` in a box above the variable.
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 
@@ -198,7 +194,7 @@ If for some reason VS Code doesn't generate `launch.json` for you, create the `.
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File (Integrated Terminal)",
+            "name": "Python: Current File",
             "type": "python",
             "request": "launch",
             "program": "${file}",
@@ -251,33 +247,51 @@ Next, try running the file in the debugger using the "Python: Current file" conf
 
 Unless you're using an Anaconda distribution or have previously installed the `matplotlib` package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'". Such a message indicates that the required package isn't available in your system.
 
-To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`)). This command opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system:
+To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`)). This command opens a command prompt for your selected interpreter.
 
-> **Note**: The commands may require elevation if the Python interpreter is installed in a protected area of the file system; if you don't have admin privileges on the computer you're using, you may not be allowed to install the package. In that case, you need to use a *virtual environment* instead (see [Environments](/docs/python/environments.md#global-virtual-and-conda-environments)). If you are unable to install the package or encounter other problems, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
+A best practice among Python developers is to avoid installing packages into a global interpreter environment. You instead use a project-specific `virtual environment` that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments. Such isolation reduces many complications that can arise from conflicting package versions. To create a `virtual environment` and install the required packages, enter the following commands as appropriate for your operating system:
 
-```bash
-# Don't use with Anaconda distributions because they include matplotlib already.
+> **Note**: For additional information about virtual environments, see [Environments](/docs/python/environments.md#global-virtual-and-conda-environments).
 
-# macOS
-sudo python3 -m pip install matplotlib
+1. Create and activate the virtual environment
 
-# Windows (may require elevation)
-python -m pip install matplotlib
+   **For windows**
 
-# Linux (Debian)
-sudo apt-get install python3-tk
-python3 -m pip install matplotlib
-```
+   ```cmd
+   py -3 -m venv env
+   env\scripts\activate
+   ```
 
-Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
+   **For macOS/Linux**
 
-![matplotlib output](images/tutorial/plot-output.png)
+   ```bash
+   python3 -m venv env
+   source env/bin/activate
+   ```
 
-### Use a virtual environment
+1. Install the packages
 
-A best practice among Python developers is to avoid installing packages into a global interpreter environment, as we did in the previous section. You instead use a project-specific *virtual environment* that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments. Such isolation reduces many complications that can arise from conflicting package versions.
+   ```bash
+   # Don't use with Anaconda distributions because they include matplotlib already.
 
-For examples of creating and activating a virtual environment and installing packages, see the [Django tutorial](/docs/python/tutorial-django.md) and the [Flask tutorial](/docs/python/tutorial-flask.md).
+   # macOS
+   python3 -m pip install matplotlib
+
+   # Windows (may require elevation)
+   python -m pip install matplotlib
+
+   # Linux (Debian)
+   apt-get install python3-tk
+   python3 -m pip install matplotlib
+   ```
+
+1. Select your new environment by using the **Python: Select Interpreter** command from the **Command Palette**.
+
+1. Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
+
+   ![matplotlib output](images/tutorial/plot-output.png)
+
+For additional examples of creating and activating a virtual environment and installing packages, see the [Django tutorial](/docs/python/tutorial-django.md) and the [Flask tutorial](/docs/python/tutorial-flask.md).
 
 ## Next steps
 

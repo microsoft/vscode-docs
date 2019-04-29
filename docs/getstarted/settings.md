@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 3/7/2019
+DateApproved: 4/4/2019
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -209,6 +209,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls the width of the cursor when `editor.cursorStyle` is set to `line`.
   "editor.cursorWidth": 0,
 
+  // Defines a default formatter which takes precedence over all other formatter settings. Must be the identifier of an extension contributing a formatter.
+  "editor.defaultFormatter": null,
+
   // Controls whether `editor.tabSize#` and `#editor.insertSpaces` will be automatically detected when a file is opened based on the file contents.
   "editor.detectIndentation": true,
 
@@ -265,6 +268,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether the editor should render the vertical glyph margin. Glyph margin is mostly used for debugging.
   "editor.glyphMargin": true,
+
+  // Controls the behavior of 'Go To' commands, like Go To Definition, when multiple target locations exist.
+  //  - peek: Show peek view of the results (default)
+  //  - gotoAndPeek: Go to the primary result and show a peek view
+  //  - goto: Go to the primary result and ignore others
+  "editor.gotoLocation.multiple": "peek",
 
   // Controls whether the cursor should be hidden in the overview ruler.
   "editor.hideCursorInOverviewRuler": false,
@@ -416,14 +425,25 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Keep peek editors open even when double clicking their content or when hitting `Escape`.
   "editor.stablePeek": false,
 
+  // Controls whether some suggestion types should be filtered from IntelliSense. A list of suggestion types can be found here: https://code.visualstudio.com/docs/editor/intellisense#_types-of-completions.
+  "editor.suggest.filteredTypes": {
+    "keyword": true
+  },
+
   // Controls whether filtering and sorting suggestions accounts for small typos.
   "editor.suggest.filterGraceful": true,
 
   // Controls whether sorting favours words that appear close to the cursor.
   "editor.suggest.localityBonus": false,
 
+  // Controls how many suggestions IntelliSense will show before showing a scrollbar (maximum 15).
+  "editor.suggest.maxVisibleSuggestions": 12,
+
   // Controls whether remembered suggestion selections are shared between multiple workspaces and windows (needs `editor.suggestSelection`).
   "editor.suggest.shareSuggestSelections": false,
+
+  // Controls whether to show or hide icons in suggestions.
+  "editor.suggest.showIcons": true,
 
   // Control whether an active snippet prevents quick suggestions.
   "editor.suggest.snippetsPreventQuickSuggestions": true,
@@ -497,6 +517,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls the width(px) of diff decorations in gutter (added & modified).
   "scm.diffDecorationsGutterWidth": 3,
+
+  // Controls how many providers are visible in the Source Control Provider section. Set to `0` to be able to manually resize the view.
+  "scm.providers.visible": 10,
 
 // Workbench
 
@@ -726,8 +749,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - none: Never reopen a window. Always start with an empty one.
   "window.restoreWindows": "one",
 
-  // Controls the window title based on the active editor. Variables are substituted based on the context:
-  // - `${activeEditorShort}`: the file name (e.g. myFile.txt).
+  // Controls the window title based on the active editor. Variables are substituted based on the context:`${activeEditorShort}`: the file name (e.g. myFile.txt).
   // - `${activeEditorMedium}`: the path of the file relative to the workspace folder (e.g. myFolder/myFileFolder/myFile.txt).
   // - `${activeEditorLong}`: the full path of the file (e.g. /Users/Development/myFolder/myFileFolder/myFile.txt).
   // - `${activeFolderShort}`: the name of the folder the file is contained in (e.g. myFileFolder).
@@ -938,6 +960,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - override: Enable proxy support for extensions, override request options.
   "http.proxySupport": "override",
 
+  // Controls whether CA certificates should be loaded from the OS. (On Windows and macOS a reload of the window is required after turning this off.)
+  "http.systemCertificates": true,
+
 // Keyboard
 
   // Controls the dispatching logic for key presses to use either `code` (recommended) or `keyCode`.
@@ -1105,7 +1130,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // When a markdown editor is scrolled, update the view of the preview.
   "markdown.preview.scrollPreviewWithEditor": true,
-
 
   // A list of URLs or local paths to CSS style sheets to use from the markdown preview. Relative paths are interpreted relative to the folder open in the explorer. If there is no open folder, they are interpreted relative to the location of the markdown file. All '\' need to be written as '\\'.
   "markdown.styles": [],
@@ -1357,6 +1381,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // CSS
 
+  // By default, VS Code triggers property value completion after selecting a CSS property. Use this setting to disable this behavior.
+  "css.completion.triggerPropertyValueCompletion": true,
+
   // Invalid number of parameters.
   "css.lint.argumentsInColorFunction": "error",
 
@@ -1549,7 +1576,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Extensions
 
-// When enabled, automatically checks extensions for updates. If an extension has an update, it is marked as outdated in the Extensions view. The updates are fetched from a Microsoft online service.
+  // When enabled, automatically checks extensions for updates. If an extension has an update, it is marked as outdated in the Extensions view. The updates are fetched from a Microsoft online service.
   "extensions.autoCheckUpdates": true,
 
   // When enabled, automatically installs updates for extensions. The updates are fetched from a Microsoft online service.
@@ -2008,6 +2035,8 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether auto detection of Jake tasks is on or off. Default is on.
   "jake.autoDetect": "on",
+
+// Grunt
 
   // Controls whether auto detection of Grunt tasks is on or off. Default is on.
   "grunt.autoDetect": "on",

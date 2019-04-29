@@ -1,6 +1,6 @@
 ---
-Order: 2
-Area: other
+Order: 16
+Area: languages
 TOCTitle: .NET Core
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
 PageTitle: .NET Core and Visual Studio Code

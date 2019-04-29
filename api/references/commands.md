@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 3/7/2019
+DateApproved: 4/4/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -144,15 +144,6 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 - _color_ - The color to show and insert
 - _context_ - Context object with uri and range
 - _(returns)_ - A promise that resolves to an array of ColorPresentation objects.
-
-`vscode.previewHtml` - Render the HTML of the resource in an editor view.
-
-**🚨 The previewHtml command is deprecated. Please use the [Webview API](/api/extension-guides/webview) instead**
-
-- _uri_ - Uri of the resource to preview.
-- _column_ - (optional) Column in which to preview.
-- _label_ - (optional) An human readable string that is used as title for the preview.
-- _options_ - (optional) Options for controlling webview environment.
 
 `vscode.openFolder` - Open a folder or workspace in the current window or new window depending on the newWindow argument.
 
