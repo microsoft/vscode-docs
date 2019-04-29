@@ -325,7 +325,7 @@ There are a few different ways VS Code Remote - Containers can be used to develo
 
 - **Container Deployed Applications**: In this case, you plan to deploy the application into one or more containers but would like to take advantage of the same benefits that stand-alone dev sandboxes provide. VS Code currently supports working with container based applications defined in a number of ways:
 
-  - [Dockerfile](#using-a-dockerfile): You are working on a single container / service is described using a single `Dockerfile`.
+  - [Dockerfile](#using-a-dockerfile): You are working on a single container / service that is described using a single `Dockerfile`.
 
   - [Docker Compose](#using-docker-compose): You are working with multiple orchestrated services that are described using a `docker-compose.yml` file.
 
