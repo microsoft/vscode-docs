@@ -74,7 +74,7 @@ Let's start out by using a sample project to try things out.
     git clone https://github.com/Microsoft/vscode-remote-try-dotnetcore
     ```
 
-2. Start VS Code and click on quick actions Status Bar item in the lower left corner of the window.
+2. Start VS Code and click on the quick actions Status Bar item in the lower left corner of the window.
 
     ![Quick actions status bar item](images/common/remote-dev-status-bar.png)
 
