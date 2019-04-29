@@ -48,9 +48,11 @@ Follow these steps:
 
 You can edit and debug your extension in a container by following these steps.
 
-1. Add a `.devcontainer/devcontainer.json` or `.devcontainer.json` file with the [appropriate contents](/docs/remote/containers#creating-a-devcontainerjson-file-for-existing-projects) to your extension source code folder. Press `kbstyle(F1)`, select the **Remote-Containers: Create Configuration File...** command, and pick the **Node.js 8** definition.
+1. Add the Node.js dev container definition to your extension folder by pressing `kbstyle(F1)`, selecting the **Remote-Containers: Create Configuration File...** command, and picking **Node.js 8 & TypeScript** (or just Node.js 8 if you are not using TypeScript).
 
-2. Edit your `launch.json` to add a second argument to the `args` property that points to the path of a test project or your test data in your workspace folder or that will be in the container when it starts. (Note: You cannot use the workspace folder itself.) By default, the user's home folder (`$HOME`) is used. For example, if your test data is in a `data` folder in your workspace, you would add `${workspaceFolder}/data` as follows:
+2. After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the [in-depth Remote-Containers documentation](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container) for details.
+
+3. Edit your `launch.json` to add a second argument to the `args` property that points to the path of a test project or your test data in your workspace folder or that will be in the container when it starts. (Note: You cannot use the workspace folder itself.) By default, the user's home folder (`$HOME`) is used. For example, if your test data is in a `data` folder in your workspace, you would add `${workspaceFolder}/data` as follows:
 
     ```json
     {
@@ -69,9 +71,9 @@ You can edit and debug your extension in a container by following these steps.
     }
     ```
 
-3. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You can now edit your source code as you would in the local case.
+4. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You can now edit your source code as you would in the local case.
 
-4. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running inside this same container with the debugger attached to it.
+5. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running inside this same container with the debugger attached to it.
 
 #### Using SSH or WSL
 
@@ -262,7 +264,9 @@ If you need to do something more sophisticated like launch an arbitrary applicat
 
 Some extensions return APIs as a part of their activation function that are intended for other extensions to use (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI extensions or all Workspace extensions), these will not work between UI and Workspace extensions.
 
-Fortunately, VS Code automatically routes any executed commands to the correct extension regardless of its location. You can freely invoke any simple or complex command (including those provided by other extensions) without worrying about impacts. However, note that any parameters you pass in will be "stringified" in transit, so methods and functions will not appear on the other side and you cannot have any cyclic dependencies. If you have a set of extensions that need to interact with one another, exposing functionality using a private command can help you avoid unexpected impacts. Private commands are prefixed with an underscore ("_").
+Fortunately, VS Code automatically routes any executed commands to the correct extension regardless of its location. You can freely invoke any command (including those provided by other extensions) without worrying about impacts.
+
+If you have a set of extensions that need to interact with one another, exposing functionality using a private command can help you avoid unexpected impacts. However, note that any objects you pass in as parameters will be "stringified" (`JSON.stringify`) before being transmitted, so the object cannot have cyclic references and will end up as a "plain old javascript object" on the other side.
 
 For example:
 
