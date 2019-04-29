@@ -295,7 +295,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## Container specific settings
 
-VS Code's user settings will apply to both folders opened locally and in a dev container. For most settings, this is really useful, but some settings are absolute paths that may vary between your local machine and each container. You may also want to alter settings like the active theme based on whether you are connected to a container or not.
+VS Code's user settings will apply to both folders opened locally and folders opened in a dev container. For most settings, this is really useful, but some settings are absolute paths that may vary between your local machine and each container. You may also want to alter settings like the active theme based on whether you are connected to a container or not.
 
 Fortunately, you can add container specific user settings to `~/.vscode-remote/data/Machine/settings.json` in the container that will override any local settings you have in place. You can quickly access them by running the **Preferences: Open Remote Settings** command from the command palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor.
 
