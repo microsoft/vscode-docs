@@ -71,7 +71,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
         IdentityFile ~/.ssh/id_rsa-remote-ssh
     ````
 
-3. Add the contents the **local** `id_rsa-remote-ssh.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the remote host.
+3. Add the contents of the **local** `id_rsa-remote-ssh.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the remote host.
 
     On **macOS / Linux**, run the following command in a **local terminal** replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2:
 
