@@ -48,7 +48,7 @@ Follow these steps:
 
 You can edit and debug your extension in a container by following these steps.
 
-1. Add a `.devcontainer/devcontainer.json` or `.devcontainer.json` file with the [appropriate contents](/docs/remote/containers#creating-a-devcontainerjson-file-for-existing-projects) to your extension source code folder. Use the command `Remote-Containers: Create Configuration File...` to add a container configuration for your extension. From the list select the 'Node.js 8' definition. 
+1. Add a `.devcontainer/devcontainer.json` or `.devcontainer.json` file with the [appropriate contents](/docs/remote/containers#creating-a-devcontainerjson-file-for-existing-projects) to your extension source code folder. Press `kbstyle(F1)`, select the **Remote-Containers: Create Configuration File...** command, and pick the **Node.js 8** definition.
 
 2. Edit your `launch.json` to add a second argument to the `args` property that points to the path of a test project or your test data in your workspace folder or that will be in the container when it starts. (Note: You cannot use the workspace folder itself.) By default, the user's home folder (`$HOME`) is used. For example, if your test data is in a `data` folder in your workspace, you would add `${workspaceFolder}/data` as follows:
 
@@ -71,7 +71,7 @@ You can edit and debug your extension in a container by following these steps.
 
 3. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You can now edit your source code as you would in the local case.
 
-4. Finally, **F5** or use the **Debug view** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running inside this same container with the debugger attached to it.
+4. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running inside this same container with the debugger attached to it.
 
 #### Using SSH or WSL
 
@@ -81,7 +81,7 @@ You can edit and debug your extension on a remote [SSH host](/docs/remote/ssh) o
 
 2. Once the folder is open on the SSH host / in WSL, you can edit your source code as you would in the local case.
 
-3. Finally, **F5** or use the **Debug view** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running on the SSH Host / in WSL with the debugger attached to it.
+3. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running on the SSH Host / in WSL with the debugger attached to it.
 
 ## Common problems
 
@@ -89,7 +89,7 @@ VS Code's APIs are designed to automatically run in the right location regardles
 
 ### Incorrect execution location
 
-If your extension is not functioning as expected, it may be running in the wrong location. Most commonly, this shows up as an extension running remotely when you expect it to only be run locally. You can use the **Developer: Show Running Extensions** command to see where an extension is running.
+If your extension is not functioning as expected, it may be running in the wrong location. Most commonly, this shows up as an extension running remotely when you expect it to only be run locally. You can use the **Developer: Show Running Extensions** command from the command palette (`kbstyle(F1)`) to see where an extension is running.
 
 If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [`package.json`](/api/get-started/extension-anatomy#extension-manifest):
 
@@ -581,10 +581,10 @@ You can find the complete example [here](https://aka.ms/vscode-remote/samples/re
 
 There are a few extension problems that could be resolved with some added functionality for Workspace Extensions. The following table is a list of known issues under consideration:
 
-| Problem | Description | GitHub issue |
-|---------|-------------|--------------|
-| **Blocked ports** | When working inside a Docker container or SSH server, ports are not automatically forwarded and there currently is no API to programmatically forward a port from an extension. Webviews can be adapted as [described above](#using-the-webview-api), but other scenarios currently require users to manually forward or expose ports. | [#531](https://github.com/Microsoft/vscode-remote/issues/531) |
-| **Local access to remote workspace files** | In some cases, you may need to download a file from a UI extension (or helper) that is contained in the remote workspace. We are investigating options for how extensions might be able to accomplish this task. | [#640](https://github.com/Microsoft/vscode-remote/issues/640) |
+| Problem | Description |
+|---------|-------------|
+| **Blocked ports** | When working inside a Docker container or SSH server, ports are not automatically forwarded and there currently is no API to programmatically forward a port from an extension. Webviews can be adapted as [described above](#using-the-webview-api), but other scenarios currently require users to manually forward or expose ports. |
+| **Local access to remote workspace files** | In some cases, you may need to download a file from a UI extension (or helper) that is contained in the remote workspace. We are investigating options for how extensions might be able to accomplish this task. |
 
 ## Questions and feedback
 
