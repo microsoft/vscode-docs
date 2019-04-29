@@ -80,27 +80,27 @@ Let's start out by using a sample project to try things out.
 
 ### Quick start: Open a folder in a container
 
-Next, we will cover how to set up an existing project folder to use a container as your full-time development environment. The steps are very similar to those above.
+Next we will cover how to set up a dev container for an existing project so that you can to use the container as your full-time development environment. The steps are very similar to those above:
 
-1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette and select the folder you'd like to open in a container.
+1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette, and select the project folder you'd like to set up the container for.
 
-2. Next, pick a starting point for your dev container. You can select a **dev container definition** from a filterable list or an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one is in the folder you selected.
+2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one is in the folder you selected.
 
     > **Note:** Alpine Linux and Windows based containers are not currently supported.
 
     ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
 
-    Note that each dev container definition in the pick list comes from  the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder in the repository to see the contents of each definition before selecting one. 
+    Note that the dev container definitions come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
 
-3. After you pick a starting point for your container, VS Code adds any needed configuration files like `.devcontainer/devcontainer.json` to your folder and the window reloads. VS Code then begins creating your dev container and a progress notification provides you status updates. Note that this step will be skipped entirely the next time you open this same folder since the container will already exist.
+3. After picking the starting point for your container, VS Code will add the dev container configuration files to your project (`.devcontainer/devcontainer.json`). Then the window will reload and VS Code will start building the dev container. A progress notification provides you status updates. Note that you only have to build a dev container the first time you open it; opening the folder after the first successful build will be much quicker.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-4. After it's done, VS Code automatically connects to the container and you can interact with the folder just as you did when open locally. Next time you open the same folder, the configuration you chose will be reused.
+4. After building completes, VS Code will automatically connect to the container. You can now interact with your project in VS Code just as you could when opening the project locally. And now when you open the project folder again, VS Code will automatically pick up and reuse your dev container configuration.
 
 ## Creating a devcontainer.json file for existing projects
 
-VS Code's container configuration is stored in a `devcontainer.json` file. The file is similar to `launch.json` for debugging, but is used for launching (or attaching to) your development container instead. The file is located either at `.devcontainer/devcontainer.json`  or `.devcontainer.json` (dot-prefixed).
+VS Code's container configuration is stored in a `devcontainer.json` file. This file is similar to the `launch.json` file used for debugging, but is used for launching (or attaching to) your development container instead. This dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
 The **Remote-Containers: Create Container Configuration File...** command adds this file to your project, where you can further customize for your needs.
 
@@ -226,12 +226,12 @@ If there are extensions that you would like always installed in any container, y
 
 VS Code runs extensions in one of two places: locally on the **UI** / client side, or remotely on the **Workspace** / container side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location in your User [settings](/docs/getstarted/settings.md). For example, the `remote.extensionKind` setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
-````json
+```json
 "remote.extensionKind": {
     "ms-azuretools.vscode-cosmosdb": "ui",
     "msjsdiag.debugger-for-chrome": "workspace"
 }
-````
+```
 
 Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
