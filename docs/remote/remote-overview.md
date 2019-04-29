@@ -25,14 +25,6 @@ Better yet, **no source code** needs to be on your local machine to get these be
 
 ## Getting started
 
-> **Dogfooding Notes (UPDATED):**
-
-> 1. You currently need to install a private versions of the VS Code Remote Development extensions. First download [Visual Studio Code Insiders](https://code.visualstudio.com/insiders).
-> 2. Next, sign into a Microsoft GitHub org associated GitHub account from a browser.
-> 3. Download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code Insiders.
-> 4. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
-> 5. Reload / restart VS Code Insiders.
-
 ### Remote Development extension pack
 
 The [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) includes three extensions that unlock the power of VS Code in a variety of situations.
@@ -46,8 +38,6 @@ Click on the links below to learn more:
 While most VS Code extensions should work unmodified in a remote environment, extension authors can learn more at [Supporting Remote Development](/api/advanced-topics/remote-extensions.md).
 
 ## Questions or feedback
-
-> **Dogfooding Note:**  When reporting issues, please file them against the [vscode-remote](https://github.com/Microsoft/vscode-remote/issues) repository.
 
 - See [Tips and Tricks](https://aka.ms/vscode-remote/troubleshooting) or the [FAQ](/docs/remote/faq).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).

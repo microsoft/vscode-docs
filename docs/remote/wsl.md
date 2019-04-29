@@ -21,21 +21,13 @@ The **Visual Studio Code Remote - WSL** extension allows you take advantage of V
 
 To get started you need to:
 
-1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution. The Remote - WSL extension will use your **default distro**. Use `wslconfig.exe` to change your default as needed.
+1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution. VS Code will use your **default distro**, so use `wslconfig.exe` to change your default as needed.
 
     > **Note:** WSL does have some [known limitations](#known-limitations) for certain types of development that can also affect your VS Code experience.
 
 2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) on the **Windows** side (not in WSL).
 
-    > **Dogfooding Note (UPDATED)**: The Code - WSL build is deprecated. Use VS Code Insiders now.
-
-3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack
-
-    > **Dogfooding Note (UPDATED):** Set up the dogfooding version of the Remote Development extensions as follows:
-    > 1. Sign into a Microsoft GitHub org associated GitHub account from a browser.
-    > 2. Download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code Insiders.
-    > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
-    > 4. Reload / restart VS Code Insiders.
+3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
 4. Disable automatic line ending conversion for Git on the **Windows side** by using a command prompt to run: `git config --global core.autocrlf false` (If left enabled, this setting can cause files that you have not edited to appear modified due to line ending differences.)
 
@@ -171,8 +163,6 @@ The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.co
 The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you test your extension to be sure that no updates are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Questions or feedback
-
-> **Dogfooding Note:**  When reporting issues, please file them against the [vscode-remote](https://github.com/Microsoft/vscode-remote/issues) repository.
 
 - See [Tips and Tricks](/docs/remote/troubleshooting.md#wsl-tips) or the [FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).

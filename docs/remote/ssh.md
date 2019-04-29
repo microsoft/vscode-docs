@@ -29,15 +29,7 @@ To get started you need to:
 
 2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
-    > **Dogfooding Note (UPDATED)**: Code - WSL is deprecated. Use VS Code Insiders now.
-
 3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
-
-    > **Dogfooding Note (UPDATED):** Set up the dogfooding version of the Remote Development extensions as follows:
-    > 1. Sign into a Microsoft GitHub org associated GitHub account from a browser.
-    > 2. Download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code Insiders.
-    > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
-    > 4. Reload / restart VS Code Insiders.
 
 4. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods).
 
@@ -221,8 +213,6 @@ However, this use case can typically be handled by combining extensions like [SF
 The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you test your extension to be sure that no updates are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ### Questions or feedback
-
-> **Dogfooding Note:**  When reporting issues, please file them against the [vscode-remote](https://github.com/Microsoft/vscode-remote/issues) repository.
 
 - See [Tips and Tricks](/docs/remote/troubleshooting.md#ssh-tips) or the [FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).

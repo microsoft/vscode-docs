@@ -597,8 +597,6 @@ There are a few extension problems that could be resolved with some added functi
 
 ## Questions and feedback
 
-> **Dogfooding Note:**  When reporting issues, please file them against the [vscode-remote](https://github.com/Microsoft/vscode-remote/issues) repository.
-
 - See [Tips and Tricks](/docs/remote/troubleshooting#ssh-tips) or the [FAQ](/docs/remote/faq).
 - Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
 - [Up-vote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new)

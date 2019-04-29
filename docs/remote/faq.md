@@ -87,8 +87,6 @@ The VS Code Remote Development extensions follow the GDPR policies as Visual Stu
 
 ## Questions or feedback
 
-> **Dogfooding Note:**  When reporting issues, please file them against the [vscode-remote](https://github.com/Microsoft/vscode-remote/issues) repository.
-
 Have a question or feedback?
 
 - See [Tips and Tricks](/docs/remote/troubleshooting.md).

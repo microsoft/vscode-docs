@@ -43,15 +43,7 @@ To get started, follow these steps:
 
 2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
-    > **Dogfooding Note (UPDATED)**: Code - WSL is deprecated. Use VS Code Insiders now.
-
-3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack
-
-    > **Dogfooding Note (UPDATED):** Set up the dogfooding version of the Remote Development extensions as follows:
-    > 1. Sign into a Microsoft GitHub org associated GitHub account from a browser.
-    > 2. Download and manually install the latest VSIX of the [Selfhost Remote Extensions Updater](https://aka.ms/vscode-remote/download/extension) in VS Code Insiders.
-    > 3. The first time the Selfhost Remote Extensions starts, you may be prompted to paste in a GitHub access token so that it can download and auto-update private versions of the extensions. You only need to give "Repo" scope to this token.
-    > 4. Reload / restart VS Code Insiders.
+3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
 The Remote - Containers extension supports two primary operating models:
 
@@ -662,8 +654,6 @@ The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.co
 The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work inside dev containers without any modification. However, we recommend that you test your extension in a dev container to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Questions or feedback
-
-> **Dogfooding Note:**  When reporting issues, please file them against the [vscode-remote](https://github.com/Microsoft/vscode-remote/issues) repository.
 
 - See [Tips and Tricks](/docs/remote/troubleshooting.md#containers-tips) or the [FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
