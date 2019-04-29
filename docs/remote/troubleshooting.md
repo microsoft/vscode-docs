@@ -308,7 +308,7 @@ If you'd like this extension to always be installed, add this to `settings.json`
 
 If you determine that you need to give your container more of your machine's capacity, follow these steps:
 
-1. Right-click on the Docker task bar item and select Preferences...
+1. Right-click on the Docker task bar item and select Settings/Preferences...
 2. Click on Advanced to increase CPU, Memory, or Swap.
 3. Click on Disk to increase the amount of disk Docker is allowed to consumer on your machine.
 
