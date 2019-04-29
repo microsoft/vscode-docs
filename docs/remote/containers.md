@@ -331,7 +331,7 @@ There are a few different ways VS Code Remote - Containers can be used to develo
 
   - [Attach](#attaching-to-running-containers): You can use an alternate workflow and attach to an already running container.
 
-  - In each case, you may also need to [build container images and deploy to Docker or Kubernetes](#using-docker-or-kubernetes-from-a-container)from inside your container.
+  - In each case, you may also need to [build container images and deploy to Docker or Kubernetes](#using-docker-or-kubernetes-from-a-container) from inside your container.
 
 This section will walk you through how to configure your project for each of these situations. The [vscode-dev-containers GitHub repository](https://aka.ms/vscode-dev-containers) also contains a number of dev container definitions you may find useful to get you up and running quickly.
 
