@@ -198,7 +198,7 @@ await keytar.setPassword('my-service-name','my-account','iamal337d00d');
 const password = await keytar.getPassword('my-service-name','my-account');
 ```
 
-If you prefer not to use `keytar`, you can instead use a "Helper Extension" to run your secret persistence code. See [below](#access-local-or-remote-apis-using-a-helper-extension) for details.
+If you prefer not to use `keytar`, you can instead use a "Helper Extension" to run your secret persistence code. See [below](#access-local-apis-using-a-helper-extension) for details.
 
 ### Using the clipboard
 
@@ -597,7 +597,7 @@ There are a few extension problems that could be resolved with some added functi
 
 ## Questions and feedback
 
-- See [Tips and Tricks](/docs/remote/troubleshooting#ssh-tips) or the [FAQ](/docs/remote/faq).
+- See [Tips and Tricks](/docs/remote/troubleshooting) or the [FAQ](/docs/remote/faq).
 - Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
 - [Upvote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new)
 - Contribute a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
