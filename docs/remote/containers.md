@@ -600,7 +600,7 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/containers/i
     E: Some index files failed to download. They have been ignored, or old ones used instead
     ```
 
-    See [here for a workaround](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
+    See [here for a workaround](/docs/remote/troubleshooting.md#resolving-dockerfile-build-failures-for-images-using-debian-8).
 
 See [here for other notable Docker-related issues](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
 
@@ -618,7 +618,7 @@ See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-des
 
 ### I am seeing "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease" when building a Dockerfile
 
-You may be hitting known Docker issue with Debian 8 (Jessie). See [here for a workaround](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
+You may be hitting known Docker issue with Debian 8 (Jessie). See [here for a workaround](/docs/remote/troubleshooting.md#resolving-dockerfile-build-failures-for-images-using-debian-8).
 
 ### I'm seeing an error about a missing library or dependency
 
