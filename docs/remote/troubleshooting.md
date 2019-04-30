@@ -21,7 +21,7 @@ This article covers troubleshooting tips and tricks for each of the Visual Studi
 
 To set up SSH key based authentication for your remote host:
 
-1. Check to see if you already have an ssh key. The public key is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and at `%USERPROFILE%\.ssh\id_rsa.pub` on Windows.
+1. Check to see if you already have an SSH key. The public key is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and at `%USERPROFILE%\.ssh\id_rsa.pub` on Windows.
 
     If you do not have a key, run the following command in a terminal / command prompt to generate a SSH key pair:
 
