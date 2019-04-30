@@ -483,7 +483,7 @@ ENV DEBIAN_FRONTEND=dialog
 
 This warning is just that, a warning. It is telling you not to parse the output of `apt-key`, so as long as your script isn't, there's no problem. You can safely ignore it.
 
-This occurs in `Dockerfiles` because the `apt-key` command is not running from a terminal. Unfortunately, this error cannot be eliminated completely, but can be hidden unless the `apt-key` command returns a non-zero exit code (indicating a failure). For example:
+This occurs in `Dockerfile`s because the `apt-key` command is not running from a terminal. Unfortunately, this error cannot be eliminated completely, but can be hidden unless the `apt-key` command returns a non-zero exit code (indicating a failure). For example:
 
 ```Dockerfile
 # (OUT=$(apt-key add - 2>&1) || echo $OUT) will only print the output if a non-zero exit code is hit
