@@ -101,9 +101,9 @@ The VS Code extension API abstracts many extensions away from any changes so the
 
 ### Can I give an extension access to local resources or APIs when a user is connected remotely?
 
-When VS Code connects to a remote environment, extensions are classified as either "UI" or "Workspace" extensions. UI Extensions run in a "local extension host", can contribute UI, and have access to local files or APIs. Workspace extensions run in a "remote extension host" with the workspace and have full access to the code, remote filesystem, and remote APIs. When a user installs an extension, VS Code attempts to infer the correct location and install it based on its type. Extensions that do not need to run remotely like themes and other personalization are automatically installed on the UI side. All others are treated as Workspace extensions.
+When VS Code connects to a remote environment, extensions are classified as either "UI" or "Workspace" extensions. UI Extensions run in a "local extension host", can contribute UI or personalization features (e.g. themes), and have access to local files or APIs. Workspace extensions run in a "remote extension host" with the workspace and have full access to the code, remote filesystem, and remote APIs. While they do not focus on personalization, they can contribute explorers, viewlets, and other UI elements as well.
 
-However, extension authors can also override this location with a `"extensionKind"` property in `package.json`.
+When a user installs an extension, VS Code attempts to infer the correct location and install it based on its type. Extensions that do not need to run remotely like themes and other personalization are automatically installed on the UI side. All others are treated as Workspace extensions since they are the most full-featured. However, extension authors can also override this location with an `extensionKind` property in `package.json`.
 
 See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md)for additional details.
 
