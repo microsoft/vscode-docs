@@ -111,13 +111,13 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
 
 ### Enabling alternate SSH authentication methods
 
-If are you connecting to an SSH remote and are:
+If are you connecting to an SSH remote host and are:
 
-- Connecting with 2-factor authentication.
-- Using password authentication.
-- Using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible.
+- connecting with two-factor authentication,
+- using password authentication,
+- using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible
 
-You need to enable the `remote.SSH.showLoginTerminal` setting in VS Code. This setting causes the terminal to be shown whenever VS Code runs an SSH command. Enter your auth code, password, or passphrase when this happens.
+you need to enable the `remote.SSH.showLoginTerminal` setting in VS Code. This setting causes the terminal to be shown whenever VS Code runs an SSH command. Enter your auth code, password, or passphrase when this happens.
 
 A convenient way to work around this is to enable the `ControlMaster` feature that tells OpenSSH to run multiple SSH sessions over a single connection. To enable `ControlMaster`:
 
