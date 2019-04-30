@@ -62,7 +62,7 @@ Over the past few months, we've been working hard re-establishing proper boundar
 
 ![Remote extensions](remote-extensions.png)
 
-The **[Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-wsl)** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl) as a full development environment, right from VS Code. This new, optimized support lets you:
+The **[Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl) as a full development environment, right from VS Code. This new, optimized support lets you:
 
 * Use Windows to develop in a Linux-based environment, using platform-specific toolchains and utilities.
 * Edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`).
@@ -78,7 +78,7 @@ For more information, please see the [Developing in WSL](https://aka.ms/vscode-r
 
 ---
 
-The **[Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-ssh)** extension lets you open folders or workspaces hosted on any remote machine, VM, or container with a running SSH server. Development over SSH lets you:
+The **[Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)** extension lets you open folders or workspaces hosted on any remote machine, VM, or container with a running SSH server. Development over SSH lets you:
 
 * Develop on larger, faster, or more specialized hardware than your local machine.
 * Quickly swap between different, remote development environments and safely make updates without worrying about impacting your local machine.
@@ -96,7 +96,7 @@ For more information, please see the [Developing using SSH](https://aka.ms/vscod
 
 ---
 
-The **[Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-containers)** extension lets you use a [Docker container](https://docker.com) as your [development container](https://aka.ms/vscode-remote/containers/folder-setup). Containers make a great development environments because:
+The **[Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)** extension lets you use a [Docker container](https://docker.com) as your [development container](https://aka.ms/vscode-remote/containers/folder-setup). Containers make a great development environments because:
 
 * You can develop with a consistent and easily reproducible tool chain, on the same operating system you are deploying to.
 * Containers are isolated, meaning you can quickly swap between different development environments without impacting your local machine.
