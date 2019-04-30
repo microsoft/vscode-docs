@@ -255,13 +255,7 @@ If you have ports you always want use from your host, you can set them up so the
     "appPort": [3000, "8921:5000"]
     ```
 
-2. **Use the Dockerfile EXPOSE instruction:** You can add the port to your `Dockerfile` using the [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose).
-
-    ```Dockerfile
-    EXPOSE 3000
-    ```
-
-3. **Use the Docker Compose ports mapping:** The [`ports` mapping](https://docs.docker.com/compose/compose-file#ports) can easily be added your `docker-compose.yml` file to expose additional ports.
+2. **Use the Docker Compose ports mapping:** The [`ports` mapping](https://docs.docker.com/compose/compose-file#ports) can easily be added your `docker-compose.yml` file to publish additional ports.
 
     ```yaml
     ports:
