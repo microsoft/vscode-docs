@@ -69,6 +69,10 @@ The [vscode-dev-containers repo](https://aka.ms/vscode-dev-containers) includes 
 
 No. The [Buildpack](https://buildpacks.io/) concept focuses on taking source code and generating deployable container images through a series of defined steps. A dev container is an environment you can use to develop your application even before you are ready to build. They are therefore complementary concepts.
 
+### Why do some commands invoked from the Docker Extension fail?
+
+Using the Docker extension from a VS Code window opened on a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extenson that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local window and use the Docker extension from this VS Code window.
+
 ## Extensions authors
 
 ### As an extension author, what do I need to do?
