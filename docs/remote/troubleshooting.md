@@ -117,7 +117,7 @@ If are you connecting to an SSH remote host and are:
 - using password authentication,
 - using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible
 
-you need to enable the `remote.SSH.showLoginTerminal` setting in VS Code. This setting causes the terminal to be shown whenever VS Code runs an SSH command. Enter your auth code, password, or passphrase when this happens.
+you need to enable the `remote.SSH.showLoginTerminal` setting in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can enter your auth code, password, or passphrase when this happens.
 
 A convenient way to work around this is to enable the `ControlMaster` feature that tells OpenSSH to run multiple SSH sessions over a single connection. To enable `ControlMaster`:
 
