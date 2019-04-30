@@ -27,9 +27,7 @@ VS Code Remote Development allows you to use a container, remote machine, or the
 
 ### Remote Development extension pack
 
-The [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) includes three extensions that unlock the power of VS Code in a variety of situations.
-
-Click on the links below to learn more:
+The [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) includes three extensions. See the following articles to get started with each of them:
 
 - [Remote - SSH](/docs/remote/ssh.md) - Connect to any location by opening folders on a remote machine/VM using SSH.
 - [Remote - Containers](/docs/remote/containers.md) - Work with a sandboxed toolchain or container-based application inside (or mounted into) a container.
