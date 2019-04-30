@@ -287,13 +287,11 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## Container specific settings
 
-VS Code's user settings will apply to both folders opened locally and folders opened in a dev container. For most settings, this is really useful, but some settings are absolute paths that may vary between your local machine and each container. You may also want to alter settings like the active theme based on whether you are connected to a container or not.
-
-Fortunately, you can add container specific user settings to `~/.vscode-remote/data/Machine/settings.json` in the container that will override any local settings you have in place. You can quickly access them by running the **Preferences: Open Remote Settings** command from the command palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor.
+VS Code's local user settings are also reused when you are connected to a dev container. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each container. Fortunately, once you have connected to a container, you can also set container specific settings by running the **Preferences: Open Remote Settings** command from the command palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor. These will override any local settings you have in place whenever you connect to the container.
 
 ### Default container specific settings
 
-You can add default settings into your dev container by including the needed settings file when the container is built. For example, consider this `.devcontainer/settings.vscode.json` file that sets the Java home path:
+You can also add a default container settings file into your container image. This can be useful for settings like absolute paths that you know will always differ from local ones. For example, consider this `.devcontainer/settings.vscode.json` file that sets the Java home path:
 
 ```json
 {
@@ -301,13 +299,12 @@ You can add default settings into your dev container by including the needed set
 }
 ```
 
-Now, just add a `COPY` statement into your `.devcontainer/Dockerfile` to add this file into the container when it is built:
+If you have an existing `.devcontainer/Dockerfile`, you can just add a `COPY` statement that puts the settings file in the right location:
 
 ```Dockerfile
 # Copy endpoint specific user settings into container to specify Java path
 COPY settings.vscode.json /root/.vscode-remote/data/Machine/settings.json
 ```
-
 
 ## In-depth: Setting up a folder to run in a container
 

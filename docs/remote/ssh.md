@@ -156,9 +156,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## SSH host specific settings
 
-VS Code's user settings will apply to both folders opened locally and on any SSH host. For most settings, this is really useful. However, some settings are absolute paths that may vary between your local machine and different SSH hosts. You may also want to alter settings like the active theme based on whether you are connected to a SSH host or not.
-
-Fortunately, you can add host specific user settings to `~/.vscode-remote/data/Machine/settings.json` on the host that will override any local settings you have in place. You can quickly access them by running the **Preferences: Open Remote Settings** command from the command palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor.
+VS Code's local user settings are also reused when you are connected to a SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host specific settings by running the **Preferences: Open Remote Settings** command from the command palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor. These will override any local settings you have in place whenever you connect to the host.
 
 ## Known limitations
 
