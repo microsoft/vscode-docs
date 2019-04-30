@@ -23,7 +23,7 @@ This article covers troubleshooting tips and tricks for each of the Visual Studi
 
 To set up SSH key based authentication for your remote host:
 
-1. Check to see if you already have an ssh key. The public key is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and at `%USERPROFILE%\.ssh\id_rsa.pub` on Windows.
+1. Check to see if you already have an SSH key. The public key is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and at `%USERPROFILE%\.ssh\id_rsa.pub` on Windows.
 
     If you do not have a key, run the following command in a terminal / command prompt to generate a SSH key pair:
 
@@ -113,13 +113,13 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
 
 ### Enabling alternate SSH authentication methods
 
-If are you connecting to an SSH remote and are:
+If are you connecting to an SSH remote host and are:
 
-- Connecting with 2-factor authentication.
-- Using password authentication.
-- Using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible.
+- connecting with two-factor authentication,
+- using password authentication,
+- using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible
 
-You need to enable the `remote.SSH.showLoginTerminal` setting in VS Code. This setting causes the terminal to be shown whenever VS Code runs an SSH command. Enter your auth code, password, or passphrase when this happens.
+you need to enable the `remote.SSH.showLoginTerminal` setting in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can enter your auth code, password, or passphrase when this happens.
 
 A convenient way to work around this is to enable the `ControlMaster` feature that tells OpenSSH to run multiple SSH sessions over a single connection. To enable `ControlMaster`:
 
@@ -179,9 +179,9 @@ then
 fi
 ```
 
-#### MacOS
+#### macOS
 
-The agent should be running by default on MacOS.
+The agent should be running by default on macOS.
 
 ### Fixing SSH file permission errors
 
@@ -233,11 +233,11 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 
 ### Installing a supported SSH server
 
-| OS | Instructions |
-|----|--------------|
-| Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See [here](https://help.ubuntu.com/community/SSH?action=show) for additional setup instructions. |
+| OS | Instructions | Details |
+|----|--------------|---|
+| Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for additional setup instructions. |
 | RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
-| macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. |
+| macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. ||
 
 ## Container tips
 
@@ -245,11 +245,11 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few important "gotchas" that can cause real headaches. Here are some tips on avoiding them:
 
-1. **Use an AD domain account or local administrator account when sharing drives. Do not use an AAD (email-based) account.** AAD (email-based) accounts have well known issues, as documented [here](https://github.com/docker/for-win/issues/132) and [here](https://github.com/docker/for-win/issues/1352). If you must use an AAD account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
+1. **Use an AD domain account or local administrator account when sharing drives. Do not use an AAD (email-based) account.** AAD (email-based) accounts have well known issues, as documented in Docker issues [#132](https://github.com/docker/for-win/issues/132) and [#1352](https://github.com/docker/for-win/issues/1352). If you must use an AAD account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
 
-2. **Stick with alphanumeric passwords to avoid drive sharing problems.** When asked to share your drives on Windows, you will be prompted for the username and password of an account with admin privileges on the machine. If you are warned about an incorrect username or password, this may be due to special characters in the password. For example, `!`, `[` and `]` are known to cause issues. Change your password to alphanumeric characters to resolve. See [here](https://github.com/moby/moby/issues/23992#issuecomment-234979036) for details.
+2. **Stick with alphanumeric passwords to avoid drive sharing problems.** When asked to share your drives on Windows, you will be prompted for the username and password of an account with admin privileges on the machine. If you are warned about an incorrect username or password, this may be due to special characters in the password. For example, `!`, `[` and `]` are known to cause issues. Change your password to alphanumeric characters to resolve. See this issue about [Docker volume mounting problems](https://github.com/moby/moby/issues/23992#issuecomment-234979036) for details.
 
-3. **Use your Docker ID to sign into Docker (not your email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See [here](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
+3. **Use your Docker ID to sign into Docker (not your email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See Docker issue [#935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
 If you are still having trouble see the [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot/#volumes).
 
@@ -261,13 +261,13 @@ To change Docker's drive and folder sharing settings:
 
 #### Windows
 
-1. Right-click on the Docker task bar item and select `Preferences`.
-2. Go to the `Shared Drives` tab and check the drive(s) where your source code is located.
+1. Right-click on the Docker task bar item and select **Settings**.
+2. Go to the **Shared Drives** tab and check the drive(s) where your source code is located.
 
-#### MacOS
+#### macOS
 
-1. Click on the Docker menu bar item and select `Settings`.
-2. Go to the the `File Sharing` tab. Confirm that the folder containing your source code is under one of the shared folders listed.
+1. Click on the Docker menu bar item and select **Preferences**.
+2. Go to the the **File Sharing** tab. Confirm that the folder containing your source code is under one of the shared folders listed.
 
 ### Resolving Git line ending issues in containers (resulting in many modified files)
 
@@ -317,7 +317,7 @@ By default, Docker Desktop only gives containers a fraction of your machine capa
 
 First, try [stopping any running containers](/docs/remote/containers.md#managing-containers) you are no longer using.
 
-If this doesn't solve your problem, you may want to see if CPU is actually your problem or if there is something else going on. An easy way to keep tabs on this this is to install the [Resource Monitor extension](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor&ssr=false#overview). When installed in a container, it will provide you info about capacity for your containers in the status bar.
+If this doesn't solve your problem, you may want to see if CPU is actually your problem or if there is something else going on. An easy way to keep tabs on this is to install the [Resource Monitor extension](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor&ssr=false#overview). When installed in a container, it will provide you info about capacity for your containers in the status bar.
 
 ![Resource use status bar](images/troubleshooting/resource-monitor.png)
 
@@ -331,9 +331,9 @@ If you'd like this extension to always be installed, add this to your `settings.
 
 If you determine that you need to give your container more of your machine's capacity, follow these steps:
 
-1. Right-click on the Docker task bar item and select `Settings`/`Preferences`...
-2. Click on `Advanced` to increase CPU, Memory, or Swap.
-3. Click on `Disk` to increase the amount of disk Docker is allowed to consumer on your machine.
+1. Right-click on the Docker task bar item and select **Settings** (**Preferences** on macOS).
+2. Click on **Advanced** to increase CPU, Memory, or Swap.
+3. Click on **Disk** to increase the amount of disk Docker is allowed to consume on your machine.
 
 Finally, if your container is disk intensive, you should avoid using a volume mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead.
 
@@ -451,7 +451,7 @@ This is a [well known issue](https://github.com/debuerreotype/docker-debian-arti
 
 There are two ways to resolve this error:
 
-- **Option 1**: Remove any containers that depend the image, remove the image, and then try building again. This should download an updated image that is not effected by the problem. See **[cleaning out unused containers and images](#cleaning-out-unused-containers-and-images)** for details.
+- **Option 1**: Remove any containers that depend on the image, remove the image, and then try building again. This should download an updated image that is not effected by the problem. See **[cleaning out unused containers and images](#cleaning-out-unused-containers-and-images)** for details.
 
 - **Option 2**: If you don't want to delete your containers or images, add this line into your `Dockerfile` before any `apt` or `apt-get` command. It adds the needed source lists for Jessie:
 
@@ -485,7 +485,7 @@ ENV DEBIAN_FRONTEND=dialog
 
 This warning is just that, a warning. It is telling you not to parse the output of `apt-key`, so as long as your script isn't, there's no problem. You can safely ignore it.
 
-This occurs in `Dockerfiles` because the `apt-key` command is not running from a terminal. Unfortunately, this error cannot be eliminated completely, but can be hidden unless the `apt-key` command returns a non-zero exit code (indicating a failure). For example:
+This occurs in `Dockerfile`s because the `apt-key` command is not running from a terminal. Unfortunately, this error cannot be eliminated completely, but can be hidden unless the `apt-key` command returns a non-zero exit code (indicating a failure). For example:
 
 ```Dockerfile
 # (OUT=$(apt-key add - 2>&1) || echo $OUT) will only print the output if a non-zero exit code is hit
@@ -544,7 +544,7 @@ While many extensions will work unmodified, there are a few issues that can prev
 | Problem | Description | Resolution |
 |---------|-------------|------------|
 | **Browser does not open locally** | Some extensions use external node modules or custom code to launch a browser window. Unfortunately, this may cause the extension to launch the browser remotely instead of locally. | The `vscode.env.openExternal` API will open a local browser to resolve this problem. See [here for details](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application). |
-| **Clipboard does not work** | Some extensions use node modules like `clipboardy` integrate with the clipboard. Unfortunately, this may cause the extension to incorrectly integrate with the clipboard on the remote side. | Use the VS Code clipboard API. See [here for details](/api/advanced-topics/remote-extensions#using-the-clipboard). |
+| **Clipboard does not work** | Some extensions use node modules like `clipboardy` to integrate with the clipboard. Unfortunately, this may cause the extension to incorrectly integrate with the clipboard on the remote side. | Use the VS Code clipboard API. See [here for details](/api/advanced-topics/remote-extensions#using-the-clipboard). |
 | **Cannot access local web server from browser or application** | When working inside a container or SSH host, the port the browser is connecting to may be blocked. | The `vscode.env.openExternal` API will automatically forward localhost ports to resolve this problem. See [here for details](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application).  |
 | **WebView contents do not appear** | If your WebView content uses an iframe to connect to a local web server, the port the WebView is connecting to may be blocked. | The WebView API now includes a `portMapping` property that you can use to solve this problem. See [here for details](/api/advanced-topics/remote-extensions#accessing-localhost). |
 | **Blocked localhost ports** |  If you are trying to connect to a localhost port from an external application, the port may be blocked. | There currently is no API for extensions to programmatically forward arbitrary ports, but you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...** to do so manually. |
