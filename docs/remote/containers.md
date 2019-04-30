@@ -594,6 +594,7 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/containers/i
 ### Docker limitations
 
 * First time installs of Docker Desktop for Windows will require an additional "sharing" step to give your container access to local source code. However, step may not work with certain AAD (email based) identities. See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) and [Enabling file sharing in Docker Desktop](/docs/remote/troubleshooting.md#enabling-file-sharing-in-docker-desktop) for details and workarounds.
+* You may see errors if you sign into Docker with your email address instead of your Docker ID. This is a known issue and can be resolved by signing in with your Docker ID instead. See Docker issue [#935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 * If you see high CPU spikes for `com.docker.hyperkit` on Mac, this may be due to a [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759). See the Docker issue for details.
 * If you see either of these messages building a Dockerfile, you may be hitting a known Docker issue with Debian 8 (Jessie):
 
@@ -608,7 +609,7 @@ See [here for other notable Docker-related issues](/docs/remote/troubleshooting.
 
 ### Docker Extension limitations
 
-Some Docker commands invoked from the Docker extension can fail when invoked from a VS Code window opened on a container. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extenson that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local VS Code window and use the Docker extension from this window.
+Some Docker commands invoked from the Docker extension can fail when invoked from a VS Code window opened on a container. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local VS Code window and use the Docker extension from this window.
 
 ### Extension limitations
 
