@@ -107,12 +107,12 @@ If there are extensions that you would like to always have installed on any SSH 
 
 Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location  in your `settings.json` file. For example, the setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
-````json
+```json
 "remote.extensionKind": {
     "ms-azuretools.vscode-cosmosdb": "ui",
     "msjsdiag.debugger-for-chrome": "workspace"
 }
-````
+```
 
 Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
@@ -165,7 +165,7 @@ Fortunately, you can add host specific user settings to `~/.vscode-remote/data/M
 ### Remote - SSH limitations
 
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
-- Windows and MacOS SSH Hosts are **not** yet supported. (Windows and MacOS clients **are** supported.)
+- Windows and macOS SSH Hosts are **not** yet supported. (Windows and macOS clients **are** supported.)
 - Linux hosts must have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed.
 - PuTTY is not supported on Windows.
 - You cannot drag files out of the File Explorer to your local filesystem to copy them.
@@ -180,19 +180,19 @@ Many extensions will work on remote SSH hosts modification. However, in some cas
 
 ### How do I setup a SSH client on ...?
 
-See [here](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) details on installing supported clients.
+See [Installing a supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) for details.
 
 ### How do I setup a SSH server on ...?
 
-See [here](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) for details on setting up a SSH server for your host.
+See [Installing a supported SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) for details on setting up a SSH server for your host.
 
 ### Can I sign into my SSH server with another/additional authentication mechanism like a password?
 
-Yes, with some additional configuration. See [here](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) for information on the correct settings.
+Yes, with some additional configuration. See [Enabling alternate SSH authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) for information on the correct settings.
 
 ### How do I fix SSH errors about "bad permissions"?
 
-See [here](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) for details on resolving these types of errors.
+See [Fixing SSH file permission errors](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) for details on resolving these types of errors.
 
 ### What Linux packages / libraries need to be installed on remote SSH hosts?
 
