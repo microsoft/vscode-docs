@@ -315,7 +315,7 @@ By default, Docker Desktop only gives containers a fraction of your machine capa
 
 First, try [stopping any running containers](/docs/remote/containers.md#managing-containers) you are no longer using.
 
-If this doesn't solve your problem, you may want to see if CPU is actually your problem or if there is something else going on. An easy way to keep tabs on this this is to install the [Resource Monitor extension](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor&ssr=false#overview). When installed in a container, it will provide you info about capacity for your containers in the status bar.
+If this doesn't solve your problem, you may want to see if CPU is actually your problem or if there is something else going on. An easy way to keep tabs on this is to install the [Resource Monitor extension](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor&ssr=false#overview). When installed in a container, it will provide you info about capacity for your containers in the status bar.
 
 ![Resource use status bar](images/troubleshooting/resource-monitor.png)
 
