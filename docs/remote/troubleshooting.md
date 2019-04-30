@@ -345,7 +345,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
  1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view if not already present.
 
-> **Note:** Using the Docker extension from a VS Code window opened on a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extenson that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local window and use the Docker extension from this VS Code window.
+> **Note:** Using the Docker extension from a VS Code window opened on a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local window and use the Docker extension from this VS Code window.
 
  2. You can then go to the Docker panel and expand the Containers or Images tree, right-click, and select Remove Container / Image.
 
@@ -388,7 +388,7 @@ You can add a volume mount to any local folder using these steps:
           - /local/source/path/goes/here:/target/path/in/container/goes/here
         ```
 
-2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the command palette (`kbstyle(F1)`) to pick up the change.
+2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
 
 ### Connecting to multiple containers
 
@@ -400,7 +400,7 @@ You can use Docker and Kubernetes related CLIs and extensions from inside your d
 
 ### Adding a non-root user to your dev container
 
-Many images run as a root user by default. However some provide non-root users that you can optionally use instead. If your image or Dockerfile provides a non-root user that you have to opt into using (e.g. the default is still root), you can specify the user in one of two ways:
+Many images run as a root user by default. However, some provide non-root users, that you can optionally use instead. If your image or Dockerfile provides a non-root user that you can opt into using (for example, the default is still root), you can specify the user in one of two ways:
 
 - When referencing an `image` or `Dockerfile`, add the following to your `devcontainer.json`:
 
