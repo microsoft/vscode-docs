@@ -31,7 +31,7 @@ Compared to using a network share or synchronizing files, VS Code Remote Develop
 
 ### How do the Remote Development extensions work?
 
-Visual Studio Code Remote Development allows your local VS Code installation to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical) by moving the execution of certain commands to a "remote server". This "VS Code Server" is quickly installed by VS Code when you connect to a remote endpoint and can host extensions that interact directly with the remote workspace, machhine, and file system.
+Visual Studio Code Remote Development allows your local VS Code installation to transparently interact with code and runtime environments sitting on other machines (whether virtual or physical) by moving the execution of certain commands to a "remote server". This "VS Code Server" is quickly installed by VS Code when you connect to a remote endpoint and can host extensions that interact directly with the remote workspace, machine, and file system.
 
 ![Architecture summary](images/troubleshooting/architecture.png)
 
@@ -69,9 +69,9 @@ The Docker extension is by default configured as a UI extension. This enables th
 }
 ```
 
-### Do I need to install all of the extensions in the Remote Development extension pack?
+### Can I install individual extensions instead of the extension pack?
 
-The extension pack provides a convenient way for you to access all of the latest remote capabilities as they are released. However, you can opt to install the individual extensions instead from the marketplace or VS Code extension panel.
+Yes. The extension pack provides a convenient way for you to access all of the latest remote capabilities as they are released. However, you can opt to install the individual extensions instead from the marketplace or VS Code extension panel.
 
 * [Remote - SSH](https://aka.ms/vscode-remote/download/ssh)
 * [Remote - Containers](https://aka.ms/vscode-remote/download/containers)
