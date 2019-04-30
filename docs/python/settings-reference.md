@@ -87,7 +87,6 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 | Setting<br/>(python.autoComplete.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | addBrackets | `false` | Specifies whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. | [Editing](/docs/python/editing.md#autocomplete-and-intellisense) |
-| preloadModules | `[]` | Specifies modules to pre-load to improve autocomplete performance. | [Editing](/docs/python/editing.md#autocomplete-and-intellisense) |
 | extraPaths | `[]` | Specifies locations of additional packages for which to load autocomplete data. | [Editing](/docs/python/editing.md#autocomplete-and-intellisense) |
 
 ## Formatting settings
