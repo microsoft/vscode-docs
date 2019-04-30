@@ -342,7 +342,7 @@ Now the webview's traffic to `localhost:3000` will be transparently routed to th
 
 ![Webview Solution](images/remote-extensions/webview-solution.png)
 
-### Using native Node.js modules
+## Using native Node.js modules
 
 Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js which can cause binaries to fail when used remotely.
 
