@@ -15,7 +15,9 @@ This article covers troubleshooting tips and tricks for each of the Visual Studi
 
 ### Configuring key based authentication
 
-> **PuTTY Tip:** PuTTY for Windows is not a [supported client](#installing-a-supported-ssh-client), but if you've already set up key based authentication using PuTTYGen, you can convert your private key so that it can be used by other SSH clients. See [below](#reusing-a-key-generated-in-puttygen) for details.
+[SSH public key authentication](https://www.ssh.com/ssh/public-key-authentication) is a convenient, high security authentication method that combines a local "private" key with a "public" key you that you store in your user account on a SSH host. This section will walk you through how to generate these keys and add them to a host.
+
+> **PuTTY Tip:** PuTTY for Windows is not a [supported client](#installing-a-supported-ssh-client), but you can [convert your existing keys](#reusing-a-key-generated-in-puttygen) instead of generating new ones.
 
 #### Quick start
 
