@@ -48,7 +48,7 @@ To get started, follow these steps:
 The Remote - Containers extension supports two primary operating models:
 
 * You can use a container as your [full-time development environment](#creating-a-devcontainerjson-file-for-existing-projects).
-* You can [attach to a running container](#attaching-to-running-containers) for targeted use.
+* You can [attach to a running container](#attaching-to-running-containers) to inspect it.
 
 We will cover how to use a container as your full-time development environment first.
 
@@ -100,7 +100,7 @@ Next we will cover how to set up a dev container for an existing project so that
 
 ## Creating a devcontainer.json file for existing projects
 
-VS Code's container configuration is stored in a `devcontainer.json` file. This file is similar to the `launch.json` file used for debugging, but is used for launching (or attaching to) your development container instead. This dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
+VS Code's container configuration is stored in a `devcontainer.json` file. This file is similar to the `launch.json` file used for debugging, but is used for launching (or attaching to) your development container instead. You can also use it to specify any extensions that should be automatically installed once the container is running or execute a post-create command to prep the environment. This dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
 The **Remote-Containers: Create Container Configuration File...** command adds this file to your project, where you can further customize for your needs.
 
@@ -174,7 +174,7 @@ You can also manually manage your containers using one of the following options:
 
 1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view, if not already installed.
 
-> **Note:** Using the Docker extension from a VS Code window opened on a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extenson that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local window and use the Docker extension from this VS Code window.
+    > **Note:** Some Docker commands invoked from the Docker extension can fail when invoked from a VS Code window opened in a container. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local VS Code window and use the Docker extension from this window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
 2. You can then go to the Docker view and expand the **Containers** node to see what containers are running. Right click and select **Stop Container** to shut one down.
 
@@ -182,14 +182,14 @@ You can also manually manage your containers using one of the following options:
 
 ### Option 2: Use the Docker CLI
 
-1. Open a terminal.
+1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Type `docker ps` to see running containers. Use `docker ps -a` to also see any stopped containers.
 3. Type `docker stop <Container ID>` from this list to stop a container.
 4. If you would like to delete a container, type `docker rm <Container ID>` to remove it.
 
 ### Option 3: Use Docker Compose
 
-1. Open a terminal.
+1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Go to the directory with your `docker-compose.yml` file.
 3. Type `docker-compose top` to see running processes.
 4. Type `docker-compose stop` to stop the containers. If you have more than one Docker Compose file, you can specify additional Docker Compose files with the `-f` argument.
@@ -283,7 +283,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## Container specific settings
 
-VS Code's local user settings are also reused when you are connected to a dev container. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each container. Fortunately, once you have connected to a container, you can also set container specific settings by running the **Preferences: Open Remote Settings** command from the command palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor. These will override any local settings you have in place whenever you connect to the container.
+VS Code's local user settings are also reused when you are connected to a dev container. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each container. Fortunately, once you have connected to a container, you can also set container specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor. These will override any local settings you have in place whenever you connect to the container.
 
 ### Default container specific settings
 
@@ -322,7 +322,7 @@ This section will walk you through how to configure your project for each of the
 
 ### devcontainer.json
 
-As mentioned above, `.devcontainer/devcontainer.json` or `.devcontainer.json` file tells VS Code where to look for the containers it should create or connect to. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. We'll cover the different properties of the file in the sections below.
+As mentioned above, `.devcontainer/devcontainer.json` or `.devcontainer.json` file tells VS Code where to look for the containers it should create or connect to. The intent of `devcontainer.json` is conceptually similar to VS Code's `launch.json` for debugging, but focused on launching (or attaching to) your development container instead. You can also use it to specify any extensions that should be automatically installed once the container is running or execute a post-create command to prep the environment. We'll cover the different properties of the file in the sections below.
 
 ### Working with a developer sandbox
 
@@ -609,7 +609,7 @@ See [here for other notable Docker-related issues](/docs/remote/troubleshooting.
 
 ### Docker Extension limitations
 
-Some Docker commands invoked from the Docker extension can fail when invoked from a VS Code window opened on a container. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local VS Code window and use the Docker extension from this window.
+Some Docker commands invoked from the Docker extension can fail when invoked from a VS Code window opened in a container. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local VS Code window and use the Docker extension from this window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
 ### Extension limitations
 

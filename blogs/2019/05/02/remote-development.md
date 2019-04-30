@@ -15,7 +15,7 @@ May 2, 2019 by The VS Code Team, [@code](https://twitter.com/code)
 
 Today we're excited to announce the preview of three new extensions for Visual Studio Code that enable seamless remote development in [Containers](https://www.docker.com/resources/what-container), physical or virtual machines, and the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl). You can [get started](#get-started) right away by installing the [Remote Development Extension Pack](https://aka.ms/VSCodeRemoteExtensionPack).
 
-**Note**: You'll need to use the [Insiders Build](https://code.visualstudio.com/insiders/) for now, but remote support will eventually be available in Stable.
+**Note**: You'll need to use the [Insiders](https://code.visualstudio.com/insiders/) build for now, but remote development support will eventually be available in the Stable release.
 
 Read on to learn how we got here.
 
@@ -31,7 +31,7 @@ We heard from Python developers who want to switch to VS Code but need to use de
 
 Data scientists often need massive storage and compute services to analyze large datasets that can't be stored or processed even on a robust desktop.
 
-And, [the third most commented issue in the VS Code repository](https://github.com/Microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal in a Linux distro on Windows - the [Windows Subsystem for Linux ("WSL")](https://docs.microsoft.com/en-us/windows/wsl/about).
+And, [the third most commented issue in the VS Code repository](https://github.com/Microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal in a Linux distro on Windows with the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/about).
 
 ![VS Code Ubuntu on Windows testimonial](vscode-ubuntu-windows-testimonial.png)
 
@@ -164,7 +164,7 @@ Here are 3 quick steps to get started doing Visual Studio Code Remote Developmen
 
 3. Read the [Docs](https://aka.ms/vscode-remote). Try the [Dev Container samples](https://github.com/search?q=org%3AMicrosoft+vscode-remote-try-&unscoped_q=vscode-remote-try-). If you develop with Python (many of you do!), check out Dan Taylor's [blog post on remote Python development](http://devblogs.microsoft.com/python/remote-python-development-in-vs-code-with-docker-and-ssh?utm_campaign_id=vscblog).
 
-Last, if you run into problems please [submit an issue](https://github.com/Microsoft/vscode-remote-release/issues). For answers to common questions, check out the [FAQ](https://code.visualstudio.com/docs/remote/faq).
+Last, if you run into problems, please [submit an issue](https://github.com/Microsoft/vscode-remote-release/issues). For answers to common questions, see our [FAQ](https://code.visualstudio.com/docs/remote/faq).
 
 Let us know what you think!
 

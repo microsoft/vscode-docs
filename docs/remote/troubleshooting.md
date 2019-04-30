@@ -345,28 +345,28 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
  1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view if not already present.
 
-> **Note:** Using the Docker extension from a VS Code window opened on a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extenson that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local window and use the Docker extension from this VS Code window.
+    > **Note:** Using the Docker extension from a VS Code window opened in a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local window and use the Docker extension from this VS Code window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
- 2. You can then go to the Docker panel and expand the Containers or Images tree, right-click, and select Remove Container / Image.
+ 1. You can then go to the Docker panel and expand the Containers or Images tree, right-click, and select Remove Container / Image.
 
      ![Docker Explorer screenshot](images/containers/docker-remove.png)
 
 **Option 2: Use the Docker CLI to pick containers to delete**:
 
-1. Open a terminal.
+1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Type `docker ps -a` to see a list of all containers.
 3. Type `docker rm <Container ID>` from this list to remove a container.
 4. Type `docker image prune` to remove any unused images.
 
 **Option 3: Use Docker Compose**:
 
-1. Open a terminal.
+1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Go to the directory with your `docker-compose.yml` file.
 3. Type `docker-compose down` to stop and delete the containers. If you have more than one Docker Compose file, can specify additional Docker Compose files with the `-f` argument.
 
 **Option 4: Delete all containers and images that are not running:**
 
-1. Open a terminal
+1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Type `docker system prune --all`
 
 ### Adding another volume mount
@@ -388,7 +388,7 @@ You can add a volume mount to any local folder using these steps:
           - /local/source/path/goes/here:/target/path/in/container/goes/here
         ```
 
-2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the command palette (`kbstyle(F1)`) to pick up the change.
+2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
 
 ### Connecting to multiple containers
 
@@ -400,7 +400,7 @@ You can use Docker and Kubernetes related CLIs and extensions from inside your d
 
 ### Adding a non-root user to your dev container
 
-Many images run as a root user by default. However some provide non-root users that you can optionally use instead. If your image or Dockerfile provides a non-root user that you have to opt into using (e.g. the default is still root), you can specify the user in one of two ways:
+Many images run as a root user by default. However, some provide non-root users, that you can optionally use instead. If your image or Dockerfile provides a non-root user that you can opt into using (for example, the default is still root), you can specify the user in one of two ways:
 
 - When referencing an `image` or `Dockerfile`, add the following to your `devcontainer.json`:
 
@@ -557,9 +557,9 @@ While many extensions will work unmodified, there are a few issues that can prev
 | **WebView contents do not appear** | If your WebView content uses an iframe to connect to a local web server, the port the WebView is connecting to may be blocked. | The WebView API now includes a `portMapping` property that you can use to solve this problem. See [here for details](/api/advanced-topics/remote-extensions#accessing-localhost). |
 | **Blocked localhost ports** |  If you are trying to connect to a localhost port from an external application, the port may be blocked. | There currently is no API for extensions to programmatically forward arbitrary ports, but you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...** to do so manually. |
 | **Errors storing extension data** | Extensions may try to persist global data by looking for the `~/.config/Code` folder on Linux. This folder may not exist, which can cause the extension to throw errors like `ENOENT: no such file or directory, open '/root/.config/Code/User/fileame-goes-here`. | Use the `context.globalStoragePath` or `context.storagePath` property instead. See [here for details](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state). |
-| **Cannot sign in / have to sign in each time I connect to a new endpoint** | Extensions with a sign in may persist secrets using their own code. This code can fail due to missing dependencies. Even if it succeeds, the secrets will be stored remotely, which means you have to sign in for every new endpoint. | Use the `keytar` node module or create a "UI Helper Extension" to interact with local secret stores. See [here for details](/api/advanced-topics/remote-extensions#persisting-secrets). |
+| **Cannot sign in / have to sign in each time I connect to a new endpoint** | Extensions with a sign in may persist secrets using their own code. This code can fail due to missing dependencies. Even if it succeeds, the secrets will be stored remotely, which means you have to sign in for every new endpoint. | Use the `keytar` node module. See [here for details](/api/advanced-topics/remote-extensions#persisting-secrets). |
 | **Cannot access / transfer remote workspace files to local machines** | Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files. | We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem. |
-| **Cannot access attached device from extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. | A "UI Helper Extension" can be used to integrate with the device. See [here for details](/api/advanced-topics/remote-extensions#accessing-local-apis-using-a-helper-extension). However, the Helper Extension will not be able to access workspace files. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem. |
+| **Cannot access attached device from extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. | We are investigating the best approach to solve this problem. |
 
 ## Questions and feedback
 
