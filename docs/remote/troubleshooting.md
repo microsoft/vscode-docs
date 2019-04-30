@@ -345,7 +345,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
  1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view if not already present.
 
-> **Note:** Using the Docker extension from a VS Code window opened on a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extenson that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local window and use the Docker extension from this VS Code window.
+    > **Note:** The Docker extension has a few limitations when you are connected to a dev container. Given most containers do not have the Docker CLI installed, features that rely on it can fail (e.g. `Docker: Show Logs`). You can resolve this problem either using the extension from a new local window or [setting up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
  2. You can then go to the Docker panel and expand the Containers or Images tree, right-click, and select Remove Container / Image.
 
@@ -353,20 +353,20 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
 **Option 2: Use the Docker CLI to pick containers to delete**:
 
-1. Open a terminal.
+1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Type `docker ps -a` to see a list of all containers.
 3. Type `docker rm <Container ID>` from this list to remove a container.
 4. Type `docker image prune` to remove any unused images.
 
 **Option 3: Use Docker Compose**:
 
-1. Open a terminal.
+1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Go to the directory with your `docker-compose.yml` file.
 3. Type `docker-compose down` to stop and delete the containers. If you have more than one Docker Compose file, can specify additional Docker Compose files with the `-f` argument.
 
 **Option 4: Delete all containers and images that are not running:**
 
-1. Open a terminal
+1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Type `docker system prune --all`
 
 ### Adding another volume mount

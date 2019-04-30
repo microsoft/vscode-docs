@@ -81,8 +81,7 @@ No. The [Buildpack](https://buildpacks.io/) concept focuses on taking source cod
 
 ### Why do some commands invoked from the Docker Extension fail?
 
-Using the Docker extension from a VS Code window opened on a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extenson that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local window and use the Docker extension from this VS Code window.
-
+The Docker extension has a few limitations when you are connected to a dev container. Given most containers do not have the Docker CLI installed, features that rely on it can fail (e.g. `Docker: Show Logs`). You can resolve this problem either using the extension from a new local window or [setting up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
 ## Extensions authors
 
