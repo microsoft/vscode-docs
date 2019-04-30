@@ -86,7 +86,7 @@ If you search for and install an extension in the Extensions view, it will autom
 
 ![Local Extension Category](images/common/local-installed-extensions.png)
 
-> **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+> **Note:** If you are an extension author and find that your extension is not working properly or installs in the wrong place, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. You can click the **Install** button on any of them you want to install on your remote host.
 
@@ -105,7 +105,7 @@ If there are extensions that you would like to always have installed on any SSH 
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location  in your `settings.json` file. For example, the setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+Extensions are typically designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location in your `settings.json` file. For example, the setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ```json
 "remote.extensionKind": {
@@ -156,7 +156,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## SSH host specific settings
 
-VS Code's user settings will apply to both folders opened locally and on any SSH host. For most settings, this is really useful, but some settings are absolute paths that may vary between your local machine and different SSH hosts. You may also want to alter settings like the active theme based on whether you are connected to a SSH host or not.
+VS Code's user settings will apply to both folders opened locally and on any SSH host. For most settings, this is really useful. However, some settings are absolute paths that may vary between your local machine and different SSH hosts. You may also want to alter settings like the active theme based on whether you are connected to a SSH host or not.
 
 Fortunately, you can add host specific user settings to `~/.vscode-remote/data/Machine/settings.json` on the host that will override any local settings you have in place. You can quickly access them by running the **Preferences: Open Remote Settings** command from the command palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor.
 
