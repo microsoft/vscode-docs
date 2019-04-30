@@ -106,10 +106,10 @@ The **Remote-Containers: Create Container Configuration File...** command adds t
 
 For example, through a `devcontainer.json` file, you can:
 
-- Spin up a [stand-alone "sandbox" container](#working-with-a-developer-sandbox).
-- Work inside a dev container defined by an [image](#using-an-existing-container-image), [Dockerfile](#using-a-dockerfile) or [docker-compose.yml](#using-docker-compose).
-- [Use Docker or Kubernetes](#using-docker-or-kubernetes-from-a-container) from inside a dev container to build and deploy your app.
-- [Attach to an already running container](#attaching-to-running-containers).
+* Spin up a [stand-alone "sandbox" container](#working-with-a-developer-sandbox).
+* Work inside a dev container defined by an [image](#using-an-existing-container-image), [Dockerfile](#using-a-dockerfile) or [docker-compose.yml](#using-docker-compose).
+* [Use Docker or Kubernetes](#using-docker-or-kubernetes-from-a-container) from inside a dev container to build and deploy your app.
+* [Attach to an already running container](#attaching-to-running-containers).
 
 The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) has examples of `devcontainer.json` for different scenarios. You can [alter your configuration](#indepth-setting-up-a-folder-to-run-in-a-container) to install additional tools such as Git in the container, automatically install extensions, expose additional ports, set runtime arguments, and reuse or [extend your existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend).
 
@@ -243,7 +243,7 @@ Containers are isolated environments, so if you want to access a server, service
 
 Sometimes when developing you may need to access a port in your container that you didn't add to `devcontainer.json`, your `Dockerfile`, or Docker Compose file. If you want to **temporarily forward** a new port for the duration of the session, run the **Remote-Containers: Forward Port from Container...** command from the Command Palette (`kbstyle(F1)`).
 
-After selecting a port, a notification will tell you the localhost port you should use to access the port in the container. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote HTTP server using http\://localhost:4123.
+After selecting a port, a notification will tell you the localhost port you should use to access the port in the container. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote HTTP server using `http://localhost:4123`.
 
 ### Always forwarding / exposing / publishing a port
 
@@ -304,17 +304,17 @@ COPY settings.vscode.json /root/.vscode-remote/data/Machine/settings.json
 
 There are a few different ways VS Code Remote - Containers can be used to develop an application inside a fully containerized environment. In general, there are two primary scenarios that drive interest in this development style:
 
-- **[Stand-Alone Dev Sandboxes](#working-with-a-developer-sandbox)**: Even if you are not deploying your application into a containerized environment, you may still want to isolate your build and runtime environment from your local OS or to edit, run, and debug code in an environment that is more representative of production. A single, stand-alone "dev sandbox" container can be used to achieve these goals even if you are not familiar with containers and/or do not deploy into a container in production. For example, today you may be running some code on your local macOS or Windows machine that is ultimately deployed to a Linux VM or server in production.
+* [Stand-Alone Dev Sandboxes](#working-with-a-developer-sandbox): Even if you are not deploying your application into a containerized environment, you may still want to isolate your build and runtime environment from your local OS or to edit, run, and debug code in an environment that is more representative of production. A single, stand-alone "dev sandbox" container can be used to achieve these goals even if you are not familiar with containers and/or do not deploy into a container in production. For example, today you may be running some code on your local macOS or Windows machine that is ultimately deployed to a Linux VM or server in production.
 
-- **Container Deployed Applications**: In this case, you plan to deploy the application into one or more containers but would like to take advantage of the same benefits that stand-alone dev sandboxes provide. VS Code currently supports working with container based applications defined in a number of ways:
+* **Container Deployed Applications**: In this case, you plan to deploy the application into one or more containers but would like to take advantage of the same benefits that stand-alone dev sandboxes provide. VS Code currently supports working with container based applications defined in a number of ways:
 
-  - [Dockerfile](#using-a-dockerfile): You are working on a single container / service that is described using a single `Dockerfile`.
+  * [Dockerfile](#using-a-dockerfile): You are working on a single container / service that is described using a single `Dockerfile`.
 
-  - [Docker Compose](#using-docker-compose): You are working with multiple orchestrated services that are described using a `docker-compose.yml` file.
+  * [Docker Compose](#using-docker-compose): You are working with multiple orchestrated services that are described using a `docker-compose.yml` file.
 
-  - [Attach](#attaching-to-running-containers): You can use an alternate workflow and attach to an already running container.
+  * [Attach](#attaching-to-running-containers): You can use an alternate workflow and attach to an already running container.
 
-  - In each case, you may also need to [build container images and deploy to Docker or Kubernetes](#using-docker-or-kubernetes-from-a-container) from inside your container.
+  * In each case, you may also need to [build container images and deploy to Docker or Kubernetes](#using-docker-or-kubernetes-from-a-container) from inside your container.
 
 This section will walk you through how to configure your project for each of these situations. The [vscode-dev-containers GitHub repository](https://aka.ms/vscode-dev-containers) also contains a number of dev container definitions you may find useful to get you up and running quickly.
 
@@ -461,9 +461,9 @@ Referencing an existing deployment / non-development focused `docker-compose.yml
 
 For example:
 
-- Docker Compose will shut down a container if its entry point shuts down. This is problematic for situations where you are debugging and need to restart your app on a repeated basis.
-- You also may not be mapping the local filesystem into the container or exposing ports to other resources like databases you want to access.
-- You may be using an [Alpine Linux](https://alpinelinux.org) based image in your production configuration. (VS Code Remote - Containers does not currently support Alpine Linux).
+* Docker Compose will shut down a container if its entry point shuts down. This is problematic for situations where you are debugging and need to restart your app on a repeated basis.
+* You also may not be mapping the local filesystem into the container or exposing ports to other resources like databases you want to access.
+* You may be using an [Alpine Linux](https://alpinelinux.org) based image in your production configuration. (VS Code Remote - Containers does not currently support Alpine Linux).
 
 You can solve these and other issues like them by extending your entire Docker Compose configuration with [multiple `docker-compose.yml` files](https://docs.docker.com/compose/extends/#multiple-compose-files) that override or supplement your primary one.
 
@@ -533,13 +533,13 @@ version: '3'
 
 The following are some dev container definitions that use Docker Compose that you can use to get a more complete picture of the setup:
 
-- [Existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
+* [Existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
 
-- [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo) -  A Node.js container that connects to a Mongo DB in a different container.
+* [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo) -  A Node.js container that connects to a Mongo DB in a different container.
 
-- [Python & PostGreSQL](https://aka.ms/vscode-remote/samples/python-postgresl) -  A Python container that connects to PostGreSQL in a different container.
+* [Python & PostGreSQL](https://aka.ms/vscode-remote/samples/python-postgresl) -  A Python container that connects to PostGreSQL in a different container.
 
-- [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
+* [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
 
 ## Using Docker or Kubernetes from a container
 
@@ -549,11 +549,11 @@ Once the needed CLIs are in place, you can also work with the appropriate contai
 
 See the following examples dev containers for additional information:
 
-- [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
+* [*Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
 
-- [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose) - Variation of Docker-in-Docker for situations where you are using Docker Compose instead of a single Dockerfile.
+* [*Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose) - Variation of Docker-in-Docker for situations where you are using Docker Compose instead of a single Dockerfile.
 
-- [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Includes the Docker CLI, kubectl, and Helm and illustrates how you can use them from inside a dev container to access a local Minikube or Docker provided Kubernetes cluster.
+* [*Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Includes the Docker CLI, kubectl, and Helm and illustrates how you can use them from inside a dev container to access a local Minikube or Docker provided Kubernetes cluster.
 
 ## devcontainer.json  reference
 
@@ -582,22 +582,24 @@ See the following examples dev containers for additional information:
 
 ### Remote - Containers limitations
 
-- Alpine Linux or Windows container images are not yet supported. Most images come with a Debian or Ubuntu based flavor you can use instead. (Typically Alpine variations end in `-alpine`).
-- All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
-- The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
-- Local proxy settings are not reused inside the container which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
+* Alpine Linux or Windows container images are not yet supported. Most images come with a Debian or Ubuntu based flavor you can use instead. (Typically Alpine variations end in `-alpine`).
+* All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
+* The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
+* Local proxy settings are not reused inside the container which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 
 See [here for a list of active issues](https://aka.ms/vscode-remote/containers/issues) on GitHub that are tagged with Containers.
 
 ### Docker limitations
 
-- First time installs of Docker Desktop for Windows will require an additional "sharing" step to give your container access to local source code. However, step may not work with certain AAD (email based) identities. See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) and [Enabling file sharing in Docker Desktop](/docs/remote/troubleshooting.md#enabling-file-sharing-in-docker-desktop) for details and workarounds.
-- If you see high CPU spikes for `com.docker.hyperkit` on Mac, this may be due to a [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759). See the Docker issue for details.
-- If you see either of these messages building a Dockerfile, you may be hitting a known Docker issue with Debian 8 (Jessie):
+* First time installs of Docker Desktop for Windows will require an additional "sharing" step to give your container access to local source code. However, step may not work with certain AAD (email based) identities. See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) and [Enabling file sharing in Docker Desktop](/docs/remote/troubleshooting.md#enabling-file-sharing-in-docker-desktop) for details and workarounds.
+* If you see high CPU spikes for `com.docker.hyperkit` on Mac, this may be due to a [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759). See the Docker issue for details.
+* If you see either of these messages building a Dockerfile, you may be hitting a known Docker issue with Debian 8 (Jessie):
+
     ```text
     W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease
     E: Some index files failed to download. They have been ignored, or old ones used instead
     ```
+
     See [here for a workaround](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
 
 See [here for other notable Docker-related issues](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
@@ -605,19 +607,20 @@ See [here for other notable Docker-related issues](/docs/remote/troubleshooting.
 ### Extension limitations
 
 Many extensions will work inside dev containers without modification. However, in some cases, certain features may require changes. If you run into an extension issue, [see here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extensiont-tips) that you can mention to the extension author when reporting the issue.
+
 ## Common questions
 
-### I am seeing errors when trying to mount the local filesystem into a container, how do I fix this?
+### I am seeing errors when trying to mount the local filesystem into a container
 
 Right-click on the Docker task bar item. On Windows, go to the **Settings > Shared Drives** tab and check the drive(s) where your source code is located. On macOS, go the **Preferences > File Sharing** tab and make sure the folder containing your source code is under a file path specified in the list.
 
 See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) for information on workarounds to common Docker for Windows issues.
 
-### I am seeing "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease" when building a Dockerfile, how do I fix this?
+### I am seeing "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease" when building a Dockerfile
 
 You may be hitting known Docker issue with Debian 8 (Jessie). See [here for a workaround](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
 
-### I'm seeing an error about a missing library or dependency, how do I fix this?
+### I'm seeing an error about a missing library or dependency
 
 Some extensions rely on libraries not found in the certain Docker images. See [above](#installing-additional-software-in-the-sandbox) for help resolving the problem.
 
@@ -639,9 +642,9 @@ The VS Code extension API hides most of the implementation details of running re
 
 ## Questions or feedback
 
-- See [Tips and Tricks](/docs/remote/troubleshooting.md#containers-tips) or the [FAQ](/docs/remote/faq.md).
-- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
-- Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
-- Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
-- Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
-- See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
+* See [Tips and Tricks](/docs/remote/troubleshooting.md#containers-tips) or the [FAQ](/docs/remote/faq.md).
+* Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
+* Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
+* Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
+* Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
+* See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
