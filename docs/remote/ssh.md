@@ -180,19 +180,19 @@ Many extensions will work on remote SSH hosts modification. However, in some cas
 
 ### How do I setup a SSH client on ...?
 
-See [here](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) details on installing supported clients.
+See [Installing a supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) for details.
 
 ### How do I setup a SSH server on ...?
 
-See [here](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) for details on setting up a SSH server for your host.
+See [Installing a supported SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) for details on setting up a SSH server for your host.
 
 ### Can I sign into my SSH server with another/additional authentication mechanism like a password?
 
-Yes, with some additional configuration. See [here](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) for information on the correct settings.
+Yes, with some additional configuration. See [Enabling alternate SSH authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) for information on the correct settings.
 
 ### How do I fix SSH errors about "bad permissions"?
 
-See [here](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) for details on resolving these types of errors.
+See [Fixing SSH file permission errors](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) for details on resolving these types of errors.
 
 ### What Linux packages / libraries need to be installed on remote SSH hosts?
 
