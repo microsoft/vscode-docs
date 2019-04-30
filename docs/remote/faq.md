@@ -57,6 +57,16 @@ The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.co
 
 Most Linux distributions will not require additional dependency installation steps. For SSH, Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed which could be missing from certain stripped down distributions. However, [Alpine Linux](https://alpinelinux.org) is currently not supported.
 
+### Can the Docker Extension run as a Workspace Extension in a remote setup?
+
+The Docker extension is by default configured as a UI extension. This enables the extension to work better with a Docker machine that runs locally while you are developing inside a container. If you want to run the Docker Extension on the workspace side, so that it communicates with a remotely installed Docker machine, then you can configure the Docker extension to run remotely using the following user setting:
+
+```json
+"remote.extensionKind": {
+    "peterjausovec.vscode-docker": "workspace"
+}
+```
+
 ## Dev containers
 
 ### Are "dev container definitions" supposed to define how an application is deployed?
@@ -68,6 +78,11 @@ The [vscode-dev-containers repo](https://aka.ms/vscode-dev-containers) includes 
 ### Are "dev containers definitions" intended to define how an application is built? Like Buildpacks?
 
 No. The [Buildpack](https://buildpacks.io/) concept focuses on taking source code and generating deployable container images through a series of defined steps. A dev container is an environment you can use to develop your application even before you are ready to build. They are therefore complementary concepts.
+
+### Why do some commands invoked from the Docker Extension fail?
+
+Using the Docker extension from a VS Code window opened on a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extenson that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local window and use the Docker extension from this VS Code window.
+
 
 ## Extensions authors
 

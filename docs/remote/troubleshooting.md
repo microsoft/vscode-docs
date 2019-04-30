@@ -345,6 +345,8 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
  1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view if not already present.
 
+> **Note:** Using the Docker extension from a VS Code window opened on a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extenson that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local window and use the Docker extension from this VS Code window.
+
  2. You can then go to the Docker panel and expand the Containers or Images tree, right-click, and select Remove Container / Image.
 
      ![Docker Explorer screenshot](images/containers/docker-remove.png)

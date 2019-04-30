@@ -174,6 +174,8 @@ You can also manually manage your containers using one of the following options:
 
 1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view, if not already installed.
 
+> **Note:** Using the Docker extension from a VS Code window opened on a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extenson that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local window and use the Docker extension from this VS Code window.
+
 2. You can then go to the Docker view and expand the **Containers** node to see what containers are running. Right click and select **Stop Container** to shut one down.
 
     ![Docker Explorer screenshot](images/containers/docker-stop.png)
@@ -603,6 +605,10 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/containers/i
     See [here for a workaround](/docs/remote/troubleshooting.md#resolving-dockerfile-build-failures-for-images-using-debian-8).
 
 See [here for other notable Docker-related issues](/docs/remote/troubleshooting.md#other-common-docker-related-errors-and-issues).
+
+### Docker Extension limitations
+
+Some Docker commands invoked from the Docker extension can fail when invoked from a VS Code window opened on a container. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extenson that rely on the Docker command line, e.g., `Docker: Show Logs` fail. If you need to execute some of these commands then open a new local VS Code window and use the Docker extension from this window.
 
 ### Extension limitations
 
