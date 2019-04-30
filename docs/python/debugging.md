@@ -165,7 +165,7 @@ Specifies how program output is displayed.
 
 | Value | Where output is displayed |
 |--- | --- |
-| `"none"` | VS Code debug console |
+| `"internalConsole"` | VS Code debug console |
 | `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md) |
 | `"externalTerminal"` | Separate console window |
 
@@ -181,17 +181,27 @@ As an example, say `${workspaceFolder}` contains a `py_code` folder containing `
 | `${workspaceFolder}/py_code` | `../data/salaries.csv` |
 | `${workspaceFolder}/data` | `salaries.csv` |
 
-### `debugOptions`
+### `redirectOutput`
 
-An array of additional options:
+When omitted or set to `True` (the default), causes the debugger to print all output from the program into the VS Code debug output window. If omitted, all program output is not displayed in the debugger output window.
 
-| Option | Description |
-| --- | --- |
-| `"RedirectOutput"` (default) | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
-| `"DebugStdLib"` | Enabled debugging of standard library functions. |
-| `"Django"` | Activates debugging features specific to the Django web framework. |
-| `"Sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
-| `"Pyramid"` | When set to true, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
+This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console.
+
+### `justMyCode`
+
+When omitted or set to `True` (the default), restricts debugging to user-written code only. Set to `False` to also enable debugging of standard library functions.
+
+### `django`
+
+When set to `True`, activates debugging features specific to the Django web framework.
+
+### `sudo`
+
+When set to `True` and used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password.
+
+### `pyramid`
+
+When set to `True`, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve).
 
 ### `env`
 
@@ -366,7 +376,7 @@ The configuration drop-down provides a variety of different options for general 
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
 
-To debug an app that requires administrator privileges, use `"console": "externalTerminal"` and include "Sudo" in `debugOptions`.
+To debug an app that requires administrator privileges, use `"console": "externalTerminal"` and `"sudo": "True"`.
 
 ### Flask debugging
 
