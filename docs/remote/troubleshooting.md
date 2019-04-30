@@ -177,9 +177,9 @@ then
 fi
 ```
 
-#### MacOS
+#### macOS
 
-The agent should be running by default on MacOS.
+The agent should be running by default on macOS.
 
 ### Fixing SSH file permission errors
 
@@ -259,13 +259,13 @@ To change Docker's drive and folder sharing settings:
 
 #### Windows
 
-1. Right-click on the Docker task bar item and select `Preferences`.
-2. Go to the `Shared Drives` tab and check the drive(s) where your source code is located.
+1. Right-click on the Docker task bar item and select **Settings**.
+2. Go to the **Shared Drives** tab and check the drive(s) where your source code is located.
 
-#### MacOS
+#### macOS
 
-1. Click on the Docker menu bar item and select `Settings`.
-2. Go to the the `File Sharing` tab. Confirm that the folder containing your source code is under one of the shared folders listed.
+1. Click on the Docker menu bar item and select **Preferences**.
+2. Go to the the **File Sharing** tab. Confirm that the folder containing your source code is under one of the shared folders listed.
 
 ### Resolving Git line ending issues in containers (resulting in many modified files)
 
@@ -329,9 +329,9 @@ If you'd like this extension to always be installed, add this to your `settings.
 
 If you determine that you need to give your container more of your machine's capacity, follow these steps:
 
-1. Right-click on the Docker task bar item and select `Settings`/`Preferences`...
-2. Click on `Advanced` to increase CPU, Memory, or Swap.
-3. Click on `Disk` to increase the amount of disk Docker is allowed to consumer on your machine.
+1. Right-click on the Docker task bar item and select **Settings** (**Preferences** on macOS).
+2. Click on **Advanced** to increase CPU, Memory, or Swap.
+3. Click on **Disk** to increase the amount of disk Docker is allowed to consume on your machine.
 
 Finally, if your container is disk intensive, you should avoid using a volume mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead.
 

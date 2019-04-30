@@ -165,7 +165,7 @@ Fortunately, you can add host specific user settings to `~/.vscode-remote/data/M
 ### Remote - SSH limitations
 
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
-- Windows and MacOS SSH Hosts are **not** yet supported. (Windows and MacOS clients **are** supported.)
+- Windows and macOS SSH Hosts are **not** yet supported. (Windows and macOS clients **are** supported.)
 - Linux hosts must have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed.
 - PuTTY is not supported on Windows.
 - You cannot drag files out of the File Explorer to your local filesystem to copy them.

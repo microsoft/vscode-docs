@@ -625,7 +625,7 @@ Many extensions will work inside dev containers without modification. However, i
 
 ### I am seeing errors when trying to mount the local filesystem into a container, how do I fix this?
 
-Right-click on the Docker task bar item and select **Settings**. On Windows, go to the **Shared Drives** tab and check the drive(s) where your source code is located. On macOS, go the **File Sharing** tab and make sure the folder containing your source code is under a file path specified in the list.
+Right-click on the Docker task bar item. On Windows, go to the **Settings > Shared Drives** tab and check the drive(s) where your source code is located. On macOS, go the **Preferences > File Sharing** tab and make sure the folder containing your source code is under a file path specified in the list.
 
 See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) for information on workarounds to common Docker for Windows issues.
 
