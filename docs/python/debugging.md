@@ -183,9 +183,9 @@ As an example, say `${workspaceFolder}` contains a `py_code` folder containing `
 
 ### `redirectOutput`
 
-When omitted or set to `True` (the default), causes the debugger to print all output from the program into the VS Code debug output window. If omitted, all program output is not displayed in the debugger output window.
+When omitted or set to `True` (the default), causes the debugger to print all output from the program into the VS Code debug output window. If set to `False`, program output is not displayed in the debugger output window.
 
-This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console.
+This option is typically disabled when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console.
 
 ### `justMyCode`
 
