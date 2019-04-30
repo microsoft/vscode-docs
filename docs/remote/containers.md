@@ -349,7 +349,7 @@ For example:
 }
 ```
 
-See the [devcontainer.json reference](#devcontainerjson-reference) for other properties such as the `appPort` and `extensions` list.
+See the [devcontainer.json reference](#devcontainerjson-reference) for information on other available properties such as the `appPort` and `extensions` list.
 
 To open the folder in the container, run the **Remote-Containers: Open Folder in Container** or **Remote: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`). Once the container has been created, the **local filesystem will be automatically mapped** into the container and you can start working with it from VS Code.
 
@@ -368,9 +368,9 @@ apt-get install <package>
 
 > **Note:** GUI based tools do not typically work inside of containers.
 
-Documentation for the software you want to install will usually provide specific instructions, but note that you typically do **not need to prefix commands with `sudo`** given you are likely running as root in the container. If you are not already root, read the directions for the image you've selected to learn how to install additional software.
+Documentation for the software you want to install will usually provide specific instructions, but note that you typically do **not need to prefix commands with `sudo`** given you are likely running as root in the container. If you are not already root, read the directions for the image you've selected to learn how to install additional software. If you would **prefer not to run as root**, see the [tips and tricks](/docs/remote/troubleshooting.md#adding-a-nonroot-user-to-your-dev-container) article for how to set up a separate user.
 
-You can also use a `Dockerfile` to create a custom image with all needed software pre-installed. See [Using a Dockerfile](#using-a-dockerfile) for details.
+You can also use a `Dockerfile` to create a custom image with all needed software pre-installed. We'll cover this scenario next.
 
 ### Using a Dockerfile
 
@@ -395,7 +395,7 @@ For example:
 }
 ```
 
-See the [devcontainer.json reference](#devcontainerjson-reference) for other properties such as the `appPort` and `extensions` list.
+See the [devcontainer.json reference](#devcontainerjson-reference) for information on other available properties such as the `appPort` and `extensions` list.
 
 The example below uses `runArgs` to change the security policy to enable the ptrace system call for Go development container:
 
@@ -443,7 +443,7 @@ For example:
 }
 ```
 
-See the [devcontainer.json reference](#devcontainerjson-reference) for other properties such as the `workspaceFolder` and `shutdownAction`.
+See the [devcontainer.json reference](#devcontainerjson-reference) for information other available properties such as the `workspaceFolder` and `shutdownAction`.
 
 Note that you may want to alter your existing Docker Compose file to mount your local `.gitconfig` folder so you don't have to set up Git inside of the container if you install it. (See [below](#extending-your-docker-compose-file-for-development) if you'd prefer not to alter your existing files.)
 
@@ -559,17 +559,17 @@ See the following examples dev containers for additional information:
 
 | Property | Type | Description |
 |----------|------|-------------|
-|**Container image or Dockerfile**|||
-| `image` | string | The name of an image in a container registry ([DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) that VS Code should use to create the dev container. |
-| `dockerFile` | string | The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes [in this repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/dev-containers). |
+|**Dockerfile or image**|||
+| `image` | string | **Required** when [using an image](#using-an-existing-container-image). The name of an image in a container registry ([DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) that VS Code should use to create the dev container. |
+| `dockerFile` | string |**Required** when [using a Dockerfile](#using-a-dockerfile). The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes [in this repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/dev-containers). |
 | `context` | string | Path that the Docker build should be run from relative to `devcontainer.json`. For example, a value of `".."` would allow you to reference content in sibling directories. Defaults to `"."`. |
 | `appPort` | integer, string, or array | A port or array of ports that should be made available locally when the container is running (beyond those already exposed by the container image). Defaults to `[]`. |
 | `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`. |
 | `overrideCommand` | boolean | Tells VS Code whether it should run `sleep infinity` when starting the container instead of the default command to prevent the container from immediately shutting down if the default command fails. Defaults to `true`. |
 | `shutdownAction` | enum: `none`, `stopContainer` | Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. Defaults to `stopContainer`. |
-|**Docker compose**|||
-| `dockerComposeFile` | string  or array | Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. |
-| `service` | string | The name of the service you want to work on. |
+|**Docker Compose**|||
+| `dockerComposeFile` | string  or array | **Required.** Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. |
+| `service` | string | **Required.** The name of the service you want to work on. |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
 | `shutdownAction` | enum: `none`, `stopCompose` | Indicates whether VS Code should stop the containers when the VS Code window is closed / shut down. Defaults to `stopCompose`. |
 |**General**|||
