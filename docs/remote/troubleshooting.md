@@ -449,7 +449,7 @@ This is a [well known issue](https://github.com/debuerreotype/docker-debian-arti
 
 There are two ways to resolve this error:
 
-- **Option 1**: Remove any containers that depend the image, remove the image, and then try building again. This should download an updated image that is not effected by the problem. See **[cleaning out unused containers and images](#cleaning-out-unused-containers-and-images)** for details.
+- **Option 1**: Remove any containers that depend on the image, remove the image, and then try building again. This should download an updated image that is not effected by the problem. See **[cleaning out unused containers and images](#cleaning-out-unused-containers-and-images)** for details.
 
 - **Option 2**: If you don't want to delete your containers or images, add this line into your `Dockerfile` before any `apt` or `apt-get` command. It adds the needed source lists for Jessie:
 
