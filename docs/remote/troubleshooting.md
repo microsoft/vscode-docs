@@ -270,21 +270,23 @@ To change Docker's drive and folder sharing settings:
 
 ### Resolving Git line ending issues in containers (resulting in many modified files)
 
-Since Windows and Linux use different default line endings, you may see files that appear modified but seem to have no differences aside from the line endings. To prevent this from happening, you can disable automatic line ending conversion. Just add a `.gitattributes` file to your folder and then run:
+Since Windows and Linux use different default line endings, you may see files that appear modified but seem to have no differences aside from the line endings. To prevent this from happening, you can disable automatic line ending conversion and optionally add a `.gitattributes` file to your folder. First, run:
 
 ```bash
 git config --global core.autocrlf false
 ```
 
-You will need to re-clone the repository for this setting to take effect.
-
-Optionally, you can add the following contents to a `.gitattributes` file to force everything in the repo to use LF endings except for windows batch files that require CRLF:
+Next, you can prevent others from facing this issue regardless of their setting by adding or modifying a  `.gitattributes` file in your repository. For example, this will force everything to be LF except for Windows batch files that require CRLF:
 
 ```yaml
 *.* text eol=lf
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
 ```
+
+You can add other file types in your repository that require CRLF to this same file.
+
+Finally, re-clone the repository for so these setting take effect.
 
 ### Avoid setting up Git in a container when using Docker Compose
 
@@ -528,21 +530,23 @@ Some extensions rely on libraries not found in the vanilla install of certain WS
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 
-Since Windows and Linux use different default line endings, you may see files that appear modified but seem to have no differences aside from the line endings. To prevent this from happening, you can disable automatic line ending conversion and add a `.gitattributes` file to your folder. Then run:
+Since Windows and Linux use different default line endings, you may see files that appear modified but seem to have no differences aside from the line endings. To prevent this from happening, you can disable automatic line ending conversion and optionally add a `.gitattributes` file to your folder. First, run:
 
 ```bash
 git config --global core.autocrlf false
 ```
 
-You will need to re-clone the repository for this setting to take effect.
-
-Optionally, you can add the following contents to a `.gitattributes` file to force everything to be LF except for windows batch files that require CRLF:
+Next, you can prevent others from facing this issue regardless of their setting by adding or modifying a  `.gitattributes` file in your repository. For example, this will force everything to be LF except for Windows batch files that require CRLF:
 
 ```yaml
 *.* text eol=lf
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
 ```
+
+You can add other file types in your repository that require CRLF to this same file.
+
+Finally, re-clone the repository for so these setting take effect.
 
 ## Extension tips
 
