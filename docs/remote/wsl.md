@@ -129,6 +129,16 @@ NodeJS Error: spawn EACCES (different variants of this error) | https://github.c
 Webpack HMR not working | https://github.com/Microsoft/WSL/issues/2709 |
 Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/issues/2657 |
 
+### Docker Extension limitations
+
+The Docker extension is configured to run as a local "UI" extension that runs on the Windows side by default. This enables the extension to work with your local Docker installation when you are developing inside a container. However, some Docker commands invoked from the Docker extension can fail from a WSL window. If you want the Docker extension to interact with an installed Docker CLI in WSL instead, add the following to `settings.json`:
+
+```json
+"remote.extensionKind": {
+    "peterjausovec.vscode-docker": "workspace"
+}
+```
+
 ### Extension limitations
 
 Many extensions will work in WSL without modification. However, in some cases, certain features may require changes. If you run into an extension issue, [see here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extensiont-tips) that you can mention to the extension author when reporting the issue.
