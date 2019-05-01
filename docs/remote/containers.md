@@ -318,7 +318,7 @@ COPY settings.vscode.json /root/.vscode-remote/data/Machine/settings.json
 
 There are a few different ways VS Code Remote - Containers can be used to develop an application inside a fully containerized environment. In general, there are two primary scenarios that drive interest in this development style:
 
-* [Stand-Alone Dev Sandboxes](#working-with-a-developer-sandbox): You may not be deploying your application into a containerized environment but still want to isolate your build and runtime environment from your local OS or develop in an environment that is more representative of production. For example, you may be running some code on your local macOS or Windows machine that is ultimately deployed to a Linux VM or server in production.
+* [Stand-Alone Dev Sandboxes](#working-with-a-developer-sandbox): You may not be deploying your application into a containerized environment but still want to isolate your build and runtime environment from your local OS or develop in an environment that is more representative of production. For example, you may be running code on your local macOS or Windows machine that will ultimately be deployed to a Linux VM or server.
 
 * **Container Deployed Applications**: You deploy your application into one or more containers and would like to work locally in the containerized environment. VS Code currently supports working with container-based applications defined in a number of ways:
 
