@@ -238,6 +238,12 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 | Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for additional setup instructions. |
 | RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
 
+### Resolving hangs when doing a Git push or sync on a SSH host
+
+If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
+
+Either use a SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+
 ## Container tips
 
 ### Docker Desktop for Windows tips
@@ -313,6 +319,13 @@ git config --global user.email "your.email@address"
 ```
 
 You can also opt to extend your configuration instead to achieve the same thing without modifying your existing Docker Compose file. See [here for additional details](/docs/remote/containers.md#extending-your-docker-compose-file-for-development).
+
+### Resolving hangs when doing a Git push or sync from a Container
+
+If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
+
+Either use a SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+
 
 ### Resolving errors about missing Linux dependencies
 
@@ -559,6 +572,12 @@ Next, you can prevent others from facing this issue regardless of their setting 
 You can add other file types in your repository that require CRLF to this same file.
 
 Finally, re-clone the repository for so these setting take effect.
+
+### Resolving hangs when doing a Git push or sync from WSL
+
+If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
+
+Either use a SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
 ## Extension tips
 
