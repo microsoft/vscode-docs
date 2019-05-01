@@ -508,7 +508,9 @@ ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 
 ### Selecting the distribution used by Remote - WSL
 
-The Remote - WSL extension uses your **default distribution** which you can change using `wslconfig.exe`. For example:
+The Remote - WSL extension uses your **default distribution** which you can change using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
+
+For example:
 
 ```bat
 wslconfig /setdefault Ubuntu
