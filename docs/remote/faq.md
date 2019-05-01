@@ -109,9 +109,28 @@ See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md)fo
 
 ## License and privacy
 
-### Are any of the Visual Studio Code Remote Development extensions or their components open-source?
+### Location
 
-The Visual Studio Code Remote Development extensions and their related components are free to use will use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open-source. See the [license](https://go.microsoft.com/fwlink/?linkid=2077057) for additional details.
+You can find the licenses for the VS Code Remote Extensions here:
+* [Remote-SSH License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh/license)
+* [Remote-WSL License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)
+* [Remote-Containers License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers/license)
+
+### Why aren't the Remote Extensions using the MIT License?
+
+The VS Code Remote Extensions are available under Microsoft pre-release licenses, similar to other service based extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license). A Microsoft license (instead of MIT, for example) makes it easier for us to license certain features of the product, such as access to the Visual Studio Marketplace (section 1.d), the re-licensing of third party components (section 1.c), and telemetry data (section 4).
+
+### Why aren't the Remote Development extensions or their components open source?
+
+The Visual Studio Code Remote Development extensions and their related components will use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open-source. As with other service based extensions such as [Visual Studio LiveShare](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) and [IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode), we have made the decision to keep them closed source.
+
+### Will you charge for the extensions once they exit "Preview"?
+
+No, they will remain free of charge. In the future, we may provide "premium" developer services which provide additional functionality, but the extensions will be free.
+
+### Can I host the VS Code Server in my Service?
+
+No. The extensions will automatically install the proper version of the server in the host (based on commit) so you cannot pre-install the server as they would quickly become out of sync with the extensions. Furthermore, the license states that you may not "provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use" which means you are not permitted to use the Remote Extensions with a hosted development offering. You are free to use the Remote Extensions with personal or work computers, internally hosted Virtual Machines, or Container instances as long as you do not expose the services as a publicly available development offering.
 
 ### GDPR and VS Code Remote Development
 
