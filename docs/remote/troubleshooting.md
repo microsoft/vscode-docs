@@ -464,13 +464,13 @@ There are two ways to resolve this error:
 
 ### Other common Docker related errors and issues
 
-#### Sign in errors for Docker Hub when an email is used
+#### Sign in errors to Docker Hub when an email is used
 
 The Docker CLI only supports using your Docker ID, so using your email to sign in can cause problems. See Docker issue [#935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
 As a workaround, use your Docker ID to sign into Docker rather than your email.
 
-#### High CPU Utilization of Hyperkit in Mac
+#### High CPU utilization of Hyperkit on macOS
 
 There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, we have seen spikes happening when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
 
