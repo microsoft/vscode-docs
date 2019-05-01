@@ -132,6 +132,10 @@ NodeJS Error: spawn EACCES (different variants of this error) | https://github.c
 Webpack HMR not working | https://github.com/Microsoft/WSL/issues/2709 |
 Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/issues/2657 |
 
+### Git limitations
+
+If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use a SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+
 ### Docker Extension limitations
 
 The Docker extension is configured to run as a local "UI" extension that runs on the Windows side by default. This enables the extension to work with your local Docker installation when you are developing inside a container. However, some Docker commands invoked from the Docker extension can fail from a WSL window. If you want the Docker extension to interact with an installed Docker CLI in WSL instead, add the following to `settings.json`:
