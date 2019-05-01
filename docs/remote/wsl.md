@@ -73,7 +73,9 @@ Local extensions that actually need to run remotely will appear **Disabled** in 
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-VS Code runs extensions in one of two places: locally on the UI / client side, or remotely on the Workspace / WSL side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location  in your `settings.json` file. For example, the setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+VS Code runs extensions in one of two places: locally on the UI / client side, or remotely on the Workspace / WSL side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location  in your `settings.json` file.
+
+For example, the setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ```json
 "remote.extensionKind": {
@@ -88,7 +90,7 @@ Typically, this should only be used for testing unless otherwise noted in the ex
 
 Opening a terminal in WSL from VS Code is simple. Once folder is opened in WSL, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run in WSL rather than locally.
 
-You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder in WSL! Type `code-insiders --help` to what is available from the command line.
+You can also use the `code-insiders` command line from this same terminal window to perform a number of operations such as opening a new file or folder in WSL. Type `code-insiders --help` to see what options are available from the command line.
 
 ![Using the code CLI](images/wsl/code-command-in-terminal.png)
 
@@ -100,7 +102,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## WSL specific settings
 
-VS Code's local user settings are also reused when you have opened a folder in WSL. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and WSL. Fortunately, once you have connected to WSL, you can also set WSL specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor. These will override any local settings you have in place whenever you open a folder in WSL.
+VS Code's local user settings are also reused when you have opened a folder in WSL. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and WSL. Fortunately, once you have connected to WSL, you can also set WSL specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the settings editor. These will override any local settings you have in place whenever you open a folder in WSL.
 
 ## Known limitations
 
@@ -159,7 +161,7 @@ The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.co
 
 ### As an extension author, what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you test your extension to be sure that no updates are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts away local/remote details so most extensions will work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you test your extension to be sure that no updates are required. See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Questions or feedback
 

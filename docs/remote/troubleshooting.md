@@ -15,7 +15,7 @@ This article covers troubleshooting tips and tricks for each of the Visual Studi
 
 ### Configuring key based authentication
 
-[SSH public key authentication](https://www.ssh.com/ssh/public-key-authentication) is a convenient, high security authentication method that combines a local "private" key with a "public" key that you associate with your user account on a SSH host. This section will walk you through how to generate these keys and add them to a host.
+[SSH public key authentication](https://www.ssh.com/ssh/public-key-authentication) is a convenient, high security authentication method that combines a local "private" key with a "public" key that you associate with your user account on an SSH host. This section will walk you through how to generate these keys and add them to a host.
 
 > **Tip:** PuTTY for Windows is not a [supported client](#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](#reusing-a-key-generated-in-puttygen).
 
@@ -25,7 +25,7 @@ To set up SSH key based authentication for your remote host:
 
 1. Check to see if you already have an SSH key. The public key is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and at `%USERPROFILE%\.ssh\id_rsa.pub` on Windows.
 
-    If you do not have a key, run the following command in a terminal / command prompt to generate a SSH key pair:
+    If you do not have a key, run the following command in a terminal / command prompt to generate an SSH key pair:
 
     ```bash
     ssh-keygen -t rsa -b 4096
@@ -138,7 +138,7 @@ With `ControlMaster` enabled, you will only have to enter your auth code/passwor
 
 ### Setting up the SSH Agent
 
-If you are connecting to a SSH host using a key with a passphrase, you should ensure that the [SSH Agent](https://www.ssh.com/ssh/agent) is running. VS Code will automatically add your key to the agent so you don't have to enter your passphrase every time you open a remote VS Code window.
+If you are connecting to an SSH host using a key with a passphrase, you should ensure that the [SSH Agent](https://www.ssh.com/ssh/agent) is running. VS Code will automatically add your key to the agent so you don't have to enter your passphrase every time you open a remote VS Code window.
 
 To verify that the agent is running and is reachable from VS Code's environment, run `ssh-add -l` in the terminal of a local VS Code window. You should see a listing of the keys in the agent (or a message that it has no keys). If the agent is not running, follow these instructions to start it. After starting the agent, be sure to restart VS Code.
 
@@ -332,8 +332,8 @@ If you'd like this extension to always be installed, add this to your `settings.
 If you determine that you need to give your container more of your machine's capacity, follow these steps:
 
 1. Right-click on the Docker task bar item and select **Settings** (**Preferences** on macOS).
-2. Click on **Advanced** to increase CPU, Memory, or Swap.
-3. Click on **Disk** to increase the amount of disk Docker is allowed to consume on your machine.
+2. Go to **Advanced** to increase CPU, Memory, or Swap.
+3. Go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine.
 
 Finally, if your container is disk intensive, you should avoid using a volume mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead.
 

@@ -97,11 +97,11 @@ Using the Docker extension from a VS Code window opened in a container has some 
 
 ### As an extension author, what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension (particularly in a container) to be sure that no updates are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts away local/remote details so most extensions will work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension (particularly in a container) to be sure that no updates are required. See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ### Can I give an extension access to local resources or APIs when a user is connected remotely?
 
-When VS Code connects to a remote environment, extensions are classified as either "UI" or "Workspace" extensions. UI Extensions run in a "local extension host", can contribute UI or personalization features (e.g. themes), and have access to local files or APIs. Workspace extensions run in a "remote extension host" with the workspace and have full access to the code, remote filesystem, and remote APIs. While they do not focus on personalization, they can contribute explorers, viewlets, and other UI elements as well.
+When VS Code connects to a remote environment, extensions are classified as either **UI** or **Workspace** extensions. UI Extensions run in a "local extension host", can contribute UI or personalization features (for example themes), and have access to local files or APIs. Workspace extensions run in a **remote extension host** with the workspace and have full access to the code, remote filesystem, and remote APIs. While they do not focus on personalization, they can contribute explorers, views, and other UI elements as well.
 
 When a user installs an extension, VS Code attempts to infer the correct location and install it based on its type. Extensions that do not need to run remotely like themes and other personalization are automatically installed on the UI side. All others are treated as Workspace extensions since they are the most full-featured. However, extension authors can also override this location with an `extensionKind` property in `package.json`.
 
@@ -112,21 +112,22 @@ See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md)fo
 ### Location
 
 You can find the licenses for the VS Code Remote Extensions here:
+
 * [Remote-SSH License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh/license)
 * [Remote-WSL License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)
 * [Remote-Containers License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers/license)
 
 ### Why aren't the Remote Extensions using the MIT License?
 
-The VS Code Remote Extensions are available under Microsoft pre-release licenses, similar to other service based extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license). A Microsoft license (instead of MIT, for example) makes it easier for us to license certain features of the product, such as access to the Visual Studio Marketplace (section 1.d), the re-licensing of third party components (section 1.c), and telemetry data (section 4).
+The VS Code Remote Extensions are available under Microsoft pre-release licenses, similar to other service-based extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license). A Microsoft license (instead of MIT, for example) makes it easier for us to license certain features of the product, such as access to the Visual Studio Marketplace (section 1.d), the re-licensing of third-party components (section 1.c), and telemetry data (section 4).
 
 ### Why aren't the Remote Development extensions or their components open source?
 
-The Visual Studio Code Remote Development extensions and their related components will use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open-source. As with other service based extensions such as [Visual Studio LiveShare](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) and [IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode), we have made the decision to keep them closed source.
+The Visual Studio Code Remote Development extensions and their related components will use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open-source. As with other service-based extensions such as [Visual Studio LiveShare](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) and [IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode), we have made the decision to keep them closed source.
 
 ### Will you charge for the extensions once they exit "Preview"?
 
-No, they will remain free of charge. In the future, we may provide "premium" developer services which provide additional functionality, but the extensions will be free.
+No, they will remain free of charge. In the future, we may provide "premium" developer services, which provide additional functionality, but the extensions will be free.
 
 ### Can I host the VS Code Server in my Service?
 

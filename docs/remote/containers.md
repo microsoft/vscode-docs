@@ -9,7 +9,7 @@ DateApproved: 5/2/2019
 ---
 # Developing inside a Container
 
-The **Visual Studio Code Remote - Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of VS Code's full feature set. A [`devcontainer.json` file](#devcontainerjson) in your project tells VS Code how to access (or create) a **development container** with a well defined tool and runtime stack. This container may be used to actually run an application or be focused exclusively on sandboxing tools, libraries, runtimes, or other utilities that need to be run against a codebase.
+The **Visual Studio Code Remote - Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of VS Code's full feature set. A [`devcontainer.json` file](#devcontainerjson) in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container may be used to actually run an application or be focused exclusively on sandboxing tools, libraries, runtimes, or other utilities that need to be run against a codebase.
 
 Workspace files are mounted from the local file system or copied or cloned into the container. Extensions are installed and run inside the container where they have full access to the tools, platform, and file system. This means that you can seamlessly switch your entire development environment by just connecting to a different container.
 
@@ -80,7 +80,9 @@ Let's start out by using a sample project to try things out.
 
 ### Quick start: Open a folder in a container
 
-Next we will cover how to set up a dev container for an existing project so that you can to use the container as your full-time development environment. The steps are very similar to those above:
+Next we will cover how to set up a dev container for an existing project so that you can use the container as your full-time development environment.
+
+The steps are similar to those above:
 
 1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette, and select the project folder you'd like to set up the container for.
 
@@ -158,7 +160,7 @@ Run **Remote-Containers: Attach to Running Container...** command from the Comma
 
 2. Go to the Docker view and expand the **Containers** node in the explorer.
 
-3. Right click and select **Attach Visual Studio Code**.
+3. Right-click and select **Attach Visual Studio Code**.
 
     ![Docker Explorer screenshot](images/containers/docker-attach.png)
 
@@ -226,7 +228,9 @@ If there are extensions that you would like always installed in any container, y
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-VS Code runs extensions in one of two places: locally on the **UI** / client side, or remotely on the **Workspace** / container side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location in your User [settings](/docs/getstarted/settings.md). For example, the `remote.extensionKind` setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+VS Code runs extensions in one of two places: locally on the **UI** / client side, or remotely on the **Workspace** / container side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location in your User [settings](/docs/getstarted/settings.md).
+
+For example, the `remote.extensionKind` setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ```json
 "remote.extensionKind": {
@@ -271,7 +275,7 @@ In each case, you'll need to rebuild your container for the setting to take effe
 
 Opening a terminal in a container from VS Code is simple. Once you've opened a folder in a container, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run in the container rather than locally.
 
-You can also **use the `code-insiders` CLI** from this same terminal window to perform a number of operations such as opening a new file or folder in the container. Type `code-insiders --help` to learn what is available from the command line.
+You can also use the `code-insiders` command line from this same terminal window to perform a number of operations such as opening a new file or folder in the container. Type `code-insiders --help` to learn what options are available from the command line.
 
 ![Using the code CLI](images/containers/code-command-in-terminal.png)
 
@@ -283,7 +287,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## Container specific settings
 
-VS Code's local user settings are also reused when you are connected to a dev container. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each container. Fortunately, once you have connected to a container, you can also set container specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor. These will override any local settings you have in place whenever you connect to the container.
+VS Code's local user settings are also reused when you are connected to a dev container. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each container. Fortunately, once you have connected to a container, you can also set container-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the settings editor. These will override any local settings you have in place whenever you connect to the container.
 
 ### Default container specific settings
 
@@ -308,7 +312,7 @@ There are a few different ways VS Code Remote - Containers can be used to develo
 
 * [Stand-Alone Dev Sandboxes](#working-with-a-developer-sandbox): Even if you are not deploying your application into a containerized environment, you may still want to isolate your build and runtime environment from your local OS or to edit, run, and debug code in an environment that is more representative of production. A single, stand-alone "dev sandbox" container can be used to achieve these goals even if you are not familiar with containers and/or do not deploy into a container in production. For example, today you may be running some code on your local macOS or Windows machine that is ultimately deployed to a Linux VM or server in production.
 
-* **Container Deployed Applications**: In this case, you plan to deploy the application into one or more containers but would like to take advantage of the same benefits that stand-alone dev sandboxes provide. VS Code currently supports working with container based applications defined in a number of ways:
+* **Container Deployed Applications**: In this case, you plan to deploy the application into one or more containers but would like to take advantage of the same benefits that stand-alone dev sandboxes provide. VS Code currently supports working with container-based applications defined in a number of ways:
 
   * [Dockerfile](#using-a-dockerfile): You are working on a single container / service that is described using a single `Dockerfile`.
 
@@ -357,7 +361,7 @@ To open the folder in the container, run the **Remote-Containers: Open Folder in
 
 ### Installing additional software in the sandbox
 
-Once VS Code is connected to the container, you can open a VS Code terminal and execute any command against the OS inside the container. This allows you to install new command line utilities and spin up databases or application services from inside the Linux container.
+Once VS Code is connected to the container, you can open a VS Code terminal and execute any command against the OS inside the container. This allows you to install new command-line utilities and spin up databases or application services from inside the Linux container.
 
 Most container images are based on Debian or Ubuntu, where the `apt-get` command is used to install new packages.
 

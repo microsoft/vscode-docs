@@ -39,7 +39,7 @@ To get started you need to:
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
-To get started, follow these steps:
+To get started follow these steps:
 
 1. First, **configure key based authentication** on the host you plan to use. If you are new to SSH or are running into trouble, see [here for additional information](/docs/remote/troubleshooting.md#configuring-key-based-authentication) on setting this up. If you followed the Azure VM tutorial, you can skip this step.
 
@@ -78,7 +78,7 @@ Set the `"remote.SSH.configFile"` property in `settings.json` if you want to use
 
 ## Managing extensions
 
-VS Code runs extensions in one of two places: locally on the UI / client side, or remotely on the SSH host. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside on the SSH host. This ensures you have smooth experience and allows you to install any needed extensions for a given workspace on a SSH host from your local machine. This way, you can pick up exactly where you left off, from a different machine complete with your extensions.
+VS Code runs extensions in one of two places: locally on the UI / client side, or remotely on the SSH host. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside on the SSH host. This ensures you have smooth experience and allows you to install any needed extensions for a given workspace on an SSH host from your local machine. This way, you can pick up exactly where you left off, from a different machine complete with your extensions.
 
 If you search for and install an extension in the Extensions view, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category it is in. There will be a category for your remote SSH host and a **Local - Installed** category.
 
@@ -105,7 +105,9 @@ If there are extensions that you would like to always have installed on any SSH 
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-Extensions are typically designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location in your `settings.json` file. For example, the setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+Extensions are typically designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location in your `settings.json` file.
+
+For example, the setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
 ```json
 "remote.extensionKind": {
@@ -128,7 +130,7 @@ After entering a port number, a notification will tell you the localhost port yo
 
 ### Always forwarding a port
 
-If you have ports that you **always want to forward**, you can use the the `LocalForward` directive in the same SSH config file you created above in [Remembering hosts](#remembering-hosts-you-connect-to-frequently).
+If you have ports that you **always want to forward**, you can use the `LocalForward` directive in the same SSH config file you created above in the [Remembering hosts](#remembering-hosts-you-connect-to-frequently) section above.
 
 For example, if you wanted to forward ports 3000 and 27017, you could update the file as follows:
 
@@ -144,7 +146,7 @@ Host remote-linux-machine
 
 Opening a terminal on the remote host from VS Code is simple. Once connected, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run on the remote host rather than locally.
 
-You can also use the `code-insiders` CLI from this same terminal window to perform a number of operations such as opening a new file or folder on the remote host. Type `code-insiders --help` to see all the options available from the command line.
+You can also use the `code-insiders` command line from this same terminal window to perform a number of operations such as opening a new file or folder on the remote host. Type `code-insiders --help` to see all the options available from the command line.
 
 ![Using the code CLI](images/ssh/code-command-in-terminal.png)
 
@@ -156,33 +158,33 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## SSH host specific settings
 
-VS Code's local user settings are also reused when you are connected to a SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor. These will override any local settings you have in place whenever you connect to the host.
+VS Code's local user settings are also reused when you are connected to an SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting on the **Remote** tab in the settings editor. These will override any local settings you have in place whenever you connect to the host.
 
 ## Known limitations
 
 ### Remote - SSH limitations
 
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
-- Windows and macOS SSH Hosts are **not** yet supported. (Windows and macOS clients **are** supported.)
+- Windows and macOS SSH hosts are **not** yet supported. (Windows and macOS clients **are** supported.)
 - Linux hosts must have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed.
 - PuTTY is not supported on Windows.
 - You cannot drag files out of the File Explorer to your local filesystem to copy them.
-- Local proxy settings are not reused on the remote host which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
-- See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) on GitHub that are tagged with SSH.
+- Local proxy settings are not reused on the remote host, which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
+- See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) related to SSH.
 
 ### Extension limitations
 
-Many extensions will work on remote SSH hosts modification. However, in some cases, certain features may require changes. If you run into an extension issue, [see here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extensiont-tips) that you can mention to the extension author when reporting the issue.
+Many extensions will work on remote SSH hosts modification. However, in some cases, certain features may require changes. If you run into an extension issue, there is [a summary of common problems and solutions](/docs/remote/troubleshooting.md#extensiont-tips) that you can mention to the extension author when reporting the issue.
 
 ## Common questions
 
-### How do I setup a SSH client on ...?
+### How do I set up an SSH client on ...?
 
 See [Installing a supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) for details.
 
-### How do I setup a SSH server on ...?
+### How do I set up an SSH server on ...?
 
-See [Installing a supported SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) for details on setting up a SSH server for your host.
+See [Installing a supported SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) for details on setting up an SSH server for your host.
 
 ### Can I sign into my SSH server with another/additional authentication mechanism like a password?
 
@@ -208,7 +210,7 @@ However, this use case can typically be handled by combining extensions like [SF
 
 ### As an extension author, what do I need to do?
 
-The VS Code extension API abstracts many extensions away from any changes so they work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you test your extension to be sure that no updates are required. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API abstracts away local/remote details so most extensions will work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you test your extension to be sure that no updates are required. See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ### Questions or feedback
 
