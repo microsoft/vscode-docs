@@ -105,18 +105,18 @@ If there are extensions that you would like to always have installed on any SSH 
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-Extensions are typically designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location in your `settings.json` file.
+Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
+For example, the setting below will force the Docker and Debugger for Chrome extensions to run remotely instead of their local defaults:
 
 ```json
 "remote.extensionKind": {
-    "ms-azuretools.vscode-cosmosdb": "ui",
-    "msjsdiag.debugger-for-chrome": "workspace"
+    "msjsdiag.debugger-for-chrome": "workspace",
+    "peterjausovec.vscode-docker": "workspace"
 }
 ```
 
-Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+A value of `"ui"` instead of `"workspace"` will force the extension to run on the local UI/client side instead. Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Forwarding a port / creating SSH tunnel
 
