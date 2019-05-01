@@ -44,11 +44,13 @@ Follow these steps:
 
 ### Debugging your extension in a remote environment
 
+Normally when you build an extension, you edit, launch, and debug it all on your local machine. Debugging your extension in a remote environment follows this same pattern. You will just edit, launch, and debug your extension all on a remote machine, container, or in WSL instead of your local machine.
+
 #### Using a development container
 
 You can edit and debug your extension in a container by following these steps.
 
-1. Add the Node.js dev container definition to your extension folder by pressing `kbstyle(F1)`, selecting the **Remote-Containers: Create Configuration File...** command, and picking **Node.js 8 & TypeScript** (or just Node.js 8 if you are not using TypeScript).
+1. Add the Node.js dev container definition to your extension folder by pressing `kbstyle(F1)`, selecting the **Remote-Containers: Create Configuration File...** command, and picking **Node.js 8 & TypeScript** (or just Node.js 8 if you are not using TypeScript). This will define the container you will use edit, debug, and test the extension.
 
 2. After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the [in-depth Remote-Containers documentation](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container) for details.
 
@@ -71,9 +73,9 @@ You can edit and debug your extension in a container by following these steps.
     }
     ```
 
-4. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You can now edit your source code as you would in the local case.
+4. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You will now be able to develop your source code from inside the container just as you would in the local case.
 
-5. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension and attach the debugger as you would locally. The window that appears now contains your extension running inside this same container with the debugger attached to it.
+5. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension inside this same container and attach the debugger. You will be able to interact with it just as you would in the local case, but from inside the development container you defined in step 1 instead.
 
 #### Using SSH or WSL
 
