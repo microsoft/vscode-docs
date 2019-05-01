@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 3/22/2019
+DateApproved: 5/2/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development support to extensions
@@ -73,7 +73,7 @@ You can edit and debug your extension in a container by following these steps.
 
 4. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You can now edit your source code as you would in the local case.
 
-5. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running inside this same container with the debugger attached to it.
+5. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension and attach the debugger as you would locally. The window that appears now contains your extension running inside this same container with the debugger attached to it.
 
 #### Using SSH or WSL
 
@@ -83,7 +83,7 @@ You can edit and debug your extension on a remote [SSH host](/docs/remote/ssh) o
 
 2. Once the folder is open on the SSH host / in WSL, you can edit your source code as you would in the local case.
 
-3. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension and attach the debugger as you would locally. The window that appears will now contain your extension running on the SSH Host / in WSL with the debugger attached to it.
+3. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension and attach the debugger as you would locally. The window that appears now contains your extension running on the SSH Host / in WSL with the debugger attached to it.
 
 ## Common problems
 
@@ -263,7 +263,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 ### Communicating between extensions using commands
 
-Some extensions return APIs as a part of their activation function that are intended for other extensions to use (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI Extensions or all Workspace Extensions), these will not work between UI and Workspace Extensions.
+Some extensions return APIs as a part of their activation that are intended for other extensions to use (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI Extensions or all Workspace Extensions), these will not work between UI and Workspace Extensions.
 
 Fortunately, VS Code automatically routes any executed commands to the correct extension regardless of its location. You can freely invoke any command (including those provided by other extensions) without worrying about impacts.
 

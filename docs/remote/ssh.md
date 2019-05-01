@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 4/11/2019
+DateApproved: 5/2/2019
 ---
 # Remote Development using SSH
 
@@ -25,7 +25,7 @@ To get started you need to:
 
 1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) if one is not already present.
 
-    > **Note:** PuTTY is not supported on Windows since a `ssh` command must be in the path.
+    > **Note:** PuTTY is not supported on Windows since the `ssh` command must be in the path.
 
 2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
