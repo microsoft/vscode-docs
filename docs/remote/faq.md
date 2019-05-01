@@ -47,6 +47,14 @@ The VS Code Server that is injected runs as the same user you used to sign into 
 
 No. The VS Code Server is a component of the Remote Development extensions and is managed by a VS Code client. It is installed and updated automatically by VS Code when it connects to an endpoint and is not intended or [licensed](https://go.microsoft.com/fwlink/?linkid=2077057) for use by other clients.
 
+# Will there be a service to host managed VS Code development containers in the cloud?
+
+We are actively building capabilities in this area and look forward to sharing further updates with you [soon](https://register.build.microsoft.com/).
+
+# Are there any plans to introduce a Web UI based on VS Code Server?
+
+We are actively building capabilities in this area and look forward to sharing further updates with you [soon]https://register.build.microsoft.com/).
+
 ### What are the connectivity requirements for VS Code Server?
 
 The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through...
