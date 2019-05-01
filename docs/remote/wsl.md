@@ -5,15 +5,17 @@ TOCTitle: WSL
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 4/11/2019
+DateApproved: 5/2/2019
 ---
 # Developing in WSL
 
-The [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) allows you to take advantage of a Linux based tool-chain right from the comfort of Windows. Historically Windows-based developer tools have had to interact with WSL through mounted file shares (for example `/mnt/c`). While this works in concept, differences between Windows and Linux can make this workflow difficult. Conversely, Linux-based developer tools do not work unless they are text based since WSL was not intended to house a full Linux desktop operating system.
+The **Visual Studio Code Remote - WSL** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as your full-time development environment right from VS Code. You can develop in a Linux based environment, use Linux specific toolchains and utilities, and run and debug your Linux based applications all from the comfort of Windows.
 
-The **Visual Studio Code Remote - WSL** extension allows you take advantage of VS Code's full feature set from anywhere in WSL - regardless of whether the files you want to edit exist on the Linux side or a mounted Windows filesystem. You'll have a rich development experience with IntelliSense (smart completions), code navigation, and debugging, while working on source code in Linux.
+The extension runs commands and other extensions directly in WSL so you can edit files located in WSL or the mounted Windows filesystem (e.g. `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges.
 
 ![WSL Architecture](images/wsl/architecture-wsl.png)
+
+This lets VS Code provide a **local-quality development experience** — including full IntelliSense (completions), code navigation, and debugging — **regardless of where your code is hosted**.
 
 ## Getting started
 

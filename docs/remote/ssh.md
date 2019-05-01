@@ -5,17 +5,17 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 4/11/2019
+DateApproved: 5/2/2019
 ---
 # Remote Development using SSH
 
 The **Visual Studio Code Remote - SSH** extension allows you to open a remote folder on any remote machine, virtual machine, or container with a running SSH server and take full advantage of VS Code's feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
 
-Given **no source code needs to be on your local machine**, this approach provides dramatic performance and fidelity benefits over using network shares or synchronizing files.
+No source code needs to be on your local machine to gain these benefits since the extension runs commands and other extensions directly on the remote machine.
 
 ![SSH Architecture](images/ssh/architecture-ssh.png)
 
-The result is that VS Code can provide a **local-quality development experience** including full IntelliSense (completions), code navigation, and debugging, **regardless of where your code is hosted**.
+This lets VS Code provide a **local-quality development experience** — including full IntelliSense (completions), code navigation, and debugging — **regardless of where your code is hosted**.
 
 ## Getting started
 
@@ -25,7 +25,7 @@ To get started you need to:
 
 1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) if one is not already present.
 
-    > **Note:** PuTTY is not supported on Windows since a `ssh` command must be in the path.
+    > **Note:** PuTTY is not supported on Windows since the `ssh` command must be in the path.
 
 2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
