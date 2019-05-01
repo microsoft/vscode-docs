@@ -237,7 +237,6 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 |----|--------------|---|
 | Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for additional setup instructions. |
 | RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
-| macOS | Go to **System Preferences** &gt; **Sharing**, check **Remote Login**. ||
 
 ## Container tips
 
@@ -400,7 +399,7 @@ You can use Docker and Kubernetes related CLIs and extensions from inside your d
 
 ### Adding a non-root user to your dev container
 
-Many images run as a root user by default. However, some provide non-root users, that you can optionally use instead. If your image or Dockerfile provides a non-root user that you can opt into using (for example, the default is still root), you can specify the user in one of two ways:
+Many images run as a root user by default. However, some provide one or more non-root users, that you can optionally use instead. If your image or Dockerfile provides a non-root user (but still defaults to root), you can opt into using it in one of two ways:
 
 - When referencing an `image` or `Dockerfile`, add the following to your `devcontainer.json`:
 
@@ -414,9 +413,7 @@ Many images run as a root user by default. However, some provide non-root users,
     user: user-name-goes-here
     ```
 
-Note that you do not need to do this if the default behavior of the container is to use the non-root user.
-
-For images that only provide a root user, you can automatically create a non-root user in the `Dockerfile`. For example, this snippet will create a user called `user-name-goes-here` and give it the ability to use `sudo`:
+For images that only provide a root user, you can automatically create a non-root user by using a `Dockerfile`. For example, this snippet will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
@@ -496,7 +493,7 @@ This warning is just that, a warning. It is telling you not to parse the output 
 This occurs in `Dockerfile`s because the `apt-key` command is not running from a terminal. Unfortunately, this error cannot be eliminated completely, but can be hidden unless the `apt-key` command returns a non-zero exit code (indicating a failure). For example:
 
 ```Dockerfile
-# (OUT=$(apt-key add - 2>&1) || echo $OUT) will only print the output if a non-zero exit code is hit
+# (OUT=$(apt-key add - 2>&1) || echo $OUT) will only print the output with non-zero exit code is hit
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | (OUT=$(apt-key add - 2>&1) || echo $OUT)
 ```
 
