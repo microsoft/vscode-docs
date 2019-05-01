@@ -27,13 +27,13 @@ Thousands of engineers at large enterprises such as Facebook work remotely again
 
 We heard from Python developers who want to switch to VS Code but need to use development environments configured for a specific Python stack using [containers and virtual machines](https://matttrent.com/remote-development/).
 
-![Vagrant Box testimonial](vagrant-box-testimonial.png)
+> ![Vagrant Box testimonial](vagrant-box-testimonial.png)
 
 Data scientists often need massive storage and compute services to analyze large datasets that can't be stored or processed even on a robust desktop.
 
 And, [the third most commented issue in the VS Code repository](https://github.com/Microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal in a Linux distro on Windows with the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/about).
 
-![VS Code Ubuntu on Windows testimonial](vscode-ubuntu-windows-testimonial.png)
+> ![VS Code Ubuntu on Windows testimonial](vscode-ubuntu-windows-testimonial.png)
 
 WSL is a great way to use your Windows-based tools to build applications that deploy to and run on Linux, and doing development in WSL is really just remote development from a Windows machine to a Linux environment that happens to be running on the same machine.
 
@@ -50,11 +50,14 @@ For example:
 
 ## A different approach
 
-On the VS Code team, we've been looking at the problem slightly differently. We think that a better solution is to run the developer tools locally and connect to a set of development services running remotely in the context of a physical or virtual machine (for example, a container or VM).
+Hearing about these challenges we started to look into WSL support and it looked simple enough. Install VS Code and ([carefully at the time!](https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools/)) edit the Windows file system as normal. We did work to [enable remote debugging for Node.js](https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_remote-debugging), and we figured we could simply install a small script to enable launching `code` from the bash shell.
+
+But, it just wasn't right. It didn't make sense to do special work for every runtime, as we did for Node.js debugging. If you have Python 2.7 and Flask installed on Windows (or none at all!) and Python 3.7 and Django installed in the Linux distro, you wouldn't get proper completions or linting because VS Code was looking at the Windows versions of everything. Having to duplicate the development environment on both Windows and Linux defeated the purpose of having WSL at all.
+
+We convinced ourselves that what we needed was a way to run VS Code in two places at once, to run the developer tools locally and connect to a set of development services running remotely in the context of a physical or virtual machine (for example, a container or VM). This gives you a rich local development experience in the context of what is on the remote machine.
 
 ![Remote environment](remote-environment.png)
 
-This gives you a rich local development experience in the context of what is on the remote machine.
 
 ## Introducing the VS Code Remote Extensions
 
@@ -110,33 +113,9 @@ Check out this quick, 2-minute video to see Development Containers in action.
 
 For more information on development containers, please see the [Developing inside a Container](https://aka.ms/vscode-remote/containers) documentation as well as the [vscode-remote-try-* repositories](https://github.com/search?q=org%3AMicrosoft+vscode-remote-try-&unscoped_q=vscode-remote-try-) that contain samples you can use today.
 
-## How it all started
-
-The Talking Heads may have asked the question first, but [how did we get here](https://www.youtube.com/watch?v=5IsSpAOD6K8)? It started with WSL and it looked simple enough. Install VS Code and ([carefully at the time!](https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools/)) and edit the Windows file system as normal. We did work to [enable remote debugging for Node.js](https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_remote-debugging), and we figured we could simply install a small script to enable launching `code` from the bash shell.
-
-But, it just wasn't right. It didn't make sense to do special work for every runtime, as we did for Node.js debugging. If you have Python 2.7 and Flask installed on Windows (or none at all!) and Python 3.7 and Django installed in the Linux distro, you wouldn't get proper completions or linting because VS Code was looking at the Windows versions of everything. Having to duplicate the development environment on both Windows and Linux defeated the purpose of having WSL at all.
-
-What we needed was a way to run VS Code in two places at once.
-
-## Architectural enablement
-
-VS Code has always been a multi-process application. The UI you normally interact with (the editor, file explorer, dialogs, etc.) run in the Electron renderer process. Extensions and debuggers run in their own process, and they often spawn additional processes to do their work.
-
-For example, the TypeScript extension runs in the extension host process and spawns the TypeScript server executable to compile and type check your source code.
-
-![VS Code worker processes](worker-processes.png)
-
-This model, while sometimes more memory intensive, provides isolation and stability, allowing the operating system to manage resources, which it is generally good at.
-
-It also provides portability. Processes (or services) don't need to run on the same machine or even on the same operating system. As long as we have access, we can run the processes almost anywhere we want: WSL, a container, or on another machine. VS Code doesn't care where the extensions are running, it just cares about the communication between the processes.
-
-![VS Code remote worker processes](remote-worker-processes.png)
-
-Which, it turns out, is pretty fast, even with low powered machines, low bandwidth, or poor connections. Your development experience remains smooth as editing happens locally and doesn't block on computationally intensive work happening remotely.
-
 ## Managing extensions
 
-VS Code will attempt to infer where to install an extension, locally or remotely, based on the functionality it exposes. Extensions fall into one of two categories:
+When developing remotely, VS Code will attempt to infer where to install an extension, locally or remotely, based on the functionality it exposes. Extensions fall into one of two categories:
 
 * UI Extensions are installed locally. These extensions only customize the UI and do not access files in a workspace, which means they can run entirely on the local machine. Since they are installed locally, they are always available to you independent of the workspace you are working in. Examples of UI extensions are themes, snippets, language grammars, and keymaps.
 
