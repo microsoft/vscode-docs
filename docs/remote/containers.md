@@ -76,7 +76,7 @@ Let's start out by using a sample project to try things out.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-5. After the container is built, VS Code automatically connects to it and maps the project folder from your local file system into the container. Check out the `README.md` for the repository you cloned to see what to do next.
+5. After the container is built, VS Code automatically connects to it and maps the project folder from your local file system into the container. Check out the **Things to try** section of `README.md` in the repository you cloned to see what to do next.
 
 ### Quick start: Open a folder in a container
 
