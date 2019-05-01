@@ -9,9 +9,9 @@ DateApproved: 5/2/2019
 ---
 # Developing in WSL
 
-The **Visual Studio Code Remote - WSL** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as your full-time development environment right from VS Code. You can develop in a Linux based environment, use Linux specific toolchains and utilities, and run and debug your Linux based applications all from the comfort of Windows.
+The **Visual Studio Code Remote - WSL** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as your full-time development environment right from VS Code. You can develop in a Linux-based environment, use Linux specific toolchains and utilities, and run and debug your Linux-based applications all from the comfort of Windows.
 
-The extension runs commands and other extensions directly in WSL so you can edit files located in WSL or the mounted Windows filesystem (e.g. `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges.
+The extension runs commands and other extensions directly in WSL so you can edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges.
 
 ![WSL Architecture](images/wsl/architecture-wsl.png)
 
@@ -23,7 +23,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 To get started you need to:
 
-1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution. VS Code will use your **default distro**, so use `wslconfig.exe` to change your default as needed.
+1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution. VS Code will use your **default distro**, so use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
 
     > **Note:** WSL does have some [known limitations](#known-limitations) for certain types of development that can also affect your VS Code experience.
 
@@ -41,9 +41,9 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
 2. Navigate to a folder you'd like to open in VS Code (including, but not limited to, Windows filesystem mounts like `/mnt/c`)
 
-3. Type **`code-insiders .`** in the terminal. When doing this for the first time you should see VS Code fetching components needed to run in WSL. This should only take short while, and is only needed once.
+3. Type **`code-insiders .`** in the terminal. When doing this for the first time, you should see VS Code fetching components needed to run in WSL. This should only take short while, and is only needed once.
 
-4. After a moment, a new VS Code window will appear, and you'll see a notification letting you know VS Code is opening the folder in WSL.
+4. After a moment, a new VS Code window will appear, and you'll see a notification that VS Code is opening the folder in WSL.
 
    ![WSL Starting notification](images/wsl//wsl-starting-notification.png)
 
@@ -53,27 +53,27 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
     ![WSL Status Bar Item](images/wsl/wsl-statusbar-indicator.png)
 
-That's it! Any VS Code operations you perform in this window will be executed in the WSL environment including everything from editing and file operations, to debugging, terminals, and more.
+That's it! Any VS Code operations you perform in this window will be executed in the WSL environment, everything from editing and file operations, to debugging, using terminals, and more.
 
 ## Managing extensions
 
 VS Code runs extensions in one of two places: locally on the UI / client side, or in WSL. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside inside WSL.
 
-If you search for an extension in the Extensions view and install, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category it is in. There will be **Local - Installed** category and one for WSL.
+If you install an extension from the Extensions view, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category grouping. There will be **Local - Installed** category and one for WSL.
 
 ![Workspace Extension Category](images/wsl/wsl-installed-remote-indicator.png)
 
 ![Local Extension Category](images/wsl/wsl-local-installed-extensions.png)
 
-> **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+> **Note:** If you are an extension author and your extension is not working properly or installs in the wrong place, see [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. You can click the **Install** button on any of them you want to install on your remote host.
+Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. You can click the **Install** button to install an extension on your remote host.
 
 ![Disabled Extensions w/Install Button](images/wsl/wsl-disabled-extensions.png)
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-VS Code runs extensions in one of two places: locally on the UI / client side, or remotely on the Workspace / WSL side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location  in your `settings.json` file.
+As mentioned, VS Code runs extensions in either the local client or the WSL remote host. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location  in your `settings.json` file.
 
 For example, the setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
@@ -108,14 +108,15 @@ VS Code's local user settings are also reused when you have opened a folder in W
 
 This section contains a list of common know issues with WSL. The intent is not to provide a complete list of issues but to highlight some of the common problems seen with WSL.
 
-For a more complete list, see [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) on GitHub that are tagged with WSL.
+See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) related to WSL.
 
 ### Common limitations in WSL
 
 | Issue | Existing issues |
 |---|---|
 Non-empty folders in the open workspace can't be renamed | https://github.com/Microsoft/WSL/issues/3395, https://github.com/Microsoft/WSL/issues/1956
-Local proxy settings are not reused by VS Code running in WSL which can prevent extensions from working without adding a global `HTTP_PROXY` and `HTTPS_PROXY` environment variable with the appropriate proxy information. |
+
+In addition, local proxy settings are not reused by VS Code running in WSL, which can prevent extensions from working without adding a global `HTTP_PROXY` and `HTTPS_PROXY` environment variable with the appropriate proxy information.
 
 ### Golang in WSL
 
@@ -143,13 +144,15 @@ The Docker extension is configured to run as a local "UI" extension that runs on
 
 ### Extension limitations
 
-Many extensions will work in WSL without modification. However, in some cases, certain features may require changes. If you run into an extension issue, [see here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extensiont-tips) that you can mention to the extension author when reporting the issue.
+Many extensions will work in WSL without modification. However, in some cases, certain features may require changes. If you run into an extension issue, [see here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
 ## Common questions
 
 ### How do I change the distribution Remote - WSL uses?
 
-The Remote - WSL extension uses your **default distribution** which you can change using `wslconfig.exe`. For example:
+The Remote - WSL extension uses your **default distribution**, which you can change using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
+
+For example:
 
 ```bash
 wslconfig /setdefault Ubuntu
@@ -161,7 +164,7 @@ You can see which distributions you have installed using:
 wslconfig /l
 ```
 
-### I'm seeing an error about a missing library or dependency, how do I fix this?
+### I'm seeing an error about a missing library or dependency
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
 

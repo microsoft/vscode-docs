@@ -203,15 +203,15 @@ If you want to clean out images or mass-delete containers, [see here](/docs/remo
 
 VS Code runs extensions in one of two places: locally on the UI / client side, or in the container. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside inside a particular container. This allows you to install only the extensions you need for a given task in a container and seamlessly switch your entire tool-chain just by connecting to a new container.
 
-If you search and install an extension from the Extensions view, it will automatically be installed in the correct location. You can tell where an extension is installed based on the category or group it is in. There will be a **Local - Installed** category and also one for your container.
+If you install an extension from the Extensions view, it will automatically be installed in the correct location. You can tell where an extension is installed based on the category grouping. There will be a **Local - Installed** category and also one for your container.
 
 ![Workspace Extension Category](images/containers/containers-installed-remote-indicator.png)
 
 ![Local Extension Category](images/common/local-installed-extensions.png)
 
-> **Note:** If you are an extension author and are finding that your extension is not working properly or installs in the wrong place, see the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+> **Note:** If you are an extension author and your extension is not working properly or installs in the wrong place, see [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. You can click the **Install** button if you want to install them on your remote host.
+Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. You can click the **Install** button to install an extension on your remote host.
 
 ![Disabled Extensions w/Install Button](images/containers/containers-disabled-extensions.png)
 
@@ -228,7 +228,7 @@ If there are extensions that you would like always installed in any container, y
 
 ### Advanced: Forcing an extension to run locally / remotely
 
-VS Code runs extensions in one of two places: locally on the **UI** / client side, or remotely on the **Workspace** / container side. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location in your User [settings](/docs/getstarted/settings.md).
+As mentioned, VS Code runs extensions in either the local client or the container remote host. Extensions typically are designed and tested for use in one side or the other, not both. However, you can force an extension to run in a particular location in your User [settings](/docs/getstarted/settings.md).
 
 For example, the `remote.extensionKind` setting below will force the Azure Cosmos DB extension on the UI side (instead of its Workspace default) and the Debugger for Chrome on the Workspace side (instead of its UI default):
 
@@ -593,7 +593,7 @@ See the following examples dev containers for additional information:
 * The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
 * Local proxy settings are not reused inside the container which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 
-See [here for a list of active issues](https://aka.ms/vscode-remote/containers/issues) on GitHub that are tagged with Containers.
+See [here for a list of active issues](https://aka.ms/vscode-remote/containers/issues) related to Containers.
 
 ### Docker limitations
 
