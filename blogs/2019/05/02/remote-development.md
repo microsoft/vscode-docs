@@ -138,9 +138,9 @@ Which, it turns out, is pretty fast, even with low powered machines, low bandwid
 
 VS Code will attempt to infer where to install an extension, locally or remotely, based on the functionality it exposes. Extensions fall into one of two categories:
 
-* UI Extensions are installed locally. These extensions make contributions to the UI only and do not access files in a workspace, which means they can run entirely on the local machine. Examples of UI extensions are themes, snippets, language grammars, and keymaps.
+* UI Extensions are installed locally. These extensions only customize the UI and do not access files in a workspace, which means they can run entirely on the local machine. Since they are installed locally, they are always available to you independent of the workspace you are working in. Examples of UI extensions are themes, snippets, language grammars, and keymaps.
 
-* Workspace Extensions are installed remotely. They access files and folders in a workspace for editing, to provide IntelliSense (completions), GoTo Definition, debugging, and more. These extensions run remotely so that they have full access to the file system and tools on the remote host.
+* Workspace Extensions are installed remotely. They access files and folders in a workspace for editing, to provide IntelliSense (completions), GoTo Definition, debugging, and more. These extensions may customize the UI. These extensions run remotely so that they have full access to the file system and tools on the remote host.
 
 ![Remote and local extensions](remote-local-extensions.png)
 
