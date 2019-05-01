@@ -276,6 +276,12 @@ Since Windows and Linux use different default line endings, you may see files th
 git config --global core.autocrlf false
 ```
 
+This will disable automated conversation. If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option instead.
+
+```bash
+git config --global core.autocrlf input
+```
+
 Next, you can prevent others from facing this issue regardless of their setting by adding or modifying a  `.gitattributes` file in your repository. For example, this will force everything to be LF except for Windows batch files that require CRLF:
 
 ```yaml
@@ -534,6 +540,12 @@ Since Windows and Linux use different default line endings, you may see files th
 
 ```bash
 git config --global core.autocrlf false
+```
+
+This will disable automated conversation. If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option instead.
+
+```bash
+git config --global core.autocrlf input
 ```
 
 Next, you can prevent others from facing this issue regardless of their setting by adding or modifying a  `.gitattributes` file in your repository. For example, this will force everything to be LF except for Windows batch files that require CRLF:
