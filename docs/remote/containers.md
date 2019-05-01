@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 4/11/2019
+DateApproved: 5/2/2019
 ---
 # Developing inside a Container
 
@@ -115,17 +115,17 @@ The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) has
 
 ### Configuration edit loop
 
-Editing your container configuration is easy. Since rebuilding a container will "reset" the container to its starting contents (with the exception of your local source code), VS Code does not automatically rebuild if you edit a container configuration file (`devcontainer.json`, `Dockerfile`, `docker-compose.yml`). Instead, there are some commands that can be used to make editing your config easier.
+Editing your container configuration is easy. Since rebuilding a container will "reset" the container to its starting contents (with the exception of your local source code), VS Code does not automatically rebuild if you edit a container configuration file (`devcontainer.json`, `Dockerfile`, `docker-compose.yml`). Instead, there are some commands that can be used to make editing your configuration easier.
 
 Here is the typical edit loop using these commands:
 
 1. Start with `kbstyle(F1)` > **Remote-Containers: Create Container Configuration File...**
 2. Edit the contents of the `.devcontainer` folder as required.
-3. Try it with `kbstyle(F1)` > **Remote-Containers: Reopen folder in Container**.
+3. Try it with `kbstyle(F1)` > **Remote-Containers: Reopen Folder in Container**.
 4. On failure:
    1. `kbstyle(F1)` > **Remote-Containers: Reopen Folder Locally** which will open a new local window.
    2. In this local window: Edit the contents of the `.devcontainer` folder as required.
-   3. Try it again: Go back to the container window, `kbstyle(F1)` > **Remote-Containers: Reload Window**.
+   3. Try it again: Go back to the container window, `kbstyle(F1)` > **Developer: Reload Window**.
    4. Repeat as needed.
 5. If the build was successful, but you want to make more changes:
       1. Edit the contents of the `.devcontainer` folder as required when connected to the container.
