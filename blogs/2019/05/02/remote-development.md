@@ -144,7 +144,7 @@ Here are 3 quick steps to get started doing Visual Studio Code Remote Developmen
 
 2. Get the [Remote Development Extension Pack](https://aka.ms/VSCodeRemoteExtensionPack), which installs support for WSL, SSH, and Containers and is the easiest way to get started. If you don't need them all, you can uninstall the individual extensions.
 
-3. Read the [Docs](https://aka.ms/vscode-remote). Try the [Dev Container samples](https://github.com/search?q=org%3AMicrosoft+vscode-remote-try-&unscoped_q=vscode-remote-try-). If you develop with Python (many of you do!), check out Dan Taylor's [blog post on remote Python development](http://devblogs.microsoft.com/python/remote-python-development-in-vs-code-with-docker-and-ssh?utm_campaign_id=vscblog).
+3. Read the [Docs](https://aka.ms/vscode-remote). Try the [Dev Container samples](https://github.com/search?q=org%3AMicrosoft+vscode-remote-try-&unscoped_q=vscode-remote-try-). If you develop with Python (many of you do!), check out Dan Taylor's [blog post on remote Python development](https://devblogs.microsoft.com/python/remote-python-development-in-visual-studio-code?utm_campaign_id=vscblog).
 
 Last, if you run into problems, please [submit an issue](https://github.com/Microsoft/vscode-remote-release/issues). For answers to common questions, see our [FAQ](https://code.visualstudio.com/docs/remote/faq).
 
