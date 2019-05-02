@@ -17,7 +17,7 @@ In order to make remote development as transparent as possible to users, VS Code
 
 - **UI Extensions**: These extensions make contributions to the VS Code user interface and are always run on the user's local machine. UI Extensions cannot directly access files in the workspace, or run scripts/tools installed in that workspace or on the machine. Example UI Extensions include: themes, snippets, language grammars, and keymaps.
 
-- **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions are run on the local machine. When in a remote workspace, Workspace Extensions are run on the remote machine. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in workspace (either themselves or by invoking scripts/tools). While they do not focus on UI personalization, they can contribute explorers, viewlets, and other UI elements as well.
+- **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions are run on the local machine. When in a remote workspace, Workspace Extensions are run on the remote machine. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in workspace (either themselves or by invoking scripts/tools). While Workspace extensions do not focus on UI customization, they can contribute explorers, views, and other UI elements as well.
 
 When a user installs an extension, VS Code automatically installs it to the correct location based on its type: UI Extensions are run by VS Code's [local Extension Host](/api/advanced-topics/extension-host), while Workspace Extensions are run by a **Remote Extension Host** that sits in a small **VS Code Server**. This server is automatically installed (or updated) when you open a folder in Windows Subsystem for Linux (WSL), in a container, or on a remote SSH host. (VS Code also automatically manages starting and stopping the server, so users are often not aware of its presence.)
 
@@ -52,7 +52,7 @@ You can edit and debug your extension in a container by following these steps.
 
 1. Add the Node.js dev container definition to your extension folder by pressing `kbstyle(F1)`, selecting the **Remote-Containers: Create Configuration File...** command, and picking **Node.js 8 & TypeScript** (or just Node.js 8 if you are not using TypeScript). This will define the container you will use edit, debug, and test the extension.
 
-2. After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the [in-depth Remote-Containers documentation](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container) for details.
+2. After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the in-depth [Containers](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container) documentation for details.
 
 3. Edit your `launch.json` to add a second argument to the `args` property that points to the path of a test project or your test data in your workspace folder or that will be in the container when it starts. (Note: You cannot use the workspace folder itself.) By default, the user's home folder (`$HOME`) is used. For example, if your test data is in a `data` folder in your workspace, you would add `${workspaceFolder}/data` as follows:
 
@@ -346,7 +346,7 @@ Now the webview's traffic to `localhost:3000` will be transparently routed to th
 
 ## Using native Node.js modules
 
-Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js which can cause binaries to fail when used remotely.
+Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
 
 To solve this problem:
 

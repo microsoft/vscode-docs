@@ -211,7 +211,7 @@ On the remote machine you are connecting to, make sure the following permissions
 
 ### Updating permissions on Windows using the command line
 
-If you'd prefer to use the command line to update permissions on Windows, you can use the [`icacls`](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls) command.
+If you'd prefer to use the command line to update permissions on Windows, you can use the [`icacls`](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command.
 
 The script below will set your user as the owner, clear out permissions, disable inheritance, and grant the needed permissions:
 
