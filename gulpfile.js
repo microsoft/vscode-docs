@@ -2,7 +2,7 @@ const gulp = require('gulp')
 const $ = require('shelljs')
 
 const GITHUB_TOKEN = process.env['GITHUB_TOKEN']
-const BRANCH = 'remote'
+const BRANCH = process.env['BUILD_SOURCEBRANCHNAME']
 
 if (!GITHUB_TOKEN) {
   $.echo('This script clones vscode-website and requires access token')
@@ -34,10 +34,10 @@ gulp.task('build-dist', done => {
   // Clone prod branch of vscode-website
   // If it exists, upgrade to latest
   if (!$.test('-e', 'vscode-website')) {
-    $.exec(`git clone --depth=1 --branch=remote ${URL}`)
+    $.exec(`git clone --depth=1 --branch=prod ${URL}`)
   } else {
     $.cd('vscode-website')
-    $.exec('git pull origin remote')
+    $.exec('git pull origin prod')
     $.cd('..')
   }
 
