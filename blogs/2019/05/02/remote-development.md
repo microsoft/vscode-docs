@@ -22,7 +22,7 @@ Read on to learn how we got here.
 
 ## Development Trends
 
-With the growth in popularity of VS Code, we've had the privlidge and opportunity to talk to more and more users with different development environments, many vastly different than our own, to try to identify ways in which we could move VS Code forward to address real developer pain points.
+With the growth in popularity of VS Code, we've had the privilege and opportunity to talk to more and more users with different development environments, many vastly different than our own, to try to identify ways in which we could move VS Code forward to address real developer pain points.
 
 An interesting pattern emerged during these conversations. We saw many developers trying to use VS Code to develop against containers and remote VMs configured with specific development and runtime stacks, simply because it is too hard, too disruptive, and in some cases impossible, to set up these development environments locally.
 
