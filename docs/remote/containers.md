@@ -461,15 +461,15 @@ For example:
 
 See the [devcontainer.json reference](#devcontainerjson-reference) for information other available properties such as the `workspaceFolder` and `shutdownAction`.
 
-You could also refer to a development copy of your Docker Compose file. For example, if you had `.devcontainer/docker-compose.devcontainer.yml`, just change the following line:
+You can also create a development copy of your Docker Compose file. For example, if you had `.devcontainer/docker-compose.devcontainer.yml`, you would just change the following line in `devcontainer.json`:
 
 ```json
     "dockerComposeFile": "docker-compose.devcontainer.yml",
 ```
 
-You can also avoid making a copy of your Docker Compose file by extending your Docker Compose file. We'll cover that [next](#extending-your-docker-compose-file-for-development).
+You can also avoid making a copy of your Docker Compose file by extending it with another one. We'll cover this topic in the [next section](#extending-your-docker-compose-file-for-development).
 
-Note that you may want to alter your existing Docker Compose file to mount your local `.gitconfig` folder so you don't have to set up Git inside of the container if you install it. (See [below](#extending-your-docker-compose-file-for-development) if you'd prefer not to alter your existing files.)
+Note that you may want to include a volume mount to your local `.gitconfig` folder in your Docker Compose file so you don't have to set up Git inside of the container if you install it.
 
 ```yaml
 volumes:
@@ -529,7 +529,7 @@ This same file can provide additional settings, such as port mappings, as needed
 VS Code will then **automatically use both files** when starting up any containers or you can start them yourself from the command line as follows:
 
 ```bash
-docker-compose up -f docker-compose.yml -f .devcontainer/docker-compose.yml
+docker-compose up -f docker-compose.yml -f .devcontainer/docker-compose.extend.yml
 ```
 
 ### Using an updated Dockerfile to automatically install more tools
