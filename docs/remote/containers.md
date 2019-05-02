@@ -47,7 +47,7 @@ To get started, follow these steps:
 
 The Remote - Containers extension supports two primary operating models:
 
-* You can use a container as your [full-time development environment](#creating-a-devcontainerjson-file-for-existing-projects).
+* You can use a container as your [full-time development environment](#creating-a-devcontainerjson-file).
 * You can [attach to a running container](#attaching-to-running-containers) to inspect it.
 
 We will cover how to use a container as your full-time development environment first.
@@ -584,7 +584,7 @@ See the following examples dev containers for additional information:
 |----------|------|-------------|
 |**Dockerfile or image**|||
 | `image` | string | **Required** when [using an image](#using-an-existing-container-image). The name of an image in a container registry ([DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) that VS Code should use to create the dev container. |
-| `dockerFile` | string |**Required** when [using a Dockerfile](#using-a-dockerfile). The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes [in this repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/dev-containers). |
+| `dockerFile` | string |**Required** when [using a Dockerfile](#using-a-dockerfile). The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes [in this repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers). |
 | `context` | string | Path that the Docker build should be run from relative to `devcontainer.json`. For example, a value of `".."` would allow you to reference content in sibling directories. Defaults to `"."`. |
 | `appPort` | integer, string, or array | A port or array of ports that should be made available locally when the container is running. Defaults to `[]`. |
 | `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`. |
