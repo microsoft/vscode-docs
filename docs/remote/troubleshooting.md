@@ -665,5 +665,5 @@ Resolution: We are investigating the best approach to solve this problem.
 ## Questions and feedback
 
 - See [Remote Development FAQ](/docs/remote/faq.md).
-- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
+- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 - Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
