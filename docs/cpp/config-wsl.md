@@ -232,7 +232,7 @@ Under `sourceFileMap`, you need to tell GDB where to find the header files. Curr
                 "debuggerPath": "/usr/bin/gdb"
             },
             "sourceFileMap": {
-                "/mnt/c": "c:\\",
+                "/mnt/c": "${env:systemdrive}/",
                 "/usr": "C:\\Users\\<path to WSL directory which you will place here later>"
             }
         }

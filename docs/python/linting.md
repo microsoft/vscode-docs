@@ -161,7 +161,7 @@ The generated file contains sections for all the Pylint options, along with docu
 
 ### Command-line arguments and configuration files
 
-See [pycodestyle Command Line Interface](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage) for general options. For example, to ignore error D400 (first line should end with a period), add the following line to your `settings.json` file:
+See [pydocstyle Command Line Interface](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage) for general options. For example, to ignore error D400 (first line should end with a period), add the following line to your `settings.json` file:
 
 ```json
 "python.linting.pydocstyleArgs": ["--ignore=D400"]

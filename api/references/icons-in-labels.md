@@ -21,6 +21,14 @@ You can also embed text and use multiple icons:
 $(eye) $(heart) $(mark-github) GitHub
 ```
 
+## Animation
+
+You can apply a spinning animation to any icon by appending `~spin` to the icon name:
+
+```ts
+$(sync~spin)
+```
+
 ## Icon Listing
 
 Below are the full listings of the icons that ships with the product:
