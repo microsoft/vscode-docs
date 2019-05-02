@@ -297,7 +297,7 @@ Next, you can prevent others from facing this issue, regardless of their setting
 For example, the `.gitattributes` settings below will force everything to be LF, except for Windows batch files that require CRLF:
 
 ```yaml
-*.* text eol=lf
+* text=auto eol=lf
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
 ```
@@ -577,7 +577,7 @@ Next, you can prevent others from facing this issue, regardless of their setting
 For example, the `.gitattributes` settings below will force everything to be LF, except for Windows batch files that require CRLF:
 
 ```yaml
-*.* text eol=lf
+* text=auto eol=lf
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
 ```
