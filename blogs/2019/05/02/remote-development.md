@@ -26,7 +26,7 @@ With the growth in popularity of VS Code, we've had the privilege and opportunit
 
 An interesting pattern emerged during these conversations. We saw many developers trying to use VS Code to develop against containers and remote VMs configured with specific development and runtime stacks, simply because it is too hard, too disruptive, and in some cases impossible, to set up these development environments locally.
 
-We've all experienced this problem. Unless we feel its time to flatten that machine :) we hesistate to try out a new stack like Rust, Go, Node, or Python3, for fear of "messing up" our current, well tuned environment.
+We've all experienced this problem. Unless we feel it's time to flatten that machine :), we hesitate to try out a new stack like Rust, Go, Node, or Python3, for fear of "messing up" our current, well-tuned environment.
 
 Python developers want to switch to VS Code but can't, because they need to use [containers and virtual machines](https://matttrent.com/remote-development/) as development environments configured for a specific Python stack.
 
@@ -50,7 +50,7 @@ Throughout these conversations, we also kept hearing the same challenges develop
 
 * Browser-based tools are useful in a variety of scenarios, but developers don't want to give up the richness and familiarity that desktop tools provide, or their existing locally installed tool chains.
 
-Worse (in our opinion!) developers had to sacrifice core VS Code experinces like IntelliSense (completions), linting, and debugging, in order to work against these environments.
+Worse (in our opinion!) developers had to sacrifice core VS Code experiences like IntelliSense (completions), linting, and debugging, in order to work against these environments.
 
 ## A Different Approach
 
