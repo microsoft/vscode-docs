@@ -9,7 +9,7 @@ DateApproved: 5/2/2019
 ---
 # Developing inside a Container
 
-**Note:** The Remote Development extensions require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+❗ **Note:** The **Remote Development** extensions require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
 
 ---
 
