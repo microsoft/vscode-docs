@@ -400,7 +400,7 @@ For example:
 
 ```json
 {
-    "name": "My Node.js Container App",
+    "name": "My Node.js App",
     "dockerFile": "Dockerfile",
     "appPort": 3000,
     "extensions": [
@@ -416,7 +416,7 @@ The example below uses `runArgs` to change the security policy to enable the ptr
 
 ```json
 {
-    "name": "My Go Container App",
+    "name": "My Go App",
     "dockerFile": "Dockerfile",
     "extensions": [
         "ms-vscode.go"
@@ -565,7 +565,7 @@ The following are dev container definitions that use Docker Compose:
 
 * [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
 
-## Using Docker or Kubernetes from a container
+### Using Docker or Kubernetes from a container
 
 While you can build, deploy, and debug your application inside a dev container, you may also need to test it by running it inside a set of production-like containers. Fortunately, by installing the needed Docker or Kubernetes CLIs, you can build and deploy your app's container images from inside your dev container.
 
