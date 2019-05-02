@@ -169,7 +169,7 @@ VS Code's local user settings are also reused when you are connected to an SSH h
 - Linux hosts must have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed.
 - PuTTY is not supported on Windows.
 - You cannot drag files out of the File Explorer to your local filesystem to copy them.
-- When installing an extension pack when connected to a SSH host, extensions may install locally instead of inside on the host. Click the **Install** button for each extension in the Local section of the extension panel to work around the issue. See [vscode-remote-release #11](https://github.com/Microsoft/vscode-remote-release/issues/11) for details.
+- When installing an extension pack when connected to a SSH host, extensions may install locally instead of inside on the host. Click the **Install** button for each extension in the Local section of the extension panel to work around the issue. See [Microsoft/vscode-remote-release#11](https://github.com/Microsoft/vscode-remote-release/issues/11) for details.
 - If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use a SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 - Local proxy settings are not reused on the remote host, which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 - See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) related to SSH.
@@ -186,7 +186,7 @@ The Docker extension is configured to run as a local "UI" extension by default. 
 
 ### Extension limitations
 
-Many extensions will work on remote SSH hosts modification. However, in some cases, certain features may require changes. If you run into an extension issue, there is [a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
+Many extensions will work on remote SSH hosts without modification. However, in some cases, certain features may require changes. If you run into an extension issue, there is [a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
 ## Common questions
 

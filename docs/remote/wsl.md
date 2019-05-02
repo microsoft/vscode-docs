@@ -114,8 +114,8 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) 
 
 | Issue | Existing issues |
 |---|---|
-Non-empty folders in the open workspace can't be renamed | https://github.com/Microsoft/WSL/issues/3395, https://github.com/Microsoft/WSL/issues/1956
-| When installing an extension pack in WSL, extensions may install locally instead of in WSL. Click the **Install** button for each extension in the Local section of the extension panel to work around the issue. | [vscode-remote-release #11](https://github.com/Microsoft/vscode-remote-release/issues/11) |
+Non-empty folders in the open workspace can't be renamed | [Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)
+| When installing an extension pack in WSL, extensions may install locally instead of in WSL. Click the **Install** button for each extension in the Local section of the extension panel to work around the issue. | [Microsoft/vscode-remote-release#11](https://github.com/Microsoft/vscode-remote-release/issues/11) |
 
 In addition, local proxy settings are not reused by VS Code running in WSL, which can prevent extensions from working without adding a global `HTTP_PROXY` and `HTTPS_PROXY` environment variable with the appropriate proxy information.
 
@@ -123,15 +123,15 @@ In addition, local proxy settings are not reused by VS Code running in WSL, whic
 
 | Issue | Existing issues |
 |---|---|
-Delve debugger doesn't work under WSL | https://github.com/go-delve/delve/issues/810 https://github.com/Microsoft/vscode-go/issues/926 |
+Delve debugger doesn't work under WSL | [go-delve/delve#810](https://github.com/go-delve/delve/issues/810),  [Microsoft/vscode-go#926](https://github.com/Microsoft/vscode-go/issues/926) |
 
 ### Node.js in WSL
 
 | Issue | Existing issues |
 |---|---|
-NodeJS Error: spawn EACCES (different variants of this error) | https://github.com/Microsoft/WSL/issues/3886 |
-Webpack HMR not working | https://github.com/Microsoft/WSL/issues/2709 |
-Firebase via node unusably slow only on WSL | https://github.com/Microsoft/WSL/issues/2657 |
+NodeJS Error: spawn EACCES (different variants of this error) | [Microsoft/WSL#3886](https://github.com/Microsoft/WSL/issues/3886) |
+Webpack HMR not working | [Microsoft/WSL#2709](https://github.com/Microsoft/WSL/issues/2709) |
+Firebase via node unusably slow only on WSL | [Microsoft/WSL#2657](https://github.com/Microsoft/WSL/issues/2657) |
 
 ### Git limitations
 
