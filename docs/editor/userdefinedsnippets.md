@@ -117,6 +117,7 @@ The following variables can be used:
 * `TM_DIRECTORY` The directory of the current document
 * `TM_FILEPATH` The full file path of the current document
 * `CLIPBOARD` The contents of your clipboard
+* `WORKSPACE_NAME` The name of the opened workspace or folder
 
 For inserting the current date and time:
 
