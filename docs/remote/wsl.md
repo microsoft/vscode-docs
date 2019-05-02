@@ -115,6 +115,7 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) 
 | Issue | Existing issues |
 |---|---|
 Non-empty folders in the open workspace can't be renamed | https://github.com/Microsoft/WSL/issues/3395, https://github.com/Microsoft/WSL/issues/1956
+| When installing an extension pack in WSL, extensions may install locally instead of in WSL. Click the **Install** button for each extension in the Local section of the extension panel to work around the issue. | [vscode-remote-release #11](https://github.com/Microsoft/vscode-remote-release/issues/11) |
 
 In addition, local proxy settings are not reused by VS Code running in WSL, which can prevent extensions from working without adding a global `HTTP_PROXY` and `HTTPS_PROXY` environment variable with the appropriate proxy information.
 
