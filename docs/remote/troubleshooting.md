@@ -291,7 +291,7 @@ git config --global core.autocrlf input
 Next, you can prevent others from facing this issue regardless of their setting by adding or modifying a  `.gitattributes` file in your repository. For example, this will force everything to be LF except for Windows batch files that require CRLF:
 
 ```yaml
-*.* text eol=lf
+* text=auto eol=lf
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
 ```
@@ -564,7 +564,7 @@ git config --global core.autocrlf input
 Next, you can prevent others from facing this issue regardless of their setting by adding or modifying a  `.gitattributes` file in your repository. For example, this will force everything to be LF except for Windows batch files that require CRLF:
 
 ```yaml
-*.* text eol=lf
+* text=auto eol=lf
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
 ```
