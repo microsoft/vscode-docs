@@ -14,48 +14,51 @@ May 2, 2019 by The VS Code Team, [@code](https://twitter.com/code)
 
 ## TL&DR;
 
-Today we're excited to announce the preview of three new extensions for Visual Studio Code that enable seamless remote development in [Containers](https://www.docker.com/resources/what-container), physical or virtual machines, and the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl). You can [get started](#get-started) right away by installing the [Remote Development Extension Pack](https://aka.ms/VSCodeRemoteExtensionPack).
+Today we're excited to announce the preview of three new extensions for Visual Studio Code that enable seamless development in [Containers](https://www.docker.com/resources/what-container), remotely on physical or virtual machines, and with the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl). You can [get started](#get-started) right away by installing the [Remote Development Extension Pack](https://aka.ms/VSCodeRemoteExtensionPack).
 
 **Note**: You'll need to use the [Insiders](https://code.visualstudio.com/insiders/) build for now, but remote development support will eventually be available in the Stable release.
 
 Read on to learn how we got here.
 
-## Remote development
+## Development Trends
 
-As the popularity of Visual Studio Code has grown, we've had the opportunity to talk to a broad set of users with different development environments, many vastly different than our own. And what we heard is that more and more development is happening not only on the local machine, but also on remote environments.
+With the growth in popularity of VS Code, we've had the privlidge and opportunity to talk to more and more users with different development environments, many vastly different than our own, to try to identify ways in which we could move VS Code forward to address real developer pain points.
 
-Thousands of engineers at large enterprises such as Facebook work remotely against secure and powerful "developer VMs" and cloud-based services that scale beyond what even the best laptop can handle.
+An interesting pattern emerged during these conversations. We saw many developers trying to use VS Code to develop against containers and remote VMs configured with specific development and runtime stacks, simply because it is too hard, too disruptive, and in some cases impossible, to set up these development environments locally.
 
-We heard from Python developers who want to switch to VS Code but need to use development environments configured for a specific Python stack using [containers and virtual machines](https://matttrent.com/remote-development/).
+We've all experienced this problem. Unless we feel its time to flatten that machine :) we hesistate to try out a new stack like Rust, Go, Node, or Python3, for fear of "messing up" our current, well tuned environment.
+
+Python developers want to switch to VS Code but can't, because they need to use [containers and virtual machines](https://matttrent.com/remote-development/) as development environments configured for a specific Python stack.
 
 > ![Vagrant Box testimonial](vagrant-box-testimonial.png)
 
-Data scientists often need massive storage and compute services to analyze large datasets that can't be stored or processed even on a robust desktop.
+Because the code bases are so large, we see engineers at shops like Facebook (and Microsoft!) use editors like vim to work remotely against secure and powerful "developer VMs", using alternative cloud-based search and navigation services that scale beyond what even the best laptop can handle.
 
-And, [the third most commented issue in the VS Code repository](https://github.com/Microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal in a Linux distro on Windows with the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/about).
+Data Scientists building and training data models often need massive storage and compute services to analyze large datasets that can't be stored or processed even on a robust desktop.
+
+The rise in popularity of the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/about) is powered in part because it makes it easy to set up a contained development environment, including the target operating system. In fact, [the third most commented issue in the VS Code repository](https://github.com/Microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal in a Linux distro on Windows.
 
 > ![VS Code Ubuntu on Windows testimonial](vscode-ubuntu-windows-testimonial.png)
 
-WSL is a great way to use your Windows-based tools to build applications that deploy to and run on Linux, and doing development in WSL is really just remote development from a Windows machine to a Linux environment that happens to be running on the same machine.
+## Challenges with Current Solutions
 
-## Challenges
-
-In these conversations, we also kept hearing the same challenges repeated that developers face with remote development.
-
-For example:
+Throughout these conversations, we also kept hearing the same challenges developers face with this type of development.
 
 * Remote Desktop can work, but it is difficult or impossible to set up on some Linux distributions, and the development experience can be "laggy".
+
 * SSH and Vim (or local tools with file synchronization) work, but they can be slow, error prone, and generally [lack the productivity of modern development tools](https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/).
-* It's hard, and sometimes impossible, to replicate different development environments locally (for example, the right framework/tools environment, or a massive source base) to get rich tooling experiences like IntelliSense or linters. It becomes even more challenging when switching between different project contexts.
+
 * Browser-based tools are useful in a variety of scenarios, but developers don't want to give up the richness and familiarity that desktop tools provide, or their existing locally installed tool chains.
 
-## A different approach
+Worse (in our opinion!) developers had to sacrifice core VS Code experinces like IntelliSense (completions), linting, and debugging, in order to work against these environments.
+
+## A Different Approach
 
 Hearing about these challenges we started to look into WSL support and it looked simple enough. Install VS Code and ([carefully at the time!](https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools/)) edit the Windows file system as normal. We did work to [enable remote debugging for Node.js](https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_remote-debugging), and we figured we could simply install a small script to enable launching `code` from the bash shell.
 
 But, it just wasn't right. It didn't make sense to do special work for every runtime, as we did for Node.js debugging. If you have Python 2.7 and Flask installed on Windows (or none at all!) and Python 3.7 and Django installed in the Linux distro, you wouldn't get proper completions or linting because VS Code was looking at the Windows versions of everything. Having to duplicate the development environment on both Windows and Linux defeated the purpose of having WSL at all.
 
-We convinced ourselves that what we needed was a way to run VS Code in two places at once, to run the developer tools locally and connect to a set of development services running remotely in the context of a physical or virtual machine (for example, a container or VM). This gives you a rich local development experience in the context of what is on the remote machine.
+We convinced ourselves that what we needed was a way to run VS Code in two places at once, to run the developer tools locally and connect to a set of development services running remotely in the context of a physical or virtual machine (for example, a container or VM). This gives you a rich local development experience in the context of what is in the remote environment.
 
 ![Visual Studio Code connecting to remote environments](remote-environment.png)
 
@@ -75,7 +78,7 @@ Commands and extensions are run directly in the Linux distro, so you don't have 
 
 Check out this quick, 2-minute video to see how easy it is to develop in WSL.
 
-<!-- TODO WSL video Kenneth -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mIHprjsSO9o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 For more information, please see the [Developing in WSL](https://aka.ms/vscode-remote/wsl) documentation.
 
@@ -93,7 +96,7 @@ You could use Vim over SSH or Jupyter Notebooks to edit your remote code, but yo
 
 Check out this quick, 2-minute video to see how easy it is to develop on a virtual machine over SSH.
 
-<!-- TODO SSH video Sana -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rh1Ag41J6IA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 For more information, please see the [Developing using SSH](https://aka.ms/vscode-remote/ssh) documentation.
 
@@ -105,15 +108,15 @@ The **[Remote - Containers](https://marketplace.visualstudio.com/items?itemName=
 * Containers are isolated, meaning you can quickly swap between different development environments without impacting your local machine.
 * It easy for others to contribute to your project as they can easily develop, build, and test in a consistent development environment.
 
-A `devcontainer.json` file can be used to tell VS Code how to configure the development container, including the Dockerfile to use, ports to open, and extensions to install in the container. When VS Code finds a `devcontainer.json` in the workspace, it automatically builds (if necessary) the image, starts the container, and connects to it. Your files are mounted into the container so you can open files and start editing with full IntelliSense (completions), code navigation, debugging, and more.
+A `devcontainer.json` file can be used to tell VS Code how to configure the development container, including the `Dockerfile` to use, ports to open, and extensions to install in the container. When VS Code finds a `devcontainer.json` in the workspace, it automatically builds (if necessary) the image, starts the container, and connects to it. Your files are mounted into the container so you can open files and start editing with full IntelliSense (completions), code navigation, debugging, and more.
 
 Check out this quick, 2-minute video to see Development Containers in action.
 
-<!-- TODO Containers video Bowden -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TVcoGLL6Smo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 For more information on development containers, please see the [Developing inside a Container](https://aka.ms/vscode-remote/containers) documentation as well as the [vscode-remote-try-* repositories](https://github.com/search?q=org%3AMicrosoft+vscode-remote-try-&unscoped_q=vscode-remote-try-) that contain samples you can use today.
 
-## Managing extensions
+## Managing Extensions
 
 When developing remotely, VS Code will attempt to infer where to install an extension, locally or remotely, based on the functionality it exposes. Extensions fall into one of two categories:
 
@@ -125,13 +128,13 @@ When developing remotely, VS Code will attempt to infer where to install an exte
 
 Most extensions have been updated and work properly in a remote environment, but if you encounter some that do not, please do submit an issue on the extension.
 
-### Extension authors
+### Extension Authors
 
 If you are creating VS Code extensions, we've implemented new extension APIs that are remote aware. For example, instead of using the `open` package to load a browser window, an extension author should use the `vscode.env.openExternal` API, which will open the browser locally. Similarly, there is a new `clipboard` class, which will place contents on the local clipboard, as expected.
 
 Many more details can be found in the updated [API Documentation](https://aka.ms/vscode-remote/developing-extensions), including how to run, test, and debug your extension in a remote environment.
 
-## Get started
+## Get Started
 
 Thanks for reading this far!
 
