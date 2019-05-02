@@ -12,7 +12,7 @@ Author: Chris Dias
 
 May 2, 2019 by The VS Code Team, [@code](https://twitter.com/code)
 
-## TL&DR;
+## TL;DR
 
 Today we're excited to announce the preview of three new extensions for Visual Studio Code that enable seamless remote development in [Containers](https://www.docker.com/resources/what-container), physical or virtual machines, and the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl). You can [get started](#get-started) right away by installing the [Remote Development Extension Pack](https://aka.ms/VSCodeRemoteExtensionPack).
 
