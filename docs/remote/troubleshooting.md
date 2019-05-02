@@ -19,7 +19,7 @@ This article covers troubleshooting tips and tricks for each of the Visual Studi
 
 > **Tip:** PuTTY for Windows is not a [supported client](#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](#reusing-a-key-generated-in-puttygen).
 
-#### Quick start
+### Quick start: SSH key
 
 To set up SSH key based authentication for your remote host:
 
@@ -50,7 +50,7 @@ To set up SSH key based authentication for your remote host:
     ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
     ```
 
-#### Improving your security with a dedicated key
+### Improving your security with a dedicated key
 
 While using a single SSH key across all your SSH hosts can be convenient, if anyone gains access to your private key, they will have access to all of your hosts as well. You can prevent this by creating a separate SSH key for your development hosts. Just follow these steps:
 
@@ -113,15 +113,17 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
 
 ### Enabling alternate SSH authentication methods
 
-If are you connecting to an SSH remote host and are:
+If you are connecting to an SSH remote host and are either:
 
 - connecting with two-factor authentication,
 - using password authentication,
-- using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible
+- using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible,
 
 you need to enable the `remote.SSH.showLoginTerminal` setting in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can enter your auth code, password, or passphrase when this happens.
 
-A convenient way to work around this is to enable the `ControlMaster` feature that tells OpenSSH to run multiple SSH sessions over a single connection. To enable `ControlMaster`:
+A convenient way to work around this is to enable the `ControlMaster` feature that tells OpenSSH to run multiple SSH sessions over a single connection.
+
+To enable `ControlMaster`:
 
 1. Add an entry like this to your SSH config file:
 
@@ -142,7 +144,7 @@ If you are connecting to an SSH host using a key with a passphrase, you should e
 
 To verify that the agent is running and is reachable from VS Code's environment, run `ssh-add -l` in the terminal of a local VS Code window. You should see a listing of the keys in the agent (or a message that it has no keys). If the agent is not running, follow these instructions to start it. After starting the agent, be sure to restart VS Code.
 
-#### Windows
+**Windows:**
 
 To enable SSH Agent automatically on Windows, start PowerShell as an Administrator and run the following commands:
 
@@ -155,7 +157,7 @@ Get-Service ssh-agent
 
 Now the agent will be started automatically on login.
 
-#### Linux
+**Linux:**
 
 To start the SSH Agent in the background, run:
 
@@ -179,15 +181,15 @@ then
 fi
 ```
 
-#### macOS
+**macOS:**
 
 The agent should be running by default on macOS.
 
 ### Fixing SSH file permission errors
 
-SSH can be particular about file permissions and if they are set incorrectly you may see errors such as "WARNING: UNPROTECTED PRIVATE KEY FILE!". To fix this, update the file permissions as follows:
+SSH can be particular about file permissions and if they are set incorrectly, you may see errors such as "WARNING: UNPROTECTED PRIVATE KEY FILE!". There are several ways to update file permissions in order to fix this, which are described in the sections below.
 
-#### Local SSH file and folder permissions
+### Local SSH file and folder permissions
 
 On your local machine, make sure the following permissions are set:
 
@@ -198,7 +200,7 @@ On your local machine, make sure the following permissions are set:
 | `.ssh/id_rsa.pub` in your user folder | `chmod 600 ~/.ssh/id_rsa.pub` | Grant `Full Control` to your user, Administrators, and SYSTEM. |
 | Any other key file | `chmod 600 /path/to/key/file` | Grant `Full Control` to your user, Administrators, and SYSTEM.|
 
-#### Server SSH file and folder permissions
+### Server SSH file and folder permissions
 
 On the remote machine you are connecting to, make sure the following permissions are set:
 
@@ -207,7 +209,7 @@ On the remote machine you are connecting to, make sure the following permissions
 | `.ssh` in your user folder on the server | `chmod 700 ~/.ssh` |
 | `.ssh/authorized_keys` in your user folder on the server  | `chmod 600 ~/.ssh/authorized_keys` |
 
-#### Updating permissions on Windows using the command line
+### Updating permissions on Windows using the command line
 
 If you'd prefer to use the command line to update permissions on Windows, you can use the [`icacls`](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls) command.
 
@@ -238,11 +240,11 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 | Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for additional setup instructions. |
 | RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
 
-### Resolving hangs when doing a Git push or sync on a SSH host
+### Resolving hangs when doing a Git push or sync on an SSH host
 
 If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
 
-Either use a SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
 ## Container tips
 
@@ -264,15 +266,15 @@ The VS Code Remote - Containers extension can only automatically mount your sour
 
 To change Docker's drive and folder sharing settings:
 
-#### Windows
+**Windows:**
 
 1. Right-click on the Docker task bar item and select **Settings**.
 2. Go to the **Shared Drives** tab and check the drive(s) where your source code is located.
 
-#### macOS
+**macOS:**
 
 1. Click on the Docker menu bar item and select **Preferences**.
-2. Go to the the **File Sharing** tab. Confirm that the folder containing your source code is under one of the shared folders listed.
+2. Go to the **File Sharing** tab. Confirm that the folder containing your source code is under one of the shared folders listed.
 
 ### Resolving Git line ending issues in containers (resulting in many modified files)
 
@@ -288,7 +290,9 @@ This will disable automated conversation. If you would prefer to still always up
 git config --global core.autocrlf input
 ```
 
-Next, you can prevent others from facing this issue regardless of their setting by adding or modifying a  `.gitattributes` file in your repository. For example, this will force everything to be LF except for Windows batch files that require CRLF:
+Next, you can prevent others from facing this issue, regardless of their setting, by adding or modifying a  `.gitattributes` file in your repository.
+
+For example, the `.gitattributes` settings below will force everything to be LF, except for Windows batch files that require CRLF:
 
 ```yaml
 * text=auto eol=lf
@@ -298,7 +302,7 @@ Next, you can prevent others from facing this issue regardless of their setting 
 
 You can add other file types in your repository that require CRLF to this same file.
 
-Finally, re-clone the repository for so these setting take effect.
+Finally, reclone the repository so these settings take effect.
 
 ### Avoid setting up Git in a container when using Docker Compose
 
@@ -324,8 +328,7 @@ You can also opt to extend your configuration instead to achieve the same thing 
 
 If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
 
-Either use a SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
-
+Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
 ### Resolving errors about missing Linux dependencies
 
@@ -401,7 +404,7 @@ You can add a volume mount to any local folder using these steps:
         "runArgs": ["-v","/local/source/path/goes/here:/target/path/in/container/goes/here"]
         ```
 
-   - When an **Docker Compose** file is referenced, add the following to your `docker-compose.yml`:
+   - When a **Docker Compose** file is referenced, add the following to your `docker-compose.yml`:
 
         ```json
         volumes:
@@ -471,7 +474,7 @@ This is a [well known issue](https://github.com/debuerreotype/docker-debian-arti
 
 There are two ways to resolve this error:
 
-- **Option 1**: Remove any containers that depend on the image, remove the image, and then try building again. This should download an updated image that is not effected by the problem. See **[cleaning out unused containers and images](#cleaning-out-unused-containers-and-images)** for details.
+- **Option 1**: Remove any containers that depend on the image, remove the image, and then try building again. This should download an updated image that is not affected by the problem. See **[cleaning out unused containers and images](#cleaning-out-unused-containers-and-images)** for details.
 
 - **Option 2**: If you don't want to delete your containers or images, add this line into your `Dockerfile` before any `apt` or `apt-get` command. It adds the needed source lists for Jessie:
 
@@ -482,17 +485,19 @@ There are two ways to resolve this error:
 
 ### Other common Docker related errors and issues
 
-#### Sign in errors to Docker Hub when an email is used
+This section explains how to work around common issues related to using Docker.
+
+### Sign in errors to Docker Hub when an email is use
 
 The Docker CLI only supports using your Docker ID, so using your email to sign in can cause problems. See Docker issue [#935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
 As a workaround, use your Docker ID to sign into Docker rather than your email.
 
-#### High CPU utilization of Hyperkit on macOS
+### High CPU utilization of Hyperkit on macOS
 
 There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, we have seen spikes happening when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
 
-#### debconf: delaying package configuration, since apt-utils is not installed
+### debconf: delaying package configuration, since apt-utils is not installed
 
 This error can typically be safely ignored and is tricky to get rid of completely. However, you can reduce it to one message in standard out when installing the needed package by adding the following to your Dockerfile:
 
@@ -507,7 +512,7 @@ RUN apt-get update \
 ENV DEBIAN_FRONTEND=dialog
 ```
 
-#### Warning: apt-key output should not be parsed (stdout is not a terminal)
+### Warning: apt-key output should not be parsed (stdout is not a terminal)
 
 This warning is just that, a warning. It is telling you not to parse the output of `apt-key`, so as long as your script isn't, there's no problem. You can safely ignore it.
 
@@ -529,7 +534,7 @@ ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 
 ### Selecting the distribution used by Remote - WSL
 
-The Remote - WSL extension uses your **default distribution** which you can change using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
+The Remote - WSL extension uses your **default distribution**, which you can change using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
 
 For example:
 
@@ -561,7 +566,9 @@ This will disable automated conversation. If you would prefer to still always up
 git config --global core.autocrlf input
 ```
 
-Next, you can prevent others from facing this issue regardless of their setting by adding or modifying a  `.gitattributes` file in your repository. For example, this will force everything to be LF except for Windows batch files that require CRLF:
+Next, you can prevent others from facing this issue, regardless of their setting, by adding or modifying a  `.gitattributes` file in your repository.
+
+For example, the `.gitattributes` settings below will force everything to be LF, except for Windows batch files that require CRLF:
 
 ```yaml
 * text=auto eol=lf
@@ -571,13 +578,13 @@ Next, you can prevent others from facing this issue regardless of their setting 
 
 You can add other file types in your repository that require CRLF to this same file.
 
-Finally, re-clone the repository for so these setting take effect.
+Finally, reclone the repository so these settings take effect.
 
 ### Resolving hangs when doing a Git push or sync from WSL
 
 If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
 
-Either use a SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
 ## Extension tips
 
@@ -587,7 +594,7 @@ While many extensions will work unmodified, there are a few issues that can prev
 
 VS Code's local user settings are  reused when you connect to a remote endpoint. While this keeps your user experience consistent, you may need to vary absolute path settings between your local machine and each host / container / WSL since the target locations are different.
 
-Resolution: You can set endpoint specific settings after you connect to a a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by clicking on the "Remote" tab in the settings editor. These settings will override any local settings you have in place whenever you connect.
+Resolution: You can set endpoint-specific settings after you connect to a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by clicking on the **Remote** tab in the settings editor. These settings will override any local settings you have in place whenever you connect.
 
 ### Browser does not open locally
 
@@ -621,21 +628,21 @@ Resolution: There currently is no API for extensions to programmatically forward
 
 ### Errors storing extension data
 
-Extensions may try to persist global data by looking for the `~/.config/Code` folder on Linux. This folder may not exist, which can cause the extension to throw errors like `ENOENT: no such file or directory, open '/root/.config/Code/User/fileame-goes-here`.
+Extensions may try to persist global data by looking for the `~/.config/Code` folder on Linux. This folder may not exist, which can cause the extension to throw errors like `ENOENT: no such file or directory, open '/root/.config/Code/User/filename-goes-here`.
 
 Resolution: Extensions can use the `context.globalStoragePath` or `context.storagePath` property to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
 
 ### Cannot sign in / have to sign in each time I connect to a new endpoint
 
-Extensions with a sign in may persist secrets using their own code. This code can fail due to missing dependencies. Even if it succeeds, the secrets will be stored remotely, which means you have to sign in for every new endpoint.
+Extensions that require sign in may persist secrets using their own code. This code can fail due to missing dependencies. Even if it succeeds, the secrets will be stored remotely, which means you have to sign in for every new endpoint.
 
 Resolution: Extensions can use the `keytar` node module to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
 
 ### Extensions that ship or acquire pre-built native modules fail
 
-Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js which can cause binaries to fail when used remotely.
+Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
 
-Resolution: Extensions need to be modified to solve this problem. The will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
+Resolution: Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
 
 ### Cannot access / transfer remote workspace files to local machines
 
