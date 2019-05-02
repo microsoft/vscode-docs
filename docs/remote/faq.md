@@ -75,7 +75,7 @@ Yes. The [Remote Development](https://aka.ms/vscode-remote/download/extension) e
 
 * [Remote - SSH](https://aka.ms/vscode-remote/download/ssh)
 * [Remote - Containers](https://aka.ms/vscode-remote/download/containers)
-* [Remote - WSL](https://aka.ms/vscode-remote/download/containers)
+* [Remote - WSL](https://aka.ms/vscode-remote/download/wsl)
 
 ## Remote - Containers
 

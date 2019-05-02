@@ -9,7 +9,7 @@ DateApproved: 5/2/2019
 ---
 # Remote Development Tips and Tricks
 
-This article covers troubleshooting tips and tricks for each of the Visual Studio Code Remote Development extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension.
+This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension.
 
 ## SSH tips
 
@@ -101,7 +101,7 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
 
 1. Open PuTTYGen and load the private key you want to convert.
 2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a location such as `%USERPROFILE%\.ssh`.
-3. Validate that the permissions on exported key file only grant `Full Control` to your user, Administrators, and SYSTEM.
+3. Validate that the permissions on the exported key file only grant `Full Control` to your user, Administrators, and SYSTEM.
 4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you wish to change, and add (or modify) a host entry in the config file as follows:
 
     ```yaml
@@ -119,9 +119,9 @@ If you are connecting to an SSH remote host and are either:
 - using password authentication,
 - using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible,
 
-you need to enable the `remote.SSH.showLoginTerminal` setting in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can enter your auth code, password, or passphrase when this happens.
+you need to enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
 
-A convenient way to work around this is to enable the `ControlMaster` feature that tells OpenSSH to run multiple SSH sessions over a single connection.
+To avoid reentering your connection information each time, you can enable the `ControlMaster` feature so that OpenSSH runs multiple SSH sessions over a single connection.
 
 To enable `ControlMaster`:
 
@@ -187,7 +187,7 @@ The agent should be running by default on macOS.
 
 ### Fixing SSH file permission errors
 
-SSH can be particular about file permissions and if they are set incorrectly, you may see errors such as "WARNING: UNPROTECTED PRIVATE KEY FILE!". There are several ways to update file permissions in order to fix this, which are described in the sections below.
+SSH can be strict about file permissions and if they are set incorrectly, you may see errors such as "WARNING: UNPROTECTED PRIVATE KEY FILE!". There are several ways to update file permissions in order to fix this, which are described in the sections below.
 
 ### Local SSH file and folder permissions
 
@@ -250,7 +250,7 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 ### Docker Desktop for Windows tips
 
-[Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few important "gotchas" that can cause real headaches. Here are some tips on avoiding them:
+[Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few "gotchas" that can cause problems. Here are some tips on avoiding them:
 
 1. **Use an AD domain account or local administrator account when sharing drives. Do not use an AAD (email-based) account.** AAD (email-based) accounts have well known issues, as documented in Docker issues [#132](https://github.com/docker/for-win/issues/132) and [#1352](https://github.com/docker/for-win/issues/1352). If you must use an AAD account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
 
@@ -258,11 +258,11 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 3. **Use your Docker ID to sign into Docker (not your email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See Docker issue [#935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
-If you are still having trouble see the [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot/#volumes).
+If you are still having trouble, see the [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot/#volumes).
 
 ### Enabling file sharing in Docker Desktop
 
-The VS Code Remote - Containers extension can only automatically mount your source code into a container if your code is in a folder or drive shared with Docker. If you open a dev container from a non-shared location, the container will successfully start but the workspace will be empty.
+The VS Code [Remote - Containers](dhttps://aka.ms/vscode-remote/download/containers) extension can only automatically mount your source code into a container if your code is in a folder or drive shared with Docker. If you open a dev container from a non-shared location, the container will successfully start but the workspace will be empty.
 
 To change Docker's drive and folder sharing settings:
 
@@ -278,7 +278,9 @@ To change Docker's drive and folder sharing settings:
 
 ### Resolving Git line ending issues in containers (resulting in many modified files)
 
-Since Windows and Linux use different default line endings, you may see files that appear modified but seem to have no differences aside from the line endings. To prevent this from happening, you can disable automatic line ending conversion and optionally add a `.gitattributes` file to your folder. First, run:
+Since Windows and Linux use different default line endings, you may see files that appear modified but seem to have no differences aside from the line endings. To prevent this from happening, you can disable automatic line ending conversion and optionally add a `.gitattributes` file to your folder.
+
+First run:
 
 ```bash
 git config --global core.autocrlf false
@@ -306,9 +308,9 @@ Finally, reclone the repository so these settings take effect.
 
 ### Avoid setting up Git in a container when using Docker Compose
 
-To avoid having to set up Git a second time in your container, VS Code automatically adds a volume mount to your local Git configuration when referencing an `image` or `Dockerfile`. The Docker Compose scenario gives you more control, but in this case requires adding an extra configuration line to your `docker-compose.yml` file.
+To avoid having to set up Git a second time in your container, VS Code automatically adds a volume mount to your local Git configuration when referencing an `image` or `Dockerfile`. The Docker Compose scenario gives you more control, but requires adding an extra configuration line to your `docker-compose.yml` file.
 
-Specifically add the following to the service you open in VS Code:
+Specifically, add the following to the service you open in VS Code:
 
 ```yaml
 volumes:
@@ -322,7 +324,7 @@ If you do not have your email address set up locally, you may be prompted to do 
 git config --global user.email "your.email@address"
 ```
 
-You can also opt to extend your configuration instead to achieve the same thing without modifying your existing Docker Compose file. See [here for additional details](/docs/remote/containers.md#extending-your-docker-compose-file-for-development).
+If you prefer, you can extend your dev container configuration to achieve the same thing, without modifying your existing Docker Compose file. See [here for additional details](/docs/remote/containers.md#extending-your-docker-compose-file-for-development).
 
 ### Resolving hangs when doing a Git push or sync from a Container
 
@@ -332,15 +334,15 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 ### Resolving errors about missing Linux dependencies
 
-Some extensions rely on libraries not found in the certain Docker images. See the [primary containers article](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) for a few options on resolving this issue.
+Some extensions rely on libraries not found in the certain Docker images. See the [Containers](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) article for a few options on resolving this issue.
 
 ### Speeding up containers in Docker Desktop
 
-By default, Docker Desktop only gives containers a fraction of your machine capacity. In most cases, this is enough, but if you are doing something that requires more capacity you can increase memory, CPU, or disk use.
+By default, Docker Desktop only gives containers a fraction of your machine capacity. In most cases, this is enough, but if you are doing something that requires more capacity, you can increase memory, CPU, or disk use.
 
 First, try [stopping any running containers](/docs/remote/containers.md#managing-containers) you are no longer using.
 
-If this doesn't solve your problem, you may want to see if CPU is actually your problem or if there is something else going on. An easy way to keep tabs on this is to install the [Resource Monitor extension](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor&ssr=false#overview). When installed in a container, it will provide you info about capacity for your containers in the status bar.
+If this doesn't solve your problem, you may want to see if CPU usage is actually the issue or if there is something else going on. An easy way to check this is to install the [Resource Monitor extension](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor&ssr=false#overview). When installed in a container, it provides information about capacity for your containers in the Status bar.
 
 ![Resource use status bar](images/troubleshooting/resource-monitor.png)
 
@@ -370,7 +372,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
     > **Note:** Using the Docker extension from a VS Code window opened in a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local window and use the Docker extension from this VS Code window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
- 1. You can then go to the Docker panel and expand the Containers or Images tree, right-click, and select Remove Container / Image.
+ 1. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
 
      ![Docker Explorer screenshot](images/containers/docker-remove.png)
 
@@ -385,12 +387,12 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Go to the directory with your `docker-compose.yml` file.
-3. Type `docker-compose down` to stop and delete the containers. If you have more than one Docker Compose file, can specify additional Docker Compose files with the `-f` argument.
+3. Type `docker-compose down` to stop and delete the containers. If you have more than one Docker Compose file, you can specify additional Docker Compose files with the `-f` argument.
 
 **Option 4: Delete all containers and images that are not running:**
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
-2. Type `docker system prune --all`
+2. Type `docker system prune --all`.
 
 ### Adding another volume mount
 
@@ -398,7 +400,7 @@ You can add a volume mount to any local folder using these steps:
 
 1. Configure the volume mount:
 
-   - When an **image or Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file:
+   - When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file:
 
         ```json
         "runArgs": ["-v","/local/source/path/goes/here:/target/path/in/container/goes/here"]
@@ -425,19 +427,19 @@ You can use Docker and Kubernetes related CLIs and extensions from inside your d
 
 Many images run as a root user by default. However, some provide one or more non-root users, that you can optionally use instead. If your image or Dockerfile provides a non-root user (but still defaults to root), you can opt into using it in one of two ways:
 
-- When referencing an `image` or `Dockerfile`, add the following to your `devcontainer.json`:
+- When referencing an **image** or **Dockerfile**, add the following to your `devcontainer.json`:
 
     ```json
     "runArgs": ["-u", "user-name-goes-here"]
     ```
 
-- If you are using Docker Compose, add the following to your service in `docker-compose.yml`:
+- If you are using **Docker Compose**, add the following to your service in `docker-compose.yml`:
 
     ```yaml
     user: user-name-goes-here
     ```
 
-For images that only provide a root user, you can automatically create a non-root user by using a `Dockerfile`. For example, this snippet will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
+For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
@@ -474,9 +476,9 @@ This is a [well known issue](https://github.com/debuerreotype/docker-debian-arti
 
 There are two ways to resolve this error:
 
-- **Option 1**: Remove any containers that depend on the image, remove the image, and then try building again. This should download an updated image that is not affected by the problem. See **[cleaning out unused containers and images](#cleaning-out-unused-containers-and-images)** for details.
+- **Option 1**: Remove any containers that depend on the image, remove the image, and then try building again. This should download an updated image that is not affected by the problem. See [cleaning out unused containers and images](#cleaning-out-unused-containers-and-images) for details.
 
-- **Option 2**: If you don't want to delete your containers or images, add this line into your `Dockerfile` before any `apt` or `apt-get` command. It adds the needed source lists for Jessie:
+- **Option 2**: If you don't want to delete your containers or images, add this line into your Dockerfile before any `apt` or `apt-get` command. It adds the needed source lists for Jessie:
 
     ```Dockerfile
     # Add archived sources to source list if base image uses Debian 8 / Jessie
@@ -495,11 +497,11 @@ As a workaround, use your Docker ID to sign into Docker rather than your email.
 
 ### High CPU utilization of Hyperkit on macOS
 
-There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, we have seen spikes happening when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
+There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, high CPU usage occuring when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
 
 ### debconf: delaying package configuration, since apt-utils is not installed
 
-This error can typically be safely ignored and is tricky to get rid of completely. However, you can reduce it to one message in standard out when installing the needed package by adding the following to your Dockerfile:
+This error can typically be safely ignored and is tricky to get rid of completely. However, you can reduce it to one message in stdout when installing the needed package by adding the following to your Dockerfile:
 
 ```Dockerfile
 # Configure apt
@@ -514,9 +516,11 @@ ENV DEBIAN_FRONTEND=dialog
 
 ### Warning: apt-key output should not be parsed (stdout is not a terminal)
 
-This warning is just that, a warning. It is telling you not to parse the output of `apt-key`, so as long as your script isn't, there's no problem. You can safely ignore it.
+This non-critical warning tells you not to parse the output of `apt-key`, so as long as your script doesn't, there's no problem. You can safely ignore it.
 
-This occurs in `Dockerfile`s because the `apt-key` command is not running from a terminal. Unfortunately, this error cannot be eliminated completely, but can be hidden unless the `apt-key` command returns a non-zero exit code (indicating a failure). For example:
+This occurs in Dockerfiles because the `apt-key` command is not running from a terminal. Unfortunately, this error cannot be eliminated completely, but can be hidden unless the `apt-key` command returns a non-zero exit code (indicating a failure).
+
+For example:
 
 ```Dockerfile
 # (OUT=$(apt-key add - 2>&1) || echo $OUT) will only print the output with non-zero exit code is hit
@@ -534,7 +538,7 @@ ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 
 ### Selecting the distribution used by Remote - WSL
 
-The Remote - WSL extension uses your **default distribution**, which you can change using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
+The [Remote - WSL](https://aka.ms/vscode-remote/download/wsl) extension uses your **default distribution**, which you can change using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
 
 For example:
 
@@ -554,7 +558,9 @@ Some extensions rely on libraries not found in the vanilla install of certain WS
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 
-Since Windows and Linux use different default line endings, you may see files that appear modified but seem to have no differences aside from the line endings. To prevent this from happening, you can disable automatic line ending conversion and optionally add a `.gitattributes` file to your folder. First, run:
+Since Windows and Linux use different default line endings, you may see files that appear modified but seem to have no differences aside from the line endings. To prevent this from happening, you can disable automatic line ending conversion and optionally add a `.gitattributes` file to your folder.
+
+First run:
 
 ```bash
 git config --global core.autocrlf false
@@ -588,11 +594,11 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 ## Extension tips
 
-While many extensions will work unmodified, there are a few issues that can prevent certain features from working as expected. In some cases, you can use another command to work around the issue, while in others the extension may need to be modified. This section provides a quick reference for common issues and tips on resolving them. You can also refer to the main extension article on [Supporting Remote Development](/api/advanced-topics/remote-extensions) for an in-depth guide on modifying extensions when required.
+While many extensions will work unmodified, there are a few issues that can prevent certain features from working as expected. In some cases, you can use another command to work around the issue, while in others, the extension may need to be modified. This section provides a quick reference for common issues and tips on resolving them. You can also refer to the main extension article on [Supporting Remote Development](/api/advanced-topics/remote-extensions) for an in-depth guide on modifying extensions to support remote extension hosts.
 
 ### Local absolute path settings fail when applied remotely
 
-VS Code's local user settings are  reused when you connect to a remote endpoint. While this keeps your user experience consistent, you may need to vary absolute path settings between your local machine and each host / container / WSL since the target locations are different.
+VS Code's local user settings are reused when you connect to a remote endpoint. While this keeps your user experience consistent, you may need to vary absolute path settings between your local machine and each host / container / WSL since the target locations are different.
 
 Resolution: You can set endpoint-specific settings after you connect to a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by clicking on the **Remote** tab in the settings editor. These settings will override any local settings you have in place whenever you connect.
 
