@@ -3,7 +3,7 @@ Order: 47
 TOCTitle: Remote Development
 PageTitle: Remote Development with Visual Studio Code
 MetaDescription: VS Code remote support for WSL, Containers, and SSH
-MetaSocialImage: /assets/blogs/2019/05/02/social_remote.png
+MetaSocialImage: /assets/blogs/2019/05/02/social-remote.png
 Date: 2019-05-02
 ShortDescription: Remote Development with Visual Studio Code
 Author: Chris Dias
