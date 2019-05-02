@@ -79,17 +79,17 @@ Yes. The [Remote Development](https://aka.ms/vscode-remote/download/extension) e
 
 ## Remote - Containers
 
-### Are "dev container definitions" supposed to define how an application is deployed?
+### Do "dev container definitions" define how an application is deployed?
 
 No. A development container defines an environment in which you develop your application before you are ready to deploy. While deployment and development containers may resemble one another, you may not want to include tools in a deployment image that you use during development.
 
 The [vscode-dev-containers repo](https://aka.ms/vscode-dev-containers) includes a set of dev container definitions for some common development environments. You can also [attach to a running container](/docs/remote/containers.md#attaching-to-running-containers) without setting up a dev container definition, if you prefer to use an alternate container build or deployment workflow.
 
-### Are "dev containers definitions" intended to define how an application is built? Like Buildpacks?
+### Do "dev containers definitions" define how an application is built? Like Buildpacks?
 
 No. The [Buildpacks](https://buildpacks.io/) concept focuses on taking source code and generating deployable container images through a series of defined steps. A dev container is an environment in which you can develop your application before you are ready to build. They are therefore complementary concepts.
 
-### Why do some commands invoked from the Docker Extension fail?
+### Why do some commands invoked from the Docker extension fail?
 
 Using the Docker extension from a VS Code window opened in a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local window and use the Docker extension from this VS Code window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
@@ -99,7 +99,7 @@ Using the Docker extension from a VS Code window opened in a container has some 
 
 The VS Code extension API abstracts away local/remote details so most extensions will work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you should test your extension (particularly in a container) to be sure that no updates are required. See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-### Can I give an extension access to local resources or APIs when a user is connected remotely?
+### Can an extension access local resources or APIs when a user is connected remotely?
 
 When VS Code connects to a remote environment, extensions are classified as either **UI** or **Workspace** extensions. UI Extensions run in a **local extension host**, can contribute UI or personalization features (for example themes), and have access to local files or APIs. Workspace extensions run in a **remote extension host** with the workspace and have full access to the source code, remote filesystem, and remote APIs. While Workspace extensions do not focus on UI customization, they can contribute explorers, views, and other UI elements as well.
 
