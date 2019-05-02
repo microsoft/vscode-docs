@@ -9,6 +9,10 @@ DateApproved: 5/2/2019
 ---
 # Remote Development FAQ
 
+**Note:** The Remote Development extensions require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+
+---
+
 This article covers frequently asked questions for each of the Visual Studio Code Remote Development extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities.
 
 ## General

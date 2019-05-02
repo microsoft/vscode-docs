@@ -9,6 +9,10 @@ DateApproved: 5/2/2019
 ---
 # Developing in WSL
 
+**Note:** The Remote Development extensions require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+
+---
+
 The **Visual Studio Code Remote - WSL** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as your full-time development environment right from VS Code. You can develop in a Linux-based environment, use Linux specific toolchains and utilities, and run and debug your Linux-based applications all from the comfort of Windows.
 
 The extension runs commands and other extensions directly in WSL so you can edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges.

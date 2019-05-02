@@ -9,6 +9,10 @@ DateApproved: 5/2/2019
 ---
 # Remote Development Tips and Tricks
 
+**Note:** The Remote Development extensions require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+
+---
+
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension.
 
 ## SSH tips
