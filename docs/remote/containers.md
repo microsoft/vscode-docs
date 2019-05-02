@@ -474,7 +474,7 @@ Note that you may want to include a volume mount to your local `.gitconfig` fold
 ```yaml
 volumes:
   # This lets you avoid setting up Git again in the container
-  - ~/.gitconfig:~/.gitconfig
+  - ~/.gitconfig:/root/.gitconfig
 ```
 
 After making edits, you can test by running the **Remote-Containers: Reopen Folder in Container** or **Remote-Containers: Rebuild Container** commands. Once the container is been created, the local filesystem is automatically mapped into the container and you can start working with it from VS Code.
@@ -505,7 +505,7 @@ version: '3'
         - ..:/workspace
 
         # This lets you avoid setting up Git again in the container
-        - ~/.gitconfig:~/.gitconfig
+        - ~/.gitconfig:/root/.gitconfig
 
       # Overrides default command so things don't shut down after the process ends.
       command: sleep infinity
