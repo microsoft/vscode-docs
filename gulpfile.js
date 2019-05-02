@@ -2,7 +2,7 @@ const gulp = require('gulp')
 const $ = require('shelljs')
 
 const GITHUB_TOKEN = process.env['GITHUB_TOKEN']
-const BRANCH = process.env['BUILD_SOURCEBRANCHNAME']
+const BRANCH = 'remote'
 
 if (!GITHUB_TOKEN) {
   $.echo('This script clones vscode-website and requires access token')
@@ -34,16 +34,16 @@ gulp.task('build-dist', done => {
   // Clone prod branch of vscode-website
   // If it exists, upgrade to latest
   if (!$.test('-e', 'vscode-website')) {
-    $.exec(`git clone --depth=1 --branch=prod ${URL}`)
+    $.exec(`git clone --depth=1 --branch=remote ${URL}`)
   } else {
     $.cd('vscode-website')
-    $.exec('git pull origin prod')
+    $.exec('git pull origin remote')
     $.cd('..')
   }
 
   // Copy over MD/asset files
   $.mkdir('vscode-website/vscode-docs')
-  $.cp('-R', ['../blogs', '../docs', '../images', '../release-notes', '../tutorials', '../build', '../api'], 'vscode-website/vscode-docs')
+  $.cp('-R', ['../blogs', '../docs', '../images', '../release-notes', '../remote-release-notes', '../tutorials', '../build', '../api'], 'vscode-website/vscode-docs')
 
   // Clone tas-client
   $.exec(`git clone ${TAS_URL} vscode-website/tas-client`)
