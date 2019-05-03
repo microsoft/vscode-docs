@@ -280,10 +280,10 @@ Now that you have a source file, you can use it to easily get the Windows path t
 1. In `helloworld.cpp`, hover your mouse over the `string` in this statement: `vector<string> msg...`
 1. Right-click and choose **Go to definition** to open `stringfwd.h` in the editor.
 1. Right click on the tab with the file name and choose **Copy path**.
-1. Navigate back to `launch.json` and replace the path in this value with the path you just copied. Then delete everything in your new path back to `usr/`. This gives VS Code the information it needs to find the `usr` folder for your specific distro; it can find the header files from there. The end result will look something like this, but not exactly, so be sure to use your actual path:
+1. Navigate back to `launch.json` and replace the path in this value with the path you just copied. Then delete everything in your new path back to `usr/`. Finally, convert the "/" path separators to "\\". This gives VS Code the information it needs to find the `usr` folder for your specific distro; it can find the header files from there. The end result will look something like this, but not exactly, so be sure to use your actual path:
 
    ```json
-   "/usr": "C:/Users/<my windows user name>/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/usr/"
+   "/usr": "C:\\Users\\<my windows user name>\\AppData\\Local\\Packages\\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\\LocalState\\rootfs\\usr\\"
    ```
 
 ## Explore IntelliSense
