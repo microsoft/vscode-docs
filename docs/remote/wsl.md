@@ -179,7 +179,7 @@ Some extensions rely on libraries not found in the vanilla install of certain WS
 
 ### What are the connectivity requirements for the VS Code Server when it is running in WSL?
 
-The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through am authenticated, random, local TCP port.
+The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, random, local TCP port.
 
 ### As an extension author, what do I need to do?
 
