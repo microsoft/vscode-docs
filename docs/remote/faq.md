@@ -134,19 +134,19 @@ The Visual Studio Code Remote Development extensions and their related component
 No, they will remain free of charge. In the future, we may provide "premium" developer services, which provide additional functionality, but the extensions will be free.
 
 ### Are there any restrictions on where the Remote Development extensions can connect?
- 
+
 You are free to use the extensions for both personal or corporate use to connect to your own physical machines, virtual machines, or containers. These can be on-premise, in your own private cloud or datacenter, in Azure, or other cloud/non-cloud hosting providers. You cannot build public products or services on top of the extensions or their related components (see next question).
- 
+
 ### Can I use the VS Code Remote Development extensions to build my own product or service?
- 
+
 You can use the extensions with your own internal or private services. You cannot build a public or commercial service on top of the VS Code Remote Development extensions or their related components (e.g. VS Code Server). You cannot create other extensions that extend or manipulate the Remote Development extensions. While the license states you may not “provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use”, you can document how to use the extensions in conjunction with your service.
- 
+
 ### Can I repackage or reuse VS Code Server in my own public service offering?
- 
-No. The license states that you may not “provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use” which means you may not build public products or services on top of the VS Code Server. Additionally, the extensions automatically install a matching version of the server (based on the commit) in the host, so the server would quickly become out of sync with the extensions.
- 
+
+No. The license states that you may not “provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use” which means you may not build public products or services on top of the VS Code Server.
+
 ### I have a question about whether I can use the extensions for X, who can I ask?
- 
+
 Please email us at [VSCode@microsoft.com](mailto:VSCode@microsoft.com) with any questions you may have.
 
 ### GDPR and VS Code Remote Development
