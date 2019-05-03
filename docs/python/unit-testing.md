@@ -92,7 +92,7 @@ With this code, you can experience working with tests in VS Code as described in
 
 Unit testing in Python is disabled by default. To enable unit testing, use the **Python: Configure Unit Tests** command on the Command Palette. This command prompts you to select a unit test framework, the folder containing unit tests, and the pattern used to identify test files.
 
-You can also configure unit testing manually by setting *one and only one* of the following settings to true: `python.unitTest.unittestEnabled`, `python.unitTest.pyTestEnabled`, and `python.unitTest.nosetestsEnabled`. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+You can also configure unit testing manually by setting *one and only one* of the following settings to true: `python.testing.testingEnabled`, `python.testing.pyTestEnabled`, and `python.testing.nosetestsEnabled`. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
 It's important that you enable only a single test framework at a time. For this reason, when you enable one framework also be sure to disable the others. The **Python: Configure Unit Tests** command does this automatically.
 
@@ -143,13 +143,13 @@ def test_decrement():
 
 VS Code uses the currently enabled unit testing framework to discover tests. You can trigger test discovery at any time using the **Python: Discover Unit Tests** command.
 
-`python.unitTest.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning test discovery is performed automatically whenever you save a test file. To disable this feature, set the value to `false`.
+`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning test discovery is performed automatically whenever you save a test file. To disable this feature, set the value to `false`.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
-- `python.unitTest.unittestArgs`: Looks for any Python (`.py`) file with "test" in the name in the top-level project folder. All test files must be importable modules or packages. You can customize the file matching pattern with the `-p` configuration setting, and customize the folder with the `-t` setting.
+- `python.testing.testingArgs`: Looks for any Python (`.py`) file with "test" in the name in the top-level project folder. All test files must be importable modules or packages. You can customize the file matching pattern with the `-p` configuration setting, and customize the folder with the `-t` setting.
 
-- `python.unitTest.pyTestArgs`: Looks for any Python (`.py`) file whose name begins with "test\_" or ends with "\_test", located anywhere within the current folder and all subfolders.
+- `python.testing.pyTestArgs`: Looks for any Python (`.py`) file whose name begins with "test\_" or ends with "\_test", located anywhere within the current folder and all subfolders.
 
 > **Tip**: Sometimes unit tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, create an empty file named `__init__.py` in that folder.
 
@@ -197,7 +197,7 @@ You run tests using any of the following actions:
 
       ![Running tests at specific scopes through Test Explorer](images/unit-testing/test-explorer-run-scoped-tests.png)
 
-- Right-click a file in Explorer and select **Run All Unit Tests**, which runs the tests in that one file.
+- Right-click a file in Explorer and select **Run All Tests**, which runs the tests in that one file.
 
 - From the **Command Palette**, select any of the run unit test commands:
 
@@ -205,14 +205,14 @@ You run tests using any of the following actions:
 
     | Command | Description |
     | --- | --- |
-    | Debug All Unit Tests | See [Debug tests](#debug-tests). |
-    | Debug Unit Test Method | See [Debug tests](#debug-tests). |
-    | Run All Unit Tests | Searches for and runs all unit tests in the workspace and its subfolders. |
-    | Run Current Unit Test File | Runs the test in the file that's currently viewed in the editor. |
-    | Run Failed Unit Tests | Re-runs any tests that failed in a previous test run. Runs all test if no tests have been run yet. |
-    | Run Unit Test File | Prompts for a specific test filename, then runs the test in that file. |
-    | Run Unit Test Method | Prompts for the name of a test to run, providing auto-completion for test names. |
-    | Show Unit Test Output | Opens the Python Test Log panel with information about passing and failing tests, as well as errors and skipped tests. |
+    | Debug All Tests | See [Debug tests](#debug-tests). |
+    | Debug Test Method | See [Debug tests](#debug-tests). |
+    | Run All Tests | Searches for and runs all unit tests in the workspace and its subfolders. |
+    | Run Current Test File | Runs the test in the file that's currently viewed in the editor. |
+    | Run Failed Tests | Re-runs any tests that failed in a previous test run. Runs all test if no tests have been run yet. |
+    | Run Test File | Prompts for a specific test filename, then runs the test in that file. |
+    | Run Test Method | Prompts for the name of a test to run, providing auto-completion for test names. |
+    | Show Test Output | Opens the Python Test Log panel with information about passing and failing tests, as well as errors and skipped tests. |
 
 After a test run, VS Code displays results directly with the CodeLens adornments in the editor and in **Test Explorer**. Results are shown both for individual tests as well as any classes and files containing those tests. Failed tests are also adorned in the editor with a red underline.
 
@@ -262,7 +262,7 @@ The behavior of unit testing with Python is driven by both general settings and 
 
 ### General settings
 
-| Setting<br/>(python.unitTest.) | Default | Description |
+| Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
 | autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a unit test file. |
 | cwd | null | Specifies an optional working directory for unit tests. |
@@ -272,7 +272,7 @@ The behavior of unit testing with Python is driven by both general settings and 
 
 ### Unittest configuration settings
 
-| Setting<br/>(python.unitTest.) | Default | Description |
+| Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
 | unittestEnabled | `false` | Specifies whether UnitTest is enabled as the test framework. All other frameworks should be disabled. |
 | unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each element that's separated by a space is a separate item in the list. See below for a description of the defaults. |
@@ -289,7 +289,7 @@ See [unittest command-line interface](https://docs.python.org/3/library/unittest
 
 ### Pytest configuration settings
 
-| Setting<br/>(python.unitTest.) | Default | Description |
+| Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
 | pyTestEnabled | `false` | Specifies whether PyTest is enabled as the test framework. All other frameworks should be disabled. |
 | pyTestPath | `"pytest"` | Path to PyTest. Use a full path if PyTest is located outside the current environment. |
@@ -302,7 +302,7 @@ You can also configure pytest using a `pytest.ini` file as described on [PyTest 
 
 ### Nose configuration settings
 
-| Setting<br/>(python.unitTest.) | Default | Description |
+| Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
 | nosetestsEnabled | `false` | Specifies whether Nose  is enabled as the test framework. All other frameworks should be disabled. |
 | nosetestPath | `"nosetests"` | Path to Nose. Use a full path if Nose is located outside the current environment. |
