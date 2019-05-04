@@ -39,7 +39,7 @@ To get started you need to:
 
 ### Connect to a remote host
 
-> **Note:** The remote host must be running a 64-bit Linux-based OS.
+> **Note:** The remote host must be running an x86_64 Linux-based OS.
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
