@@ -122,6 +122,8 @@ See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more abo
 
 ## Next steps
 
+You may [Sign up](https://devblogs.microsoft.com/visualstudio/java-on-visual-studio-code-april-update#signup) to follow the latest of Java on Visual Studio Code.
+
 Learn more about Java in VS Code
 
 * [Java Tutorial with VS Code](/docs/java/java-tutorial.md)
