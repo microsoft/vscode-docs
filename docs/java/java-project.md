@@ -88,6 +88,18 @@ The extension also enables you to generate effective POM.
   <source src="/docs/java/java-project/maven-effective-pom.mp4" type="video/mp4">
 </video>
 
+You can also use command `Maven: Add a Dependency` (or `maven.project.addDependency`) to help add a new dependency to `pom.xml`. The process is interactive.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/maven-add-dependency.mp4" type="video/mp4">
+</video>
+
+Furthermore, VS Code also supports showing dependencies in a tree view which allows you to inspect all dependencies in your project at a single place and check for potential issues.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/maven-dependency-tree.mp4" type="video/mp4">
+</video>
+
 ### Execute Maven commands and goals
 
 By right-clicking each Maven project in the explorer, you can conveniently run Maven goals.
@@ -107,11 +119,24 @@ There are two ways to rerun a goal:
   <source src="/docs/java/java-project/maven-history.mp4" type="video/mp4">
 </video>
 
+You can also specify your favorite commands in settings for future execution.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/maven-favorite-command.mp4" type="video/mp4">
+</video>
+
 For each plug-in you use with your project, the extension also provides you an easy way to access the goals within each plugin.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/maven-plugin-goal.mp4" type="video/mp4">
 </video>
+
+To debug Maven goals, just right click on a goal and start debugging. The Maven extension will call the Java debugger with the right parameters. This is handy and super time-saving.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/debug-maven-plugin-goals.mp4" type="video/mp4">
+</video>
+debug-maven-plugin-goals.mp4
 
 ### Generate project from Maven Archetype
 
