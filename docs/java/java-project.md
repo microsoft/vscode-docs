@@ -11,7 +11,55 @@ MetaSocialImage:
 
 # Java Project Management in VS Code
 
-This document will give you an overview of how to use the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) and [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extensions to manage your projects within Visual Studio Code.
+This document will give you an overview of how to use the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) and [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extensions to manage your projects within Visual Studio Code.
+
+## Project management
+
+Project Management in Visual Studio Code is provided by the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension. This extension has many features including creating projects as well as viewing the package structure of the project and its dependencies.
+
+### Create project
+
+In addition to creating a project through Maven Archetype, you can also use the following command to create a simple Java project: **Java: Create Java Project** from the Command Palette.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/create-project.mp4" type="video/mp4">
+</video>
+
+If you're creating a Spring Boot project, you can also use the [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension, see [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
+
+### Package and dependency view
+
+The extension also has a hierarchy view of your project and dependencies, which supplements the file view and outline provided by Visual Studio Code, so you don't need to expand multiple subfolders to just view your Java package.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/package-viewer.mp4" type="video/mp4">
+</video>
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/hierarchical.mp4" type="video/mp4">
+</video>
+
+### Multiple source folders
+
+If you have multiple subfolders that have source code for your project, you can easily add these folders to source path, then all the code inside will be correctly compiled.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/multiple-source.mp4" type="video/mp4">
+</video>
+
+### Standalone Java file support
+
+Visual Studio Code also supports Java files without a project (or an invisible project, which it creates without affecting your folders). The solution is folder-based, so you can open a folder with Visual Studio Code, and all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
+</video>
+
+In case you need to bring additional JAR files as dependencies, you can create a `lib/` folder in the root directory of the standalone files and place your JAR files there. Source for `foo.jar` is automatically detected if there is a `foo-sources.jar` in the `lib/` folder.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/lib.mp4" type="video/mp4">
+</video>
 
 ## Maven
 
@@ -80,54 +128,6 @@ There are two ways to generate a Maven project:
 Visit the [GitHub Repo](https://github.com/Microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/Microsoft/vscode-maven/tree/master#additional-configurations) and a [troubleshooting guide](https://github.com/Microsoft/vscode-maven/blob/master/Troubleshooting.md).
 
 In addition to Maven, there's also a [Bazel extension](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) if you use Bazel to build and test your project.
-
-## Project management
-
-Project Management in Visual Studio Code is provided by the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension. This extension has many features including creating projects as well as viewing the package structure of the project and its dependencies.
-
-### Create project
-
-In addition to creating a project through Maven Archetype, you can also use the following command to create a simple Java project: **Java: Create Java Project** from the Command Palette.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-project/create-project.mp4" type="video/mp4">
-</video>
-
-If you're creating a Spring Boot project, you can also use the [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension, see [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
-
-### Package and dependency view
-
-The extension also has a hierarchy view of your project and dependencies, which supplements the file view and outline provided by Visual Studio Code, so you don't need to expand multiple subfolders to just view your Java package.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-project/package-viewer.mp4" type="video/mp4">
-</video>
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-project/hierarchical.mp4" type="video/mp4">
-</video>
-
-### Multiple source folders
-
-If you have multiple subfolders that have source code for your project, you can easily add these folders to source path, then all the code inside will be correctly compiled.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-project/multiple-source.mp4" type="video/mp4">
-</video>
-
-### Standalone Java file support
-
-Visual Studio Code also supports Java files without a project (or an invisible project, which it creates without affecting your folders). The solution is folder-based, so you can open a folder with Visual Studio Code, and all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
-</video>
-
-In case you need to bring additional JAR files as dependencies, you can create a `lib/` folder in the root directory of the standalone files and place your JAR files there. Source for `foo.jar` is automatically detected if there is a `foo-sources.jar` in the `lib/` folder.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-project/lib.mp4" type="video/mp4">
-</video>
 
 ## Next steps
 

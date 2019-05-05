@@ -30,6 +30,16 @@ The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscja
 Once the test runner is activated, you will find **Run|Debug** on the CodeLens of your test functions. Click on the CodeLens to run the individual test case. You can also access and run a group of test cases from the Test Explorer. For more information on debugging test cases, see [Debugging Java](/docs/java/java-debugging.md).
 
 ## Quickstart
+
+Make sure you have the below tools available already
+
+- JDK (version 1.8.0 or later)
+- VS Code (version 1.23.0 or later)
+- [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+- [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
+
+You may refer to [Java Extensions](/docs/java/java-tutorial.md#_before-you-begin) to set up the environment.
+
 Here's a brief session with TestNG:
 
 <video autoplay loop muted playsinline controls>
