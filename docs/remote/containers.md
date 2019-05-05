@@ -502,9 +502,9 @@ version: '3'
     your-service-name-here:
       volumes:
         # Mounts the project folder to '/workspace'. The target path inside the container
-        # should match should match what your application expects. In this case, the
-        # compose file is in a sub-folder, so we will mount '..'. We'll then reference this
-        # as the workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
+        # should match what your application expects. In this case, the compose file is
+        # in a sub-folder, so we will mount '..'. We'll then reference this as the
+        # workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
         - ..:/workspace
 
         # This lets you avoid setting up Git again in the container
