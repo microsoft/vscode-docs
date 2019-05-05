@@ -27,7 +27,8 @@ The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscja
 - View tests in Test Explorer
 - Show test logs
 
-Once the test runner is activated, you will find **Run|Debug** on the CodeLens of your test functions. Click on the CodeLens to run the individual test case. You can also access and run a group of test cases from the Test Explorer. For more information on debugging test cases, see [Debugging Java](/docs/java/java-debugging.md).
+If you meet any issue when using the functionalities described below, please click the button below to report it to us
+<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'testing')" href="javascript:void(0)">Report an issue</a>
 
 ## Quickstart
 
@@ -40,7 +41,7 @@ Make sure you have the below tools available already
 
 You may refer to [Java Extensions](/docs/java/java-tutorial.md#_before-you-begin) to set up the environment.
 
-Here's a brief session with TestNG:
+Once the test runner is activated, you will find **Run|Debug** on the CodeLens of your test functions. Click on the CodeLens to run the individual test case. You can also access and run a group of test cases from the Test Explorer. For more information on debugging test cases, see [Debugging Java](/docs/java/java-debugging.md). Here's a brief session with TestNG:
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-testing/testng.mp4" type="video/mp4">

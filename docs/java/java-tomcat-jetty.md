@@ -14,6 +14,9 @@ Although Visual Studio Code is a code editor-centric development tool, we know t
 
 For [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard), see [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
 
+If you meet any issue when using the functionalities described below, please click the button below to report it to us
+<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'tomcat-jetty')" href="javascript:void(0)">Report an issue</a>
+
 ## Tomcat
 
 With the [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension, you can manage all your local Tomcat servers within the editor and easily debug and run your `war` package on Tomcat and link Tomcat into your workspace. You can also create a new Tomcat server from the explorer using the **Add** button and run a `war` package on it. You can also create the server during the deployment.

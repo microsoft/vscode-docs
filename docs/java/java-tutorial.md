@@ -12,6 +12,9 @@ MetaDescription: Java tutorial showing basic Java language support in the Visual
 
 This tutorial shows you how to write and run a simple Hello World program in Java with Visual Studio Code. It also covers a few advanced features, which you can explore by reading other documents in this section.
 
+If you meet any issue when following this tutorial, please click the button below to report it to us
+<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'getting-started')" href="javascript:void(0)">Report an issue</a>
+
 ## Before you begin
 
 Before going through this tutorial, you must have the Java SE Development Kit (JDK) on your local development environment. If you don't have them installed, you can do so now.
