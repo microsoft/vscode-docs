@@ -663,6 +663,12 @@ Native modules bundled with (or dynamically acquired for) a VS Code extension mu
 
 Resolution: Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
 
+#### Extensions fail due to missing modules
+
+Extensions that rely on Electron or VS Code base modules (not exposed by the extension API) without providing a fallback can fail when running remotely. You may see errors in the Developer Tools window like `original-fs` not being found.
+
+Resolution: Remove the dependency on an Electron module or provide a fallback. See the [extension guide](/api/advanced-topics/remote-extensions#avoid-using-electron-modules) for details.
+
 ### Cannot access / transfer remote workspace files to local machines
 
 Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files.
