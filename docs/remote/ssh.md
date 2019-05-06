@@ -35,7 +35,9 @@ To get started you need to:
 
 3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
-4. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods).
+4. Install realpath on Remote machine. Linux: sudo apt-get install realpath
+
+5. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods).
 
 ### Connect to a remote host
 
