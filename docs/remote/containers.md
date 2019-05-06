@@ -31,7 +31,7 @@ To get started, follow these steps:
 
     **Windows / macOS**:
 
-    1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
+    1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop). (Docker Toolbox is not currently supported.)
 
     2. Right-click on the Docker taskbar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you run into trouble, see [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) on avoiding common problems with sharing.
 
@@ -612,6 +612,8 @@ See the following examples dev containers for additional information:
 * Alpine Linux or Windows container images are not yet supported. Most images come with a Debian or Ubuntu based flavor you can use instead. (Typically Alpine variations end in `-alpine`).
 * All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
 * The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
+* Docker Toolbox is not currently supported.
+* Docker variants or alternate containerization tool kits like [podman.io](https://podman.io) are not supported.
 * When installing an extension pack in a container, extensions may install locally instead of inside the container. Click the **Install** button for each extension in the Local section of the extension panel to work around the issue. See [Microsoft/vscode-remote-release#11](https://github.com/Microsoft/vscode-remote-release/issues/11) for details.
 * If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use a SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 * Local proxy settings are not reused inside the container, which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).

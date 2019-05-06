@@ -195,14 +195,33 @@ SSH can be strict about file permissions and if they are set incorrectly, you ma
 
 ### Local SSH file and folder permissions
 
+#### macOS / Linux
+
 On your local machine, make sure the following permissions are set:
 
-| Folder / File | Linux / macOS Permissions | Windows Permissions |
-|---------------|---------------------------|---------------------|
-| `.ssh` in your user folder | `chmod 700 ~/.ssh` | Grant `Full Control` to your user, Administrators, and SYSTEM. |
-| `.ssh/config` in your user folder | `chmod 600 ~/.ssh/config` | Grant `Full Control` to your user, Administrators, and SYSTEM. |
-| `.ssh/id_rsa.pub` in your user folder | `chmod 600 ~/.ssh/id_rsa.pub` | Grant `Full Control` to your user, Administrators, and SYSTEM. |
-| Any other key file | `chmod 600 /path/to/key/file` | Grant `Full Control` to your user, Administrators, and SYSTEM.|
+| Folder / File |  Permissions |
+|---------------|---------------------------|
+| `.ssh` in your user folder | `chmod 700 ~/.ssh` |
+| `.ssh/config` in your user folder | `chmod 600 ~/.ssh/config` |
+| `.ssh/id_rsa.pub` in your user folder | `chmod 600 ~/.ssh/id_rsa.pub` |
+| Any other key file | `chmod 600 /path/to/key/file` |
+
+#### Windows
+
+The specific expected permissions can vary depending on the exact SSH implementation you are using. We strongly recommend using the out of box [Windows 10 OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/). If you are using this offical client, cut-and-paste the following in an **administrator PowerShell window** to try to repair your permissions:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+Install-Module -Force OpenSSHUtils -Scope AllUsers
+
+Repair-UserSshConfigPermission ~/.ssh/config
+Get-ChildItem ~\.ssh\* -Include "id_rsa","id_dsa" -ErrorAction SilentlyContinue | % {
+    Repair-UserKeyPermission -FilePath $_.FullName @psBoundParameters
+}
+```
+
+For all other clients, consult **your client's documentation** for what the implementation expect. However, note that not all SSH clients may work.
 
 ### Server SSH file and folder permissions
 
@@ -213,19 +232,7 @@ On the remote machine you are connecting to, make sure the following permissions
 | `.ssh` in your user folder on the server | `chmod 700 ~/.ssh` |
 | `.ssh/authorized_keys` in your user folder on the server  | `chmod 600 ~/.ssh/authorized_keys` |
 
-### Updating permissions on Windows using the command line
-
-If you'd prefer to use the command line to update permissions on Windows, you can use the [`icacls`](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command.
-
-The script below will set your user as the owner, clear out permissions, disable inheritance, and grant the needed permissions:
-
-```bat
-SET FILEORFOLDERTOUPDATE="%USERPROFILE%\.ssh"
-
-icacls "%FILEORFOLDERTOUPDATE%" /c /setowner %USERDOMAIN%\%USERNAME%
-icacls "%FILEORFOLDERTOUPDATE%" /c /reset
-icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%:F SYSTEM:F BUILTIN\Administrators:F
-```
+Note that only Linux hosts are currently supported which is why permissions for macOS and Windows 10 have been omitted.
 
 ### Installing a supported SSH client
 
@@ -243,6 +250,8 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 |----|--------------|---|
 | Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for additional setup instructions. |
 | RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
+| Windows | Not supported yet. | |
+| macOS | Not supported yet. | |
 
 ### Resolving hangs when doing a Git push or sync on an SSH host
 
