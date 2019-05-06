@@ -12,7 +12,8 @@ MetaDescription: Java tutorial showing basic Java language support in the Visual
 
 This tutorial shows you how to write and run a simple Hello World program in Java with Visual Studio Code. It also covers a few advanced features, which you can explore by reading other documents in this section.
 
-If you meet any issue when following this tutorial, please click the button below to report it to us
+If you run into any issues when following this tutorial, you can contact us by clicking the **Report an issue** button below.
+
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'getting-started')" href="javascript:void(0)">Report an issue</a>
 
 ## Before you begin
@@ -43,7 +44,7 @@ To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](htt
 
 [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) also detects your environment to see whether a JDK is present. If not, it will provide you links to download reliable JDK at your choice.
 
-![Acquire JDK](images/java-testing/jdk.acquisition.guide.gif)
+![Acquire JDK](images/java-tutorial/jdk.acquisition.guide.gif)
 
 You can also select which extensions you would like to install separately. For this tutorial, only [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) are needed.
 

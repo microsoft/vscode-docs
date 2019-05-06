@@ -27,7 +27,8 @@ The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscja
 - View tests in Test Explorer
 - Show test logs
 
-If you meet any issue when using the functionalities described below, please click the button below to report it to us
+If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
+
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'testing')" href="javascript:void(0)">Report an issue</a>
 
 ## Quickstart
@@ -47,14 +48,13 @@ Once the test runner is activated, you will find **Run|Debug** on the CodeLens o
   <source src="/docs/java/java-testing/testng.mp4" type="video/mp4">
 </video>
 
-
 ## Run/Debug Test Cases
 
 ![Run from Codelens](images/java-testing/run_codelens.png)
 
-- The extension will generate `Run Test` and `Debug Test` shortcuts (also known as Code Lens) above the class and method definition. Simply click on them will start running or debugging the target test cases.
+- The extension will generate `Run Test` and `Debug Test` shortcuts (also known as CodeLens) above the class and method definition. Simply click on them will start running or debugging the target test cases.
 
-> Note: If you cannot see the Code Lens in your editor, please refer to this [issue comment](https://github.com/Microsoft/vscode-java-test/issues/470#issuecomment-444681714) as a workaround.
+> Note: If you cannot see the CodeLens in your editor, please refer to this [issue comment](https://github.com/Microsoft/vscode-java-test/issues/470#issuecomment-444681714) as a workaround.
 
 
 ## Test Explorer
@@ -81,7 +81,7 @@ Once the test runner is activated, you will find **Run|Debug** on the CodeLens o
 ![Status Bar](images/java-testing/status_bar.png)
 
 - After running/debugging the test cases, the status bar will show the final results. Simply click on it to show the Test Report.
-- You can also click the ✔️ or ❌ mark in Code Lens to open the Test Report.
+- You can also click the ✔️ or ❌ mark in CodeLens to open the Test Report.
 
 ![Report Navigation](images/java-testing/report_navigate.png)
 

@@ -11,8 +11,10 @@ MetaDescription: Editing Java in Visual Studio Code with IntelliSense, Refactori
 
 Visual Studio Code is a source code editor first and foremost with rich editing [features](/docs/editor/codebasics.md). In this document, we will go through a few Java-specific features, which are helpful when working with Java.
 
-If you meet any issue when using the functionalities described below, please click the button below to report it to us
+If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
+
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'editing')" href="javascript:void(0)">Report an issue</a>
+
 
 ## Code editing and navigation
 
@@ -131,7 +133,7 @@ To deal with ambiguous imports, you now have a dropdown list to pick the right o
 
 ### Override/Implement Methods
 
-With this source action, all the candidates are presented to you with a checklist. Then you can decide what to override or implement.
+With this source action, all the candidates are presented to you with a checklist. You can then decide what to override or implement.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/override-implement-methods.mp4" type="video/mp4">
@@ -143,8 +145,8 @@ With this source action, all the candidates are presented to you with a checklis
 
 There are two options for you to customize the generated code:
 
-- If you use Java 7+, you can set `java.codeGeneration.hashCodeEquals.useJava7Objects` to `true` to generate shorter code which calls `Objects.hash` and `Objects.equals`.
-- You can also set `java.codeGeneration.hashCodeEquals.useInstanceof` to `true` to use `instanceOf` operator to check the object types instead of calling `Object.getClass()`.
+* If you use Java 7+, you can set `java.codeGeneration.hashCodeEquals.useJava7Objects` to `true` to generate shorter code which calls `Objects.hash` and `Objects.equals`.
+* You can also set `java.codeGeneration.hashCodeEquals.useInstanceof` to `true` to use `instanceOf` operator to check the object types instead of calling `Object.getClass()`.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/generate-hashcode-equals.mp4" type="video/mp4">
@@ -176,21 +178,19 @@ In addition, there's a [Checkstyle for Java](https://marketplace.visualstudio.co
   <source src="/docs/java/java-editing/checkstyle.mp4" type="video/mp4">
 </video>
 
-### Set Checkstyle Configuration File
-<p align="center">
-  <img src="https://raw.githubusercontent.com/jdneo/vscode-checkstyle/master/docs/imgs/set_config.png" alt="Set Checkstyle Configuration File" />
-</p>
-![Spring Navigation](images/java-editing/set_config.png)
+### Set Checkstyle configuration file
 
-- To set the configuration file, Just Right click the `.xml` file and select `Set the Checkstyle Configuration File`.
-- You can also trigger the command **Checkstyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. You will also see the two built-in configurations:
-  - **Google's Check**
-  - **Sun's Check**
+![Set Checkstyle configuration file](images/java-editing/set_config.png)
 
-### Check the Style and Fix the Violations
+* To set the configuration file, Just Right click the `.xml` file and select `Set the Checkstyle Configuration File`.
+* You can also trigger the command **Checkstyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. You will also see the two built-in configurations:
+  * **Google's Check**
+  * **Sun's Check**
 
-![Spring Navigation](images/java-editing/quick-fix.png)
+### Check the style and fix the violations
 
-- When opening or saving a Java file, the extension will check the file format and provide quick fixes if possible. You can click the ![Spring Navigation](images/java-editing/btn_bulb.png) button in the editor to show the available quick fixes.
+![Fix style violation](images/java-editing/quick_fix.png)
+
+* When opening or saving a Java file, the extension will check the file format and provide quick fixes if possible. You can click the ![Spring Navigation](images/java-editing/btn_bulb.png) button in the editor to show the available quick fixes.
 
 For more details about [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle), visit its [GitHub Repository](https://github.com/jdneo/vscode-checkstyle).

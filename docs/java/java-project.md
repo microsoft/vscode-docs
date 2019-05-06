@@ -13,7 +13,8 @@ MetaSocialImage:
 
 This document will give you an overview of how to use the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) and [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extensions to manage your projects within Visual Studio Code.
 
-If you meet any issue when using the functionalities described below, please click the button below to report it to us
+If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
+
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'project')" href="javascript:void(0)">Report an issue</a>
 
 ## Project management
@@ -88,7 +89,7 @@ The extension also enables you to generate effective POM.
   <source src="/docs/java/java-project/maven-effective-pom.mp4" type="video/mp4">
 </video>
 
-You can also use command `Maven: Add a Dependency` (or `maven.project.addDependency`) to help add a new dependency to `pom.xml`. The process is interactive.
+You can also use the command **Maven: Add a Dependency** (or `maven.project.addDependency`) to help add a new dependency to `pom.xml`. The process is interactive.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/maven-add-dependency.mp4" type="video/mp4">
