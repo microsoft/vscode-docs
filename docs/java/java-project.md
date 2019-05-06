@@ -137,7 +137,6 @@ To debug Maven goals, just right click on a goal and start debugging. The Maven 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/debug-maven-plugin-goals.mp4" type="video/mp4">
 </video>
-debug-maven-plugin-goals.mp4
 
 ### Generate project from Maven Archetype
 

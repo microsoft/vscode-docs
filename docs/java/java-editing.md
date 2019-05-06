@@ -191,6 +191,6 @@ In addition, there's a [Checkstyle for Java](https://marketplace.visualstudio.co
 
 ![Fix style violation](images/java-editing/quick_fix.png)
 
-* When opening or saving a Java file, the extension will check the file format and provide quick fixes if possible. You can click the ![Spring Navigation](images/java-editing/btn_bulb.png) button in the editor to show the available quick fixes.
+* When opening or saving a Java file, the extension will check the file format and provide Quick Fixes if possible. You can click the lightbulb button in the editor to show the available Quick Fixes.
 
 For more details about [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle), visit its [GitHub Repository](https://github.com/jdneo/vscode-checkstyle).
