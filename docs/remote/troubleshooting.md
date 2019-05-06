@@ -195,7 +195,7 @@ SSH can be strict about file permissions and if they are set incorrectly, you ma
 
 ### Local SSH file and folder permissions
 
-#### macOS / Linux
+**macOS / Linux:**
 
 On your local machine, make sure the following permissions are set:
 
@@ -206,9 +206,9 @@ On your local machine, make sure the following permissions are set:
 | `.ssh/id_rsa.pub` in your user folder | `chmod 600 ~/.ssh/id_rsa.pub` |
 | Any other key file | `chmod 600 /path/to/key/file` |
 
-#### Windows
+**Windows:**
 
-The specific expected permissions can vary depending on the exact SSH implementation you are using. We strongly recommend using the out of box [Windows 10 OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/). If you are using this offical client, cut-and-paste the following in an **administrator PowerShell window** to try to repair your permissions:
+The specific expected permissions can vary depending on the exact SSH implementation you are using. We strongly recommend using the out of box [Windows 10 OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/). If you are using this official client, cut-and-paste the following in an **administrator PowerShell window** to try to repair your permissions:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -221,7 +221,7 @@ Get-ChildItem ~\.ssh\* -Include "id_rsa","id_dsa" -ErrorAction SilentlyContinue 
 }
 ```
 
-For all other clients, consult **your client's documentation** for what the implementation expect. However, note that not all SSH clients may work.
+For all other clients, consult **your client's documentation** for what the implementation expects. However, note that not all SSH clients may work.
 
 ### Server SSH file and folder permissions
 
@@ -232,7 +232,7 @@ On the remote machine you are connecting to, make sure the following permissions
 | `.ssh` in your user folder on the server | `chmod 700 ~/.ssh` |
 | `.ssh/authorized_keys` in your user folder on the server  | `chmod 600 ~/.ssh/authorized_keys` |
 
-Note that only Linux hosts are currently supported which is why permissions for macOS and Windows 10 have been omitted.
+Note that only Linux hosts are currently supported, which is why permissions for macOS and Windows 10 have been omitted.
 
 ### Installing a supported SSH client
 
@@ -510,7 +510,7 @@ As a workaround, use your Docker ID to sign into Docker rather than your email.
 
 ### High CPU utilization of Hyperkit on macOS
 
-There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, high CPU usage occuring when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
+There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, high CPU usage occurring when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
 
 ### debconf: delaying package configuration, since apt-utils is not installed
 
