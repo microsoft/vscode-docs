@@ -143,7 +143,9 @@ If you clone a Git repository using SSH and your SSH key has a passphrase, VS Co
 
 ### Docker Extension limitations
 
-The Docker extension is configured to run as a local "UI" extension that runs on the Windows side by default. This enables the extension to work with your local Docker installation when you are developing inside a container. However, some Docker commands invoked from the Docker extension can fail from a WSL window. If you want the Docker extension to interact with an installed Docker CLI in WSL instead, add the following to `settings.json`:
+The Docker extension is configured to run as a local "UI" extension that runs on the Windows side by default. This enables the extension to work with your local Docker installation when you are developing in WSL or [inside a container](/docs/remote/containers.md) since the Docker CLI is not available by default in these environments. However, commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail.
+
+Fortunately, if you've [installed the Docker CLI in WSL and configured it to work with your local Docker host](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly), you can install the Docker extension inside WSL to solve this problem. Just add the following to `settings.json`:
 
 ```json
 "remote.extensionKind": {
