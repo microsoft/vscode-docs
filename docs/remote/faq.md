@@ -51,6 +51,14 @@ The VS Code Server that is injected runs as the same user you used to sign into 
 
 No. The VS Code Server is a component of the Remote Development extensions and is managed by a VS Code client. It is installed and updated automatically by VS Code when it connects to an endpoint and if installed separately could become quickly out of date. It is not intended or [licensed](#license-and-privacy) for use by other clients.
 
+### Are there any plans to introduce a Web UI based on VS Code Server?
+
+Yes, we [announced a new web companion called Visual Studio Online](https://aka.ms/vsfutures) at //build 2019.
+
+### Will there be a service to host managed VS Code development environments in the cloud?
+
+Yes, we [announced a cloud-hosted environments service](https://aka.ms/vsfutures) at //build 2019.
+
 ### What are the connectivity requirements for VS Code Server?
 
 The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through the following transport channels depending on the extension:
@@ -123,11 +131,11 @@ You can find the licenses for the VS Code Remote Development extensions here:
 
 ### Why aren't the Remote Development extensions using the MIT License?
 
-The VS Code Remote Development extensions are available under Microsoft pre-release licenses, similar to other service-based extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license). A Microsoft license (instead of MIT, for example) makes it easier for us to license certain features of the product, such as access to the Visual Studio Marketplace (section 1.d), the re-licensing of third-party components (section 1.c), and telemetry data (section 4).
+The VS Code Remote Development extensions are available under Microsoft pre-release licenses, similar to other service-based extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license). This is because the VS Code Remote extensions are also used in fully managed remote development services like [those announced at //build 2019](https://aka.ms/vsfutures). A Microsoft license (instead of MIT, for example) makes it easier for us to license certain features of the product, such as access to the Visual Studio Marketplace (section 1.d), the re-licensing of third-party components (section 1.c), and telemetry data (section 4).
 
 ### Why aren't the Remote Development extensions or their components open source?
 
-The Visual Studio Code Remote Development extensions and their related components will use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open-source. As with other service-based extensions such as [Visual Studio LiveShare](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) and [IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode), we have made the decision to keep them closed source.
+The Visual Studio Code Remote Development extensions and their related components will use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open-source. As with other service-based extensions such as [Visual Studio LiveShare](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) and [IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode), we have made the decision to keep them closed source. This is because the VS Code Remote extensions are also used in fully managed remote development services like [those announced at //build 2019](https://aka.ms/vsfutures).
 
 ### Will you charge for the extensions once they exit "Preview"?
 
