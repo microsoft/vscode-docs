@@ -359,6 +359,26 @@ To solve this problem:
 
 You can find the "modules" version VS Code uses by going to **Help > Developer Tools** and typing `process.versions.modules` in the console. However, to make sure native modules work seamlessly in different Node.js environments, you may want to compile the native modules against all possible Node.js "modules" versions and platforms you want support (Electron Node.js, official Node.js Windows/Darwin/Linux, all versions). The [node-tree-sitter](https://github.com/tree-sitter/node-tree-sitter/releases/tag/v0.14.0) module is a good example of a module that does this well.
 
+## Avoid using Electron modules
+
+While it can be convenient to rely on built-in Electron or VS Code modules not exposed by the extension API, it's important to note that VS Code Server runs a standard (non-Electron) version of Node.js. These modules will be missing when running remotely with a few exception cases [like `keytar`](#persisting-secrets) where specific code in place to make them work. You should use base Node.js modules or modules in your extension VSIX to avoid these problems.
+
+If you absolutely have to use an Electron module, be sure you've got code in place to use a fallback if it is missing. For example, this code will use the Electron `original-fs` node module if found and fall back to the base Node.js `fs` module not.
+
+```typescript
+function requireWithFallback(electronModule: string, nodeModule: string) {
+    try {
+        return require(electronModule);
+    }
+    catch (err) { }
+    return require(nodeModule);
+}
+
+const fs = requireWithFallback('original-fs', 'fs');
+```
+
+Try to avoid these situations whenever possible.
+
 ## Known issues
 
 There are a few extension problems that could be resolved with some added functionality for Workspace Extensions. The following table is a list of known issues under consideration:
