@@ -431,6 +431,8 @@ The example below uses `runArgs` to change the security policy to enable the ptr
 }
 ```
 
+> **Note:**  This is only required for debuggers based on ptrace, such as the C++, Go, and Rust debuggers.
+
 After making edits, you can run the **Remote-Containers: Reopen Folder in Container** or **Remote-Containers: Rebuild Container** commands to try things out. Once the container is created, the local filesystem is automatically mapped into the container and you can start working with it from VS Code.
 
 ### Using Docker Compose
@@ -512,7 +514,7 @@ version: '3'
 
       # Overrides default command so things don't shut down after the process ends.
       command: sleep infinity
-      # Allows vscode's debugger to connect to the container
+      # Options required for debuggers based on ptrace such as the C++, Go, and Rust debuggers
       cap_add:
         - SYS_PTRACE
       security_opt:
