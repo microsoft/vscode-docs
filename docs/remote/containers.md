@@ -9,7 +9,7 @@ DateApproved: 5/2/2019
 ---
 # Developing inside a Container
 
-❗ **Note:** The **Remote Development extensions** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
 
 ---
 
@@ -415,7 +415,7 @@ For example:
 
 See the [devcontainer.json reference](#devcontainerjson-reference) for information on other available properties such as `appPort`, the `extensions` list, and `postCreateCommand`.
 
-The example below uses `runArgs` to change the security policy to enable the ptrace system call for Go development container:
+The example below uses `runArgs` to change the security policy to enable the ptrace system call for a Go development container:
 
 ```json
 {
@@ -430,8 +430,6 @@ The example below uses `runArgs` to change the security policy to enable the ptr
         "seccomp=unconfined" ]
 }
 ```
-
-> **Note:**  This is only required for debuggers based on ptrace, such as the C++, Go, and Rust debuggers.
 
 After making edits, you can run the **Remote-Containers: Reopen Folder in Container** or **Remote-Containers: Rebuild Container** commands to try things out. Once the container is created, the local filesystem is automatically mapped into the container and you can start working with it from VS Code.
 
@@ -464,22 +462,34 @@ For example:
 }
 ```
 
+If the containers are not already running, VS Code will call `docker-compose -f ../docker-compose.yml up` in this example. Note that `service` property tells VS Code which service in your Docker Compose file connect to, not which service should be started.
+
 See the [devcontainer.json reference](#devcontainerjson-reference) for information other available properties such as the `workspaceFolder` and `shutdownAction`.
 
 You can also create a development copy of your Docker Compose file. For example, if you had `.devcontainer/docker-compose.devcontainer.yml`, you would just change the following line in `devcontainer.json`:
 
 ```json
-    "dockerComposeFile": "docker-compose.devcontainer.yml",
+"dockerComposeFile": "docker-compose.devcontainer.yml"
 ```
 
 You can also avoid making a copy of your Docker Compose file by extending it with another one. We'll cover this topic in the [next section](#extending-your-docker-compose-file-for-development).
 
-Note that you may want to include a volume mount to your local `.gitconfig` folder in your Docker Compose file so you don't have to set up Git inside of the container if you install it.
+Note that, if you use Git, you may want to include a volume mount to your local `.gitconfig` folder in your Docker Compose file so you don't have to set up Git again inside of the container.
 
 ```yaml
 volumes:
   # This lets you avoid setting up Git again in the container
   - ~/.gitconfig:/root/.gitconfig
+```
+
+If your application was built using C++, Go, or Rust, or another language that uses a ptrace based debugger, will also need to add the following to your Docker Compose file:
+
+```yaml
+# Required for ptrace based debuggers like C++, Go, and Rust
+cap_add:
+- SYS_PTRACE
+security_opt:
+- seccomp:unconfined
 ```
 
 After making edits, you can test by running the **Remote-Containers: Reopen Folder in Container** or **Remote-Containers: Rebuild Container** commands. Once the container is been created, the local filesystem is automatically mapped into the container and you can start working with it from VS Code.
@@ -492,6 +502,7 @@ For example:
 
 * Docker Compose will shut down a container if its entry point shuts down. This is problematic for situations where you are debugging and need to restart your app on a repeated basis.
 * You also may not be mapping the local filesystem into the container or exposing ports to other resources like databases you want to access.
+* You may not want to add a `.gitconfig` mount or the ptrace options [described above](#using-docker-compose) into your existing Docker Compose file.
 * You may be using an [Alpine Linux](https://alpinelinux.org) based image in your production configuration. (VS Code Remote - Containers does not currently support Alpine Linux).
 
 You can solve these and other issues like them by extending your entire Docker Compose configuration with [multiple `docker-compose.yml` files](https://docs.docker.com/compose/extends/#multiple-compose-files) that override or supplement your primary one.
@@ -512,13 +523,14 @@ version: '3'
         # This lets you avoid setting up Git again in the container
         - ~/.gitconfig:/root/.gitconfig
 
-      # Overrides default command so things don't shut down after the process ends.
-      command: sleep infinity
-      # Options required for debuggers based on ptrace such as the C++, Go, and Rust debuggers
+      # [Optional] Required for ptrace based debuggers like C++, Go, and Rust
       cap_add:
         - SYS_PTRACE
       security_opt:
         - seccomp:unconfined
+
+      # Overrides default command so things don't shut down after the process ends.
+      command: sleep infinity
 ```
 
 This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to this one in `.devcontainer/devcontainer.extend.json` as follows:
@@ -603,7 +615,7 @@ See the following examples dev containers for additional information:
 | `shutdownAction` | enum: `none`, `stopContainer` | Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. Defaults to `stopContainer`. |
 |**Docker Compose**|||
 | `dockerComposeFile` | string  or array | **Required.** Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. |
-| `service` | string | **Required.** The name of the service you want to work on. |
+| `service` | string | **Required.** The name of the service VS Code should connect to once running.  |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
 | `shutdownAction` | enum: `none`, `stopCompose` | Indicates whether VS Code should stop the containers when the VS Code window is closed / shut down. Defaults to `stopCompose`. |
 |**General**|||

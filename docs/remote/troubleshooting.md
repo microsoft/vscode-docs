@@ -9,7 +9,7 @@ DateApproved: 5/2/2019
 ---
 # Remote Development Tips and Tricks
 
-❗ **Note:** The **Remote Development extensions** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
 
 ---
 
@@ -115,6 +115,24 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
         IdentityFile C:\path\to\your\exported\private\keyfile
     ```
 
+### Troubleshooting hanging connections
+
+If you are running into problems with VS Code appearing to hang while trying to connect (and potentially timing out), there are a few things you can do to try to resolve the issue.
+
+First, enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code and retry. If you are prompted to input a password or token, see [Enabling alternate SSH authentication methods](enabling-alternate-ssh-authentication-methods) for details on reducing the frequency you need to enter anything.
+
+If this is not your problem, you likely are running into an issue with your SSH configuration. To troubleshoot, open the `Remote - SSH` category in the output window.
+
+* If you see errors about permissions or an unprotected key, see [Fixing SSH file permission errors](#fixing-ssh-file-permission-errors).
+
+* If you see `open failed: administratively prohibited: open failed`:
+  1. Open `/etc/ssh/sshd_config` in an editor (like vim, nano, or pico)
+  2. Add the setting  `AllowTcpForwarding yes`.
+  3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
+  4. Retry
+
+Other errors you see in this same log should give you hints as to what may be going wrong and any config you need to change.
+
 ### Enabling alternate SSH authentication methods
 
 If you are connecting to an SSH remote host and are either:
@@ -123,7 +141,7 @@ If you are connecting to an SSH remote host and are either:
 - using password authentication,
 - using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible,
 
-you need to enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
+...you need to enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
 
 To avoid reentering your connection information each time, you can enable the `ControlMaster` feature so that OpenSSH runs multiple SSH sessions over a single connection.
 
@@ -563,6 +581,22 @@ You can see which distributions you have installed by running:
 
 ```bat
 wslconfig /l
+```
+
+### Fixing problems with the code-insiders command not working
+
+If typing `code-insiders` from a WSL terminal Window does not work, you may be missing some key locations from your PATH in WSL.
+
+Check by opening a WSL terminal and typing `echo $PATH`, you should see the following paths listed:
+
+1. `/mnt/c/Windows/System32`
+2. The VS Code Insiders install path. By default this would be: `/mnt/c/Users/{username}/AppData/Local/Programs/Microsoft VS Code Insiders/bin`
+
+If it is missing, edit your `.bashrc`, add the following, and start a new terminal:
+
+```bash
+WINDOWS_USER_ID=your-user-alias-here
+export PATH=$PATH:/mnt/c/Windows/System32:/mnt/c/Users/$WINDOWS_USER_NAME/AppData/Local/Programs/Microsoft VS Code Insiders/bin
 ```
 
 ### Resolving errors about missing dependencies

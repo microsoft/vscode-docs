@@ -9,7 +9,7 @@ DateApproved: 5/2/2019
 ---
 # Developing in WSL
 
-❗ **Note:** The **Remote Development extensions** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
 
 ---
 
@@ -33,6 +33,8 @@ To get started you need to:
 
 2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) on the **Windows** side (not in WSL).
 
+    > **Note:** When prompted to "Select Additional Tasks" during installation, be sure to check the "Add to PATH" option so you can easily open a folder in WSL using the `code-insiders` command.
+
 3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
 4. Consider disabling automatic line ending conversion for Git on the **Windows side** by using a command prompt to run: `git config --global core.autocrlf false` If left enabled, this setting can cause files that you have not edited to appear modified due to line ending differences. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
@@ -46,6 +48,8 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 2. Navigate to a folder you'd like to open in VS Code (including, but not limited to, Windows filesystem mounts like `/mnt/c`)
 
 3. Type **`code-insiders .`** in the terminal. When doing this for the first time, you should see VS Code fetching components needed to run in WSL. This should only take short while, and is only needed once.
+
+    > **Note:** If this command does not work, you may not have added VS Code to your path when it was installed. Instead, start VS Code, press `F1`, select **Remote-WSL: New Window**, and use the File menu to open your folder.
 
 4. After a moment, a new VS Code window will appear, and you'll see a notification that VS Code is opening the folder in WSL.
 
