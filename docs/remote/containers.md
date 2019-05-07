@@ -512,6 +512,11 @@ version: '3'
 
       # Overrides default command so things don't shut down after the process ends.
       command: sleep infinity
+      # Allows vscode's debugger to connect to the container
+      cap_add:
+        - SYS_PTRACE
+      security_opt:
+        - seccomp:unconfined
 ```
 
 This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to this one in `.devcontainer/devcontainer.extend.json` as follows:
