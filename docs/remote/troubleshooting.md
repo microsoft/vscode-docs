@@ -665,7 +665,7 @@ Resolution: Extensions need to be modified to solve this problem. They will need
 
 #### Extensions fail due to missing modules
 
-Extensions that rely on Electron or VS Code base modules (not exposed by the extension API) without providing a fallback can fail when running remotely. You may see errors in the Developer Tools window like `original-fs` not being found.
+Extensions that rely on Electron or VS Code base modules (not exposed by the extension API) without providing a fallback can fail when running remotely. You may see errors in the Developer Tools console like `original-fs` not being found.
 
 Resolution: Remove the dependency on an Electron module or provide a fallback. See the [extension guide](/api/advanced-topics/remote-extensions#avoid-using-electron-modules) for details.
 

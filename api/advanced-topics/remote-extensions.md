@@ -361,9 +361,11 @@ You can find the "modules" version VS Code uses by going to **Help > Developer T
 
 ## Avoid using Electron modules
 
-While it can be convenient to rely on built-in Electron or VS Code modules not exposed by the extension API, it's important to note that VS Code Server runs a standard (non-Electron) version of Node.js. These modules will be missing when running remotely with a few exception cases [like `keytar`](#persisting-secrets) where specific code in place to make them work. You should use base Node.js modules or modules in your extension VSIX to avoid these problems.
+While it can be convenient to rely on built-in Electron or VS Code modules not exposed by the extension API, it's important to note that VS Code Server runs a standard (non-Electron) version of Node.js. These modules will be missing when running remotely. There are a few exceptions, [like `keytar`](#persisting-secrets), where there is specific code in place to make them work.
 
-If you absolutely have to use an Electron module, be sure you've got code in place to use a fallback if it is missing. For example, this code will use the Electron `original-fs` node module if found and fall back to the base Node.js `fs` module not.
+You should use base Node.js modules or modules in your extension VSIX to avoid these problems. If you absolutely have to use an Electron module, be sure to have a fallback if the module is missing.
+
+The example below will use the Electron `original-fs` node module if found, and fall back to the base Node.js `fs` module if not.
 
 ```typescript
 function requireWithFallback(electronModule: string, nodeModule: string) {
