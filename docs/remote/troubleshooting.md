@@ -728,7 +728,7 @@ Resolution: Extensions can use the `keytar` node module to solve this problem. S
 
 ### An incompatible extension prevents VS Code from connecting
 
-If an incompatible extension has been installed on a remote host, container, or in WSL, we have seen rare instances where VS Code Server to hang or cash due to the incompatible code. If the extension activates right away, this can prevent you from connecting to remove it.
+If an incompatible extension has been installed on a remote host, container, or in WSL, we have seen rare instances where VS Code Server hangs or cashes due to the incompatible code. If the extension activates right away, this can prevent you from connecting to remove it.
 
 Resolution: Manually delete the remote extensions folder by following these steps:
 
