@@ -726,9 +726,20 @@ Extensions that require sign in may persist secrets using their own code. This c
 
 Resolution: Extensions can use the `keytar` node module to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
 
-### Extensions fail due to incompatibility with Visual Studio Code Remote Develoment
+### An incompatible extension prevents VS Code from connecting
 
-In the case an extension fails to load properly, and Visual Studio Code hangs indefinitely, consider deleting the extension installed in the remote environment (SSH, Container, or WSL) by navigating to `~/.vscode-remote/extensions` through a separate terminal. If SSH or WSL, connect to the environment accordingly (SSH into the server or open WSL terminal) and access this folder to delete the faulty extension. If using container, identify the container id by calling `docker ps -a` and identify the one with `vscode-remote...` name, then run `docker run -ti <id> /bin/sh` and then `rm -rf ~/.vscode-remote/extensions`. Lastly, ensure your `devcontainer.json` does not contain the faulty extension anymore.
+If an incompatible extension has been installed on a remote host, container, or in WSL, we have seen rare instances where VS Code Server to hang or cash due to the incompatible code. If the extension activates right away, this can prevent you from connecting to remove it.
+
+Resolution: Manually delete the remote extensions folder by following these steps:
+
+1. For containers, ensure your `devcontainer.json` does not contain the faulty extension anymore.
+
+2. Next, use a separate terminal / command prompt to connect to the remote host, container, or WSL.
+
+   - If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
+   - If using container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
+
+3. Once you are connected, run `rm -rf ~/.vscode-remote/extensions` to remove all extensions.
 
 ### Extensions that ship or acquire pre-built native modules fail
 
