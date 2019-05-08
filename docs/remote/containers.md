@@ -462,7 +462,7 @@ For example:
 }
 ```
 
-If the containers are not already running, VS Code will call `docker-compose -f ../docker-compose.yml up` in this example. Note that `service` property tells VS Code which service in your Docker Compose file connect to, not which service should be started.
+If the containers are not already running, VS Code will call `docker-compose -f ../docker-compose.yml up` in this example. Note that the `service` property indicates which service in your Docker Compose file VS Code should connect to, not which service should be started.
 
 See the [devcontainer.json reference](#devcontainerjson-reference) for information other available properties such as the `workspaceFolder` and `shutdownAction`.
 
@@ -482,7 +482,7 @@ volumes:
   - ~/.gitconfig:/root/.gitconfig
 ```
 
-If your application was built using C++, Go, or Rust, or another language that uses a ptrace based debugger, will also need to add the following to your Docker Compose file:
+If your application was built using C++, Go, or Rust, or another language that uses a ptrace-based debugger, you will also need to add the following settings to your Docker Compose file:
 
 ```yaml
 # Required for ptrace based debuggers like C++, Go, and Rust
@@ -523,7 +523,7 @@ version: '3'
         # This lets you avoid setting up Git again in the container
         - ~/.gitconfig:/root/.gitconfig
 
-      # [Optional] Required for ptrace based debuggers like C++, Go, and Rust
+      # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
       cap_add:
         - SYS_PTRACE
       security_opt:
