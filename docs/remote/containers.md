@@ -485,7 +485,7 @@ volumes:
 If your application was built using C++, Go, or Rust, or another language that uses a ptrace-based debugger, you will also need to add the following settings to your Docker Compose file:
 
 ```yaml
-# Required for ptrace based debuggers like C++, Go, and Rust
+# Required for ptrace-based debuggers like C++, Go, and Rust
 cap_add:
 - SYS_PTRACE
 security_opt:
