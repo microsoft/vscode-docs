@@ -691,6 +691,10 @@ Extensions that require sign in may persist secrets using their own code. This c
 
 Resolution: Extensions can use the `keytar` node module to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
 
+### Extensions fail due to incompatibility with Visual Studio Code Remote Develoment
+
+In the case an extension fails to load properly, and Visual Studio Code hangs indefinitely, consider deleting the extension installed in the remote environment (SSH, Container, or WSL) by navigating to `~/.vscode-remote/extensions` through a separate terminal. If SSH or WSL, connect to the environment accordingly (SSH into the server or open WSL terminal) and access this folder to delete the faulty extension. If using container, identify the container id by calling `docker ps -a` and identify the one with `vscode-remote...` name, then run `docker run -ti <id> /bin/sh` and then `rm -rf ~/.vscode-remote/extensions`. Lastly, ensure your `devcontainer.json` does not contain the faulty extension anymore.
+
 ### Extensions that ship or acquire pre-built native modules fail
 
 Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
