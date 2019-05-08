@@ -7,7 +7,7 @@ MetaDescription: A guide to adding Visual Studio Code Remote Development support
 ---
 # Supporting Remote Development
 
-❗ **Note:** The **Remote Development extensions** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
 
 ---
 
