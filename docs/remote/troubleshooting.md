@@ -590,13 +590,22 @@ If typing `code-insiders` from a WSL terminal on Window does not work, you may b
 Check by opening a WSL terminal and typing `echo $PATH`. You should see the following paths listed:
 
 1. `/mnt/c/Windows/System32`
-2. The VS Code Insiders install path. By default, this should be: `/mnt/c/Users/{username}/AppData/Local/Programs/Microsoft VS Code Insiders/bin`
+1. The VS Code Insiders install path. 
+    1. By default, this should be:\
+    `/mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code Insiders/bin`
+    1. If you installed the **System Installer** version, the install path is:\
+    `/mnt/c/Program Files/Microsoft VS Code Insiders/bin`
 
 If the VS Code Insiders install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
 
+:warning: **Note:** You need to quote or escape spaces in the directory names.
+
 ```bash
-WINDOWS_USER_ID=your-user-alias-here
-export PATH=$PATH:/mnt/c/Windows/System32:/mnt/c/Users/$WINDOWS_USER_NAME/AppData/Local/Programs/Microsoft VS Code Insiders/bin
+WINDOWS_USERNAME="Your Username"
+VSCODE_PATH="/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code Insiders/bin"
+# Use this path if you installed the System Installer version of VS Code Insiders
+# VSCODE_PATH="/mnt/c/Program Files/Microsoft VS Code Insiders/bin"
+export PATH=$PATH:/mnt/c/Windows/System32:${VSCODE_PATH}
 ```
 
 ### Resolving errors about missing dependencies
