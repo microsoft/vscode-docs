@@ -49,7 +49,7 @@ To get started, follow these steps:
 
     > **Tip:** PuTTY for Windows is not a [supported client](#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](#reusing-a-key-generated-in-puttygen).
 
-2. Run **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) and enter the host and your user on the host in the input box as follows: `user@hostname`.
+2. Run **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) and enter the host and your user on the host in the input box as follows: `user@hostname` or `user@hostname -p portnumber` if you are using an ssh port other than 22.
 
     ![Illustration of user@host input box](images/ssh/ssh-user@box.png)
 
