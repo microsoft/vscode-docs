@@ -682,55 +682,61 @@ While many extensions will work unmodified, there are a few issues that can prev
 
 VS Code's local user settings are reused when you connect to a remote endpoint. While this keeps your user experience consistent, you may need to vary absolute path settings between your local machine and each host / container / WSL since the target locations are different.
 
-Resolution: You can set endpoint-specific settings after you connect to a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by clicking on the **Remote** tab in the settings editor. These settings will override any local settings you have in place whenever you connect.
+**Resolution:** You can set endpoint-specific settings after you connect to a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by clicking on the **Remote** tab in the settings editor. These settings will override any local settings you have in place whenever you connect.
+
+### Need to install local VSIX on remote endpoint
+
+Occasionally you may run into a situation where you want to install a local VSIX on a remote machine either during development or if an extension author asks you to try out a fix.
+
+**Resolution:** Once you have connected to a SSH host, container, or WSL, you can install the VSIX the same way you would locally. Simply run the **Extensions: Install from VSIX...** command from the Command Palette (`kbstyle(F1)`). Note that you may also want to add `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest marketplace version. See  [Supporting Remote Development](/api/advanced-topics/remote-extensions) for more information on developing and testing extensions in a remote environment.
 
 ### Browser does not open locally
 
 Some extensions use external node modules or custom code to launch a browser window. Unfortunately, this may cause the extension to launch the browser remotely instead of locally.
 
-Resolution: The extension can switch to using the `vscode.env.openExternal` API to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**Resolution:** The extension can switch to using the `vscode.env.openExternal` API to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
 
 ### Clipboard does not work
 
 Some extensions use node modules like `clipboardy` to integrate with the clipboard. Unfortunately, this may cause the extension to incorrectly integrate with the clipboard on the remote side.
 
-Resolution: The extension can switch to the VS Code clipboard API to resolve the problem. See the [extension guide](/api/advanced-topics/remote-extensions#using-the-clipboard) for details.
+**Resolution:** The extension can switch to the VS Code clipboard API to resolve the problem. See the [extension guide](/api/advanced-topics/remote-extensions#using-the-clipboard) for details.
 
 ### Cannot access local web server from browser or application
 
 When working inside a container or SSH host, the port the browser is connecting to may be blocked.
 
-Resolution: The extension can switch to the  `vscode.env.openExternal` API (which automatically forwards localhost ports) to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**Resolution:** The extension can switch to the  `vscode.env.openExternal` API (which automatically forwards localhost ports) to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
 
 ### WebView contents do not appear
 
 If the extension's WebView content uses an iframe to connect to a local web server, the port the WebView is connecting to may be blocked.
 
-Resolution: The WebView API now includes a `portMapping` property that the extension can use to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#accessing-localhost) for details.
+**Resolution:** The WebView API now includes a `portMapping` property that the extension can use to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#accessing-localhost) for details.
 
 ### Blocked localhost ports
 
 If you are trying to connect to a localhost port from an external application, the port may be blocked.
 
-Resolution: There currently is no API for extensions to programmatically forward arbitrary ports, but you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...** to do so manually.
+**Resolution:** There currently is no API for extensions to programmatically forward arbitrary ports, but you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...** to do so manually.
 
 ### Errors storing extension data
 
 Extensions may try to persist global data by looking for the `~/.config/Code` folder on Linux. This folder may not exist, which can cause the extension to throw errors like `ENOENT: no such file or directory, open '/root/.config/Code/User/filename-goes-here`.
 
-Resolution: Extensions can use the `context.globalStoragePath` or `context.storagePath` property to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
+**Resolution:** Extensions can use the `context.globalStoragePath` or `context.storagePath` property to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
 
 ### Cannot sign in / have to sign in each time I connect to a new endpoint
 
 Extensions that require sign in may persist secrets using their own code. This code can fail due to missing dependencies. Even if it succeeds, the secrets will be stored remotely, which means you have to sign in for every new endpoint.
 
-Resolution: Extensions can use the `keytar` node module to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
+**Resolution:** Extensions can use the `keytar` node module to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
 
 ### An incompatible extension prevents VS Code from connecting
 
 If an incompatible extension has been installed on a remote host, container, or in WSL, we have seen rare instances where VS Code Server hangs or cashes due to the incompatible code. If the extension activates right away, this can prevent you from connecting to remove it.
 
-Resolution: Manually delete the remote extensions folder by following these steps:
+**Resolution:** Manually delete the remote extensions folder by following these steps:
 
 1. For containers, ensure your `devcontainer.json` does not contain the faulty extension anymore.
 
@@ -745,25 +751,25 @@ Resolution: Manually delete the remote extensions folder by following these step
 
 Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
 
-Resolution: Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
+**Resolution:** Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
 
 ### Extensions fail due to missing modules
 
 Extensions that rely on Electron or VS Code base modules (not exposed by the extension API) without providing a fallback can fail when running remotely. You may see errors in the Developer Tools console like `original-fs` not being found.
 
-Resolution: Remove the dependency on an Electron module or provide a fallback. See the [extension guide](/api/advanced-topics/remote-extensions#avoid-using-electron-modules) for details.
+**Resolution:** Remove the dependency on an Electron module or provide a fallback. See the [extension guide](/api/advanced-topics/remote-extensions#avoid-using-electron-modules) for details.
 
 ### Cannot access / transfer remote workspace files to local machines
 
 Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files.
 
-Resolution: We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem.
+**Resolution:** None currently. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem.
 
 ### Cannot access attached device from extension
 
 Extensions that access locally attached devices will be unable to connect to them when running remotely.
 
-Resolution: We are investigating the best approach to solve this problem.
+**Resolution:** None currently. We are investigating the best approach to solve this problem.
 
 ## Questions and feedback
 
