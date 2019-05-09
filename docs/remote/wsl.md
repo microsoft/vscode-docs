@@ -143,7 +143,7 @@ Firebase via node unusably slow only on WSL | [Microsoft/WSL#2657](https://githu
 
 ### Git limitations
 
-If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use a SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
 ### Docker Extension limitations
 

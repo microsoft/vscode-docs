@@ -58,7 +58,7 @@ In the File Explorer, one file you'll see is the application `README.md` Markdow
 
 ### Syntax highlighting and bracket matching
 
-Now expand the `src` folder and select the `index.js` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parentheses, the matching bracket is also selected.
+Now expand the `src` folder and select the `index.js` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parenthesis, the matching bracket is also selected.
 
 ![react bracket matching](images/reactjs/bracket-matching.png)
 
