@@ -39,10 +39,11 @@ Currently, anytime VS Code automatically installs an extension on an SSH host or
 
 Follow these steps:
 
-1. Use `vsce package` to package your extension as a VSIX.
-2. Connect to a [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
-3. Use the **Install from VSIX...** command available in the Extensions view **More Actions** (`...`) menu to install the extension in this specific window (not a local one).
-4. Reload when prompted.
+1. If this is a published extension, you may want to add `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest marketplace version.
+2. Next, use `vsce package` to package your extension as a VSIX.
+3. Connect to a [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
+4. Use the **Install from VSIX...** command available in the Extensions view **More Actions** (`...`) menu to install the extension in this specific window (not a local one).
+5. Reload when prompted.
 
 > **Tip:** Once installed, you can use the **Developer: Show Running Extensions** command to see whether VS Code is running the extension locally or remotely.
 
@@ -58,7 +59,9 @@ You can edit and debug your extension in a container by following these steps.
 
 2. After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the in-depth [Containers](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container) documentation for details.
 
-3. Edit your `launch.json` to add a second argument to the `args` property that points to the path of a test project or your test data in your workspace folder or that will be in the container when it starts. (Note: You cannot use the workspace folder itself.) By default, the user's home folder (`$HOME`) is used. For example, if your test data is in a `data` folder in your workspace, you would add `${workspaceFolder}/data` as follows:
+3. **[Optional]** Edit your `launch.json` to add a second argument to the `args` property that points to the path of a test project / test data in your workspace folder or another path inside the container. For example, if your test data is in a `data` folder in your workspace, you would add `${workspaceFolder}/data` as follows:
+
+    > **Note:** You **cannot** use `${workspaceFolder}` for this second argument.
 
     ```json
     {
@@ -67,12 +70,12 @@ You can edit and debug your extension in a container by following these steps.
         "request": "launch",
         "runtimeExecutable": "${execPath}",
         "args": [
-            "--extensionDevelopmentPath=${workspaceRoot}",
+            "--extensionDevelopmentPath=${workspaceFolder}",
             "${workspaceFolder}/data"
         ],
         "stopOnEntry": false,
         "sourceMaps": true,
-        "outFiles": ["${workspaceRoot}/dist/**/*.js"],
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
         "preLaunchTask": "npm"
     }
     ```
