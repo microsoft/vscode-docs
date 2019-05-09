@@ -119,19 +119,32 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
 
 If you are running into problems with VS Code hanging while trying to connect (and potentially timing out), there are a few things you can do to try to resolve the issue.
 
-First, enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code and retry. If you are prompted to input a password or token, see [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods) for details on reducing the frequency of prompts.
+**See if VS Code is waiting on a prompt**
 
-If this is not the problem, you likely are running into an issue with your SSH configuration. To troubleshoot, open the `Remote - SSH` category in the output window.
+Enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code and retry. If you are prompted to input a password or token, see [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods) for details on reducing the frequency of prompts.
 
-* If you see errors about permissions or an unprotected key, see [Fixing SSH file permission errors](#fixing-ssh-file-permission-errors).
+**Enable TCP Forwarding**
 
-* If you see `open failed: administratively prohibited: open failed`:
-  1. Open `/etc/ssh/sshd_config` in an editor (like vim, nano, or pico).
-  2. Add the setting  `AllowTcpForwarding yes`.
-  3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
-  4. Retry.
+Remote - SSH extension makes use of a SSH tunnel to facilitate communication with the host. In some cases this may be disabled on your SSH server. To see if this is your problem, open the `Remote - SSH` category in the output window and see if you see the following message:
 
-You may also see other errors in the log, which can give hints as to what is going wrong or provide configuration recommendations.
+```text
+open failed: administratively prohibited: open failed
+```
+
+Assuming you do, follow these steps:
+
+1. Open `/etc/ssh/sshd_config` in an editor  (like vim, nano, or pico) on the **SSH host** (not locally).
+2. Add the setting  `AllowTcpForwarding yes`.
+3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
+4. Retry
+
+**Contact your system administrator for configuration help**
+
+SSH is a very flexible protocol and has quite a few configurations that it supports. If you see other errors in either the login terminal or `Remote-SSH` output window, it could be due to a missing setting.
+
+Contact your system administrator for information about the required settings for your SSH host and client. Specific command line arguments that you typically use when connecting to your SSH host from the command line can typically be added to a [SSH config file](https://linux.die.net/man/5/ssh_config) as well.
+
+To access your config file, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`). You can then work with your admin to add the correct settings to the file.
 
 ### Enabling alternate SSH authentication methods
 
@@ -266,8 +279,9 @@ Note that only Linux hosts are currently supported, which is why permissions for
 
 | OS | Instructions | Details |
 |----|--------------|---|
-| Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for additional setup instructions. |
-| RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
+| Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for details. |
+| RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | See the [RedHat SSH](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-openssh) documentation for details. |
+| SuSE |  In Yast, go to Services Manager, select "sshd" in the list, and click Enable. Next go to Firewall, select the "Permanent" configuration, and under services check "sshd". | See the [SuSE SSH](https://en.opensuse.org/OpenSSH) documentation for details. |
 | Windows | Not supported yet. | |
 | macOS | Not supported yet. | |
 
@@ -590,15 +604,25 @@ If typing `code-insiders` from a WSL terminal on Window does not work, you may b
 Check by opening a WSL terminal and typing `echo $PATH`. You should see the following paths listed:
 
 1. `/mnt/c/Windows/System32`
-1. The VS Code Insiders install path. 
-    1. By default, this should be:\
-    `/mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code Insiders/bin`
-    1. If you installed the **System Installer** version, the install path is:\
-    `/mnt/c/Program Files/Microsoft VS Code Insiders/bin`
+2. The VS Code Insiders install path. By default, this should be:
+
+    ```bash
+    /mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code Insiders/bin
+    ```
+
+    But, if you installed the **System Installer** version, the install path is:
+
+    ```bash
+    /mnt/c/Program Files/Microsoft VS Code Insiders/bin
+    ```
+
+    ...or...
+
+    ```bash
+    /mnt/c/Program Files (x86)/Microsoft VS Code Insiders/bin
+    ```
 
 If the VS Code Insiders install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
-
-:warning: **Note:** You need to quote or escape spaces in the directory names.
 
 ```bash
 WINDOWS_USERNAME="Your Username"
@@ -607,6 +631,8 @@ VSCODE_PATH="/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft V
 # VSCODE_PATH="/mnt/c/Program Files/Microsoft VS Code Insiders/bin"
 export PATH=$PATH:/mnt/c/Windows/System32:${VSCODE_PATH}
 ```
+
+> **Note:** Be sure to quote or escape spaces in the directory names.
 
 ### Resolving errors about missing dependencies
 
@@ -700,9 +726,20 @@ Extensions that require sign in may persist secrets using their own code. This c
 
 Resolution: Extensions can use the `keytar` node module to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
 
-### Extensions fail due to incompatibility with Visual Studio Code Remote Develoment
+### An incompatible extension prevents VS Code from connecting
 
-In the case an extension fails to load properly, and Visual Studio Code hangs indefinitely, consider deleting the extension installed in the remote environment (SSH, Container, or WSL) by navigating to `~/.vscode-remote/extensions` through a separate terminal. If SSH or WSL, connect to the environment accordingly (SSH into the server or open WSL terminal) and access this folder to delete the faulty extension. If using container, identify the container id by calling `docker ps -a` and identify the one with `vscode-remote...` name, then run `docker run -ti <id> /bin/sh` and then `rm -rf ~/.vscode-remote/extensions`. Lastly, ensure your `devcontainer.json` does not contain the faulty extension anymore.
+If an incompatible extension has been installed on a remote host, container, or in WSL, we have seen rare instances where VS Code Server hangs or cashes due to the incompatible code. If the extension activates right away, this can prevent you from connecting to remove it.
+
+Resolution: Manually delete the remote extensions folder by following these steps:
+
+1. For containers, ensure your `devcontainer.json` does not contain the faulty extension anymore.
+
+2. Next, use a separate terminal / command prompt to connect to the remote host, container, or WSL.
+
+   - If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
+   - If using container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
+
+3. Once you are connected, run `rm -rf ~/.vscode-remote/extensions` to remove all extensions.
 
 ### Extensions that ship or acquire pre-built native modules fail
 

@@ -47,7 +47,7 @@ To get started follow these steps:
 
 1. First, **configure key based authentication** on the host you plan to use. If you are new to SSH or are running into trouble, see [here for additional information](/docs/remote/troubleshooting.md#configuring-key-based-authentication) on setting this up. If you followed the Azure VM tutorial, you can skip this step.
 
-    > **PuTTY Tip:** If you've already set up key based authentication using PuTTYGen, you will need to convert your private key for use in other OpenSSH clients. See [here for details](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
+    > **Tip:** PuTTY for Windows is not a [supported client](#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](#reusing-a-key-generated-in-puttygen).
 
 2. Run **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) and enter the host and your user on the host in the input box as follows: `user@hostname`.
 
@@ -56,6 +56,8 @@ To get started follow these steps:
     > **Note:** If you see errors about bad SSH file permissions when connecting, [see here for details](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) on the correct settings.
 
 3. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up to date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
+
+    > **Note:** If your connection is hanging you may need to enable TCP forwarding or respond to a server prompt. See [tips and tricks](#troubleshooting-hanging-connections) for details.
 
 4. After you are connected, you'll be in an empty window. You can then open a folder or workspace on the remote machine using **File > Open...** or **File > Open Workspace...**
 
@@ -78,7 +80,7 @@ Host example-remote-linux-machine-with-identity-file
     IdentityFile ~/.ssh/id_rsa-remote-ssh
 ```
 
-Set the `"remote.SSH.configFile"` property in `settings.json` if you want to use a different config file than those listed.
+The second example uses an alternate location for your SSH key if you want to use more than one. See [tips and tricks](/docs/remote/troubleshooting.md#improving-your-security-with-a-dedicated-key) for details. You can also the `"remote.SSH.configFile"` property in `settings.json` if you want to use a different config file than those listed.
 
 ## Managing extensions
 
