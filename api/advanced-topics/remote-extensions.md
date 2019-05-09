@@ -39,7 +39,7 @@ Currently, anytime VS Code automatically installs an extension on an SSH host or
 
 Follow these steps:
 
-1. If this is a published extension, you may want to set `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest marketplace version.
+1. If this is a published extension, you may want to add `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest marketplace version.
 2. Next, use `vsce package` to package your extension as a VSIX.
 3. Connect to a [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
 4. Use the **Install from VSIX...** command available in the Extensions view **More Actions** (`...`) menu to install the extension in this specific window (not a local one).
