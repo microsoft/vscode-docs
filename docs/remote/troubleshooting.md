@@ -125,26 +125,26 @@ Enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md
 
 **Enable TCP Forwarding**
 
-Remote - SSH extension makes use of a SSH tunnel to facilitate communication with the host. In some cases this may be disabled on your SSH server. To see if this is your problem, open the `Remote - SSH` category in the output window and see if you see the following message:
+Remote - SSH extension makes use of an SSH tunnel to facilitate communication with the host. In some cases, this may be disabled on your SSH server. To see if this is the problem, open the `Remote - SSH` category in the output window and check for the following message:
 
 ```text
 open failed: administratively prohibited: open failed
 ```
 
-Assuming you do, follow these steps:
+If you do see that message, follow these steps:
 
 1. Open `/etc/ssh/sshd_config` in an editor  (like vim, nano, or pico) on the **SSH host** (not locally).
 2. Add the setting  `AllowTcpForwarding yes`.
 3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
-4. Retry
+4. Retry.
 
 **Contact your system administrator for configuration help**
 
-SSH is a very flexible protocol and has quite a few configurations that it supports. If you see other errors in either the login terminal or `Remote-SSH` output window, it could be due to a missing setting.
+SSH is a very flexible protocol and supports many configurations. If you see other errors, in either the login terminal or the `Remote-SSH` output window, they could be due to a missing setting.
 
-Contact your system administrator for information about the required settings for your SSH host and client. Specific command line arguments that you typically use when connecting to your SSH host from the command line can typically be added to a [SSH config file](https://linux.die.net/man/5/ssh_config) as well.
+Contact your system administrator for information about the required settings for your SSH host and client. Specific command-line arguments for connecting to your SSH host can be added to an [SSH config file](https://linux.die.net/man/5/ssh_config).
 
-To access your config file, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`). You can then work with your admin to add the correct settings to the file.
+To access your config file, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`). You can then work with your admin to add the necessary settings.
 
 ### Enabling alternate SSH authentication methods
 
@@ -281,7 +281,7 @@ Note that only Linux hosts are currently supported, which is why permissions for
 |----|--------------|---|
 | Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for details. |
 | RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | See the [RedHat SSH](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-openssh) documentation for details. |
-| SuSE |  In Yast, go to Services Manager, select "sshd" in the list, and click Enable. Next go to Firewall, select the "Permanent" configuration, and under services check "sshd". | See the [SuSE SSH](https://en.opensuse.org/OpenSSH) documentation for details. |
+| SuSE |  In Yast, go to Services Manager, select "sshd" in the list, and click **Enable**. Next go to Firewall, select the **Permanent** configuration, and under services check **sshd**. | See the [SuSE SSH](https://en.opensuse.org/OpenSSH) documentation for details. |
 | Windows | Not supported yet. | |
 | macOS | Not supported yet. | |
 
@@ -728,16 +728,16 @@ Resolution: Extensions can use the `keytar` node module to solve this problem. S
 
 ### An incompatible extension prevents VS Code from connecting
 
-If an incompatible extension has been installed on a remote host, container, or in WSL, we have seen rare instances where VS Code Server hangs or cashes due to the incompatible code. If the extension activates right away, this can prevent you from connecting to remove it.
+If an incompatible extension has been installed on a remote host, container, or in WSL, we have seen instances where the VS Code Server hangs or crashes due to the incompatibility. If the extension activates right away, this can prevent you from connecting and being able to uninstall the extension.
 
 Resolution: Manually delete the remote extensions folder by following these steps:
 
-1. For containers, ensure your `devcontainer.json` does not contain the faulty extension anymore.
+1. For containers, ensure your `devcontainer.json` no longer includes a reference to the faulty extension.
 
 2. Next, use a separate terminal / command prompt to connect to the remote host, container, or WSL.
 
    - If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
-   - If using container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
+   - If using a container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
 
 3. Once you are connected, run `rm -rf ~/.vscode-remote/extensions` to remove all extensions.
 
