@@ -686,9 +686,9 @@ VS Code's local user settings are reused when you connect to a remote endpoint. 
 
 ### Need to install local VSIX on remote endpoint
 
-Occasionally you may run into a situation where you want to install a local VSIX on a remote machine either during development or if an extension author asks you to try out a fix.
+Sometimes you want to install a local VSIX on a remote machine, either during development or when an extension author asks you to try out a fix.
 
-**Resolution:** Once you have connected to a SSH host, container, or WSL, you can install the VSIX the same way you would locally. Simply run the **Extensions: Install from VSIX...** command from the Command Palette (`kbstyle(F1)`). Note that you may also want to add `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest marketplace version. See  [Supporting Remote Development](/api/advanced-topics/remote-extensions) for more information on developing and testing extensions in a remote environment.
+**Resolution:** Once you have connected to an SSH host, container, or WSL, you can install the VSIX the same way you would locally. Run the **Extensions: Install from VSIX...** command from the Command Palette (`kbstyle(F1)`). You may also want to add `"extensions.autoUpdate": false` to `settings.json` to prevent auto-updating to the latest Marketplace version. See [Supporting Remote Development](/api/advanced-topics/remote-extensions) for more information on developing and testing extensions in a remote environment.
 
 ### Browser does not open locally
 

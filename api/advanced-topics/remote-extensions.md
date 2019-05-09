@@ -35,11 +35,11 @@ This section explains how to test and debug a development version of your extens
 
 ### Installing a development version of your extension
 
-Currently, anytime VS Code automatically installs an extension on an SSH host or inside a container or WSL, the Marketplace version is used (and not the version already installed on your local machine). While this makes sense in most situations, you may want to use an unpublished version of your extension for testing. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into a VS Code window that is already connected to a running remote environment.
+Currently, any time VS Code automatically installs an extension on an SSH host or inside a container or WSL, the Marketplace version is used (and not the version already installed on your local machine). While this makes sense in most situations, you may want to use an unpublished version of your extension for testing. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into a VS Code window that is already connected to a running remote environment.
 
 Follow these steps:
 
-1. If this is a published extension, you may want to add `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest marketplace version.
+1. If this is a published extension, you may want to add `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest Marketplace version.
 2. Next, use `vsce package` to package your extension as a VSIX.
 3. Connect to a [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
 4. Use the **Install from VSIX...** command available in the Extensions view **More Actions** (`...`) menu to install the extension in this specific window (not a local one).
@@ -61,7 +61,7 @@ You can edit and debug your extension in a container by following these steps.
 
 3. **[Optional]** Edit your `launch.json` to add a second argument to the `args` property that points to the path of a test project / test data in your workspace folder or another path inside the container. For example, if your test data is in a `data` folder in your workspace, you would add `${workspaceFolder}/data` as follows:
 
-    > **Note:** You **cannot** use `${workspaceFolder}` for this second argument.
+    > **Note:** You **cannot** use `${workspaceFolder}` alone for this second argument.
 
     ```json
     {
