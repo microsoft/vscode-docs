@@ -152,7 +152,7 @@ While focus is in the integrated terminal, many key bindings will not work as th
 {
   "terminal.integrated.commandsToSkipShell": [
     // Ensure the toggle sidebar visibility keybinding skips the shell
-    "workbench.action.toggleSidebarVisibility"
+    "workbench.action.toggleSidebarVisibility",
     // Send quick open's keybinding to the shell
     "-workbench.action.quickOpen",
   ]
