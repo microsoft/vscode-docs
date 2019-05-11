@@ -9,6 +9,10 @@ DateApproved: 5/2/2019
 ---
 # Developing inside a Container
 
+❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+
+---
+
 The **Visual Studio Code Remote - Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of VS Code's full feature set. A [`devcontainer.json` file](#creating-a-devcontainerjson-file) in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to sandbox tools, libraries, or runtimes needed for working with a codebase.
 
 Workspace files are mounted from the local file system or copied or cloned into the container. Extensions are installed and run inside the container, where they have full access to the tools, platform, and file system. This means that you can seamlessly switch your entire development environment just by connecting to a different container.
@@ -27,7 +31,7 @@ To get started, follow these steps:
 
     **Windows / macOS**:
 
-    1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
+    1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop). (Docker Toolbox is not currently supported.)
 
     2. Right-click on the Docker taskbar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you run into trouble, see [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) on avoiding common problems with sharing.
 
@@ -411,7 +415,7 @@ For example:
 
 See the [devcontainer.json reference](#devcontainerjson-reference) for information on other available properties such as `appPort`, the `extensions` list, and `postCreateCommand`.
 
-The example below uses `runArgs` to change the security policy to enable the ptrace system call for Go development container:
+The example below uses `runArgs` to change the security policy to enable the ptrace system call for a Go development container:
 
 ```json
 {
@@ -458,22 +462,34 @@ For example:
 }
 ```
 
+If the containers are not already running, VS Code will call `docker-compose -f ../docker-compose.yml up` in this example. Note that the `service` property indicates which service in your Docker Compose file VS Code should connect to, not which service should be started.
+
 See the [devcontainer.json reference](#devcontainerjson-reference) for information other available properties such as the `workspaceFolder` and `shutdownAction`.
 
 You can also create a development copy of your Docker Compose file. For example, if you had `.devcontainer/docker-compose.devcontainer.yml`, you would just change the following line in `devcontainer.json`:
 
 ```json
-    "dockerComposeFile": "docker-compose.devcontainer.yml",
+"dockerComposeFile": "docker-compose.devcontainer.yml"
 ```
 
 You can also avoid making a copy of your Docker Compose file by extending it with another one. We'll cover this topic in the [next section](#extending-your-docker-compose-file-for-development).
 
-Note that you may want to include a volume mount to your local `.gitconfig` folder in your Docker Compose file so you don't have to set up Git inside of the container if you install it.
+Note that, if you use Git, you may want to include a volume mount to your local `.gitconfig` folder in your Docker Compose file so you don't have to set up Git again inside of the container.
 
 ```yaml
 volumes:
   # This lets you avoid setting up Git again in the container
   - ~/.gitconfig:/root/.gitconfig
+```
+
+If your application was built using C++, Go, or Rust, or another language that uses a ptrace-based debugger, you will also need to add the following settings to your Docker Compose file:
+
+```yaml
+# Required for ptrace-based debuggers like C++, Go, and Rust
+cap_add:
+- SYS_PTRACE
+security_opt:
+- seccomp:unconfined
 ```
 
 After making edits, you can test by running the **Remote-Containers: Reopen Folder in Container** or **Remote-Containers: Rebuild Container** commands. Once the container is been created, the local filesystem is automatically mapped into the container and you can start working with it from VS Code.
@@ -486,6 +502,7 @@ For example:
 
 * Docker Compose will shut down a container if its entry point shuts down. This is problematic for situations where you are debugging and need to restart your app on a repeated basis.
 * You also may not be mapping the local filesystem into the container or exposing ports to other resources like databases you want to access.
+* You may not want to add a `.gitconfig` mount or the ptrace options [described above](#using-docker-compose) into your existing Docker Compose file.
 * You may be using an [Alpine Linux](https://alpinelinux.org) based image in your production configuration. (VS Code Remote - Containers does not currently support Alpine Linux).
 
 You can solve these and other issues like them by extending your entire Docker Compose configuration with [multiple `docker-compose.yml` files](https://docs.docker.com/compose/extends/#multiple-compose-files) that override or supplement your primary one.
@@ -498,13 +515,19 @@ version: '3'
     your-service-name-here:
       volumes:
         # Mounts the project folder to '/workspace'. The target path inside the container
-        # should match should match what your application expects. In this case, the
-        # compose file is in a sub-folder, so we will mount '..'. We'll then reference this
-        # as the workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
+        # should match what your application expects. In this case, the compose file is
+        # in a sub-folder, so we will mount '..'. We'll then reference this as the
+        # workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
         - ..:/workspace
 
         # This lets you avoid setting up Git again in the container
         - ~/.gitconfig:/root/.gitconfig
+
+      # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
+      cap_add:
+        - SYS_PTRACE
+      security_opt:
+        - seccomp:unconfined
 
       # Overrides default command so things don't shut down after the process ends.
       command: sleep infinity
@@ -592,7 +615,7 @@ See the following examples dev containers for additional information:
 | `shutdownAction` | enum: `none`, `stopContainer` | Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. Defaults to `stopContainer`. |
 |**Docker Compose**|||
 | `dockerComposeFile` | string  or array | **Required.** Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. |
-| `service` | string | **Required.** The name of the service you want to work on. |
+| `service` | string | **Required.** The name of the service VS Code should connect to once running.  |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
 | `shutdownAction` | enum: `none`, `stopCompose` | Indicates whether VS Code should stop the containers when the VS Code window is closed / shut down. Defaults to `stopCompose`. |
 |**General**|||
@@ -608,8 +631,10 @@ See the following examples dev containers for additional information:
 * Alpine Linux or Windows container images are not yet supported. Most images come with a Debian or Ubuntu based flavor you can use instead. (Typically Alpine variations end in `-alpine`).
 * All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
 * The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
+* Docker Toolbox is not currently supported.
+* Docker variants or alternate containerization tool kits like [podman.io](https://podman.io) are not supported.
 * When installing an extension pack in a container, extensions may install locally instead of inside the container. Click the **Install** button for each extension in the Local section of the extension panel to work around the issue. See [Microsoft/vscode-remote-release#11](https://github.com/Microsoft/vscode-remote-release/issues/11) for details.
-* If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use a SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+* If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 * Local proxy settings are not reused inside the container, which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 
 See [here for a list of active issues](https://aka.ms/vscode-remote/containers/issues) related to Containers.

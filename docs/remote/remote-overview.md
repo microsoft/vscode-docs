@@ -9,7 +9,11 @@ DateApproved: 5/2/2019
 ---
 # VS Code Remote Development
 
-Visual Studio Code Remote Development allows you to use a container, remote machine, or the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as a full-featured development environment. You can:
+❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+
+---
+
+**Visual Studio Code Remote Development** allows you to use a container, remote machine, or the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as a full-featured development environment. You can:
 
 - Develop on the **same operating system** you deploy to or use **larger or more specialized** hardware.
 - **Sandbox** your development environment to avoid impacting your local **machine configuration**.

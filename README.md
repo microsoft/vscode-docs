@@ -29,7 +29,7 @@ If you want to give documentation feedback, please use the feedback control loca
 
 ## Documentation Issues
 
-To enter documentation bugs, please create a [new GitHub issue](https://github.com/Microsoft/vscode-docs/issues). Please check if there is existing issue first.
+To enter documentation bugs, please create a [new GitHub issue](https://github.com/Microsoft/vscode-docs/issues). Please check if there is an existing issue first.
 
 If you think the issue is with the VS Code product itself, please enter issues in the VS Code product repo [here](https://github.com/Microsoft/vscode/issues).
 

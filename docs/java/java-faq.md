@@ -29,9 +29,31 @@ Sure. [Keymap extensions](/docs/getstarted/keybindings.md#keymap-extensions) in 
 
 ## Where can I find the latest progress of Java support on Visual Studio Code?
 
+You may [Sign up](https://devblogs.microsoft.com/visualstudio/java-on-visual-studio-code-april-update#signup) to follow the latest of Java on Visual Studio Code.
+
 We're currently publishing our updates at [The Visual Studio Blog](https://devblogs.microsoft.com/visualstudio/tag/java/), which will report all our major features and improvements.
 
 While you're using Java within VS Code, you might also see a *Release Notes* once you update the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). That will give you an overview on the notable updates included in the extensions.
+
+## How can I use Visual Studio Code with Java 12?
+
+Thanks to the upstream update from JDT, you can now build your project with Java 12 features with VS Code as well. To use the experimental language features such as the new `switch` statement, add the following settings to `pom.xml`:
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.0</version>
+            <configuration>
+                <source>12</source>
+                <compilerArgs>--enable-preview</compilerArgs>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
 
 ## Will this be available for Visual Studio?
 

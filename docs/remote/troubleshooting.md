@@ -9,6 +9,10 @@ DateApproved: 5/2/2019
 ---
 # Remote Development Tips and Tricks
 
+❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+
+---
+
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension.
 
 ## SSH tips
@@ -111,6 +115,37 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
         IdentityFile C:\path\to\your\exported\private\keyfile
     ```
 
+### Troubleshooting hanging connections
+
+If you are running into problems with VS Code hanging while trying to connect (and potentially timing out), there are a few things you can do to try to resolve the issue.
+
+**See if VS Code is waiting on a prompt**
+
+Enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code and retry. If you are prompted to input a password or token, see [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods) for details on reducing the frequency of prompts.
+
+**Enable TCP Forwarding**
+
+Remote - SSH extension makes use of an SSH tunnel to facilitate communication with the host. In some cases, this may be disabled on your SSH server. To see if this is the problem, open the `Remote - SSH` category in the output window and check for the following message:
+
+```text
+open failed: administratively prohibited: open failed
+```
+
+If you do see that message, follow these steps:
+
+1. Open `/etc/ssh/sshd_config` in an editor  (like vim, nano, or pico) on the **SSH host** (not locally).
+2. Add the setting  `AllowTcpForwarding yes`.
+3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
+4. Retry.
+
+**Contact your system administrator for configuration help**
+
+SSH is a very flexible protocol and supports many configurations. If you see other errors, in either the login terminal or the `Remote-SSH` output window, they could be due to a missing setting.
+
+Contact your system administrator for information about the required settings for your SSH host and client. Specific command-line arguments for connecting to your SSH host can be added to an [SSH config file](https://linux.die.net/man/5/ssh_config).
+
+To access your config file, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`). You can then work with your admin to add the necessary settings.
+
 ### Enabling alternate SSH authentication methods
 
 If you are connecting to an SSH remote host and are either:
@@ -119,7 +154,7 @@ If you are connecting to an SSH remote host and are either:
 - using password authentication,
 - using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible,
 
-you need to enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
+...you need to enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
 
 To avoid reentering your connection information each time, you can enable the `ControlMaster` feature so that OpenSSH runs multiple SSH sessions over a single connection.
 
@@ -191,14 +226,33 @@ SSH can be strict about file permissions and if they are set incorrectly, you ma
 
 ### Local SSH file and folder permissions
 
+**macOS / Linux:**
+
 On your local machine, make sure the following permissions are set:
 
-| Folder / File | Linux / macOS Permissions | Windows Permissions |
-|---------------|---------------------------|---------------------|
-| `.ssh` in your user folder | `chmod 700 ~/.ssh` | Grant `Full Control` to your user, Administrators, and SYSTEM. |
-| `.ssh/config` in your user folder | `chmod 600 ~/.ssh/config` | Grant `Full Control` to your user, Administrators, and SYSTEM. |
-| `.ssh/id_rsa.pub` in your user folder | `chmod 600 ~/.ssh/id_rsa.pub` | Grant `Full Control` to your user, Administrators, and SYSTEM. |
-| Any other key file | `chmod 600 /path/to/key/file` | Grant `Full Control` to your user, Administrators, and SYSTEM.|
+| Folder / File |  Permissions |
+|---------------|---------------------------|
+| `.ssh` in your user folder | `chmod 700 ~/.ssh` |
+| `.ssh/config` in your user folder | `chmod 600 ~/.ssh/config` |
+| `.ssh/id_rsa.pub` in your user folder | `chmod 600 ~/.ssh/id_rsa.pub` |
+| Any other key file | `chmod 600 /path/to/key/file` |
+
+**Windows:**
+
+The specific expected permissions can vary depending on the exact SSH implementation you are using. We strongly recommend using the out of box [Windows 10 OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/). If you are using this official client, cut-and-paste the following in an **administrator PowerShell window** to try to repair your permissions:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+Install-Module -Force OpenSSHUtils -Scope AllUsers
+
+Repair-UserSshConfigPermission ~/.ssh/config
+Get-ChildItem ~\.ssh\* -Include "id_rsa","id_dsa" -ErrorAction SilentlyContinue | % {
+    Repair-UserKeyPermission -FilePath $_.FullName @psBoundParameters
+}
+```
+
+For all other clients, consult **your client's documentation** for what the implementation expects. However, note that not all SSH clients may work.
 
 ### Server SSH file and folder permissions
 
@@ -209,19 +263,7 @@ On the remote machine you are connecting to, make sure the following permissions
 | `.ssh` in your user folder on the server | `chmod 700 ~/.ssh` |
 | `.ssh/authorized_keys` in your user folder on the server  | `chmod 600 ~/.ssh/authorized_keys` |
 
-### Updating permissions on Windows using the command line
-
-If you'd prefer to use the command line to update permissions on Windows, you can use the [`icacls`](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command.
-
-The script below will set your user as the owner, clear out permissions, disable inheritance, and grant the needed permissions:
-
-```bat
-SET FILEORFOLDERTOUPDATE="%USERPROFILE%\.ssh"
-
-icacls "%FILEORFOLDERTOUPDATE%" /c /setowner %USERDOMAIN%\%USERNAME%
-icacls "%FILEORFOLDERTOUPDATE%" /c /reset
-icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%:F SYSTEM:F BUILTIN\Administrators:F
-```
+Note that only Linux hosts are currently supported, which is why permissions for macOS and Windows 10 have been omitted.
 
 ### Installing a supported SSH client
 
@@ -237,8 +279,11 @@ icacls "%FILEORFOLDERTOUPDATE%" /c /inheritance:r /grant %USERDOMAIN%\%USERNAME%
 
 | OS | Instructions | Details |
 |----|--------------|---|
-| Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for additional setup instructions. |
-| RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | You may need to omit `sudo` when running in a container. |
+| Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for details. |
+| RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | See the [RedHat SSH](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-openssh) documentation for details. |
+| SuSE |  In Yast, go to Services Manager, select "sshd" in the list, and click **Enable**. Next go to Firewall, select the **Permanent** configuration, and under services check **sshd**. | See the [SuSE SSH](https://en.opensuse.org/OpenSSH) documentation for details. |
+| Windows | Not supported yet. | |
+| macOS | Not supported yet. | |
 
 ### Resolving hangs when doing a Git push or sync on an SSH host
 
@@ -497,7 +542,7 @@ As a workaround, use your Docker ID to sign into Docker rather than your email.
 
 ### High CPU utilization of Hyperkit on macOS
 
-There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, high CPU usage occuring when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
+There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, high CPU usage occurring when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
 
 ### debconf: delaying package configuration, since apt-utils is not installed
 
@@ -552,6 +597,43 @@ You can see which distributions you have installed by running:
 wslconfig /l
 ```
 
+### Fixing problems with the code-insiders command not working
+
+If typing `code-insiders` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
+
+Check by opening a WSL terminal and typing `echo $PATH`. You should see the following paths listed:
+
+1. `/mnt/c/Windows/System32`
+2. The VS Code Insiders install path. By default, this should be:
+
+    ```bash
+    /mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code Insiders/bin
+    ```
+
+    But, if you installed the **System Installer** version, the install path is:
+
+    ```bash
+    /mnt/c/Program Files/Microsoft VS Code Insiders/bin
+    ```
+
+    ...or...
+
+    ```bash
+    /mnt/c/Program Files (x86)/Microsoft VS Code Insiders/bin
+    ```
+
+If the VS Code Insiders install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
+
+```bash
+WINDOWS_USERNAME="Your Username"
+VSCODE_PATH="/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code Insiders/bin"
+# Use this path if you installed the System Installer version of VS Code Insiders
+# VSCODE_PATH="/mnt/c/Program Files/Microsoft VS Code Insiders/bin"
+export PATH=$PATH:/mnt/c/Windows/System32:${VSCODE_PATH}
+```
+
+> **Note:** Be sure to quote or escape spaces in the directory names.
+
 ### Resolving errors about missing dependencies
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager. For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
@@ -600,67 +682,94 @@ While many extensions will work unmodified, there are a few issues that can prev
 
 VS Code's local user settings are reused when you connect to a remote endpoint. While this keeps your user experience consistent, you may need to vary absolute path settings between your local machine and each host / container / WSL since the target locations are different.
 
-Resolution: You can set endpoint-specific settings after you connect to a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by clicking on the **Remote** tab in the settings editor. These settings will override any local settings you have in place whenever you connect.
+**Resolution:** You can set endpoint-specific settings after you connect to a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by clicking on the **Remote** tab in the settings editor. These settings will override any local settings you have in place whenever you connect.
+
+### Need to install local VSIX on remote endpoint
+
+Sometimes you want to install a local VSIX on a remote machine, either during development or when an extension author asks you to try out a fix.
+
+**Resolution:** Once you have connected to an SSH host, container, or WSL, you can install the VSIX the same way you would locally. Run the **Extensions: Install from VSIX...** command from the Command Palette (`kbstyle(F1)`). You may also want to add `"extensions.autoUpdate": false` to `settings.json` to prevent auto-updating to the latest Marketplace version. See [Supporting Remote Development](/api/advanced-topics/remote-extensions) for more information on developing and testing extensions in a remote environment.
 
 ### Browser does not open locally
 
 Some extensions use external node modules or custom code to launch a browser window. Unfortunately, this may cause the extension to launch the browser remotely instead of locally.
 
-Resolution: The extension can switch to using the `vscode.env.openExternal` API to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**Resolution:** The extension can switch to using the `vscode.env.openExternal` API to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
 
 ### Clipboard does not work
 
 Some extensions use node modules like `clipboardy` to integrate with the clipboard. Unfortunately, this may cause the extension to incorrectly integrate with the clipboard on the remote side.
 
-Resolution: The extension can switch to the VS Code clipboard API to resolve the problem. See the [extension guide](/api/advanced-topics/remote-extensions#using-the-clipboard) for details.
+**Resolution:** The extension can switch to the VS Code clipboard API to resolve the problem. See the [extension guide](/api/advanced-topics/remote-extensions#using-the-clipboard) for details.
 
 ### Cannot access local web server from browser or application
 
 When working inside a container or SSH host, the port the browser is connecting to may be blocked.
 
-Resolution: The extension can switch to the  `vscode.env.openExternal` API (which automatically forwards localhost ports) to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**Resolution:** The extension can switch to the  `vscode.env.openExternal` API (which automatically forwards localhost ports) to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
 
 ### WebView contents do not appear
 
 If the extension's WebView content uses an iframe to connect to a local web server, the port the WebView is connecting to may be blocked.
 
-Resolution: The WebView API now includes a `portMapping` property that the extension can use to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#accessing-localhost) for details.
+**Resolution:** The WebView API now includes a `portMapping` property that the extension can use to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#accessing-localhost) for details.
 
 ### Blocked localhost ports
 
 If you are trying to connect to a localhost port from an external application, the port may be blocked.
 
-Resolution: There currently is no API for extensions to programmatically forward arbitrary ports, but you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...** to do so manually.
+**Resolution:** There currently is no API for extensions to programmatically forward arbitrary ports, but you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...** to do so manually.
 
 ### Errors storing extension data
 
 Extensions may try to persist global data by looking for the `~/.config/Code` folder on Linux. This folder may not exist, which can cause the extension to throw errors like `ENOENT: no such file or directory, open '/root/.config/Code/User/filename-goes-here`.
 
-Resolution: Extensions can use the `context.globalStoragePath` or `context.storagePath` property to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
+**Resolution:** Extensions can use the `context.globalStoragePath` or `context.storagePath` property to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
 
 ### Cannot sign in / have to sign in each time I connect to a new endpoint
 
 Extensions that require sign in may persist secrets using their own code. This code can fail due to missing dependencies. Even if it succeeds, the secrets will be stored remotely, which means you have to sign in for every new endpoint.
 
-Resolution: Extensions can use the `keytar` node module to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
+**Resolution:** Extensions can use the `keytar` node module to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
+
+### An incompatible extension prevents VS Code from connecting
+
+If an incompatible extension has been installed on a remote host, container, or in WSL, we have seen instances where the VS Code Server hangs or crashes due to the incompatibility. If the extension activates right away, this can prevent you from connecting and being able to uninstall the extension.
+
+**Resolution:** Manually delete the remote extensions folder by following these steps:
+
+1. For containers, ensure your `devcontainer.json` no longer includes a reference to the faulty extension.
+
+2. Next, use a separate terminal / command prompt to connect to the remote host, container, or WSL.
+
+   - If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
+   - If using a container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
+
+3. Once you are connected, run `rm -rf ~/.vscode-remote/extensions` to remove all extensions.
 
 ### Extensions that ship or acquire pre-built native modules fail
 
 Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
 
-Resolution: Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
+**Resolution:** Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
+
+### Extensions fail due to missing modules
+
+Extensions that rely on Electron or VS Code base modules (not exposed by the extension API) without providing a fallback can fail when running remotely. You may see errors in the Developer Tools console like `original-fs` not being found.
+
+**Resolution:** Remove the dependency on an Electron module or provide a fallback. See the [extension guide](/api/advanced-topics/remote-extensions#avoid-using-electron-modules) for details.
 
 ### Cannot access / transfer remote workspace files to local machines
 
 Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files.
 
-Resolution: We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem.
+**Resolution:** None currently. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem.
 
 ### Cannot access attached device from extension
 
 Extensions that access locally attached devices will be unable to connect to them when running remotely.
 
-Resolution: We are investigating the best approach to solve this problem.
+**Resolution:** None currently. We are investigating the best approach to solve this problem.
 
 ## Questions and feedback
 

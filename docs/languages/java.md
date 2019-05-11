@@ -17,6 +17,8 @@ The Java support in Visual Studio Code is provided through a wide range of [exte
 - Provides great microservices support including popular framework, container tooling and cloud integration
 - Improves your productivity through smartness and collaboration features
 
+Before you begin, you must have the Java SE Development Kit (JDK) on your local environment. Visual Studio Code works with all major Java versions up to 12. See [Java Tutorial](/docs/java/java-tutorial.md) for more detailed installation guides.
+
 This article will give you an overview of different capabilities of Visual Studio Code for Java developers. For a quick walkthrough of editing, running, and debugging a Java program with Visual Studio Code, see the [Java Tutorial](/docs/java/java-tutorial).
 
 > [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, macOS, Linux).
@@ -121,6 +123,8 @@ See [Tomcat and Jetty Support](/docs/java/java-tomcat-jetty.md) to learn more ab
 See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more about Spring Boot support with VS Code.
 
 ## Next steps
+
+You may [Sign up](https://devblogs.microsoft.com/visualstudio/java-on-visual-studio-code-april-update#signup) to follow the latest of Java on Visual Studio Code.
 
 Learn more about Java in VS Code
 

@@ -1,15 +1,15 @@
 ---
 Order: 3
 Area: java
-TOCTitle: Debugging
+TOCTitle: Running and Debugging
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
-PageTitle: Java Debug in Visual Studio Code
+PageTitle: Run and Debug Java in Visual Studio Code
 DateApproved: 1/2/2019
-MetaDescription: See how you can debug your Java code locally, and in the cloud.
+MetaDescription: See how you can run and debug your Java source code locally, and in the cloud.
 MetaSocialImage:
 ---
 
-# Debugging Java in Visual Studio Code
+# Running and Debugging Java
 
 Visual Studio Code allows you to debug Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension. It's a lightweight Java debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug), which extends the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java).
 
@@ -31,6 +31,10 @@ The Java debugger is an open-source project, which welcomes contributors to coll
 
 - [Debugger for Java Extension](https://github.com/Microsoft/vscode-java-debug)
 - [Java Debugger Server for Visual Studio Code](https://github.com/Microsoft/java-debug)
+
+If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
+
+<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'debugging')" href="javascript:void(0)">Report an issue</a>
 
 ## Install
 
@@ -169,6 +173,11 @@ Below are all the configurations available for `Launch` and `Attach`, for more i
   - `internalConsole` - VS Code debug console (input stream not supported).
   - `integratedTerminal` - VS Code integrated terminal.
   - `externalTerminal` - External terminal that can be configured in user settings.
+- `shortenCommandLine` - When the project has long classpath or big VM arguments, the command line to launch the program may exceed the maximum command line string limitation allowed by the OS. This configuration item provides multiple approaches to shorten the command line. Defaults to `auto`.
+  - `none` - Launch the program with the standard command line 'java [options] classname [args]'.
+  - `jarmanifest` - Generate the classpath parameters to a temporary classpath.jar file, and launch the program with the command line 'java -cp classpath.jar classname [args]'.
+  - `argfile` - Generate the classpath parameters to a temporary argument file, and launch the program with the command line 'java @argfile [args]'. This value only applies to Java 9 and higher.
+  - `auto` - Automatically detect the command line length and determine whether to shorten the command line via an appropriate approach.
 - `stepFilters` - Skip specified classes or methods when stepping.
   - `classNameFilters` - Skip the specified classes when stepping. Class names should be fully qualified. Wildcard is supported.
   - `skipSynthetics` - Skip synthetic methods when stepping.
@@ -181,7 +190,7 @@ Below are all the configurations available for `Launch` and `Attach`, for more i
 - `port` (required) - The debug port of remote debuggee.
 - `timeout` - Time out value before reconnecting, in milliseconds (default to 30000 ms).
 - `sourcePaths` - The extra source directories of the program. The debugger looks for source code from project settings by default. This option allows the debugger to look for source code in extra directories.
-- `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. It is required when the workspace has multiple java projects, otherwise the expression evaluation and conditional breakpoint may not work.
+- `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. It is required when the workspace has multiple Java projects, otherwise the expression evaluation and conditional breakpoint may not work.
 - `stepFilters` - Skip specified classes or methods when stepping.
   - `classNameFilters` - Skip the specified classes when stepping. Class names should be fully qualified. Wildcard is supported.
   - `skipSynthetics` - Skip synthetic methods when stepping.
@@ -192,8 +201,9 @@ Below are all the configurations available for `Launch` and `Attach`, for more i
 
 - `java.debug.logLevel`: minimum level of debugger logs that are sent to VS Code, defaults to `warn`.
 - `java.debug.settings.showHex`: show numbers in hex format in "Variables" viewlet, defaults to `false`.
-- `java.debug.settings.showStaticVariables`: show static variables in "Variables" viewlet, defaults to `true`.
+- `java.debug.settings.showStaticVariables`: show static variables in "Variables" viewlet, defaults to `false`.
 - `java.debug.settings.showQualifiedNames`: show fully qualified class names in "Variables" viewlet, defaults to `false`.
+- `java.debug.settings.showLogicalStructure`: show the logical structure for the Collection and Map classes in "Variables" viewlet, defaults to `true`.
 - `java.debug.settings.maxStringLength`: the maximum length of string displayed in "Variables" or "Debug Console" viewlet, the string longer than this length will be trimmed, defaults to `0` which means no trim is performed.
 - `java.debug.settings.enableHotCodeReplace`: enable hot code replace for Java code. Make sure the auto build is not disabled for [VSCode Java](https://github.com/redhat-developer/vscode-java). See the [wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
 - `java.debug.settings.enableRunDebugCodeLens`: enable the CodeLens provider for the run and debug buttons over main entry points, defaults to `true`.

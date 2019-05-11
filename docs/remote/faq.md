@@ -9,7 +9,11 @@ DateApproved: 5/2/2019
 ---
 # Remote Development FAQ
 
-This article covers frequently asked questions for each of the Visual Studio Code Remote Development extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities.
+❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+
+---
+
+This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities.
 
 ## General
 
@@ -43,9 +47,17 @@ Visual Studio Code Remote Development uses existing, well known transports like 
 
 The VS Code Server that is injected runs as the same user you used to sign into the machine, ensuring that VS Code and its extensions are not given improper elevated access without permission. The server is started and stopped by VS Code and is not wired into any user or global login or startup scripts. VS Code manages the server's lifecycle so you do not need to worry about whether or not it is running.
 
-### Can the VS Code Server be installed or used on its own?
+### Can VS Code Server be installed or used on its own?
 
-No. The VS Code Server is a component of the Remote Development extensions and is managed by a VS Code client. It is installed and updated automatically by VS Code when it connects to an endpoint and is not intended or [licensed](https://go.microsoft.com/fwlink/?linkid=2077057) for use by other clients.
+No. The VS Code Server is a component of the Remote Development extensions and is managed by a VS Code client. It is installed and updated automatically by VS Code when it connects to an endpoint and if installed separately could become quickly out of date. It is not intended or [licensed](#license-and-privacy) for use by other clients.
+
+### Are there any plans to introduce a Web UI based on VS Code Server?
+
+Yes, we [announced a new web companion called Visual Studio Online](https://aka.ms/vsfutures) at //build 2019.
+
+### Will there be a service to host managed VS Code development environments in the cloud?
+
+Yes, we [announced a cloud-hosted environments service](https://aka.ms/vsfutures) at //build 2019.
 
 ### What are the connectivity requirements for VS Code Server?
 
@@ -105,7 +117,7 @@ When VS Code connects to a remote environment, extensions are classified as eith
 
 When a user installs an extension, VS Code attempts to infer the correct location and install it based on its type. Extensions that do not need to run remotely like themes and other UI customizations are automatically installed on the UI side. All others are treated as Workspace extensions since they are the most full-featured. However, extension authors can also override this location with an `extensionKind` property in `package.json`.
 
-See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md)for additional details.
+See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for additional details.
 
 ## License and privacy
 
@@ -119,19 +131,31 @@ You can find the licenses for the VS Code Remote Development extensions here:
 
 ### Why aren't the Remote Development extensions using the MIT License?
 
-The VS Code Remote Development extensions are available under Microsoft pre-release licenses, similar to other service-based extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license). A Microsoft license (instead of MIT, for example) makes it easier for us to license certain features of the product, such as access to the Visual Studio Marketplace (section 1.d), the re-licensing of third-party components (section 1.c), and telemetry data (section 4).
+The VS Code Remote Development extensions are available under Microsoft pre-release licenses, similar to other service-based extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license). This is because the VS Code Remote extensions are also used in fully managed remote development services like [those announced at //build 2019](https://aka.ms/vsfutures). A Microsoft license (instead of MIT, for example) makes it easier for us to license certain features of the product, such as access to the Visual Studio Marketplace (section 1.d), the re-licensing of third-party components (section 1.c), and telemetry data (section 4).
 
 ### Why aren't the Remote Development extensions or their components open source?
 
-The Visual Studio Code Remote Development extensions and their related components will use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open-source. As with other service-based extensions such as [Visual Studio LiveShare](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) and [IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode), we have made the decision to keep them closed source.
+The Visual Studio Code Remote Development extensions and their related components will use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open-source. As with other service-based extensions such as [Visual Studio LiveShare](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) and [IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode), we have made the decision to keep them closed source. This is because the VS Code Remote extensions are also used in fully managed remote development services like [those announced at //build 2019](https://aka.ms/vsfutures).
 
 ### Will you charge for the extensions once they exit "Preview"?
 
 No, they will remain free of charge. In the future, we may provide "premium" developer services, which provide additional functionality, but the extensions will be free.
 
-### Can I host the VS Code Server in my Service?
+### Are there any restrictions on where the Remote Development extensions can connect?
 
-No. The extensions will automatically install the proper version of the server in the host (based on commit) so you cannot pre-install the server as it would quickly become out of sync with the extensions. Furthermore, the license states that you may not "provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use" which means you are not permitted to use the Remote Development extensions with a hosted development offering. You are free to use the Remote Development extensions with personal or work computers, internally hosted Virtual Machines, or Container instances as long as you do not expose the services as a publicly available development offering.
+You are free to use the extensions for both personal or corporate use to connect to your own physical machines, virtual machines, or containers. These can be on-premise, in your own private cloud or datacenter, in Azure, or other cloud/non-cloud hosting providers. You cannot build public products or services on top of the extensions or their related components (see next question).
+
+### Can I use the VS Code Remote Development extensions to build my own product or service?
+
+You can use the extensions with your own internal or private services. You cannot build a public or commercial service on top of the VS Code Remote Development extensions or their related components (e.g. VS Code Server). You cannot create other extensions that extend or manipulate the Remote Development extensions. While the license states you may not “provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use”, you can document how to use the extensions in conjunction with your service.
+
+### Can I repackage or reuse VS Code Server in my own public service offering?
+
+No. The license states that you may not “provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use” which means you may not build public products or services on top of the VS Code Server.
+
+### I have a question about whether I can use the extensions for X, who can I ask?
+
+Please email us at [VSCode@microsoft.com](mailto:VSCode@microsoft.com) with any questions you may have.
 
 ### GDPR and VS Code Remote Development
 

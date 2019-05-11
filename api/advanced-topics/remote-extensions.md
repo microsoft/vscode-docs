@@ -7,7 +7,11 @@ MetaDescription: A guide to adding Visual Studio Code Remote Development support
 ---
 # Supporting Remote Development
 
-[Visual Studio Code Remote Development](/docs/remote/remote-overview) allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). This means you can use the same VS Code extensions you love even while working in remote workspaces.
+❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+
+---
+
+**[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). This means you can use the same VS Code extensions you love even while working in remote workspaces.
 
 This article summarizes what extension authors need to know about VS Code Remote Development. This includes the [VS Code Remote Development extension architecture](#architecture-and-extension-types), how to [test your extension](#testing-and-debugging-your-extension) in remote workspaces, and recommendations on [what to do if your extension does not work properly when being run remotely](#common-problems). While many extensions will work in remote workspaces without any modifications, you may need to make changes so that your extension works properly in all environments, although these changes are often fairly minor.
 
@@ -31,14 +35,15 @@ This section explains how to test and debug a development version of your extens
 
 ### Installing a development version of your extension
 
-Currently, anytime VS Code automatically installs an extension on an SSH host or inside a container or WSL, the Marketplace version is used (and not the version already installed on your local machine). While this makes sense in most situations, you may want to use an unpublished version of your extension for testing. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into a VS Code window that is already connected to a running remote environment.
+Currently, any time VS Code automatically installs an extension on an SSH host or inside a container or WSL, the Marketplace version is used (and not the version already installed on your local machine). While this makes sense in most situations, you may want to use an unpublished version of your extension for testing. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into a VS Code window that is already connected to a running remote environment.
 
 Follow these steps:
 
-1. Use `vsce package` to package your extension as a VSIX.
-2. Connect to a [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
-3. Use the **Install from VSIX...** command available in the Extensions view **More Actions** (`...`) menu to install the extension in this specific window (not a local one).
-4. Reload when prompted.
+1. If this is a published extension, you may want to add `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest Marketplace version.
+2. Next, use `vsce package` to package your extension as a VSIX.
+3. Connect to a [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
+4. Use the **Install from VSIX...** command available in the Extensions view **More Actions** (`...`) menu to install the extension in this specific window (not a local one).
+5. Reload when prompted.
 
 > **Tip:** Once installed, you can use the **Developer: Show Running Extensions** command to see whether VS Code is running the extension locally or remotely.
 
@@ -54,7 +59,9 @@ You can edit and debug your extension in a container by following these steps.
 
 2. After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the in-depth [Containers](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container) documentation for details.
 
-3. Edit your `launch.json` to add a second argument to the `args` property that points to the path of a test project or your test data in your workspace folder or that will be in the container when it starts. (Note: You cannot use the workspace folder itself.) By default, the user's home folder (`$HOME`) is used. For example, if your test data is in a `data` folder in your workspace, you would add `${workspaceFolder}/data` as follows:
+3. **[Optional]** Edit your `launch.json` to add a second argument to the `args` property that points to the path of a test project / test data in your workspace folder or another path inside the container. For example, if your test data is in a `data` folder in your workspace, you would add `${workspaceFolder}/data` as follows:
+
+    > **Note:** You **cannot** use `${workspaceFolder}` alone for this second argument.
 
     ```json
     {
@@ -63,12 +70,12 @@ You can edit and debug your extension in a container by following these steps.
         "request": "launch",
         "runtimeExecutable": "${execPath}",
         "args": [
-            "--extensionDevelopmentPath=${workspaceRoot}",
+            "--extensionDevelopmentPath=${workspaceFolder}",
             "${workspaceFolder}/data"
         ],
         "stopOnEntry": false,
         "sourceMaps": true,
-        "outFiles": ["${workspaceRoot}/dist/**/*.js"],
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
         "preLaunchTask": "npm"
     }
     ```
@@ -354,6 +361,28 @@ To solve this problem:
 2. Check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in your activation function to set up the correct binaries based on whether the extension is running remotely or locally.
 
 You can find the "modules" version VS Code uses by going to **Help > Developer Tools** and typing `process.versions.modules` in the console. However, to make sure native modules work seamlessly in different Node.js environments, you may want to compile the native modules against all possible Node.js "modules" versions and platforms you want support (Electron Node.js, official Node.js Windows/Darwin/Linux, all versions). The [node-tree-sitter](https://github.com/tree-sitter/node-tree-sitter/releases/tag/v0.14.0) module is a good example of a module that does this well.
+
+## Avoid using Electron modules
+
+While it can be convenient to rely on built-in Electron or VS Code modules not exposed by the extension API, it's important to note that VS Code Server runs a standard (non-Electron) version of Node.js. These modules will be missing when running remotely. There are a few exceptions, [like `keytar`](#persisting-secrets), where there is specific code in place to make them work.
+
+You should use base Node.js modules or modules in your extension VSIX to avoid these problems. If you absolutely have to use an Electron module, be sure to have a fallback if the module is missing.
+
+The example below will use the Electron `original-fs` node module if found, and fall back to the base Node.js `fs` module if not.
+
+```typescript
+function requireWithFallback(electronModule: string, nodeModule: string) {
+    try {
+        return require(electronModule);
+    }
+    catch (err) { }
+    return require(nodeModule);
+}
+
+const fs = requireWithFallback('original-fs', 'fs');
+```
+
+Try to avoid these situations whenever possible.
 
 ## Known issues
 

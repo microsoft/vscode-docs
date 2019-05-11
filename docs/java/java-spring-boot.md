@@ -16,9 +16,14 @@ Visual Studio Code is an ideal lightweight development environment for Spring Bo
 * [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 * [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
+If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
+
+<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'springboot')" href="javascript:void(0)">Report an issue</a>
+
 ## Prerequisites
 
-A working Java environment with essential extensions installed is needed, including
+A working Java environment with essential extensions installed is needed, including:
+
 * [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/), version 1.8.
 * [Apache Maven](https://maven.apache.org/), version 3.0 or later.
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)

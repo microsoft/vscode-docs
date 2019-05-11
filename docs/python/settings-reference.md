@@ -192,7 +192,7 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 
 ### UnitTest framework
 
-| Setting<br/>(python.unitTest.) | Default | Description | See also |
+| Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | unittestEnabled | `false` | Specifies whether UnitTest is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md)  |
 | unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each top-level element that's separated by a space is a separate item in the list. | [Unit testing](/docs/python/unit-testing.md) |
@@ -204,7 +204,7 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 
 ### PyTest framework
 
-| Setting<br/>(python.unitTest.) | Default | Description | See also |
+| Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | pyTestEnabled | `false` | Specifies whether pytest is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md) |
 | pyTestPath | `"py.test"` | Path to pytest. Use a full path if pytest is located outside the current environment. | [Unit testing](/docs/python/unit-testing.md) |
@@ -212,7 +212,7 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 
 ### Nose framework
 
-| Setting<br/>(python.unitTest.) | Default | Description | See also |
+| Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | nosetestsEnabled | `false` | Specifies whether Nose  is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md) |
 | nosetestPath | `"nosetests"` | Path to Nose. Use a full path if PyTest is located outside the current environment. | [Unit testing](/docs/python/unit-testing.md) |

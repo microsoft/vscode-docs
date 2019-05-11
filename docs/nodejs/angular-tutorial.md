@@ -52,7 +52,7 @@ code .
 
 ### Syntax highlighting and bracket matching
 
-Now expand the `src\app` folder and select the `app.component.ts` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parentheses, the matching bracket is also selected.
+Now expand the `src\app` folder and select the `app.component.ts` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parenthesis, the matching bracket is also selected.
 
 ![angular bracket matching](images/angular/bracket-matching.png)
 
@@ -172,7 +172,7 @@ If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack exam
 
 ## Angular Extensions
 
-In addition to the functionality VS Code provides out of the box, you can install VS Code extensions for greater functionality.
+In addition to the functionality, VS Code provides out of the box, you can install VS Code extensions for greater functionality.
 
 <div class="marketplace-extensions-angular-curated"></div>
 

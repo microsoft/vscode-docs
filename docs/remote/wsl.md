@@ -9,6 +9,10 @@ DateApproved: 5/2/2019
 ---
 # Developing in WSL
 
+❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](http://code.visualstudio.com/insiders)**.
+
+---
+
 The **Visual Studio Code Remote - WSL** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as your full-time development environment right from VS Code. You can develop in a Linux-based environment, use Linux specific toolchains and utilities, and run and debug your Linux-based applications all from the comfort of Windows.
 
 The extension runs commands and other extensions directly in WSL so you can edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges.
@@ -29,6 +33,8 @@ To get started you need to:
 
 2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) on the **Windows** side (not in WSL).
 
+    > **Note:** When prompted to **Select Additional Tasks** during installation, be sure to check the **Add to PATH** option so you can easily open a folder in WSL using the `code-insiders` command.
+
 3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
 4. Consider disabling automatic line ending conversion for Git on the **Windows side** by using a command prompt to run: `git config --global core.autocrlf false` If left enabled, this setting can cause files that you have not edited to appear modified due to line ending differences. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
@@ -42,6 +48,8 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 2. Navigate to a folder you'd like to open in VS Code (including, but not limited to, Windows filesystem mounts like `/mnt/c`)
 
 3. Type **`code-insiders .`** in the terminal. When doing this for the first time, you should see VS Code fetching components needed to run in WSL. This should only take short while, and is only needed once.
+
+    > **Note:** If this command does not work, you may not have added VS Code to your path when it was installed. Instead, start VS Code, press `kbstyle(F1)`, select **Remote-WSL: New Window**, and use the File menu to open your folder.
 
 4. After a moment, a new VS Code window will appear, and you'll see a notification that VS Code is opening the folder in WSL.
 
@@ -135,11 +143,13 @@ Firebase via node unusably slow only on WSL | [Microsoft/WSL#2657](https://githu
 
 ### Git limitations
 
-If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use a SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
 ### Docker Extension limitations
 
-The Docker extension is configured to run as a local "UI" extension that runs on the Windows side by default. This enables the extension to work with your local Docker installation when you are developing inside a container. However, some Docker commands invoked from the Docker extension can fail from a WSL window. If you want the Docker extension to interact with an installed Docker CLI in WSL instead, add the following to `settings.json`:
+The Docker extension is configured to run as a local "UI" extension that runs on the Windows side by default. This enables the extension to work with your local Docker installation when you are developing in WSL or [inside a container](/docs/remote/containers.md) since the Docker CLI is not available by default in these environments. However, commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail.
+
+Fortunately, if you've [installed the Docker CLI in WSL and configured it to work with your local Docker host](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly), you can install the Docker extension inside WSL to solve this problem. Just add the following to `settings.json`:
 
 ```json
 "remote.extensionKind": {
@@ -175,7 +185,7 @@ Some extensions rely on libraries not found in the vanilla install of certain WS
 
 ### What are the connectivity requirements for the VS Code Server when it is running in WSL?
 
-The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through am authenticated, random, local TCP port.
+The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, random, local TCP port.
 
 ### As an extension author, what do I need to do?
 
