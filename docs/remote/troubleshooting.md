@@ -115,7 +115,7 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
         IdentityFile C:\path\to\your\exported\private\keyfile
     ```
 
-### Troubleshooting hanging connections
+### Troubleshooting hanging or failing connections
 
 If you are running into problems with VS Code hanging while trying to connect (and potentially timing out), there are a few things you can do to try to resolve the issue.
 

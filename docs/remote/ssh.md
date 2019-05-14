@@ -57,7 +57,7 @@ To get started, follow these steps:
 
 3. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up to date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
 
-    > **Note:** If your connection is hanging, you may need to enable TCP forwarding or respond to a server prompt. See [tips and tricks](/docs/remote/troubleshooting.md#troubleshooting-hanging-connections) for details.
+    > **Note:** If your connection is hanging, you may need to enable TCP forwarding or respond to a server prompt. See [tips and tricks](/docs/remote/troubleshooting.md#troubleshooting-hanging-or-failing-connections) for details.
 
 4. After you are connected, you'll be in an empty window. You can then open a folder or workspace on the remote machine using **File > Open...** or **File > Open Workspace...**
 
