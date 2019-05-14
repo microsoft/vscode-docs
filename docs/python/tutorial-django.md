@@ -142,7 +142,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
         return HttpResponse("Hello, Django!")
     ```
 
-1. Create a file, `hello/urls.py`, with the contents below. The `urls.py` file is where you specify patterns to route different URLs to their appropriate views. The code below contains one route to map root URL of the app (`""`) to the `view.home` function that you just added to `hello/views.py`:
+1. Create a file, `hello/urls.py`, with the contents below. The `urls.py` file is where you specify patterns to route different URLs to their appropriate views. The code below contains one route to map root URL of the app (`""`) to the `views.home` function that you just added to `hello/views.py`:
 
     ```python
     from django.urls import path
