@@ -325,7 +325,7 @@ COPY settings.vscode.json /root/.vscode-remote/data/Machine/settings.json
 
 There are a few different ways VS Code Remote - Containers can be used to develop an application inside a fully containerized environment. In general, there are two primary scenarios that drive interest in this development style:
 
-* [Stand-Alone Dev Sandboxes](#working-with-a-developer-sandbox): You may not be deploying your application into a containerized environment but still want to isolate your build and runtime environment from your local OS or develop in an environment that is more representative of production. For example, you may be running code on your local macOS or Windows machine that will ultimately be deployed to a Linux VM or server.
+* [Stand-Alone Dev Sandboxes](#working-with-a-developer-sandbox): You may not be deploying your application into a containerized environment but still want to isolate your build and runtime environment from your local OS or develop in an environment that is more representative of production. For example, you may be running code on your local macOS or Windows machine that will ultimately be deployed to a Linux VM or server. You can reference an existing [image](#using-an-existing-container-image) or a [Dockerfile](#using-a-dockerfile) for this purpose.
 
 * **Container Deployed Applications**: You deploy your application into one or more containers and would like to work locally in the containerized environment. VS Code currently supports working with container-based applications defined in a number of ways:
 
@@ -366,9 +366,27 @@ For example:
 }
 ```
 
-See the [devcontainer.json reference](#devcontainerjson-reference) for information on other available properties such as the `appPort` and `extensions` list.
+See the [devcontainer.json reference](#devcontainerjson-reference) for information on other available properties such as the `appPort`, `runArgs`, and `extensions` list.
 
-To open the folder in the container, run the **Remote-Containers: Open Folder in Container** or **Remote: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`). Once the container has been created, the **local filesystem will be automatically mapped** into the container and you can start working with it from VS Code.
+To open the folder in the container, run the **Remote-Containers: Open Folder in Container** or **Remote: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`).
+
+Once the container has been created, the **local filesystem will be automatically mapped** into the container and you can start working with it from VS Code. You can also add additional local mount points to give your container access to other locations. The example below mounts your home / user profile folder into the container using the `runArgs` property and local environment variables:
+
+```json
+{
+    "name": "My Project",
+    "image": "microsoft/dotnet:sdk",
+    "appPort": 8090,
+    "extensions": [
+        "ms-vscode.csharp"
+    ],
+    "runArgs": [
+        "-v", "${env:HOME}${env:USERPROFILE}:/host-home-folder"
+    ]
+}
+```
+
+After making edits, you can run the **Remote-Containers: Rebuild Container** command cause the updated settings to take effect.
 
 ### Installing additional software in the sandbox
 
@@ -395,9 +413,9 @@ To create a customized sandbox or application in a single container, you can use
 
 > **Note:** Alpine Linux and Windows based containers are not currently supported.
 
-You may want to install other tools such as Git inside the container, which you can easily [do manually](#installing-additional-software-in-the-sandbox). However, you can also create a custom `Dockerfile` specifically for development that includes these dependencies. The [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) contains examples you can use as a starting point.
+You may want to install other tools such as Git inside the container, which you can easily [do manually](#installing-additional-software-in-the-sandbox). However, you can also create a custom Dockerfile specifically for development that includes these dependencies. The [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) contains examples you can use as a starting point.
 
-You can use the `dockerFile` property in `.devcontainer/devcontainer.json` to configure VS Code for use with your `Dockerfile`.
+You can use the `dockerFile` property in `.devcontainer/devcontainer.json` to specify the path to a custom `Dockerfile` and take advantage of all the same properties available in the `image` case.
 
 For example:
 
@@ -413,7 +431,7 @@ For example:
 }
 ```
 
-See the [devcontainer.json reference](#devcontainerjson-reference) for information on other available properties such as `appPort`, the `extensions` list, and `postCreateCommand`.
+See the [devcontainer.json reference](#devcontainerjson-reference) for information on other available properties such as `appPort`, `runArgs`, the `extensions` list, and `postCreateCommand`.
 
 The example below uses `runArgs` to change the security policy to enable the ptrace system call for a Go development container:
 
@@ -586,6 +604,8 @@ The following are dev container definitions that use Docker Compose:
 * [Python & PostgreSQL](https://aka.ms/vscode-remote/samples/python-postgresl) -  A Python container that connects to PostGreSQL in a different container.
 
 * [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
+
+## Advanced Configuration
 
 ### Using Docker or Kubernetes from a container
 
