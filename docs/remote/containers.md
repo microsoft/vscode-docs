@@ -605,7 +605,7 @@ The following are dev container definitions that use Docker Compose:
 
 * [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
 
-## Advanced Configuration
+## Advanced configuration
 
 ### Using Docker or Kubernetes from a container
 
@@ -621,6 +621,83 @@ See the following examples dev containers for additional information:
 
 * [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Includes the Docker CLI, kubectl, and Helm and illustrates how you can use them from inside a dev container to access a local Minikube or Docker provided Kubernetes cluster.
 
+### Connecting to multiple containers at once
+
+Currently you can only connect to one container per VS Code window. However, you can spin up multiple VS Code windows [attach to them](#attaching-to-running-containers).
+
+If you'd prefer to use `devcontainer.json` instead and are using Docker Compose, you can setup separate  `.devcontainer` folders for each service in your source tree that point to a common `docker-compose.yml`. VS Code will actually attach to running containers if they are already up when you open a folder in a container which allows this approach to work.
+
+To see how this works, consider this extremely simplified source tree:
+
+```text
+📁container1-src
+     📄.devcontainer.json
+     📄hello.go
+📁container2-src
+     📄.devcontainer.json
+     📄hello.js
+📄docker-compose.yml
+```
+
+Next, assume the `docker-compose.yml` in the root is as follows:
+
+```yml
+version: '3'
+services:
+  container-1:
+    image: ubuntu:bionic
+    volumes:
+      - ./container-1-src:/workspace
+      - ~/.gitconfig:/root/.gitconfig
+    command: sleep infinity
+    links:
+      - container-2
+
+  container-2:
+    image: ubuntu:bionic
+    volumes:
+      - ./container-2-src:/workspace
+      - ~/.gitconfig:/root/.gitconfig
+    command: sleep infinity
+```
+
+You can then set up `container1-src/.devcontainer.json` for Go development as follows:
+
+```json
+{
+    "name": "Container 1",
+    "dockerComposeFile": ["../docker-compose.yml"],
+    "service": "container-1",
+    "workspaceFolder": "/workspace",
+    "extensions": ["ms-vscode.Go"],
+    "shutdownAction": "none"
+}
+```
+
+Next, you can `container2-src/.devcontainer.json` for Node.js development as follows:
+
+```json
+{
+    "name": "Container 2",
+    "dockerComposeFile": ["../docker-compose.yml"],
+    "service": "container-2",
+    "workspaceFolder": "/workspace",
+    "extensions": ["dbaeumer.vscode-eslint"],
+    "shutdownAction": "none"
+}
+```
+
+The `"shutdownAction":"none"` in the `devcontainer.json` files will leave the containers running even if you close the two VS Code windows -- which prevents you from accidentally shutting down both containers (and thus both windows stop working) by closing one.  This part is optional.
+
+
+To connect to both:
+1. <kbd>F1</kbd> > **Remote-Containers: Open Folder in Container...** and select the `container1-src` folder.
+2. VS Code will then start up both containers, connect this window to service `container-1`, and install the Go extension.
+3. Next, **File > New Window**
+4. In the new Window, <kbd>F1</kbd> > **Remote-Containers: Open Folder in Container...** and select the `container2-src` folder.
+5. VS Code will then connect to the already running `container-2` and install the ESLint extension.
+
+
 ### Using SSH to connect to a remote Docker host
 
 Occasionally you may want to use the Remote - Containers extension to develop inside a container that sits on remote server. While we are looking at ways to optimize this experience, this section will outline how you can achieve this today by attaching to a remote container or using Docker Compose.
@@ -634,22 +711,24 @@ A more secure way is to use a SSH tunnel to access the Docker socket as needed. 
 On **macOS / Linux**:
 
 ```bash
-ssh -NL localhost:23750:/var/run/docker.sock user@hostname &
 export DOCKER_HOST=localhost:23750
 code-insiders
+ssh -NL localhost:23750:/var/run/docker.sock user@hostname
 ```
 
 On **Windows**:
 
 ```bat
-START ssh -NL localhost:23750:/var/run/docker.sock user@hostname
 SET DOCKER_HOST=localhost:23750
 code-insiders
+ssh -NL localhost:23750:/var/run/docker.sock user@hostname
 ```
 
 Note that you may need to [enable `AllowStreamLocalForwarding` in your SSH server's sshd config](https://www.ssh.com/ssh/tunneling/example) for this to work.
 
-At this point, you can [attach to any running container](#attaching-to-running-containers) on the remote host from inside the VS Code instance that was started. Once you are done, you can just shut down the `ssh` process to terminate the tunnel. The environment variables that were set are not global, so you can just bounce VS Code to start working with your local Docker install instead.
+At this point, you can [attach to any running container](#attaching-to-running-containers) on the remote host from inside the VS Code instance that was started.
+
+Once you are done, press `kbstyle(Ctrl+C)` in the terminal / command prompt to close the tunnel. The environment variables that were set are not global, so you can just bounce VS Code to start working with your local Docker install instead.
 
 **Using devcontainer.json to work with a remote dev container**
 
@@ -749,17 +828,19 @@ services:
 
 **[Optional] Making the remote source code available locally**
 
-If you store your code in the remote filesystem instead of inside a Docker volume, you can also access the remote code from your local machine using [SSHFS](https://en.wikipedia.org/wiki/SSHFS). You can install SSHFS as follows:
+If you store your code in the remote filesystem instead of inside a Docker volume, you can also access the remote code from your local machine using [SSHFS](https://en.wikipedia.org/wiki/SSHFS). You can install SSHFS locally as follows:
 
-* macOS using [Homebrew](https://brew.sh/): `brew install sshfs`
-* Linux using the native package manager. For Debian/Ubuntu: `sudo apt-get install sshfs`
-* Windows using [Chocolaty](https://chocolatey.org/): `choco install sshfs`
+- macOS using [Homebrew](https://brew.sh/): `brew install sshfs`
+- Linux using the native package manager. For Debian/Ubuntu: `sudo apt-get install sshfs`
+- Windows using [Chocolaty](https://chocolatey.org/): `choco install sshfs`
 
 To mount the remote filesystem on **macOS or Linux**, run the following from a local terminal replacing `user@hostname` with the remote user and hostname / IP:
 
 ```bash
 export USER_AT_HOST=user@hostname
-sshfs '$USER_AT_HOST:' '$HOME/sshfs' -ovolname='$USER_AT_HOST' -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
+
+mkdir -p "$HOME/sshfs/$USER_AT_HOST"
+sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
 ```
 
 While this command is active, the remote machine will be available at `~/sshfs`.
@@ -770,13 +851,13 @@ On **Windows**, run the following from the command prompt replacing `user@hostna
 net use /PERSISTENT:NO X: \\sshfs\user@hostname
 ```
 
-The remote machine will be available at `X:`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking  Disconnect.
+The remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking Disconnect.
 
-Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way will be very slow and can cause unforseen problems.
+Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way will be very slow and can cause unforseen problems. You can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [Accessing your remote source code locally](/docs/remote/troubleshooting.md#accessing-your-remote-source-code-locally) for details on setting this up.
 
 **[Optional] Storing your remote devcontainer.json files on the server**
 
-You can actually store your remote connection `.devcontainer` files on the remote server and access them via SSHFS. Imagine you had the following folder tree on the remote machine:
+Finally, you can combine the techniques above to store your remote connection `.devcontainer` files on the remote server. This allows you to connect to it from any machine and spin up a remote dev container. Imagine you had the following folder tree on the remote machine:
 
 ```text
 📁 /home/your-user-name
@@ -793,20 +874,25 @@ On **Linux/macOS**:
 
 ```bash
 export USER_AT_HOST=user@hostname
-sshfs '$USER_AT_HOST:' '$HOME/sshfs' -ovolname='$USER_AT_HOST' -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C &
-ssh -NL localhost:23750:/var/run/docker.sock $USER_AT_HOST &
+export REMOTE_CFG_PATH="repos/your-repository-here/.remote"
+
+mkdir -p "$HOME/sshfs/$USER_AT_HOST"
+sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
 export DOCKER_HOST=localhost:23750
-code-insiders '$HOME/sshfs/$USER_AT_HOST/repos/your-repository-here/.remote'
+code-insiders "$HOME/sshfs/$USER_AT_HOST/$REMOTE_CFG_PATH"
+ssh -NL localhost:23750:/var/run/docker.sock $USER_AT_HOST
 ```
 
 On **Windows**:
 
 ```bat
 SET USER_AT_HOST=user@hostname
+SET REMOTE_CFG_PATH="repos\your-repository-here\.remote"
+
 net use /PERSISTENT:NO X: \\sshfs\%USER_AT_HOST%
-START ssh -NL localhost:23750:/var/run/docker.sock %USER_AT_HOST%
 SET DOCKER_HOST=localhost:23750
-code-insiders "X:\repos\your-repository-here\.remote'
+code-insiders "X:\%REMOTE_CFG_PATH%"
+ssh -NL localhost:23750:/var/run/docker.sock %USER_AT_HOST%
 ```
 
 Once VS Code appears with the folder, run **Remote-Containers: Reopen Folder in Container** from the command palette.
@@ -888,10 +974,6 @@ If you see "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates
 ### I'm seeing an error about a missing library or dependency
 
 Some extensions rely on libraries not found in the certain Docker images. See [above](#installing-additional-software-in-the-sandbox) for help resolving the problem.
-
-### How can I connect to multiple containers?
-
-Currently you can only connect to one container per VS Code window. However, you can spin up multiple containers and [attach to them](#attaching-to-running-containers) from different VS Code windows to work around this limitation.
 
 ### How can I build or deploy container images into my local Docker / Kubernetes install when working inside a container?
 
