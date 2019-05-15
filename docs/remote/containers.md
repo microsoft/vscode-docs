@@ -625,7 +625,7 @@ See the following examples dev containers for additional information:
 
 Currently you can only connect to one container per VS Code window. However, you can spin up multiple VS Code windows [attach to them](#attaching-to-running-containers).
 
-If you'd prefer to use `devcontainer.json` instead and are using Docker Compose, you can setup separate  `.devcontainer` folders for each service in your source tree that point to a common `docker-compose.yml`. VS Code will actually attach to running containers if they are already up when you open a folder in a container which allows this approach to work.
+If you'd prefer to use `devcontainer.json` instead and are using Docker Compose, you can setup separate  `.devcontainer` folders for each service in your source tree that point to a common `docker-compose.yml`.
 
 To see how this works, consider this extremely simplified source tree:
 
@@ -687,16 +687,16 @@ Next, you can `container2-src/.devcontainer.json` for Node.js development as fol
 }
 ```
 
-The `"shutdownAction":"none"` in the `devcontainer.json` files will leave the containers running even if you close the two VS Code windows -- which prevents you from accidentally shutting down both containers (and thus both windows stop working) by closing one.  This part is optional.
-
+The `"shutdownAction":"none"` in the `devcontainer.json` files is optional, but will leave the containers running when VS Code closes -- which prevents you from accidentally shutting down both containers by closing one window.
 
 To connect to both:
 1. <kbd>F1</kbd> > **Remote-Containers: Open Folder in Container...** and select the `container1-src` folder.
 2. VS Code will then start up both containers, connect this window to service `container-1`, and install the Go extension.
-3. Next, **File > New Window**
+3. Next, start up a new window using **File > New Window**.
 4. In the new Window, <kbd>F1</kbd> > **Remote-Containers: Open Folder in Container...** and select the `container2-src` folder.
-5. VS Code will then connect to the already running `container-2` and install the ESLint extension.
+5. Since the services is already running, VS Code will then connect to `container-2` and install the ESLint extension.
 
+You can now interact with both containers at once from separate windows.
 
 ### Using SSH to connect to a remote Docker host
 
@@ -853,7 +853,7 @@ net use /PERSISTENT:NO X: \\sshfs\user@hostname
 
 The remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking Disconnect.
 
-Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way will be very slow and can cause unforseen problems. You can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [Accessing your remote source code locally](/docs/remote/troubleshooting.md#accessing-your-remote-source-code-locally) for details on setting this up.
+Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way will be very slow and can cause unforseen problems. However, can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [Tips and Tricks](/docs/remote/troubleshooting.md#using-rsync-to-maintain-a-local-copy-of-your-source-codey) for details on setting this up.
 
 **[Optional] Storing your remote devcontainer.json files on the server**
 
