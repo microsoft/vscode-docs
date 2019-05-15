@@ -291,6 +291,49 @@ If you clone a Git repository using SSH and your SSH key has a passphrase, VS Co
 
 Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
+### Using SSHFS to access files on your remote host
+
+[SSHFS](https://en.wikipedia.org/wiki/SSHFS) provides a secure remote filesystem access protocol that builds up from SFTP. It provides advantages over something like a CIFS / Samba share in that all that is required is SSH access to the machine which can give you local access to your remote project files.
+
+You can install SSHFS locally as follows:
+
+- macOS using [Homebrew](https://brew.sh/): `brew install sshfs`
+- Linux using the native package manager. For Debian/Ubuntu: `sudo apt-get install sshfs`
+- Windows using [Chocolaty](https://chocolatey.org/): `choco install sshfs`
+
+To mount the remote filesystem on **macOS or Linux**, run the following from a local terminal replacing `user@hostname` with the remote user and hostname / IP:
+
+```bash
+export USER_AT_HOST=user@hostname
+
+mkdir -p "$HOME/sshfs/$USER_AT_HOST"
+sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
+```
+
+While this command is active, the remote machine will be available at `~/sshfs`.
+
+On **Windows**, run the following from the command prompt replacing `user@hostname` with the remote user and hostname / IP:
+
+```bat
+net use /PERSISTENT:NO X: \\sshfs\user@hostname
+```
+
+The remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking Disconnect.
+
+Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way will be very slow and can cause unforseen problems.
+
+### Using rsync to maintain a local copy of your source code
+
+An alternative to [using SSHFS to access remote files](#using-sshfs-to-access-files-on-your-remote-host) is to [use `rsync`](https://rsync.samba.org/) to copy the entire contents of a folder on remote host to your local machine. This is primarily something to consider if you really need to use multi-file or performance intensive local tools.
+
+The `rsync` command is available out of box on macOS and can be installed using Linux package managers (e.g. `sudo apt-get install rsync` on Debian/Ubuntu). For Windows, you'll need to either use [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) or [Cygwin](https://www.cygwin.com/) to access the command.
+
+To use the command, navigate to the folder you want to store the sync'd contents and run the following replacing `user@hostname`  with the remote user and hostname / IP and `/remote/source/code/path` with the remote source code location.
+
+```bash
+rsync -rlptzv --progress --delete --exclude=.git user@hostname:/remote/source/code/path .
+```
+
 ## Container tips
 
 ### Docker Desktop for Windows tips
