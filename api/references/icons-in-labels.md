@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 109a10fc-2d64-44b6-98ce-b8375d245776
-DateApproved: 4/4/2019
+DateApproved: 5/15/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Octicon reference that lists all octicons supported in VS Code
