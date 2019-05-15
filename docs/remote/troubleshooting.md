@@ -328,21 +328,6 @@ net use /PERSISTENT:NO X: \\sshfs\user@hostname
 
 The remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking Disconnect.
 
-You can also use **WSL from a command prompt** as follows:
-
-```bat
-SET USER_AT_HOST=user@hostname
-
-mkdir "%USERPROFILE%/sshfs/%USER_AT_HOST%"
-wsl sshfs "%USER_AT_HOST%:" "$(wslpath -a '%USERPROFILE%/sshfs/%USER_AT_HOST%')" -ovolname='%USER_AT_HOST%' -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C"
-
-REM Wait for a key press, then disconnect
-pause
-wsl umount "$(wslpath -a '%USERPROFILE%/sshfs/%USER_AT_HOST%')"
-```
-
-This will make the folder available under a `sshfs` folder in your user directory from Windows until you press a key.
-
 Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way will be very slow and can cause unforseen problems. However, can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [below](#using-rsync-to-maintain-a-local-copy-of-your-source-codde) for details.
 
 ### Using rsync to maintain a local copy of your source code
@@ -370,7 +355,6 @@ To push content, you simply reverse the source and target parameters in the comm
 ```bash
 rsync -rlptzv --progress --delete --exclude=.git . "user@hostname:/remote/source/code/path"
 ```
-
 
 ## Container tips
 
