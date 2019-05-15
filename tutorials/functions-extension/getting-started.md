@@ -26,7 +26,7 @@ $ brew install azure-functions-core-tools
 **On Windows**, install using [npm](https://npmjs.com).
 
 ```bash
-$ npm install -g azure-functions-core-tools@2
+$ npm install -g azure-functions-core-tools
 ```
 
 **On Linux**, follow the instructions in the Azure Functions Core Tools [GitHub repository](https://github.com/Azure/azure-functions-core-tools#linux).
