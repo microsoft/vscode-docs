@@ -220,6 +220,10 @@ Most Linux distributions will not require additional dependency installation ste
 
 The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, secure, SSH tunnel.
 
+### Can I use local tools on source code sitting on the remote SSH host?
+
+Yes. Typically this is done [using SSHFS](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host) or by [using `rsync`](/docs/remote/troubleshooting.md#using-rsync-to-maintain-a-local-copy-of-your-source-code) to get a copy of the files on your local machine. SSHFS mounts the remote filesystem is ideal for scenarios where you need to edit individual files or browse the source tree and requires no sync step to use. However, it is not ideal for using something like a source control tool that bulk manages files. In this case, the `rsync` approach is better since you get a complete copy of the remote source code on your local machine. See [Tips and Tricks](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host) for details.
+
 ### Can I use VS Code when I only have SFTP/FTP filesystem access to my remote host (no shell access)?
 
 Some cloud platforms only provide remote filesystem access for developers rather than direct shell access. VS Code Remote Development was not designed with this use case in mind since it negates the performance and user experience benefits.

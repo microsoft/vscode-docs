@@ -297,9 +297,11 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 You can install SSHFS locally as follows:
 
-- macOS using [Homebrew](https://brew.sh/): `brew install sshfs`
-- Linux using the native package manager. For Debian/Ubuntu: `sudo apt-get install sshfs`
-- Windows using [Chocolaty](https://chocolatey.org/): `choco install sshfs`
+- On macOS using [Homebrew](https://brew.sh/): `brew install sshfs`
+- On Linux using the OS package manager. For Debian/Ubuntu: `sudo apt-get install sshfs`
+- [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on Windows using [Chocolaty](https://chocolatey.org/): `choco install sshfs`
+
+Note that WSL 1 does not support FUSE or SSHFS, so installing SSHFS-Win is the best option currently.
 
 To mount the remote filesystem on **macOS or Linux**, run the following from a local terminal replacing `user@hostname` with the remote user and hostname / IP:
 
@@ -308,11 +310,17 @@ export USER_AT_HOST=user@hostname
 
 mkdir -p "$HOME/sshfs/$USER_AT_HOST"
 sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
+
+# Wait for a key press, then disconnect
+read -n 1 -p "Press any key to unmount the remote filesystem..."
+umount "$HOME/sshfs/$USER_AT_HOST"
 ```
 
-While this command is active, the remote machine will be available at `~/sshfs`.
+This will make your home folder on the remote machine available under at `~/sshfs` until you press a key.
 
-On **Windows**, run the following from the command prompt replacing `user@hostname` with the remote user and hostname / IP:
+On **Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
+
+Once you've installed SSHFS for Windows, run the following from the command prompt replacing `user@hostname` with the remote user and hostname / IP:
 
 ```bat
 net use /PERSISTENT:NO X: \\sshfs\user@hostname
@@ -320,7 +328,22 @@ net use /PERSISTENT:NO X: \\sshfs\user@hostname
 
 The remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking Disconnect.
 
-Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way will be very slow and can cause unforseen problems.
+You can also use **WSL from a command prompt** as follows:
+
+```bat
+SET USER_AT_HOST=user@hostname
+
+mkdir "%USERPROFILE%/sshfs/%USER_AT_HOST%"
+wsl sshfs "%USER_AT_HOST%:" "$(wslpath -a '%USERPROFILE%/sshfs/%USER_AT_HOST%')" -ovolname='%USER_AT_HOST%' -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C"
+
+REM Wait for a key press, then disconnect
+pause
+wsl umount "$(wslpath -a '%USERPROFILE%/sshfs/%USER_AT_HOST%')"
+```
+
+This will make the folder available under a `sshfs` folder in your user directory from Windows until you press a key.
+
+Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way will be very slow and can cause unforseen problems. However, can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [below](#using-rsync-to-maintain-a-local-copy-of-your-source-codde) for details.
 
 ### Using rsync to maintain a local copy of your source code
 
@@ -330,9 +353,24 @@ The `rsync` command is available out of box on macOS and can be installed using 
 
 To use the command, navigate to the folder you want to store the sync'd contents and run the following replacing `user@hostname`  with the remote user and hostname / IP and `/remote/source/code/path` with the remote source code location.
 
+On **macOS, Linux, or inside WSL**:
+
 ```bash
-rsync -rlptzv --progress --delete --exclude=.git user@hostname:/remote/source/code/path .
+rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" .
 ```
+
+Or using **WSL from a command prompt on Windows**:
+
+```bat
+wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "$(wslpath -a '%CD%')"
+```
+
+To push content, you simply reverse the source and target parameters in the command. However, **on Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** before doing so. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
+
+```bash
+rsync -rlptzv --progress --delete --exclude=.git . "user@hostname:/remote/source/code/path"
+```
+
 
 ## Container tips
 
@@ -502,14 +540,6 @@ You can add a volume mount to any local folder using these steps:
         ```
 
 2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
-
-### Connecting to multiple containers
-
-Currently you can only connect to one container per VS Code window. However, you can spin up multiple containers and [attach to them](/docs/remote/containers.md#attaching-to-running-containers) from different VS Code windows to work around this limitation.
-
-### Using Docker / Kubernetes from inside a dev container
-
-You can use Docker and Kubernetes related CLIs and extensions from inside your development container by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes) in the container. See the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker), [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose), and [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) dev container definitions for details.
 
 ### Adding a non-root user to your dev container
 
