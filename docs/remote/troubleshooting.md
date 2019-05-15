@@ -123,7 +123,7 @@ If you are running into problems with VS Code hanging while trying to connect (a
 
 Enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code and retry. If you are prompted to input a password or token, see [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods) for details on reducing the frequency of prompts.
 
-**Enable TCP Forwarding**
+**Enable TCP Forwarding on the remote host**
 
 Remote - SSH extension makes use of an SSH tunnel to facilitate communication with the host. In some cases, this may be disabled on your SSH server. To see if this is the problem, open the `Remote - SSH` category in the output window and check for the following message:
 
@@ -137,6 +137,23 @@ If you do see that message, follow these steps:
 2. Add the setting  `AllowTcpForwarding yes`.
 3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
 4. Retry.
+
+**Set the ProxyCommand parameter in your SSH config file**
+
+If you are behind a proxy and are unable to connect to your SSH host, you may need to use the `ProxyCommand` parameter for your host in a [SSH config file](https://linux.die.net/man/5/ssh_config). You can [read this article](https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/) for an example of its use.
+
+**Set HTTP_PROXY / HTTPS_PROXY on the remote host**
+
+If your remote host is behind a proxy, you may need to set the HTTP_PROXY or HTTPS_PROXY environment variables. Open your `~/.bashrc` or `~/.bash_profile` and add the following (replacing `proxy.fqdn.or.ip:3128` with the appropriate hostname / IP and port):
+
+```bash
+export HTTP_PROXY=http://proxy.fqdn.or.ip:3128
+export HTTPS_PROXY=$HTTP_PROXY
+
+# Or if an authenticated proxy
+export HTTP_PROXY=http://username:password@proxy.fqdn.or.ip:3128
+export HTTPS_PROXY=$HTTP_PROXY
+```
 
 **Contact your system administrator for configuration help**
 
@@ -328,15 +345,15 @@ net use /PERSISTENT:NO X: \\sshfs\user@hostname
 
 The remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking Disconnect.
 
-Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way will be very slow and can cause unforseen problems. However, can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [below](#using-rsync-to-maintain-a-local-copy-of-your-source-codde) for details.
+Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way will be very slow and can cause unforseen problems. However, you can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [below](#using-rsync-to-maintain-a-local-copy-of-your-source-codde) for details.
 
 ### Using rsync to maintain a local copy of your source code
 
-An alternative to [using SSHFS to access remote files](#using-sshfs-to-access-files-on-your-remote-host) is to [use `rsync`](https://rsync.samba.org/) to copy the entire contents of a folder on remote host to your local machine. This is primarily something to consider if you really need to use multi-file or performance intensive local tools.
+An alternative to [using SSHFS to access remote files](#using-sshfs-to-access-files-on-your-remote-host) is to [use `rsync`](https://rsync.samba.org/) to copy the entire contents of a folder on remote host to your local machine. The `rsync` command will determine which files need to be updated each time it is run which is far more efficient and convenient than using something like `scp` or `sftp`. This is primarily something to consider if you really need to use multi-file or performance intensive local tools.
 
 The `rsync` command is available out of box on macOS and can be installed using Linux package managers (e.g. `sudo apt-get install rsync` on Debian/Ubuntu). For Windows, you'll need to either use [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) or [Cygwin](https://www.cygwin.com/) to access the command.
 
-To use the command, navigate to the folder you want to store the sync'd contents and run the following replacing `user@hostname`  with the remote user and hostname / IP and `/remote/source/code/path` with the remote source code location.
+To use the command, navigate to the folder you want to store the sync'd contents and run the following replacing `user@hostname` with the remote user and hostname / IP and `/remote/source/code/path` with the remote source code location.
 
 On **macOS, Linux, or inside WSL**:
 
@@ -349,6 +366,8 @@ Or using **WSL from a command prompt on Windows**:
 ```bat
 wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "$(wslpath -a '%CD%')"
 ```
+
+You can re-run this command each time you want to access the files and only updates will be transferred. The `.git` folder is intentionally excluded both for performance reasons and so you can use local Git tools without worrying about the state on the remote host.
 
 To push content, you simply reverse the source and target parameters in the command. However, **on Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** before doing so. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
@@ -556,6 +575,7 @@ RUN apt-get install -y sudo \
 # [Optional] Set the default user
 USER $USERNAME
 ```
+
 ### Using Docker or Kubernetes from a container
 
 See the [main Containers article](/docs/remote/containers.md#using-docker-or-kubernetes-from-a-container) for details on this topic.
