@@ -388,23 +388,9 @@ To change Docker's drive and folder sharing settings:
 
 ### Resolving Git line ending issues in containers (resulting in many modified files)
 
-Since Windows and Linux use different default line endings, you may see files that appear modified but seem to have no differences aside from the line endings. To prevent this from happening, you can disable automatic line ending conversion and optionally add a `.gitattributes` file to your folder.
+Since Windows and Linux use different default line endings, Git may report a large number of modified files that have no differences aside from their line endings. To prevent this from happening, you can disable line ending conversion using a `.gitattributes` file or globally on the Windows side.
 
-First run:
-
-```bash
-git config --global core.autocrlf false
-```
-
-This will disable automated conversation. If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option instead.
-
-```bash
-git config --global core.autocrlf input
-```
-
-Next, you can prevent others from facing this issue, regardless of their setting, by adding or modifying a  `.gitattributes` file in your repository.
-
-For example, the `.gitattributes` settings below will force everything to be LF, except for Windows batch files that require CRLF:
+Typically adding or modifying a  `.gitattributes` file in your repository is the most reliable way to solve this problem. Committing this file to source control will help others and allows you to vary behaviors by repository as appropriate. For example, adding the following to `.gitattributes` file to the root of your repository will force everything to be LF, except for Windows batch files that require CRLF:
 
 ```yaml
 * text=auto eol=lf
@@ -412,7 +398,19 @@ For example, the `.gitattributes` settings below will force everything to be LF,
 *.{bat,[bB][aA][tT]} text eol=crlf
 ```
 
-You can add other file types in your repository that require CRLF to this same file.
+Note that this works in **Git v2.10+**, so if you are running into problems, be sure you've got a recent Git client installed. You can add other file types in your repository that require CRLF to this same file.
+
+If you'd prefer to disable line ending conversation entirely, run:
+
+```bash
+git config --global core.autocrlf false
+```
+
+If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option instead.
+
+```bash
+git config --global core.autocrlf input
+```
 
 Finally, reclone the repository so these settings take effect.
 
@@ -558,6 +556,17 @@ RUN apt-get install -y sudo \
 # [Optional] Set the default user
 USER $USERNAME
 ```
+### Using Docker or Kubernetes from a container
+
+See the [main Containers article](/docs/remote/containers.md#using-docker-or-kubernetes-from-a-container) for details on this topic.
+
+### Connecting to multiple containers at once
+
+See the [main Containers article](/docs/remote/containers.md#connecting-to-multiple-containers-at-once) for details on this topic.
+
+### Using SSH to connect to a remote Docker host
+
+See the [main Containers article](/docs/remote/containers.md#using-ssh-to-connect-to-a-remote-docker-host) for details on this topic.
 
 ### Resolving Dockerfile build failures for images using Debian 8
 
@@ -565,13 +574,9 @@ When building containers that use images based on Debian 8/Jessie — such as ol
 
 ```text
 ...
-Get:5 http://security.debian.org jessie/updates/main amd64 Packages [825 kB]
-Get:6 http://deb.debian.org jessie/main amd64 Packages [9098 kB]
-Fetched 10.1 MB in 6s (1458 kB/s)
 W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease  Unable to find expected entry 'main/binary-amd64/Packages' in Release file (Wrong sources.list entry or malformed file)
 E: Some index files failed to download. They have been ignored, or old ones used instead.
-The command '/bin/sh -c apt-get update     && apt-get -y install --no-install-recommends apt-utils 2>&1' returned a non-zero code: 100
-Failed: Building an image from the Dockerfile.
+...
 ```
 
 This is a [well known issue](https://github.com/debuerreotype/docker-debian-artifacts/issues/66) caused by the Debian 8 being "archived". More recent versions of images typically resolve this problem, often by upgrading to Debian 9/Stretch.
@@ -684,8 +689,11 @@ If the VS Code Insiders install path is missing, edit your `.bashrc`, add the fo
 ```bash
 WINDOWS_USERNAME="Your Username"
 VSCODE_PATH="/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code Insiders/bin"
-# Use this path if you installed the System Installer version of VS Code Insiders
+# or...
 # VSCODE_PATH="/mnt/c/Program Files/Microsoft VS Code Insiders/bin"
+# or...
+# VSCODE_PATH="/mnt/c/Program Files (x86)/Microsoft VS Code Insiders/bin"
+
 export PATH=$PATH:/mnt/c/Windows/System32:${VSCODE_PATH}
 ```
 
@@ -697,23 +705,9 @@ Some extensions rely on libraries not found in the vanilla install of certain WS
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 
-Since Windows and Linux use different default line endings, you may see files that appear modified but seem to have no differences aside from the line endings. To prevent this from happening, you can disable automatic line ending conversion and optionally add a `.gitattributes` file to your folder.
+Since Windows and Linux use different default line endings, Git may report a large number of modified files that have no differences aside from their line endings. To prevent this from happening, you can disable line ending conversion using a `.gitattributes` file or globally on the Windows side.
 
-First run:
-
-```bash
-git config --global core.autocrlf false
-```
-
-This will disable automated conversation. If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option instead.
-
-```bash
-git config --global core.autocrlf input
-```
-
-Next, you can prevent others from facing this issue, regardless of their setting, by adding or modifying a  `.gitattributes` file in your repository.
-
-For example, the `.gitattributes` settings below will force everything to be LF, except for Windows batch files that require CRLF:
+Typically adding or modifying a  `.gitattributes` file in your repository is the most reliable way to solve this problem. Committing this file to source control will help others and allows you to vary behaviors by repository as appropriate. For example, adding the following to `.gitattributes` file to the root of your repository will force everything to be LF, except for Windows batch files that require CRLF:
 
 ```yaml
 * text=auto eol=lf
@@ -721,7 +715,19 @@ For example, the `.gitattributes` settings below will force everything to be LF,
 *.{bat,[bB][aA][tT]} text eol=crlf
 ```
 
-You can add other file types in your repository that require CRLF to this same file.
+Note that this works in **Git v2.10+**, so if you are running into problems, be sure you've got a recent Git client installed. You can add other file types in your repository that require CRLF to this same file.
+
+If you'd prefer to disable line ending conversation entirely, run:
+
+```bash
+git config --global core.autocrlf false
+```
+
+If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option instead.
+
+```bash
+git config --global core.autocrlf input
+```
 
 Finally, reclone the repository so these settings take effect.
 
