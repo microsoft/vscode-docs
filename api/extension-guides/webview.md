@@ -775,7 +775,7 @@ A webview should have the minimum set of capabilities that it needs. For example
 
 ### Content security policy
 
-[Content security policies](https://developers.google.com/web/fundamentals/security/csp/) further restrict the content that can be loaded and executed in webviews. For example, a content security policy can make sure that only a whitelist of scripts can be run in the webview, or even tell the webview to only load images over `https`.
+[Content security policies](https://developers.google.com/web/fundamentals/security/csp/) further restrict the content that can be loaded and executed in webviews. For example, a content security policy can make sure that only a list of allowed scripts can be run in the webview, or even tell the webview to only load images over `https`.
 
 To add a content security policy, put a `<meta http-equiv="Content-Security-Policy">` directive at the top of the webview's `<head>`
 

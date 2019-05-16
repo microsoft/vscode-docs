@@ -15,7 +15,7 @@ Visual Studio Code is built on top of [Electron](https://electron.atom.io/) and 
 
 A handful of features within VS Code require network communication to work, such as the auto-update mechanism, querying and installing extensions, and telemetry. For these features to work properly in a proxy environment, you must have the product correctly configured.
 
-If you are behind a firewall which needs to whitelist domains used by VS Code, here's the list of hostnames you should allow communication to go through:
+If you are behind a firewall that needs to allow specific domains used by VS Code, here's the list of hostnames you should allow communication to go through:
 
 * `update.code.visualstudio.com`
 * `code.visualstudio.com`
