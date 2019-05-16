@@ -714,7 +714,7 @@ The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.co
 
 The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work inside dev containers without any modification. However, we recommend that you test your extension in a dev container to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-### What other resources are there that can may be able to answer my question?
+### What other resources are there that may be able to answer my question?
 
 The following articles may help answer your question:
 * [Advanced Container Configuration](/docs/remote/containers-advanced.md) or [Tips and Tricks](/docs/remote/troubleshooting.md#containers-tips)
