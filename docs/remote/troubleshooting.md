@@ -521,73 +521,6 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Type `docker system prune --all`.
 
-### Adding another volume mount
-
-You can add a volume mount to any local folder using these steps:
-
-1. Configure the volume mount:
-
-   - When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file:
-
-        ```json
-        "runArgs": ["-v","/local/source/path/goes/here:/target/path/in/container/goes/here"]
-        ```
-
-   - When a **Docker Compose** file is referenced, add the following to your `docker-compose.yml`:
-
-        ```json
-        volumes:
-          - /local/source/path/goes/here:/target/path/in/container/goes/here
-        ```
-
-2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
-
-### Adding a non-root user to your dev container
-
-Many images run as a root user by default. However, some provide one or more non-root users, that you can optionally use instead. If your image or Dockerfile provides a non-root user (but still defaults to root), you can opt into using it in one of two ways:
-
-- When referencing an **image** or **Dockerfile**, add the following to your `devcontainer.json`:
-
-    ```json
-    "runArgs": ["-u", "user-name-goes-here"]
-    ```
-
-- If you are using **Docker Compose**, add the following to your service in `docker-compose.yml`:
-
-    ```yaml
-    user: user-name-goes-here
-    ```
-
-For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
-
-```Dockerfile
-ARG USERNAME=user-name-goes-here
-RUN useradd -m $USERNAME
-ENV HOME /home/$USERNAME
-
-# [Optional] Add sudo support
-RUN apt-get install -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
-    chmod 0440 /etc/sudoers.d/$USERNAME
-
-# ** Anything else you want to do like clean up goes here **
-
-# [Optional] Set the default user
-USER $USERNAME
-```
-
-### Using Docker or Kubernetes from a container
-
-See the [main Containers article](/docs/remote/containers.md#using-docker-or-kubernetes-from-a-container) for details on this topic.
-
-### Connecting to multiple containers at once
-
-See the [main Containers article](/docs/remote/containers.md#connecting-to-multiple-containers-at-once) for details on this topic.
-
-### Using SSH to connect to a remote Docker host
-
-See the [main Containers article](/docs/remote/containers.md#using-ssh-to-connect-to-a-remote-docker-host) for details on this topic.
-
 ### Resolving Dockerfile build failures for images using Debian 8
 
 When building containers that use images based on Debian 8/Jessie — such as older versions of the `node:8` image — you may encounter the following error:
@@ -612,11 +545,7 @@ There are two ways to resolve this error:
     RUN cat /etc/*-release | grep -q jessie && printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
     ```
 
-### Other common Docker related errors and issues
-
-This section explains how to work around common issues related to using Docker.
-
-### Sign in errors to Docker Hub when an email is use
+### Resolving Docker Hub sign in errors when an email is used
 
 The Docker CLI only supports using your Docker ID, so using your email to sign in can cause problems. See Docker issue [#935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
@@ -626,40 +555,16 @@ As a workaround, use your Docker ID to sign into Docker rather than your email.
 
 There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, high CPU usage occurring when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
 
-### debconf: delaying package configuration, since apt-utils is not installed
+### Advanced container configuration tips
 
-This error can typically be safely ignored and is tricky to get rid of completely. However, you can reduce it to one message in stdout when installing the needed package by adding the following to your Dockerfile:
+See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following advanced configuration topics:
 
-```Dockerfile
-# Configure apt
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update \
-    && apt-get -y install --no-install-recommends apt-utils 2>&1
-
-## YOUR DOCKERFILE CONTENT GOES HERE
-
-ENV DEBIAN_FRONTEND=dialog
-```
-
-### Warning: apt-key output should not be parsed (stdout is not a terminal)
-
-This non-critical warning tells you not to parse the output of `apt-key`, so as long as your script doesn't, there's no problem. You can safely ignore it.
-
-This occurs in Dockerfiles because the `apt-key` command is not running from a terminal. Unfortunately, this error cannot be eliminated completely, but can be hidden unless the `apt-key` command returns a non-zero exit code (indicating a failure).
-
-For example:
-
-```Dockerfile
-# (OUT=$(apt-key add - 2>&1) || echo $OUT) will only print the output with non-zero exit code is hit
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | (OUT=$(apt-key add - 2>&1) || echo $OUT)
-```
-
-You can also set the `APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE` environment variable to suppress the warning, but it looks a bit scary so be sure to add comments in your Dockerfile if you use it:
-
-```Dockerfile
-# Suppress an apt-key warning about standard out not being a terminal. Its use in this script is safe.
-ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
-```
+- [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
+- [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
+- [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
+- [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
+- [Using SSH to connect to a remote Docker host](/docs/remote/containers-advanced.md#using-ssh-to-connect-to-a-remote-docker-host)
+- [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
 
 ## WSL tips
 
