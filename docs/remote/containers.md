@@ -386,7 +386,7 @@ Once the container has been created, the **local filesystem will be automaticall
 }
 ```
 
-After making edits, you can run the **Remote-Containers: Rebuild Container** command cause the updated settings to take effect.
+After making edits, run the **Remote-Containers: Rebuild Container** command for the updated settings to take effect.
 
 ### Installing additional software in the sandbox
 
@@ -415,7 +415,7 @@ To create a customized sandbox or application in a single container, you can use
 
 You may want to install other tools such as Git inside the container, which you can easily [do manually](#installing-additional-software-in-the-sandbox). However, you can also create a custom Dockerfile specifically for development that includes these dependencies. The [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) contains examples you can use as a starting point.
 
-You can use the `dockerFile` property in `.devcontainer/devcontainer.json` to specify the path to a custom `Dockerfile` and take advantage of all the same properties available in the `image` case.
+You can use the `dockerFile` property in `.devcontainer/devcontainer.json` to specify the path to a custom `Dockerfile` and use the same properties available in the `image` case.
 
 For example:
 
@@ -700,7 +700,7 @@ A VS Code window can only connect to one window currently, but you can open a ne
 
 ### Can I work with containers on a remote host?
 
-With some manual configuration, yes. You can attach to a container running on a remote host or create specialized `devcontainer.json` and `Docker Compose` file designed to work with your remote host. See [Using SSH to connect to a remote Docker host](/docs/remote/containers-advanced.md#using-ssh-to-connect-to-a-remote-docker-host) for details.
+With some manual configuration, yes. You can attach to a container running on a remote host or create specialized `devcontainer.json` and `Docker Compose` files designed to work with your remote host. See [Using SSH to connect to a remote Docker host](/docs/remote/containers-advanced.md#using-ssh-to-connect-to-a-remote-docker-host) for details.
 
 ### How can I build or deploy container images into my local Docker / Kubernetes install when working inside a container?
 
