@@ -609,13 +609,12 @@ The following are dev container definitions that use Docker Compose:
 
 See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following topics:
 
-- [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
-- [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
-- [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
-- [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
-- [Using SSH to connect to a remote Docker host](/docs/remote/containers-advanced.md#using-ssh-to-connect-to-a-remote-docker-host)
-- [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
-
+* [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
+* [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
+* [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
+* [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
+* [Using SSH to connect to a remote Docker host](/docs/remote/containers-advanced.md#using-ssh-to-connect-to-a-remote-docker-host)
+* [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
 
 ## devcontainer.json  reference
 

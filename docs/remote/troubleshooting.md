@@ -310,7 +310,7 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 ### Using SSHFS to access files on your remote host
 
-[SSHFS](https://en.wikipedia.org/wiki/SSHFS) provides a secure remote filesystem access protocol that builds up from SFTP. It provides advantages over something like a CIFS / Samba share in that all that is required is SSH access to the machine which can give you local access to your remote project files.
+[SSHFS](https://en.wikipedia.org/wiki/SSHFS) is a secure remote filesystem access protocol that builds up from SFTP. It provides advantages over something like a CIFS / Samba share in that all that is required is SSH access to the machine.
 
 You can install SSHFS locally as follows:
 
@@ -333,7 +333,7 @@ read -n 1 -p "Press any key to unmount the remote filesystem..."
 umount "$HOME/sshfs/$USER_AT_HOST"
 ```
 
-This will make your home folder on the remote machine available under at `~/sshfs` until you press a key.
+This will make your home folder on the remote machine available under the `~/sshfs` folder until you press a key.
 
 On **Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
@@ -367,9 +367,9 @@ Or using **WSL from a command prompt on Windows**:
 wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "$(wslpath -a '%CD%')"
 ```
 
-You can re-run this command each time you want to access the files and only updates will be transferred. The `.git` folder is intentionally excluded both for performance reasons and so you can use local Git tools without worrying about the state on the remote host.
+You can re-run this command each time you want to get the latest copy of your files and only updates will be transferred. The `.git` folder is intentionally excluded both for performance reasons and so you can use local Git tools without worrying about the state on the remote host.
 
-To push content, you simply reverse the source and target parameters in the command. However, **on Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** before doing so. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
+To push content, simply reverse the source and target parameters in the command. However, **on Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** before doing so. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
 ```bash
 rsync -rlptzv --progress --delete --exclude=.git . "user@hostname:/remote/source/code/path"
