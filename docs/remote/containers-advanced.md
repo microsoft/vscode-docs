@@ -29,13 +29,13 @@ You can add a volume mount to any local folder using these steps:
 
    - When a **Docker Compose** file is referenced, add the following to your `docker-compose.yml` for the appropriate service:
 
-        ```json
+        ```yml
         version: '3'
         services:
-          SERVICE-NAME-GOES-HERE:
-
-          volumes:
-            - /local/source/path/goes/here:/target/path/in/container/goes/here
+          your-service-name-here:
+            # ...
+            volumes:
+              - /local/source/path/goes/here:/target/path/in/container/goes/here
         ```
 
 2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
@@ -64,7 +64,7 @@ Fortunately, there's a simple way to solve this using a local "volume" mount. In
               - vscode-remote-cache:~/.vscode-remote
             # ...
         volumes:
-          vscode-remote-cache
+          vscode-remote-cache:
         ```
 
 2. By default, all containers will get the same set of extensions. If you want to have a unique set for this container, just change the `vscode-remote-cache` in either of the snippets above to a unique value.
@@ -275,6 +275,8 @@ In this section, we'll walk you through how to convert a local `devcontainer.jso
       ssh-workspace:
     ```
 
+    Note that you can change the volume name (`ssh-workspace`) if you'd like a unique volume per container.
+
     Then alter `.devcontainer/devcontainer.json` as follows:
 
     ```json
@@ -288,18 +290,20 @@ In this section, we'll walk you through how to convert a local `devcontainer.jso
 
     **Docker Compose**
 
-    Add a `docker-compose.remote.yml` file into the `.devcontainer` folder with the following contents. Replace `SERVICE-NAME-GOES-HERE` with the value of the `service` property in `devcontainer.json`.
+    Add a `docker-compose.remote.yml` file into the `.devcontainer` folder with the following contents. Replace `your-service-name-here` with the value of the `service` property in `devcontainer.json`.
 
     ```yml
     version: '3'
     services:
-      SERVICE-NAME-GOES-HERE:
+      your-service-name-here:
         volumes:
             - ssh-workspace:/ssh-workspace
 
     volumes:
       ssh-workspace:
     ```
+
+    Note that you can change the volume name (`ssh-workspace`) if you'd like a unique volume per container.
 
     Then alter two properties in `.devcontainer/devcontainer.json` as follows:
 
@@ -310,6 +314,7 @@ In this section, we'll walk you through how to convert a local `devcontainer.jso
     ],
     "workspaceFolder": "/ssh-workspace"
     ```
+
 
 6. Run **Remote-Containers: Reopen Folder in Container** from the Command Palette (`kbstyle(F1)`).
 

@@ -325,15 +325,18 @@ To mount the remote filesystem on **macOS or Linux**, run the following from a l
 ```bash
 export USER_AT_HOST=user@hostname
 
+# Make the directory where the remote filesystem will be mounted
 mkdir -p "$HOME/sshfs/$USER_AT_HOST"
-sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
 
-# Wait for a key press, then disconnect
-read -n 1 -p "Press any key to unmount the remote filesystem..."
-umount "$HOME/sshfs/$USER_AT_HOST"
+# Mount the remote filesystem
+sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
 ```
 
-This will make your home folder on the remote machine available under the `~/sshfs` folder until you press a key.
+This will make your home folder on the remote machine available under the `~/sshfs`. When you are done, you can unmount it using your OS's Finder / file explorer or by using the command line as follows:
+
+```bash
+umount "$HOME/sshfs/$USER_AT_HOST"
+```
 
 On **Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
