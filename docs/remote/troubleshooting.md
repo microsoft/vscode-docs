@@ -563,6 +563,7 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following advanced configuration topics:
 
 - [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
+- [Avoiding extension reinstalls on container rebuild](#avoiding-extension-reinstalls-on-container-rebuild)
 - [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
 - [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
 - [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)

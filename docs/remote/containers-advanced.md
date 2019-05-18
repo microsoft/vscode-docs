@@ -40,7 +40,7 @@ You can add a volume mount to any local folder using these steps:
 
 2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
 
-## Avoiding extension re-installs on container rebuild
+## Avoiding extension reinstalls on container rebuild
 
 By default, VS Code will install extensions and VS Code Server inside the container's filesystem. While this has performance benefits over a locally mounted filesystem, the disadvantage is that VS Code will have to re-install them on a container rebuild.
 
