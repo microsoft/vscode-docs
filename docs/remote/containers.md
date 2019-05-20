@@ -566,7 +566,7 @@ This same file can provide additional settings, such as port mappings, as needed
 }
 ```
 
-VS Code will then **automatically use both files** when starting up any containers or you can start them yourself from the command line as follows:
+VS Code will then **automatically use both files** when starting up any containers or you can start them yourself from the command line:
 
 ```bash
 docker-compose up -f docker-compose.yml -f .devcontainer/docker-compose.extend.yml
@@ -611,7 +611,7 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 
 * [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
 * [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
-* [Avoiding extension reinstalls on container rebuild](#avoiding-extension-reinstalls-on-container-rebuild)
+* [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced.md#avoiding-extension-reinstalls-on-container-rebuild)
 * [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
 * [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
 * [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
@@ -638,7 +638,7 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 |**General**|||
 | `name` | string | A display name for the container. |
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
-| `postCreateCommand` | string or array | A command string or list of command arguments to run after the container is created. Use `&&` with in a string to execute multiple commands. For example, `"yarn install"`, `["yarn", "install"]`, or `"cd src && yarn install"`. Defaults to none. |
+| `postCreateCommand` | string or array | A command string or list of command arguments to run after the container is created. Use `&&` in a string to execute multiple commands. For example, `"yarn install"`, `["yarn", "install"]`, or `"cd src && yarn install"`. Defaults to none. |
 | `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
 
 ## Known limitations

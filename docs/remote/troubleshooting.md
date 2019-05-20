@@ -125,13 +125,13 @@ Enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md
 
 **Enable TCP Forwarding on the remote host**
 
-Remote - SSH extension makes use of an SSH tunnel to facilitate communication with the host. In some cases, this may be disabled on your SSH server. To see if this is the problem, open the `Remote - SSH` category in the output window and check for the following message:
+Remote - SSH extension makes use of an SSH tunnel to facilitate communication with the host. In some cases, this may be disabled on your SSH server. To see if this is the problem, open the **Remote - SSH** category in the output window and check for the following message:
 
 ```text
 open failed: administratively prohibited: open failed
 ```
 
-If you do see that message, follow these steps to update your [SSH server's sshd config](hhttps://www.ssh.com/ssh/sshd_config/):
+If you do see that message, follow these steps to update your SSH server's [sshd config](https://www.ssh.com/ssh/sshd_config/):
 
 1. Open `/etc/ssh/sshd_config` in an editor  (like vim, nano, or pico) on the **SSH host** (not locally).
 2. Add the setting  `AllowTcpForwarding yes`.
@@ -332,7 +332,7 @@ mkdir -p "$HOME/sshfs/$USER_AT_HOST"
 sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
 ```
 
-This will make your home folder on the remote machine available under the `~/sshfs`. When you are done, you can unmount it using your OS's Finder / file explorer or by using the command line as follows:
+This will make your home folder on the remote machine available under the `~/sshfs`. When you are done, you can unmount it using your OS's Finder / file explorer or by using the command line:
 
 ```bash
 umount "$HOME/sshfs/$USER_AT_HOST"
@@ -563,7 +563,7 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following advanced configuration topics:
 
 - [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
-- [Avoiding extension reinstalls on container rebuild](#avoiding-extension-reinstalls-on-container-rebuild)
+- [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced#avoiding-extension-reinstalls-on-container-rebuild)
 - [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
 - [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
 - [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
