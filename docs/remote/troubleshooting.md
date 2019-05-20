@@ -316,7 +316,7 @@ You can install SSHFS locally as follows:
 
 - On macOS using [Homebrew](https://brew.sh/): `brew install sshfs`
 - On Linux using the OS package manager. For Debian/Ubuntu: `sudo apt-get install sshfs`
-- [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on Windows using [Chocolaty](https://chocolatey.org/): `choco install sshfs`
+- [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on Windows using [Chocolatey](https://chocolatey.org/): `choco install sshfs`
 
 Note that WSL 1 does not support FUSE or SSHFS, so installing SSHFS-Win is the best option currently.
 
