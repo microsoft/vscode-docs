@@ -206,47 +206,47 @@ You can now interact with both containers at once from separate windows.
 
 Sometimes you may want to use the Remote - Containers extension to develop inside a container that sits on remote server. While we are looking at ways to optimize this experience, this section outlines how you can achieve this today by attaching to a remote container from VS Code or using Docker Compose and `devcontainer.json`.
 
-You can use the Docker CLI locally with a remote Docker host by setting [local environment variables like `DOCKER_HOST`, `DOCKER_CERT_PATH`, `DOCKER_TLS_VERIFY`](https://docs.docker.com/machine/reference/env/). Since VS Code uses the Docker CLI under the hood, you can use these same environment variables to connect the Remote - Containers extension to the same remote host. You can either use [Docker Machine](https://docs.docker.com/machine/) to set this up or manually set the environment variables. Below are two snippets for configuring the Remote - Containers extension assuming you have `code-insiders` in your path.
+You can use the Docker CLI locally with a remote Docker host by setting [local environment variables like `DOCKER_HOST`, `DOCKER_CERT_PATH`, `DOCKER_TLS_VERIFY`](https://docs.docker.com/machine/reference/env/). Since VS Code uses the Docker CLI under the hood, you can use these same environment variables to connect the Remote - Containers extension to the same remote host. You can either use [Docker Machine](https://docs.docker.com/machine/) to set this up, manually set the needed environment variables, or use SSH to tunnel the remote Docker socket.
 
-1. Use Docker Machine (replacing the appropriate values below based on the [driver](https://docs.docker.com/machine/drivers/) you pick):
+### Option 1: Connect using Docker Machine or by setting local environment variables
 
-    On **macOS or Linux**:
+Assuming you have `code-insiders` the following snippet will start VS Code up connected to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [driver](https://docs.docker.com/machine/drivers/) you pick and your environment. Note that the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below requires that your user have passwordless-sudo access if you are not running as root.
 
-    ```bash
-    # Set the driver property as appropriate for your location. Generic driver: https://docs.docker.com/machine/drivers/generic
-    docker-machine create --driver generic --generic-ip-address your-ip-address-here --generic-ssh-user your-user your-remote-docker-machine-name-here
-    evel $(docker-machine env your-remote-docker-machine-name-here)
-    code-insiders
-    ```
+On **macOS or Linux**:
 
-    On **Windows**:
+```bash
+docker-machine create --driver generic --generic-ip-address your-ip-address-here --generic-ssh-user your-user your-remote-docker-machine-name-here
+evel $(docker-machine env your-remote-docker-machine-name-here)
+code-insiders
+```
 
-    ```bat
-    REM Set the driver property as appropriate for your location. Generic driver: https://docs.docker.com/machine/drivers/generic
-    docker-machine create --driver generic --generic-ip-address your-ip-address-here --generic-ssh-user your-user your-remote-docker-machine-name-here
-    @FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd docker-locker') DO @%i
-    code-insiders
-    ```
+On **Windows**:
 
-2. Manually set environment variables to connect to an existing host:
+```bat
+docker-machine create --driver generic --generic-ip-address your-ip-address-here --generic-ssh-user your-user your-remote-docker-machine-name-here
+@FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd docker-locker') DO @%i
+code-insiders
+```
 
-    ```bash
-    export DOCKER_HOST=your-remote-machine-fqdn-or-ip-here:2375 # And others as appropriate
-    # Or on Windows: SET DOCKER_HOST=your-remote-machine-fqdn-or-ip-here:2375
-    code-insiders
-    ```
+If you already have a remote Docker host, you do not technically need to use `docker-machine` to connect it. Depending on your setup, you may be able to just set the environment variables directly.
+
+```bash
+export DOCKER_HOST=your-remote-machine-fqdn-or-ip-here:2375 # And others as appropriate
+# Or on Windows: SET DOCKER_HOST=your-remote-machine-fqdn-or-ip-here:2375
+code-insiders
+```
 
 Once set, you can use VS Code to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host or [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#using-devcontainerjson-to-work-with-a-remote-dev-container).
 
-Note that Docker CE / Desktop will not expose the required Docker daemon TCP port by default since it can leave the machine vulnerable if not secured properly. Instead, the Docker CLI uses a local Unix socket (or named pipe on Windows) to communicate. In addition, some organizations or cloud vendors may also have firewalls or other security measures running that prevent you from accessing the required remote TCP port.
+### Option 2: Connect using an SSH tunnel
+
+Docker CE / Desktop will not expose the required Docker daemon TCP port by default since it can leave the machine vulnerable if not secured properly. Instead, the Docker CLI uses a local Unix socket (or named pipe on Windows) to communicate. In addition, some organizations or cloud vendors may also have firewalls or other security measures running that prevent you from accessing the required remote TCP port.
 
 Fortunately, you can use an SSH tunnel to forward the Docker socket from your remote host to your local machine as needed.
 
-### [Optional] Using an SSH tunnel to connect to remote Docker host
+If you have an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) installed, you can run the following commands in a local terminal / command prompt to connect VS Code to the remote Docker Machine. To do so, run the following commands replacing `user@hostname` with the remote user and hostname / IP for your server.
 
-If you have an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) installed, you can run the following commands in a local terminal / command prompt to connect VS Code to the remote Docker Machine.
-
-On **macOS or Linux**, run the following commands replacing `user@hostname` with the remote user and hostname / IP for your server:
+On **macOS or Linux**:
 
 ```bash
 export DOCKER_HOST=localhost:23750
@@ -254,7 +254,7 @@ code-insiders
 ssh -NL localhost:23750:/var/run/docker.sock user@hostname
 ```
 
-On **Windows**, run the following commands replacing `user@hostname` with the remote user and hostname / IP for your server:
+On **Windows**:
 
 ```bat
 SET DOCKER_HOST=localhost:23750
@@ -262,7 +262,7 @@ code-insiders
 ssh -NL localhost:23750:/var/run/docker.sock user@hostname
 ```
 
-Once you are done, press `kbstyle(Ctrl+C)` in the terminal / command prompt to close the tunnel. The environment variables that were set are not global, so you can restart VS Code to begin working with your local Docker install again.
+You can then use VS Code to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host or [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#using-devcontainerjson-to-work-with-a-remote-dev-container). Once you are done, press `kbstyle(Ctrl+C)` in the terminal / command prompt to close the tunnel. The environment variables that were set are not global, so you can restart VS Code to begin working with your local Docker install again.
 
 Note that you may need to `AllowStreamLocalForwarding` in your SSH server's [sshd config](https://www.ssh.com/ssh/sshd_config/) for this to work.
 
