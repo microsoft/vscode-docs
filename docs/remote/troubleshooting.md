@@ -131,7 +131,7 @@ Remote - SSH extension makes use of an SSH tunnel to facilitate communication wi
 open failed: administratively prohibited: open failed
 ```
 
-If you do see that message, follow these steps:
+If you do see that message, follow these steps to update your [SSH server's sshd config](hhttps://www.ssh.com/ssh/sshd_config/):
 
 1. Open `/etc/ssh/sshd_config` in an editor  (like vim, nano, or pico) on the **SSH host** (not locally).
 2. Add the setting  `AllowTcpForwarding yes`.
@@ -325,15 +325,18 @@ To mount the remote filesystem on **macOS or Linux**, run the following from a l
 ```bash
 export USER_AT_HOST=user@hostname
 
+# Make the directory where the remote filesystem will be mounted
 mkdir -p "$HOME/sshfs/$USER_AT_HOST"
-sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
 
-# Wait for a key press, then disconnect
-read -n 1 -p "Press any key to unmount the remote filesystem..."
-umount "$HOME/sshfs/$USER_AT_HOST"
+# Mount the remote filesystem
+sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
 ```
 
-This will make your home folder on the remote machine available under the `~/sshfs` folder until you press a key.
+This will make your home folder on the remote machine available under the `~/sshfs`. When you are done, you can unmount it using your OS's Finder / file explorer or by using the command line as follows:
+
+```bash
+umount "$HOME/sshfs/$USER_AT_HOST"
+```
 
 On **Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
@@ -560,10 +563,11 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following advanced configuration topics:
 
 - [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
+- [Avoiding extension reinstalls on container rebuild](#avoiding-extension-reinstalls-on-container-rebuild)
 - [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
 - [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
 - [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
-- [Using SSH to connect to a remote Docker host](/docs/remote/containers-advanced.md#using-ssh-to-connect-to-a-remote-docker-host)
+- [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
 - [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
 
 ## WSL tips

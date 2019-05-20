@@ -611,10 +611,12 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 
 * [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
 * [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
+* [Avoiding extension reinstalls on container rebuild](#avoiding-extension-reinstalls-on-container-rebuild)
 * [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
 * [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
-* [Using SSH to connect to a remote Docker host](/docs/remote/containers-advanced.md#using-ssh-to-connect-to-a-remote-docker-host)
+* [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
 * [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
+
 
 ## devcontainer.json  reference
 
@@ -636,7 +638,7 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 |**General**|||
 | `name` | string | A display name for the container. |
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
-| `postCreateCommand` | string or array | A command or list of commands to run after the container is created (for example, `yarn install`). Defaults to none. |
+| `postCreateCommand` | string or array | A command string or list of command arguments to run after the container is created. Use `&&` with in a string to execute multiple commands. For example, `"yarn install"`, `["yarn", "install"]`, or `"cd src && yarn install"`. Defaults to none. |
 | `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
 
 ## Known limitations
@@ -700,7 +702,7 @@ A VS Code window can only connect to one window currently, but you can open a ne
 
 ### Can I work with containers on a remote host?
 
-With some manual configuration, yes. You can attach to a container running on a remote host or create specialized `devcontainer.json` and `Docker Compose` files designed to work with your remote host. See [Using SSH to connect to a remote Docker host](/docs/remote/containers-advanced.md#using-ssh-to-connect-to-a-remote-docker-host) for details.
+With some manual configuration, yes. You can attach to a container running on a remote host or create specialized `devcontainer.json` and `Docker Compose` files designed to work with your remote host. You can either connect to a publicly exposed Docker daemon TCP port or use SSH to tunnel into a remote VM running Docker. See [Developing inside a container on a remote Docker host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details.
 
 ### How can I build or deploy container images into my local Docker / Kubernetes install when working inside a container?
 
@@ -714,7 +716,7 @@ The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.co
 
 The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work inside dev containers without any modification. However, we recommend that you test your extension in a dev container to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-### What other resources are there that can may be able to answer my question?
+### What other resources are there that may be able to answer my question?
 
 The following articles may help answer your question:
 * [Advanced Container Configuration](/docs/remote/containers-advanced.md) or [Tips and Tricks](/docs/remote/troubleshooting.md#containers-tips)
