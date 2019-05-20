@@ -210,7 +210,7 @@ You can use the Docker CLI locally with a remote Docker host by setting [local e
 
 ### Option 1: Connect using Docker Machine or by setting local environment variables
 
-Assuming you have `code-insiders` the following snippet will start VS Code up connected to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [driver](https://docs.docker.com/machine/drivers/) you pick and your environment. Note that the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below requires that your user have passwordless-sudo access if you are not running as root.
+Assuming you have `code-insiders` the following snippet will start VS Code up connected to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [driver](https://docs.docker.com/machine/drivers/) you pick. You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
 
 On **macOS or Linux**:
 
