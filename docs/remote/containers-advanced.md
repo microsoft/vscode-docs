@@ -210,7 +210,7 @@ You can use the Docker CLI locally with a remote Docker host by setting [local e
 
 ### Option 1: Connect using Docker Machine or by setting local environment variables
 
-Assuming you have `code-insiders` the following snippet will start VS Code up connected to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [driver](https://docs.docker.com/machine/drivers/) you pick. You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
+Assuming you have `code-insiders` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick. You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
 
 On **macOS or Linux**:
 
@@ -228,7 +228,7 @@ docker-machine create --driver generic --generic-ip-address your-ip-address-here
 code-insiders
 ```
 
-If you already have a remote Docker host, you do not technically need to use `docker-machine` to connect it. Depending on your setup, you may be able to just set the environment variables directly.
+However, if you already have a remote Docker host up and running, you do not technically need to use `docker-machine` to connect it. Depending on your setup, you may be able to just set the required environment variables directly.
 
 ```bash
 export DOCKER_HOST=your-remote-machine-fqdn-or-ip-here:2375 # And others as appropriate
@@ -277,8 +277,8 @@ Docker does **not** support mounting (binding) your local filesystem into a remo
 
 In this section, we'll walk you through how to convert a pre-defined, local dev container definition into a remote one. Just follow these steps:
 
-1. Follow the steps above to start up VS Code pointing to the right Docker host.
-2. Create and open an empty folder in VS Code.
+1. Start up VS Code pointing to the right Docker host using one of the options above.
+2. Create and open a local empty folder in VS Code.
 3. Run **Remote-Containers: Add Container Configuration File...** from the Command Palette (`kbstyle(F1)`).
 4. Pick a starting point for your remote container from the list that appears.
 5. What you do next will depend on whether you picked a definition that uses a Dockerfile or Docker Compose.
