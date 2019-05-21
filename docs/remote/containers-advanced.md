@@ -215,16 +215,24 @@ Assuming you have `code-insiders` in your path, the following snippet will allow
 On **macOS or Linux**:
 
 ```bash
-docker-machine create --driver generic --generic-ip-address your-ip-address-here --generic-ssh-user your-user your-remote-docker-machine-name-here
-eval $(docker-machine env your-remote-docker-machine-name-here)
+docker-machine create \
+    --driver generic \
+    --generic-ip-address your-ip-address-here \
+    --generic-ssh-user your-user \
+    your-docker-machine-name-here
+eval $(docker-machine env your-docker-machine-name-here)
 code-insiders
 ```
 
-On **Windows**:
+On **Windows** in a command prompt:
 
 ```bat
-docker-machine create --driver generic --generic-ip-address your-ip-address-here --generic-ssh-user your-user your-remote-docker-machine-name-here
-@FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd docker-locker') DO @%i
+docker-machine create ^
+    --driver generic ^
+    --generic-ip-address your-ip-address-here ^
+    --generic-ssh-user your-user ^
+    your-docker-machine-name-here
+@FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd your-docker-machine-name-here') DO @%i
 code-insiders
 ```
 
@@ -254,7 +262,7 @@ code-insiders
 ssh -NL localhost:23750:/var/run/docker.sock user@hostname
 ```
 
-On **Windows**:
+On **Windows** in a command prompt:
 
 ```bat
 SET DOCKER_HOST=localhost:23750
@@ -408,7 +416,8 @@ If you put your remote focused dev container settings described above in `~/repo
 
     # Mount the remote filesystem
     mkdir -p "$HOME/sshfs/$USER_AT_HOST"
-    sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
+    sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  \
+        -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
 
     # Start VS Code and forward the docker port.
     export DOCKER_HOST=localhost:23750
@@ -468,7 +477,7 @@ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | (OUT=$(apt-key add - 2>&1) |
 You can also set the `APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE` environment variable to suppress the warning, but it looks a bit scary so be sure to add comments in your Dockerfile if you use it:
 
 ```Dockerfile
-# Suppress an apt-key warning about standard out not being a terminal. Its use in this script is safe.
+# Suppress an apt-key warning about standard out not being a terminal. Use in this script is safe.
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 ```
 
