@@ -82,6 +82,17 @@ By default, the debug instance of VS Code will load any extension you've previou
 ]
 ```
 
+If you are looking for a way to disable extensions when running `npm test` as well, make use of the `CODE_DISABLE_EXTENSIONS`
+environment variable. `npm test` will pass `--disable-extensions` to the VS Code extension host instance if it seems it, disabling
+other extensions but yours.
+
+- Windows: `"test": "npm run compile && set NODE_ENV=production&&node ./node_modules/vscode/bin/test"`
+- Mac/Linux: `npm run compile && CODE_DISABLE_EXTENSIONS=true node ./node_modules/vscode/bin/test`
+
+You can make use of the `cross-env` Node package for a cross-platform way of setting environment variables in NPM scripts:
+
+`"test": "npm run compile && cross-env CODE_DISABLE_EXTENSIONS=true node ./node_modules/vscode/bin/test"`
+
 This will give large benefits to performance when running tests
 
 ## Excluding test files from your extension package
