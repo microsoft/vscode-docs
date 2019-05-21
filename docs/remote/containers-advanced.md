@@ -216,7 +216,7 @@ On **macOS or Linux**:
 
 ```bash
 docker-machine create --driver generic --generic-ip-address your-ip-address-here --generic-ssh-user your-user your-remote-docker-machine-name-here
-evel $(docker-machine env your-remote-docker-machine-name-here)
+eval $(docker-machine env your-remote-docker-machine-name-here)
 code-insiders
 ```
 
