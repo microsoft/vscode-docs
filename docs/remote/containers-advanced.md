@@ -215,10 +215,9 @@ Assuming you have `code-insiders` in your path, the following snippet will allow
 On **macOS or Linux**:
 
 ```bash
-docker-machine create \
-    --driver generic \
+docker-machine create --driver generic \
     --generic-ip-address your-ip-address-here \
-    --generic-ssh-user your-user \
+    --generic-ssh-user your-remote-user-here \
     your-docker-machine-name-here
 eval $(docker-machine env your-docker-machine-name-here)
 code-insiders
@@ -227,10 +226,9 @@ code-insiders
 On **Windows** in a command prompt:
 
 ```bat
-docker-machine create ^
-    --driver generic ^
+docker-machine create --driver generic ^
     --generic-ip-address your-ip-address-here ^
-    --generic-ssh-user your-user ^
+    --generic-ssh-user your-remote-user-here ^
     your-docker-machine-name-here
 @FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd your-docker-machine-name-here') DO @%i
 code-insiders
@@ -248,11 +246,9 @@ Once set, you can use VS Code to [attach to any running container](/docs/remote/
 
 ### Option 2: Connect using an SSH tunnel
 
-Docker CE / Desktop will not expose the required Docker daemon TCP port by default since it can leave the machine vulnerable if not secured properly. Instead, the Docker CLI uses a local Unix socket (or named pipe on Windows) to communicate. In addition, some organizations or cloud vendors may also have firewalls or other security measures running that prevent you from accessing the required remote TCP port.
+Docker CE / Desktop will not expose the required Docker daemon TCP port by default since it can leave the machine vulnerable if not secured properly. Instead, the Docker CLI uses a local Unix socket (or named pipe on Windows) to communicate. In addition, some organizations or cloud vendors have firewalls or other security measures running that block access to the required remote TCP port.
 
-Fortunately, you can use an SSH tunnel to forward the Docker socket from your remote host to your local machine as needed.
-
-If you have an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) installed, you can run the following commands in a local terminal / command prompt to connect VS Code to the remote Docker Machine. To do so, run the following commands replacing `user@hostname` with the remote user and hostname / IP for your server.
+Fortunately, if you have SSH access, you can use a tunnel to forward the Docker socket from your remote host to your local machine as needed. If you have an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) installed, you can run the following commands in a local terminal / command prompt to connect VS Code to the remote Docker Machine. To do so, run the following commands replacing `user@hostname` with the remote user and hostname / IP for your server.
 
 On **macOS or Linux**:
 
