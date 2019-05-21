@@ -144,7 +144,7 @@ Cygwin/MinGW debugging on Windows supports both attach and launch debugging scen
 
 To learn more, see [Configuring launch.json for C/C++ debugging](https://github.com/Microsoft/vscode-cpptools/blob/master/launch.md).
 
-If you are debugging with GDB on Windows, see [Windows Debugging with GDB](#windows-debugging-with-gdb).
+If you are debugging with GDB on Windows, see [Windows Debugging with MinGW64](/docs/cpp/config-mingw.md).
 
 ### Conditional Breakpoints
 
