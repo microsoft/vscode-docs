@@ -551,11 +551,12 @@ version: '3'
       command: sleep infinity
 ```
 
-This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to this one in `.devcontainer/devcontainer.extend.json` as follows:
+This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to `.devcontainer/devcontainer.extend.json` in a specific order:
 
 ```json
 {
     "name": "[Optional] Your project name here",
+    // The order of the files is important since later files override previous ones
     "dockerComposeFile": [
         "../docker-compose.yml",
         "docker-compose.extend.yml"
@@ -566,10 +567,10 @@ This same file can provide additional settings, such as port mappings, as needed
 }
 ```
 
-VS Code will then **automatically use both files** when starting up any containers or you can start them yourself from the command line:
+VS Code will then **automatically use both files** when starting up any containers. You can also start them yourself from the command line as follows:
 
 ```bash
-docker-compose up -f docker-compose.yml -f .devcontainer/docker-compose.extend.yml
+docker-compose -f docker-compose.yml -f .devcontainer/docker-compose.extend.yml up
 ```
 
 ### Using an updated Dockerfile to automatically install more tools
@@ -616,7 +617,6 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 * [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
 * [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
 * [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
-
 
 ## devcontainer.json  reference
 
