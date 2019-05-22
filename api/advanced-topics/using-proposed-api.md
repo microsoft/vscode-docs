@@ -20,3 +20,12 @@ These are the steps for testing Proposed API in local extension development:
 - Use [Insiders](/insiders) release of VS Code.
 - Add `"enableProposedApi": true` to your `package.json`.
 - Copy the latest version of the [`vscode.proposed.d.ts`](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.proposed.d.ts) into your project.
+
+We now provide [vscode-dts](https://github.com/microsoft/vscode-dts) module that allows you to quickly download latest `vscode.proposed.d.ts` for development.
+
+```bash
+> npx vscode-dts dev
+Downloading vscode.proposed.d.ts to /Users/pine/Code/vscode-docs/vscode.proposed.d.ts
+Please set "enableProposedApi": true in package.json.
+Read more about proposed API at: https://code.visualstudio.com/api/advanced-topics/using-proposed-api
+```
