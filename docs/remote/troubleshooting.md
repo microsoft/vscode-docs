@@ -144,7 +144,7 @@ If you are behind a proxy and are unable to connect to your SSH host, you may ne
 
 **Ensure the remote machine has internet access**
 
-The remote machine must have internet access to be able to download the VS Code Server and extensions from the marketplace.
+The remote machine must have internet access to be able to download the VS Code Server and extensions from the Marketplace.
 
 **Set HTTP_PROXY / HTTPS_PROXY on the remote host**
 
@@ -165,13 +165,13 @@ Some remote servers are set up to disallow executing scripts from `/tmp`. VS Cod
 
 **Check whether a different shell is launched during install**
 
-Some users launch a different shell from their `.bash_profile` or other startup script because they want to use a different shell from the default. This can break VS Code's remote server install script and isn't recommended. Instead, use `chsh` to change your default shell on the remote machine.
+Some users launch a different shell from their `.bash_profile` or other startup script because they want to use a different shell than the default. This can break VS Code's remote server install script and isn't recommended. Instead, use `chsh` to change your default shell on the remote machine.
 
 **Connecting to systems that dynamically assign machines per connection**
 
 Some systems will dynamically route to one node from a cluster each time an SSH connection is made. This is an issue for VS Code because it makes two connections to open a remote window: the first to install or start the VS Code Server (or find an already running instance) and the second to create the SSH port tunnel that VS Code uses to talk to the server. If VS Code is routed to a different machine when it creates the second connection, it won't be able to talk to the VS Code server.
 
-One workaround for this is to use the `ControlMaster` option in OpenSSH (Mac/Linux clients only), described [above](#enabling-alternate-ssh-authentication-methods), so that VS Code's two connections will be multiplexed through a single SSH connection to the same node.
+One workaround for this is to use the `ControlMaster` option in OpenSSH (macOS/Linux clients only), described [above](#enabling-alternate-ssh-authentication-methods), so that VS Code's two connections will be multiplexed through a single SSH connection to the same node.
 
 **Contact your system administrator for configuration help**
 
@@ -356,7 +356,7 @@ This will make your home folder on the remote machine available under the `~/ssh
 umount "$HOME/sshfs/$USER_AT_HOST"
 ```
 
-On **Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
+On **Windows**, you should add a `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
 Once you've installed SSHFS for Windows, run the following from the command prompt replacing `user@hostname` with the remote user and hostname / IP:
 
