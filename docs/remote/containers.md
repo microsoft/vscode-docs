@@ -306,22 +306,17 @@ VS Code's local user settings are also reused when you are connected to a dev co
 
 ### Default container specific settings
 
-You can also add a default container settings file into your container image. This can be useful for settings like absolute paths that you know will always differ from local ones.
+You can include defaults for container specific settings in `devcontainer.json` using the `settings` property. These values will be automatically placed in the container specific settings file inside the container once it is created.
 
-For example, consider this `.devcontainer/settings.vscode.json` file that sets the Java home path:
+For example, adding this to `.devcontainer/devcontainer.json` will set the Java home path:
 
 ```json
-{
+"settings": {
     "java.home": "/docker-java-home"
 }
 ```
 
-If you have an existing `.devcontainer/Dockerfile`, you can just add a `COPY` statement that puts the settings file in the right location:
-
-```Dockerfile
-# Copy endpoint specific user settings into container to specify Java path
-COPY settings.vscode.json /root/.vscode-remote/data/Machine/settings.json
-```
+Since this just establishes the default, you are still able to change the settings as needed once the container is created.
 
 ## In-depth: Setting up a folder to run in a container
 
