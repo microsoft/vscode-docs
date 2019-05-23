@@ -607,6 +607,14 @@ You can see which distributions you have installed by running:
 wslconfig /l
 ```
 
+### VS Code server hangs when starting up
+
+This can happen if there are custom startup scripts that prevent startup.
+
+The VS Code server is started in an interactive login shell and uses the shell that is configured. See this [blog post](https://medium.com/@vinhp/set-and-use-zsh-as-default-shell-in-wsl-on-windows-10-the-right-way-4f30ed9592dc) for more information on how to specify a shell.
+
+By default, `bash` is used as the shell. Bash will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`. If this lookup seems unnecessary, you may include all startup settings in `~/.bashrc`. Check whether these files contain any commands that could block the server from starting. For example, it is not recommended using the startup script to start another shell.
+
 ### Fixing problems with the code-insiders command not working
 
 If typing `code-insiders` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
