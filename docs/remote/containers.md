@@ -56,6 +56,8 @@ The Remote - Containers extension supports two primary operating models:
 
 We will cover how to use a container as your full-time development environment first.
 
+> **Note:** Alpine Linux and Windows based dev containers are not currently supported.
+
 ### Quick start: Try a dev container
 
 Let's start out by using a sample project to try things out.
@@ -159,7 +161,7 @@ Beyond the advantages of having your team use a consistent environment and tool-
 
 While using VS Code to spin up a new container can be useful in many situations, it may not match your workflow and you may prefer to "attach" VS Code to an already running container.
 
-> **Note:** Alpine Linux and Windows based containers are not currently supported.
+> **Note:** Alpine Linux and Windows based dev containers are not currently supported.
 
 Once you have a container up and running, you can connect by either:
 
