@@ -708,7 +708,7 @@ The pattern's first regular expression will match "test.js", the second "1:0  er
 
 To make this work, the last regular expression of a multiline pattern can specify the `loop` property. If set to true, it instructs the task system to apply the last pattern of a multiline matcher to the lines in the output as long as the regular expression matches.
 
-The information captured by all previous patterns is combined with the information captured by the last pattern and turned into a problem inside VS Code.
+The information captured by the first pattern, which in this case matches `test.js`, will be combined with each of the subsequent lines that match the `loop` pattern to create multiple problems. In this example, six problems would be created.
 
 Here is a problem matcher to fully capture ESLint stylish problems:
 
