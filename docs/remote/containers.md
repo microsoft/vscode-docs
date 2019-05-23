@@ -35,7 +35,7 @@ To get started, follow these steps:
 
     2. Right-click on the Docker taskbar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you run into trouble, see [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) on avoiding common problems with sharing.
 
-    3. **Windows**: Consider adding a `.gitattributes` file or disabling automatic line ending conversion for Git on the **Windows side** by using a command prompt to run: `git config --global core.autocrlf false` If left enabled, this setting can cause files that you have not edited to appear modified due to line ending differences. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
+    3. **Windows**: Consider adding a `.gitattributes` file to your repos or disabling automatic line ending conversion for Git on the **Windows side** by using a command prompt to run: `git config --global core.autocrlf input` If left enabled, this setting can cause files that you have not edited to appear modified due to line ending differences. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
 
     **Linux**:
 
@@ -55,6 +55,8 @@ The Remote - Containers extension supports two primary operating models:
 * You can [attach to a running container](#attaching-to-running-containers) to inspect it.
 
 We will cover how to use a container as your full-time development environment first.
+
+> **Note:** Alpine Linux and Windows based dev containers are not currently supported.
 
 ### Quick start: Try a dev container
 
@@ -159,7 +161,7 @@ Beyond the advantages of having your team use a consistent environment and tool-
 
 While using VS Code to spin up a new container can be useful in many situations, it may not match your workflow and you may prefer to "attach" VS Code to an already running container.
 
-> **Note:** Alpine Linux and Windows based containers are not currently supported.
+> **Note:** Alpine Linux and Windows based dev containers are not currently supported.
 
 Once you have a container up and running, you can connect by either:
 
@@ -304,22 +306,17 @@ VS Code's local user settings are also reused when you are connected to a dev co
 
 ### Default container specific settings
 
-You can also add a default container settings file into your container image. This can be useful for settings like absolute paths that you know will always differ from local ones.
+You can include defaults for container specific settings in `devcontainer.json` using the `settings` property. These values will be automatically placed in the container specific settings file inside the container once it is created.
 
-For example, consider this `.devcontainer/settings.vscode.json` file that sets the Java home path:
+For example, adding this to `.devcontainer/devcontainer.json` will set the Java home path:
 
 ```json
-{
+"settings": {
     "java.home": "/docker-java-home"
 }
 ```
 
-If you have an existing `.devcontainer/Dockerfile`, you can just add a `COPY` statement that puts the settings file in the right location:
-
-```Dockerfile
-# Copy endpoint specific user settings into container to specify Java path
-COPY settings.vscode.json /root/.vscode-remote/data/Machine/settings.json
-```
+Since this just establishes the default, you are still able to change the settings as needed once the container is created.
 
 ## In-depth: Setting up a folder to run in a container
 
@@ -551,11 +548,12 @@ version: '3'
       command: sleep infinity
 ```
 
-This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to this one in `.devcontainer/devcontainer.extend.json` as follows:
+This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to `.devcontainer/devcontainer.extend.json` in a specific order:
 
 ```json
 {
     "name": "[Optional] Your project name here",
+    // The order of the files is important since later files override previous ones
     "dockerComposeFile": [
         "../docker-compose.yml",
         "docker-compose.extend.yml"
@@ -566,10 +564,10 @@ This same file can provide additional settings, such as port mappings, as needed
 }
 ```
 
-VS Code will then **automatically use both files** when starting up any containers or you can start them yourself from the command line:
+VS Code will then **automatically use both files** when starting up any containers. You can also start them yourself from the command line as follows:
 
 ```bash
-docker-compose up -f docker-compose.yml -f .devcontainer/docker-compose.extend.yml
+docker-compose -f docker-compose.yml -f .devcontainer/docker-compose.extend.yml up
 ```
 
 ### Using an updated Dockerfile to automatically install more tools
@@ -617,7 +615,6 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 * [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
 * [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
 
-
 ## devcontainer.json  reference
 
 | Property | Type | Description |
@@ -627,6 +624,8 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 | `dockerFile` | string |**Required** when [using a Dockerfile](#using-a-dockerfile). The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes [in this repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers). |
 | `context` | string | Path that the Docker build should be run from relative to `devcontainer.json`. For example, a value of `".."` would allow you to reference content in sibling directories. Defaults to `"."`. |
 | `appPort` | integer, string, or array | A port or array of ports that should be made available locally when the container is running. Defaults to `[]`. |
+| `workspaceMount` | string | Overrides the default local mount point for the workspace. Supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag). Primarily useful for [configuring remote containers](/docs/remote/containers-advanced.md#using-devcontainerjson-to-work-with-a-remote-dev-container). |
+| `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container. Typically used in conjunction with `workspaceMount`. Defaults to the automatic source code mount location. |
 | `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`. A run argument can refer to environment variables using the following format `${env:HOME}` |
 | `overrideCommand` | boolean | Tells VS Code whether it should run `sleep infinity` when starting the container instead of the default command to prevent the container from immediately shutting down if the default command fails. Defaults to `true`. |
 | `shutdownAction` | enum: `none`, `stopContainer` | Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. Defaults to `stopContainer`. |
@@ -638,6 +637,7 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 |**General**|||
 | `name` | string | A display name for the container. |
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
+| `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |
 | `postCreateCommand` | string or array | A command string or list of command arguments to run after the container is created. Use `&&` in a string to execute multiple commands. For example, `"yarn install"`, `["yarn", "install"]`, or `"cd src && yarn install"`. Defaults to none. |
 | `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
 

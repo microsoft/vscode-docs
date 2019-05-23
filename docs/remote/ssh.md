@@ -9,7 +9,7 @@ DateApproved: 5/15/2019
 ---
 # Remote Development using SSH
 
-❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](https://code.visualstudio.com/insiders)**.
+❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](https://code.visualstudio.com/insiders)**. The extension supports connecting to x86_64 Linux SSH servers now, and more platforms are on the way.
 
 ---
 
@@ -39,9 +39,9 @@ To get started you need to:
 
 ### Connect to a remote host
 
-> **Note:** The remote host must be running an x86_64 Linux-based OS.
-
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
+
+> **Note:** The Remote - SSH extension currently only supports connecting to x86_64 Linux-based SSH servers. Alpine and other non-glibc Linux based distros not yet supported.
 
 To get started, follow these steps:
 
