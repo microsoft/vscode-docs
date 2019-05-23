@@ -40,6 +40,19 @@ You can add a volume mount to any local folder using these steps:
 
 2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
 
+## Changing the default source code mount
+
+If you add the `image` or `dockerFile` properties to `devcontainer.json`, VS Code will automatically "bind" mount your current workspace folder into the container. While this is convenient, you may want to change [mount settings](https://docs.docker.com/engine/reference/commandline/service_create/#add-bind-mounts-volumes-or-memory-filesystems), alter the type of mount, or [run in a remote container](#using-devcontainerjson-to-work-with-a-remote-dev-container).
+
+You can use the `workspaceMount` property in `devcontainer.json` to change the automatic mounting behavior. It expects the same value as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag).
+
+For example:
+
+```json
+"workspaceMount": "src=/absolute/path/to/source/code,dst=/workspace,type=bind,consistency=cached",
+"workspaceFolder": "/workspace"
+```
+
 ## Avoiding extension reinstalls on container rebuild
 
 By default, VS Code will install extensions and VS Code Server inside the container's filesystem. While this has performance benefits over a locally mounted filesystem, the disadvantage is that VS Code will have to re-install them on a container rebuild.
@@ -294,8 +307,8 @@ Just follow these steps:
     Add the `workspaceMount` property to `.devcontainer/devcontainer.json` and override the `workspaceFolder` as follows:
 
     ```json
-    "workspaceMount": "src=remote-workspace,dst=/remote-workspace,type=volume,volume-driver=local",
-    "workspaceFolder": "/remote-workspace"
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "src=/absolute/path/to/where/source/code/is/on/host,dst=/workspace,type=bind"
     ```
 
     Note that you can change the volume name (`remote-workspace`) to something different if you'd like a unique volume per container. The `workspaceMount` property supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag) if you have a different scenario in mind.
