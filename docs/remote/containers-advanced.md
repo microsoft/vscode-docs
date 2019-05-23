@@ -204,7 +204,7 @@ You can now interact with both containers at once from separate windows.
 
 ## Developing inside a container on a remote Docker host
 
-Sometimes you may want to use the Remote - Containers extension to develop inside a container that sits on remote server. While we are looking at ways to optimize this experience, this section outlines how you can achieve this today by attaching to a remote container from VS Code or using Docker Compose and `devcontainer.json`.
+Sometimes you may want to use the Remote - Containers extension to develop inside a container that sits on remote server. This section outlines how you can achieve this by using `devcontainer.json` or attaching to an existing remote container.
 
 You can use the Docker CLI locally with a remote Docker host by setting [local environment variables like `DOCKER_HOST`, `DOCKER_CERT_PATH`, `DOCKER_TLS_VERIFY`](https://docs.docker.com/machine/reference/env/). Since VS Code uses the Docker CLI under the hood, you can use these same environment variables to connect the Remote - Containers extension to the same remote host. You can either use [Docker Machine](https://docs.docker.com/machine/) to set this up, manually set the needed environment variables, or use SSH to tunnel the remote Docker socket.
 
@@ -277,57 +277,30 @@ Note that you may need to `AllowStreamLocalForwarding` in your SSH server's [ssh
 
 ### Using devcontainer.json to work with a remote dev container
 
-Docker does **not** support mounting (binding) your local filesystem into a remote container. Even if it did, this would result in very poor performance. As a result, the best practice is to store your source code on the remote machine. There are a few different ways to do this, but the simplest is to **create your remote dev container first**, and then **clone your source code into it**.
+Docker does **not** support mounting (binding) your local filesystem into a remote container. Even if it did, this would result in very poor performance. As a result, the best practice is to store your source code on the remote machine.  This is different than the default workflow for `devcontainer.json` which automatically mounts the local filesystem, but only requires a few tweaks to get running.
 
-In this section, we'll walk you through how to convert a pre-defined, local dev container definition into a remote one. Just follow these steps:
+In this section, we'll walk you through how to convert a pre-defined, local dev container definition into a remote one. There are a few different ways to do this, but the simplest is to **create your remote dev container first**, and then **clone your source code into it** since this does not require that your user have direct access to the remote host. However, note you can also update these examples slightly to [bind to a folder](#optional-using-the-remote-filesystem-bind-mount-instead-of-a-volume) with **existing source code** on the remote machine.
+
+Just follow these steps:
 
 1. Start up VS Code pointing to the right Docker host using one of the options above.
 2. Create and open a local empty folder in VS Code.
 3. Run **Remote-Containers: Add Container Configuration File...** from the Command Palette (`kbstyle(F1)`).
 4. Pick a starting point for your remote container from the list that appears.
-5. What you do next will depend on whether you picked a definition that uses a Dockerfile or Docker Compose.
+5. What you do next will depend on whether you picked a definition that specifies an `image`, `dockerFile`, or `dockerComposeFile` property in `.devcontainer/devcontainer.json`.
 
-    **Dockerfile**
+    **`image` or `dockerFile`**
 
-    Add a `docker-compose.remote.yml` file into the `.devcontainer` folder with the following contents:
-
-    ```yml
-    version: '3'
-    services:
-      dev-container:
-        build:
-          context: .
-          dockerfile: Dockerfile
-
-        volumes:
-            - ssh-workspace:/ssh-workspace
-
-        command: sleep infinity
-
-      # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
-      cap_add:
-        - SYS_PTRACE
-      security_opt:
-        - seccomp:unconfined
-
-    volumes:
-      ssh-workspace:
-    ```
-
-    Note that you can change the volume name (`ssh-workspace`) if you'd like a unique volume per container.
-
-    Then alter `.devcontainer/devcontainer.json` as follows:
+    Add the `workspaceMount` property to `.devcontainer/devcontainer.json` and override the `workspaceFolder` as follows:
 
     ```json
-    {
-        "name": "Your name goes here",
-        "dockerComposeFile": "docker-compose.remote.yml",
-        "service": "dev-container",
-        "workspaceFolder": "/ssh-workspace",
-    }
+    "workspaceMount": "src=remote-workspace,dst=/remote-workspace,type=volume,volume-driver=local",
+    "workspaceFolder": "/remote-workspace"
     ```
 
-    **Docker Compose**
+    Note that you can change the volume name (`remote-workspace`) to something different if you'd like a unique volume per container. The `workspaceMount` property supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag) if you have a different scenario in mind.
+
+    **`dockerComposeFile`**
 
     Add a `docker-compose.remote.yml` file into the `.devcontainer` folder with the following contents. Replace `your-service-name-here` with the value of the `service` property in `devcontainer.json`.
 
@@ -336,22 +309,22 @@ In this section, we'll walk you through how to convert a pre-defined, local dev 
     services:
       your-service-name-here:
         volumes:
-            - ssh-workspace:/ssh-workspace
+            - remote-workspace:/remote-workspace
 
     volumes:
-      ssh-workspace:
+      remote-workspace:
     ```
 
-    Note that you can change the volume name (`ssh-workspace`) if you'd like a unique volume per container.
+    Note that you can change the volume name (`remote-workspace`) to something different if you'd like a unique volume per container. See the [Docker Compose documentation on `volumes`](https://docs.docker.com/compose/compose-file/#volumes) if you need to support a different scenario.
 
-    Then alter two properties in `.devcontainer/devcontainer.json` as follows:
+    Next, alter two properties in `.devcontainer/devcontainer.json` as follows:
 
     ```json
     "dockerComposeFile": [
         "docker-compose.yml",
         "docker-compose.remote.yml"
     ],
-    "workspaceFolder": "/ssh-workspace"
+    "workspaceFolder": "/remote-workspace"
     ```
 
 6. Run the **Remote-Containers: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`).
@@ -364,6 +337,19 @@ Next time you want to connect to this same container, run **Remote-Containers: O
 
 The model above uses a Docker volume to persist the source code. While this will prevent the source code from being deleted when you rebuild, you can also use the remote filesystem instead (assuming you have access). The advantage of this model is that you can clone or interact with the source code from **another terminal window** using SSH. This can also be useful if you've **already got source code on-disk** that you want to open in a container.
 
+What you do next will depend on whether you picked a definition that specifies an `image`, `dockerFile`, or `dockerComposeFile` property in `.devcontainer/devcontainer.json`.
+
+**`image` /  `dockerFile`**
+
+Update the `workspaceMount` property in `.devcontainer/devcontainer.json` as follows replacing `/absolute/path/on/remote/machine/for/source/code` with the real full path on the remote machine:
+
+```json
+"workspaceMount": "src=/absolute/path/on/remote/machine/for/source/code,dst=/remote-workspace,type=bind",
+"workspaceFolder": "/remote-workspace"
+```
+
+**`dockerComposeFile`**
+
 Just change the `volumes` section to point to the absolute file path on the remote filesystem where the source code should be kept.
 
 ```yml
@@ -372,7 +358,7 @@ services:
     dev-container:
       # ...
       volumes:
-        - /absolute/path/on/remote/machine/for/source/code:/ssh-workspace
+        - /absolute/path/on/remote/machine/for/source/code:/remote-workspace
 ```
 
 ### [Optional] Making the remote source code available locally
