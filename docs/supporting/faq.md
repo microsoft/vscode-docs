@@ -67,6 +67,24 @@ You can find the VS Code licenses, third party notices and [Chromium](https://ww
 
 To learn why Visual Studio Code, the product, has a different license than vscode, the open source [GitHub repository](https://github.com/microsoft/vscode), see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
 
+## What is the difference between the `github.com/microsoft/vscode` repository and the Microsoft Visual Studio Code distribution?
+
+The [`github.com/microsoft/vscode` repository](https://github.com/Microsoft/vscode) ("`Code - OSS`) is where we develop the [Visual Studio Code](https://code.visualstudio.com) product. Not only do we write code and work on issues there, we also publish our roadmap, montly iteration plans, and our endgame plans. The source code is available to everyone under a standard [MIT license](https://github.com/microsoft/vscode/blob/master/LICENSE.txt).
+
+[Visual Studio Code](https://code.visualstudio.com) is a distribution of the `Code - OSS` repository with Microsoft specific customizations (including code), released under a traditional [Microsoft product license](https://code.visualstudio.com/License/).
+
+See the [Visual Studio Code and `Code - OSS` Differences](https://github.com/microsoft/vscode/wiki/Distro-Diffs) article for more details.
+
+## Are all Visual Studio Code extensions open source?
+
+Extension authors are free to choose a license that fits their business needs. While many extension authors have opted to release their code under an open source license, some extensions like [Wallaby.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode), [Google Cloud Code](https://marketplace.visualstudio.com/items?itemName=GoogleCloudTools.cloudcode), and the [VS Code Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extensions use proprietary licenses.
+
+At Microsoft, we open source our extensions whenever possbile. However, reliance on existing proprietary code or libraries, code that crosses into Microsoft licensed tools (Visual Studio) or services, and business model differences across the entirety of Microsoft will result in some extensions using a proprietary license instead. You can find a list of Microsoft contributed Visual Studio Code extensions and their licenses in the [Microsoft Extension Licenses](oss-extensions.md) article.
+
+## What does "Built on Open Source" mean?
+
+[Microsoft Visual Studio Code](https://code.visualstudio.com) is a [Microsoft licensed](https://code.visualstudio.com/License/) distribution of [`Code - OSS`](https://github.com/Microsoft/vscode) that includes Microsoft proprietary assets (e.g. icons) and features (e.g. Visual Studio Marketplace integration, small aspects of enabling Remote Development). While these distribution additions make up a very small percentage of the overall distribution code base, it is more accurate to say that Visual Studio Code is "built" on open source, rather than "is" open source, because of these differences. More information on what each distribution includes can be found in the See the [Visual Studio Code and `Code - OSS` Differences](https://github.com/microsoft/vscode/wiki/Distro-Diffs) article.
+
 ## Can I run prerelease versions of VS Code?
 
 Want an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build is updated nightly so you'll get the latest bug fixes and feature updates from the day before.
