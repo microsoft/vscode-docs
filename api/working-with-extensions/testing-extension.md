@@ -39,7 +39,6 @@ async function go() {
   try {
     const extensionPath = path.resolve(__dirname, '../../');
     const testRunnerPath = path.resolve(__dirname, './testRunner.js');
-    const testWorkspace = path.resolve(__dirname, '../../test/suite/fixture');
 
     // Download VS Code, unzip it and run the integration test
     await runTests({
@@ -48,9 +47,7 @@ async function go() {
       extensionPath,
       // The path to test runner
       // Passed to --extensionTestsPath
-      testRunnerPath,
-      // The workspace to open on starting up VS Code
-      testWorkspace
+      testRunnerPath
     });
   } catch (err) {
     console.error('Failed to run tests');
