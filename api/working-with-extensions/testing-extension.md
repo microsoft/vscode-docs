@@ -27,7 +27,7 @@ code --extensionDevelopmentPath=. --extensionTestsPath=./out/test
 
 Although `code` is available on the CLI, it is not available in other environments such as a Continuous Integration machine. Besides, we might want to test against a different version of VS Code. Let us first setup a script to download VS Code and run the extension test using `vscode-test`:
 
-- `npm install -D vscode-test`
+- `npm install --save-dev vscode-test`
 - Write a test script:
 
 ```ts
@@ -35,27 +35,25 @@ import * as path from 'path';
 
 import { runTests } from 'vscode-test';
 
-async function go() {
-  try {
-    const extensionPath = path.resolve(__dirname, '../../');
-    const testRunnerPath = path.resolve(__dirname, './testRunner.js');
+async function main() {
+	try {
+		// The folder containing the Extension Manifest package.json
+		// Passed to `--extensionDevelopmentPath`
+		const extensionPath = path.resolve(__dirname, '../../');
 
-    // Download VS Code, unzip it and run the integration test
-    await runTests({
-      // The folder containing the Extension Manifest package.json
-      // Passed to `--extensionDevelopmentPath`
-      extensionPath,
-      // The path to test runner
-      // Passed to --extensionTestsPath
-      testRunnerPath
-    });
-  } catch (err) {
-    console.error('Failed to run tests');
-    process.exit(1);
-  }
+		// The path to test runner
+		// Passed to --extensionTestsPath
+		const testRunnerPath = path.resolve(__dirname, './suite');
+
+		// Download VS Code, unzip it and run the integration test
+		await runTests({ extensionPath, testRunnerPath });
+	} catch (err) {
+		console.error('Failed to run tests');
+		process.exit(1);
+	}
 }
 
-go();
+main();
 ```
 
 The `runTests` API provides a lot of flexibility. For example, you can specify which version of VS Code you want to download, include additional launch arguments and do custom pre-test setup with path to the VS Code executable. You can read more about the API at [https://github.com/Microsoft/vscode-test](https://github.com/Microsoft/vscode-test).
@@ -64,7 +62,7 @@ The `runTests` API provides a lot of flexibility. For example, you can specify w
 
 When running the extension integration test, `--extensionTestsPath` points to a **test runner**. In this sample, we explain how to setup a test runner using [Mocha](https://mochajs.org/).
 
-- `npm install -D mocha @types/mocha glob @types/glob`
+- `npm install --save-dev mocha @types/mocha glob @types/glob`
 - Include this test runner file:
 
 ```ts
@@ -89,6 +87,7 @@ export function run(testsRoot: string, cb: (error: any, failures?: number) => vo
 
     try {
       // Run the mocha test
+      mocha.run(failures => cb(null, failures));
       mocha.run(failures => {
         cb(null, failures);
       });

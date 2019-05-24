@@ -9,7 +9,7 @@ MetaDescription: Use Continuous Integration for testing Visual Studio Code exten
 
 # Continuous Integration
 
-Extension tests can be run on CI services. The `vscode-test` repository itself contains a sample extension that is tested on Azure Devops Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/VSCode/_build?definitionId=14) or jump directly to the [build definition yaml file](https://github.com/microsoft/vscode-test/blob/master/azure-pipelines.yml).
+Extension tests can be run on CI services. The `vscode-test` repository itself contains a sample extension that is tested on Azure Devops Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/VSCode/_build?definitionId=14) or jump directly to the [build definition yaml file](https://github.com/microsoft/vscode-test/blob/master/sample/azure-pipelines.yml).
 
 ## Azure Pipelines
 
@@ -43,18 +43,17 @@ steps:
   displayName: 'Install Node.js'
 
 - bash: |
-    if [ $AGENT_OS == "Linux" ]; then
-      set -e
-      /usr/bin/Xvfb :10 -ac >> /tmp/Xvfb.out 2>&1 &
-      disown -ar
-      echo "Started xvfb"
-    fi
+    set -e
+    /usr/bin/Xvfb :10 -ac >> /tmp/Xvfb.out 2>&1 &
+    disown -ar
+    echo "Started xvfb"
   displayName: Start xvfb
+  condition: and(succeeded(), eq(variables['Agent.OS'], 'Linux'))
 
 - bash: |
-    yarn install
-    yarn compile
-    yarn test
+    # vscode-test has its extension located at /sample
+    cd sample
+    yarn && yarn compile && yarn test
   displayName: Run Tests
   env:
     DISPLAY: :10
