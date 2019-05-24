@@ -69,7 +69,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
   "publisher": "vscode-samples",
   "repository": "https://github.com/Microsoft/vscode-extension-samples/helloworld-sample",
   "engines": {
-    "vscode": "^1.31.0"
+    "vscode": "^1.34.0"
   },
   "categories": ["Other"],
   "activationEvents": ["onCommand:extension.helloWorld"],
@@ -87,14 +87,12 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "typescript": "^3.3.1",
-    "vscode": "^1.1.28",
-    "tslint": "^5.12.1",
-    "@types/node": "^10.12.21",
-    "@types/mocha": "^2.2.42"
+    "@types/node": "^8.10.25",
+    "@types/vscode": "^1.34.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
   }
 }
 ```

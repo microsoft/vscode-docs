@@ -26,8 +26,6 @@ yo code
 
 # ? What's the identifier of your extension? helloworld
 # ? What's the description of your extension? LEAVE BLANK
-# ? Enable stricter TypeScript checking in 'tsconfig.json'? Yes
-# ? Setup linting using 'tslint'? Yes
 # ? Initialize a git repository? Yes
 # ? Which package manager to use? npm
 
