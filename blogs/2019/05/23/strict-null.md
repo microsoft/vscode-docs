@@ -36,8 +36,8 @@ export interface User {
  */
 export async function getStatus(user: User): Promise<string> {
     const id = user.id;
-    const result = await fetch(`/api/v0/user/${id}/status`);
-    const json = await response.json();
+    const result = await fetch(`/api/v0/${id}/status`);
+    const json = await result.json();
     return json.status;
 }
 ```
@@ -61,8 +61,8 @@ export async function getStatus(user: User): Promise<string> {
         return '';
     }
     const id = user.id;
-    const result = await fetch(`/api/v0/user/${id}/status`);
-    const json = await response.json();
+    const result = await fetch(`/api/v0/${id}/status`);
+    const json = await result.json();
     return json.status;
 }
 ```
@@ -97,8 +97,8 @@ export async function getStatus(user: User): Promise<string> {
     if (typeof id !== 'string') {
         return '';
     }
-    const result = await fetch(`/api/v0/user/${id}/status`);
-    const json = await response.json();
+    const result = await fetch(`/api/v0/${id}/status`);
+    const json = await result.json();
     return json.status;
 }
 ```
