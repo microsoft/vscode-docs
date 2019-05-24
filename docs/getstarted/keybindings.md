@@ -446,7 +446,7 @@ Key|Command|Command id
 `kb(workbench.actions.view.problems)`|Show Problems|`workbench.actions.view.problems`
 `kb(editor.action.marker.nextInFiles)`|Go to Next Error or Warning|`editor.action.marker.nextInFiles`
 `kb(editor.action.marker.prevInFiles)`|Go to Previous Error or Warning|`editor.action.marker.prevInFiles`
-`kb(workbench.action.showCommands)` or `F1`|Show All Commands|`workbench.action.showCommands`
+`kb(workbench.action.showCommands)` or `kbstyle(F1)`|Show All Commands|`workbench.action.showCommands`
 `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Navigate Editor Group History|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
 `kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`
 `kb(workbench.action.quickInputBack)`|Go back in Quick Input|`workbench.action.quickInputBack`

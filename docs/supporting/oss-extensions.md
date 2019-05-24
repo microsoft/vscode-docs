@@ -8,9 +8,9 @@ MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
 
-Microsoft follows a policy of open sourcing its extensions whenever possbile. But, reliance on existing proprietary code or libraries, code that crosses into Microsoft licensed tools (e.g. Visual Studio) or services, and business model differences across the entirety of Microsoft will result in some extensions using a proprietary license. We continue to have a heavy investment and commitment to open source, but we also believe that transparency is very important to the health of the Visual Studio Code community.
+Microsoft follows a policy of open sourcing its extensions whenever possible. However, reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (for example Visual Studio), and business model differences across the entirety of Microsoft will result in some extensions using a proprietary license. We continue to have a heavy investment and commitment to open source, but we also believe that transparency is very important to the health of the Visual Studio Code community.
 
-As more and more parts of Microsoft contribute extensions, we realize it can be difficult to keep track of which extensions are open source and which are not. To help, the following is a list of Microsoft contributed extensions in the Marketplace, their published licenses, and if their source code is available. Note that, given the rate of new extensions being released across an increasing number of teams, this list may not be complete. The list does not include contributions published by individual Microsoft employess to the community on their own time.
+As more and more parts of Microsoft contribute extensions, we realize that it can be difficult to keep track of which extensions are open source and which are not. To help, the following is a list of Microsoft contributed extensions in the Marketplace, their published licenses, and if their source code is available. Note that, given the rate of new extensions being released across an increasing number of teams, this list may not be complete. The list does not include contributions published by individual Microsoft employess to the community on their own time.
 
 ## Microsoft Extensions (as of May 2019)
 
