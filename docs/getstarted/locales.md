@@ -69,15 +69,15 @@ You can have multiple Language Packs installed and select the current display la
 
 ## Setting the Language
 
-If you want to use a specific language for a VS Code session, you can use the command line switch `--locale` to specify a locale when you launch VS Code.
+If you want to use a specific language for a VS Code session, you can use the command-line switch `--locale` to specify a locale when you launch VS Code.
 
-Below is an example of using the `--locale` command line switch to set the VS Code display language to French:
+Below is an example of using the `--locale` command-line switch to set the VS Code display language to French:
 
 ```bash
 code . --locale=fr
 ```
 
-**Note**: You must have the appropriate Language Pack installed for the language you specify with the command line switch. If the matching Language Pack is not installed, VS Code will display English.
+**Note**: You must have the appropriate Language Pack installed for the language you specify with the command-line switch. If the matching Language Pack is not installed, VS Code will display English.
 
 ## Common questions
 

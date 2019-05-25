@@ -173,7 +173,7 @@ Try making a small error in your React source code and you'll see a red squiggle
 
 Linters can provide more sophisticated analysis, enforcing coding conventions and detecting anti-patterns. A popular JavaScript linter is [ESLint](https://eslint.org/). ESLint, when combined with the ESLint VS Code [extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint), provides a great in-product linting experience.
 
-First, install the ESLint command line tool:
+First, install the ESLint command-line tool:
 
 ```bash
 npm install -g eslint

@@ -129,7 +129,7 @@ You can find the licenses for the VS Code Remote Development extensions here:
 * [Remote-WSL License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)
 * [Remote-Containers License](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers/license)
 
-### Why aren't the Remote Development extensions or their components open-source?
+### Why aren't the Remote Development extensions or their components open source?
 
 The Visual Studio Code Remote Development extensions and their related components use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open source. The extensions share source code which is also used in fully managed remote development services like [those announced at //build 2019](https://aka.ms/vsfutures). Given that these services also support other proprietary products (for example Visual Studio IDE), the extensions are available under a Microsoft pre-release license like other service-based, cross-product extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license) were during their preview periods.
 

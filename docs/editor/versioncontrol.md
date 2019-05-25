@@ -205,7 +205,7 @@ Visual Studio Code also supports pull request workflows through [extensions](/do
 
 ### I initialized my repo but the actions in the `...` menu are all grayed out
 
-To **push, pull, and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you need to add it to the Git settings by running a couple of command line actions. For example:
+To **push, pull, and sync** you need to have a Git origin set up.  You can get the required URL from the repository host.  Once you have that URL, you need to add it to the Git settings by running a couple of command-line actions. For example:
 
 ```bash
 > git remote add origin https://github.com/<repo owner>/<repo name>.git
