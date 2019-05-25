@@ -227,7 +227,7 @@ Assuming you have `code-insiders` in your path, the following snippet will allow
 
 You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
 
-On **macOS or Linux**:
+On **macOS or Linux**, run the following commands in a local terminal (replacing values as appropriate):
 
 ```bash
 docker-machine create --driver generic \
@@ -238,7 +238,7 @@ eval $(docker-machine env give-it-a-name-here)
 code-insiders
 ```
 
-On **Windows** in a command prompt:
+On **Windows**, run the following commands in a local command prompt  (replacing values as appropriate):
 
 ```bat
 docker-machine create --driver generic ^
@@ -265,7 +265,7 @@ Docker CE / Desktop will not expose the required Docker daemon TCP port by defau
 
 Fortunately, if you have SSH access, you can use a tunnel to forward the Docker socket from your remote host to your local machine as needed. If you have an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) installed, you can run the following commands in a local terminal / command prompt to connect VS Code to the remote Docker Machine. To do so, run the following commands replacing `user@hostname` with the remote user and hostname / IP for your server.
 
-On **macOS or Linux**:
+On **macOS or Linux**, run the following commands in a local terminal:
 
 ```bash
 export DOCKER_HOST=localhost:23750
@@ -273,7 +273,7 @@ code-insiders
 ssh -NL localhost:23750:/var/run/docker.sock user@hostname
 ```
 
-On **Windows** in a command prompt:
+On **Windows**, run the following commands in a local command prompt:
 
 ```bat
 SET DOCKER_HOST=localhost:23750
@@ -304,7 +304,7 @@ Just follow these steps:
 4. Pick a starting point for your remote container from the list that appears.
 5. What you do next will depend on whether you picked a definition that specifies an `image`, `dockerFile`, or `dockerComposeFile` property in `.devcontainer/devcontainer.json`.
 
-    When using **image** or **dockerFile**
+    When using **image** or **dockerFile**:
 
     Add the `workspaceMount` property to `.devcontainer/devcontainer.json` and override the `workspaceFolder` as follows:
 
