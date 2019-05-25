@@ -223,7 +223,9 @@ You can use the Docker CLI locally with a remote Docker host by setting [local e
 
 ### Option 1: Connect using Docker Machine or by setting local environment variables
 
-Assuming you have `code-insiders` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick. You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
+Assuming you have `code-insiders` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick.
+
+You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
 
 On **macOS or Linux**:
 
@@ -231,8 +233,8 @@ On **macOS or Linux**:
 docker-machine create --driver generic \
     --generic-ip-address your-ip-address-here \
     --generic-ssh-user your-remote-user-here \
-    your-docker-machine-name-here
-eval $(docker-machine env your-docker-machine-name-here)
+    give-it-a-name-here
+eval $(docker-machine env give-it-a-name-here)
 code-insiders
 ```
 
@@ -242,8 +244,8 @@ On **Windows** in a command prompt:
 docker-machine create --driver generic ^
     --generic-ip-address your-ip-address-here ^
     --generic-ssh-user your-remote-user-here ^
-    your-docker-machine-name-here
-@FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd your-docker-machine-name-here') DO @%i
+    give-it-a-name-here
+@FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd give-it-a-name-here') DO @%i
 code-insiders
 ```
 
@@ -354,10 +356,10 @@ What you do next will depend on whether you picked a definition that specifies a
 
 When using **image** or **dockerFile:**
 
-Update the `workspaceMount` property in `.devcontainer/devcontainer.json` as follows replacing `/absolute/path/on/remote/machine/for/source/code` with the real full path on the remote machine:
+Update the `workspaceMount` property in `.devcontainer/devcontainer.json` as follows replacing `/absolute/path/on/remote/machine` with the real full path on the remote machine:
 
 ```json
-"workspaceMount": "src=/absolute/path/on/remote/machine/for/source/code,dst=/workspace,type=bind",
+"workspaceMount": "src=/absolute/path/on/remote/machine,dst=/workspace,type=bind",
 "workspaceFolder": "/workspace"
 ```
 
@@ -373,7 +375,7 @@ services:
     dev-container:
       # ...
       volumes:
-        - /absolute/path/on/remote/machine/for/source/code:/remote-workspace
+        - /absolute/path/on/remote/machine:/workspace
 ```
 
 ### [Optional] Making the remote source code available locally
