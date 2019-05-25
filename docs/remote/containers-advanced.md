@@ -302,18 +302,18 @@ Just follow these steps:
 4. Pick a starting point for your remote container from the list that appears.
 5. What you do next will depend on whether you picked a definition that specifies an `image`, `dockerFile`, or `dockerComposeFile` property in `.devcontainer/devcontainer.json`.
 
-    **`image` or `dockerFile`**
+    When using **image** or **dockerFile**
 
     Add the `workspaceMount` property to `.devcontainer/devcontainer.json` and override the `workspaceFolder` as follows:
 
     ```json
     "workspaceFolder": "/workspace",
-    "workspaceMount": "src=/absolute/path/to/where/source/code/is/on/host,dst=/workspace,type=bind"
+    "workspaceMount": "src=remote-workspace,dst=/workspace,type=volume,volume-driver=local"
     ```
 
     Note that you can change the volume name (`remote-workspace`) to something different if you'd like a unique volume per container. The `workspaceMount` property supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag) if you have a different scenario in mind.
 
-    **`dockerComposeFile`**
+    When using **dockerComposeFile:**
 
     Add a `docker-compose.remote.yml` file into the `.devcontainer` folder with the following contents. Replace `your-service-name-here` with the value of the `service` property in `devcontainer.json`.
 
@@ -322,7 +322,7 @@ Just follow these steps:
     services:
       your-service-name-here:
         volumes:
-            - remote-workspace:/remote-workspace
+            - remote-workspace:/workspace
 
     volumes:
       remote-workspace:
@@ -337,7 +337,7 @@ Just follow these steps:
         "docker-compose.yml",
         "docker-compose.remote.yml"
     ],
-    "workspaceFolder": "/remote-workspace"
+    "workspaceFolder": "/workspace"
     ```
 
 6. Run the **Remote-Containers: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`).
@@ -352,16 +352,18 @@ The model above uses a Docker volume to persist the source code. While this will
 
 What you do next will depend on whether you picked a definition that specifies an `image`, `dockerFile`, or `dockerComposeFile` property in `.devcontainer/devcontainer.json`.
 
-**`image` /  `dockerFile`**
+When using **image** or **dockerFile:**
 
 Update the `workspaceMount` property in `.devcontainer/devcontainer.json` as follows replacing `/absolute/path/on/remote/machine/for/source/code` with the real full path on the remote machine:
 
 ```json
-"workspaceMount": "src=/absolute/path/on/remote/machine/for/source/code,dst=/remote-workspace,type=bind",
-"workspaceFolder": "/remote-workspace"
+"workspaceMount": "src=/absolute/path/on/remote/machine/for/source/code,dst=/workspace,type=bind",
+"workspaceFolder": "/workspace"
 ```
 
-**`dockerComposeFile`**
+Note that environment variables will resolve locally, not remotely if used, so an absolute path is needed.
+
+When using **dockerComposeFile:**
 
 Just change the `volumes` section to point to the absolute file path on the remote filesystem where the source code should be kept.
 
