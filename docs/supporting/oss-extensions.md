@@ -1,16 +1,16 @@
 ---
 Order:
 TOCTitle: Microsoft Extension Licenses
-ContentId:
+ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
 DateApproved: 5/15/2019
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
 
-Microsoft follows a policy of open sourcing its extensions whenever possible. However, reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (for example Visual Studio), and business model differences across the entirety of Microsoft will result in some extensions using a proprietary license. We continue to have a heavy investment and commitment to open source, but we also believe that transparency is very important to the health of the Visual Studio Code community.
+Microsoft follows a policy of open sourcing its extensions whenever possible. However, reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (for example Visual Studio), and business model differences across the entirety of Microsoft results in some extensions using a proprietary license. We continue to have a heavy investment and commitment to open source, but we also believe that transparency is important to the health of the Visual Studio Code community.
 
-As more and more parts of Microsoft contribute extensions, we realize that it can be difficult to keep track of which extensions are open source and which are not. To help, the following is a list of Microsoft contributed extensions in the Marketplace, their published licenses, and if their source code is available. Note that, given the rate of new extensions being released across an increasing number of teams, this list may not be complete. The list does not include contributions published by individual Microsoft employess to the community on their own time.
+As more and more teams in Microsoft contribute extensions, we realize that it can be difficult to keep track of which extensions are open source and which are not. To help, the following table is a list of Microsoft contributed extensions in the Marketplace, their published licenses, and whether their source code is available. Given the rate new extensions are being released from an increasing number of teams, this list may not be complete. The list does not include contributions published by individual Microsoft employees to the community on their own time.
 
 ## Microsoft Extensions (as of May 2019)
 
@@ -99,4 +99,3 @@ As more and more parts of Microsoft contribute extensions, we realize that it ca
 | [Word Count](https://marketplace.visualstudio.com/items/ms-vscode.wordcount) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.wordcount/license) |
 | [1337 Theme](https://marketplace.visualstudio.com/items/ms-vscode.Theme-1337) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.Theme-1337/license) |
 | [3024 Theme](https://marketplace.visualstudio.com/items/ms-vscode.Theme-3024Kit) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.Theme-3024Kit/license) |
-
