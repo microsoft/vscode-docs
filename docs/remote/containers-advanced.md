@@ -223,27 +223,29 @@ You can use the Docker CLI locally with a remote Docker host by setting [local e
 
 ### Option 1: Connect using Docker Machine or by setting local environment variables
 
-Assuming you have `code-insiders` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick. You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
+Assuming you have `code-insiders` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick.
 
-On **macOS or Linux**:
+You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
+
+On **macOS or Linux**, run the following commands in a local terminal (replacing values as appropriate):
 
 ```bash
 docker-machine create --driver generic \
     --generic-ip-address your-ip-address-here \
     --generic-ssh-user your-remote-user-here \
-    your-docker-machine-name-here
-eval $(docker-machine env your-docker-machine-name-here)
+    give-it-a-name-here
+eval $(docker-machine env give-it-a-name-here)
 code-insiders
 ```
 
-On **Windows** in a command prompt:
+On **Windows**, run the following commands in a local command prompt  (replacing values as appropriate):
 
 ```bat
 docker-machine create --driver generic ^
     --generic-ip-address your-ip-address-here ^
     --generic-ssh-user your-remote-user-here ^
-    your-docker-machine-name-here
-@FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd your-docker-machine-name-here') DO @%i
+    give-it-a-name-here
+@FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd give-it-a-name-here') DO @%i
 code-insiders
 ```
 
@@ -263,7 +265,7 @@ Docker CE / Desktop will not expose the required Docker daemon TCP port by defau
 
 Fortunately, if you have SSH access, you can use a tunnel to forward the Docker socket from your remote host to your local machine as needed. If you have an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) installed, you can run the following commands in a local terminal / command prompt to connect VS Code to the remote Docker Machine. To do so, run the following commands replacing `user@hostname` with the remote user and hostname / IP for your server.
 
-On **macOS or Linux**:
+On **macOS or Linux**, run the following commands in a local terminal:
 
 ```bash
 export DOCKER_HOST=localhost:23750
@@ -271,7 +273,7 @@ code-insiders
 ssh -NL localhost:23750:/var/run/docker.sock user@hostname
 ```
 
-On **Windows** in a command prompt:
+On **Windows**, run the following commands in a local command prompt:
 
 ```bat
 SET DOCKER_HOST=localhost:23750
@@ -302,18 +304,18 @@ Just follow these steps:
 4. Pick a starting point for your remote container from the list that appears.
 5. What you do next will depend on whether you picked a definition that specifies an `image`, `dockerFile`, or `dockerComposeFile` property in `.devcontainer/devcontainer.json`.
 
-    **`image` or `dockerFile`**
+    When using **image** or **dockerFile**:
 
     Add the `workspaceMount` property to `.devcontainer/devcontainer.json` and override the `workspaceFolder` as follows:
 
     ```json
     "workspaceFolder": "/workspace",
-    "workspaceMount": "src=/absolute/path/to/where/source/code/is/on/host,dst=/workspace,type=bind"
+    "workspaceMount": "src=remote-workspace,dst=/workspace,type=volume,volume-driver=local"
     ```
 
     Note that you can change the volume name (`remote-workspace`) to something different if you'd like a unique volume per container. The `workspaceMount` property supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag) if you have a different scenario in mind.
 
-    **`dockerComposeFile`**
+    When using **dockerComposeFile:**
 
     Add a `docker-compose.remote.yml` file into the `.devcontainer` folder with the following contents. Replace `your-service-name-here` with the value of the `service` property in `devcontainer.json`.
 
@@ -322,7 +324,7 @@ Just follow these steps:
     services:
       your-service-name-here:
         volumes:
-            - remote-workspace:/remote-workspace
+            - remote-workspace:/workspace
 
     volumes:
       remote-workspace:
@@ -337,7 +339,7 @@ Just follow these steps:
         "docker-compose.yml",
         "docker-compose.remote.yml"
     ],
-    "workspaceFolder": "/remote-workspace"
+    "workspaceFolder": "/workspace"
     ```
 
 6. Run the **Remote-Containers: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`).
@@ -352,16 +354,18 @@ The model above uses a Docker volume to persist the source code. While this will
 
 What you do next will depend on whether you picked a definition that specifies an `image`, `dockerFile`, or `dockerComposeFile` property in `.devcontainer/devcontainer.json`.
 
-**`image` /  `dockerFile`**
+When using **image** or **dockerFile:**
 
-Update the `workspaceMount` property in `.devcontainer/devcontainer.json` as follows replacing `/absolute/path/on/remote/machine/for/source/code` with the real full path on the remote machine:
+Update the `workspaceMount` property in `.devcontainer/devcontainer.json` as follows replacing `/absolute/path/on/remote/machine` with the real full path on the remote machine:
 
 ```json
-"workspaceMount": "src=/absolute/path/on/remote/machine/for/source/code,dst=/remote-workspace,type=bind",
-"workspaceFolder": "/remote-workspace"
+"workspaceMount": "src=/absolute/path/on/remote/machine,dst=/workspace,type=bind",
+"workspaceFolder": "/workspace"
 ```
 
-**`dockerComposeFile`**
+Note that environment variables will resolve locally, not remotely if used, so an absolute path is needed.
+
+When using **dockerComposeFile:**
 
 Just change the `volumes` section to point to the absolute file path on the remote filesystem where the source code should be kept.
 
@@ -371,7 +375,7 @@ services:
     dev-container:
       # ...
       volumes:
-        - /absolute/path/on/remote/machine/for/source/code:/remote-workspace
+        - /absolute/path/on/remote/machine:/workspace
 ```
 
 ### [Optional] Making the remote source code available locally
