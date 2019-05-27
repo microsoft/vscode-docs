@@ -529,11 +529,11 @@ With the code snippet in place, you can quickly create templates for the Home, A
 
     ![Flask tutorial: insertion of the flextlayout code snippet](images/flask-tutorial/code-snippet-inserted.png)
 
-1. At the insertion point in the "title" block, write `Home`, and in the "content" block, write `<p>Home page for the Visual Studio Code Flask tutorial.</p>`, then save the file. These lines are the only unique parts of the extended page template:
+1. At the insertion point in the "title" block, write `Home`, and in the "content" block, write `Home page for the Visual Studio Code Flask tutorial.`, then save the file. These lines are the only unique parts of the extended page template:
 
-1. In the `templates` folder, create `about.html`, use the snippet to insert the boilerplate markup, insert `About us` and `<p>About page for the Visual Studio Code Flask tutorial.</p>` in the "title" and "content" blocks, respectively, then save the file.
+1. In the `templates` folder, create `about.html`, use the snippet to insert the boilerplate markup, insert `About us` and `About page for the Visual Studio Code Flask tutorial.` in the "title" and "content" blocks, respectively, then save the file.
 
-1. Repeat the previous step to create `templates/contact.html` using `Contact us` and `<p>Contact page for the Visual Studio Code Flask tutorial.</p>` in the two content blocks.
+1. Repeat the previous step to create `templates/contact.html` using `Contact us` and `Contact page for the Visual Studio Code Flask tutorial.` in the two content blocks.
 
 1. In `app.py`, add functions for the /about/ and /contact/ routes that refer to their respective page templates. Also modify the `home` function to use the `home.html` template.
 
