@@ -184,6 +184,7 @@ We allow badges from the following URL prefixes:
 - david-dm.org
 - deepscan.io
 - dev.azure.com
+- docs.rs
 - gemnasium.com
 - githost.io
 - gitlab.com
