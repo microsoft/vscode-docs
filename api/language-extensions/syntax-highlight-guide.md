@@ -117,7 +117,7 @@ The example grammar produces the following scopes (listed left-to-right from mos
 ```
 a               keyword.letter, source.abc
 (               punctuation.paren.open, expression.group, source.abc
-    b           expression.group, source.abc
+    b           keyword.letter, expression.group, source.abc
 )               punctuation.paren.close, expression.group, source.abc
 x               source.abc
 (               punctuation.paren.open, expression.group, source.abc
