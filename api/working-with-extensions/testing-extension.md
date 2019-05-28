@@ -9,87 +9,204 @@ MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
 
 # Testing Extension
 
-Visual Studio Code supports running and debugging tests for your extension. These tests will run inside a special instance of VS Code named the `Extension Development Host`, and have full access to the VS Code API. We refer to these tests as integration tests, because they go beyond unit tests that can run without a VS Code instance. This documentation focuses on VS Code integration tests. For unit testing, you can use any popular testing framework, like [Mocha](https://mochajs.org/) or [Jasmine](https://jasmine.github.io/).
+Visual Studio Code supports running and debugging tests for your extension. These tests will run inside a special instance of VS Code named the `Extension Development Host`, and have full access to the VS Code API. We refer to these tests as integration tests, because they go beyond unit tests that can run without a VS Code instance. This documentation focuses on VS Code integration tests.
 
-## Yo Code test scaffolding
+## Overview
 
-If you are using the [yo code generator](https://github.com/Microsoft/vscode-generator-code), the generated projects include a sample test and instructions for running the tests.
+If you are using the [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold an extension, integration tests are already setup for you.
 
-**Note**: The documentation below assumes that you created a TypeScript extension but the same also applies for a JavaScript extension. However, some file names may be different.
+In the generated extension, you can use `npm run test` or `yarn test` to run the integration tests that:
 
-After you've created a new extension and opened the project in VS Code, you can select the `Extension Tests` configuration from the drop-down at the top of the Debug View.
+- Downloads and unzips latest version of VS Code
+- Runs the mocha tests specified by the test runner
 
-![launch tests](images/testing-extension/launch-tests.png)
+Alternatively, you can find the setup for this guide in [helloworld-test-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-test-sample). The rest of this document explains these files in the context of the sample:
 
-With this configuration chosen, when you run `Debug: Start` (`kb(workbench.action.debug.start)`), VS Code launches your extension in the `Extension Development Host` instance and runs your tests. Test output goes to the Debug Console where you can see the test results.
+- The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts))
+- The **test runner** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts))
 
-![test output](images/testing-extension/test-output.png)
+## The test script
 
-The generated test uses the [Mocha test framework](https://mochajs.org/) for its test runner and library.
+VS Code provides two CLI parameters for running extension tests. For example:
 
-The extension project comes with a `src/test` folder that includes an `index.ts` file which defines the Mocha test runner configuration and an `extension.test.ts` which has the example `Something 1` test. You can typically leave `index.ts` untouched, but you can modify it to adjust the configuration of Mocha.
-
+```bash
+# - Launches VS Code Extension Host
+# - Loads the extension at <EXTENSION-ROOT-PATH>
+# - Executes the test runner at <TEST-RUNNER-PATH>
+code \
+--extensionDevelopmentPath=<EXTENSION-ROOT-PATH> \
+--extensionTestsPath=<TEST-RUNNER-PATH>
 ```
-├── src
-│   └── test
-│       ├── extension.test.ts
-│       └── index.ts
+
+The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts)) uses the `vscode-test` API to simplify the process of downloading, unzipping and launching VS Code with extension test parameters. The `vscode-test` API also allows:
+- Launching VS Code with a specific workspace
+- Downloading a different version of VS Code than the latest
+- Launching VS Code with additional CLI parameters
+
+```ts
+import * as path from 'path';
+
+import { runTests } from 'vscode-test';
+
+async function main() {
+  try {
+    // The folder containing the Extension Manifest package.json
+    // Passed to `--extensionDevelopmentPath`
+    const extensionPath = path.resolve(__dirname, '../../');
+
+    // The path to test runner
+    // Passed to --extensionTestsPath
+    const testRunnerPath = path.resolve(__dirname, './suite');
+
+    // Download VS Code, unzip it and run the integration test
+    await runTests({ extensionPath, testRunnerPath });
+  } catch (err) {
+    console.error('Failed to run tests');
+    process.exit(1);
+  }
+}
+
+main();
 ```
 
-You can create more `test.ts` files under the `test` folder and they will automatically be built (to `out/test`) and run. The test runner will only consider files matching the name pattern `*.test.ts`.
+You can find more API usage examples at [microsoft/vscode-test](https://github.com/microsoft/vscode-test).
 
-## Launch tests configuration
+## The test runner
 
-The `Extension Tests` configuration is defined in the project's `.vscode\launch.json` file. It is similar the `Extension` configuration with the addition of the `--extensionTestsPath` argument which points to the compiled test files (assuming this is a TypeScript project).
+When running the extension integration test, `--extensionTestsPath` points to the **test runner** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts)) that programatically runs the test suite.
 
-```json
-{
-  "name": "Extension Tests",
-  "type": "extensionHost",
-  "request": "launch",
-  "runtimeExecutable": "${execPath}",
-  "args": [
-    "--extensionDevelopmentPath=${workspaceFolder}",
-    "--extensionTestsPath=${workspaceFolder}/out/test"
-  ],
-  "outFiles": ["${workspaceFolder}/out/test/**/*.js"]
+```ts
+import * as path from 'path';
+import * as Mocha from 'mocha';
+import * as glob from 'glob';
+
+export function run(testsRoot: string, cb: (error: any, failures?: number) => void): void {
+  // Create the mocha test
+  const mocha = new Mocha({
+    ui: 'tdd'
+  });
+  // Use any mocha API
+  mocha.useColors(true);
+
+  glob('**/*.test.js', { cwd: testsRoot }, (err, files) => {
+    if (err) {
+      return cb(err);
+    }
+
+    // Add files to the test suite
+    files.forEach(f => mocha.addFile(path.resolve(testsRoot, f)));
+
+    try {
+      // Run the mocha test
+      mocha.run(failures => cb(null, failures));
+    } catch (err) {
+      cb(err);
+    }
+  });
 }
 ```
 
-## Passing arguments to the Extension Development Host
+Both the test runner and the `*.test.js` files have access to VS Code API. Here is a the sample test ([src/test/suite/extension.test.ts](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/extension.test.ts)):
 
-You can set the file or folder that the test instance should open by inserting the path at the front of the argument list for the launch configuration.
+```ts
+import * as assert from 'assert';
+import { after } from 'mocha';
+
+// You can import and use all API from the 'vscode' module
+// as well as import your extension to test it
+import * as vscode from 'vscode';
+// import * as myExtension from '../extension';
+
+suite('Extension Test Suite', () => {
+
+  after(() => {
+    vscode.window.showInformationMessage('All tests done!');
+  });
+
+  test('Sample test', () => {
+    assert.equal(-1, [1, 2, 3].indexOf(5));
+    assert.equal(-1, [1, 2, 3].indexOf(0));
+  });
+});
+```
+
+## Debugging the tests
+
+Debugging the tests is similar to debugging the extension. Here is a sample `launch.json`:
 
 ```json
-"args": [
-    "${workspaceFolder}/file or folder name",
-    "--extensionDevelopmentPath=${workspaceFolder}",
-    "--extensionTestsPath=${workspaceFolder}/out/test"
-]
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Extension Tests",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/out/test/suite"
+      ],
+      "outFiles": ["${workspaceFolder}/out/test/**/*.js"],
+    }
+  ]
+}
 ```
 
-This way you can run your tests with predictable content and folder structure.
+<video autoplay loop muted playsinline controls>
+  <source src="/api/working-with-extensions/testing-extension/debug.mp4" type="video/mp4">
+</video>
 
-## Disabling other extensions
+## Tips
 
-By default, the debug instance of VS Code will load any extension you've previously installed alongside the one you are developing. If you want to disable those extensions, add `"--disable-extensions"` to the argument list in the launch configuration.
+### Disabling other extensions while debugging
+
+When you debug an extension test in VS Code, VS Code uses the globally installed instance of VS Code and will load all installed extensions. You can add `--disable-extensions` configuration to the `launch.json` or the `additionalLaunchArgs` option of `vscode-test`'s `runTests` API.
 
 ```json
-"args": [
-    "--disable-extensions",
-    "--extensionDevelopmentPath=${workspaceFolder}",
-    "--extensionTestsPath=${workspaceFolder}/out/test"
-]
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Extension Tests",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--disable-extensions",
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/out/test/suite"
+      ],
+      "outFiles": ["${workspaceFolder}/out/test/**/*.js"],
+    }
+  ]
+}
 ```
 
-This will give large benefits to performance when running tests
-
-## Excluding test files from your extension package
-
-If you decide to share your extension, you may not want to include the tests in your extension package. The [`.vscodeignore`](/api/working-with-extensions/publishing-extension#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/api/working-with-extensions/publishing-extension). By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
-
+```ts
+await runTests({
+  extensionPath,
+  testRunnerPath,
+  // Additional CLI parameters for launching `code`.
+  // Use `code --help` to find all CLI parameters
+  additionalLaunchArgs: ['--disable-extensions']
+});
 ```
-out/test/**
+
+### Custom setup with `vscode-test`
+
+Sometimes you might want to run custom setups, such as running `code --install-extension` to install another extension before starting your test. `vscode-test` has a more granular API to accommodate that case:
+
+```ts
+const vscodeExecutablePath = await downloadAndUnzipVSCode('1.34.0');
+// Custom setup
+child_process.spawnSync(vscodeExecutablePath, ['--install-extension', '<PATH-TO-VSIX>']);
+await runTests({
+  // Use the specified `code` executable instead of downloading
+  vscodeExecutablePath,
+  extensionPath,
+  testRunnerPath
+})
 ```
 
 ## Next steps
