@@ -580,15 +580,15 @@ Assuming you put this file under `.devcontainer/Dockerfile`, the `.devcontainer/
 version: '3'
   services:
     your-service-name-here:
-    build:
-      context: .
-      # Location is relative to folder containing this compose file
-      dockerfile: Dockerfile
-    ports:
-      - 3000:3000
-    volumes:
-      - ..:/workspace
-    command: sleep infinity
+       build:
+         context: .
+         # Location is relative to folder containing this compose file
+         dockerfile: Dockerfile
+       ports:
+         - 3000:3000
+       volumes:
+         - ..:/workspace
+       command: sleep infinity
 ```
 
 ### Docker Compose dev container definitions
