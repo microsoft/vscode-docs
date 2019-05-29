@@ -318,7 +318,7 @@ If you have an existing `.devcontainer/Dockerfile`, you can just add a `COPY` st
 
 ```Dockerfile
 # Copy endpoint specific user settings into container to specify Java path
-COPY settings.vscode.json /root/.vscode-remote/data/Machine/settings.json
+COPY settings.vscode.json /root/.vscode-server/data/Machine/settings.json
 ```
 
 ## In-depth: Setting up a folder to run in a container

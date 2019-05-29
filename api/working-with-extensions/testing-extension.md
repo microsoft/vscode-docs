@@ -9,25 +9,27 @@ MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
 
 # Testing Extension
 
-Visual Studio Code supports running and debugging tests for your extension. These tests will run inside a special instance of VS Code named the `Extension Development Host`, and have full access to the VS Code API. We refer to these tests as integration tests, because they go beyond unit tests that can run without a VS Code instance. This documentation focuses on VS Code integration tests.
+Visual Studio Code supports running and debugging tests for your extension. These tests will run inside a special instance of VS Code named the **Extension Development Host**, and have full access to the VS Code API. We refer to these tests as integration tests, because they go beyond unit tests that can run without a VS Code instance. This documentation focuses on VS Code integration tests.
 
 ## Overview
 
-If you are using the [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold an extension, integration tests are already setup for you.
+If you are using the [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold an extension, integration tests are already created for you.
 
 In the generated extension, you can use `npm run test` or `yarn test` to run the integration tests that:
 
-- Downloads and unzips latest version of VS Code
-- Runs the mocha tests specified by the test runner
+- Downloads and unzips latest version of VS Code.
+- Runs the [Mocha](https://mochajs.org) tests specified by the test runner.
 
-Alternatively, you can find the setup for this guide in [helloworld-test-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-test-sample). The rest of this document explains these files in the context of the sample:
+Alternatively, you can find the configuration for this guide in the [helloworld-test-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-test-sample). The rest of this document explains these files in the context of the sample:
 
 - The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts))
 - The **test runner** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts))
 
 ## The test script
 
-VS Code provides two CLI parameters for running extension tests. For example:
+VS Code provides two CLI parameters for running extension tests, `--extensionDevelopmentPath` and `--extensionTestsPath`.
+
+For example:
 
 ```bash
 # - Launches VS Code Extension Host
@@ -38,10 +40,13 @@ code \
 --extensionTestsPath=<TEST-RUNNER-PATH>
 ```
 
-The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts)) uses the `vscode-test` API to simplify the process of downloading, unzipping and launching VS Code with extension test parameters. The `vscode-test` API also allows:
-- Launching VS Code with a specific workspace
-- Downloading a different version of VS Code than the latest
-- Launching VS Code with additional CLI parameters
+The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts)) uses the `vscode-test` API to simplify the process of downloading, unzipping, and launching VS Code with extension test parameters.
+
+The `vscode-test` API also allows:
+
+- Launching VS Code with a specific workspace.
+- Downloading a different version of VS Code than the latest.
+- Launching VS Code with additional CLI parameters.
 
 ```ts
 import * as path from 'path';
@@ -73,7 +78,7 @@ You can find more API usage examples at [microsoft/vscode-test](https://github.c
 
 ## The test runner
 
-When running the extension integration test, `--extensionTestsPath` points to the **test runner** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts)) that programatically runs the test suite.
+When running the extension integration test, `--extensionTestsPath` points to the **test runner** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts)) that programmatically runs the test suite.
 
 ```ts
 import * as path from 'path';
@@ -106,7 +111,9 @@ export function run(testsRoot: string, cb: (error: any, failures?: number) => vo
 }
 ```
 
-Both the test runner and the `*.test.js` files have access to VS Code API. Here is a the sample test ([src/test/suite/extension.test.ts](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/extension.test.ts)):
+Both the test runner and the `*.test.js` files have access to the VS Code API.
+
+Here is a sample test ([src/test/suite/extension.test.ts](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/extension.test.ts)):
 
 ```ts
 import * as assert from 'assert';
@@ -132,7 +139,9 @@ suite('Extension Test Suite', () => {
 
 ## Debugging the tests
 
-Debugging the tests is similar to debugging the extension. Here is a sample `launch.json`:
+Debugging the tests is similar to debugging the extension.
+
+Here is a sample `launch.json` debugger configuration:
 
 ```json
 {
