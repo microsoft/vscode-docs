@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
 
-Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files. Variable substitution is supported inside key and value strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
+Visual Studio Code supports variable substitution in [Settings](/docs/getstarted/settings.md), [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files. Variable substitution is supported inside key and value strings in `settings.json`, `launch.json` and `tasks.json` files using **${variableName}** syntax.
 
 ## Predefined variables
 
