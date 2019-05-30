@@ -13,13 +13,9 @@ Visual Studio Code supports running and debugging tests for your extension. Thes
 
 ## Overview
 
-<<<<<<< Updated upstream
-If you are using the [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold an extension, integration tests are already created for you.
-=======
-*If you are migrating from `vscode`, see the [migrating section]()*.
+*If you are migrating from `vscode`, see [migrating from `vscode`](#migrating-from-vscode)*.
 
-If you are using the [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold an extension, integration tests are already setup for you.
->>>>>>> Stashed changes
+If you are using the [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold an extension, integration tests are already created for you.
 
 In the generated extension, you can use `npm run test` or `yarn test` to run the integration tests that:
 
