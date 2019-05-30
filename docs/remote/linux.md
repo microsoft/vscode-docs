@@ -12,7 +12,7 @@ DateApproved: 5/15/2019
 
 Linux is a highly variable environment and with the sheer number of server, container, and desktop distributions can make it difficult to know what is expected to work. Remote Development also has prerequisites for the host / container / WSL distribution you will be connecting to using one of the extensions.
 
-If you stick to recent stable/LTS versions of **64-bit x86** **Ubuntu** (14.04+), **Debian** (8+), or **CentOS / RHEL** (7+) the VS Code Remote Development extensions should work without additional dependencies. However, in the event that you are using a non-standard configuration or downstream distribution, you may or may not run into some hiccups. This document provides some information on requirements and some troubleshooting details that might help you get up and running even if you configuration is only community supported.
+If you stick to recent stable/LTS versions of **64-bit x86** **Ubuntu** (14.04+), **Debian** (8+), or **CentOS / RHEL** (7+) the VS Code Remote Development extensions should work without additional dependencies. However, in the event that you are using a non-standard configuration or downstream distribution, you may or may not run into some hiccups. This document provides some information on requirements and tips that might help you get up and running even if you configuration is only community supported.
 
 Note that **other extensions may have dependencies beyond those listed here**, so if you encounter an issue that only occurs with a particular extension, **contact the extension authors** for information on their native dependencies.
 
@@ -25,37 +25,39 @@ If you are running Linux locally, [VS Code prerequsites](/docs/supporting/requir
 
 ## Remote host / container / WSL Linux prerequisites
 
-Currently **only 64-bit x86 glibc-based** Linux distributions are supported. Most library dependencies are driven by the [Node.js](https://nodejs.org/en/docs/meta/topics/dependencies/) (and by extension [V8](https://v8docs.nodesource.com)) shipped in the server component automatically installed on each remote endpoint. Installing the latest LTS version of Node.js (currently v10) using a [supported package manager](https://github.com/nodesource/distributions/blob/master/README.md) can often resolve issues. Be sure to [note added challenges with older distributions](https://github.com/nodesource/distributions/blob/master/OLDER_DISTROS.md).
+Currently **64-bit x86 glibc-based** Linux distributions are supported and most prerequisites are driven by the [Node.js](https://nodejs.org/en/docs/meta/topics/dependencies/) (and by extension [V8](https://v8docs.nodesource.com)) shipped in the server component automatically installed on each remote endpoint.
 
 | Distribution | Base Requirements | SSH Requirements | Notes |
 |--------------|-------------------|------------------|-------|
-| General |  kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18, Python 2.6 or 2.7, tar | OpenSSH server, bash, and curl or wget | Run `ldd --version` to check the glibc version. `Run strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX` to see if libstdc++ 3.4.18 is available. |
+| General |  kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18, Python 2.6 or 2.7, tar | OpenSSH server, bash, and curl or wget | Run `ldd --version` to check the glibc version. `Run strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX` to see if libstdc++ 3.4.18 is available. musl is not currently supported.|
 | Ubuntu 14.04+, Debian 8+ and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18. Debian < 8 and Ubuntu < 14.04 do not meet this requirement.  |
 | RHEL / CentOS 7+ | `glibc libgcc libstdc++ python ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18.  RHEL / CentOS < 7 does not meet this requirement without using a [workaround to upgrade](#updating-glibc-and-libstdc-on-centos-6). |
 
 ## Tips by Linux distribution
 
-The following is a list of distributions and any base requirements that may be missing. End-of-life versions of distributions are not included and are very likely to have challenges.
+The following is a list of distributions and any base requirements that may be missing. End-of-life versions of distributions are not included.
 
 | Server Distribution | Docker Image | Missing libraries | Additional steps |
-|--------------|--------------|-----------------------------------|------------------|
-| ✅ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
-| ✅ Ubuntu Server 16.04 (64-bit) | `ubuntu:16.04` | &lt;none&gt;  | &lt;none&gt; |
-| ✅ Ubuntu Server 14.04 (64-bit) | `ubuntu:14.04` | &lt;none&gt;  | &lt;none&gt; |
-| ✅ Debian 9 Server (64-bit) | `debian:9` | &lt;none&gt; | &lt;none&gt; |
-| ✅ Debian 8 Server (64-bit) | `debian:8` | &lt;none&gt; | &lt;none&gt; |
+|---------------------|--------------|-------------------|------------------|
+| ❌ Alpine Linux (64-bit) | `alpine:latest` | Not glibc based. |  |
 | ✅ CentOS 7 Server (64-bit) | `centos:7` | &lt;none&gt; | &lt;none&gt; |
 | ⚠️ CentOS 6 Server (64-bit) | `centos:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel--centos-6). |
-| ✅ RedHat Enterprise Linux 7 (64-bit) |  | &lt;none&gt; | &lt;none&gt; |
-| ⚠️ RedHat Enterprise Linux 6 (64-bit) |  | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel--centos-6). |
-| ✅ Oracle Linux 7 (64-bit) | `oraclelinux:7` | &lt;none&gt; | &lt;none&gt; |
-| ⚠️ Oracle Linux 6 (64-bit) | `oraclelinux:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18. Docker image is missing `tar`. |  [Requires a workaround](#updating-glibc-and-libstdc-on-rhel--centos-6). |
+| ✅ Debian 9 Server (64-bit) | `debian:9` | &lt;none&gt; | &lt;none&gt; |
+| ✅ Debian 8 Server (64-bit) | `debian:8` | &lt;none&gt; | &lt;none&gt; |
 | ✅ openSUSE Leap Server 15 (64-bit) |   `opensuse/leap:15` | Docker image is missing `tar`. |  &lt;none&gt; |
 | ✅ openSUSE Leap Server 42.3 (64-bit) |  `opensuse/leap:42.3` | Docker image is missing `tar`. |  &lt;none&gt; |
+| ✅ Oracle Linux 7 (64-bit) | `oraclelinux:7` | &lt;none&gt; | &lt;none&gt; |
+| ⚠️ Oracle Linux 6 (64-bit) | `oraclelinux:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18. Docker image is missing `tar`. |  [Requires a workaround](#updating-glibc-and-libstdc-on-rhel--centos-6). |
+| ✅ RedHat Enterprise Linux 7 (64-bit) |  | &lt;none&gt; | &lt;none&gt; |
+| ⚠️ RedHat Enterprise Linux 6 (64-bit) |  | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel--centos-6). |
 | ✅ SUSE Linux Enterprise Server 15 (64-bit) |  |  &lt;none&gt; |  &lt;none&gt; |
 | ✅ SUSE Linux Enterprise Server 12 (64-bit) |  |  &lt;none&gt; |  &lt;none&gt; |
 | ❌ SUSE Linux Enterprise Server 11 (64-bit) |  |  `glibc` >= 2.17, `libstdc++` >= 3.4.18 | Might work compiling glibc from source, but untested. |
-| ❌ Alpine Linux (64-bit) | `alpine:latest` | Not glibc based. |  |
+| ✅ Ubuntu Server 19.04 (64-bit) | `ubuntu:19.04` | &lt;none&gt;  | &lt;none&gt; |
+| ✅ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
+| ✅ Ubuntu Server 16.04 (64-bit) | `ubuntu:16.04` | &lt;none&gt;  | &lt;none&gt; |
+| ✅ Ubuntu Server 14.04 (64-bit) | `ubuntu:14.04` | &lt;none&gt;  | &lt;none&gt; |
+
 
 ## Updating glibc and libstdc++ on RHEL / CentOS 6
 
