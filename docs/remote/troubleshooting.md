@@ -399,7 +399,7 @@ rsync -rlptzv --progress --delete --exclude=.git . "user@hostname:/remote/source
 
 ### Cleaning up the VS Code Server on the remote
 
-The SSH extension provides a command for cleaning up the VS Code Server from the remote machine: `Remote-SSH: Uninstall VS Code Server from Host...`. It does two things: it kills any running vscode server processes and it deletes the folder where the server was installed.
+The SSH extension provides a command for cleaning up the VS Code Server from the remote machine, **Remote-SSH: Uninstall VS Code Server from Host...**. The command does two things: it kills any running VS Code Server processes and it deletes the folder where the server was installed.
 
 If you want to run these steps manually, or if the command isn't working for you, you can run a script like this:
 
@@ -409,7 +409,7 @@ kill -9 `ps ax | grep "watcherService" | grep -v grep | awk '{print $1}'`
 rm -rf ~/.vscode-server # Or .vscode-server-insiders
 ```
 
-The vscode server was previously installed under `~/.vscode-remote` so you can check that location too.
+The VS Code Server was previously installed under `~/.vscode-remote` so you can check that location too.
 
 ## Container tips
 
