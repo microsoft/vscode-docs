@@ -13,7 +13,13 @@ Visual Studio Code supports running and debugging tests for your extension. Thes
 
 ## Overview
 
+<<<<<<< Updated upstream
 If you are using the [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold an extension, integration tests are already created for you.
+=======
+*If you are migrating from `vscode`, see the [migrating section]()*.
+
+If you are using the [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold an extension, integration tests are already setup for you.
+>>>>>>> Stashed changes
 
 In the generated extension, you can use `npm run test` or `yarn test` to run the integration tests that:
 
@@ -217,6 +223,18 @@ await runTests({
   testRunnerPath
 })
 ```
+
+### Migrating from `vscode`
+
+The [`vscode`](https://github.com/Microsoft/vscode-extension-vscode) module had been the default way of running extension integration tests and is being superseded by [`vscode-test`](https://github.com/microsoft/vscode-test). Here's how you can migrate from it:
+
+- Remove `vscode` dependency and add `vscode-test` dependency.
+- As the old `vscode` module was also used for downloading VS Code type definition, you need to
+    - Manually install `@types/vscode` that follows your `engine.vscode` in `package.json`. For example, if your `engine.vscode` is `1.30`, install `@types/vscode@1.30`.
+    - Remove `"postinstall": "node ./node_modules/vscode/bin/install"` from `package.json`.
+- Add a [test script](#the-test-script). You can use [`runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts) in the sample as a starting point.
+- Point the `test` script in `package.json` to run the compiled output of `runTest.ts`.
+- Add a [test runner](#the-test-runner). You can use the [sample test runner](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts) as a starting point. Notice that `vscode` used to depend on `mocha@4` and `glob`, and now you need to install them as part of your `devDependency`.
 
 ## Next steps
 
