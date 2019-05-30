@@ -27,15 +27,17 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 To get started you need to:
 
-1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) if one is not already present.
+1. Make sure your local OS meets the minimum requirements for [VS Code](/docs/supporting/requirements.md) and the Linux host you want to connect to [has the needed prerequisites](/docs/remote/linux.md).
+
+2. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) if one is not already present.
 
     > **Note:** PuTTY is not supported on Windows since the `ssh` command must be in the path.
 
-2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
+3. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
-3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
+4. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
-4. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods).
+5. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods).
 
 ### Connect to a remote host
 

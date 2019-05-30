@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: remote
 TOCTitle: FAQ
 PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
