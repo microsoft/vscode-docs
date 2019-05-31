@@ -27,7 +27,9 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 To get started, follow these steps:
 
-1. Install and configure [Docker](https://www.docker.com/get-started) for your operating system.
+1. Make sure your local OS meets the minimum requirements for [VS Code](/docs/supporting/requirements.md). If you have an existing container you want to use, ensure it has the [needed prerequisites](/docs/remote/linux.md).
+
+2. Install and configure [Docker](https://www.docker.com/get-started) for your operating system.
 
     **Windows / macOS**:
 
@@ -45,9 +47,9 @@ To get started, follow these steps:
 
     3. Sign out and back in again so your changes take effect.
 
-2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
+3. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
-3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
+4. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
 The Remote - Containers extension supports two primary operating models:
 
