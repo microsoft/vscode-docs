@@ -56,7 +56,9 @@ The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10
 
 ### Windows
 
-Correctly configuring your shell on Windows is a matter of locating the right executable and updating the setting. Below are a list of common shell executables and their default locations:
+For Windows there is a convenient shell selector located inside the terminal dropdown that lets you choose between several detected shells including Command Prompt, PowerShell, PowerShell Core, Git Bash and WSL Bash. The **Terminal: Select Default Shell** command is also available through the command palette if you prefer to access it there.
+
+Just like on other platforms you can fine tune the exact executable used in your settings file, for example:
 
 ```json
 // Command Prompt
@@ -68,8 +70,6 @@ Correctly configuring your shell on Windows is a matter of locating the right ex
 // Bash on Ubuntu (on Windows)
 "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe"
 ```
-
-There is also the convenience command, **Terminal: Select Default Shell** that can be accessed through the Command Palette, which can detect and set this for you.
 
 >**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr` can be redirected.
 
