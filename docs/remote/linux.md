@@ -12,7 +12,15 @@ DateApproved: 5/15/2019
 
 Linux is a highly variable environment and the large number of server, container, and desktop distributions can make it difficult to know what is supported. Visual Studio Code Remote Development has prerequisites for the specific host / container / WSL distribution you will be connecting to.
 
-If you are using a recent stable/LTS version of **64-bit x86** **Ubuntu** (14.04+), **Debian** (8+), or **CentOS / RHEL** (7+), the VS Code Remote Development extensions should work without additional dependencies. However, if you are using a non-standard configuration or downstream distribution, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
+If you are using a recent stable/LTS version of:
+
+* **64-bit x86** **Ubuntu** (14.04+)
+* **Debian** (8+)
+* **CentOS / RHEL** (7+)
+
+then the VS Code Remote Development extensions should work without additional dependencies.
+
+However, if you are using a non-standard configuration or downstream distribution, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
 
 Note that **other extensions may have dependencies** beyond those requirements listed here, so if you encounter an issue that only occurs with a particular extension, **contact the extension authors** for information on their native dependencies.
 
@@ -20,10 +28,12 @@ Note that **other extensions may have dependencies** beyond those requirements l
 
 If you are running Linux locally, the [VS Code prerequisites](/docs/supporting/requirements.md) drive most of the requirements.
 
-In addition, specific Remote Development extensions have requirements:
+In addition, specific Remote Development extensions have further requirements:
 
 * **Remote - SSH:** `ssh` needs to be in the path. The shell binary is typically in the `openssh-client` package.
-* **Remote - Docker:** `docker` and `docker-compose` need to be in the path. Follow the [install instructions for your Linux distribution](https://docs.docker.com/install/#supported-platforms). **Note**: The Ubuntu Snap package is not supported.
+* **Remote - Docker:** `docker` and `docker-compose` need to be in the path. Follow the [install instructions for your Linux distribution](https://docs.docker.com/install/#supported-platforms).
+
+**Note**: The Ubuntu Snap package is not supported.
 
 ## Remote host / container / WSL Linux prerequisites
 
