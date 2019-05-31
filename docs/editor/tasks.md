@@ -543,7 +543,6 @@ When the default shell is PowerShell, or when a task is configured to use PowerS
 }
 ```
 
-
 ## Changing the encoding for a task output
 
 Tasks frequently act with files on disk. If these files are stored on disk with an encoding different than the system encoding you need to let the command executed as a task know which encoding to use. Since this depends on the operating system and the shell used there is no general solution to control this. Below some advice and examples on how to make it work.
