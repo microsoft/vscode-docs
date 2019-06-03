@@ -170,7 +170,7 @@ The following steps summarize the configuration used in the [python-sample-vscod
     #RUN pip install --no-cache-dir -r /requirements.txt
     ```
 
-1. The `uwsgi.ini` file, which is at the root level in the sample project folder, provides configuration arguments for the uwsgi server. For the sample, the configuration below says that the Flask app object is found in the `hello_app/webapp.py` module, and that it's named (that is, "callable" as) `app`. The other values are additional common uwsgi settings:
+1. The `uwsgi.ini` file, which is in the root of the sample project folder, provides configuration arguments for the uwsgi server. For the sample, the configuration below says that the Flask app object is found in the `hello_app/webapp.py` module, and that it's named (that is, "callable" as) `app`. The other values are additional common uwsgi settings:
 
     ```ini
     [uwsgi]
