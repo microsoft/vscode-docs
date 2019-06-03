@@ -75,7 +75,7 @@ If you know the exact identifier for an extension you're looking for, you can us
 
 ## Manage extensions
 
-VS Code makes it very easy to manage your extensions. You can install, disable, update, and uninstall extensions through the Extensions view, the **Command Palette** (commands have the **Extensions:** prefix) or command line switches.
+VS Code makes it very easy to manage your extensions. You can install, disable, update, and uninstall extensions through the Extensions view, the **Command Palette** (commands have the **Extensions:** prefix) or command-line switches.
 
 ### List installed extensions
 
@@ -128,7 +128,7 @@ To dismiss a recommendation, click on the extension item to open the Details pan
 
 ## Configuring extensions
 
-VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/getstarted/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
+VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/getstarted/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command-line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
 
 ## Command line extension management
 
@@ -209,7 +209,7 @@ Tags may contain any string and are not provided by IntelliSense so review the M
 
 You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX** command in the Extensions view command drop-down, or the **Extensions: Install from VSIX** command in the **Command Palette**, point to the `.vsix` file.
 
-You can also install using the VS Code `--install-extension` command line switch providing the path to the `.vsix` file.
+You can also install using the VS Code `--install-extension` command-line switch providing the path to the `.vsix` file.
 
 ```
 code --install-extension myextension.vsix
@@ -267,7 +267,7 @@ Extensions are installed in a per user extensions folder. Depending on your plat
 * **macOS** `~/.vscode/extensions`
 * **Linux** `~/.vscode/extensions`
 
-You can change the location by launching VS Code with the `--extensions-dir <dir>` command line [option](/docs/editor/command-line.md).
+You can change the location by launching VS Code with the `--extensions-dir <dir>` command-line [option](/docs/editor/command-line.md).
 
 ### Whenever I try to install any extension, I get a connect ETIMEDOUT error
 

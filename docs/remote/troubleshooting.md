@@ -9,10 +9,6 @@ DateApproved: 5/15/2019
 ---
 # Remote Development Tips and Tricks
 
-❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](https://code.visualstudio.com/insiders)**.
-
----
-
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension.
 
 ## SSH tips
@@ -125,13 +121,13 @@ Enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md
 
 **Enable TCP Forwarding on the remote host**
 
-Remote - SSH extension makes use of an SSH tunnel to facilitate communication with the host. In some cases, this may be disabled on your SSH server. To see if this is the problem, open the `Remote - SSH` category in the output window and check for the following message:
+Remote - SSH extension makes use of an SSH tunnel to facilitate communication with the host. In some cases, this may be disabled on your SSH server. To see if this is the problem, open the **Remote - SSH** category in the output window and check for the following message:
 
 ```text
 open failed: administratively prohibited: open failed
 ```
 
-If you do see that message, follow these steps:
+If you do see that message, follow these steps to update your SSH server's [sshd config](https://www.ssh.com/ssh/sshd_config/):
 
 1. Open `/etc/ssh/sshd_config` in an editor  (like vim, nano, or pico) on the **SSH host** (not locally).
 2. Add the setting  `AllowTcpForwarding yes`.
@@ -141,6 +137,10 @@ If you do see that message, follow these steps:
 **Set the ProxyCommand parameter in your SSH config file**
 
 If you are behind a proxy and are unable to connect to your SSH host, you may need to use the `ProxyCommand` parameter for your host in a [SSH config file](https://linux.die.net/man/5/ssh_config). You can [read this article](https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/) for an example of its use.
+
+**Ensure the remote machine has internet access**
+
+The remote machine must have internet access to be able to download the VS Code Server and extensions from the Marketplace.
 
 **Set HTTP_PROXY / HTTPS_PROXY on the remote host**
 
@@ -154,6 +154,20 @@ export HTTPS_PROXY=$HTTP_PROXY
 export HTTP_PROXY=http://username:password@proxy.fqdn.or.ip:3128
 export HTTPS_PROXY=$HTTP_PROXY
 ```
+
+**Work around `/tmp` mounted with `noexec`**
+
+Some remote servers are set up to disallow executing scripts from `/tmp`. VS Code writes its install script to the system temp directory and tries to execute it from there. You can work with your system administrator to determine whether this can be worked around.
+
+**Check whether a different shell is launched during install**
+
+Some users launch a different shell from their `.bash_profile` or other startup script because they want to use a different shell than the default. This can break VS Code's remote server install script and isn't recommended. Instead, use `chsh` to change your default shell on the remote machine.
+
+**Connecting to systems that dynamically assign machines per connection**
+
+Some systems will dynamically route to one node from a cluster each time an SSH connection is made. This is an issue for VS Code because it makes two connections to open a remote window: the first to install or start the VS Code Server (or find an already running instance) and the second to create the SSH port tunnel that VS Code uses to talk to the server. If VS Code is routed to a different machine when it creates the second connection, it won't be able to talk to the VS Code server.
+
+One workaround for this is to use the `ControlMaster` option in OpenSSH (macOS/Linux clients only), described [above](#enabling-alternate-ssh-authentication-methods), so that VS Code's two connections will be multiplexed through a single SSH connection to the same node.
 
 **Contact your system administrator for configuration help**
 
@@ -316,7 +330,7 @@ You can install SSHFS locally as follows:
 
 - On macOS using [Homebrew](https://brew.sh/): `brew install sshfs`
 - On Linux using the OS package manager. For Debian/Ubuntu: `sudo apt-get install sshfs`
-- [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on Windows using [Chocolaty](https://chocolatey.org/): `choco install sshfs`
+- [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on Windows using [Chocolatey](https://chocolatey.org/): `choco install sshfs`
 
 Note that WSL 1 does not support FUSE or SSHFS, so installing SSHFS-Win is the best option currently.
 
@@ -325,17 +339,21 @@ To mount the remote filesystem on **macOS or Linux**, run the following from a l
 ```bash
 export USER_AT_HOST=user@hostname
 
+# Make the directory where the remote filesystem will be mounted
 mkdir -p "$HOME/sshfs/$USER_AT_HOST"
-sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
 
-# Wait for a key press, then disconnect
-read -n 1 -p "Press any key to unmount the remote filesystem..."
+# Mount the remote filesystem
+sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  \
+    -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
+```
+
+This will make your home folder on the remote machine available under the `~/sshfs`. When you are done, you can unmount it using your OS's Finder / file explorer or by using the command line:
+
+```bash
 umount "$HOME/sshfs/$USER_AT_HOST"
 ```
 
-This will make your home folder on the remote machine available under the `~/sshfs` folder until you press a key.
-
-On **Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
+On **Windows**, you should add a `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
 Once you've installed SSHFS for Windows, run the following from the command prompt replacing `user@hostname` with the remote user and hostname / IP:
 
@@ -374,6 +392,20 @@ To push content, reverse the source and target parameters in the command. Howeve
 ```bash
 rsync -rlptzv --progress --delete --exclude=.git . "user@hostname:/remote/source/code/path"
 ```
+
+### Cleaning up the VS Code Server on the remote
+
+The SSH extension provides a command for cleaning up the VS Code Server from the remote machine, **Remote-SSH: Uninstall VS Code Server from Host...**. The command does two things: it kills any running VS Code Server processes and it deletes the folder where the server was installed.
+
+If you want to run these steps manually, or if the command isn't working for you, you can run a script like this:
+
+```bash
+kill -9 `ps ax | grep "remoteExtensionHostAgent.js" | grep -v grep | awk '{print $1}'`
+kill -9 `ps ax | grep "watcherService" | grep -v grep | awk '{print $1}'`
+rm -rf ~/.vscode-server # Or .vscode-server-insiders
+```
+
+The VS Code Server was previously installed under `~/.vscode-remote` so you can check that location too.
 
 ## Container tips
 
@@ -560,10 +592,11 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following advanced configuration topics:
 
 - [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
+- [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced#avoiding-extension-reinstalls-on-container-rebuild)
 - [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
 - [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
 - [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
-- [Using SSH to connect to a remote Docker host](/docs/remote/containers-advanced.md#using-ssh-to-connect-to-a-remote-docker-host)
+- [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
 - [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
 
 ## WSL tips
@@ -584,40 +617,48 @@ You can see which distributions you have installed by running:
 wslconfig /l
 ```
 
-### Fixing problems with the code-insiders command not working
+### VS Code server hangs when starting up
 
-If typing `code-insiders` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
+This can happen if there are custom startup scripts that prevent startup.
+
+The VS Code server is started in an interactive login shell and uses the shell that is configured. See this [blog post](https://medium.com/@vinhp/set-and-use-zsh-as-default-shell-in-wsl-on-windows-10-the-right-way-4f30ed9592dc) for more information on how to specify a shell.
+
+By default, `bash` is used as the shell. Bash will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`. If this lookup seems unnecessary, you may include all startup settings in `~/.bashrc`. Check whether these files contain any commands that could block the server from starting. For example, it is not recommended using the startup script to start another shell.
+
+### Fixing problems with the code command not working
+
+If typing `code` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
 
 Check by opening a WSL terminal and typing `echo $PATH`. You should see the following paths listed:
 
 1. `/mnt/c/Windows/System32`
-2. The VS Code Insiders install path. By default, this should be:
+2. The VS Code install path. By default, this should be:
 
     ```bash
-    /mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code Insiders/bin
+    /mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code/bin
     ```
 
     But, if you installed the **System Installer** version, the install path is:
 
     ```bash
-    /mnt/c/Program Files/Microsoft VS Code Insiders/bin
+    /mnt/c/Program Files/Microsoft VS Code/bin
     ```
 
     ...or...
 
     ```bash
-    /mnt/c/Program Files (x86)/Microsoft VS Code Insiders/bin
+    /mnt/c/Program Files (x86)/Microsoft VS Code/bin
     ```
 
-If the VS Code Insiders install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
+If the VS Code install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
 
 ```bash
 WINDOWS_USERNAME="Your Username"
-VSCODE_PATH="/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code Insiders/bin"
+VSCODE_PATH="/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code/bin"
 # or...
-# VSCODE_PATH="/mnt/c/Program Files/Microsoft VS Code Insiders/bin"
+# VSCODE_PATH="/mnt/c/Program Files/Microsoft VS Code/bin"
 # or...
-# VSCODE_PATH="/mnt/c/Program Files (x86)/Microsoft VS Code Insiders/bin"
+# VSCODE_PATH="/mnt/c/Program Files (x86)/Microsoft VS Code/bin"
 
 export PATH=$PATH:/mnt/c/Windows/System32:${VSCODE_PATH}
 ```

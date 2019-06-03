@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Deploy Python to Azure Functions
 
-This tutorial walks you through using Visual Studio Code to create a serverless HTTP endpoint with Python using the [Azure Functions](https://marketplace.visualstudio.com/itemdetails?itemName=ms-azuretools.vscode-azurefunctions) extension. Microsoft [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python) runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for VS Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
+This tutorial walks you through using Visual Studio Code to create a serverless HTTP endpoint with Python using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. Microsoft [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python) runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for VS Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
 
 If you encounter any problems in the course of this tutorial, feel free to file an issue in the Visual Studio Code [documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
@@ -33,7 +33,7 @@ Install the following software:
 - [Visual Studio Code](https://code.visualstudio.com/).
 - Python 3.6.x as required by Azure Functions. [Python 3.6.8](https://www.python.org/downloads/release/python-368/) is the latest 3.6.x version.
 - The [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension as described on [Python Tutorial - Prerequisites](/docs/python/python-tutorial.md).
-- The [Azure Functions extension](https://marketplace.visualstudio.com/itemdetails?itemName=ms-azuretools.vscode-azurefunctions). For general information, visit the [vscode-azurefunctions GitHub repository](https://github.com/Microsoft/vscode-azurefunctions).
+- The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). For general information, visit the [vscode-azurefunctions GitHub repository](https://github.com/Microsoft/vscode-azurefunctions).
 
 ### Azure Functions Core Tools
 

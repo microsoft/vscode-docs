@@ -291,6 +291,8 @@ A best practice among Python developers is to avoid installing packages into a g
 
    ![matplotlib output](images/tutorial/plot-output.png)
 
+1. Once you are finished, type `deactivate` in the terminal window to deactivate the virtual environment.
+
 For additional examples of creating and activating a virtual environment and installing packages, see the [Django tutorial](/docs/python/tutorial-django.md) and the [Flask tutorial](/docs/python/tutorial-flask.md).
 
 ## Next steps

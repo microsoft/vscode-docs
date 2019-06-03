@@ -205,7 +205,7 @@ Visual Studio Code also supports pull request workflows through [extensions](/do
 
 ### I initialized my repo but the actions in the `...` menu are all grayed out
 
-To **push, pull, and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you need to add it to the Git settings by running a couple of command line actions. For example:
+To **push, pull, and sync** you need to have a Git origin set up.  You can get the required URL from the repository host.  Once you have that URL, you need to add it to the Git settings by running a couple of command-line actions. For example:
 
 ```bash
 > git remote add origin https://github.com/<repo owner>/<repo name>.git
@@ -240,4 +240,4 @@ Another option is to disable the auto fetch feature by changing the following se
 
 ### Can I use SSH Git authentication with VS Code?
 
-Yes, though VS Code works most easily with SSH keys without a passphrase. If you have a SSH key with a passphrase, you'll need to launch VS Code from a Git Bash prompt to inherit its SSH environment.
+Yes, though VS Code works most easily with SSH keys without a passphrase. If you have an SSH key with a passphrase, you'll need to launch VS Code from a Git Bash prompt to inherit its SSH environment.

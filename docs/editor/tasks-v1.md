@@ -75,11 +75,11 @@ To see the exact command VS Code is running, you can enable the `echoCommand` se
 
 ![tasks echoCommand](images/tasks/tasks-echoCommand.png)
 
->**Note:** VS Code ships with predefined `tasks.json` templates to run npm, MSBuild, Maven and other command line tools. A great way to learn about tasks is to review these templates and see which tools or task runners are similar to other tools you may be using.
+>**Note:** VS Code ships with predefined `tasks.json` templates to run npm, MSBuild, Maven and other command-line tools. A great way to learn about tasks is to review these templates and see which tools or task runners are similar to other tools you may be using.
 
 ## command and tasks[]
 
-`tasks.json` takes a single `command` value which can be a task runner like gulp or grunt or any command line tool like a compiler or linter. By default, the `command` will show up in the **Tasks: Run Task** drop-down list.
+`tasks.json` takes a single `command` value which can be a task runner like gulp or grunt or any command-line tool like a compiler or linter. By default, the `command` will show up in the **Tasks: Run Task** drop-down list.
 
 You can also define multiple tasks in a `tasks` array in order to pass different arguments or use different settings when the `command` is run.
 
