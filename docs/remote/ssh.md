@@ -9,10 +9,6 @@ DateApproved: 5/15/2019
 ---
 # Remote Development using SSH
 
-❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](https://code.visualstudio.com/insiders)**. The extension supports connecting to x86_64 Linux SSH servers now, and more platforms are on the way.
-
----
-
 The **Visual Studio Code Remote - SSH** extension allows you to open a remote folder on any remote machine, virtual machine, or container with a running SSH server and take full advantage of VS Code's feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
 
 No source code needs to be on your local machine to gain these benefits since the extension runs commands and other extensions directly on the remote machine.
@@ -33,11 +29,11 @@ To get started you need to:
 
     > **Note:** PuTTY is not supported on Windows since the `ssh` command must be in the path.
 
-3. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
+3. Install [Visual Studio Code](https://code.visualstudio.com).
 
 4. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
-5. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods).
+5. [Optional] If your servCodeulti-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods).
 
 ### Connect to a remote host
 
@@ -154,7 +150,7 @@ Host remote-linux-machine
 
 Opening a terminal on the remote host from VS Code is simple. Once connected, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run on the remote host rather than locally.
 
-You can also use the `code-insiders` command line from this same terminal window to perform a number of operations such as opening a new file or folder on the remote host. Type `code-insiders --help` to see all the options available from the command line.
+You can also use the `code` command line from this same terminal window to perform a number of operations such as opening a new file or folder on the remote host. Type `code --help` to see all the options available from the command line.
 
 ![Using the code CLI](images/ssh/code-command-in-terminal.png)
 

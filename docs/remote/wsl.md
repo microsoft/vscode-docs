@@ -9,10 +9,6 @@ DateApproved: 5/15/2019
 ---
 # Developing in WSL
 
-❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](https://code.visualstudio.com/insiders)**.
-
----
-
 The **Visual Studio Code Remote - WSL** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as your full-time development environment right from VS Code. You can develop in a Linux-based environment, use Linux specific toolchains and utilities, and run and debug your Linux-based applications all from the comfort of Windows.
 
 The extension runs commands and other extensions directly in WSL so you can edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges.
@@ -31,9 +27,9 @@ To get started you need to:
 
     > **Note:** WSL does have some [known limitations](#known-limitations) for certain types of development that can also affect your VS Code experience.
 
-2. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) on the **Windows** side (not in WSL).
+2. Install [Visual Studio Code](https://code.visualstudio.com) on the **Windows** side (not in WSL).
 
-    > **Note:** When prompted to **Select Additional Tasks** during installation, be sure to check the **Add to PATH** option so you can easily open a folder in WSL using the `code-insiders` command.
+    > **Note:** When prompted to **Select Additional Tasks** during installation, be sure to check the **Add to PATH** option so you can easily open a folder in WSL using the `code` command.
 
 3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
@@ -47,7 +43,7 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
 2. Navigate to a folder you'd like to open in VS Code (including, but not limited to, Windows filesystem mounts like `/mnt/c`)
 
-3. Type **`code-insiders .`** in the terminal. When doing this for the first time, you should see VS Code fetching components needed to run in WSL. This should only take short while, and is only needed once.
+3. Type **`code .`** in the terminal. When doing this for the first time, you should see VS Code fetching components needed to run in WSL. This should only take short while, and is only needed once.
 
     > **Note:** If this command does not work, you may not have added VS Code to your path when it was installed. Instead, start VS Code, press `kbstyle(F1)`, select **Remote-WSL: New Window**, and use the File menu to open your folder.
 
@@ -98,7 +94,7 @@ A value of `"ui"` instead of `"workspace"` will force the extension to run on th
 
 Opening a terminal in WSL from VS Code is simple. Once folder is opened in WSL, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run in WSL rather than locally.
 
-You can also use the `code-insiders` command line from this same terminal window to perform a number of operations such as opening a new file or folder in WSL. Type `code-insiders --help` to see what options are available from the command line.
+You can also use the `code` command line from this same terminal window to perform a number of operations such as opening a new file or folder in WSL. Type `code --help` to see what options are available from the command line.
 
 ![Using the code CLI](images/wsl/code-command-in-terminal.png)
 

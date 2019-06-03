@@ -9,10 +9,6 @@ DateApproved: 5/15/2019
 ---
 # Remote Development Tips and Tricks
 
-❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](https://code.visualstudio.com/insiders)**.
-
----
-
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension.
 
 ## SSH tips
@@ -629,44 +625,44 @@ The VS Code server is started in an interactive login shell and uses the shell t
 
 By default, `bash` is used as the shell. Bash will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`. If this lookup seems unnecessary, you may include all startup settings in `~/.bashrc`. Check whether these files contain any commands that could block the server from starting. For example, it is not recommended using the startup script to start another shell.
 
-### Fixing problems with the code-insiders command not working
+### Fixing problems with the code command not working
 
-If typing `code-insiders` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
+If typing `code` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
 
 Check by opening a WSL terminal and typing `echo $PATH`. You should see the following paths listed:
 
 1. `/mnt/c/Windows/System32`
-2. The VS Code Insiders install path. By default, this should be:
+2. The VS Code install path. By default, this should be:
 
     ```bash
-    /mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code Insiders/bin
-    ```
+    /mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code/bin
+    ```Code
 
     But, if you installed the **System Installer** version, the install path is:
-
+Code
     ```bash
-    /mnt/c/Program Files/Microsoft VS Code Insiders/bin
+    /mnt/c/Program Files/Microsoft VS Code/bin
     ```
 
     ...or...
-
+Code
     ```bash
-    /mnt/c/Program Files (x86)/Microsoft VS Code Insiders/bin
+    /mnt/c/Program Files (x86)/Microsoft VS Code/bin
     ```
 
-If the VS Code Insiders install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
-
+If the VS Code install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
+Code
 ```bash
 WINDOWS_USERNAME="Your Username"
-VSCODE_PATH="/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code Insiders/bin"
+VSCODE_PATCoders/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code/bin"
 # or...
-# VSCODE_PATH="/mnt/c/Program Files/Microsoft VS Code Insiders/bin"
+# VSCODE_PATH="/mnt/c/Program Files/Microsoft VS Code/bin"
 # or...
-# VSCODE_PATH="/mnt/c/Program Files (x86)/Microsoft VS Code Insiders/bin"
+# VSCODE_PATH="/mnt/c/Program Files (x86)/Microsoft VS Code/bin"Code
 
-export PATH=$PATH:/mnt/c/Windows/System32:${VSCODE_PATH}
+export PATH=$PATH:/mnt/c/Windows/System32:${VSCODCode
 ```
-
+Code
 > **Note:** Be sure to quote or escape spaces in the directory names.
 
 ### Resolving errors about missing dependencies
