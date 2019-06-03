@@ -92,7 +92,7 @@ The **[Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vsco
 
 For example, let's assume you are working on a deep learning project. You typically need a GPU-heavy virtual machine (such as an Azure [Data Science Virtual Machine](http://aka.ms/dsvm)), configured with all of the tools and frameworks you need to train your models with large-scale data sets.
 
-You could use Vim over SSH or Jupyter Notebooks to edit your remote code, but you give up the richness of your local development tools. Instead, with the **Remote - SSH** extension, you simply connect to the VM, install the necessary extensions like [Python](https://marketplace.visualstudio.com/itemdetails?itemName=ms-python.python), and then you can leverage all of the great features of VS Code such as IntelliSense (completions), code navigation, and debugging, as if you were working locally.
+You could use Vim over SSH or Jupyter Notebooks to edit your remote code, but you give up the richness of your local development tools. Instead, with the **Remote - SSH** extension, you simply connect to the VM, install the necessary extensions like [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), and then you can leverage all of the great features of VS Code such as IntelliSense (completions), code navigation, and debugging, as if you were working locally.
 
 Check out this quick, 2-minute video to see how easy it is to develop on a virtual machine over SSH.
 

@@ -117,7 +117,7 @@ The example grammar produces the following scopes (listed left-to-right from mos
 ```
 a               keyword.letter, source.abc
 (               punctuation.paren.open, expression.group, source.abc
-    b           expression.group, source.abc
+    b           keyword.letter, expression.group, source.abc
 )               punctuation.paren.close, expression.group, source.abc
 x               source.abc
 (               punctuation.paren.open, expression.group, source.abc
@@ -192,13 +192,13 @@ Yaml grammars have the exact same structure as a json based grammar but allow yo
 
 ![A yaml grammar using multiline strings and comments](images/syntax-highlighting/yaml-grammar.png)
 
-VS Code can only load json grammars, so yaml based grammars must be converted to json. The [`js-yaml` package](https://www.npmjs.com/package/js-yaml) and command line tool makes this easy.
+VS Code can only load json grammars, so yaml based grammars must be converted to json. The [`js-yaml` package](https://www.npmjs.com/package/js-yaml) and command-line tool makes this easy.
 
 ```bash
 # Install js-yaml as a development only dependency in your extension
 $ npm install js-yaml --save-dev
 
-# Use the command line tool to convert the yaml grammar to json
+# Use the command-line tool to convert the yaml grammar to json
 $ npx js-yaml syntaxes/abc.tmLanguage.yaml > syntaxes/abc.tmLanguage.json
 ```
 

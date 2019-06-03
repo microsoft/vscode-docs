@@ -24,7 +24,7 @@ Whether you’re building a Python web app, a Go microservice, a React Native mo
 
 ## Shared Terminals
 
-Modern development commonly makes use of command-line tools to perform tasks such as build and running unit tests. Because the command-line represents such a core component of the common developer workflow, it’s critical that participants within a Live Share session can use them, without requiring a separate tool. To further support your collaborative debugging sessions, and address one of our [top feature requests](https://github.com/MicrosoftDocs/live-share/issues/41), Live Share now allows hosts to share terminals with their guests.
+Modern development commonly makes use of command-line tools to perform tasks such as build and running unit tests. Because the command line represents such a core component of the common developer workflow, it’s critical that participants within a Live Share session can use them, without requiring a separate tool. To further support your collaborative debugging sessions, and address one of our [top feature requests](https://github.com/MicrosoftDocs/live-share/issues/41), Live Share now allows hosts to share terminals with their guests.
 
 ![Shared terminal](shared-terminal.png)
 

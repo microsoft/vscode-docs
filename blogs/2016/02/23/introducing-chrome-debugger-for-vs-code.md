@@ -51,7 +51,7 @@ In this first release, we support the following features:
 
 We believe there’s much to be done for front-end developers, as building for the web in the recent years has become incredibly complex. With our Chrome debugger, we are taking the first step towards a simpler web development workflow, where browsers and tooling from different vendors are able to work together, and building for the web feels more integrated.
 
-We’ve released this extension on [GitHub](https://github.com/Microsoft/vscode-chrome-debug) as an MIT licensed open source project. It’s a work in progress, so see our issues page for known bugs – for example, we have a few issues around supporting all flavors of generated source maps.
+We’ve released this extension on [GitHub](https://github.com/Microsoft/vscode-chrome-debug) as an MIT licensed open-source project. It’s a work in progress, so see our issues page for known bugs – for example, we have a few issues around supporting all flavors of generated source maps.
 
 For now we support Google Chrome, but we’re also looking at expanding our support to [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge) and other browsers. We really want your feedback and help to build an even better debugging experience.
 
