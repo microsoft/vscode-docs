@@ -9,10 +9,6 @@ DateApproved: 5/15/2019
 ---
 # Advanced Container Configuration
 
-❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](https://code.visualstudio.com/insiders)**.
-
----
-
 This article includes advanced setup scenarios for the [Visual Studio Code Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension. See the [Developing inside a Container](/docs/remote/containers.md) article for additional information.
 
 ## Adding another volume mount
@@ -223,7 +219,7 @@ You can use the Docker CLI locally with a remote Docker host by setting [local e
 
 ### Option 1: Connect using Docker Machine or by setting local environment variables
 
-Assuming you have `code-insiders` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick.
+Assuming you have `code` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick.
 
 You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
 
@@ -235,7 +231,7 @@ docker-machine create --driver generic \
     --generic-ssh-user your-remote-user-here \
     give-it-a-name-here
 eval $(docker-machine env give-it-a-name-here)
-code-insiders
+code
 ```
 
 On **Windows**, run the following commands in a local command prompt  (replacing values as appropriate):
@@ -246,7 +242,7 @@ docker-machine create --driver generic ^
     --generic-ssh-user your-remote-user-here ^
     give-it-a-name-here
 @FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd give-it-a-name-here') DO @%i
-code-insiders
+code
 ```
 
 However, if you already have a remote Docker host up and running, you do not technically need to use `docker-machine` to connect it. Depending on your setup, you may be able to just set the required environment variables directly.
@@ -254,7 +250,7 @@ However, if you already have a remote Docker host up and running, you do not tec
 ```bash
 export DOCKER_HOST=your-remote-machine-fqdn-or-ip-here:2375 # And others as appropriate
 # Or on Windows: SET DOCKER_HOST=your-remote-machine-fqdn-or-ip-here:2375
-code-insiders
+code
 ```
 
 Once set, you can use VS Code to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host or [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#using-devcontainerjson-to-work-with-a-remote-dev-container).
@@ -269,7 +265,7 @@ On **macOS or Linux**, run the following commands in a local terminal:
 
 ```bash
 export DOCKER_HOST=localhost:23750
-code-insiders
+code
 ssh -NL localhost:23750:/var/run/docker.sock user@hostname
 ```
 
@@ -277,7 +273,7 @@ On **Windows**, run the following commands in a local command prompt:
 
 ```bat
 SET DOCKER_HOST=localhost:23750
-code-insiders
+code
 ssh -NL localhost:23750:/var/run/docker.sock user@hostname
 ```
 
@@ -420,7 +416,7 @@ If you put your remote focused dev container settings described above in `~/repo
 
     # Start VS Code and forward the docker port.
     export DOCKER_HOST=localhost:23750
-    code-insiders "$HOME/sshfs/$USER_AT_HOST/$REMOTE_CFG_PATH"
+    code "$HOME/sshfs/$USER_AT_HOST/$REMOTE_CFG_PATH"
     ssh -NL localhost:23750:/var/run/docker.sock $USER_AT_HOST
     ```
 
@@ -435,7 +431,7 @@ If you put your remote focused dev container settings described above in `~/repo
 
     REM Start VS Code and forward the docker port
     SET DOCKER_HOST=localhost:23750
-    code-insiders "X:\%REMOTE_CFG_PATH%"
+    code "X:\%REMOTE_CFG_PATH%"
     ssh -NL localhost:23750:/var/run/docker.sock %USER_AT_HOST%
     ```
 

@@ -9,10 +9,6 @@ DateApproved: 5/15/2019
 ---
 # Developing inside a Container
 
-❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](https://code.visualstudio.com/insiders)**.
-
----
-
 The **Visual Studio Code Remote - Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of VS Code's full feature set. A [`devcontainer.json` file](#creating-a-devcontainerjson-file) in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to sandbox tools, libraries, or runtimes needed for working with a codebase.
 
 Workspace files are mounted from the local file system or copied or cloned into the container. Extensions are installed and run inside the container, where they have full access to the tools, platform, and file system. This means that you can seamlessly switch your entire development environment just by connecting to a different container.
@@ -47,7 +43,7 @@ To get started, follow these steps:
 
     3. Sign out and back in again so your changes take effect.
 
-3. Install [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
+3. Install [Visual Studio Code](https://code.visualstudio.com/).
 
 4. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
@@ -292,7 +288,7 @@ In each case, you'll need to rebuild your container for the setting to take effe
 
 Opening a terminal in a container from VS Code is simple. Once you've opened a folder in a container, **any terminal window** you open in VS Code (**Terminal > New Terminal**) will automatically run in the container rather than locally.
 
-You can also use the `code-insiders` command line from this same terminal window to perform a number of operations such as opening a new file or folder in the container. Type `code-insiders --help` to learn what options are available from the command line.
+You can also use the `code` command line from this same terminal window to perform a number of operations such as opening a new file or folder in the container. Type `code --help` to learn what options are available from the command line.
 
 ![Using the code CLI](images/containers/code-command-in-terminal.png)
 

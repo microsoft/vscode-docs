@@ -7,14 +7,13 @@ ContentId: 7ec8dedf-0659-437e-98f1-2d27f5e243eb
 MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Remote - Containers, and Remote - WSL
 DateApproved: 5/15/2019
 ---
-
 # Remote Development with Linux
 
 Linux is a highly variable environment and the large number of server, container, and desktop distributions can make it difficult to know what is supported. Visual Studio Code Remote Development has prerequisites for the specific host / container / WSL distribution you will be connecting to.
 
-If you are using a recent stable/LTS version of:
+If you are using a recent **64-bit x86** stable/LTS version of:
 
-* **64-bit x86** **Ubuntu** (14.04+)
+* **Ubuntu** (14.04+)
 * **Debian** (8+)
 * **CentOS / RHEL** (7+)
 
@@ -31,9 +30,7 @@ If you are running Linux locally, the [VS Code prerequisites](/docs/supporting/r
 In addition, specific Remote Development extensions have further requirements:
 
 * **Remote - SSH:** `ssh` needs to be in the path. The shell binary is typically in the `openssh-client` package.
-* **Remote - Docker:** `docker` and `docker-compose` need to be in the path. Follow the [install instructions for your Linux distribution](https://docs.docker.com/install/#supported-platforms).
-
-**Note**: The Ubuntu Snap package is not supported.
+* **Remote - Docker:** `docker` and `docker-compose` need to be in the path. Follow the [install instructions for your Linux distribution](https://docs.docker.com/install/#supported-platforms). (Note that the Ubuntu Snap package is not supported.)
 
 ## Remote host / container / WSL Linux prerequisites
 
