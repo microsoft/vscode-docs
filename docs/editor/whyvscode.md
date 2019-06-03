@@ -31,7 +31,7 @@ VS Code also integrates with build and scripting tools to perform common tasks m
 
 ## Make it your own
 
-Customize every feature to your liking and install any number of third-party extensions. While most scenarios work "out of the box" with no configuration, VS Code also grows with you, and we encourage you to optimize your experience to suit your unique needs. VS Code is an open source project so you can also contribute to the growing and vibrant community on GitHub.
+Customize every feature to your liking and install any number of third-party extensions. While most scenarios work "out of the box" with no configuration, VS Code also grows with you, and we encourage you to optimize your experience to suit your unique needs. VS Code is an open-source project so you can also contribute to the growing and vibrant community on GitHub.
 
 ## Built with love for the Web
 

@@ -15,7 +15,7 @@ Next, create a simple Node.js application that can be deployed to the Cloud. Thi
 ## Install the Express generator
 
 [Express](https://www.expressjs.com) is an extremely popular framework for building and running Node.js applications. You can scaffold (create) a new
-Express application using the [Express Generator](https://expressjs.com/en/starter/generator.html) tool. The Express Generator is shipped as an npm module and installed by using the npm command line tool `npm`.
+Express application using the [Express Generator](https://expressjs.com/en/starter/generator.html) tool. The Express Generator is shipped as an npm module and installed by using the npm command-line tool `npm`.
 
 ```bash
 $ npm install -g express-generator

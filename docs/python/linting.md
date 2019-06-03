@@ -124,7 +124,7 @@ For the complete list of Pylint messages, see [readable-pylint-messages](https:/
 
 ### Command-line arguments and configuration files
 
-See [Pylint command line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options) for general switches. Command-line arguments can be used to load Pylint plugins, such as the plugin for Django:
+See [Pylint command-line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options) for general switches. Command-line arguments can be used to load Pylint plugins, such as the plugin for Django:
 
 ```json
 "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]

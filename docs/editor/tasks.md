@@ -520,6 +520,29 @@ Task properties can also be defined in the global scope. If present, they will b
 }
 ```
 
+### Character escaping in PowerShell
+
+When the default shell is PowerShell, or when a task is configured to use PowerShell, you might see unexpected space and quote escaping. The unexpected escaping only occurs with cmdlets because VS Code doesn’t know if your command contains cmdlets. Example 1 below shows a case where you’ll get escaping that doesn’t work with PowerShell. Example 2 shows the best, cross-platform, way to get good escaping. In some cases, you might not be able to follow example 2 and you’ll need to do the manual escaping show in example 3.
+
+```json
+{
+	"label": "PowerShell example 1 (unexpected escaping)",
+	"type": "shell",
+	"command": "Get-ChildItem \"Folder With Spaces\""
+},
+{
+	"label": "PowerShell example 2 (expected escaping)",
+	"type": "shell",
+	"command": "Get-ChildItem",
+	"args": ["Folder With Spaces"]
+},
+{
+	"label": "PowerShell example 3 (manual escaping)",
+	"type": "shell",
+	"command": "& Get-ChildItem \\\"Folder With Spaces\\\""
+}
+```
+
 ## Changing the encoding for a task output
 
 Tasks frequently act with files on disk. If these files are stored on disk with an encoding different than the system encoding you need to let the command executed as a task know which encoding to use. Since this depends on the operating system and the shell used there is no general solution to control this. Below some advice and examples on how to make it work.
@@ -708,7 +731,7 @@ The pattern's first regular expression will match "test.js", the second "1:0  er
 
 To make this work, the last regular expression of a multiline pattern can specify the `loop` property. If set to true, it instructs the task system to apply the last pattern of a multiline matcher to the lines in the output as long as the regular expression matches.
 
-The information captured by all previous patterns is combined with the information captured by the last pattern and turned into a problem inside VS Code.
+The information captured by the first pattern, which in this case matches `test.js`, will be combined with each of the subsequent lines that match the `loop` pattern to create multiple problems. In this example, six problems would be created.
 
 Here is a problem matcher to fully capture ESLint stylish problems:
 
