@@ -201,7 +201,7 @@ Zen Mode lets you focus on your code by hiding all UI except the editor (no Acti
 
 ### Centered editor layout
 
-Centered editor layout allows you to center the editor area. This is particularly useful when working with a single editor on a large monitor. You can use the sashes on the side to resize the view (hold down the `Alt` key to independently move the sashes).
+Centered editor layout allows you to center align the editor area. This is particularly useful when working with a single editor on a large monitor. You can use the sashes on the side to resize the view (hold down the `Alt` key to independently move the sashes).
 
 ## Tabs
 
