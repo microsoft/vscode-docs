@@ -329,12 +329,13 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 You can install SSHFS locally as follows:
 
 - On macOS using [Homebrew](https://brew.sh/): `brew install sshfs`
+  - If you would prefer not to use the command line, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
 - On Linux using the OS package manager. For Debian/Ubuntu: `sudo apt-get install sshfs`
 - [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on Windows using [Chocolatey](https://chocolatey.org/): `choco install sshfs`
 
 Note that WSL 1 does not support FUSE or SSHFS, so installing SSHFS-Win is the best option currently.
 
-To mount the remote filesystem on **macOS or Linux**, run the following from a local terminal replacing `user@hostname` with the remote user and hostname / IP:
+On macOS, you can use [SSHFS GUI](https://github.com/dstuecken/sshfs-gui), or you can mount the remote filesystem on **macOS or Linux** using the command line by run the following from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
 
 ```bash
 export USER_AT_HOST=user@hostname
@@ -355,7 +356,7 @@ umount "$HOME/sshfs/$USER_AT_HOST"
 
 On **Windows**, you should add a `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
-Once you've installed SSHFS for Windows, run the following from the command prompt replacing `user@hostname` with the remote user and hostname / IP:
+Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname` where `user@hostname` with is your remote user and hostname / IP. You can also map the drive using the command prompt as follows:
 
 ```bat
 net use /PERSISTENT:NO X: \\sshfs\user@hostname

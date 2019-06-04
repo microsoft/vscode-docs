@@ -65,7 +65,9 @@ The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.co
 
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
-Most Linux distributions will not require additional dependency installation steps. For SSH, Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed and those utilities could be missing from certain stripped down distributions. [Alpine Linux](https://alpinelinux.org) is currently not supported.
+Most Linux distributions will not require additional dependency installation steps. For SSH, Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed and those utilities could be missing from certain stripped down distributions. Remote Development also requires kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18. Only glibc-based distributions are supported currently, so by extension [Alpine Linux](https://alpinelinux.org) is not supported.
+
+See [Linux Prerequisites](/docs/remote/linux.md) for details.
 
 ### Can the Docker extension run as a remote "workspace" extension?
 

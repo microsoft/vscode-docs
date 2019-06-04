@@ -212,7 +212,9 @@ See [Fixing SSH file permission errors](/docs/remote/troubleshooting.md#fixing-s
 
 ### What Linux packages / libraries need to be installed on remote SSH hosts?
 
-Most Linux distributions will not require additional dependency installation steps. Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed which can be missing from some stripped down distributions.
+Most Linux distributions will not require additional dependency installation steps. For SSH, Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed and those utilities could be missing from certain stripped down distributions. Remote Development also requires kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18. Only glibc-based distributions are supported currently, so by extension [Alpine Linux](https://alpinelinux.org) is not supported.
+
+See [Linux Prerequisites](/docs/remote/linux.md) for details.
 
 ### What are the connectivity requirements for the VS Code Server when it is running on a remote machine / VM?
 
