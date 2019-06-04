@@ -235,5 +235,5 @@ You have created a Java function app with a simple HTTP trigger and deployed it 
 
 - More information on developing Java Functions
     - [Java Functions developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-java)
-    - [Quickstart with Maven](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-java-maven)
+    - [Quickstart with Maven](https://docs.microsoft.com/azure/azure-functions/functions-create-first-java-maven)
 - To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md).

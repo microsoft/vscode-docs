@@ -25,7 +25,7 @@ To successfully complete this tutorial, you must do the following steps:
 
 1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 
-1. Install [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and then use the links on that same page to install your Linux distro of choice. This tutorial uses Ubuntu.
+1. Install [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) and then use the links on that same page to install your Linux distro of choice. This tutorial uses Ubuntu.
 
 ## Set up your Linux environment
 

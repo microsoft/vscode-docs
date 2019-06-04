@@ -117,7 +117,7 @@ There are several Outline view [settings](/docs/getstarted/settings.md) which al
 
 ## Open Editors
 
-At the top of the Explorer is a view labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** view if you:
+At the top of the Explorer is a view labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you were working on. For example, a file will be listed in the **OPEN EDITORS** view if you:
 
 * Make a change to a file.
 * Double-click a file's header.
@@ -201,7 +201,7 @@ Zen Mode lets you focus on your code by hiding all UI except the editor (no Acti
 
 ### Centered editor layout
 
-Centered editor layout allows you to center the editor area. This is particularly useful when working with a single editor on a large monitor. You can use the sashes on the side to resize the view (hold down the `Alt` key to independently move the sashes).
+Centered editor layout allows you to center align the editor area. This is particularly useful when working with a single editor on a large monitor. You can use the sashes on the side to resize the view (hold down the `Alt` key to independently move the sashes).
 
 ## Tabs
 

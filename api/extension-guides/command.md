@@ -199,3 +199,11 @@ The [`menus.commandPalette`](/api/references/contribution-points#contributes.men
 ```
 
 Now the `myExtension.sayHello` command will only show up in the Command Palette when the user is in a Markdown file.
+
+### Enablement of commands
+
+Commands support enablement via an `enablement`-property - its value is a when clause [when-clause](/docs/getstarted/keybindings#_when-clause-contexts). Enablement applies to all menus and to registered keybinding.
+
+> **Note** that there is semantic overlap between `enablement` and the `when` condition of menu items. The latter is used to prevent menus full of disabled items, e.g a command that anaylzes a JavaScript regular expression should show *when* the file is JavaScript and be *enablement* when the cursor is over a regular expression. In that sample, the `when`-clause prevents clutter by not showing the command for all other files. Preventing cluttered menus is highly recommended.
+
+Last, menus showing commands, like the command palette or context menus, implement different ways of dealing with enablement. Editor and explorer context menus render enablement/disablement items while the command palette filters them.

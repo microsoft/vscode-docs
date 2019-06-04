@@ -9,10 +9,6 @@ DateApproved: 5/15/2019
 ---
 # Remote Development Tips and Tricks
 
-❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](https://code.visualstudio.com/insiders)**.
-
----
-
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension.
 
 ## SSH tips
@@ -374,7 +370,7 @@ Note that performance will be significantly slower than working through VS Code,
 
 An alternative to [using SSHFS to access remote files](#using-sshfs-to-access-files-on-your-remote-host) is to [use `rsync`](https://rsync.samba.org/) to copy the entire contents of a folder on remote host to your local machine. The `rsync` command will determine which files need to be updated each time it is run, which is far more efficient and convenient than using something like `scp` or `sftp`. This is primarily something to consider if you really need to use multi-file or performance intensive local tools.
 
-The `rsync` command is available out of box on macOS and can be installed using Linux package managers (for example `sudo apt-get install rsync` on Debian/Ubuntu). For Windows, you'll need to either use [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) or [Cygwin](https://www.cygwin.com/) to access the command.
+The `rsync` command is available out of box on macOS and can be installed using Linux package managers (for example `sudo apt-get install rsync` on Debian/Ubuntu). For Windows, you'll need to either use [WSL](https://docs.microsoft.com/windows/wsl/install-win10) or [Cygwin](https://www.cygwin.com/) to access the command.
 
 To use the command, navigate to the folder you want to store the synched contents and run the following replacing `user@hostname` with the remote user and hostname / IP and `/remote/source/code/path` with the remote source code location.
 
@@ -630,40 +626,40 @@ The VS Code server is started in an interactive login shell and uses the shell t
 
 By default, `bash` is used as the shell. Bash will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`. If this lookup seems unnecessary, you may include all startup settings in `~/.bashrc`. Check whether these files contain any commands that could block the server from starting. For example, it is not recommended using the startup script to start another shell.
 
-### Fixing problems with the code-insiders command not working
+### Fixing problems with the code command not working
 
-If typing `code-insiders` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
+If typing `code` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
 
 Check by opening a WSL terminal and typing `echo $PATH`. You should see the following paths listed:
 
 1. `/mnt/c/Windows/System32`
-2. The VS Code Insiders install path. By default, this should be:
+2. The VS Code install path. By default, this should be:
 
     ```bash
-    /mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code Insiders/bin
+    /mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code/bin
     ```
 
     But, if you installed the **System Installer** version, the install path is:
 
     ```bash
-    /mnt/c/Program Files/Microsoft VS Code Insiders/bin
+    /mnt/c/Program Files/Microsoft VS Code/bin
     ```
 
     ...or...
 
     ```bash
-    /mnt/c/Program Files (x86)/Microsoft VS Code Insiders/bin
+    /mnt/c/Program Files (x86)/Microsoft VS Code/bin
     ```
 
-If the VS Code Insiders install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
+If the VS Code install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
 
 ```bash
 WINDOWS_USERNAME="Your Username"
-VSCODE_PATH="/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code Insiders/bin"
+VSCODE_PATH="/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code/bin"
 # or...
-# VSCODE_PATH="/mnt/c/Program Files/Microsoft VS Code Insiders/bin"
+# VSCODE_PATH="/mnt/c/Program Files/Microsoft VS Code/bin"
 # or...
-# VSCODE_PATH="/mnt/c/Program Files (x86)/Microsoft VS Code Insiders/bin"
+# VSCODE_PATH="/mnt/c/Program Files (x86)/Microsoft VS Code/bin"
 
 export PATH=$PATH:/mnt/c/Windows/System32:${VSCODE_PATH}
 ```
@@ -779,7 +775,7 @@ If an incompatible extension has been installed on a remote host, container, or 
    - If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
    - If using a container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
 
-3. Once you are connected, run `rm -rf ~/.vscode-remote/extensions` to remove all extensions.
+3. Once you are connected, run `rm -rf ~/.vscode-server/extensions` to remove all extensions.
 
 ### Extensions that ship or acquire pre-built native modules fail
 

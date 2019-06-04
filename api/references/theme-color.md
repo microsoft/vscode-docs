@@ -192,7 +192,8 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
 - `editorGroup.emptyBackground`: Background color of an empty editor group.
 - `editorGroup.focusedEmptyBorder`: Border color of an empty editor group that is focused.
-- `tab.activeBackground`: Active Tab background color.
+- `tab.activeBackground`: Active Tab background color in an active group.
+- `tab.unfocusedActiveBackground`: Active Tab background color in an inactive editor group.
 - `tab.activeForeground`: Active Tab foreground color in an active group.
 - `tab.border`: Border to separate Tabs from each other.
 - `tab.activeBorder`: Bottom border for the active tab.
@@ -329,13 +330,13 @@ This ruler is located beneath the scroll bar on the right edge of the editor and
 Errors and warnings:
 
 - `editorError.foreground`: Foreground color of error squiggles in the editor.
-- `editorError.border`: Border color of error squiggles in the editor.
+- `editorError.border`: Border color of error boxes in the editor.
 - `editorWarning.foreground`: Foreground color of warning squiggles in the editor.
-- `editorWarning.border`: Border color of warning squiggles in the editor.
+- `editorWarning.border`: Border color of warning boxes in the editor.
 - `editorInfo.foreground`: Foreground color of info squiggles in the editor.
-- `editorInfo.border`: Border color of info squiggles in the editor.
+- `editorInfo.border`: Border color of info boxes in the editor.
 - `editorHint.foreground`: Foreground color of hints in the editor.
-- `editorHint.border`: Border color of hints in the editor.
+- `editorHint.border`: Border color of hint boxes in the editor.
 
 Unused source code:
 

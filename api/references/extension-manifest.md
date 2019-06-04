@@ -165,6 +165,7 @@ We allow badges from the following URL prefixes:
 - api.travis-ci.com
 - api.travis-ci.org
 - app.fossa.io
+- badge.buildkite.com
 - badge.fury.io
 - badge.waffle.io
 - badgen.net
@@ -183,6 +184,7 @@ We allow badges from the following URL prefixes:
 - david-dm.org
 - deepscan.io
 - dev.azure.com
+- docs.rs
 - gemnasium.com
 - githost.io
 - gitlab.com

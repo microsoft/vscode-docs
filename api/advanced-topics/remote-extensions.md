@@ -7,10 +7,6 @@ MetaDescription: A guide to adding Visual Studio Code Remote Development support
 ---
 # Supporting Remote Development
 
-❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](https://code.visualstudio.com/insiders)**.
-
----
-
 **[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). This means you can use the same VS Code extensions you love even while working in remote workspaces.
 
 This article summarizes what extension authors need to know about VS Code Remote Development. This includes the [VS Code Remote Development extension architecture](#architecture-and-extension-types), how to [test your extension](#testing-and-debugging-your-extension) in remote workspaces, and recommendations on [what to do if your extension does not work properly when being run remotely](#common-problems). While many extensions will work in remote workspaces without any modifications, you may need to make changes so that your extension works properly in all environments, although these changes are often fairly minor.

@@ -9,10 +9,6 @@ DateApproved: 5/15/2019
 ---
 # Advanced Container Configuration
 
-❗ **Note:** The **[Remote Development extensions](https://aka.ms/vscode-remote/download)** require **[Visual Studio Code Insiders](https://code.visualstudio.com/insiders)**.
-
----
-
 This article includes advanced setup scenarios for the [Visual Studio Code Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension. See the [Developing inside a Container](/docs/remote/containers.md) article for additional information.
 
 ## Adding another volume mount
@@ -227,7 +223,7 @@ Once set, you can use VS Code to [attach to any running container](/docs/remote/
 
 **Use Docker Machine**
 
-Assuming you have `code-insiders` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick.
+Assuming you have `code` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick.
 
 You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
 
@@ -239,7 +235,7 @@ docker-machine create --driver generic \
     --generic-ssh-user your-remote-user-here \
     give-it-a-name-here
 eval $(docker-machine env give-it-a-name-here)
-code-insiders
+code
 ```
 
 On **Windows**, run the following commands in a local command prompt  (replacing values as appropriate):
@@ -250,7 +246,7 @@ docker-machine create --driver generic ^
     --generic-ssh-user your-remote-user-here ^
     give-it-a-name-here
 @FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd give-it-a-name-here') DO @%i
-code-insiders
+code
 ```
 
 You will run the second and third commands each time you want to connect to the host. The first is only needed to set it up the first time.
@@ -392,7 +388,7 @@ Using Docker Machine's mount command or SSHFS are the more convenient options an
 
 Both [SSHFS](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host) or [rsync](/docs/remote/troubleshooting.md#using-rsync-to-maintain-a-local-copy-of-your-source-code) can allow you to store your remote `devcontainer.json` on your remote host. This makes it easier to connect to your remote containers from multiple machines.
 
-For example, if you cloned a repository to `~/repos/your-repository-name` that contained a local focused `devcontainer.json`, you could create a remote one that reuses the same Dockerfile (or Docker Compose file), but mounts your repository folder instead. Let's walk through setting this up with a folder structure like the following:
+For example, if you cloned a repository to `~/repos/your-repository-name` on the remote machine that contains a `devcontainer.json`, you can create a remote focused `devcontainer.json` that reuses the same Dockerfile (or Docker Compose file) but connects remotely instead of locally. Let's walk through setting this up with a folder structure like this:
 
 ```text
 📁 /home/your-user-name
@@ -412,13 +408,15 @@ Follow these steps:
 
 1. [Set up SSHFS on your system](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host) and mount the remote filesystem.
 
-2. Let's assume we're using a [SSH tunnel](#option-2-connect-using-an-ssh-tunnel) to connect to the remote host. Start it as follows:
+2. Let's assume we're using a [SSH tunnel](#option-2-connect-using-an-ssh-tunnel) to connect to the remote host. Start it as follows (replacing `user@hostname` with the appropriate values):
 
     ```bash
     ssh -NL localhost:23750:/var/run/docker.sock user@hostname
     ```
 
-3. Next, open the `~/devcontainers/repository-name-here` folder in your **local** VS Code using the file mount, and update `docker.host` to the appropriate value in workspace settings (`.vscode/settings.json`). Let's assume we are using a [using a SSH tunnel](#option-2-connect-using-an-ssh-tunnel).
+3. Next, use the **local** SSHFS mount to open `~/devcontainers/repository-name-here`.
+
+4. Update `docker.host` to the appropriate value in workspace settings (`.vscode/settings.json`) to point to the SSH tunnel we will start up.
 
     ```json
     {
@@ -426,7 +424,7 @@ Follow these steps:
     }
     ```
 
-4. Next, use the file mount to copy `~/repos/your-repository-name/.devcontainer/devcontainer.json` to The `.devcontainer.json` and make a few edits. In this example, we are using a Dockerfile, so the changes would be as follows:
+5. Next, use the file mount to copy `~/repos/your-repository-name/.devcontainer/devcontainer.json` to `.devcontainer.json` (dot-prefixed) in `~/devcontainers/repository-name-here` and make a few edits. In this example, we are using a Dockerfile, so the changes would be as follows:
 
     ```json
     "dockerFile":"../../repos/your-repository-name/.devcontainer/Dockerfile"
@@ -434,9 +432,9 @@ Follow these steps:
     "workspaceMount": "src=/home/your-user-name/repos/your-repository-name,dst=/workspace,type=bind"
     ```
 
-5. Finally, run **Remote-Containers: Reopen Folder in Container** from the Command Palette (`kbstyle(F1)`).
+6. Finally, run **Remote-Containers: Reopen Folder in Container** from the Command Palette (`kbstyle(F1)`).
 
-Next time, you can just mount the remote file system and open folder in the remote container.
+Next time, you can just mount the remote file system, start the SSH tunnel, and use **Remote-Containers: Open Folder in Container...** to open the same folder (`~/devcontainers/repository-name-here`).
 
 ## Reducing Dockerfile build warnings
 
