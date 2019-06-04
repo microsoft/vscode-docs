@@ -117,7 +117,7 @@ There are several Outline view [settings](/docs/getstarted/settings.md) which al
 
 ## Open Editors
 
-At the top of the Explorer is a view labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** view if you:
+At the top of the Explorer is a view labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you were working on. For example, a file will be listed in the **OPEN EDITORS** view if you:
 
 * Make a change to a file.
 * Double-click a file's header.
