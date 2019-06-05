@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Intro Videos
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
 PageTitle: Visual Studio Code Introductory Videos
-DateApproved: 5/15/2019
+DateApproved: 6/5/2019
 MetaDescription: Overview of Visual Studio Code's introductory videos.
 MetaSocialImage: images/introvideos/opengraph_introvideos.png
 ---

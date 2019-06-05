@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 5/15/2019
+DateApproved: 6/5/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development support to extensions
