@@ -165,7 +165,7 @@ Some users launch a different shell from their `.bash_profile` or other startup 
 
 **Connecting to systems that dynamically assign machines per connection**
 
-Some systems will dynamically route a SSH connection to one node from a cluster each time an SSH connection is made. This is an issue for VS Code because it makes two connections to open a remote window: the first to install or start the VS Code Server (or find an already running instance) and the second to create the SSH port tunnel that VS Code uses to talk to the server. If VS Code is routed to a different machine when it creates the second connection, it won't be able to talk to the VS Code server.
+Some systems will dynamically route an SSH connection to one node from a cluster each time an SSH connection is made. This is an issue for VS Code because it makes two connections to open a remote window: the first to install or start the VS Code Server (or find an already running instance) and the second to create the SSH port tunnel that VS Code uses to talk to the server. If VS Code is routed to a different machine when it creates the second connection, it won't be able to talk to the VS Code server.
 
 One workaround for this is to use the `ControlMaster` option in OpenSSH (macOS/Linux clients only), described [above](#enabling-alternate-ssh-authentication-methods), so that VS Code's two connections will be multiplexed through a single SSH connection to the same node.
 
@@ -362,9 +362,9 @@ Once you've installed SSHFS for Windows, you can use the File Explorer's **Map N
 net use /PERSISTENT:NO X: \\sshfs\user@hostname
 ```
 
-In this example, remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking Disconnect.
+In this example, the remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking **Disconnect**.
 
-Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way can be very slow and can cause unforeseen problems. However, you can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [below](#using-rsync-to-maintain-a-local-copy-of-your-source-codde) for details.
+Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way can be very slow and can cause unforeseen problems. However, you can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [below](#using-rsync-to-maintain-a-local-copy-of-your-source-code) for details.
 
 ### Using rsync to maintain a local copy of your source code
 
