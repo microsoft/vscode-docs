@@ -403,7 +403,7 @@ If you want to run these steps manually, or if the command isn't working for you
 ```bash
 kill -9 `ps ax | grep "remoteExtensionHostAgent.js" | grep -v grep | awk '{print $1}'`
 kill -9 `ps ax | grep "watcherService" | grep -v grep | awk '{print $1}'`
-rm -rf ~/.vscode-server ~/.vscode-server-insiders
+rm -rf ~/.vscode-server # Or ~/.vscode-server-insiders
 ```
 
 The VS Code Server was previously installed under `~/.vscode-remote` so you can check that location too.
@@ -775,7 +775,7 @@ If an incompatible extension has been installed on a remote host, container, or 
    - If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
    - If using a container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
 
-3. Once you are connected, run `rm -rf ~/.vscode-server/extensions ~/.vscode-server-insiders/extensions` to remove all extensions.
+3. Once you are connected, run `rm -rf ~/.vscode-server/extensions` for VS Code stable and/or `rm -rf ~/.vscode-server-insiders/extensions` for VS Code Insiders to remove all extensions.
 
 ### Extensions that ship or acquire pre-built native modules fail
 
