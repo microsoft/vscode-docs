@@ -221,7 +221,7 @@ Once set, you can use VS Code to [attach to any running container](/docs/remote/
 
 ### Option 1: Connect using Docker Machine or by setting local environment variables
 
-**Use Docker Machine**
+**Using Docker Machine**:
 
 Assuming you have `code` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick.
 
@@ -251,7 +251,7 @@ code
 
 You will run the second and third commands each time you want to connect to the host. The first is only needed to set it up the first time.
 
-**Use local environment variables**
+**Using local environment variables**:
 
 If you already have a remote Docker host up and running, you do not technically need to use `docker-machine` to connect it. Depending on your setup, you may be able to just set the required environment variables directly in a terminal and launch `code` from this same window.
 
@@ -289,13 +289,12 @@ Just follow these steps:
 
 You can then use VS Code to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host or [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#using-devcontainerjson-to-work-with-a-remote-dev-container).
 
-
-Note that you may need to `AllowStreamLocalForwarding` in your SSH server's [sshd config](https://www.ssh.com/ssh/sshd_config/) for this to work.
-
-1. Open `/etc/ssh/sshd_config` in an editor  (like vim, nano, or pico) on the **SSH host** (not locally).
-2. Add the setting  `AllowStreamLocalForwarding yes`.
-3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
-4. Retry.
+> **Note:** If the `ssh` command fails, you may need to `AllowStreamLocalForwarding` in your SSH server's [sshd config](https://www.ssh.com/ssh/sshd_config/) for this to work.
+>
+> 1. Open `/etc/ssh/sshd_config` in an editor  (like vim, nano, or pico) on the **SSH host** (not locally).
+> 2. Add the setting  `AllowStreamLocalForwarding yes`.
+> 3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
+> 4. Retry.
 
 Once you are done, press `kbstyle(Ctrl+C)` in the terminal / command prompt to close the tunnel. The environment variables that were set are not global, so you can restart VS Code to begin working with your local Docker install again.
 
@@ -315,14 +314,16 @@ Just follow these steps:
 
     **Dockerfile or image**:
 
-    Add the `workspaceMount` property to `.devcontainer/devcontainer.json` and override the `workspaceFolder` as follows:
+    If you do **not** have login access to the remote host, use a Docker "volume" for your source code. Update `.devcontainer/devcontainer.json` as follows:
 
     ```json
     "workspaceFolder": "/workspace",
     "workspaceMount": "src=remote-workspace,dst=/workspace,type=volume,volume-driver=local"
     ```
 
-    Note that you can change the volume name (`remote-workspace`) to something different if you'd like a unique volume per container. You can also bind to a folder on the remote host instead as follows:
+    Replace `remote-workspace` to something different if you'd like a unique volume per container.
+
+    If you **do** have login access, you can use a remote filesystem bind mount instead:
 
     ```json
     "workspaceFolder": "/workspace",
@@ -343,7 +344,9 @@ Just follow these steps:
     "workspaceFolder": "/workspace"
     ```
 
-    Next, add a `docker-compose.remote.yml` file into the `.devcontainer` folder with the following contents. Replace `your-service-name-here` with the value of the `service` property in `devcontainer.json`.
+    Next, add a `docker-compose.remote.yml` file into the `.devcontainer` folder.
+
+    If you do **not** have login access to the remote host, use a Docker "volume" for your source code. Add the following to the file replacing `your-service-name-here` with the value of the `service` property in `devcontainer.json`.
 
     ```yml
     version: '3'
@@ -356,7 +359,9 @@ Just follow these steps:
       remote-workspace:
     ```
 
-    Note that you can change the volume name (`remote-workspace`) to something different if you'd like a unique volume per container. You can also bind to a folder on the remote host instead as follows:
+    Replace `remote-workspace` to something different if you'd like a unique volume per container.
+
+    If you **do** have login access, you can use a remote filesystem bind mount instead:
 
     ```yml
     version: '3'
