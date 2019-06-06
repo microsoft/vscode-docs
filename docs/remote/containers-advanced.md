@@ -55,12 +55,13 @@ By default, VS Code will install extensions and VS Code Server inside the contai
 
 If you find yourself rebuilding frequently, you can use a local "volume" mount so that the extensions and VS Code Server survive a container rebuild. The volume should be unique to the container since sharing the volume across multiple containers is not currently supported. To create a container volume, follow these steps:
 
-1. Configure a volume mount for `~/.vscode-remote`:
+1. Configure a volume mount for `~/.vscode-server` (and/or `~/.vscode-server-insiders` for VS Code Insiders):
 
    - When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file. Replace `your-volume-name-goes-here` with a unique volume name for the container:
 
         ```json
-        "runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-remote"]
+        "runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server"]
+        // or "runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server-insiders"]
         ```
 
    - When a **Docker Compose** file is referenced, add the following to your `docker-compose.yml` for the appropriate service. Replace `your-volume-name-goes-here` with a unique volume name for the container:
@@ -70,7 +71,8 @@ If you find yourself rebuilding frequently, you can use a local "volume" mount s
           your-service-name-here:
             # ...
             volumes:
-              - your-volume-name-goes-here:~/.vscode-remote
+              - your-volume-name-goes-here:~/.vscode-server
+              # or - your-volume-name-goes-here:~/.vscode-server-insiders
             # ...
         volumes:
           your-volume-name-goes-here:
