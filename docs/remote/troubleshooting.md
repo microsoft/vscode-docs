@@ -23,9 +23,9 @@ This article covers troubleshooting tips and tricks for each of the Visual Studi
 
 To set up SSH key based authentication for your remote host:
 
-1. Check to see if you already have an SSH key. The public key is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and at `%USERPROFILE%\.ssh\id_rsa.pub` on Windows.
+1. Check to see if you already have an SSH key on your **local** machine. The public key is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and at `%USERPROFILE%\.ssh\id_rsa.pub` on Windows.
 
-    If you do not have a key, run the following command in a terminal / command prompt to generate an SSH key pair:
+    If you do not have a key, run the following command in a **local** terminal / command prompt to generate an SSH key pair:
 
     ```bash
     ssh-keygen -t rsa -b 4096
@@ -33,7 +33,7 @@ To set up SSH key based authentication for your remote host:
 
     > **Tip:** Don't have `ssh-keygen`? Install [a supported SSH client](#installing-a-supported-ssh-client).
 
-2. Add the contents of your **local** public key (the `id_rsa.pub` file) to the appropriate `authorized_keys` file(s) on the remote host.
+2. Add the contents of your **local** public key (the `id_rsa.pub` file) to the appropriate `authorized_keys` file(s) on the **SSH host**.
 
     On **macOS / Linux**, run the following command in a **local terminal**, replacing the user and host name as appropriate.
 
@@ -77,7 +77,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
         IdentityFile ~/.ssh/id_rsa-remote-ssh
     ```
 
-3. Add the contents of the **local** `id_rsa-remote-ssh.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the remote host.
+3. Add the contents of the **local** `id_rsa-remote-ssh.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the **SSH host**.
 
     On **macOS / Linux**, run the following command in a **local terminal**, replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2:
 
@@ -99,9 +99,9 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
 
 If you used PuTTYGen to set up SSH public key authentication for the host you are connecting to, you need to convert your private key so that other SSH clients can use it. To do this:
 
-1. Open PuTTYGen and load the private key you want to convert.
-2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a location such as `%USERPROFILE%\.ssh`.
-3. Validate that the permissions on the exported key file only grant `Full Control` to your user, Administrators, and SYSTEM.
+1. Open PuTTYGen **locally** and load the private key you want to convert.
+2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a **local** location such as `%USERPROFILE%\.ssh`.
+3. Validate that the **local** permissions on the exported key file only grant `Full Control` to your user, Administrators, and SYSTEM.
 4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you wish to change, and add (or modify) a host entry in the config file as follows:
 
     ```yaml
@@ -136,15 +136,15 @@ If you do see that message, follow these steps to update your SSH server's [sshd
 
 **Set the ProxyCommand parameter in your SSH config file**
 
-If you are behind a proxy and are unable to connect to your SSH host, you may need to use the `ProxyCommand` parameter for your host in a [SSH config file](https://linux.die.net/man/5/ssh_config). You can [read this article](https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/) for an example of its use.
+If you are behind a proxy and are unable to connect to your SSH host, you may need to use the `ProxyCommand` parameter for your host in a **local** [SSH config file](https://linux.die.net/man/5/ssh_config). You can [read this article](https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/) for an example of its use.
 
 **Ensure the remote machine has internet access**
 
-The remote machine must have internet access to be able to download the VS Code Server and extensions from the Marketplace.
+The remote machine must have internet access to be able to download the VS Code Server and extensions from the Marketplace. See [the FAQ for details](/docs/remote/faq.md##what-are-the-connectivity-requirements-for-vs-code-server) on connectivity requirements.
 
 **Set HTTP_PROXY / HTTPS_PROXY on the remote host**
 
-If your remote host is behind a proxy, you may need to set the HTTP_PROXY or HTTPS_PROXY environment variables. Open your `~/.bashrc` or `~/.bash_profile` and add the following (replacing `proxy.fqdn.or.ip:3128` with the appropriate hostname / IP and port):
+If your remote host is behind a proxy, you may need to set the HTTP_PROXY or HTTPS_PROXY environment variable on the **SSH host**. Open your `~/.bashrc` file add the following (replacing `proxy.fqdn.or.ip:3128` with the appropriate hostname / IP and port):
 
 ```bash
 export HTTP_PROXY=http://proxy.fqdn.or.ip:3128
@@ -161,11 +161,11 @@ Some remote servers are set up to disallow executing scripts from `/tmp`. VS Cod
 
 **Check whether a different shell is launched during install**
 
-Some users launch a different shell from their `.bash_profile` or other startup script because they want to use a different shell than the default. This can break VS Code's remote server install script and isn't recommended. Instead, use `chsh` to change your default shell on the remote machine.
+Some users launch a different shell from their `.bash_profile` or other startup script on their **SSH host** because they want to use a different shell than the default. This can break VS Code's remote server install script and isn't recommended. Instead, use `chsh` to change your default shell on the remote machine.
 
 **Connecting to systems that dynamically assign machines per connection**
 
-Some systems will dynamically route to one node from a cluster each time an SSH connection is made. This is an issue for VS Code because it makes two connections to open a remote window: the first to install or start the VS Code Server (or find an already running instance) and the second to create the SSH port tunnel that VS Code uses to talk to the server. If VS Code is routed to a different machine when it creates the second connection, it won't be able to talk to the VS Code server.
+Some systems will dynamically route a SSH connection to one node from a cluster each time an SSH connection is made. This is an issue for VS Code because it makes two connections to open a remote window: the first to install or start the VS Code Server (or find an already running instance) and the second to create the SSH port tunnel that VS Code uses to talk to the server. If VS Code is routed to a different machine when it creates the second connection, it won't be able to talk to the VS Code server.
 
 One workaround for this is to use the `ControlMaster` option in OpenSSH (macOS/Linux clients only), described [above](#enabling-alternate-ssh-authentication-methods), so that VS Code's two connections will be multiplexed through a single SSH connection to the same node.
 
@@ -187,7 +187,7 @@ If you are connecting to an SSH remote host and are either:
 
 ...you need to enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
 
-To avoid reentering your connection information each time, you can enable the `ControlMaster` feature so that OpenSSH runs multiple SSH sessions over a single connection.
+To avoid reentering your connection information each time, you can enable the `ControlMaster` feature on your local machine so that OpenSSH runs multiple SSH sessions over a single connection.
 
 To enable `ControlMaster`:
 
@@ -206,7 +206,7 @@ With `ControlMaster` enabled, you will only have to enter your auth code/passwor
 
 ### Setting up the SSH Agent
 
-If you are connecting to an SSH host using a key with a passphrase, you should ensure that the [SSH Agent](https://www.ssh.com/ssh/agent) is running. VS Code will automatically add your key to the agent so you don't have to enter your passphrase every time you open a remote VS Code window.
+If you are connecting to an SSH host using a key with a passphrase, you should ensure that the [SSH Agent](https://www.ssh.com/ssh/agent) is running **locally**. VS Code will automatically add your key to the agent so you don't have to enter your passphrase every time you open a remote VS Code window.
 
 To verify that the agent is running and is reachable from VS Code's environment, run `ssh-add -l` in the terminal of a local VS Code window. You should see a listing of the keys in the agent (or a message that it has no keys). If the agent is not running, follow these instructions to start it. After starting the agent, be sure to restart VS Code.
 
@@ -335,7 +335,7 @@ You can install SSHFS locally as follows:
 
 Note that WSL 1 does not support FUSE or SSHFS, so installing SSHFS-Win is the best option currently.
 
-On macOS, you can use [SSHFS GUI](https://github.com/dstuecken/sshfs-gui), or you can mount the remote filesystem on **macOS or Linux** using the command line by run the following from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
+On macOS, you can use [SSHFS GUI](https://github.com/dstuecken/sshfs-gui), or you can mount the remote filesystem on **macOS or Linux** by running the following commands from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
 
 ```bash
 export USER_AT_HOST=user@hostname
@@ -362,9 +362,9 @@ Once you've installed SSHFS for Windows, you can use the File Explorer's **Map N
 net use /PERSISTENT:NO X: \\sshfs\user@hostname
 ```
 
-The remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking Disconnect.
+In this example, remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking Disconnect.
 
-Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way will be very slow and can cause unforeseen problems. However, you can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [below](#using-rsync-to-maintain-a-local-copy-of-your-source-codde) for details.
+Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way can be very slow and can cause unforeseen problems. However, you can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [below](#using-rsync-to-maintain-a-local-copy-of-your-source-codde) for details.
 
 ### Using rsync to maintain a local copy of your source code
 

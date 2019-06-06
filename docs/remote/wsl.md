@@ -181,7 +181,17 @@ Some extensions rely on libraries not found in the vanilla install of certain WS
 
 ### What are the connectivity requirements for the VS Code Server when it is running in WSL?
 
-The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through an authenticated, random, local TCP port.
+The VS Code Server requires outbound HTTPS (port 443) connectivity to:
+
+- `update.code.visualstudio.com`
+- `marketplace.visualstudio.com`
+- `vscode.blob.core.windows.net`
+- `*.vo.msecnd.net` (Azure CDN)
+- `*.gallerycdn.vsassets.io` (Azure CDN)
+
+All other communication between the server and the VS Code client is accomplished through an authenticated, random, local TCP port. You can find a list of locations VS Code itself needs access to [in the network connections article](/docs/setup/network.md#common-hostnames).
+
+Finally, some extensions(like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [VS Live Share](https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
 ### As an extension author, what do I need to do?
 
