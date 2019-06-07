@@ -166,7 +166,7 @@ The VS Code website is able to show the correct key bindings depending on the re
 
 To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command identifier is included in parentheses.
 
->For a list of key bindings and the relevant `Command Ids`, review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings).
+>For a list of key bindings and the relevant `Command Ids`, review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings#_default-keyboard-shortcuts).
 
 If you are listing out multiple key bindings, you can use a table.
 
