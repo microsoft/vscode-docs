@@ -597,7 +597,7 @@ The following are dev container definitions that use Docker Compose:
 
 * [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo) -  A Node.js container that connects to a Mongo DB in a different container.
 
-* [Python & PostgreSQL](https://aka.ms/vscode-remote/samples/python-postgresl) -  A Python container that connects to PostGreSQL in a different container.
+* [Python & PostgreSQL](https://aka.ms/vscode-remote/samples/python-postgres) -  A Python container that connects to PostGreSQL in a different container.
 
 * [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
 
