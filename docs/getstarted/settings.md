@@ -87,7 +87,7 @@ If you have a file open and you want to customize the editor for this file type,
 
 You can also configure language based settings by directly opening `settings.json`. You can scope them to the workspace by placing them in the workspace settings just like other settings. If you have settings defined for a language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
 
-The following examples customize editor settings for language modes `typescript` and `markdown`.
+The following example customize editor settings for language modes `typescript` and `markdown`.
 
 ```json
 {
