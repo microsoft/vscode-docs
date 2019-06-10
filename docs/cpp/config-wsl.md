@@ -209,7 +209,7 @@ Under `sourceFileMap`, you need to tell GDB where to find the header files. Curr
             "type": "cppdbg",
             "request": "launch",
             "program": "/home/<your Linux user name>/projects/helloworld/helloworld.out",
-            "args": ["-fThreading"],
+            "args": [""],
             "stopAtEntry": true,
             "cwd": "/home/<your Linux user name>/projects/helloworld/",
             "environment": [],
