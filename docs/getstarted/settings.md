@@ -20,7 +20,7 @@ VS Code provides two different scopes for settings:
 
 Workspace settings override user settings.
 
-## Creating User and Workspace Settings
+## Configuring User and Workspace Settings
 
 To open your user and workspace settings, use the following VS Code menu command:
 
