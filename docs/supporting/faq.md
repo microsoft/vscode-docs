@@ -9,23 +9,23 @@ MetaDescription: Visual Studio Code Frequently Asked Questions
 
 Our docs contain a **Common questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
 
-If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues) and our [Updates](/updates) notes.
+If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues "List of previously reported issues on GitHub.com") and our [Updates](/updates "Update notes for VS Code") notes.
 
 ## What is the difference between Visual Studio Code and Visual Studio IDE?
 
-Visual Studio Code is a streamlined code editor with support for development operations like debugging, task running, and version control. It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs, such as [Visual Studio IDE](https://visualstudio.microsoft.com).
+Visual Studio Code is a streamlined code editor with support for development operations like debugging, task running, and version control. It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs, such as [Visual Studio IDE](https://visualstudio.microsoft.com "The Visual Studio IDE website").
 
 ## Which OSs are supported?
 
-VS Code runs on macOS, Linux, and Windows. See [Requirements](requirements) for the supported versions. You can find more platform specific details under [SETUP](/docs/setup/setup-overview.md).
+VS Code runs on macOS, Linux, and Windows. See [Requirements](requirements "VS Code requirements"  for the supported versions. You can find more platform specific details under [SETUP](/docs/setup/setup-overview.md "VS Code setup instructions").
 
 ## Is VS Code free?
 
-Yes, VS Code is [free for private or commercial use](https://code.visualstudio.com/license).
+Yes, VS Code is [free for private or commercial use](https://code.visualstudio.com/license "The VS Code license").
 
 ## Report an issue with a VS Code extension
 
-For bugs, feature requests or to contact an extension author, you should use the links available in the Visual Studio Code [Marketplace](https://marketplace.visualstudio.com/vscode) or use **Help: Report Issue** from the Command Palette. However, if there is an issue where an extension does not follow our code of conduct, for example it includes profanity, pornography or presents a risk to the user, then we have an email alias where you can [contact us to report the issue](mailto:VSMarketplace@microsoft.com). Once the mail is received, our Marketplace team will look into an appropriate course of action, up to and including unpublishing the extension.
+For bugs, feature requests or to contact an extension author, you should use the links available in the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode) or use **Help: Report Issue** from the Command Palette. However, if there is an issue where an extension does not follow our code of conduct, for example it includes profanity, pornography or presents a risk to the user, then we have an email alias where you can [contact us to report the issue](mailto:VSMarketplace@microsoft.com). Once the mail is received, our Marketplace team will look into an appropriate course of action, up to and including unpublishing the extension.
 
 ## How do I find the VS Code version?
 
@@ -49,13 +49,13 @@ If you use the JSON editor for your settings, add the following line:
     "update.mode": "none"
 ```
 
-You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific release page under [Updates](/updates).
+You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific release page under [Updates](/updates "VS Code Updates overview").
 
 >**Note:** On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md#updates).
 
 ## Can I run a portable version of VS Code?
 
-Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+Yes, VS Code has a [Portable Mode](/docs/editor/portable.md "More information about Portable mode in VS Code") which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
 ## Licensing
 
@@ -89,7 +89,7 @@ At Microsoft, we open source our extensions whenever possible. However, reliance
 
 Want an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build is updated nightly so you'll get the latest bug fixes and feature updates from the day before.
 
-To install the Insiders build, go to the Insiders [download page](/insiders).
+To install the Insiders build, go to the Insiders [download page](/insiders "VS Code download page").
 
 ## VS Code gets unresponsive right after opening a folder
 
@@ -131,25 +131,25 @@ VS Code does a background check to detect if the installation has been changed o
 
 As the General Data Protection Regulation comes into effect, we want to take this opportunity to reiterate that we take privacy very seriously.  That's both for Microsoft as a company and specifically within the VS Code team.
 
-VS Code does collect telemetry data which we use to help understand how to improve the product.  For example, it helps debug issues such as slow start-up times and prioritize features.  While we appreciate this insight, we also know that not everyone wants to send this data, so we continue to offer the ability to disable telemetry as outlined [here](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
+VS Code does collect telemetry data which we use to help understand how to improve the product.  For example, it helps debug issues such as slow start-up times and prioritize features.  While we appreciate this insight, we also know that not everyone wants to send this data, so we continue to offer the ability to disable telemetry as outlined [here](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting "Article on how to disable telemetry reporting").
 
 In preparation for GDPR, we have made several updates to VS Code, these include:
 
 * Making it easier to opt out of telemetry collection by placing a notification in product for all existing and new users.
-* Reviewing and classifying the telemetry that we send (which is documented in [our OSS codebase](https://github.com/Microsoft/vscode/pull/34997)).
+* Reviewing and classifying the telemetry that we send (which is documented in [our OSS codebase](https://github.com/Microsoft/vscode/pull/34997 "Link to GitHub issue about our open source codebase")).
 * Ensuring that we have valid data retention policies in place for any data we do collect, for example crash dumps.
 
 In short, we have worked hard to do the right thing, for all users, as these practices apply to all geographies, not just Europe.
 
 One question we expect people to ask is to see the data we collect. However, we don't have a reliable way to do this as VS Code does not have is a 'sign-in' experience that would uniquely identify a user.  We do send information which helps us approximate a single user for diagnostic purposes (this is based on a hash of the network adapter NIC) but this is not guaranteed to be unique. For example, VM's often rotate NIC ID's or allocate from a pool.  This technique is sufficient to help us when working through problems, but it is not reliable enough for us to 'provide your data'.
 
-In conclusion, we expect our approach to evolve as we learn more about GDPR and the expectations of our users.  We greatly appreciate the data users do send to us, as it is very valuable, VS Code is a better product for everyone because it.  And again, if you are worried about privacy, we offer the ability to disable sending telemetry as described [here](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
+In conclusion, we expect our approach to evolve as we learn more about GDPR and the expectations of our users.  We greatly appreciate the data users do send to us, as it is very valuable, VS Code is a better product for everyone because it.  And again, if you are worried about privacy, we offer the ability to disable sending telemetry as described [here](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting "Article on how to disable telemetry reporting").
 
 You can find more information about how the Visual Studio family approaches GDPR at [Visual Studio Family Data Subject Requests for the GDPR](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-visual-studio-family).
 
 ## How to disable telemetry reporting
 
-VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
+VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409 "VS Code privacy statement") to learn more.
 
 If you don't wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`.
 
@@ -167,7 +167,7 @@ You can inspect telemetry events in the Output panel by setting the log level to
 
 ## How to disable crash reporting
 
-VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
+VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409 "VS Code privacy statement") to learn more.
 
 If you don't wish to send crash data to Microsoft, you can set the `telemetry.enableCrashReporter` setting to `false`.
 
