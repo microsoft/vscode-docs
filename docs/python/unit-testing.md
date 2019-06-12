@@ -235,12 +235,14 @@ Support for running tests in parallel with PyTest is available through the `pyte
    ```bash
    pip install pytest-xdist
    ```
+
 1. Next, open the workspace `settings.json` file and add `"-n", "<number of CPUs>"` to the PyTest arguments list, specifying the number of CPUs you'd like to use.
+
    ```json
    "python.testing.pyTestArgs": ["-n", "4"]
    ```
 
-With those changes, tests are now run in parallel.
+1. Run your tests, which will now be run in parallel.
 
 ## Debug tests
 
