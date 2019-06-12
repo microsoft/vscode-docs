@@ -74,6 +74,16 @@ There's also a convenient setting for debugging `current file` so the editor kno
   <source src="/docs/java/java-debugging/current-file.mp4" type="video/mp4">
 </video>
 
+### Accepting inputs
+
+Currently, VS Code Java Debugger uses the Debug Console as the default console, which doesn't accept input. In order for the console to accept your input (e.g. when using **Scanner**), you need to change the console to use terminal in `launch.json`.
+
+```
+"console": "integratedTerminal"
+```
+
+In case you'd like to keep that setting each time when you launch a Java program, you can also configure it as a global user setting using `java.debug.settings.console`.
+
 ### Debugging single files
 
 VS Code can run and debug single Java files without any project.

@@ -21,6 +21,8 @@ If you run into any issues when using the features below, you can contact us by 
 
 Project Management in Visual Studio Code is provided by the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension. This extension has many features including creating projects as well as viewing the package structure of the project and its dependencies.
 
+<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-dependency">Install the Java Dependency Viewer</a>
+
 ### Create project
 
 In addition to creating a project through Maven Archetype, you can also use the following command to create a simple Java project: **Java: Create Java Project** from the Command Palette.
@@ -70,6 +72,8 @@ In case you need to bring additional JAR files as dependencies, you can create a
 ## Maven
 
 [Maven](http://maven.apache.org/) is a software tool that helps you manage Java projects and automate application builds. The [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension for Visual Studio Code provides fully integrated Maven support, allowing you to explore Maven projects, execute Maven commands, and perform the goals of build lifecycle and plugins.
+
+<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-maven">Install Maven Extension</a>
 
 ### Exploring Maven project
 
