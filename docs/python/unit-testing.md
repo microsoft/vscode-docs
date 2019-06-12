@@ -226,6 +226,22 @@ With PyTest, failed tests also appear in the **Problems** panel, where you can d
 
 ![Test results for pytest in the Problems panel](images/unit-testing/python-test-problems-output.png)
 
+## Run tests in parallel
+
+Support for running tests in parallel with PyTest is available through the `pytest-xdist` package. To enable parallel testing:
+
+1. Open the integrated terminal and install the `pytest-xdist` package. For more details refer to the [project's documentation page](https://pypi.org/project/pytest-xdist/).
+
+   ```bash
+   pip install pytest-xdist
+   ```
+1. Next, open the workspace `settings.json` file and add `"-n", "<number of CPUs>"` to the PyTest arguments list, specifying the number of CPUs you'd like to use.
+   ```json
+   "python.testing.pyTestArgs": ["-n", "4"]
+   ```
+
+With those changes, tests are now run in parallel.
+
 ## Debug tests
 
 Because unit tests themselves are source code, they are prone to code defects just like the production code they test. For this reason, you may occasionally need to step through and analyze unit tests in the debugger.
