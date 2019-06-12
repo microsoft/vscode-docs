@@ -59,6 +59,8 @@ Visual Studio Code also supports Java files without a project (or an invisible p
   <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
 </video>
 
+### Adding external JAR
+
 In case you need to bring additional JAR files as dependencies, you can create a `lib/` folder in the root directory of the standalone files and place your JAR files there. Source for `foo.jar` is automatically detected if there is a `foo-sources.jar` in the `lib/` folder.
 
 <video autoplay loop muted playsinline controls>
