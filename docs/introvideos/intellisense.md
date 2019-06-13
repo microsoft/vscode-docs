@@ -12,7 +12,7 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 In this tutorial, we show you how to set up IntelliSense for a JavaScript project.
 
-> Note: For IntelliSense with other programming languages, consult the language extension's README. You can learn more about language support [here](/docs/languages/overview.md).
+> Note: For IntelliSense with other programming languages, consult the language extension's README. You can learn more about language support in the [Languages overview](/docs/languages/overview.md).
 
 <iframe src="https://www.youtube.com/embed/lSPHucggmLo?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 

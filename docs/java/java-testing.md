@@ -56,7 +56,6 @@ Once the test runner is activated, you will find **Run|Debug** on the CodeLens o
 
 > Note: If you cannot see the CodeLens in your editor, please refer to this [issue comment](https://github.com/Microsoft/vscode-java-test/issues/470#issuecomment-444681714) as a workaround.
 
-
 ## Test Explorer
 
 ![Run from Explorer](images/java-testing/run_explorer.png)
@@ -66,15 +65,13 @@ Once the test runner is activated, you will find **Run|Debug** on the CodeLens o
 
 > Note: If the Test Explorer is empty, please refer to this [issue comment](https://github.com/Microsoft/vscode-java-test/issues/470#issuecomment-444681714) as a workaround.
 
-
 ## Customize Test Configurations
 
 ![Configuration](images/java-testing/configuration.png)
 
 - Sometimes you may want to customize the configuration for running the test cases. To achieve this, you can add it into your workspace settings under the section: `java.test.config`.
 
-> Note: More details can be found [here](https://github.com/Microsoft/vscode-java-test/wiki/Run-with-Configuration).
-
+> Note: More details can be found in [Run with Configuration](https://github.com/Microsoft/vscode-java-test/wiki/Run-with-Configuration).
 
 ## View Test Report
 
@@ -99,13 +96,14 @@ Once the test runner is activated, you will find **Run|Debug** on the CodeLens o
 
 The JUnit 5 support also covers frequently used annotations such as `@DisplayName` and `@ParameterizedTest`
 
-![DisplayName](images/java-testing/displayname.png)
+![DisplayName annotation](images/java-testing/displayname.png)
 
-![ParameterizedTest](images/java-testing/parameterizedtest.png)
+![ParameterizedTest annotation](images/java-testing/parameterizedtest.png)
 
 ## More Information
 
 Visit the [GitHub repository](https://github.com/Microsoft/vscode-java-test) of the [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) for more details on commands and settings.
+
 ## Next steps
 
 Read on to find out about:

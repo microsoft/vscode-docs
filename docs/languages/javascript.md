@@ -263,13 +263,13 @@ You can leverage some of TypeScript's advanced type checking and error reporting
 
 ![Using type checking and Quick Fixes in a JavaScript file](images/javascript/checkjs-example.gif)
 
-TypeScript tried to infer types in `.js` files the same way it does in `.ts` files. When types cannot be inferred, they can be specified explicitly with JSDoc comments. You can read more about how TypeScript uses JSDocs for JavaScript type checking [here](/docs/nodejs/working-with-javascript.md).
+TypeScript tried to infer types in `.js` files the same way it does in `.ts` files. When types cannot be inferred, they can be specified explicitly with JSDoc comments. You can read more about how TypeScript uses JSDocs for JavaScript type checking in [Working with JavaScript](/docs/nodejs/working-with-javascript.md).
 
 Type checking of JavaScript is optional and opt-in. Existing JavaScript validation tools such as ESLint can be used alongside built-in type checking functionality.
 
 ## Debugging
 
-VS Code comes with great debugging support for JavaScript. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See more about debugging [here](/docs/editor/debugging.md).
+VS Code comes with great debugging support for JavaScript. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See the [Debugging topic](/docs/editor/debugging.md) to learn more.
 
 ### Debug client side
 
@@ -277,7 +277,7 @@ You can debug your client-side code using a browser debugger such as [Debugger f
 
 ### Debug server side
 
-Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can read a tutorial for Node.js debugging [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application).
+Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application) to help you.
 
 ![debug data inspection](images/javascript/debug_data_inspection.gif)
 
