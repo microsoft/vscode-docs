@@ -111,7 +111,7 @@ Cycle through errors with `kb(editor.action.marker.nextInFiles)` or `kb(editor.a
 
 ![errors and warnings](images/tips-and-tricks/Errors_Warnings.gif)
 
-You can filter problems by type ('errors', 'warnings') or text matching.
+You can filter problems either by type ('errors', 'warnings') or text matching.
 
 ### Change language mode
 
