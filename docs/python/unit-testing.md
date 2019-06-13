@@ -232,8 +232,16 @@ Support for running tests in parallel with pytest is available through the `pyte
 
 1. Open the integrated terminal and install the `pytest-xdist` package. For more details refer to the [project's documentation page](https://pypi.org/project/pytest-xdist/).
 
+   **For windows**
+
+   ```cmd
+   py -3 -m pip install pytest-xdist
+   ```
+
+   **For macOS/Linux**
+
    ```bash
-   pip install pytest-xdist
+   python3 -m pip install pytest-xdist
    ```
 
 1. Next, open the workspace `settings.json` file and add `"-n", "<number of CPUs>"` to the pytest arguments list, specifying the number of CPUs you'd like to use.
