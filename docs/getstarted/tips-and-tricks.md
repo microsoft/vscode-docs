@@ -491,7 +491,7 @@ You can add additional cursors to all occurrences of the current selection with 
 If you do not want to add all occurrences of the current selection, you can use `kb(editor.action.addSelectionToNextFindMatch)` instead.
 This only selects the next occurrence after the one you selected so you can add selections one by one.
 
-![add cursor to the next occurrences of current selection one by one](images/tips-and-tricks/add_cursor_current_selection_one_by_one.gif)
+![add cursor to next occurrences of current selection one by one](images/tips-and-tricks/add_cursor_current_selection_one_by_one.gif)
 
 ### Column (box) selection
 
