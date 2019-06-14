@@ -73,7 +73,7 @@ In case you need to bring additional JAR files as dependencies, you can create a
 
 [Maven](http://maven.apache.org/) is a software tool that helps you manage Java projects and automate application builds. The [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension for Visual Studio Code provides fully integrated Maven support, allowing you to explore Maven projects, execute Maven commands, and perform the goals of build lifecycle and plugins.
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-maven">Install Maven Extension</a>
+<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-maven">Install the Maven for Java extension</a>
 
 ### Exploring Maven project
 

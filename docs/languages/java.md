@@ -19,10 +19,9 @@ The Java support in Visual Studio Code is provided through a wide range of [exte
 
 This article will give you an overview of different capabilities of Visual Studio Code for Java developers. For a quick walkthrough of editing, running, and debugging a Java program with Visual Studio Code, see the [Java Tutorial](/docs/java/java-tutorial).
 
-
 ## Install Visual Studio Code for Java
 
-VS Code is a fast editor and ships with great editing features. Before you begin, you must have the Java SE Development Kit (JDK) on your local environment. Visual Studio Code works with all major Java versions up to 12. To help you get started quickly, we created a special [Installer of Visual Studio Code for Java developers](http://aka.ms/vscode-java-installer-win). The package can be used as a clean install or an update for existing environment to add Java or Visual Studio Code to your development environment. Once [downloaded](http://aka.ms/vscode-java-installer-win) and opened, it automatically detects if you have the fundamental components in your local development environment, including the JDK, Visual Studio Code and essential Java extensions. During install, it pulls the stable versions of those tools from trusted online sources and install them on your system.
+VS Code is a fast editor and ships with great editing features. Before you begin, you must have the Java SE Development Kit (JDK) on your local environment. Visual Studio Code works with all major Java versions up to 12. To help you get started quickly, we created a special [Installer of Visual Studio Code for Java developers](http://aka.ms/vscode-java-installer-win). The package can be used as a clean install or an update for an existing development environment to add Java or Visual Studio Code. Once [downloaded](http://aka.ms/vscode-java-installer-win) and opened, it automatically detects if you have the fundamental components in your local development environment, including the JDK, Visual Studio Code, and essential Java extensions. During install, it downloads the stable versions of those tools from trusted online sources and installs them on your system.
 
 <a class="tutorial-install-extension-btn" href="http://aka.ms/vscode-java-installer-win">Download Visual Studio Code Java Pack Installer</a>
 

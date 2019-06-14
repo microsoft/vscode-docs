@@ -34,7 +34,7 @@ To help you get started quickly, we created a special [Installer of Visual Studi
 
 <a class="tutorial-install-extension-btn" href="http://aka.ms/vscode-java-installer-win">Download Visual Studio Code Java Pack Installer</a>
 
-The package can be used as a clean install or an update for existing environment to add Java or Visual Studio Code to your development environment. Once [downloaded](http://aka.ms/vscode-java-installer-win) and opened, it automatically detects if you have the fundamental components in your local development environment, including the JDK, Visual Studio Code and essential Java extensions. During install, it pulls the stable versions of those tools from trusted online sources, install and configure them on your system.
+The package can be used as a clean install or an update for an existing development environment to add Java or Visual Studio Code. Once [downloaded](http://aka.ms/vscode-java-installer-win) and opened, it automatically detects if you have the fundamental components in your local development environment, including the JDK, Visual Studio Code, and essential Java extensions. During install, it downloads the stable versions of those tools from trusted online sources, then installs and configures them on your system.
 
 ![Detect Environment](images/java-tutorial/detect-eng.png)
 

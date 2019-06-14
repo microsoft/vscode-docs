@@ -76,13 +76,13 @@ There's also a convenient setting for debugging `current file` so the editor kno
 
 ### Accepting inputs
 
-Currently, VS Code Java Debugger uses the Debug Console as the default console, which doesn't accept input. In order for the console to accept your input (e.g. when using **Scanner**), you need to change the console to use terminal in `launch.json`.
+Currently, the VS Code Java Debugger uses the Debug Console as the default console, which doesn't accept input. In order for the console to accept your input (for example when using **Scanner**), you need to change the console to use the Integrated Terminal in `launch.json`.
 
-```
+```json
 "console": "integratedTerminal"
 ```
 
-In case you'd like to keep that setting each time when you launch a Java program, you can also configure it as a global user setting using `java.debug.settings.console`.
+If you'd like to use that setting each time you launch a Java program, you can configure it as a global user setting with `java.debug.settings.console`.
 
 ### Debugging single files
 
