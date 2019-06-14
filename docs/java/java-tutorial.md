@@ -16,7 +16,9 @@ If you run into any issues when following this tutorial, you can contact us by c
 
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'getting-started')" href="javascript:void(0)">Report an issue</a>
 
-## Before you begin
+## Install Visual Studio Code for Java
+
+### Before you begin
 
 Before going through this tutorial, you must have the Java SE Development Kit (JDK) on your local development environment. If you don't have them installed, you can do so now.
 
@@ -28,11 +30,19 @@ Download and install the Java SE Development Kit (JDK). Java support on Visual S
 
 >**Note**: After installing the JDK, you would need to configure your environment for Java development. The most common way is to [set](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) `JAVA_HOME` environment variable to the install location of the JDK while you can also use `java.home` setting in Visual Studio Code settings ([workspace or user settings](/docs/getstarted/settings)) to configure it just for the editor.
 
-## Install Visual Studio Code and Java Extensions
+To help you get started quickly, we created a special [Installer of Visual Studio Code for Java developers](http://aka.ms/vscode-java-installer-win).
+
+<a class="tutorial-install-extension-btn" href="http://aka.ms/vscode-java-installer-win">Download Visual Studio Code Java Pack Installer</a>
+
+The package can be used as a clean install or an update for existing environment to add Java or Visual Studio Code to your development environment. Once [downloaded](http://aka.ms/vscode-java-installer-win) and opened, it automatically detects if you have the fundamental components in your local development environment, including the JDK, Visual Studio Code and essential Java extensions. During install, it pulls the stable versions of those tools from trusted online sources, install and configure them on your system.
+
+![Detect Environment](images/java-tutorial/detect-eng.png)
+
+Alternatively, you can also add Java language support to VS Code by installing the popular Java extensions by yourself.
 
 >**Note**: You can install Visual Studio Code from [https://code.visualstudio.com](https://code.visualstudio.com/).
 
-To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which contains these popular extensions:
+There is the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which contains these popular extensions:
 
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
