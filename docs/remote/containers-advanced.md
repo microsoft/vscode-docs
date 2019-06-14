@@ -55,28 +55,36 @@ By default, VS Code will install extensions and VS Code Server inside the contai
 
 If you find yourself rebuilding frequently, you can use a local "volume" mount so that the extensions and VS Code Server survive a container rebuild. The volume should be unique to the container since sharing the volume across multiple containers is not currently supported. To create a container volume, follow these steps:
 
-1. Configure a volume mount for `~/.vscode-server` (and/or `~/.vscode-server-insiders` for VS Code Insiders):
+1. Configure a volume mount for `~/.vscode-server` (and/or `~/.vscode-server-insiders` for VS Code Insiders). How you do this will depend on whether your specify an image, Dockerfile, or Docker Compose file in your `devcontainer.json` file.
 
-   - When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file. Replace `your-volume-name-goes-here` with a unique volume name for the container:
+    **Dockerfile or image**:
 
-        ```json
-        "runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server"]
-        // or "runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server-insiders"]
-        ```
+    Replace `your-volume-name-goes-here` with a unique volume name for the container in `devcontainer.json` as follows:
 
-   - When a **Docker Compose** file is referenced, add the following to your `docker-compose.yml` for the appropriate service. Replace `your-volume-name-goes-here` with a unique volume name for the container:
+    ```json
+    "runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server"]
+    ```
 
-        ```yml
-        services:
-          your-service-name-here:
-            # ...
-            volumes:
-              - your-volume-name-goes-here:~/.vscode-server
-              # or - your-volume-name-goes-here:~/.vscode-server-insiders
-            # ...
-        volumes:
-          your-volume-name-goes-here:
-        ```
+    ...or for VS Code...
+
+    ```json
+    "runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server-insiders"]
+    ```
+
+    **Docker Compose**:
+    Replace `your-volume-name-goes-here` with a unique volume name for the container in `docker-compose.yml` under the appropriate service as follows:
+
+      ```yml
+      services:
+        your-service-name-here:
+          # ...
+          volumes:
+            - your-volume-name-goes-here:~/.vscode-server
+            # or - your-volume-name-goes-here:~/.vscode-server-insiders
+          # ...
+      volumes:
+        your-volume-name-goes-here:
+      ```
 
 2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
 
@@ -225,9 +233,7 @@ Once set, you can use VS Code to [attach to any running container](/docs/remote/
 
 **Using Docker Machine**:
 
-Assuming you have `code` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick.
-
-You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
+Assuming you have `code` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick. You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
 
 On **macOS or Linux**, run the following commands in a local terminal (replacing values as appropriate):
 
@@ -251,79 +257,75 @@ docker-machine create --driver generic ^
 code
 ```
 
-You will run the second and third commands each time you want to connect to the host. The first is only needed to set it up the first time.
+You will run the second and third commands each time you want to connect to the host.
 
 **Using local environment variables**:
 
-If you already have a remote Docker host up and running, you do not technically need to use `docker-machine` to connect it. Depending on your setup, you may be able to just set the required environment variables directly in a terminal and launch `code` from this same window.
-
-In addition, if you only need to specify `DOCKER_HOST` you can also specify the `docker.host` property in your workspace or user `settings.json` as follows:
+If you already have a remote Docker host up and running, you do not technically need to use `docker-machine` to connect it. Depending on your setup, you may be able to just set the required environment variables directly in a terminal and launch `code` from this same window.  If you only need to specify `DOCKER_HOST` you can also specify the `docker.host` property in your workspace or user `settings.json` as follows:
 
 ```json
-{
-  "docker.host":"tcp://your-remote-machine-fqdn-or-ip-here"
-}
+"docker.host":"tcp://your-remote-machine-fqdn-or-ip-here"
 ```
 
 ### Option 2: Connect using an SSH tunnel
 
-Docker CE / Desktop will not expose the required Docker daemon TCP port by default since it can leave the machine vulnerable if not secured properly. Instead, the Docker CLI uses a local Unix socket (or named pipe on Windows) to communicate. In addition, some organizations or cloud vendors have firewalls or other security measures running that block access to the required remote TCP port.
-
-Fortunately, if you have SSH access, you can use a tunnel to forward the Docker socket from your remote host to your local machine as needed. If you have an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) installed, you can run the following commands in a local terminal / command prompt to connect VS Code to the remote Docker Machine.
+Docker CE / EE / Desktop will not expose the required Docker daemon TCP port by default since this can leave the machine vulnerable if not secured properly. Fortunately, if you have SSH access, you can use a tunnel to forward the Docker socket from your remote host to your local machine as needed.
 
 Just follow these steps:
 
-1. Update the `docker.host` property in your user or workspace `settings.json` as follows:
+1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client).
+
+2. Update the `docker.host` property in your user or workspace `settings.json` as follows:
 
     ```json
-    {
-      "docker.host":"tcp://localhost:23750"
-    }
+    "docker.host":"tcp://localhost:23750"
     ```
 
     You can also set a `DOCKER_HOST` environment variable before starting VS Code instead if you prefer.
 
-2. Run the following command from a local terminal / command prompt (replacing `user@hostname` with the remote user and hostname / IP for your server):
+3. Run the following command from a local terminal / command prompt (replacing `user@hostname` with the remote user and hostname / IP for your server):
 
     ```bash
     ssh -NL localhost:23750:/var/run/docker.sock user@hostname
     ```
 
-You can then use VS Code to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host or [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#using-devcontainerjson-to-work-with-a-remote-dev-container).
+VS Code will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#using-devcontainerjson-to-work-with-a-remote-dev-container).
 
-> **Note:** If the `ssh` command fails, you may need to `AllowStreamLocalForwarding` in your SSH server's [sshd config](https://www.ssh.com/ssh/sshd_config/) for this to work.
+Once you are done, press `kbstyle(Ctrl+C)` in the terminal / command prompt to close the tunnel.
+
+> **Note:** If the `ssh` command fails, you may need to `AllowStreamLocalForwarding` on your SSH host.
 >
 > 1. Open `/etc/ssh/sshd_config` in an editor  (like vim, nano, or pico) on the **SSH host** (not locally).
 > 2. Add the setting  `AllowStreamLocalForwarding yes`.
 > 3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
 > 4. Retry.
 
-Once you are done, press `kbstyle(Ctrl+C)` in the terminal / command prompt to close the tunnel. The environment variables that were set are not global, so you can restart VS Code to begin working with your local Docker install again.
-
 ### Using devcontainer.json to work with a remote dev container
 
-Docker does **not** support mounting (binding) your local filesystem into a remote container. Even if it did, this would result in very poor performance. As a result, the best practice is to store your source code on the remote machine.  This is different than the default workflow for `devcontainer.json` which automatically mounts the local filesystem, but only requires a few tweaks to get running.
+Docker does **not** support mounting (binding) your local filesystem into a remote container, so VS Code's default `devcontainer.json` files need to be modified when working remotely. In this section, we'll walk you through how to convert a pre-defined, local dev container definition into a remote one.
 
-In this section, we'll walk you through how to convert a pre-defined, local dev container definition into a remote one. There are a few different ways to do this, but the simplest is to **create your remote dev container first**, and then **clone your source code into it** since this does not require that your user have direct access to the remote host. You can **bind to a folder on the remote machine** instead which also allows you to work with **existing source code** on the remote machine (assuming you have access).
+There are a few different ways to do this, but the simplest is to **create your remote dev container first**, and then **clone your source code into it** since this does not require that your user have direct access to the remote host. You can **bind to a folder on the remote machine** instead which also allows you to work with **existing source code** on the remote machine (assuming you have access).
 
 Just follow these steps:
 
 1. Start up VS Code pointing to the right Docker host using [Docker Machine](#option-1-connect-using-docker-machine-or-by-setting-local-environment-variables) or [SSH](#option-2-connect-using-an-ssh-tunnel).
+
 2. Create and open a **local** empty folder in VS Code.
+
 3. Run **Remote-Containers: Add Container Configuration File...** from the Command Palette (`kbstyle(F1)`).
+
 4. Pick a starting point for your remote container from the list that appears.
-5. What you do next will depend on whether you picked a definition that specifies an `image`, `dockerFile`, or `dockerComposeFile` property in `.devcontainer/devcontainer.json`.
+
+5. What you do next will depend on whether you picked a definition that specifies an image, Dockerfile, or Docker Compose file in `.devcontainer/devcontainer.json`.
 
     **Dockerfile or image**:
 
-    If you do **not** have login access to the remote host, use a Docker "volume" for your source code. Update `.devcontainer/devcontainer.json` as follows:
+    If you do **not** have login access to the remote host, use a Docker "volume" for your source code. Update `.devcontainer/devcontainer.json` as follows (replacing `remote-workspace` with a unique volume name if desired):
 
     ```json
     "workspaceFolder": "/workspace",
     "workspaceMount": "src=remote-workspace,dst=/workspace,type=volume,volume-driver=local"
     ```
-
-    Replace `remote-workspace` to something different if you'd like a unique volume per container.
 
     If you **do** have login access, you can use a remote filesystem bind mount instead:
 
@@ -346,9 +348,7 @@ Just follow these steps:
     "workspaceFolder": "/workspace"
     ```
 
-    Next, add a `docker-compose.remote.yml` file into the `.devcontainer` folder.
-
-    If you do **not** have login access to the remote host, use a Docker "volume" for your source code. Add the following to the file replacing `your-service-name-here` with the value of the `service` property in `devcontainer.json`.
+    Next, add a `docker-compose.remote.yml` file into the `.devcontainer` folder. If you do **not** have login access to the remote host, use a Docker "volume" for your source code. Add the following to the file replacing `your-service-name-here` with the value of the `service` property in `devcontainer.json` (replacing `remote-workspace` with a unique volume name if desired):
 
     ```yml
     version: '3'
@@ -360,8 +360,6 @@ Just follow these steps:
     volumes:
       remote-workspace:
     ```
-
-    Replace `remote-workspace` to something different if you'd like a unique volume per container.
 
     If you **do** have login access, you can use a remote filesystem bind mount instead:
 
@@ -421,17 +419,15 @@ Follow these steps:
     ssh -NL localhost:23750:/var/run/docker.sock user@hostname
     ```
 
-3. Next, use the **local** SSHFS mount to open `~/devcontainers/repository-name-here`.
+3. Next, use the **local** SSHFS mount to open `~/devcontainers/repository-name-here` in VS Code.
 
-4. Update `docker.host` to the appropriate value in workspace settings (`.vscode/settings.json`) to point to the SSH tunnel we will start up.
+4. Update `docker.host` to the appropriate value in workspace settings (`.vscode/settings.json`) to point to the SSH tunnel we started.
 
     ```json
-    {
-      "docker.host":"tcp://localhost:23750"
-    }
+    "docker.host":"tcp://localhost:23750"
     ```
 
-5. Next, use the file mount to copy `~/repos/your-repository-name/.devcontainer/devcontainer.json` to `.devcontainer.json` (dot-prefixed) in `~/devcontainers/repository-name-here` and make a few edits. In this example, we are using a Dockerfile, so the changes would be as follows:
+5. Next, use the file mount to copy `~/repos/your-repository-name/.devcontainer/devcontainer.json` to `.~~devcontainer~~.json` (dot-prefixed) in `~/devcontainers/repository-name-here` and update the default workspace mount in the file to point to the source code on the remote machine. In this example, we are using a Dockerfile, so the changes would be as follows:
 
     ```json
     "dockerFile":"../../repos/your-repository-name/.devcontainer/Dockerfile"
