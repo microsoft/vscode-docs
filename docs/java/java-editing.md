@@ -157,7 +157,7 @@ There are two options for you to customize the generated code:
 
 ### Generate `toString()`
 
-`toString()` can also be generated with the new source action. Customization is also possible with the check list of all the member variables.
+There is a new source action to generate the `toString()` method. Customization is possible with a check list of all the member variables.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/generate-tostring.mp4" type="video/mp4">

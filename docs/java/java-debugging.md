@@ -230,7 +230,7 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 
 ## Troubleshooting
 
-Detailed troubleshooting guide could be found in the [vscode-java-debug GitHub repository](https://github.com/Microsoft/vscode-java-debug/blob/master/Troubleshooting.md).
+A detailed troubleshooting guide can be found in the [vscode-java-debug GitHub repository](https://github.com/Microsoft/vscode-java-debug/blob/master/Troubleshooting.md).
 
 ## Feedback and questions
 
