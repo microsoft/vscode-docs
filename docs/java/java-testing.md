@@ -79,7 +79,7 @@ Once the test runner is activated, you will find **Run|Debug** on the CodeLens o
 
 ![Status Bar](images/java-testing/status_bar.png)
 
-- After running/debugging the test cases, the status bar will show the final results. Simply click on it to show the Test Report.
+- After running/debugging the test cases, test report would be opened automatically. You can also see the final results in the status bar, simply click on it to show the Test Report.
 - You can also click the ✔️ or ❌ mark in CodeLens to open the Test Report.
 
 ![Report Navigation](images/java-testing/report_navigate.png)
@@ -96,7 +96,7 @@ Once the test runner is activated, you will find **Run|Debug** on the CodeLens o
   <source src="/docs/java/java-testing/test-junit5.mp4" type="video/mp4">
 </video>
 
-The JUnit 5 support also covers frequently used annotations such as `@DisplayName` and `@ParameterizedTest`
+The JUnit 5 support also covers frequently used annotations such as `@DisplayName`, `@ParameterizedTest`, `@TestFactory` and `@Nested`.
 
 ![DisplayName annotation](images/java-testing/displayname.png)
 

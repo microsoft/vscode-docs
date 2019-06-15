@@ -179,7 +179,7 @@ Below are all the configurations available for `Launch` and `Attach`, for more i
 - `cwd` - The working directory of the program. Defaults to `${workspaceFolder}`.
 - `env` - The extra environment variables for the program.
 - `stopOnEntry` - Automatically pause the program after launching.
-- `console` - The specified console to launch the program. Defaults to `internalConsole`.
+- `console` - The specified console to launch the program. If not specified, use the console specified by the `java.debug.settings.console` user setting.
   - `internalConsole` - VS Code debug console (input stream not supported).
   - `integratedTerminal` - VS Code integrated terminal.
   - `externalTerminal` - External terminal that can be configured in user settings.
@@ -214,10 +214,19 @@ Below are all the configurations available for `Launch` and `Attach`, for more i
 - `java.debug.settings.showStaticVariables`: show static variables in "Variables" viewlet, defaults to `false`.
 - `java.debug.settings.showQualifiedNames`: show fully qualified class names in "Variables" viewlet, defaults to `false`.
 - `java.debug.settings.showLogicalStructure`: show the logical structure for the Collection and Map classes in "Variables" viewlet, defaults to `true`.
+- `java.debug.settings.showToString`: show 'toString()' value for all classes that override 'toString' method in "Variables" viewlet, defaults to `true`.
 - `java.debug.settings.maxStringLength`: the maximum length of string displayed in "Variables" or "Debug Console" viewlet, the string longer than this length will be trimmed, defaults to `0` which means no trim is performed.
+- `java.debug.settings.hotCodeReplace`: Reload the changed Java classes during debugging, defaults to `manual`. Make sure `java.autobuild.enabled` is not disabled for [VSCode Java](https://github.com/redhat-developer/vscode-java). See the [wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
+  - manual - Click the toolbar to apply the changes.
+  - auto - Automatically apply the changes after compilation.
+  - never - Never apply the changes.
 - `java.debug.settings.enableHotCodeReplace`: enable hot code replace for Java code. Make sure the auto build is not disabled for [VSCode Java](https://github.com/redhat-developer/vscode-java). See the [wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
 - `java.debug.settings.enableRunDebugCodeLens`: enable the CodeLens provider for the run and debug buttons over main entry points, defaults to `true`.
 - `java.debug.settings.forceBuildBeforeLaunch`: force building the workspace before launching java program, defaults to `true`.
+- `java.debug.settings.console`: The specified console to launch Java program, defaults to `internalConsole`. If you want to customize the console for a specific debug session, please modify the 'console' config in launch.json.
+  - `internalConsole` - VS Code debug console (input stream not supported).
+  - `integratedTerminal` - VS Code integrated terminal.
+  - `externalTerminal` - External terminal that can be configured in user settings.
 
 ## Troubleshooting
 
