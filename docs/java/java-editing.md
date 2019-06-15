@@ -91,7 +91,7 @@ In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://
 
 IntelliCode works well with popular Java libraries and frameworks like Java SE and Spring. It will help you whether you are doing monolithic web apps or modern microservices.
 
-## Refactoring
+## Refactoring and Code Actions
 
 Here we will show you the most used refactoring features for Java in Visual Studio Code, namely rename, extract methods and variables.
 
@@ -122,6 +122,10 @@ You can bulk generate getters and setters for all new member variables.
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/getter-setter.mp4" type="video/mp4">
 </video>
+
+While if the class has more than one field, the source action will prompt a quick pick box which allows you to select the target fields to generate the accessor methods.
+
+![Advanced Getters Setters](images/java-editing/getter-setter-selection.png)
 
 ### Resolve ambiguous imports
 
@@ -167,6 +171,34 @@ Convert static functions calls to static imports.
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/convert-static-imports.mp4" type="video/mp4">
 </video>
+
+### Generate delegate methonds
+
+Generate delegate methods
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/generate-delegate-methods.mp4" type="video/mp4">
+</video>
+
+### Generate constructor from super class
+
+Adding constructor from super class.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/generate-constructor.mp4" type="video/mp4">
+</video>
+
+### Assign parameter to new field
+
+This source action assins parameter to new field for unused parameter(s) in constructor.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/assign-to-field.mp4" type="video/mp4">
+</video>
+
+### Code Snippets
+
+Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, statis main method. If you come from Eclipse, just try those you used to call and you should find them in VS Code as well.
 
 ## Formatting
 
