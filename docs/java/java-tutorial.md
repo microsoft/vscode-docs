@@ -34,13 +34,15 @@ To help you get started quickly, we created a special [Installer of Visual Studi
 
 <a class="tutorial-install-extension-btn" href="http://aka.ms/vscode-java-installer-win">Download Visual Studio Code Java Pack Installer</a>
 
+> **Note**: The installer is currently only available for Windows, we're working on the macOS version, please stay tuned.
+
 The package can be used as a clean install or an update for an existing development environment to add Java or Visual Studio Code. Once [downloaded](http://aka.ms/vscode-java-installer-win) and opened, it automatically detects if you have the fundamental components in your local development environment, including the JDK, Visual Studio Code, and essential Java extensions. During install, it downloads the stable versions of those tools from trusted online sources, then installs and configures them on your system.
 
 ![Detect Environment](images/java-tutorial/detect-eng.png)
 
 Alternatively, you can also add Java language support to VS Code by installing the popular Java extensions by yourself.
 
->**Note**: You can install Visual Studio Code from [https://code.visualstudio.com](https://code.visualstudio.com/).
+> **Note**: You can install Visual Studio Code from [https://code.visualstudio.com](https://code.visualstudio.com/).
 
 There is the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which contains these popular extensions:
 
