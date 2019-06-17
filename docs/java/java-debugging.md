@@ -146,6 +146,8 @@ Another advanced feature the debugger supports is 'Hot Code' replacement. Hot co
   <source src="/docs/java/java-debugging/hcr.mp4" type="video/mp4">
 </video>
 
+You may use debug setting `java.debug.settings.hotCodeReplace` to control how to trigger HCR from manual (click the toolbar to apply the changes), auto (automatically apply the changes after compilation) or never.
+
 ### Logpoints
 
 [Logpoints](/blogs/2018/07/12/introducing-logpoints-and-auto-attach.md#introducing-logpoints) is also supported by Java Debugger. Logpoints allow you to send output to debug console without editing code. They’re different from breakpoints because they don’t stop the execution flow of your application.
