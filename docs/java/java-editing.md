@@ -116,15 +116,11 @@ Extract to constant, method, and local variables all come in handy with Java on 
 
 ### Generate getters and setters
 
-You can bulk generate getters and setters for all new member variables.
+You can bulk generate getters and setters for all new member variables. If the class has more than one field, the source action will prompt a Quick Pick for you to select the target fields to use to generate the accessor methods.
 
 <video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/getter-setter.mp4" type="video/mp4">
+  <source src="/docs/java/java-editing/advancedgettersetter.mp4" type="video/mp4">
 </video>
-
-If the class has more than one field, the source action will prompt a Quick Pick for you to select the target fields to use to generate the accessor methods.
-
-![Advanced Getters Setters](images/java-editing/getter-setter-selection.png)
 
 ### Resolve ambiguous imports
 
