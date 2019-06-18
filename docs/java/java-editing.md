@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Editing Code
 ContentId: 843e139a-9e3c-4b4f-95d1-32a9a7480e8e
 PageTitle: Editing Java in Visual Studio Code
-DateApproved: 1/2/2019
+DateApproved: 6/17/2019
 MetaDescription: Editing Java in Visual Studio Code with IntelliSense, Refactoring and Formatting.
 ---
 # Editing Java in Visual Studio Code
@@ -193,7 +193,7 @@ This source action assigns a parameter to a new field for unused parameter(s) in
 
 ### Code Snippets
 
-Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. You can find all the code snippets we support at https://github.com/redhat-developer/vscode-java/blob/master/snippets/java.json. 
+Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. You can review all supported code snippets at [vscode-java/snippets/java.json](https://github.com/redhat-developer/vscode-java/blob/master/snippets/java.json).
 
 ## Formatting
 

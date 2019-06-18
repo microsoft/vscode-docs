@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Java Tutorial
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Writing Java with Visual Studio Code
-DateApproved: 1/2/2019
+DateApproved: 6/17/2019
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 

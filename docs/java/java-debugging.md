@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Running and Debugging
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
 PageTitle: Run and Debug Java in Visual Studio Code
-DateApproved: 1/2/2019
+DateApproved: 6/17/2019
 MetaDescription: See how you can run and debug your Java source code locally, and in the cloud.
 MetaSocialImage:
 ---
@@ -146,7 +146,11 @@ Another advanced feature the debugger supports is 'Hot Code' replacement. Hot co
   <source src="/docs/java/java-debugging/hcr.mp4" type="video/mp4">
 </video>
 
-You may use debug setting `java.debug.settings.hotCodeReplace` to control how to trigger HCR from manual (click the toolbar to apply the changes), auto (automatically apply the changes after compilation) or never.
+You may use the debug setting `java.debug.settings.hotCodeReplace` to control how to trigger Hot Code replacement. The possible setting values are:
+
+* `manual` - Click the toolbar to apply the changes (default).
+* `auto` - Automatically apply the changes after compilation.
+* `never` - Disable Hot Code replacement.
 
 ### Logpoints
 
