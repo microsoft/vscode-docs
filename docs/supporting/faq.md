@@ -43,7 +43,7 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 > **Important Notice**: This option requires a restart of VS Code to take effect.
 
-## GDPR and Visual Studio Code
+## GDPR and VS Code
 
 Now that the General Data Protection Regulation is in effect, we want to take this opportunity to reiterate that we take privacy very seriously. That's both for Microsoft as a company and specifically within the VS Code team.
 
@@ -105,7 +105,7 @@ Extension authors are free to choose a license that fits their business needs. W
 
 At Microsoft, we open source our extensions whenever possible. However, reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (for example Visual Studio), and business model differences across the entirety of Microsoft will result in some extensions using a proprietary license. You can find a list of Microsoft contributed Visual Studio Code extensions and their licenses in the [Microsoft Extension Licenses](/docs/supporting/oss-extensions.md) article.
 
-## Prerelease versions of VS Code
+## Prerelease versions
 
 Want an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build is updated nightly so you'll get the latest bug fixes and feature updates from the day before.
 

@@ -9,9 +9,9 @@ MetaDescription: Learn about Visual Studio Code collected telemetry and how to o
 ---
 # Telemetry
 
-Visual Studio Code collects telemetry data, which we use to help understand how to improve the product. For example, this usage data helps to debug issues, such as slow start-up times, and to prioritize new features.  While we appreciate this insight, we also know that not everyone wants to send this data, so you can disable telemetry as outlined in [How to disable telemetry reporting](#how-to-disable-telemetry-reporting). Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
+Visual Studio Code collects telemetry data, which we use to help understand how to improve the product. For example, this usage data helps to debug issues, such as slow start-up times, and to prioritize new features.  While we appreciate this insight, we also know that not everyone wants to send this data, so you can disable telemetry as outlined in [Disable telemetry reporting](#disable-telemetry-reporting). Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
 
-## How to disable telemetry reporting
+## Disable telemetry reporting
 
 If you don't wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`.
 
@@ -25,7 +25,7 @@ If you use the JSON editor for your settings, add the following line:
     "telemetry.enableTelemetry": false
 ```
 
-## How to disable crash reporting
+## Disable crash reporting
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services.
 
@@ -73,7 +73,7 @@ In short, we have worked hard to do the right thing, for all users, as these pra
 
 One question we expect people to ask is to see the data we collect. However, we don't have a reliable way to do this as VS Code does not have a 'sign-in' experience that would uniquely identify a user.  We do send information that helps us approximate a single user for diagnostic purposes (this is based on a hash of the network adapter NIC) but this is not guaranteed to be unique. For example, virtual machines (VMs) often rotate NIC IDs or allocate from a pool. This technique is sufficient to help us when working through problems, but it is not reliable enough for us to 'provide your data'.
 
-We expect our approach to evolve as we learn more about GDPR and the expectations of our users. We greatly appreciate the data users do send to us, as it is very valuable and VS Code is a better product for everyone because of it. And again, if you are worried about privacy, we offer the ability to disable sending telemetry as described in [How to disable telemetry reporting](/docs/getstarted/telemetry.md#how-to-disable-telemetry-reporting).
+We expect our approach to evolve as we learn more about GDPR and the expectations of our users. We greatly appreciate the data users do send to us, as it is very valuable and VS Code is a better product for everyone because of it. And again, if you are worried about privacy, we offer the ability to disable sending telemetry as described in [Disable telemetry reporting](/docs/getstarted/telemetry.md#disable-telemetry-reporting).
 
 You can find more information about how the Visual Studio family approaches GDPR at [Visual Studio Family Data Subject Requests for the GDPR](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-visual-studio-family).
 
@@ -117,7 +117,7 @@ We use this information to precompute anonymous recommendations. Precomputed rec
 
 Some precomputed recommendations are shipped as part of the product while additional precomputed recommendations are fetched at runtime from an online Microsoft service. VS Code independently evaluates and executes precomputed recommendations without sending any user information to any online service.
 
-## Extension authors and telemetry
+## For extension authors
 
 If you are an extension author, you can use the VS Code telemetry infrastructure for reporting through the [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) npm module. This module provides a consistent way for extensions to report telemetry over [Azure Monitor and Application Insights](https://azure.microsoft.com/en-us/services/monitor/). The module respects the user's decision about whether or not to send telemetry data via the `telemetry.enableTelemetry` setting.
 
