@@ -30,13 +30,13 @@ Download and install the Java SE Development Kit (JDK). Java support on Visual S
 
 >**Note**: After installing the JDK, you would need to configure your environment for Java development. The most common way is to [set](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) `JAVA_HOME` environment variable to the install location of the JDK while you can also use `java.home` setting in Visual Studio Code settings ([workspace or user settings](/docs/getstarted/settings)) to configure it just for the editor.
 
-To help you get started quickly, we created a special [Installer of Visual Studio Code for Java developers](http://aka.ms/vscode-java-installer-win).
+To help you get started quickly, we created a special [Installer of Visual Studio Code for Java developers](https://aka.ms/vscode-java-installer-win).
 
-<a class="tutorial-install-extension-btn" href="http://aka.ms/vscode-java-installer-win">Download Visual Studio Code Java Pack Installer</a>
+<a class="tutorial-install-extension-btn" href="https://aka.ms/vscode-java-installer-win">Download Visual Studio Code Java Pack Installer</a>
 
 > **Note**: The installer is currently only available for Windows. For other OS, please install those components (JDK, VS Code and Java extensions) individually. We're working on the macOS version, please stay tuned.
 
-The package can be used as a clean install or an update for an existing development environment to add Java or Visual Studio Code. Once [downloaded](http://aka.ms/vscode-java-installer-win) and opened, it automatically detects if you have the fundamental components in your local development environment, including the JDK, Visual Studio Code, and essential Java extensions. During install, it downloads the stable versions of those tools from trusted online sources, then installs and configures them on your system.
+The package can be used as a clean install or an update for an existing development environment to add Java or Visual Studio Code. Once [downloaded](https://aka.ms/vscode-java-installer-win) and opened, it automatically detects if you have the fundamental components in your local development environment, including the JDK, Visual Studio Code, and essential Java extensions. During install, it downloads the stable versions of those tools from trusted online sources, then installs and configures them on your system.
 
 ![Detect Environment](images/java-tutorial/detect-eng.png)
 
