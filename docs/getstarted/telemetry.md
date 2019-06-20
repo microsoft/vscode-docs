@@ -125,6 +125,6 @@ Follow this guide to set up [Azure Monitor](https://docs.microsoft.com/en-us/azu
 
 ## Next steps
 
-* [VS Code FAQ](/docs/supporting/faq.md) - Consult Frequently Asked Questions to learn more about VS Code.
-* [Settings](/docs/getstarted/settings.md) - Read about available options to customize VS Code.
-* [Keybindings](/docs/getstarted/keybindings.md) - You can easily modify commonly used keyboard shortcuts.
+* [Visual Studio Code FAQ](/docs/supporting/faq.md) - Consult the Frequently Asked Questions to learn more.
+* [User and Workspace Settings](/docs/getstarted/settings.md) - Read about available options to customize VS Code.
+* [Key Bindings](/docs/getstarted/keybindings.md) - You can easily modify commonly used keyboard shortcuts.
