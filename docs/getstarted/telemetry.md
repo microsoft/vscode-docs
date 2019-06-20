@@ -39,7 +39,7 @@ If you use the JSON editor for your settings, add the following line:
     "telemetry.enableCrashReporter": false
 ```
 
-> **Important Notice**: This option requires a restart of VS Code to take effect.
+> **Note**: This option requires a restart of VS Code to take effect.
 
 ## Extensions and telemetry
 
@@ -87,7 +87,7 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 ![online settings filter](images/telemetry/online-settings.png)
 
-> **Important Notice**: VS Code extensions may also use online services and may not provide settings to configure the usage of these online services, or they may not register their settings to show up when searching for `@tag:usesOnlineServices`. Consult the specific extension's documentation to learn about its usage of online services.
+> **Note**: VS Code extensions may also use online services and may not provide settings to configure the usage of these online services, or they may not register their settings to show up when searching for `@tag:usesOnlineServices`. Consult the specific extension's documentation to learn about its usage of online services.
 
 ### non-Microsoft online services used by VS Code
 
