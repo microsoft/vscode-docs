@@ -25,9 +25,9 @@ Yes, VS Code is free for private or commercial use. See the [product license](ht
 
 ## How to disable telemetry reporting
 
-VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [Telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
+VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`.
+If you don't wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` user [setting](/docs/getstarted/settings.md) to `false`.
 
 From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry`, and uncheck the **Telemetry: Enable Telemetry** setting. This will silence all telemetry events from VS Code going forward.
 
@@ -35,31 +35,31 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 ## How to disable crash reporting
 
-VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [Telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
+VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't wish to send crash data to Microsoft, you can set the `telemetry.enableCrashReporter` setting to `false`.
+If you don't wish to send crash data to Microsoft, you can set the `telemetry.enableCrashReporter` user [setting](/docs/getstarted/settings.md) to `false`.
 
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `crash` and uncheck the **Telemetry: Enable Crash Reporter** setting.
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `crash`, and uncheck the **Telemetry: Enable Crash Reporter** setting.
 
 > **Important Notice**: This option requires a restart of VS Code to take effect.
 
 ## GDPR and VS Code
 
-Now that the General Data Protection Regulation is in effect, we want to take this opportunity to reiterate that we take privacy very seriously. That's both for Microsoft as a company and specifically within the VS Code team.
+Now that the General Data Protection Regulation (GDPR) is in effect, we want to take this opportunity to reiterate that we take privacy very seriously. That's both for Microsoft as a company and specifically within the VS Code team.
 
 To support GDPR:
 
 * The VS Code product notifies all users that they can opt out of telemetry collection.
-* The team actively reviews and classifies all telemetry sent (which is documented in [our OSS codebase](https://github.com/Microsoft/vscode/pull/34997)).
+* The team actively reviews and classifies all telemetry sent (documented in [our OSS codebase](https://github.com/Microsoft/vscode/pull/34997)).
 * There are valid data retention policies in place for any data collected, for example crash dumps.
 
-You can learn more about VS Code's GDPR compliance in the [Telemetry documentation](/docs/getstarted/telemtry.md).
+You can learn more about VS Code's GDPR compliance in the [telemetry documentation](/docs/getstarted/telemetry.md).
 
 ## What online services does VS Code use?
 
-Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, or providing Natural Language Search within Settings. You can learn more in [Managing online services](/docs/getstarted/telemetry.md#managing-online-services).
+Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing, and updating extensions, or providing Natural Language Search within the Settings editor. You can learn more in [Managing online services](/docs/getstarted/telemetry.md#managing-online-services).
 
-You can choose to turn on/off features that use these services. From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), and search for `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
+You can choose to turn on/off features that use these services. From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), and type the tag `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
 
 ## How do I opt out of VS Code auto-updates?
 
@@ -75,7 +75,7 @@ If you use the JSON editor for your settings, add the following line:
 
 You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific [release notes](/updates) page.
 
->**Note:** On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md#updates).
+>**Note:** On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md).
 
 ## Licensing
 
