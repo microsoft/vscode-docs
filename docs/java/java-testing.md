@@ -15,7 +15,7 @@ Testing Java in Visual Studio Code is enabled by the [Java Test Runner](https://
 
 - [JUnit 4](https://junit.org/junit4/) (v4.8.0+)
 - [JUnit 5](https://junit.org/junit5/) (v5.1.0+)
-- [TestNG](https://testng.org/doc/download.html) (v6.8.0+)
+- [TestNG](https://testng.org/doc/) (v6.8.0+)
 
 >**Note**: More information about the test frameworks can be found at [JUnit](https://junit.org/) and [TestNG](https://testng.org/).
 
