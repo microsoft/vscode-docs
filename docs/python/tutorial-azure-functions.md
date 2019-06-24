@@ -30,8 +30,8 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 Install the following software:
 
-- [Visual Studio Code](https://code.visualstudio.com/).
 - Python 3.6.x as required by Azure Functions. [Python 3.6.8](https://www.python.org/downloads/release/python-368/) is the latest 3.6.x version.
+- [Visual Studio Code](https://code.visualstudio.com/).
 - The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) as described on [Python Tutorial - Prerequisites](/docs/python/python-tutorial.md).
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). For general information, visit the [vscode-azurefunctions GitHub repository](https://github.com/Microsoft/vscode-azurefunctions).
 
@@ -73,6 +73,8 @@ To verify that all the Azure Functions tools are installed, select the **Termina
 
 The output that starts with the Azure Functions logo (you need to scroll the output upwards) indicates that the Azure Functions Core Tools are present.
 
+If the `func` command isn't recognized, then verify that the folder where you installed the Azure Functions Core Tools is included in your PATH environment variable.
+
 ## Create the Function
 
 1. Code for Azure Functions is managed within a Functions "project," which you create first before creating the code. In **Azure: Functions** explorer (opened using the Azure icon on the left side), select the **New Project** command icon, or open the Command Palette and select **Azure Functions: Create New Project**.
@@ -93,7 +95,7 @@ The output that starts with the Azure Functions logo (you need to scroll the out
     ![Result of creating a new Python functions project](images/functions/project-create-results.png)
 
     > **Note**
-    > If VS Code tells you that you don't have a Python interpreter selected when it opens `__init__.py`, use the **Python: Select Interpreter** command from the Command Palette and select the virtual environment in the local `.env` folder (which was created as part of the project).
+    > If VS Code tells you that you don't have a Python interpreter selected when it opens `__init__.py`, use the **Python: Select Interpreter** command from the Command Palette and select the virtual environment in the local `.env` folder (which was created as part of the project). The environment must be based on Python 3.6x specifically, as noted earlier under [Prerequisites](#prerequisites).
     >
     > ![Selecting the virtual environment created with the project](images/functions/select-venv-interpreter.png)
 
