@@ -192,7 +192,7 @@ The following steps summarize the configuration used in the [python-sample-vscod
 
 1. Make sure you have a `requirements.txt` file in your project that contains Django and its dependencies. You can generate `requirements.txt` using the command `pip freeze > requirements.txt`.
 
-1. In your Django project's `settings.py` file, add the root URL to which you intend to deploy the app to the `ALLOWED_HOSTS` list. For example, the following code assumes deployment to an Azure App Service (azurewebsites.net) named "vsdocs-django-sample-container":
+1. In your Django project's `settings.py` file, modify the `ALLOWED_HOSTS` list to include the root URL to which you intend to deploy the app. For example, the following code assumes deployment to an Azure App Service (azurewebsites.net) named "vsdocs-django-sample-container":
 
     ```python
     ALLOWED_HOSTS = [

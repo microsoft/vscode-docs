@@ -235,7 +235,7 @@ As mentioned earlier, you must use Git to deploy Python apps to App Service on L
 
 1. With both choices, the extension connects the App Service to the repository. You don't see indications of the connection in VS Code itself; on the Azure portal, you can examine the connect on the Azure portal in the App Service's **Deployment Center** page.
 
-1. To shorten delployemtn time, you can exclude VS Code files and your virtual environment by adding the following lines to the `.vscode/settings.json` file (replace `.env` with your particular virtual environment folder):
+1. To shorten deployment time, you can exclude VS Code files and your virtual environment by adding the following lines to the `.vscode/settings.json` file (replace `.env` with your particular virtual environment folder):
 
     ```json
     "appService.zipIgnorePattern": [
