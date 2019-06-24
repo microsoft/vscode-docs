@@ -257,11 +257,14 @@ In these steps, you use the Functions extension to create a "Function App" on Az
 
 ### Stream logs
 
-> **Note**: support for log streaming is currently in development, as described on [Issue 589](https://github.com/microsoft/vscode-azurefunctions/issues/589) for the Azure Functions extension.
+Support for log streaming is currently in development, as described on [Issue 589](https://github.com/microsoft/vscode-azurefunctions/issues/589) for the Azure Functions extension. The **Stream logs** button in the deployment message popup will eventually connect the log output on Azure to VS Code. You will also be able to start and stop the log stream on the **Azure Functions** explorer by right-clicking the Functions project and selecting **Start streaming logs** or **Stop streaming logs**.
 
-The **Stream logs** button in the deployment message popup connects the log output on Azure to VS Code. You can also start and stop the log stream on the **Azure Functions** explorer by right-clicking the Functions project and selecting **Start streaming logs** or **Stop streaming logs**.
+At present, however, these commands aren't yet operational. Log streaming is instead available in a browser by running the following command, replacing `<app_name>` with the name of your Functions app on Azure:
 
-When you start streaming logs, VS Code may prompt for consent, after which the log stream from Azure appears in a VS Code output window. (Again, this feature is in development, see [Issue 589](https://github.com/microsoft/vscode-azurefunctions/issues/589)).
+```bash
+# Replace <app_name> with the name of your Functions app on Azure
+func azure functionapp logstream <app_name> --browser
+```
 
 ### Sync local settings to Azure
 
