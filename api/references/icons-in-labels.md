@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 109a10fc-2d64-44b6-98ce-b8375d245776
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Octicon reference that lists all octicons supported in VS Code
@@ -19,6 +19,14 @@ You can also embed text and use multiple icons:
 
 ```ts
 $(eye) $(heart) $(mark-github) GitHub
+```
+
+## Animation
+
+You can apply a spinning animation to any icon by appending `~spin` to the icon name:
+
+```ts
+$(sync~spin)
 ```
 
 ## Icon Listing

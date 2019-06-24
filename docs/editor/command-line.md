@@ -3,17 +3,17 @@ Order: 15
 Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
-PageTitle: The Visual Studio Code Command Line Options
-DateApproved: 3/7/2019
-MetaDescription: Visual Studio Code command line options (switches).
+PageTitle: The Visual Studio Code command-line options
+DateApproved: 6/5/2019
+MetaDescription: Visual Studio Code command-line options (switches).
 ---
 # Command Line Interface (CLI)
 
-Visual Studio Code has a powerful command line interface that lets you control how you launch the editor. You can open files, install extensions, change the display language, and output diagnostics through command line options (switches).
+Visual Studio Code has a powerful command line interface that lets you control how you launch the editor. You can open files, install extensions, change the display language, and output diagnostics through command-line options (switches).
 
 ![command line example](images/command-line/hero.png)
 
-If you are looking for how to run command line tools inside VS Code, see the [Integrated Terminal](/docs/editor/integrated-terminal.md).
+If you are looking for how to run command-line tools inside VS Code, see the [Integrated Terminal](/docs/editor/integrated-terminal.md).
 
 ## Launching from command line
 
@@ -134,7 +134,7 @@ You can use the URL in applications such as browsers or file explorers that can 
 
 Read on to find out about:
 
-* [Integrated Terminal](/docs/editor/integrated-terminal.md) - Run command line tools from inside VS Code.
+* [Integrated Terminal](/docs/editor/integrated-terminal.md) - Run command-line tools from inside VS Code.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn the basics of the VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - VS Code lets you quickly understand and move through your source code.
 
@@ -148,7 +148,7 @@ On macOS, you need to manually run the **Shell Command: Install 'code' command i
 
 ### How do I get access to a command line (terminal) from within VS Code?
 
-VS Code has an [Integrated Terminal](/docs/editor/integrated-terminal.md) where you can run command line tools from within VS Code.
+VS Code has an [Integrated Terminal](/docs/editor/integrated-terminal.md) where you can run command-line tools from within VS Code.
 
 ### Can I specify the settings location for VS Code in order to have a portable version?
 

@@ -4,12 +4,16 @@ Area: java
 TOCTitle: Editing Code
 ContentId: 843e139a-9e3c-4b4f-95d1-32a9a7480e8e
 PageTitle: Editing Java in Visual Studio Code
-DateApproved: 1/2/2019
+DateApproved: 6/17/2019
 MetaDescription: Editing Java in Visual Studio Code with IntelliSense, Refactoring and Formatting.
 ---
 # Editing Java in Visual Studio Code
 
 Visual Studio Code is a source code editor first and foremost with rich editing [features](/docs/editor/codebasics.md). In this document, we will go through a few Java-specific features, which are helpful when working with Java.
+
+If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
+
+<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'editing')" href="javascript:void(0)">Report an issue</a>
 
 ## Code editing and navigation
 
@@ -26,6 +30,12 @@ Java support in Visual Studio Code detects issues within your code automatically
 </video>
 
 As a Java editor, it also supports CodeLens (references) and Javadoc hovers and highlights out of box.
+
+Folding range allows you to fold or unfold code snippet to better view the source code.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/folding-range.mp4" type="video/mp4">
+</video>
 
 ### Search for symbols
 
@@ -80,7 +90,7 @@ In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://
 
 IntelliCode works well with popular Java libraries and frameworks like Java SE and Spring. It will help you whether you are doing monolithic web apps or modern microservices.
 
-## Refactoring
+## Refactoring and Code Actions
 
 Here we will show you the most used refactoring features for Java in Visual Studio Code, namely rename, extract methods and variables.
 
@@ -100,13 +110,90 @@ Extract to constant, method, and local variables all come in handy with Java on 
   <source src="/docs/java/java-editing/refactor.mp4" type="video/mp4">
 </video>
 
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/extract-local-variable.mp4" type="video/mp4">
+</video>
+
 ### Generate getters and setters
 
-You can bulk generate getters and setters for all new member variables.
+You can bulk generate getters and setters for all new member variables. If the class has more than one field, the source action will prompt a Quick Pick for you to select the target fields to use to generate the accessor methods.
 
 <video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/getter-setter.mp4" type="video/mp4">
+  <source src="/docs/java/java-editing/advancedgettersetter.mp4" type="video/mp4">
 </video>
+
+### Resolve ambiguous imports
+
+To deal with ambiguous imports, you now have a dropdown list to pick the right one. The code line with the unresolved type is also presented to you to help you decide.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/resolve-ambiguous-imports.mp4" type="video/mp4">
+</video>
+
+### Override/implement methods
+
+With this source action, all the candidates are presented to you with a checklist. You can then decide what to override or implement.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/override-implement-methods.mp4" type="video/mp4">
+</video>
+
+### Generate `hashCode()` & `equals()`
+
+`hashCode()` & `equals()` can be generated with default implementations. All the non-static member variables are listed, and you can customize the generated code using the check list.
+
+There are two options for you to customize the generated code:
+
+* If you use Java 7+, you can set `java.codeGeneration.hashCodeEquals.useJava7Objects` to `true` to generate shorter code which calls `Objects.hash` and `Objects.equals`.
+* You can also set `java.codeGeneration.hashCodeEquals.useInstanceof` to `true` to use `instanceOf` operator to check the object types instead of calling `Object.getClass()`.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/generate-hashcode-equals.mp4" type="video/mp4">
+</video>
+
+### Generate `toString()`
+
+There is a new source action to generate the `toString()` method. Customization is possible with a check list of all the member variables.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/generate-tostring.mp4" type="video/mp4">
+</video>
+
+### Convert to static imports
+
+Convert static functions calls to static imports.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/convert-static-imports.mp4" type="video/mp4">
+</video>
+
+### Generate delegate methods
+
+Generate delegate methods
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/generate-delegate-methods.mp4" type="video/mp4">
+</video>
+
+### Generate constructor from super class
+
+Add a constructor from super class.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/generate-constructor.mp4" type="video/mp4">
+</video>
+
+### Assign parameter to new field
+
+This source action assigns a parameter to a new field for unused parameter(s) in a constructor.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/assign-to-field.mp4" type="video/mp4">
+</video>
+
+### Code Snippets
+
+Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. You can review all supported code snippets at [vscode-java/snippets/java.json](https://github.com/redhat-developer/vscode-java/blob/master/snippets/java.json).
 
 ## Formatting
 
@@ -117,5 +204,20 @@ In addition, there's a [Checkstyle for Java](https://marketplace.visualstudio.co
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/checkstyle.mp4" type="video/mp4">
 </video>
+
+### Set Checkstyle configuration file
+
+![Set Checkstyle configuration file](images/java-editing/set_config.png)
+
+* To set the configuration file, Just Right click the `.xml` file and select `Set the Checkstyle Configuration File`.
+* You can also trigger the command **Checkstyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. You will also see the two built-in configurations:
+  * **Google's Check**
+  * **Sun's Check**
+
+### Check the style and fix the violations
+
+![Fix style violation](images/java-editing/quick_fix.png)
+
+* When opening or saving a Java file, the extension will check the file format and provide Quick Fixes if possible. You can click the lightbulb button in the editor to show the available Quick Fixes.
 
 For more details about [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle), visit its [GitHub Repository](https://github.com/jdneo/vscode-checkstyle).

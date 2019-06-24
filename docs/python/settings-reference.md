@@ -1,10 +1,10 @@
 ---
-Order: 12
+Order: 13
 Area: python
 TOCTitle: Settings Reference
 ContentId: d256dc5c-95e9-4c02-a82f-947bf34a3517
 PageTitle: Settings Reference for Python
-DateApproved: 09/03/2018
+DateApproved: 04/18/2019
 MetaDescription: Settings Reference for the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -25,6 +25,7 @@ Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our
 | python.venvPath | `""` | Path to a folder, where virtual environments are created. Depending on the virtualization tool used, it can be the project itself: `${workspaceFolder}`, or separate folder for all virtual environments located side by side: `.\envs`, `~/.virtualenvs`, and so on. |
 | python.envFile | `"${workspaceFolder}/.env"` | Absolute path to a file containing environment variable definitions. See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file). |
 | python.globalModuleInstallation | `false` | Specifies whether to install packages for the current user only using the `--user` command-line argument (the default), or to install for all users in the global environment (when set to `true`). Ignored when using a virtual environment. For more information on the `--user`argument, see [pip - User Installs](https://pip.pypa.io/en/stable/user_guide/#user-installs). |
+| python.poetryPath | `"poetry"` | Specifies the location of the [Poetry dependency manager](https://poetry.eustace.io/) executable, if installed. The default value `"poetry"` assumes the executable is in the current path. The Python extension uses this setting to install packages when Poetry is available and there's a `poetry.lock` file in the workspace folder. |
 | python.terminal.launchArgs | `[]` | Launch arguments that are given to the Python interpreter when you run a file using commands such as **Python: Run Python File in Terminal**. In the `launchArgs` list, each item is a top-level command-line element that's separated by a space (quoted values that contain spaces are a single top-level element and are thus one item in the list). For example, for the arguments `--a --b --c {"value1" : 1, "value2" : 2}`, the list items should be `["--a", "--b", "--c", "{\"value1\" : 1, \"value2\" : 2}\""]`. Note that Visual Studio code ignores this setting when debugging because it instead uses arguments from your selected debugging configuration in `launch.json`. |
 | python.terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
 | python.terminal.activateEnvironment | `true` | Indicates whether to automatically activate the environment you select using the **Python: Select Interpreter** command. For example, when this setting is `true` and you select a virtual environment, the extension automatically runs the environment's *activate* command (`source env/bin/activate` on macOS/Linux; `env\scripts\activate` on Windows). |
@@ -67,20 +68,25 @@ The language server settings apply when `python.jediEnabled` is `false`.
 
 The `disabled`, `errors`, `warnings`, and `information` settings can contain the following values:
 
-| Value | Default type | Message text |
+| Value | Default type | Description or message text |
 | --- | --- | --- |
 | "not-callable" | Warning | (object may not be callable) |
-| "used-before-assignment" | Warning | (unknown variable '{0}') |
+| "undefined-variable" | Warning | (unknown variable '{0}') |
 | "unresolved-import" | Warning | "Unable to resolve 'module_name'. IntelliSense may be missing for this module." |
+| "too-many-function-arguments" | Warning | Too many arguments have been provided to a function call. |
+| "too-many-positional-arguments-before-star" | Warning | Too many arguments have been provided before a starred argument. |
+| "positional-argument-after-keyword" | Warning | A positional argument has been provided after a keyword argument. |
+| "unknown-parameter-name" | Warning | The keyword argument name provided is unknown. |
+| "parameter-already-specified" | Warning | A argument with this name has already been specified. |
+| "parameter-missing" | Warning | A required positional argument is missing. |
 
-To suppress the "used-before-assignment" messages, for example, use the setting `"python.analysis.disabled": ["used-before-assignment"]`.
+To suppress the "undefined-variable" messages, for example, use the setting `"python.analysis.disabled": ["undefined-variable"]`. To suppress those messages and "too-many-function-arguments" messages as well, use the setting `"python.analysis.disabled": ["undefined-variable", "too-many-function-arguments"]`.
 
 ## AutoComplete settings
 
 | Setting<br/>(python.autoComplete.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | addBrackets | `false` | Specifies whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. | [Editing](/docs/python/editing.md#autocomplete-and-intellisense) |
-| preloadModules | `[]` | Specifies modules to pre-load to improve autocomplete performance. | [Editing](/docs/python/editing.md#autocomplete-and-intellisense) |
 | extraPaths | `[]` | Specifies locations of additional packages for which to load autocomplete data. | [Editing](/docs/python/editing.md#autocomplete-and-intellisense) |
 
 ## Formatting settings
@@ -186,7 +192,7 @@ To suppress the "used-before-assignment" messages, for example, use the setting 
 
 ### UnitTest framework
 
-| Setting<br/>(python.unitTest.) | Default | Description | See also |
+| Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | unittestEnabled | `false` | Specifies whether UnitTest is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md)  |
 | unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each top-level element that's separated by a space is a separate item in the list. | [Unit testing](/docs/python/unit-testing.md) |
@@ -196,20 +202,20 @@ To suppress the "used-before-assignment" messages, for example, use the setting 
 | debugPort | `3000` | Port number used for debugging of UnitTest tests. | [Unit testing](/docs/python/unit-testing.md) |
   autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a unit test file. |
 
-### PyTest framework
+### pytest framework
 
-| Setting<br/>(python.unitTest.) | Default | Description | See also |
+| Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
-| pyTestEnabled | `false` | Specifies whether pytest is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md) |
-| pyTestPath | `"py.test"` | Path to pytest. Use a full path if pytest is located outside the current environment. | [Unit testing](/docs/python/unit-testing.md) |
-| pyTestArgs | `[]` | Arguments to pass to PyTest, where each top-level element that's separated by a space is a separate item in the list. When debugging unit tests with pytest-cov installed, include `--no-cov` in these arguments. | [Unit testing](/docs/python/unit-testing.md) |
+| pytestEnabled | `false` | Specifies whether pytest is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md) |
+| pytestPath | `"py.test"` | Path to pytest. Use a full path if pytest is located outside the current environment. | [Unit testing](/docs/python/unit-testing.md) |
+| pytestArgs | `[]` | Arguments to pass to pytest, where each top-level element that's separated by a space is a separate item in the list. When debugging unit tests with pytest-cov installed, include `--no-cov` in these arguments. | [Unit testing](/docs/python/unit-testing.md) |
 
 ### Nose framework
 
-| Setting<br/>(python.unitTest.) | Default | Description | See also |
+| Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | nosetestsEnabled | `false` | Specifies whether Nose  is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md) |
-| nosetestPath | `"nosetests"` | Path to Nose. Use a full path if PyTest is located outside the current environment. | [Unit testing](/docs/python/unit-testing.md) |
+| nosetestPath | `"nosetests"` | Path to Nose. Use a full path if pytest is located outside the current environment. | [Unit testing](/docs/python/unit-testing.md) |
 | nosetestArgs | `[]` | Arguments to pass to Nose, where each top-level element that's separated by a space is a separate item in the list. | [Unit testing](/docs/python/unit-testing.md) |
 
 ## Next steps

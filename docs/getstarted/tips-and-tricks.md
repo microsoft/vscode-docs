@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -111,7 +111,7 @@ Cycle through errors with `kb(editor.action.marker.nextInFiles)` or `kb(editor.a
 
 ![errors and warnings](images/tips-and-tricks/Errors_Warnings.gif)
 
-You can filter problems by type ('errors', 'warnings') or text matching.
+You can filter problems either by type ('errors', 'warnings') or text matching.
 
 ### Change language mode
 
@@ -266,7 +266,7 @@ And many, many [other customizations](/docs/getstarted/settings.md).
 
 ### Language specific settings
 
-For those settings you only want for specific languages, you can scope the settings by the language identifier. You can find a list of commonly used language ids in the [Language Identifiers](/docs/languages/identifiers.md) reference.
+For the settings, which you only want for specific languages, you can scope the settings by the language identifier. You can find a list of commonly used language ids in the [Language Identifiers](/docs/languages/identifiers.md) reference.
 
 ```json
 "[languageid]": {
@@ -491,7 +491,7 @@ You can add additional cursors to all occurrences of the current selection with 
 If you do not want to add all occurrences of the current selection, you can use `kb(editor.action.addSelectionToNextFindMatch)` instead.
 This only selects the next occurrence after the one you selected so you can add selections one by one.
 
-![add cursor to the next occurrences of current selection one by one](images/tips-and-tricks/add_cursor_current_selection_one_by_one.gif)
+![add cursor to next occurrences of current selection one by one](images/tips-and-tricks/add_cursor_current_selection_one_by_one.gif)
 
 ### Column (box) selection
 

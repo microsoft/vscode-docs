@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -56,7 +56,9 @@ The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10
 
 ### Windows
 
-Correctly configuring your shell on Windows is a matter of locating the right executable and updating the setting. Below are a list of common shell executables and their default locations:
+For Windows there is a convenient shell selector located inside the terminal dropdown that lets you choose between several detected shells including Command Prompt, PowerShell, PowerShell Core, Git Bash and WSL Bash. The **Terminal: Select Default Shell** command is also available through the command palette if you prefer to access it there.
+
+Just like on other platforms you can fine tune the exact executable used in your settings file, for example:
 
 ```json
 // Command Prompt
@@ -68,8 +70,6 @@ Correctly configuring your shell on Windows is a matter of locating the right ex
 // Bash on Ubuntu (on Windows)
 "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe"
 ```
-
-There is also the convenience command, **Terminal: Select Default Shell** that can be accessed through the Command Palette, which can detect and set this for you.
 
 >**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr` can be redirected.
 
@@ -152,7 +152,7 @@ While focus is in the integrated terminal, many key bindings will not work as th
 {
   "terminal.integrated.commandsToSkipShell": [
     // Ensure the toggle sidebar visibility keybinding skips the shell
-    "workbench.action.toggleSidebarVisibility"
+    "workbench.action.toggleSidebarVisibility",
     // Send quick open's keybinding to the shell
     "-workbench.action.quickOpen",
   ]
@@ -241,7 +241,7 @@ By default, the integrated terminal will render using multiple `<canvas>` elemen
 }
 ```
 
-Something else that might improve performance is to ignore Chromium's GPU blacklist by launching VS Code with `code --ignore-gpu-blacklist`.
+Something else that might improve performance is to ignore Chromium's GPU disallow list by launching VS Code with `code --ignore-gpu-blacklist`.
 
 ## Next steps
 
@@ -255,7 +255,7 @@ The basics of the terminal have been covered in this document, read on to find o
 
 ### Why is VS Code shortcut X not working when the terminal has focus?
 
-Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. Some examples are `kbstyle(F1)` to open the **Command Palette** and `kbstyle(Ctrl+P)` for **Quick Open** on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. There are plans to explore a blacklist that would prevent certain key bindings from being handled by the terminal (see [#7269](https://github.com/Microsoft/vscode/issues/7269)).
+Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. Some examples are `kbstyle(F1)` to open the **Command Palette** and `kbstyle(Ctrl+P)` for **Quick Open** on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. You can use the `terminal.integrated.commandsToSkipShell` setting to prevent specific key bindings from being handled by the terminal.
 
 ### Integrated terminal exited with code 1 on Windows 10
 
@@ -346,19 +346,21 @@ To resolve this issue, you need to track down where the old `npm` is installed a
 Once you have the path to npm, you can find the old node_modules by resolving the symlink by running a command something like this:
 
 ```bash
-ls -la /usr/local/bin | grep npm
+ls -la /usr/local/bin | grep "np[mx]"
 ```
 
 This will give you the resolved path at the end:
 
 ```bash
 ... npm -> ../lib/node_modules/npm/bin/npm-cli.js
+... npx -> ../lib/node_modules/npm/bin/npx-cli.js
 ```
 
 From there, removing the files and relaunching VS Code should fix the issue:
 
 ```bash
 rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
+rm -R /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
 ```
 
 ### Can I use Powerline fonts in the Integrated Terminal?
@@ -386,4 +388,12 @@ By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. You can co
   "command": "workbench.action.terminal.sendSequence",
   "args": { "text": "\u001bf" }
 }
+```
+
+### How do I fix the error "ConnectNamedPipe failed: Windows error 232"
+
+This error can occur due to anti-virus software intercepting winpty from creating a pty. To workaround this error, you can exclude the following file from your anti-virus scanning:
+
+```bash
+<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
 ```

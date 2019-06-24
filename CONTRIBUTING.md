@@ -26,7 +26,7 @@ To contribute to [VS Code documentation](https://code.visualstudio.com/docs), yo
 * [Changing a commit message](https://help.github.com/articles/changing-a-commit-message/)
 * [How to squash commits](https://help.github.com/articles/about-pull-request-merges/)
 
-The vscode-docs repository supports [Git LFS](https://git-lfs.github.com/) to allow you to avoid bringing down large image files when you clone the repository. See the [README](README.md#contributing) section for details on enabling Git LFS for your local repositiory.
+The vscode-docs repository supports [Git LFS](https://git-lfs.github.com/) to allow you to avoid bringing down large image files when you clone the repository. See the [README](README.md#contributing) section for details on enabling Git LFS for your local repository.
 
 ## Documentation intent
 
@@ -60,7 +60,7 @@ This repository contains the following folders:
 * \other
 * \supporting
 
-Within these folders, you'll find the Markdown files used for the content. Each of these folders also contains an \images folder that references the images (such as screenshots) used in the topics.
+Within these folders, you'll find the Markdown files used for the content. Each of these folders also contains an `\images` folder that references the images (such as screenshots) used in the topics.
 
 ### Branches
 
@@ -166,7 +166,7 @@ The VS Code website is able to show the correct key bindings depending on the re
 
 To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command identifier is included in parentheses.
 
->For a list of key bindings and the relevant `Command Ids`, review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings).
+>For a list of key bindings and the relevant `Command Ids`, review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings#_default-keyboard-shortcuts).
 
 If you are listing out multiple key bindings, you can use a table.
 

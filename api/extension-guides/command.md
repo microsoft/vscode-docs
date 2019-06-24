@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 995c7085-5fc0-44e0-a171-30a759c0b7da
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using commands programmatically in Visual Studio Code extensions (plug-ins)
@@ -160,7 +160,7 @@ The `commands` contribution tells VS Code that your extension provides a given c
 
 ![The contributed command in the Command Palette](images/commands/palette.png)
 
-We still need to call `registerCommand` to actually tie the command id to the handler. This means that if the user selects the `myExtension.sayHello` command from the Command Palette but our extension has not been activated yet, nothing will happen. To prevent this, extensions must register an `onCommand` `activiationEvent` for all user facing commands:
+We still need to call `registerCommand` to actually tie the command id to the handler. This means that if the user selects the `myExtension.sayHello` command from the Command Palette but our extension has not been activated yet, nothing will happen. To prevent this, extensions must register an `onCommand` `activationEvent` for all user facing commands:
 
 ```json
 {
@@ -199,3 +199,11 @@ The [`menus.commandPalette`](/api/references/contribution-points#contributes.men
 ```
 
 Now the `myExtension.sayHello` command will only show up in the Command Palette when the user is in a Markdown file.
+
+### Enablement of commands
+
+Commands support enablement via an `enablement`-property - its value is a when clause [when-clause](/docs/getstarted/keybindings#_when-clause-contexts). Enablement applies to all menus and to registered keybinding.
+
+> **Note** that there is semantic overlap between `enablement` and the `when` condition of menu items. The latter is used to prevent menus full of disabled items, e.g a command that anaylzes a JavaScript regular expression should show *when* the file is JavaScript and be *enablement* when the cursor is over a regular expression. In that sample, the `when`-clause prevents clutter by not showing the command for all other files. Preventing cluttered menus is highly recommended.
+
+Last, menus showing commands, like the command palette or context menus, implement different ways of dealing with enablement. Editor and explorer context menus render enablement/disablement items while the command palette filters them.

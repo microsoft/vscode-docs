@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Additional Components
 ContentId: 243B79C2-819F-4257-B80D-2CD9CCB04C84
 PageTitle: Setting up additional components to use with Visual Studio Code
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: Setting up additional components to use with Visual Studio Code.
 ---
 # Additional components and tools
@@ -18,7 +18,7 @@ If you are used to working with larger, monolithic development tools (IDEs), you
 Here are a few commonly installed components:
 
 - [Git](https://git-scm.com/download) - VS Code has built-in support for source code control using Git but requires Git to be installed separately.
-- [Node.js (includes npm)](https://nodejs.org/) - A platform and runtime for building and running JavaScript applications.
+- [Node.js (includes npm)](https://nodejs.org/) - A cross platform runtime for building and running JavaScript applications.
 - [TypeScript](https://www.typescriptlang.org) - The TypeScript compiler, `tsc`, for transpiling TypeScript to JavaScript.
 
 You'll find the components above mentioned often in our documentation and walkthroughs.

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -52,7 +52,7 @@ When you have more than one editor open you can switch between them quickly by h
 
 ## Minimap
 
-A Minimap (code outline) gives you a high level overview of your source code which is very useful for quick navigation and code understanding. A file's minimap is shown in the right side of the editor. You can click or drag the shaded area to quickly jump to different sections of your file.
+A Minimap (code outline) gives you a high level overview of your source code which is very useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can click or drag the shaded area to quickly jump to different sections of your file.
 
 ![minimap](images/userinterface/minimap.png)
 
@@ -88,7 +88,7 @@ By default, VS Code excludes some folders from the Explorer (for example. `.git`
 
 ### Multi-selection
 
-You can select multiple files in the **File Explorer** and **OPEN EDITORS** view to run actions (Delete, Drag and Drop, Open to the Side) on multiple items. Use the `Ctrl/Cmd` key with `click` to select individual files and `Shift` + `click` to select a range. If you select two items, you can now use the **Compare Selected** command to quickly diff two files.
+You can select multiple files in the **File Explorer** and **OPEN EDITORS** view to run actions (Delete, Drag and Drop, Open to the Side) on multiple items. Use the `Ctrl/Cmd` key with `click` to select individual files and `Shift` + `click` to select a range. If you select two items, you can now use the context menu **Compare Selected** command to quickly diff two files.
 
 **Note:** In earlier VS Code releases, clicking with the `Ctrl/Cmd` key pressed would open a file in a new Editor Group to the side. If you would still like this behavior, you can use the `workbench.list.multiSelectModifier` setting to change multi-selection to use the `Alt` key.
 
@@ -117,7 +117,7 @@ There are several Outline view [settings](/docs/getstarted/settings.md) which al
 
 ## Open Editors
 
-At the top of the Explorer is a view labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** view if you:
+At the top of the Explorer is a view labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you were working on. For example, a file will be listed in the **OPEN EDITORS** view if you:
 
 * Make a change to a file.
 * Double-click a file's header.
@@ -201,7 +201,7 @@ Zen Mode lets you focus on your code by hiding all UI except the editor (no Acti
 
 ### Centered editor layout
 
-Centered editor layout allows you to center the editor area. This is particularly useful when working with a single editor on a large monitor. You can use the sashes on the side to resize the view (hold down the `Alt` key to independently move the sashes).
+Centered editor layout allows you to center align the editor area. This is particularly useful when working with a single editor on a large monitor. You can use the sashes on the side to resize the view (hold down the `Alt` key to independently move the sashes).
 
 ## Tabs
 
@@ -344,7 +344,7 @@ The settings `window.openFoldersInNewWindow` and `window.openFilesInNewWindow` a
 
 If configured to be `default`, we will make the best guess about reusing a window or not based on the context from where the open request was made. Flip this to `on` or `off` to always behave the same. For example, if you feel that picking a file or folder from the **File** menu should always open into a new window, set this to `on`.
 
-Note: There can still be cases where this setting is ignored (for example, when using the `-new-window` or `-reuse-window` command line option).
+Note: There can still be cases where this setting is ignored (for example, when using the `-new-window` or `-reuse-window` command-line option).
 
 The `window.restoreWindows` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will
 reopen the last opened window you worked on (setting: `one`). Change this setting to `none` to never reopen any windows and always start with an empty VS Code instance. Change it to `all` to restore all windows you worked on during your previous session or `folders` to only restore windows that had folders opened.

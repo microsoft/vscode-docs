@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -40,7 +40,7 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 
 > **Note:** If you use `markdownDescription` instead of `description`, your setting description will be rendered as Markdown in the settings UI.
 
-### Example
+### configuration example
 
 ```json
 "contributes": {
@@ -67,11 +67,11 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 
 ## contributes.configurationDefaults
 
-Contribute default language specific editor configurations. This will override default editor configurations for the provided language.
+Contribute default language-specific editor configurations. This will override default editor configurations for the provided language.
 
 The following example contributes default editor configurations for the `markdown` language:
 
-### Example
+### configuration default example
 
 ```json
 "contributes": {
@@ -86,11 +86,13 @@ The following example contributes default editor configurations for the `markdow
 
 ## contributes.commands
 
-Contribute an entry consisting of a title and a command to invoke to the **Command Palette** (`kb(workbench.action.showCommands)`). You can also optionally define a `category` string which will prefix the command title and allow easy grouping within the **Command Palette** drop-down.
+Contribute the UI for a command consisting of a title and (optionally) an icon, category, and enabled state. Enablement is expressed with `when` [clauses](/docs/getstarted/keybindings#_when-clause-contexts). By default, commands show in the **Command Palette** (`kb(workbench.action.showCommands)`) but they can also show in other [menus](/api/references/contribution-points#contributes.menus).
 
-> **Note:** When a command is invoked (from a key binding or from the **Command Palette**), VS Code will emit an activationEvent `onCommand:${command}`.
+Presentation of contributed commands depends on the containing menu. The **Command Palette**, for instance, prefixes commands with their `category`, allowing for easy grouping. However, the **Command Palette** doesn't show icons nor disabled commands. The editor context menu, on the other hand, shows disabled items but doesn't show the category label.
 
-### Example
+> **Note:** When a command is invoked (from a key binding, from the **Command Palette**, any other menu, or programmatically), VS Code will emit an activationEvent `onCommand:${command}`.
+
+### command example
 
 ```json
 "contributes": {
@@ -108,11 +110,13 @@ See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-g
 
 ## contributes.menus
 
-Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/getstarted/keybindings#_when-clause-contexts).
+Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause, which uses the key bindings [when clause contexts](/docs/getstarted/keybindings#_when-clause-contexts).
 
 In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu.
 
-Last, a `group`-property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
+Last, a `group` property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
+
+> **Note** that `when` clauses apply to menus and `enablement` clauses to commands. The `enablement` applies to all menus and even keybindings while the `when` only applies to a single menu.
 
 Currently extension writers can contribute to:
 
@@ -130,12 +134,16 @@ Currently extension writers can contribute to:
 - The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
 - The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
 - The macOS Touch Bar - `touchBar`
+- The comment thread title - `comments/commentThread/title`
+- The comment thread actions - `comments/commentThread/context`
+- The comment title - `comments/comment/title`
+- The comment actions - `comments/comment/context`
 
 > **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
 In addition to a title, commands can also define icons which VS Code will show in the editor title menu bar.
 
-### Example
+### menu example
 
 ```json
 "contributes": {
@@ -191,9 +199,9 @@ The **explorer context menu** has these default groups:
 - `2_workspace` - Commands related to workspace manipulation.
 - `3_compare` - Commands related to comparing files in the diff editor.
 - `4_search` - Commands related to searching in the search view.
-- `5_cutcopypaste` - Commands related to cutting, copying and pasting of files.
+- `5_cutcopypaste` - Commands related to cutting, copying, and pasting of files.
 - `6_copypath` - Commands related to copying file paths.
-- `7_modification` - Commands related to the modification of a files.
+- `7_modification` - Commands related to the modification of file.
 
 The **editor tab context menu** has these default groups:
 
@@ -228,7 +236,7 @@ Contributing a key binding will cause the Default Keyboard Shortcuts to display 
 
 > **Note:** When a command is invoked (from a key binding or from the Command Palette), VS Code will emit an activationEvent `onCommand:${command}`.
 
-### Example
+### keybinding example
 
 Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` under macOS trigger the `"extension.sayHello"` command:
 
@@ -256,7 +264,7 @@ The main effects of `contributes.languages` are:
 - Associate file name extensions, file name patterns, files that begin with a specific line (such as hashbang), mimetypes to that `languageId`.
 - Contribute a set of [Declarative Language Features](/api/language-extensions/overview#declarative-language-features) for the contributed language. Learn more about the configurable editing features in the [Language Configuration Guide](/api/language-extensions/language-configuration-guide).
 
-### Example
+### language example
 
 ```json
 ...
@@ -286,13 +294,15 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 - `variables` introduces substitution variables and binds them to commands implemented by the debugger extension.
 - `languages` those languages for which the debug extension could be considered the "default debugger".
 - `adapterExecutableCommand` the command ID where the debug adapters executable path and arguments are dynamically calculated. The command returns a structure with this format:
+
   ```json
   command: "<executable>",
   args: [ "<argument1>", "<argument2>", ... ]
   ```
-  The attribute `command` must be a either an absolute path to an executable or a name of executable looked up via the PATH environment variable. The special value `node` will be mapped to VS Code's built-in node runtime without being looked up on the PATH.
 
-### Example
+  The attribute `command` must be either an absolute path to an executable or a name of executable looked up via the PATH environment variable. The special value `node` will be mapped to VS Code's built-in node runtime without being looked up on the PATH.
+
+### debugger example
 
 ```json
 "contributes": {
@@ -369,7 +379,7 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 
 > **Note:** The file containing the grammar can be in JSON (filenames ending in .json) or in XML plist format (all other files).
 
-### Example
+### grammar example
 
 ```json
 "contributes": {
@@ -393,7 +403,7 @@ See the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide
 
 Contribute a TextMate theme to VS Code. You must specify a label, whether the theme is a dark theme or a light theme (such that the rest of VS Code changes to match your theme) and the path to the file (XML plist format).
 
-### Example
+### theme example
 
 ```json
 "contributes": {
@@ -447,7 +457,7 @@ Contribute a view to VS Code. You must specify an identifier and name for the vi
 - `test`: Test view container in the Activity Bar
 - [Custom view containers](#contributes.viewsContainers) contributed by Extensions.
 
-When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (e.g. `onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value.
+When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (`onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value.
 
 ```json
 "contributes": {
@@ -469,7 +479,7 @@ Extension writers should create a [TreeView](/api/references/vscode-api#TreeView
 
 ## contributes.viewsContainers
 
-Contribute a view container into which [Custom views](#contributes.views) can be contributed. You must specify an identifier, title and an icon for the view container. At present, you can contribute them to the Activity Bar (`activitybar`) only. Below example shows how the `Package Explorer` view container is contributed to the Activity Bar and how views are contributed to it.
+Contribute a view container into which [Custom views](#contributes.views) can be contributed. You must specify an identifier, title, and an icon for the view container. At present, you can contribute them to the Activity Bar (`activitybar`) only. Below example shows how the `Package Explorer` view container is contributed to the Activity Bar and how views are contributed to it.
 
 ```json
 "contributes": {
@@ -499,9 +509,9 @@ Contribute a view container into which [Custom views](#contributes.views) can be
 
 ![Custom views container](images/contribution-points/custom-views-container.png)
 
-**Icon specifications**
+### Icon specifications
 
-- `Size:` Icons are 28x28 centered on a 50x40 block.
+- `Size:` Icons should be 28x28 and centered.
 - `Color:` Icons should use a single monochrome color.
 - `Format:` It is recommended that icons be in SVG, though any image file type is accepted.
 - `States:` All icons inherit the following state styles:
@@ -560,7 +570,7 @@ Contributes named problem patterns that can be used in problem matchers (see abo
 
 ## contributes.taskDefinitions
 
-Contributes and defines an object literal structures that allows to uniquely identify a contributed task in the system. A task definition has at minimum a `type` property but it usually defines additional properties. For example a task definition for a task representing a script in a package.json file looks like this:
+Contributes and defines an object literal structure that allows to uniquely identify a contributed task in the system. A task definition has at minimum a `type` property but it usually defines additional properties. For example a task definition for a task representing a script in a package.json file looks like this:
 
 ```json
 "taskDefinitions": [

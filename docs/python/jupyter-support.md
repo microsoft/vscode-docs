@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Jupyter Support
 ContentId: 779b7ad3-0aaa-4632-9998-0d8f964c0599
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 01/30/2019
+DateApproved: 04/18/2019
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -25,13 +25,19 @@ You define Jupyter-like code cells within Python code using a `#%%` comment:
 #%%
 msg = "Hello World"
 print(msg)
+
+#%%
+msg = "Hello again"
+print(msg)
 ```
 
-When the Python extension detects a code cell, it adds a **Run Cell** or **Run All Cells** CodeLens above the comment:
+When the Python extension detects a code cell, it adds **Run Cell** and **Run Below** CodeLens adornments, as well as **Run Above** for all cells after the first:
 
 ![Jupyter adornments for code cells in the VS Code editor](images/jupyter/code-cells-01.png)
 
-Selecting either command starts Jupyter (if necessary, which might take a minute), then runs the cell(s) in the Python interactive window.
+**Run Cell** applies to only the one code cell. **Run Below** applies to that code cell and all that follow. **Run Above** applies to all the code cells up to, but not including, the cell with the adornment. You would use **Run Above**, for example, to initialize the state of the runtime environment before running that specific cell.
+
+Selecting a command starts Jupyter (if necessary, which might take a minute), then runs the appropriate cell(s) in the Python interactive window:
 
 ![Code cells running in a Python Interactive window](images/jupyter/code-cells-02.png)
 
@@ -39,11 +45,23 @@ You can also run code cells using the **Python: Run Selection/Line in Python Ter
 
 ### Python interactive window
 
-The Python interactive window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells).
+The Python interactive window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells). The window also supports [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/).
 
 To use the window as a console, open it with the **Python: Show Python Interactive window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
 
 To use the window with a file, use the **Run Current File in Python Interactive window** command from the Command Palette.
+
+## Variable explorer and data viewer
+
+Within the Python interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By expanding the **Variables** section after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code. Clicking on each column header will allow you to sort the variables in the table.
+
+![Variable Explorer](images/jupyter/jupyter-variable-explorer.png)
+
+For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
+
+![Data Viewer](images/jupyter/jupyter-data-viewer.png)
+
+> **Note:** Variable explorer is enabled by default, but can be turned off in settings (Python > Data Science: Show Jupyter Variable Explorer).
 
 ## Connect to a remote Jupyter server
 

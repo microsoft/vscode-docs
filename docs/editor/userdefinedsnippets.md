@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Creating snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Creating your own snippets in Visual Studio Code
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Creating your own snippets
@@ -19,7 +19,7 @@ The snippet syntax follows the [TextMate snippet syntax](https://manual.macromat
 
 ## Add snippets from the Marketplace
 
-Many [extensions](/docs/editor/extension-gallery.md) on the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode) include snippets.  If you find one you want to use, install it and restart VS Code and the new snippet will be available (see [here](/docs/editor/extension-gallery.md#browse-and-install-extensions) for more instructions on installing an extension).
+Many [extensions](/docs/editor/extension-gallery.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets.  If you find one you want to use, install it and restart VS Code and the new snippet will be available (see [Extension Marketplace](/docs/editor/extension-gallery.md#browse-and-install-extensions) for more instructions on installing an extension).
 
 Below are some popular extensions which include snippets in their language support:
 
@@ -51,7 +51,7 @@ Snippets are defined in a JSON format. The example below is a `For Loop` snippet
 
 In the example above:
 
-* `For Loop` is the snippet name.
+* `For_Loop` is the snippet name.
 * `prefix` defines how this snippet is selected from IntelliSense and tab completion. In this case `for`.
 * `body` is the content and either a single string or an array of strings of which each element will be inserted as separate line.
 * `description` is the description used in the IntelliSense drop down.
@@ -60,7 +60,7 @@ The example above has two placeholders, `${1:array}` and `${2:element}`. You can
 
 ### Snippet filenames
 
-The file type and name define if a snippet is global or specific to a language. Snippets stored in a JSON file that is named after a [language identifier](/docs/languages/identifiers.md) (`<languageId>.json`) are language specific. For example, JavaScript-only snippets go in a `javascript.json` file.
+The file type and name define if a snippet is global or specific to a language. Snippets stored in a JSON file that is named after a [language identifier](/docs/languages/identifiers.md) (`<languageId>.json`) are language-specific. For example, JavaScript-only snippets go in a `javascript.json` file.
 
 ### Global snippets
 
@@ -99,7 +99,7 @@ Placeholders are tabstops with values, like `${1:foo}`. The placeholder text wil
 
 ### Choice
 
-Placeholders can have choices as values. The syntax is a comma separated enumeration of values, enclosed with the pipe-character, for example `${1|one,two,three|}`. When the snippet is inserted and the placeholder selected, choices will prompt the user to pick one of the values.
+Placeholders can have choices as values. The syntax is a comma-separated enumeration of values, enclosed with the pipe-character, for example `${1|one,two,three|}`. When the snippet is inserted and the placeholder selected, choices will prompt the user to pick one of the values.
 
 ### Variables
 
@@ -117,6 +117,7 @@ The following variables can be used:
 * `TM_DIRECTORY` The directory of the current document
 * `TM_FILEPATH` The full file path of the current document
 * `CLIPBOARD` The contents of your clipboard
+* `WORKSPACE_NAME` The name of the opened workspace or folder
 
 For inserting the current date and time:
 
@@ -194,7 +195,7 @@ Example | Output | Explanation
 
 ### Grammar
 
-Below is the EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus-Naur_form)) for snippets. With `\` (backslash), you can escape `$`, `}` and `\`. Within choice elements, the backslash also escapes comma and pipe characters.
+Below is the EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus-Naur_form)) for snippets. With `\` (backslash), you can escape `$`, `}`, and `\`. Within choice elements, the backslash also escapes comma and pipe characters.
 
 ```
 any         ::= tabstop | placeholder | choice | variable | text
@@ -240,7 +241,7 @@ You can create custom [keybindings](/docs/getstarted/keybindings.md) to insert s
 
 The keybinding will invoke the **Insert Snippet** command but instead of prompting you to select a snippet, it will insert the provided snippet. You define the custom [keybinding](/docs/getstarted/keybindings.md) as usual with a keyboard shortcut, command id, and optional [when clause context](/docs/getstarted/keybindings.md#when-clause-contexts) for when the keyboard shortcut is enabled.
 
-Also, instead of using the `snippet` argument value to define your snippet inline, you can reference an existing snippet by using the `langId` and `name` arguments :
+Also, instead of using the `snippet` argument value to define your snippet inline, you can reference an existing snippet by using the `langId` and `name` arguments:
 
 ```json
 {

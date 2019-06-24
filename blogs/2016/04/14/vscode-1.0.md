@@ -43,13 +43,13 @@ Of course, to build the editor we needed a development tool. Developers know tha
 
 But we strived to go further. We wanted to build a native development tool that developers could install and use anywhere, for any source code. And, from our experience, we believed that it was important to not just have an editor, but one that could help developers accomplish their most common tasks: navigating code, debugging, and working with Git.  And, so, Visual Studio Code was born.
 
-Being built on web technologies made it easy to host the tool in a native cross-platform shell. We decided early on to use, and contribute to, a number of open source technologies – including GitHub’s great Electron shell, which combines web and native UI with a Node.js API. In just a few short months, we were able to release the [first preview](https://blogs.msdn.microsoft.com/somasegar/2015/04/29/introducing-visual-studio-code-visual-studio-2015-rc-application-insights-public-preview-and-net-core-preview-for-linux-and-ma) of Visual Studio Code at //build/ 2015.
+Being built on web technologies made it easy to host the tool in a native cross-platform shell. We decided early on to use, and contribute to, a number of open-source technologies – including GitHub’s great Electron shell, which combines web and native UI with a Node.js API. In just a few short months, we were able to release the [first preview](https://blogs.msdn.microsoft.com/somasegar/2015/04/29/introducing-visual-studio-code-visual-studio-2015-rc-application-insights-public-preview-and-net-core-preview-for-linux-and-ma) of Visual Studio Code at //build/ 2015.
 
 The initial response to a code editor running on OS X, Windows, and Linux was overwhelmingly positive, even with two fundamental gaps in the offering – extensibility and open development.
 
 Keeping our principle of using VS Code the way our customers do, we decided that the best way to deliver a rich and stable API was to build VS Code using the same API we would expose to extension developers. In fact, the core language services for JavaScript and TypeScript are actually extensions that just happen to be bundled with the distribution. Today, we use VS Code to build and debug VS Code, its extensions, and Node-based services. The same rich TypeScript editing, navigation, and debugging experiences we enjoy when building VS Code are available to everyone developing an extension for VS Code. Six months after our initial preview release, we declared VS Code to be Beta quality at Connect(); 2015, with a full extensibility model, and support in the new Visual Studio Marketplace.
 
-And at the same time, we open-sourced the VS Code [repository](https://github.com/Microsoft/vscode) and many of our own extensions, and moved to developing Visual Studio Code in the open.
+And at the same time, we open sourced the VS Code [repository](https://github.com/Microsoft/vscode) and many of our own extensions, and moved to developing Visual Studio Code in the open.
 
 ![timeline graphic](timeline.png)
 

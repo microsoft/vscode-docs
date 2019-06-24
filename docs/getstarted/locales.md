@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Display Language
 PageTitle: Visual Studio Code Display Language (Locale)
 ContentId: 413A7FA3-94F8-4FCB-A4A3-F4C1E77EF716
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: How to change the display language (locale) of Visual Studio Code.
 ---
 # Display Language
@@ -19,30 +19,24 @@ After installing the Language Pack extension and following the prompt to restart
 
 ## Changing the Display Language
 
-You can also override the default UI language by explicitly setting the VS Code display language. The **Configure Display Language** command creates a `locale.json` file in your user VS Code folder where you can set the `locale` attribute to your preferred locale.
+You can also override the default UI language by explicitly setting the VS Code display language using the **Configure Display Language** command.
 
 Press `kb(workbench.action.showCommands)` to bring up the **Command Palette** then start typing "display" to filter and display the **Configure Display Language** command.
 
 ![configure display language command ](images/locales/configure-language-command.png)
 
-Press `kbstyle(Enter)` and a `locale.json` file is created with the default value set to your operating system language. You can use IntelliSense (`kb(editor.action.triggerSuggest)`) to select a different supported language locale.
+Press `kbstyle(Enter)` and a list of installed languages by [locale](#available-locales) is displayed, with the current `locale` highlighted.
 
-![locale IntelliSense](images/locales/locale-intellisense.png)
+![installed languages list](images/locales/installed-languages-list.png)
 
-Save `locale.json` and restart VS Code to use the new display language.
+Use the "Install additional languages..." option to install more Language Packs from the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Downloads), or select a different `locale` from the list. Changing the `locale` requires a restart of VS Code. You will be prompted to restart when you select a `locale`.
 
-The example below sets VS Code to display Simplified Chinese `zh-CN`:
+The **Configure Display Language** command creates a `locale.json` file in your user VS Code folder. Depending on your platform, the `locale.json` file is located here:
+* **Windows** `%APPDATA%\Code\User\locale.json`
+* **macOS** `$HOME/Library/Application Support/Code/User/locale.json`
+* **Linux** `$HOME/.config/Code/User/locale.json`
 
-```json
-{
-    // Defines VS Code's display language.
-    "locale":"zh-CN"
-}
-```
-
-You can rerun the **Configure Display Language** command to review and change your `locale.json` file.
-
->**Note:** Changing the `locale` value requires a restart of VS Code.
+The `locale` can also be changed by editing this file and restarting VS Code.
 
 ## Available locales
 
@@ -75,15 +69,15 @@ You can have multiple Language Packs installed and select the current display la
 
 ## Setting the Language
 
-If you want to use a specific language for a VS Code session, you can use the command line switch `--locale` to specify a locale when you launch VS Code.
+If you want to use a specific language for a VS Code session, you can use the command-line switch `--locale` to specify a locale when you launch VS Code.
 
-Below is an example of using the `--locale` command line switch to set the VS Code display language to French:
+Below is an example of using the `--locale` command-line switch to set the VS Code display language to French:
 
 ```bash
 code . --locale=fr
 ```
 
-**Note**: You must have the appropriate Language Pack installed for the language you specify with the command line switch. If the matching Language Pack is not installed, VS Code will display English.
+**Note**: You must have the appropriate Language Pack installed for the language you specify with the command-line switch. If the matching Language Pack is not installed, VS Code will display English.
 
 ## Common questions
 

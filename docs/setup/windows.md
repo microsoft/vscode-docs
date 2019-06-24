@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Visual Studio Code on Windows
@@ -21,9 +21,15 @@ Alternatively, you can also download a [Zip archive](/docs/?dv=winzip), extract 
 
 >**Tip:** Setup will add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
 
-## 32 bit versions
+## User versus system setup
 
-If you need to run a 32 bit version of VS Code, both a 32 bit [Installer](https://go.microsoft.com/fwlink/?LinkId=723965) and [Zip archive](https://go.microsoft.com/fwlink/?LinkID=733265) are available.
+VS Code provides both Windows user and system level setups. Installing the user setup does not require Administrator privileges as the location will be under your user Local AppData (LOCALAPPDATA) folder. User setup also provides a smoother background update experience.
+
+The system setup requires elevation to Administrator privileges and will place the installation under Program Files.
+
+## 32-bit versions
+
+If you need to run a 32-bit version of VS Code, both a 32-bit [Installer](https://go.microsoft.com/fwlink/?LinkId=723965) and [Zip archive](https://go.microsoft.com/fwlink/?LinkID=733265) are available.
 
 ## Updates
 
@@ -35,17 +41,17 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 Once you have installed VS Code, these topics will help you learn more about VS Code:
 
-* [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
+* [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript, and tools like Yeoman.
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.
 * [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Lets you jump right in and learn how to be productive with VS Code.
 
 ## Common questions
 
-### What command line arguments are supported by the Windows Setup?
+### What command-line arguments are supported by the Windows Setup?
 
 VS Code uses [Inno Setup](http://www.jrsoftware.org/isinfo.php) to create its setup package
-for Windows. Thus, all the [Inno Setup command line switches](http://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available for use.
+for Windows. Thus, all the [Inno Setup command-line switches](http://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available for use.
 
 Additionally, you can prevent the Setup from launching VS Code after completion with `/mergetasks=!runcode`.
 

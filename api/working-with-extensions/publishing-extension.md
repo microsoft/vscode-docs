@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -9,7 +9,7 @@ MetaDescription: Learn how to publish Visual Studio Code extensions to the publi
 
 # Publishing Extension
 
-Once you have made a high-quality extension, you can publish it to the [VS Code Extension MarketPlace](https://marketplace.visualstudio.com/vscode) so others could find, download and use your extension. Alternatively, you can [package](#packaging-extensions) an extension into the installable VSIX format and share it with other users.
+Once you have made a high-quality extension, you can publish it to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode) so others can find, download and use your extension. Alternatively, you can [package](#packaging-extensions) an extension into the installable VSIX format and share it with other users.
 
 This topics covers:
 
@@ -19,7 +19,7 @@ This topics covers:
 
 ## vsce
 
-[vsce](https://github.com/Microsoft/vsce), short for "Visual Studio Code Extensions", is a command line tool for packaging, publishing and managing VS Code extensions.
+[vsce](https://github.com/Microsoft/vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
 
 ### Installation
 
@@ -131,6 +131,9 @@ You can also specify a complete SemVer compatible version on the command line:
 ```bash
 vsce publish 2.0.1
 ```
+
+>  **Note:** If `vsce publish` is run in a git repo, it will also create a version commit and tag via [npm-version](https://docs.npmjs.com/cli/version#description).  The default commit message will be extension's version, but you can supply a custom commit message using the `-m` flag.  (The current version can be referenced from
+the commit message with `%s`.)
 
 ## Unpublishing extensions
 

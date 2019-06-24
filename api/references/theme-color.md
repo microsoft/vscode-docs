@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -192,7 +192,8 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
 - `editorGroup.emptyBackground`: Background color of an empty editor group.
 - `editorGroup.focusedEmptyBorder`: Border color of an empty editor group that is focused.
-- `tab.activeBackground`: Active Tab background color.
+- `tab.activeBackground`: Active Tab background color in an active group.
+- `tab.unfocusedActiveBackground`: Active Tab background color in an inactive editor group.
 - `tab.activeForeground`: Active Tab foreground color in an active group.
 - `tab.border`: Border to separate Tabs from each other.
 - `tab.activeBorder`: Bottom border for the active tab.
@@ -329,13 +330,13 @@ This ruler is located beneath the scroll bar on the right edge of the editor and
 Errors and warnings:
 
 - `editorError.foreground`: Foreground color of error squiggles in the editor.
-- `editorError.border`: Border color of error squiggles in the editor.
+- `editorError.border`: Border color of error boxes in the editor.
 - `editorWarning.foreground`: Foreground color of warning squiggles in the editor.
-- `editorWarning.border`: Border color of warning squiggles in the editor.
+- `editorWarning.border`: Border color of warning boxes in the editor.
 - `editorInfo.foreground`: Foreground color of info squiggles in the editor.
-- `editorInfo.border`: Border color of info squiggles in the editor.
+- `editorInfo.border`: Border color of info boxes in the editor.
 - `editorHint.foreground`: Foreground color of hints in the editor.
-- `editorHint.border`: Border color of hints in the editor.
+- `editorHint.border`: Border color of hint boxes in the editor.
 
 Unused source code:
 
@@ -452,8 +453,11 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBar.noFolderBorder`: Status Bar border color separating the Status Bar and editor when no folder is opened.
 - `statusBarItem.activeBackground`: Status Bar item background color when clicking.
 - `statusBarItem.hoverBackground`: Status Bar item background color when hovering.
-- `statusBarItem.prominentBackground`: Status Bar prominent items background color. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
-- `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
+- `statusBarItem.prominentForeground`: Status Bar prominent items foreground color.
+- `statusBarItem.prominentBackground`: Status Bar prominent items background color.
+- `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering.
+
+Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
 
 ## Title Bar colors
 

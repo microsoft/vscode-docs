@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -19,7 +19,9 @@ Lots of tools exist to automate tasks like linting, building, packaging, testing
 
 ![VS Code can talk to a variety of external tools](images/tasks/tasks_hero.png)
 
-These tools are mostly run from the command line and automate jobs inside and outside the inner software development loop (edit, compile, test, and debug). Given their importance in the development life-cycle, it is very helpful to be able to run tools and analyze their results from within VS Code.
+These tools are mostly run from the command line and automate jobs inside and outside the inner software development loop (edit, compile, test, and debug). Given their importance in the development life-cycle, it is very helpful to be able to run tools and analyze their results from within VS Code. Tasks in VS Code can be configured to run scripts and start processes so that many of these existing tools can be used from within VS Code without having to enter a command line or write new code. Workspace or folder specific tasks are configured from the `tasks.json` file in the `.vscode` folder for a workspace.
+
+Extensions can also contribute tasks using a [Task Provider](/api/extension-guides/task-provider.md), and these contributed tasks can add workspace-specific configurations defined in the `tasks.json` file.
 
 >**Note:** Task support is only available when working on a workspace folder. It is not available when editing single files.
 
@@ -171,7 +173,7 @@ The task's properties have the following semantic:
 - **windows**: Any Windows specific properties. Will be used instead of the default properties when the command is executed on the Windows operating system.
 - **group**: Defines to which group the task belongs. In the example, it belongs to the `test` group. Tasks that belong to the test group can be executed by running **Run Test Task** from the **Command Palette**.
 - **presentation**: Defines how the task output is handled in the user interface. In this example, the Integrated Terminal showing the output is `always` revealed and a `new` terminal is created on every task run.
-- **options**: Override the defaults for `cwd` (current working directory), `env` (environment variables), or `shell` (default shell). Options can be set per task but also globally or per platform.
+- **options**: Override the defaults for `cwd` (current working directory), `env` (environment variables), or `shell` (default shell). Options can be set per task but also globally or per platform. Environment variables configured here can only be referenced from within your task script or process and will not be resolved if they are part of your args, command, or other task attributes.
 - **runOptions**: Defines when and how a task is run.
 
 To see the full set of task properties and values, you can review the [tasks.json schema](/docs/editor/tasks-appendix.md).
@@ -518,6 +520,29 @@ Task properties can also be defined in the global scope. If present, they will b
 }
 ```
 
+### Character escaping in PowerShell
+
+When the default shell is PowerShell, or when a task is configured to use PowerShell, you might see unexpected space and quote escaping. The unexpected escaping only occurs with cmdlets because VS Code doesn’t know if your command contains cmdlets. Example 1 below shows a case where you’ll get escaping that doesn’t work with PowerShell. Example 2 shows the best, cross-platform, way to get good escaping. In some cases, you might not be able to follow example 2 and you’ll need to do the manual escaping show in example 3.
+
+```json
+{
+	"label": "PowerShell example 1 (unexpected escaping)",
+	"type": "shell",
+	"command": "Get-ChildItem \"Folder With Spaces\""
+},
+{
+	"label": "PowerShell example 2 (expected escaping)",
+	"type": "shell",
+	"command": "Get-ChildItem",
+	"args": ["Folder With Spaces"]
+},
+{
+	"label": "PowerShell example 3 (manual escaping)",
+	"type": "shell",
+	"command": "& Get-ChildItem \\\"Folder With Spaces\\\""
+}
+```
+
 ## Changing the encoding for a task output
 
 Tasks frequently act with files on disk. If these files are stored on disk with an encoding different than the system encoding you need to let the command executed as a task know which encoding to use. Since this depends on the operating system and the shell used there is no general solution to control this. Below some advice and examples on how to make it work.
@@ -706,7 +731,7 @@ The pattern's first regular expression will match "test.js", the second "1:0  er
 
 To make this work, the last regular expression of a multiline pattern can specify the `loop` property. If set to true, it instructs the task system to apply the last pattern of a multiline matcher to the lines in the output as long as the regular expression matches.
 
-The information captured by all previous patterns is combined with the information captured by the last pattern and turned into a problem inside VS Code.
+The information captured by the first pattern, which in this case matches `test.js`, will be combined with each of the subsequent lines that match the `loop` pattern to create multiple problems. In this example, six problems would be created.
 
 Here is a problem matcher to fully capture ESLint stylish problems:
 

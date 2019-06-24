@@ -67,7 +67,6 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 | --- | --- |
 | The path to the python interpreter is incorrect | Check the `pythonPath` setting. Restart VS Code if you make a correction. |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
-| VS Code was not launched from the active virtual environment that would set the path to custom modules. | Launch VS Code from a command prompt with the correct virtual environment activated, for example: `(venv) terminal:~$ code`. |
 
 ## Run Selection/Line in Terminal (REPL)
 
@@ -85,7 +84,7 @@ On first use of the **Python: Run Selection/Line in Python Terminal** command, V
 
 Formatting makes code easier to read by human beings by applying specific rules and conventions for line spacing, indents, spacing around operators, and so on (see an example on the [autopep8](https://pypi.org/project/autopep8/) page). Formatting doesn't affect the functionality of the code itself. ([Linting](/docs/python/linting.md), on the other hand, analyzes code for common syntactical, stylistic, and functional errors as well as unconventional programming practices that can lead to errors. Although there is a little overlap between formatting and linting, the two capabilities are complementary.)
 
-The Python extension supports source code formatting using either [autopep8](https://pypi.org/project/autopep8/) (the default), [black](https://github.com/ambv/black), or [yapf](https://github.com/google/yapf).
+The Python extension supports source code formatting using either [autopep8](https://pypi.org/project/autopep8/) (the default), [black](https://github.com/python/black), or [yapf](https://github.com/google/yapf).
 
 ### General formatting settings
 

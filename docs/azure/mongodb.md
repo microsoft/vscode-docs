@@ -5,7 +5,7 @@ TOCTitle: MongoDB
 PageTitle: Working with MongoDB in Visual Studio Code
 ContentId: d1187f99-354f-4798-9c19-e432e4ae8572
 MetaDescription: Working with MongoDB in Visual Studio Code
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 ---
 # Working with MongoDB
 
@@ -63,7 +63,7 @@ You can easily host your MongoDB databases in the cloud on Azure with [Cosmos DB
 
 ### Azure sign in
 
-The Cosmos DB extension includes the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension which allows you to sign into Azure. If you don't have an Azure Subscription, you can [sign up today](https://azure.microsoft.com/en-us/free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
+The Cosmos DB extension includes the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension which allows you to sign into Azure. If you don't have an Azure Subscription, you can [sign up today](https://azure.microsoft.com/free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
 To log into Azure, use the **Sign in to Azure** command in the Cosmos DB Explorer or **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign into your account using the Device Login flow. Click on **Copy & Open** to open your default browser.
 

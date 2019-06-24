@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Version Control
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Version Control in Visual Studio Code
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: Visual Studio Code source code support with integrated Git support.
 ---
 # Using Version Control in VS Code
@@ -31,7 +31,7 @@ If you would like to install an additional SCM provider, you can search on the *
 
 VS Code ships with a Git source control manager (SCM) extension. Most of the source control UI and work flows are common across other SCM extensions so reading about the Git support will help you understand how to use another provider.
 
->**Note:** If you are new to Git, the [git-scm](https://git-scm.com/documentation) website is a good place to start with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
+>**Note:** If you are new to Git, the [git-scm](https://git-scm.com/documentation) website is a good place to start with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
 
 ![Git overview](images/versioncontrol/overview.png)
 
@@ -205,7 +205,7 @@ Visual Studio Code also supports pull request workflows through [extensions](/do
 
 ### I initialized my repo but the actions in the `...` menu are all grayed out
 
-To **push, pull, and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you need to add it to the Git settings by running a couple of command line actions. For example:
+To **push, pull, and sync** you need to have a Git origin set up.  You can get the required URL from the repository host.  Once you have that URL, you need to add it to the Git settings by running a couple of command-line actions. For example:
 
 ```bash
 > git remote add origin https://github.com/<repo owner>/<repo name>.git
@@ -240,4 +240,4 @@ Another option is to disable the auto fetch feature by changing the following se
 
 ### Can I use SSH Git authentication with VS Code?
 
-Yes, though VS Code works most easily with SSH keys without a passphrase. If you have a SSH key with a passphrase, you'll need to launch VS Code from a Git Bash prompt to inherit its SSH environment.
+Yes, though VS Code works most easily with SSH keys without a passphrase. If you have an SSH key with a passphrase, you'll need to launch VS Code from a Git Bash prompt to inherit its SSH environment.

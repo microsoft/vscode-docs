@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 26f0c0d6-1ea8-4cc1-bd10-9fa744056e7c
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Bundling Visual Studio Code extensions (plug-ins) with webpack.
@@ -15,7 +15,7 @@ For JavaScript, different bundlers are available. Popular ones are [rollup.js](h
 
 ## Using webpack
 
-Webpack is a development tool that's available from [npm](https://www.npmjs.com). To acquire webpack and its command-line interface, open the terminal and type:
+Webpack is a development tool that's available from [npm](https://www.npmjs.com). To acquire webpack and its command line interface, open the terminal and type:
 
 ```bash
 npm i --save-dev webpack webpack-cli
@@ -81,7 +81,7 @@ In the sample above, the following are defined:
 
 ## Run webpack
 
-With the `webpack.config.js` file created, webpack can be invoked. You can run webpack from the command-line but to reduce repetition, using npm scripts is helpful.
+With the `webpack.config.js` file created, webpack can be invoked. You can run webpack from the command line but to reduce repetition, using npm scripts is helpful.
 
 Merge these entries into the `scripts` section in `package.json`:
 
@@ -135,7 +135,7 @@ node_modules
 out/
 src/
 tsconfig.json
-webpack.config.json
+webpack.config.js
 ```
 
 ## Migrate an existing extension

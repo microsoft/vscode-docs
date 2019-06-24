@@ -46,7 +46,7 @@ It also enables a given language server to be implemented once and have differen
 
 ## Open Specification
 
-The complete specification for this protocol is available in a [public GitHub repository](https://github.com/Microsoft/language-server-protocol), as is a [history of how the protocol has evolved](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-History) to date. As it continues to be adopted by more languages and tools, we intend to support and evolve the protocol, along with partners like Red Hat, Codenvy, and others in the open source community. Anyone can ask questions, file issues, or submit pull requests on the repo, just like any other open source project.
+The complete specification for this protocol is available in a [public GitHub repository](https://github.com/Microsoft/language-server-protocol), as is a [history of how the protocol has evolved](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-History) to date. As it continues to be adopted by more languages and tools, we intend to support and evolve the protocol, along with partners like Red Hat, Codenvy, and others in the open-source community. Anyone can ask questions, file issues, or submit pull requests on the repo, just like any other open-source project.
 
 ## What's Next
 

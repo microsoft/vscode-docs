@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -46,7 +46,7 @@ Below are links to the three platform-specific versions:
 
 If you have many extensions installed or you have [customized](/docs/getstarted/keybindings.md#advanced-customization) your keyboard shortcuts, you can sometimes have keybinding conflicts where the same keyboard shortcut is mapped to several commands. This can result in confusing behavior, especially if different keybindings are going in and out of scope as you move around the editor.
 
-The **Keyboard Shortcuts** editor has a context menu command **Show Conflicts**, which will filter the keybindings based on a keyboard shortcut to display conflicts.
+The **Keyboard Shortcuts** editor has a context menu command **Show Same Keybindings**, which will filter the keybindings based on a keyboard shortcut to display conflicts.
 
 ![show keybinding conflicts menu](images/keybinding/show-conflicts-menu.png)
 
@@ -270,7 +270,7 @@ notificationFocus | Notification has keyboard focus.
 notificationCenterVisible | Notification Center is visible at the bottom right of VS Code.
 notificationToastsVisible | Notification toast is visible at the bottom right of VS Code.
 searchViewletVisible | Search view is open.
-sidebarVisible | Side Bar is displayed.
+sideBarVisible | Side Bar is displayed.
 sideBarFocus | Side Bar has focus.
 panelFocus | Panel has focus.
 editorIsOpen | True if one editor is open.
@@ -446,7 +446,7 @@ Key|Command|Command id
 `kb(workbench.actions.view.problems)`|Show Problems|`workbench.actions.view.problems`
 `kb(editor.action.marker.nextInFiles)`|Go to Next Error or Warning|`editor.action.marker.nextInFiles`
 `kb(editor.action.marker.prevInFiles)`|Go to Previous Error or Warning|`editor.action.marker.prevInFiles`
-`kb(workbench.action.showCommands)`|Show All Commands|`workbench.action.showCommands`
+`kb(workbench.action.showCommands)` or `kbstyle(F1)`|Show All Commands|`workbench.action.showCommands`
 `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Navigate Editor Group History|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
 `kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`
 `kb(workbench.action.quickInputBack)`|Go back in Quick Input|`workbench.action.quickInputBack`

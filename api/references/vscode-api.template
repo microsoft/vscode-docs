@@ -1,10 +1,10 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 
-VSCodeCommitHash: 2380981c97a07816a3d1c10edf1fb678463dc215
-VSCodeVersion: 1.32.0
+VSCodeCommitHash: a429fd13565d3392c87e31228ec9e8a2bf3708d5
+VSCodeVersion: 1.35.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code extensions (plug-in) API Reference.
@@ -13,6 +13,12 @@ MetaDescription: Visual Studio Code extensions (plug-in) API Reference.
 # VS Code API
 
 **VS Code API** is a set of JavaScript APIs that you can invoke in your Visual Studio Code extension. This page lists all VS Code APIs available to extension authors.
+
+## API namespaces and classes
+
+This listing is compiled from the [`vscode.d.ts`](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts) file from the VS Code repository.
+
+{$ Content $}
 
 ## API Patterns
 
@@ -66,9 +72,3 @@ An example from the VS Code API is `window.onDidChangeActiveTextEditor` which is
 ### Strict null
 
 The VS Code API uses the `undefined` and `null` TypeScript types where appropriate to support [strict null checking](https://github.com/Microsoft/TypeScript/pull/7140).
-
-## API Listing
-
-This listing is compiled from the [`vscode.d.ts`](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts) file from the VS Code repository.
-
-{$ Content $}

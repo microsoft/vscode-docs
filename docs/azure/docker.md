@@ -4,7 +4,7 @@ Area: azure
 TOCTitle: Docker
 ContentId: 42F8B9F8-BD03-4159-9479-17C5BDE30531
 PageTitle: Working with Docker in Visual Studio Code
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: Working with Docker containers in Visual Studio Code.
 ---
 # Working with Docker
@@ -109,7 +109,7 @@ You can control specific linting rules to either be a warning, error, or ignored
 
 ## Deploying images to Azure App Service
 
-With the Docker Explorer, you can deploy images from Docker Hub or Azure Container Registries, directly to an Azure App Service instance. This functionality requires installing the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension and an Azure Subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com/en-us/free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
+With the Docker Explorer, you can deploy images from Docker Hub or Azure Container Registries, directly to an Azure App Service instance. This functionality requires installing the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension and an Azure Subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com/free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
 To log into Azure, use the **Azure: Sign In** command from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign into your account using the Device Login flow. Click on **Copy & Open** to open your default browser.
 

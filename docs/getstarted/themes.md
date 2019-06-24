@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Color Themes
@@ -72,7 +72,7 @@ A pre-configured set of syntax tokens ('comments', 'strings', ...) is available 
 
 ![Advanced Token Color Customization](images/themes/token_color_customization_advanced.png)
 
->**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work. Go [here](/api/extension-guides/color-theme.md) for more information.
+>**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work. Go to the [Color Theme guide](/api/extension-guides/color-theme.md) for more information.
 
 Again, to customize a specific theme only, use the following syntax:
 

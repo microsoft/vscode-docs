@@ -4,14 +4,14 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/Languages_typescript.png
 ---
 
 # TypeScript in Visual Studio Code
 
-[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The TypeScript language specification can be found [here](https://github.com/Microsoft/TypeScript/tree/master/doc).
+[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The [TypeScript language specification](https://github.com/Microsoft/TypeScript/tree/master/doc) has full details about the language.
 
 ![Working with TypeScript in Visual Studio Code](images/typescript/overview.png)
 
@@ -249,7 +249,7 @@ The `typescript.updateImportsOnFileMove.enabled` setting controls this behavior.
 
 ## Debugging
 
-VS Code comes with great debugging support for TypeScript, including support for sourcemaps. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See more about debugging [here](/docs/editor/debugging.md).
+VS Code comes with great debugging support for TypeScript, including support for sourcemaps. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See the [Debugging topic](/docs/editor/debugging.md) to learn more.
 
 ### Debug client side
 
@@ -257,7 +257,7 @@ You can debug your client-side code using a browser debugger such as [Debugger f
 
 ### Debug server side
 
-Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can read a tutorial for Node.js debugging [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application).
+Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application) to help you.
 
 ![debug data inspection](images/javascript/debug_data_inspection.gif)
 

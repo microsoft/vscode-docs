@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8027f6fb-6c9e-4106-8ef1-f9b0ba1b7085
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Explain the structure of a Visual Studio Code extension (plug-in)
@@ -58,7 +58,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
 - `main`: The extension entry point.
 - `activationEvents` and `contributes`: [Activation Events](/api/references/activation-events) and [Contribution Points](/api/references/contribution-points).
 - `engines.vscode`: This specifies the minimum version of VS Code API that the extension depends on.
-- The `postinstall` script: This would install the 1.25 version of VS Code API as specified in `engines.vscode`. Once the `vscode.d.ts` file is downloaded to `node_modules/vscode/vscode.d.ts`, you will get IntelliSense, jump to definition and error checking for all usage of VS Code API.
+- The `postinstall` script: This would install the 1.34.0 version of VS Code API as specified in `engines.vscode`. Once the `vscode.d.ts` file is downloaded to `node_modules/vscode/vscode.d.ts`, you will get IntelliSense, jump to definition and error checking for all usage of VS Code API.
 
 ```json
 {
@@ -69,7 +69,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
   "publisher": "vscode-samples",
   "repository": "https://github.com/Microsoft/vscode-extension-samples/helloworld-sample",
   "engines": {
-    "vscode": "^1.31.0"
+    "vscode": "^1.34.0"
   },
   "categories": ["Other"],
   "activationEvents": ["onCommand:extension.helloWorld"],
@@ -87,14 +87,12 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "typescript": "^3.3.1",
-    "vscode": "^1.1.28",
-    "tslint": "^5.12.1",
-    "@types/node": "^10.12.21",
-    "@types/mocha": "^2.2.42"
+    "@types/node": "^8.10.25",
+    "@types/vscode": "^1.34.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
   }
 }
 ```

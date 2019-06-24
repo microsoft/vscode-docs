@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 3/7/2019
+DateApproved: 6/5/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -165,6 +165,7 @@ We allow badges from the following URL prefixes:
 - api.travis-ci.com
 - api.travis-ci.org
 - app.fossa.io
+- badge.buildkite.com
 - badge.fury.io
 - badge.waffle.io
 - badgen.net
@@ -183,6 +184,7 @@ We allow badges from the following URL prefixes:
 - david-dm.org
 - deepscan.io
 - dev.azure.com
+- docs.rs
 - gemnasium.com
 - githost.io
 - gitlab.com
