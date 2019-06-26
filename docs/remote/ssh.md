@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 6/5/2019
+DateApproved: 6/25/2019
 ---
 # Remote Development using SSH
 
@@ -19,27 +19,36 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ## Getting started
 
+### System Requirements
+
+**Local:** See minimum requirements for [VS Code](/docs/supporting/requirements.md).
+
+**Remote SSH Host**:
+
+- **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+. Other x86_64 `glibc` based Linux distributions should work if they have the [needed prerequisites](/docs/remote/linux.md).
+
+- **Experimental support:** ARM32 Raspbian 8+. Other ARM32 `glibc` based Linux distributions should work if they have the [needed prerequisites](/docs/remote/linux.md), but the Raspberry Pi 3 is the reference device.
+
+Set `"remote.SSH.enableExperimentalServerPlatforms":true` to enable ARM32 support. Note that some extensions installed in on ARM32 devices may not work due to x86 focused native code in the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details.
+
 ### Installation
 
 To get started you need to:
 
-1. Make sure your local OS meets the minimum requirements for [VS Code](/docs/supporting/requirements.md) and the Linux host you want to connect to [has the needed prerequisites](/docs/remote/linux.md).
-
-2. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) if one is not already present.
+1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) if one is not already present.
 
     > **Note:** PuTTY is not supported on Windows since the `ssh` command must be in the path.
 
-3. Install [Visual Studio Code](https://code.visualstudio.com/).
+2. Install [Visual Studio Code](https://code.visualstudio.com/).
 
-4. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
-
-5. [Optional] If your server requires multi-factor authentication, set `"remote.SSH.showLoginTerminal": true` in `settings.json` and enable the `ControlMaster` SSH feature. [See here for details](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods).
+3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
 ### Connect to a remote host
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
-> **Note:** The Remote - SSH extension currently only supports connecting to x86_64 Linux-based SSH servers. Alpine and other non-glibc Linux based distros not yet supported.
+> **Note:** Recent versions of x86_64 glibc-based Linux distributions like Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ Linux and related distros are fully supported. Other `glibc` based Linux distributions may work if they have the [needed prerequisites](/docs/remote/linux.md).
+> Experimental support for ARM32 devices like the Raspberry Pi 3 is available by setting `"remote.SSH.enableExperimentalServerPlatforms":true` in `settings.json`.
 
 To get started, follow these steps:
 
@@ -170,10 +179,9 @@ VS Code's local user settings are also reused when you are connected to an SSH h
 
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
 - Windows and macOS SSH hosts are **not** yet supported. (Windows and macOS clients **are** supported.)
-- Linux hosts must have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed.
+- Alpine Linux and non-glibc based Linux SSH hosts are not supported.
+- Linux distributions meet a set of [needed prerequisites](/docs/remote/linux.md) that can prevent older versions of some distributions from working.
 - PuTTY is not supported on Windows.
-- You cannot drag files out of the File Explorer to your local filesystem to copy them.
-- When installing an extension pack when connected to an SSH host, extensions may install locally instead of inside on the host. Click the **Install** button for each extension in the Local section of the extension panel to work around the issue. See [Microsoft/vscode-remote-release#11](https://github.com/Microsoft/vscode-remote-release/issues/11) for details.
 - If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 - Local proxy settings are not reused on the remote host, which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 - See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) related to SSH.
@@ -191,6 +199,8 @@ The Docker extension is configured to run as a local "UI" extension by default. 
 ### Extension limitations
 
 Many extensions will work on remote SSH hosts without modification. However, in some cases, certain features may require changes. If you run into an extension issue, there is [a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
+
+In addition, some extensions installed on ARM32 devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARM32.
 
 ## Common questions
 
