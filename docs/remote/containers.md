@@ -111,7 +111,7 @@ The steps are similar to those above:
 
 VS Code's container configuration is stored in a [`devcontainer.json`](#devcontainerjson-reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. You can also specify any extensions to install once the container is running or post-create commands to prepare the environment. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
-The **Remote-Containers: Create Container Configuration File...** command adds the file to your project, where you can further customize for your needs.
+The **Remote-Containers: Add Development Container Configuration Files...** command adds the file to your project, where you can further customize for your needs.
 
 For example, through a `devcontainer.json` file, you can:
 
@@ -134,7 +134,7 @@ Editing your container configuration is easy. Since rebuilding a container will 
 
 Here is the typical edit loop using these commands:
 
-1. Start with `kbstyle(F1)` > **Remote-Containers: Create Container Configuration File...**
+1. Start with `kbstyle(F1)` > **Remote-Containers: Add Development Container Configuration Files...**
 2. Edit the contents of the `.devcontainer` folder as required.
 3. Try it with `kbstyle(F1)` > **Remote-Containers: Reopen Folder in Container**.
 4. On failure:
@@ -338,7 +338,7 @@ This section will walk you through configuring your project for each of these si
 
 You can create a dev sandbox by selecting a base container image from a source like [DockerHub](https://hub.docker.com) and then manually installing additional software, such as Git, which may be missing.
 
-You can use the **Remote-Containers: Create Container Configuration File** command in the Command Palette (`kbstyle(F1)`) to select from a base image to get you started and customize from there.
+You can use the **Remote-Containers: Add Development Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`) to select from a base image to get you started and customize from there.
 
 > **Note:** Alpine Linux and Windows based containers are not currently supported.
 
@@ -404,7 +404,7 @@ However, note that if you **rebuild** the container, you will have to **re-insta
 
 ### Using a Dockerfile
 
-To create a customized sandbox or application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Containers: Create Container Configuration File** command in the Command Palette (`kbstyle(F1)`) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
+To create a customized sandbox or application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Containers: Add Development Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
 
 > **Note:** Alpine Linux and Windows based containers are not currently supported.
 
