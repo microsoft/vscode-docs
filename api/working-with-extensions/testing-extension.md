@@ -36,19 +36,13 @@ For example:
 ```bash
 # - Launches VS Code Extension Host
 # - Loads the extension at <EXTENSION-ROOT-PATH>
-# - Executes the test runner script at <TEST-RUNNER-PATH>
+# - Executes the test runner script at <TEST-RUNNER-SCRIPT-PATH>
 code \
 --extensionDevelopmentPath=<EXTENSION-ROOT-PATH> \
 --extensionTestsPath=<TEST-RUNNER-SCRIPT-PATH>
 ```
 
-The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts)) uses the `vscode-test` API to simplify the process of downloading, unzipping, and launching VS Code with extension test parameters.
-
-The `vscode-test` API also allows:
-
-- Launching VS Code with a specific workspace.
-- Downloading a different version of VS Code than the latest.
-- Launching VS Code with additional CLI parameters.
+The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts)) uses the `vscode-test` API to simplify the process of downloading, unzipping, and launching VS Code with extension test parameters:
 
 ```ts
 import * as path from 'path';
@@ -61,7 +55,7 @@ async function main() {
     // Passed to `--extensionDevelopmentPath`
     const extensionDevelopmentPath = path.resolve(__dirname, '../../');
 
-    // The path to the extension test script
+    // The path to the extension test runner script
     // Passed to --extensionTestsPath
     const extensionTestsPath = path.resolve(__dirname, './suite/index');
 
@@ -76,11 +70,17 @@ async function main() {
 main();
 ```
 
+The `vscode-test` API also allows:
+
+- Launching VS Code with a specific workspace.
+- Downloading a different version of VS Code rather than the latest stable release.
+- Launching VS Code with additional CLI parameters.
+
 You can find more API usage examples at [microsoft/vscode-test](https://github.com/microsoft/vscode-test).
 
 ## The test runner script
 
-When running the extension integration test, `--extensionTestsPath` points to the **test runner** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts)) that programmatically runs the test suite.
+When running the extension integration test, `--extensionTestsPath` points to the **test runner script** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts)) that programmatically runs the test suite. Below is the [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts) of `helloworld-test-sample` that uses Mocha to run the test suite. You can use this as a starting point and customize your setup with [Mocha's API](https://mochajs.org/api/mocha). You can also replace Mocha with any other test framework that can be run programmatically.
 
 ```ts
 import * as path from 'path';
@@ -178,6 +178,16 @@ Here is a sample `launch.json` debugger configuration:
 
 ## Tips
 
+### Using Insiders version for extension development
+
+Because of VS Code's limitation, if you are using VS Code stable release and try to run the integration test **on CLI**, it will throw an error:
+
+```
+Running extension tests from the command line is currently only supported if no other instance of Code is running.
+```
+
+You can either use [VS Code Insiders](https://code.visualstudio.com/insiders/) for development or launch the extension test from the debug launch config that bypasses this limitation.
+
 ### Disabling other extensions while debugging
 
 When you debug an extension test in VS Code, VS Code uses the globally installed instance of VS Code and will load all installed extensions. You can add `--disable-extensions` configuration to the `launch.json` or the `additionalLaunchArgs` option of `vscode-test`'s `runTests` API.
@@ -217,11 +227,12 @@ await runTests({
 Sometimes you might want to run custom setups, such as running `code --install-extension` to install another extension before starting your test. `vscode-test` has a more granular API to accommodate that case:
 
 ```ts
+const cp = require('child_process')
 const vscodeExecutablePath = await downloadAndUnzipVSCode('1.34.0');
 // Custom setup
-child_process.spawnSync(vscodeExecutablePath, ['--install-extension', '<PATH-TO-VSIX>']);
+cp.spawnSync(vscodeExecutablePath, ['--install-extension', '<PATH-TO-VSIX>']);
 await runTests({
-  // Use the specified `code` executable instead of downloading
+  // Use the specified `code` executable
   vscodeExecutablePath,
   extensionPath,
   testRunnerPath
@@ -232,7 +243,8 @@ await runTests({
 
 The [`vscode`](https://github.com/Microsoft/vscode-extension-vscode) module had been the default way of running extension integration tests and is being superseded by [`vscode-test`](https://github.com/microsoft/vscode-test). Here's how you can migrate from it:
 
-- Remove `vscode` dependency and add `vscode-test` dependency.
+- Remove `vscode` dependency.
+- Add `vscode-test` dependency.
 - As the old `vscode` module was also used for downloading VS Code type definition, you need to
   - Manually install `@types/vscode` that follows your `engine.vscode` in `package.json`. For example, if your `engine.vscode` is `1.30`, install `@types/vscode@1.30`.
   - Remove `"postinstall": "node ./node_modules/vscode/bin/install"` from `package.json`.
