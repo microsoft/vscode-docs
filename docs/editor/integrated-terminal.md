@@ -397,3 +397,10 @@ This error can occur due to anti-virus software intercepting winpty from creatin
 ```bash
 <install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
 ```
+
+### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
+
+
+### Virtual machines and graphics driver problems
+
+It's known that terminals can render as a mess in some environments, for example a big multi-colored triangle being shown instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by running `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.rendererType": "dom"` to avoid the canvas in the terminal.
