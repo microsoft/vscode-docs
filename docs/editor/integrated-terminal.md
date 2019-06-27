@@ -274,7 +274,7 @@ You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-
 
 ### Can I use Cygwin's shell with the terminal on Windows?
 
-Yes, to use the [Cygwin](http://cygwin.com/) shell. If you installed Cygwin to the default location you should be able to switch to it via the "Select Default Shell" command. If not, configure the path manually in your `settings.json` file:
+Yes, you can use the [Cygwin](http://cygwin.com/) shell. If you installed Cygwin to the default location, you should be able to switch to it via the **Select Default Shell** command. If not, configure the path manually in your `settings.json` file:
 
 ```json
 "terminal.integrated.shell.windows": "C:\\cygwin64\\bin\\bash.exe"
@@ -399,4 +399,4 @@ This error can occur due to anti-virus software intercepting winpty from creatin
 
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
 
-It's known that terminals can render as a mess in some environments, for example a big multi-colored triangle being shown instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by running `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.rendererType": "dom"` to avoid the canvas in the terminal.
+The terminal can have problems rendering in some environments, for example you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.rendererType": "dom"` to avoid using the canvas in the terminal.
