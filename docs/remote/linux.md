@@ -35,7 +35,7 @@ If you are running Linux locally, the [VS Code prerequisites](/docs/supporting/r
 In addition, specific Remote Development extensions have further requirements:
 
 * **Remote - SSH:** `ssh` needs to be in the path. The shell binary is typically in the `openssh-client` package.
-* **Remote - Docker:** `docker` and `docker-compose` need to be in the path. Follow the [install instructions for your Linux distribution](https://docs.docker.com/install/#supported-platforms). (Note that the Ubuntu Snap package is not supported.)
+* **Remote - Containers**: Docker CE/EE 18.06+ and Docker Compose 1.21+. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, [follow those directions as well](https://docs.docker.com/compose/install/). (Note that the Ubuntu Snap package is not supported and packages in distributions may be out of date.) `docker` and `docker-compose` must also be in the path.
 
 ## Remote host / container / WSL Linux prerequisites
 

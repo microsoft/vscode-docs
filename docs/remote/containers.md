@@ -21,7 +21,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ### System Requirements
 
-**Local:** See minimum requirements for [VS Code](/docs/supporting/requirements.md). For Windows, Windows 10 Professional or Enterprise is required due to the requirements of Docker Desktop or Windows.
+**Local:** Docker Desktop 2.0+ for macOS/Windows or Docker CE/EE 18.06+ and Docker Compose 1.21+ for Linux. Docker Toolbox and Ubuntu snap packages are not supported. For Windows, Windows 10 Professional or Enterprise is required due to the requirements of Docker Desktop or Windows. See the minimum requirements for [VS Code](/docs/supporting/requirements.md) for additional details.
 
 **Containers**:
 
@@ -47,7 +47,7 @@ To get started, follow these steps:
 
     **Linux**:
 
-    1. Follow the [install instructions for your Linux distribution](https://docs.docker.com/install/#supported-platforms). **Note**: The Ubuntu Snap package is not supported.
+    1. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, [follow those directions as well](https://docs.docker.com/compose/install/). (Note that the Ubuntu Snap package is not supported and packages in distributions may be out of date.)
 
     2. Add your user to the `docker` group by using a terminal to run: `sudo usermod -aG docker $USER`
 
