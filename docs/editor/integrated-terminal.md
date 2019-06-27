@@ -274,11 +274,10 @@ You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-
 
 ### Can I use Cygwin's shell with the terminal on Windows?
 
-Yes, to use the [Cygwin](http://cygwin.com/) shell, you will first need to install the chere package and then add the following settings to your `settings.json` file:
+Yes, to use the [Cygwin](http://cygwin.com/) shell. If you installed Cygwin to the default location you should be able to switch to it via the "Select Default Shell" command. If not, configure the path manually in your `settings.json` file:
 
 ```json
-"terminal.integrated.shell.windows": "C:\\Cygwin\\bin\\bash.exe",
-"terminal.integrated.shellArgs.windows": ["/bin/xhere", "/bin/bash"]
+"terminal.integrated.shell.windows": "C:\\cygwin64\\bin\\bash.exe"
 ```
 
 ### Powershell on macOS is complaining about a "-l" argument, how do I fix it?
