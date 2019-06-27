@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 6/5/2019
+DateApproved: 6/26/2019
 ---
 # Remote Development Tips and Tricks
 
@@ -326,23 +326,22 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 [SSHFS](https://en.wikipedia.org/wiki/SSHFS) is a secure remote filesystem access protocol that builds up from SFTP. It provides advantages over something like a CIFS / Samba share in that all that is required is SSH access to the machine.
 
-You can install SSHFS locally as follows:
+> **Note:** For performance reasons, SSHFS is best used for single file edits and uploading/downloading content. If you need to use an application that bulk reads/write to many files at once (like a local source control tool), [rsync](#using-rsync-to-maintain-a-local-copy-of-your-source-code) is a better choice.
 
-- On macOS using [Homebrew](https://brew.sh/): `brew install sshfs`
-  - If you would prefer not to use the command line, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
-- On Linux using the OS package manager. For Debian/Ubuntu: `sudo apt-get install sshfs`
-- [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on Windows using [Chocolatey](https://chocolatey.org/): `choco install sshfs`
+**macOS / Linux**:
 
-Note that WSL 1 does not support FUSE or SSHFS, so installing SSHFS-Win is the best option currently.
+On Linux, you can use your distribution's package manager to install SSHFS. For Debian/Ubuntu: `sudo apt-get install sshfs`
 
-On macOS, you can use [SSHFS GUI](https://github.com/dstuecken/sshfs-gui), or you can mount the remote filesystem on **macOS or Linux** by running the following commands from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
+> **Note:** WSL 1 does not support FUSE or SSHFS, so the instructions differ for Windows currently. **WSL2 does include FUSE and SSHFS support**, so this will change soon.
+
+On macOS, you can install SSHFS using [Homebrew](https://brew.sh/): `brew install sshfs` In addition, if you would prefer not to use the command line to mount the remote filesystem, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
+
+To use the command line, run the following commands from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
 
 ```bash
 export USER_AT_HOST=user@hostname
-
 # Make the directory where the remote filesystem will be mounted
 mkdir -p "$HOME/sshfs/$USER_AT_HOST"
-
 # Mount the remote filesystem
 sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  \
     -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
@@ -354,17 +353,17 @@ This will make your home folder on the remote machine available under the `~/ssh
 umount "$HOME/sshfs/$USER_AT_HOST"
 ```
 
-On **Windows**, you should add a `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
+**Windows:**
 
-Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname` where `user@hostname` with is your remote user and hostname / IP. You can also map the drive using the command prompt as follows:
+Follow these steps:
 
-```bat
-net use /PERSISTENT:NO X: \\sshfs\user@hostname
-```
+1. On Linux, add `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
-In this example, the remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking **Disconnect**.
+2. Next, install [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on using [Chocolatey](https://chocolatey.org/): `choco install sshfs`
 
-Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way can be very slow and can cause unforeseen problems. However, you can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [below](#using-rsync-to-maintain-a-local-copy-of-your-source-code) for details.
+3. Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname` where `user@hostname` with is your remote user and hostname / IP. You script this using the from the command prompt as follows: `net use /PERSISTENT:NO X: \\sshfs\user@hostname`
+
+4. Once done, you can disconnect from it by right-clicking on the drive in the File Explorer and clicking **Disconnect**.
 
 ### Using rsync to maintain a local copy of your source code
 
