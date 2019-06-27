@@ -25,11 +25,13 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 **Remote SSH Host**:
 
-- **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+. Other x86_64 `glibc` based Linux distributions should work if they have the [needed prerequisites](/docs/remote/linux.md).
+- **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
 
-- **Experimental support:** ARM32 Raspbian 8+. Other ARM32 `glibc` based Linux distributions should work if they have the [needed prerequisites](/docs/remote/linux.md), but the Raspberry Pi 3 is the reference device.
+- **Experimental support:** ARM32 Raspbian 8+ in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only.
 
-Set `"remote.SSH.enableExperimentalServerPlatforms":true` to enable ARM32 support. Note that some extensions installed in on ARM32 devices may not work due to x86 focused native code in the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details.
+Other `glibc` based Linux distributions for x86_64 and ARM32 (in VS Code Insiders) should work if they have the needed prerequisites. See the [Remote Development and Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
+
+While experimental ARM32 support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed on ARM32 devices may not work due the use of x86 native code in the extension.
 
 ### Installation
 
@@ -39,7 +41,7 @@ To get started you need to:
 
     > **Note:** PuTTY is not supported on Windows since the `ssh` command must be in the path.
 
-2. Install [Visual Studio Code](https://code.visualstudio.com/).
+2. Install [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
 3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
@@ -47,8 +49,7 @@ To get started you need to:
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
-> **Note:** Recent versions of x86_64 glibc-based Linux distributions like Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ Linux and related distros are fully supported. Other `glibc` based Linux distributions may work if they have the [needed prerequisites](/docs/remote/linux.md).
-> Experimental support for ARM32 devices like the Raspberry Pi 3 is available by setting `"remote.SSH.enableExperimentalServerPlatforms":true` in `settings.json`.
+> **Note:** Recent versions of x86_64 Debian (8+), Ubuntu (16.04+), and CentOS / RHEL (7+) are well tested. Other `glibc` based Linux distributions should work if they meet the [needed prerequistes](/docs/remote/linux.md). Experimental support for ARM32 `glibc` distributions like Raspbian is available in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only and some extensions installed on ARM32 devices may not work due the use of x86 native code in the extension.
 
 To get started, follow these steps:
 
@@ -172,6 +173,15 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 ## SSH host-specific settings
 
 VS Code's local user settings are also reused when you are connected to an SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting on the **Remote** tab in the settings editor. These will override any local settings you have in place whenever you connect to the host.
+
+### Working with local tools
+
+The Remote - SSH extension does not provide direct support for sync'ing code or using local tools with content on a remote host. However, there are two battle tested ways to do this using common tools that will work with most Linux hosts. Specifically, you can:
+
+1. [Mount the remote filesystem using SSHFS](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host).
+2. [Sync files to/from the remote host to your local machine using `rsync`](/docs/remote/troubleshooting.md#using-rsync-to-maintain-a-local-copy-of-your-source-code).
+
+SSHFS is the most convenient option and does not require any file sync'ing. However, performance will be significantly slower than working through VS Code, so it is best used for single file edits and uploading/downloading content. If you need to use an application that bulk reads/write to many files at once (like a local source control tool), rsync is a better choice.
 
 ## Known limitations
 

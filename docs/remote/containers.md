@@ -27,9 +27,9 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 - **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ based containers. Other `glibc` based Linux containers may work if they have [needed prerequisites](/docs/remote/linux.md).
 
-- **Experimental support:** x86_64 Alpine Linux containers (`musl`).
+- **Experimental support:** x86_64 Alpine Linux containers (`musl`) in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only.
 
-Set `"remote.containers.enableExperimentalServerPlatforms":true` to enable Alpine support. Note that some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details.
+While experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details.
 
 ### Installation
 
@@ -53,7 +53,7 @@ To get started, follow these steps:
 
     3. Sign out and back in again so your changes take effect.
 
-2. Install [Visual Studio Code](https://code.visualstudio.com/).
+2. Install [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
 3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
@@ -93,7 +93,7 @@ Let's start out by using a sample project to try things out.
 
 5. After the container is built, VS Code automatically connects to it and maps the project folder from your local file system into the container. Check out the **Things to try** section of `README.md` in the repository you cloned to see what to do next.
 
-### Quick start: Open a folder in a container
+### Quick start: Open an existing folder in a container
 
 Next we will cover how to set up a dev container for an existing project to use as your full-time development environment.
 
@@ -101,9 +101,11 @@ The steps are similar to those above:
 
 1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette, and select the project folder you'd like to set up the container for.
 
+    > **Note:** If you want to edit the container's contents or settings before opening the folder, you can run **Remote-Containers: Add Development Container Configuration Files...** instead.
+
 2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one exists in the folder you selected.
 
-    > **Note:** You can enable experimental Alpine Linux support by setting `"remote.containers.enableExperimentalServerPlatforms":true`. However, note that some extensions installed in Alpine containers may not work due to `glibc` dependencies inside native code in the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details. Windows containers are not currently supported.
+    > **Note:** While experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details. Windows Containers are not supported.
 
     ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
 
@@ -119,7 +121,7 @@ The steps are similar to those above:
 
 VS Code's container configuration is stored in a [`devcontainer.json`](#devcontainerjson-reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. You can also specify any extensions to install once the container is running or post-create commands to prepare the environment. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
-The **Remote-Containers: Add Dev Container Configuration Files...** command adds the file to your project, where you can further customize for your needs.
+The **Remote-Containers: Add Development Container Configuration Files...** command adds the file to your project, where you can further customize for your needs.
 
 For example, through a `devcontainer.json` file, you can:
 
@@ -142,7 +144,7 @@ Editing your container configuration is easy. Since rebuilding a container will 
 
 Here is the typical edit loop using these commands:
 
-1. Start with `kbstyle(F1)` > **Remote-Containers: Add Dev Container Configuration Files...**
+1. Start with `kbstyle(F1)` > **Remote-Containers: Add Development Container Configuration Files...**
 2. Edit the contents of the `.devcontainer` folder as required.
 3. Try it with `kbstyle(F1)` > **Remote-Containers: Reopen Folder in Container**.
 4. On failure:
@@ -167,7 +169,7 @@ Beyond the advantages of having your team use a consistent environment and tool-
 
 While using VS Code to spin up a new container can be useful in many situations, it may not match your workflow and you may prefer to "attach" VS Code to an already running container.
 
-> **Note:** You can enable experimental Alpine Linux support by setting `"remote.containers.enableExperimentalServerPlatforms":true`. However, note that some extensions installed in Alpine containers may not work due to `glibc` dependencies inside native code in the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details. Windows containers are not currently supported.
+> **Note:** While experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details. Windows Containers are not supported.
 
 Once you have a container up and running, you can connect by either:
 
@@ -216,7 +218,7 @@ You can also manually manage your containers using one of the following options:
 2. Go to the directory with your `docker-compose.yml` file.
 3. Type `docker-compose top` to see running processes.
 4. Type `docker-compose stop` to stop the containers. If you have more than one Docker Compose file, you can specify additional Docker Compose files with the `-f` argument.
-5. If you would like to delete the containers, type `docker-compose down` to both stop and delete them.
+. If you would like to delete the containers, type `docker-compose down` to both stop and delete them.
 
 If you want to clean out images or mass-delete containers, [see here](/docs/remote/troubleshooting.md#cleaning-out-unused-containers-and-images) for different options.
 
@@ -346,9 +348,9 @@ This section will walk you through configuring your project for each of these si
 
 You can create a dev sandbox by selecting a base container image from a source like [DockerHub](https://hub.docker.com) and then manually installing additional software, such as Git, which may be missing.
 
-You can use the **Remote-Containers: Add Dev Container Configuration Files** command in the Command Palette (`kbstyle(F1)`) to select from a base image to get you started and customize from there.
+You can use the **Remote-Containers: Add Development Container Configuration Files** command in the Command Palette (`kbstyle(F1)`) to select from a base image to get you started and customize from there.
 
-> **Note:** Windows based containers are not currently supported.
+> **Note:** While experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details. Windows Containers are not supported.
 
 If you are not able to find an image that meets your needs or just want to automate the installation of additional software, you can also [create a custom image using a `Dockerfile`](#using-a-dockerfile).
 
@@ -408,11 +410,21 @@ apt-get install <package>
 
 Documentation for the software you want to install will usually provide specific instructions, but note that you typically do **not need to prefix commands with `sudo`** given you are likely running as root in the container. If you are not already root, read the directions for the image you've selected to learn how to install additional software. If you would **prefer not to run as root**, see the [tips and tricks](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) article for how to set up a separate user.
 
-However, note that if you **rebuild** the container, you will have to **re-install** anything you've installed manually. To avoid this problem, you can use a `Dockerfile` to create a custom image with additional software pre-installed. We'll cover this scenario next.
+However, note that if you **rebuild** the container, you will have to **re-install** anything you've installed manually.
+
+To avoid this problem, you can use a custom `Dockerfile` (which we will cover next) or simply use the `postCreateCommand` property.  For example, here is a `devcontainer.json` that adds `git` and the [Git Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension to the base Debian 9 container image without a Dockerfile:
+
+```json
+{
+    "image": "debian:9",
+    "extensions": ["eamodio.gitlens"],
+    "postCreateCommand": "apt-get update && apt-get install -y git"
+}
+```
 
 ### Using a Dockerfile
 
-To create a customized sandbox or application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Containers: Add Dev Container Configuration Files** command in the Command Palette (`kbstyle(F1)`) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
+To create a customized sandbox or application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Containers: Add Development Container Configuration Files** command in the Command Palette (`kbstyle(F1)`) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
 
 > **Note:** Windows based containers are not currently supported.
 
@@ -465,7 +477,8 @@ You can either:
 3. [Extend your existing Docker Compose configuration](#extending-your-docker-compose-file-for-development) for development.
 4. Use the command line (for example `docker-compose up`) and [attach to an already running container](#attaching-to-running-containers).
 
-> **Note:**  Windows based containers are not currently supported.
+> **Note:** While experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details. Windows Containers are not supported.
+
 
 VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file (if they are not already running). This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above.
 
@@ -612,7 +625,9 @@ The following are dev container definitions that use Docker Compose:
 
 See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following topics:
 
+* [Adding environment variables](#Adding-environment-variables)
 * [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
+* [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount)
 * [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
 * [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced.md#avoiding-extension-reinstalls-on-container-rebuild)
 * [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
@@ -651,12 +666,12 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 ### Remote - Containers limitations
 
 * Windows container images are **not** yet supported.
-* You can enable experimental Alpine Linux support by setting `"remote.containers.enableExperimentalServerPlatforms":true`. However, note that some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details.
+* Experimental Alpine container support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/) only.
+* Using a remote Docker Host is possible, but requires [additional setup steps](/docs/remote/containers-advanced.md#/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host).
 * All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
 * The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
-* Docker Toolbox is not supported.
+* Docker Toolbox on Windows is not supported.
 * Docker variants or alternate containerization tool kits like [podman.io](https://podman.io) are not supported.
-* When installing an extension pack in a container, extensions may install locally instead of inside the container. Click the **Install** button for each extension in the Local section of the extension panel to work around the issue. See [Microsoft/vscode-remote-release#11](https://github.com/Microsoft/vscode-remote-release/issues/11) for details.
 * If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 * Local proxy settings are not reused inside the container, which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 
@@ -686,7 +701,7 @@ Some Docker commands invoked from the Docker extension can fail when invoked fro
 
 Many extensions will work inside dev containers without modification. However, in some cases, certain features may require changes. If you run into an extension issue, [see here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
-In addition, some extensions that include native code or runtimes may not work when installed in Alpine Linux containers due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between the `musl` libc implementation in Alpine Linux and `glibc` in other distributions. In these cases, extensions will need to opt-in to supporting Alpine by compiling / including binaries that support musl in addition to the existing glibc binaries.
+In addition, while experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details.
 
 ## Common questions
 
@@ -710,7 +725,7 @@ A VS Code window can only connect to one window currently, but you can open a ne
 
 ### Can I work with containers on a remote host?
 
-With some manual configuration, yes. You can attach to a container running on a remote host or create specialized `devcontainer.json` and `Docker Compose` files designed to work with your remote host. You can either connect to a publicly exposed Docker daemon TCP port or use SSH to tunnel into a remote VM running Docker. See [Developing inside a container on a remote Docker host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details.
+Yes, you can either attach to a container running on a remote host or create a specialized `devcontainer.json` to tell VS Code how to work with your remote environment. To access the host, you can either connect to a publicly exposed Docker daemon TCP port or use SSH to tunnel into a remote VM running Docker. See [Developing inside a container on a remote Docker host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details.
 
 ### How can I build or deploy container images into my local Docker / Kubernetes install when working inside a container?
 
