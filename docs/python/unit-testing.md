@@ -244,7 +244,7 @@ Support for running tests in parallel with pytest is available through the `pyte
    python3 -m pip install pytest-xdist
    ```
 
-2. Next, create a file named ```pytest.ini``` in your project directory and add the content below, specifying the number of CPUs to be used. For example, to set it up for 4 CPUs:
+2. Next, create a file named `pytest.ini` in your project directory and add the content below, specifying the number of CPUs to be used. For example, to set it up for 4 CPUs:
 
    ```
     [pytest]
