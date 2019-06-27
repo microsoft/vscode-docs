@@ -45,11 +45,13 @@ To get started you need to:
 
 3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
+4. [Optional] If you need to enter a token or password when connecting to your host, [you can enable `ControlMaster` in your SSH config](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) to prevent you from having to enter it multiple times. However, we have seen mixed results with this setting and Windows SSH clients.
+
 ### Connect to a remote host
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
-> **Note:** Recent versions of x86_64 Debian (8+), Ubuntu (16.04+), and CentOS / RHEL (7+) are well tested. Other `glibc` based Linux distributions should work if they meet the [needed prerequistes](/docs/remote/linux.md). Experimental support for ARM32 `glibc` distributions like Raspbian is available in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only and some extensions installed on ARM32 devices may not work due the use of x86 native code in the extension.
+> **Note:** See [System Requirements](#System-Requirements) for information about supported SSH hosts. When using experimental support for ARM32 `glibc` distributions like Raspbian in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed on the remote host may not work due the use of x86 native code in the extension.
 
 To get started, follow these steps:
 
@@ -224,7 +226,9 @@ See [Installing a supported SSH server](/docs/remote/troubleshooting.md#installi
 
 ### Can I sign into my SSH server with another/additional authentication mechanism like a password?
 
-Yes, with some additional configuration. See [Enabling alternate SSH authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) for information on the correct settings.
+Yes, you should be prompted to enter your token or password automatically.
+
+However, you will end up needing to enter your password twice due to [vscode-remote-release#642](https://github.com/microsoft/vscode-remote-release/issues/642). Enabling `ControlMaster` in your SSH config can help, but we have seen mixed results with this setting on Windows SSH clients. See [Enabling alternate SSH authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) for information on the correct settings.
 
 ### How do I fix SSH errors about "bad permissions"?
 

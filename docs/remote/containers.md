@@ -25,11 +25,13 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 **Containers**:
 
-- **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ based containers. Other `glibc` based Linux containers may work if they have [needed prerequisites](/docs/remote/linux.md).
+- **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ based containers
 
-- **Experimental support:** x86_64 Alpine Linux containers (`musl`) in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only.
+- **Experimental support:** x86_64 Alpine Linux containers in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only.
 
-While experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details.
+Other `glibc` based Linux containers may work if they have [needed prerequisites](/docs/remote/linux.md).
+
+While experimental `musl` based Alpine Linux support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details.
 
 ### Installation
 
@@ -105,7 +107,7 @@ The steps are similar to those above:
 
 2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one exists in the folder you selected.
 
-    > **Note:** While experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details. Windows Containers are not supported.
+    > **Note:** See [System Requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
     ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
 
@@ -169,7 +171,7 @@ Beyond the advantages of having your team use a consistent environment and tool-
 
 While using VS Code to spin up a new container can be useful in many situations, it may not match your workflow and you may prefer to "attach" VS Code to an already running container.
 
-> **Note:** While experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details. Windows Containers are not supported.
+> **Note:** See [System Requirements](#system-requirements) for information about supported container. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
 Once you have a container up and running, you can connect by either:
 
@@ -350,7 +352,7 @@ You can create a dev sandbox by selecting a base container image from a source l
 
 You can use the **Remote-Containers: Add Development Container Configuration Files** command in the Command Palette (`kbstyle(F1)`) to select from a base image to get you started and customize from there.
 
-> **Note:** While experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details. Windows Containers are not supported.
+> **Note:** See [System Requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
 If you are not able to find an image that meets your needs or just want to automate the installation of additional software, you can also [create a custom image using a `Dockerfile`](#using-a-dockerfile).
 
@@ -477,8 +479,7 @@ You can either:
 3. [Extend your existing Docker Compose configuration](#extending-your-docker-compose-file-for-development) for development.
 4. Use the command line (for example `docker-compose up`) and [attach to an already running container](#attaching-to-running-containers).
 
-> **Note:** While experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details. Windows Containers are not supported.
-
+> **Note:** See [System Requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
 VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file (if they are not already running). This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above.
 
@@ -701,7 +702,7 @@ Some Docker commands invoked from the Docker extension can fail when invoked fro
 
 Many extensions will work inside dev containers without modification. However, in some cases, certain features may require changes. If you run into an extension issue, [see here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
-In addition, while experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in Alpine containers may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details.
+In addition, while experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details.
 
 ## Common questions
 

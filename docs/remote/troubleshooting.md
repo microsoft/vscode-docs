@@ -185,9 +185,9 @@ If you are connecting to an SSH remote host and are either:
 - using password authentication,
 - using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible,
 
-...you need to enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
+...VS Code should automatically prompt you to enter needed information. If you do not see the prompt, enable the `remote.SSH.showLoginTerminal` [setting](/docs/getsarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
 
-To avoid reentering your connection information each time, you can enable the `ControlMaster` feature on your local machine so that OpenSSH runs multiple SSH sessions over a single connection.
+However, you may be prompted to enter this information multiple times due to [vscode-remote-release#642](https://github.com/microsoft/vscode-remote-release/issues/642). To avoid this problem, you can enable the `ControlMaster` feature on your local machine so that OpenSSH runs multiple SSH sessions over a single connection. However, note that we have heard mixed results from Windows users as some SSH clients do not support it well.
 
 To enable `ControlMaster`:
 
@@ -783,6 +783,13 @@ If an incompatible extension has been installed on a remote host, container, or 
 Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
 
 **Resolution:** Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
+
+### Extension only fails on non-x86_64 hosts or Alpine Linux
+
+If an extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (e.g. ARM32) or Alpine Linux containers, the extension may only include native code or runtimes that do not support these platforms. For example, the extensions may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).
+
+**Resolution:**
+Extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. It is important to note that some 3rd party npm modules may also include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets. See the [extension guide](api/advanced-topics/remote-extensions#supporting-non-x8664-hosts-or-alpine-linux-containers) for details.
 
 ### Extensions fail due to missing modules
 
