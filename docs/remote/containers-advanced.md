@@ -198,7 +198,7 @@ services:
     image: ubuntu:bionic
     volumes:
       - ./container-1-src:/workspace
-      - ~/.gitconfig:/root/.gitconfig
+      - ~/.ssh:/root/.ssh # [Optional] For reusing Git SSH keys.
     command: sleep infinity
     links:
       - container-2
@@ -207,7 +207,7 @@ services:
     image: ubuntu:bionic
     volumes:
       - ./container-2-src:/workspace
-      - ~/.gitconfig:/root/.gitconfig
+      - ~/.ssh:/root/.ssh # [Optional] For reusing Git SSH keys.
     command: sleep infinity
 ```
 

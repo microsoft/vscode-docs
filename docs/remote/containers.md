@@ -283,7 +283,7 @@ If you have ports you always want use from your host, you can set them up so the
 1. **Use the appPort property:** If you reference an `image` or `Dockerfile` in `devcontainer.json`, you can use the `appPort` property to publish ports to the host.
 
     ```json
-    "appPort": [3000, "8921:5000"]
+    "appPort": [ 3000, "8921:5000" ]
     ```
 
 2. **Use the Docker Compose ports mapping:** The [`ports` mapping](https://docs.docker.com/compose/compose-file#ports) can easily be added your `docker-compose.yml` file to publish additional ports.
@@ -327,6 +327,36 @@ For example, adding this to `.devcontainer/devcontainer.json` will set the Java 
 ```
 
 Since this just establishes the default, you are still able to change the settings as needed once the container is created.
+
+## Sharing Git credentials with your container
+
+### Using a credential helper
+
+To streamline setup, your local `.gitconfig` file is automatically copied into the container. In addition, the Remote Development extension will automatically forward any git credential helper commands to your local operating system.
+
+Therefore, if you use HTTPS to clone your repositories and have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in your local OS, no further setup is required. Credentials you've entered locally will be reused in the container and vice versa.
+
+### Using SSH keys
+
+However, in some cases you may be cloning your repository using SSH keys instead of a credential helper. SSH keys are not automatically mounted into the container since they can be used for things like accessing test or production servers and can pose a security risk.
+
+However, it is easy enough to mount one or more keys into the container.
+
+- When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file:
+
+    ```json
+    "runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh" ]
+    ```
+
+- When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+
+    ```yml
+    version: '3'
+    services:
+      your-service-name-here:
+        # ...
+        volumes:
+          - ~/.ssh:~/.ssh
 
 ## In-depth: Setting up a folder to run in a container
 
@@ -519,6 +549,12 @@ For example:
 }
 ```
 
+You may want to install additional developer tools such as `git` inside the service's container. While less efficient than adding these tools to the container image, if you don't want to modify the service's Dockerfile, you can use the `postCreateCommand` property for this purpose. For example:
+
+```json
+"postCreateCommand": "apt-get update && apt-get install -y git"
+```
+
 If the containers are not already running, VS Code will call `docker-compose -f ../docker-compose.yml up` in this example. Note that the `service` property indicates which service in your Docker Compose file VS Code should connect to, not which service should be started.
 
 See the [devcontainer.json reference](#devcontainerjson-reference) for information other available properties such as the `workspaceFolder` and `shutdownAction`.
@@ -531,12 +567,11 @@ You can also create a development copy of your Docker Compose file. For example,
 
 You can also avoid making a copy of your Docker Compose file by extending it with another one. We'll cover this topic in the [next section](#extending-your-docker-compose-file-for-development).
 
-Note that, if you use `git`, you may want to include a volume mount to your local `.gitconfig` folder in your Docker Compose file so you don't have to set up Git again inside of the container.
+If you use SSH keys for your git repositories instead of a credential manager, you may also want to mount your local `.ssh` folder so they can be reused.
 
 ```yaml
 volumes:
-  # This lets you avoid setting up Git again in the container
-  - ~/.gitconfig:/root/.gitconfig
+  - ~/.ssh:/root/.ssh
 ```
 
 If your application was built using C++, Go, or Rust, or another language that uses a ptrace-based debugger, you will also need to add the following settings to your Docker Compose file:
@@ -547,19 +582,6 @@ cap_add:
 - SYS_PTRACE
 security_opt:
 - seccomp:unconfined
-```
-
-Finally, you may want to install additional developer tools such as `git` inside the service's container. While less efficient, if you don't want to modify there service's Dockerfile, you can use the `postCreateCommand` property for this purpose. For example:
-
-```json
-{
-    "name": "[Optional] Your project name here",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
-    "workspaceFolder": "/default/workspace/path/in/container/to/open",
-    "shutdownAction": "stopCompose",
-    "postCreateCommand": "apt-get update && apt-get install -y git"
-}
 ```
 
 After making edits, you can test by running the **Remote-Containers: Reopen Folder in Container** or **Remote-Containers: Rebuild Container** commands. Once the container is been created, the local filesystem is automatically mapped into the container and you can start working with it from VS Code.
@@ -589,8 +611,8 @@ version: '3'
         # workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
         - ..:/workspace
 
-        # This lets you avoid setting up Git again in the container
-        - ~/.gitconfig:/root/.gitconfig
+        # [Optional] If you git clone using SSH keys, mounting them lets you reuse them.
+        - ~/.ssh:/root/.ssh
 
       # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
       cap_add:
@@ -634,11 +656,9 @@ version: '3'
          context: .
          # Location is relative to folder containing this compose file
          dockerfile: Dockerfile
-        - ~/.gitconfig:/root/.gitconfig
-       ports:
-         - 3000:3000
        volumes:
          - ..:/workspace
+         - ~/.ssh:/root/.ssh
        command: sleep infinity
 ```
 
