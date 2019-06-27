@@ -393,6 +393,18 @@ Once the container has been created, the **local filesystem will be automaticall
 }
 ```
 
+You can also use the `postCreateCommand` property to install additional software that may not be in your base image. For example, here is a `devcontainer.json` that adds `git` and the [Git Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension to the base Debian 9 container image without a Dockerfile:
+
+```json
+{
+    "image": "debian:9",
+    "extensions": [
+        "eamodio.gitlens"
+    ],
+    "postCreateCommand": "apt-get update && apt-get install -y git"
+}
+```
+
 After making edits, run the **Remote-Containers: Rebuild Container** command for the updated settings to take effect.
 
 ### Installing additional software in the sandbox
@@ -408,27 +420,17 @@ apt-get update # Critical step - you won't be able to install software before yo
 apt-get install <package>
 ```
 
-> **Note:** GUI based tools do not typically work inside of containers.
-
 Documentation for the software you want to install will usually provide specific instructions, but note that you typically do **not need to prefix commands with `sudo`** given you are likely running as root in the container. If you are not already root, read the directions for the image you've selected to learn how to install additional software. If you would **prefer not to run as root**, see the [tips and tricks](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) article for how to set up a separate user.
 
 However, note that if you **rebuild** the container, you will have to **re-install** anything you've installed manually.
 
-To avoid this problem, you can use a custom `Dockerfile` (which we will cover next) or simply use the `postCreateCommand` property.  For example, here is a `devcontainer.json` that adds `git` and the [Git Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension to the base Debian 9 container image without a Dockerfile:
-
-```json
-{
-    "image": "debian:9",
-    "extensions": ["eamodio.gitlens"],
-    "postCreateCommand": "apt-get update && apt-get install -y git"
-}
-```
+To avoid this problem, you can simply use the `postCreateCommand` property (as described in [Using an existing container image](#Using-an-existing-container-image)) or use a custom `Dockerfile` instead.
 
 ### Using a Dockerfile
 
 To create a customized sandbox or application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Containers: Add Development Container Configuration Files** command in the Command Palette (`kbstyle(F1)`) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
 
-> **Note:** Windows based containers are not currently supported.
+> **Note:** See [System Requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
 You may want to install other tools such as Git inside the container, which you can easily [do manually](#installing-additional-software-in-the-sandbox). However, you can also create a custom Dockerfile specifically for development that includes these dependencies. The [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) contains examples you can use as a starting point.
 
@@ -446,6 +448,7 @@ For example:
     ],
     "postCreateCommand": "npm install"
 }
+
 ```
 
 See the [devcontainer.json reference](#devcontainerjson-reference) for information on other available properties such as `appPort`, `runArgs`, the `extensions` list, and `postCreateCommand`.
@@ -464,6 +467,25 @@ The example below uses `runArgs` to change the security policy to enable the ptr
         "--security-opt",
         "seccomp=unconfined" ]
 }
+```
+
+If you are reusing an existing Dockerfile that you do not want to change, note that, while less efficient, you can use the `postCreateCommand` like you can when using a Docker image directly.
+
+```json
+{
+    "name": "My Python App w/an Existing Dockerfile I Don't Want to Update",
+    "dockerFile": "Dockerfile",
+    "extensions": [
+        "ms-python.python"
+    ],
+    "postCreateCommand": "apt-get update && apt-get install -y git"
+}
+```
+
+This command is run once your source code is mounted, so you can also set it up to fire a shell script in your source tree.
+
+```json
+"postCreateCommand": "bash scripts/install-dev-tools.sh"
 ```
 
 After making edits, you can run the **Remote-Containers: Reopen Folder in Container** or **Remote-Containers: Rebuild Container** commands to try things out. Once the container is created, the local filesystem is automatically mapped into the container and you can start working with it from VS Code.
@@ -509,7 +531,7 @@ You can also create a development copy of your Docker Compose file. For example,
 
 You can also avoid making a copy of your Docker Compose file by extending it with another one. We'll cover this topic in the [next section](#extending-your-docker-compose-file-for-development).
 
-Note that, if you use Git, you may want to include a volume mount to your local `.gitconfig` folder in your Docker Compose file so you don't have to set up Git again inside of the container.
+Note that, if you use `git`, you may want to include a volume mount to your local `.gitconfig` folder in your Docker Compose file so you don't have to set up Git again inside of the container.
 
 ```yaml
 volumes:
@@ -525,6 +547,19 @@ cap_add:
 - SYS_PTRACE
 security_opt:
 - seccomp:unconfined
+```
+
+Finally, you may want to install additional developer tools such as `git` inside the service's container. While less efficient, if you don't want to modify there service's Dockerfile, you can use the `postCreateCommand` property for this purpose. For example:
+
+```json
+{
+    "name": "[Optional] Your project name here",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
+    "workspaceFolder": "/default/workspace/path/in/container/to/open",
+    "shutdownAction": "stopCompose",
+    "postCreateCommand": "apt-get update && apt-get install -y git"
+}
 ```
 
 After making edits, you can test by running the **Remote-Containers: Reopen Folder in Container** or **Remote-Containers: Rebuild Container** commands. Once the container is been created, the local filesystem is automatically mapped into the container and you can start working with it from VS Code.
@@ -589,11 +624,7 @@ VS Code will then **automatically use both files** when starting up any containe
 docker-compose -f docker-compose.yml -f .devcontainer/docker-compose.extend.yml up
 ```
 
-### Using an updated Dockerfile to automatically install more tools
-
-You may want to install other tools such as Git inside the container for the service you've specified. You can easily [do this manually](#installing-additional-software-in-the-sandbox). However, you can also create a custom `Dockerfile` specifically for development that includes these dependencies. The [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) contains examples you can use to augment a copy of a Dockerfile or when creating a new one.
-
-Assuming you put this file under `.devcontainer/Dockerfile`, the `.devcontainer/docker-compose.yml` above would be modified as follows:
+While the `postCreateCommand` property allows you to install additional tools inside your container, in some cases you may want to have a specific Dockerfile for development. You can also use this same approach to reference a custom `Dockerfile` specifically for development without modifying your existing Docker Compose file.  For example, you can update `.devcontainer/devcontainer.extend.json` as follows:
 
 ```yaml
 version: '3'
@@ -603,6 +634,7 @@ version: '3'
          context: .
          # Location is relative to folder containing this compose file
          dockerfile: Dockerfile
+        - ~/.gitconfig:/root/.gitconfig
        ports:
          - 3000:3000
        volumes:
@@ -659,7 +691,7 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 | `name` | string | A display name for the container. |
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
 | `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |
-| `postCreateCommand` | string or array | A command string or list of command arguments to run after the container is created. Use `&&` in a string to execute multiple commands. For example, `"yarn install"`, `["yarn", "install"]`, or `"cd src && yarn install"`. Defaults to none. |
+| `postCreateCommand` | string or array | A command string or list of command arguments to run after the container is created. Use `&&` in a string to execute multiple commands. For example, `"yarn install"`, `["yarn", "install"]`, or `"apt-get update && apt-get install -y git"`. It fires after your source code has been mounted, so you can also run shell scripts from your source tree. For example: `bash scripts/install-dev-tools.sh`. Defaults to none. |
 | `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
 
 ## Known limitations

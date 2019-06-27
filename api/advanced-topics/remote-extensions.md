@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 6/5/2019
+DateApproved: 6/27/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development support to extensions
@@ -361,19 +361,21 @@ You can find the "modules" version VS Code uses by going to **Help > Developer T
 
 ## Supporting non-x86_64 hosts or Alpine Linux containers
 
-If your extension is purely written in JavaScript/TypeScript, you may not need to do anything to add support to your extension.
+If your extension is purely written in JavaScript/TypeScript, you may not need to do anything to add support for other processor architectures or the `muscl`-based Alpine Linux to your extension.
 
-However, if your extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (e.g. ARM32) or Alpine Linux containers, the extension may include x86_64 `glibc` specific native code or runtimes that will fail on these platforms.
+However, if your extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (e.g. ARM32) or Alpine Linux containers, the extension may include x86_64 `glibc` specific native code or runtimes that will fail on these architectures/operating systems.
 
 For example, your extension may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).
 
+To resolve this problem:
+
+1. If you are dynamically acquiring compiled code, you can add support by detecting non-x86_64 targets using `process.arch` and downloading versions compiled for the right architecture. If you are including binaries for all supported architectures inside your extension instead, you can use this logic to use the correct one.
+
+2. For Alpine Linux, you can use `fs.existsSync('/etc/alpine-release')` and once again download or use the correct binaries for a `muscl` based operating system.
+
+3. If you'd prefer not to support these platforms, you can use the same logic to provide a good error message instead.
+
 It is important to note that some 3rd party npm modules include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets.
-
-If you are dynamically acquiring compiled code, you can add support by detecting non-x86_64 targets using `process.arch` and downloading versions compiled for these platforms. If you are including binaries for all supported platforms, you can use this logic to use the correct one.
-
-You detect that your extension is running on Alpine Linux using `fs.existsSync('/etc/alpine-release')` and once again download or load the correct binaries.
-
-If you'd prefer not to support these platforms, you can use the same logic to provide a good error message.
 
 ## Avoid using Electron modules
 
