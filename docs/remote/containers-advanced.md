@@ -5,11 +5,36 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 6/5/2019
+DateApproved: 6/26/2019
 ---
 # Advanced Container Configuration
 
 This article includes advanced setup scenarios for the [Visual Studio Code Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension. See the [Developing inside a Container](/docs/remote/containers.md) article for additional information.
+
+## Adding environment variables
+
+You can update environment variables in your container without altering the container image by following these steps:
+
+1. Configure the environment variables:
+
+   - When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file:
+
+        ```json
+        "runArgs": ["-e","YOUR_ENV_VAR_NAME=your-value-goes-here"]
+        ```
+
+   - When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+
+        ```yml
+        version: '3'
+        services:
+          your-service-name-here:
+            # ...
+            environment:
+              - YOUR_ENV_VAR_NAME=your-value-goes-here
+        ```
+
+2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
 
 ## Adding another volume mount
 
@@ -23,7 +48,7 @@ You can add a volume mount to any local folder using these steps:
         "runArgs": ["-v","/local/source/path/goes/here:/target/path/in/container/goes/here"]
         ```
 
-   - When a **Docker Compose** file is referenced, add the following to your `docker-compose.yml` for the appropriate service:
+   - When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
         ```yml
         version: '3'
@@ -49,6 +74,8 @@ For example:
 "workspaceFolder": "/workspace"
 ```
 
+This also allows you do something like a volume mount instead which can be useful particularly when [using a remote Docker Host](#Developing-inside-a-container-on-a-remote-Docker-host).
+
 ## Avoiding extension reinstalls on container rebuild
 
 By default, VS Code will install extensions and VS Code Server inside the container's filesystem. While this has performance benefits over a locally mounted filesystem, the disadvantage is that VS Code will have to re-install them on a container rebuild.
@@ -65,14 +92,15 @@ If you find yourself rebuilding frequently, you can use a local "volume" mount s
     "runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server"]
     ```
 
-    ...or for VS Code...
+    ...or for VS Code Insiders...
 
     ```json
     "runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server-insiders"]
     ```
 
     **Docker Compose**:
-    Replace `your-volume-name-goes-here` with a unique volume name for the container in `docker-compose.yml` under the appropriate service as follows:
+
+    Update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following. Replace `your-volume-name-goes-here` with a unique volume name for the container.
 
       ```yml
       services:
@@ -384,14 +412,14 @@ Next time you want to connect to this same container, run **Remote-Containers: O
 If you store your source code on the remote host's filesystem instead of inside a Docker volume, there are several ways you can access the files locally:
 
 1. [Use the mount command](https://docs.docker.com/machine/reference/mount/) if you are using [Docker Machine](https://docs.docker.com/machine/).
-2. [Mount the remote filesystem using SSHFS](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host) from the command line.
+2. [Mount the remote filesystem using SSHFS](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host).
 3. [Sync files from the remote host to your local machine using `rsync`](/docs/remote/troubleshooting.md#using-rsync-to-maintain-a-local-copy-of-your-source-code).
 
-Using Docker Machine's mount command or SSHFS are the more convenient options and do not require any sync'ing. However performance will be significantly slower than working through VS Code and they are best used for small edits and uploading content. Working this way with a local source control tool will be very slow and can be problematic. Rsync is a better choice since it will copy the entire contents of a folder on the remote host to your local machine.
+Using Docker Machine's mount command or SSHFS are the more convenient options and do not require any file sync'ing. However, performance will be significantly slower than working through VS Code, so they are best used for single file edits and uploading/downloading content. If you need to use an application that bulk reads/write to many files at once (like a local source control tool), rsync is a better choice.
 
 ### [Optional] Storing your remote devcontainer.json files on the server
 
-Both [SSHFS](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host) or [rsync](/docs/remote/troubleshooting.md#using-rsync-to-maintain-a-local-copy-of-your-source-code) can allow you to store your remote `devcontainer.json` on your remote host. This makes it easier to connect to your remote containers from multiple machines.
+Both [SSHFS](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host) and [rsync](/docs/remote/troubleshooting.md#using-rsync-to-maintain-a-local-copy-of-your-source-code) can allow you to store your remote `devcontainer.json` on your remote host. This makes it easier to connect to your remote containers from multiple machines.
 
 For example, if you cloned a repository to `~/repos/your-repository-name` on the remote machine that contains a `devcontainer.json`, you can create a remote focused `devcontainer.json` that reuses the same Dockerfile (or Docker Compose file) but connects remotely instead of locally. Let's walk through setting this up with a folder structure like this:
 
