@@ -835,7 +835,7 @@
                                         "when": "!searchViewletVisible" },
 { "key": "ctrl+right",            "command": "breadcrumbs.focusNextWithPicker",
                                         "when": "breadcrumbsActive && breadcrumbsVisible && listFocus && !inputFocus" },
-{ "key": "ctrl+left",             "command": "breadcrumbs.focusPrevious",
+{ "key": "ctrl+left",             "command": "breadcrumbs.focusPreviousWithPicker",
                                         "when": "breadcrumbsActive && breadcrumbsVisible && listFocus && !inputFocus" },
 { "key": "escape",                "command": "breadcrumbs.selectEditor",
                                         "when": "breadcrumbsActive && breadcrumbsVisible" },

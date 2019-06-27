@@ -696,8 +696,8 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether closing the last editor should also close the window. This setting only applies for windows that do not show folders.
   "window.closeWhenEmpty": false,
 
-  // If enabled, disables the ability to focus the menu bar with the Alt-key when not set to toggle.
-  "window.disableCustomMenuBarAltFocus": false,
+  // Controls whether the menu bar will be focused by pressing the Alt-key. This setting has no effect on toggling the menu bar with the Alt-key.
+  "window.customMenuBarAltFocus": true,
 
   // If enabled, double clicking the application icon in the title bar will close the window and the window cannot be dragged by the icon. This setting only has an effect when `window.titleBarStyle` is set to `custom`.
   "window.doubleClickIconToClose": false,
