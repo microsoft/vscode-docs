@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Azure Functions
 ContentId: 3685dbc0-5700-4456-8133-6f0db8e25e55
 PageTitle: Create and deploy Python source code to Azure Functions
-DateApproved: 06/20/2019
+DateApproved: 06/28/2019
 MetaDescription: How to create and deploy Python source code to Azure Functions
 MetaSocialImage: images/tutorial/social.png
 ---
