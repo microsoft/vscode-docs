@@ -17,7 +17,7 @@ Extension tests can be run on CI services. The `vscode-test` repository itself c
 
 You can create free projects on [Azure DevOps](https://azure.microsoft.com/services/devops/). This gives you source code hosting, planning boards, building and testing infrastructure, and more. On top of that, you get [10 free parallel jobs](https://azure.microsoft.com/services/devops/pipelines/) for building your projects across all three major platforms: Windows, macOS, and Linux.
 
-After registering and creating your new project, add the following `azure-pipelines.yml` to the root of your extension's repository. Other than the xvfb setup for Linux, the definition is straight-forward:
+After registering and creating your new project, add the following `azure-pipelines.yml` to the root of your extension's repository. Other than the `xvfb` setup script for Linux that is necessary to run VS Code in headless Linux CI machines, the definition is straight-forward:
 
 ```yaml
 trigger:
@@ -43,20 +43,21 @@ steps:
   displayName: 'Install Node.js'
 
 - bash: |
-    set -e
-    /usr/bin/Xvfb :10 -ac >> /tmp/Xvfb.out 2>&1 &
-    disown -ar
-    echo "Started xvfb"
+    /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+    echo ">>> Started xvfb"
   displayName: Start xvfb
   condition: and(succeeded(), eq(variables['Agent.OS'], 'Linux'))
 
 - bash: |
-    # vscode-test has its extension located at /sample
+    echo ">>> Compile vscode-test"
+    yarn && yarn compile
+    echo ">>> Compiled vscode-test"
     cd sample
+    echo ">>> Run sample integration test"
     yarn && yarn compile && yarn test
   displayName: Run Tests
   env:
-    DISPLAY: :10
+    DISPLAY: ':99.0'
 ```
 
 Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts#get-your-first-build) in your DevOps project and point it to the `azure-pipelines.yml` file. Trigger a build and voilà:
@@ -64,3 +65,31 @@ Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/g
 ![pipelines](images/continuous-integration/pipelines.png)
 
 You can enable the build to run continuously when pushing to a branch and even on pull requests. See [Build pipeline triggers](https://docs.microsoft.com/azure/devops/pipelines/build/triggers) to learn more.
+
+## Travis
+
+[vscode-test](https://github.com/microsoft/vscode-test) also includes a [Travis build definiton](https://github.com/microsoft/vscode-test/blob/master/.travis.yml). Because the way to define environment variables is different from Azure DevOps to Travis, the `xvfb` script is a little bit different:
+
+```yaml
+language: node_js
+os:
+  - osx
+  - linux
+node_js: 8
+
+install:
+  - |
+    if [ $TRAVIS_OS_NAME == "linux" ]; then
+      export DISPLAY=':99.0'
+      /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+    fi
+script:
+  - |
+    echo ">>> Compile vscode-test"
+    yarn && yarn compile
+    echo ">>> Compiled vscode-test"
+    cd sample
+    echo ">>> Run sample integration test"
+    yarn && yarn compile && yarn test
+cache: yarn
+```
