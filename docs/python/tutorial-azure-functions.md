@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Deploy Python to Azure Functions
 
-In this tutorial, you use Visual Studio Code and the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension to create a serverless HTTP endpoint with Python. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python) runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for VS Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
+In this tutorial, you use Visual Studio Code and the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension to create a serverless HTTP endpoint with Python and to also add a connection (or "binding") to storage. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python) runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for VS Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
 
 If you encounter any problems in the course of this tutorial, feel free to file an issue in the Visual Studio Code [documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
@@ -55,11 +55,13 @@ The name you've assigned to your subscription also appears in the **Azure: Funct
 
 > **Note**: If you encounter the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
 >
-> ```sh
+> ```bash
 > # macOS/Linux
 > export HTTPS_PROXY=https://username:password@proxy:8080
 > export HTTP_PROXY=http://username:password@proxy:8080
+> ```
 >
+> ```ps
 > #Windows
 > set HTTPS_PROXY=https://username:password@proxy:8080
 > set HTTP_PROXY=http://username:password@proxy:8080
@@ -380,6 +382,101 @@ After your first deployment, you can make changes to your code, such as adding a
 1. Redeploy the code by using the **Deploy to Function App** in the **Azure: Functions** explorer. If prompted, select the Function App created previously.
 
 1. Once deployment finishes (it takes a few minutes!), the **Output** window shows the public endpoints with which you can repeat your tests.
+
+## Add a binding to write messages to Azure storage
+
+A "binding" is how you connect an Azure function to other Azure resources, such as storage. A binding is defined in the `function.json` file and represents both input and output. A function can use multiple input and output bindings. (To learn more, see [Azure Functions triggers and bindings concepts](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) in the Azure documentation.)
+
+In this section, you add a storage binding to the HttpExample function created earlier in this tutorial. The function uses this binding to write messages to storage with each request.
+
+1. Sync the remote settings for your Azure Functions project into your `local.settings.json` file: in the **Azure Explorer** in VS Code, right-click the **Application Settings** node and select the **Download remote settings...** command. Open `local.settings.json` and check that it contains a value for `AzureWebJobsStorage`. That value is the connection string for the storage account.
+
+1. In the `HttpExample` folder, open the `function.json` and modify its contents to match the following, and save the file.
+
+    ```json
+    {
+      "scriptFile": "__init__.py",
+      "bindings": [
+        {
+          "authLevel": "anonymous",
+          "type": "httpTrigger",
+          "direction": "in",
+          "name": "req",
+          "methods": [
+            "get",
+            "post"
+          ]
+        },
+        {
+          "type": "http",
+          "direction": "out",
+          "name": "$return"
+        },
+        {
+          "type": "queue",
+          "direction": "out",
+          "name": "msg",
+          "queueName": "outqueue",
+          "connection": "AzureWebJobsStorage"
+        }
+      ]
+    }
+    ```
+
+    In the added binding at the end of the file, `"type": "queue"` indicates a binding to Azure Storage, with `"direction": "out"` indicating an output-only binding to the storage account identified by "connection". The binding itself is named "msg"; that name appears as an argument in the `main` Python function in your code. When you send a message to this storage account through the binding, the message is written to a queue identified by teh "queueName" property, which is "outqueue" in this case.
+
+1. Now that you've configured the binding, you can use it in your function code. Again, the newly-defined binding appears in your code as an argument to the `main` function in `__init__.py`. For example, you can modify the `__init__.py` file in HttpExample to match the following, which shows using the `msg` argument to write a timestamped message with the name used in the request. The comments explain the specific changes:
+
+    ```python
+    import logging
+    import datetime  # MODIFICATION: added import
+    import azure.functions as func
+
+    # MODIFICATION: the added binding appears as an argument; func.Out[func.QueueMessage]
+    # is the appropriate type for an output binding with "type": "queue" (in function.json).
+    def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> func.HttpResponse:
+        logging.info('Python HTTP trigger function processed a request.')
+
+        name = req.params.get('name')
+        if not name:
+            try:
+                req_body = req.get_json()
+            except ValueError:
+                pass
+            else:
+                name = req_body.get('name')
+
+        if name:
+            # MODIFICATION: write the a message to the message queue, using msg.set
+            msg.set(f"Request made for {name} at {datetime.datetime.now()}")
+
+            return func.HttpResponse(f"Hello {name}!")
+        else:
+            return func.HttpResponse(
+                 "Please pass a name on the query string or in the request body",
+                 status_code=400
+            )
+    ```
+
+1. To test these changes locally, you must define an environment variable for the connection string. First, open `local.settings.json` and copy the value for `AzureWebJobsStorage`. Then, on the command line, define an environment variable named `AZURE_STORAGE_CONNECTION_STRING` using that value (without the surrounding quotes):
+
+    ```bash
+    export AZURE_STORAGE_CONNECTION_STRING=<connection_string_from_local_settings_json>
+    ```
+
+    ```ps
+    set AZURE_STORAGE_CONNECTION_STRING=<connection_string_from_local_settings_json>
+    ```
+
+1. In VS Code, start the debugger again by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. As before the **Output** window should show the endpoints in your project.
+
+1. In a browser, visit the URL `http://localhost:7071/api/HttpExample?name=VS%20Code` to create a request to the HttpExample endpoint, which should also write a message to the queue.
+
+1. To verify that the message was written to the queue, go to the [Azure portal](https://portal.azure.com), sign in if necessary, and navigate to the resource group containing your functions project. Within that resource group, local and navigate into the storage account for the project, then navigate into **Queues**. On that page, navigate into "outqueue" (the queue defined in the binding), which should then display all the logged messages.
+
+    You can also use the Azure CLI to query the storage queue, as described on [Query the storage queue](https://docs.microsoft.com/azure/azure-functions/functions-add-output-binding-storage-queue-python#query-the-storage-queue)
+
+1. To test in the cloud, redeploy the code by using the **Deploy to Function App** in the **Azure: Functions** explorer. If prompted, select the Function App created previously. Once deployment finishes (it takes a few minutes!), the **Output** window again shows the public endpoints with which you can repeat your tests.
 
 ## Clean up resources
 
