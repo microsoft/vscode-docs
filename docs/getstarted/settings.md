@@ -272,7 +272,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls the behavior of 'Go To' commands, like Go To Definition, when multiple target locations exist.
   //  - peek: Show peek view of the results (default)
   //  - gotoAndPeek: Go to the primary result and show a peek view
-  //  - goto: Go to the primary result and ignore others
+  //  - goto: Go to the primary result and enable peek-less navigation to others
   "editor.gotoLocation.multiple": "peek",
 
   // Controls whether the cursor should be hidden in the overview ruler.
@@ -670,9 +670,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - welcomePageInEmptyWorkbench: Open the Welcome page when opening an empty workbench.
   "workbench.startupEditor": "welcomePage",
 
-  // Controls the visibility of the Twitter feedback (smiley) in the status bar at the bottom of the workbench.
-  "workbench.statusBar.feedback.visible": true,
-
   // Controls the visibility of the status bar at the bottom of the workbench.
   "workbench.statusBar.visible": true,
 
@@ -681,6 +678,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls tree indentation in pixels.
   "workbench.tree.indent": 8,
+
+  // Controls whether the tree should render indent guides.
+  "workbench.tree.renderIndentGuides": "onHover",
 
   // Controls the visibility of view header actions. View header actions may either be always visible, or only visible when that view is focused or hovered over.
   "workbench.view.alwaysShowHeaderActions": false,
@@ -695,6 +695,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether closing the last editor should also close the window. This setting only applies for windows that do not show folders.
   "window.closeWhenEmpty": false,
+
+  // Controls whether the menu bar will be focused by pressing the Alt-key. This setting has no effect on toggling the menu bar with the Alt-key.
+  "window.customMenuBarAltFocus": true,
 
   // If enabled, double clicking the application icon in the title bar will close the window and the window cannot be dragged by the icon. This setting only has an effect when `window.titleBarStyle` is set to `custom`.
   "window.doubleClickIconToClose": false,
@@ -973,7 +976,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Update
 
-  // Enables Windows background updates. The updates are fetched from a Microsoft online service.
+  // Enable to download and install new VS Code Versions in the background on Windows
   "update.enableWindowsBackgroundUpdates": true,
 
   // Configure whether you receive automatic updates. Requires a restart after change. The updates are fetched from a Microsoft online service.
@@ -998,6 +1001,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls the line height in pixels in the debug console. Use 0 to compute the line height from the font size.
   "debug.console.lineHeight": 0,
+
+  // Controls if the lines should wrap in the debug console.
+  "debug.console.wordWrap": true,
 
   // Controls whether the non-debug hovers should be enabled while debugging. When enabled the hover providers will be called to provide a hover. Regular hovers will not be shown even if this setting is enabled.
   "debug.enableAllHovers": false,
@@ -1657,6 +1663,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // The font weight to use within the terminal for bold text.
   "terminal.integrated.fontWeightBold": "bold",
 
+  // Whether new shells should inherit their environment from VS Code. This is not supported on Windows.
+  "terminal.integrated.inheritEnv": true,
+
   // Controls the letter spacing of the terminal, this is an integer value which represents the amount of additional pixels to add between characters.
   "terminal.integrated.letterSpacing": 0,
 
@@ -1716,7 +1725,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - inherited: On macOS and Linux, a new split terminal will use the working directory of the parent terminal. On Windows, this behaves the same as initial.
   "terminal.integrated.splitCwd": "inherited",
 
-  // Whether to use ConPTY for Windows terminal process communication. Winpty will be used if this is false. Note that ConPTY will be disabled regardless of this setting when the Windows 10 build number is lower than 18309 or when you're running the 32-bit VS Code client under 64-bit Windows.
+  // Whether to use ConPTY for Windows terminal process communication (requires Windows 10 build number 18309+). Winpty will be used if this is false.
   "terminal.integrated.windowsEnableConpty": true,
 
 // Problems
@@ -1772,144 +1781,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Show Errors & Warnings on Outline Elements.
   "outline.problems.enabled": true,
-
-// Emmet
-
-  // An array of languages where Emmet abbreviations should not be expanded.
-  "emmet.excludeLanguages": [
-    "markdown"
-  ],
-
-  // Path to a folder containing Emmet profiles and snippets.
-  "emmet.extensionsPath": null,
-
-  // Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
-  //  E.g.: `{"vue-html": "html", "javascript": "javascriptreact"}`
-  "emmet.includeLanguages": {},
-
-  // When set to `false`, the whole file is parsed to determine if current position is valid for expanding Emmet abbreviations. When set to `true`, only the content around the current position in css/scss/less files is parsed.
-  "emmet.optimizeStylesheetParsing": true,
-
-  // Preferences used to modify behavior of some actions and resolvers of Emmet.
-  "emmet.preferences": {},
-
-  // Shows possible Emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to `"never"`.
-  "emmet.showAbbreviationSuggestions": true,
-
-  // Shows expanded Emmet abbreviations as suggestions.
-  // The option `"inMarkupAndStylesheetFilesOnly"` applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
-  // The option `"always"` applies to all parts of the file regardless of markup/css.
-  "emmet.showExpandedAbbreviation": "always",
-
-  // If `true`, then Emmet suggestions will show up as snippets allowing you to order them as per `editor.snippetSuggestions` setting.
-  "emmet.showSuggestionsAsSnippets": false,
-
-  // Define profile for specified syntax or use your own profile with specific rules.
-  "emmet.syntaxProfiles": {},
-
-  // When enabled, Emmet abbreviations are expanded when pressing TAB.
-  "emmet.triggerExpansionOnTab": false,
-
-  // Variables to be used in Emmet snippets
-  "emmet.variables": {},
-
-// Node debug
-
-  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
-  //  - disabled: Auto attach is disabled and not shown in status bar.
-  //  - on: Auto attach is active.
-  //  - off: Auto attach is inactive.
-  "debug.node.autoAttach": "disabled",
-
-// Default Configuration Overrides
-
-  // Configure editor settings to be overridden for [git-commit] language.
-  "[git-commit]":  {
-    "editor.rulers": [
-        72
-    ]
-  },
-
-  // Configure editor settings to be overridden for [go] language.
-  "[go]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [json] language.
-  "[json]":  {
-    "editor.quickSuggestions": {
-        "strings": true
-    }
-  },
-
-  // Configure editor settings to be overridden for [makefile] language.
-  "[makefile]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [markdown] language.
-  "[markdown]":  {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": false
-  },
-
-  // Configure editor settings to be overridden for [yaml] language.
-  "[yaml]":  {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": false
-  },
-
-// Remote
-
-  // Override the kind of an extension. `ui` extensions are installed and run on the local machine while `workspace` extensions are run on the remote. By overriding an extension's default kind using this setting, you specify if that extension should be installed and enabled locally or remotely.
-  "remote.extensionKind": {
-    "pub.name": "ui"
-  },
-
-// Npm
-
-  // Controls whether npm scripts should be automatically detected.
-  "npm.autoDetect": "on",
-
-  // Enable an explorer view for npm scripts.
-  "npm.enableScriptExplorer": false,
-
-  // Configure glob patterns for folders that should be excluded from automatic script detection.
-  "npm.exclude": "",
-
-  // Fetch data from https://registry.npmjs/org and https://registry.bower.io to provide auto-completion and information on hover features on npm dependencies.
-  "npm.fetchOnlinePackageInfo": true,
-
-  // The package manager used to run scripts.
-  "npm.packageManager": "npm",
-
-  // Run npm commands with the `--silent` option.
-  "npm.runSilent": false,
-
-  // The default click action used in the scripts explorer: `open` or `run`, the default is `open`.
-  "npm.scriptExplorerAction": "open",
-
-// Reference Search View
-
-  // Controls whether 'Peek References' or 'Find References' is invoked when selecting code lens references
-  //  - peek: Show references in peek editor.
-  //  - view: Show references in separate view.
-  "references.preferredLocation": "peek",
-
-// Merge Conflict
-
-  // Whether to automatically navigate to the next merge conflict after resolving a merge conflict.
-  "merge-conflict.autoNavigateNextConflict.enabled": false,
-
-  // Create a Code Lens for merge conflict blocks within editor.
-  "merge-conflict.codeLens.enabled": true,
-
-  // Create decorators for merge conflict blocks within editor.
-  "merge-conflict.decorators.enabled": true,
-
-  // Controls where the diff view should be opened when comparing changes in merge conflicts.
-  "merge-conflict.diffViewPosition": "Current",
 
 // Git
 
@@ -2050,20 +1921,161 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether force pushing uses the safer force-with-lease variant.
   "git.useForcePushWithLease": true,
 
-// Gulp
+// Default Configuration Overrides
 
-  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
-  "gulp.autoDetect": "on",
+  // Configure editor settings to be overridden for [git-commit] language.
+  "[git-commit]":  {
+    "editor.rulers": [
+        72
+    ]
+  },
+
+  // Configure editor settings to be overridden for [go] language.
+  "[go]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [json] language.
+  "[json]":  {
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+  },
+
+  // Configure editor settings to be overridden for [makefile] language.
+  "[makefile]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [markdown] language.
+  "[markdown]":  {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
+  },
+
+  // Configure editor settings to be overridden for [yaml] language.
+  "[yaml]":  {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": false
+  },
+
+// Remote
+
+  // Override the kind of an extension. `ui` extensions are installed and run on the local machine while `workspace` extensions are run on the remote. By overriding an extension's default kind using this setting, you specify if that extension should be installed and enabled locally or remotely.
+  "remote.extensionKind": {
+    "pub.name": "ui"
+  },
+
+// Npm
+
+  // Controls whether npm scripts should be automatically detected.
+  "npm.autoDetect": "on",
+
+  // Enable an explorer view for npm scripts.
+  "npm.enableScriptExplorer": false,
+
+  // Configure glob patterns for folders that should be excluded from automatic script detection.
+  "npm.exclude": "",
+
+  // Fetch data from https://registry.npmjs/org and https://registry.bower.io to provide auto-completion and information on hover features on npm dependencies.
+  "npm.fetchOnlinePackageInfo": true,
+
+  // The package manager used to run scripts.
+  "npm.packageManager": "npm",
+
+  // Run npm commands with the `--silent` option.
+  "npm.runSilent": false,
+
+  // The default click action used in the scripts explorer: `open` or `run`, the default is `open`.
+  "npm.scriptExplorerAction": "open",
+
+// Reference Search View
+
+  // Controls whether 'Peek References' or 'Find References' is invoked when selecting code lens references
+  //  - peek: Show references in peek editor.
+  //  - view: Show references in separate view.
+  "references.preferredLocation": "peek",
+
+// Merge Conflict
+
+  // Whether to automatically navigate to the next merge conflict after resolving a merge conflict.
+  "merge-conflict.autoNavigateNextConflict.enabled": false,
+
+  // Create a Code Lens for merge conflict blocks within editor.
+  "merge-conflict.codeLens.enabled": true,
+
+  // Create decorators for merge conflict blocks within editor.
+  "merge-conflict.decorators.enabled": true,
+
+  // Controls where the diff view should be opened when comparing changes in merge conflicts.
+  //  - Current: Open the diff view in the current editor group.
+  //  - Beside: Open the diff view next to the current editor group.
+  //  - Below: Open the diff view below the current editor group.
+  "merge-conflict.diffViewPosition": "Current",
+
+// Node debug
+
+  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
+  //  - disabled: Auto attach is disabled and not shown in status bar.
+  //  - on: Auto attach is active.
+  //  - off: Auto attach is inactive.
+  "debug.node.autoAttach": "disabled",
+
+// Emmet
+
+  // An array of languages where Emmet abbreviations should not be expanded.
+  "emmet.excludeLanguages": [
+    "markdown"
+  ],
+
+  // Path to a folder containing Emmet profiles and snippets.
+  "emmet.extensionsPath": null,
+
+  // Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
+  //  E.g.: `{"vue-html": "html", "javascript": "javascriptreact"}`
+  "emmet.includeLanguages": {},
+
+  // When set to `false`, the whole file is parsed to determine if current position is valid for expanding Emmet abbreviations. When set to `true`, only the content around the current position in css/scss/less files is parsed.
+  "emmet.optimizeStylesheetParsing": true,
+
+  // Preferences used to modify behavior of some actions and resolvers of Emmet.
+  "emmet.preferences": {},
+
+  // Shows possible Emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to `"never"`.
+  "emmet.showAbbreviationSuggestions": true,
+
+  // Shows expanded Emmet abbreviations as suggestions.
+  // The option `"inMarkupAndStylesheetFilesOnly"` applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
+  // The option `"always"` applies to all parts of the file regardless of markup/css.
+  "emmet.showExpandedAbbreviation": "always",
+
+  // If `true`, then Emmet suggestions will show up as snippets allowing you to order them as per `editor.snippetSuggestions` setting.
+  "emmet.showSuggestionsAsSnippets": false,
+
+  // Define profile for specified syntax or use your own profile with specific rules.
+  "emmet.syntaxProfiles": {},
+
+  // When enabled, Emmet abbreviations are expanded when pressing TAB.
+  "emmet.triggerExpansionOnTab": false,
+
+  // Variables to be used in Emmet snippets
+  "emmet.variables": {},
+
+// Jake
+
+  // Controls whether auto detection of Jake tasks is on or off. Default is on.
+  "jake.autoDetect": "on",
 
 // Grunt
 
   // Controls whether auto detection of Grunt tasks is on or off. Default is on.
   "grunt.autoDetect": "on",
 
-// Jake
+// Gulp
 
-  // Controls whether auto detection of Jake tasks is on or off. Default is on.
-  "jake.autoDetect": "on",
+  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
+  "gulp.autoDetect": "on",
 }
 ```
 

@@ -380,7 +380,7 @@ This section will walk you through configuring your project for each of these si
 
 You can create a dev sandbox by selecting a base container image from a source like [DockerHub](https://hub.docker.com) and then manually installing additional software, such as Git, which may be missing.
 
-You can use the **Remote-Containers: Add Development Container Configuration Files** command in the Command Palette (`kbstyle(F1)`) to select from a base image to get you started and customize from there.
+You can use the **Remote-Containers: Add Development Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`) to select from a base image to get you started and customize from there.
 
 > **Note:** See [System Requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
@@ -458,7 +458,7 @@ To avoid this problem, you can simply use the `postCreateCommand` property (as d
 
 ### Using a Dockerfile
 
-To create a customized sandbox or application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Containers: Add Development Container Configuration Files** command in the Command Palette (`kbstyle(F1)`) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
+To create a customized sandbox or application in a single container, you can use (or reuse) a `Dockerfile` to define your dev container. If you have an existing `Dockerfile` you want to use, you can use the **Remote-Containers: Add Development Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`) where you'll be asked to pick which Dockerfile you want to use. You can then customize from there.
 
 > **Note:** See [System Requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 

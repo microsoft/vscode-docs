@@ -45,7 +45,6 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 ```json
 "contributes": {
     "configuration": {
-        "type": "object",
         "title": "TypeScript configuration",
         "properties": {
             "typescript.useCodeSnippetsOnMethodSuggest": {
@@ -64,6 +63,43 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 ```
 
 ![configuration extension point example](images/contribution-points/configuration.png)
+
+### configuration scopes
+
+A configuration setting can have one of four possible scopes:
+
+- `application` - Settings that apply to all instances of VS Code and can only be configured in user settings.
+- `window` - Windows (instance) specific settings which can be configured in user, workspace, or remote settings.
+- `machine` - Machine specific settings. For example, an installation path which shouldn't be shared across machines.
+- `resource` - Resource settings, which apply to files and folders and can be configured in all settings levels, even folder settings.
+
+Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable.
+
+Below are example configuration scopes from the built-in Git extension:
+
+```json
+"contributes": {
+    "configuration": {
+        "title": "Git",
+        "properties": {
+            "git.alwaysSignOff": {
+            "type": "boolean",
+            "scope": "resource",
+            "default": false,
+            "description": "%config.alwaysSignOff%"
+            },
+            "git.ignoredRepositories": {
+            "type": "array",
+            "default": [],
+            "scope": "window",
+            "description": "%config.ignoredRepositories%"
+            },
+        }
+    }
+}
+```
+
+You can see that `git.alwaysSignOff` has `resource` scope and can be set per user, workspace, or folder, while the ignored repositories list with `window` scope applies more globally for the VS Code window or workspace (which might be multi-root).
 
 ## contributes.configurationDefaults
 
