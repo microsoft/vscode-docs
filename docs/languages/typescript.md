@@ -11,7 +11,7 @@ MetaSocialImage: images/typescript/Languages_typescript.png
 
 # TypeScript in Visual Studio Code
 
-[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The TypeScript language specification can be found [here](https://github.com/Microsoft/TypeScript/tree/master/doc).
+[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The [TypeScript language specification](https://github.com/Microsoft/TypeScript/tree/master/doc) has full details about the language.
 
 ![Working with TypeScript in Visual Studio Code](images/typescript/overview.png)
 
@@ -125,7 +125,7 @@ Set `"typescript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 Code navigation lets you quickly navigate TypeScript projects.
 
-- **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
+- **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
 - **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
 - **Peek References** `kb(editor.action.referenceSearch.trigger)` - Show all references to a symbol.
 - **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
@@ -170,7 +170,7 @@ When you move your cursor on to a TypeScript error, VS Code shows a lightbulb th
 
 ## Unused variables and unreachable code
 
-Unused TypeScript code, such the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
+Unused TypeScript code, such as the `else` block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
 
 ![Unreachable source code faded out](images/typescript/unreachable.png)
 
@@ -249,7 +249,7 @@ The `typescript.updateImportsOnFileMove.enabled` setting controls this behavior.
 
 ## Debugging
 
-VS Code comes with great debugging support for TypeScript, including support for sourcemaps. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See more about debugging [here](/docs/editor/debugging.md).
+VS Code comes with great debugging support for TypeScript, including support for sourcemaps. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See the [Debugging topic](/docs/editor/debugging.md) to learn more.
 
 ### Debug client side
 
@@ -257,7 +257,7 @@ You can debug your client-side code using a browser debugger such as [Debugger f
 
 ### Debug server side
 
-Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can read a tutorial for Node.js debugging [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application).
+Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application) to help you.
 
 ![debug data inspection](images/javascript/debug_data_inspection.gif)
 
@@ -287,4 +287,4 @@ To learn more, see:
 
 ### Can I use the version of TypeScript that ships with VS 2015?
 
-No, the TypeScript language service which ships with Visual Studio 2015 and 2017 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
+No, the TypeScript language service that ships with Visual Studio 2015 and 2017 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).

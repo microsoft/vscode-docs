@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/). [Nose](https://nose.readthedocs.io/en/latest/) is also supported, although the framework itself is in maintenance mode.
 
-After [enabling a test framework](#enable-a-test-framework), use the **Python: Discover Unit Tests** command to [scan the project for tests](#test-discovery) according to the discovery patterns of the currently selected test framework. Once discovered, Visual Studio Code provides a variety of means to [run tests](#run-tests) and [debug tests](#debug-tests). VS Code displays unit test output in the **Python Test Log** panel, including errors caused when a test framework is not installed. With PyTest, failed tests also appear in the **Problems** panel.
+After [enabling a test framework](#enable-a-test-framework), use the **Python: Discover Unit Tests** command to [scan the project for tests](#test-discovery) according to the discovery patterns of the currently selected test framework. Once discovered, Visual Studio Code provides a variety of means to [run tests](#run-tests) and [debug tests](#debug-tests). VS Code displays unit test output in the **Python Test Log** panel, including errors caused when a test framework is not installed. With pytest, failed tests also appear in the **Problems** panel.
 
 ## A little background on unit testing
 
@@ -92,7 +92,7 @@ With this code, you can experience working with tests in VS Code as described in
 
 Unit testing in Python is disabled by default. To enable unit testing, use the **Python: Configure Unit Tests** command on the Command Palette. This command prompts you to select a unit test framework, the folder containing unit tests, and the pattern used to identify test files.
 
-You can also configure unit testing manually by setting *one and only one* of the following settings to true: `python.testing.testingEnabled`, `python.testing.pyTestEnabled`, and `python.testing.nosetestsEnabled`. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+You can also configure unit testing manually by setting *one and only one* of the following settings to true: `python.testing.testingEnabled`, `python.testing.pytestEnabled`, and `python.testing.nosetestsEnabled`. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
 It's important that you enable only a single test framework at a time. For this reason, when you enable one framework also be sure to disable the others. The **Python: Configure Unit Tests** command does this automatically.
 
@@ -149,7 +149,7 @@ Test discovery applies the discovery patterns for the current framework (which c
 
 - `python.testing.testingArgs`: Looks for any Python (`.py`) file with "test" in the name in the top-level project folder. All test files must be importable modules or packages. You can customize the file matching pattern with the `-p` configuration setting, and customize the folder with the `-t` setting.
 
-- `python.testing.pyTestArgs`: Looks for any Python (`.py`) file whose name begins with "test\_" or ends with "\_test", located anywhere within the current folder and all subfolders.
+- `python.testing.pytestArgs`: Looks for any Python (`.py`) file whose name begins with "test\_" or ends with "\_test", located anywhere within the current folder and all subfolders.
 
 > **Tip**: Sometimes unit tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, create an empty file named `__init__.py` in that folder.
 
@@ -222,9 +222,36 @@ VS Code also shows test results in the **Python Test Log** output panel (use the
 
 ![Test results in the Python Test Log output panel](images/unit-testing/python-test-log-output.png)
 
-With PyTest, failed tests also appear in the **Problems** panel, where you can double-click on an issue to navigate directly to the test:
+With pytest, failed tests also appear in the **Problems** panel, where you can double-click on an issue to navigate directly to the test:
 
 ![Test results for pytest in the Problems panel](images/unit-testing/python-test-problems-output.png)
+
+## Run tests in parallel
+
+Support for running tests in parallel with pytest is available through the `pytest-xdist` package. To enable parallel testing:
+
+1. Open the integrated terminal and install the `pytest-xdist` package. For more details refer to the [project's documentation page](https://pypi.org/project/pytest-xdist/).
+
+   **For windows**
+
+   ```cmd
+   py -3 -m pip install pytest-xdist
+   ```
+
+   **For macOS/Linux**
+
+   ```bash
+   python3 -m pip install pytest-xdist
+   ```
+
+2. Next, create a file named `pytest.ini` in your project directory and add the content below, specifying the number of CPUs to be used. For example, to set it up for 4 CPUs:
+
+   ```ini
+    [pytest]
+    addopts=-n4
+   ```
+
+1. Run your tests, which will now be run in parallel.
 
 ## Debug tests
 
@@ -291,14 +318,14 @@ See [unittest command-line interface](https://docs.python.org/3/library/unittest
 
 | Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
-| pyTestEnabled | `false` | Specifies whether PyTest is enabled as the test framework. All other frameworks should be disabled. |
-| pyTestPath | `"pytest"` | Path to PyTest. Use a full path if PyTest is located outside the current environment. |
-| pyTestArgs | `[]` | Arguments to pass to PyTest, where each element that's separated by a space is a separate item in the list. See [PyTest command-line options](https://docs.pytest.org/en/latest/customize.html#command-line-options-and-configuration-file-settings). |
+| pytestEnabled | `false` | Specifies whether pytest is enabled as the test framework. All other frameworks should be disabled. |
+| pytestPath | `"pytest"` | Path to pytest. Use a full path if pytest is located outside the current environment. |
+| pytestArgs | `[]` | Arguments to pass to pytest, where each element that's separated by a space is a separate item in the list. See [pytest command-line options](https://docs.pytest.org/en/latest/customize.html#command-line-options-and-configuration-file-settings). |
 
-You can also configure pytest using a `pytest.ini` file as described on [PyTest Configuration](https://docs.pytest.org/en/latest/customize.html).
+You can also configure pytest using a `pytest.ini` file as described on [pytest Configuration](https://docs.pytest.org/en/latest/customize.html).
 
 > **Note**
-> If you have the pytest-cov coverage module installed, VS Code doesn't stop at breakpoints while debugging because pytest-cov is using the same technique to access the source code being run. To prevent this behavior, include `--no-cov` in `pyTestArgs` when debugging tests. (For more information, see [Debuggers and PyCharm](https://pytest-cov.readthedocs.io/en/latest/debuggers.html) in the pytest-cov documentation.)
+> If you have the pytest-cov coverage module installed, VS Code doesn't stop at breakpoints while debugging because pytest-cov is using the same technique to access the source code being run. To prevent this behavior, include `--no-cov` in `pytestArgs` when debugging tests. (For more information, see [Debuggers and PyCharm](https://pytest-cov.readthedocs.io/en/latest/debuggers.html) in the pytest-cov documentation.)
 
 ### Nose configuration settings
 

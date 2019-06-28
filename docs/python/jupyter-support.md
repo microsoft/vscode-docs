@@ -11,7 +11,7 @@ MetaSocialImage: images/tutorial/social.png
 
 # Working with Jupyter Notebooks in Visual Studio Code
 
-[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a *notebook*.
+[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a *notebook*.
 
 To work with Jupyter notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -50,6 +50,18 @@ The Python interactive window, mentioned in the previous section, can be used as
 To use the window as a console, open it with the **Python: Show Python Interactive window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
 
 To use the window with a file, use the **Run Current File in Python Interactive window** command from the Command Palette.
+
+## Variable explorer and data viewer
+
+Within the Python interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By expanding the **Variables** section after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code. Clicking on each column header will allow you to sort the variables in the table.
+
+![Variable Explorer](images/jupyter/jupyter-variable-explorer.png)
+
+For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
+
+![Data Viewer](images/jupyter/jupyter-data-viewer.png)
+
+> **Note:** Variable explorer is enabled by default, but can be turned off in settings (Python > Data Science: Show Jupyter Variable Explorer).
 
 ## Connect to a remote Jupyter server
 

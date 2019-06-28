@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Editing Code
 ContentId: 843e139a-9e3c-4b4f-95d1-32a9a7480e8e
 PageTitle: Editing Java in Visual Studio Code
-DateApproved: 1/2/2019
+DateApproved: 6/17/2019
 MetaDescription: Editing Java in Visual Studio Code with IntelliSense, Refactoring and Formatting.
 ---
 # Editing Java in Visual Studio Code
@@ -14,7 +14,6 @@ Visual Studio Code is a source code editor first and foremost with rich editing 
 If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
 
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'editing')" href="javascript:void(0)">Report an issue</a>
-
 
 ## Code editing and navigation
 
@@ -91,7 +90,7 @@ In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://
 
 IntelliCode works well with popular Java libraries and frameworks like Java SE and Spring. It will help you whether you are doing monolithic web apps or modern microservices.
 
-## Refactoring
+## Refactoring and Code Actions
 
 Here we will show you the most used refactoring features for Java in Visual Studio Code, namely rename, extract methods and variables.
 
@@ -117,10 +116,10 @@ Extract to constant, method, and local variables all come in handy with Java on 
 
 ### Generate getters and setters
 
-You can bulk generate getters and setters for all new member variables.
+You can bulk generate getters and setters for all new member variables. If the class has more than one field, the source action will prompt a Quick Pick for you to select the target fields to use to generate the accessor methods.
 
 <video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/getter-setter.mp4" type="video/mp4">
+  <source src="/docs/java/java-editing/advancedgettersetter.mp4" type="video/mp4">
 </video>
 
 ### Resolve ambiguous imports
@@ -131,7 +130,7 @@ To deal with ambiguous imports, you now have a dropdown list to pick the right o
   <source src="/docs/java/java-editing/resolve-ambiguous-imports.mp4" type="video/mp4">
 </video>
 
-### Override/Implement Methods
+### Override/implement methods
 
 With this source action, all the candidates are presented to you with a checklist. You can then decide what to override or implement.
 
@@ -154,19 +153,47 @@ There are two options for you to customize the generated code:
 
 ### Generate `toString()`
 
-`toString()` can also be generated with the new source action. Customization is also possible with the check list of all the member variables.
+There is a new source action to generate the `toString()` method. Customization is possible with a check list of all the member variables.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/generate-tostring.mp4" type="video/mp4">
 </video>
 
-### Convert to Static Imports
+### Convert to static imports
 
 Convert static functions calls to static imports.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/convert-static-imports.mp4" type="video/mp4">
 </video>
+
+### Generate delegate methods
+
+Generate delegate methods
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/generate-delegate-methods.mp4" type="video/mp4">
+</video>
+
+### Generate constructor from super class
+
+Add a constructor from super class.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/generate-constructor.mp4" type="video/mp4">
+</video>
+
+### Assign parameter to new field
+
+This source action assigns a parameter to a new field for unused parameter(s) in a constructor.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/assign-to-field.mp4" type="video/mp4">
+</video>
+
+### Code Snippets
+
+Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. You can review all supported code snippets at [vscode-java/snippets/java.json](https://github.com/redhat-developer/vscode-java/blob/master/snippets/java.json).
 
 ## Formatting
 

@@ -9,22 +9,16 @@ Author: Kai Maetzel
 ---
 # Event-Stream Package Security Update
 
-**Update**: March 15, 2019
+**Updated**: June 23, 2019
 
 We have been working with extension authors to get their extensions and dependencies updated.
 
 Below is the current list of blocked extensions:
 
-* `edb.vandelay`
 * `JacobeanResearchandDevelopmentLLC.vscode-scxml-preview`
 * `joaquin6.package-watch`
 * `KazuoCode.gthubsum`
 * `MaxGotovkin.tslens`
-* `mf.magicspace`
-* `Restbird.vscode-restbird`
-* `roboceo.robojsx-plugin`
-* `tboevil.webpaste`
-* `tintrinh.php-refactor`
 
 ---
 

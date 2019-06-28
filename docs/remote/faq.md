@@ -57,11 +57,23 @@ Yes, we [announced a cloud-hosted environments service](https://aka.ms/vsfutures
 
 ### What are the connectivity requirements for VS Code Server?
 
-The VS Code Server requires outbound HTTPS (port 443) connectivity to `update.code.visualstudio.com` and `marketplace.visualstudio.com`. All other communication between the server and the VS Code client is accomplished through the following transport channels depending on the extension:
+The VS Code Server requires outbound HTTPS (port 443) connectivity to:
+
+* `update.code.visualstudio.com`
+* `marketplace.visualstudio.com`
+* `vscode.blob.core.windows.net`
+* `*.vo.msecnd.net` (Azure CDN)
+* `*.gallerycdn.vsassets.io` (Azure CDN)
+
+All other communication between the server and the VS Code client is accomplished through the following transport channels depending on the extension:
 
 * SSH: An authenticated, secure SSH tunnel.
 * Containers: An authenticated, random port automatically exposed via the Docker CLI.
 * WSL: An authenticated, random local TCP port.
+
+You can find a list of locations VS Code itself needs access to [in the network connections article](/docs/setup/network.md#common-hostnames).
+
+Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [VS Live Share](https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 

@@ -202,20 +202,20 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 | debugPort | `3000` | Port number used for debugging of UnitTest tests. | [Unit testing](/docs/python/unit-testing.md) |
   autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a unit test file. |
 
-### PyTest framework
+### pytest framework
 
 | Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
-| pyTestEnabled | `false` | Specifies whether pytest is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md) |
-| pyTestPath | `"py.test"` | Path to pytest. Use a full path if pytest is located outside the current environment. | [Unit testing](/docs/python/unit-testing.md) |
-| pyTestArgs | `[]` | Arguments to pass to PyTest, where each top-level element that's separated by a space is a separate item in the list. When debugging unit tests with pytest-cov installed, include `--no-cov` in these arguments. | [Unit testing](/docs/python/unit-testing.md) |
+| pytestEnabled | `false` | Specifies whether pytest is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md) |
+| pytestPath | `"py.test"` | Path to pytest. Use a full path if pytest is located outside the current environment. | [Unit testing](/docs/python/unit-testing.md) |
+| pytestArgs | `[]` | Arguments to pass to pytest, where each top-level element that's separated by a space is a separate item in the list. When debugging unit tests with pytest-cov installed, include `--no-cov` in these arguments. | [Unit testing](/docs/python/unit-testing.md) |
 
 ### Nose framework
 
 | Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | nosetestsEnabled | `false` | Specifies whether Nose  is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md) |
-| nosetestPath | `"nosetests"` | Path to Nose. Use a full path if PyTest is located outside the current environment. | [Unit testing](/docs/python/unit-testing.md) |
+| nosetestPath | `"nosetests"` | Path to Nose. Use a full path if pytest is located outside the current environment. | [Unit testing](/docs/python/unit-testing.md) |
 | nosetestArgs | `[]` | Arguments to pass to Nose, where each top-level element that's separated by a space is a separate item in the list. | [Unit testing](/docs/python/unit-testing.md) |
 
 ## Next steps
