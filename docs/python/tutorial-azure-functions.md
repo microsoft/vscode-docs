@@ -391,27 +391,19 @@ In this section, you add a storage binding to the HttpExample function created e
 
 1. Sync the remote settings for your Azure Functions project into your `local.settings.json` file: in the **Azure Explorer** in VS Code, right-click the **Application Settings** node and select the **Download remote settings...** command. Open `local.settings.json` and check that it contains a value for `AzureWebJobsStorage`. That value is the connection string for the storage account.
 
-1. In the `HttpExample` folder, open the `function.json` and modify its contents to match the following, and save the file.
+1. In the `HttpExample` folder, right-click the `function.json`, select **Add binding**, and select or provide the following values for the prompts:
+
+    | Prompt | Value to provide |
+    | --- | --- |
+    | Set binding direction | out |
+    | Select binding with direction out | Azure Queue Storage |
+    | The name used to identify this binding in your code | msg |
+    | The queue to which the message will be sent | outqueue |
+    | Select setting from `local.settings.json` (asking for the storage connection) | AzureWebJobsStorage |
+
+1. After making these selections, verify that the following binding is added to your `function.json` file:
 
     ```json
-    {
-      "scriptFile": "__init__.py",
-      "bindings": [
-        {
-          "authLevel": "anonymous",
-          "type": "httpTrigger",
-          "direction": "in",
-          "name": "req",
-          "methods": [
-            "get",
-            "post"
-          ]
-        },
-        {
-          "type": "http",
-          "direction": "out",
-          "name": "$return"
-        },
         {
           "type": "queue",
           "direction": "out",
@@ -419,11 +411,7 @@ In this section, you add a storage binding to the HttpExample function created e
           "queueName": "outqueue",
           "connection": "AzureWebJobsStorage"
         }
-      ]
-    }
     ```
-
-    In the added binding at the end of the file, `"type": "queue"` indicates a binding to Azure Storage, with `"direction": "out"` indicating an output-only binding to the storage account identified by "connection". The binding itself is named "msg"; that name appears as an argument in the `main` Python function in your code. When you send a message to this storage account through the binding, the message is written to a queue identified by teh "queueName" property, which is "outqueue" in this case.
 
 1. Now that you've configured the binding, you can use it in your function code. Again, the newly-defined binding appears in your code as an argument to the `main` function in `__init__.py`. For example, you can modify the `__init__.py` file in HttpExample to match the following, which shows using the `msg` argument to write a timestamped message with the name used in the request. The comments explain the specific changes:
 
