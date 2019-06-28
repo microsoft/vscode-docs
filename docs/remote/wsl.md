@@ -23,7 +23,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 To get started you need to:
 
-1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution. VS Code will use your **default distro**, so use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
+1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution.
 
     > **Note:** WSL does have some [known limitations](#known-limitations) for certain types of development that can also affect your VS Code experience.
 
@@ -45,19 +45,31 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
 3. Type **`code .`** in the terminal. When doing this for the first time, you should see VS Code fetching components needed to run in WSL. This should only take short while, and is only needed once.
 
-    > **Note:** If this command does not work, you may not have added VS Code to your path when it was installed. Instead, start VS Code, press `kbstyle(F1)`, select **Remote-WSL: New Window**, and use the File menu to open your folder.
+    > **Note:** If this command does not work, you may not have added VS Code to your path when it was installed.
+
 
 4. After a moment, a new VS Code window will appear, and you'll see a notification that VS Code is opening the folder in WSL.
 
    ![WSL Starting notification](images/wsl//wsl-starting-notification.png)
 
-    VS Code will now continue to configure itself in WSL, and install any VS Code extensions you are running locally inside WSL to optimize performance. VS Code will keep you up to date as it makes progress.
+    VS Code will now continue to configure itself in WSL and keep you up to date as it makes progress.
 
 5. Once finished, you now see a WSL indicator in the bottom left corner, and you'll be able to use VS Code as you would normally!
 
     ![WSL Status Bar Item](images/wsl/wsl-statusbar-indicator.png)
 
 That's it! Any VS Code operations you perform in this window will be executed in the WSL environment, everything from editing and file operations, to debugging, using terminals, and more.
+
+
+Alternatively you can open a Remote WSL window out of VSCode:
+
+1. Start VS Code
+2. press `kbstyle(F1)`, select **Remote-WSL: New Window** for the default distro or **Remote-WSL: New Window using Distro**
+3. Use the File menu to open your folder.
+
+If you already have a folder open, you can also use **Remote-WSL: Reopen in WSL** command. You will be prompted which distro to use.
+
+If you are in a WSL window and want to open the current input in a local window, use **Remote-WSL: Reopen in Windows**
 
 ## Managing extensions
 
@@ -116,12 +128,10 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) 
 
 ### Common limitations in WSL
 
-| Issue | Existing issues |
-|---|---|
-Non-empty folders in the open workspace can't be renamed | [Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)
-| When installing an extension pack in WSL, extensions may install locally instead of in WSL. Click the **Install** button for each extension in the Local section of the extension panel to work around the issue. | [Microsoft/vscode-remote-release#11](https://github.com/Microsoft/vscode-remote-release/issues/11) |
+Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL version, VS Code will use your **default distro**, so use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
 
-In addition, local proxy settings are not reused by VS Code running in WSL, which can prevent extensions from working without adding a global `HTTP_PROXY` and `HTTPS_PROXY` environment variable with the appropriate proxy information.
+The `Alpine WSL` distro is not yet supported with VS Code.
+
 
 ### Golang in WSL
 
@@ -161,7 +171,7 @@ Many extensions will work in WSL without modification. However, in some cases, c
 
 ### How do I change the distribution Remote - WSL uses?
 
-The Remote - WSL extension uses your **default distribution**, which you can change using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
+Use **Remote-WSL: New Window using Distro** but note that VSCode requires Windows 10, May 2019 Update (version 1903) for this to work. For older WSL versions, the Remote - WSL extension uses your **default distribution**, which you can change using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
 
 For example:
 
