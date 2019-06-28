@@ -231,7 +231,7 @@ In addition to the global menu bar, task commands can be accessed using the **Co
 
 ### Compound tasks
 
-You can also compose tasks out of simpler tasks with the `dependsOn` property. For example, if you have a workspace with a client and server folder and both contain a build script, you can create a task that starts both build scripts in separate terminals. If you list more than one task in the `dependsOn` property, they are executed in parallel.
+You can also compose tasks out of simpler tasks with the `dependsOn` property. For example, if you have a workspace with a client and server folder and both contain a build script, you can create a task that starts both build scripts in separate terminals. If you list more than one task in the `dependsOn` property, they are executed in parallel by default.
 
 The `tasks.json` file looks like this:
 
@@ -260,6 +260,21 @@ The `tasks.json` file looks like this:
             "dependsOn": ["Client Build", "Server Build"]
         }
     ]
+}
+```
+
+If you specify `"dependsOrder": "sequence"` then your task dependencies are executed in the order they are listed in `dependsOn`. Any background/watch tasks used in `dependsOn` with `"dependsOrder": "sequence"` must have a problem matcher that tracks when they are "done". The following task runs task Two, task Three, and then task One.
+
+```json
+{
+    "label": "One",
+	"type": "shell",
+	"command": "echo Hello ",
+	"dependsOrder": "sequence",
+	"dependsOn":[
+		"Two",
+		"Three"
+	]
 }
 ```
 
@@ -631,7 +646,7 @@ A matcher that captures the above warning (and errors) looks like this:
 }
 ```
 
-Please note that the file, line and message properties are mandatory.
+Please note that the file, line and message properties are mandatory. The `fileLocation` specifies whether the file paths in the problem are `absolute` or `relative`. If the task produces both absolute and relative paths, you can use the `autoDetect` file location. With `autoDetect`, paths are first tested as absolute paths, and if the file doesn't exist then the path is assumed to be relative.
 
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
 
