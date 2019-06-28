@@ -60,16 +60,15 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
 That's it! Any VS Code operations you perform in this window will be executed in the WSL environment, everything from editing and file operations, to debugging, using terminals, and more.
 
+Alternatively, you can open a Remote WSL window directly from VS Code:
 
-Alternatively you can open a Remote WSL window out of VSCode:
-
-1. Start VS Code
-2. press `kbstyle(F1)`, select **Remote-WSL: New Window** for the default distro or **Remote-WSL: New Window using Distro**
+1. Start VS Code.
+2. Press `kbstyle(F1)`, select **Remote-WSL: New Window** for the default distro or **Remote-WSL: New Window using Distro**.
 3. Use the File menu to open your folder.
 
-If you already have a folder open, you can also use **Remote-WSL: Reopen in WSL** command. You will be prompted which distro to use.
+If you already have a folder open, you can also use the **Remote-WSL: Reopen in WSL** command. You will be prompted which distro to use.
 
-If you are in a WSL window and want to open the current input in a local window, use **Remote-WSL: Reopen in Windows**
+If you are in a WSL window and want to open the current input in a local window, use **Remote-WSL: Reopen in Windows**.
 
 ## Managing extensions
 
