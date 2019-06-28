@@ -274,11 +274,10 @@ You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-
 
 ### Can I use Cygwin's shell with the terminal on Windows?
 
-Yes, to use the [Cygwin](http://cygwin.com/) shell, you will first need to install the chere package and then add the following settings to your `settings.json` file:
+Yes, you can use the [Cygwin](http://cygwin.com/) shell. If you installed Cygwin to the default location, you should be able to switch to it via the **Select Default Shell** command. If not, configure the path manually in your `settings.json` file:
 
 ```json
-"terminal.integrated.shell.windows": "C:\\Cygwin\\bin\\bash.exe",
-"terminal.integrated.shellArgs.windows": ["/bin/xhere", "/bin/bash"]
+"terminal.integrated.shell.windows": "C:\\cygwin64\\bin\\bash.exe"
 ```
 
 ### Powershell on macOS is complaining about a "-l" argument, how do I fix it?
@@ -397,3 +396,7 @@ This error can occur due to anti-virus software intercepting winpty from creatin
 ```bash
 <install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
 ```
+
+### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
+
+The terminal can have problems rendering in some environments, for example you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.rendererType": "dom"` to avoid using the canvas in the terminal.

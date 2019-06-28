@@ -132,6 +132,9 @@ You can also specify a complete SemVer compatible version on the command line:
 vsce publish 2.0.1
 ```
 
+>  **Note:** If `vsce publish` is run in a git repo, it will also create a version commit and tag via [npm-version](https://docs.npmjs.com/cli/version#description).  The default commit message will be extension's version, but you can supply a custom commit message using the `-m` flag.  (The current version can be referenced from
+the commit message with `%s`.)
+
 ## Unpublishing extensions
 
 You can unpublish an extension with the vsce tool by specifying the extension id `publisher.extension`.

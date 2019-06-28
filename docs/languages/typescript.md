@@ -125,7 +125,7 @@ Set `"typescript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 Code navigation lets you quickly navigate TypeScript projects.
 
-- **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
+- **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
 - **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
 - **Peek References** `kb(editor.action.referenceSearch.trigger)` - Show all references to a symbol.
 - **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
@@ -170,7 +170,7 @@ When you move your cursor on to a TypeScript error, VS Code shows a lightbulb th
 
 ## Unused variables and unreachable code
 
-Unused TypeScript code, such the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
+Unused TypeScript code, such as the `else` block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
 
 ![Unreachable source code faded out](images/typescript/unreachable.png)
 
@@ -287,4 +287,4 @@ To learn more, see:
 
 ### Can I use the version of TypeScript that ships with VS 2015?
 
-No, the TypeScript language service which ships with Visual Studio 2015 and 2017 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
+No, the TypeScript language service that ships with Visual Studio 2015 and 2017 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).

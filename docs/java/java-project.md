@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
 PageTitle: Maven Support, Java Package, and Dependency Management in Visual Studio Code
-DateApproved: 1/2/2019
+DateApproved: 6/17/2019
 MetaDescription: Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
