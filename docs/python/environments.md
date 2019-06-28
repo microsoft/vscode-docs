@@ -261,5 +261,5 @@ It's recommended that you set the PYTHONPATH variable in an [Environment variabl
 
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
-- [Testing](/docs/python/unit-testing.md) - Configure test gronments and discover, run, and debug tests.
+- [Testing](/docs/python/unit-testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
