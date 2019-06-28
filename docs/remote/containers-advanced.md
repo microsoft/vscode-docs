@@ -455,7 +455,7 @@ Follow these steps:
     "docker.host":"tcp://localhost:23750"
     ```
 
-5. Next, use the file mount to copy `~/repos/your-repository-name/.devcontainer/devcontainer.json` to `.~~devcontainer~~.json` (dot-prefixed) in `~/devcontainers/repository-name-here` and update the default workspace mount in the file to point to the source code on the remote machine. In this example, we are using a Dockerfile, so the changes would be as follows:
+5. Next, use the file mount to copy `~/repos/your-repository-name/.devcontainer/devcontainer.json` to `.devcontainer.json` (dot-prefixed) in `~/devcontainers/repository-name-here` and update the default workspace mount in the file to point to the source code on the remote machine. In this example, we are using a Dockerfile, so the changes would be as follows:
 
     ```json
     "dockerFile":"../../repos/your-repository-name/.devcontainer/Dockerfile"
