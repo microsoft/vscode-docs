@@ -187,7 +187,7 @@ If you are connecting to an SSH remote host and are either:
 
 ...VS Code should automatically prompt you to enter needed information. If you do not see the prompt, enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
 
-However, you may be prompted to enter this information multiple times due to [vscode-remote-release#642](https://github.com/microsoft/vscode-remote-release/issues/642). On macOS and Linux, you avoid this problem by enabling the `ControlMaster` feature on your local machine so that OpenSSH runs multiple SSH sessions over a single connection.
+However, you may be prompted to enter this information multiple times due to [vscode-remote-release#642](https://github.com/microsoft/vscode-remote-release/issues/642). On macOS and Linux, you can avoid this problem by enabling the `ControlMaster` feature on your local machine so that OpenSSH runs multiple SSH sessions over a single connection.
 To enable `ControlMaster`:
 
 1. Add an entry like this to your SSH config file:

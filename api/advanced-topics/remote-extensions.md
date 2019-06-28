@@ -371,7 +371,7 @@ To resolve this problem:
 
 1. If you are dynamically acquiring compiled code, you can add support by detecting non-x86_64 targets using `process.arch` and downloading versions compiled for the right architecture. If you are including binaries for all supported architectures inside your extension instead, you can use this logic to use the correct one.
 
-2. For Alpine Linux, you detect the operating system using  `await fs.exists('/etc/alpine-release')` and once again download or use the correct binaries for a `muscl` based operating system.
+2. For Alpine Linux, you can detect the operating system using  `await fs.exists('/etc/alpine-release')` and once again download or use the correct binaries for a `muscl` based operating system.
 
 3. If you'd prefer not to support these platforms, you can use the same logic to provide a good error message instead.
 

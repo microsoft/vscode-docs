@@ -45,7 +45,7 @@ To get started you need to:
 
 3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
 
-4. [Optional] If you are on macOS or Linux need to enter a token or password when connecting to your host, [you can enable `ControlMaster` in your SSH config](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) to prevent you from having to enter it multiple times.
+4. [Optional] If you are on macOS or Linux and need to enter a token or password when connecting to your host, [you can enable `ControlMaster` in your SSH config](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) to prevent you from having to enter it multiple times.
 
 ### Connect to a remote host
 
