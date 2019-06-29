@@ -35,13 +35,13 @@ If you'd like to have a more comprehensive overview of the Extension API, refer 
 
 Building a good extension can take a lot of effort. Here is how each section of the API doc can help you with:
 
-- **Get Started** teaches fundamental concepts for building extensions with the [Hello World](https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-sample) sample.
-- **Working with Extensions** includes in-depth guides on various extension development topics, such as [publishing](/api/working-with-extensions/publishing-extension) and [testing](/api/working-with-extensions/testing-extension) extensions.
-- **Extension Capabilities** dissects VS Code's vast API into smaller categories and points you to more detailed topics.
-- **Extension Guides** includes guides and code samples that explains specific usages of VS Code Extension API.
-- **Language Extensions** illustrates how to add support for a programming language with guides and code samples.
-- **Advanced Topics** explains advanced concepts such as [Extension Host](/api/advanced-topics/extension-host), [Supporting Remote Development](/api/advanced-topics/remote-extensions), and [Proposed API](/api/advanced-topics/using-proposed-api).
-- **References** contains exhaustive references for the [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points), and many other topics.
+- [**Get Started**](https://code.visualstudio.com/api#get-started-articles) teaches fundamental concepts for building extensions with the [Hello World](https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-sample) sample.
+- [**Working with Extensions**](https://code.visualstudio.com/api#working-with-extensions-articles) includes in-depth guides on various extension development topics, such as [publishing](/api/working-with-extensions/publishing-extension) and [testing](/api/working-with-extensions/testing-extension) extensions.
+- [**Extension Capabilities**](https://code.visualstudio.com/api#extension-capabilities-articles) dissects VS Code's vast API into smaller categories and points you to more detailed topics.
+- [**Extension Guides**](https://code.visualstudio.com/api#extension-guides-articles) includes guides and code samples that explains specific usages of VS Code Extension API.
+- [**Language Extensions**](https://code.visualstudio.com/api#language-extensions-articles) illustrates how to add support for a programming language with guides and code samples.
+- [**Advanced Topics**](https://code.visualstudio.com/api#advanced-topics-articles) explains advanced concepts such as [Extension Host](/api/advanced-topics/extension-host), [Supporting Remote Development](/api/advanced-topics/remote-extensions), and [Proposed API](/api/advanced-topics/using-proposed-api).
+- [**References**](https://code.visualstudio.com/api#references-articles) contains exhaustive references for the [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points), and many other topics.
 
 ## Looking for help
 
