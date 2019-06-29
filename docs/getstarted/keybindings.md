@@ -587,7 +587,7 @@ Now that you know about our Key binding support, what's next...
 
 * [Language Support](/docs/languages/overview.md) - Our Good, Better, Best language grid to see what you can expect
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-* [Node.js](/docs/nodejs/nodejs-tutorial.md) - End to end Node.js scenario with a sample app
+* [Node.js](/docs/nodejs/nodejs-tutorial.md) - End to end Node.js scenarios with a sample app
 
 ## Common questions
 
