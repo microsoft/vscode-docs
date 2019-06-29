@@ -216,7 +216,7 @@ Accepted scan codes:
 
 ## 'when' clause contexts
 
-VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times.
+VS Code gives you fine control over your key bindings when enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times.
 
 Below are the some of the possible `when` clause contexts which evaluate to Boolean true/false. For conditional expressions, you can use either equality `==` (`"editorLangId == typescript"`) or inequality `!=` (`"resourceExtname != .js"`).
 
