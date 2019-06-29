@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 6/5/2019
+DateApproved: 6/26/2019
 ---
 # Remote Development Tips and Tricks
 
@@ -185,10 +185,9 @@ If you are connecting to an SSH remote host and are either:
 - using password authentication,
 - using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible,
 
-...you need to enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
+...VS Code should automatically prompt you to enter needed information. If you do not see the prompt, enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
 
-To avoid reentering your connection information each time, you can enable the `ControlMaster` feature on your local machine so that OpenSSH runs multiple SSH sessions over a single connection.
-
+However, you may be prompted to enter this information multiple times due to [vscode-remote-release#642](https://github.com/microsoft/vscode-remote-release/issues/642). On macOS and Linux, you can avoid this problem by enabling the `ControlMaster` feature on your local machine so that OpenSSH runs multiple SSH sessions over a single connection.
 To enable `ControlMaster`:
 
 1. Add an entry like this to your SSH config file:
@@ -301,18 +300,20 @@ Note that only Linux hosts are currently supported, which is why permissions for
 | OS | Instructions |
 |----|--------------|
 | Windows 10 / Server 2016 | Install the [Windows OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
-| Earlier Windows | Install [Git for Windows](https://git-scm.com/download/win) and select the **Use Git and optional Unix tools from the Command Prompt** option or manually add `C:\Program Files\Git\usr\bin` into your PATH. |
+| Earlier Windows | Install [Git for Windows](https://git-scm.com/download/win). |
 | macOS | Comes pre-installed. |
 | Debian/Ubuntu | Run `sudo apt-get install openssh-client` |
 | RHEL / Fedora / CentOS | Run `sudo yum install openssh-clients` |
+
+VS Code will look for the `ssh` command in the PATH. Failing that, on Windows it will attempt to find `ssh.exe` in the default Git for Windows install path, and failing that attempt to use WSL if installed. You can specifically tell VS Code where to find the SSH client by adding the `remote.SSH.path` property in `settings.json`
 
 ### Installing a supported SSH server
 
 | OS | Instructions | Details |
 |----|--------------|---|
-| Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for details. |
-| RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | See the [RedHat SSH](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-openssh) documentation for details. |
-| SuSE |  In Yast, go to Services Manager, select "sshd" in the list, and click **Enable**. Next go to Firewall, select the **Permanent** configuration, and under services check **sshd**. | See the [SuSE SSH](https://en.opensuse.org/OpenSSH) documentation for details. |
+| Debian 8+ / Ubuntu 16.04+| Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for details. |
+| RHEL / CentOS 7+ | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | See the [RedHat SSH](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-openssh) documentation for details. |
+| SuSE 12+ / openSUSE 42.3+ |  In Yast, go to Services Manager, select "sshd" in the list, and click **Enable**. Next go to Firewall, select the **Permanent** configuration, and under services check **sshd**. | See the [SuSE SSH](https://en.opensuse.org/OpenSSH) documentation for details. |
 | Windows | Not supported yet. | |
 | macOS | Not supported yet. | |
 
@@ -326,23 +327,22 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 [SSHFS](https://en.wikipedia.org/wiki/SSHFS) is a secure remote filesystem access protocol that builds up from SFTP. It provides advantages over something like a CIFS / Samba share in that all that is required is SSH access to the machine.
 
-You can install SSHFS locally as follows:
+> **Note:** For performance reasons, SSHFS is best used for single file edits and uploading/downloading content. If you need to use an application that bulk reads/write to many files at once (like a local source control tool), [rsync](#using-rsync-to-maintain-a-local-copy-of-your-source-code) is a better choice.
 
-- On macOS using [Homebrew](https://brew.sh/): `brew install sshfs`
-  - If you would prefer not to use the command line, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
-- On Linux using the OS package manager. For Debian/Ubuntu: `sudo apt-get install sshfs`
-- [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on Windows using [Chocolatey](https://chocolatey.org/): `choco install sshfs`
+**macOS / Linux**:
 
-Note that WSL 1 does not support FUSE or SSHFS, so installing SSHFS-Win is the best option currently.
+On Linux, you can use your distribution's package manager to install SSHFS. For Debian/Ubuntu: `sudo apt-get install sshfs`
 
-On macOS, you can use [SSHFS GUI](https://github.com/dstuecken/sshfs-gui), or you can mount the remote filesystem on **macOS or Linux** by running the following commands from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
+> **Note:** WSL 1 does not support FUSE or SSHFS, so the instructions differ for Windows currently. **WSL2 does include FUSE and SSHFS support**, so this will change soon.
+
+On macOS, you can install SSHFS using [Homebrew](https://brew.sh/): `brew install sshfs` In addition, if you would prefer not to use the command line to mount the remote filesystem, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
+
+To use the command line, run the following commands from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
 
 ```bash
 export USER_AT_HOST=user@hostname
-
 # Make the directory where the remote filesystem will be mounted
 mkdir -p "$HOME/sshfs/$USER_AT_HOST"
-
 # Mount the remote filesystem
 sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  \
     -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
@@ -354,17 +354,17 @@ This will make your home folder on the remote machine available under the `~/ssh
 umount "$HOME/sshfs/$USER_AT_HOST"
 ```
 
-On **Windows**, you should add a `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
+**Windows:**
 
-Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname` where `user@hostname` with is your remote user and hostname / IP. You can also map the drive using the command prompt as follows:
+Follow these steps:
 
-```bat
-net use /PERSISTENT:NO X: \\sshfs\user@hostname
-```
+1. On Linux, add `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
-In this example, the remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking **Disconnect**.
+2. Next, install [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on using [Chocolatey](https://chocolatey.org/): `choco install sshfs`
 
-Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way can be very slow and can cause unforeseen problems. However, you can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [below](#using-rsync-to-maintain-a-local-copy-of-your-source-code) for details.
+3. Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname` where `user@hostname` with is your remote user and hostname / IP. You script this using the from the command prompt as follows: `net use /PERSISTENT:NO X: \\sshfs\user@hostname`
+
+4. Once done, you can disconnect from it by right-clicking on the drive in the File Explorer and clicking **Disconnect**.
 
 ### Using rsync to maintain a local copy of your source code
 
@@ -590,15 +590,17 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 
 ### Advanced container configuration tips
 
-See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following advanced configuration topics:
+See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following topics:
 
-- [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
-- [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced#avoiding-extension-reinstalls-on-container-rebuild)
-- [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
-- [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
-- [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
-- [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
-- [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
+* [Adding environment variables](#Adding-environment-variables)
+* [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
+* [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount)
+* [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
+* [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced.md#avoiding-extension-reinstalls-on-container-rebuild)
+* [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
+* [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
+* [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
+* [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
 
 ## WSL tips
 
@@ -782,6 +784,13 @@ If an incompatible extension has been installed on a remote host, container, or 
 Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
 
 **Resolution:** Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
+
+### Extension only fails on non-x86_64 hosts or Alpine Linux
+
+If an extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (e.g. ARM32) or Alpine Linux containers, the extension may only include native code or runtimes that do not support these platforms. For example, the extensions may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).
+
+**Resolution:**
+Extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. It is important to note that some 3rd party npm modules may also include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets. See the [extension guide](api/advanced-topics/remote-extensions#supporting-non-x8664-hosts-or-alpine-linux-containers) for details.
 
 ### Extensions fail due to missing modules
 
