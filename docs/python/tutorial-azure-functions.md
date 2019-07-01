@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Azure Functions
 ContentId: 3685dbc0-5700-4456-8133-6f0db8e25e55
 PageTitle: Create and deploy Python source code to Azure Functions
-DateApproved: 06/28/2019
+DateApproved: 07/01/2019
 MetaDescription: How to create and deploy Python source code to Azure Functions
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -272,11 +272,11 @@ func azure functionapp logstream <app_name> --browser
 
 ### Sync local settings to Azure
 
-The **Upload settings** button in the deployment message popup applies any changes you've made to your `local.settings.json` file to Azure. You can also invoke the command on the **Azure Functions** explorer by expanding the Functions project node, right-clicking **Application Settings**, and selecting **Upload local settings...**.
+The **Upload settings** button in the deployment message popup applies any changes you've made to your `local.settings.json` file to Azure. You can also invoke the command on the **Azure Functions** explorer by expanding the Functions project node, right-clicking **Application Settings**, and selecting **Upload local settings...**. You can also use the Command Palette to select the **Azure Functions: Upload Local Settings** command.
 
 Uploading settings updates any existing settings and adds any new settings defined in `local.settings.json`. Uploading doesn't remove any settings from Azure that aren't listed in the local file. To remove those settings, expand the **Applications Settings** node in the **Azure Functions** explorer, right-click the setting, and select **Delete Setting...**. You can also edit settings directly on the Azure portal.
 
-To apply any changes you make through the portal or through the **Azure Explorer** to the `local.settings.json` file, right-click the **Application Settings** node and select the **Download remote settings...** command.
+To apply any changes you make through the portal or through the **Azure Explorer** to the `local.settings.json` file, right-click the **Application Settings** node and select the **Download remote settings...** command. You can also use the Command Palette to select the **Azure Functions: Download Remote Settings** command.
 
 ## Add a second Function
 
@@ -389,9 +389,13 @@ A "binding" is how you connect an Azure function to other Azure resources, such 
 
 In this section, you add a storage binding to the HttpExample function created earlier in this tutorial. The function uses this binding to write messages to storage with each request.
 
-1. Sync the remote settings for your Azure Functions project into your `local.settings.json` file: in the **Azure Explorer** in VS Code, right-click the **Application Settings** node and select the **Download remote settings...** command. Open `local.settings.json` and check that it contains a value for `AzureWebJobsStorage`. That value is the connection string for the storage account.
+1. Sync the remote settings for your Azure Functions project into your `local.settings.json` file by opening the Command Palette and selecting **Azure Functions: Download Remote Settings**. Open `local.settings.json` and check that it contains a value for `AzureWebJobsStorage`. That value is the connection string for the storage account.
 
-1. In the `HttpExample` folder, right-click the `function.json`, select **Add binding**, and select or provide the following values for the prompts:
+1. In the `HttpExample` folder, right-click the `function.json`, select **Add binding**:
+
+    ![Add binding command in the VS Code explorer](images/functions/add-binding-command.png)]
+
+1. In the prompts that follow in VS Code, select or provide the following values:
 
     | Prompt | Value to provide |
     | --- | --- |
