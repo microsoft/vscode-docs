@@ -369,7 +369,7 @@ After your first deployment, you can make changes to your code, such as adding a
 
 1. Start the debugger by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. The **Output** window should now show both endpoints in your project:
 
-    ```
+    ```output
     Http Functions:
 
             DigitsOfPi: [GET] http://localhost:7071/api/DigitsOfPi
@@ -393,7 +393,7 @@ In this section, you add a storage binding to the HttpExample function created e
 
 1. In the `HttpExample` folder, right-click the `function.json`, select **Add binding**:
 
-    ![Add binding command in the VS Code explorer](images/functions/add-binding-command.png)]
+    ![Add binding command in the VS Code explorer](images/functions/add-binding-command.png)
 
 1. In the prompts that follow in VS Code, select or provide the following values:
 
