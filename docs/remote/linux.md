@@ -21,12 +21,12 @@ then the VS Code Remote Development extensions should work without additional de
 
 There is also experimental support in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only for:
 
-* **ARM32 Raspbian** (8+) SSH hosts (Remote - SSH)
+* **ARMv7l Raspbian (32-bit)** (8+) SSH hosts (Remote - SSH)
 * **Alpine Linux** (3.7+) containers (Remote - Containers)
 
 However, if you are using a non-standard configuration or downstream distribution, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
 
-Note that **other extensions may have dependencies** beyond those listed here. Some extensions also contain compiled native code that **may not work on Alpine Linux or ARM32**. If you encounter an issue that only occurs with a particular extension, **contact the extension authors** for information on their native dependencies.
+Note that **other extensions may have dependencies** beyond those listed here. Some extensions also contain compiled native code that **may not work on Alpine Linux or ARMv7l**. If you encounter an issue that only occurs with a particular extension, **contact the extension authors** for information on their native dependencies.
 
 ## Local Linux prerequisites
 
@@ -41,7 +41,7 @@ In addition, specific Remote Development extensions have further requirements:
 
 Platform prerequisites are primarily driven by the version of the [Node.js](https://nodejs.org/en/docs/meta/topics/dependencies/) runtime (and by extension [V8](https://v8docs.nodesource.com)) shipped in the server component automatically installed on each remote endpoint. This server also has a set of related native node modules that need to be compiled and tested for each target. **64-bit x86 glibc-based** Linux distributions currently provide the best support given these requirements.
 
-**ARM32 glibc-based** Linux SSH hosts and **64-bit x86 musl-based Alpine Linux** container support in [VS Code Insiders](https://code.visualstudio.com/insiders/) is experimental because of some fundamental platform differences that can affect native binaries in extensions in the broader VS Code extension ecosystem. For ARM32, extensions may only include x86_64 versions of native modules or runtimes in the extension. For Alpine Linux, included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`). In both these cases, extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. We want to give the community the opportunity to opt-in or out of this support before we add it to stable.
+**ARMv7l glibc-based** Linux SSH hosts and **64-bit x86 musl-based Alpine Linux** container support in [VS Code Insiders](https://code.visualstudio.com/insiders/) is experimental because of some fundamental platform differences that can affect native binaries in extensions in the broader VS Code extension ecosystem. For ARMv7l, extensions may only include x86_64 versions of native modules or runtimes in the extension. For Alpine Linux, included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`). In both these cases, extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. We want to give the community the opportunity to opt-in or out of this support before we add it to stable.
 
 | Distribution | Base Requirements | Remote - SSH Requirements | Notes |
 |--------------|-------------------|------------------|-------|
@@ -65,7 +65,7 @@ The following is a list of distributions and any base requirements that may be m
 | ✅ openSUSE Leap Server 42.3 (64-bit) |  `opensuse/leap:42.3` | Docker image is missing `tar`. |  &lt;none&gt; |
 | ✅ Oracle Linux 7 (64-bit) | `oraclelinux:7` | &lt;none&gt; | &lt;none&gt; |
 | ⚠️ Oracle Linux 6 (64-bit) | `oraclelinux:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18. Docker image is missing `tar`. |  [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
-| ️️🔬 Raspbian 9 (ARM32) | | &lt;none&gt; | Experimental support in Remote - SSH. Extensions may not work when installed on an ARM32 host due to extension x86 native code. |
+| ️️🔬 Raspbian 9 (ARMv7l 32-bit) | | &lt;none&gt; | Experimental support in Remote - SSH. Extensions may not work when installed on an ARMv7l host due to extension x86 native code. |
 | ✅ RedHat Enterprise Linux 7 (64-bit) |  | &lt;none&gt; | &lt;none&gt; |
 | ⚠️ RedHat Enterprise Linux 6 (64-bit) |  | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | ✅ SUSE Linux Enterprise Server 15 (64-bit) |  |  &lt;none&gt; |  &lt;none&gt; |

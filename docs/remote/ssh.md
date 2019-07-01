@@ -27,11 +27,11 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 - **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
 
-- **Experimental support:** ARM32 Raspbian 8+ in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only.
+- **Experimental support:** ARMv7l Raspbian 8+ (32-bit) in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only.
 
-Other `glibc` based Linux distributions for x86_64 and ARM32 (in VS Code Insiders) should work if they have the needed prerequisites. See the [Remote Development and Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
+Other `glibc` based Linux distributions for x86_64 and ARMv7l (in VS Code Insiders) should work if they have the needed prerequisites. See the [Remote Development and Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
 
-While experimental ARM32 support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed on ARM32 devices may not work due the use of x86 native code in the extension.
+While experimental ARMv7l support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed on ARMv7l devices may not work due the use of x86 native code in the extension.
 
 ### Installation
 
@@ -51,7 +51,7 @@ To get started you need to:
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
-> **Note:** See [System Requirements](#System-Requirements) for information about supported SSH hosts. When using experimental support for ARM32 `glibc` distributions like Raspbian in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed on the remote host may not work due the use of x86 native code in the extension.
+> **Note:** See [System Requirements](#System-Requirements) for information about supported SSH hosts. When using experimental support for ARMv7l `glibc` distributions like Raspbian in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed on the remote host may not work due the use of x86 native code in the extension.
 
 To get started, follow these steps:
 
@@ -212,7 +212,7 @@ The Docker extension is configured to run as a local "UI" extension by default. 
 
 Many extensions will work on remote SSH hosts without modification. However, in some cases, certain features may require changes. If you run into an extension issue, there is [a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
-In addition, some extensions installed on ARM32 devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARM32.
+In addition, some extensions installed on ARMv7l devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARMv7l.
 
 ## Common questions
 
