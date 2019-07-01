@@ -21,8 +21,8 @@ then the VS Code Remote Development extensions should work without additional de
 
 There is also experimental support in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only for:
 
-* **ARMv7l Raspbian (32-bit)** (8+) SSH hosts (Remote - SSH)
-* **Alpine Linux** (3.7+) containers (Remote - Containers)
+* **32-bit ARMv7l Raspbian** (8+) SSH hosts (Remote - SSH)
+* **64-bit x86 Alpine Linux** (3.7+) containers (Remote - Containers)
 
 However, if you are using a non-standard configuration or downstream distribution, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
 
@@ -41,7 +41,7 @@ In addition, specific Remote Development extensions have further requirements:
 
 Platform prerequisites are primarily driven by the version of the [Node.js](https://nodejs.org/en/docs/meta/topics/dependencies/) runtime (and by extension [V8](https://v8docs.nodesource.com)) shipped in the server component automatically installed on each remote endpoint. This server also has a set of related native node modules that need to be compiled and tested for each target. **64-bit x86 glibc-based** Linux distributions currently provide the best support given these requirements.
 
-**ARMv7l glibc-based** Linux SSH hosts and **64-bit x86 musl-based Alpine Linux** container support in [VS Code Insiders](https://code.visualstudio.com/insiders/) is experimental because of some fundamental platform differences that can affect native binaries in extensions in the broader VS Code extension ecosystem. For ARMv7l, extensions may only include x86_64 versions of native modules or runtimes in the extension. For Alpine Linux, included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`). In both these cases, extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. We want to give the community the opportunity to opt-in or out of this support before we add it to stable.
+**32-bit ARMv7l glibc-based** Linux SSH host support and **64-bit x86 musl-based Alpine Linux** container support in [VS Code Insiders](https://code.visualstudio.com/insiders/) is experimental because of some fundamental platform differences that can affect native binaries in extensions in the broader VS Code extension ecosystem. For ARMv7l, extensions may only include x86_64 versions of native modules or runtimes in the extension. For Alpine Linux, included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`). In both these cases, extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. We want to give the community the opportunity to opt-in or out of this support before we add it to stable.
 
 | Distribution | Base Requirements | Remote - SSH Requirements | Notes |
 |--------------|-------------------|------------------|-------|
