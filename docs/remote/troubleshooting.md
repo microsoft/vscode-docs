@@ -270,7 +270,7 @@ On your local machine, make sure the following permissions are set:
 
 **Windows:**
 
-The specific expected permissions can vary depending on the exact SSH implementation you are using. We strongly recommend using the out of box [Windows 10 OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/). If you are using this official client, cut-and-paste the following in an **administrator PowerShell window** to try to repair your permissions:
+The specific expected permissions can vary depending on the exact SSH implementation you are using. We strongly recommend using the out of box [Windows 10 OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_overview). If you are using this official client, cut-and-paste the following in an **administrator PowerShell window** to try to repair your permissions:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
