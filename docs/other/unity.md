@@ -23,7 +23,7 @@ From [Using .NET Core in Visual Studio Code](/docs/languages/dotnet.md):
 
 1. [Windows only] Logout or restart Windows to allow changes to `%PATH%` to take effect.
 
-1. [macOS only] To avoid seeing "Some projects have trouble loading. Please review the output for more details", make sure to install the latest stable [Mono](http://www.mono-project.com/download/) release.
+1. [macOS only] To avoid seeing "Some projects have trouble loading. Please review the output for more details", make sure to install the latest stable [Mono](https://www.mono-project.com/download/) release.
 
    **Note**: This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
 
