@@ -37,7 +37,7 @@ A [jsconfig.json](/docs/languages/jsconfig.md) file defines a JavaScript project
 - If your workspace contains more than one project context, such as front-end and back-end JavaScript code. For multi-project workspaces, create a `jsconfig.json` at the root folder of each project.
 - You are using the TypeScript compiler to down-level compile JavaScript source code.
 
-To define a basic JavaScript project, add a `jsconfig.json` at the root of your workspace:
+To define a basic [JavaScript](https://www.javascript.com/) project, add a `jsconfig.json` at the root of your workspace:
 
 ```json
 {
