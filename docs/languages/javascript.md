@@ -10,7 +10,7 @@ MetaDescription: Get the best out of Visual Studio Code for JavaScript developme
 
 # JavaScript in Visual Studio Code
 
-Visual Studio Code includes built-in JavaScript IntelliSense, debugging, formatting, code navigation, refactorings, and many other advanced language features.
+Visual Studio Code includes built-in JavaScript IntelliSense, debugging, formatting, code navigation, refactorings, and many other advanced [language features](https://code.visualstudio.com/api/language-extensions/programmatic-language-features).
 
 ![Working with JavaScript in Visual Studio Code](images/javascript/overview.png)
 
