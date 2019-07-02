@@ -31,6 +31,10 @@ The system setup requires elevation to Administrator privileges and will place t
 
 If you need to run a 32-bit version of VS Code, both a 32-bit [Installer](https://go.microsoft.com/fwlink/?LinkId=723965) and [Zip archive](https://go.microsoft.com/fwlink/?LinkID=733265) are available.
 
+## 64-bit versions
+
+If you need to run a 64-bit version of VS Code, both a 64-bit [Installer](https://code.visualstudio.com/docs/?dv=win64) and [Zip archive](https://code.visualstudio.com/docs/?dv=winzip) are available.
+
 ## Updates
 
 VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will be installed (you won't need to do anything else to get the latest bits).
