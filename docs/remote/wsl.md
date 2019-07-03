@@ -188,6 +188,16 @@ wslconfig /l
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
 
+### I see EACCESS: permission denied error trying to rename a folder in the open workspace
+
+That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL2.
+
+To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based has a performance impact for large workspaces.
+
+For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `files.watcherExclude`.
+
+WSL2 does not have that file watcher problem is also not affected by the new setting.
+
 ### What are the connectivity requirements for the VS Code Server when it is running in WSL?
 
 The VS Code Server requires outbound HTTPS (port 443) connectivity to:
