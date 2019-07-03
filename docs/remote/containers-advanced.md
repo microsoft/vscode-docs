@@ -38,7 +38,7 @@ You can update environment variables in your container without altering the cont
 
 ## Adding another volume mount
 
-You can add a volume mount to any local folder using these steps:
+You can add a volume bound to any local folder using these steps:
 
 1. Configure the volume mount:
 
@@ -46,6 +46,12 @@ You can add a volume mount to any local folder using these steps:
 
         ```json
         "runArgs": ["-v","/local/source/path/goes/here:/target/path/in/container/goes/here"]
+        ```
+
+        You can also use local environment variables in the path. For example, this will bind mount `~` (`$HOME`) on macOS/Linux and the user's folder (`%USERPROFILE%`) on Windows:
+
+        ```json
+        "runArgs": ["-v", "${env:HOME}${env:USERPROFILE}:/host-home-folder"]
         ```
 
    - When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
