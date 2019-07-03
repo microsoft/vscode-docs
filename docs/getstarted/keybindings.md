@@ -12,7 +12,7 @@ MetaSocialImage: images/keybinding/customization_keybindings.png
 
 Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings (keyboard shortcuts) and describes how you can update them.
 
->**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that platform. If you need the key binding for another platform, hover your mouse over the key you are interested in.
+>**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that platform. If you need the key bindings for another platform, hover your mouse over the key you are interested in.
 
 ## Keyboard Shortcuts editor
 
@@ -218,7 +218,7 @@ Accepted scan codes:
 
 VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times.
 
-Below are the some of the possible `when` clause contexts which evaluate to Boolean true/false. For conditional expressions, you can use either equality `==` (`"editorLangId == typescript"`) or inequality `!=` (`"resourceExtname != .js"`).
+Below are some of the possible `when` clause contexts which evaluate to Boolean true/false. For conditional expressions, you can use either equality `==` (`"editorLangId == typescript"`) or inequality `!=` (`"resourceExtname != .js"`).
 
 Context name | True when
 ------------ | ------------

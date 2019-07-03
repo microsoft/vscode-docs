@@ -46,7 +46,7 @@ These enhancements represent some of our most [frequently requested](https://git
 
 ## We need your feedback!
 
-We are excited for you to give [Visual Studio Live Share a try](https://aka.ms/vsls)! Please give us feedback how we might improve the experience for real-time collaborative development even further. If you'd like to learn more, you can refer to the Visual Studio Live Share [documentation](http://aka.ms/vsls-docs). Additionally, if you have any questions, encounter any issues, or have feature requests, please don’t hesitate to [let us know](https://github.com/microsoft/live-share).
+We are excited for you to give [Visual Studio Live Share a try](https://aka.ms/vsls)! Please give us feedback how we might improve the experience for real-time collaborative development even further. If you'd like to learn more, you can refer to the Visual Studio Live Share [documentation](https://aka.ms/vsls-docs). Additionally, if you have any questions, encounter any issues, or have feature requests, please don’t hesitate to [let us know](https://github.com/microsoft/live-share).
 
 Happy Collaborating!<br />
 Amanda, [@amandaksilver](https://twitter.com/amandaksilver)

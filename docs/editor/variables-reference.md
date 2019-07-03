@@ -209,7 +209,7 @@ The following example shows how to use a user input variable of type `command` i
             "type": "command",
             "command": "extension.mochaSupport.testPicker",
             "args": {
-                "testFolder": "${workspaceFolder}/tests",
+                "testFolder": "/out/tests",
             }
         }
     ]
