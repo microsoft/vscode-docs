@@ -134,6 +134,24 @@ If you do see that message, follow these steps to update your SSH server's [sshd
 3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
 4. Retry.
 
+**Always use strict host key checking**
+
+If the target host key changes and you are using StrictHostKeyChecking=no, the ssh connection will still be made but TCP forwarding will be disabled, regardless of server configuration. Ensuring StrictHostKeyChecking=yes for the destination host will prevent a successful connection, ensuring there is no timeout in the ssh tunnel setup.
+
+example:
+```text
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+...
+Port forwarding is disabled to avoid man-in-the-middle attacks.
+Connected to SSH Host - Please do not close this terminal
+```
+
 **Set the ProxyCommand parameter in your SSH config file**
 
 If you are behind a proxy and are unable to connect to your SSH host, you may need to use the `ProxyCommand` parameter for your host in a **local** [SSH config file](https://linux.die.net/man/5/ssh_config). You can [read this article](https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/) for an example of its use.
