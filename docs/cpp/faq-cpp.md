@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: FAQ
 ContentId: EC8DC085-A0E4-4401-B41F-6497EDD49352
 PageTitle: C/C++ extension FAQ
-DateApproved: 06/25/2019
+DateApproved: 07/08/2019
 MetaDescription: Frequently asked questions about the C/C++ extension in Visual Studio Code.
 ---
 # Frequently asked questions
@@ -50,7 +50,7 @@ The most common reason for this is missing include paths and defines. The easies
 
 ## How do I get the new IntelliSense to work with MinGW on Windows?
 
-The page discussing configuration with MinGW is [here](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/MinGW.md).
+See [Get Started with C++ and Mingw-w64 in Visual Studio Code](config-mingw.md).
 
 ## How do I get the new IntelliSense to work with the Windows Subsystem for Linux?
 

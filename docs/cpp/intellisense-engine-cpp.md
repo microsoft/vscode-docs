@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: IntelliSense engines
 ContentId: ----------
 PageTitle: C/C++ IntelliSense engines in Visual Studio Code
-DateApproved: 06/25/2019
+DateApproved: 07/08/2019
 MetaDescription: About the C/C++ IntelliSense engines in Visual Studio Code
 ---
 

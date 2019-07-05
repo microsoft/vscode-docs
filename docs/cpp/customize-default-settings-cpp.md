@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Customize default settings
 ContentId: 4E34F6AF-BFC6-4BBB-8464-2E50C85AE826
 PageTitle: Customize default settings in Visual Studio Code C++ projects
-DateApproved: 06/25/2019
+DateApproved: 07/08/2019
 MetaDescription: How to customize semantic colorization of C++ code in Visual Studio Code.
 ---
 

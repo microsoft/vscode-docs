@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Configure includePath for better IntelliSense results
 ContentId: 9CCD167C-0A19-4025-A06A-3A25D5601097
 PageTitle: Configure includePath for better IntelliSense results
-DateApproved: 06/25/2019
+DateApproved: 07/08/2019
 MetaDescription: Configure includePath for better IntelliSense results in C/C++ Visual Studio Code projects
 ---
 

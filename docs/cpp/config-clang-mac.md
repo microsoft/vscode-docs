@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Clang on macOS
 ContentId: 6ef32219-81ad-4d73-84b8-8d4384a45f8a
 PageTitle: Get Started with C++ and Clang/LLVM in Visual Studio Code on macOS
-DateApproved: 06/25/2019
+DateApproved: 07/08/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target Clang/LLVM
 ---
 # Using Clang in Visual Studio Code

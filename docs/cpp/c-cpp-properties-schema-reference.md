@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: c_cpp_properties.json reference
 ContentId: EC1BA944-09B5-41EA-AAED-779A02C90C98
 PageTitle: c_cpp_properties.json reference
-DateApproved: 06/25/2019
+DateApproved: 07/08/2019
 MetaDescription: Schema reference for C++ project settings in Visual Studio Code.
 ---
 # c_cpp_properties.json Reference Guide
