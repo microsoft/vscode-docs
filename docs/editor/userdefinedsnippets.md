@@ -1,13 +1,13 @@
 ---
 Order: 12
 Area: editor
-TOCTitle: Creating snippets
+TOCTitle: Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
-PageTitle: Creating your own snippets in Visual Studio Code
+PageTitle: Snippets in Visual Studio Code
 DateApproved: 7/3/2019
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
-# Creating your own snippets
+# Snippets in Visual Studio Code
 
 Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
 
@@ -17,7 +17,7 @@ The snippet syntax follows the [TextMate snippet syntax](https://manual.macromat
 
 ![ajax snippet](images/userdefinedsnippets/ajax-snippet.gif)
 
-## Add snippets from the Marketplace
+## Install snippets from the Marketplace
 
 Many [extensions](/docs/editor/extension-gallery.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets.  If you find one you want to use, install it and restart VS Code and the new snippet will be available (see [Extension Marketplace](/docs/editor/extension-gallery.md#browse-and-install-extensions) for more instructions on installing an extension).
 
@@ -27,7 +27,7 @@ Below are some popular extensions which include snippets in their language suppo
 
 > **Tip**: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-## Creating your own snippets
+## Create your own snippets
 
 You can define your own snippets, either global snippets or snippets for a specific language. To open up a snippet file for editing, select **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS) and select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear or create a new global snippet (**New Global Snippets file**).
 
