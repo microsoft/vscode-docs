@@ -101,7 +101,84 @@ Most user-defined snippets are scoped to the user's settings, rather than define
 
 ## Snippet schema
 
-<!-- TODO Write section "Snippet schema". Open with an approximate schema defined like https://code.visualstudio.com/docs/editor/tasks-appendix -->
+The following JSON Schema informally describes the base structure of a snippets file:
+
+```json
+{
+  "title": "SnippetsFile",
+  "type": "object",
+  "patternProperties": {
+    "\\.*": {
+      "$ref": "Snippet"
+    }
+  },
+  "additionalProperties": false,
+  "minProperties": 0,
+  "$comment": "Every property is a snippet: the value is its definition and the key is its name."
+}
+```
+
+The following interfaces describe the structure of a single snippet definition.
+
+```typescript
+/**
+ * A single VS Code snippet definition. Valid in any snippet file.
+ */
+interface Snippet {
+
+    /**
+     * The one-or-more word(s) by which suggestions, Intellisense, and/or
+     * completions trigger on a prefix substring match with any of them. At
+     * least one word must be provided, but may be the empty string.
+     *
+     * A word may be separator-delimited. A word may not autocomplete properly
+     * if it contains whitespace. Substring prefix matching of "words part"s is
+     * supported for snippet prefixes (e.g. user input "fe" can substring prefix
+     * match "for-each").
+     */
+    prefix: string | string[];
+
+    /**
+     * The one-or-more line(s) that the snippet inserts. At least one line must
+     * be provided, but may be the empty string.
+     *
+     * Multiple lines will be joined at insertion time with a context-aware line
+     * separator. Similarly, embedded indentation will be formatted at insertion
+     * time with a context-aware indentation character(s).
+     *
+     * Supports most TextMate snippet syntax, e.g. tabstops, transforms, etc.
+     */
+    body: string | string[];
+
+    /**
+     * The optional natural-language description of the snippet for Intellisense.
+     *
+     * If provided, then the description and the (unexpanded) snippet body are
+     * displayed in any Intellisense detail view. Otherwise, the raw name of the
+     * snippet and the body are displayed. (the snippet is name is its key in
+     * the snippet file)
+     */
+    description?: string;
+}
+
+/**
+ * A single VS Code snippet definition. Only valid in global snippets files.
+ */
+interface GlobalSnippet extends Snippet {
+
+    /**
+     * The optional comma-delimited list of one or more language identifiers
+     * by which to scope this global snippet. E.g. "javascript,typescript".
+     *
+     * If exactly one language identifier is provided, then this global snippet
+     * is equivalent to a language snippet. If more than one language identifier
+     * is provided, then this snippet is accessible from all-and-only the
+     * specified languages. If no value is set, then this snippet is globally
+     * accessible from all languages.
+     */
+    scope?: string;
+}
+```
 
 ## Snippet syntax
 
