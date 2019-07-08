@@ -527,7 +527,7 @@ If you determine that you need to give your container more of your machine's cap
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
 3. On Mac, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
-Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead. On Docker Desktop for Mac, [using a cached consistency](#Resolving-disk-performance-issues-with-local-volume-bind-mounts-on-Docker-Desktop-for-Mac) for local filesystem mounts can also improve performance.
+Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead. On Docker Desktop for Mac, [using a cached consistency](#resolving-disk-performance-issues-with-local-volume-bind-mounts-on-docker-desktop-for-mac) for local filesystem mounts can also improve performance.
 
 ### Cleaning out unused containers and images
 
@@ -599,7 +599,7 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 
 See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following topics:
 
-* [Adding environment variables](#Adding-environment-variables)
+* [Adding environment variables](/docs/remote/containers-advances.md#adding-environment-variables)
 * [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
 * [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount)
 * [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
