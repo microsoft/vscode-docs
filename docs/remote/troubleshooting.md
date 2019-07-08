@@ -452,39 +452,23 @@ Typically adding or modifying a  `.gitattributes` file in your repository is the
 
 Note that this works in **Git v2.10+**, so if you are running into problems, be sure you've got a recent Git client installed. You can add other file types in your repository that require CRLF to this same file.
 
-If you'd prefer to disable line ending conversation entirely, run:
-
-```bash
-git config --global core.autocrlf false
-```
-
-If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option instead.
+If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option.
 
 ```bash
 git config --global core.autocrlf input
 ```
 
-Finally, reclone the repository so these settings take effect.
+If you'd prefer to disable line ending conversation entirely, run the following instead:
+
+```bash
+git config --global core.autocrlf false
+```
+
+Finally, you may need to clone the repository again for these settings to take effect.
 
 ### Avoid setting up Git in a container when using Docker Compose
 
-To avoid having to set up Git a second time in your container, VS Code automatically adds a volume mount to your local Git configuration when referencing an `image` or `Dockerfile`. The Docker Compose scenario gives you more control, but requires adding an extra configuration line to your `docker-compose.yml` file.
-
-Specifically, add the following to the service you open in VS Code:
-
-```yaml
-volumes:
-  # This lets you avoid setting up Git again in the container
-  - ~/.gitconfig:/root/.gitconfig
-```
-
-If you do not have your email address set up locally, you may be prompted to do so. You can do this on your local machine by running the following command:
-
-```bash
-git config --global user.email "your.email@address"
-```
-
-If you prefer, you can extend your dev container configuration to achieve the same thing, without modifying your existing Docker Compose file. See [here for additional details](/docs/remote/containers.md#extending-your-docker-compose-file-for-development).
+See [Sharing Git credentials with your container](/docs/remote/containers.md#sharing-git-credentials-with-your-container) in the main containers article for information on resolving this issue.
 
 ### Resolving hangs when doing a Git push or sync from a Container
 
@@ -495,6 +479,29 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 ### Resolving errors about missing Linux dependencies
 
 Some extensions rely on libraries not found in the certain Docker images. See the [Containers](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) article for a few options on resolving this issue.
+
+### Resolving disk performance issues with local volume (bind) mounts on Docker Desktop for Mac
+
+The Remote - Containers extensions uses Docker's defaults for creating "bind mounts" to the local filesystem for your source code. While this is the safest option, you may encounter slower individual file disk performance when running commands like `yarn install` or `npm install` from inside the container.
+
+A trick that is often used with Docker Desktop for Mac is to use cached consistency for the file mount. If you are using an **image** or **Dockerfile**, you can change the consistency requirements using `devcontainer.json`. For example:
+
+```json
+"workspaceMount": "src=/absolute/path/to/source/code,dst=/workspace,type=bind,consistency=cached",
+"workspaceFolder": "/workspace"
+```
+
+See [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount) for additional details on the `workspaceMount` property.
+
+For **Docker Compose**, you can modify the consistency requirements in `docker-compose.yml` instead. For example:
+
+```yml
+  volumes:
+    - type: bind
+      source: ./path/to/source/code
+      target: /workspace # Should match 'workspaceFolder' in devcontainer.json
+      consistency: cached
+```
 
 ### Speeding up containers in Docker Desktop
 
@@ -516,11 +523,11 @@ If you'd like this extension to always be installed, add this to your `settings.
 
 If you determine that you need to give your container more of your machine's capacity, follow these steps:
 
-1. Right-click on the Docker task bar item and select **Settings** (**Preferences** on macOS).
+1. Right-click on the Docker task bar item and select **Settings** / **Preferences**.
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
-3. Go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine.
+3. On Mac, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
-Finally, if your container is disk intensive, you should avoid using a volume mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead.
+Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead. On Docker Desktop for Mac, [using a cached consistency](#Resolving-disk-performance-issues-with-local-volume-bind-mounts-on-Docker-Desktop-for-Mac) for local filesystem mounts can also improve performance.
 
 ### Cleaning out unused containers and images
 
@@ -604,9 +611,9 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 
 ## WSL tips
 
-### Selecting the distribution used by Remote - WSL
+### Selecting the default distribution used by Remote - WSL
 
-The [Remote - WSL](https://aka.ms/vscode-remote/download/wsl) extension uses your **default distribution**, which you can change using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
+Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL versions, VS Code will use your system **default distro**. You can use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
 
 For example:
 
@@ -686,19 +693,19 @@ Typically adding or modifying a  `.gitattributes` file in your repository is the
 
 Note that this works in **Git v2.10+**, so if you are running into problems, be sure you've got a recent Git client installed. You can add other file types in your repository that require CRLF to this same file.
 
-If you'd prefer to disable line ending conversation entirely, run:
-
-```bash
-git config --global core.autocrlf false
-```
-
-If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option instead.
+If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option.
 
 ```bash
 git config --global core.autocrlf input
 ```
 
-Finally, reclone the repository so these settings take effect.
+If you'd prefer to disable line ending conversation entirely, run the following instead:
+
+```bash
+git config --global core.autocrlf false
+```
+
+Finally, you may need to clone the repository again for these settings to take effect.
 
 ### Resolving hangs when doing a Git push or sync from WSL
 
