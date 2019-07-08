@@ -400,7 +400,7 @@ To get started quickly, **open the folder** you want to work with in VS Code and
 
 ![Select Dockerfile](images/containers/select-dockerfile.png)
 
-You'll be asked to either select an existing Dockerfile (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) in a filterable list. VS Code will then add `devcontainer.json` any any other required files to the folder. While most of these pre-defined "dev container definitions" include a Dockerfile, you can use them as a starting point for an image instead if you prefer.
+You'll be asked to either select an existing Dockerfile (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) in a filterable list. VS Code will then add `devcontainer.json` and any other required files to the folder. While most of these pre-defined "dev container definitions" include a Dockerfile, you can use them as a starting point for an image instead if you prefer.
 
 > **Note:** See [System Requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
@@ -525,7 +525,7 @@ You can either:
 
 VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file. If you've already started the configured containers using the command line, VS Code will **attach to the running service** you've specified instead. This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above while still allowing you to use the command line if you prefer.
 
-To get started quckly, open the folder with the project you want edit in VS Code and run the **Remote-Containers: Add Development Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`).
+To get started quickly, **open the folder** you want to work with in VS Code and run the **Remote-Containers: Add Development Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`).
 
 ![Select Docker Compose File](images/containers/select-docker-compose.png)
 
@@ -547,7 +547,7 @@ For example:
 
 See the [devcontainer.json reference](#devcontainerjson-reference) for information other available properties such as the `workspaceFolder` and `shutdownAction`.
 
-Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen Folder in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in VS Code)  from the Command Palette (`kbstyle(F1)`).
+Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen Folder in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in VS Code) from the Command Palette (`kbstyle(F1)`).
 
 If the containers are not already running, VS Code will call `docker-compose -f ../docker-compose.yml up` in this example. Note that the `service` property indicates which service in your Docker Compose file VS Code should connect to, not which service should be started. If you started them by hand, VS Code will simply attach to the service you specified.
 
@@ -566,18 +566,6 @@ To avoid having the container shut down if the default container command fails o
 command: sleep infinity
 ```
 
-If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as `git` inside the service's container. While less efficient than adding these tools to the container image, you can use the `postCreateCommand` property for this purpose. For example:
-
-```json
-"postCreateCommand": "apt-get update && apt-get install -y git"
-```
-
-This command is run the container is running, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree.
-
-```json
-"postCreateCommand": "bash scripts/install-dev-tools.sh"
-```
-
 You can mount your local source code into the container by adding it as a [volume for your service](https://docs.docker.com/compose/compose-file/#volumes) in your Docker Compose file. If you use SSH keys for your git repositories instead of a credential manager, you may also want to mount your local `.ssh` folder so they can be reused. You can do so by modifying your Docker Compose file as follows:
 
 ```yaml
@@ -590,6 +578,18 @@ volumes:
 
   # If you git clone using SSH keys, mounting them lets you reuse them.
   - ~/.ssh:/root/.ssh
+```
+
+If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as `git` inside the service's container. While less efficient than adding these tools to the container image, you can use the `postCreateCommand` property for this purpose. For example:
+
+```json
+"postCreateCommand": "apt-get update && apt-get install -y git"
+```
+
+This command is run once the container is running, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
+
+```json
+"postCreateCommand": "bash scripts/install-dev-tools.sh"
 ```
 
 If your application was built using C++, Go, or Rust, or another language that uses a ptrace-based debugger, you will also need to add the following settings to your Docker Compose file:
