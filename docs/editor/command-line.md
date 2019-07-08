@@ -126,7 +126,7 @@ vscode://file/{full path to file}:line:column
 vscode://file/c:/myProject/package.json:5:10
 ```
 
-You can use the URL in applications such as browsers or file explorers that can parse and redirect the URL. For example, on Windows, you could pass a `vscode://` URL directly to the Windows Explorer or to the command line as `start vscode://{full path to file}`.
+You can use the URL in applications as browsers or file explorers that can parse and redirect the URL. For example, on Windows, you could pass a `vscode://` URL directly to the Windows Explorer or to the command line as `start vscode://{full path to file}`.
 
 ![vscode url in Windows Explorer](images/command-line/vscode-url.png)
 
