@@ -84,6 +84,18 @@ For example, to load a stylesheet called `Style.css` at the root of your current
 }
 ```
 
+### Keep trailing whitespace in order to create line breaks
+
+In order to create a simple line break, markdown requires you to add two empty spaces at the and of the line. Usually, VS Code removes trailing whitespace. In order to keep trailing whitespace in markdown files only, you can add these lines to your settings.json:
+
+```
+{
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  }
+}
+```
+
 ## Markdown preview security
 
 For security reasons, VS Code restricts the content displayed in the Markdown preview. This includes disabling script execution and only allowing resources to be loaded over `https`.
