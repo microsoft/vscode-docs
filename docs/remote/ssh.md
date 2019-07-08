@@ -142,6 +142,8 @@ Sometimes when developing, you may need to access a port on a remote machine tha
 
 If you want to **temporarily forward** a new port for the duration of the session, run the **Remote-SSH: Forward Port from Active Host...** command when connected to an active SSH host.
 
+![Forward port input](images/ssh/forward-port-ssh.png)
+
 After entering a port number, a notification will tell you the localhost port you should use to access the remote port. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote HTTP server using http://localhost:4123.
 
 ### Always forwarding a port
@@ -176,7 +178,9 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 VS Code's local user settings are also reused when you are connected to an SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting on the **Remote** tab in the settings editor. These will override any local settings you have in place whenever you connect to the host.
 
-### Working with local tools
+![Host specific settings tab](images/ssh/ssh-settings.png)
+
+## Working with local tools
 
 The Remote - SSH extension does not provide direct support for sync'ing code or using local tools with content on a remote host. However, there are two battle tested ways to do this using common tools that will work with most Linux hosts. Specifically, you can:
 

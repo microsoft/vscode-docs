@@ -361,7 +361,7 @@ You can find the "modules" version VS Code uses by going to **Help > Developer T
 
 ## Supporting non-x86_64 hosts or Alpine Linux containers
 
-If your extension is purely written in JavaScript/TypeScript, you may not need to do anything to add support for other processor architectures or the `muscl`-based Alpine Linux to your extension.
+If your extension is purely written in JavaScript/TypeScript, you may not need to do anything to add support for other processor architectures or the `musl` based Alpine Linux to your extension.
 
 However, if your extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (e.g. ARMv7l) or Alpine Linux containers, the extension may include x86_64 `glibc` specific native code or runtimes that will fail on these architectures/operating systems.
 
@@ -371,7 +371,7 @@ To resolve this problem:
 
 1. If you are dynamically acquiring compiled code, you can add support by detecting non-x86_64 targets using `process.arch` and downloading versions compiled for the right architecture. If you are including binaries for all supported architectures inside your extension instead, you can use this logic to use the correct one.
 
-2. For Alpine Linux, you can detect the operating system using  `await fs.exists('/etc/alpine-release')` and once again download or use the correct binaries for a `muscl` based operating system.
+2. For Alpine Linux, you can detect the operating system using  `await fs.exists('/etc/alpine-release')` and once again download or use the correct binaries for a `musl` based operating system.
 
 3. If you'd prefer not to support these platforms, you can use the same logic to provide a good error message instead.
 
