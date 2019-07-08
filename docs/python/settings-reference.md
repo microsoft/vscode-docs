@@ -64,7 +64,7 @@ The language server settings apply when `python.jediEnabled` is `false`.
 | logLevel | `"Error"` | Defines the types of log messages that language server writes into the Problems window, one of "Error", "Warning", "Information", and "Trace". The "Warning" level implicitly includes "Error"; "Information" implicitly includes "Warning" and "Error"; "Trace" includes all messages. |
 | openFilesOnly | `true` | When true, shows only errors and warnings for open files rather than for the entire workspace. |
 | symbolsHierarchyDepthLimit | `10` | Limits the depth of the symbol tree in the document outline. |
-| typeshedPaths | `[]` | Paths to look for [typeshed modules](https://github.com/python/typeshed/) (github.com). |
+| typeshedPaths | `[]` | Paths to look for [typeshed modules](https://github.com/python/typeshed/) on GitHub. |
 
 The `disabled`, `errors`, `warnings`, and `information` settings can contain the following values:
 
