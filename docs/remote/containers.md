@@ -512,7 +512,7 @@ However, note that if you **rebuild** the container, you will have to **re-insta
 
 ### Using Docker Compose
 
-In some cases, a single container environment isn't sufficient. Fortunately, Remote - Containers supports Docker Compose managed multi-container configurations.
+In some cases, a single container environment isn't sufficient. Fortunately, Remote - Containers supports [Docker Compose](https://docs.docker.com/compose/) managed multi-container configurations.
 
 You can either:
 
@@ -566,7 +566,7 @@ To avoid having the container shut down if the default container command fails o
 command: sleep infinity
 ```
 
-You can mount your local source code into the container by adding it as a [volume for your service](https://docs.docker.com/compose/compose-file/#volumes) in your Docker Compose file. If you use SSH keys for your git repositories instead of a credential manager, you may also want to mount your local `.ssh` folder so they can be reused. You can do so by modifying your Docker Compose file as follows:
+You can (bind) mount your local source code into the container by adding using the [volumes list in your Docker Compose file](https://docs.docker.com/compose/compose-file/#volumes). If you use SSH keys for your Git repositories instead of a credential manager, you may also want to mount your local `.ssh` folder so they can be reused. You can do so by modifying your Docker Compose file as follows:
 
 ```yaml
 volumes:
