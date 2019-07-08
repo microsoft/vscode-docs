@@ -289,6 +289,6 @@ The Python extension maps mypy message categories to VS Code categories through 
 ## Next steps
 
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
-- [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
+- [Testing](/docs/python/unit-testing.md) - Configure test environments and discover, run, and debug tests.
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

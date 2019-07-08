@@ -253,7 +253,7 @@ The [PYTHONPATH](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH)
 
 > **Note**: you must set the PYTHONPATH variable through your operating system as VS Code doesn't provide a means to set environment variables directly.
 
-In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, and any other operation that depends on Python resolving modules. For example, suppose you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this problem, add the path to `src` to PYTHONPATH.
+In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, testing, and any other operation that depends on Python resolving modules. For example, suppose you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this problem, add the path to `src` to PYTHONPATH.
 
 It's recommended that you set the PYTHONPATH variable in an [Environment variable definitions file](#environment-variable-definitions-file), described earlier.
 
@@ -263,5 +263,5 @@ It's recommended that you set the PYTHONPATH variable in an [Environment variabl
 
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
-- [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
+- [Testing](/docs/python/unit-testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
