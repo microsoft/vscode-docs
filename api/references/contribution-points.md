@@ -281,7 +281,10 @@ The following example contributes default editor configurations for the `markdow
 
 Contribute the UI for a command consisting of a title and (optionally) an icon, category, and enabled state. Enablement is expressed with `when` [clauses](/docs/getstarted/keybindings#_when-clause-contexts). By default, commands show in the **Command Palette** (`kb(workbench.action.showCommands)`) but they can also show in other [menus](/api/references/contribution-points#contributes.menus).
 
-Presentation of contributed commands depends on the containing menu. The **Command Palette**, for instance, prefixes commands with their `category`, allowingfor easy grouping. However, the **Command Palette** doesn't show icons nor disabled commands. The editor context menu, on the other hand, shows disabled items but doesn't show the category label.
+Presentation of contributed commands depends on the containing menu. The **Command Palette**, for
+instance, prefixes commands with their `category`, allowing for easy grouping. However, the
+**Command Palette** doesn't show icons nor disabled commands. The editor context menu, on the other
+hand, shows disabled items but doesn't show the category label.
 
 > **Note:** When a command is invoked (from a key binding, from the **Command Palette**, any other menu, or programmatically), VS Code will emit an activationEvent `onCommand:${command}`.
 
