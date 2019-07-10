@@ -78,6 +78,8 @@ have one section for your extension.
 ```json
 "configuration": {
     "title": "GitMagic",
+    ...
+}
 ```
 
 The title should be the exact name of your extension. Words like "Extension", "Configuration", and
