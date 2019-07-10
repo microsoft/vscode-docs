@@ -48,7 +48,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Cordova Tools](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools) | ✔ ([Repo](https://github.com/microsoft/vscode-cordova)) | [Microsoft](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools/license) |
 | [Debugger for Chrome ](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-chrome) | ✔ | [MIT](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-chrome/license) |
 | [Debugger for Edge](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-edge) | ✔ | [MIT](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-edge/license) |
-| [Docker](https://marketplace.visualstudio.com/items/PeterJausovec.vscode-docker) | ✔ | [MIT](https://marketplace.visualstudio.com/items/PeterJausovec.vscode-docker/license) |
+| [Docker](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-docker) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-docker/license) |
 | [docs-article-template](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-article-templates) | ✔ | [MIT](https://docsmsft.gallerycdn.vsassets.io/extensions/docsmsft/docs-markdown/0.2.2/1547755350969/Microsoft.VisualStudio.Services.Content.License) |
 | [docs-markdown](https://marketplace.visualstudio.com/items/docsmsft.docs-markdown) | ✔ | [MIT](https://marketplace.visualstudio.com/items/docsmsft.docs-markdown/license) |
 | [docs-preview](https://marketplace.visualstudio.com/items/docsmsft.docs-preview) | ✔ | [MIT](https://marketplace.visualstudio.com/items/docsmsft.docs-preview/license) |
