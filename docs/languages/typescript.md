@@ -61,7 +61,7 @@ VS Code's TypeScript IntelliSense understands many standard [JSDoc](http://jsdoc
 
 ![TypeScript language within VS Code](images/typescript/jsdocs.png)
 
-Keep in mind that when using JS Doc for TypeScript code, you should not include type annotations. The TypeScript compiler only uses TypeScript type annotations and ignores those from JS Doc.
+Keep in mind that when using JSDoc for TypeScript code, you should not include type annotations. The TypeScript compiler only uses TypeScript type annotations and ignores those from JSDoc.
 
 <video src="/docs/languages/typescript/jsdoc-autofill.mp4" placeholder="images/typescript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
