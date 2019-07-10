@@ -131,7 +131,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
     python manage.py startapp hello
     ```
 
-    The command creates a folder called `hello` that contains a number of code files and one subfolder. Of these, you frequently work with `views.py` (that contains the functions that define pages in your web app) and `models.py` (that contains classes defining your data objects). The `migrations` folder is used by Django's administrative utility to manage database versions as discussed later in this tutorial. There are also the files `apps.py` (app configuration), `admin.py` (for creating an administrative interface), and `tests.py` (for unit tests), which are not covered here.
+    The command creates a folder called `hello` that contains a number of code files and one subfolder. Of these, you frequently work with `views.py` (that contains the functions that define pages in your web app) and `models.py` (that contains classes defining your data objects). The `migrations` folder is used by Django's administrative utility to manage database versions as discussed later in this tutorial. There are also the files `apps.py` (app configuration), `admin.py` (for creating an administrative interface), and `tests.py` (for tests), which are not covered here.
 
 1. Modify `hello/views.py` to match the following code, which creates a single view for the app's home page:
 
@@ -936,6 +936,6 @@ You may also want to review the following articles in the VS Code docs that are 
 - [Linting](/docs/python/linting.md)
 - [Managing Python environments](/docs/python/environments.md)
 - [Debugging Python](/docs/python/debugging.md)
-- [Unit testing](/docs/python/unit-testing.md)
+- [Testing](/docs/python/unit-testing.md)
 
 If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).

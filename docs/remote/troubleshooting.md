@@ -362,9 +362,9 @@ Follow these steps:
 
 2. Next, install [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on using [Chocolatey](https://chocolatey.org/): `choco install sshfs`
 
-3. Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname` where `user@hostname` with is your remote user and hostname / IP. You script this using the from the command prompt as follows: `net use /PERSISTENT:NO X: \\sshfs\user@hostname`
+3. Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname`, where `user@hostname` is your remote user and hostname / IP. You can script this using the command prompt as follows: `net use /PERSISTENT:NO X: \\sshfs\user@hostname`
 
-4. Once done, you can disconnect from it by right-clicking on the drive in the File Explorer and clicking **Disconnect**.
+4. Once done, disconnect by right-clicking on the drive in the File Explorer and clicking **Disconnect**.
 
 ### Using rsync to maintain a local copy of your source code
 
@@ -452,39 +452,23 @@ Typically adding or modifying a  `.gitattributes` file in your repository is the
 
 Note that this works in **Git v2.10+**, so if you are running into problems, be sure you've got a recent Git client installed. You can add other file types in your repository that require CRLF to this same file.
 
-If you'd prefer to disable line ending conversation entirely, run:
-
-```bash
-git config --global core.autocrlf false
-```
-
-If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option instead.
+If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option.
 
 ```bash
 git config --global core.autocrlf input
 ```
 
-Finally, reclone the repository so these settings take effect.
+If you'd prefer to disable line ending conversation entirely, run the following instead:
+
+```bash
+git config --global core.autocrlf false
+```
+
+Finally, you may need to clone the repository again for these settings to take effect.
 
 ### Avoid setting up Git in a container when using Docker Compose
 
-To avoid having to set up Git a second time in your container, VS Code automatically adds a volume mount to your local Git configuration when referencing an `image` or `Dockerfile`. The Docker Compose scenario gives you more control, but requires adding an extra configuration line to your `docker-compose.yml` file.
-
-Specifically, add the following to the service you open in VS Code:
-
-```yaml
-volumes:
-  # This lets you avoid setting up Git again in the container
-  - ~/.gitconfig:/root/.gitconfig
-```
-
-If you do not have your email address set up locally, you may be prompted to do so. You can do this on your local machine by running the following command:
-
-```bash
-git config --global user.email "your.email@address"
-```
-
-If you prefer, you can extend your dev container configuration to achieve the same thing, without modifying your existing Docker Compose file. See [here for additional details](/docs/remote/containers.md#extending-your-docker-compose-file-for-development).
+See [Sharing Git credentials with your container](/docs/remote/containers.md#sharing-git-credentials-with-your-container) in the main containers article for information on resolving this issue.
 
 ### Resolving hangs when doing a Git push or sync from a Container
 
@@ -495,6 +479,29 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 ### Resolving errors about missing Linux dependencies
 
 Some extensions rely on libraries not found in the certain Docker images. See the [Containers](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) article for a few options on resolving this issue.
+
+### Resolving disk performance issues with local volume (bind) mounts on Docker Desktop for Mac
+
+The Remote - Containers extension uses Docker's defaults for creating "bind mounts" to the local filesystem for your source code. While this is the safest option, you may encounter slower individual file disk performance when running commands like `yarn install` or `npm install` from inside the container.
+
+A trick that is often used with Docker Desktop for Mac is to use cached consistency for the file mount. If you are using an **image** or **Dockerfile**, you can change the consistency requirements using `devcontainer.json`. For example:
+
+```json
+"workspaceMount": "src=/absolute/path/to/source/code,dst=/workspace,type=bind,consistency=cached",
+"workspaceFolder": "/workspace"
+```
+
+See [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount) for additional details on the `workspaceMount` property.
+
+For **Docker Compose**, you can modify the consistency requirements in `docker-compose.yml` instead. For example:
+
+```yml
+  volumes:
+    - type: bind
+      source: ./path/to/source/code
+      target: /workspace # Should match 'workspaceFolder' in devcontainer.json
+      consistency: cached
+```
 
 ### Speeding up containers in Docker Desktop
 
@@ -516,11 +523,11 @@ If you'd like this extension to always be installed, add this to your `settings.
 
 If you determine that you need to give your container more of your machine's capacity, follow these steps:
 
-1. Right-click on the Docker task bar item and select **Settings** (**Preferences** on macOS).
+1. Right-click on the Docker task bar item and select **Settings** / **Preferences**.
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
-3. Go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine.
+3. On Mac, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
-Finally, if your container is disk intensive, you should avoid using a volume mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead.
+Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead. On Docker Desktop for Mac, [using a cached consistency](#resolving-disk-performance-issues-with-local-volume-bind-mounts-on-docker-desktop-for-mac) for local filesystem mounts can also improve performance.
 
 ### Cleaning out unused containers and images
 
@@ -528,7 +535,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
 **Option 1: Use the Docker extension.**
 
- 1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view if not already present.
+ 1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view if not already present.
 
     > **Note:** Using the Docker extension from a VS Code window opened in a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local window and use the Docker extension from this VS Code window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
@@ -592,7 +599,7 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 
 See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following topics:
 
-* [Adding environment variables](#Adding-environment-variables)
+* [Adding environment variables](/docs/remote/containers-advanced.md#adding-environment-variables)
 * [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
 * [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount)
 * [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
@@ -604,9 +611,9 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 
 ## WSL tips
 
-### Selecting the distribution used by Remote - WSL
+### Selecting the default distribution used by Remote - WSL
 
-The [Remote - WSL](https://aka.ms/vscode-remote/download/wsl) extension uses your **default distribution**, which you can change using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
+Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL versions, VS Code will use your system **default distro**. You can use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
 
 For example:
 
@@ -686,19 +693,19 @@ Typically adding or modifying a  `.gitattributes` file in your repository is the
 
 Note that this works in **Git v2.10+**, so if you are running into problems, be sure you've got a recent Git client installed. You can add other file types in your repository that require CRLF to this same file.
 
-If you'd prefer to disable line ending conversation entirely, run:
-
-```bash
-git config --global core.autocrlf false
-```
-
-If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option instead.
+If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option.
 
 ```bash
 git config --global core.autocrlf input
 ```
 
-Finally, reclone the repository so these settings take effect.
+If you'd prefer to disable line ending conversation entirely, run the following instead:
+
+```bash
+git config --global core.autocrlf false
+```
+
+Finally, you may need to clone the repository again for these settings to take effect.
 
 ### Resolving hangs when doing a Git push or sync from WSL
 
@@ -787,10 +794,10 @@ Native modules bundled with (or dynamically acquired for) a VS Code extension mu
 
 ### Extension only fails on non-x86_64 hosts or Alpine Linux
 
-If an extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (e.g. ARMv7l) or Alpine Linux containers, the extension may only include native code or runtimes that do not support these platforms. For example, the extensions may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).
+If an extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (for example, ARMv7l) or Alpine Linux containers, the extension may only include native code or runtimes that do not support these platforms. For example, the extensions may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).
 
 **Resolution:**
-Extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. It is important to note that some 3rd party npm modules may also include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets. See the [extension guide](api/advanced-topics/remote-extensions#supporting-non-x8664-hosts-or-alpine-linux-containers) for details.
+Extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. It is important to note that some third party npm modules may also include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets. See the [extension guide](api/advanced-topics/remote-extensions#supporting-non-x8664-hosts-or-alpine-linux-containers) for details.
 
 ### Extensions fail due to missing modules
 
