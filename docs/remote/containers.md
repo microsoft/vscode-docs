@@ -485,7 +485,7 @@ This command is run once your source code is mounted, so you can also use the pr
 "postCreateCommand": "bash scripts/install-dev-tools.sh"
 ```
 
-By default, when VS Code starts a container, it will **override the container's default command** to be `sleep infinity`. This is done because the container will stop if the default command fails or simply exits. However, this may not work for certain images. If the image you are using requires the default command be run to work propertly, add the following to your `devcontainer.json` file.
+By default, when VS Code starts a container, it will **override the container's default command** to be `sleep infinity`. This is done because the container will stop if the default command fails or simply exits. However, this may not work for certain images. If the image you are using requires the default command be run to work properly, add the following to your `devcontainer.json` file.
 
 ```json
 "overrideCommand": false
@@ -508,7 +508,7 @@ apt-get install <package>
 
 Documentation for the software you want to install will usually provide specific instructions, but note that you may **not need to prefix commands with `sudo`** given you are likely running as root in the container. If you are not already root, read the directions for the image you've selected to learn how to install additional software. If you would **prefer not to run as root**, see the [Advanced Container Configuration](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) article for how to set up a separate user.
 
-However, note that if you **rebuild** the container, you will have to **re-install** anything you've installed manually. To avoid this problem, you can simply use the `postCreateCommand` property or use a custom Dockerfile instead.
+However, note that if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property or use a custom Dockerfile instead.
 
 ### Using Docker Compose
 
@@ -529,7 +529,7 @@ To get started quickly, **open the folder** you want to work with in VS Code and
 
 ![Select Docker Compose File](images/containers/select-docker-compose.png)
 
-You'll be asked to either select an existing Docker Compose file (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) in a filterable list. Many of these "dev container definitions" simply use a Dockerfile, so select one of these definitions for a starting point for Docker Compose: [Existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-docker-compose), [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo), [Python & PostgreSQL](https://aka.ms/vscode-remote/samples/python-postgres), or [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose). After you make your selection, VS Code will add the appropriate `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file to the folder.
+You'll be asked to either select an existing Docker Compose file (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) in a filterable list. Many of these "dev container definitions" use a Dockerfile, so select one of these definitions for a starting point for Docker Compose: [Existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-docker-compose), [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo), [Python & PostgreSQL](https://aka.ms/vscode-remote/samples/python-postgres), or [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose). After you make your selection, VS Code will add the appropriate `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file to the folder.
 
 You can also create your configuration manually. To reuse a Docker Compose file unmodified, you can use the `dockerComposeFile` and `service` properties in `.devcontainer/devcontainer.json`.
 
@@ -549,7 +549,7 @@ See the [devcontainer.json reference](#devcontainerjson-reference) for informati
 
 Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen Folder in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in VS Code) from the Command Palette (`kbstyle(F1)`).
 
-If the containers are not already running, VS Code will call `docker-compose -f ../docker-compose.yml up` in this example. Note that the `service` property indicates which service in your Docker Compose file VS Code should connect to, not which service should be started. If you started them by hand, VS Code will simply attach to the service you specified.
+If the containers are not already running, VS Code will call `docker-compose -f ../docker-compose.yml up` in this example. Note that the `service` property indicates which service in your Docker Compose file VS Code should connect to, not which service should be started. If you started them by hand, VS Code will attach to the service you specified.
 
 You can also create a development copy of your Docker Compose file. For example, if you had `.devcontainer/docker-compose.devcontainer.yml`, you would just change the following line in `devcontainer.json`:
 
@@ -750,7 +750,7 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/containers/i
 
 ### Docker limitations
 
-* First time installs of Docker Desktop for Windows will require an additional "sharing" step to give your container access to local source code. However, this step may not work with certain AAD (email based) identities. See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) and [Enabling file sharing in Docker Desktop](/docs/remote/troubleshooting.md#enabling-file-sharing-in-docker-desktop) for details and workarounds.
+* First-time installs of Docker Desktop for Windows will require an additional "sharing" step to give your container access to local source code. However, this step may not work with certain AAD (email-based) identities. See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) and [Enabling file sharing in Docker Desktop](/docs/remote/troubleshooting.md#enabling-file-sharing-in-docker-desktop) for details and workarounds.
 * You may see errors if you sign into Docker with your email address instead of your Docker ID. This is a known issue and can be resolved by signing in with your Docker ID instead. See Docker issue [#935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 * If you see high CPU spikes for `com.docker.hyperkit` on macOS, this may be due to a [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759). See the Docker issue for details.
 * If you see either of these messages building a Dockerfile, you may be hitting a known Docker issue with Debian 8 (Jessie):
@@ -788,7 +788,7 @@ If you see "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates
 
 ### I'm seeing an error about a missing library or dependency
 
-Some extensions rely on libraries not found in the certain Docker images. See [above](#installing-additional-software-in-the-sandbox) for help resolving the problem.
+Some extensions rely on libraries not found in the certain Docker images. See [above](#installing-additional-software-in-the-sandbox) for help with resolving the problem.
 
 ### Can I connect to multiple containers at once?
 
@@ -823,6 +823,7 @@ The VS Code extension API hides most of the implementation details of running re
 ### What other resources are there that may be able to answer my question?
 
 The following articles may help answer your question:
+
 * [Advanced Container Configuration](/docs/remote/containers-advanced.md) or [Tips and Tricks](/docs/remote/troubleshooting.md#containers-tips)
 * [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
 * [Docker Compose file reference](https://docs.docker.com/compose/compose-file/)
