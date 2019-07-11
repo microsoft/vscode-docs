@@ -19,7 +19,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ## Getting started
 
-### System Requirements
+### System requirements
 
 **Local:** Docker Desktop 2.0+ for macOS/Windows 10 Pro/Enterprise or Docker CE/EE 18.06+ and Docker Compose 1.21+ for Linux. Docker Toolbox and Ubuntu snap packages are not supported. See the minimum requirements for [VS Code](/docs/supporting/requirements.md) for additional details.
 
@@ -107,7 +107,7 @@ The steps are similar to those above:
 
 2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one exists in the folder you selected.
 
-    > **Note:** See [System Requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+    > **Note:** See [System requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
     ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
 
@@ -175,7 +175,7 @@ While using VS Code to spin up a new container can be useful in many situations,
 
 While `devcontainer.json` is not used in this case, you are able to use the same capabilities provided by the extension once connected. You can also use `settings.json` to [specify extensions that should always be installed](#always-installed-extensions) when you attach to a container to speed up setup.
 
-> **Note:** See [System Requirements](#system-requirements) for information about supported container. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+> **Note:** See [System requirements](#system-requirements) for information about supported container. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
 Once you have a container up and running, you can connect by either:
 
@@ -353,9 +353,9 @@ git config --global user.email "your.email@address"
 
 ### Using SSH keys
 
-However, in some cases you may be cloning your repository using SSH keys instead of a credential helper. Simply mounting your local `~/.ssh` folder into the container works on macOS/Linux, but unfortunately this does not work on Windows due to the permissions Windows sets. The contents of the `.ssh` folder is not automatically copied into the container since some of the keys could be used for things like accessing test or production servers and could pose a security risk.
+There are some cases when you may be cloning your repository using SSH keys instead of a credential helper. Simply mounting your local `~/.ssh` folder into the container works on macOS/Linux, but unfortunately this does not work on Windows due to the permissions set by the Windows OS. The contents of the `.ssh` folder is not automatically copied into the container since some of the keys could be used for accessing test or production servers and could pose a security risk.
 
- However, you can opt-into a cross-platform way of copying the contents `.ssh` folder into the container when it is created without modifying your image or Dockerfile.
+However, there is a cross-platform way of copying the contents of the `.ssh` folder into the container when it is created, without modifying your image or Dockerfile.
 
 - When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to this same file:
 
@@ -366,7 +366,7 @@ However, in some cases you may be cloning your repository using SSH keys instead
     "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
     ```
 
-- When a **Docker Compose** file is referenced, first, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+- When a **Docker Compose** file is referenced, first update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
     ```yml
     version: '3'
@@ -377,7 +377,7 @@ However, in some cases you may be cloning your repository using SSH keys instead
           - ~/.ssh:~/.ssh-localhost:ro
     ```
 
-    And then add this to `devcontainer.json` to copy the keys to the correct spot with the right permissions:
+    And then add this to `devcontainer.json` to copy the keys to the correct location with the right permissions:
 
     ```json
     "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
@@ -413,7 +413,7 @@ To get started quickly, **open the folder** you want to work with in VS Code and
 
 You'll be asked to either select an existing Dockerfile (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) in a filterable list. VS Code will then add `devcontainer.json` and any other required files to the folder. While most of these pre-defined "dev container definitions" include a Dockerfile, you can use them as a starting point for an image instead if you prefer.
 
-> **Note:** See [System Requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+> **Note:** See [System requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
 You can also create your configuration manually. The difference between configuring VS Code to build a container image using a Dockerfile or just reuse an exiting image is a single property in `devcontainer.json`:
 
@@ -534,7 +534,7 @@ You can either:
 3. [Extend your existing Docker Compose configuration](#extending-your-docker-compose-file-for-development) to develop the service.
 4. Use separate VS Code windows to [work with multiple Docker Compose-defined services](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) at once.
 
-> **Note:** See [System Requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+> **Note:** See [System requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
 VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file. If you've already started the configured containers using the command line, VS Code will **attach to the running service** you've specified instead. This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above while still allowing you to use the command line if you prefer.
 
@@ -643,7 +643,7 @@ version: '3'
         # workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
         - ..:/workspace
 
-        # [Optional] If you are using SSH keys w/Git, mount your .ssh folder to /root/.ssh-localhost so we can its contents
+        # [Optional] If you are using SSH keys w/ Git, mount your .ssh folder to /root/.ssh-localhost so we can access its contents
         - ~/.ssh:/root/.ssh-localhost:ro
 
       # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
@@ -672,7 +672,7 @@ This same file can provide additional settings, such as port mappings, as needed
     "workspaceFolder": "/workspace",
     "shutdownAction": "stopCompose",
 
-    // [Optional] If you are using SSH keys w/Git, copy the keys and set the correct permissions
+    // [Optional] If you are using SSH keys w/ Git, copy the keys and set the correct permissions
     "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
 }
 ```

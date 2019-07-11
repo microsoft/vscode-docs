@@ -19,7 +19,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ## Getting started
 
-### System Requirements
+### System requirements
 
 **Local:** See minimum requirements for [VS Code](/docs/supporting/requirements.md). A supported [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) must also be installed.
 
