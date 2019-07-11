@@ -353,17 +353,20 @@ git config --global user.email "your.email@address"
 
 ### Using SSH keys
 
-However, in some cases you may be cloning your repository using SSH keys instead of a credential helper. SSH keys are not automatically mounted into the container since they can be used for things like accessing test or production servers and can pose a security risk.
+However, in some cases you may be cloning your repository using SSH keys instead of a credential helper. Simply mounting your local `~/.ssh` folder into the container works on macOS/Linux, but unfortunately this does not work on Windows due to the permissions Windows sets. The contents of the `.ssh` folder is not automatically copied into the container since some of the keys could be used for things like accessing test or production servers and could pose a security risk.
 
-However, it is easy enough to mount one or more keys into the container.
+ However, you can opt-into a cross-platform way of copying the contents `.ssh` folder into the container when it is created without modifying your image or Dockerfile.
 
-- When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file:
+- When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to this same file:
 
     ```json
-    "runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh" ]
+    // Mount your .ssh folder to /root/.ssh-localhost so we can copy its contents
+    "runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro" ],
+    // Copy the contents to the correct location and set permissions
+    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
     ```
 
-- When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+- When a **Docker Compose** file is referenced, first, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
     ```yml
     version: '3'
@@ -371,8 +374,16 @@ However, it is easy enough to mount one or more keys into the container.
       your-service-name-here:
         # ...
         volumes:
-          - ~/.ssh:~/.ssh
+          - ~/.ssh:~/.ssh-localhost:ro
     ```
+
+    And then add this to `devcontainer.json` to copy the keys to the correct spot with the right permissions:
+
+    ```json
+    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
+    ```
+
+You can run this same command again in the container if you want to update your keys after the container has been created.
 
 ## In-depth: Setting up a folder to run in a container
 
@@ -437,13 +448,15 @@ See the [devcontainer.json reference](#devcontainerjson-reference) for informati
 
 Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen Folder in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in VS Code)  from the Command Palette (`kbstyle(F1)`). After the container is created, the **local filesystem is automatically mapped into the container** unless you [change this behavior](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount) and you can start working with it from VS Code.
 
-You can also add additional local mount points to give your container access to other locations using the `runArgs` property. One place where this can be useful is if you want to mount your local SSH keys into the container.
+You can also add additional local mount points to give your container access to other locations using the `runArgs` property.
 
-For example:
+For example, you can mount your home / user profile folder:
 
 ```json
-"runArgs": ["-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh"]
+"runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/local-home" ]
 ```
+
+This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-Git-credentials-with-your-container) for details.
 
 The `runArgs` property supports the same list of arguments as the [`docker run` command](https://docs.docker.com/engine/reference/commandline/run/) and can be useful for a wide variety of scenarios including [setting environment variables](/docs/remote/containers-advanced.md#adding-environment-variables).
 
@@ -566,7 +579,9 @@ To avoid having the container shut down if the default container command fails o
 command: sleep infinity
 ```
 
-You can (bind) mount your local source code into the container by adding using the [volumes list in your Docker Compose file](https://docs.docker.com/compose/compose-file/#volumes). If you use SSH keys for your Git repositories instead of a credential manager, you may also want to mount your local `.ssh` folder so they can be reused. You can do so by modifying your Docker Compose file as follows:
+If you are not already, you can (bind) mount your local source code into the container using the [volumes list in your Docker Compose file](https://docs.docker.com/compose/compose-file/#volumes).
+
+For example:
 
 ```yaml
 volumes:
@@ -575,12 +590,11 @@ volumes:
   # in a sub-folder, so we will mount '..'. You would then reference this path as the
   # 'workspaceFolder' in '.devcontainer/devcontainer.json' so VS Code starts here.
   - ..:/workspace
-
-  # If you git clone using SSH keys, mounting them lets you reuse them.
-  - ~/.ssh:/root/.ssh
 ```
 
-If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as `git` inside the service's container. While less efficient than adding these tools to the container image, you can use the `postCreateCommand` property for this purpose. For example:
+This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-Git-credentials-with-your-container) for details.
+
+If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as Git inside the service's container. While less efficient than adding these tools to the container image, you can also use the `postCreateCommand` property for this purpose. For example:
 
 ```json
 "postCreateCommand": "apt-get update && apt-get install -y git"
@@ -612,7 +626,7 @@ For example:
 
 * Docker Compose will shut down a container if its entry point shuts down. This is problematic for situations where you are debugging and need to restart your app on a repeated basis.
 * You also may not be mapping the local filesystem into the container or exposing ports to other resources like databases you want to access.
-* You may want to mount your `.ssh` folder or set the ptrace options [described above](#using-docker-compose).
+* You may want to copy the contents of your local `.ssh` folder into the container or set the ptrace options [described above](#using-docker-compose).
 
 You can solve these and other issues like them by extending your entire Docker Compose configuration with [multiple `docker-compose.yml` files](https://docs.docker.com/compose/extends/#multiple-compose-files) that override or supplement your primary one.
 
@@ -629,8 +643,8 @@ version: '3'
         # workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
         - ..:/workspace
 
-        # [Optional] If you git clone using SSH keys, mounting them lets you reuse them.
-        - ~/.ssh:/root/.ssh
+        # [Optional] If you are using SSH keys w/Git, mount your .ssh folder to /root/.ssh-localhost so we can its contents
+        - ~/.ssh:/root/.ssh-localhost:ro
 
       # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
       cap_add:
@@ -647,14 +661,19 @@ This same file can provide additional settings, such as port mappings, as needed
 ```json
 {
     "name": "[Optional] Your project name here",
+
     // The order of the files is important since later files override previous ones
     "dockerComposeFile": [
         "../docker-compose.yml",
         "docker-compose.extend.yml"
     ],
+
     "service": "your-service-name-here",
     "workspaceFolder": "/workspace",
-    "shutdownAction": "stopCompose"
+    "shutdownAction": "stopCompose",
+
+    // [Optional] If you are using SSH keys w/Git, copy the keys and set the correct permissions
+    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
 }
 ```
 
@@ -676,7 +695,7 @@ version: '3'
          dockerfile: Dockerfile
        volumes:
          - ..:/workspace
-         - ~/.ssh:/root/.ssh
+         - ~/.ssh:/root/.ssh-localhost
        command: sleep infinity
 ```
 
