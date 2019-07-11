@@ -66,9 +66,9 @@ Your configuration entry is used both to provide intellisense when editing your 
 
 ![settings UI screenshot with numbers](images/contribution-points/settings-ui.png)
 
-#### `title`
+**title**
 
-The title 1️⃣️ is the main heading that will be used for your configuration section. Normally you will only have one section for your extension.
+The `title` 1️⃣️ is the main heading that will be used for your configuration section. Normally you will only have one section for your extension.
 
 ```json
 "configuration": {
@@ -84,7 +84,7 @@ The title should be the exact name of your extension. Words like "Extension", "C
 - ❌ `"title": "GitMagic Configuration"`
 - ❌ `"title": "GitMagic Extension Configuration Settings"`
 
-#### `properties`
+**properties**
 
 The `properties` 2️⃣ in your configuration will be a dictionary of configuration properties.
 
@@ -118,9 +118,9 @@ Otherwise, properties appear in alphabetical order (**not** the order in which t
 Configuration keys are defined using a superset of [JSON
 Schema](https://json-schema.org/understanding-json-schema/reference/index.html).
 
-#### `description` / `markdownDescription`
+**description** / **markdownDescription**
 
-Your description 3️⃣ appears after the title and before the input field, except for booleans, where the description is used as the label for the checkbox. 6️⃣
+Your `description` 3️⃣ appears after the title and before the input field, except for booleans, where the description is used as the label for the checkbox. 6️⃣
 
 ```json
 "gitMagic.blame.heatmap.enabled": {
@@ -141,7 +141,7 @@ If you use `markdownDescription` instead of `description`, your setting descript
 }
 ```
 
-#### `type`
+**type**
 
 Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be edited directly in the Settings UI.
 
@@ -164,7 +164,7 @@ For `boolean` entries, the `description` (or `markdownDescription`) will be used
 
 Other types, such as `object` and `array`, aren't exposed directly in the settings UI, and can only be modified by editing the JSON directly. Instead of controls for editing them, users will see a link to `Edit in settings.json` as shown in the screenshot above. 8️⃣
 
-#### `enum` / `enumDescriptions`
+**enum** / **enumDescriptions**
 
 If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu.
 
@@ -187,7 +187,7 @@ You can also provide an `enumDescriptions` property, which provides descriptive 
 },
 ```
 
-#### Other JSON Schema properties
+**Other JSON Schema properties**
 
 You can use any the properties defined by JSON Schema to describe other constraints on configuration values.
 
@@ -201,7 +201,7 @@ You can use any the properties defined by JSON Schema to describe other constrai
 
 For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/understanding-json-schema/reference/index.html).
 
-#### `scope`
+**scope**
 
 A configuration setting can have one of four possible scopes:
 
