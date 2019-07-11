@@ -29,11 +29,11 @@ Below are some popular extensions which include snippets in their language suppo
 
 ## Create your own snippets
 
-You can easily define your own snippets without any extension. To create or edit your own snippets, select **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS), and then select the language (by [language identifier]) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. VS Code manages the creation and refreshing of the underlying snippets file(s) for you.
+You can easily define your own snippets without any extension. To create or edit your own snippets, select **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS), and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. VS Code manages the creation and refreshing of the underlying snippets file(s) for you.
 
 ![snippet drop-down](images/userdefinedsnippets/snippet-dropdown.png)
 
-Snippets files are written in JSON, support C-style comments, and can define an unlimited number of snippets. For the structure of a snippets file, see [Snippet schema](#snippet-schema). Snippets themselves support most TextMate syntax for dynamic behavior, intelligently format whitespace based on the insertion context, and allow easy multiline editing. For the syntax of a snippet body, see [Snippet syntax](#snippet-syntax).
+Snippets files are written in JSON, support C-style comments, and can define an unlimited number of snippets. Snippets support most TextMate syntax for dynamic behavior, intelligently format whitespace based on the insertion context, and allow easy multiline editing.
 
 Below is an example of a `for` loop snippet for JavaScript:
 
@@ -57,128 +57,36 @@ Below is an example of a `for` loop snippet for JavaScript:
 
 In the example above:
 
-* "For Loop" is the snippet name. It is displayed via intellisense iff no `description` is provided.
-* `prefix` defines one or more trigger words upon which to display the snippet in IntelliSense and tab completion. Substring matching is performed on prefixes, so in this case "fc" could match "for-const".
+* "For Loop" is the snippet name. It is displayed via IntelliSense if no `description` is provided.
+* `prefix` defines one or more trigger words which display the snippet in IntelliSense. Substring matching is performed on prefixes, so in this case, "fc" could match "for-const".
 * `body` is one or more lines of content, which will be joined as multiple lines upon insertion. Newlines and embedded tabs will be formatted according to the context in which the snippet is inserted.
-* `description` is an optional natural-language description of the snippet that is displayed by IntelliSense.
+* `description` is an optional description of the snippet displayed by IntelliSense.
 
-Additionally, the `body` of the example above has three placeholders (listed in order of traversal): `${1:array}`, `${2:element}`, and `$0`. You can quickly jump to the next placeholder with `kb(jumpToNextSnippetPlaceholder)`, at which point you may edit the placeholder or jump again the next one. The string after the colon (if any) is the default text, e.g. `element` in `${2:element}`. Placeholder traversal order is ascending by number, starting from one; zero is an optional special case that always comes last, and exits snippet mode with the cursor at the specified position.
+Additionally, the `body` of the example above has three placeholders (listed in order of traversal): `${1:array}`, `${2:element}`, and `$0`. You can quickly jump to the next placeholder with `kb(jumpToNextSnippetPlaceholder)`, at which point you may edit the placeholder or jump again the next one. The string after the colon (if any) is the default text, for example `element` in `${2:element}`. Placeholder traversal order is ascending by number, starting from one; zero is an optional special case that always comes last, and exits snippet mode with the cursor at the specified position.
 
 ## Snippet scope
 
-Snippets are scoped so that only relevant snippets may be suggested and completed. However, unlike syntax-aware intellisense, snippets are *coarsely* scoped along two dimensions:
+Snippets are scoped so that only relevant snippets are suggested. Snippets can be scoped by either:
 
-1. the *language(s)* to which snippets are scoped (possibly all)
-2. the *project(s)* to which snippets are scoped (probably all)
+1. the **language(s)** to which snippets are scoped (possibly all)
+2. the **project(s)** to which snippets are scoped (probably all)
 
-### Language-based snippet scope
+### Language snippet scope
 
-Every snippet is scoped to one, several, or all ("global") languages based on whether it is defined in
+Every snippet is scoped to one, several, or all ("global") languages based on whether it is defined in:
 
-1. a *language* snippet file
-2. the *global* snippet file
+1. a **language** snippet file
+2. a **global** snippet file
 
-Single-language user-defined snippets are defined in a specific language's snippet file (e.g. `javascript.json`), which you can access by language identifier through `kb(workbench.action.openSnippets)`. A snippet is only accessible when editing the language for which it is defined; it is neither suggested nor autocompleted when editing any other language.
+Single-language user-defined snippets are defined in a specific language's snippet file (for example `javascript.json`), which you can access by language identifier through **Preferences: Configure User Snippets**. A snippet is only accessible when editing the language for which it is defined.
 
-Multi-language and global user-defined snippets are all defined in the special "global" snippets file (`global.code-snippets`), which is also accessible through `kb(workbench.action.openSnippets)`. In the global snippets file (which is just JSON), a snippet definition may have an additional property not recognized in a language snippet file: `scope`. A global snippet's `scope` property takes one or more language identifiers, which make the snippet accessible in all-and-only those specified languages. If no `scope` property is given, then a global snippet is accessible in *all* languages.
+Multi-language and global user-defined snippets are all defined in "global" snippet files (JSON with the file suffix `.code-snippets`), which is also accessible through **Preferences: Configure User Snippets**. In a global snippets file, a snippet definition may have an additional `scope` property that takes one or more language identifiers, which make the snippet available only for those specified languages. If no `scope` property is given, then the global snippet is available in **all** languages.
 
 Most user-defined snippets are scoped to a single language, and so are defined in a language-specific snippet file.
 
-### Settings-based snippet scope
+### Project snippet scope
 
-Every snippet is scoped to either all of a user's projects or to one folder project (but not workspace project) in particular, based on whether it is defined in a snippet file in
-
-1. the VS Code *user* folder
-2. a VS Code *project* folder
-
-User snippets are what are created and edited by every option (exception one) in the `kb(workbench.action.openSnippets)` dropdown menu. They participate in suggestions and completions in all projects, and even in stand-alone editors. User snippets are defined in language snippets files, as well as the global snippets file.
-
-Project-folder snippets are what are created by the `New Snippets file for '<folder-name>'...` option in the `kb(workbench.action.openSnippets)` dropdown menu. Project-folder snippets only apply within the project for which they are defined. Moreover, they are only accessible (including creating them) when the defining project folder is open in VS Code, either by itself or as part of a workspace. However, projects snippets are not limited to one user. Since project-folder snippets files are located at the root of the `.vscode` project folder (always with the `.code-snippets` file extension), any user with access to the project folder can use them.
-
-Project-folder snippets files are single-language snippets files. When creating a new project-folder snippets file, the base filename must be entered manually and should be a valid [language identifier].
-
-Most user-defined snippets are scoped to the user's settings, rather than defined at the project-level. (although usage patterns may vary)
-
-## Snippet schema
-
-The following JSON Schema informally describes the base structure of a snippets file:
-
-```json
-{
-  "title": "SnippetsFile",
-  "type": "object",
-  "patternProperties": {
-    "\\.*": {
-      "$ref": "Snippet"
-    }
-  },
-  "additionalProperties": false,
-  "minProperties": 0,
-  "$comment": "Every property is a snippet: the value is its definition and the key is its name."
-}
-```
-
-The following interfaces describe the structure of a single snippet definition.
-
-```typescript
-/**
- * A single VS Code snippet definition. Valid in any snippet file.
- */
-interface Snippet {
-
-    /**
-     * The one-or-more word(s) by which suggestions, Intellisense, and/or
-     * completions trigger on a prefix substring match with any of them. At
-     * least one word must be provided, but may be the empty string.
-     *
-     * A word may be separator-delimited. A word may not autocomplete properly
-     * if it contains whitespace. Substring prefix matching of "words part"s is
-     * supported for snippet prefixes (e.g. user input "fe" can substring prefix
-     * match "for-each").
-     */
-    prefix: string | string[];
-
-    /**
-     * The one-or-more line(s) that the snippet inserts. At least one line must
-     * be provided, but may be the empty string.
-     *
-     * Multiple lines will be joined at insertion time with a context-aware line
-     * separator. Similarly, embedded indentation will be formatted at insertion
-     * time with a context-aware indentation character(s).
-     *
-     * Supports most TextMate snippet syntax, e.g. tabstops, transforms, etc.
-     */
-    body: string | string[];
-
-    /**
-     * The optional natural-language description of the snippet for Intellisense.
-     *
-     * If provided, then the description and the (unexpanded) snippet body are
-     * displayed in any Intellisense detail view. Otherwise, the raw name of the
-     * snippet and the body are displayed. (the snippet is name is its key in
-     * the snippet file)
-     */
-    description?: string;
-}
-
-/**
- * A single VS Code snippet definition. Only valid in global snippets files.
- */
-interface GlobalSnippet extends Snippet {
-
-    /**
-     * The optional comma-delimited list of one or more language identifiers
-     * by which to scope this global snippet. E.g. "javascript,typescript".
-     *
-     * If exactly one language identifier is provided, then this global snippet
-     * is equivalent to a language snippet. If more than one language identifier
-     * is provided, then this snippet is accessible from all-and-only the
-     * specified languages. If no value is set, then this snippet is globally
-     * accessible from all languages.
-     */
-    scope?: string;
-}
-```
+You can also have a global snippets file (JSON with file suffix `.code-snippets`) scoped to your project. Project-folder snippets are created with the **New Snippets file for '<folder-name>'...** option in the **Preferences: Configure User Snippets** dropdown menu and are located at the root of the project in a `.vscode` folder. Project snippet files are useful for sharing snippets with all users working in that project. Project-folder snippets are similar to global snippets and can be scoped to specific languages through the `scope` property.
 
 ## Snippet syntax
 
@@ -361,11 +269,3 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 ### What if I want to use existing TextMate snippets from a .tmSnippet file?
 
 You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) in our Extension API documentation.
-
-<!--region Link Reference Definitions -->
-
-[language identifier]:
-</docs/languages/identifiers.md>
-'Language Identifiers'
-
-<!--endregion-->
