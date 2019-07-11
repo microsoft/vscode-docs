@@ -32,9 +32,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 ## contributes.configuration
 
-Contribute configuration keys that will be exposed to the user. The user will be able to set these
-configuration options as User Settings or as Workspace Settings, either by using the Settings UI or
-by editing the JSON settings file directly.
+Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options as User Settings or as Workspace Settings, either by using the Settings UI or by editing the JSON settings file directly.
 
 ### Configuration example
 
@@ -60,20 +58,17 @@ by editing the JSON settings file directly.
 
 ![configuration extension point example](images/contribution-points/configuration.png)
 
-You can read these values from your extension using
-`vscode.workspace.getConfiguration('myExtension')`.
+You can read these values from your extension using `vscode.workspace.getConfiguration('myExtension')`.
 
 ### Configuration schema
 
-Your configuration entry is used both to provide intellisense when editing your settings in the JSON
-editor, and to define the way they appear in the settings UI.
+Your configuration entry is used both to provide intellisense when editing your settings in the JSON editor, and to define the way they appear in the settings UI.
 
-<img width='75%' alt='settings UI screenshot with numbers' src='images/contribution-points/settings-ui.png' />
+![settings UI screenshot with numbers](images/contribution-points/settings-ui.png)
 
-#### `title` 1️⃣
+#### `title`
 
-This is the main heading that will be used for your configuration section. Normally you will only
-have one section for your extension.
+The title 1️⃣️ is the main heading that will be used for your configuration section. Normally you will only have one section for your extension.
 
 ```json
 "configuration": {
@@ -82,28 +77,24 @@ have one section for your extension.
 }
 ```
 
-The title should be the exact name of your extension. Words like "Extension", "Configuration", and
-"Settings" are redundant.
+The title should be the exact name of your extension. Words like "Extension", "Configuration", and "Settings" are redundant.
 
 - ✔ `"title": "GitMagic"`
 - ❌ `"title": "GitMagic Extension"`
 - ❌ `"title": "GitMagic Configuration"`
 - ❌ `"title": "GitMagic Extension Configuration Settings"`
 
-#### `properties` 2️⃣
+#### `properties`
 
-The `properties` in your configuration will be a dictionary of configuration properties.
+The `properties` 2️⃣ in your configuration will be a dictionary of configuration properties.
 
-In the Settings UI, your configuration key will be used to namespace and construct a title. Capital
-letters in your key are used to indicate word breaks. For example, if your key is
-`gitMagic.dateFormat`, the generated title for the setting will look like this:
+In the Settings UI, your configuration key will be used to namespace and construct a title. Capital letters in your key are used to indicate word breaks. For example, if your key is `gitMagic.blame.dateFormat`, the generated title for the setting will look like this:
 
 > Blame: **Date Format**
 
-Entries will be grouped according to the hierarchy established in your keys. So for example, these
-entries
+Entries will be grouped according to the hierarchy established in your keys. So for example, these entries
 
-```
+```json
 gitMagic.blame.dateFormat
 gitMagic.blame.format
 gitMagic.blame.heatMap.enabled
@@ -120,18 +111,16 @@ will appear in a single group like this:
 >
 > Blame › Heatmap: **Location**
 
-Otherwise, properties appear in alphabetical order (**not** the order in which they're listed in the
-manifest).
+Otherwise, properties appear in alphabetical order (**not** the order in which they're listed in the manifest).
 
 ### Configuration property schema
 
 Configuration keys are defined using a superset of [JSON
 Schema](https://json-schema.org/understanding-json-schema/reference/index.html).
 
-#### `description` / `markdownDescription` 3️⃣
+#### `description` / `markdownDescription`
 
-Your description appears after the title and before the input field, except for booleans, where the
-description is used as the label for the checkbox. 6️⃣
+Your description 3️⃣ appears after the title and before the input field, except for booleans, where the description is used as the label for the checkbox. 6️⃣
 
 ```json
 "gitMagic.blame.heatmap.enabled": {
@@ -141,8 +130,7 @@ description is used as the label for the checkbox. 6️⃣
 
 ```
 
-If you use `markdownDescription` instead of `description`, your setting description will be rendered
-as Markdown in the settings UI.
+If you use `markdownDescription` instead of `description`, your setting description will be rendered as Markdown in the settings UI.
 
 ```json
 "gitMagic.blame.dateFormat": {
@@ -155,8 +143,7 @@ as Markdown in the settings UI.
 
 #### `type`
 
-Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be edited directly in
-the Settings UI.
+Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be edited directly in the Settings UI.
 
 ```json
 "gitMagic.views.pageItemLimit": {
@@ -166,8 +153,7 @@ the Settings UI.
 }
 ```
 
-For `boolean` entries, the `description` (or `markdownDescription`) will be used as the label for
-the checkbox.
+For `boolean` entries, the `description` (or `markdownDescription`) will be used as the label for the checkbox.
 
 ```json
 "gitMagic.blame.compact": {
@@ -176,20 +162,15 @@ the checkbox.
 },
 ```
 
-Other types, such as `object` and `array`, aren't exposed directly in the settings UI, and can only
-be modified by editing the JSON directly. Instead of controls for editing them, users will see a
-link to `Edit in settings.json` as shown in the screenshot above. 8️⃣
+Other types, such as `object` and `array`, aren't exposed directly in the settings UI, and can only be modified by editing the JSON directly. Instead of controls for editing them, users will see a link to `Edit in settings.json` as shown in the screenshot above. 8️⃣
 
-#### `enum` / `enumDescriptions` 7️⃣
+#### `enum` / `enumDescriptions`
 
-If you provide an array of items under the `enum` property, the settings UI will render a dropdown
-menu.
+If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu.
 
-<img width='500px' alt='settings UI screenshot of dropdown'
-src='images/contribution-points/settings-ui-enum.png' />
+![settings UI screenshot of dropdown](images/contribution-points/settings-ui-enum.png)
 
-You can also provide an `enumDescriptions` property, which provides descriptive text rendered at the
-bottom of the dropdown:
+You can also provide an `enumDescriptions` property, which provides descriptive text rendered at the bottom of the dropdown:
 
 ```json
 "gitMagic.blame.heatmap.location": {
@@ -208,8 +189,7 @@ bottom of the dropdown:
 
 #### Other JSON Schema properties
 
-You can use any the properties defined by JSON Schema to describe other constraints on configuration
-values.
+You can use any the properties defined by JSON Schema to describe other constraints on configuration values.
 
 - `default` for defining the default value of a property
 - `minimum` and `maximum` for restricting numeric values
