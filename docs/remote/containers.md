@@ -383,8 +383,6 @@ However, in some cases you may be cloning your repository using SSH keys instead
     "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
     ```
 
-You can modify the mount
-
 You can run this same command again in the container if you want to update your keys after the container has been created.
 
 ## In-depth: Setting up a folder to run in a container
