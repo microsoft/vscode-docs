@@ -183,7 +183,7 @@ Custom arguments to isort are specified in the `python.sortImports.args` setting
 "python.sortImports.args": ["-rc", "--atomic"],
 ```
 
-To use a custom isort script, use the `python.sortImports.path` setting to specify the path:
+To use a custom isort script, use the `python.sortImports.path` setting to specify the path.
 
 Further configurations can be stored in an `.isort.cfg` file as documented on [Configuring isort](https://github.com/timothycrosley/isort#configuring-isort).
 
