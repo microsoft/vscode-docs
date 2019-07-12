@@ -48,13 +48,13 @@ It's easy to run and debug your Java application as we provide several entry poi
 
 ### CodeLens
 
-Once the debugger is activated, you will find **Run|Debug** on the CodeLens of your `main()` function.
+Once the debugger is activated, you will find **Run|Debug** on the [CodeLens](https://code.visualstudio.com/blogs/2017/02/12/code-lens-roundup) of your `main()` function.
 
 ![CodeLens](images/java-debugging/java-codelens.gif)
 
-### Clicking F5
+### Pressing F5
 
-Once you select **Run** or `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging.
+Once you click **Run** on the CodeLens or pressing `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also bring up the Debug view by clicking the `Debug` menu or the Debug icon in the Activity Bar on the side of VS Code. See more at [Debugging in VS Code](https://code.visualstudio.com/docs/editor/debugging).
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/debug-intro.mp4" type="video/mp4">
