@@ -311,7 +311,7 @@ There is then much more to explore with Python in Visual Studio Code:
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
-- [Testing](/docs/python/unit-testing.md) - Configure test environments and discover, run, and debug tests.
+- [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
 - [Deploy Python to Azure App Service using containers](/docs/python/tutorial-deploy-containers.md)
 - [Deploy Python to Azure App Service on Linux (Preview)](/docs/python/tutorial-deploy-app-service-on-linux.md)

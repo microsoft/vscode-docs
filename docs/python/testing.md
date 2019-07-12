@@ -98,7 +98,7 @@ It's important that you enable only a single test framework at a time. For this 
 
 When you enable a test framework, VS Code prompts you to install the framework package if it's not already present in the currently activated environment:
 
-![VS Code prompt to install a test framework when enabled](images/unit-testing/install-framework.png)
+![VS Code prompt to install a test framework when enabled](images/testing/install-framework.png)
 
 ## Create tests
 
@@ -155,23 +155,23 @@ Test discovery applies the discovery patterns for the current framework (which c
 
 If discovery succeeds, the status bar shows **Run Tests** instead:
 
-![Status bar showing successful test discovery failed](images/unit-testing/discovery-succeeded-status-bar.png)
+![Status bar showing successful test discovery failed](images/testing/discovery-succeeded-status-bar.png)
 
 If discovery fails (for example, the test framework isn't installed), you see a notification on the status bar. Selecting the notification provides more information:
 
-![Status bar showing that test discovery failed](images/unit-testing/discovery-failed-status-bar.png)
+![Status bar showing that test discovery failed](images/testing/discovery-failed-status-bar.png)
 
 Once VS Code recognizes tests, it provides several ways to run those tests as described in [Run tests](#run-tests). The most obvious means are CodeLens adornments that appear directly in the editor and allow you to easily run a single test method or, with unittest, a test class:
 
-![Test adornments that appear in the VS Code editor for unittest code](images/unit-testing/editor-adornments-unittest.png)
+![Test adornments that appear in the VS Code editor for unittest code](images/testing/editor-adornments-unittest.png)
 
-![Test adornments that appear in the VS Code editor for pytest code](images/unit-testing/editor-adornments-pytest.png)
+![Test adornments that appear in the VS Code editor for pytest code](images/testing/editor-adornments-pytest.png)
 
 > **Note**: At present, the Python extension doesn't provide a setting to turn the adornments on or off. To suggest a different behavior, file an issue on the [vscode-python repository](https://github.com/Microsoft/vscode-python/issues).
 
 For Python, test discovery also activates the **Test Explorer** with an icon on the VS Code activity bar. The **Test Explorer** helps you visualize, navigate, and run tests:
 
-![The VS Code Test Explorer for Python tests](images/unit-testing/test-explorer.png)
+![The VS Code Test Explorer for Python tests](images/testing/test-explorer.png)
 
 ## Run tests
 
@@ -181,27 +181,27 @@ You run tests using any of the following actions:
 
 - Select **Run Tests** on the Status Bar (which can change appearance based on results),
 
-    ![Test command on the VS Code status bar](images/unit-testing/discovery-succeeded-status-bar.png)
+    ![Test command on the VS Code status bar](images/testing/discovery-succeeded-status-bar.png)
 
     then select one of the commands like **Run All Tests** or **Discover Tests**:
 
-    ![Test commands that appear after using the Run Tests status bar command](images/unit-testing/run-test-commands.png)
+    ![Test commands that appear after using the Run Tests status bar command](images/testing/run-test-commands.png)
 
 - In **Test Explorer**:
 
   - To run all discovered tests, select the play button at the top of **Test Explorer**:
 
-      ![Running all tests through Test Explorer](images/unit-testing/test-explorer-run-all-tests.png)
+      ![Running all tests through Test Explorer](images/testing/test-explorer-run-all-tests.png)
 
   - To run a specific group of tests, or a single test, select the file, class, or test, then select the play button to the right of that item:
 
-      ![Running tests at specific scopes through Test Explorer](images/unit-testing/test-explorer-run-scoped-tests.png)
+      ![Running tests at specific scopes through Test Explorer](images/testing/test-explorer-run-scoped-tests.png)
 
 - Right-click a file in Explorer and select **Run All Tests**, which runs the tests in that one file.
 
 - From the **Command Palette**, select any of the run test commands:
 
-    ![Python testing commands on the Command Palette](images/unit-testing/commands.png)
+    ![Python testing commands on the Command Palette](images/testing/commands.png)
 
     | Command | Description |
     | --- | --- |
@@ -216,15 +216,15 @@ You run tests using any of the following actions:
 
 After a test run, VS Code displays results directly with the CodeLens adornments in the editor and in **Test Explorer**. Results are shown both for individual tests as well as any classes and files containing those tests. Failed tests are also adorned in the editor with a red underline.
 
-![Test results on a unittest class and in Test Explorer](images/unit-testing/test-results.png)
+![Test results on a unittest class and in Test Explorer](images/testing/test-results.png)
 
 VS Code also shows test results in the **Python Test Log** output panel (use the **View** > **Output** menu command to show the **Output** panel, then select **Python Test Log** from the drop-down on the right side):
 
-![Test results in the Python Test Log output panel](images/unit-testing/python-test-log-output.png)
+![Test results in the Python Test Log output panel](images/testing/python-test-log-output.png)
 
 With pytest, failed tests also appear in the **Problems** panel, where you can double-click on an issue to navigate directly to the test:
 
-![Test results for pytest in the Problems panel](images/unit-testing/python-test-problems-output.png)
+![Test results for pytest in the Problems panel](images/testing/python-test-problems-output.png)
 
 ## Run tests in parallel
 

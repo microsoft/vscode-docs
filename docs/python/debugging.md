@@ -374,7 +374,7 @@ The configuration drop-down provides a variety of different options for general 
 | Scrapy | Specifies `"module": "scrapy"`  and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]`. |
 
-Specific steps are also needed for remote debugging and Google App Engine. For details on debugging tests (including nosetest), see [Testing](/docs/python/unit-testing.md).
+Specific steps are also needed for remote debugging and Google App Engine. For details on debugging tests (including nosetest), see [Testing](/docs/python/testing.md).
 
 To debug an app that requires administrator privileges, use `"console": "externalTerminal"` and `"sudo": "True"`.
 
@@ -511,6 +511,6 @@ There are many reasons why the debugger may not work. Oftentimes the debug conso
 ## Next steps
 
 - [Python environments](/docs/python/environments.md) - Control which Python interpreter is used for editing and debugging.
-- [Testing](/docs/python/unit-testing.md) - Configure test environments and discover, run, and debug tests.
+- [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
 - [General debugging](/docs/editor/debugging.md) - Learn about the debugging features of VS Code.

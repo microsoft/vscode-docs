@@ -682,6 +682,6 @@ You may also want to review the following articles in the VS Code docs that are 
 - [Linting](/docs/python/linting.md)
 - [Managing Python environments](/docs/python/environments.md)
 - [Debugging Python](/docs/python/debugging.md)
-- [Testing](/docs/python/unit-testing.md)
+- [Testing](/docs/python/testing.md)
 
 If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
