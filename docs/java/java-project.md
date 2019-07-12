@@ -45,20 +45,20 @@ The extension also has a hierarchy view of your project and dependencies, which 
   <source src="/docs/java/java-project/hierarchical.mp4" type="video/mp4">
 </video>
 
-### Multiple source folders
-
-If you have multiple subfolders that have source code for your project, you can easily add these folders to source path, then all the code inside will be correctly compiled.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-project/multiple-source.mp4" type="video/mp4">
-</video>
-
 ### Standalone Java file support
 
 Visual Studio Code also supports Java files without a project (or an invisible project, which it creates without affecting your folders). The solution is folder-based, so you can open a folder with Visual Studio Code, and all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
+</video>
+
+### Multiple source folders
+
+If you have multiple subfolders that have source code for your project, you can easily add these folders to source path, then all the code inside will be correctly compiled.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/multiple-source.mp4" type="video/mp4">
 </video>
 
 ### Adding external JAR
@@ -68,6 +68,14 @@ In case you need to bring additional JAR files as dependencies, you can create a
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/lib.mp4" type="video/mp4">
 </video>
+
+In case VS Code still throw error with classpath issue, try set your classpath manually by either [setting the CLASSPATH environment varialbe](https://docs.oracle.com/javadb/10.8.3.0/getstart/tgs26250.html) or edit the .classpath file like
+
+```
+<classpathentry kind="lib" path="lib/log4j.jar"/>
+```
+
+In some rare cases, you would need to clean the Java workspace by click `F1` and then execute `Java: Clean the java language server workspace` command to let the language server rebuild your depenedencies.
 
 ## Maven
 

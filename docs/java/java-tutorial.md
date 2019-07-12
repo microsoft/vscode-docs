@@ -84,7 +84,7 @@ You can also use various refactor methods within the editor. To learn more about
 
 ## Running and debugging your program
 
-It is easy to run and debug Java in Visual Studio Code. You can either click `kb(workbench.action.debug.start)` or use the **Run|Debug** CodeLens options. Just set a breakpoint and you can see all your variables and threads in the Debug view.
+It is easy to run and debug Java in Visual Studio Code. You can either press `kb(workbench.action.debug.start)` on your keyboard or click on `Start Debugging` option in the `Debug` menu. Alternatively, you can also use the **Run|Debug** options on [CodeLens](https://code.visualstudio.com/blogs/2017/02/12/code-lens-roundup). Just set a breakpoint and you can see all your variables and threads in the Debug view.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-tutorial/run-debug.mp4" type="video/mp4">
