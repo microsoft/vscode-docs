@@ -42,7 +42,7 @@ Make sure you have the below tools available already
 - [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 - [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
-You may refer to [Java Extensions](/docs/java/java-tutorial.md#_before-you-begin) to set up the environment.
+You may refer to [Java Extensions](/docs/java/java-tutorial.md#before-you-begin) to set up the environment.
 
 To get started, visit [JUnit 4 Getting Started](https://github.com/junit-team/junit4/wiki/Getting-started), [JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/#overview), and [TestNG Doc](https://testng.org/doc/).
 
