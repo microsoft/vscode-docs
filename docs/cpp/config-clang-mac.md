@@ -58,7 +58,7 @@ To reuse the configuration, you can copy these files to a new workspace and adju
 
 1. Press `kb(workbench.action.showCommands)` to open the Command Palette. It looks like this:
 
-   ![Command Palette](images/cpp/command-palette.png)
+   ![Command Palette](images/clang-mac/mac-command-palette-configurations.png)
 
 1. Start typing "C/C++" and then choose **Edit Configurations (UI)** from the list of suggestions. This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the .vscode folder.
 
