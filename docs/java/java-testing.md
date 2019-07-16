@@ -104,6 +104,10 @@ The JUnit 5 support also covers frequently used annotations such as `@DisplayNam
 
 ![ParameterizedTest annotation](images/java-testing/parameterizedtest.png)
 
+## FAQ
+
+If you meet any problem when using the extension, you can refer to the [FAQ](https://github.com/microsoft/vscode-java-test/wiki/FAQ) to check if there is an answer to your problem.
+
 ## More Information
 
 Visit the [GitHub repository](https://github.com/Microsoft/vscode-java-test) of the [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) for more details on commands and settings.
