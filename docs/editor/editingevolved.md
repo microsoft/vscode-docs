@@ -21,7 +21,7 @@ Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files open i
 
 ![Quick Navigation](images/editingevolved/quicknav.png)
 
-Alternatively, you can use `kb(workbench.action.navigateBack)` and `kb(workbench.action.navigateForward)` to navigate between files and edit locations. If you are jumping around between different lines of the same file, these shortcuts allow you to navigate between those locations easily.
+Alternatively, you can use `kb(workbench.action.navigateBack)` and `kb(workbench.action.navigateForward)` to navigate between files and edit locations. If you are jumping around different lines of the same file, these shortcuts allow you to navigate between those locations easily.
 
 ## Go to Definition
 
