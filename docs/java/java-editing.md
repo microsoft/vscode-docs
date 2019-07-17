@@ -114,6 +114,26 @@ Extract to constant, method, and local variables all come in handy with Java on 
   <source src="/docs/java/java-editing/extract-local-variable.mp4" type="video/mp4">
 </video>
 
+After the extraction, it will also allow you to perform rename in a single transaction.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/extract-rename.mp4" type="video/mp4">
+</video>
+
+### Convert a local variable to a field.
+
+When selecting an expression, extract to field.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/extract-field.mp4" type="video/mp4">
+</video>
+
+When selecting a variable declaration, convert the variable to field.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/convert-field.mp4" type="video/mp4">
+</video>
+
 ### Generate getters and setters
 
 You can bulk generate getters and setters for all new member variables. If the class has more than one field, the source action will prompt a Quick Pick for you to select the target fields to use to generate the accessor methods.
