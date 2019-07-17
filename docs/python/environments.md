@@ -150,7 +150,7 @@ First, select the **File** (**Code** on macOS) > **Preferences** > **Settings** 
 
 Then do any of the following steps:
 
-1. Create or modify an entry for `python.pythonPath` with the full path to the Python executable (if you edit `settings.json` directly, add the line below as the setting ):
+1. Create or modify an entry for `python.pythonPath` with the full path to the Python executable (if you edit `settings.json` directly, add the line below as the setting):
 
     For example:
 
@@ -230,7 +230,7 @@ You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, 
 
 ### Variable substitution
 
-When defining an environment variables in a definitions file, you can use the value of any existing environment variable with the following general syntax:
+When defining an environment variable in a definitions file, you can use the value of any existing environment variable with the following general syntax:
 
 ```bash
 <VARIABLE>=...${EXISTING_VARIABLE}...
@@ -255,7 +255,7 @@ In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, testing, and an
 
 The best way to specify a value for the PYTHONPATH variable is to use the `terminal.integrated.env.linux`, `terminal.integrated.env.osx`, or `terminal.integrated.env.windows` settings in VS Code. Each setting allows you to specify the exact locations for each operating system.
 
-The value of PYTHONPATH can contain multiple locations separated by `os.pathsep`: a semicolon (`;`) on Windows and a colon (':') on Linux/macOS. Invalid paths are ignored. If you find that your value for PYTHONPATH isn't working as expected, make sure that you're using the correct separator between locations for the operating system in question. For example, using a colon to separate locations on Windows, or using a semicolon to separate locations Linux/macOS results in an invalid value for PYTHONPATH, which is again ignored.
+The value of PYTHONPATH can contain multiple locations separated by `os.pathsep`: a semicolon (`;`) on Windows and a colon (`:`) on Linux/macOS. Invalid paths are ignored. If you find that your value for PYTHONPATH isn't working as expected, make sure that you're using the correct separator between locations for the operating system. For example, using a colon to separate locations on Windows, or using a semicolon to separate locations on Linux/macOS results in an invalid value for PYTHONPATH, which is again ignored.
 
 > **Note**: PYTHONPATH does **not**, repeat **not**, specify a path to a Python interpreter itself, and thus you **never** use it with the `python.pythonPath` setting. Clearly, the environment variable was badly named, but...[c'est la vie](https://www.dictionary.com/browse/c-est-la-vie). So make sure to read the [PYTHONPATH documentation](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH) several times and fix in your mind that PYTHONPATH is **not** a path to an interpreter.
 

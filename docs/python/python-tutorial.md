@@ -37,7 +37,7 @@ To successfully complete this tutorial, complete the following requirements:
 
 ### Verify the Python installation
 
-VS Code and the Python extension don't require that the location a Python interpreter be included in your PATH environment variable. However, some tools and libraries that VS Code might invoke won't work in the VS Code terminal unless Python is on the PATH. For best results, then, we recommend that you make sure you have Python on your PATH. (Exception: if you're using an Anaconda distro, simply make sure you start VS Code from an Anaconda command prompt when following the instructions in the next section.)
+VS Code and the Python extension don't require that the location of a Python interpreter be included in your PATH environment variable. However, some tools and libraries that VS Code might invoke won't work in the VS Code terminal unless Python is on the PATH. For best results, we recommend that you make sure you have Python on your PATH. (Exception: if you're using an Anaconda distro, make sure you start VS Code from an Anaconda command prompt when following the instructions in the next section.)
 
 - Linux/macOS: Python is typically added to the PATH when you install it. To verify, run the following command in a terminal:
 
@@ -199,7 +199,7 @@ msg.split()
 
 Select the blue **Continue** button on the toolbar again (or press F5) to run the program to completion. "Hello World" appears in the **Python Debug Console** if you switch back to it, and VS Code exits debugging mode once the program is complete.
 
-If you restart the debugger, the debugger again stops on the first breakpoint, (or the first line is `stopOnEntry` is set to true, in which case the debugger stops before any code is run.)
+If you restart the debugger, the debugger again stops on the first breakpoint (or the first line is `stopOnEntry` is set to true, in which case the debugger stops before any code is run.)
 
 To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Debug > Stop debugging** menu command.
 
