@@ -37,23 +37,36 @@ When the Python extension detects a code cell, it adds **Run Cell** and **Run Be
 
 **Run Cell** applies to only the one code cell. **Run Below** applies to that code cell and all that follow. **Run Above** applies to all the code cells up to, but not including, the cell with the adornment. You would use **Run Above**, for example, to initialize the state of the runtime environment before running that specific cell.
 
-Selecting a command starts Jupyter (if necessary, which might take a minute), then runs the appropriate cell(s) in the Python interactive window:
+Selecting a command starts Jupyter (if necessary, which might take a minute), then runs the appropriate cell(s) in the **Python Interactive** window:
 
 ![Code cells running in a Python Interactive window](images/jupyter/code-cells-02.png)
 
 You can also run code cells using the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `#%%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
 
-### Python interactive window
+## Python Interactive window
 
-The Python interactive window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells). The window also supports [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/).
-
+The **Python Interactive** window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells).
 To use the window as a console, open it with the **Python: Show Python Interactive window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
 
 To use the window with a file, use the **Run Current File in Python Interactive window** command from the Command Palette.
 
+### IntelliSense
+
+The Python Interactive window has full IntelliSense – code completions, member lists, quick info for methods, and parameter hints. You can be just as productive typing in the Python Interactive window as you would in the code editor.
+
+![IntelliSense in the Python Interactive window](images/jupyter/interactive-window-intellisense.gif)
+
+### Live Share for Python Interactive
+
+The Python Interactive window also supports [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/) for real-time collaboration. Live Share lets you co-edit and co-debug while sharing audio, servers, terminals, diffs, comments, and more.
+
+![Live Share for the Python Interactive window](images/jupyter/live-share-and-interactive.gif)
+
+This feature requires the [Live Share extensions](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) to be installed on both host and guest machines.
+
 ## Variable explorer and data viewer
 
-Within the Python interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By expanding the **Variables** section after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code. Clicking on each column header will allow you to sort the variables in the table.
+Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By expanding the **Variables** section after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code. Clicking on each column header will allow you to sort the variables in the table.
 
 ![Variable Explorer](images/jupyter/jupyter-variable-explorer.png)
 
@@ -74,9 +87,9 @@ To connect to a remote Jupyter server:
 
     ![Prompt to supply a Jupyter server URI](images/jupyter/enter-url-auth-token.png)
 
-3. The Python interactive window indicates where code is run by displaying the URI (which is blurred out in the image below):
+3. The Python Interactive window indicates where code is run by displaying the URI (which is blurred out in the image below):
 
-    ![The Python interactive window showing that code is running on a remote Jupyter server](images/jupyter/jupyter-running-remotely.png)
+    ![The Python Interactive window showing that code is running on a remote Jupyter server](images/jupyter/jupyter-running-remotely.png)
 
 ## Open Jupyter notebooks
 
@@ -88,7 +101,7 @@ When you open a notebook file, the Python extension prompts you to import the no
 
 Choose **Import**, wait a few seconds, and then VS Code opens the converted notebook in an untitled file. The notebook's cells are delimited in the Python file with `#%%` comments; Markdown cells are converted wholly to comments preceded with `#%% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
 
-![Jupyter notebook running in VS Code and the Python interactive window](images/jupyter/jupyter-notebook.png)
+![Jupyter notebook running in VS Code and the Python Interactive window](images/jupyter/jupyter-notebook.png)
 
 If you open the file without importing, it appears as plain text.
 
@@ -116,6 +129,6 @@ In addition to opening a Jupyter notebook, you can also use one of the following
 
 - **Python: Export Current Python File as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file, using the `#%%` and `#%% [markdown]` delimiters to specify their respective cell types.
 - **Python: Export Current Python File and Output as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file and includes output from code cells.
-- **Python: Export Python Interactive window as Jupyter Notebook**: creates a Jupyter notebook from the contents of the Python interactive window.
+- **Python: Export Python Interactive window as Jupyter Notebook**: creates a Jupyter notebook from the contents of the Python Interactive window.
 
 After exporting the contents, VS Code displays a prompt through which you can open the notebook in a browser.
