@@ -114,7 +114,7 @@ Extract to constant, method, and local variables all come in handy with Java on 
   <source src="/docs/java/java-editing/extract-local-variable.mp4" type="video/mp4">
 </video>
 
-After the extraction, it will also allow you to perform rename in a single transaction.
+After the extraction, you can also perform a rename in the same transaction.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/extract-rename.mp4" type="video/mp4">
@@ -158,13 +158,13 @@ With this source action, all the candidates are presented to you with a checklis
   <source src="/docs/java/java-editing/override-implement-methods.mp4" type="video/mp4">
 </video>
 
-### Generate `hashCode()` & `equals()`
+### Generate `hashCode()` and `equals()`
 
-`hashCode()` & `equals()` can be generated with default implementations. All the non-static member variables are listed, and you can customize the generated code using the check list.
+`hashCode()` and `equals()` can be generated with default implementations. All the non-static member variables are listed, and you can customize the generated code using the check list.
 
 There are two options for you to customize the generated code:
 
-* If you use Java 7+, you can set `java.codeGeneration.hashCodeEquals.useJava7Objects` to `true` to generate shorter code which calls `Objects.hash` and `Objects.equals`.
+* If you use Java 7+, you can set `java.codeGeneration.hashCodeEquals.useJava7Objects` to `true` to generate shorter code that calls `Objects.hash` and `Objects.equals`.
 * You can also set `java.codeGeneration.hashCodeEquals.useInstanceof` to `true` to use `instanceOf` operator to check the object types instead of calling `Object.getClass()`.
 
 <video autoplay loop muted playsinline controls>

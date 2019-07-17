@@ -52,7 +52,7 @@ To use the window with a file, use the **Run Current File in Python Interactive 
 
 ### IntelliSense
 
-The Python Interactive window has full IntelliSense – code completions, member lists, quick info for methods, and parameter hints. You can be just as productive typing in the Python Interactive window as you would in the code editor.
+The Python Interactive window has full IntelliSense – code completions, member lists, quick info for methods, and parameter hints. You can be just as productive typing in the Python Interactive window as you are in the code editor.
 
 ![IntelliSense in the Python Interactive window](images/jupyter/interactive-window-intellisense.gif)
 
