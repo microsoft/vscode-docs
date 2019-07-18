@@ -375,7 +375,7 @@ Add the following setting to enable expanding of Emmet abbreviations using tab w
 "emmet.triggerExpansionOnTab": true
 ```
 
-### My HTML snippets ending with `+` does not work?
+### My HTML snippets ending with `+` do not work?
 
 HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1). Workaround is to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets) for such scenarios.
 
