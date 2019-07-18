@@ -8,7 +8,7 @@ DateApproved: 3/6/2017
 MetaDescription: Use extensions in Visual Studio Code to add new features, themes, and more.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
-# Using Extensions in Visual Studio Code
+# Using extensions in Visual Studio Code
 
 Use Visual Studio Code extensions to add new features, themes and more. In this tutorial, we will show you how to find extensions, install the ones you like, and disable extensions you don't want to use all the time.
 
@@ -22,11 +22,11 @@ Use Visual Studio Code extensions to add new features, themes and more. In this 
 * See the list of **Recommended Extensions**.
 * Disable and uninstall extensions.
 
-## Learn More
+## Learn more
 
 * [Extension Marketplace Documentation](/docs/editor/extension-gallery.md) - Official documentation for the VS Code Extension Marketplace.
 * [Marketplace](https://marketplace.visualstudio.com/) - Browse extensions online.
 
-## Next Video
+## Next video
 
 * [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md) - Learn about the advanced code editing features in VS Code.
