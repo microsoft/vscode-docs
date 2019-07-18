@@ -480,29 +480,6 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 Some extensions rely on libraries not found in the certain Docker images. See the [Containers](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) article for a few options on resolving this issue.
 
-### Resolving disk performance issues with local volume (bind) mounts
-
-The Remote - Containers extension uses Docker's defaults for creating "bind mounts" to the local filesystem for your source code. While this is the safest option, you may encounter slower individual file disk performance when running commands like `yarn install` or `npm install` from inside the container.
-
-A trick that is often used with Docker Desktop for Mac is to use cached consistency for the file mount. If you are using an **image** or **Dockerfile**, you can change the consistency requirements using `devcontainer.json`. For example:
-
-```json
-"workspaceMount": "src=/absolute/path/to/source/code,dst=/workspace,type=bind,consistency=cached",
-"workspaceFolder": "/workspace"
-```
-
-See [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount) for additional details on the `workspaceMount` property.
-
-For **Docker Compose**, you can modify the consistency requirements in `docker-compose.yml` instead. For example:
-
-```yml
-  volumes:
-    - type: bind
-      source: ./path/to/source/code
-      target: /workspace # Should match 'workspaceFolder' in devcontainer.json
-      consistency: cached
-```
-
 ### Speeding up containers in Docker Desktop
 
 By default, Docker Desktop only gives containers a fraction of your machine capacity. In most cases, this is enough, but if you are doing something that requires more capacity, you can increase memory, CPU, or disk use.
@@ -527,7 +504,7 @@ If you determine that you need to give your container more of your machine's cap
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
 3. On Mac, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
-Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead. On Docker Desktop for Mac, [using a cached consistency](#resolving-disk-performance-issues-with-local-volume-bind-mounts-on-docker-desktop-for-mac) for local filesystem mounts can also improve performance.
+Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. You can also use the [cached mount consistancy on Mac](/docs/remote/containers-advanced.md#update-the-mount-consistency-in-docker-for-mac) or use a [named volume for your source code](/docs/remote/containers-advanced.md#use-a-named-volume-instead-of-a-bind-mount) instead.
 
 ### Cleaning out unused containers and images
 
@@ -609,6 +586,7 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 * [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
 * [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount)
 * [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
+* [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance)
 * [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced.md#avoiding-extension-reinstalls-on-container-rebuild)
 * [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
 * [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)

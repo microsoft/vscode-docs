@@ -25,9 +25,9 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 **Containers**:
 
-- **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ based containers
+* **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ based containers
 
-- **Experimental support:** x86_64 Alpine Linux containers in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only.
+* **Experimental support:** x86_64 Alpine Linux containers in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 Other `glibc` based Linux containers may work if they have [needed prerequisites](/docs/remote/linux.md).
 
@@ -363,7 +363,7 @@ There are some cases when you may be cloning your repository using SSH keys inst
 
 However, there is a cross-platform way of copying the contents of the `.ssh` folder into the container when it is created, without modifying your image or Dockerfile.
 
-- When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to this same file:
+* When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to this same file:
 
     ```json
     // Mount your .ssh folder to /root/.ssh-localhost so we can copy its contents
@@ -373,7 +373,7 @@ However, there is a cross-platform way of copying the contents of the `.ssh` fol
     "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
     ```
 
-- When a **Docker Compose** file is referenced, first update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+* When a **Docker Compose** file is referenced, first update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
     ```yml
     version: '3'
@@ -424,7 +424,7 @@ You'll be asked to either select an existing Dockerfile (if one exists), or pick
 
 You can also create your configuration manually. The difference between configuring VS Code to build a container image using a Dockerfile or just reuse an exiting image is a single property in `devcontainer.json`:
 
-- **To use an image:**  Set the `image` property. For example, this will use the .NET SDK image, publish port 8090, and install the C# VS Code extension:
+* **To use an image:**  Set the `image` property. For example, this will use the .NET SDK image, publish port 8090, and install the C# VS Code extension:
 
     ```json
     {
@@ -437,7 +437,7 @@ You can also create your configuration manually. The difference between configur
     }
     ```
 
-- **To use a Dockerfile:** Set the `dockerFile` property. For example, this will cause VS Code to build the dev container image using the specified `Dockerfile`, publish port 3000, install the ES Lint extension in the container, and run `npm install` once it is done:
+* **To use a Dockerfile:** Set the `dockerFile` property. For example, this will cause VS Code to build the dev container image using the specified `Dockerfile`, publish port 3000, install the ES Lint extension in the container, and run `npm install` once it is done:
 
     ```json
     {
@@ -724,8 +724,9 @@ The following are dev container definitions that use Docker Compose:
 See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following topics:
 
 * [Adding environment variables](/docs/remote/containers-advanced.md#adding-environment-variables)
-* [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
+* [Adding another local file mount](/docs/remote/containers-advanced.md#adding-another-local-file-mount)
 * [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount)
+* [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance)
 * [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
 * [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced.md#avoiding-extension-reinstalls-on-container-rebuild)
 * [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)

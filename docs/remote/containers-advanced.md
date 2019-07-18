@@ -15,57 +15,53 @@ This article includes advanced setup scenarios for the [Visual Studio Code Remot
 
 You can update environment variables in your container without altering the container image by following these steps:
 
-1. Configure the environment variables:
+* When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file:
 
-   - When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file:
+     ```json
+     "runArgs": ["-e","YOUR_ENV_VAR_NAME=your-value-goes-here"]
+     ```
 
-        ```json
-        "runArgs": ["-e","YOUR_ENV_VAR_NAME=your-value-goes-here"]
-        ```
+* When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
-   - When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+     ```yml
+     version: '3'
+     services:
+       your-service-name-here:
+         # ...
+         environment:
+           - YOUR_ENV_VAR_NAME=your-value-goes-here
+     ```
 
-        ```yml
-        version: '3'
-        services:
-          your-service-name-here:
-            # ...
-            environment:
-              - YOUR_ENV_VAR_NAME=your-value-goes-here
-        ```
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
-
-## Adding another volume mount
+## Adding another local file mount
 
 You can add a volume bound to any local folder using these steps:
 
-1. Configure the volume mount:
+* When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file:
 
-   - When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to the `runArgs` property in this same file:
+     ```json
+     "runArgs": ["-v","/local/source/path/goes/here:/target/path/in/container/goes/here"]
+     ```
 
-        ```json
-        "runArgs": ["-v","/local/source/path/goes/here:/target/path/in/container/goes/here"]
-        ```
+     You can also use local environment variables in the path. For example, this will bind mount `~` (`$HOME`) on macOS/Linux and the user's folder (`%USERPROFILE%`) on Windows:
 
-        You can also use local environment variables in the path. For example, this will bind mount `~` (`$HOME`) on macOS/Linux and the user's folder (`%USERPROFILE%`) on Windows:
+     ```json
+     "runArgs": ["-v", "${env:HOME}${env:USERPROFILE}:/host-home-folder"]
+     ```
 
-        ```json
-        "runArgs": ["-v", "${env:HOME}${env:USERPROFILE}:/host-home-folder"]
-        ```
+* When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
-   - When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+     ```yml
+     version: '3'
+     services:
+       your-service-name-here:
+         # ...
+         volumes:
+           - /local/source/path/goes/here:/target/path/in/container/goes/here
+     ```
 
-        ```yml
-        version: '3'
-        services:
-          your-service-name-here:
-            # ...
-            volumes:
-              - /local/source/path/goes/here:/target/path/in/container/goes/here
-        ```
-
-2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
 ## Changing the default source code mount
 
@@ -80,7 +76,78 @@ For example:
 "workspaceFolder": "/workspace"
 ```
 
-This also allows you to do something like a volume mount instead, which can be useful particularly when [using a remote Docker Host](#developing-inside-a-container-on-a-remote-docker-host).
+This also allows you to do something like a volume mount instead, which can be useful particularly when [using a remote Docker Host](#developing-inside-a-container-on-a-remote-docker-host) or [improving disk performance](#Use-a-named-volume-instead-of-a-bind-mount).
+
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+## Improving container disk performance
+
+The Remote - Containers extension uses Docker's defaults for creating "bind mounts" to the local filesystem for your source code. While this is the safest option, you may encounter slower individual file disk performance when running commands like `yarn install` or `npm install` from inside the container. There are a two things you can do to resolve these types of issue.
+
+### Update the mount consistency in Docker for Mac
+
+A trick that is often used with Docker Desktop for Mac is change the [mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) to `cached` or `delegated`.
+
+* If you are using an **image** or **Dockerfile**, you can change the consistency requirements using `devcontainer.json`. For example:
+
+    ```json
+    "workspaceMount": "src=/absolute/path/to/local/source/code,dst=/workspace,type=bind,consistency=cached",
+    "workspaceFolder": "/workspace"
+    ```
+
+* For **Docker Compose**, you can modify the consistency requirements in `docker-compose.yml` instead. For example:
+
+    ```yml
+      volumes:
+        - type: bind
+          source: /local/path/to/source/code
+          target: /workspace
+          consistency: cached
+    ```
+
+    You'll also want to be sure the `workspaceFolder` property in `devcontainer.json` to match:
+
+    ```json
+    "workspaceFolder": "/workspace"
+    ```
+
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+### Use a named volume instead of a bind mount
+
+Local filesystem bind mounts are convienent, but are not as fast as using the container's filesystem directly. The problem with using the container's filesystem is that it is lost once you remove or rebuild the container. A middle ground is to use a "named volume". These act like the container's filesystem but survive container rebuilds and can even be shared across containers.
+
+Note that using a named volume will require you to **clone your source code inside of the volume** rather than on your local filesystem.
+
+You can set this up by taking an existing `devcontainer.json` configuration and modifying it as follows (updating `your-volume-name-here` with whatever you want to call the volume).
+
+* If you are using an **image** or **Dockerfile**, you can specify a named volume using `devcontainer.json`. For example:
+
+    ```json
+    "workspaceFolder": "/workspaces",
+    "workspaceMount": "src=your-volume-name-here,dst=/workspace,type=volume,volume-driver=local"
+    ```
+
+* When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service(s):
+
+    ```yml
+    version: '3'
+    services:
+      your-service-name-here:
+        volumes:
+            - your-volume-name-here:/workspace
+
+    volumes:
+      - your-volume-name-here:
+    ```
+
+    You'll also want to be sure the `workspaceFolder` property in `devcontainer.json` matches the place the volume is mounted (or a sub-folder inside the volume):
+
+    ```json
+    "workspaceFolder": "/workspace"
+    ```
+
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
 ## Avoiding extension reinstalls on container rebuild
 
@@ -88,39 +155,39 @@ By default, VS Code will install extensions and VS Code Server inside the contai
 
 If you find yourself rebuilding frequently, you can use a local "volume" mount so that the extensions and VS Code Server survive a container rebuild. The volume should be unique to the container since sharing the volume across multiple containers is not currently supported. To create a container volume, follow these steps:
 
-1. Configure a volume mount for `~/.vscode-server` (and/or `~/.vscode-server-insiders` for VS Code Insiders). How you do this will depend on whether you specify an image, Dockerfile, or Docker Compose file in your `devcontainer.json` file.
+First, configure a volume mount for `~/.vscode-server` (and/or `~/.vscode-server-insiders` for VS Code Insiders). How you do this will depend on whether you specify an image, Dockerfile, or Docker Compose file in your `devcontainer.json` file.
 
-    **Dockerfile or image**:
+**Dockerfile or image**:
 
-    Replace `your-volume-name-goes-here` with a unique volume name for the container in `devcontainer.json` as follows:
+Replace `your-volume-name-goes-here` with a unique volume name for the container in `devcontainer.json` as follows:
 
-    ```json
-    "runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server"]
-    ```
+```json
+"runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server"]
+```
 
-    ...or for VS Code Insiders...
+...or for VS Code Insiders...
 
-    ```json
-    "runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server-insiders"]
-    ```
+```json
+"runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server-insiders"]
+```
 
-    **Docker Compose**:
+**Docker Compose**:
 
-    Update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following. Replace `your-volume-name-goes-here` with a unique volume name for the container.
+Update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following. Replace `your-volume-name-goes-here` with a unique volume name for the container.
 
-      ```yml
-      services:
-        your-service-name-here:
-          # ...
-          volumes:
-            - your-volume-name-goes-here:~/.vscode-server
-            # or - your-volume-name-goes-here:~/.vscode-server-insiders
-          # ...
+  ```yml
+  services:
+    your-service-name-here:
+      # ...
       volumes:
-        your-volume-name-goes-here:
-      ```
+        - your-volume-name-goes-here:~/.vscode-server
+        # or - your-volume-name-goes-here:~/.vscode-server-insiders
+      # ...
+  volumes:
+    your-volume-name-goes-here:
+  ```
 
-2. If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
+Next, if you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
 After the container is up and running, subsequent rebuilds will not reacquire any extensions or the VS Code server. The build will not use the latest extensions list from `devcontainer.json` or run `postCreateCommand` if configured but you can delete the volume and those steps will happen the next time you rebuild.
 
@@ -130,27 +197,29 @@ docker volume rm your-volume-name-goes-here
 
 ## Adding a non-root user to your dev container
 
-Many images run as a root user by default. If your image or Dockerfile provides a non-root user but still defaults to root (like the `node` image), you can opt into using it in one of two ways:
-
-- When referencing an **image** or **Dockerfile**, add the following to your `devcontainer.json`:
-
-    ```json
-    "runArgs": ["-u", "user-name-goes-here"]
-    ```
-
-- If you are using **Docker Compose**, add the following to your service in `docker-compose.yml`:
-
-    ```yaml
-    user: user-name-goes-here
-    ```
-
-However, there are some **quirks with local filesystem (bind) mounts** that you should know about. Specifically:
+Many Docker use root as the default user, but there are cases where you may prefer to use a non-root user instead. If you do so, there are some **quirks with local filesystem (bind) mounts** that you should know about. Specifically:
 
 * **Docker Desktop for Mac**: Inside the container, any mounted files/folders will act as if they are owned by the container user you specify. Locally, all filesystem operations will use the permissions of your local user instead.
 
 * **Docker Desktop for Windows**: Inside the container, any mounted files/folders will appear as if they are owned by `root` but the user you specify will still be able to read/write them and all files will be executable. Locally, all filesystem operations will use the permissions of your local user instead. This is because there is fundamentally no way to directly map Windows-style file permissions to Linux.
 
 * **Docker CE/EE on Linux**: Inside the container, any mounted files/folders will have the exact same permissions as outside the container - including the owner user ID (UID) and group ID (GID). Because of this, your container user will either need to have the same UID or be in a group with the same GID. The actual name of the user / group does not matter. The first user on a machine typically gets a UID of 1000, so most containers use this as the ID of the user to try to avoid this problem.
+
+If your image or Dockerfile provides a non-root user (like the `node` image) but still defaults to root, you can opt into using it in one of two ways:
+
+* When referencing an **image** or **Dockerfile**, add the following to your `devcontainer.json`:
+
+    ```json
+    "runArgs": ["-u", "user-name-goes-here"]
+    ```
+
+* If you are using **Docker Compose**, add the following to your service in `docker-compose.yml`:
+
+    ```yaml
+    user: user-name-goes-here
+    ```
+
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
 For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
 
@@ -180,6 +249,8 @@ USER $USERNAME
 ```
 
 > **Tip:** If you hit an error when building about the GID or UID already existing, the image you selected likely already has a non-root user you can just take advantage of directly.
+
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
 ## Using Docker or Kubernetes from a container
 
