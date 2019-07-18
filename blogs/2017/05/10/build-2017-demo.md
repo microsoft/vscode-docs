@@ -65,7 +65,7 @@ code --install-extension vscode-mongodb-0.0.1.vsix
 
 * Install and learn more about [Docker](https://www.docker.com/).
 
-* The [Docker Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) make it easy to develop and deploy containerized micro-service based applications using Docker containers.
+* The [Docker Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) make it easy to develop and deploy containerized micro-service based applications using Docker containers.
 
 * [Docker multi-stage builds](https://codefresh.io/blog/node_docker_multistage/)
 

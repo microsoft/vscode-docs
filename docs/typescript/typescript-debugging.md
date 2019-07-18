@@ -128,7 +128,7 @@ Update the `launch.json` to specify the local file URL to `helloweb.html`:
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///C:/Users/gregvanl/deleteMe/HelloWeb/helloweb.html",
+            "url": "file:///C:/Users/username/deleteMe/HelloWeb/helloweb.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

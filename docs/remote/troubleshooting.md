@@ -362,9 +362,9 @@ Follow these steps:
 
 2. Next, install [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on using [Chocolatey](https://chocolatey.org/): `choco install sshfs`
 
-3. Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname` where `user@hostname` with is your remote user and hostname / IP. You script this using the from the command prompt as follows: `net use /PERSISTENT:NO X: \\sshfs\user@hostname`
+3. Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname`, where `user@hostname` is your remote user and hostname / IP. You can script this using the command prompt as follows: `net use /PERSISTENT:NO X: \\sshfs\user@hostname`
 
-4. Once done, you can disconnect from it by right-clicking on the drive in the File Explorer and clicking **Disconnect**.
+4. Once done, disconnect by right-clicking on the drive in the File Explorer and clicking **Disconnect**.
 
 ### Using rsync to maintain a local copy of your source code
 
@@ -482,7 +482,7 @@ Some extensions rely on libraries not found in the certain Docker images. See th
 
 ### Resolving disk performance issues with local volume (bind) mounts
 
-The Remote - Containers extensions uses Docker's defaults for creating "bind mounts" to the local filesystem for your source code. While this is the safest option, you may encounter slower individual file disk performance when running commands like `yarn install` or `npm install` from inside the container.
+The Remote - Containers extension uses Docker's defaults for creating "bind mounts" to the local filesystem for your source code. While this is the safest option, you may encounter slower individual file disk performance when running commands like `yarn install` or `npm install` from inside the container.
 
 A trick that is often used with Docker Desktop for Mac is to use cached consistency for the file mount. If you are using an **image** or **Dockerfile**, you can change the consistency requirements using `devcontainer.json`. For example:
 
@@ -527,7 +527,7 @@ If you determine that you need to give your container more of your machine's cap
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
 3. On Mac, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
-Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead. On Docker Desktop for Mac, [using a cached consistency](#Resolving-disk-performance-issues-with-local-volume-bind-mounts-on-Docker-Desktop-for-Mac) for local filesystem mounts can also improve performance.
+Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead. On Docker Desktop for Mac, [using a cached consistency](#resolving-disk-performance-issues-with-local-volume-bind-mounts-on-docker-desktop-for-mac) for local filesystem mounts can also improve performance.
 
 ### Cleaning out unused containers and images
 
@@ -605,7 +605,7 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 
 See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following topics:
 
-* [Adding environment variables](#Adding-environment-variables)
+* [Adding environment variables](/docs/remote/containers-advanced.md#adding-environment-variables)
 * [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
 * [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount)
 * [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
@@ -800,10 +800,10 @@ Native modules bundled with (or dynamically acquired for) a VS Code extension mu
 
 ### Extension only fails on non-x86_64 hosts or Alpine Linux
 
-If an extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (e.g. ARMv7l) or Alpine Linux containers, the extension may only include native code or runtimes that do not support these platforms. For example, the extensions may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).
+If an extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (for example, ARMv7l) or Alpine Linux containers, the extension may only include native code or runtimes that do not support these platforms. For example, the extensions may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).
 
 **Resolution:**
-Extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. It is important to note that some 3rd party npm modules may also include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets. See the [extension guide](api/advanced-topics/remote-extensions#supporting-non-x8664-hosts-or-alpine-linux-containers) for details.
+Extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. It is important to note that some third party npm modules may also include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets. See the [extension guide](api/advanced-topics/remote-extensions#supporting-non-x8664-hosts-or-alpine-linux-containers) for details.
 
 ### Extensions fail due to missing modules
 

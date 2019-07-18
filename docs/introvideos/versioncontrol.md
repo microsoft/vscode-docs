@@ -3,12 +3,12 @@ Order:
 Area: introvideos
 TOCTitle: Git Version Control
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-PageTitle: Git Version Control in Visual Studio Code
+PageTitle: Git version control in Visual Studio Code
 DateApproved: 8/5/2016
 MetaDescription: Learn how to use Git version control basics in Visual Studio Code.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
-# Git Version Control in VS Code
+# Git version control in VS Code
 
 In this tutorial, we will learn how to use the basics of Git version control in Visual Studio Code.
 
@@ -25,7 +25,7 @@ In this tutorial, we will learn how to use the basics of Git version control in 
 * Push commits
 * View git commands in Git output
 
-## Learn More
+## Learn more
 
 * [Version Control](/docs/editor/versioncontrol.md) - Read more about integrated Git support.
 * [Setup Overview](/docs/setup/setup-overview.md) - Set up and start using VS Code.

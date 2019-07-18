@@ -225,7 +225,7 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 {
   "name": "uuid",
   "version": "0.0.1",
-  "publisher": "joaomoreno",
+  "publisher": "someone",
   "engines": {
     "vscode": "0.10.x"
   },

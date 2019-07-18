@@ -183,7 +183,7 @@ Custom arguments to isort are specified in the `python.sortImports.args` setting
 "python.sortImports.args": ["-rc", "--atomic"],
 ```
 
-To use a custom isort script, use the `python.sortImports.path` setting to specify the path:
+To use a custom isort script, use the `python.sortImports.path` setting to specify the path.
 
 Further configurations can be stored in an `.isort.cfg` file as documented on [Configuring isort](https://github.com/timothycrosley/isort#configuring-isort).
 
@@ -191,7 +191,7 @@ Further configurations can be stored in an `.isort.cfg` file as documented on [C
 
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
-- [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
+- [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 - [IntelliSense](/docs/editor/intellisense.md) - Learn about IntelliSense features.

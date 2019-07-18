@@ -80,15 +80,15 @@ For example:
 "workspaceFolder": "/workspace"
 ```
 
-This also allows you do something like a volume mount instead which can be useful particularly when [using a remote Docker Host](#Developing-inside-a-container-on-a-remote-Docker-host).
+This also allows you to do something like a volume mount instead, which can be useful particularly when [using a remote Docker Host](#developing-inside-a-container-on-a-remote-docker-host).
 
 ## Avoiding extension reinstalls on container rebuild
 
-By default, VS Code will install extensions and VS Code Server inside the container's filesystem. While this has performance benefits over a locally mounted filesystem, the disadvantage is that VS Code will have to re-install them on a container rebuild.
+By default, VS Code will install extensions and VS Code Server inside the container's filesystem. While this has performance benefits over a locally mounted filesystem, the disadvantage is that VS Code will have to reinstall them on a container rebuild.
 
 If you find yourself rebuilding frequently, you can use a local "volume" mount so that the extensions and VS Code Server survive a container rebuild. The volume should be unique to the container since sharing the volume across multiple containers is not currently supported. To create a container volume, follow these steps:
 
-1. Configure a volume mount for `~/.vscode-server` (and/or `~/.vscode-server-insiders` for VS Code Insiders). How you do this will depend on whether your specify an image, Dockerfile, or Docker Compose file in your `devcontainer.json` file.
+1. Configure a volume mount for `~/.vscode-server` (and/or `~/.vscode-server-insiders` for VS Code Insiders). How you do this will depend on whether you specify an image, Dockerfile, or Docker Compose file in your `devcontainer.json` file.
 
     **Dockerfile or image**:
 
@@ -357,7 +357,7 @@ Once you are done, press `kbstyle(Ctrl+C)` in the terminal / command prompt to c
 
 Docker does **not** support mounting (binding) your local filesystem into a remote container, so VS Code's default `devcontainer.json` files need to be modified when working remotely. In this section, we'll walk you through how to convert a pre-defined, local dev container definition into a remote one.
 
-There are a few different ways to do this, but the simplest is to **create your remote dev container first**, and then **clone your source code into it** since this does not require that your user have direct access to the remote host. You can **bind to a folder on the remote machine** instead which also allows you to work with **existing source code** on the remote machine (assuming you have access).
+There are a few different ways to do this, but the simplest is to **create your remote dev container first**, and then **clone your source code into it** since this does not require that your user have direct access to the remote host. You can **bind to a folder on the remote machine** instead, which also allows you to work with **existing source code** on the remote machine (assuming you have access).
 
 Just follow these steps:
 

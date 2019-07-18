@@ -50,7 +50,7 @@ Open the `manifest.xml` file that was created by Yo Office and locate the `Sourc
 
 VS Code does not currently support client-side debugging. To debug your client-side Add-in, you can use the Office web clients and open the browser's developer tools and debug the Add-in just like any other client-side JavaScript application.
 
-If you are using Node.js or ASP.NET Core for server-side logic that supports your Office Add-in, refer to the [Debugging](/docs/editor/debugging.md) page to configure VS Code for debugging either of these runtimes.
+If you are using Node.js or [ASP.NET Core](https://asp.net) for server-side logic that supports your Office Add-in, refer to the [Debugging](/docs/editor/debugging.md) page to configure VS Code for debugging either of these runtimes.
 
 ## Install the Add-in
 

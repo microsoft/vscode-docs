@@ -62,7 +62,7 @@ You can also select which extensions you would like to install separately. For t
 
 ## Create the program
 
-Create a folder for your Java program and open the folder with Visual Studio Code. Within Visual Studio Code, you can then create a new file `Hello.java`. When you open that file, the Java Language Server will automatically be activated as you can see a rocket icon on the right of the Status bar. When it finishes loading, you will see a thumbs up icon instead.
+Create a folder for your Java program and open the folder with Visual Studio Code. Within Visual Studio Code, you can then create a new file `Hello.java`. When you open that file, the Java Language Server will automatically be activated as you can see a rocket icon on the right of the Status bar. When it finishes loading, you will see a thumbs-up icon instead.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-tutorial/create-file.mp4" type="video/mp4">
@@ -84,7 +84,7 @@ You can also use various refactor methods within the editor. To learn more about
 
 ## Running and debugging your program
 
-It is easy to run and debug Java in Visual Studio Code. You can either click `kb(workbench.action.debug.start)` or use the **Run|Debug** CodeLens options. Just set a breakpoint and you can see all your variables and threads in the Debug view.
+It is easy to run and debug Java in Visual Studio Code. You can either press `kb(workbench.action.debug.start)` on your keyboard or select the **Start Debugging** command in the **Debug** menu. Alternatively, you can also use the **Run|Debug** options on a [CodeLens](/blogs/2017/02/12/code-lens-roundup.md). Just set a breakpoint and you can see all your variables and threads in the Debug view.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-tutorial/run-debug.mp4" type="video/mp4">

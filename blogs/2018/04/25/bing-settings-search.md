@@ -61,7 +61,7 @@ Users sometimes search with words that are different but equivalent to the words
 
 **2. Stemmer and Speller Pipeline**
 
-We don't want to penalize the user for misspelling the name of a setting, but we found early on that simple fuzzy matching would either miss variations of an English word that a human could understand, or would include too many false positive matches. So we also included a Speller and a Stemmer service, extracted from the full-fledged services that are used on Bing.com, which enrich the index with common misspellings and alternate forms of the same word stem. For example, "formatted", "formatter", "format" - all will be indexed for a setting that uses the word "formatting".
+We don't want to penalize the user for misspelling the name of a setting, but we found early on that simple fuzzy matching would either miss variations of an English word that a human could understand, or would include too many false positive matches. So we also included a Speller and a Stemmer service, extracted from the full-fledged services that are used on [Bing.com](https://www.bing.com), which enrich the index with common misspellings and alternate forms of the same word stem. For example, "formatted", "formatter", "format" - all will be indexed for a setting that uses the word "formatting".
 
 **3. Natural Language Processing (NLP) Pipeline**
 

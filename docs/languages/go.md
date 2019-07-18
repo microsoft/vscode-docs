@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Go in Visual Studio Code
 
-Using the Go extension for Visual Studio Code, you get language features like IntelliSense, code navigation, symbol search, bracket matching, snippets and many more that will help you in [Golang](https://golang.org/) development.
+Using the Go extension for Visual Studio Code, you get language features like IntelliSense, code navigation, symbol search, bracket matching, snippets, and many more that will help you in [Golang](https://golang.org/) development.
 
 ![go extension banner](images/go/go-extension.png)
 
@@ -58,9 +58,9 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 You can also navigate back and forth between a Go file and its test implementation using the **Go: Toggle Test File** command.
 
-## Build, Lint and Vet
+## Build, lint, and vet
 
-On save, the Go extension can run `go build`, `go vet` and your choice of linting tool (`golint` or `gometalinter`) on the package of the current file. You can control these features via the settings below:
+On save, the Go extension can run `go build`, `go vet`, and your choice of linting tool (`golint` or `gometalinter`) on the package of the current file. You can control these features via the settings below:
 
 - `go.buildOnSave`
 - `go.buildFlags`
@@ -71,19 +71,25 @@ On save, the Go extension can run `go build`, `go vet` and your choice of lintin
 - `go.lintTool`
 - `go.testOnSave`
 
-The errors and warnings from running any/all of the above will be shown red/green squiggly lines in the editor. These also show up in the **Problems** panel  (**View** > **Problems**).
+The errors and warnings from running any/all of the above will be shown red/green squiggly lines in the editor. These diagnostics also show up in the **Problems** panel  (**View** > **Problems**).
 
 ## Formatting
 
 You can format your Go file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the **Command Palette** or the context menu in the editor.
 
-By default, formatting is run when you save your Go file. You can disable this behavior by setting `go.formatOnSave` to `false`.
+By default, formatting is run when you save your Go file. You can disable this behavior by setting `editor.formatOnSave` to `false` for the [Go] language. You can change this using your json setting files
 
-You can choose among three formatting tools: `gofmt`, `goreturns` and `goimports` by changing the setting `go.formatTool`.
+```json
+"[go]":  {
+        "editor.formatOnSave": false
+    }
+```
+
+You can choose among three formatting tools: `gofmt`, `goreturns`, and `goimports` by changing the setting `go.formatTool`.
 
 ## Test
 
-There are many test related commands that you can explore by typing "Go: test" in the **Command Palette**.
+There are many test-related commands that you can explore by typing "Go: test" in the **Command Palette**.
 
 ![Test Commands](images/go/testcommands.png)
 
@@ -93,7 +99,7 @@ The first three above can be used to generate test skeletons for the functions i
 
 Run the command **Go: Add Import** to get a list of packages that can be imported to your Go file. Choose one and it will get added in the import block of your Go file.
 
-## Rename Symbols
+## Rename symbols
 
 You can rename symbols using `kb(editor.action.rename)` or by running the **Rename Symbol** command in the context menu in the editor.
 
@@ -105,7 +111,7 @@ The Go extension lets you debug Go code as well. You will need to install the [D
 
 This has been a brief overview showing the Go extension features within VS Code. For more information, see the details provided in the Go extension [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go).
 
-To stay up to date on the latest features/bug fixes for the Go extension, see the [CHANGELOG](https://github.com/Microsoft/vscode-go/blob/master/CHANGELOG.md).
+To stay up-to-date on the latest features/bug fixes for the Go extension, see the [CHANGELOG](https://github.com/Microsoft/vscode-go/blob/master/CHANGELOG.md).
 
 If you have any issues or feature requests, feel free to log them in the Go extension [repo](https://github.com/Microsoft/vscode-go/issues).
 
@@ -114,4 +120,3 @@ If you'd like to learn more about VS Code, try these topics:
 * [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
 * [Install an Extension](/docs/editor/extension-gallery.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-
