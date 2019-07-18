@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 6/26/2019
+DateApproved: 7/18/2019
 ---
 # Advanced Container Configuration
 
@@ -65,7 +65,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ## Changing the default source code mount
 
-If you add the `image` or `dockerFile` properties to `devcontainer.json`, VS Code will automatically "bind" mount your current workspace folder into the container. While this is convenient, you may want to change [mount settings](https://docs.docker.com/engine/reference/commandline/service_create/#add-bind-mounts-volumes-or-memory-filesystems), alter the type of mount, or [run in a remote container](#using-devcontainerjson-to-work-with-a-remote-dev-container).
+If you add the `image` or `dockerFile` properties to `devcontainer.json`, VS Code will automatically "bind" mount your current workspace folder into the container. While this is convenient, you may want to change [mount settings](https://docs.docker.com/engine/reference/commandline/service_create/#add-bind-mounts-volumes-or-memory-filesystems), alter the type of mount, or [run in a remote container](#developing-inside-a-container-on-a-remote-docker-host).
 
 You can use the `workspaceMount` property in `devcontainer.json` to change the automatic mounting behavior. It expects the same value as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag).
 
@@ -349,15 +349,40 @@ You can now interact with both containers at once from separate windows.
 
 Sometimes you may want to use the Remote - Containers extension to develop inside a container that sits on remote server. This section outlines how you can achieve this by using `devcontainer.json` or attaching to an existing remote container.
 
-You can use the Docker CLI locally with a remote Docker host by setting [local environment variables like `DOCKER_HOST`, `DOCKER_CERT_PATH`, `DOCKER_TLS_VERIFY`](https://docs.docker.com/machine/reference/env/). Since VS Code uses the Docker CLI under the hood, you can use these same environment variables to connect the Remote - Containers extension to the same remote host. You can either use [Docker Machine](https://docs.docker.com/machine/) to set this up, manually set the needed environment variables, or use SSH to tunnel the remote Docker socket.
+You can use the Docker CLI locally with a remote Docker host by setting [local environment variables like `DOCKER_HOST`, `DOCKER_CERT_PATH`, `DOCKER_TLS_VERIFY`](https://docs.docker.com/machine/reference/env/). Since VS Code uses the Docker CLI under the hood, you can use these same environment variables to connect the Remote - Containers extension to a remote host. You can connect [using Docker Machine](#option-1-connect-using-docker-machine-or-by-setting-local-environment-variables), by manually setting the needed environment variables, or [using an SSH tunnel](#option-2-connect-using-an-ssh-tunnel).
 
-Once set, you can use VS Code to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host or [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#using-devcontainerjson-to-work-with-a-remote-dev-container).
+Once Docker is connected to your remote host, you can use VS Code to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host or use specialized, local `devcontainer.json` files to create / connect to a remote dev container.
+
+### A basic remote devcontainer.json example
+
+Docker does **not** support mounting (binding) your local filesystem into a remote container, so VS Code's default `devcontainer.json` behavior may work. Instead, you can use `devcontainer.json` as a local configuration file that describes the containers you want to manage on a remote Docker host.
+
+There are two different variations of this configuration. One is to **create your remote dev container first**, and then **clone your source code into it** since this does not require that your user have direct access to the remote host. For example, consider this simple `.devcontainer.json`:
+
+```json
+{
+    "image": "node",
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "src=remote-workspace,dst=/workspace,type=volume,volume-driver=local",
+    "postCreateCommand": "apt-get update && apt-get -y install git"
+}
+```
+
+The second is to **(bind) mount a folder on the remote machine** into your container (assuming you have access to do so). This also also allows you to work with **existing source code** on the machine. Just update one property in the example above to follow this model instead:
+
+```json
+"workspaceMount": "src=/absolute/path/on/remote/machine,dst=/workspace,type=bind"
+```
+
+To try it out, connect to the remote Docker host using [Docker Machine](#option-1-connect-using-docker-machine-or-by-setting-local-environment-variables) or [SSH](#option-2-connect-using-an-ssh-tunnel), start VS Code, run **Remote-Containers: Open Folder in Container...**, and select the local folder with the `.devcontainer.json` file in it.
+
+You can find more information on configuring your container in the [Converting an existing or pre-defined devcontainer.json](#converting-an-existing-or-pre-defined-devcontainerjson) section, but first we'll discuss how to connect to your remote Docker host.
 
 ### Option 1: Connect using Docker Machine or by setting local environment variables
 
 **Using Docker Machine**:
 
-Assuming you have `code` in your path, the following snippet will allow you to connect to your remote Docker host using the `docker-machine` command. Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick. You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
+Assuming you have `code` in your path, the following snippet will allow you to connect to your remote Docker host using [Docker Machine](https://docs.docker.com/machine/). Note that you will need to replace the appropriate values below based on the [Docker Machine driver](https://docs.docker.com/machine/drivers/) you pick. You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
 
 On **macOS or Linux**, run the following commands in a local terminal (replacing values as appropriate):
 
@@ -413,7 +438,7 @@ Just follow these steps:
     ssh -NL localhost:23750:/var/run/docker.sock user@hostname
     ```
 
-VS Code will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#using-devcontainerjson-to-work-with-a-remote-dev-container).
+VS Code will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-pre-defined-devcontainerjson).
 
 Once you are done, press `kbstyle(Ctrl+C)` in the terminal / command prompt to close the tunnel.
 
@@ -424,23 +449,15 @@ Once you are done, press `kbstyle(Ctrl+C)` in the terminal / command prompt to c
 > 3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
 > 4. Retry.
 
-### Using devcontainer.json to work with a remote dev container
+### Converting an existing or pre-defined devcontainer.json
 
-Docker does **not** support mounting (binding) your local filesystem into a remote container, so VS Code's default `devcontainer.json` files need to be modified when working remotely. In this section, we'll walk you through how to convert a pre-defined, local dev container definition into a remote one.
+To convert an existing or pre-defined, local `devcontainer.json` into a remote one, just follow these steps:
 
-There are a few different ways to do this, but the simplest is to **create your remote dev container first**, and then **clone your source code into it** since this does not require that your user have direct access to the remote host. You can **bind to a folder on the remote machine** instead, which also allows you to work with **existing source code** on the remote machine (assuming you have access).
+1. Open a **local** folder in VS Code (not a remote one) where you want to convert the file.
 
-Just follow these steps:
+2. If you did not select a folder with a `devcontainer.json` in it, you can pick a pre-defined one by running **Remote-Containers: Add Container Configuration File...** from the Command Palette (`kbstyle(F1)`).
 
-1. Start up VS Code pointing to the right Docker host using [Docker Machine](#option-1-connect-using-docker-machine-or-by-setting-local-environment-variables) or [SSH](#option-2-connect-using-an-ssh-tunnel).
-
-2. Create and open a **local** empty folder in VS Code.
-
-3. Run **Remote-Containers: Add Container Configuration File...** from the Command Palette (`kbstyle(F1)`).
-
-4. Pick a starting point for your remote container from the list that appears.
-
-5. What you do next will depend on whether you picked a definition that specifies an image, Dockerfile, or Docker Compose file in `.devcontainer/devcontainer.json`.
+3. What you do next will depend on whether the `.devcontainer/devcontainer.json` or `.devcontainer.json` in the folder references an image, Dockerfile, or Docker Compose file.
 
     **Dockerfile or image**:
 
@@ -472,7 +489,7 @@ Just follow these steps:
     "workspaceFolder": "/workspace"
     ```
 
-    Next, add a `docker-compose.remote.yml` file into the `.devcontainer` folder. If you do **not** have login access to the remote host, use a Docker "volume" for your source code. Add the following to the file replacing `your-service-name-here` with the value of the `service` property in `devcontainer.json` (replacing `remote-workspace` with a unique volume name if desired):
+    Next, add a `docker-compose.remote.yml` file into the `.devcontainer` folder. If you do **not** have login access to the remote host, you will need to use a Docker "volume" for your source code. Add the following to the file replacing `your-service-name-here` with the value of the `service` property in `devcontainer.json` (replacing `remote-workspace` with a unique volume name if desired):
 
     ```yml
     version: '3'
@@ -497,9 +514,9 @@ Just follow these steps:
 
     See the [Docker Compose documentation on `volumes`](https://docs.docker.com/compose/compose-file/#volumes) if you need to support a different scenario.
 
-6. Run the **Remote-Containers: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`).
+4. Run the **Remote-Containers: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`) or **Remote-Containers: Rebuild Container** .
 
-7. Use ``kbstyle(Ctrl+Shift+`)`` to open a terminal inside the container. You can run `git clone` from here to pull down your source code. You can then use **File > Open... / Open Folder...** to open the cloned repository.
+5. Use ``kbstyle(Ctrl+Shift+`)`` to open a terminal inside the container. You can run `git clone` from here to pull down your source code. You can then use **File > Open... / Open Folder...** to open the cloned repository.
 
 Next time you want to connect to this same container, run **Remote-Containers: Open Folder in Container...** and select the same local folder in a VS Code window with `DOCKER_HOST` set.
 
