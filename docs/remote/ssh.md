@@ -39,8 +39,6 @@ To get started you need to:
 
 1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) if one is not already present.
 
-    > **Note:** PuTTY is not supported on Windows since the `ssh` command must be in the path.
-
 2. Install [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
 3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.

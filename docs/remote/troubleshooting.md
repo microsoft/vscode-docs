@@ -305,7 +305,7 @@ Note that only Linux hosts are currently supported, which is why permissions for
 | Debian/Ubuntu | Run `sudo apt-get install openssh-client` |
 | RHEL / Fedora / CentOS | Run `sudo yum install openssh-clients` |
 
-VS Code will look for the `ssh` command in the PATH. Failing that, on Windows it will attempt to find `ssh.exe` in the default Git for Windows install path, and failing that attempt to use WSL if installed. You can specifically tell VS Code where to find the SSH client by adding the `remote.SSH.path` property in `settings.json`
+VS Code will look for the `ssh` command in the PATH. Failing that, on Windows it will attempt to find `ssh.exe` in the default Git for Windows install path. You can also specifically tell VS Code where to find the SSH client by adding the `remote.SSH.path` property to `settings.json`.
 
 ### Installing a supported SSH server
 
@@ -480,7 +480,7 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 Some extensions rely on libraries not found in the certain Docker images. See the [Containers](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) article for a few options on resolving this issue.
 
-### Resolving disk performance issues with local volume (bind) mounts on Docker Desktop for Mac
+### Resolving disk performance issues with local volume (bind) mounts
 
 The Remote - Containers extensions uses Docker's defaults for creating "bind mounts" to the local filesystem for your source code. While this is the safest option, you may encounter slower individual file disk performance when running commands like `yarn install` or `npm install` from inside the container.
 
@@ -549,6 +549,12 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 2. Type `docker ps -a` to see a list of all containers.
 3. Type `docker rm <Container ID>` from this list to remove a container.
 4. Type `docker image prune` to remove any unused images.
+
+If `docker ps` does not provide enough information to identify the container you want to delete, the following command will list all VS Code managed development containers and the folder used to generate them.
+
+```bash
+docker ps -a --filter="label=vsch.quality" --format "table {{.ID}}\t{{.Status}}\t{{.Image}}\tvscode-{{.Label \"vsch.quality\"}}\t{{.Label \"vsch.local.folder\"}}"
+```
 
 **Option 3: Use Docker Compose**:
 

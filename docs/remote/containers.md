@@ -218,6 +218,12 @@ You can also manually manage your containers using one of the following options:
 3. Type `docker stop <Container ID>` from this list to stop a container.
 4. If you would like to delete a container, type `docker rm <Container ID>` to remove it.
 
+If `docker ps` does not provide enough information to identify the container you want to manage, the following command will list all VS Code managed development containers and the folder used to generate them.
+
+```bash
+docker ps -a --filter="label=vsch.quality" --format "table {{.ID}}\t{{.Status}}\t{{.Image}}\tvscode-{{.Label \"vsch.quality\"}}\t{{.Label \"vsch.local.folder\"}}"
+```
+
 ### Option 3: Use Docker Compose
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
@@ -340,9 +346,9 @@ Since this just establishes the default, you are still able to change the settin
 
 ### Using a credential helper
 
-To streamline setup, your local `.gitconfig` file is automatically copied into the container. In addition, the small server installed in the container will automatically forward any git credential helper commands to your local operating system.
+If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in your local OS, no further setup is required.** Credentials you've entered locally will be reused in the container and vice versa.
 
-Therefore, if you use HTTPS to clone your repositories and have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in your local OS, no further setup is required. Credentials you've entered locally will be reused in the container and vice versa.
+This works by copying your local `.gitconfig` file into the container on startup VS Code Server will automatically forward any git credential helper commands to your local operating system.
 
 Note that, if you do not have your user name or email address set up locally, you may be prompted to do so. You can do this on your local machine by running the following commands:
 
@@ -353,15 +359,16 @@ git config --global user.email "your.email@address"
 
 ### Using SSH keys
 
-However, in some cases you may be cloning your repository using SSH keys instead of a credential helper. Simply mounting your local `~/.ssh` folder into the container works on macOS/Linux, but unfortunately this does not work on Windows due to the permissions Windows sets. The contents of the `.ssh` folder is not automatically copied into the container since some of the keys could be used for things like accessing test or production servers and could pose a security risk.
+However, in some cases you may be cloning your repository using SSH keys instead of a credential helper. The contents of the `.ssh` folder is not automatically copied into the container since some of these keys could be used for things like accessing test or production servers and could pose a security risk.
 
- However, you can opt-into a cross-platform way of copying the contents `.ssh` folder into the container when it is created without modifying your image or Dockerfile.
+However, you can opt-in making these keys available to your container. Simply mounting your local `~/.ssh` folder into the container works on macOS/Linux, but unfortunately this does not work on Windows due to the permissions Windows sets. The only cross-platform way to do this is to copy the files into the correct location.  Here's how:
 
 - When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to this same file:
 
     ```json
     // Mount your .ssh folder to /root/.ssh-localhost so we can copy its contents
     "runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro" ],
+
     // Copy the contents to the correct location and set permissions
     "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
     ```
@@ -456,7 +463,7 @@ For example, you can mount your home / user profile folder:
 "runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/local-home" ]
 ```
 
-This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-Git-credentials-with-your-container) for details.
+This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container) for details.
 
 The `runArgs` property supports the same list of arguments as the [`docker run` command](https://docs.docker.com/engine/reference/commandline/run/) and can be useful for a wide variety of scenarios including [setting environment variables](/docs/remote/containers-advanced.md#adding-environment-variables).
 
@@ -498,7 +505,7 @@ This command is run once your source code is mounted, so you can also use the pr
 "postCreateCommand": "bash scripts/install-dev-tools.sh"
 ```
 
-By default, when VS Code starts a container, it will **override the container's default command** to be `sleep infinity`. This is done because the container will stop if the default command fails or simply exits. However, this may not work for certain images. If the image you are using requires the default command be run to work propertly, add the following to your `devcontainer.json` file.
+By default, when VS Code starts a container, it will **override the container's default command** to be `/bin/sh -c "while sleep 1000; do :; done"`. This is done because the container will stop if the default command fails or simply exits. However, this may not work for certain images. If the image you are using requires the default command be run to work propertly, add the following to your `devcontainer.json` file.
 
 ```json
 "overrideCommand": false
@@ -576,7 +583,7 @@ To avoid having the container shut down if the default container command fails o
 
 ```yaml
 # Overrides default command so things don't shut down after the process ends.
-command: sleep infinity
+command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
 If you are not already, you can (bind) mount your local source code into the container using the [volumes list in your Docker Compose file](https://docs.docker.com/compose/compose-file/#volumes).
@@ -592,7 +599,7 @@ volumes:
   - ..:/workspace
 ```
 
-This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-Git-credentials-with-your-container) for details.
+This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container) for details.
 
 If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as Git inside the service's container. While less efficient than adding these tools to the container image, you can also use the `postCreateCommand` property for this purpose. For example:
 
@@ -643,7 +650,8 @@ version: '3'
         # workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
         - ..:/workspace
 
-        # [Optional] If you are using SSH keys w/Git, mount your .ssh folder to /root/.ssh-localhost so we can its contents
+        # [Optional] If you are using SSH keys w/Git, mount your .ssh folder to
+        # /root/.ssh-localhost so we can copy its contents
         - ~/.ssh:/root/.ssh-localhost:ro
 
       # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
@@ -653,7 +661,7 @@ version: '3'
         - seccomp:unconfined
 
       # Overrides default command so things don't shut down after the process ends.
-      command: sleep infinity
+      command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
 This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to `.devcontainer/devcontainer.extend.yml` in a specific order:
@@ -672,7 +680,7 @@ This same file can provide additional settings, such as port mappings, as needed
     "workspaceFolder": "/workspace",
     "shutdownAction": "stopCompose",
 
-    // [Optional] If you are using SSH keys w/Git, copy the keys and set the correct permissions
+    // [Optional] If you are using SSH keys w/Git, copy them and set correct permissions
     "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
 }
 ```
@@ -696,7 +704,7 @@ version: '3'
        volumes:
          - ..:/workspace
          - ~/.ssh:/root/.ssh-localhost
-       command: sleep infinity
+       command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
 ### Docker Compose dev container definitions
@@ -737,7 +745,7 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 | `workspaceMount` | string | Overrides the default local mount point for the workspace. Supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag). Primarily useful for [configuring remote containers](/docs/remote/containers-advanced.md#using-devcontainerjson-to-work-with-a-remote-dev-container). |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container. Typically used in conjunction with `workspaceMount`. Defaults to the automatic source code mount location. |
 | `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`. A run argument can refer to environment variables using the following format `${env:HOME}` |
-| `overrideCommand` | boolean | Tells VS Code whether it should run `sleep infinity` when starting the container instead of the container's default command. Defaults to `true` since the container can shut down if the default command fails. Set to `false` if the default command must run for the container to funciton properly. |
+| `overrideCommand` | boolean | Tells VS Code whether it should run `/bin/sh -c "while sleep 1000; do :; done"` when starting the container instead of the container's default command. Defaults to `true` since the container can shut down if the default command fails. Set to `false` if the default command must run for the container to funciton properly. |
 | `shutdownAction` | enum: `none`, `stopContainer` | Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. Defaults to `stopContainer`. |
 |**Docker Compose**|||
 | `dockerComposeFile` | string  or array | **Required.** Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. |

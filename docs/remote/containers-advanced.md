@@ -130,7 +130,7 @@ docker volume rm your-volume-name-goes-here
 
 ## Adding a non-root user to your dev container
 
-Many images run as a root user by default. However, some provide one or more non-root users, that you can optionally use instead. If your image or Dockerfile provides a non-root user (but still defaults to root), you can opt into using it in one of two ways:
+Many images run as a root user by default. If your image or Dockerfile provides a non-root user but still defaults to root (like the `node` image), you can opt into using it in one of two ways:
 
 - When referencing an **image** or **Dockerfile**, add the following to your `devcontainer.json`:
 
@@ -144,29 +144,48 @@ Many images run as a root user by default. However, some provide one or more non
     user: user-name-goes-here
     ```
 
-For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
+However, there are some **quirks with local filesystem (bind) mounts** that you should know about. Specifically:
+
+* **Docker Desktop for Mac**: Inside the container, any mounted files/folders will act as if they are owned by the container user you specify. Locally, all filesystem operations will use the permissions of your local user instead.
+
+* **Docker Desktop for Windows**: Inside the container, any mounted files/folders will appear as if they are owned by `root` but the user you specify will still be able to read/write them and all files will be executable. Locally, all filesystem operations will use the permissions of your local user instead. This is because there is fundamentally no way to directly map Windows-style file permissions to Linux.
+
+* **Docker CE/EE on Linux**: Inside the container, any mounted files/folders will have the exact same permissions as outside the container - including the owner user ID (UID) and group ID (GID). Because of this, your container user will either need to have the same UID or be in a group with the same GID. The actual name of the user / group does not matter. The first user on a machine typically gets a UID of 1000, so most containers use this as the ID of the user to try to avoid this problem.
+
+For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
-RUN useradd -m $USERNAME
-ENV HOME /home/$USERNAME
 
-# [Optional] Add sudo support
-RUN apt-get install -y sudo \
+# Or your actual UID, GID on Linux if not the default 1000
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+# Create the user
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    #
+    # [Optional] Add sudo support
+    && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 # ** Anything else you want to do like clean up goes here **
 
+# Technically optional
+ENV HOME /home/$USERNAME
+
 # Set the default user
 USER $USERNAME
 ```
+
+> **Tip:** If you hit an error when building about the GID or UID already existing, the image you selected likely already has a non-root user you can just take advantage of directly.
 
 ## Using Docker or Kubernetes from a container
 
 While you can build, deploy, and debug your application inside a dev container, you may also need to test it by running it inside a set of production-like containers. Fortunately, by installing the needed Docker or Kubernetes CLIs and mounting your local Docker socket, you can build and deploy your app's container images from inside your dev container.
 
-Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension if you force it to run as a Workspace extension or the [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension.
+Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension if you force it to run as a Workspace extension or the [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension.
 
 See the following example dev containers definitions for additional information on a specific scenario:
 
@@ -205,7 +224,7 @@ services:
     volumes:
       - ./container-1-src:/workspace
       - ~/.ssh:/root/.ssh # [Optional] For reusing Git SSH keys.
-    command: sleep infinity
+    command: /bin/sh -c "while sleep 1000; do :; done"
     links:
       - container-2
 
@@ -214,7 +233,7 @@ services:
     volumes:
       - ./container-2-src:/workspace
       - ~/.ssh:/root/.ssh # [Optional] For reusing Git SSH keys.
-    command: sleep infinity
+    command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
 You can then set up `container1-src/.devcontainer.json` for Go development as follows:
