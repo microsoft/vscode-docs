@@ -100,7 +100,7 @@ Below are a few examples of how you can control which vendors get applied to whi
 }
 ```
 
-- Setting the preference to a comma separated list of CSS properties will ensure that the corresponding prefix gets added only to these CSS properties.
+- Setting the preference to a comma separated list of CSS properties will ensure that the corresponding prefix gets added only to those CSS properties.
 - Setting the preference to an empty string will ensure that the corresponding prefix doesn't get added to any CSS property.
 - Setting the preference to null will ensure that the default CSS properties for each vendor as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/) get used.
 
