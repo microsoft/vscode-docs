@@ -363,8 +363,7 @@ There are two different variations of this configuration. One is to **create you
 {
     "image": "node",
     "workspaceFolder": "/workspace",
-    "workspaceMount": "src=remote-workspace,dst=/workspace,type=volume,volume-driver=local",
-    "postCreateCommand": "apt-get update && apt-get -y install git"
+    "workspaceMount": "src=remote-workspace,dst=/workspace,type=volume,volume-driver=local"
 }
 ```
 
@@ -395,7 +394,7 @@ eval $(docker-machine env give-it-a-name-here)
 code
 ```
 
-On **Windows**, run the following commands in a local command prompt  (replacing values as appropriate):
+On **Windows**, run the following commands in a local command prompt (replacing values as appropriate):
 
 ```bat
 docker-machine create --driver generic ^
