@@ -19,6 +19,7 @@ The following predefined variables are supported:
 - **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
 - **${file}** - the current opened file
 - **${relativeFile}** - the current opened file relative to `workspaceFolder`
+- **${relativeFileDirname}** - the current opened file's dirname relative to `workspaceFolder`
 - **${fileBasename}** - the current opened file's basename
 - **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
 - **${fileDirname}** - the current opened file's dirname
@@ -41,6 +42,7 @@ So you will have the following values for each variable:
 - **${workspaceFolderBasename}** - `your-project`
 - **${file}** - `/home/your-username/your-project/folder/file.ext`
 - **${relativeFile}** - `folder/file.ext`
+- **${relativeFileDirname}** - `folder`
 - **${fileBasename}** - `file.ext`
 - **${fileBasenameNoExtension}** - `file`
 - **${fileDirname}** - `/home/your-username/your-project/folder`
