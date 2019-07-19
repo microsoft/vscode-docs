@@ -92,10 +92,10 @@ IntelliCode works well with popular Java libraries and frameworks like Java SE a
 
 ### Smart Selection
 
-With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select-api)(a.k.a. Sementic Selection), you are able to expand or shrink the selection range corresponding to the semantic info of the caret position in your code.
+With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select-api) (semantic selection), you can expand or shrink the selection range based on the semantic information of the caret position in your source code.
 
-* To expand the selection, use `Shift + Alt + →`  on Windows, and `Ctrl + Shift + Command + →` on Mac
-* To shrink the selection, use `Shift + Alt + ←` on Windows and `Ctrl + Shift + Command + ←` on Mac
+* To expand the selection, use `kb(editor.action.smartSelect.expand)`.
+* To shrink the selection, use `kb(editor.action.smartSelect.shrink)`.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/smart-selection.mp4" type="video/mp4">
