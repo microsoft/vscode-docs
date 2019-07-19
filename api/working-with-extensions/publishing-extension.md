@@ -167,7 +167,7 @@ To load an extension, you need to copy the files to your VS Code extensions fold
 
 ## Visual Studio Code compatibility
 
-When authoring an extension, you will need to describe what is the extension's compatibility to Visual Studio Code itself. This can done via the `engines.vscode` field inside `package.json`:
+When authoring an extension, you will need to describe what is the extension's compatibility to Visual Studio Code itself. This can be done via the `engines.vscode` field inside `package.json`:
 
 ```json
 {
