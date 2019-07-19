@@ -355,9 +355,9 @@ Once Docker is connected to your remote host, you can use VS Code to [attach to 
 
 ### A basic remote devcontainer.json example
 
-Docker does **not** support mounting (binding) your local filesystem into a remote container, so VS Code's default `devcontainer.json` behavior may work. Instead, you can use `devcontainer.json` as a local configuration file that describes the containers you want to manage on a remote Docker host.
+Docker does **not** support mounting (binding) your local filesystem into a remote container, so VS Code's default `devcontainer.json` behavior may not work. Thankfully, you can use `devcontainer.json` as a local configuration file that describes the containers you want to manage on a remote Docker host instead.
 
-There are two different variations of this configuration. One is to **create your remote dev container first**, and then **clone your source code into it** since this does not require that your user have direct access to the remote host. For example, consider this simple `.devcontainer.json`:
+There are two different approaches to use `devcontainer.json` in this way. One is to **create your remote dev container first**, and then **clone your source code a named volume** since this does not require you to have direct access to the filesystem on the remote host. Here is a basic example of this setup:
 
 ```json
 {
@@ -367,7 +367,7 @@ There are two different variations of this configuration. One is to **create you
 }
 ```
 
-The second is to **(bind) mount a folder on the remote machine** into your container (assuming you have access to do so). This also also allows you to work with **existing source code** on the machine. Just update one property in the example above to follow this model instead:
+The second is to **(bind) mount a folder on the remote machine** into your container. This requires you to have access to the remote filesystem, but also allows you to work with **existing source code** on the remote machine. Just update one property in the example above to follow this model instead:
 
 ```json
 "workspaceMount": "src=/absolute/path/on/remote/machine,dst=/workspace,type=bind"
@@ -375,7 +375,7 @@ The second is to **(bind) mount a folder on the remote machine** into your conta
 
 To try it out, connect to the remote Docker host using [Docker Machine](#option-1-connect-using-docker-machine-or-by-setting-local-environment-variables) or [SSH](#option-2-connect-using-an-ssh-tunnel), start VS Code, run **Remote-Containers: Open Folder in Container...**, and select the local folder with the `.devcontainer.json` file in it.
 
-You can find more information on configuring your container in the [Converting an existing or pre-defined devcontainer.json](#converting-an-existing-or-pre-defined-devcontainerjson) section, but first we'll discuss how to connect to your remote Docker host.
+You can learn more about [converting an existing or pre-defined devcontainer.json](#converting-an-existing-or-pre-defined-devcontainerjson) for remote use later in this section, but first we'll discuss how to connect to your remote Docker host.
 
 ### Option 1: Connect using Docker Machine or by setting local environment variables
 
