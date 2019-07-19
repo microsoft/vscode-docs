@@ -13,11 +13,11 @@ This topic describes some of the advanced JavaScript features supported by Visua
 
 ## IntelliSense
 
-Visual Studio Code's JavaScript [IntelliSense](/docs/editor/intellisense.md) provides intelligent code completion, parameter info,  references search, and many other advanced language features. Our JavaScript IntelliSense is powered by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) developed by the TypeScript team. While IntelliSense should just work for most JavaScript projects without any configuration, you can make IntelliSense even more useful with [JS Docs](/docs/languages/javascript#js-doc-support) or by configuring a `jsconfig.json` project.
+Visual Studio Code's JavaScript [IntelliSense](/docs/editor/intellisense.md) provides intelligent code completion, parameter info,  references search, and many other advanced language features. Our JavaScript IntelliSense is powered by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) developed by the TypeScript team. While IntelliSense should just work for most JavaScript projects without any configuration, you can make IntelliSense even more useful with [JSDoc](/docs/languages/javascript#jsdoc-support) or by configuring a `jsconfig.json` project.
 
 For the details of how JavaScript IntelliSense works, including being based on type inference, JSDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript language service documentation](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio).
 
-When type inference does not provide the desired information, type information may be provided explicitly with JSDoc annotations. This document describes the [JSDoc annotations](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript) currently supported.
+When type inference does not provide the desired information, type information may be provided explicitly with JSDoc annotations. This document describes the [JSDoc annotations](https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html#supported-jsdoc) currently supported.
 
 In addition to objects, methods, and properties, the JavaScript IntelliSense window also provides basic word completion for the symbols in your file.
 
@@ -136,7 +136,7 @@ VS Code allows you to leverage some of TypeScript's advanced type checking and e
 
 ![Using type checking and Quick Fixes in a JavaScript file](images/working-with-javascript/checkjs-example.gif)
 
-TypeScript can infer types in `.js` files same as in `.ts` files. When types cannot be inferred, they can be specified using JSDoc comments. You can read more about how TypeScript uses JSDocs for JavaScript type checking in [Type Checking JavaScript Files](https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html).
+TypeScript can infer types in `.js` files same as in `.ts` files. When types cannot be inferred, they can be specified using JSDoc comments. You can read more about how TypeScript uses JSDoc for JavaScript type checking in [Type Checking JavaScript Files](https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html).
 
 Type checking of JavaScript is optional and opt-in. Existing JavaScript validation tools such as ESLint can be used alongside the new built-in type checking functionality.
 

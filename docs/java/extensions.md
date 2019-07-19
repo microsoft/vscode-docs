@@ -68,7 +68,7 @@ We'd also like to recommend couple other extensions we believe are great to make
 
 ## Extension for container development
 
-You can use [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension to build docker images and work with image registries.
+You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to build docker images and work with image registries.
 
 [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension provides an explorer view to manage clusters and the nodes inside. It also provides advanced syntax support for editing Kubernetes manifest files.
 

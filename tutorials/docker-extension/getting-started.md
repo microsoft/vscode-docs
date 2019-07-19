@@ -20,7 +20,7 @@ You need [Visual Studio Code](https://code.visualstudio.com/) installed along wi
 
 The Docker extension is used to simplify the management of local Docker images and commands as well as the deployment of a built app image to Azure.
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/PeterJausovec.vscode-docker">Install the Docker extension</a>
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-docker">Install the Docker extension</a>
 
 The Azure App Service extension is used to create, manage, and deploy Linux Web Apps on the Azure PaaS.
 

@@ -95,7 +95,7 @@ For example, the setting below will force the Docker and Debugger for Chrome ext
 ```json
 "remote.extensionKind": {
     "msjsdiag.debugger-for-chrome": "workspace",
-    "peterjausovec.vscode-docker": "workspace"
+    "ms-azuretools.vscode-docker": "workspace"
 }
 ```
 
@@ -127,10 +127,9 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) 
 
 ### Common limitations in WSL
 
-Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL version, VS Code will use your **default distro**, so use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
+Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL versions, VS Code will use your **default distro**, so use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
 
 The `Alpine WSL` distro is not yet supported with VS Code.
-
 
 ### Golang in WSL
 
@@ -158,7 +157,7 @@ Fortunately, if you've [installed the Docker CLI in WSL and configured it to wor
 
 ```json
 "remote.extensionKind": {
-    "peterjausovec.vscode-docker": "workspace"
+    "ms-azuretools.vscode-docker": "workspace"
 }
 ```
 

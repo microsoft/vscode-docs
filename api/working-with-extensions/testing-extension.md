@@ -190,7 +190,7 @@ You can either use [VS Code Insiders](https://code.visualstudio.com/insiders/) f
 
 ### Disabling other extensions while debugging
 
-When you debug an extension test in VS Code, VS Code uses the globally installed instance of VS Code and will load all installed extensions. You can add `--disable-extensions` configuration to the `launch.json` or the `additionalLaunchArgs` option of `vscode-test`'s `runTests` API.
+When you debug an extension test in VS Code, VS Code uses the globally installed instance of VS Code and will load all installed extensions. You can add `--disable-extensions` configuration to the `launch.json` or the `launchArgs` option of `vscode-test`'s `runTests` API.
 
 ```json
 {
@@ -216,9 +216,17 @@ When you debug an extension test in VS Code, VS Code uses the globally installed
 await runTests({
   extensionDevelopmentPath,
   extensionTestsPath,
-  // Additional CLI parameters for launching `code`.
-  // Use `code --help` to find all CLI parameters
-  additionalLaunchArgs: ['--disable-extensions']
+  /**
+   * A list of launch arguments passed to VS Code executable, in addition to `--extensionDevelopmentPath`
+   * and `--extensionTestsPath` which are provided by `extensionDevelopmentPath` and `extensionTestsPath`
+   * options.
+   *
+   * If the first argument is a path to a file/folder/workspace, the launched VS Code instance
+   * will open it.
+   *
+   * See `code --help` for possible arguments.
+   */
+  launchArgs: ['--disable-extensions']
 });
 ```
 

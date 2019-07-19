@@ -405,7 +405,7 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
     "address": "TCP/IP address of process to be debugged",
     "port": "9229",
     "localRoot": "${workspaceFolder}",
-    "remoteRoot": "C:\\Users\\John\\project\\server"
+    "remoteRoot": "C:\\Users\\username\\project\\server"
 }
 ```
 

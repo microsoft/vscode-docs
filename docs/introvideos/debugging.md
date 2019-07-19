@@ -24,11 +24,11 @@ Debugging is a core feature of Visual Studio Code. In this tutorial, we will sho
 * The difference between launch and attach debug configurations.
 * Use Watches to inspect your program's state and variables.
 
-## Learn More
+## Learn more
 
 * [Debugging](/docs/editor/debugging.md) - Official documentation for VS Code debugging.
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) - Use the integrated terminal inside VS Code.
 
-## Next steps
+## Next video
 
 * [Git Version Control](/docs/introvideos/versioncontrol.md) - Learn the basics of Git version control.

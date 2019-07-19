@@ -167,7 +167,7 @@ To load an extension, you need to copy the files to your VS Code extensions fold
 
 ## Visual Studio Code compatibility
 
-When authoring an extension, you will need to describe what is the extension's compatibility to Visual Studio Code itself. This can done via the `engines.vscode` field inside `package.json`:
+When authoring an extension, you will need to describe what is the extension's compatibility to Visual Studio Code itself. This can be done via the `engines.vscode` field inside `package.json`:
 
 ```json
 {
@@ -225,7 +225,7 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 {
   "name": "uuid",
   "version": "0.0.1",
-  "publisher": "joaomoreno",
+  "publisher": "someone",
   "engines": {
     "vscode": "0.10.x"
   },

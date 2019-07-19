@@ -87,7 +87,7 @@ The Docker extension is configured to run as a local "UI" extension by default. 
 
 ```json
 "remote.extensionKind": {
-    "peterjausovec.vscode-docker": "workspace"
+    "ms-azuretools.vscode-docker": "workspace"
 }
 ```
 

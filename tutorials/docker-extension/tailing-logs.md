@@ -51,7 +51,7 @@ Next, check out the other Azure extensions.
 Or get them all by installing the
 [Node Pack for Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack.
 
-## Learn more at docs.microsoft.com
+## Learn more at Microsoft Docs
 
 The [Azure for Node.js](https://docs.microsoft.com/en-us/nodejs/azure/?view=azure-node-2.0.0) developer center on [docs.microsoft.com](https://docs.microsoft.com) has a number of great articles on how to build and deploy Node.js based functions and applications to Azure.
 
