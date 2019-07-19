@@ -76,7 +76,7 @@ For example:
 "workspaceFolder": "/workspace"
 ```
 
-This also allows you to do something like a volume mount instead, which can be useful particularly when [using a remote Docker Host](#developing-inside-a-container-on-a-remote-docker-host) or [improving disk performance](#Use-a-named-volume-instead-of-a-bind-mount).
+This also allows you to do something like a volume mount instead, which can be useful particularly when [using a remote Docker Host](#developing-inside-a-container-on-a-remote-docker-host) or [improving disk performance](#use-a-named-volume-instead-of-a-bind-mount).
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
@@ -86,7 +86,7 @@ The Remote - Containers extension uses Docker's defaults for creating "bind moun
 
 ### Update the mount consistency in Docker for Mac
 
-A trick that is often used with Docker Desktop for Mac is change the [mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) to `cached` or `delegated`.
+A trick that is often used with Docker Desktop for Mac is to change the [mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) to `cached` or `delegated`.
 
 * If you are using an **image** or **Dockerfile**, you can change the consistency requirements using `devcontainer.json`. For example:
 
@@ -115,7 +115,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ### Use a named volume instead of a bind mount
 
-Local filesystem bind mounts are convienent, but are not as fast as using the container's filesystem directly. The problem with using the container's filesystem is that it is lost once you remove or rebuild the container. A middle ground is to use a "named volume". These act like the container's filesystem but survive container rebuilds and can even be shared across containers.
+Local filesystem bind mounts are convenient, but are not as fast as using the container's filesystem directly. The problem with using the container's filesystem is that it is lost once you remove or rebuild the container. A middle ground is to use a "named volume". These act like the container's filesystem but survive container rebuilds and can even be shared across containers.
 
 Note that using a named volume will require you to **clone your source code inside of the volume** rather than on your local filesystem.
 
@@ -197,7 +197,7 @@ docker volume rm your-volume-name-goes-here
 
 ## Adding a non-root user to your dev container
 
-Many Docker use root as the default user, but there are cases where you may prefer to use a non-root user instead. If you do so, there are some **quirks with local filesystem (bind) mounts** that you should know about. Specifically:
+Many Docker images use root as the default user, but there are cases where you may prefer to use a non-root user instead. If you do so, there are some **quirks with local filesystem (bind) mounts** that you should know about. Specifically:
 
 * **Docker Desktop for Mac**: Inside the container, any mounted files/folders will act as if they are owned by the container user you specify. Locally, all filesystem operations will use the permissions of your local user instead.
 
@@ -256,7 +256,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 While you can build, deploy, and debug your application inside a dev container, you may also need to test it by running it inside a set of production-like containers. Fortunately, by installing the needed Docker or Kubernetes CLIs and mounting your local Docker socket, you can build and deploy your app's container images from inside your dev container.
 
-Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension if you force it to run as a Workspace extension or the [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension.
+Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension if you force it to run as a Workspace extension or the [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension.
 
 See the following example dev containers definitions for additional information on a specific scenario:
 

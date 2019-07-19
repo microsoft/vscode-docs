@@ -35,7 +35,7 @@ While experimental ARMv7l support is available in [VS Code - Insiders](https://c
 
 ### Installation
 
-To get started you need to:
+To get started, you need to:
 
 1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) if one is not already present.
 
@@ -63,7 +63,7 @@ To get started, follow these steps:
 
     > **Note:** If you see errors about bad SSH file permissions when connecting, [see here for details](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) on the correct settings.
 
-3. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up to date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
+3. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up-to-date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
 
     > **Note:** If your connection is hanging, you may need to enable TCP forwarding or respond to a server prompt. See [tips and tricks](/docs/remote/troubleshooting.md#troubleshooting-hanging-or-failing-connections) for details.
 

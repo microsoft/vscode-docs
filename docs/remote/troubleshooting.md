@@ -504,7 +504,7 @@ If you determine that you need to give your container more of your machine's cap
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
 3. On Mac, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
-Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. You can also use the [cached mount consistancy on Mac](/docs/remote/containers-advanced.md#update-the-mount-consistency-in-docker-for-mac) or use a [named volume for your source code](/docs/remote/containers-advanced.md#use-a-named-volume-instead-of-a-bind-mount) instead.
+Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. You can also use the [cached mount consistency on Mac](/docs/remote/containers-advanced.md#update-the-mount-consistency-in-docker-for-mac) or use a [named volume for your source code](/docs/remote/containers-advanced.md#use-a-named-volume-instead-of-a-bind-mount) instead.
 
 ### Cleaning out unused containers and images
 
@@ -527,10 +527,10 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 3. Type `docker rm <Container ID>` from this list to remove a container.
 4. Type `docker image prune` to remove any unused images.
 
-If `docker ps` does not provide enough information to identify the container you want to delete, the following command will list all VS Code managed development containers and the folder used to generate them.
+If `docker ps` does not provide enough information to identify the container you want to delete, the following command will list all development containers managed by VS Code and the folder used to generate them.
 
 ```bash
-docker ps -a --filter="label=vsch.quality" --format "table {{.ID}}\t{{.Status}}\t{{.Image}}\tvscode-{{.Label \"vsch.quality\"}}\t{{.Label \"vsch.local.folder\"}}"
+docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}}\t\{{.Image}}\tvscode-\{{.Label \"vsch.quality\"}}\t\{{.Label \"vsch.local.folder\"}}"
 ```
 
 **Option 3: Use Docker Compose**:
@@ -781,7 +781,7 @@ Native modules bundled with (or dynamically acquired for) a VS Code extension mu
 If an extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (for example, ARMv7l) or Alpine Linux containers, the extension may only include native code or runtimes that do not support these platforms. For example, the extensions may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).
 
 **Resolution:**
-Extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. It is important to note that some third party npm modules may also include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets. See the [extension guide](api/advanced-topics/remote-extensions#supporting-non-x8664-hosts-or-alpine-linux-containers) for details.
+Extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. It is important to note that some third-party npm modules may also include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets. See the [extension guide](api/advanced-topics/remote-extensions#supporting-non-x8664-hosts-or-alpine-linux-containers) for details.
 
 ### Extensions fail due to missing modules
 
