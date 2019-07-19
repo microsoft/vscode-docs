@@ -92,7 +92,7 @@ If the `func` command isn't recognized, then verify that the folder where you in
     - Select **Anonymous** for the authorization level, which makes the function publicly accessible to anyone.
     - If prompted with "Select how you would like to open your project," select **Open in current window**.
 
-1. After a short time, a message to indicate that the new project was created. In the **Explorer**, you there's the subfolder created for the function, and VS Code opens the `__init__.py` file that contains the default function code:
+1. After a short time, a message to indicate that the new project was created. In the **Explorer**, you will see a subfolder created for the function, and VS Code opens the `__init__.py` file that contains the default function code:
 
     ![Result of creating a new Python functions project](images/functions/project-create-results.png)
 
