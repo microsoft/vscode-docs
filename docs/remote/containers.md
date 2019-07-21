@@ -577,7 +577,7 @@ You can also create a development copy of your Docker Compose file. For example,
 "dockerComposeFile": "docker-compose.devcontainer.yml"
 ```
 
-However, a better approach is often to avoid making a copy of your Docker Compose file by **extending it with another one**. [We'll cover extending a Docker Compose file in the next section](#extending-your-docker-compose-file-for-development).
+However, a better approach is often to avoid making a copy of your Docker Compose file by **extending it with another one**. We'll cover [extending a Docker Compose file](#extending-your-docker-compose-file-for-development) in the next section.
 
 To avoid having the container shut down if the default container command fails or exits, you can modify your Docker Compose file for the service you have specified in `devcontainer.json` as follows:
 
