@@ -21,7 +21,7 @@ You can update environment variables in your container without altering the cont
      "runArgs": ["-e","YOUR_ENV_VAR_NAME=your-value-goes-here"]
      ```
 
-* When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+* When a **Docker Compose** file is referenced, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
      ```yml
      version: '3'
@@ -50,7 +50,7 @@ You can add a volume bound to any local folder using these steps:
      "runArgs": ["-v", "${env:HOME}${env:USERPROFILE}:/host-home-folder"]
      ```
 
-* When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+* When a **Docker Compose** file is referenced, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
      ```yml
      version: '3'
@@ -128,7 +128,7 @@ You can set this up by taking an existing `devcontainer.json` configuration and 
     "workspaceMount": "src=your-volume-name-here,dst=/workspace,type=volume,volume-driver=local"
     ```
 
-* When a **Docker Compose** file is referenced, update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service(s):
+* When a **Docker Compose** file is referenced, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service(s):
 
     ```yml
     version: '3'
@@ -173,7 +173,7 @@ Replace `your-volume-name-goes-here` with a unique volume name for the container
 
 **Docker Compose**:
 
-Update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following. Replace `your-volume-name-goes-here` with a unique volume name for the container.
+Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following. Replace `your-volume-name-goes-here` with a unique volume name for the container.
 
   ```yml
   services:
@@ -337,10 +337,10 @@ The `"shutdownAction":"none"` in the `devcontainer.json` files is optional, but 
 
 To connect to both:
 
-1. `kbstyle(F1)` > **Remote-Containers: Open Folder in Container...** and select the `container1-src` folder.
+1. Run **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) and select the `container1-src` folder.
 2. VS Code will then start up both containers, connect this window to service `container-1`, and install the Go extension.
 3. Next, start up a new window using **File > New Window**.
-4. In the new window, `kbstyle(F1)` > **Remote-Containers: Open Folder in Container...** and select the `container2-src` folder.
+4. In the new window, run **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) and select the `container2-src` folder.
 5. Since the services are already running, VS Code will then connect to `container-2` and install the ESLint extension.
 
 You can now interact with both containers at once from separate windows.
@@ -375,7 +375,7 @@ The second is to **(bind) mount a folder on the remote machine** into your conta
 
 To try it out, connect to the remote Docker host using [Docker Machine](#option-1-connect-using-docker-machine-or-by-setting-local-environment-variables) or [SSH](#option-2-connect-using-an-ssh-tunnel), start VS Code, run **Remote-Containers: Open Folder in Container...**, and select the local folder with the `.devcontainer.json` file in it.
 
-You can learn more about [converting an existing or pre-defined devcontainer.json](#converting-an-existing-or-pre-defined-devcontainerjson) for remote use later in this section, but first we'll discuss how to connect to your remote Docker host.
+You can learn more about [converting an existing or pre-defined devcontainer.json](#converting-an-existing-or-predefined-devcontainerjson) for remote use later in this section, but first we'll discuss how to connect to your remote Docker host.
 
 ### Option 1: Connect using Docker Machine or by setting local environment variables
 
@@ -437,7 +437,7 @@ Just follow these steps:
     ssh -NL localhost:23750:/var/run/docker.sock user@hostname
     ```
 
-VS Code will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-pre-defined-devcontainerjson).
+VS Code will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
 
 Once you are done, press `kbstyle(Ctrl+C)` in the terminal / command prompt to close the tunnel.
 
