@@ -283,7 +283,13 @@ A best practice among Python developers is to avoid installing packages into a g
    py -3 -m venv .venv
    .venv\scripts\activate
    ```
-
+   If the activate command generates the message "Activate.ps1 is not digitally signed. You cannot run this script on the
+   current system.", then you need to temporarily change the PowerShell execution policy to allow scripts to
+   run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=135170) in the PowerShell documentation):
+   ```cmd
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+   ```
+   
    **For macOS/Linux**
 
    ```bash
