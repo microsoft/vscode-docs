@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Customize default settings
 ContentId: 4E34F6AF-BFC6-4BBB-8464-2E50C85AE826
 PageTitle: Customize default settings in Visual Studio Code C++ projects
-DateApproved: 07/08/2019
+DateApproved: 07/24/2019
 MetaDescription: How to customize semantic colorization of C++ code in Visual Studio Code.
 ---
 
@@ -84,7 +84,7 @@ If a property is missing from `c_cpp_properties.json`, the extension will use th
 A new setting will be added that allows you specify the system include path separate from the folder's include path. If this setting has a value, then the system include path the extension gets from the compiler specified in the `compilerPath` setting will not be added to the path array that the extension uses for IntelliSense. We may want to provide a VS Code command to populate this value from the compiler's default for users who are interested in using it in case they want to make some modifications to the defaults.
 
 ```json
-C_Cpp.default.systemIncludePath                    : string[]
+C_Cpp.default.systemIncludePath : string[]
 ```
 
 ### System Include Path/Defines Resolution Strategies
@@ -103,7 +103,7 @@ The extension determines the system includePath and defines to send to the Intel
    - The system include path and defines are determined using the following logic (in order):
       1. If `systemIncludePath` has a value, use it (continue to the next step to search for system defines).
       2. If `compilerPath` is valid, query it.
-      3. If `compilerPath` is ``, use an empty array for system include path and defines (they are assumed to be in the `includePath` and `defines` for the current config already).
+      3. If `compilerPath` is "", use an empty array for system include path and defines (they are assumed to be in the `includePath` and `defines` for the current config already).
       4. If `compilerPath` is undefined, look for a compiler on the system and query it.
 
 System includes should not be added to the `includePath` or `browse.path` variables. If the extension detects any system include paths in the `includePath` property it will silently remove them so that it can ensure system include paths are added last and in the correct order (this is especially important for GCC/Clang).
