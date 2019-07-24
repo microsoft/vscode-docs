@@ -141,7 +141,7 @@ Next, we'll configure VS Code to launch the LLDB debugger when you press `kb(wor
 
 1. From the Command Palette, type "launch" and then choose **Debug: Open launch.json**. Next, choose the **GDB/LLDB** environment.
 
-1. For `program`, use the program name `${workspaceFolder}/helloworld.out` (which matches that you specified in `tasks.json`).
+1. For `program`, use the program name `${workspaceFolder}/helloworld.out` (which matches what you specified in `tasks.json`).
 
 1. By default, the C++ extension adds a breakpoint to the first line of `main`. The `stopAtEntry` value is set to `true` to cause the debugger to stop on that breakpoint. You can set this to `false` if you prefer to ignore it.
 

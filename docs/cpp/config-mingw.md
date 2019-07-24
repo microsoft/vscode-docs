@@ -27,7 +27,7 @@ To successfully complete this tutorial, you must do the following:
 
 1. Add the path to your Mingw-w64 `bin` folder to the Windows PATH environment variable.
    1. In the Windows search box, type "cmd" and then choose **Command prompt** from the results list.
-   1. On the command line, add the Mingw-w64 path to the system path. For example, if you use `C:\Mingw-w64` then type `setx path "%path%;C:\Mingw-w64"`.
+   1. On the command line, use `setx` to add the Mingw-w64 path to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. Here is an example: `setx path "%path%;c:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin"`.
    1. Close the console window because the new path is not available in it.
 
 ## Create a workspace
@@ -136,7 +136,7 @@ Next, we'll configure VS Code to launch the GCC debugger (gdb.exe) when you pres
 
 1. From the Command Palette, type "launch" and then choose **Debug: Open launch.json**. Next, choose the **GDB/LLDB** environment.
 
-1. For `program`, use the program name `helloworld.exe` (which matches that you specified in `tasks.json`). You will need to adjust your `miDebuggerPath` value to match the path to your Mingw-w64 installation.
+1. For `program`, use the program name `helloworld.exe` (which matches what you specified in `tasks.json`). You will need to adjust your `miDebuggerPath` value to match the path to your Mingw-w64 installation.
 
 1. By default, the C++ extension adds a breakpoint to the first line of `main`. The `stopAtEntry` value is set to `true` to cause the debugger to stop on that breakpoint. You can set this to `false` if you prefer to ignore it.
 

@@ -23,12 +23,13 @@ Files can be corrupted due to the fact that you either have a multi-root workspa
 
 ## How do I get IntelliSense to work correctly?
 
-There are two IntelliSense engines present in the extension: the "fuzzy" engine (or Tag Parser), and the new "Default" engine. If you are using version 0.11.0 or higher of the cpptools extension, then you can preview the new IntelliSense engine, which has more accurate autocomplete suggestions and tooltips. To use the new engine, you need to ensure that `C_Cpp.intelliSenseEngine` is set to `Default` in your settings. Since the engine is still in preview, it is not on by default for everyone yet.
+Without any configuration, the extension will attempt to locate headers by searching your workspace folder and by emulating a compiler it finds on your computer. (e.g. cl.exe/WSL/MinGW for Windows, gcc/clang for macOS/Linux). If this automatic configuration is insufficient, you can modify the defaults by running the `C/C++: Edit Configurations (UI)` command. In that view, you can change the compiler you wish to emulate, the paths to include files you wish to use, preprocessor definitions, and more.
 
-After selecting the IntelliSense engine that you prefer, take a look at the Problems window in VS Code to see if you need to do any further configuration for your folder. For example, the Default engine will not provide squiggles and auto-complete suggestions for a translation unit (read: a source file and its dependencies) if the include path is not configured properly. You can select any of the problems in the window to navigate to the line when the problem was detected and a light bulb will appear in the editor with some options (code actions) to help you resolve the problem:
+Or, if you install a build system extension that interfaces with our extension, you can allow that extension to provide the configurations for you. For example, the CMake Tools extension can configure projects that use the CMake build system. Use the `C/C++: Change Configuration Provider...` command to enable any such extension to provide the configurations for IntelliSense.
 
-1. Update your `includePath` (and preprocessor defines)
-2. Force semantic IntelliSense
+A third option for projects without build system extension support is to use a [`compile_commands.json`](https://clang.llvm.org/docs/JSONCompilationDatabase.html) file if your build system supports generating this file. In the "Advanced" section of the Configuration UI, you can supply the path to your `compile_commands.json` and the extension will use the compilation information listed in that file to configure IntelliSense.
+
+**Note:** If the extension is unable to resolve any of the `#include` directives in your source code, it will not show linting information for the body of the source file. If you check the Problems window in VS Code, the extension will provide more information about which files it was unable to locate. If you want to show the linting information anyway, you can change the value of the `C_Cpp.errorSquiggles` setting.
 
 ### Update your `includePath` (and preprocessor defines)
 
@@ -55,12 +56,6 @@ See [Get Started with C++ and Mingw-w64 in Visual Studio Code](config-mingw.md).
 ## How do I get the new IntelliSense to work with the Windows Subsystem for Linux?
 
 See [Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code](config-wsl.md).
-
-## What is the difference between `includePath` and `browse.path` in **c_cpp_properties.json**?
-
-There are two settings in the **c_cpp_properties.json** file. They are used by the different IntelliSense engines that we support and have slightly different meanings for the components that use them.
-
-The active IntelliSense engine is controlled by the `C_Cpp.intelliSenseEngine` setting in your **settings.json** file. The valid values for this setting are `Default` and `Tag Parser`.
 
 ### includePath
 
