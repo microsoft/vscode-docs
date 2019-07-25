@@ -116,7 +116,7 @@ You'll know you're connected to your VM by looking at the indicator in the Statu
 
 ![SSH indicator in Status bar](ssh-status-bar.png)
 
-The Remote-SSH extension also contributes a new icon on your Activity bar, and clicking on it will open the SSH explorer. Here you can configure your SSH connections. For instance, you can save the hosts you connect to the most and access them from here instead of entering the user and hostname.
+The Remote - SSH extension also contributes a new icon on your Activity bar, and clicking on it will open the SSH explorer. Here you can configure your SSH connections. For instance, you can save the hosts you connect to the most and access them from here instead of entering the user and hostname.
 
 ![Remote button on Activity bar](remote-on-activity-bar.png)
 
