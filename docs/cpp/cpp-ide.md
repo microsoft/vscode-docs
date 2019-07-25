@@ -1,17 +1,17 @@
 ---
 Order: 6
 Area: cpp
-TOCTitle: C++
+TOCTitle: Editing
 ContentId: 61D63E54-67E2-4743-B5CB-C6E7F582982A
 PageTitle: Edit and navigate C++ code in Visual Studio Code
 DateApproved: 07/25/2019
 MetaDescription: How to edit and navigate C++ source files in Visual Studio Code.
 ---
-# Edit and navigate C++ code in Visual Studio Code
+# Edit C++ in Visual Studio Code
 
-This topic provides a quick overview of general C/C++ editor features, as well as some that are specific to C/C++. For more information about editing in VS Code, see [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](../editor/editingevolved.md).
+This topic provides a quick overview of general C/C++ editor features, as well as some that are specific to C/C++. For more information about editing in Visual Studio Code, see [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](/docs/editor/editingevolved.md).
 
-The C/C++ extension supports [Remote Development](../remote/remote-overview.md).
+The C/C++ extension supports [Remote Development](/docs/remote/remote-overview.md).
 
 ## Editing features
 
@@ -110,9 +110,8 @@ Read on to find out about:
 * [Configure VS Code for Mingw-w64 and GCC](config-mingw.md)
 * [Configure VS Code for macOS](config-clang-mac.md)
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](../editor/editingevolved.md) - Move quickly through your source code.
-* [Tasks](../editor/tasks.md) - use tasks to build your project and more
-* [Debugging](../editor/debugging.md) - find out how to use the debugger with your project
-
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
+* [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues).

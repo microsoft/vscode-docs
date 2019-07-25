@@ -2,7 +2,7 @@
 Order: 14
 Area: cpp
 TOCTitle: FAQ
-ContentId: EC8DC085-A0E4-4401-B41F-6497EDD49352
+ContentId: 652c9cec-b8fa-4597-a894-f2ea9a095c31
 PageTitle: C/C++ extension FAQ
 DateApproved: 07/25/2019
 MetaDescription: Frequently asked questions about the C/C++ extension in Visual Studio Code.

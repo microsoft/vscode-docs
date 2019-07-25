@@ -1,7 +1,7 @@
 ---
 Order: 11
 Area: cpp
-TOCTitle: C++
+TOCTitle: Natvis framework
 ContentId: F684A0E8-0AEB-4CA9-83E2-891CC012EA8B
 PageTitle: Pipe transport for remote communication in C++ projects
 DateApproved: 07/25/2019
@@ -9,7 +9,7 @@ MetaDescription: How to set up pipe transport for debugging C++ code in Visual S
 ---
 # Natvis - Custom views for native objects
 
-The Natvis framework allows developers to write custom schemas to help visualize native objects.
+The [Natvis](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework allows developers to write custom schemas to help visualize native objects.
 
 For gdb/lldb debugging (`type": "cppdbg`), a subset of the Natvis framework has been ported to the C/C++ extension and the code resides in the [MIEngine](https://github.com/Microsoft/MIEngine) shared component. If additional features that are not implemented are requested, please [file an issue](https://github.com/Microsoft/MIEngine/issues) on the MIEngine GitHub page with details of what is missing.
 

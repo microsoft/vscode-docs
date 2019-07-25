@@ -7,7 +7,7 @@ PageTitle: Get Started with C++ and Mingw-w64 in Visual Studio Code
 DateApproved: 07/25/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a Mingw-w64 installation
 ---
-# Using Mingw-w64 in Visual Studio Code
+# Using Mingw-w64 in VS Code
 
 In this tutorial, you configure Visual Studio Code on Windows to use the GCC C++ compiler (g++) and GDB debugger in [Mingw-w64](http://mingw-w64.org/doku.php/start) to create programs that run on Windows.
 
@@ -240,7 +240,7 @@ You can press the TAB key to insert the selected member; then, when you add the 
    4/bin/gdb.exe --interpreter=mi
    ```
 
-   The Terminal will display the output from the program. 
+   The Terminal will display the output from the program.
 - The code editor highlights the first statement in the `main` method. This is a breakpoint that the C++ extension automatically sets for you:
 
    ![Initial breakpoint](images/cpp/breakpoint-default.png)

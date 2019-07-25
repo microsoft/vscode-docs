@@ -1,14 +1,13 @@
 ---
 Order: 8
 Area: cpp
-TOCTitle: Enhanced Colorization
+TOCTitle: Enhanced colorization
 ContentId: 2C406EA6-87DC-4A2D-AEC2-90BAA491697C
-PageTitle: Enhanced Colorization in Visual Studio Code C++ projects
+PageTitle: Enhanced colorization in Visual Studio Code C++ projects
 DateApproved: 07/25/2019
 MetaDescription: How to customize semantic colorization of C++ code in Visual Studio Code.
 ---
-
-# Enhanced Colorization
+# Enhanced colorization
 
 The Visual Studio Code C/C++ extension now supports semantic colorization, when IntelliSense is enabled.  Enhanced colorization can be enabled using the enhancedColorization setting:
 
@@ -18,7 +17,7 @@ The Visual Studio Code C/C++ extension now supports semantic colorization, when 
 
 ## Themes
 
-Colors can be associated using the existing support for theming and color customization in VS Code.  Documentation on Themes in VS Code can be found [here](https://code.visualstudio.com/docs/getstarted/themes)
+Colors can be associated using the existing support for theming and color customization in VS Code.  See the [VS Code Themes documentation](/docs/getstarted/themes.md) for more information.
 
 Colors are associated with [TextMate scopes](https://macromates.com/manual/en/language_grammars#naming_conventions).
 

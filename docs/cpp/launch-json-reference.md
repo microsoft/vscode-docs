@@ -1,19 +1,17 @@
 ---
 Order: 10
 Area: cpp
-TOCTitle: launch.json reference
-ContentId: EC8DC085-A0E4-4401-B41F-6497EDD49352
+TOCTitle: Debug configuration
+ContentId: 8cb0c932-d5f2-41e7-b297-5fd100ce4e0c
 PageTitle: Configure launch.json for C/C++ debugging in Visual Studio Code
 DateApproved: 07/25/2019
 MetaDescription: Configure launch.json for C/C++ debugging in Visual Studio Code
 ---
-# Configuring launch.json for C/C++ debugging
+# Configuring C/C++ debugging
 
 The `launch.json` file is used to configure the debugger in Visual Studio Code.
 
-Visual Studio Code generates a `launch.json` with almost all of the required information. To get started
-debugging you need to fill in the `program` field with the path to the executable you plan to debug. This must be specified for
-both the launch and attach (if you plan to attach to a running instance at any point) configurations.
+Visual Studio Code generates a `launch.json` with almost all of the required information. To get started debugging you need to fill in the `program` field with the path to the executable you plan to debug. This must be specified for both the launch and attach (if you plan to attach to a running instance at any point) configurations.
 
 The generated file contains two sections, one that configures debugging for launch and a second that configures debugging for attach.
 
@@ -41,7 +39,7 @@ Tells GDB or LLDB what paths to search for .so files. Separate multiple paths wi
 
 ### avoidWindowsConsoleRedirection
 
-In order to support VSCode's Integrated Terminal with gdb on Windows, the extension adds console redirection commands to the debuggee's arguments to have console input and output show up in the integrated terminal. Setting this option to `true` will disable it.
+In order to support VS Code's Integrated Terminal with gdb on Windows, the extension adds console redirection commands to the debuggee's arguments to have console input and output show up in the integrated terminal. Setting this option to `true` will disable it.
 
 ### logging
 
@@ -56,7 +54,7 @@ Optional flags to determine what types of messages should be logged to the Debug
 
 ### visualizerFile
 
-.natvis file to be used when debugging. See [Create Custom Views of Native Objects](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) for information on how to create Natvis files.
+`.natvis` file to be used when debugging. See [Create custom views of native objects](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) for information on how to create Natvis files.
 
 ### showDisplayString
 

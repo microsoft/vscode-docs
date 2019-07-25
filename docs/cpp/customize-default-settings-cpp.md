@@ -1,18 +1,17 @@
 ---
 Order: 7
 Area: cpp
-TOCTitle: Customize default settings
+TOCTitle: Settings
 ContentId: 4E34F6AF-BFC6-4BBB-8464-2E50C85AE826
 PageTitle: Customize default settings in Visual Studio Code C++ projects
 DateApproved: 07/24/2019
 MetaDescription: How to customize semantic colorization of C++ code in Visual Studio Code.
 ---
-
-# Customizing Default Settings
+# Customizing default settings
 
 You can override the default values for properties set in `c_cpp_properties.json`.
 
-## New VS Code settings
+## Visual Studio Code settings
 
 The following `C_Cpp.default.*` settings map to each of the properties in a configuration block of `c_cpp_properties.json`. Namely:
 

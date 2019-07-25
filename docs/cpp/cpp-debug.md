@@ -1,24 +1,23 @@
 ---
 Order: 5
-Area: languages
-TOCTitle: C++
+Area: cpp
+TOCTitle: Debugging
 ContentId: 9150091A-6F3A-46B9-881B-B8FD788FA705
-PageTitle: Debug C++ code in Visual Studio Code
+PageTitle: Debug C++ in Visual Studio Code
 DateApproved: 07/25/2019
 MetaDescription: How to debug C++ programs in Visual Studio Code.
 ---
-
-## Debug C++ code in Visual Studio Code
+# Debug C++ in Visual Studio Code
 
 After you have set up the basics of your debugging environment as specified in the configuration tutorials for each target compiler/platform, you can learn more details about debugging C/C++ in this section.
 
-VS Code supports the following debuggers for C/C++ depending on the operating system you are using:
+Visual Studio Code supports the following debuggers for C/C++ depending on the operating system you are using:
 
 * **Linux**: GDB
 * **macOS**: LLDB or GDB
 * **Windows**: the Visual Studio Windows Debugger or GDB (using Cygwin or MinGW)
 
-### Windows Debugging with GDB
+## Windows Debugging with GDB
 
 You can debug Windows applications created using Cygwin or MinGW by using VS Code. To use Cygwin or MinGW debugging features, the debugger path must be set manually in the launch configuration (`launch.json`). To debug your Cygwin or MinGW application, add the `miDebuggerPath` property and set its value to the location of the corresponding gdb.exe for your Cygwin or MinGW environment.
 
@@ -34,7 +33,7 @@ To learn more, see [Configuring launch.json for C/C++ debugging](https://github.
 
 If you are debugging with GDB on Windows, see [Windows Debugging with MinGW64](/docs/cpp/config-mingw.md).
 
-### Conditional Breakpoints
+## Conditional Breakpoints
 
 Conditional breakpoints enable you to break execution on a particular line of code only when the value of the condition is true. To set a conditional breakpoint, right-click on an existing breakpoint and select **Edit Breakpoint**. This opens a small peek window where you can enter the condition that must evaluate to true in order for the breakpoint to be hit during debugging.
 
@@ -42,11 +41,11 @@ Conditional breakpoints enable you to break execution on a particular line of co
 
 In the editor, conditional breakpoints are indicated by a breakpoint symbol that has a black equals sign inside of it. You can place the cursor over a conditional breakpoint to show its condition.
 
-### Function Breakpoints
+## Function Breakpoints
 
 Function breakpoints enable you to break execution at the beginning of a function instead of on a particular line of code. To set a function breakpoint, on the **Debug** pane right-click inside the **Breakpoints** section, then choose **Add Function Breakpoint** and enter the name of the function on which you want to break execution.
 
-### Expression Evaluation
+## Expression Evaluation
 
 VS Code supports expression evaluation in several contexts:
 
@@ -56,17 +55,17 @@ VS Code supports expression evaluation in several contexts:
 
 Expressions in the **Watch** section take effect in the application being debugged; an expression that modifies the value of a variable will modify that variable for the duration of the program.
 
-### Multi-threaded Debugging
+## Multi-threaded Debugging
 
 The C/C++ extension for VS Code has the ability to debug multi-threaded programs. All threads and their call stacks appear in the **Call Stack** section:
 
 ![Multi-threaded process](images/cpp/threads.png)
 
-### Memory Dump Debugging
+## Memory Dump Debugging
 
 The C/C++ extension for VS Code also has the ability to debug memory dumps. To debug a memory dump, open your `launch.json` file and add the `coreDumpPath` (for GDB or LLDB) or `dumpPath` (for the Visual Studio Windows Debugger) property to the **C++ Launch** configuration, set its value to be a string containing the path to the memory dump. This will even work for x86 programs being debugged on an x64 machine.
 
-### Additional Symbols
+## Additional Symbols
 
 If there are additional directories where the debugger can find symbol files (for example, `.pdb` files for the Visual Studio Windows Debugger), they can be specified by adding the `additionalSOLibSearchPath` (for GDB or LLDB) or `symbolSearchPath` (for the Visual Studio Windows Debugger).
 
@@ -82,7 +81,7 @@ or
     "symbolSearchPath": "C:\\path\\to\\symbols;C:\\another\\path\\to\\symbols"
 ```
 
-### Locate source files
+## Locate source files
 
 The source file location can be changed if the source files are not located in the compilation location. This is done by simple replacement pairs added in the `sourceFileMap` section. The first match in this list will be used.
 
@@ -95,11 +94,11 @@ For example:
 }
 ```
 
-### GDB, LLDB, and MI Commands (GDB/LLDB)
+## GDB, LLDB, and MI Commands (GDB/LLDB)
 
 For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and MI commands directly through the debug console with the `-exec` command, but be careful, executing commands directly in the debug console is untested and might crash VS Code in some cases.
 
-### Other Debugging Features
+## Other Debugging Features
 
 * Unconditional breakpoints
 * Watch window
