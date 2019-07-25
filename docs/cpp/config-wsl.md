@@ -4,16 +4,17 @@ Area: cpp
 TOCTitle: GCC on Windows Subsystem for Linux
 ContentId: dc79a06a-6665-478c-9298-a1fc9cf8010d
 PageTitle: Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code
-DateApproved: 04/18/2019
+DateApproved: 07/25/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and GDB on WSL installation with Ubuntu
 ---
 # Using C++ and WSL in VS Code
 
-In this tutorial, you configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger on Ubuntu in the Windows Subsystem for Linux (WSL). GCC stands for GNU Compiler Collection; GDB is the GNU debugger. WSL is a Linux command-line environment within Windows that runs directly on the machine hardware, not in a virtual machine. One great advantage of using WSL over a remote Linux machine or container is that WSL provides direct access to the file system in Linux; you don't have to bother with setting up a remote communication pipeline such as ssh. In this tutorial, you'll edit the source code in VS Code on Windows, and then compile and debug it in WSL.
+In this tutorial, you configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger on Ubuntu in the Windows Subsystem for Linux (WSL). GCC stands for GNU Compiler Collection; GDB is the GNU debugger. WSL is a Linux command-line environment within Windows that runs directly on the machine hardware, not in a virtual machine. One great advantage of using WSL over a remote Linux machine or container is that WSL provides direct access to the file system in Linux; you don't have to bother with setting up a remote communication pipeline such as ssh.
 
-The configuration that you'll create in this tutorial applies to a single workspace (folder hierarchy), but you can easily copy the configuration files to other workspaces and use them with just a few modifications. The same general steps apply to any Linux distro you might want to use.
+> [!NOTE]
+> In the new Visual Studio Code Insiders build, with its support for remote development, there are now two alternatives for using GCC on WSL. We recommend using the new remote Development Pack with the WSL extension. In this scenario, all your source files, in addition to the compiler, are hosted on the Linux distro. For more information, see [Remote Development](../remote/remote-overview.md).
 
-After completing this tutorial, you will be ready to create and configure your own workspace, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you about GCC or Linux or the C++ language. For those subjects, there are many good resources available on the Web.
+The following tutorial shows the traditional approach, in which you edit the source code on Windows, and then compile and debug it in WSL. After completing this tutorial, you will be ready to create and configure your own workspace, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you about GCC or Linux or the C++ language. For those subjects, there are many good resources available on the Web.
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
@@ -85,11 +86,12 @@ In Windows, you will need an empty folder called `projects` (just like you now h
    code .
    ```
 
-The **code .** command opens VS Code in the current working folder in Windows, which becomes your **workspace**. Our task is to add three files to the workspace that will tell VS Code how to compile and debug our program. VS Code will place these files in a `.vscode` subfolder that it will create for us:
+The **code .** command opens VS Code in the current working folder, which becomes your *workspace*. Before we can get IntelliSense support, or compile and debug our code, we have to configure VS Code for GCC on WSL. After completing the configuration, we will have three files in a `.vscode` subfolder in the workspace:
 
-- `c_cpp_properties.json` to specify the compiler path
-- `tasks.json` to specify how to build the executable
-- `launch.json` to specify debugger settings
+- `c_cpp_properties.json` (compiler path and IntelliSense settings)
+- `tasks.json` (build instructions)
+- `launch.json` (debugger settings)
+
 
 ## Set WSL as the default terminal (optional)
 
@@ -105,13 +107,19 @@ Press `kb(workbench.action.showCommands)` to open the Command Palette. It looks 
 
 ![Command Palette](images/cpp/command-palette.png)
 
-Start typing "C/C++" and then choose **Edit Configurations** from the list of suggestions. VS Code creates a file called `c_cpp_properties.json` in the `.vscode` subfolder and populates it with some default settings. It then opens the file in the editor. Find the `compilerPath` setting and paste in the path to the `bin` folder in WSL so that the line looks like this: `"compilerPath": "/usr/bin/g++"`.
+1. Start typing "C/C++" and then choose **Edit Configurations (UI)** from the list of suggestions. This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the .vscode folder.
 
-The `compilerPath` setting is the most important setting in your configuration. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide lots of useful information to you as you write code. This information is called **IntelliSense** and you'll see some examples later in this tutorial.
+   ![Command Palette](images/wsl/intellisense-configurations-wsl.png)
 
-The only other change is to set `intelliSenseMode` to `gcc-x64`. This setting helps the IntelliSense feature provide the correct information for GCC. For this tutorial, you don't need to be concerned with the other settings.
+1. Find the **Compiler path** setting. VS Code will attempt to populate it with a default compiler based on what it finds on your system. It first looks for the MSVC compiler, then for g++ on Windows Subsystem for Linux (WSL), then for g++ on Mingw-w64.  If you installed GCC to the default location on your WSL Linux distro, the path should look like this: `/usr/bin/g++`.
 
-You might notice that there is also an `includePath` setting. You only need to set this if your program includes header files that are not in your workspace or in the standard library path. In fact, we recommend that you delete the setting entirely if you don't need it. We don't need it so it's removed from the code below. Your complete `c_cpp_properties.json` file should look like this:
+   The **Compiler path** setting is the most important setting in your configuration. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide lots of useful information to you as you write code. This information is called *IntelliSense* and you'll see some examples later in this tutorial.
+
+1. Set **IntelliSense mode** to `${default}`, which on Linux is `gcc-x64`.
+
+You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or in the standard library path.
+
+Visual Studio code places these settings in `.vscode/c_cpp_properties.json`. If you open that file directly, it should look like this:
 
 ```json
 {
@@ -126,7 +134,7 @@ You might notice that there is also an `includePath` setting. You only need to s
             "compilerPath": "/usr/bin/g++",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "gcc-x64",
+            "intelliSenseMode": "${default}",
             "browse": {
                 "path": [
                     "${workspaceFolder}"
@@ -146,12 +154,7 @@ Next, create a `tasks.json` file to tell VS Code how to build (compile) the prog
 
 1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Add a default build task** and then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
 
-1. Go ahead and replace the entire file contents with the following code snippet, but be sure to replace the placeholders with your actual Linux user name (the $HOME environment variable doesn't work here for WSL). To see your Linux user name, from the Bash shell type:
-
-   ```bash
-    cd $HOME
-    pwd
-   ```
+1. Go ahead and replace the entire file contents with the following code snippet, but be sure to replace the placeholders with your actual Linux user name (the $HOME environment variable doesn't work here for WSL).
 
    ```json
     {
@@ -188,7 +191,7 @@ Next, create a `tasks.json` file to tell VS Code how to build (compile) the prog
 
     The `label` value is what you will see in the VS Code Command Palette; you can name this whatever you like.
 
-    The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false you'll have to run it from the Command Palette menu under "Run Build Task".
+    The `isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false you'll have to run it from the Command Palette menu under "Run Build Task".
 
     The `windows.options.shell` setting tells VS Code to use the WSL Bash shell to run the commands that are defined in this file. If you set the default terminal to WSL globally in the earlier step in this tutorial, then you can remove the `windows` setting here.
 
@@ -241,6 +244,11 @@ Under `sourceFileMap`, you need to tell GDB where to find the header files. Curr
 ```
 
 By default, the C++ extension adds a breakpoint to the first line of `main`. The `stopAtEntry` value is set to `true` to cause the debugger to stop on that breakpoint when you start debugging. You can set this to `false` if you prefer to ignore it.
+
+VS Code is now configured to use GCC on WSL. The configuration applies to the current workspace. To reuse the configuration, just copy the three JSON files to a .vscode folder in a new workspace and change the names of the source file(s) and executable as needed.
+
+The remaining steps are provided as an optional exercise to help you get familiar with the editing and debugging experience.
+
 
 ## Add a source code file
 

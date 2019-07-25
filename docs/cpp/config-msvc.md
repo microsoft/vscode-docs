@@ -4,12 +4,12 @@ Area: cpp
 TOCTitle: Microsoft C++
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
 PageTitle: Configure Visual Studio Code for Microsoft C++
-DateApproved: 04/17/2019
+DateApproved: 07/25/2019
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows.
 ---
 # Configure VS Code for Microsoft C++
 
-In this tutorial, you configure Visual Studio Code to use the Microsoft C++ compiler and debugger on Windows. The configuration applies to a single workspace (folder hierarchy), but you can easily copy the configuration files to other workspaces. After configuring VS Code, you will compile and debug a simple program to get familiar with the VS Code user interface. After completing this tutorial, you will be ready to create and configure your own workspace, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you details about Windows or the Microsoft C++ toolset or the C++ language. For those subjects, there are many good resources available on the Web.
+In this tutorial, you configure Visual Studio Code to use the Microsoft C++ compiler and debugger on Windows. After configuring VS Code, you will compile and debug a simple program to get familiar with the VS Code user interface. After completing this tutorial, you will be ready to create and configure your own workspace, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you details about Windows or the Microsoft C++ toolset or the C++ language. For those subjects, there are many good resources available on the Web.
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
@@ -26,13 +26,13 @@ To successfully complete this tutorial, you must do the following:
 
 ## Start VS Code from the Developer Command Prompt
 
-To build and debug code with MSVC in VS Code, you need to start VS Code from a **Developer Command Prompt for Visual Studio**. (An ordinary Windows command prompt, or a Bash prompt, does not have the necessary environment variables set.)
+To use MSVC in VS Code, you must start VS Code from a **Developer Command Prompt for Visual Studio**. An ordinary Windows command prompt, or a Bash prompt, does not have the necessary environment variables set.
 
 1. To open the Developer Command Prompt for VS, start typing "Developer" in the Windows Start menu, and you should see it appear in the list of suggestions. The exact name depends on which version of Visual Studio or the Visual Studio Build Tools you have installed. Click on the item to open the prompt.
 
 ![Developer Command Prompt](images/msvc/developer-cmd-prompt-menu.png)
 
-1. Next, create an empty folder called "projects" where you can store all your VS Code projects, then create a subfolder called "helloworld", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
+1. From the developer command prompt, create an empty folder called "projects" where you can store all your VS Code projects, then create a subfolder called "helloworld", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
 ```cmd
 mkdir projects
@@ -42,11 +42,11 @@ cd helloworld
 code .
 ```
 
-The **code .** command opens VS Code in the current working folder, which becomes your ****workspace****. Our task is to add three files to the workspace that will tell VS Code how to compile and debug our program. VS Code will place these files in a `.vscode` subfolder that it will create for us:
+The **code .** command opens VS Code in the current working folder, which becomes your *workspace*. Before we can get IntelliSense support, or compile and debug our code, we have to configure VS Code for MSVC. After completing the configuration, we will have three files in a `.vscode` subfolder:
 
-- `c_cpp_properties.json` to specify the compiler path
-- `tasks.json` to specify how to build the executable
-- `launch.json` to specify debugger settings
+- `c_cpp_properties.json` (compiler path and IntelliSense settings)
+- `tasks.json` (build instructions)
+- `launch.json` (debugger settings)
 
 ## Configure the compiler path
 
@@ -54,13 +54,19 @@ The **code .** command opens VS Code in the current working folder, which become
 
    ![Command Palette](images/cpp/command-palette.png)
 
-1. Start typing "C/C++" and then choose **Edit Configurations** from the list of suggestions. VS Code creates a file called `c_cpp_properties.json` in the `.vscode` subfolder and populates it with some default settings. It then opens the file in the editor. If you have Visual Studio installed, the Microsoft C/C++ Extension should detect it and automatically populate the `compilerPath` setting for you. If not, you should add or update the `compilerPath` setting and paste in the path to cl.exe. In a default Visual Studio 2017 Build Tools installation, it looks something like this, depending on which specific version you have installed: "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe".
+1. Start typing "C/C++" and then choose **Edit Configurations (UI)** from the list of suggestions. This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the .vscode folder.
 
-1. Ensure the `intelliSenseMode` value is set to `"msvc-x64"`.
+   ![Command Palette](images/msvc/msvc-intellisense-configurations.png)
 
-The extension can now infer the path to the MSVC include folder, which it needs for IntelliSense support. There is no need to specify the `includePath` value explicitly unless you have additional paths to header files in your code base. In fact, we recommend that you delete the setting entirely if you don't need it. We don't need it so it's removed from the code below.
+1. Find the **Compiler path** setting. VS Code will attempt to populate it with a default compiler based on what it finds on your system. It first looks for the MSVC compiler, then for g++ on Windows Subsystem for Linux (WSL), then for g++ on Mingw-w64.  For MSVC, the path should look something like this, depending on which specific version you have installed: "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe".
 
-Your complete `c_cpp_properties.json` file should like something like this:
+      The **Compiler path** setting is the most important setting in your configuration. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide lots of useful information to you as you write code. This information is called *IntelliSense* and you'll see some examples later in this tutorial.
+
+1. Set **IntelliSense mode** to `${default}`, which on Windows is `msvc-x64`.
+
+You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or in the standard library path.
+
+Visual Studio code places these settings in `.vscode/c_cpp_properties.json`. If you open that file directly, it should look something like this (depending on your specific path):
 
 ```json
 {
@@ -152,6 +158,10 @@ Next, you'll create a `launch.json` file to configure VS Code to launch the debu
 Note that the program name `helloworld.exe` matches what we specified in `tasks.json`.
 
 By default, the C++ extension adds a breakpoint to the first line of `main`. The `stopAtEntry` value is set to `true` to cause the debugger to stop on that breakpoint. You can set this to `false` if you prefer to ignore it.
+
+VS Code is now configured to use the Microsoft C++ compiler. The configuration applies to the current workspace. To reuse the configuration, just copy the three JSON files to a .vscode folder in a new workspace and change the names of the source file(s) and executable as needed.
+
+The remaining steps are provided as an optional exercise to help you get familiar with the editing and debugging experience.
 
 ## Add a source code file
 
