@@ -31,16 +31,6 @@ A third option for projects without build system extension support is to use a [
 
 **Note:** If the extension is unable to resolve any of the `#include` directives in your source code, it will not show linting information for the body of the source file. If you check the Problems window in VS Code, the extension will provide more information about which files it was unable to locate. If you want to show the linting information anyway, you can change the value of the `C_Cpp.errorSquiggles` setting.
 
-### Update your `includePath` (and preprocessor defines)
-
-Selecting this option will open a file called **c_cpp_properties.json**. If you haven't created this file already, it will be created for you in the **.vscode** folder of your workspace.
-
-Add the necessary paths to your include files to the `includePath` array. The `${workspaceRoot}` variable is available to use to get a relative path to the folder you have opened. Also add any required symbols that need to be defined to the `defines` array. Both "\<var\>" and "\<var\>=\<value\>" syntax is accepted. When you edit and save this file, the IntelliSense engine will reset and reparse source your source files and headers with the new settings.
-
-### Force semantic IntelliSense
-
-If you want IntelliSense to operate on your files even when all #include directives do not resolve, then you can choose the `Force semantic IntelliSense` code action to always use the new IntelliSense engine. You can also set the `C_Cpp.intelliSenseEngineFallback` setting to `Disabled`.
-
 ## Why do I see red squiggles under Standard Library types?
 
 The most common reason for this is missing include paths and defines. The easiest way to fix this on each platform is as follows:
