@@ -7,7 +7,7 @@ PageTitle: Pipe transport for remote communication in C++ projects
 DateApproved: 07/25/2019
 MetaDescription: How to set up pipe transport for debugging C++ code in Visual Studio Code.
 ---
-# Natvis - Custom views for native objects
+# Natvis: Custom views for native objects
 
 The [Natvis](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework allows developers to write custom schemas to help visualize native objects.
 

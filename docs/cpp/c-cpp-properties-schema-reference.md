@@ -9,7 +9,7 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
 ---
 # c_cpp_properties.json reference
 
-> See also: [Customizing Default Settings](/docs/cpp/customizing-default-settings.md)
+> See also: [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md)
 
 ## Example
 

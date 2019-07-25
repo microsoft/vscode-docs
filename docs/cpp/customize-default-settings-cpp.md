@@ -86,7 +86,7 @@ A new setting will be added that allows you specify the system include path sepa
 C_Cpp.default.systemIncludePath : string[]
 ```
 
-### System Include Path/Defines Resolution Strategies
+### System include path/defines resolution strategies
 
 The extension determines the system includePath and defines to send to the IntelliSense engine in the following manner:
 

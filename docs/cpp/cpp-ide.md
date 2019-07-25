@@ -25,7 +25,7 @@ When you type a member access symbol (`.` or `->`) the editor will display a lis
 
 ![List members](images/cpp/list-members-cpp.png)
 
-### Code Formatting
+### Code formatting
 
 The C/C++ extension for Visual Studio Code supports source code formatting using [clang-format](https://clang.llvm.org/docs/ClangFormat.html) which is included with the extension.
 
@@ -73,7 +73,7 @@ Currently, the C/C++ extension doesn't parse code in a way that helps it disting
 
 With the peek window open, you browse the list of competing definitions to find the one you're interested in. If you want to navigate to the location of one of the definitions just double-click the definition you're interested in, or by double-clicking anywhere in the source code displayed on the left-hand side of the peek window.
 
-## Navigate Code
+## Navigate source code
 
 The source code navigation features provided by the C/C++ extension are powerful tools for understanding and getting around in your codebase. These features are powered by tags stored in a local database of symbol information. With the C/C++ extension installed, this database is generated whenever a folder containing C++ source code files is loaded into VS Code. The database icon appears next to the active configuration name ("Win32" in the image below) while the tag-parser is generating this information.
 
