@@ -1,10 +1,10 @@
 ---
-Order: 12
+Order: 11
 Area: cpp
 TOCTitle: C++
 ContentId: F684A0E8-0AEB-4CA9-83E2-891CC012EA8B
 PageTitle: Pipe transport for remote communication in C++ projects
-DateApproved: 07/08/2019
+DateApproved: 07/25/2019
 MetaDescription: How to set up pipe transport for debugging C++ code in Visual Studio Code.
 ---
 # Natvis - Custom views for native objects

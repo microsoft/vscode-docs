@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: C++
 ContentId: 9150091A-6F3A-46B9-881B-B8FD788FA705
 PageTitle: Debug C++ code in Visual Studio Code
-DateApproved: 06/20/2019
+DateApproved: 07/25/2019
 MetaDescription: How to debug C++ programs in Visual Studio Code.
 ---
 

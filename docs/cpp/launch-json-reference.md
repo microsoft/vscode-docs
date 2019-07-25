@@ -1,10 +1,10 @@
 ---
-Order: 14
+Order: 10
 Area: cpp
 TOCTitle: launch.json reference
 ContentId: EC8DC085-A0E4-4401-B41F-6497EDD49352
 PageTitle: Configure launch.json for C/C++ debugging in Visual Studio Code
-DateApproved: 07/08/2019
+DateApproved: 07/25/2019
 MetaDescription: Configure launch.json for C/C++ debugging in Visual Studio Code
 ---
 # Configuring launch.json for C/C++ debugging
