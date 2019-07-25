@@ -134,7 +134,7 @@ Which works well with the Status Bar and other blues in the editor:
 
 For folks that have difficulty seeing the difference between Stable and Insiders, the green and blue work better together. Here's the two icons using the [Sim Daltonism](https://michelf.ca/projects/sim-daltonism/) app (Deuteranomaly):
 
-![Screen shot of Sim Daltonism app with the Deuteranomaly effect](colorrecognition.png)
+![screenshot of Sim Daltonism app with the Deuteranomaly effect](colorrecognition.png)
 
 It is inevitable that we will have multiple products that share colors, so we are no longer concerned that VS Code shares the blue color.
 
