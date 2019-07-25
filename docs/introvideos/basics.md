@@ -23,13 +23,13 @@ In this tutorial, we walk you through setting up Visual Studio Code and give an 
 * Customize your editor with themes.
 * Explore VS Code features in the **Interactive Editor Playground**.
 
-## Learn More
+## Learn more
 
 * [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
 * [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
 * [Keyboard Shortcuts](/docs/getstarted/keybindings.md) - Customize your own shortcuts, download a reference sheet, or install a Keymap extension.
 * [Keybinding extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) - Install a Keymap extension to bring the keybindings from your previous editor to VS Code.
 
-## Next Video
+## Next video
 
 * [Customize Visual Studio Code](/docs/introvideos/configure.md) - Learn how to personalize VS Code to your work style.

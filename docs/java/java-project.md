@@ -45,20 +45,20 @@ The extension also has a hierarchy view of your project and dependencies, which 
   <source src="/docs/java/java-project/hierarchical.mp4" type="video/mp4">
 </video>
 
-### Multiple source folders
-
-If you have multiple subfolders that have source code for your project, you can easily add these folders to source path, then all the code inside will be correctly compiled.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-project/multiple-source.mp4" type="video/mp4">
-</video>
-
 ### Standalone Java file support
 
 Visual Studio Code also supports Java files without a project (or an invisible project, which it creates without affecting your folders). The solution is folder-based, so you can open a folder with Visual Studio Code, and all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
+</video>
+
+### Multiple source folders
+
+If you have multiple subfolders that have source code for your project, you can easily add these folders to source path, then all the code inside will be correctly compiled.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/multiple-source.mp4" type="video/mp4">
 </video>
 
 ### Adding external JAR
@@ -68,6 +68,14 @@ In case you need to bring additional JAR files as dependencies, you can create a
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/lib.mp4" type="video/mp4">
 </video>
+
+In case VS Code throws an error for a classpath issue, try setting your classpath manually by either [setting the CLASSPATH environment variable](https://docs.oracle.com/javadb/10.8.3.0/getstart/tgs26250.html) or editing the `.classpath` file with the path to the JAR file:
+
+```xml
+<classpathentry kind="lib" path="lib/log4j.jar"/>
+```
+
+In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean the java language server workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
 
 ## Maven
 
@@ -101,7 +109,7 @@ You can also use the command **Maven: Add a Dependency** (or `maven.project.addD
   <source src="/docs/java/java-project/maven-add-dependency.mp4" type="video/mp4">
 </video>
 
-Furthermore, VS Code also supports showing dependencies in a tree view which allows you to inspect all dependencies in your project at a single place and check for potential issues.
+Furthermore, VS Code also supports showing dependencies in a tree view, which allows you to inspect all dependencies in your project at a single place and check for potential issues.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/maven-dependency-tree.mp4" type="video/mp4">
@@ -138,7 +146,7 @@ For each plug-in you use with your project, the extension also provides you an e
   <source src="/docs/java/java-project/maven-plugin-goal.mp4" type="video/mp4">
 </video>
 
-To debug Maven goals, just right click on a goal and start debugging. The Maven extension will call the Java debugger with the right parameters. This is handy and super time-saving.
+To debug Maven goals, right-click on a goal and start debugging. The Maven extension will call the Java debugger with the right parameters. This is a handy, time-saving feature.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/debug-maven-plugin-goals.mp4" type="video/mp4">

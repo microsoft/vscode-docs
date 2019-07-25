@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 6/5/2019
+DateApproved: 7/18/2019
 ---
 # Remote Development Tips and Tricks
 
@@ -136,11 +136,11 @@ If you do see that message, follow these steps to update your SSH server's [sshd
 
 **Set the ProxyCommand parameter in your SSH config file**
 
-If you are behind a proxy and are unable to connect to your SSH host, you may need to use the `ProxyCommand` parameter for your host in a **local** [SSH config file](https://linux.die.net/man/5/ssh_config). You can [read this article](https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/) for an example of its use.
+If you are behind a proxy and are unable to connect to your SSH host, you may need to use the `ProxyCommand` parameter for your host in a **local** [SSH config file](https://linux.die.net/man/5/ssh_config). You can read this [SSH ProxyCommand article](https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/) for an example of its use.
 
 **Ensure the remote machine has internet access**
 
-The remote machine must have internet access to be able to download the VS Code Server and extensions from the Marketplace. See [the FAQ for details](/docs/remote/faq.md##what-are-the-connectivity-requirements-for-vs-code-server) on connectivity requirements.
+The remote machine must have internet access to be able to download the VS Code Server and extensions from the Marketplace. See [the FAQ for details](/docs/remote/faq.md#what-are-the-connectivity-requirements-for-vs-code-server) on connectivity requirements.
 
 **Set HTTP_PROXY / HTTPS_PROXY on the remote host**
 
@@ -167,7 +167,7 @@ Some users launch a different shell from their `.bash_profile` or other startup 
 
 Some systems will dynamically route an SSH connection to one node from a cluster each time an SSH connection is made. This is an issue for VS Code because it makes two connections to open a remote window: the first to install or start the VS Code Server (or find an already running instance) and the second to create the SSH port tunnel that VS Code uses to talk to the server. If VS Code is routed to a different machine when it creates the second connection, it won't be able to talk to the VS Code server.
 
-One workaround for this is to use the `ControlMaster` option in OpenSSH (macOS/Linux clients only), described [above](#enabling-alternate-ssh-authentication-methods), so that VS Code's two connections will be multiplexed through a single SSH connection to the same node.
+One workaround for this is to use the `ControlMaster` option in OpenSSH (macOS/Linux clients only), described in [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods), so that VS Code's two connections will be multiplexed through a single SSH connection to the same node.
 
 **Contact your system administrator for configuration help**
 
@@ -185,10 +185,9 @@ If you are connecting to an SSH remote host and are either:
 - using password authentication,
 - using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible,
 
-...you need to enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
+...VS Code should automatically prompt you to enter needed information. If you do not see the prompt, enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
 
-To avoid reentering your connection information each time, you can enable the `ControlMaster` feature on your local machine so that OpenSSH runs multiple SSH sessions over a single connection.
-
+However, you may be prompted to enter this information multiple times due to [vscode-remote-release#642](https://github.com/microsoft/vscode-remote-release/issues/642). On macOS and Linux, you can avoid this problem by enabling the `ControlMaster` feature on your local machine so that OpenSSH runs multiple SSH sessions over a single connection.
 To enable `ControlMaster`:
 
 1. Add an entry like this to your SSH config file:
@@ -301,18 +300,20 @@ Note that only Linux hosts are currently supported, which is why permissions for
 | OS | Instructions |
 |----|--------------|
 | Windows 10 / Server 2016 | Install the [Windows OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
-| Earlier Windows | Install [Git for Windows](https://git-scm.com/download/win) and select the **Use Git and optional Unix tools from the Command Prompt** option or manually add `C:\Program Files\Git\usr\bin` into your PATH. |
+| Earlier Windows | Install [Git for Windows](https://git-scm.com/download/win). |
 | macOS | Comes pre-installed. |
 | Debian/Ubuntu | Run `sudo apt-get install openssh-client` |
 | RHEL / Fedora / CentOS | Run `sudo yum install openssh-clients` |
+
+VS Code will look for the `ssh` command in the PATH. Failing that, on Windows it will attempt to find `ssh.exe` in the default Git for Windows install path. You can also specifically tell VS Code where to find the SSH client by adding the `remote.SSH.path` property to `settings.json`.
 
 ### Installing a supported SSH server
 
 | OS | Instructions | Details |
 |----|--------------|---|
-| Debian / Ubuntu | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for details. |
-| RHEL / Fedora / CentOS | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | See the [RedHat SSH](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-openssh) documentation for details. |
-| SuSE |  In Yast, go to Services Manager, select "sshd" in the list, and click **Enable**. Next go to Firewall, select the **Permanent** configuration, and under services check **sshd**. | See the [SuSE SSH](https://en.opensuse.org/OpenSSH) documentation for details. |
+| Debian 8+ / Ubuntu 16.04+| Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for details. |
+| RHEL / CentOS 7+ | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | See the [RedHat SSH](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-openssh) documentation for details. |
+| SuSE 12+ / openSUSE 42.3+ |  In Yast, go to Services Manager, select "sshd" in the list, and click **Enable**. Next go to Firewall, select the **Permanent** configuration, and under services check **sshd**. | See the [SuSE SSH](https://en.opensuse.org/OpenSSH) documentation for details. |
 | Windows | Not supported yet. | |
 | macOS | Not supported yet. | |
 
@@ -326,23 +327,22 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 [SSHFS](https://en.wikipedia.org/wiki/SSHFS) is a secure remote filesystem access protocol that builds up from SFTP. It provides advantages over something like a CIFS / Samba share in that all that is required is SSH access to the machine.
 
-You can install SSHFS locally as follows:
+> **Note:** For performance reasons, SSHFS is best used for single file edits and uploading/downloading content. If you need to use an application that bulk reads/write to many files at once (like a local source control tool), [rsync](#using-rsync-to-maintain-a-local-copy-of-your-source-code) is a better choice.
 
-- On macOS using [Homebrew](https://brew.sh/): `brew install sshfs`
-  - If you would prefer not to use the command line, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
-- On Linux using the OS package manager. For Debian/Ubuntu: `sudo apt-get install sshfs`
-- [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) on Windows using [Chocolatey](https://chocolatey.org/): `choco install sshfs`
+**macOS / Linux**:
 
-Note that WSL 1 does not support FUSE or SSHFS, so installing SSHFS-Win is the best option currently.
+On Linux, you can use your distribution's package manager to install SSHFS. For Debian/Ubuntu: `sudo apt-get install sshfs`
 
-On macOS, you can use [SSHFS GUI](https://github.com/dstuecken/sshfs-gui), or you can mount the remote filesystem on **macOS or Linux** by running the following commands from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
+> **Note:** WSL 1 does not support FUSE or SSHFS, so the instructions differ for Windows currently. **WSL2 does include FUSE and SSHFS support**, so this will change soon.
+
+On macOS, you can install SSHFS using [Homebrew](https://brew.sh/): `brew install sshfs` In addition, if you would prefer not to use the command line to mount the remote filesystem, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
+
+To use the command line, run the following commands from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
 
 ```bash
 export USER_AT_HOST=user@hostname
-
 # Make the directory where the remote filesystem will be mounted
 mkdir -p "$HOME/sshfs/$USER_AT_HOST"
-
 # Mount the remote filesystem
 sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  \
     -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
@@ -354,17 +354,17 @@ This will make your home folder on the remote machine available under the `~/ssh
 umount "$HOME/sshfs/$USER_AT_HOST"
 ```
 
-On **Windows**, you should add a `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
+**Windows:**
 
-Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname` where `user@hostname` with is your remote user and hostname / IP. You can also map the drive using the command prompt as follows:
+Follow these steps:
 
-```bat
-net use /PERSISTENT:NO X: \\sshfs\user@hostname
-```
+1. On Linux, add `.gitattributes` file to your project to **force consistent line endings** between Linux and Windows to avoid unexpected issues due to CRLF/LF differences between the two operating systems. See [Resolving Git line ending issues](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
-In this example, the remote machine will be available at `X:\`. You can disconnect from it by right-clicking on the drive in the File Explorer and clicking **Disconnect**.
+2. Next, install [SSHFS-Win](https://github.com/billziss-gh/sshfs-win) using [Chocolatey](https://chocolatey.org/): `choco install sshfs`
 
-Note that performance will be significantly slower than working through VS Code, so this is best used for small edits, uploading content, etc. Using something like a local source control tool in this way can be very slow and can cause unforeseen problems. However, you can also sync files from your remote SSH host to your local machine [using `rsync`](https://rsync.samba.org/) if you would prefer to use a broader set of tools. See [below](#using-rsync-to-maintain-a-local-copy-of-your-source-code) for details.
+3. Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname`, where `user@hostname` is your remote user and hostname / IP. You can script this using the command prompt as follows: `net use /PERSISTENT:NO X: \\sshfs\user@hostname`
+
+4. Once done, disconnect by right-clicking on the drive in the File Explorer and selecting **Disconnect**.
 
 ### Using rsync to maintain a local copy of your source code
 
@@ -388,7 +388,7 @@ wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/sour
 
 You can rerun this command each time you want to get the latest copy of your files and only updates will be transferred. The `.git` folder is intentionally excluded both for performance reasons and so you can use local Git tools without worrying about the state on the remote host.
 
-To push content, reverse the source and target parameters in the command. However, **on Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** before doing so. [See below](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
+To push content, reverse the source and target parameters in the command. However, **on Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** before doing so. See [Resolving Git line ending issues](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
 ```bash
 rsync -rlptzv --progress --delete --exclude=.git . "user@hostname:/remote/source/code/path"
@@ -414,11 +414,11 @@ The VS Code Server was previously installed under `~/.vscode-remote` so you can 
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few "gotchas" that can cause problems. Here are some tips on avoiding them:
 
-1. **Use an AD domain account or local administrator account when sharing drives. Do not use an AAD (email-based) account.** AAD (email-based) accounts have well known issues, as documented in Docker issues [#132](https://github.com/docker/for-win/issues/132) and [#1352](https://github.com/docker/for-win/issues/1352). If you must use an AAD account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
+1. **Use an AD domain account or local administrator account when sharing drives. Do not use an AAD (email-based) account.** AAD (email-based) accounts have well known issues, as documented in Docker [issue #132](https://github.com/docker/for-win/issues/132) and [issue #1352](https://github.com/docker/for-win/issues/1352). If you must use an AAD account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
 
 2. **Stick with alphanumeric passwords to avoid drive sharing problems.** When asked to share your drives on Windows, you will be prompted for the username and password of an account with admin privileges on the machine. If you are warned about an incorrect username or password, this may be due to special characters in the password. For example, `!`, `[` and `]` are known to cause issues. Change your password to alphanumeric characters to resolve. See this issue about [Docker volume mounting problems](https://github.com/moby/moby/issues/23992#issuecomment-234979036) for details.
 
-3. **Use your Docker ID to sign into Docker (not your email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See Docker issue [#935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
+3. **Use your Docker ID to sign into Docker (not your email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
 If you are still having trouble, see the [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot/#volumes).
 
@@ -452,39 +452,23 @@ Typically adding or modifying a  `.gitattributes` file in your repository is the
 
 Note that this works in **Git v2.10+**, so if you are running into problems, be sure you've got a recent Git client installed. You can add other file types in your repository that require CRLF to this same file.
 
-If you'd prefer to disable line ending conversation entirely, run:
-
-```bash
-git config --global core.autocrlf false
-```
-
-If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option instead.
+If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option.
 
 ```bash
 git config --global core.autocrlf input
 ```
 
-Finally, reclone the repository so these settings take effect.
+If you'd prefer to disable line ending conversation entirely, run the following instead:
+
+```bash
+git config --global core.autocrlf false
+```
+
+Finally, you may need to clone the repository again for these settings to take effect.
 
 ### Avoid setting up Git in a container when using Docker Compose
 
-To avoid having to set up Git a second time in your container, VS Code automatically adds a volume mount to your local Git configuration when referencing an `image` or `Dockerfile`. The Docker Compose scenario gives you more control, but requires adding an extra configuration line to your `docker-compose.yml` file.
-
-Specifically, add the following to the service you open in VS Code:
-
-```yaml
-volumes:
-  # This lets you avoid setting up Git again in the container
-  - ~/.gitconfig:/root/.gitconfig
-```
-
-If you do not have your email address set up locally, you may be prompted to do so. You can do this on your local machine by running the following command:
-
-```bash
-git config --global user.email "your.email@address"
-```
-
-If you prefer, you can extend your dev container configuration to achieve the same thing, without modifying your existing Docker Compose file. See [here for additional details](/docs/remote/containers.md#extending-your-docker-compose-file-for-development).
+See [Sharing Git credentials with your container](/docs/remote/containers.md#sharing-git-credentials-with-your-container) in the main containers article for information on resolving this issue.
 
 ### Resolving hangs when doing a Git push or sync from a Container
 
@@ -516,11 +500,11 @@ If you'd like this extension to always be installed, add this to your `settings.
 
 If you determine that you need to give your container more of your machine's capacity, follow these steps:
 
-1. Right-click on the Docker task bar item and select **Settings** (**Preferences** on macOS).
+1. Right-click on the Docker task bar item and select **Settings** / **Preferences**.
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
-3. Go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine.
+3. On Mac, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
-Finally, if your container is disk intensive, you should avoid using a volume mount of your local filesystem to store data files (for example database data files) particularly on Windows. Update your application's settings to use a folder inside the container instead.
+Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. You can also use the [cached mount consistency on Mac](/docs/remote/containers-advanced.md#update-the-mount-consistency-in-docker-for-mac) or use a [named volume for your source code](/docs/remote/containers-advanced.md#use-a-named-volume-instead-of-a-bind-mount) instead.
 
 ### Cleaning out unused containers and images
 
@@ -528,7 +512,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
 **Option 1: Use the Docker extension.**
 
- 1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) from the Extensions view if not already present.
+ 1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view if not already present.
 
     > **Note:** Using the Docker extension from a VS Code window opened in a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local window and use the Docker extension from this VS Code window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
@@ -542,6 +526,12 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 2. Type `docker ps -a` to see a list of all containers.
 3. Type `docker rm <Container ID>` from this list to remove a container.
 4. Type `docker image prune` to remove any unused images.
+
+If `docker ps` does not provide enough information to identify the container you want to delete, the following command will list all development containers managed by VS Code and the folder used to generate them.
+
+```bash
+docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}}\t\{{.Image}}\tvscode-\{{.Label \"vsch.quality\"}}\t\{{.Label \"vsch.local.folder\"}}"
+```
 
 **Option 3: Use Docker Compose**:
 
@@ -580,7 +570,7 @@ There are two ways to resolve this error:
 
 ### Resolving Docker Hub sign in errors when an email is used
 
-The Docker CLI only supports using your Docker ID, so using your email to sign in can cause problems. See Docker issue [#935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
+The Docker CLI only supports using your Docker ID, so using your email to sign in can cause problems. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
 As a workaround, use your Docker ID to sign into Docker rather than your email.
 
@@ -590,21 +580,24 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 
 ### Advanced container configuration tips
 
-See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following advanced configuration topics:
+See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following topics:
 
-- [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
-- [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced#avoiding-extension-reinstalls-on-container-rebuild)
-- [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
-- [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
-- [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
-- [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
-- [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
+* [Adding environment variables](/docs/remote/containers-advanced.md#adding-environment-variables)
+* [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
+* [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount)
+* [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
+* [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance)
+* [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced.md#avoiding-extension-reinstalls-on-container-rebuild)
+* [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
+* [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
+* [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
+* [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
 
 ## WSL tips
 
-### Selecting the distribution used by Remote - WSL
+### Selecting the default distribution used by Remote - WSL
 
-The [Remote - WSL](https://aka.ms/vscode-remote/download/wsl) extension uses your **default distribution**, which you can change using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
+Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL versions, VS Code will use your system **default distro**. You can use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
 
 For example:
 
@@ -684,19 +677,19 @@ Typically adding or modifying a  `.gitattributes` file in your repository is the
 
 Note that this works in **Git v2.10+**, so if you are running into problems, be sure you've got a recent Git client installed. You can add other file types in your repository that require CRLF to this same file.
 
-If you'd prefer to disable line ending conversation entirely, run:
-
-```bash
-git config --global core.autocrlf false
-```
-
-If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option instead.
+If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option.
 
 ```bash
 git config --global core.autocrlf input
 ```
 
-Finally, reclone the repository so these settings take effect.
+If you'd prefer to disable line ending conversation entirely, run the following instead:
+
+```bash
+git config --global core.autocrlf false
+```
+
+Finally, you may need to clone the repository again for these settings to take effect.
 
 ### Resolving hangs when doing a Git push or sync from WSL
 
@@ -712,7 +705,7 @@ While many extensions will work unmodified, there are a few issues that can prev
 
 VS Code's local user settings are reused when you connect to a remote endpoint. While this keeps your user experience consistent, you may need to vary absolute path settings between your local machine and each host / container / WSL since the target locations are different.
 
-**Resolution:** You can set endpoint-specific settings after you connect to a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by clicking on the **Remote** tab in the settings editor. These settings will override any local settings you have in place whenever you connect.
+**Resolution:** You can set endpoint-specific settings after you connect to a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the settings editor. These settings will override any local settings you have in place whenever you connect.
 
 ### Need to install local VSIX on remote endpoint
 
@@ -724,25 +717,25 @@ Sometimes you want to install a local VSIX on a remote machine, either during de
 
 Some extensions use external node modules or custom code to launch a browser window. Unfortunately, this may cause the extension to launch the browser remotely instead of locally.
 
-**Resolution:** The extension can switch to using the `vscode.env.openExternal` API to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**Resolution:** The extension can switch to using the `vscode.env.openExternal` API to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
 
 ### Clipboard does not work
 
 Some extensions use node modules like `clipboardy` to integrate with the clipboard. Unfortunately, this may cause the extension to incorrectly integrate with the clipboard on the remote side.
 
-**Resolution:** The extension can switch to the VS Code clipboard API to resolve the problem. See the [extension guide](/api/advanced-topics/remote-extensions#using-the-clipboard) for details.
+**Resolution:** The extension can switch to the VS Code clipboard API to resolve the problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#using-the-clipboard) for details.
 
 ### Cannot access local web server from browser or application
 
 When working inside a container or SSH host, the port the browser is connecting to may be blocked.
 
-**Resolution:** The extension can switch to the  `vscode.env.openExternal` API (which automatically forwards localhost ports) to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**Resolution:** The extension can switch to the  `vscode.env.openExternal` API (which automatically forwards localhost ports) to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
 
 ### WebView contents do not appear
 
 If the extension's WebView content uses an iframe to connect to a local web server, the port the WebView is connecting to may be blocked.
 
-**Resolution:** The WebView API now includes a `portMapping` property that the extension can use to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#accessing-localhost) for details.
+**Resolution:** The WebView API now includes a `portMapping` property that the extension can use to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#accessing-localhost) for details.
 
 ### Blocked localhost ports
 
@@ -754,13 +747,13 @@ If you are trying to connect to a localhost port from an external application, t
 
 Extensions may try to persist global data by looking for the `~/.config/Code` folder on Linux. This folder may not exist, which can cause the extension to throw errors like `ENOENT: no such file or directory, open '/root/.config/Code/User/filename-goes-here`.
 
-**Resolution:** Extensions can use the `context.globalStoragePath` or `context.storagePath` property to resolve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
+**Resolution:** Extensions can use the `context.globalStoragePath` or `context.storagePath` property to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
 
 ### Cannot sign in / have to sign in each time I connect to a new endpoint
 
 Extensions that require sign in may persist secrets using their own code. This code can fail due to missing dependencies. Even if it succeeds, the secrets will be stored remotely, which means you have to sign in for every new endpoint.
 
-**Resolution:** Extensions can use the `keytar` node module to solve this problem. See the [extension guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
+**Resolution:** Extensions can use the `keytar` node module to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
 
 ### An incompatible extension prevents VS Code from connecting
 
@@ -781,13 +774,20 @@ If an incompatible extension has been installed on a remote host, container, or 
 
 Native modules bundled with (or dynamically acquired for) a VS Code extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, VS Code Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
 
-**Resolution:** Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
+**Resolution:** Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension author's guide](/api/advanced-topics/remote-extensions#using-native-node.js-modules) for details.
+
+### Extension only fails on non-x86_64 hosts or Alpine Linux
+
+If an extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (for example, ARMv7l) or Alpine Linux containers, the extension may only include native code or runtimes that do not support these platforms. For example, the extensions may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).
+
+**Resolution:**
+Extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. It is important to note that some third-party npm modules may also include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets. See the [extension author's guide](/api/advanced-topics/remote-extensions#supporting-nonx8664-hosts-or-alpine-linux-containers) for details.
 
 ### Extensions fail due to missing modules
 
 Extensions that rely on Electron or VS Code base modules (not exposed by the extension API) without providing a fallback can fail when running remotely. You may see errors in the Developer Tools console like `original-fs` not being found.
 
-**Resolution:** Remove the dependency on an Electron module or provide a fallback. See the [extension guide](/api/advanced-topics/remote-extensions#avoid-using-electron-modules) for details.
+**Resolution:** Remove the dependency on an Electron module or provide a fallback. See the [extension author's guide](/api/advanced-topics/remote-extensions#avoid-using-electron-modules) for details.
 
 ### Cannot access / transfer remote workspace files to local machines
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2bb06188-d394-4b98-872c-0bf26c8a674d
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to
@@ -206,7 +206,7 @@ $ npx js-yaml syntaxes/abc.tmLanguage.yaml > syntaxes/abc.tmLanguage.json
 
 VS Code's built-in scope inspector tool helps debug grammars. It displays the scopes for the token at the current position in a file, along with metadata about which theme rules apply to that token.
 
-Trigger the scope inspector from the command palette with the `Developer: Inspect TM Scopes` command or [create a keybinding](/docs/getstarted/keybindings) for it:
+Trigger the scope inspector from the Command Palette with the `Developer: Inspect TM Scopes` command or [create a keybinding](/docs/getstarted/keybindings) for it:
 
 ```json
 {

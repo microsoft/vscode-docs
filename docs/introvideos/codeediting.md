@@ -8,7 +8,7 @@ DateApproved: 3/6/2017
 MetaDescription: Take coding to the next level of speed and efficiency with these code editing features.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
-# Code Editing in Visual Studio Code
+# Code editing in Visual Studio Code
 
 In this Visual Studio Code tutorial, we cover source code editing, including the features outlined below. After viewing this overview, read on in the [Learn More](/docs/introvideos/codeediting.md#learn-more) section to see more features.
 
@@ -27,7 +27,7 @@ In this Visual Studio Code tutorial, we cover source code editing, including the
 * Bracket matching
 * Code formatting to consistently style code
 
-## Learn More
+## Learn more
 
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
@@ -37,7 +37,6 @@ In this Visual Studio Code tutorial, we cover source code editing, including the
 * [Code Folding](/docs/editor/codebasics.md#folding) - See the details of source code folding.
 * [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Helpful tips and tricks for VS Code.
 
-## Next Video
+## Next video
 
 * [IntelliSense](/docs/introvideos/intellisense.md) - Set up IntelliSense for intelligent code completion.
-

@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using Visual Studio Code
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -405,7 +405,7 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
     "address": "TCP/IP address of process to be debugged",
     "port": "9229",
     "localRoot": "${workspaceFolder}",
-    "remoteRoot": "C:\\Users\\John\\project\\server"
+    "remoteRoot": "C:\\Users\\username\\project\\server"
 }
 ```
 
@@ -415,7 +415,7 @@ Two frequently used applications of remote debugging are:
 
   If you are running Node.js inside a [Docker](https://www.docker.com) container, you can use the approach from above to debug Node.js inside the Docker container and map back the remote source to files in your workspace. We have created a "recipe" on [GitHub](https://github.com/Microsoft/vscode-recipes) that walks you through on how to set this up [Node.js in Docker with TypeScript](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript).
 
-* **debugging Node.js in the Linux subsystem on Windows:**
+* **debugging Node.js in the Linux subsystem on Windows (WSL):**
 
   If you want to run Node.js in the Linux subsystem on Windows (WSL), you can use the approach from above as well. However, to make this even simpler, we've introduced a `useWSL` flag to automatically configure everything so that Node.js runs in the Linux subsystem and source is mapped to files in your workspace.
 
@@ -430,6 +430,9 @@ Two frequently used applications of remote debugging are:
       "program": "${workspaceFolder}/hello.js"
   }
   ```
+
+  **Please note**: With the arrival of the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, VS Code got universal support for [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl) (WSL). Consequently,
+  the `useWSL` debug configuration attribute has been deprecated and support for it will be dropped soon. For more details please see our [Developing in WSL](https://code.visualstudio.com/docs/remote/wsl) documentation.
 
 ## Access Loaded Scripts
 

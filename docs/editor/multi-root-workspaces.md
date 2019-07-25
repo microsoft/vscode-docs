@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Multi-root Workspaces
 ContentId: 8d55f6b8-977f-4c26-a888-f3d8d982dd2d
 PageTitle: Multi-root Workspaces in Visual Studio Code
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 MetaDescription: You can open and work on multiple project folders in Visual Studio Code with multi-root workspaces.
 ---
 # Multi-root Workspaces
@@ -212,7 +212,7 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 
 ### Workspace launch configurations
 
-Workspace scoped launch configurations live in the `"launch"` section of the workspace configuration file (**Workspaces: Open Workspace Configuration File** in the command palette):
+Workspace scoped launch configurations live in the `"launch"` section of the workspace configuration file (**Workspaces: Open Workspace Configuration File** in the Command Palette):
 
 ![Workspace Settings](images/multi-root-workspaces/workspace-settings.png)
 

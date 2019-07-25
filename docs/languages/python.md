@@ -110,7 +110,7 @@ For more information, see [Jupyter support](/docs/python/jupyter-support.md).
 
 ## Unit testing
 
-The Python extension supports [unit testing](/docs/python/unit-testing.md) with the unittest, pytest, and nose test frameworks.
+The Python extension supports [unit testing](/docs/python/testing.md) with the unittest, pytest, and nose test frameworks.
 
 To run unit tests, you enable one of the frameworks in settings. Each framework also has specific settings, such as arguments that identify paths and patterns for test discovery.
 
@@ -118,7 +118,7 @@ Once discovered, VS Code provides a variety of commands (on the Status Bar, the 
 
 ## Configuration
 
-The Python extension provides a wide variety of settings for its various features. These are described on their relevant topics, such as [Editing code](/docs/python/editing.md), [Linting](/docs/python/linting.md), [Debugging](/docs/python/debugging.md), and [Unit Testing](/docs/python/unit-testing.md). The complete list is found in the [Settings reference](/docs/python/settings-reference.md).
+The Python extension provides a wide variety of settings for its various features. These are described on their relevant topics, such as [Editing code](/docs/python/editing.md), [Linting](/docs/python/linting.md), [Debugging](/docs/python/debugging.md), and [Testing](/docs/python/testing.md). The complete list is found in the [Settings reference](/docs/python/settings-reference.md).
 
 ## Other popular Python extensions
 

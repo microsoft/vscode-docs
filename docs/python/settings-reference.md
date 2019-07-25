@@ -64,7 +64,7 @@ The language server settings apply when `python.jediEnabled` is `false`.
 | logLevel | `"Error"` | Defines the types of log messages that language server writes into the Problems window, one of "Error", "Warning", "Information", and "Trace". The "Warning" level implicitly includes "Error"; "Information" implicitly includes "Warning" and "Error"; "Trace" includes all messages. |
 | openFilesOnly | `true` | When true, shows only errors and warnings for open files rather than for the entire workspace. |
 | symbolsHierarchyDepthLimit | `10` | Limits the depth of the symbol tree in the document outline. |
-| typeshedPaths | `[]` | Paths to look for [typeshed modules](https://github.com/python/typeshed/) (github.com). |
+| typeshedPaths | `[]` | Paths to look for [typeshed modules](https://github.com/python/typeshed/) on GitHub. |
 
 The `disabled`, `errors`, `warnings`, and `information` settings can contain the following values:
 
@@ -188,35 +188,35 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 | pylamaArgs | `[]` | Additional arguments for pylama, where each top-level element that's separated by a space is a separate item in the list.  | [Linting](/docs/python/linting.md) |
 | pylamaPath | `"pylama"` | The path to pylama. | [Linting](/docs/python/linting.md) |
 
-## Unit testing settings
+## Testing settings
 
-### UnitTest framework
+### unittest framework
 
 | Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
-| unittestEnabled | `false` | Specifies whether UnitTest is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md)  |
-| unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each top-level element that's separated by a space is a separate item in the list. | [Unit testing](/docs/python/unit-testing.md) |
-| cwd | null | Specifies an optional working directory for unit tests. |
-| outputWindow | `"Python Test Log"` | The window to use for unit test output. | [Unit testing](/docs/python/unit-testing.md) | [Unit testing](/docs/python/unit-testing.md)  |
-| promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. | [Unit testing](/docs/python/unit-testing.md)  |
-| debugPort | `3000` | Port number used for debugging of UnitTest tests. | [Unit testing](/docs/python/unit-testing.md) |
-  autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a unit test file. |
+| unittestEnabled | `false` | Specifies whether unittest is enabled for testing. | [Testing](/docs/python/testing.md)  |
+| unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each top-level element that's separated by a space is a separate item in the list. | [Testing](/docs/python/testing.md) |
+| cwd | null | Specifies an optional working directory for tests. | [Testing](/docs/python/testing.md) |
+| outputWindow | `"Python Test Log"` | The window to use for test output. | [Testing](/docs/python/testing.md)  |
+| promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. | [Testing](/docs/python/testing.md)  |
+| debugPort | `3000` | Port number used for debugging of unittest tests. | [Testing](/docs/python/testing.md) |
+  autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a test file. | [Testing](/docs/python/testing.md) |
 
 ### pytest framework
 
 | Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
-| pytestEnabled | `false` | Specifies whether pytest is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md) |
-| pytestPath | `"py.test"` | Path to pytest. Use a full path if pytest is located outside the current environment. | [Unit testing](/docs/python/unit-testing.md) |
-| pytestArgs | `[]` | Arguments to pass to pytest, where each top-level element that's separated by a space is a separate item in the list. When debugging unit tests with pytest-cov installed, include `--no-cov` in these arguments. | [Unit testing](/docs/python/unit-testing.md) |
+| pytestEnabled | `false` | Specifies whether pytest is enabled for testing. | [Testing](/docs/python/testing.md) |
+| pytestPath | `"py.test"` | Path to pytest. Use a full path if pytest is located outside the current environment. | [Testing](/docs/python/testing.md) |
+| pytestArgs | `[]` | Arguments to pass to pytest, where each top-level element that's separated by a space is a separate item in the list. When debugging tests with pytest-cov installed, include `--no-cov` in these arguments. | [Testing](/docs/python/testing.md) |
 
 ### Nose framework
 
 | Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
-| nosetestsEnabled | `false` | Specifies whether Nose  is enabled for unit testing. | [Unit testing](/docs/python/unit-testing.md) |
-| nosetestPath | `"nosetests"` | Path to Nose. Use a full path if pytest is located outside the current environment. | [Unit testing](/docs/python/unit-testing.md) |
-| nosetestArgs | `[]` | Arguments to pass to Nose, where each top-level element that's separated by a space is a separate item in the list. | [Unit testing](/docs/python/unit-testing.md) |
+| nosetestsEnabled | `false` | Specifies whether Nose  is enabled for testing. | [Testing](/docs/python/testing.md) |
+| nosetestPath | `"nosetests"` | Path to Nose. Use a full path if pytest is located outside the current environment. | [Testing](/docs/python/testing.md) |
+| nosetestArgs | `[]` | Arguments to pass to Nose, where each top-level element that's separated by a space is a separate item in the list. | [Testing](/docs/python/testing.md) |
 
 ## Next steps
 
@@ -224,4 +224,4 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
-- [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
+- [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.

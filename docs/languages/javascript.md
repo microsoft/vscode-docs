@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -66,15 +66,15 @@ There are many extensions that provide additional snippets, including snippets f
 
 > **Tip**: To disable snippets suggestions, set `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. The `editor.snippetSuggestions` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
-## JS Doc support
+## JSDoc support
 
-VS Code understands many standard [JSDoc](http://usejsdoc.org) annotations, and uses these annotations to provide rich [IntelliSense](#intellisense). You can optionally even use the type information from JSDoc comments to [type check your JavaScript](#type-checking).
+VS Code understands many standard [JSDoc](http://jsdoc.app) annotations, and uses these annotations to provide rich [IntelliSense](#intellisense). You can optionally even use the type information from JSDoc comments to [type check your JavaScript](#type-checking).
 
 <video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-Quickly create JS Doc comments for functions by typing `/**` before the function declaration, and select the `JS Doc Comment` snippet suggestion:
+Quickly create JSDoc comments for functions by typing `/**` before the function declaration, and select the **JSDoc comment** snippet suggestion:
 
 <video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
@@ -263,7 +263,7 @@ You can leverage some of TypeScript's advanced type checking and error reporting
 
 ![Using type checking and Quick Fixes in a JavaScript file](images/javascript/checkjs-example.gif)
 
-TypeScript tried to infer types in `.js` files the same way it does in `.ts` files. When types cannot be inferred, they can be specified explicitly with JSDoc comments. You can read more about how TypeScript uses JSDocs for JavaScript type checking in [Working with JavaScript](/docs/nodejs/working-with-javascript.md).
+TypeScript tried to infer types in `.js` files the same way it does in `.ts` files. When types cannot be inferred, they can be specified explicitly with JSDoc comments. You can read more about how TypeScript uses JSDoc for JavaScript type checking in [Working with JavaScript](/docs/nodejs/working-with-javascript.md).
 
 Type checking of JavaScript is optional and opt-in. Existing JavaScript validation tools such as ESLint can be used alongside built-in type checking functionality.
 

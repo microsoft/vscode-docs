@@ -4,7 +4,7 @@ Area: azure
 TOCTitle: Docker
 ContentId: 42F8B9F8-BD03-4159-9479-17C5BDE30531
 PageTitle: Working with Docker in Visual Studio Code
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 MetaDescription: Working with Docker containers in Visual Studio Code.
 ---
 # Working with Docker
@@ -13,7 +13,7 @@ MetaDescription: Working with Docker containers in Visual Studio Code.
 
 ## Install the Docker extension
 
-Docker support for VS Code is provided by an extension. To install the Docker extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for `docker` to filter the results. Select the Microsoft [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension.
+Docker support for VS Code is provided by an extension. To install the Docker extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for `docker` to filter the results. Select the Microsoft [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension.
 
 ![Select Docker extension](images/docker/installdockerextension.png)
 

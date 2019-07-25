@@ -90,6 +90,17 @@ In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://
 
 IntelliCode works well with popular Java libraries and frameworks like Java SE and Spring. It will help you whether you are doing monolithic web apps or modern microservices.
 
+### Smart Selection
+
+With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select-api) (semantic selection), you can expand or shrink the selection range based on the semantic information of the caret position in your source code.
+
+* To expand the selection, use `kb(editor.action.smartSelect.expand)`.
+* To shrink the selection, use `kb(editor.action.smartSelect.shrink)`.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/smart-selection.mp4" type="video/mp4">
+</video>
+
 ## Refactoring and Code Actions
 
 Here we will show you the most used refactoring features for Java in Visual Studio Code, namely rename, extract methods and variables.
@@ -112,6 +123,26 @@ Extract to constant, method, and local variables all come in handy with Java on 
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/extract-local-variable.mp4" type="video/mp4">
+</video>
+
+After the extraction, you can also perform a rename in the same transaction.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/extract-rename.mp4" type="video/mp4">
+</video>
+
+### Convert a local variable to a field.
+
+When selecting an expression, extract to field.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/extract-field.mp4" type="video/mp4">
+</video>
+
+When selecting a variable declaration, convert the variable to field.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/convert-field.mp4" type="video/mp4">
 </video>
 
 ### Generate getters and setters
@@ -138,13 +169,13 @@ With this source action, all the candidates are presented to you with a checklis
   <source src="/docs/java/java-editing/override-implement-methods.mp4" type="video/mp4">
 </video>
 
-### Generate `hashCode()` & `equals()`
+### Generate `hashCode()` and `equals()`
 
-`hashCode()` & `equals()` can be generated with default implementations. All the non-static member variables are listed, and you can customize the generated code using the check list.
+`hashCode()` and `equals()` can be generated with default implementations. All the non-static member variables are listed, and you can customize the generated code using the check list.
 
 There are two options for you to customize the generated code:
 
-* If you use Java 7+, you can set `java.codeGeneration.hashCodeEquals.useJava7Objects` to `true` to generate shorter code which calls `Objects.hash` and `Objects.equals`.
+* If you use Java 7+, you can set `java.codeGeneration.hashCodeEquals.useJava7Objects` to `true` to generate shorter code that calls `Objects.hash` and `Objects.equals`.
 * You can also set `java.codeGeneration.hashCodeEquals.useInstanceof` to `true` to use `instanceOf` operator to check the object types instead of calling `Object.getClass()`.
 
 <video autoplay loop muted playsinline controls>

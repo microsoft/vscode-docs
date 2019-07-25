@@ -28,7 +28,7 @@ A working Java environment with essential extensions installed is needed, includ
 * [Apache Maven](https://maven.apache.org/), version 3.0 or later.
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 
-For more details, please refer to [Java Tutorial](/docs/java/java-tutorial.md#_before-you-begin)
+For more details, please refer to [Java Tutorial](/docs/java/java-tutorial.md#before-you-begin)
 
 ## Create the project
 

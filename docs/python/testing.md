@@ -1,18 +1,18 @@
 ---
 Order: 7
 Area: python
-TOCTitle: Unit Testing
+TOCTitle: Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
-PageTitle: Unit Testing Python in Visual Studio Code
-DateApproved: 04/18/2019
-MetaDescription: Unit Testing Python in Visual Studio Code including the Test Explorer
+PageTitle: Testing Python in Visual Studio Code
+DateApproved: 06/28/2019
+MetaDescription: Testing Python in Visual Studio Code including the Test Explorer
 MetaSocialImage: images/tutorial/social.png
 ---
-# Python unit testing in Visual Studio Code
+# Python testing in Visual Studio Code
 
-The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/). [Nose](https://nose.readthedocs.io/en/latest/) is also supported, although the framework itself is in maintenance mode.
+The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) supports testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/). [Nose](https://nose.readthedocs.io/en/latest/) is also supported, although the framework itself is in maintenance mode.
 
-After [enabling a test framework](#enable-a-test-framework), use the **Python: Discover Unit Tests** command to [scan the project for tests](#test-discovery) according to the discovery patterns of the currently selected test framework. Once discovered, Visual Studio Code provides a variety of means to [run tests](#run-tests) and [debug tests](#debug-tests). VS Code displays unit test output in the **Python Test Log** panel, including errors caused when a test framework is not installed. With pytest, failed tests also appear in the **Problems** panel.
+After [enabling a test framework](#enable-a-test-framework), use the **Python: Discover Tests** command to [scan the project for tests](#test-discovery) according to the discovery patterns of the currently selected test framework. Once discovered, Visual Studio Code provides a variety of means to [run tests](#run-tests) and [debug tests](#debug-tests). VS Code displays test output in the **Python Test Log** panel, including errors caused when a test framework is not installed. With pytest, failed tests also appear in the **Problems** panel.
 
 ## A little background on unit testing
 
@@ -40,7 +40,7 @@ With all the arguments and expected return values in hand, you now write the tes
 # Import the code to be tested
 import validator
 
-# Import the unit test framework (this is a hypothetical module)
+# Import the test framework (this is a hypothetical module)
 import test_framework
 
 # This is a generalized example, not specific to a test framework
@@ -64,7 +64,7 @@ class Test_TestAccountValidator(test_framework.TestBaseClass):
     # ... tests for all other cases
 ```
 
-The exact structure of the code depends on the unit test framework you're using, and specific examples are provided later in this article. In any case, as you can see, each test is very simple: invoke the function with an argument and assert the expected return value.
+The exact structure of the code depends on the test framework you're using, and specific examples are provided later in this article. In any case, as you can see, each test is very simple: invoke the function with an argument and assert the expected return value.
 
 The combined results of all the tests is your test report, which tells you whether the function (the unit), is behaving as expected across all test cases. That is, when a unit passes all of its tests, you can be confident that it's functioning properly. (The practice of *test-driven development* is where you actually write the tests first, then write the code to pass more and more tests until all of them pass.)
 
@@ -90,15 +90,15 @@ With this code, you can experience working with tests in VS Code as described in
 
 ## Enable a test framework
 
-Unit testing in Python is disabled by default. To enable unit testing, use the **Python: Configure Unit Tests** command on the Command Palette. This command prompts you to select a unit test framework, the folder containing unit tests, and the pattern used to identify test files.
+Testing in Python is disabled by default. To enable testing, use the **Python: Configure Tests** command on the Command Palette. This command prompts you to select a test framework, the folder containing tests, and the pattern used to identify test files.
 
-You can also configure unit testing manually by setting *one and only one* of the following settings to true: `python.testing.testingEnabled`, `python.testing.pytestEnabled`, and `python.testing.nosetestsEnabled`. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+You can also configure testing manually by setting *one and only one* of the following settings to true: `python.testing.unittestEnabled`, `python.testing.pytestEnabled`, and `python.testing.nosetestsEnabled`. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
-It's important that you enable only a single test framework at a time. For this reason, when you enable one framework also be sure to disable the others. The **Python: Configure Unit Tests** command does this automatically.
+It's important that you enable only a single test framework at a time. For this reason, when you enable one framework also be sure to disable the others. The **Python: Configure Tests** command does this automatically.
 
 When you enable a test framework, VS Code prompts you to install the framework package if it's not already present in the currently activated environment:
 
-![VS Code prompt to install a test framework when enabled](images/unit-testing/install-framework.png)
+![VS Code prompt to install a test framework when enabled](images/testing/install-framework.png)
 
 ## Create tests
 
@@ -141,37 +141,37 @@ def test_decrement():
 
 ## Test discovery
 
-VS Code uses the currently enabled unit testing framework to discover tests. You can trigger test discovery at any time using the **Python: Discover Unit Tests** command.
+VS Code uses the currently enabled testing framework to discover tests. You can trigger test discovery at any time using the **Python: Discover Tests** command.
 
 `python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning test discovery is performed automatically whenever you save a test file. To disable this feature, set the value to `false`.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
-- `python.testing.testingArgs`: Looks for any Python (`.py`) file with "test" in the name in the top-level project folder. All test files must be importable modules or packages. You can customize the file matching pattern with the `-p` configuration setting, and customize the folder with the `-t` setting.
+- `python.testing.unittestArgs`: Looks for any Python (`.py`) file with "test" in the name in the top-level project folder. All test files must be importable modules or packages. You can customize the file matching pattern with the `-p` configuration setting, and customize the folder with the `-t` setting.
 
 - `python.testing.pytestArgs`: Looks for any Python (`.py`) file whose name begins with "test\_" or ends with "\_test", located anywhere within the current folder and all subfolders.
 
-> **Tip**: Sometimes unit tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, create an empty file named `__init__.py` in that folder.
+> **Tip**: Sometimes tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, create an empty file named `__init__.py` in that folder.
 
 If discovery succeeds, the status bar shows **Run Tests** instead:
 
-![Status bar showing successful test discovery failed](images/unit-testing/discovery-succeeded-status-bar.png)
+![Status bar showing successful test discovery failed](images/testing/discovery-succeeded-status-bar.png)
 
 If discovery fails (for example, the test framework isn't installed), you see a notification on the status bar. Selecting the notification provides more information:
 
-![Status bar showing that test discovery failed](images/unit-testing/discovery-failed-status-bar.png)
+![Status bar showing that test discovery failed](images/testing/discovery-failed-status-bar.png)
 
 Once VS Code recognizes tests, it provides several ways to run those tests as described in [Run tests](#run-tests). The most obvious means are CodeLens adornments that appear directly in the editor and allow you to easily run a single test method or, with unittest, a test class:
 
-![Test adornments that appear in the VS Code editor for unittest code](images/unit-testing/editor-adornments-unittest.png)
+![Test adornments that appear in the VS Code editor for unittest code](images/testing/editor-adornments-unittest.png)
 
-![Test adornments that appear in the VS Code editor for pytest code](images/unit-testing/editor-adornments-pytest.png)
+![Test adornments that appear in the VS Code editor for pytest code](images/testing/editor-adornments-pytest.png)
 
 > **Note**: At present, the Python extension doesn't provide a setting to turn the adornments on or off. To suggest a different behavior, file an issue on the [vscode-python repository](https://github.com/Microsoft/vscode-python/issues).
 
-For Python, test discovery also activates the **Test Explorer** with an icon on the VS Code activity bar. The **Test Explorer** helps you visualize, navigate, and run unit tests:
+For Python, test discovery also activates the **Test Explorer** with an icon on the VS Code activity bar. The **Test Explorer** helps you visualize, navigate, and run tests:
 
-![The VS Code Test Explorer for Python unit tests](images/unit-testing/test-explorer.png)
+![The VS Code Test Explorer for Python tests](images/testing/test-explorer.png)
 
 ## Run tests
 
@@ -181,33 +181,33 @@ You run tests using any of the following actions:
 
 - Select **Run Tests** on the Status Bar (which can change appearance based on results),
 
-    ![Test command on the VS Code status bar](images/unit-testing/discovery-succeeded-status-bar.png)
+    ![Test command on the VS Code status bar](images/testing/discovery-succeeded-status-bar.png)
 
-    then select one of the commands like **Run All Unit Tests** or **Run Failed Unit Tests**:
+    then select one of the commands like **Run All Tests** or **Discover Tests**:
 
-    ![Test commands that appear after using the Run Tests status bar command](images/unit-testing/run-test-commands.png)
+    ![Test commands that appear after using the Run Tests status bar command](images/testing/run-test-commands.png)
 
 - In **Test Explorer**:
 
   - To run all discovered tests, select the play button at the top of **Test Explorer**:
 
-      ![Running all tests through Test Explorer](images/unit-testing/test-explorer-run-all-tests.png)
+      ![Running all tests through Test Explorer](images/testing/test-explorer-run-all-tests.png)
 
   - To run a specific group of tests, or a single test, select the file, class, or test, then select the play button to the right of that item:
 
-      ![Running tests at specific scopes through Test Explorer](images/unit-testing/test-explorer-run-scoped-tests.png)
+      ![Running tests at specific scopes through Test Explorer](images/testing/test-explorer-run-scoped-tests.png)
 
 - Right-click a file in Explorer and select **Run All Tests**, which runs the tests in that one file.
 
-- From the **Command Palette**, select any of the run unit test commands:
+- From the **Command Palette**, select any of the run test commands:
 
-    ![Python unit testing commands on the Command Palette](images/unit-testing/commands.png)
+    ![Python testing commands on the Command Palette](images/testing/commands.png)
 
     | Command | Description |
     | --- | --- |
     | Debug All Tests | See [Debug tests](#debug-tests). |
     | Debug Test Method | See [Debug tests](#debug-tests). |
-    | Run All Tests | Searches for and runs all unit tests in the workspace and its subfolders. |
+    | Run All Tests | Searches for and runs all tests in the workspace and its subfolders. |
     | Run Current Test File | Runs the test in the file that's currently viewed in the editor. |
     | Run Failed Tests | Re-runs any tests that failed in a previous test run. Runs all test if no tests have been run yet. |
     | Run Test File | Prompts for a specific test filename, then runs the test in that file. |
@@ -216,15 +216,15 @@ You run tests using any of the following actions:
 
 After a test run, VS Code displays results directly with the CodeLens adornments in the editor and in **Test Explorer**. Results are shown both for individual tests as well as any classes and files containing those tests. Failed tests are also adorned in the editor with a red underline.
 
-![Test results on a unittest class and in Test Explorer](images/unit-testing/test-results.png)
+![Test results on a unittest class and in Test Explorer](images/testing/test-results.png)
 
 VS Code also shows test results in the **Python Test Log** output panel (use the **View** > **Output** menu command to show the **Output** panel, then select **Python Test Log** from the drop-down on the right side):
 
-![Test results in the Python Test Log output panel](images/unit-testing/python-test-log-output.png)
+![Test results in the Python Test Log output panel](images/testing/python-test-log-output.png)
 
 With pytest, failed tests also appear in the **Problems** panel, where you can double-click on an issue to navigate directly to the test:
 
-![Test results for pytest in the Problems panel](images/unit-testing/python-test-problems-output.png)
+![Test results for pytest in the Problems panel](images/testing/python-test-problems-output.png)
 
 ## Run tests in parallel
 
@@ -255,7 +255,7 @@ Support for running tests in parallel with pytest is available through the `pyte
 
 ## Debug tests
 
-Because unit tests themselves are source code, they are prone to code defects just like the production code they test. For this reason, you may occasionally need to step through and analyze unit tests in the debugger.
+Because tests themselves are source code, they are prone to code defects just like the production code they test. For this reason, you may occasionally need to step through and analyze tests in the debugger.
 
 For example, the `test_decrement` functions given earlier are failing because the assertion itself is faulty. The following steps demonstrate how to analyze the test:
 
@@ -277,34 +277,34 @@ For example, the `test_decrement` functions given earlier are failing because th
 
 1. Save the file and run the tests again to confirm that they pass, and see that the CodeLens adornments also indicate passing status.
 
-    > **Note**: running or debugging a unit test does not automatically save the test file. Always be sure to save changes to a test before running it, otherwise you'll likely be confused by the results because they still reflect the previous version of the file!
+    > **Note**: running or debugging a test does not automatically save the test file. Always be sure to save changes to a test before running it, otherwise you'll likely be confused by the results because they still reflect the previous version of the file!
 
-The **Python: Debug All Tests** and **Python: Debug Unit Test Method** commands (on both the Command Palette and Status Bar menu) launch the debugger for all tests and a single test method, respectively. You can also use the "bug" icons in **Test Explorer** to launch the debugger for all tests in a selected scope as well as all discovered tests.
+The **Python: Debug All Tests** and **Python: Debug Test Method** commands (on both the Command Palette and Status Bar menu) launch the debugger for all tests and a single test method, respectively. You can also use the "bug" icons in **Test Explorer** to launch the debugger for all tests in a selected scope as well as all discovered tests.
 
-The debugger works the same for unit tests as for other Python code, including breakpoints, variable inspection, and so on. For more information, see [Python debugging configurations](/docs/python/debugging.md) and the general VS Code [Debugging](/docs/editor/debugging.md) article.
+The debugger works the same for tests as for other Python code, including breakpoints, variable inspection, and so on. For more information, see [Python debugging configurations](/docs/python/debugging.md) and the general VS Code [Debugging](/docs/editor/debugging.md) article.
 
 ## Test configuration settings
 
-The behavior of unit testing with Python is driven by both general settings and settings that are specific to whichever framework you've enabled.
+The behavior of testing with Python is driven by both general settings and settings that are specific to whichever framework you've enabled.
 
 ### General settings
 
 | Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
-| autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a unit test file. |
-| cwd | null | Specifies an optional working directory for unit tests. |
-| debugPort | `3000` | Port number used for debugging of UnitTest tests. |
-| outputWindow | `"Python Test Log"` | The window to use for unit test output. |
+| autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a test file. |
+| cwd | null | Specifies an optional working directory for tests. |
+| debugPort | `3000` | Port number used for debugging of unittest tests. |
+| outputWindow | `"Python Test Log"` | The window to use for test output. |
 | promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
 
-### Unittest configuration settings
+### unittest configuration settings
 
 | Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
-| unittestEnabled | `false` | Specifies whether UnitTest is enabled as the test framework. All other frameworks should be disabled. |
+| unittestEnabled | `false` | Specifies whether unittest is enabled as the test framework. All other frameworks should be disabled. |
 | unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each element that's separated by a space is a separate item in the list. See below for a description of the defaults. |
 
-The default arguments for UnitTest are as follows:
+The default arguments for unittest are as follows:
 
 - `-v` sets default verbosity. Remove this argument for simpler output.
 - `-s .` specifies the starting directory for discovering tests. If you have tests in a "test" folder, change the argument to `-s test` (meaning `"-s", "test"` in the arguments array).
@@ -314,7 +314,7 @@ To stop a test run on the first failure, add the fail fast option `"-f"` to the 
 
 See [unittest command-line interface](https://docs.python.org/3/library/unittest.html#command-line-interface) for the full set of available options.
 
-### Pytest configuration settings
+### pytest configuration settings
 
 | Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |

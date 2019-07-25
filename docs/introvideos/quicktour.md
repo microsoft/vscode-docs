@@ -9,7 +9,7 @@ MetaDescription: Quick Tour around Visual Studio Code using JavaScript.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
 
-# Quick Tour of VS Code using JavaScript
+# Quick tour of VS Code using JavaScript
 
 This tutorial gives you an overview of the core features of Visual Studio Code, including IntelliSense, debugging, Git version control integration, and more. You'll see these features as we add an endpoint to a JavaScript web app using [Express web framework](https://expressjs.com/).
 
@@ -23,7 +23,7 @@ This tutorial gives you an overview of the core features of Visual Studio Code, 
 * Run shell commands in the **Integrated Terminal**.
 * Add new features with VS Code extensions.
 
-## Learn More
+## Learn more
 
 * [IntelliSense](/docs/editor/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
 * [JavaScript IntelliSense](/docs/languages/javascript.md#intellisense) - Define a JavaScript project with `jsconfig.json` to get IntelliSense across files.
@@ -31,7 +31,6 @@ This tutorial gives you an overview of the core features of Visual Studio Code, 
 * [Extension Marketplace](/docs/editor/extension-gallery.md) - Find and install new extensions.
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) - Use the Integrated Terminal inside VS Code.
 
-
-## Next Video
+## Next video
 
 * [Setup and Basics](/docs/introvideos/basics.md) - Install and learn the basics of your new editor.

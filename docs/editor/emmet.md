@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 MetaDescription: Using Emmet abbreviations inside Visual Studio Code.
 ---
 # Emmet in Visual Studio Code
@@ -100,7 +100,7 @@ Below are a few examples of how you can control which vendors get applied to whi
 }
 ```
 
-- Setting the preference to a comma separated list of CSS properties will ensure that the corresponding prefix gets added only to these CSS properties.
+- Setting the preference to a comma separated list of CSS properties will ensure that the corresponding prefix gets added only to those CSS properties.
 - Setting the preference to an empty string will ensure that the corresponding prefix doesn't get added to any CSS property.
 - Setting the preference to null will ensure that the default CSS properties for each vendor as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/) get used.
 
@@ -214,7 +214,7 @@ If you want a snippet for plain text, then surround the text with the `{}`.
 
 Values for CSS Emmet snippets should be a complete property name and value pair.
 
-CSS custom snippets are applicable to all other stylesheet flavors like `scss`, `less` or `sass`. Therefore, don't include a trailing `;` at the end of the snippet value. Emmet will add it as needed based on the whether the language requires it.
+CSS custom snippets are applicable to all other stylesheet flavors like `scss`, `less` or `sass`. Therefore, don't include a trailing `;` at the end of the snippet value. Emmet will add it as needed based on whether the language requires it.
 
 Do not use `:` in the snippet name. `:` is used to separate property name and value when Emmet tries to fuzzy match the abbreviation to one of the snippets.
 
@@ -375,7 +375,7 @@ Add the following setting to enable expanding of Emmet abbreviations using tab w
 "emmet.triggerExpansionOnTab": true
 ```
 
-### My HTML snippets ending with `+` does not work?
+### My HTML snippets ending with `+` do not work?
 
 HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1). Workaround is to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets) for such scenarios.
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -167,7 +167,7 @@ To load an extension, you need to copy the files to your VS Code extensions fold
 
 ## Visual Studio Code compatibility
 
-When authoring an extension, you will need to describe what is the extension's compatibility to Visual Studio Code itself. This can done via the `engines.vscode` field inside `package.json`:
+When authoring an extension, you will need to describe what is the extension's compatibility to Visual Studio Code itself. This can be done via the `engines.vscode` field inside `package.json`:
 
 ```json
 {
@@ -225,7 +225,7 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 {
   "name": "uuid",
   "version": "0.0.1",
-  "publisher": "joaomoreno",
+  "publisher": "someone",
   "engines": {
     "vscode": "0.10.x"
   },

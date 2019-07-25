@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development support to extensions
@@ -27,7 +27,7 @@ VS Code APIs are designed to automatically run on the correct machine (either lo
 
 ## Testing and debugging your extension
 
-This section explains how to test and debug a development version of your extension in remote workspaces. Specifically, we will look at how to test an extension using a local [dev container](/docs/remote/containers). Dev containers are cross-platform, easy to set up, and restrict port and file system access. Combined with a very thin OS footprint, dev containers provide the environment where your extension is most likely to hit a problem (if it has one at all). WSL, on the other hand, is typically the least restrictive, with SSH being somewhere in the middle. In most cases, only small adjustments are needed to resolve issues. See [common problems](#common-problems) for more information.
+This section explains how to test and debug a development version of your extension in remote workspaces. Specifically, we will look at how to test an extension using a local [dev container](/docs/remote/containers). Dev containers are cross-platform, easy to set up, and restrict port and file system access. Combined with a thin OS footprint, dev containers provide the environment where your extension is most likely to hit a problem (if it has one at all). WSL, on the other hand, is typically the least restrictive, with SSH being somewhere in the middle. In most cases, only small adjustments are needed to resolve issues. See [common problems](#common-problems) for more information.
 
 ### Installing a development version of your extension
 
@@ -96,7 +96,7 @@ VS Code's APIs are designed to automatically run in the right location regardles
 
 ### Incorrect execution location
 
-If your extension is not functioning as expected, it may be running in the wrong location. Most commonly, this shows up as an extension running remotely when you expect it to only be run locally. You can use the **Developer: Show Running Extensions** command from the command palette (`kbstyle(F1)`) to see where an extension is running.
+If your extension is not functioning as expected, it may be running in the wrong location. Most commonly, this shows up as an extension running remotely when you expect it to only be run locally. You can use the **Developer: Show Running Extensions** command from the Command Palette (`kbstyle(F1)`) to see where an extension is running.
 
 If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [`package.json`](/api/get-started/extension-anatomy#extension-manifest):
 
@@ -268,11 +268,11 @@ export async function activate(context: vscode.ExtensionContext) {
 
 ### Communicating between extensions using commands
 
-Some extensions return APIs as a part of their activation that are intended for other extensions to use (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI Extensions or all Workspace Extensions), these will not work between UI and Workspace Extensions.
+Some extensions return APIs as a part of their activation that are intended for use by other extensions (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI Extensions or all Workspace Extensions), these will not work between UI and Workspace Extensions.
 
 Fortunately, VS Code automatically routes any executed commands to the correct extension regardless of its location. You can freely invoke any command (including those provided by other extensions) without worrying about impacts.
 
-If you have a set of extensions that need to interact with one another, exposing functionality using a private command can help you avoid unexpected impacts. However, note that any objects you pass in as parameters will be "stringified" (`JSON.stringify`) before being transmitted, so the object cannot have cyclic references and will end up as a "plain old javascript object" on the other side.
+If you have a set of extensions that need to interact with one another, exposing functionality using a private command can help you avoid unexpected impacts. However, any objects you pass in as parameters will be "stringified" (`JSON.stringify`) before being transmitted, so the object cannot have cyclic references and will end up as a "plain old javascript object" on the other side.
 
 For example:
 
@@ -355,14 +355,33 @@ To solve this problem:
 
 1. Include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that VS Code ships.
 2. Check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in your activation function to set up the correct binaries based on whether the extension is running remotely or locally.
+3. You may also want to add support for non-x86_64 targets and Alpine Linux at the same time by [following similar logic](#supporting-nonx8664-hosts-or-alpine-linux-containers)
 
 You can find the "modules" version VS Code uses by going to **Help > Developer Tools** and typing `process.versions.modules` in the console. However, to make sure native modules work seamlessly in different Node.js environments, you may want to compile the native modules against all possible Node.js "modules" versions and platforms you want support (Electron Node.js, official Node.js Windows/Darwin/Linux, all versions). The [node-tree-sitter](https://github.com/tree-sitter/node-tree-sitter/releases/tag/v0.14.0) module is a good example of a module that does this well.
+
+## Supporting non-x86_64 hosts or Alpine Linux containers
+
+If your extension is purely written in JavaScript/TypeScript, you may not need to do anything to add support for other processor architectures or the `musl` based Alpine Linux to your extension.
+
+However, if your extension works on Debian 9+, Ubuntu 16.04+, or RHEL / CentOS 7+ remote SSH hosts, containers, or WSL, but fails on supported non-x86_64 hosts (for example ARMv7l) or Alpine Linux containers, the extension may include x86_64 `glibc` specific native code or runtimes that will fail on these architectures/operating systems.
+
+For example, your extension may only include x86_64 compiled versions of native modules or runtimes. For Alpine Linux, the included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`).
+
+To resolve this problem:
+
+1. If you are dynamically acquiring compiled code, you can add support by detecting non-x86_64 targets using `process.arch` and downloading versions compiled for the right architecture. If you are including binaries for all supported architectures inside your extension instead, you can use this logic to use the correct one.
+
+2. For Alpine Linux, you can detect the operating system using  `await fs.exists('/etc/alpine-release')` and once again download or use the correct binaries for a `musl` based operating system.
+
+3. If you'd prefer not to support these platforms, you can use the same logic to provide a good error message instead.
+
+It is important to note that some third-party npm modules include native code that can cause this problem. So, in some cases you may need to work with the npm module author to add additional compilation targets.
 
 ## Avoid using Electron modules
 
 While it can be convenient to rely on built-in Electron or VS Code modules not exposed by the extension API, it's important to note that VS Code Server runs a standard (non-Electron) version of Node.js. These modules will be missing when running remotely. There are a few exceptions, [like `keytar`](#persisting-secrets), where there is specific code in place to make them work.
 
-You should use base Node.js modules or modules in your extension VSIX to avoid these problems. If you absolutely have to use an Electron module, be sure to have a fallback if the module is missing.
+Use base Node.js modules or modules in your extension VSIX to avoid these problems. If you absolutely have to use an Electron module, be sure to have a fallback if the module is missing.
 
 The example below will use the Electron `original-fs` node module if found, and fall back to the base Node.js `fs` module if not.
 
@@ -386,7 +405,7 @@ There are a few extension problems that could be resolved with some added functi
 
 | Problem | Description |
 |---------|-------------|
-| **Blocked ports** | When working inside a Docker container or SSH server, ports are not automatically forwarded and there currently is no API to programmatically forward a port from an extension. Webviews can be adapted as [described above](#using-the-webview-api), but other scenarios currently require users to manually forward or expose ports. |
+| **Blocked ports** | When working inside a Docker container or SSH server, ports are not automatically forwarded and there currently is no API to programmatically forward a port from an extension. Webviews can be adapted as described in [Using the Webview API](#using-the-webview-api), but other scenarios currently require users to manually forward or expose ports. |
 | **Cannot access / transfer remote workspace files to local machine** | Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem. |
 | **Cannot access attached devices from Workspace extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. We are investigating the best approach to solve this problem. |
 
@@ -394,7 +413,7 @@ There are a few extension problems that could be resolved with some added functi
 
 - See [Tips and Tricks](/docs/remote/troubleshooting) or the [FAQ](/docs/remote/faq).
 - Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
-- [Upvote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new)
+- [Upvote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new).
 - Contribute a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
 - Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
-- ...and more. See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
+- See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.

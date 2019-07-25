@@ -54,7 +54,7 @@ When enabling `lintOnSave`, you might also want to enable the generic `files.aut
 
 ## Specific linters
 
-The following table provides a summary of available Python linters and their basic settings. Only Pylint is enabled by default. For descriptions of individual settings, see the [Linter settings reference](/docs/python/settings-reference.md#linter-settings).
+The following table provides a summary of available Python linters and their basic settings. Only Pylint is enabled by default. For descriptions of individual settings, see the [Linter settings reference](/docs/python/settings-reference.md#linting-settings).
 
 | Linter | Package name for `pip install` command | Default state | True/false enable setting<br/>(python.linting.) | Arguments setting<br/>(python.linting.) | Custom path setting<br/>(python.linting.) |
 | --- | --- | --- | --- | --- | --- |
@@ -91,9 +91,9 @@ Pylint messages fall into the categories in the following table with the indicat
 | --- | --- | --- | --- |
 | Convention (C) | Programming standard violation | Information (green underline) | pylintCategorySeverity.convention |
 | Refactor (R) | Bad code smell | Hint (light bulbs) | pylintCategorySeverity.refactor |
-| Warning (W) | pylintCategorySeverity.warning | Warning | Python-specific problems |
-| Error (E) | pylintCategorySeverity.error | Error (red underline) | Likely code bugs |
-| Fatal (F) | pylintCategorySeverity.fatal | Error | An error prevented further Pylint processing |
+| Warning (W) | Python-specific problems | Warning | pylintCategorySeverity.warning |
+| Error (E) | Likely code bugs | Error (red underline) | pylintCategorySeverity.error |
+| Fatal (F) | An error prevented further Pylint processing | Error | pylintCategorySeverity.fatal |
 
 ### Default Pylint rules
 
@@ -289,6 +289,6 @@ The Python extension maps mypy message categories to VS Code categories through 
 ## Next steps
 
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
-- [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
+- [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

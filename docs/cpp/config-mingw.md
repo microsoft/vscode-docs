@@ -234,7 +234,7 @@ You can press the TAB key to insert the selected member; then, when you add the 
 - The Terminal (**View** > **Terminal**) shows the command line that was used to start gdb. It shows the paths to the C++ extension, as well as to your mingw-w64 installation. In general, you should never need to be concerned with the details here:
 
    ```cmd
-   $ env "c:\Users\satyan\.vscode\extensions\ms-vscode.cpptools-0.21.0\debugAdapters\bin\WindowsDebugLauncher.exe" --std
+   $ env "c:\Users\username\.vscode\extensions\ms-vscode.cpptools-0.21.0\debugAdapters\bin\WindowsDebugLauncher.exe" --std
    in=Microsoft-MIEngine-In-slkzoloe.km0 --stdout=Microsoft-MIEngine-Out-b2nqrdmk.cc2 --stderr=Microsoft-MIEngine-Error-
    f42jy5qt.jfs --pid=Microsoft-MIEngine-Pid-32dwsmv3.tuh --dbgExe=C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw6
    4/bin/gdb.exe --interpreter=mi

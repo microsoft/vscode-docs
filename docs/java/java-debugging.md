@@ -44,17 +44,17 @@ You can manually install the extension pack from the Extensions view (`kb(workbe
 
 ## Use
 
-It's easy to run and debug your Java application as we provide several entry points for that.
+It's easy to run and debug your Java application as there are several entry points for starting a debugging session.
 
 ### CodeLens
 
-Once the debugger is activated, you will find **Run|Debug** on the CodeLens of your `main()` function.
+Once the debugger is activated, you will find **Run|Debug** on the [CodeLens](/blogs/2017/02/12/code-lens-roundup.md) of your `main()` function.
 
 ![CodeLens](images/java-debugging/java-codelens.gif)
 
-### Clicking F5
+### Pressing F5
 
-Once you select **Run** or `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging.
+Once you click **Run** on the CodeLens or press `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Debug** menu or the Debug view opened by the Debug icon in the Activity Bar on the side of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/debug-intro.mp4" type="video/mp4">

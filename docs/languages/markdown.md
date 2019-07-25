@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
@@ -81,6 +81,18 @@ For example, to load a stylesheet called `Style.css` at the root of your current
     "markdown.styles": [
         "Style.css"
     ]
+}
+```
+
+### Keep trailing whitespace in order to create line breaks
+
+To create [hard line breaks](https://spec.commonmark.org/0.29/#hard-line-breaks), Markdown requires two or more spaces at the end of a line. Depending on your user or workspace settings, VS Code may be configured to remove trailing whitespace. In order to keep trailing whitespace in Markdown files only, you can add these lines to your `settings.json`:
+
+```json
+{
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  }
 }
 ```
 

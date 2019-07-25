@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Debugging
 ContentId: 19c60eb6-662b-444a-92f6-009642cc1e5b
 PageTitle: TypeScript debugging with Visual Studio Code
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 MetaDescription: TypeScript debugging with Visual Studio Code.
 MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
 ---
@@ -128,7 +128,7 @@ Update the `launch.json` to specify the local file URL to `helloweb.html`:
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///C:/Users/gregvanl/deleteMe/HelloWeb/helloweb.html",
+            "url": "file:///C:/Users/username/deleteMe/HelloWeb/helloweb.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

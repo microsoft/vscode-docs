@@ -31,7 +31,7 @@ Here are a few highlights:
 
 * **Java and Python support** - We're getting serious about [Python](/docs/languages/python) and [Java](/docs/languages/java) for VS Code by staffing full time teams.  There was a nice demo of this support in the Visual Studio General Session showing debugging of an Azure Java Function and running Python unit tests.
 
-* **Debugging inside containers** - Containerized development is a great way to replicate your production environment, and work on multiple projects while keeping your development environment clean. With [the Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker), you can run `docker-compose` and automatically connect VS Code's debugger to a Node.js app running inside the container.
+* **Debugging inside containers** - Containerized development is a great way to replicate your production environment, and work on multiple projects while keeping your development environment clean. With [the Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker), you can run `docker-compose` and automatically connect VS Code's debugger to a Node.js app running inside the container.
 
 * **Work with Azure** - There are now extensions for [many Azure services](https://marketplace.visualstudio.com/search?target=VSCode&category=Azure&sortBy=Downloads), making tasks like deploying web apps, managing container registries and images, and working with databases a lot simpler.
 

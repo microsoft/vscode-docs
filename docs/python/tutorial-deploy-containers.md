@@ -44,7 +44,7 @@ Install the following software:
 
 The **Docker extension** helps you manage local Docker images, provides Docker commands, and simplifies deployment of app images to Azure. You can find an overview of the extension on the [vscode-docker GitHub repository](https://github.com/Microsoft/vscode-docker).
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/PeterJausovec.vscode-docker">Install the Docker extension</a>
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-docker">Install the Docker extension</a>
 
 The **Azure App Service extension** helps you create, manage, and deploy Web Apps to Azure App Service on Linux. For details, explore the [App Service extension tutorial](/tutorials/app-service-extension/getting-started.md) or visit the [vscode-azureappservice GitHub repository](https://github.com/Microsoft/vscode-azureappservice).
 

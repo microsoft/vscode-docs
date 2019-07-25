@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f4d4e9e0-8901-405c-aaf5-faa16c32588b
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Visual Studio Code's Proposed API
@@ -25,7 +25,7 @@ We now provide [vscode-dts](https://github.com/microsoft/vscode-dts) module that
 
 ```bash
 > npx vscode-dts dev
-Downloading vscode.proposed.d.ts to /Users/pine/Code/vscode-docs/vscode.proposed.d.ts
+Downloading vscode.proposed.d.ts to /Users/username/Code/vscode-docs/vscode.proposed.d.ts
 Please set "enableProposedApi": true in package.json.
 Read more about proposed API at: https://code.visualstudio.com/api/advanced-topics/using-proposed-api
 ```

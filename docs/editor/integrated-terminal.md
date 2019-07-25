@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -56,7 +56,7 @@ The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10
 
 ### Windows
 
-For Windows there is a convenient shell selector located inside the terminal dropdown that lets you choose between several detected shells including Command Prompt, PowerShell, PowerShell Core, Git Bash and WSL Bash. The **Terminal: Select Default Shell** command is also available through the command palette if you prefer to access it there.
+For Windows there is a convenient shell selector located inside the terminal dropdown that lets you choose between several detected shells including Command Prompt, PowerShell, PowerShell Core, Git Bash and WSL Bash. The **Terminal: Select Default Shell** command is also available through the Command Palette if you prefer to access it there.
 
 Just like on other platforms you can fine tune the exact executable used in your settings file, for example:
 

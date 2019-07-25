@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 6/5/2019
+DateApproved: 7/3/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -139,6 +139,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `listFilterWidget.background`: List/Tree Filter background color of typed text when searching inside the list/tree.
 - `listFilterWidget.outline`: List/Tree Filter Widget's outline color of typed text when searching inside the list/tree.
 - `listFilterWidget.noMatchesOutline`: List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
+- `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
 
 ## Activity Bar
 
