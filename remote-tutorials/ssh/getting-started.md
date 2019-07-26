@@ -12,7 +12,7 @@ This tutorial walks you through creating and connecting to a virtual machine (VM
 
 ## Prerequisites
 
-You need [Visual Studio Code](https://code.visualstudio.com/) installed along with [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
+You need [Visual Studio Code](https://code.visualstudio.com/) installed.
 
 ## Install the extension
 
@@ -21,7 +21,6 @@ The Remote - SSH extension is used to connect to SSH hosts.
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-ssh">Install the Remote - SSH extension</a>
 
 ## Prerequisite check
-
 
 ----
 
