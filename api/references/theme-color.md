@@ -167,6 +167,12 @@ The Side Bar contains views like the Explorer and Search.
 - `sideBarSectionHeader.foreground`: Side Bar section header foreground color.
 - `sideBarSectionHeader.border`: Side bar section header border color.
 
+## Minimap
+
+The Minimap shows a minified version of the current file.
+
+- `minimap.findMatchHighlight`: Highlight color for matches from search within files
+
 ## Editor Groups & Tabs
 
 Editor Groups are the containers of editors. There can be many editor groups. A Tab is the container of an editor. Multiple Tabs can be opened in one editor group.
