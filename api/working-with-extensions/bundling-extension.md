@@ -90,7 +90,7 @@ Merge these entries into the `scripts` section in `package.json`:
   "vscode:prepublish": "webpack --mode production",
   "compile": "webpack --mode none",
   "watch": "webpack --mode none --watch",
-  "test-compile": "tsc -p ./",
+  "test-compile": "tsc -p ./ && npm run compile",
 },
 ```
 
@@ -99,6 +99,33 @@ The `compile` and `watch` scripts are for development and they produce the bundl
 ## Run the extension
 
 Before you can run the extension, the `main` property in `package.json` must point to the bundle, which for the configuration above is [`"./dist/extension"`](https://github.com/Microsoft/vscode-references-view/blob/d649d01d369e338bbe70c86e03f28269cbf87027/package.json#L26). With that change, the extension can now be executed and tested. For debugging configuration, make sure to update the `outFiles` property in the `launch.json` file.
+```json
+  "configurations": [
+    {
+      "name": "Run Extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "npm: test-compile"
+    },
+    {
+      "name": "Extension Tests",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "${workspaceFolder}/testworkspace",
+        "--disable-extensions",
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/out/test"
+      ],
+      "outFiles": ["${workspaceFolder}/out/test/**/*.js"],
+      "preLaunchTask": "npm: test-compile"
+    }
+  ]
+```
 
 ## Tests
 
