@@ -4,10 +4,9 @@ Area: java
 TOCTitle: Java Tutorial
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Writing Java with Visual Studio Code
-DateApproved: 6/17/2019
+DateApproved: 7/25/2019
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
-
 # Writing Java with Visual Studio Code
 
 This tutorial shows you how to write and run a simple Hello World program in Java with Visual Studio Code. It also covers a few advanced features, which you can explore by reading other documents in this section.
