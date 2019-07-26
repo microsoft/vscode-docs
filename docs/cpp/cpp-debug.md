@@ -29,7 +29,7 @@ For example:
 
 Cygwin/MinGW debugging on Windows supports both attach and launch debugging scenarios.
 
-To learn more, see [Configuring launch.json for C/C++ debugging](https://github.com/Microsoft/vscode-cpptools/blob/master/launch.md).
+To learn more, see [Configuring C/C++ debugging](/docs/cpp/launch-json-reference.md).
 
 If you are debugging with GDB on Windows, see [Windows Debugging with MinGW64](/docs/cpp/config-mingw.md).
 

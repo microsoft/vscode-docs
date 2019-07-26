@@ -4,10 +4,9 @@ Area: java
 TOCTitle: Java Tutorial
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Writing Java with Visual Studio Code
-DateApproved: 6/17/2019
+DateApproved: 7/25/2019
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
-
 # Writing Java with Visual Studio Code
 
 This tutorial shows you how to write and run a simple Hello World program in Java with Visual Studio Code. It also covers a few advanced features, which you can explore by reading other documents in this section.
@@ -62,15 +61,21 @@ You can also select which extensions you would like to install separately. For t
 
 ## Create the program
 
-Create a folder for your Java program and open the folder with Visual Studio Code. Within Visual Studio Code, you can then create a new file `Hello.java`. When you open that file, the Java Language Server will automatically be activated as you can see a rocket icon on the right of the Status bar. When it finishes loading, you will see a thumbs-up icon instead.
+Create a folder for your Java program and open the folder with Visual Studio Code. Within Visual Studio Code, you can then create a new file `Hello.java`. When you open that file, the Java Language Server will automatically be activated as you can see a loading icon on the right of the Status bar. When it finishes loading, you will see a thumbs-up icon instead.
 
 <video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-tutorial/create-file.mp4" type="video/mp4">
+  <source src="/docs/java/java-tutorial/JavaHelloWorld.Standalone.mp4" type="video/mp4">
+</video>
+
+>**Note**: The Java Language Server might not work properly if you open a standalone Java file in Visual Studio Code without opening its folder.
+
+You can also create an Eclipse style project using the **Java: Create Java Project** command. Bring up the **Command Palette**  (`kb(workbench.action.showCommands)`) and then type `java` to search for this command. After selecting the command, you will be prompted for the location and name of the project.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-tutorial/JavaHelloWorld.Project.mp4" type="video/mp4">
 </video>
 
 Visual Studio Code also supports more complex Java projects, see [Project Management](/docs/java/java-project.md).
-
->**Note**: The Java Language Server might not work properly if you open a standalone Java file in Visual Studio Code without opening its folder.
 
 ## Editing code
 
@@ -100,6 +105,6 @@ Now you've seen how easy it is to write a simple Java program with Visual Studio
 * [Debugging](/docs/java/java-debugging.md) illustrates all the key features provided for Java debug.
 * [Testing](/docs/java/java-testing.md) provides comprehensive supports for JUnit and TestNG framework.
 * [Java Project Management](/docs/java/java-project.md) shows you how it provides you a project view and works with Maven.
-* [Spring Boot Support](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great support for Spring Boot, Tomcat, and Jetty.https://code.visualstudio.com/docs/getstarted/settings
+* [Spring Boot Support](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great support for Spring Boot, Tomcat, and Jetty.
 
 To learn how to work with Java Web App in VS Code, read [Java Web App](/docs/java/java-webapp.md).
