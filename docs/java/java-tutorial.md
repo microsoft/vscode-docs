@@ -70,7 +70,7 @@ Create a folder for your Java program and open the folder with Visual Studio Cod
 
 >**Note**: The Java Language Server might not work properly if you open a standalone Java file in Visual Studio Code without opening its folder.
 
-You might also create Eclipse style project using the `Java: Create Java Project` command. You can bring up the **Command Palette** by press `kb(workbench.action.showCommands)` and then type `Java` to search for this command. After selecting the command, it will ask the location and the name of the project.
+You can also create an Eclipse style project using the **Java: Create Java Project** command. Bring up the **Command Palette**  (`kb(workbench.action.showCommands)`) and then type `java` to search for this command. After selecting the command, you will be prompted for the location and name of the project.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-tutorial/JavaHelloWorld.Project.mp4" type="video/mp4">
