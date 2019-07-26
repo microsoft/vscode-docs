@@ -98,7 +98,7 @@ The `compile` and `watch` scripts are for development and they produce the bundl
 
 ## Run the extension
 
-Before you can run the extension, the `main` property in `package.json` must point to the bundle, which for the configuration above is [`"./dist/extension"`](https://github.com/Microsoft/vscode-references-view/blob/d649d01d369e338bbe70c86e03f28269cbf87027/package.json#L26). With that change, the extension can now be executed and tested. For debugging configuration, make sure to update the `outFiles` property in the `launch.json` file.
+Before you can run the extension, the `main` property in `package.json` must point to the bundle, which for the configuration above is [`"./dist/extension"`](https://github.com/Microsoft/vscode-references-view/blob/d649d01d369e338bbe70c86e03f28269cbf87027/package.json#L26). With that change, the extension can now be executed and tested. For debugging configuration, make sure to update the `outFiles` and `preLaunchTask` property in the `launch.json` file.
 ```json
   "configurations": [
     {
