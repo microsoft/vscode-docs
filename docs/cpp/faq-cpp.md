@@ -65,4 +65,4 @@ When you open a workspace for the first time, the extension adds `${workspaceRoo
 
 ## How do I recreate the IntelliSense database?
 
-Starting in version 0.12.3 of the extension, we added a command that will reset your IntelliSense database. Open the command palette and choose the "C/Cpp: Reset IntelliSense Database" command.
+Starting in version 0.12.3 of the extension, there is a command to reset your IntelliSense database. Open the Command Palette (`kb(workbench.action.showCommands)`) and choose the **C_Cpp: Reset IntelliSense Database** command.
