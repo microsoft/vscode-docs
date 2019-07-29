@@ -22,6 +22,14 @@ The Remote - Containers extension lets you run VS Code inside a Docker container
 
 ## Prerequisite check
 
+With the Remote - Containers extension installed, you see a new Status bar item in the far left.
+
+![Remote Status bar item](images/containers/remote-status-bar.png)
+
+The Remote Status bar item can quickly show you in which context VS Code in running (local or remote) and clicking on the item will bring up the Remote - Containers commands.
+
+![Remote - Containers commands](images/containers/remote-containers-commands.png)
+
 ----
 
 <a class="tutorial-next-btn" href="/remote-tutorials/containers/install-docker">I've installed the extension</a>

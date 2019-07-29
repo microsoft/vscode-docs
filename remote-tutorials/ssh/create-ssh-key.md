@@ -22,7 +22,7 @@ This will generate the SSH key. Press Enter at the following prompt to save the 
 
 You will then be prompted to enter a secure passphrase but you can leave that blank.
 
-Next, TBD
+Next, we'll add the SSH key to our virtual machine SSH host.
 
 ---
 

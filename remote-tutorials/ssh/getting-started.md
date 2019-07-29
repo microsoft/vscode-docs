@@ -22,7 +22,15 @@ The Remote - SSH extension is used to connect to SSH hosts.
 
 ## Prerequisite check
 
+With the Remote - SSH extension installed, you see a new Status bar item in the far left.
+
+![Remote Status bar item](images/ssh/remote-status-bar.png)
+
+The Remote Status bar item can quickly show you in which context VS Code in running (local or remote) and clicking on the item will bring up the Remote - SSH commands.
+
+![Remote - WSL commands](images/wsl/remote-ssh-commands.png)
+
 ----
 
-<a class="tutorial-next-btn" href="/remote-tutorials/ssh/create-vm">I've installed the Remote - SSH Extension</a>
+<a class="tutorial-next-btn" href="/remote-tutorials/ssh/create-vm">I've installed the Remote - SSH extension</a>
 <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-ssh', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>

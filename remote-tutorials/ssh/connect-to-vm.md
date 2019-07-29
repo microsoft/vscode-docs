@@ -36,7 +36,7 @@ The Remote - SSH extension also contributes a new icon on your Activity bar, and
 
 ![Remote button on Activity bar](images/ssh/remote-on-activity-bar.png)
 
-Once you're connected to your SSH host, you can interact with files and open folders on the remote machine. If you open the integrated terminal, you'll see you're working inside a bash shell _while you're on Windows_. Hold up, we're already connected to our VM? That was way too easy. That's the point. These extensions make remote development feel easy, smooth, and… well, not remote. 😃
+Once you're connected to your SSH host, you can interact with files and open folders on the remote machine. If you open the integrated terminal, you'll see you're working inside a bash shell _while you're on Windows_.
 
 ![Checking uname in the terminal](images/ssh/check-uname.png)
 

@@ -8,7 +8,7 @@ DateApproved: 2/9/2018
 ---
 # Remote development in WSL
 
-This tutorial walks you through enabling Windows Subsystem for Linux (WSL) and running Visual Studio Code in WSL using the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
+This tutorial walks you through enabling [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL) and running Visual Studio Code in WSL using the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
 
 ## Prerequisites
 
@@ -20,7 +20,17 @@ The Remote - WSL extension enables you to run Visual Studio Code within the Wind
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-wsl">Install the Remote - WSL extension</a>
 
+![Remote - WSL extension](images/wsl/remote-wsl-extension.png)
+
 ## Prerequisite check
+
+With the Remote - WSL extension installed, you see a new Status bar item in the far left.
+
+![Remote Status bar item](images/wsl/remote-status-bar.png)
+
+The Remote Status bar item can quickly show you in which context VS Code in running (local or remote) and clicking on the item will bring up the Remote - WSL commands.
+
+![Remote - WSL commands](images/wsl/remote-wsl-commands.png)
 
 ----
 
