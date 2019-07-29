@@ -66,9 +66,9 @@ Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/g
 
 You can enable the build to run continuously when pushing to a branch and even on pull requests. See [Build pipeline triggers](https://docs.microsoft.com/azure/devops/pipelines/build/triggers) to learn more.
 
-## Travis
+## Travis CI
 
-[vscode-test](https://github.com/microsoft/vscode-test) also includes a [Travis build definiton](https://github.com/microsoft/vscode-test/blob/master/.travis.yml). Because the way to define environment variables is different from Azure DevOps to Travis, the `xvfb` script is a little bit different:
+[vscode-test](https://github.com/microsoft/vscode-test) also includes a [Travis CI build definiton](https://github.com/microsoft/vscode-test/blob/master/.travis.yml). Because the way to define environment variables is different from Azure Pipelines to Travis CI, the `xvfb` script is a little bit different:
 
 ```yaml
 language: node_js
