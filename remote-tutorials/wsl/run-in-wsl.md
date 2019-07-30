@@ -12,17 +12,13 @@ In the WSL terminal, make sure you are in the helloWorld folder, and type in "co
 
 ![launch VS Code](images/wsl/launch-code.png)
 
-The first thing you'll see is a message about "Installing VS Code Server" (the c7d83e57… number is the version of the VS Code Server that matches the client-side tools you just installed). VS Code is installing a small server on the Linux side that the desktop VS Code will then talk to.
+The first thing you'll see is a message about "Installing VS Code Server" (the c7d83e57… number is the version of the VS Code Server that matches the client-side tools you just installed). VS Code is installing a small server on the Linux side that the desktop VS Code will then talk to. That server will then install and host extensions in WSL, so that they run in the context of the tools and frameworks installed in WSL. In other words, your language extensions will run against the tools and frameworks installed in WSL, not against what is installed on the Windows side, as it should for the proper development experience.
 
-![vscode server](images/wsl/vscode-server.png)
-
-That server will then install and host extensions in WSL, so that they run in the context of the tools and frameworks installed in WSL. In other words, your Python extension will run against the Python installed in WSL, not against what is installed on the Windows side, as it should for the proper development experience.
-
-The next thing that happens is VS Code will start and open the helloWorld folder. You may see a quick notification telling you that VS Code is connecting to WSL, and you may be prompted to allow access to the Node.js-based server.
+The next thing that happens is VS Code will start and open the `helloWorld` folder. You may see a quick notification telling you that VS Code is connecting to WSL, and you may be prompted to allow access to the Node.js-based server.
 
 ![installing vscode server](images/wsl/installing-vscode-server.png)
 
-Now, when you hover over hello.py, you get the proper Linux path.
+Now, when you hover over `hello.py`, you get the proper Linux path.
 
 ![show hello.py Linux path](images/wsl/show-linux-path.png)
 

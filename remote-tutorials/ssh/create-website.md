@@ -18,6 +18,13 @@ From the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), i
 sudo apt-get install nodejs npm
 ```
 
+You can verify the installations by running:
+
+```bash
+node --version
+npn --version
+```
+
 ## Install the Express Generator
 
 [Express](https://www.expressjs.com) is a very popular framework for building and running Node.js applications. You can scaffold (create) a new Express application using the [Express Generator](https://expressjs.com/en/starter/generator.html) tool. The Express Generator is shipped as an npm module and installed by using the npm command-line tool `npm`.
@@ -59,13 +66,13 @@ The Express app by default runs on [http://localhost:3000](http://localhost:3000
 
 To be able to browse to the web app on your local machine, you can leverage another feature called [Port forwarding](/docs/remote/ssh.md#_forwarding-a-port-creating-ssh-tunnel).
 
-To be able to access a port on the remote machine that may not be publicly exposed, you need to establish a connection or a tunnel between a port on your local machine and the server. With the app still running, open the SSH Explorer and find the **Forwarded Ports** view. Click on the **Forward a port** link and indicate that we want to forward port 3000:
+To be able to access a port on the remote machine that may not be publicly exposed, you need to establish a connection or a tunnel between a port on your local machine and the server. With the app still running, open the SSH Explorer and find the **Forwarded Ports** view. Click on the **Forward a port** link and indicate that you want to forward port 3000:
 
-![Enter the port to forward](images/ssh/enter-port.png) TBD
+![Enter the port to forward](images/ssh/enter-port.png)
 
 Name the connection "browser":
 
-![Name the port](images/ssh/name-port.png) TBD
+![Name the port](images/ssh/name-port.png)
 
 The server will now forward traffic on port 3000 to your local machine. When you browse to http://localhost:3000, you see the running web app.
 
@@ -73,4 +80,4 @@ The server will now forward traffic on port 3000 to your local machine. When you
 
 ----
 
-<a class="tutorial-next-btn" href="/remote-tutorials/ssh/edit-and-debug">I've created a web app</a> <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-ssh', 'connect-to-vm')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/remote-tutorials/ssh/edit-and-debug">I've created a web app</a> <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-ssh', 'create-website')" href="javascript:void(0)">I ran into an issue</a>

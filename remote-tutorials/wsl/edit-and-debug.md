@@ -54,6 +54,8 @@ If you want to open another folder in WSL, open the **File** menu and choose **O
 
 If you want to switch back to the Windows, select the **Show Local** option and you'll get the standard Windows File Open dialog.
 
+## Ending your WSL connection
+
 You can end your session in WSL and go back running VS Code locally with **File** > **Close Remote Connection**.
 
 ## Congratulations!
@@ -70,4 +72,4 @@ Or get them all by installing the
 
 ----
 
-<a class="tutorial-next-btn" href="/docs/remote/remote-tutorials">I'm Done!</a> <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-wsl', 'run-in-wsl')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/docs/remote/remote-tutorials">I'm Done!</a> <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-wsl', 'edit-and-debug')" href="javascript:void(0)">I ran into an issue</a>

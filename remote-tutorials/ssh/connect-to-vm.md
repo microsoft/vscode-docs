@@ -40,7 +40,7 @@ Once you're connected to your SSH host, you can interact with files and open fol
 
 ![Checking uname in the terminal](images/ssh/check-uname.png)
 
-You can use the bash shell to browse the file system on the VM. Create a new folder "demo" with `mkdir demo`, and you can browse and open folders on the remote home directory with **File** > **Open Folder**.
+You can use the bash shell to browse the file system on the VM. You can also browse and open folders on the remote home directory with **File** > **Open Folder**.
 
 ![Remote open folder](images/ssh/remote-open-folder.png)
 

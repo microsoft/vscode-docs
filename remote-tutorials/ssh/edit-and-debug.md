@@ -8,25 +8,31 @@ DateApproved: 7/26/2019
 ---
 # Edit and debug with VS Code
 
+From the Visual Studio Code File Explorer (`kb(workbench.view.explorer)`), navigate to your new myExpress folder and double-click the `app.js` file to open it in the editor.
+
 ## IntelliSense
 
-TBD
+You'll see that you have syntax highlighting for the JavaScript file as well as IntelliSense with hovers just like you would see if the source code was on your local machine.
+
+![Express app.js hover](images/ssh/express-hover.png)
+
+When you start typing, you'll get smart completions for the object methods and properties.
+
+![Express app.js smart completions](images/ssh/express-completions.png)
 
 ## Debugging
 
-With your tools set up, let's take this one step further. Set a breakpoint on line 1 of TBD by clicking in the gutter to the left of the line number or by putting the cursor on the line and pressing `kb(editor.debug.action.toggleBreakpoint)`.
+Set a breakpoint on line 10 of `app.js` by clicking in the gutter to the left of the line number or by putting the cursor on the line and pressing `kb(editor.debug.action.toggleBreakpoint)`. The breakpoint will be displayed as a red circle.
 
-![set breakpoint](images/ssh/set-breakpoint.png) TBD
+![set breakpoint](images/ssh/set-breakpoint.png)
 
-Now, press `kb(workbench.action.debug.start)` to run your application. You will be asked how to run the application, choose **Node.js**.
-
-![select debug configuration](images/ssh/select-debug-config.png) TBD
+Now, press `kb(workbench.action.debug.start)` to run your application. If you are asked how to run the application, choose **Node.js**.
 
 The app will start, and you'll hit the breakpoint. You can inspect variables, create watches, and navigate the call stack.
 
-Press `kb(workbench.action.debug.stepOver)` to step and you'll see the output in the debug console.
+Press `kb(workbench.action.debug.stepOver)` to step or `kb(workbench.action.debug.start)` again to finish your debugging session.
 
-![VS Code debug view](images/ssh/debug-view.png)  TBD
+![VS Code debug view](images/ssh/debug-view.png)
 
 You get the full development experience of Visual Studio Code connected over SSH.
 
@@ -48,4 +54,4 @@ Or get them all by installing the
 
 ----
 
-<a class="tutorial-next-btn" href="/docs/remote/remote-tutorials">I'm Done!</a> <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-ssh', 'connect-to-vm')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/docs/remote/remote-tutorials">I'm Done!</a> <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-ssh', 'edit-and-debug')" href="javascript:void(0)">I ran into an issue</a>

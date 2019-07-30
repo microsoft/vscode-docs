@@ -16,10 +16,12 @@ A cool feature of using Azure VMs is the ability to enable auto-shutdown (becaus
 
 ![Virtual machine auto-shutdown](images/ssh/vm-auto-shutdown.png)
 
-Select **Review and Create** and Azure will deploy your VM for you!
+Select **Review and Create**, then **Create**, and Azure will deploy your VM for you!
 
-Next, connect to your virtual machine through SSH.
+Once the deployment is finished (it may take several minutes), go to the new resource view for your virtual machine.
+
+Next, you'll connect to your virtual machine through SSH.
 
 ----
 
-<a class="tutorial-next-btn" href="/remote-tutorials/ssh/connect-to-vm">I've added my SSH key</a> <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-ssh', 'add-ssh-key')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/remote-tutorials/ssh/connect-to-vm">I've added my SSH key and created the VM</a> <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-ssh', 'add-ssh-key')" href="javascript:void(0)">I ran into an issue</a>

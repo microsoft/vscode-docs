@@ -20,4 +20,4 @@ Next, you'll set up an SSH host by creating and adding an SSH public key.
 
 ----
 
-<a class="tutorial-next-btn" href="/remote-tutorials/ssh/create-ssh-key">I've created a virtual machine</a> <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-ssh', 'create-vm')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/remote-tutorials/ssh/create-ssh-key">I've configured a virtual machine</a> <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-ssh', 'create-vm')" href="javascript:void(0)">I ran into an issue</a>
