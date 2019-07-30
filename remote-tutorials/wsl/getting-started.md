@@ -2,9 +2,9 @@
 Order: 1
 Area: wsl
 TOCTitle: Getting started
-PageTitle: Azure Functions with Visual Studio Code
-MetaDescription: Try Azure Functions for free with Visual Studio Code
-DateApproved: 2/9/2018
+PageTitle: Work in Windows Subsystem for Linux with Visual Studio Code
+MetaDescription: Work in Windows Subsystem for Linux with Visual Studio Code
+DateApproved: 7/26/2019
 ---
 # Remote development in WSL
 
@@ -28,7 +28,7 @@ With the Remote - WSL extension installed, you see a new Status bar item in the 
 
 ![Remote Status bar item](images/wsl/remote-status-bar.png)
 
-The Remote Status bar item can quickly show you in which context VS Code in running (local or remote) and clicking on the item will bring up the Remote - WSL commands.
+The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Remote - WSL commands.
 
 ![Remote - WSL commands](images/wsl/remote-wsl-commands.png)
 

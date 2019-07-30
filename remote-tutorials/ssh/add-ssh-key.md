@@ -8,7 +8,7 @@ DateApproved: 7/26/2019
 ---
 ## Add SSH keys to your VM
 
-In the previous step, we generated an SSH key pair. We'll take the public key and paste it into our VM setup, by copying the contents of the `id_rsa.pub`. You also want to allow your VM to accept inbound SSH traffic.
+In the previous step, you generated an SSH key pair. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_rsa.pub`. You also want to allow your VM to accept inbound SSH traffic.
 
 ![Add SSH public key to VM](images/ssh/add-ssh-public-key.png)
 
