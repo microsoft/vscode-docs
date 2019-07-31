@@ -157,7 +157,7 @@ You can see the extension id on the extension details page next to the extension
 
 ## Extensions view filters
 
-The Extensions view search box supports filters to help you find and manage extensions. You may have seen filters such as `@installed` and `@recommended` if you used the commands **Show Installed Extensions** and **Show Recommended Extensions**. There are also filters to let you sort by popularity and ratings and search by category (for example 'Linters') and tags (for example 'node'). You can see a complete listing of all filter and sort commands by typing `@` in the extensions search box and navigating through the suggestions:
+The Extensions view search box supports filters to help you find and manage extensions. You may have seen filters such as `@installed` and `@recommended` if you used the commands **Show Installed Extensions** and **Show Recommended Extensions**. Also, there are filters available to let you sort by popularity or ratings and search by category (for example 'Linters') and tags (for example 'node').You can see a complete listing of all filters and sort commands by typing `@` in the extensions search box and navigating through the suggestions:
 
 ![intellisense on extension search filters](images/extension-gallery/extension-search-filters.png)
 
