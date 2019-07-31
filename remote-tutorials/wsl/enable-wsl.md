@@ -8,7 +8,7 @@ DateApproved: 7/25/2019
 ---
 # Enable WSL
 
-Windows Subsystem for Linux (WSL) is an optional feature on Windows 10. You can enabled it through the Windows Features dialog or PowerShell.
+Windows Subsystem for Linux (WSL) is an optional feature on Windows 10. You can enable it through the Windows Features dialog or PowerShell.
 
 ## Windows Features dialog
 

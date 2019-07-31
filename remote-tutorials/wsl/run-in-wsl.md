@@ -8,7 +8,7 @@ DateApproved: 7/26/2019
 ---
 # Run in Windows Subsystem for Linux
 
-In the WSL terminal, make sure you are in the helloWorld folder, and type in "code ." to launch Visual Studio Code (the "." tells VS Code to open the current folder).
+In the WSL terminal, make sure you are in the helloWorld folder, and type in `'code .'` to launch Visual Studio Code. The `'.'` argument tells VS Code to open the current folder.
 
 ![launch VS Code](images/wsl/launch-code.png)
 

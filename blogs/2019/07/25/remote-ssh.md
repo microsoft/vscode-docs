@@ -50,7 +50,7 @@ To get started, you need to have done the following:
 
 ## Create a VM
 
-If you don't have an existing Linux virtual machine, you can create a new VM through the [Azure Portal](https://portal.azure.com). In the Azure Portal, search for "Virtual Machines", and choose **Add**. From there, you can select your Azure subscription and create a new resource group, if you don't already have one.
+If you don't have an existing Linux virtual machine, you can create a new VM through the [Azure portal](https://portal.azure.com). In the Azure portal, search for "Virtual Machines", and choose **Add**. From there, you can select your Azure subscription and create a new resource group, if you don't already have one.
 
 ![Create a virtual machine](create-vm.png)
 
@@ -100,7 +100,7 @@ You'll have noticed an indicator on the bottom-left corner of the Status bar. Th
 
 Choose the **Remote-SSH: Connect to Host** command and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
 
-The `user` is the username you set when adding the SSH public key to your VM. For the `hostname`, go back to the [Azure Portal](https://portal.azure.com) and in the **Overview** pane of the VM we created, copy the **Public IP address**.
+The `user` is the username you set when adding the SSH public key to your VM. For the `hostname`, go back to the [Azure portal](https://portal.azure.com) and in the **Overview** pane of the VM we created, copy the **Public IP address**.
 
 ![Virtual machine public IP address](vm-public-ip-address.png)
 

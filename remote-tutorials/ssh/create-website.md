@@ -8,7 +8,7 @@ DateApproved: 7/26/2019
 ---
 # Create your Node.js Application
 
-In this step, you will create a very simple Node.js application. You will use an application generator to quickly scaffold out the application from a terminal.
+In this step, you will create a simple Node.js application. You will use an application generator to quickly scaffold out the application from a terminal.
 
 ## Install Node.js and npm
 
@@ -27,7 +27,7 @@ npn --version
 
 ## Install the Express Generator
 
-[Express](https://www.expressjs.com) is a very popular framework for building and running Node.js applications. You can scaffold (create) a new Express application using the [Express Generator](https://expressjs.com/en/starter/generator.html) tool. The Express Generator is shipped as an npm module and installed by using the npm command-line tool `npm`.
+[Express](https://www.expressjs.com) is a popular framework for building and running Node.js applications. You can scaffold (create) a new Express application using the [Express Generator](https://expressjs.com/en/starter/generator.html) tool. The Express Generator is shipped as an npm module and installed by using the npm command-line tool `npm`.
 
 ```bash
 sudo npm install -g express-generator

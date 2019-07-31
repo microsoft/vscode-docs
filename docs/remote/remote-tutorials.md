@@ -9,7 +9,7 @@ DateApproved: 7/26/2019
 ---
 # Remote Development tutorials
 
-**Visual Studio Code Remote Development** allows you to use a container, remote machine, or the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as a full-featured development environment.
+**Visual Studio Code Remote Development** allows you to use a container, remote machine, or the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl) (WSL) as a full-featured development environment.
 
 ![Remote Development extension pack](images/remote-tutorials/remote-extension-pack.png)
 

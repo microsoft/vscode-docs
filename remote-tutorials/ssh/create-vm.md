@@ -8,7 +8,7 @@ DateApproved: 7/26/2019
 ---
 # Create a virtual machine
 
-If you don't have an existing Linux virtual machine, you can create a new VM through the [Azure Portal](https://portal.azure.com). In the Azure Portal, search for "Virtual Machines", and choose **Add**. From there, you can select your Azure subscription and create a new resource group, if you don't already have one.
+If you don't have an existing Linux virtual machine, you can create a new VM through the [Azure portal](https://portal.azure.com). In the Azure portal, search for "Virtual Machines", and choose **Add**. From there, you can select your Azure subscription and create a new resource group, if you don't already have one.
 
 ![Create a virtual machine](images/ssh/create-vm.png)
 
