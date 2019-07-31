@@ -65,7 +65,7 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
   The full path to the compiler you use to build your project, e.g. `/usr/bin/gcc`, to enable more accurate IntelliSense. Arguments can be added to modify the includes/defines used, e.g. `-nostdinc++`, `-m32`, etc., but paths with spaces must be surrounded by double quotes `"` if arguments are used. The extension will query the compiler to determine the system include paths and default defines to use for IntelliSense.
 
 - `intelliSenseMode`
-  The IntelliSense mode to use that maps to an architecture-specific variant of MSVC, gcc, or Clang. If not set or if set to `${default}`, the extension will choose the default for that plat form. Windows defaults to: - `msvc-x64` - Linux defaults to `gcc-x64` - macOS defaults to `clang-x64`.
+  The IntelliSense mode to use that maps to an architecture-specific variant of MSVC, gcc, or Clang. If not set or if set to `${default}`, the extension will choose the default for that platform. Windows defaults to: - `msvc-x64` - Linux defaults to `gcc-x64` - macOS defaults to `clang-x64`.
 
 - `includePath`
   An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list paths for the IntelliSense engine to use while searching for included header files. If a path ends with `/**` the IntelliSense engine will do a recursive search for hearder files starting from that directory. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
