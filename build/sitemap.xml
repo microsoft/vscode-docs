@@ -581,6 +581,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/remote/remote-tutorials</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/remote/troubleshooting</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -757,6 +762,74 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/tutorials/static-website/code-change</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- /remote-tutorials-->
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/ssh/getting-started</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/ssh/create-vm</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/ssh/create-ssh-key</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/ssh/add-ssh-key</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/ssh/connect-to-vm</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/ssh/create-website</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/ssh/edit-and-debug</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/wsl/getting-started</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/wsl/enable-wsl</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/wsl/install-linux</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/wsl/install-python</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/wsl/run-in-wsl</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/wsl/edit-and-debug</loc>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
