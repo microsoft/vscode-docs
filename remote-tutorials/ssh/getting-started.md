@@ -12,7 +12,11 @@ This tutorial walks you through creating and connecting to a virtual machine (VM
 
 ## Prerequisites
 
-You need [Visual Studio Code](https://code.visualstudio.com/) installed.
+To get started, you need to have done the following:
+
+1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) (PuTTY is not supported).
+2. Install [Visual Studio Code](https://code.visualstudio.com).
+3. Have an Azure subscription (If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin).
 
 ## Install the extension
 
