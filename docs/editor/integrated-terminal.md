@@ -272,14 +272,6 @@ Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to add the
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
 
-### Can I use Cygwin's shell with the terminal on Windows?
-
-Yes, you can use the [Cygwin](http://cygwin.com/) shell. If you installed Cygwin to the default location, you should be able to switch to it via the **Select Default Shell** command. If not, configure the path manually in your `settings.json` file:
-
-```json
-"terminal.integrated.shell.windows": "C:\\cygwin64\\bin\\bash.exe"
-```
-
 ### Powershell on macOS is complaining about a "-l" argument, how do I fix it?
 
 When configuring the integrated terminal to use Powershell on macOS you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
