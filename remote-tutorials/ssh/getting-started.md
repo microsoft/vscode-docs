@@ -8,7 +8,7 @@ DateApproved: 7/26/2019
 ---
 # Remote development over SSH
 
-This tutorial walks you through creating and connecting to a virtual machine (VM) on Azure using the Visual Studio Code Remote - SSH extension. You'll create a Node.js Express web app to show how you can edit and debug on a remote machine with VS Code just like you could if the source code was local.
+This tutorial walks you through creating and connecting to a virtual machine (VM) on Azure using the Visual Studio Code [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension. You'll create a Node.js Express web app to show how you can edit and debug on a remote machine with VS Code just like you could if the source code was local.
 
 ## Prerequisites
 
@@ -24,13 +24,13 @@ The Remote - SSH extension is used to connect to SSH hosts.
 
 ## Remote - SSH
 
-With the Remote - SSH extension installed, you see a new Status bar item in the far left.
+With the Remote - SSH extension installed, you will see a new Status bar item at the far left.
 
 ![Remote Status bar item](images/ssh/remote-status-bar.png)
 
 The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Remote - SSH commands.
 
-![Remote - WSL commands](images/ssh/remote-ssh-commands.png)
+![Remote - SSH commands](images/ssh/remote-ssh-commands.png)
 
 ----
 

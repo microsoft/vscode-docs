@@ -36,7 +36,7 @@ The Remote - SSH extension also contributes a new icon on your Activity bar, and
 
 ![Remote button on Activity bar](images/ssh/remote-on-activity-bar.png)
 
-Once you're connected to your SSH host, you can interact with files and open folders on the remote machine. If you open the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), you'll see you're working inside a bash shell _while you're on Windows_.
+Once you're connected to your SSH host, you can interact with files and open folders on the remote machine. If you open the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), you'll see you're working inside a bash shell **while you're on Windows**.
 
 ![Checking uname in the terminal](images/ssh/check-uname.png)
 

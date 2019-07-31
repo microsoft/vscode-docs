@@ -12,7 +12,7 @@ This tutorial walks you running Visual Studio Code in Docker containers using th
 
 ## Prerequisites
 
-You need [Visual Studio Code](https://code.visualstudio.com/).
+You need [Visual Studio Code](https://code.visualstudio.com/) installed.
 
 ## Install the extension
 
@@ -22,7 +22,7 @@ The Remote - Containers extension lets you run VS Code inside a Docker container
 
 ## Prerequisite check
 
-With the Remote - Containers extension installed, you see a new Status bar item in the far left.
+With the Remote - Containers extension installed, you will see a new Status bar item at the far left.
 
 ![Remote Status bar item](images/containers/remote-status-bar.png)
 

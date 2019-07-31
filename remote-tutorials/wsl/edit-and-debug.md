@@ -26,7 +26,7 @@ Now, when you edit your code, you get rich colorization and completions.
 
 ![Python IntelliSense](images/wsl/python-intellisense.png)
 
-And when you save your file (`kb(workbench.actions.file.save)`), you'll get linting errors and warnings on the file.
+And when you save your file (`kb(workbench.action.files.save)`), you'll get linting errors and warnings on the file.
 
 ![pylint error](images/wsl/pylint-error.png)
 
@@ -56,7 +56,7 @@ If you want to switch back to the Windows, select the **Show Local** option and 
 
 ## Ending your WSL connection
 
-You can end your session in WSL and go back running VS Code locally with **File** > **Close Remote Connection**.
+You can end your session in WSL and go back to running VS Code locally with **File** > **Close Remote Connection**.
 
 ## Congratulations!
 

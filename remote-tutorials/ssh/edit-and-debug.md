@@ -12,7 +12,7 @@ From the Visual Studio Code File Explorer (`kb(workbench.view.explorer)`), navig
 
 ## IntelliSense
 
-You'll see that you have syntax highlighting for the JavaScript file as well as IntelliSense with hovers just like you would see if the source code was on your local machine.
+You have syntax highlighting for the JavaScript file as well as IntelliSense with hovers, just like you would see if the source code was on your local machine.
 
 ![Express app.js hover](images/ssh/express-hover.png)
 
@@ -38,7 +38,7 @@ You get the full development experience of Visual Studio Code connected over SSH
 
 ## Ending your SSH connection
 
-You can end your session over SSH and go back running VS Code locally with **File** > **Close Remote Connection**.
+You can end your session over SSH and go back to running VS Code locally with **File** > **Close Remote Connection**.
 
 ## Congratulations!
 

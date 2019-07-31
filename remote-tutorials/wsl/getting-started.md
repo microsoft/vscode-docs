@@ -12,7 +12,7 @@ This tutorial walks you through enabling [Windows Subsystem for Linux](https://d
 
 ## Prerequisites
 
-You need [Visual Studio Code](https://code.visualstudio.com/).
+You need [Visual Studio Code](https://code.visualstudio.com/) installed.
 
 ## Install the extension
 
@@ -24,7 +24,7 @@ The Remote - WSL extension enables you to run Visual Studio Code within the Wind
 
 ## Prerequisite check
 
-With the Remote - WSL extension installed, you see a new Status bar item in the far left.
+With the Remote - WSL extension installed, you will see a new Status bar item at the far left.
 
 ![Remote Status bar item](images/wsl/remote-status-bar.png)
 

@@ -10,7 +10,7 @@ DateApproved: 7/25/2019
 
 Windows Subsystem for Linux (WSL) is an optional feature on Windows 10. You can enabled it through the Windows Features dialog or PowerShell.
 
-## Turn Windows features on or off
+## Windows Features dialog
 
 In the Windows search bar, type 'features' to bring up the **Turn Windows Features on and off** dialog. Scroll down and check **Windows Subsystem for Linux**.
 
@@ -36,7 +36,9 @@ After restarting Windows, you can check that you have WSL enabled by opening a C
 
 ![wsl-check](images/wsl/wsl-check.png)
 
-WSL is enabled but you haven't installed a Linux distribution yet. Next you will install Linux from the Microsoft Store.
+WSL is enabled but you haven't installed a Linux distribution yet.
+
+Next, you will install Linux from the Microsoft Store.
 
 ----
 

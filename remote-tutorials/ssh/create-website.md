@@ -12,7 +12,7 @@ In this step, you will create a very simple Node.js application. You will use an
 
 ## Install Node.js and npm
 
-From the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), install Node.js and npm, the Node.js Package manager.
+From the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), install Node.js and npm, the Node.js package manager.
 
 ```bash
 sudo apt-get install nodejs npm
@@ -64,7 +64,7 @@ The Express app by default runs on [http://localhost:3000](http://localhost:3000
 
 ## Port forwarding
 
-To be able to browse to the web app on your local machine, you can leverage another feature called [Port forwarding](/docs/remote/ssh.md#_forwarding-a-port-creating-ssh-tunnel).
+To be able to browse to the web app on your local machine, you can leverage another feature called [Port forwarding](/docs/remote/ssh.md#forwarding-a-port-creating-ssh-tunnel).
 
 To be able to access a port on the remote machine that may not be publicly exposed, you need to establish a connection or a tunnel between a port on your local machine and the server. With the app still running, open the SSH Explorer and find the **Forwarded Ports** view. Click on the **Forward a port** link and indicate that you want to forward port 3000:
 

@@ -8,7 +8,7 @@ DateApproved: 7/26/2019
 ---
 # Install a Linux distro
 
-You install Linux distributions for WSL from the Microsoft Store. You can use the store app, or simply search for 'linux' in the Windows search bar. Choose the Linux distribution you want to install (for example Ubuntu) and follow the prompts.
+You install Linux distributions for WSL from the Microsoft Store. You can use the store app, or search for a Linux distro in the Windows search bar. Choose the Linux distribution you want to install (for example Ubuntu) and follow the prompts.
 
 ![select Ubuntu distro](images/wsl/select-distro.png)
 
