@@ -8,7 +8,7 @@ DateApproved: 7/26/2019
 ---
 # Edit and debug with VS Code
 
-From the Visual Studio Code File Explorer (`kb(workbench.view.explorer)`), navigate to your new myExpress folder and double-click the `app.js` file to open it in the editor.
+From the Visual Studio Code File Explorer (`kb(workbench.view.explorer)`), navigate to your new `myExpressApp` folder and double-click the `app.js` file to open it in the editor.
 
 ## IntelliSense
 
