@@ -203,7 +203,7 @@ Supported categories are: `[Programming Languages, Snippets, Linters, Themes, De
 
 Note that you must surround the category name in quotes if it is more than one word (for example, `category:"SCM Providers"`).
 
-Tags may contain any string and are not provided by IntelliSense so review the Marketplace to find helpful tags.
+Tags may contain any random string which are not provided by IntelliSense, so review the Marketplace to find helpful tags.
 
 ## Install from a VSIX
 
