@@ -221,7 +221,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether copying without a selection copies the current line.
   "editor.emptySelectionClipboard": true,
 
-  // Scrolling speed mulitiplier when pressing `Alt`.
+  // Scrolling speed multiplier when pressing `Alt`.
   "editor.fastScrollSensitivity": 5,
 
   // Controls whether the Find Widget should add extra lines on top of the editor. When true, you can scroll beyond the first line when the Find Widget is visible.
@@ -385,6 +385,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls how the editor should render whitespace characters.
   //  - none
   //  - boundary: Render whitespace characters except for single spaces between words.
+  //  - selection: Render whitespace characters only on selected text.
   //  - all
   "editor.renderWhitespace": "none",
 
@@ -427,7 +428,8 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether some suggestion types should be filtered from IntelliSense. A list of suggestion types can be found here: https://code.visualstudio.com/docs/editor/intellisense#_types-of-completions.
   "editor.suggest.filteredTypes": {
-    "keyword": true
+    "keyword": true,
+    "snippet": true
   },
 
   // Controls whether filtering and sorting suggestions accounts for small typos.
@@ -565,6 +567,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - medium: Show the name of the file followed by its path relative to the workspace folder.
   //  - long: Show the name of the file followed by its absolute path.
   "workbench.editor.labelFormat": "default",
+
+  // Navigate between open files using mouse buttons four and five if provided.
+  "workbench.editor.mouseBackForwardToNavigate": true,
 
   // Controls where editors open. Select `left` or `right` to open editors to the left or right of the currently active one. Select `first` or `last` to open editors independently from the currently active one.
   "workbench.editor.openPositioning": "right",
@@ -705,7 +710,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enables macOS Sierra window tabs. Note that changes require a full restart to apply and that native tabs will disable a custom title bar style if configured.
   "window.nativeTabs": false,
 
-  // If enabled, the main menus can be opened via Alt-key shortcuts. Disabling mnemonics allows to bind these Alt-key shortcuts to editor commands instead.
+  // Controls whether the main menus can be opened via Alt-key shortcuts. Disabling mnemonics allows to bind these Alt-key shortcuts to editor commands instead.
   "window.enableMenuBarMnemonics": true,
 
   // Control the visibility of the menu bar. A setting of 'toggle' means that the menu bar is hidden and a single press of the Alt key will show it. By default, the menu bar will be visible, unless the window is full screen.
@@ -940,18 +945,15 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to use `.gitignore` and `.ignore` files when searching for files.
   "search.useIgnoreFiles": true,
 
-  // Whether to use the PCRE2 regex engine in text search. This enables using some advanced regex features like lookahead and backreferences. However, not all PCRE2 features are supported - only features that are also supported by JavaScript.
-  "search.usePCRE2": false,
-
   // Controls whether to open Replace Preview when selecting or replacing a match.
   "search.useReplacePreview": true,
 
 // HTTP
 
-  // The proxy setting to use. If not set will be taken from the http_proxy and https_proxy environment variables.
+  // The proxy setting to use. If not set, will be inherited from the `http_proxy` and `https_proxy` environment variables.
   "http.proxy": "",
 
-  // The value to send as the 'Proxy-Authorization' header for every network request.
+  // The value to send as the `Proxy-Authorization` header for every network request.
   "http.proxyAuthorization": null,
 
   // Controls whether the proxy server certificate should be verified against the list of supplied CAs.
@@ -1594,6 +1596,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // When enabled, editors with extension details will be automatically closed upon navigating away from the Extensions View.
   "extensions.closeExtensionDetailsOnViewChange": false,
 
+  // When an extension is listed here, a confirmation prompt will not be shown when that extension handles a URI.
+  "extensions.confirmedUriHandlerExtensionIds": [],
+
   // When enabled, the notifications for extension recommendations will not be shown.
   "extensions.ignoreRecommendations": false,
 
@@ -1782,6 +1787,63 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Show Errors & Warnings on Outline Elements.
   "outline.problems.enabled": true,
 
+// Remote
+
+  // Override the kind of an extension. `ui` extensions are installed and run on the local machine while `workspace` extensions are run on the remote. By overriding an extension's default kind using this setting, you specify if that extension should be installed and enabled locally or remotely.
+  "remote.extensionKind": {
+    "pub.name": "ui"
+  },
+
+// Default Configuration Overrides
+
+// Configure editor settings to be overridden for [git-commit] language.
+  "[git-commit]":  {
+    "editor.rulers": [
+        72
+    ]
+  },
+
+  // Configure editor settings to be overridden for [go] language.
+  "[go]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [json] language.
+  "[json]":  {
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+  },
+
+  // Configure editor settings to be overridden for [makefile] language.
+  "[makefile]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [markdown] language.
+  "[markdown]":  {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
+  },
+
+  // Configure editor settings to be overridden for [yaml] language.
+  "[yaml]":  {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": false
+  },
+
+// Node debug
+
+  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
+  //  - disabled: Auto attach is disabled and not shown in status bar.
+  //  - on: Auto attach is active.
+  //  - off: Auto attach is inactive.
+  "debug.node.autoAttach": "disabled",
+
+  // Controls whether to show a warning when the 'useWSL' attribute is used.
+  "debug.node.showUseWslIsDeprecatedWarning": true,
+
 // Git
 
   // Controls whether force push (with or without lease) is enabled.
@@ -1921,52 +1983,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether force pushing uses the safer force-with-lease variant.
   "git.useForcePushWithLease": true,
 
-// Default Configuration Overrides
-
-  // Configure editor settings to be overridden for [git-commit] language.
-  "[git-commit]":  {
-    "editor.rulers": [
-        72
-    ]
-  },
-
-  // Configure editor settings to be overridden for [go] language.
-  "[go]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [json] language.
-  "[json]":  {
-    "editor.quickSuggestions": {
-        "strings": true
-    }
-  },
-
-  // Configure editor settings to be overridden for [makefile] language.
-  "[makefile]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [markdown] language.
-  "[markdown]":  {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": false
-  },
-
-  // Configure editor settings to be overridden for [yaml] language.
-  "[yaml]":  {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": false
-  },
-
-// Remote
-
-  // Override the kind of an extension. `ui` extensions are installed and run on the local machine while `workspace` extensions are run on the remote. By overriding an extension's default kind using this setting, you specify if that extension should be installed and enabled locally or remotely.
-  "remote.extensionKind": {
-    "pub.name": "ui"
-  },
-
 // Npm
 
   // Controls whether npm scripts should be automatically detected.
@@ -2014,13 +2030,10 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - Below: Open the diff view below the current editor group.
   "merge-conflict.diffViewPosition": "Current",
 
-// Node debug
+// Grunt
 
-  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
-  //  - disabled: Auto attach is disabled and not shown in status bar.
-  //  - on: Auto attach is active.
-  //  - off: Auto attach is inactive.
-  "debug.node.autoAttach": "disabled",
+  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
+  "grunt.autoDetect": "on",
 
 // Emmet
 
@@ -2066,11 +2079,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether auto detection of Jake tasks is on or off. Default is on.
   "jake.autoDetect": "on",
-
-// Grunt
-
-  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
-  "grunt.autoDetect": "on",
 
 // Gulp
 
