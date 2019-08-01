@@ -36,7 +36,7 @@ Fill out the options as given by Yeoman. One of the options is to create an Exte
 To include an extension, your extension manifest file (`package.json`) needs the following attribute:
 
 ```js
-"extensionDependencies": [
+"extensionPack": [
         "publisherid.extensionName"
     ]
 ```
@@ -46,7 +46,7 @@ To include an extension, your extension manifest file (`package.json`) needs the
 For my CodeLens Roundup, this is what my extension manifest file looked like:
 
 ```json
-"extensionDependencies": [
+"extensionPack": [
     "eamodio.gitlens",
     "VisualStudioOnlineApplicationInsights.application-insights",
     "kisstkondoros.vscode-codemetrics",
@@ -76,7 +76,7 @@ Some of my favorite extensions are:
 
 ## Want to see your extension featured?
 
-Have other extensions you like or want to see your extension in the next Roundup? Ping me on [Twitter](https://twitter.com/waderyan_)!
+Have other extensions you like or want to see your extension in the next Roundup? Ping us on [Twitter](https://twitter.com/code)!
 
 Wade Anderson, VS Code Team Member 
 [@waderyan_](https://twitter.com/waderyan_)
