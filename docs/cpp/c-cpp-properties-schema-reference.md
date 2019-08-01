@@ -59,19 +59,24 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
 ## Configuration properties
 
 - `name`
-  A friendly name that identifies a configuration. `Linux`, `Mac`, and `Win32` are special identifiers for configurations that will be auto-selected on those platforms. The status bar in VS Code will show you which configuration is active. You can also click on the label in the status bar to change the active configuration.
+  A friendly name that identifies a configuration. `Linux`, `Mac`, and `Win32` are special identifiers for configurations that will be autoselected on those platforms. The status bar in VS Code will show you which configuration is active. You can also click on the label in the status bar to change the active configuration.
 
 - `compilerPath` (optional)
-  The full path to the compiler you use to build your project, e.g. `/usr/bin/gcc`, to enable more accurate IntelliSense. Arguments can be added to modify the includes/defines used, e.g. `-nostdinc++`, `-m32`, etc., but paths with spaces must be surrounded by double quotes `"` if arguments are used. The extension will query the compiler to determine the system include paths and default defines to use for IntelliSense.
+  The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. Arguments can be added to modify the includes/defines used, for example `-nostdinc++`, `-m32`, etc., but paths with spaces must be surrounded by double quotes `"` if arguments are used. The extension will query the compiler to determine the system include paths and default defines to use for IntelliSense.
 
 - `intelliSenseMode`
-  The IntelliSense mode to use that maps to an architecture-specific variant of MSVC, gcc, or Clang. If not set or if set to `${default}`, the extension will choose the default for that platform. Windows defaults to: - `msvc-x64` - Linux defaults to `gcc-x64` - macOS defaults to `clang-x64`.
+  The IntelliSense mode to use that maps to an architecture-specific variant of MSVC, gcc, or Clang. If not set or if set to `${default}`, the extension will choose the default for that platform.
+
+  Platform defaults:
+  - Windows: `msvc-x64`
+  - Linux: `gcc-x64`
+  - macOS: `clang-x64`
 
 - `includePath`
-  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list paths for the IntelliSense engine to use while searching for included header files. If a path ends with `/**` the IntelliSense engine will do a recursive search for hearder files starting from that directory. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
+  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. If a path ends with `/**` the IntelliSense engine will do a recursive search for header files starting from that directory. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
 
 - `defines`
-  A list of preprocessor definitions for the IntelliSense engine to use while parsing files. Optionally, use `=` to set a value, e.g. `VERSION=1`.
+  A list of preprocessor definitions for the IntelliSense engine to use while parsing files. Optionally, use `=` to set a value, for example `VERSION=1`.
 
 - `cStandard`
   The version of the C language standard to use for IntelliSense.
@@ -83,10 +88,10 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
   The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `vector-of-bool.cmake-tools` to provide configuration information from the CMake Tools extension.
 
 - `windowsSdkVersion`
-  The version of the Windows SDK include path to use on Windows, e.g. `10.0.17134.0`.
+  The versions of the Windows SDK include path to use on Windows, for example `10.0.17134.0`.
 
 - `macFrameworkPath`
-  A list of paths for the Intellisense engine to use while searching for included headers from Mac frameworks. Only supported on configurations for macOS.
+  A list of paths for the IntelliSense engine to use while searching for included headers from Mac frameworks. Only supported on configurations for macOS.
 
 - `forcedInclude` (optional)
   A list of files that should be included before any other characters in the source file are processed. Files are included in the order listed.
@@ -108,4 +113,4 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
   When true, the Tag Parser will only parse code files that have been directly or indirectly included by a source file in `${workspaceFolder}`. When false, the Tag Parser will parse all code files found in the paths specified in the `browse.path` list.
 
 - `databaseFilename`
-  The path to the generated symbol database. This instructs the extension to save the Tag Parser's symbol database somewhere other than the workspace's default storage location. If a relative path is specified, it will be made relative to the workspace's default storage location, not the workspace folder itself. The `${workspaceFolder}` variable can be used to specify a path relative to the workspace folder (e.g. `${workspaceFolder}/.vscode/browse.vc.db`)
+  The path to the generated symbol database. This property instructs the extension to save the Tag Parser's symbol database somewhere other than the workspace's default storage location. If a relative path is specified, it will be made relative to the workspace's default storage location, not the workspace folder itself. The `${workspaceFolder}` variable can be used to specify a path relative to the workspace folder (for example `${workspaceFolder}/.vscode/browse.vc.db`)
