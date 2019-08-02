@@ -153,8 +153,6 @@ Set a `category` for your extension. Extensions in the same `category` are group
 }
 ```
 
-> **Tip:** The [Extension Manifest Editor](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.extension-manifest-editor) extension lets you preview how your extension `README.md` and `package.json` metadata will look when published to the Marketplace.
-
 ### Approved Badges
 
 Due to security concerns, we only allow badges from trusted services.

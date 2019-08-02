@@ -191,3 +191,22 @@ function fancyAlert(arg) {
   }
 }
 ```
+
+## Gotchas
+
+### Double opening curly braces break generated handlebar files
+
+Escape double opening curly braces in code blocks.
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Hello, Flask</title>
+    </head>
+    <body>
+        <strong>Hello there, \{{ name }}!</strong> It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
+    </body>
+</html>
+```

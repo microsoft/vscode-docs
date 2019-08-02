@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: remote
 TOCTitle: Linux Prerequisites
 PageTitle: Linux Prerequisites for Visual Studio Code Remote Development
@@ -35,11 +35,11 @@ If you are running Linux locally, the [VS Code prerequisites](/docs/supporting/r
 In addition, specific Remote Development extensions have further requirements:
 
 * **Remote - SSH:** `ssh` needs to be in the path. The shell binary is typically in the `openssh-client` package.
-* **Remote - Containers**: Docker CE/EE 18.06+ and Docker Compose 1.21+. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, [follow those directions as well](https://docs.docker.com/compose/install/). (Note that the Ubuntu Snap package is not supported and packages in distributions may be out of date.) `docker` and `docker-compose` must also be in the path.
+* **Remote - Containers**: Docker CE/EE 18.06+ and Docker Compose 1.21+. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, follow the [Install Docker Compose directions](https://docs.docker.com/compose/install/) as well. (Note that the Ubuntu Snap package is not supported and packages in distributions may be out of date.) `docker` and `docker-compose` must also be in the path.
 
 ## Remote host / container / WSL Linux prerequisites
 
-Platform prerequisites are primarily driven by the version of the [Node.js](https://nodejs.org/en/docs/meta/topics/dependencies/) runtime (and by extension [V8](https://v8docs.nodesource.com)) shipped in the server component automatically installed on each remote endpoint. This server also has a set of related native node modules that need to be compiled and tested for each target. **64-bit x86 glibc-based** Linux distributions currently provide the best support given these requirements.
+Platform prerequisites are primarily driven by the version of the [Node.js](https://nodejs.org/en/docs/meta/topics/dependencies/) runtime (and by extension the [V8 JavaScript engine](https://v8docs.nodesource.com)) shipped in the server component automatically installed on each remote endpoint. This server also has a set of related native node modules that need to be compiled and tested for each target. **64-bit x86 glibc-based** Linux distributions currently provide the best support given these requirements.
 
 **32-bit ARMv7l glibc-based** Linux SSH host support and **64-bit x86 musl-based Alpine Linux** container support in [VS Code Insiders](https://code.visualstudio.com/insiders/) is experimental because of some fundamental platform differences that can affect native binaries in extensions in the broader VS Code extension ecosystem. For ARMv7l, extensions may only include x86_64 versions of native modules or runtimes in the extension. For Alpine Linux, included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`). In both these cases, extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. We want to give the community the opportunity to opt-in or out of this support before we add it to stable.
 
@@ -80,7 +80,7 @@ The following is a list of distributions and any base requirements that may be m
 
 RHEL / CentOS 6 ships with glibc 2.12 and libstdc++ 3.4.13. Unfortunately, this does not meet the requirements for Remote Development. RHEL / CentOS 6 goes out of support [in 2020](https://endoflife.software/operating-systems/linux/centos), so we strongly recommend **upgrading to RHEL / CentOS 7** or higher.
 
-However, as a workaround, you can either build glibc manually or use the following script to install updated binaries. The bash script below will upgrade these libraries without having to build them. It is adapted from information in [this article](https://serverkurma.com/linux/how-to-update-glibc-newer-version-on-centos-6-x/), [this gist](https://gist.github.com/harv/f86690fcad94f655906ee9e37c85b174), and this [Fedora copr project](https://copr.fedorainfracloud.org/coprs/mosquito/myrepo-el6/). The article also includes instructions for manually building glibc if you would prefer not to use the binaries from the article.
+However, as a workaround, you can either build glibc manually or use the following script to install updated binaries. The bash script below will upgrade these libraries without having to build them. It is adapted from information in this [article](https://serverkurma.com/linux/how-to-update-glibc-newer-version-on-centos-6-x/), this [gist](https://gist.github.com/harv/f86690fcad94f655906ee9e37c85b174), and this [Fedora copr project](https://copr.fedorainfracloud.org/coprs/mosquito/myrepo-el6/). The article also includes instructions for manually building glibc if you would prefer not to use the binaries from the article.
 
 Do not run this script on anything mission critical **without a rollback strategy** since it does update libraries that other applications depend on.
 

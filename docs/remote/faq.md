@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 9
 Area: remote
 TOCTitle: FAQ
 PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
@@ -9,13 +9,13 @@ DateApproved: 7/3/2019
 ---
 # Remote Development FAQ
 
-This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities.
+This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the step by step [Tutorials](/docs/remote/remote-tutorials.md) to help get you running quickly in a remote environment.
 
 ## General
 
 ### What is Visual Studio Code Remote Development?
 
-The Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack allows you to open any folder in a container, on a remote machine (via SSH), or in the Windows Subsystem for Linux and take advantage of VS Code's full feature set. This means that VS Code can provide a local-quality development experience — including full IntelliSense (completions), debugging, and more — regardless of where your code is located or hosted.
+The Visual Studio Code [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) allows you to open any folder in a container, on a remote machine (via SSH), or in the Windows Subsystem for Linux and take advantage of VS Code's full feature set. This means that VS Code can provide a local-quality development experience — including full IntelliSense (completions), debugging, and more — regardless of where your code is located or hosted.
 
 ### What advantages does VS Code Remote Development provide over local editing?
 
@@ -71,9 +71,9 @@ All other communication between the server and the VS Code client is accomplishe
 * Containers: An authenticated, random port automatically exposed via the Docker CLI.
 * WSL: An authenticated, random local TCP port.
 
-You can find a list of locations VS Code itself needs access to [in the network connections article](/docs/setup/network.md#common-hostnames).
+You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
-Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [VS Live Share](https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
+Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
@@ -93,7 +93,7 @@ The Docker extension is configured to run as a local "UI" extension by default. 
 
 ### Can I install individual extensions instead of the extension pack?
 
-Yes. The [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack provides a convenient way for you to access all of the latest remote capabilities as they are released. However, you can always install the individual extensions from the Marketplace or VS Code Extensions view.
+Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) provides a convenient way for you to access all of the latest remote capabilities as they are released. However, you can always install the individual extensions from the Marketplace or VS Code Extensions view.
 
 * [Remote - SSH](https://aka.ms/vscode-remote/download/ssh)
 * [Remote - Containers](https://aka.ms/vscode-remote/download/containers)
@@ -105,7 +105,7 @@ Yes. The [Remote Development](https://aka.ms/vscode-remote/download/extension) e
 
 No. A development container defines an environment in which you develop your application before you are ready to deploy. While deployment and development containers may resemble one another, you may not want to include tools in a deployment image that you use during development.
 
-The [vscode-dev-containers repo](https://aka.ms/vscode-dev-containers) includes a set of dev container definitions for some common development environments. You can also [attach to a running container](/docs/remote/containers.md#attaching-to-running-containers) without setting up a dev container definition, if you prefer to use an alternate container build or deployment workflow.
+The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) includes a set of dev container definitions for some common development environments. You can also [attach to a running container](/docs/remote/containers.md#attaching-to-running-containers) without setting up a dev container definition, if you prefer to use an alternate container build or deployment workflow.
 
 ### Do "dev containers definitions" define how an application is built? Like Buildpacks?
 

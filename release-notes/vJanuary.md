@@ -118,7 +118,7 @@ We have added an experimental mode that can be enabled with the `editor.experime
 
 ### Localization
 
-We also started work on localizing VS Code for different locales. We put tooling in place to externalize strings and to create language bundles. The screen shot below shows VS Code running under a German locale.
+We also started work on localizing VS Code for different locales. We put tooling in place to externalize strings and to create language bundles. The screenshot below shows VS Code running under a German locale.
 
 ![VS Code in German](images/January/german-vscode.png)
 

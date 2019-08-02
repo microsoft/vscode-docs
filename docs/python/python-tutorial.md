@@ -25,7 +25,7 @@ To successfully complete this tutorial, complete the following requirements:
 1. Install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). For details on installing extensions, see [Extension Marketplace](/docs/editor/extension-gallery.md). The Python extension is named **Python** and published by Microsoft.
 
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
-   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); you can typically use the **Download Python 3.7.3** button that appears first on the page (or whatever is the latest version).
+   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); you can typically use the **Download Python 3.7.4** button that appears first on the page (or whatever is the latest version).
    - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must install `pip` with [`get-pip.py`](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
    - (macOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
    - (Windows) Install Python from the Windows Store.
@@ -45,7 +45,7 @@ VS Code and the Python extension don't require that the location of a Python int
     python3 --version
     ```
 
-- Windows: Python is included on the system PATH only if you install it from the Windows Store. Otherwise, you must add the install location to the PATH manually. To verify, open a command prompt and run the following command:
+- Windows: Python is included on the system PATH if you install it from the Windows Store or if you checked "Add Python 3.7 to PATH" during installation. Otherwise, you must add the install location to the PATH manually. To verify, open a command prompt and run the following command:
 
     ```ps
     py -3 --version
@@ -283,7 +283,13 @@ A best practice among Python developers is to avoid installing packages into a g
    py -3 -m venv .venv
    .venv\scripts\activate
    ```
-
+   If the activate command generates the message "Activate.ps1 is not digitally signed. You cannot run this script on the
+   current system.", then you need to temporarily change the PowerShell execution policy to allow scripts to
+   run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=135170) in the PowerShell documentation):
+   ```cmd
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+   ```
+   
    **For macOS/Linux**
 
    ```bash

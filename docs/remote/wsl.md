@@ -31,9 +31,9 @@ To get started you need to:
 
     > **Note:** When prompted to **Select Additional Tasks** during installation, be sure to check the **Add to PATH** option so you can easily open a folder in WSL using the `code` command.
 
-3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
+3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
-4. Consider adding a `.gitattributes` file to your repos or disabling automatic line ending conversion for Git on the **Windows side** by using a command prompt to run: `git config --global core.autocrlf input` If left enabled, this setting can cause files that you have not edited to appear modified due to line ending differences. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
+4. Consider adding a `.gitattributes` file to your repos or disabling automatic line ending conversion for Git on the **Windows side** by using a command prompt to run: `git config --global core.autocrlf input` If left enabled, this setting can cause files that you have not edited to appear modified due to line ending differences. See [Tips and Tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
 
 ### Open a folder in WSL
 
@@ -82,7 +82,7 @@ If you install an extension from the Extensions view, it will automatically be i
 
 > **Note:** If you are an extension author and your extension is not working properly or installs in the wrong place, see [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. You can click the **Install** button to install an extension on your remote host.
+Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. Select **Install** to install an extension on your remote host.
 
 ![Disabled Extensions w/Install Button](images/wsl/wsl-disabled-extensions.png)
 
@@ -163,7 +163,7 @@ Fortunately, if you've [installed the Docker CLI in WSL and configured it to wor
 
 ### Extension limitations
 
-Many extensions will work in WSL without modification. However, in some cases, certain features may require changes. If you run into an extension issue, [see here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
+Many extensions will work in WSL without modification. However, in some cases, certain features may require changes. If you run into an extension issue, see [here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
 ## Common questions
 
@@ -207,9 +207,9 @@ The VS Code Server requires outbound HTTPS (port 443) connectivity to:
 - `*.vo.msecnd.net` (Azure CDN)
 - `*.gallerycdn.vsassets.io` (Azure CDN)
 
-All other communication between the server and the VS Code client is accomplished through an authenticated, random, local TCP port. You can find a list of locations VS Code itself needs access to [in the network connections article](/docs/setup/network.md#common-hostnames).
+All other communication between the server and the VS Code client is accomplished through an authenticated, random, local TCP port. You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
-Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [VS Live Share](https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
+Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
 ### As an extension author, what do I need to do?
 

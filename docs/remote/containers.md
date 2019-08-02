@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 6/25/2019
+DateApproved: 7/18/2019
 ---
 # Developing inside a Container
 
@@ -25,13 +25,13 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 **Containers**:
 
-- **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ based containers
+* **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ based containers
 
-- **Experimental support:** x86_64 Alpine Linux containers in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only.
+* **Experimental support:** x86_64 Alpine Linux containers in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 Other `glibc` based Linux containers may work if they have [needed prerequisites](/docs/remote/linux.md).
 
-While experimental `musl` based Alpine Linux support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details.
+While experimental `musl` based Alpine Linux support is available in [VS Code Insiders](https://code.visualstudio.com/insiders/), some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development with Linux](/docs/remote/linux.md) article for details.
 
 ### Installation
 
@@ -45,11 +45,11 @@ To get started, follow these steps:
 
     2. Right-click on the Docker taskbar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you run into trouble, see [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) on avoiding common problems with sharing.
 
-    3. **Windows**: Consider adding a `.gitattributes` file to your repos or disabling automatic line ending conversion for Git on the **Windows side** by using a command prompt to run: `git config --global core.autocrlf input` If left enabled, this setting can cause files that you have not edited to appear modified due to line ending differences. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
+    3. **Windows**: Consider adding a `.gitattributes` file to your repos or disabling automatic line ending conversion for Git on the **Windows side** by using a command prompt to run: `git config --global core.autocrlf input` If left enabled, this setting can cause files that you have not edited to appear modified due to line ending differences. See [Tips and Tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
 
     **Linux**:
 
-    1. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, [follow those directions as well](https://docs.docker.com/compose/install/). (Note that the Ubuntu Snap package is not supported and packages in distributions may be out of date.)
+    1. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, follow the [Install Docker Compose directions](https://docs.docker.com/compose/install/) as well. (Note that the Ubuntu Snap package is not supported and packages in distributions may be out of date.)
 
     2. Add your user to the `docker` group by using a terminal to run: `sudo usermod -aG docker $USER`
 
@@ -57,7 +57,7 @@ To get started, follow these steps:
 
 2. Install [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
-3. Install the [Remote Development](https://aka.ms/vscode-remote/download/extension) extension pack.
+3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
 The Remote - Containers extension supports two primary operating models:
 
@@ -138,7 +138,7 @@ The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) has
 * Expose additional ports.
 * Set runtime arguments.
 * Reuse or [extend your existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend).
-* [And more](/docs/remote/containers-advanced.md).
+* And more [advanced container configurations](/docs/remote/containers-advanced.md).
 
 Note that, if `devcontainer.json`'s supported workflows supports do not meet your needs, you can also [attach to an already running container instead](#attaching-to-running-containers).
 
@@ -148,17 +148,17 @@ Editing your container configuration is easy. Since rebuilding a container will 
 
 Here is the typical edit loop using these commands:
 
-1. Start with `kbstyle(F1)` > **Remote-Containers: Add Development Container Configuration Files...**
+1. Start with **Remote-Containers: Add Development Container Configuration Files...** in the Command Palette (`kbstyle(F1)`).
 2. Edit the contents of the `.devcontainer` folder as required.
-3. Try it with `kbstyle(F1)` > **Remote-Containers: Reopen Folder in Container**.
+3. Try it with **Remote-Containers: Reopen Folder in Container**.
 4. On failure:
-   1. `kbstyle(F1)` > **Remote-Containers: Reopen Folder Locally**, which will open a new local window.
+   1. **Remote-Containers: Reopen Folder Locally**, which will open a new local window.
    2. In this local window: Edit the contents of the `.devcontainer` folder as required.
-   3. Try it again: Go back to the container window, `kbstyle(F1)` > **Developer: Reload Window**.
+   3. Try it again: Go back to the container window, **Developer: Reload Window** from the Command Palette (`kbstyle(F1)`)
    4. Repeat as needed.
 5. If the build was successful, but you want to make more changes:
       1. Edit the contents of the `.devcontainer` folder as required when connected to the container.
-      2. `kbstyle(F1)` > **Remote-Containers: Rebuild Container**.
+      2. **Remote-Containers: Rebuild Container**.
       3. On failure: Follow the same workflow above.
 
 ### Adding configuration files to public or private repositories
@@ -218,6 +218,12 @@ You can also manually manage your containers using one of the following options:
 3. Type `docker stop <Container ID>` from this list to stop a container.
 4. If you would like to delete a container, type `docker rm <Container ID>` to remove it.
 
+If `docker ps` does not provide enough information to identify the container you want to manage, the following command will list all development containers managed by VS Code and the folder used to generate them.
+
+```bash
+docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}}\t\{{.Image}}\tvscode-\{{.Label \"vsch.quality\"}}\t\{{.Label \"vsch.local.folder\"}}"
+```
+
 ### Option 3: Use Docker Compose
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
@@ -226,7 +232,7 @@ You can also manually manage your containers using one of the following options:
 4. Type `docker-compose stop` to stop the containers. If you have more than one Docker Compose file, you can specify additional Docker Compose files with the `-f` argument.
 5. If you would like to delete the containers, type `docker-compose down` to both stop and delete them.
 
-If you want to clean out images or mass-delete containers, [see here](/docs/remote/troubleshooting.md#cleaning-out-unused-containers-and-images) for different options.
+If you want to clean out images or mass-delete containers, see [Cleaning out unused containers and images](/docs/remote/troubleshooting.md#cleaning-out-unused-containers-and-images) for different options.
 
 ## Managing extensions
 
@@ -240,7 +246,7 @@ If you install an extension from the Extensions view, it will automatically be i
 
 > **Note:** If you are an extension author and your extension is not working properly or installs in the wrong place, see [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. You can click the **Install** button to install an extension on your remote host.
+Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. Select **Install** to install an extension on your remote host.
 
 ![Disabled Extensions w/Install Button](images/containers/containers-disabled-extensions.png)
 
@@ -340,9 +346,9 @@ Since this just establishes the default, you are still able to change the settin
 
 ### Using a credential helper
 
-To streamline setup, your local `.gitconfig` file is automatically copied into the container. In addition, the small server installed in the container will automatically forward any git credential helper commands to your local operating system.
+If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in your local OS, no further setup is required.** Credentials you've entered locally will be reused in the container and vice versa.
 
-Therefore, if you use HTTPS to clone your repositories and have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in your local OS, no further setup is required. Credentials you've entered locally will be reused in the container and vice versa.
+This works by copying your local `.gitconfig` file into the container on startup VS Code Server will automatically forward any git credential helper commands to your local operating system.
 
 Note that, if you do not have your user name or email address set up locally, you may be prompted to do so. You can do this on your local machine by running the following commands:
 
@@ -357,16 +363,17 @@ There are some cases when you may be cloning your repository using SSH keys inst
 
 However, there is a cross-platform way of copying the contents of the `.ssh` folder into the container when it is created, without modifying your image or Dockerfile.
 
-- When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to this same file:
+* When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to this same file:
 
     ```json
     // Mount your .ssh folder to /root/.ssh-localhost so we can copy its contents
     "runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro" ],
+
     // Copy the contents to the correct location and set permissions
     "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
     ```
 
-- When a **Docker Compose** file is referenced, first update ([or extend](/docs/remote/containers/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+* When a **Docker Compose** file is referenced, first update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
     ```yml
     version: '3'
@@ -383,7 +390,7 @@ However, there is a cross-platform way of copying the contents of the `.ssh` fol
     "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
     ```
 
-You can run this same command again in the container if you want to update your keys after the container has been created.
+Note that, after you create your container for the first time, you will need to run the **Remote-Containers: Rebuild Container** command for updates to `devcontainer.json`, your Docker Compose files, or related Dockerfiles to take effect.
 
 ## In-depth: Setting up a folder to run in a container
 
@@ -417,7 +424,7 @@ You'll be asked to either select an existing Dockerfile (if one exists), or pick
 
 You can also create your configuration manually. The difference between configuring VS Code to build a container image using a Dockerfile or just reuse an exiting image is a single property in `devcontainer.json`:
 
-- **To use an image:**  Set the `image` property. For example, this will use the .NET SDK image, publish port 8090, and install the C# VS Code extension:
+* **To use an image:**  Set the `image` property. For example, this will use the .NET SDK image, publish port 8090, and install the C# VS Code extension:
 
     ```json
     {
@@ -430,7 +437,7 @@ You can also create your configuration manually. The difference between configur
     }
     ```
 
-- **To use a Dockerfile:** Set the `dockerFile` property. For example, this will cause VS Code to build the dev container image using the specified `Dockerfile`, publish port 3000, install the ES Lint extension in the container, and run `npm install` once it is done:
+* **To use a Dockerfile:** Set the `dockerFile` property. For example, this will cause VS Code to build the dev container image using the specified `Dockerfile`, publish port 3000, install the ES Lint extension in the container, and run `npm install` once it is done:
 
     ```json
     {
@@ -456,7 +463,7 @@ For example, you can mount your home / user profile folder:
 "runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/local-home" ]
 ```
 
-This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-Git-credentials-with-your-container) for details.
+This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container) for details.
 
 The `runArgs` property supports the same list of arguments as the [`docker run` command](https://docs.docker.com/engine/reference/commandline/run/) and can be useful for a wide variety of scenarios including [setting environment variables](/docs/remote/containers-advanced.md#adding-environment-variables).
 
@@ -498,7 +505,7 @@ This command is run once your source code is mounted, so you can also use the pr
 "postCreateCommand": "bash scripts/install-dev-tools.sh"
 ```
 
-By default, when VS Code starts a container, it will **override the container's default command** to be `sleep infinity`. This is done because the container will stop if the default command fails or simply exits. However, this may not work for certain images. If the image you are using requires the default command be run to work properly, add the following to your `devcontainer.json` file.
+By default, when VS Code starts a container, it will **override the container's default command** to be `/bin/sh -c "while sleep 1000; do :; done"`. This is done because the container will stop if the default command fails or simply exits. However, this may not work for certain images. If the image you are using requires the default command be run to work properly, add the following to your `devcontainer.json` file.
 
 ```json
 "overrideCommand": false
@@ -570,13 +577,13 @@ You can also create a development copy of your Docker Compose file. For example,
 "dockerComposeFile": "docker-compose.devcontainer.yml"
 ```
 
-However, a better approach is often to avoid making a copy of your Docker Compose file by **extending it with another one**. [We'll cover extending a Docker Compose file in the next section](#extending-your-docker-compose-file-for-development).
+However, a better approach is often to avoid making a copy of your Docker Compose file by **extending it with another one**. We'll cover [extending a Docker Compose file](#extending-your-docker-compose-file-for-development) in the next section.
 
 To avoid having the container shut down if the default container command fails or exits, you can modify your Docker Compose file for the service you have specified in `devcontainer.json` as follows:
 
 ```yaml
 # Overrides default command so things don't shut down after the process ends.
-command: sleep infinity
+command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
 If you are not already, you can (bind) mount your local source code into the container using the [volumes list in your Docker Compose file](https://docs.docker.com/compose/compose-file/#volumes).
@@ -592,7 +599,7 @@ volumes:
   - ..:/workspace
 ```
 
-This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-Git-credentials-with-your-container) for details.
+This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container) for details.
 
 If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as Git inside the service's container. While less efficient than adding these tools to the container image, you can also use the `postCreateCommand` property for this purpose. For example:
 
@@ -626,7 +633,7 @@ For example:
 
 * Docker Compose will shut down a container if its entry point shuts down. This is problematic for situations where you are debugging and need to restart your app on a repeated basis.
 * You also may not be mapping the local filesystem into the container or exposing ports to other resources like databases you want to access.
-* You may want to copy the contents of your local `.ssh` folder into the container or set the ptrace options [described above](#using-docker-compose).
+* You may want to copy the contents of your local `.ssh` folder into the container or set the ptrace options described above in [Using Docker Compose](#using-docker-compose).
 
 You can solve these and other issues like them by extending your entire Docker Compose configuration with [multiple `docker-compose.yml` files](https://docs.docker.com/compose/extends/#multiple-compose-files) that override or supplement your primary one.
 
@@ -643,7 +650,8 @@ version: '3'
         # workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
         - ..:/workspace
 
-        # [Optional] If you are using SSH keys w/ Git, mount your .ssh folder to /root/.ssh-localhost so we can access its contents
+        # [Optional] If you are using SSH keys w/Git, mount your .ssh folder to
+        # /root/.ssh-localhost so we can copy its contents
         - ~/.ssh:/root/.ssh-localhost:ro
 
       # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
@@ -653,7 +661,7 @@ version: '3'
         - seccomp:unconfined
 
       # Overrides default command so things don't shut down after the process ends.
-      command: sleep infinity
+      command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
 This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to `.devcontainer/devcontainer.extend.yml` in a specific order:
@@ -672,7 +680,7 @@ This same file can provide additional settings, such as port mappings, as needed
     "workspaceFolder": "/workspace",
     "shutdownAction": "stopCompose",
 
-    // [Optional] If you are using SSH keys w/ Git, copy the keys and set the correct permissions
+    // [Optional] If you are using SSH keys w/Git, copy them and set correct permissions
     "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
 }
 ```
@@ -696,7 +704,7 @@ version: '3'
        volumes:
          - ..:/workspace
          - ~/.ssh:/root/.ssh-localhost
-       command: sleep infinity
+       command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
 ### Docker Compose dev container definitions
@@ -716,8 +724,9 @@ The following are dev container definitions that use Docker Compose:
 See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following topics:
 
 * [Adding environment variables](/docs/remote/containers-advanced.md#adding-environment-variables)
-* [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
+* [Adding another local file mount](/docs/remote/containers-advanced.md#adding-another-local-file-mount)
 * [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount)
+* [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance)
 * [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
 * [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced.md#avoiding-extension-reinstalls-on-container-rebuild)
 * [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
@@ -731,13 +740,13 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 |----------|------|-------------|
 |**Dockerfile or image**|||
 | `image` | string | **Required** when [using an image](#using-an-image-or-dockerfile). The name of an image in a container registry ([DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) that VS Code should use to create the dev container. |
-| `dockerFile` | string |**Required** when [using a Dockerfile](#using-an-image-or-dockerfile). The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes [in this repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers). |
+| `dockerFile` | string |**Required** when [using a Dockerfile](#using-an-image-or-dockerfile). The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes in the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers). |
 | `context` | string | Path that the Docker build should be run from relative to `devcontainer.json`. For example, a value of `".."` would allow you to reference content in sibling directories. Defaults to `"."`. |
 | `appPort` | integer, string, or array | A port or array of ports that should be made available locally when the container is running. Defaults to `[]`. |
-| `workspaceMount` | string | Overrides the default local mount point for the workspace. Supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag). Primarily useful for [configuring remote containers](/docs/remote/containers-advanced.md#using-devcontainerjson-to-work-with-a-remote-dev-container). |
+| `workspaceMount` | string | Overrides the default local mount point for the workspace. Supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag). Primarily useful for [configuring remote containers](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) or [improving disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance). |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container. Typically used in conjunction with `workspaceMount`. Defaults to the automatic source code mount location. |
 | `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`. A run argument can refer to environment variables using the following format `${env:HOME}` |
-| `overrideCommand` | boolean | Tells VS Code whether it should run `sleep infinity` when starting the container instead of the container's default command. Defaults to `true` since the container can shut down if the default command fails. Set to `false` if the default command must run for the container to function properly. |
+| `overrideCommand` | boolean | Tells VS Code whether it should run `/bin/sh -c "while sleep 1000; do :; done"` when starting the container instead of the container's default command. Defaults to `true` since the container can shut down if the default command fails. Set to `false` if the default command must run for the container to function properly. |
 | `shutdownAction` | enum: `none`, `stopContainer` | Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. Defaults to `stopContainer`. |
 |**Docker Compose**|||
 | `dockerComposeFile` | string  or array | **Required.** Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. |
@@ -751,17 +760,19 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 | `postCreateCommand` | string or array | A command string or list of command arguments to run after the container is created. Use `&&` in a string to execute multiple commands. For example, `"yarn install"`, `["yarn", "install"]`, or `"apt-get update && apt-get install -y git"`. It fires after your source code has been mounted, so you can also run shell scripts from your source tree. For example: `bash scripts/install-dev-tools.sh`. Defaults to none. |
 | `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
 
+If you've already built the container and connected to it, be sure to run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
+
 ## Known limitations
 
 ### Remote - Containers limitations
 
 * Windows container images are **not** yet supported.
-* Experimental Alpine container support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/) only.
-* Using a remote Docker Host is possible, but requires [additional setup steps](/docs/remote/containers-advanced.md#/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host).
+* Experimental Alpine container support is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
+* Using a remote Docker Host is possible, but requires [additional setup steps](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host).
 * All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
 * The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
 * Docker Toolbox on Windows is not supported.
-* Docker variants or alternate containerization tool kits like [podman.io](https://podman.io) are not supported.
+* Docker variants or alternate containerization tool kits like [Podman](https://podman.io) are not supported.
 * If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 * Local proxy settings are not reused inside the container, which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 
@@ -770,7 +781,7 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/containers/i
 ### Docker limitations
 
 * First-time installs of Docker Desktop for Windows will require an additional "sharing" step to give your container access to local source code. However, this step may not work with certain AAD (email-based) identities. See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) and [Enabling file sharing in Docker Desktop](/docs/remote/troubleshooting.md#enabling-file-sharing-in-docker-desktop) for details and workarounds.
-* You may see errors if you sign into Docker with your email address instead of your Docker ID. This is a known issue and can be resolved by signing in with your Docker ID instead. See Docker issue [#935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
+* You may see errors if you sign into Docker with your email address instead of your Docker ID. This is a known issue and can be resolved by signing in with your Docker ID instead. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 * If you see high CPU spikes for `com.docker.hyperkit` on macOS, this may be due to a [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759). See the Docker issue for details.
 * If you see either of these messages building a Dockerfile, you may be hitting a known Docker issue with Debian 8 (Jessie):
 
@@ -779,7 +790,7 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/containers/i
     E: Some index files failed to download. They have been ignored, or old ones used instead
     ```
 
-    See [here for a workaround](/docs/remote/troubleshooting.md#resolving-dockerfile-build-failures-for-images-using-debian-8).
+    See [Resolving Dockerfile build failures](/docs/remote/troubleshooting.md#resolving-dockerfile-build-failures-for-images-using-debian-8) for a workaround.
 
 See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docker-for-windows/troubleshoot) or [Mac](https://docs.docker.com/docker-for-mac/troubleshoot), consult [Docker Support Resources](https://success.docker.com/article/best-support-resources) for more information.
 
@@ -789,9 +800,9 @@ Some Docker commands invoked from the Docker extension can fail when invoked fro
 
 ### Extension limitations
 
-Many extensions will work inside dev containers without modification. However, in some cases, certain features may require changes. If you run into an extension issue, [see here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
+Many extensions will work inside dev containers without modification. However, in some cases, certain features may require changes. If you run into an extension issue, see [here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
-In addition, while experimental Alpine support is available in [VS Code - Insiders](https://code.visualstudio.com/insiders/), some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](/docs/remote/linux.md) article for details.
+In addition, while experimental Alpine support is available in [VS Code Insiders](https://code.visualstudio.com/insiders/), some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development with Linux](/docs/remote/linux.md) article for details.
 
 ## Common questions
 
@@ -803,11 +814,11 @@ See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-des
 
 ### I am seeing "W: Failed to fetch ..." when building a Dockerfile
 
-If you see "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease" when building a Dockerfile, you may be hitting a known Docker issue with Debian 8 (Jessie). See [here for a workaround](/docs/remote/troubleshooting.md#resolving-dockerfile-build-failures-for-images-using-debian-8).
+If you see "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease" when building a Dockerfile, you may be hitting a known Docker issue with Debian 8 (Jessie). See [Resolving Dockerfile build failures](/docs/remote/troubleshooting.md#resolving-dockerfile-build-failures-for-images-using-debian-8) for a workaround.
 
 ### I'm seeing an error about a missing library or dependency
 
-Some extensions rely on libraries not found in the certain Docker images. See [above](#installing-additional-software-in-the-sandbox) for help with resolving the problem.
+Some extensions rely on libraries not found in the certain Docker images. See [Installing additional software](#installing-additional-software-in-the-sandbox) for help with resolving the problem.
 
 ### Can I connect to multiple containers at once?
 
@@ -831,9 +842,9 @@ The VS Code Server requires outbound HTTPS (port 443) connectivity to:
 * `*.vo.msecnd.net` (Azure CDN)
 * `*.gallerycdn.vsassets.io` (Azure CDN)
 
-All other communication between the server and the VS Code client is accomplished through an authenticated, random, TCP port automatically exposed via the Docker CLI. You can find a list of locations VS Code itself needs access to [in the network connections article](/docs/setup/network.md#common-hostnames).
+All other communication between the server and the VS Code client is accomplished through an authenticated, random, TCP port automatically exposed via the Docker CLI. You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
-Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [VS Live Share](https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
+Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
 ### As an extension author, what do I need to do to make sure my extension works?
 
