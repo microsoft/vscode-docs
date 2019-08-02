@@ -9,7 +9,7 @@ MetaDescription: Use Continuous Integration for testing Visual Studio Code exten
 
 # Continuous Integration
 
-Extension tests can be run on CI services. The `vscode-test` repository itself contains a sample extension that is tested on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/VSCode/_build?definitionId=14) or jump directly to the [build definition yaml file](https://github.com/microsoft/vscode-test/blob/master/sample/azure-pipelines.yml).
+Extension tests can be run on CI services. The `vscode-test` repository itself contains a sample extension that is tested on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/vscode-test/_build?definitionId=15) or jump directly to the [build definition yaml file](https://github.com/microsoft/vscode-test/blob/master/sample/azure-pipelines.yml).
 
 ## Azure Pipelines
 
