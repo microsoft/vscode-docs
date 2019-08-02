@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
 
-Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files. Variable substitution is supported inside key and value strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
+Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files as well as some select settings. Variable substitution is supported inside key and value strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
 
 ## Predefined variables
 
@@ -222,7 +222,7 @@ The following example shows how to use a user input variable of type `command` i
 
 ### Is variable substitution supported in User and Workspace settings?
 
-No, the predefined variables are not supported in strings in `settings.json` files. Some [settings](/docs/getstarted/settings.md) like `window.title` have their own variables:
+The predefined variables are supported in a select number of setting keys in `settings.json` files such as the terminal `cwd`, `shell` and `shellArgs` values. Some [settings](/docs/getstarted/settings.md) like `window.title` have their own variables:
 
 ```json
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"
