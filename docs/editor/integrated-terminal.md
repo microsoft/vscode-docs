@@ -255,7 +255,7 @@ The basics of the terminal have been covered in this document, read on to find o
 
 ### Can I use the integrated terminal with the Windows Subsystem for Linux?
 
-Yes, you can select the [Windows Subsystem for Linux]((https://docs.microsoft.com/windows/wsl/install-win10)) (WSL) bash shell as your terminal default. If you have WSL enabled (through Windows Features), you can select **WSL Bash** from the terminal **Select Default Shell** drop down. See [Developing in WSL](/docs/remote/wsl.md) for details on working in WSL and the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
+Yes, you can select the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL) bash shell as your terminal default. If you have WSL enabled (through Windows Features), you can select **WSL Bash** from the terminal **Select Default Shell** drop down. See [Developing in WSL](/docs/remote/wsl.md) for details on working in WSL and the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
 
 ### Why is VS Code shortcut X not working when the terminal has focus?
 
