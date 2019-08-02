@@ -72,7 +72,11 @@ You can also reference environment variables through the **${env:Name}** syntax 
 }
 ```
 
-**Note**: Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
+**Note**: Be sure to match the environment variable name's conventional casing, since this is significant outside of native Windows. (Even the `bash` that comes with Git for Windows cares.) If you have some reason to refer to the `PATH`, however, the correct casing is `${env:PATH}`, no matter what Windows tells you is in your environment. (Cygwin/MSYS will fix this up in the `ucenv` routine in [`winsup/cygwin/environ.cc`][environ.cc] for programs that use them, and on other OSes it was already using that casing in the first place.)
+
+[environ.cc]: http://sourceware.org/git/?p=newlib-cygwin.git;a=blob;f=winsup/cygwin/environ.cc;hb=HEAD
+
+**Note also**: Slashes (`/`) and backslashes  (`\`) can wreck your day, if they occur in the name of a shell command. Windows' default shell, `cmd.exe`, assumes unquoted slashes terminate command names, and Unix-style shells treat backslash as an escape character. So it's best if the command name can be something that's already in `PATH`.
 
 ## Configuration variables
 
@@ -107,7 +111,7 @@ This limitation is solved with **input variables** which have the syntax: `${inp
 
 The following example shows the overall structure of a `task.json` that makes use of input variables:
 
-```json
+```jsonc
 {
     "version": "2.0.0",
     "tasks": [
