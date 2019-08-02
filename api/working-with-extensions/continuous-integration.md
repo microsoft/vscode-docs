@@ -9,15 +9,17 @@ MetaDescription: Use Continuous Integration for testing Visual Studio Code exten
 
 # Continuous Integration
 
-Extension tests can be run on CI services. The `vscode-test` repository itself contains a sample extension that is tested on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/vscode-test/_build?definitionId=15) or jump directly to the [build definition yaml file](https://github.com/microsoft/vscode-test/blob/master/sample/azure-pipelines.yml).
+Extension integration tests can be run on CI services. The [`vscode-test`](https://github.com/Microsoft/vscode-test) library helps you setup extension tests on CI providers and contains a [sample extension](https://github.com/microsoft/vscode-test/tree/master/sample) setup on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/vscode-test/_build?definitionId=15) or jump directly to the [`azure-pipelines.yml` file](https://github.com/microsoft/vscode-test/blob/master/sample/azure-pipelines.yml).
 
 ## Azure Pipelines
 
 <a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="/assets/api/working-with-extensions/continuous-integration/pipelines-logo.png" width="318" /></a>
 
-You can create free projects on [Azure DevOps](https://azure.microsoft.com/services/devops/). This gives you source code hosting, planning boards, building and testing infrastructure, and more. On top of that, you get [10 free parallel jobs](https://azure.microsoft.com/services/devops/pipelines/) for building your projects across all three major platforms: Windows, macOS, and Linux.
+[Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is great for running VS Code extension tests as it supports running the tests on Windows, macOS and Linux. For Open Source projects, you get unlimited minutes and 10 free parallel jobs. This section explains how to setup an Azure Pipelines for running your extension tests.
 
-After registering and creating your new project, add the following `azure-pipelines.yml` to the root of your extension's repository. Other than the `xvfb` setup script for Linux that is necessary to run VS Code in headless Linux CI machines, the definition is straight-forward:
+First, create a free account on [Azure DevOps](https://azure.microsoft.com/services/devops/) and create an [Azure DevOps project](https://azure.microsoft.com/en-us/features/devops-projects/) for your extension.
+
+Then, add the following `azure-pipelines.yml` file to the root of your extension's repository. Other than the `xvfb` setup script for Linux that is necessary to run VS Code in headless Linux CI machines, the definition is straight-forward:
 
 ```yaml
 trigger:
@@ -60,7 +62,7 @@ steps:
     DISPLAY: ':99.0'
 ```
 
-Next [create a new Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts#get-your-first-build) in your DevOps project and point it to the `azure-pipelines.yml` file. Trigger a build and voilà:
+Finally, [create a new pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts#get-your-first-build) in your DevOps project and point it to the `azure-pipelines.yml` file. Trigger a build and voilà:
 
 ![pipelines](images/continuous-integration/pipelines.png)
 
