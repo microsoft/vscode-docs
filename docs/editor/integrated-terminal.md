@@ -248,7 +248,7 @@ Something else that might improve performance is to ignore Chromium's GPU disall
 The basics of the terminal have been covered in this document, read on to find out more about:
 
 * [Tasks](/docs/editor/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
-* [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
+* [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of powerful user tips for the terminal.
 * Explore the rest of the terminal commands by browsing your keybindings.json file within VS Code.
 
 ## Common questions
