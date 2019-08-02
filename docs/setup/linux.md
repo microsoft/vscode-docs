@@ -157,6 +157,18 @@ Debian-based distributions allow setting a default **editor** using the [Debian 
 sudo update-alternatives --set editor /usr/bin/code
 ```
 
+## Windows as a Linux developer machine
+
+Another option for Linux development with VS Code is use a Windows machine with the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL).
+
+### Windows Subsystem for Linux
+
+With WSL, you can install and run Linux distributions on Windows. This enables you to develop and test your source code on Linux while still working locally on a Windows machine. WSL supports Linux distributions such as Ubuntu, Debian, SUSE, and Alpine available from the Microsoft Store.
+
+When coupled with the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of a Linux distro on WSL.
+
+See the [Developing in WSL](/docs/remote/wsl.md) documentation to learn more or try the [Working in WSL](/remote-tutorials/wsl/getting-started.md) step-by-step tutorial.
+
 ## Next steps
 
 Once you have installed VS Code, these topics will help you learn more about it:
