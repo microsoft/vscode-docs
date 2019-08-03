@@ -236,10 +236,15 @@ Sometimes you might want to run custom setups, such as running `code --install-e
 
 ```ts
 const cp = require('child_process')
+const { downloadAndUnzipVSCode, resolveCliPathFromExecutablePath } = require('vscode-test')
 const vscodeExecutablePath = await downloadAndUnzipVSCode('1.34.0');
+const cliPath = resolveCliPathFromExecutablePath(vscodeExecutablePath);
 
 // Use cp.spawn / cp.exec for custom setup
-cp.spawnSync(vscodeExecutablePath, ['--install-extension', '<PATH-TO-VSIX>'], { encoding: 'utf-8', stdio: 'inherit' });
+cp.spawnSync(cliPath, ['--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
+  encoding: 'utf-8',
+  stdio: 'inherit'
+});
 
 // Run the extension test
 await runTests({
