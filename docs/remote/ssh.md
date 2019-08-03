@@ -23,15 +23,11 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 **Local:** See minimum requirements for [VS Code](/docs/supporting/requirements.md). A supported [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) must also be installed.
 
-**Remote SSH Host**: A running [SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) on:
+**Remote SSH Host**: A running [SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) on x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+, ARMv7l (or ARMv8 in 32-bit mode) Raspbian 9+ (32-bit).
 
-- **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
+Other `glibc` based Linux distributions for x86_64 and ARMv7l should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
 
-- **Experimental support:** ARMv7l Raspbian 8+ (32-bit) in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only.
-
-Other `glibc` based Linux distributions for x86_64 and ARMv7l (in VS Code Insiders) should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
-
-While experimental ARMv7l support is available in [VS Code Insiders](https://code.visualstudio.com/insiders/), some extensions installed on ARMv7l devices may not work due to the use of x86 native code in the extension.
+While ARMv7l (or ARMv8 in 32-bit mode) support is available, some extensions installed on ARMv7l devices may not work due to the use of x86 native code in the extension.
 
 ### Installation
 
@@ -49,7 +45,7 @@ To get started, you need to:
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
-> **Note:** See [System Requirements](#system-requirements) for information about supported SSH hosts. When using experimental support for ARMv7l `glibc` distributions like Raspbian in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed on the remote host may not work due the use of x86 native code in the extension.
+> **Note:** See [System Requirements](#system-requirements) for information about supported SSH hosts. When using support for ARMv7l `glibc` distributions like Raspbian, note that some extensions installed on the remote host may not work due the use of x86 native code in the extension.
 
 To get started, follow these steps:
 

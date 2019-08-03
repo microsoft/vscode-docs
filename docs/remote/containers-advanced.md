@@ -210,22 +210,21 @@ If your image or Dockerfile provides a non-root user (like the `node` image) but
 * When referencing an **image** or **Dockerfile**, add the following to your `devcontainer.json`:
 
     ```json
-    "runArgs": ["-u", "user-name-goes-here"]
+    "runArgs": ["-u", "user-name-or-UID-goes-here"]
     ```
 
 * If you are using **Docker Compose**, add the following to your service in `docker-compose.yml`:
 
     ```yaml
-    user: user-name-goes-here
+    user: user-name-or-UID-goes-here
     ```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
+For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `vscode`, give it the ability to use `sudo`, and set it as the default:
 
 ```Dockerfile
-ARG USERNAME=user-name-goes-here
-
+ARG USERNAME=vscode
 # Or your actual UID, GID on Linux if not the default 1000
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
@@ -276,6 +275,7 @@ To see how this works, consider this example source tree:
 
 ```text
 📁 project-root
+    📁 .git
     📁 container1-src
         📄 .devcontainer.json
         📄 hello.go
@@ -285,6 +285,8 @@ To see how this works, consider this example source tree:
     📄 docker-compose.yml
 ```
 
+The location of the `.git` folder is important, since we will need to ensure the containers can see this path for source control to work properly.
+
 Next, assume the `docker-compose.yml` in the root is as follows:
 
 ```yml
@@ -293,8 +295,10 @@ services:
   container-1:
     image: ubuntu:bionic
     volumes:
-      - ./container-1-src:/workspace
-      - ~/.ssh:/root/.ssh # [Optional] For reusing Git SSH keys.
+      # Mount the root folder that contains .git
+      - .:/workspace
+      # [Optional] For reusing Git SSH keys.
+      - ~/.ssh:/root/.ssh-local:ro
     command: /bin/sh -c "while sleep 1000; do :; done"
     links:
       - container-2
@@ -302,8 +306,10 @@ services:
   container-2:
     image: ubuntu:bionic
     volumes:
-      - ./container-2-src:/workspace
-      - ~/.ssh:/root/.ssh # [Optional] For reusing Git SSH keys.
+      # Mount the root folder that contains .git
+      - .:/workspace
+      # [Optional] For reusing Git SSH keys.
+      - ~/.ssh:/root/.ssh-local:ro
     command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
@@ -314,22 +320,26 @@ You can then set up `container1-src/.devcontainer.json` for Go development as fo
     "name": "Container 1",
     "dockerComposeFile": ["../docker-compose.yml"],
     "service": "container-1",
-    "workspaceFolder": "/workspace",
+    "shutdownAction": "none",
     "extensions": ["ms-vscode.Go"],
-    "shutdownAction": "none"
+    // Open the sub-folder with the source code
+    "workspaceFolder": "/workspace/container1-src",
+    // [Optional] Copy the contents to the correct location and set permissions
+    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
 }
 ```
 
-Next, you can `container2-src/.devcontainer.json` for Node.js development as follows:
+Next, you can `container2-src/.devcontainer.json` for Node.js development by just changing `workspaceFolder` and installing Node.js extensions:
 
 ```json
 {
     "name": "Container 2",
     "dockerComposeFile": ["../docker-compose.yml"],
     "service": "container-2",
-    "workspaceFolder": "/workspace",
+    "shutdownAction": "none",
     "extensions": ["dbaeumer.vscode-eslint"],
-    "shutdownAction": "none"
+    "workspaceFolder": "/workspace/container2-src",
+    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
 }
 ```
 

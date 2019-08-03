@@ -129,8 +129,6 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) 
 
 Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL versions, VS Code will use your **default distro**, so use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
 
-The `Alpine WSL` distro is not yet supported with VS Code.
-
 ### Golang in WSL
 
 | Issue | Existing issues |
