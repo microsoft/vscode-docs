@@ -31,9 +31,11 @@ To turn on full logging for the lanugage server, follow these steps:
 ## Enable logging for the debug adapter
 Enabling logging for the debug adapter will show communication information between VS Code and our extension and between our extension and the debug adapter.
 
+Logging configuration for the debug adapter is configured in `launch.json`.
+
 ### Logging for `MI` debuggers
 
-The logging block with its defaults is as follows:
+The logging block for `MI` debuggers with its default configuration in `launch.json` is as follows:
 
 ```
 "logging": {
@@ -53,7 +55,7 @@ The logging between CppTools and the debugger is called `engineLogging`. When us
 
 ### Logging for `Visual C++` debugger
 
-The logging block with its defaults is as follows:
+The logging block for `Visual C++` debugger with its default configuration in `launch.json` is as follows:
 
 ```
 "logging": { 
