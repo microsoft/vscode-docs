@@ -93,7 +93,6 @@ Let's start by using a sample project to try things out.
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
 
-
 ### Quick start: Open an existing folder in a container
 
 Next we will cover how to set up a dev container for an existing project to use as your full-time development environment.
@@ -144,7 +143,6 @@ The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) has
 Note that, if `devcontainer.json`'s supported workflows supports do not meet your needs, you can also [attach to an already running container instead](#attaching-to-running-containers).
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
-
 
 ### Configuration edit loop
 
@@ -214,6 +212,10 @@ If you install an extension from the Extensions view, it will automatically be i
 Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. Select **Install** to install an extension on your remote host.
 
 ![Disabled Extensions w/Install Button](images/containers/containers-disabled-extensions.png)
+
+You can also install all locally installed extensions inside the Dev Container by going to the extensions panel and selecting **Install Local Extensions on Dev Container: [Name]** from the advanced menu (...).
+
+![Install all extensions](images/containers/install-all-extn-containers.png)
 
 ### "Always installed" extensions
 

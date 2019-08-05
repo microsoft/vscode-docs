@@ -102,6 +102,10 @@ Local extensions that actually need to run remotely will appear **Disabled** in 
 
 ![Disabled Extensions w/Install Button](images/ssh/ssh-disabled-extensions.png)
 
+You can also install all locally installed extensions on the SSH host by going to the extensions panel and selecting **Install Local Extensions on SSH: [Hostname]** from the advanced menu (...).
+
+![Install all extensions](images/ssh/install-all-extn-ssh.png)
+
 ### "Always installed" extensions
 
 If there are extensions that you would like to always have installed on any SSH host, you can specify which ones using the `remote.SSH.defaultExtensions` property in `settings.json`. For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, specify their extension IDs as follows:

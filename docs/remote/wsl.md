@@ -47,7 +47,6 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
     > **Note:** If this command does not work, you may not have added VS Code to your path when it was installed.
 
-
 4. After a moment, a new VS Code window will appear, and you'll see a notification that VS Code is opening the folder in WSL.
 
    ![WSL Starting notification](images/wsl//wsl-starting-notification.png)
@@ -85,6 +84,10 @@ If you install an extension from the Extensions view, it will automatically be i
 Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. Select **Install** to install an extension on your remote host.
 
 ![Disabled Extensions w/Install Button](images/wsl/wsl-disabled-extensions.png)
+
+You can also install all locally installed extensions inside WSL by going to the extensions panel and selecting **Install Local Extensions in WSL** from the advanced menu (...).
+
+![Install all extensions](images/wsl/install-all-extn-wsl.png)
 
 ### Advanced: Forcing an extension to run locally / remotely
 
