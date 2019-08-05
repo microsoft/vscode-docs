@@ -23,7 +23,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 To get started you need to:
 
-1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution.
+1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution. (Note that Alpine Linux support is only available in [VS Code Insiders](https://code.visualstudio.com/insiders).)
 
     > **Note:** WSL does have some [known limitations](#known-limitations) for certain types of development that can also affect your VS Code experience.
 

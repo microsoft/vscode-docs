@@ -21,13 +21,17 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ### System requirements
 
-**Local:** Docker Desktop 2.0+ for macOS/Windows 10 Pro/Enterprise or Docker CE/EE 18.06+ and Docker Compose 1.21+ for Linux. However, while the Docker CLI is required, Docker Desktop / the Docker daemon does not need to be running locally if you will be [using a remote Docker host](/docs/remote/containers-advaced.md#developing-inside-a-container-on-a-remote-docker-host). Docker Toolbox and Ubuntu snap packages are not supported. See the minimum requirements for [VS Code](/docs/supporting/requirements.md) for additional details.
+**Local:** Docker Desktop 2.0+ for macOS/Windows 10 Pro/Enterprise or Docker CE/EE 18.06+ and Docker Compose 1.21+ for Linux. Docker Toolbox and Ubuntu snap packages are not supported. However, Docker does not need to be running if you are[using a remote Docker host](/docs/remote/containers-advaced.md#developing-inside-a-container-on-a-remote-docker-host). See the minimum requirements for [VS Code](/docs/supporting/requirements.md) for additional details.
 
-**Containers**: x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+, Alpine Linux 3.7+ based containers.
+**Containers**:
+
+* **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ based containers
+
+* **Experimental support:** x86_64 Alpine Linux containers in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 Other `glibc` based Linux containers may work if they have [needed prerequisites](/docs/remote/linux.md).
 
-While `musl` based Alpine Linux support is available, some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development with Linux](/docs/remote/linux.md) article for details.
+While `musl` based Alpine Linux support is available in VS Code Insiders, some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development with Linux](/docs/remote/linux.md) article for details.
 
 ### Installation
 
@@ -37,7 +41,7 @@ To get started, follow these steps:
 
     **Windows / macOS**:
 
-    1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop). (Docker Toolbox is not currently supported.)
+    1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop). (Docker Toolbox is not currently supported. However, Docker does not need to be running if you are [using a remote host](https://aka.ms/vscode-remote/containers/remote-host).)
 
     2. Right-click on the Docker taskbar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you run into trouble, see [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) on avoiding common problems with sharing.
 
@@ -105,7 +109,7 @@ The steps are similar to those above:
 
 2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one exists in the folder you selected.
 
-    > **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+    > **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux in VS Code Insiders, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
     ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
 
@@ -177,7 +181,7 @@ While using VS Code to spin up a new container can be useful in many situations,
 
 While `devcontainer.json` is not used in this case, you are able to use the same capabilities provided by the extension once connected. You can also use `settings.json` to [specify extensions that should always be installed](#always-installed-extensions) when you attach to a container to speed up setup.
 
-> **Note:** See [System requirements](#system-requirements) for information about supported container. When using support for Alpine Linux, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+> **Note:** See [System requirements](#system-requirements) for information about supported container. When using support for Alpine Linux in VS Code Insiders, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
 Once you have a container up and running, you can connect by either:
 
@@ -429,7 +433,7 @@ To get started quickly, **open the folder** you want to work with in VS Code and
 
 You'll be asked to either select an existing Dockerfile (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) in a filterable list. VS Code will then add `devcontainer.json` and any other required files to the folder. While most of these pre-defined "dev container definitions" include a Dockerfile, you can use them as a starting point for an image instead if you prefer.
 
-> **Note:** See [System requirements](#system-requirements) for information on supported containers. When using experimental support for Alpine Linux in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+> **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux in VS Code Insiders, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
 You can also create your configuration manually. The difference between configuring VS Code to build a container image using a Dockerfile or just reuse an exiting image is a single property in `devcontainer.json`:
 
@@ -550,7 +554,7 @@ You can either:
 3. [Extend your existing Docker Compose configuration](#extending-your-docker-compose-file-for-development) to develop the service.
 4. Use separate VS Code windows to [work with multiple Docker Compose-defined services](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) at once.
 
-> **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+> **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux in VS Code Insiders, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
 VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file. If you've already started the configured containers using the command line, VS Code will **attach to the running service** you've specified instead. This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above while still allowing you to use the command line if you prefer.
 
