@@ -22,7 +22,7 @@ You can verify the installations by running:
 
 ```bash
 node --version
-npn --version
+npm --version
 ```
 
 ## Install the Express Generator
