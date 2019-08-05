@@ -75,7 +75,7 @@ Starting in version 0.12.3 of the extension, there is a command to reset your In
 
 ## What is the ipch folder?
 
-The language server caches information about included header files to improve the performance of IntelliSense. When you edit C/C++ files in your workspace folder, the language server will store cache files in the `ipch` folder. By default, the `ipch` folder is stored under the user directory. Specifically, it is stored under `%LocalAppData%\vscode-cpptools` on Windows, and for Linux and macOS it is under `~/.vscode-cpptools`. By using the user directory as the default path, it will create one cache location per user for the extension. As the cache size limit is applied to a cache location, having one cache location per user will limit the disk space usage of the cache to that one folder for everyone using the default setting value.
+The language server caches information about included header files to improve the performance of IntelliSense. When you edit C/C++ files in your workspace folder, the language server will store cache files in the `ipch` folder. By default, the `ipch` folder is stored under the user directory. Specifically, it is stored under `%LocalAppData%/Microsoft/vscode-cpptools\` on Windows, and for Linux and macOS it is under `~/.vscode-cpptools`. By using the user directory as the default path, it will create one cache location per user for the extension. As the cache size limit is applied to a cache location, having one cache location per user will limit the disk space usage of the cache to that one folder for everyone using the default setting value.
 
 VS Code per-workspace storage folders were not selected for the following reason:
 * The workspace storage location provided by VS Code is somewhat obscure and we had reservations about writing GB's worth of files in this location where users may not see them or know where to find them.
@@ -90,7 +90,7 @@ This setting allows you to set a limit on the amount of caching the extension do
 
 ## How do I disable the IntelliSense cache (ipch)?
 
-If you do not want to use the IntelliSense caching feature to improve the performance of IntelliSense, you can disable the feature by setting the "IntelliSense Cache Size" setting to 0. (or `"C_Cpp.intelliSenseCacheSize": 0"` in the JSON settings editor)
+If you do not want to use the IntelliSense caching feature that improves the performance of IntelliSense, you can disable the feature by setting the "IntelliSense Cache Size" setting to 0. (or `"C_Cpp.intelliSenseCacheSize": 0"` in the JSON settings editor)
 
 ## How do I setup debugging?
 The debugger needs to be configured to know which executable and debugger to use:
