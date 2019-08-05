@@ -9,7 +9,7 @@ DateApproved: 7/3/2019
 ---
 # Developing in WSL
 
-The **Visual Studio Code Remote - WSL** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as your full-time development environment right from VS Code. You can develop in a Linux-based environment, use Linux specific toolchains and utilities, and run and debug your Linux-based applications all from the comfort of Windows.
+The **Visual Studio Code Remote - WSL** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as your full-time development environment right from VS Code. You can develop in a Linux-based environment, use Linux-specific toolchains and utilities, and run and debug your Linux-based applications all from the comfort of Windows.
 
 The extension runs commands and other extensions directly in WSL so you can edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges.
 
@@ -21,7 +21,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ### Installation
 
-To get started you need to:
+To get started, you need to:
 
 1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution. (Note that Alpine Linux support is only available in [VS Code Insiders](https://code.visualstudio.com/insiders).)
 
@@ -85,7 +85,7 @@ Local extensions that actually need to run remotely will appear **Disabled** in 
 
 ![Disabled Extensions w/Install Button](images/wsl/wsl-disabled-extensions.png)
 
-You can also install all locally installed extensions inside WSL by going to the extensions panel and selecting **Install Local Extensions in WSL** from the advanced menu (...).
+You can also install all locally installed extensions inside WSL by going to the Extensions view and selecting **Install Local Extensions in WSL: [Name]** from the **More Actions** menu (...).
 
 ![Install all extensions](images/wsl/install-all-extn-wsl.png)
 

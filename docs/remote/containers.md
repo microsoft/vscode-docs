@@ -21,7 +21,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ### System requirements
 
-**Local:** Docker Desktop 2.0+ for macOS/Windows 10 Pro/Enterprise or Docker CE/EE 18.06+ and Docker Compose 1.21+ for Linux. Docker Toolbox and Ubuntu snap packages are not supported. However, Docker does not need to be running if you are[using a remote Docker host](/docs/remote/containers-advaced.md#developing-inside-a-container-on-a-remote-docker-host). See the minimum requirements for [VS Code](/docs/supporting/requirements.md) for additional details.
+**Local:** Docker Desktop 2.0+ for macOS/Windows 10 Pro/Enterprise or Docker CE/EE 18.06+ and Docker Compose 1.21+ for Linux. Docker Toolbox and Ubuntu snap packages are not supported. However, Docker does not need to be running if you are [using a remote Docker host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host). See the minimum requirements for [VS Code](/docs/supporting/requirements.md) for additional details.
 
 **Containers**:
 
@@ -217,7 +217,7 @@ Local extensions that actually need to run remotely will appear **Disabled** in 
 
 ![Disabled Extensions w/Install Button](images/containers/containers-disabled-extensions.png)
 
-You can also install all locally installed extensions inside the Dev Container by going to the extensions panel and selecting **Install Local Extensions on Dev Container: [Name]** from the advanced menu (...).
+You can also install all locally installed extensions inside the Dev Container by going to the Extensions view and selecting **Install Local Extensions in Dev Container: [Name]** from the **More Actions** menu (...).
 
 ![Install all extensions](images/containers/install-all-extn-containers.png)
 
@@ -293,8 +293,6 @@ Once you've opened a folder in a container, you can use VS Code's debugger in th
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
-
-
 ## Container specific settings
 
 VS Code's local user settings are also reused when you are connected to a dev container. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each container. Fortunately, once you have connected to a container, you can also set container-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the settings editor. These will override any local settings you have in place whenever you connect to the container.
@@ -348,7 +346,7 @@ However, there is a cross-platform way of copying the contents of the `.ssh` fol
 
 * When a **Docker Compose** file is referenced, first update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
-    ```yml
+    ```yaml
     version: '3'
     services:
       your-service-name-here:
@@ -403,7 +401,6 @@ docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}
 5. If you would like to delete the containers, type `docker-compose down` to both stop and delete them.
 
 If you want to clean out images or mass-delete containers, see [Cleaning out unused containers and images](/docs/remote/troubleshooting.md#cleaning-out-unused-containers-and-images) for different options.
-
 
 ## In-depth: Setting up a folder to run in a container
 

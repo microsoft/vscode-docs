@@ -23,7 +23,7 @@ You can update environment variables in your container without altering the cont
 
 * When a **Docker Compose** file is referenced, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
-     ```yml
+     ```yaml
      version: '3'
      services:
        your-service-name-here:
@@ -52,7 +52,7 @@ You can add a volume bound to any local folder using these steps:
 
 * When a **Docker Compose** file is referenced, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
-     ```yml
+     ```yaml
      version: '3'
      services:
        your-service-name-here:
@@ -97,7 +97,7 @@ A trick that is often used with Docker Desktop for Mac is to change the [mount c
 
 * For **Docker Compose**, you can modify the consistency requirements in `docker-compose.yml` instead. For example:
 
-    ```yml
+    ```yaml
       volumes:
         - type: bind
           source: /local/path/to/source/code
@@ -130,7 +130,7 @@ You can set this up by taking an existing `devcontainer.json` configuration and 
 
 * When a **Docker Compose** file is referenced, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service(s):
 
-    ```yml
+    ```yaml
     version: '3'
     services:
       your-service-name-here:
@@ -175,7 +175,7 @@ Replace `your-volume-name-goes-here` with a unique volume name for the container
 
 Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following. Replace `your-volume-name-goes-here` with a unique volume name for the container.
 
-  ```yml
+  ```yaml
   services:
     your-service-name-here:
       # ...
@@ -289,7 +289,7 @@ The location of the `.git` folder is important, since we will need to ensure the
 
 Next, assume the `docker-compose.yml` in the root is as follows:
 
-```yml
+```yaml
 version: '3'
 services:
   container-1:
@@ -500,7 +500,7 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
 
     Next, add a `docker-compose.remote.yml` file into the `.devcontainer` folder. If you do **not** have login access to the remote host, you will need to use a Docker "volume" for your source code. Add the following to the file replacing `your-service-name-here` with the value of the `service` property in `devcontainer.json` (replacing `remote-workspace` with a unique volume name if desired):
 
-    ```yml
+    ```yaml
     version: '3'
     services:
       your-service-name-here:
@@ -513,7 +513,7 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
 
     If you **do** have login access, you can use a remote filesystem bind mount instead:
 
-    ```yml
+    ```yaml
     version: '3'
     services:
       your-service-name-here:
