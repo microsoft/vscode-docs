@@ -11,18 +11,18 @@ DateApproved: 6/25/2019
 
 Linux is a highly variable environment and the large number of server, container, and desktop distributions can make it difficult to know what is supported. Visual Studio Code Remote Development has prerequisites for the specific host / container / WSL distribution you will be connecting to.
 
-If you are using a recent **64-bit x86** stable/LTS version of:
+If you are using a recent stable/LTS version of:
 
-* **Ubuntu** (16.04+)
-* **Debian** (8+)
-* **CentOS / RHEL** (7+)
+* **Ubuntu 64-bit x86** (16.04+)
+* **Debian 64-bit x86** (8+)
+* **CentOS / RHEL 64-bit x86** (7+)
 
 then the VS Code Remote Development extensions should work without additional dependencies.
 
-There is also experimental support in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only for:
+VS Code Insiders also has experimental support for:
 
-* **32-bit ARMv7l Raspbian** (8+) SSH hosts (Remote - SSH)
-* **64-bit x86 Alpine Linux** (3.7+) containers (Remote - Containers)
+* **Raspbian 32-bit ARMv7l (or ARMv8 in 32-bit mode)** (Stretch/9+) SSH hosts (Remote - SSH). ARMv6 used in the Raspberry Pi 1/Zero is not supported.
+* **Alpine Linux 64-bit x86** (3.7+) containers (Remote - Containers) and WSL hosts (Remote - WSL)
 
 However, if you are using a non-standard configuration or downstream distribution, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
 
@@ -35,20 +35,20 @@ If you are running Linux locally, the [VS Code prerequisites](/docs/supporting/r
 In addition, specific Remote Development extensions have further requirements:
 
 * **Remote - SSH:** `ssh` needs to be in the path. The shell binary is typically in the `openssh-client` package.
-* **Remote - Containers**: Docker CE/EE 18.06+ and Docker Compose 1.21+. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, follow the [Install Docker Compose directions](https://docs.docker.com/compose/install/) as well. (Note that the Ubuntu Snap package is not supported and packages in distributions may be out of date.) `docker` and `docker-compose` must also be in the path.
+* **Remote - Containers**: Docker CE/EE 18.06+ and Docker Compose 1.21+. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, follow the [Install Docker Compose directions](https://docs.docker.com/compose/install/) as well. (Note that the Ubuntu Snap package is not supported and packages in distributions may be out of date.) `docker` and `docker-compose` must also be in the path. However, Docker does not need to be running if you are [using a remote host](https://aka.ms/vscode-remote/containers/remote-host).
 
 ## Remote host / container / WSL Linux prerequisites
 
 Platform prerequisites are primarily driven by the version of the [Node.js](https://nodejs.org/en/docs/meta/topics/dependencies/) runtime (and by extension the [V8 JavaScript engine](https://v8docs.nodesource.com)) shipped in the server component automatically installed on each remote endpoint. This server also has a set of related native node modules that need to be compiled and tested for each target. **64-bit x86 glibc-based** Linux distributions currently provide the best support given these requirements.
 
-**32-bit ARMv7l glibc-based** Linux SSH host support and **64-bit x86 musl-based Alpine Linux** container support in [VS Code Insiders](https://code.visualstudio.com/insiders/) is experimental because of some fundamental platform differences that can affect native binaries in extensions in the broader VS Code extension ecosystem. For ARMv7l, extensions may only include x86_64 versions of native modules or runtimes in the extension. For Alpine Linux, included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`). In both these cases, extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. We want to give the community the opportunity to opt-in or out of this support before we add it to stable.
+You may encounter issues with certain extensions with native dependencies when using VS Code Insiders with **32-bit ARMv7l glibc-based** Linux SSH hosts and **64-bit x86 musl-based Alpine Linux** containers. For ARMv7l in VS Code Insiders, extensions may only include x86_64 versions of native modules or runtimes in the extension. For Alpine Linux in VS Code Insiders, included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`). In both these cases, extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. Please raise an issue with the appropriate extension author requesting support if you encounter an extension that does note work as expected.
 
 | Distribution | Base Requirements | Remote - SSH Requirements | Notes |
 |--------------|-------------------|------------------|-------|
-| General |  kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18, Python 2.6 or 2.7, tar | OpenSSH server, `bash`, and `curl` or `wget` | Run `ldd --version` to check the glibc version. Run `strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX` to see if libstdc++ 3.4.18 is available. `musl` is not currently supported.|
-| Ubuntu 16.04+, Debian 8+, Raspbian and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18. Debian < 8 (Jessie) and Ubuntu < 14.04 do not meet this requirement.  |
+| General |  kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18, Python 2.6 or 2.7, tar | OpenSSH server, `bash`, and `curl` or `wget` | Run `ldd --version` to check the glibc version. Run `strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX` to see if libstdc++ 3.4.18 is available. |
+| Ubuntu 16.04+, Debian 8+, Raspbian Stretch/9+ and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18. Debian < 8 (Jessie) and Ubuntu < 14.04 do not meet this requirement.  |
 | RHEL / CentOS 7+ | `glibc libgcc libstdc++ python ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18.  RHEL / CentOS < 7 does not meet this requirement without using a [workaround to upgrade](#updating-glibc-and-libstdc-on-rhel-centos-6). |
-| 🔬 Alpine Linux 3.7+ | `musl libgcc libstdc++` | Not yet supported. | Experimental support in Remote - Containers. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
+| 🔬 Alpine Linux 3.7+ | `musl libgcc libstdc++`. musl >= 1.1.18, glibc not required. | Not yet supported. | Supported in Remote - Containers and Remote - WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
 
 ## Tips by Linux distribution
 
@@ -56,7 +56,7 @@ The following is a list of distributions and any base requirements that may be m
 
 | Server Distribution | Docker Image | Missing libraries | Notes / additional steps |
 |---------------------|--------------|-------------------|------------------|
-| 🔬 Alpine Linux (64-bit) | `alpine:latest` | `libgcc libstdc++` | Experimental support in Remote - Containers. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
+| 🔬 Alpine Linux 3.10 (64-bit) | `alpine:latest` | `libgcc libstdc++` |  Supported in Remote - Containers and Remote - WSL only. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
 | ✅ CentOS 7 Server (64-bit) | `centos:7` | &lt;none&gt; | &lt;none&gt; |
 | ⚠️ CentOS 6 Server (64-bit) | `centos:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | ✅ Debian 9 Server (64-bit) | `debian:9` | &lt;none&gt; | &lt;none&gt; |
@@ -65,7 +65,7 @@ The following is a list of distributions and any base requirements that may be m
 | ✅ openSUSE Leap Server 42.3 (64-bit) |  `opensuse/leap:42.3` | Docker image is missing `tar`. |  &lt;none&gt; |
 | ✅ Oracle Linux 7 (64-bit) | `oraclelinux:7` | &lt;none&gt; | &lt;none&gt; |
 | ⚠️ Oracle Linux 6 (64-bit) | `oraclelinux:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18. Docker image is missing `tar`. |  [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
-| ️️🔬 Raspbian 9 (ARMv7l 32-bit) | | &lt;none&gt; | Experimental support in Remote - SSH. Extensions may not work when installed on an ARMv7l host due to extension x86 native code. |
+| 🔬 Raspbian Stretch/9 (ARMv7l 32-bit) | | &lt;none&gt; | Supported in Remote - SSH. Extensions may not work when installed on an ARMv7l host due to extension x86 native code. |
 | ✅ RedHat Enterprise Linux 7 (64-bit) |  | &lt;none&gt; | &lt;none&gt; |
 | ⚠️ RedHat Enterprise Linux 6 (64-bit) |  | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | ✅ SUSE Linux Enterprise Server 15 (64-bit) |  |  &lt;none&gt; |  &lt;none&gt; |
