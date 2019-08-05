@@ -129,7 +129,6 @@ Also note the **Use Exclude Settings and Ignore Files** toggle button in the **f
 
 >**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
-VS Code does support regular expression searches, however, [backreferences](https://www.regular-expressions.info/backref.html) and [lookaround](https://www.regular-expressions.info/lookaround.html) aren't supported by default. But you can enable these with the setting `search.usePCRE2`. This configures [ripgrep](https://github.com/BurntSushi/ripgrep) to use the [PCRE2](https://pcre.org/) regex engine. While PCRE2 supports many other features, we only support regex expressions that are still valid in JavaScript, because open editors are still searched using the editor's JavaScript-based search.
 
 ### Search and replace
 
