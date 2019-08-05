@@ -8,9 +8,9 @@ DateApproved: 07/25/2019
 MetaDescription: How to enable logging in the Visual Studio Code C/C++ extension
 ---
 # C/C++ extension logging
-Logging information is available for the language server and debugger. If you are experiencing a problem that we are unable to diagnose based on information in your issue report, we might ask you to enable logging and send us your logs.
+Logging information is available for the language server and the debug adapter. If you are experiencing a problem that we are unable to diagnose based on information in your issue report, we might ask you to enable logging and send us your logs.
 
-Logging information is delivered directly to the Output window in Visual Studio Code.
+Logging information is delivered directly to the Output window for the language server and to the debugConsole window for the debug adapter.
 
 ## Enable logging for the language server
 
@@ -28,8 +28,8 @@ To turn on full logging for the lanugage server, follow these steps:
 
    ![Log filter selector](images/cpp/log-filter-selector.png)
 
-## Enable logging for the debugger
-Enabling logging for the debugger will show communication information between VS Code and our extension and between our extension and the debugger.
+## Enable logging for the debug adapter
+Enabling logging for the debug adapter will show communication information between VS Code and our extension and between our extension and the debug adapter.
 
 ### Logging for `MI` debuggers
 
