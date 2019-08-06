@@ -18,7 +18,7 @@ This tutorial walks you through using Visual Studio Code to deploy a Python appl
 - The container includes [Flask](https://http://flask.pocoo.org) by default but not [Django](https://www.djangoproject.com).
 - To install Django and any other dependencies, you **must** provide a `requirements.txt` file and deploy to App Service using Git, as shown in this tutorial. For App Service to install dependencies, `requirements.txt` must be deployed to the root folder.
 - Although the container can run Django and Flask apps automatically, provided the app matches an expected structure, you can also provide a custom startup command file through which you have full control over the Gunicorn command line. A custom startup command is typically required for Flask apps, but not Django apps.
-- The container definition itself is on the [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+- The container definition itself is on the [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/3.7).
 
 If you encounter any problems in the course of this tutorial, feel free to file an issue in the [Visual Studio Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 

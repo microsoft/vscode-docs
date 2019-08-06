@@ -16,6 +16,11 @@ MetaDescription: Frequently asked questions about the C/C++ extension in Visual 
 - [How do I get the new IntelliSense to work with the Windows Subsystem for Linux?](#how-do-i-get-the-new-intellisense-to-work-with-the-windows-subsystem-for-linux)
 - [What is the difference between includePath and browse.path in c_cpp_properties.json?](#what-is-the-difference-between-includepath-and-browsepath)
 - [How do I recreate the IntelliSense database?](#how-do-i-recreate-the-intellisense-database)
+- [What is the ipch folder?](#what-is-the-ipch-folder)
+- [How do I disable the IntelliSense cache (ipch)?](#how-do-i-disable-the-intellisense-cache-ipch)
+- [How do I set up debugging?](#how-do-i-set-up-debugging)
+- [How do I enable debug symbols?](#how-do-i-enable-debug-symbols)
+- [Why is debugging not working?](#why-is-debugging-not-working)
 
 ## Why are my files corrupted on format?
 
@@ -66,3 +71,67 @@ When you open a workspace for the first time, the extension adds `${workspaceRoo
 ## How do I recreate the IntelliSense database?
 
 Starting in version 0.12.3 of the extension, there is a command to reset your IntelliSense database. Open the Command Palette (`kb(workbench.action.showCommands)`) and choose the **C_Cpp: Reset IntelliSense Database** command.
+
+## What is the ipch folder?
+
+The language server caches information about included header files to improve the performance of IntelliSense. When you edit C/C++ files in your workspace folder, the language server will store cache files in the `ipch` folder. By default, the `ipch` folder is stored under the user directory. Specifically, it is stored under `%LocalAppData%/Microsoft/vscode-cpptools` on Windows, and for Linux and macOS it is under `~/.vscode-cpptools`. By using the user directory as the default path, it will create one cache location per user for the extension. As the cache size limit is applied to a cache location, having one cache location per user will limit the disk space usage of the cache to that one folder for everyone using the default setting value.
+
+VS Code per-workspace storage folders were not used because the location provided by VS Code is not well known and we didn't want to write GB's of files where users may not see them or know where to find them.
+
+With this in mind, we knew that we would not be able to meet the needs of every different development environment, so we provided settings to allow you to customize the way that works best for your situation.
+
+### `"C_Cpp.intelliSenseCachePath": <string>`
+
+This setting allows you to set workspace or global overrides for the cache path. For example, if you want to share a single cache location for all workspace folders, open the VS Code settings, and add a User setting for **IntelliSense Cache Path**.
+
+### `"C_Cpp.intelliSenseCacheSize": <number>`
+
+This setting allows you to set a limit on the amount of caching the extension does. This is an approximation, but the extension will make a best effort to keep the cache size as close to the limit you set as possible. If you are sharing the cache location across workspaces as explained above, you can still increase/decrease the limit, but you should make sure that you add a User setting for **IntelliSense Cache Size**.
+
+## How do I disable the IntelliSense cache (ipch)?
+
+If you do not want to use the IntelliSense caching feature that improves the performance of IntelliSense, you can disable the feature by setting the **IntelliSense Cache Size** setting to 0 (or `"C_Cpp.intelliSenseCacheSize": 0"` in the JSON settings editor).
+
+## How do I set up debugging?
+
+The debugger needs to be configured to know which executable and debugger to use:
+
+From the main menu, select **Debug** > **Add Configuration...**.
+
+The file `launch.json` will now be open for editing with a new configuration. The default settings will *probably* work except that you need to specify the `program` setting.
+
+See [Debug configuration](/docs/cpp/launch-json-reference.md) for more in-depth documentation on how to configure the debugger.
+
+## How do I enable debug symbols?
+
+Enabling debug symbols is dependent on the type of compiler you are using. Below are some of the compilers and the compiler options necessary to enable debug symbols.
+
+When in doubt, please check your compiler's documentation for the options necessary to include debug symbols in the output. This may be some variant of `-g` or `--debug`.
+
+### Clang (C++)
+
+* If you invoke the compiler manually, add the `--debug` option.
+* If you're using a script, make sure the `CXXFLAGS` environment variable is set. For example, `export CXXFLAGS="${CXXFLAGS} --debug"`.
+* If you're using CMake, make sure the `CMAKE_CXX_FLAGS` is set. For example, `export CMAKE_CXX_FLAGS=${CXXFLAGS}`.
+
+### Clang (C)
+
+See Clang C++ but use `CFLAGS` instead of `CXXFLAGS`.
+
+### gcc or g++
+
+If you invoke the compiler manually, add the `-g` option.
+
+### cl.exe
+
+Symbols are located in the `*.pdb` file.
+
+## Why is debugging not working?
+
+### My breakpoints aren't being hit
+
+When you start debugging, if your breakpoints aren't bound (solid red circle) or they are not being hit, you may need to enable [debug symbols](#how-do-i-enable-debug-symbols) during compilation.
+
+### Debugging starts but all the lines in my stack trace are grey
+
+If your debugger is showing a grey stacktrace, won't stop at a breakpoint, or the symbols in the call stack are grey, then your executable was compiled without [debug symbols](#how-do-i-enable-debug-symbols).
