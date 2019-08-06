@@ -772,6 +772,24 @@ Here is a problem matcher to fully capture ESLint stylish problems:
 }
 ```
 
+## Modifying an existing problem matcher
+
+If an existing problem matcher is close to what you need, you can modify it in your `tasks.json` task. For example, the `$tsc-watch` problem matcher only applies to closed documents. If you want to have it apply to all documents you can modify it:
+
+```json
+{
+	"type": "npm",
+	"script": "watch",
+	"problemMatcher": {
+		"base": "$tsc-watch",
+		"applyTo": "allDocuments"
+	},
+	"isBackground": true,
+}
+```
+
+Other modifiable problem matcher properties include `background`, `fileLocation`, `owner`, `pattern`, `severity`, and `source`.
+
 ## Background / watching tasks
 
 Some tools support running in the background while watching the file system for changes and then triggering an action when a file changes on disk. With `Gulp` such functionality is provided through the npm module [gulp-watch](https://www.npmjs.com/package/gulp-watch). The TypeScript compiler `tsc` has built in support for this via the `--watch command` line option.
