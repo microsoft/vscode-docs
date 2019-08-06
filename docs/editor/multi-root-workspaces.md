@@ -29,7 +29,7 @@ Once a root folder is added, the Explorer will show the new folder as a root in 
 
 The File Explorer should work and behave as before. You can move files between root folders and use any of the typical file operation actions provided in the context menu and the Explorer view.
 
-Settings like `files.exclude` are supported for each root folder if configured and across all folders if configured as global user setting.
+Settings like `files.exclude` are supported for each root folder if configured, and across all folders if configured as global user setting.
 
 ### Drag and drop
 
