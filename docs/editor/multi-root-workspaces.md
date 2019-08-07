@@ -132,7 +132,7 @@ If you'd always like to see the folder displayed in the tabbed header, you can u
 "workbench.editor.labelFormat": "medium"
 ```
 
-VS Code UI such as the **OPEN EDITORS** or **Quick Open** (`kb(workbench.action.quickOpen)`) list include the folder name.
+VS Code UI such as the **OPEN EDITORS** or **Quick Open** (`kb(workbench.action.quickOpen)`) list includes the folder name.
 
 ![quick pick has folder name](images/multi-root-workspaces/quick-open-list.png)
 
