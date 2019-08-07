@@ -86,6 +86,15 @@ For example, to enable running bash as a login shell (which runs `.bash_profile`
 "terminal.integrated.shellArgs.linux": ["-l"]
 ```
 
+### Using variables
+
+The `shell`, `shellArgs`, `env` and `cwd` terminal settings all support resolving [variables](https://code.visualstudio.com/docs/editor/variables-reference):
+
+```json
+// Open the terminal in the currently opened file's directory
+"terminal.integrated.cwd": "${fileDirname}"
+```
+
 ## Terminal display settings
 
 You can customize the integrated terminal font and line height with the following settings:
