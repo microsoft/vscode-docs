@@ -161,7 +161,7 @@ Next, create a `tasks.json` file to tell VS Code how to build (compile) the prog
         "windows": {
             "options": {
                 "shell": {
-                    "executable": "c:\\windows\\sysnative\\bash.exe",
+                    "executable": "bash.exe",
                     "args": ["-c"]
                 }
             }
