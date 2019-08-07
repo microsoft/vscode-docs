@@ -41,7 +41,7 @@ On the extension details page, you can read the extension's README as well as re
 
 ![extension contributions](images/extension-gallery/extension-contributions.png)
 
-If an extension is an Extension Pack, the **Dependencies** section will display which extensions will be installed when you install the pack. [Extension Packs](/api/references/extension-manifest.md#extension-packs) bundle separate extensions together so they can be easily installed at one time.
+If an extension is an Extension Pack, the **Extension Pack** section will display which extensions will be installed when you install the pack. [Extension Packs](/api/references/extension-manifest.md#extension-packs) bundle separate extensions together so they can be easily installed at one time.
 
 ![extension dependencies](images/extension-gallery/extension-dependencies.png)
 
