@@ -162,8 +162,6 @@ Here are the steps to do so:
 
 Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
 
-![git config in VS Code](images/versioncontrol/gitconfig.png)
-
 ### VS Code as Git diff tool
 
 Add the following to your Git configurations to use VS Code as the diff tool:
