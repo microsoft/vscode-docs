@@ -89,6 +89,7 @@ Colors for input controls such as in the Search view or the Find/Replace dialog.
 - `input.border`: Input box border.
 - `input.foreground`: Input box foreground.
 - `input.placeholderForeground`: Input box foreground color for placeholder text.
+- `inputOption.activeBackground`: Background color of activated options in input fields.
 - `inputOption.activeBorder`: Border color of activated options in input fields.
 - `inputValidation.errorBackground`: Input validation background color for error severity.
 - `inputValidation.errorForeground`: Input validation foreground color for error severity.
