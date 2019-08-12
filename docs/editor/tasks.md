@@ -217,7 +217,7 @@ Shell commands need special treatment when it comes to commands and arguments th
 Besides escaping the following values are supported:
 
 * **strong**: Uses the shell's strong quoting mechanism which suppresses all evaluations inside the string. Under PowerShell and for shells under Linux and macOS, single quotes are used (`'`). For cmd.exe, `"` is used.
-* **weak**: Uses the shell's weak quoting mechanism which still evaluates expression inside the string (e.g. for example environment variables). Under PowerShell and for shells under Linux and macOS, double quotes are used (`"`). cmd.exe doesn't support weak quoting so VS Code uses `"` as well.
+* **weak**: Uses the shell's weak quoting mechanism which still evaluates expression inside the string (e.g. environment variables). Under PowerShell and for shells under Linux and macOS, double quotes are used (`"`). cmd.exe doesn't support weak quoting so VS Code uses `"` as well.
 
 If the command itself contains spaces, VS Code will by default strong quote the command as well. As with arguments, the user can control the quoting of the command using the same literal style.
 
