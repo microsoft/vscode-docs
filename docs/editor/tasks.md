@@ -359,7 +359,7 @@ You can also mix custom tasks with configurations for detected tasks. A `tasks.j
 
 You can specify a tasks run behaviors using the `runOptions` property:
 
-- **reevaluateOnRerun**: Controls how variables are evaluated whan a task is executed through the **Rerun Last Task** command. The default is `true`, meaning that variables will be re-evaluated when a task is rerun. When set to `false` the resolved variable values from the previous run of the task will be used.
+- **reevaluateOnRerun**: Controls how variables are evaluated when a task is executed through the **Rerun Last Task** command. The default is `true`, meaning that variables will be re-evaluated when a task is rerun. When set to `false` the resolved variable values from the previous run of the task will be used.
 - **runOn**: Specifies when a task is run.
   - *default*: The task will only be run when executed through the **Run Task** command.
   - *folderOpen*: The task will be run when the folder it is in is opened. The first time you open a folder that contains a task with *folderOpen* you will be asked if you allow tasks to run automatically in that folder. You can change you decision later using the **Allow Automatic Tasks in Folder** and **Disallow Automatic Tasks in Folder** commands.
