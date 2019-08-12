@@ -537,7 +537,7 @@ Task properties can also be defined in the global scope. If present, they will b
 
 ### Character escaping in PowerShell
 
-When the default shell is PowerShell, or when a task is configured to use PowerShell, you might see unexpected space and quote escaping. The unexpected escaping only occurs with cmdlets because VS Code doesn’t know if your command contains cmdlets. Example 1 below shows a case where you’ll get escaping that doesn’t work with PowerShell. Example 2 shows the best, cross-platform, way to get good escaping. In some cases, you might not be able to follow example 2 and you’ll need to do the manual escaping show in example 3.
+When the default shell is PowerShell, or when a task is configured to use PowerShell, you might see unexpected space and quote escaping. The unexpected escaping only occurs with cmdlets because VS Code doesn’t know if your command contains cmdlets. Example 1 below shows a case where you’ll get escaping that doesn’t work with PowerShell. Example 2 shows the best, cross-platform, way to get good escaping. In some cases, you might not be able to follow example 2 and you’ll need to do the manual escaping shown in example 3.
 
 ```json
 {
