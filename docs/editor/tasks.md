@@ -357,7 +357,7 @@ You can also mix custom tasks with configurations for detected tasks. A `tasks.j
 
 ## Run behavior
 
-You can specify a tasks run behaviors using the `runOptions` property:
+You can specify a task's run behaviors using the `runOptions` property:
 
 - **reevaluateOnRerun**: Controls how variables are evaluated whan a task is executed through the **Rerun Last Task** command. The default is `true`, meaning that variables will be re-evaluated when a task is rerun. When set to `false` the resolved variable values from the previous run of the task will be used.
 - **runOn**: Specifies when a task is run.
