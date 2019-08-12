@@ -89,7 +89,7 @@ If not done so install the necessary npm modules by running npm install. Now ope
 
 ![Tasks ESLint Problem Matcher Selection](images/tasks/eslint-problem-matcher-selection.png)
 
-Executing the task produces one error shown in the **Problems** view:
+Executing the task produces one error, shown in the **Problems** view:
 
 ![Tasks ESLint Problem](images/tasks/eslint-problem.png)
 
