@@ -236,6 +236,18 @@ In addition, there's a [Checkstyle for Java](https://marketplace.visualstudio.co
   <source src="/docs/java/java-editing/checkstyle.mp4" type="video/mp4">
 </video>
 
+[Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension also support live linting.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/checkstyle-live-linting.mp4" type="video/mp4">
+</video>
+
+And batch check.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/checkstyle-batch.mp4" type="video/mp4">
+</video>
+
 ### Set Checkstyle configuration file
 
 ![Set Checkstyle configuration file](images/java-editing/set_config.png)
