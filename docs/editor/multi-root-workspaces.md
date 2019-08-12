@@ -84,7 +84,7 @@ Just like **Close Folder** when a single folder is open in VS Code, there is a *
 
 The schema of `.code-workspace` is fairly straightforward. You have an array of folders with either absolute or relative paths. Relative paths are better when you want to share Workspace files.
 
-You can override the display name of your folders with the `name` attribute for a clearer display in the Explorer. For example, you could more clearly name your project folders such as 'Product' and 'Documentation':
+You can override the display name of your folders with the `name` attribute, to give more meaningful names to folders in the Explorer. For example, you could name your project folders such as 'Product' and 'Documentation' to easily identify the content by folder name:
 
 ```json
 {
