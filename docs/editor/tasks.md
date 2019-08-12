@@ -85,7 +85,7 @@ VS Code currently auto-detects tasks for the following systems: Gulp, Grunt, Jak
 
 ![Tasks ESLint starter](images/tasks/eslint-starter.png)
 
-If not done so install the necessary npm modules by running npm install. Now open the `server.js` file and add a semicolon to the end of a statement (note the ESLint starter assumes statements without a semicolon) and execute the **Run Tasks** again. This time select the **npm: lint** task. When prompted for the problem matcher to use, select **ESLint stylish**
+If not, install the necessary npm modules by running npm install. Now open the `server.js` file and add a semicolon to the end of a statement (note the ESLint starter assumes statements without a semicolon) and execute the **Run Tasks** again. This time select the **npm: lint** task. When prompted for the problem matcher to use, select **ESLint stylish**
 
 ![Tasks ESLint Problem Matcher Selection](images/tasks/eslint-problem-matcher-selection.png)
 
