@@ -32,6 +32,8 @@ You experience the basics of containers and images in the course of this tutoria
 - The [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker), which helps you manage local Docker images, provides Docker commands, and simplifies deployment of app images to Azure. You can find an overview of the extension on the [vscode-docker GitHub repository](https://github.com/Microsoft/vscode-docker)
 - Suitable [app code](#app-code)
 
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-docker">Install the Docker extension</a>
+
 ### App code
 
 If you don't already have an app you'd like to work with, use one of the following samples, which already include the Docker-related files described in this tutorial:
