@@ -116,7 +116,7 @@ For full details on editing, formatting, and refactoring, see [Editing code](/do
 
 ## Run Hello World
 
-It's simple to run `hello.py` with Python. Right-click in the editor and select **Run Python File in Terminal** (which saves the file automatically):
+It's simple to run `hello.py` with Python. Right-click anywhere in the editor window and select **Run Python File in Terminal** (which saves the file automatically):
 
 ![Run Python File in Terminal command in the Python editor](images/tutorial/run-python-file-in-terminal.png)
 
@@ -127,7 +127,7 @@ The command opens a terminal panel in which your Python interpreter is automatic
 There are two other ways you can run Python within VS Code:
 
 - Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is convenient for testing just a part of a file.
-- Use the **Python: Start REPL** command to open a REPL terminal for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
+- From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start REPL** command to open a REPL terminal for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
 
 ## Configure and run the debugger
 
@@ -289,7 +289,7 @@ A best practice among Python developers is to avoid installing packages into a g
    ```cmd
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
    ```
-   
+
    **For macOS/Linux**
 
    ```bash
