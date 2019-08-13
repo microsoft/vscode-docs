@@ -1,9 +1,9 @@
 ---
-Order: 1
+Order: 4
 Area: containers
-TOCTitle: Get the code
-PageTitle: How Remote Dev Containers Work in Visual Studio Code
-MetaDescription: How Remote Dev Containers Work in Visual Studio Code
+TOCTitle: How it works
+PageTitle: How remote dev containers work in Visual Studio Code
+MetaDescription: How remote dev containers work in Visual Studio Code
 DateApproved: 7/26/2019
 ---
 # How it works
@@ -21,19 +21,19 @@ The `devcontainer.json` is basically a config file that determines how your dev 
 ```json
 //devcontainer.json
 {
-	"name": "Node.js Sample",
-	"dockerFile": "Dockerfile",
-	"appPort": 3000,
-	"extensions": [
-		"dbaeumer.vscode-eslint"
-	],
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash"
-	},
-	"postCreateCommand": "yarn install",
-	// Comment out the next line to run as root instead. Linux users, update
-	// Dockerfile with your user's UID/GID if not 1000.
-	"runArgs": [ "-u", "node" ]
+    "name": "Node.js Sample",
+    "dockerFile": "Dockerfile",
+    "appPort": 3000,
+    "extensions": [
+        "dbaeumer.vscode-eslint"
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "postCreateCommand": "yarn install",
+    // Comment out the next line to run as root instead. Linux users, update
+    // Dockerfile with your user's UID/GID if not 1000.
+    "runArgs": [ "-u", "node" ]
 }
 ```
 
@@ -51,8 +51,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 
 ## Next steps
 
-This is a very brief overview of what is possible using dev containers.
-To learn about other scenarios or learn more about containerized development, checkout the [full documentation](https://code.visualstudio.com/docs/remote/containers).
+This is a very brief overview of what is possible using dev containers. To learn about other scenarios or learn more about containerized development, checkout the [Developing inside Containers](/docs/remote/containers.md) documentation.
 
 ----
 
