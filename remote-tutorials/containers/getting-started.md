@@ -10,7 +10,7 @@ DateApproved: 7/26/2019
 
 This tutorial walks you through running Visual Studio Code in a Docker container using the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. You need no prior knowledge of Docker to complete this tutorial.
 
-Running VS Code **inside** a Docker container can be useful for many reasons, but in this walkthrough we'll focus on using a Docker container to setup a development environment that is isolated from your local environment.
+Running VS Code **inside** a Docker container can be useful for many reasons, but in this walkthrough we'll focus on using a Docker container to set up a development environment that is isolated from your local environment.
 
 ## Prerequisites
 

@@ -8,7 +8,7 @@ DateApproved: 7/26/2019
 ---
 # Get the sample
 
-Checkout the following GitHub repository with a Node.js project.
+To create a Docker container, we are going to clone a GitHub repository with a Node.js project.
 
 ```bash
 git clone https://github.com/Microsoft/vscode-remote-try-node
@@ -24,7 +24,7 @@ Upon opening one of the sample projects listed above, you should see the followi
 
 ## Wait for the container to build
 
-If this is your first time connecting, a Docker image will be downloaded, built, and starts a container with a copy of VS Code Server running. This might take a few minutes the first time, but future connects will only take seconds.
+If this is your first time connecting, a Docker image will be downloaded, built, and starts a container with a copy of VS Code Server running. This might take a few minutes the first time, but future connections will only take seconds.
 
 ![Building image](images/containers/building-image.png)
 

@@ -47,11 +47,12 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 | `settings`  | Adds default `settings.json` values into a container/machine specific settings file. |
 | `postCreateCommand`  | A command string or list of command arguments to run after the container is created. |
 | `runArgs`  | An array of [Docker CLI](https://docs.docker.com/engine/reference/commandline/run/) arguments that should be used when running the container. |
-[Full list](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference) of devcontainer.json options
+
+[Full list](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference) of `devcontainer.json` options.
 
 ## Next steps
 
-This is a very brief overview of what is possible using dev containers. To learn about other scenarios or learn more about containerized development, checkout the [Developing inside Containers](/docs/remote/containers.md) documentation.
+This has been a brief overview of what is possible using dev containers. To learn about other scenarios or learn more about containerized development, checkout the [Developing inside Containers](/docs/remote/containers.md) documentation.
 
 ----
 
