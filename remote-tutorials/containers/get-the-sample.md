@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: containers
 TOCTitle: Get the sample
 PageTitle: Clone the sample Node.js repository

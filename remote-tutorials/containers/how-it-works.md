@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: containers
 TOCTitle: How it works
 PageTitle: How remote dev containers work in Visual Studio Code
