@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order: 13
 Area: python
 TOCTitle: Azure Functions
 ContentId: 3685dbc0-5700-4456-8133-6f0db8e25e55
