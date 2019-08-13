@@ -2,15 +2,15 @@
 Order: 4
 Area: containers
 TOCTitle: Run in container
-PageTitle: Run App in Dev Container with Visual Studio Code
-MetaDescription: Run App in Dev Container with Visual Studio Code
+PageTitle: Run an application in a container with Visual Studio Code
+MetaDescription: Run an application in a container with Visual Studio Code
 DateApproved: 7/26/2019
 ---
 # Check your environment
 
 One of the useful things about developing in a container is that you can use specific versions of dependencies that your application needs without impacting your local development environment.
 
-This specific container has Node v10, which we can check by opening a new terminal **Terminal** > **New Terminal** (`kb(workbench.action.terminal.new)`) and entering:
+The specific container for this tutorial has Node.js v10 installed, which you can check by opening a new terminal **Terminal** > **New Terminal** (`kb(workbench.action.terminal.new)`) and entering:
 
 ```bash
 node --version; npm --version
@@ -18,21 +18,25 @@ node --version; npm --version
 
 This should show the following versions:
 
-![Building image](images/containers/version-check.png)
+![Node.js version check](images/containers/version-check.png)
 
 ## Run the application
 
 We can now hit `kb(workbench.action.debug.start)` which will run the application inside the container. Once the process starts, navigate to http://localhost:3000 and you should see the simple Node.js server running!
 
-![Building image](images/containers/hello-remote-world.png)
+![Running the application](images/containers/hello-remote-world.png)
 
-# Next steps
+## Let us know how it went
 
 At this point, you're running and developing fully in a containerized environment!
 
-If you would like to see how the extension sets up and configures your containers, read on to the next section.
+We'd love to hear your feedback by answering a short survey.
 
-Otherwise, we'd love to [hear your thoughts](https://www.research.net/r/remoteContainerFeedback) on the remote container extension.
+> <a class="tutorial-install-extension-btn" href="https://www.research.net/r/remoteContainerFeedback">Take the Remote Containers survey</a>
+
+## Next steps
+
+If you would like to learn how the Remote - Containers extension sets up and configures your containers, read the next [How it works](/remote-tutorials/containers/how-it-works) section.
 
 ----
 
