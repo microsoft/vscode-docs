@@ -266,7 +266,7 @@ The [`vscode`](https://github.com/Microsoft/vscode-extension-vscode) module had 
   - Remove `"postinstall": "node ./node_modules/vscode/bin/install"` from `package.json`.
 - Add a [test script](#the-test-script). You can use [`runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts) in the sample as a starting point.
 - Point the `test` script in `package.json` to run the compiled output of `runTest.ts`.
-- Add a [test runner script](#the-test-runner-script). You can use the [sample test runner script](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts) as a starting point. Notice that `vscode` used to depend on `mocha@4` and `glob`, and now you need to install them as part of your `devDependency`.
+- Add a [test runner script](#the-test-runner-script). You can use the [sample test runner script](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts) as a starting point. Notice that `vscode` used to depend on `mocha@4` and `glob`, and now you need to install them as part of your `devDependencies`.
 
 ## Next steps
 
