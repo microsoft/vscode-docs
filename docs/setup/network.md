@@ -59,7 +59,7 @@ Otherwise, you can use the following command-line arguments to control your prox
 --proxy-bypass-list=(<trailing_domain>|<ip-address>)[:<port>][;...]
 ```
 
-[Click here](https://www.chromium.org/developers/design-documents/network-settings) to know more about these command-line arguments.
+[Click here](https://www.chromium.org/developers/design-documents/network-settings) to learn more about these command-line arguments.
 
 ### Authenticated proxies
 
