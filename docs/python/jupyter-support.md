@@ -127,6 +127,8 @@ The Visual Studio Code debugger lets you step through your code, set breakpoints
 
 1. Follow the instructions to configure and run the debugger as described on [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger), using your imported `.ipynb` file, of course, and setting a breakpoint in an appropriate location in your notebook code.
 
+1. For an individual cell, you can also start the debugger using the **Debug Cell** adornment that appears above the cell. Using the adornment starts the debugger specifically on the code in that cell.
+
 1. To familiarize yourself with the general debugging features of VS Code, such as inspecting variables, setting breakpoints, and other activities, review [VS Code debugging](/docs/editor/debugging.md).
 
 1. As you find issues, stop the debugger, correct your code, save the file, and run the debugger again.
