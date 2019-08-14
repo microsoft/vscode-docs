@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Jupyter Support
 ContentId: 779b7ad3-0aaa-4632-9998-0d8f964c0599
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 04/18/2019
+DateApproved: 08/14/2019
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -31,17 +31,19 @@ msg = "Hello again"
 print(msg)
 ```
 
-When the Python extension detects a code cell, it adds **Run Cell** and **Run Below** CodeLens adornments, as well as **Run Above** for all cells after the first:
+When the Python extension detects a code cell, it adds **Run Cell** and **Debug Cell** CodeLens adornments. The first cell also includes **Run Below** and all subsequent cells include **Run Above** :
 
 ![Jupyter adornments for code cells in the VS Code editor](images/jupyter/code-cells-01.png)
 
-**Run Cell** applies to only the one code cell. **Run Below** applies to that code cell and all that follow. **Run Above** applies to all the code cells up to, but not including, the cell with the adornment. You would use **Run Above**, for example, to initialize the state of the runtime environment before running that specific cell.
+**Run Cell** applies to only the one code cell. **Run Below**, which appears on the first cell, runs all the code in the file. **Run Above** applies to all the code cells up to, but not including, the cell with the adornment. You would use **Run Above**, for example, to initialize the state of the runtime environment before running that specific cell.
 
 Selecting a command starts Jupyter (if necessary, which might take a minute), then runs the appropriate cell(s) in the **Python Interactive** window:
 
 ![Code cells running in a Python Interactive window](images/jupyter/code-cells-02.png)
 
-You can also run code cells using the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `#%%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
+You can also run code cells using (`kbstyle(Ctrl+Enter)`) or the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `#%%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
+
+You can also click in the margin to the left of line numbers to set breakpoints. Then you can use **Debug Cell** to start a debugging sessions for that code cell. The debugger stops execution at breakpoints and allows you to step through code one line at a time and inspect variables (see [Debugging](debugging.md) for details).
 
 ## Python Interactive window
 
@@ -55,6 +57,14 @@ To use the window with a file, use the **Run Current File in Python Interactive 
 The Python Interactive window has full IntelliSense – code completions, member lists, quick info for methods, and parameter hints. You can be just as productive typing in the Python Interactive window as you are in the code editor.
 
 ![IntelliSense in the Python Interactive window](images/jupyter/interactive-window-intellisense.gif)
+
+### Plot Viewer
+
+The Plot Viewer gives you the ability to work more deeply with your plots. In the viewer you can pan, zoom, and navigate plots in the current session. You can also export plots to PDF, SVG, and PNG formats.
+
+Within the Python Interactive window, double-click any plot to open it in the viewer, or select the expand button on the upper left corner of the plot.
+
+![Plot Viewer with he Python Interactive window](images/jupyter/plot-viewer.gif)
 
 ### Live Share for Python Interactive
 
