@@ -294,7 +294,6 @@ The behavior of testing with Python is driven by both general settings and setti
 | autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a test file. |
 | cwd | null | Specifies an optional working directory for tests. |
 | debugPort | `3000` | Port number used for debugging of unittest tests. |
-| outputWindow | `"Python Test Log"` | The window to use for test output. |
 | promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
 
 ### unittest configuration settings

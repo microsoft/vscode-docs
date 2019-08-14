@@ -13,6 +13,7 @@ MetaSocialImage: images/tutorial/social.png
 The Python extension provides many features for editing Python source code in Visual Studio Code:
 
 - [Autocomplete and IntelliSense](#autocomplete-and-intellisense)
+- [Automatic indentation](#automatic-indentation)
 - [Run Selection/Line in Terminal (REPL)](#run-selectionline-in-terminal-repl)
 - [Formatting](#formatting)
 - [Refactoring](#refactoring)
@@ -21,7 +22,21 @@ Also see [Linting](/docs/python/linting.md) and [Jupyter Support](/docs/python/j
 
 ## Autocomplete and IntelliSense
 
-Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations. To customize the behavior of the analysis engine, see the [code analysis settings](settings-reference.md#code-analysis-settings) and [autocomplete settings](settings-reference.md#autocomplete-settings).
+Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations.
+
+While editing, you can right-click different identifiers to take advantage of several convenient commands
+
+- **Go to Definition** (`kb(editor.action.revealDefinition)`) jumps from your code into the code that defines an object. This command is very helpful when you're working with libraries.
+
+- **Peek Definition** (`kb(editor.action.peekDefinition)`), is similar, but displays the definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `kbstyle(Escape)` to close the Peek window or use the **x** in the upper right corner.
+
+- **Go to Declaration** jumps to the point at which the variable or other object is declared in your code.
+
+- **Peek Declaration** is similar, but displays the declaration directly in the editor. Again, use `kbstyle(Escape)` or the **x** in the upper right corner to close the Peek window.
+
+### Customize Intellisense behavior
+
+To customize the behavior of the analysis engine, see the [code analysis settings](settings-reference.md#code-analysis-settings) and [autocomplete settings](settings-reference.md#autocomplete-settings).
 
 You can also customize the general behavior of autocomplete and IntelliSense, even to disable these features entirely. See [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense).
 
@@ -68,17 +83,21 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 | The path to the python interpreter is incorrect | Check the `pythonPath` setting. Restart VS Code if you make a correction. |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
 
+## Automatic indentation
+
+When you press `Enter` at the end of statements like `else`, `elif`, `except`, `finally`, `break`, `continue`, `pass`, and `raise`, VS Code provides automatic indenting and de-intenting according to the context. This feature means that you don't need to explicitly indent or de-intent as you type those statements.
+
 ## Run Selection/Line in Terminal (REPL)
 
 The **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`) is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
+
+VS Code automatically removes indents based on the first non-empty line of the selection, shifting all other lines left accordingly.
 
 Source code that runs in the terminal/REPL is cumulative until the current instance of the terminal is closed.
 
 The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. (Initial startup might take a few moments especially if the first statement you run is an `import`.)
 
 On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line is not run. If you encounter this behavior, try the command again when the REPL has finished loading.
-
-> **Note**: At present, using `kbstyle(Shift+Enter)` keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
 
 ## Formatting
 
