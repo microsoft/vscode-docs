@@ -79,7 +79,7 @@ From within VS Code, select a Python 3 interpreter by opening the **Command Pale
 
 The command presents a list of available interpreters that VS Code can find automatically, including virtual environments. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
 
-> **Note**: When using an Anaconda distribution, the correct interpreter should have the suffix `('base':conda)`, eg. `Python 3.7.3 64-bit ('base':conda)`.
+> **Note**: When using an Anaconda distribution, the correct interpreter should have the suffix `('base':conda)`, for example `Python 3.7.3 64-bit ('base':conda)`.
 
 Selecting an interpreter sets the `python.pythonPath` value in your workspace settings to the path of the interpreter. To see the setting, select **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS), then select the **Workspace Settings** tab.
 
