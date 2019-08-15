@@ -142,6 +142,12 @@ For example, to use Emmet HTML abbreviations inside JavaScript:
 
 We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
 
+## HTML custom data
+
+You can extend VS Code's HTML support through a declarative [custom data format](https://github.com/Microsoft/vscode-html-languageservice/blob/master/docs/customData.md). By setting `html.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new HTML tags, attributes and attribute values. VS Code will then offer language support such as completion & hover information for the provided tags, attributes and attribute values.
+
+If you want to write an extension that provides a pre-defined set of custom data, please refer to [Language Extensions / Custom Data]().
+
 ## HTML extensions
 
 Install an extension to add more functionality. Go to the **Extensions** view (`kb(workbench.view.extensions)`) and type 'html' to see a list of relevant extensions to help with creating and editing HTML.
