@@ -56,7 +56,8 @@
       ["Language Configuration Guide", "/api/language-extensions/language-configuration-guide"],
       ["Programmatic Language Features", "/api/language-extensions/programmatic-language-features"],
       // ["Smart Editing Guide", "/api/language-extensions/smart-editing-guide"],
-      ["Language Server Extension Guide", "/api/language-extensions/language-server-extension-guide"]
+      ["Language Server Extension Guide", "/api/language-extensions/language-server-extension-guide"],
+      ["Custom Data Guide", "/api/language-extensions/custom-data-guide"]
     ]
   },
   {
