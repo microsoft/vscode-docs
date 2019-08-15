@@ -127,7 +127,7 @@ The Visual Studio Code debugger lets you step through your code, set breakpoints
 
 1. To start the debugger, use one of the following options:
 
-    - For the whole notebook, open the Command Palette (`kbstyle(Ctrl+Enter)`) and run the **Python: Debug Current File in Python Interactive Window** command.
+    - For the whole notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **Python: Debug Current File in Python Interactive Window** command.
     - For an individual cell, use the **Debug Cell** adornment that appears above the cell. The debugger specifically starts on the code in that cell.
 
 1. To familiarize yourself with the general debugging features of VS Code, such as inspecting variables, setting breakpoints, and other activities, review [VS Code debugging](/docs/editor/debugging.md).
