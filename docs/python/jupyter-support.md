@@ -125,13 +125,14 @@ The Visual Studio Code debugger lets you step through your code, set breakpoints
 
 1. Import the notebook's `.ipynb` file into VS Code as described in the previous section. (Download the file first if you're using a cloud-based Jupyter environment such as [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).)
 
-1. Follow the instructions to configure and run the debugger as described on [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger), using your imported `.ipynb` file, of course, and setting a breakpoint in an appropriate location in your notebook code.
+1. To start the debugger, use one of the following options:
 
-1. For an individual cell, you can also start the debugger using the **Debug Cell** adornment that appears above the cell. Using the adornment starts the debugger specifically on the code in that cell.
+    - For the whole notebook, open the Command Palette (`kbstyle(Ctrl+Enter)`) and run the **Python: Debug Current File in Python Interactive Window** command.
+    - For an individual cell, use the **Debug Cell** adornment that appears above the cell. The debugger specifically starts on the code in that cell.
 
 1. To familiarize yourself with the general debugging features of VS Code, such as inspecting variables, setting breakpoints, and other activities, review [VS Code debugging](/docs/editor/debugging.md).
 
-1. As you find issues, stop the debugger, correct your code, save the file, and run the debugger again.
+1. As you find issues, stop the debugger, correct your code, save the file, and start the debugger again.
 
 1. When you're satisfied that all your code is correct. Save the file, then export the notebook as described in the following section. You can then upload the notebook to your normal Jupyter environment.
 
