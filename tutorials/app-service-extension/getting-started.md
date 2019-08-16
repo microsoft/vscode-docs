@@ -24,7 +24,7 @@ The Azure App Service extension is used to create, manage, and deploy Linux Web 
 
 ## Sign in
 
-Once the extension is installed, log into your Azure account - in the Activity Bar, click on the Azure logo to show the **AZURE APP SERVICE** explorer. Click **Sign in to Azure...** and follow the instructions.
+Once the extension is installed, log into your Azure account - in the Activity Bar, select the Azure logo to show the **AZURE APP SERVICE** explorer. Select **Sign in to Azure...** and follow the instructions.
 
 ![sign in to Azure](images/app-service-extension/sign-in.png)
 
@@ -37,7 +37,7 @@ export HTTPS_PROXY=https://username:password@proxy:8080
 export HTTP_PROXY=http://username:password@proxy:8080
 ```
 
-If setting the environment variables doesn't correct the issue, contact us by clicking the **I ran into an issue** button below.
+If setting the environment variables doesn't correct the issue, contact us by selecting **I ran into an issue** below.
 
 ## Prerequisite check
 
