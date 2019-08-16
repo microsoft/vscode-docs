@@ -23,9 +23,11 @@ Alternatively, you can also download a [Zip archive](/docs/?dv=winzip), extract 
 
 ## User versus system setup
 
-VS Code provides both Windows user and system level setups. Installing the user setup does not require Administrator privileges as the location will be under your user Local AppData (LOCALAPPDATA) folder. User setup also provides a smoother background update experience.
+VS Code provides both Windows user and system level setups. Installing the [user setup](https://go.microsoft.com/fwlink/?LinkID=534107) does not require Administrator privileges as the location will be under your user Local AppData (LOCALAPPDATA) folder. User setup also provides a smoother background update experience.
 
-The system setup requires elevation to Administrator privileges and will place the installation under Program Files.
+The [system setup](https://go.microsoft.com/fwlink/?linkid=852157) requires elevation to Administrator privileges and will place the installation under Program Files.
+
+See the [Download Visual Studio Code](/download) page for a complete list of available installation options.
 
 ## 32-bit versions
 
