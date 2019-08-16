@@ -61,7 +61,7 @@ For example, in a multi root workspace with folders `Server` and `Client`, a `${
 
 ## Environment variables
 
-You can also reference environment variables through the **${env:Name}** syntax (for example, `${env:PATH}`).
+You can also reference environment variables through the **${env:Name}** syntax (for example, `${env:USERNAME}`).
 
 ```json
 {
@@ -73,8 +73,6 @@ You can also reference environment variables through the **${env:Name}** syntax 
     "args": [ "${env:USERNAME}" ]
 }
 ```
-
-**Note**: Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
 
 ## Configuration variables
 
