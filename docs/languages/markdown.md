@@ -114,13 +114,13 @@ Here are the details about each of these security levels:
 
 ### Strict
 
-This is the default setting. Only loads trusted content and disables script execution. Blocks `http` images and all SVG images not from one of our [trusted badge providers](/api/references/extension-manifest.md#approved-badges).
+This is the default setting. Only loads trusted content and disables script execution. Blocks `http` images.
 
 It is strongly recommended that you keep `Strict` security enabled unless you have a very good reason to change it AND you trust all markdown files in the workspace.
 
 ### Allow insecure content
 
-Keeps scripts disabled but allows content to be loaded over `http`. Also enables SVG images.
+Keeps scripts disabled but allows content to be loaded over `http`.
 
 ### Disable
 
