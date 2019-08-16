@@ -32,7 +32,11 @@ At this point, you're running and developing fully in a containerized environmen
 
 We'd love to hear your feedback by answering a short survey.
 
-> <a class="tutorial-install-extension-btn" href="https://www.research.net/r/remoteContainerFeedback">Take the Remote Containers survey</a>
+> <a class="tutorial-install-extension-btn" href="https://www.research.net/r/remoteContainer">Take the Remote Containers survey</a>
+
+## Ending your container connection
+
+You can end your session in the container and go back to running VS Code locally with **File** > **Close Remote Connection**.
 
 ## Next steps
 
