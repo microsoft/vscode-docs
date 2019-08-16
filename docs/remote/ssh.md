@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 7/18/2019
+DateApproved: 8/7/2019
 ---
 # Remote Development using SSH
 
@@ -27,11 +27,11 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 - **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
 
-- **Experimental support:** ARMv7l Raspbian 8+ (32-bit) in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) only.
+- **Experimental support:** ARMv7l (or ARMv8 in 32-bit mode) Raspbian Stretch/9+ (32-bit).
 
-Other `glibc` based Linux distributions for x86_64 and ARMv7l (in VS Code Insiders) should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
+Other `glibc` based Linux distributions for x86_64 and ARMv7l should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
 
-While experimental ARMv7l support is available in [VS Code Insiders](https://code.visualstudio.com/insiders/), some extensions installed on ARMv7l devices may not work due to the use of x86 native code in the extension.
+While ARMv7l support is available in VS Code Insiders, some extensions installed on these devices may not work due to the use of x86 native code in the extension.
 
 ### Installation
 
@@ -49,7 +49,7 @@ To get started, you need to:
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
-> **Note:** See [System Requirements](#system-requirements) for information about supported SSH hosts. When using experimental support for ARMv7l `glibc` distributions like Raspbian in [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/), note that some extensions installed on the remote host may not work due the use of x86 native code in the extension.
+> **Note:** See [System Requirements](#system-requirements) for information about supported SSH hosts. When using support for ARMv7l `glibc` distributions like Raspbian in VS Code Insiders, note that some extensions installed on the remote host may not work due the use of x86 native code in the extension.
 
 To get started, follow these steps:
 
@@ -105,6 +105,10 @@ If you install an extension from the Extensions view, it will automatically be i
 Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. Select **Install** to install an extension on your remote host.
 
 ![Disabled Extensions w/Install Button](images/ssh/ssh-disabled-extensions.png)
+
+You can also install all locally installed extensions on the SSH host by going to the Extensions view and selecting **Install Local Extensions in SSH: [Hostname]** from the **More Actions** menu (...).
+
+![Install all extensions](images/ssh/install-all-extn-ssh.png)
 
 ### "Always installed" extensions
 
@@ -176,7 +180,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 VS Code's local user settings are also reused when you are connected to an SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting on the **Remote** tab in the settings editor. These will override any local settings you have in place whenever you connect to the host.
 
-![Host specific settings tab](images/ssh/ssh-settings.png)
+![Host-specific settings tab](images/ssh/ssh-settings.png)
 
 ## Working with local tools
 
@@ -214,7 +218,7 @@ The Docker extension is configured to run as a local "UI" extension by default. 
 
 Many extensions will work on remote SSH hosts without modification. However, in some cases, certain features may require changes. If you run into an extension issue, there is [a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
-In addition, some extensions installed on ARMv7l devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARMv7l.
+In addition, some extensions installed on ARMv7l (VS Code Insiders only) devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARMv7l.
 
 ## Common questions
 

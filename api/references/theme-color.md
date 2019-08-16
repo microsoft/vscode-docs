@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 7/3/2019
+DateApproved: 8/7/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -89,6 +89,7 @@ Colors for input controls such as in the Search view or the Find/Replace dialog.
 - `input.border`: Input box border.
 - `input.foreground`: Input box foreground.
 - `input.placeholderForeground`: Input box foreground color for placeholder text.
+- `inputOption.activeBackground`: Background color of activated options in input fields.
 - `inputOption.activeBorder`: Border color of activated options in input fields.
 - `inputValidation.errorBackground`: Input validation background color for error severity.
 - `inputValidation.errorForeground`: Input validation foreground color for error severity.
@@ -166,6 +167,12 @@ The Side Bar contains views like the Explorer and Search.
 - `sideBarSectionHeader.background`: Side Bar section header background color.
 - `sideBarSectionHeader.foreground`: Side Bar section header foreground color.
 - `sideBarSectionHeader.border`: Side bar section header border color.
+
+## Minimap
+
+The Minimap shows a minified version of the current file.
+
+- `minimap.findMatchHighlight`: Highlight color for matches from search within files
 
 ## Editor Groups & Tabs
 

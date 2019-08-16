@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-DateApproved: 7/3/2019
+DateApproved: 8/7/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
@@ -236,10 +236,15 @@ Sometimes you might want to run custom setups, such as running `code --install-e
 
 ```ts
 const cp = require('child_process')
+const { downloadAndUnzipVSCode, resolveCliPathFromExecutablePath } = require('vscode-test')
 const vscodeExecutablePath = await downloadAndUnzipVSCode('1.34.0');
+const cliPath = resolveCliPathFromExecutablePath(vscodeExecutablePath);
 
 // Use cp.spawn / cp.exec for custom setup
-cp.spawnSync(vscodeExecutablePath, ['--install-extension', '<PATH-TO-VSIX>'], { encoding: 'utf-8', stdio: 'inherit' });
+cp.spawnSync(cliPath, ['--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
+  encoding: 'utf-8',
+  stdio: 'inherit'
+});
 
 // Run the extension test
 await runTests({
@@ -261,7 +266,7 @@ The [`vscode`](https://github.com/Microsoft/vscode-extension-vscode) module had 
   - Remove `"postinstall": "node ./node_modules/vscode/bin/install"` from `package.json`.
 - Add a [test script](#the-test-script). You can use [`runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts) in the sample as a starting point.
 - Point the `test` script in `package.json` to run the compiled output of `runTest.ts`.
-- Add a [test runner script](#the-test-runner-script). You can use the [sample test runner script](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts) as a starting point. Notice that `vscode` used to depend on `mocha@4` and `glob`, and now you need to install them as part of your `devDependency`.
+- Add a [test runner script](#the-test-runner-script). You can use the [sample test runner script](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts) as a starting point. Notice that `vscode` used to depend on `mocha@4` and `glob`, and now you need to install them as part of your `devDependencies`.
 
 ## Next steps
 

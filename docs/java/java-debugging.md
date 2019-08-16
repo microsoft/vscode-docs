@@ -140,7 +140,7 @@ With the help of expression evaluation, the debugger also supports conditional b
 
 ### Hot Code replacement
 
-Another advanced feature the debugger supports is 'Hot Code' replacement. Hot code replacement (HCR) is a debugging technique whereby the Java debugger transmits new class files over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it’s called "hot". Below is an illustration of how you can use HCR with Debugger for Java in VS Code.
+Another advanced feature the debugger supports is 'Hot Code' replacement. Hot code replacement (HCR) is a debugging technique whereby the Java debugger transmits new class files over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it's called "hot". Below is an illustration of how you can use HCR with Debugger for Java in VS Code.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/hcr.mp4" type="video/mp4">
@@ -154,7 +154,7 @@ You may use the debug setting `java.debug.settings.hotCodeReplace` to control ho
 
 ### Logpoints
 
-[Logpoints](/blogs/2018/07/12/introducing-logpoints-and-auto-attach.md#introducing-logpoints) is also supported by Java Debugger. Logpoints allow you to send output to debug console without editing code. They’re different from breakpoints because they don’t stop the execution flow of your application.
+[Logpoints](/blogs/2018/07/12/introducing-logpoints-and-auto-attach.md#introducing-logpoints) is also supported by Java Debugger. Logpoints allow you to send output to debug console without editing code. They're different from breakpoints because they don't stop the execution flow of your application.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/logpoints.mp4" type="video/mp4">

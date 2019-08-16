@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 7/3/2019
+DateApproved: 8/7/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -12,6 +12,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 **Contribution Points** are a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension registers **Contribution Points** to extend various functionalities within Visual Studio Code. Here is a list of all available **Contribution Points**:
 
 - [`configuration`](/api/references/contribution-points#contributes.configuration)
+- [`configurationDefaults`](/api/references/contribution-points#contributes.configurationDefaults)
 - [`commands`](/api/references/contribution-points#contributes.commands)
 - [`menus`](/api/references/contribution-points#contributes.menus)
 - [`keybindings`](/api/references/contribution-points#contributes.keybindings)
@@ -29,6 +30,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`taskDefinitions`](/api/references/contribution-points#contributes.taskDefinitions)
 - [`colors`](/api/references/contribution-points#contributes.colors)
 - [`typescriptServerPlugins`](/api/references/contribution-points#contributes.typescriptServerPlugins)
+- [`resourceLabelFormatters`](/api/references/contribution-points#contributes.resourceLabelFormatters)
 
 ## contributes.configuration
 

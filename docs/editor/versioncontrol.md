@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Version Control
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Version Control in Visual Studio Code
-DateApproved: 7/3/2019
+DateApproved: 8/7/2019
 MetaDescription: Visual Studio Code source code support with integrated Git support.
 ---
 # Using Version Control in VS Code
@@ -37,7 +37,7 @@ VS Code ships with a Git source control manager (SCM) extension. Most of the sou
 
 >**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](https://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
 
->**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Azure DevOps Services](https://azure.microsoft.com/services/devops) is a great free option. [Click here to sign-up](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
+>**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Azure DevOps Services](https://azure.microsoft.com/services/devops) is a great free option. You can sign up at [Get started with Azure DevOps](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
 
 The Source Control icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
 
@@ -161,8 +161,6 @@ Here are the steps to do so:
 2. From the command line, run `git config --global core.editor "code --wait"`
 
 Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
-
-![git config in VS Code](images/versioncontrol/gitconfig.png)
 
 ### VS Code as Git diff tool
 

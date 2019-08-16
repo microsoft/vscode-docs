@@ -1,11 +1,11 @@
 ---
-Order: 6
+Order: 7
 Area: remote
 TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 7/18/2019
+DateApproved: 8/7/2019
 ---
 # Advanced Container Configuration
 
@@ -23,7 +23,7 @@ You can update environment variables in your container without altering the cont
 
 * When a **Docker Compose** file is referenced, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
-     ```yml
+     ```yaml
      version: '3'
      services:
        your-service-name-here:
@@ -52,7 +52,7 @@ You can add a volume bound to any local folder using these steps:
 
 * When a **Docker Compose** file is referenced, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
-     ```yml
+     ```yaml
      version: '3'
      services:
        your-service-name-here:
@@ -97,7 +97,7 @@ A trick that is often used with Docker Desktop for Mac is to change the [mount c
 
 * For **Docker Compose**, you can modify the consistency requirements in `docker-compose.yml` instead. For example:
 
-    ```yml
+    ```yaml
       volumes:
         - type: bind
           source: /local/path/to/source/code
@@ -124,13 +124,13 @@ You can set this up by taking an existing `devcontainer.json` configuration and 
 * If you are using an **image** or **Dockerfile**, you can specify a named volume using `devcontainer.json`. For example:
 
     ```json
-    "workspaceFolder": "/workspaces",
+    "workspaceFolder": "/workspace",
     "workspaceMount": "src=your-volume-name-here,dst=/workspace,type=volume,volume-driver=local"
     ```
 
 * When a **Docker Compose** file is referenced, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service(s):
 
-    ```yml
+    ```yaml
     version: '3'
     services:
       your-service-name-here:
@@ -160,7 +160,6 @@ There are a few side effects of doing this you should be aware of:
   * New extensions added to devcontainer.json will **not** be automatically installed.
   * Any `postCreateCommand` in `devcontainer.json` will **not run**.
 * Deleting the container will not automatically delete the named volume.
-
 
 To create the named local volume, follow these steps:
 
@@ -228,18 +227,18 @@ If your image or Dockerfile provides a non-root user (like the `node` image) but
 * When referencing an **image** or **Dockerfile**, add the following to your `devcontainer.json`:
 
     ```json
-    "runArgs": ["-u", "user-name-goes-here"]
+    "runArgs": ["-u", "user-name-or-UID-goes-here"]
     ```
 
 * If you are using **Docker Compose**, add the following to your service in `docker-compose.yml`:
 
     ```yaml
-    user: user-name-goes-here
+    user: user-name-or-UID-goes-here
     ```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
+For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `vscode`, give it the ability to use `sudo`, and set it as the default:
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
@@ -293,6 +292,7 @@ To see how this works, consider this example source tree:
 
 ```text
 📁 project-root
+    📁 .git
     📁 container1-src
         📄 .devcontainer.json
         📄 hello.go
@@ -302,16 +302,20 @@ To see how this works, consider this example source tree:
     📄 docker-compose.yml
 ```
 
+The location of the `.git` folder is important, since we will need to ensure the containers can see this path for source control to work properly.
+
 Next, assume the `docker-compose.yml` in the root is as follows:
 
-```yml
+```yaml
 version: '3'
 services:
   container-1:
     image: ubuntu:bionic
     volumes:
-      - ./container-1-src:/workspace
-      - ~/.ssh:/root/.ssh # [Optional] For reusing Git SSH keys.
+      # Mount the root folder that contains .git
+      - .:/workspace
+      # [Optional] For reusing Git SSH keys.
+      - ~/.ssh:/root/.ssh-local:ro
     command: /bin/sh -c "while sleep 1000; do :; done"
     links:
       - container-2
@@ -319,8 +323,10 @@ services:
   container-2:
     image: ubuntu:bionic
     volumes:
-      - ./container-2-src:/workspace
-      - ~/.ssh:/root/.ssh # [Optional] For reusing Git SSH keys.
+      # Mount the root folder that contains .git
+      - .:/workspace
+      # [Optional] For reusing Git SSH keys.
+      - ~/.ssh:/root/.ssh-local:ro
     command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
@@ -331,22 +337,26 @@ You can then set up `container1-src/.devcontainer.json` for Go development as fo
     "name": "Container 1",
     "dockerComposeFile": ["../docker-compose.yml"],
     "service": "container-1",
-    "workspaceFolder": "/workspace",
+    "shutdownAction": "none",
     "extensions": ["ms-vscode.Go"],
-    "shutdownAction": "none"
+    // Open the sub-folder with the source code
+    "workspaceFolder": "/workspace/container1-src",
+    // [Optional] Copy the contents to the correct location and set permissions
+    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
 }
 ```
 
-Next, you can `container2-src/.devcontainer.json` for Node.js development as follows:
+Next, you can `container2-src/.devcontainer.json` for Node.js development by just changing `workspaceFolder` and installing Node.js extensions:
 
 ```json
 {
     "name": "Container 2",
     "dockerComposeFile": ["../docker-compose.yml"],
     "service": "container-2",
-    "workspaceFolder": "/workspace",
+    "shutdownAction": "none",
     "extensions": ["dbaeumer.vscode-eslint"],
-    "shutdownAction": "none"
+    "workspaceFolder": "/workspace/container2-src",
+    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
 }
 ```
 
@@ -507,7 +517,7 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
 
     Next, add a `docker-compose.remote.yml` file into the `.devcontainer` folder. If you do **not** have login access to the remote host, you will need to use a Docker "volume" for your source code. Add the following to the file replacing `your-service-name-here` with the value of the `service` property in `devcontainer.json` (replacing `remote-workspace` with a unique volume name if desired):
 
-    ```yml
+    ```yaml
     version: '3'
     services:
       your-service-name-here:
@@ -520,7 +530,7 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
 
     If you **do** have login access, you can use a remote filesystem bind mount instead:
 
-    ```yml
+    ```yaml
     version: '3'
     services:
       your-service-name-here:

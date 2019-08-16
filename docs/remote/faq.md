@@ -1,15 +1,15 @@
 ---
-Order: 8
+Order: 9
 Area: remote
 TOCTitle: FAQ
 PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 7/3/2019
+DateApproved: 8/7/2019
 ---
 # Remote Development FAQ
 
-This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities.
+This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the step by step [Tutorials](/docs/remote/remote-tutorials.md) to help get you running quickly in a remote environment.
 
 ## General
 
@@ -98,6 +98,20 @@ Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/downlo
 * [Remote - SSH](https://aka.ms/vscode-remote/download/ssh)
 * [Remote - Containers](https://aka.ms/vscode-remote/download/containers)
 * [Remote - WSL](https://aka.ms/vscode-remote/download/wsl)
+
+## Remote - WSL
+
+### What is the advantage of the extension over using WSL as the terminal?
+
+You can think of WSL as a Linux machine running on Windows, where you can install Linux specific frameworks/tools (for example Python, Go, Rust, etc.) without impacting your Windows setup. You can then use VS Code and the Remote - WSL extension to develop in the context of what is installed in WSL, isolated from what is installed on Windows.
+
+For example, you might install the Go stack in WSL (compiler, debugger, linters, etc.). If you run VS Code only on Windows, you must also install the same Go stack there to get features like smart completions, debugging, Go to Definition navigation. And because the language services are running on Windows, they don’t know what is in WSL.
+
+It’s true that you can run binaries in WSL from Windows and vice-versa, but regular VS Code extensions don’t know how to do this. This is how we started out supporting debugging in WSL, but quickly realized we would have to update all extensions to know about WSL.
+
+We decided instead to make parts of VS Code run in WSL and let the UI running on Windows talk to the VS Code server running in WSL. This is what the Remote - WSL extension enables and with it, the Go extension runs in WSL along with the rest of the Go tools (complier, debugger, linters), while VS Code runs on Windows.
+
+With this approach, language features like smart completions just work against what is in WSL without having to set up anything on Windows. You don't have to worry about path issues or set up different versions of development stacks on Windows. If you are deploying applications to Linux, you can set up your WSL instances to look like your runtime environment while still getting a rich editing experience on Windows.
 
 ## Remote - Containers
 

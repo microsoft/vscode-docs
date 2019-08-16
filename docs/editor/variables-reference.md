@@ -4,12 +4,12 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 7/3/2019
+DateApproved: 8/7/2019
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
 
-Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files. Variable substitution is supported inside key and value strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
+Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files as well as some select settings. Variable substitution is supported inside key and value strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
 
 ## Predefined variables
 
@@ -19,6 +19,7 @@ The following predefined variables are supported:
 - **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
 - **${file}** - the current opened file
 - **${relativeFile}** - the current opened file relative to `workspaceFolder`
+- **${relativeFileDirname}** - the current opened file's dirname relative to `workspaceFolder`
 - **${fileBasename}** - the current opened file's basename
 - **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
 - **${fileDirname}** - the current opened file's dirname
@@ -41,6 +42,7 @@ So you will have the following values for each variable:
 - **${workspaceFolderBasename}** - `your-project`
 - **${file}** - `/home/your-username/your-project/folder/file.ext`
 - **${relativeFile}** - `folder/file.ext`
+- **${relativeFileDirname}** - `folder`
 - **${fileBasename}** - `file.ext`
 - **${fileBasenameNoExtension}** - `file`
 - **${fileDirname}** - `/home/your-username/your-project/folder`
@@ -59,7 +61,7 @@ For example, in a multi root workspace with folders `Server` and `Client`, a `${
 
 ## Environment variables
 
-You can also reference environment variables through the **${env:Name}** syntax (for example, `${env:PATH}`).
+You can also reference environment variables through the **${env:Name}** syntax (for example, `${env:USERNAME}`).
 
 ```json
 {
@@ -71,8 +73,6 @@ You can also reference environment variables through the **${env:Name}** syntax 
     "args": [ "${env:USERNAME}" ]
 }
 ```
-
-**Note**: Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
 
 ## Configuration variables
 
@@ -220,7 +220,7 @@ The following example shows how to use a user input variable of type `command` i
 
 ### Is variable substitution supported in User and Workspace settings?
 
-No, the predefined variables are not supported in strings in `settings.json` files. Some [settings](/docs/getstarted/settings.md) like `window.title` have their own variables:
+The predefined variables are supported in a select number of setting keys in `settings.json` files such as the terminal `cwd`, `env`, `shell` and `shellArgs` values. Some [settings](/docs/getstarted/settings.md) like `window.title` have their own variables:
 
 ```json
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"

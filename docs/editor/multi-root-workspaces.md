@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Multi-root Workspaces
 ContentId: 8d55f6b8-977f-4c26-a888-f3d8d982dd2d
 PageTitle: Multi-root Workspaces in Visual Studio Code
-DateApproved: 7/3/2019
+DateApproved: 8/7/2019
 MetaDescription: You can open and work on multiple project folders in Visual Studio Code with multi-root workspaces.
 ---
 # Multi-root Workspaces
@@ -29,7 +29,7 @@ Once a root folder is added, the Explorer will show the new folder as a root in 
 
 The File Explorer should work and behave as before. You can move files between root folders and use any of the typical file operation actions provided in the context menu and the Explorer view.
 
-Settings like `files.exclude` are supported for each root folder if configured and across all folders if configured as global user setting.
+Settings like `files.exclude` are supported for each root folder if configured, and across all folders if configured as global user setting.
 
 ### Drag and drop
 
@@ -84,7 +84,7 @@ Just like **Close Folder** when a single folder is open in VS Code, there is a *
 
 The schema of `.code-workspace` is fairly straightforward. You have an array of folders with either absolute or relative paths. Relative paths are better when you want to share Workspace files.
 
-You can override the display name of your folders with the `name` attribute for a clearer display in the Explorer. For example, you could more clearly name your project folders such as 'Product' and 'Documentation':
+You can override the display name of your folders with the `name` attribute, to give more meaningful names to folders in the Explorer. For example, you could name your project folders such as 'Product' and 'Documentation' to easily identify the content by folder name:
 
 ```json
 {
@@ -132,7 +132,7 @@ If you'd always like to see the folder displayed in the tabbed header, you can u
 "workbench.editor.labelFormat": "medium"
 ```
 
-VS Code UI such as the **OPEN EDITORS** or **Quick Open** (`kb(workbench.action.quickOpen)`) list include the folder name.
+VS Code UI such as the **OPEN EDITORS** and **Quick Open** (`kb(workbench.action.quickOpen)`) lists include the folder name.
 
 ![quick pick has folder name](images/multi-root-workspaces/quick-open-list.png)
 

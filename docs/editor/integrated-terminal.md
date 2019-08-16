@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 7/3/2019
+DateApproved: 8/7/2019
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -84,6 +84,15 @@ For example, to enable running bash as a login shell (which runs `.bash_profile`
 ```json
 // Linux
 "terminal.integrated.shellArgs.linux": ["-l"]
+```
+
+### Using variables
+
+The `shell`, `shellArgs`, `env` and `cwd` terminal settings all support resolving [variables](https://code.visualstudio.com/docs/editor/variables-reference):
+
+```json
+// Open the terminal in the currently opened file's directory
+"terminal.integrated.cwd": "${fileDirname}"
 ```
 
 ## Terminal display settings
@@ -190,7 +199,7 @@ If no text is selected in the active editor, the line that the cursor is on is r
 
 ## Send text from a keybinding
 
-The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences. This enables things like sending arrow keys, enter, cursor moves, etc. The example below shows the sorts of things you can achieve with this feature, it jumps over the word to the left of the cursor (Ctrl+Left arrow) and presses backspace:
+The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences. This enables things like sending arrow keys, enter, cursor moves, etc. The example below shows the sort of things you can achieve with this feature, it jumps over the word to the left of the cursor (Ctrl+Left arrow) and presses backspace:
 
 ```json
 {
@@ -253,6 +262,10 @@ The basics of the terminal have been covered in this document, read on to find o
 
 ## Common questions
 
+### Can I use the integrated terminal with the Windows Subsystem for Linux?
+
+Yes, you can select the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL) bash shell as your terminal default. If you have WSL enabled (through Windows Features), you can select **WSL Bash** from the terminal **Select Default Shell** drop down. See [Developing in WSL](/docs/remote/wsl.md) for details on working in WSL and the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
+
 ### Why is VS Code shortcut X not working when the terminal has focus?
 
 Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. Some examples are `kbstyle(F1)` to open the **Command Palette** and `kbstyle(Ctrl+P)` for **Quick Open** on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. You can use the `terminal.integrated.commandsToSkipShell` setting to prevent specific key bindings from being handled by the terminal.
@@ -271,14 +284,6 @@ Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to add the
 ```
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
-
-### Can I use Cygwin's shell with the terminal on Windows?
-
-Yes, you can use the [Cygwin](http://cygwin.com/) shell. If you installed Cygwin to the default location, you should be able to switch to it via the **Select Default Shell** command. If not, configure the path manually in your `settings.json` file:
-
-```json
-"terminal.integrated.shell.windows": "C:\\cygwin64\\bin\\bash.exe"
-```
 
 ### Powershell on macOS is complaining about a "-l" argument, how do I fix it?
 
