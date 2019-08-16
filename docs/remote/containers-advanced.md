@@ -124,7 +124,7 @@ You can set this up by taking an existing `devcontainer.json` configuration and 
 * If you are using an **image** or **Dockerfile**, you can specify a named volume using `devcontainer.json`. For example:
 
     ```json
-    "workspaceFolder": "/workspaces",
+    "workspaceFolder": "/workspace",
     "workspaceMount": "src=your-volume-name-here,dst=/workspace,type=volume,volume-driver=local"
     ```
 
