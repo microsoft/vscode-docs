@@ -623,38 +623,35 @@ By default, `bash` is used as the shell. Bash will look for startup files under 
 
 If typing `code` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
 
-Check by opening a WSL terminal and typing `echo $PATH`. You should see the following paths listed:
+Check by opening a WSL terminal and typing `echo $PATH`. You should see VS Code install path listed. By default, this would be:
 
-1. `/mnt/c/Windows/System32`
-2. The VS Code install path. By default, this should be:
+```bash
+/mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code/bin
+```
 
-    ```bash
-    /mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code/bin
-    ```
+But, if you used the **System Installer**, the install path is:
 
-    But, if you installed the **System Installer** version, the install path is:
+```bash
+/mnt/c/Program Files/Microsoft VS Code/bin
+```
 
-    ```bash
-    /mnt/c/Program Files/Microsoft VS Code/bin
-    ```
+...or...
 
-    ...or...
-
-    ```bash
-    /mnt/c/Program Files (x86)/Microsoft VS Code/bin
-    ```
+```bash
+/mnt/c/Program Files (x86)/Microsoft VS Code/bin
+```
 
 If the VS Code install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
 
 ```bash
-WINDOWS_USERNAME="Your Username"
-VSCODE_PATH="/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code/bin"
-# or...
-# VSCODE_PATH="/mnt/c/Program Files/Microsoft VS Code/bin"
-# or...
-# VSCODE_PATH="/mnt/c/Program Files (x86)/Microsoft VS Code/bin"
+WINDOWS_USERNAME="Your Windows Alias"
 
-export PATH=$PATH:/mnt/c/Windows/System32:${VSCODE_PATH}
+export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code/bin"
+# or...
+# export PATH="$PATH:/mnt/c/Program Files/Microsoft VS Code/bin"
+# or...
+# export PATH="$PATH:/mnt/c/Program Files (x86)/Microsoft VS Code/bin"
+
 ```
 
 > **Note:** Be sure to quote or escape spaces in the directory names.
