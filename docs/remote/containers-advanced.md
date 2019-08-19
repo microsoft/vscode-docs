@@ -151,48 +151,65 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ## Avoiding extension reinstalls on container rebuild
 
-By default, VS Code will install extensions and VS Code Server inside the container's filesystem. While this has performance benefits over a locally mounted filesystem, the disadvantage is that VS Code will have to reinstall them on a container rebuild.
+By default, VS Code will install extensions and VS Code Server inside the container's filesystem. While this has performance benefits over a locally mounted filesystem, the disadvantage is that VS Code will have to reinstall them on a container rebuild. If you find yourself rebuilding frequently, you can use a local "named volume" mount so that the extensions and VS Code Server survive a container rebuild.
 
-If you find yourself rebuilding frequently, you can use a local "volume" mount so that the extensions and VS Code Server survive a container rebuild. The volume should be unique to the container since sharing the volume across multiple containers is not currently supported. To create a container volume, follow these steps:
+There are a few side effects of doing this you should be aware of:
 
-First, configure a volume mount for `~/.vscode-server` (and/or `~/.vscode-server-insiders` for VS Code Insiders). How you do this will depend on whether you specify an image, Dockerfile, or Docker Compose file in your `devcontainer.json` file.
+* Sharing the volume across multiple containers could have unintended consequences, so you should pick a unique name for each.
+* When you rebuild the container:
+  * New extensions added to devcontainer.json will **not** be automatically installed.
+  * Any `postCreateCommand` in `devcontainer.json` will **not run**.
+* Deleting the container will not automatically delete the named volume.
 
-**Dockerfile or image**:
+To create the named local volume, follow these steps:
 
-Replace `your-volume-name-goes-here` with a unique volume name for the container in `devcontainer.json` as follows:
+1. **If you are using a non-root user**, you'll need to ensure your Dockerfile creates `~/.vscode-server` and/or `~/.vscode-server-insiders` in the container.  If you do not do this, the folder will be owned by root and your connection will fail with a permissions issue. See [Adding a non-root user to your dev container](#adding-a-non-root-user-to-your-dev-container) for full details, but you can use this snippet in your Dockerfile to create the folders for a `vscode` user:
 
-```json
-"runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server"]
-```
+    ```Dockerfile
+    ARG USERNAME=vscode
+    RUN mkdir -p /home/$USERNAME/.vscode-server /home/$USERNAME/.vscode-server-insiders \
+        && chown $USERNAME:$USERNAME /home/$USERNAME/.vscode-server /home/$USERNAME/.vscode-server-insiders
+    ```
 
-...or for VS Code Insiders...
+2. Next, we'll configure a named volume mount for `~/.vscode-server` and `~/.vscode-server-insiders` in the container. How you do this will depend on whether you specify an image, Dockerfile, or Docker Compose file in your `devcontainer.json` file.
 
-```json
-"runArgs": ["-v","your-volume-name-goes-here:/root/.vscode-server-insiders"]
-```
+    **Dockerfile or image**:
 
-**Docker Compose**:
+    Add the following to `devcontainer.json`, replacing `/root` with the home directory of in the container if not root (e.g. `/home/vscode`) and `unique-vol-name-here` with a unique name for the volume:
 
-Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following. Replace `your-volume-name-goes-here` with a unique volume name for the container.
+    ```json
+    "runArgs": [
+        "-v", "unique-vol-name-here:/root/.vscode-server",
+        // And/or for VS Code Insiders
+        "-v", "unique-vol-name-here-insiders:/.vscode-server-insiders",
+    ]
+    ```
 
-  ```yaml
-  services:
-    your-service-name-here:
-      # ...
-      volumes:
-        - your-volume-name-goes-here:~/.vscode-server
-        # or - your-volume-name-goes-here:~/.vscode-server-insiders
-      # ...
-  volumes:
-    your-volume-name-goes-here:
-  ```
+    **Docker Compose**:
 
-Next, if you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+    Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following. Replace `unique-vol-name-here` with a unique name for the volume.
 
-After the container is up and running, subsequent rebuilds will not reacquire any extensions or the VS Code server. The build will not use the latest extensions list from `devcontainer.json` or run `postCreateCommand` if configured but you can delete the volume and those steps will happen the next time you rebuild.
+    ```yml
+    services:
+      your-service-name-here:
+        # ...
+        volumes:
+          - unique-vol-name-here:~/.vscode-server
+          # And/or for VS Code Insiders
+          - unique-vol-name-here-insiders:~/.vscode-server-insiders
+        # ...
+    volumes:
+      unique-vol-name-here:
+    ```
+
+3. Finally, if you've already built the container and connected to it, you'll need to run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Reopen Folder in Container** to connect to the container for the first time.
+
+After the container is up and running, subsequent rebuilds will not reacquire any extensions or the VS Code server. The build will also **not use the latest extensions list from `devcontainer.json`**.
+
+However, if you want to completely reset, you can delete the volume and everything will be re-acquired on restart.
 
 ```bash
-docker volume rm your-volume-name-goes-here
+docker volume rm unique-vol-name-here
 ```
 
 ## Adding a non-root user to your dev container
@@ -224,24 +241,24 @@ If you've already built the container and connected to it, run **Remote-Containe
 For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `vscode`, give it the ability to use `sudo`, and set it as the default:
 
 ```Dockerfile
-ARG USERNAME=vscode
-# Or your actual UID, GID on Linux if not the default 1000
+ARG USERNAME=user-name-goes-here
+# On Linux, replace with your actual UID, GID if not the default 1000
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 # Create the user
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    #
+    && mkdir -p /home/$USERNAME/.vscode-server /home/$USERNAME/.vscode-server-insiders \
+    && chown ${USER_UID}:${USER_GID} /home/$USERNAME/.vscode-server /home/$USERNAME/.vscode-server-insiders \
     # [Optional] Add sudo support
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
-# ** Anything else you want to do like clean up goes here **
-
-# Technically optional
-ENV HOME /home/$USERNAME
+# ********************************************************
+# * Anything else you want to do like clean up goes here *
+# ********************************************************
 
 # Set the default user
 USER $USERNAME
