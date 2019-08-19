@@ -95,7 +95,7 @@ A trick that is often used with Docker Desktop for Mac is to change the [mount c
     "workspaceFolder": "/workspace"
     ```
 
-* For **Docker Compose**, you can modify the consistency requirements in `docker-compose.yml` instead. For example:
+* For **Docker Compose**, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the consistency requirements. For example:
 
     ```yaml
       volumes:
@@ -163,19 +163,20 @@ There are a few side effects of doing this you should be aware of:
 
 To create the named local volume, follow these steps:
 
-1. **If you are using a non-root user**, you'll need to ensure your Dockerfile creates `~/.vscode-server` and/or `~/.vscode-server-insiders` in the container.  If you do not do this, the folder will be owned by root and your connection will fail with a permissions issue. See [Adding a non-root user to your dev container](#adding-a-non-root-user-to-your-dev-container) for full details, but you can use this snippet in your Dockerfile to create the folders for a `vscode` user:
+1. **If you are using a non-root user**, you'll need to ensure your Dockerfile creates `~/.vscode-server` and/or `~/.vscode-server-insiders` in the container. If you do not do this, the folder will be owned by root and your connection will fail with a permissions issue. See [Adding a non-root user to your dev container](#adding-a-non-root-user-to-your-dev-container) for full details, but you can use this snippet in your Dockerfile to create the folders. Replace `user-name-goes-here` with the actual user name:
 
     ```Dockerfile
-    ARG USERNAME=vscode
-    RUN mkdir -p /home/$USERNAME/.vscode-server /home/$USERNAME/.vscode-server-insiders \
-        && chown $USERNAME:$USERNAME /home/$USERNAME/.vscode-server /home/$USERNAME/.vscode-server-insiders
+    USER user-name-goes-here
+    RUN mkdir -p ~/.vscode-server ~/.vscode-server-insiders
+    # Optional - Switch back to root if needed
+    USER root
     ```
 
 2. Next, we'll configure a named volume mount for `~/.vscode-server` and `~/.vscode-server-insiders` in the container. How you do this will depend on whether you specify an image, Dockerfile, or Docker Compose file in your `devcontainer.json` file.
 
     **Dockerfile or image**:
 
-    Add the following to `devcontainer.json`, replacing `/root` with the home directory of in the container if not root (e.g. `/home/vscode`) and `unique-vol-name-here` with a unique name for the volume:
+    Add the following to `devcontainer.json`, replacing `/root` with the home directory of in the container if not root (e.g. `/home/user-name-goes-here`) and `unique-vol-name-here` with a unique name for the volume:
 
     ```json
     "runArgs": [
@@ -187,7 +188,7 @@ To create the named local volume, follow these steps:
 
     **Docker Compose**:
 
-    Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following. Replace `unique-vol-name-here` with a unique name for the volume.
+    Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replace `unique-vol-name-here` with a unique name for the volume.
 
     ```yml
     services:
@@ -230,7 +231,7 @@ If your image or Dockerfile provides a non-root user (like the `node` image) but
     "runArgs": ["-u", "user-name-or-UID-goes-here"]
     ```
 
-* If you are using **Docker Compose**, add the following to your service in `docker-compose.yml`:
+* If you are using **Docker Compose**, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
     ```yaml
     user: user-name-or-UID-goes-here
@@ -238,7 +239,7 @@ If your image or Dockerfile provides a non-root user (like the `node` image) but
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `vscode`, give it the ability to use `sudo`, and set it as the default:
+For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
@@ -250,7 +251,7 @@ ARG USER_GID=$USER_UID
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
     && mkdir -p /home/$USERNAME/.vscode-server /home/$USERNAME/.vscode-server-insiders \
-    && chown ${USER_UID}:${USER_GID} /home/$USERNAME/.vscode-server /home/$USERNAME/.vscode-server-insiders \
+    && chown ${USER_UID}:${USER_GID} /home/$USERNAME/.vscode-server* \
     # [Optional] Add sudo support
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
