@@ -85,7 +85,7 @@ The following options enable you to modify the state of the target application w
 
 ### args
 
-JSON array of command-line arguments to pass to the program when it is launched. Example `["arg1", "arg2"]`. If you are escaping characters, you will need to double escape them. For example, `["{\\\"arg\\\": true}]` will send `{"arg1": true}` to your application.
+JSON array of command-line arguments to pass to the program when it is launched. Example `["arg1", "arg2"]`. If you are escaping characters, you will need to double escape them. For example, `["{\\\"arg1\\\": true}]` will send `{"arg1": true}` to your application.
 
 ### cwd
 
