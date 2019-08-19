@@ -151,7 +151,7 @@ Visual Studio code places these settings in `.vscode/c_cpp_properties.json`. If 
 
 Next, create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the g++ compiler on WSL to create an executable file based on the source code.
 
-1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Add a default build task** and then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
+1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Configure Default Build Task**. In the dropdown, select **Create tasks.json file from template**, then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
 
 1. Go ahead and replace the entire file contents with the following code snippet, but be sure to replace the placeholders with your actual Linux user name (the $HOME environment variable doesn't work here for WSL).
 
