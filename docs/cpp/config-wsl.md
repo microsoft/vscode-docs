@@ -11,7 +11,7 @@ MetaDescription: Configuring the C++ extension in Visual Studio Code to target g
 
 In this tutorial, you configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger on Ubuntu in the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL). GCC stands for GNU Compiler Collection; GDB is the GNU debugger. WSL is a Linux command-line environment within Windows that runs directly on the machine hardware, not in a virtual machine. One great advantage of using WSL over a remote Linux machine or container is that WSL provides direct access to the file system in Linux; you don't have to bother with setting up a remote communication pipeline such as ssh.
 
-> **Note**: Visual Studio Code has support for [remote development on WSL](/docs/remote/wsl.md), so there are two alternatives for using GCC on WSL. We recommend using the new [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) with the Remote - WSL extension. In this scenario, all your source files, in addition to the compiler, are hosted on the Linux distro. For more information, see [Remote Development](/docs/remote/remote-overview.md).
+> **Note**: Visual Studio Code has support for [remote development on WSL](/docs/remote/wsl.md), so there are two alternatives for using GCC on WSL. We recommend using the new [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) with the Remote - WSL extension. In this scenario, all your source files, in addition to the compiler, are hosted on the Linux distro. For more information, see [Remote Development](/docs/remote/remote-overview.md). If you use the Remote - WSL extension, use a normal Linux debug configuration and not the one listed below.
 
 The following tutorial shows the traditional approach, in which you edit the source code on Windows, and then compile and debug it in WSL. After completing this tutorial, you will be ready to create and configure your own workspace, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you about GCC or Linux or the C++ language. For those subjects, there are many good resources available on the Web.
 
@@ -151,7 +151,7 @@ Visual Studio code places these settings in `.vscode/c_cpp_properties.json`. If 
 
 Next, create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the g++ compiler on WSL to create an executable file based on the source code.
 
-1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Add a default build task** and then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
+1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Configure Default Build Task**. In the dropdown, select **Create tasks.json file from template**, then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
 
 1. Go ahead and replace the entire file contents with the following code snippet, but be sure to replace the placeholders with your actual Linux user name (the $HOME environment variable doesn't work here for WSL).
 

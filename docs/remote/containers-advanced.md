@@ -115,11 +115,11 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ### Use a named volume instead of a bind mount
 
-Local filesystem bind mounts are convenient, but are not as fast as using the container's filesystem directly. The problem with using the container's filesystem is that it is lost once you remove or rebuild the container. A middle ground is to use a "named volume". These act like the container's filesystem but survive container rebuilds and can even be shared across containers.
+Local filesystem bind mounts are convenient, but are not as fast as using the container's filesystem directly. The problem with using the container's filesystem is that it is lost once you remove or rebuild the container. A middle ground is to use a "named volume". A named volume acts like the container's filesystem but survives container rebuilds and can even be shared across containers.
 
 Note that using a named volume will require you to **clone your source code inside of the volume** rather than on your local filesystem.
 
-You can set this up by taking an existing `devcontainer.json` configuration and modifying it as follows (updating `your-volume-name-here` with whatever you want to call the volume).
+You can set up a named volume by taking an existing `devcontainer.json` configuration and modifying it as follows (updating `your-volume-name-here` with whatever you want to call the volume).
 
 * If you are using an **image** or **Dockerfile**, you can specify a named volume using `devcontainer.json`. For example:
 
@@ -157,13 +157,13 @@ There are a few side effects of doing this you should be aware of:
 
 * Sharing the volume across multiple containers could have unintended consequences, so you should pick a unique name for each.
 * When you rebuild the container:
-  * New extensions added to devcontainer.json will **not** be automatically installed.
+  * New extensions added to `devcontainer.json` will **not** be automatically installed.
   * Any `postCreateCommand` in `devcontainer.json` will **not run**.
 * Deleting the container will not automatically delete the named volume.
 
 To create the named local volume, follow these steps:
 
-1. **If you are using a non-root user**, you'll need to ensure your Dockerfile creates `~/.vscode-server` and/or `~/.vscode-server-insiders` in the container. If you do not do this, the folder will be owned by root and your connection will fail with a permissions issue. See [Adding a non-root user to your dev container](#adding-a-non-root-user-to-your-dev-container) for full details, but you can use this snippet in your Dockerfile to create the folders. Replace `user-name-goes-here` with the actual user name:
+1. **If you are running as a non-root user**, you'll need to ensure your Dockerfile creates `~/.vscode-server` and/or `~/.vscode-server-insiders` in the container.  If you do not do this, the folder will be owned by root and your connection will fail with a permissions issue. See [Adding a non-root user to your dev container](#adding-a-non-root-user-to-your-dev-container) for full details, but you can use this snippet in your Dockerfile to create the folders. Replace `user-name-goes-here` with the actual user name:
 
     ```Dockerfile
     USER user-name-goes-here
@@ -172,11 +172,11 @@ To create the named local volume, follow these steps:
     USER root
     ```
 
-2. Next, we'll configure a named volume mount for `~/.vscode-server` and `~/.vscode-server-insiders` in the container. How you do this will depend on whether you specify an image, Dockerfile, or Docker Compose file in your `devcontainer.json` file.
+2. Next, we'll configure a named volume mount for `~/.vscode-server` and `~/.vscode-server-insiders` in the container. The configuration will depend on whether you specify an image, Dockerfile, or Docker Compose file in your `devcontainer.json` file.
 
     **Dockerfile or image**:
 
-    Add the following to `devcontainer.json`, replacing `/root` with the home directory of in the container if not root (e.g. `/home/user-name-goes-here`) and `unique-vol-name-here` with a unique name for the volume:
+    Add the following to `devcontainer.json`, replacing `/root` with the home directory in the container if not root (for example `/home/user-name-goes-here`) and `unique-vol-name-here` with a unique name for the volume:
 
     ```json
     "runArgs": [
@@ -205,9 +205,9 @@ To create the named local volume, follow these steps:
 
 3. Finally, if you've already built the container and connected to it, you'll need to run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Reopen Folder in Container** to connect to the container for the first time.
 
-After the container is up and running, subsequent rebuilds will not reacquire any extensions or the VS Code server. The build will also **not use the latest extensions list from `devcontainer.json`**.
+After the container is up and running, subsequent rebuilds will not reacquire any extensions or the VS Code server. The build will also **not use the latest extensions list** from `devcontainer.json`.
 
-However, if you want to completely reset, you can delete the volume and everything will be re-acquired on restart.
+However, if you want to completely reset, you can delete the volume and everything will be reinstalled on restart.
 
 ```bash
 docker volume rm unique-vol-name-here
@@ -541,7 +541,7 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
 
     See the [Docker Compose documentation on `volumes`](https://docs.docker.com/compose/compose-file/#volumes) if you need to support a different scenario.
 
-4. Run the **Remote-Containers: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`) or **Remote-Containers: Rebuild Container** .
+4. Run the **Remote-Containers: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`) or **Remote-Containers: Rebuild Container**.
 
 5. Use ``kbstyle(Ctrl+Shift+`)`` to open a terminal inside the container. You can run `git clone` from here to pull down your source code. You can then use **File > Open... / Open Folder...** to open the cloned repository.
 
