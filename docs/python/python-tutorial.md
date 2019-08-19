@@ -16,7 +16,7 @@ This tutorial is intended to introduce you to VS Code as a Python environment, p
 
 Specifically, you will accomplish the following set of tasks within this tutorial:
 - Install the Python extension for VS Code
-- Download and Install Python 3 (for Linux/MacOS or Windows)
+- Download and Install Python 3 (for Linux/macOS or Windows)
 - Write, run, and debug a Python "Hello World" Application
 - Learn how to install packages by creating Python virtual environments
 - Write a simple Python script to plot figures within VS Code 
