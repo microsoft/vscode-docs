@@ -52,10 +52,10 @@ Before we continue, ensure that you have all the prerequisites installed and con
 
 ```bash
 node -v
-v8.11.3
+v10.16.3
 
 npm -v
-6.3.0
+6.9.0
 ```
 
 to ensure that both Node.js and npm are installed.
