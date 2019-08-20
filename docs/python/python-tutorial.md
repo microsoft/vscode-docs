@@ -45,21 +45,20 @@ To successfully complete this tutorial, complete the following requirements:
 
 ### Verify the Python installation
 
-VS Code and the Python extension don't require that the location of a Python interpreter be included in your PATH environment variable. However, some tools and libraries that VS Code might invoke won't work in the VS Code terminal unless Python is on the PATH. For best results, we recommend that you make sure you have Python on your PATH. (Exception: if you're using an Anaconda distro, make sure you start VS Code from an Anaconda command prompt when following the instructions in the next section.)
+To verify that you've installed Python successfully on your machine, run one of the following commands (depending on your operating system): 
 
-- Linux/macOS: Python is typically added to the PATH when you install it. To verify, run the following command in a terminal:
-
+- Linux/macOS: open a Terminal Window and type the following command:
     ```bash
     python3 --version
     ```
 
-- Windows: Python is included on the system PATH if you install it from the Windows Store or if you checked "Add Python 3.7 to PATH" during installation. Otherwise, you must add the install location to the PATH manually. To verify, open a command prompt and run the following command:
+- Windows: open a command prompt and run the following command:
 
     ```ps
     py -3 --version
     ```
 
-    If your Python installation is not found, open Windows Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include the appropriate folder.
+If the installation was successful, the output window should show the version of Python that you installed.
 
 ## Start VS Code in a project (workspace) folder
 
