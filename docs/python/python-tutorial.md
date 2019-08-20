@@ -37,20 +37,20 @@ To successfully complete this tutorial, complete the following requirements:
 
 ### Verify the Python installation
 
-To verify that you have installed Python successfully on your machine, you can use one of the following commands (depending on your Operating System): 
+To verify that you have installed Python successfully on your machine, run one of the following commands (depending on your operating system): 
 
-- Linux/macOS: Open a Terminal Window and type the following command:
+- Linux/macOS: open a Terminal Window and type the following command:
     ```bash
     python3 --version
     ```
 
-- Windows: Open a command prompt and run the following command:
+- Windows: open a command prompt and run the following command:
 
     ```ps
     py -3 --version
     ```
 
-If the installation was successful, you should see the version of Python that you installed printed within the output window.
+If the installation was successful, the output window should show the version of Python that you installed.
 
 ## Start VS Code in a project (workspace) folder
 
