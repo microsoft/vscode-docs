@@ -37,7 +37,7 @@ To successfully complete this tutorial, complete the following requirements:
 
 ### Verify the Python installation
 
-To verify that you have installed Python successfully on your machine, run one of the following commands (depending on your operating system): 
+To verify that you've installed Python successfully on your machine, run one of the following commands (depending on your operating system): 
 
 - Linux/macOS: open a Terminal Window and type the following command:
     ```bash
