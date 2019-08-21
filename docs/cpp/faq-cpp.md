@@ -58,7 +58,7 @@ These two settings are available in `c_cpp_properties.json` and can be confusing
 
 ### includePath
 
-This array of path strings is used by the "Default" IntelliSense engine. This new engine provides semantic-aware IntelliSense features and will be the eventual replacement for the Tag Parser that has been powering the extension since it was first released. It currently provides tooltips and error squiggles in the editor. The remaining features (for example, code completion, signature help, go to definition, ...) are implemented using the Tag Parser's database, so it is still important to ensure that the browse.path setting is properly set.
+This array of path strings is used by the "Default" IntelliSense engine. This new engine provides semantic-aware IntelliSense features and will be the eventual replacement for the Tag Parser that has been powering the extension since it was first released. It currently provides tooltips and error squiggles in the editor. The remaining features (for example, code completion, signature help, Go to Definition, ...) are implemented using the Tag Parser's database, so it is still important to ensure that the browse.path setting is properly set.
 
 The paths that you specify for this setting are the same paths that you would send to your compiler via the `-I` switch. When your source files are parsed, the IntelliSense engine will prepend these paths to the files specified by your #include directives while attempting to resolve them. These paths are **not** searched recursively.
 
