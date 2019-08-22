@@ -57,7 +57,7 @@ To get started, follow these steps:
 
     **Linux**:
 
-    1. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, follow the [Install Docker Compose directions](https://docs.docker.com/compose/install/) as well. (Note the Ubuntu snap package and is not supported and your distribution's Docker package may be out of date.)
+    1. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, follow the [Install Docker Compose directions](https://docs.docker.com/compose/install/) as well. (Note the Ubuntu snap package is not supported and your distribution's Docker package may be out of date.)
 
     2. Add your user to the `docker` group by using a terminal to run: `sudo usermod -aG docker $USER`
 
@@ -257,7 +257,7 @@ A value of `"ui"` instead of `"workspace"` will force the extension to run on th
 
 ## Forwarding or publishing a port
 
-Containers are isolated environments, so if you want to access a server, service, or other resource inside your container, you will need to either "forward" or "[published](https://stackoverflow.com/a/22150099)" the port to your host. You can either configure your container to always expose these ports or just forward them temporarily.
+Containers are isolated environments, so if you want to access a server, service, or other resource inside your container, you will need to either "forward" or "[publish](https://stackoverflow.com/a/22150099)" the port to your host. You can either configure your container to always expose these ports or just forward them temporarily.
 
 ### Temporarily forwarding a port
 
@@ -475,9 +475,9 @@ You can also create your configuration manually. The difference between configur
 
 See the [devcontainer.json reference](#devcontainerjson-reference) for information on other available properties such as the `appPort`, `postCreateCommand`, and the `extensions` list.
 
-Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen Folder in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in VS Code)  from the Command Palette (`kbstyle(F1)`). After the container is created, the **local filesystem is automatically "bind" mount into the container** unless you [change this behavior](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount) and you can start working with it from VS Code.
+Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen Folder in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in VS Code)  from the Command Palette (`kbstyle(F1)`). After the container is created, the **local filesystem is automatically "bind" mount into the container**, unless you [change this behavior](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount), and you can start working with it from VS Code.
 
-However, note that on Linux you may need to setup and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details.
+However, note that on Linux, you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details.
 
 ```yaml
 "runArgs": [ "-u", "your-user-name-here" ]
@@ -614,7 +614,7 @@ To avoid having the container shut down if the default container command fails o
 command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
-If you are not already, you can **"bind" mount your local source code** into the container using the [volumes list in your Docker Compose file](https://docs.docker.com/compose/compose-file/#volumes).
+If you have not done so already, you can **"bind" mount your local source code** into the container using the [volumes list in your Docker Compose file](https://docs.docker.com/compose/compose-file/#volumes).
 
 For example:
 
