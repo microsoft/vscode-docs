@@ -230,7 +230,7 @@ By default, the terminal will open at the folder that is opened in the Explorer.
 }
 ```
 
-Split terminals on Windows will start in the directory that the parent terminal started with. On MacOS and Linux, split terminals will inherit the current working directory of the parent terminal. This behavior can be changed using the `terminal.integrated.splitCwd` setting:
+Split terminals on Windows will start in the directory that the parent terminal started with. On macOS and Linux, split terminals will inherit the current working directory of the parent terminal. This behavior can be changed using the `terminal.integrated.splitCwd` setting:
 
 ```json
 {

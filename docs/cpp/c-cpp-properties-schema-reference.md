@@ -63,9 +63,9 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
 
 - `compilerPath` (optional)
   The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. The extension will query the compiler to determine the system include paths and default defines to use for IntelliSense.
-  
+
 - `compilerArgs` (optional)
-  Compiler arguments to modify the includes or defines used, e.g. `-nostdinc++`, `-m32`, etc.
+  Compiler arguments to modify the includes or defines used, for example `-nostdinc++`, `-m32`, etc.
 
 - `intelliSenseMode`
   The IntelliSense mode to use that maps to an architecture-specific variant of MSVC, gcc, or Clang. If not set or if set to `${default}`, the extension will choose the default for that platform.
