@@ -13,6 +13,16 @@ MetaSocialImage: images/tutorial/social.png
 
 [Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a *notebook*.
 
+By the end of this tutorial, you will have completed the following set of activities:
+
+- Work with Jupyter-like code cells
+- Run code in the Python Interactive Window 
+- View, inspect, and filter variables using the Variable explorer and data viewer
+- Learn how to connect to a remote Jupyter server
+- Debug a Jupyter notebook
+- Export a Jupyter notebook
+
+
 To work with Jupyter notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 Once the appropriate environment is activated, you can create and run Jupyter-like code cells, connect to a remote Jupyter server for running code cells, open a Jupyter notebook directly, and export Python files as Jupyter notebooks.
