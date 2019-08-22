@@ -18,7 +18,7 @@ This tutorial introduces you to VS Code as a Python environment, primarily how t
 - Download and Install Python 3 (for Linux/macOS or Windows)
 - Write, run, and debug a Python "Hello World" Application
 - Learn how to install packages by creating Python virtual environments
-- Write a simple Python script to plot figures within VS Code 
+- Write a simple Python script to plot figures within VS Code
 
 This tutorial is not intended to teach you Python itself. Once you are familiar with the basics of VS Code, you can then follow any of the [programming tutorials on python.org](https://wiki.python.org/moin/BeginnersGuide/Programmers) within the context of VS Code for an introduction to the language.
 
@@ -41,13 +41,22 @@ To successfully complete this tutorial, complete the following requirements:
 
    > **Note** You can use the `py -0` command in the integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
 
-1. On MacOS, make sure the location of your VS Code installation is included in your PATH environment variable.  See [the setup instructions](/docs/setup/mac.md#launching-from-the-command-line) for more information.
+1. On macOS, make sure the location of your VS Code installation is included in your PATH environment variable.  See [the setup instructions](/docs/setup/mac.md#launching-from-the-command-line) for more information.
+
+### Windows Subsystem for Linux
+
+If you are working on Windows and want an isolated environment for working with Python, the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) (WSL) is a great option. You can enable WSL and install a Linux distribution on your Windows machine, completely isolated from your normal development environment. This Python tutorial can be done inside WSL, using the VS Code [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
+
+For more information, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/remote-tutorials/wsl/getting-started.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
+
+Once you have WSL running, you can return to this tutorial and verify the prerequisites with a WSL terminal or VS Code integrated terminal.
 
 ### Verify the Python installation
 
-To verify that you've installed Python successfully on your machine, run one of the following commands (depending on your operating system): 
+To verify that you've installed Python successfully on your machine, run one of the following commands (depending on your operating system):
 
 - Linux/macOS: open a Terminal Window and type the following command:
+
     ```bash
     python3 --version
     ```
