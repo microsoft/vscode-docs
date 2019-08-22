@@ -240,6 +240,19 @@ Split terminals on Windows will start in the directory that the parent terminal 
 
 There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
 
+## Changing shell for tasks and debug
+
+You can set `terminal.integrated.automationShell.<platform>` to override the shell and shell args used by tasks and debug:
+
+```jsonc
+{
+    "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+    // Use a fully POSIX-compatible shell and avoid running a complex ~/.fishrc
+    // for tasks and debug
+    "terminal.integrated.automationShell.osx": "/bin/sh"
+}
+```
+
 ## Changing how the terminal is rendered
 
 By default, the integrated terminal will render using multiple `<canvas>` elements which are better tuned than the DOM for rendering interactive text that changes often. However, Electron/Chromium are slower at rendering to canvas on some environments so VS Code also provides a fallback DOM-renderer experience. VS Code will try to detect slow performance and give you the option to change via a notification. You can also change the rendering directly by setting `terminal.integrated.rendererType` in your user or workspace [settings](/docs/getstarted/settings.md).
