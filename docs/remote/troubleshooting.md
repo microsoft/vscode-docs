@@ -299,7 +299,7 @@ Note that only Linux hosts are currently supported, which is why permissions for
 
 | OS | Instructions |
 |----|--------------|
-| Windows 10 / Server 2016 | Install the [Windows OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
+| Windows 10 1803+ / Server 2016 | Install the [Windows OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
 | Earlier Windows | Install [Git for Windows](https://git-scm.com/download/win). |
 | macOS | Comes pre-installed. |
 | Debian/Ubuntu | Run `sudo apt-get install openssh-client` |
