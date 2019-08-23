@@ -373,6 +373,35 @@ To connect to both:
 
 You can now interact with both containers at once from separate windows.
 
+### Extending a Docker Compose file when connecting to two containers
+
+If you want to [extend your Docker Compose file for development]((/docs/remote/containers.md#extending-your-docker-compose-file-for-development)), you should use a single `docker-compose.yml` that extends **both** services (as needed) and is referenced in **both** `.devcontainer.json` files.
+
+For example, consider this `docker-compose.devcontainer.yml` file:
+
+```yaml
+version: '3'
+services:
+  container-1:
+    volumes:
+      - ~:~/local-home-folder # Additional bind mount
+
+  container-2:
+    volumes:
+      - ~/some-folder:~/some-folder # Additional bind mount
+```
+
+Both `.devcontainer.json` files would be updated as follows:
+
+```json
+"dockerComposeFile": [
+  "../docker-compose.yml",
+  "../docker-compose.devcontainer.yml",
+]
+```
+
+This list of compose files is used when starting the containers, so referencing different files in each `.devcontainer.json` can have unexpected results.
+
 ## Developing inside a container on a remote Docker host
 
 Sometimes you may want to use the Remote - Containers extension to develop inside a container that sits on remote server. This section outlines how you can achieve this by using `devcontainer.json` or attaching to an existing remote container.
