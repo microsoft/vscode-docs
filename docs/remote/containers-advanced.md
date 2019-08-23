@@ -82,7 +82,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ## Improving container disk performance
 
-The Remote - Containers extension uses Docker's defaults for creating "bind mounts" to the local filesystem for your source code. While this is the safest option, you may encounter slower individual file disk performance when running commands like `yarn install` or `npm install` from inside the container. There are a two things you can do to resolve these types of issue.
+The Remote - Containers extension uses Docker's defaults for creating "bind mounts" to the local filesystem for your source code. While this is the simplest option, on macOS and Windows, you may encounter slower disk performance when running commands like `npm install` from inside the container. There are few things you can do to resolve these types of issue.
 
 ### Update the mount consistency in Docker for Mac
 
@@ -113,11 +113,67 @@ A trick that is often used with Docker Desktop for Mac is to change the [mount c
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-### Use a named volume instead of a bind mount
+### Use a targeted named volume
 
-Local filesystem bind mounts are convenient, but are not as fast as using the container's filesystem directly. The problem with using the container's filesystem is that it is lost once you remove or rebuild the container. A middle ground is to use a "named volume". A named volume acts like the container's filesystem but survives container rebuilds and can even be shared across containers.
+Since macOS and Windows run containers in a VM, "bind" mounts are not as fast as using the container's filesystem directly. Fortunately, Docker has the concept of a  "named volume" that can act like the container's filesystem but survives container rebuilds. This makes it ideal for storing package folders like `node_modules` or output folders like `build` or `bin` where write performance is critical. Just follow the steps below
 
-Note that using a named volume will require you to **clone your source code inside of the volume** rather than on your local filesystem.
+**Dockerfile or image**:
+
+The [vscode-remote-try-node](https://github.com/Microsoft/vscode-remote-try-node) repo illustrates this idea with the `node_modules` folder. Consider this line from  `devcontainer.json`:
+
+```json
+"runArgs": [
+    "-v", "try-node-node_modules:/workspaces/vscode-remote-try-node/node_modules"
+]
+```
+
+By default, VS Code will automatically mount the repo's local source code into `/workspaces/vscode-remote-try-node`. The `runArgs` command above creates a named volume called `try-node-node_modules` and mounts the `node_modules` sub-folder into it instead. The rest of the files then come from the local filesystem.
+
+Since this sample [runs VS Code as non-root user](#adding-a-non-root-user-to-your-dev-container) in the container called "node", a `postCreateCommand` is included to make sure the user can access the `node_modules` folder.
+
+```json
+"runArgs": [
+    "-u", "node",
+    "-v", "try-node-node_modules:/workspaces/vscode-remote-try-node/node_modules"
+],
+"postCreateCommand": "sudo chown node:node node_modules"
+```
+
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+**Docker Compose**:
+In this case, you will add the named volume to your Docker Compose file (or an [extended one](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) for the appropriate service(s). For example:
+
+```yaml
+version: '3'
+services:
+  your-service-name-here:
+    volumes:
+       # Or wherever you've mounted your source code
+      - .:/workspace
+      - your-service-name-here-node_modules: /workspace/node_modules
+
+volumes:
+  - try-node-node_modules:
+```
+
+You'll also want to be sure the `workspaceFolder` property in `devcontainer.json` matches the place your actual source code mounted:
+
+```json
+"workspaceFolder": "/workspace"
+```
+
+If you're running in the container with a [user other than root](#adding-a-non-root-user-to-your-dev-container), add a postCreateCommand to update the owner of the folder you mount since it may have been mounted as root.
+
+```json
+"postCreateCommand": "sudo chown your-user-name-here node_modules"
+```
+
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+### Use a named volume for your entire source tree
+
+You can take this one step farther and **clone your entire source tree inside of a volume** rather than locally.
 
 You can set up a named volume by taking an existing `devcontainer.json` configuration and modifying it as follows (updating `your-volume-name-here` with whatever you want to call the volume).
 
@@ -148,6 +204,9 @@ You can set up a named volume by taking an existing `devcontainer.json` configur
     ```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+Finally, **start an integrated terminal** `kbstyle(Ctrl+Shift+)` and use the `git clone` command to clone your source code into the `/workspace` folder.
+
 
 ## Avoiding extension reinstalls on container rebuild
 
