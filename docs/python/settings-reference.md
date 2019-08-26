@@ -70,15 +70,21 @@ The `disabled`, `errors`, `warnings`, and `information` settings can contain the
 
 | Value | Default type | Description or message text |
 | --- | --- | --- |
-| "not-callable" | Warning | (object may not be callable) |
-| "undefined-variable" | Warning | (unknown variable '{0}') |
-| "unresolved-import" | Warning | "Unable to resolve 'module_name'. IntelliSense may be missing for this module." |
+| "inherit-non-class" | Warning | Attempted to inherit something that is not a class. |
 | "too-many-function-arguments" | Warning | Too many arguments have been provided to a function call. |
 | "too-many-positional-arguments-before-star" | Warning | Too many arguments have been provided before a starred argument. |
-| "positional-argument-after-keyword" | Warning | A positional argument has been provided after a keyword argument. |
-| "unknown-parameter-name" | Warning | The keyword argument name provided is unknown. |
 | "parameter-already-specified" | Warning | A argument with this name has already been specified. |
 | "parameter-missing" | Warning | A required positional argument is missing. |
+| "positional-argument-after-keyword" | Warning | A positional argument has been provided after a keyword argument. |
+| "return-in-init" | Warning | Encountered an explicit return in `init` function. | 
+| "typing-generic-arguments" | Warning | An error occurred while constructing `Generic`. | 
+| "typing-typevar-arguments" | Warning | An error occurred while constructing `TypeVar`. | 
+| "typing-newtype-arguments" | Warning| An error occurred while constructing `NewType`. | 
+| "unknown-parameter-name" | Warning | The keyword argument name provided is unknown. |
+| "unresolved-import" | Warning | An import cannot be resolved, and may be missing.|
+| "undefined-variable" | Warning | A variable has been used that has not yet been defined.|
+| "variable-not-defined-globally" | Warning | A variable is not defined in the global scope. | 
+| "variable-not-defined-nonlocal" | Warning | A variable is not defined in non-local scopes. | 
 
 To suppress the "undefined-variable" messages, for example, use the setting `"python.analysis.disabled": ["undefined-variable"]`. To suppress those messages and "too-many-function-arguments" messages as well, use the setting `"python.analysis.disabled": ["undefined-variable", "too-many-function-arguments"]`.
 
