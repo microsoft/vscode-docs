@@ -24,14 +24,12 @@ This lets VS Code provide a **local-quality development experience** — includi
 **Local:**
 
 * **Windows:** [Docker Desktop](https://www.docker.com/products/docker-desktop) 2.0+ on Windows 10 Pro/Enterprise. (Docker Toolbox is not supported.)
-
 * **macOS**:  [Docker Desktop](https://www.docker.com/products/docker-desktop) 2.0+.
-
 * **Linux**: [Docker CE/EE](https://docs.docker.com/install/#supported-platforms) 18.06+ and [Docker Compose](https://docs.docker.com/compose/install) 1.21+. (The Ubuntu snap package is not supported.)
 
 Note that the Docker demon/service does not need to be running locally if you are [using a remote Docker host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host). See the minimum requirements for [VS Code](/docs/supporting/requirements.md) for additional details.
 
-**Containers**: x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ , Alpine Linux based containers.
+**Containers**: x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+, Alpine Linux based containers.
 
 Other `glibc` based Linux containers may work if they have [needed prerequisites](/docs/remote/linux.md).
 
@@ -53,7 +51,7 @@ To get started, follow these steps:
 
     **Linux**:
 
-    1. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, follow the [Install Docker Compose directions](https://docs.docker.com/compose/install/) as well. (Note the Ubuntu snap package and is not supported and your distribution's Docker package may be out of date.)
+    1. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, follow the [Docker Compose directions](https://docs.docker.com/compose/install/) as well.
 
     2. Add your user to the `docker` group by using a terminal to run: `sudo usermod -aG docker $USER`
 
