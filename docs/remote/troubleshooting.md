@@ -187,7 +187,8 @@ If you are connecting to an SSH remote host and are either:
 
 ...VS Code should automatically prompt you to enter needed information. If you do not see the prompt, enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
 
-However, you may be prompted to enter this information multiple times due to [vscode-remote-release#642](https://github.com/microsoft/vscode-remote-release/issues/642). On macOS and Linux, you can avoid this problem by enabling the `ControlMaster` feature on your local machine so that OpenSSH runs multiple SSH sessions over a single connection.
+If you are on macOS and Linux and want to reduce how often you have to enter a password or token, you can enable the `ControlMaster` feature on your **local machine** so that OpenSSH runs multiple SSH sessions over a single connection.
+
 To enable `ControlMaster`:
 
 1. Add an entry like this to your SSH config file:
@@ -200,8 +201,6 @@ To enable `ControlMaster`:
     ```
 
 2. Then run `mkdir -p ~/.ssh/sockets` to create the sockets folder.
-
-With `ControlMaster` enabled, you will only have to enter your auth code/password/passphrase once.
 
 ### Setting up the SSH Agent
 
@@ -384,6 +383,12 @@ Or using **WSL from a command prompt on Windows**:
 
 ```bat
 wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "$(wslpath -a '%CD%')"
+```
+
+Or using ***PowerShell and WSL**:
+
+```bat
+wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "\$(wslpath -a '$PWD')"
 ```
 
 You can rerun this command each time you want to get the latest copy of your files and only updates will be transferred. The `.git` folder is intentionally excluded both for performance reasons and so you can use local Git tools without worrying about the state on the remote host.

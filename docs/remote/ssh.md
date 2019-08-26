@@ -27,11 +27,13 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 - **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
 
-- **Experimental support:** ARMv7l (or ARMv8 in 32-bit mode) Raspbian Stretch/9+ (32-bit).
+- **Experimental support:**
+  - ARMv7l/AArch32 (or ARMv8 in 32-bit mode) Raspbian Stretch/9+ (32-bit).
+  - ARMv8l/AArch64 Ubuntu 18.04+ (64-bit).
 
-Other `glibc` based Linux distributions for x86_64 and ARMv7l should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
+Other `glibc` based Linux distributions for x86_64 and ARMv7l/ARMv8l should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
 
-While ARMv7l support is available in VS Code Insiders, some extensions installed on these devices may not work due to the use of x86 native code in the extension.
+While ARMv7l/ARMv8l support is available in VS Code Insiders, some extensions installed on these devices may not work due to the use of x86 native code in the extension.
 
 ### Installation
 
@@ -43,19 +45,17 @@ To get started, you need to:
 
 3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
-4. [Optional] If you are on macOS or Linux and need to enter a token or password when connecting to your host, [you can enable `ControlMaster` in your SSH config](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) to prevent you from having to enter it multiple times.
-
 ### Connect to a remote host
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
-> **Note:** See [System Requirements](#system-requirements) for information about supported SSH hosts. When using support for ARMv7l `glibc` distributions like Raspbian in VS Code Insiders, note that some extensions installed on the remote host may not work due the use of x86 native code in the extension.
+> **Note:** See [System Requirements](#system-requirements) for information about supported SSH hosts. When using support for ARMv7l/ARMv8l `glibc` distributions in VS Code Insiders, note that some extensions installed on the remote host may not work due the use of x86 native code in the extension.
 
 To get started, follow these steps:
 
 1. First, **configure key based authentication** on the host you plan to connect to by adding your local public SSH key to `~/.ssh/authorized_keys` on the host. If you are new to SSH or are running into trouble, see [Configuring key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) for additional information on setting this up. If you followed the Azure VM tutorial, you can skip this step.
 
-    > **Note:** If you skip this step, you will end up needing to enter your password twice due to [vscode-remote-release#642](https://github.com/microsoft/vscode-remote-release/issues/642). Also note that PuTTY for Windows is not a [supported client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
+    > **Note:** PuTTY for Windows is not a [supported client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
 
 2. Run **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) and enter the host and your user on the host in the input box as follows: `user@hostname`.
 
@@ -218,7 +218,7 @@ The Docker extension is configured to run as a local "UI" extension by default. 
 
 Many extensions will work on remote SSH hosts without modification. However, in some cases, certain features may require changes. If you run into an extension issue, there is [a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
-In addition, some extensions installed on ARMv7l (VS Code Insiders only) devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARMv7l.
+In addition, some extensions installed on ARMv7l/ARMv8l (VS Code Insiders only) devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARMv7l/ARMv8l.
 
 ## Common questions
 
@@ -232,9 +232,7 @@ See [Installing a supported SSH server](/docs/remote/troubleshooting.md#installi
 
 ### Can I sign into my SSH server with another/additional authentication mechanism like a password?
 
-Yes, you should be prompted to enter your token or password automatically.
-
-However, you will end up needing to enter your password twice due to [vscode-remote-release#642](https://github.com/microsoft/vscode-remote-release/issues/642). Enabling `ControlMaster` in your SSH config can help, but we have seen mixed results with this setting on Windows SSH clients. See [Enabling alternate SSH authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) for information on the correct settings.
+Yes, you should be prompted to enter your token or password automatically. If this is not working, set the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) to show the connection process in a terminal window so that you can respond to any prompts. Also note that passwords are not saved, so using [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) is typically more convenient.
 
 ### How do I fix SSH errors about "bad permissions"?
 

@@ -77,7 +77,7 @@ Finally, some extensions (like C#) download secondary dependencies from `downloa
 
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
-Most Linux distributions will not require additional dependency installation steps. For SSH, x86_64 Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed and those utilities could be missing from certain stripped down distributions. Remote Development also requires kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18. Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for Remote - Containers in VS Code stable. Experimental support for Alpine in Remote - WSL and ARMv7l in Remote - SSH is available when using VS Code Insiders. However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions.
+Most Linux distributions will not require additional dependency installation steps. For SSH, x86_64 Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed and those utilities could be missing from certain stripped down distributions. Remote Development also requires kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18. Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for Remote - Containers in VS Code stable. Experimental support for Alpine in Remote - WSL and ARMv7l/ARMv8l in Remote - SSH is available when using VS Code Insiders. However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions.
 
 See [Linux Prerequisites](/docs/remote/linux.md) for details.
 
