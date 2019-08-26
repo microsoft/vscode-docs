@@ -511,7 +511,7 @@ If you determine that you need to give your container more of your machine's cap
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
 3. On Mac, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
-Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. You can also use the [cached mount consistency on Mac](/docs/remote/containers-advanced.md#update-the-mount-consistency-in-docker-for-mac) or use a [named volume for your source code](/docs/remote/containers-advanced.md#use-a-named-volume-instead-of-a-bind-mount) instead.
+Finally, if your container is **doing disk intensive** operations or you are just looking for faster response times, see [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance) for tips. VS Code's defaults optimize for convenance and universal support, but can be optimized.
 
 ### Cleaning out unused containers and images
 
@@ -523,7 +523,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
     > **Note:** Using the Docker extension from a VS Code window opened in a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local window and use the Docker extension from this VS Code window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
- 1. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
+ 2. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
 
      ![Docker Explorer screenshot](images/containers/docker-remove.png)
 

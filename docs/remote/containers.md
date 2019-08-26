@@ -31,15 +31,11 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 Note that the Docker demon/service does not need to be running locally if you are [using a remote Docker host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host). See the minimum requirements for [VS Code](/docs/supporting/requirements.md) for additional details.
 
-**Containers**:
-
-* **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ based containers
-
-* **Experimental support:** x86_64 Alpine Linux containers in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
+**Containers**: x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+ , Alpine Linux based containers.
 
 Other `glibc` based Linux containers may work if they have [needed prerequisites](/docs/remote/linux.md).
 
-While `musl` based Alpine Linux support is available in VS Code Insiders, some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development with Linux](/docs/remote/linux.md) article for details.
+While `musl` based Alpine Linux support is available, some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development with Linux](/docs/remote/linux.md) article for details.
 
 ### Installation
 
@@ -117,7 +113,7 @@ The steps are similar to those above:
 
 2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one exists in the folder you selected.
 
-    > **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux in VS Code Insiders, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+    > **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
     ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
 
@@ -442,7 +438,7 @@ To get started quickly, **open the folder** you want to work with in VS Code and
 
 You'll be asked to either select an existing Dockerfile (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) in a filterable list. VS Code will then add `devcontainer.json` and any other required files to the folder. While most of these pre-defined "dev container definitions" include a Dockerfile, you can use them as a starting point for an image instead if you prefer.
 
-> **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux in VS Code Insiders, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+> **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
 You can also create your configuration manually. The difference between configuring VS Code to build a container image using a Dockerfile or just reuse an exiting image is a single property in `devcontainer.json`:
 
@@ -569,7 +565,7 @@ You can either:
 3. [Extend your existing Docker Compose configuration](#extending-your-docker-compose-file-for-development) to develop the service.
 4. Use separate VS Code windows to [work with multiple Docker Compose-defined services](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) at once.
 
-> **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux in VS Code Insiders, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+> **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
 
 VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file. If you've already started the configured containers using the command line, VS Code will **attach to the running service** you've specified instead. This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above while still allowing you to use the command line if you prefer.
 
@@ -770,7 +766,7 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 
 ## devcontainer.json  reference
 
-See [Setting up a folder to run in a container](#in-depth-setting-up-a-folder-to-run-in-a-container) for more information on configuring a dev container.
+See [Setting up a folder to run in a container](#in-depth-setting-up-a-folder-to-run-in-a-container) for more information on configuring a dev container or the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers) for a wide variety of base configurations.
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -779,14 +775,15 @@ See [Setting up a folder to run in a container](#in-depth-setting-up-a-folder-to
 | `dockerFile` | string |**Required** when [using a Dockerfile](#using-an-image-or-dockerfile). The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes in the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers). |
 | `context` | string | Path that the Docker build should be run from relative to `devcontainer.json`. For example, a value of `".."` would allow you to reference content in sibling directories. Defaults to `"."`. |
 | `appPort` | integer, string, or array | A port or array of ports that should be [published](https://stackoverflow.com/a/22150099) locally when the container is running. Note that your application may need to listen on all interfaces (`0.0.0.0`) not just `localhost` for it to be available externally. Defaults to `[]`. |
-| `workspaceMount` | string | Overrides the default local mount point for the workspace. Supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag). Primarily useful for [configuring remote containers](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) or [improving disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance). |
+| `workspaceMount` | string | Overrides the default local mount point for the workspace. Supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag). Primarily useful for [configuring remote containers](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) or [improving disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance). You can use `${localWorkspaceFolder}` in this property to refer to the local source code or using the following format to refer to environment variables: `${env:VARNAMEHERE}` |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container. Typically used in conjunction with `workspaceMount`. Defaults to the automatic source code mount location. |
-| `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`. A run argument can refer to environment variables using the following format `${env:HOME}` |
+| `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`. Useful for [setting environment variables](/docs/remote/containers-advanced.md#adding-environment-variables), [adding mount points](/docs/remote/containers-advanced.md#adding-another-local-file-mount), and more. A run argument can use `${localWorkspaceFolder}` to refer to the local source code or using the following format to refer to environment variables: `${env:VARNAMEHERE}` |
 | `overrideCommand` | boolean | Tells VS Code whether it should run `/bin/sh -c "while sleep 1000; do :; done"` when starting the container instead of the container's default command. Defaults to `true` since the container can shut down if the default command fails. Set to `false` if the default command must run for the container to function properly. |
 | `shutdownAction` | enum: `none`, `stopContainer` | Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. Defaults to `stopContainer`. |
 |**Docker Compose**|||
-| `dockerComposeFile` | string  or array | **Required.** Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. |
+| `dockerComposeFile` | string  or array | **Required.** Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. Using an array is useful [when extending your Docker Compose configuration](#extending-your-docker-compose-file-for-development). The order of the array matters since the contents of later files can override values set in previous ones. Note that the default `.env` file is picked up from the root of the project, but you can use `env_file` in your Docker Compose file to specify an alternate location. |
 | `service` | string | **Required.** The name of the service VS Code should connect to once running.  |
+| `runServices` | array | An array of services in your Docker Compose configuration that should be started by VS Code. Defaults to all services. |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
 | `shutdownAction` | enum: `none`, `stopCompose` | Indicates whether VS Code should stop the containers when the VS Code window is closed / shut down. Defaults to `stopCompose`. |
 |**General**|||
