@@ -482,7 +482,7 @@ As noted earlier, you can learn more about the Functions extension by visiting i
 
 To learn more about Azure Functions, browse the [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-python) documentation, and especially explore the different triggers you can use.
 
-To learn more about Azure services that you can use from Python, including data storage along with AI and Machine Learning services, visit [Azure Python Developer Center](https://docs.microsoft.com/python/azure/?view=azure-python).
+To learn more about Azure services that you can use from Python, including data storage along with AI and Machine Learning services, visit [Azure Python Developer Center](https://docs.microsoft.com/azure/python).
 
 There are also other Azure extensions for VS Code that you may find helpful. Just search on "Azure" in the Extensions explorer:
 
