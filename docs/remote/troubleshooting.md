@@ -299,7 +299,7 @@ Note that only Linux hosts are currently supported, which is why permissions for
 
 | OS | Instructions |
 |----|--------------|
-| Windows 10 / Server 2016 | Install the [Windows OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
+| Windows 10 1803+ / Server 2016 | Install the [Windows OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
 | Earlier Windows | Install [Git for Windows](https://git-scm.com/download/win). |
 | macOS | Comes pre-installed. |
 | Debian/Ubuntu | Run `sudo apt-get install openssh-client` |
@@ -418,7 +418,11 @@ The VS Code Server was previously installed under `~/.vscode-remote` so you can 
 
 2. **Stick with alphanumeric passwords to avoid drive sharing problems.** When asked to share your drives on Windows, you will be prompted for the username and password of an account with admin privileges on the machine. If you are warned about an incorrect username or password, this may be due to special characters in the password. For example, `!`, `[` and `]` are known to cause issues. Change your password to alphanumeric characters to resolve. See this issue about [Docker volume mounting problems](https://github.com/moby/moby/issues/23992#issuecomment-234979036) for details.
 
-3. **Use your Docker ID to sign into Docker (not your email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
+3. **Make sure your firewall allows Docker to setup a shared drive.** Docker only needs to connect between two machine local IPs, but some firewall software may still block any drive sharing or the needed ports. See [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps on resolving this problem.
+
+4. **Use your Docker ID to sign into Docker (not your email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
+
+5. **Switch out of "Linux Containers on Windows (LCOW)" mode.** While disabled by default, recent versions of Docker support [Linux Containers on Windows (LCOW)](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers) that can allow you to use both Windows and Linux containers at the same time. However, this is a new feature, so you may encounter issues and the Remote - Containers extension only supports Linux containers currently. You can switch out of LCOW mode at any time by right-clicking on the Docker task bar item and selecting **Switch to Linux Containers...** from the context menu.
 
 If you are still having trouble, see the [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot/#volumes).
 
@@ -432,6 +436,7 @@ To change Docker's drive and folder sharing settings:
 
 1. Right-click on the Docker task bar item and select **Settings**.
 2. Go to the **Shared Drives** tab and check the drive(s) where your source code is located.
+3. If you see a message about your local firewall blocking the sharing action, see [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps.
 
 **macOS:**
 
@@ -623,38 +628,35 @@ By default, `bash` is used as the shell. Bash will look for startup files under 
 
 If typing `code` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
 
-Check by opening a WSL terminal and typing `echo $PATH`. You should see the following paths listed:
+Check by opening a WSL terminal and typing `echo $PATH`. You should see VS Code install path listed. By default, this would be:
 
-1. `/mnt/c/Windows/System32`
-2. The VS Code install path. By default, this should be:
+```bash
+/mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code/bin
+```
 
-    ```bash
-    /mnt/c/Users/Your Username/AppData/Local/Programs/Microsoft VS Code/bin
-    ```
+But, if you used the **System Installer**, the install path is:
 
-    But, if you installed the **System Installer** version, the install path is:
+```bash
+/mnt/c/Program Files/Microsoft VS Code/bin
+```
 
-    ```bash
-    /mnt/c/Program Files/Microsoft VS Code/bin
-    ```
+...or...
 
-    ...or...
-
-    ```bash
-    /mnt/c/Program Files (x86)/Microsoft VS Code/bin
-    ```
+```bash
+/mnt/c/Program Files (x86)/Microsoft VS Code/bin
+```
 
 If the VS Code install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
 
 ```bash
-WINDOWS_USERNAME="Your Username"
-VSCODE_PATH="/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code/bin"
-# or...
-# VSCODE_PATH="/mnt/c/Program Files/Microsoft VS Code/bin"
-# or...
-# VSCODE_PATH="/mnt/c/Program Files (x86)/Microsoft VS Code/bin"
+WINDOWS_USERNAME="Your Windows Alias"
 
-export PATH=$PATH:/mnt/c/Windows/System32:${VSCODE_PATH}
+export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code/bin"
+# or...
+# export PATH="$PATH:/mnt/c/Program Files/Microsoft VS Code/bin"
+# or...
+# export PATH="$PATH:/mnt/c/Program Files (x86)/Microsoft VS Code/bin"
+
 ```
 
 > **Note:** Be sure to quote or escape spaces in the directory names.

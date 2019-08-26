@@ -82,7 +82,7 @@ To learn more about Spring Boot support with Visual Studio Code, read [Spring Bo
 
 Code completion in Visual Studio Code for Java is provided by [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). The extension is powered by the same [Java development tools (JDT)](https://www.eclipse.org/jdt/) behind Eclipse, so you can expect the same level of support.
 
-In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open-source projects on GitHub each with over 100 stars, so it’s trained on the most common usages from high quality projects. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
+In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open-source projects on GitHub each with over 100 stars, so it's trained on the most common usages from high quality projects. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/intellicode.mp4" type="video/mp4">
@@ -131,7 +131,7 @@ After the extraction, you can also perform a rename in the same transaction.
   <source src="/docs/java/java-editing/extract-rename.mp4" type="video/mp4">
 </video>
 
-### Convert a local variable to a field.
+### Convert a local variable to a field
 
 When selecting an expression, extract to field.
 
@@ -234,6 +234,18 @@ In addition, there's a [Checkstyle for Java](https://marketplace.visualstudio.co
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/checkstyle.mp4" type="video/mp4">
+</video>
+
+The [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension also supports live linting.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/checkstyle-live-linting.mp4" type="video/mp4">
+</video>
+
+And batch check.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/checkstyle-batch.mp4" type="video/mp4">
 </video>
 
 ### Set Checkstyle configuration file

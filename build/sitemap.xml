@@ -466,6 +466,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/python/tutorial-create-containers</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/python/tutorial-deploy-containers</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -830,6 +835,32 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/remote-tutorials/wsl/edit-and-debug</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/containers/getting-started</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/containers/install-extension</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/containers/get-the-sample</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/containers/run-in-container</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote-tutorials/containers/how-it-works</loc>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>

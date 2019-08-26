@@ -39,7 +39,7 @@ The [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azure
 
 ## Sign in
 
-Once the extension is installed, log into your Azure account - in the Activity Bar, click on the Azure logo to show the **AZURE STORAGE** explorer. Click **Sign in to Azure...** and follow the instructions.
+Once the extension is installed, log into your Azure account - in the Activity Bar, select the Azure logo to show the **AZURE STORAGE** explorer. Select **Sign in to Azure...** and follow the instructions.
 
 ![sign in to Azure](images/static-website/sign-in.png)
 
@@ -52,10 +52,10 @@ Before we continue, ensure that you have all the prerequisites installed and con
 
 ```bash
 node -v
-v8.11.3
+v10.16.3
 
 npm -v
-6.3.0
+6.9.0
 ```
 
 to ensure that both Node.js and npm are installed.

@@ -11,7 +11,7 @@ MetaDescription: It is easy to add code snippets to Visual Studio Code both for 
 
 Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
 
-In Visual Studio Code, snippets show in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": "on"`, type a *snippet prefix*, and press `kb(insertSnippet)` to insert a snippet.
+In Visual Studio Code, snippets appear in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions, as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": "on"`, type a *snippet prefix*, and press `kb(insertSnippet)` to insert a snippet.
 
 The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exceptions of 'interpolated shell code' and the use of `\u`; both are not supported.
 
@@ -80,7 +80,7 @@ Every snippet is scoped to one, several, or all ("global") languages based on wh
 
 Single-language user-defined snippets are defined in a specific language's snippet file (for example `javascript.json`), which you can access by language identifier through **Preferences: Configure User Snippets**. A snippet is only accessible when editing the language for which it is defined.
 
-Multi-language and global user-defined snippets are all defined in "global" snippet files (JSON with the file suffix `.code-snippets`), which is also accessible through **Preferences: Configure User Snippets**. In a global snippets file, a snippet definition may have an additional `scope` property that takes one or more language identifiers, which make the snippet available only for those specified languages. If no `scope` property is given, then the global snippet is available in **all** languages.
+Multi-language and global user-defined snippets are all defined in "global" snippet files (JSON with the file suffix `.code-snippets`), which is also accessible through **Preferences: Configure User Snippets**. In a global snippets file, a snippet definition may have an additional `scope` property that takes one or more language identifiers, which makes the snippet available only for those specified languages. If no `scope` property is given, then the global snippet is available in **all** languages.
 
 Most user-defined snippets are scoped to a single language, and so are defined in a language-specific snippet file.
 
@@ -106,7 +106,7 @@ Placeholders can have choices as values. The syntax is a comma-separated enumera
 
 ### Variables
 
-With `$name` or `${name:default}` you can insert the value of a variable. When a variable isn’t set, its *default* or the empty string is inserted. When a variable is unknown (that is, its name isn’t defined) the name of the variable is inserted and it is transformed into a placeholder.
+With `$name` or `${name:default}` you can insert the value of a variable. When a variable isn't set, its *default* or the empty string is inserted. When a variable is unknown (that is, its name isn't defined) the name of the variable is inserted and it is transformed into a placeholder.
 
 The following variables can be used:
 

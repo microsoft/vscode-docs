@@ -83,7 +83,7 @@ We have several built-in snippets included in VS Code that will come up as you t
 
 ## Search for Symbols
 
-There are also features outside the editor. One is the ability to search for symbols from wherever you are. Hit `kb(workbench.action.showAllSymbols)`, start typing, and see a list of matching C# symbols. Select one and you’ll be taken straight to its code location.
+There are also features outside the editor. One is the ability to search for symbols from wherever you are. Hit `kb(workbench.action.showAllSymbols)`, start typing, and see a list of matching C# symbols. Select one and you'll be taken straight to its code location.
 
 ![Symbols](images/csharp/symbols.png)
 

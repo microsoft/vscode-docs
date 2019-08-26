@@ -31,8 +31,7 @@ Next, scaffold a new Express application called `myExpressApp` by running:
 $ express myExpressApp --view pug --git
 ```
 
-The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine (formerly
-known as `jade`) and to create a `.gitignore` file.
+The `--view pug --git` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine (formerly known as `jade`) and to create a `.gitignore` file.
 
 To install all of the application's dependencies, go to the new folder and run `npm install`.
 

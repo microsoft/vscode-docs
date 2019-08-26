@@ -118,10 +118,12 @@ The `-g` switch installs the Express Generator globally on your machine so you c
 We can now scaffold a new Express application called `myExpressApp` by running:
 
 ```bash
-express myExpressApp
+express myExpressApp --view pug
 ```
 
-This creates a new folder called `myExpressApp` with the contents of your application.  To install all of the application's dependencies (again shipped as npm modules), go to the new folder and execute `npm install`:
+This creates a new folder called `myExpressApp` with the contents of your application. The `--view pug` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine (formerly known as `jade`).
+
+To install all of the application's dependencies (again shipped as npm modules), go to the new folder and execute `npm install`:
 
 ```bash
 cd myExpressApp

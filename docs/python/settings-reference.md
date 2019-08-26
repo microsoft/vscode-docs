@@ -1,10 +1,10 @@
 ---
-Order: 13
+Order: 14
 Area: python
 TOCTitle: Settings Reference
 ContentId: d256dc5c-95e9-4c02-a82f-947bf34a3517
 PageTitle: Settings Reference for Python
-DateApproved: 04/18/2019
+DateApproved: 08/14/2019
 MetaDescription: Settings Reference for the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -197,7 +197,6 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 | unittestEnabled | `false` | Specifies whether unittest is enabled for testing. | [Testing](/docs/python/testing.md)  |
 | unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each top-level element that's separated by a space is a separate item in the list. | [Testing](/docs/python/testing.md) |
 | cwd | null | Specifies an optional working directory for tests. | [Testing](/docs/python/testing.md) |
-| outputWindow | `"Python Test Log"` | The window to use for test output. | [Testing](/docs/python/testing.md)  |
 | promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. | [Testing](/docs/python/testing.md)  |
 | debugPort | `3000` | Port number used for debugging of unittest tests. | [Testing](/docs/python/testing.md) |
   autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a test file. | [Testing](/docs/python/testing.md) |

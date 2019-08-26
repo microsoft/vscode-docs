@@ -11,15 +11,15 @@ MetaDescription: Expand your development workflow with task integration in Visua
 
 ---
 
-If you are using Visual Studio Code version 1.13 or earlier, please refer to the previous version of the Tasks [documentation](/docs/editor/tasks-v1.md).
+If you are using Visual Studio Code version 1.13 or earlier, refer to the previous version of the Tasks [documentation](/docs/editor/tasks-v1.md).
 
 ---
 
-Lots of tools exist to automate tasks like linting, building, packaging, testing or deploying software systems. Examples include the [TypeScript Compiler](https://www.typescriptlang.org/), linters like [ESLint](https://eslint.org/) and [TSLint](https://palantir.github.io/tslint/) as well as build systems like [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](https://ant.apache.org/), [Gulp](https://gulpjs.com/), [Jake](http://jakejs.com/), [Rake](https://ruby.github.io/rake/) and [MSBuild](https://github.com/Microsoft/msbuild).
+Lots of tools exist to automate tasks like linting, building, packaging, testing, or deploying software systems. Examples include the [TypeScript Compiler](https://www.typescriptlang.org/), linters like [ESLint](https://eslint.org/) and [TSLint](https://palantir.github.io/tslint/) as well as build systems like [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](https://ant.apache.org/), [Gulp](https://gulpjs.com/), [Jake](http://jakejs.com/), [Rake](https://ruby.github.io/rake/), and [MSBuild](https://github.com/Microsoft/msbuild).
 
 ![VS Code can talk to a variety of external tools](images/tasks/tasks_hero.png)
 
-These tools are mostly run from the command line and automate jobs inside and outside the inner software development loop (edit, compile, test, and debug). Given their importance in the development life-cycle, it is very helpful to be able to run tools and analyze their results from within VS Code. Tasks in VS Code can be configured to run scripts and start processes so that many of these existing tools can be used from within VS Code without having to enter a command line or write new code. Workspace or folder specific tasks are configured from the `tasks.json` file in the `.vscode` folder for a workspace.
+These tools are mostly run from the command line and automate jobs inside and outside the inner software development loop (edit, compile, test, and debug). Given their importance in the development life cycle, it is helpful to be able to run tools and analyze their results from within VS Code. Tasks in VS Code can be configured to run scripts and start processes so that many of these existing tools can be used from within VS Code without having to enter a command line or write new code. Workspace or folder specific tasks are configured from the `tasks.json` file in the `.vscode` folder for a workspace.
 
 Extensions can also contribute tasks using a [Task Provider](/api/extension-guides/task-provider.md), and these contributed tasks can add workspace-specific configurations defined in the `tasks.json` file.
 
@@ -54,7 +54,7 @@ Pressing `kb(workbench.action.tasks.build)` or running **Run Build Task** from t
 
 The first entry executes the TypeScript compiler and translates the TypeScript file to a JavaScript file. When the compiler has finished, there should be a `HelloWorld.js` file. The second entry starts the TypeScript compiler in watch mode. Every save to the `HelloWorld.ts` file will regenerate the `HelloWorld.js` file.
 
-You can also define the TypeScript build or watch task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Terminal** menu. This shows you a picker with the available build tasks. Select **tsc: build** or **tsc: watch** and VS Code will generate a `tasks.json` file. The one shown below make the **tsc: build** task the default build task:
+You can also define the TypeScript build or watch task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Terminal** menu. This shows you a picker with the available build tasks. Select **tsc: build** or **tsc: watch** and VS Code will generate a `tasks.json` file. The one shown below makes the **tsc: build** task the default build task:
 
 ```json
 {
@@ -81,15 +81,15 @@ Unlike the previous `0.1.0` version of the `tasks.json` file, this does not defi
 
 ## Task auto-detection
 
-VS Code currently auto-detects tasks for the following systems: Gulp, Grunt, Jake and npm. We are working with the corresponding extension authors to add support for Maven and the C# `dotnet` command as well. If you develop a JavaScript application using Node.js as the runtime, you usually have a `package.json` file describing your dependencies and the scripts to run. If you have cloned the [eslint-starter](https://github.com/spicydonuts/eslint-starter) example, then executing **Run Tasks** from the global menu shows the following list:
+VS Code currently auto-detects tasks for the following systems: Gulp, Grunt, Jake, and npm. We are working with the corresponding extension authors to add support for Maven and the C# `dotnet` command as well. If you develop a JavaScript application using Node.js as the runtime, you usually have a `package.json` file describing your dependencies and the scripts to run. If you have cloned the [eslint-starter](https://github.com/spicydonuts/eslint-starter) example, then executing **Run Tasks** from the global menu shows the following list:
 
 ![Tasks ESLint starter](images/tasks/eslint-starter.png)
 
-If not done so install the necessary npm modules by running npm install. Now open the `server.js` file and add a semicolon to the end of a statement (note the ESLint starter assumes statements without a semicolon) and execute the **Run Tasks** again. This time select the **npm: lint** task. When prompted for the problem matcher to use, select **ESLint stylish**
+If you have not already done so, install the necessary npm modules by running `npm install`. Now open the `server.js` file and add a semicolon to the end of a statement (note the ESLint starter assumes statements without a semicolon) and execute the **Run Tasks** again. This time select the **npm: lint** task. When prompted for the problem matcher to use, select **ESLint stylish**
 
 ![Tasks ESLint Problem Matcher Selection](images/tasks/eslint-problem-matcher-selection.png)
 
-Executing the task produces one error shown in the **Problems** view:
+Executing the task produces one error, shown in the **Problems** view:
 
 ![Tasks ESLint Problem](images/tasks/eslint-problem.png)
 
@@ -134,7 +134,7 @@ Task auto detection can be disabled using the following settings:
 
 ## Custom tasks
 
-Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Terminal** menu and select the **Create tasks.json file from template** entry. This opens the following picker:
+Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests in order to set up some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Terminal** menu and select the **Create tasks.json file from template** entry. This opens the following picker:
 
 ![Configure Task Runner](images/tasks/configure-task-runner.png)
 
@@ -178,9 +178,10 @@ The task's properties have the following semantic:
 
 To see the full set of task properties and values, you can review the [tasks.json schema](/docs/editor/tasks-appendix.md).
 
-Shell commands need special treatment when it comes to commands and arguments that contains spaces or other special characters like `$`. By default the task system support the following behavior:
+Shell commands need special treatment when it comes to commands and arguments that contain spaces or other special characters like `$`. By default, the task system supports the following behavior:
 
-* if a single command is provided the task system passes the command as is to the underlying shell. If the command needs quoting or escaping to function properly the command need to contain the proper quotes or escape characters. For example to list the directory of a folder containing spaces in its name the command executed in bash should look like this: `ls 'folder with spaces'`.
+* If a single command is provided, the task system passes the command as is to the underlying shell. If the command needs quoting or escaping to function properly, the command needs to contain the proper quotes or escape characters. For example, to list the directory of a folder containing spaces in its name, the command executed in bash should look like this: `ls 'folder with spaces'`.
+
 ```json
 {
   "label": "dir",
@@ -188,7 +189,9 @@ Shell commands need special treatment when it comes to commands and arguments th
   "command": "dir 'folder with spaces'"
 }
 ```
-* if a command and arguments are provided the task system will use single quotes if the command or arguments contain spaces. For `cmd.exe` double quotes are used. So a shell command like below is executed in PowerShell as `dir 'folder with spaces'`.
+
+* If a command and arguments are provided, the task system will use single quotes if the command or arguments contain spaces. For `cmd.exe`, double quotes are used. A shell command like below will be executed in PowerShell as `dir 'folder with spaces'`.
+
 ```json
 {
   "label": "dir",
@@ -199,7 +202,9 @@ Shell commands need special treatment when it comes to commands and arguments th
   ]
 }
 ```
-* if you want to control how the argument is quoted, the argument can be a literal specifying the value and a quoting style. Below an example that uses escaping instead of quoting for an argument with spaces.
+
+* If you want to control how the argument is quoted, the argument can be a literal specifying the value and a quoting style. The example below uses escaping instead of quoting for an argument with spaces.
+
 ```json
 {
   "label": "dir",
@@ -214,10 +219,10 @@ Shell commands need special treatment when it comes to commands and arguments th
 }
 ```
 
-Besides escaping the following values are supported:
+Besides escaping, the following values are supported:
 
-* **strong**: Uses the shell's strong quoting mechanism which suppresses all evaluations inside the string. Under PowerShell and for shells under Linux and macOS, single quotes are used (`'`). For cmd.exe, `"` is used.
-* **weak**: Uses the shell's weak quoting mechanism which still evaluates expression inside the string (e.g. for example environment variables). Under PowerShell and for shells under Linux and macOS, double quotes are used (`"`). cmd.exe doesn't support weak quoting so VS Code uses `"` as well.
+* **strong**: Uses the shell's strong quoting mechanism, which suppresses all evaluations inside the string. Under PowerShell and for shells under Linux and macOS, single quotes are used (`'`). For cmd.exe, `"` is used.
+* **weak**: Uses the shell's weak quoting mechanism, which still evaluates expression inside the string (for example, environment variables). Under PowerShell and for shells under Linux and macOS, double quotes are used (`"`). cmd.exe doesn't support weak quoting so VS Code uses `"` as well.
 
 If the command itself contains spaces, VS Code will by default strong quote the command as well. As with arguments, the user can control the quoting of the command using the same literal style.
 
@@ -268,13 +273,13 @@ If you specify `"dependsOrder": "sequence"` then your task dependencies are exec
 ```json
 {
     "label": "One",
-	"type": "shell",
-	"command": "echo Hello ",
-	"dependsOrder": "sequence",
-	"dependsOn":[
-		"Two",
-		"Three"
-	]
+    "type": "shell",
+    "command": "echo Hello ",
+    "dependsOrder": "sequence",
+    "dependsOn":[
+        "Two",
+        "Three"
+    ]
 }
 ```
 
@@ -357,12 +362,12 @@ You can also mix custom tasks with configurations for detected tasks. A `tasks.j
 
 ## Run behavior
 
-You can specify a tasks run behaviors using the `runOptions` property:
+You can specify a task's run behaviors using the `runOptions` property:
 
-- **reevaluateOnRerun**: Controls how variables are evaluated whan a task is executed through the **Rerun Last Task** command. The default is `true`, meaning that variables will be re-evaluated when a task is rerun. When set to `false` the resolved variable values from the previous run of the task will be used.
+- **reevaluateOnRerun**: Controls how variables are evaluated when a task is executed through the **Rerun Last Task** command. The default is `true`, meaning that variables will be reevaluated when a task is rerun. When set to `false` the resolved variable values from the previous run of the task will be used.
 - **runOn**: Specifies when a task is run.
-  - *default*: The task will only be run when executed through the **Run Task** command.
-  - *folderOpen*: The task will be run when the folder it is in is opened. The first time you open a folder that contains a task with *folderOpen* you will be asked if you allow tasks to run automatically in that folder. You can change you decision later using the **Allow Automatic Tasks in Folder** and **Disallow Automatic Tasks in Folder** commands.
+  - `default`: The task will only be run when executed through the **Run Task** command.
+  - `folderOpen`: The task will be run when the containing folder is opened. The first time you open a folder that contains a task with `folderOpen`, you will be asked if you want to allow tasks to run automatically in that folder. You can change your decision later using the **Allow Automatic Tasks in Folder** and **Disallow Automatic Tasks in Folder** commands.
 
 ## Customizing auto-detected tasks
 
@@ -434,7 +439,7 @@ VS Code can process the output from a task with a problem matcher and ships with
 
 Problem matchers scan the task output text for known warning or error strings and report these inline in the editor and in the Problems panel.
 
-You can also create your own problem matcher which we'll discuss [in a later section](/docs/editor/tasks.md#defining-a-problem-matcher).
+You can also create your own problem matcher, which we'll discuss [in a later section](/docs/editor/tasks.md#defining-a-problem-matcher).
 
 ## Binding keyboard shortcuts to tasks
 
@@ -469,7 +474,7 @@ Below is an example of a custom task configuration that passes the current opene
 
 Similarly, you can reference your project's configuration settings by prefixing the name with **${config:**. For example, `${config:python.pythonPath}` returns the Python extension setting `pythonPath`.
 
-Below is an example of a custom task configuration which executes autopep8 on the current file using your project's selected Python executable:
+Below is an example of a custom task configuration, which executes autopep8 on the current file using your project's selected Python executable:
 
 ```json
 {
@@ -489,7 +494,7 @@ If simple variable substitution isn't enough, you can also get input from the us
 
 ![Inputs Example](images/tasks/run-input-example.gif)
 
-For more information about `inputs` see the [Variables Reference](/docs/editor/variables-reference.md).
+For more information about `inputs`, see the [Variables Reference](/docs/editor/variables-reference.md).
 
 ## Operating system specific properties
 
@@ -512,7 +517,7 @@ Below is an example that uses the Node.js executable as a command and is treated
 
 Valid operating properties are `windows` for Windows, `linux` for Linux, and `osx` for macOS. Properties defined in an operating system specific scope override properties defined in the task or global scope.
 
-Task properties can also be defined in the global scope. If present, they will be used for specific tasks unless they define the same property with a different value. In the example below, there is a global `presentation` property that defines that all tasks should be executed in a new panel:
+Task properties can also be defined in the global scope. If present, they will be used for specific tasks unless they define the same property with a different value. In the example below, there is a global `presentation` property, which defines that all tasks should be executed in a new panel:
 
 ```json
 {
@@ -537,34 +542,34 @@ Task properties can also be defined in the global scope. If present, they will b
 
 ### Character escaping in PowerShell
 
-When the default shell is PowerShell, or when a task is configured to use PowerShell, you might see unexpected space and quote escaping. The unexpected escaping only occurs with cmdlets because VS Code doesn’t know if your command contains cmdlets. Example 1 below shows a case where you’ll get escaping that doesn’t work with PowerShell. Example 2 shows the best, cross-platform, way to get good escaping. In some cases, you might not be able to follow example 2 and you’ll need to do the manual escaping show in example 3.
+When the default shell is PowerShell, or when a task is configured to use PowerShell, you might see unexpected space and quote escaping. The unexpected escaping only occurs with cmdlets because VS Code doesn't know if your command contains cmdlets. Example 1 below shows a case where you'll get escaping that doesn't work with PowerShell. Example 2 shows the best, cross-platform, way to get good escaping. In some cases, you might not be able to follow example 2 and you'll need to do the manual escaping shown in example 3.
 
 ```json
 {
-	"label": "PowerShell example 1 (unexpected escaping)",
-	"type": "shell",
-	"command": "Get-ChildItem \"Folder With Spaces\""
+    "label": "PowerShell example 1 (unexpected escaping)",
+    "type": "shell",
+    "command": "Get-ChildItem \"Folder With Spaces\""
 },
 {
-	"label": "PowerShell example 2 (expected escaping)",
-	"type": "shell",
-	"command": "Get-ChildItem",
-	"args": ["Folder With Spaces"]
+    "label": "PowerShell example 2 (expected escaping)",
+    "type": "shell",
+    "command": "Get-ChildItem",
+    "args": ["Folder With Spaces"]
 },
 {
-	"label": "PowerShell example 3 (manual escaping)",
-	"type": "shell",
-	"command": "& Get-ChildItem \\\"Folder With Spaces\\\""
+    "label": "PowerShell example 3 (manual escaping)",
+    "type": "shell",
+    "command": "& Get-ChildItem \\\"Folder With Spaces\\\""
 }
 ```
 
 ## Changing the encoding for a task output
 
-Tasks frequently act with files on disk. If these files are stored on disk with an encoding different than the system encoding you need to let the command executed as a task know which encoding to use. Since this depends on the operating system and the shell used there is no general solution to control this. Below some advice and examples on how to make it work.
+Tasks frequently act with files on disk. If these files are stored on disk with an encoding different than the system encoding, you need to let the command executed as a task know which encoding to use. Since this depends on the operating system and the shell used, there is no general solution to control this. Below are advice and examples on how to make it work.
 
-If you need to tweak the encoding you should check whether it makes sense to change the default encoding used by our operating system or at least changing it for the shell you use by tweaking the shell's profile file.
+If you need to tweak the encoding, you should check whether it makes sense to change the default encoding used by your operating system or at least change it for the shell you use by tweaking the shell's profile file.
 
-If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows using code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therefore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
+If you only need to tweak it for a specific task, then add the OS-specific command necessary to change the encoding to the tasks command line. The following example is for Windows using code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therefore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
 
 ```json
 {
@@ -582,7 +587,7 @@ If you only need to tweak it for a specific task then add the OS specific comman
 }
 ```
 
-If the task is execute in `PowerShell`, the command needs to read like this `chcp 866; more russian.txt`. On Linux and macOS, the `locale` command can be used to inspect the locale and tweak the necessary environment variables.
+If the task is executed in `PowerShell`, the command needs to read like this `chcp 866; more russian.txt`. On Linux and macOS, the `locale` command can be used to inspect the locale and tweak the necessary environment variables.
 
 ## Examples of tasks in action
 
@@ -646,7 +651,7 @@ A matcher that captures the above warning (and errors) looks like this:
 }
 ```
 
-Please note that the file, line and message properties are mandatory. The `fileLocation` specifies whether the file paths in the problem are `absolute` or `relative`. If the task produces both absolute and relative paths, you can use the `autoDetect` file location. With `autoDetect`, paths are first tested as absolute paths, and if the file doesn't exist then the path is assumed to be relative.
+Note that the file, line, and message properties are mandatory. The `fileLocation` specifies whether the file paths in the problem are `absolute` or `relative`. If the task produces both absolute and relative paths, you can use the `autoDetect` file location. With `autoDetect`, paths are first tested as absolute paths, and if the file doesn't exist then the path is assumed to be relative.
 
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
 
@@ -683,10 +688,10 @@ Running it inside VS Code and pressing `kb(workbench.actions.view.problems)` to 
 
 There are a couple more properties that can be used inside a pattern. These are:
 
-- **location** if the problem location is line or line,column or startLine,startColumn,endLine,endColumn then our generic location match group can be used.
-- **endLine** the match group index for the problem's end line. Can be omitted if no end line value is provided by the compiler.
-- **endColumn** the match group index for the problem's end column. Can be omitted if no end column value is provided by the compiler.
-- **code** the match group index for the problem's code. Can be omitted if no code value is provided by the compiler.
+- **location** - If the problem location is line or line,column or startLine,startColumn,endLine,endColumn, then our generic location match group can be used.
+- **endLine** - The match group index for the problem's end line. Can be omitted if no end line value is provided by the compiler.
+- **endColumn** - The match group index for the problem's end column. Can be omitted if no end column value is provided by the compiler.
+- **code** - The match group index for the problem's code. Can be omitted if no code value is provided by the compiler.
 
 You can also define a problem matcher that captures only a file. To do so, define a `pattern` with the optional `kind` attribute set to `file`. In this case, there is no need to provide a `line` or `location` property.
 
@@ -704,9 +709,9 @@ test.js
 
 Our problem matcher is line-based so we need to capture the file name (test.js) with a different regular expression than the actual problem location and message (1:0   error  Missing "use strict" statement).
 
-To do this we use an array of problem patterns for the `pattern` property. This way you define a pattern per each line you want to match.
+To do this, use an array of problem patterns for the `pattern` property. This way you define a pattern per each line you want to match.
 
-The following problem pattern matches the output from ESLint in stylish mode - but still has one small issue which we will resolve next.  The code below has a first regular expression to capture the file name and the second to capture the line, column, severity, message and error code:
+The following problem pattern matches the output from ESLint in stylish mode - but still has one small issue that we need to resolve next. The code below has a first regular expression to capture the file name and the second to capture the line, column, severity, message, and error code:
 
 ```json
 {
@@ -778,13 +783,13 @@ If an existing problem matcher is close to what you need, you can modify it in y
 
 ```json
 {
-	"type": "npm",
-	"script": "watch",
-	"problemMatcher": {
-		"base": "$tsc-watch",
-		"applyTo": "allDocuments"
-	},
-	"isBackground": true,
+    "type": "npm",
+    "script": "watch",
+    "problemMatcher": {
+        "base": "$tsc-watch",
+        "applyTo": "allDocuments"
+    },
+    "isBackground": true,
 }
 ```
 
@@ -796,14 +801,14 @@ Some tools support running in the background while watching the file system for 
 
 To provide feedback that a background task is active in VS Code and producing problem results, a problem matcher has to use additional information to detect these `state` changes in the output. Let's take the `tsc` compiler as an example. When the compiler is started in watch mode, it prints the following additional information to the console:
 
-```
+```bash
 > tsc --watch
 12:30:36 PM - Compilation complete. Watching for file changes.
 ```
 
-When a file changes on disk which contains a problem, the following output appears:
+When a file changes on disk that contains a problem, the following output appears:
 
-```
+```bash
 12:32:35 PM - File change detected. Starting incremental compilation...
 src/messages.ts(276,9): error TS2304: Cannot find name 'candidate'.
 12:32:35 PM - Compilation complete. Watching for file changes.
@@ -873,7 +878,7 @@ Tasks `2.0.0` version comes with lots of new auto-detection features so you can 
 
 ### Migrating to Tasks 2.0.0
 
-If you have lots of task customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings (green squiggles) because some properties are now deprecated.
+If you have lots of task customizations, you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings (green squiggles) because some properties are now deprecated.
 
 Here is a migration guide:
 
