@@ -57,7 +57,7 @@ You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` 
 
 We've found this to be a great workflow. For example, in the earlier screenshot, only the staged changes to `gulpfile.js` will be included in the commit. A consecutive commit action could commit later changes to `gulpfile.js`, the deletion of `yarn.lock`,  and changes to `tests.js` in a separate commit.
 
-More specific **Commit** actions can be found in the **More Actions** `...` menu on the top of the Git view.
+More specific **Commit** actions can be found in the **More Actions** `...` menu on top of the Git view.
 
 ![more actions button](images/versioncontrol/scm-more-actions.png)
 
