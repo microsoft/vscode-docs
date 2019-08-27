@@ -198,9 +198,9 @@ For large workspace you want to increase the polling interval: `remote.WSL.fileW
 
 WSL2 does not have that file watcher problem is also not affected by the new setting.
 
-### What are the connectivity requirements for the VS Code Server when it is running in WSL?
+### What are the connectivity requirements for the Remote - WSL extension?
 
-The VS Code Server requires outbound HTTPS (port 443) connectivity to:
+The Remote - WSL extension and VS Code Server require outbound HTTPS (port 443) connectivity to:
 
 - `update.code.visualstudio.com`
 - `marketplace.visualstudio.com`
@@ -208,9 +208,9 @@ The VS Code Server requires outbound HTTPS (port 443) connectivity to:
 - `*.vo.msecnd.net` (Azure CDN)
 - `*.gallerycdn.vsassets.io` (Azure CDN)
 
-All other communication between the server and the VS Code client is accomplished through an authenticated, random, local TCP port. You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
+Some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
-Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
+All other communication between the server and the VS Code client is accomplished through an authenticated, random, local TCP port. You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
 ### As an extension author, what do I need to do?
 

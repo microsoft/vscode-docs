@@ -244,17 +244,17 @@ See [Linux Prerequisites](/docs/remote/linux.md) for details.
 
 ### What are the connectivity requirements for the VS Code Server when it is running on a remote machine / VM?
 
-Installation of VS Code Server requires that your local machine have outbound HTTPS (port 443) connectivity to:
+Installation of VS Code Server requires that your local machine has outbound HTTPS (port 443) connectivity to:
 
 - `update.code.visualstudio.com`
+- `vscode.blob.core.windows.net`
 - `*.vo.msecnd.net` (Azure CDN)
 
-The Remote - SSH extension will download VS Code Server locally and transfer it remotely once a connection is established reduce the need for server / container to directly access the internet.
+By default, the Remote - SSH will attempt to download on the remote host, but if you enable `remote.SSH.allowLocalServerDownload`, the extension will fall back to downloading VS Code Server locally and transferring it remotely once a connection is established.
 
 You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and VS Code Server server will need outbound HTTPS (port 443) access  to:
 
 - `marketplace.visualstudio.com`
-- `vscode.blob.core.windows.net`
 - `*.vo.msecnd.net` (Azure CDN)
 - `*.gallerycdn.vsassets.io` (Azure CDN)
 

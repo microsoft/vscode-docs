@@ -886,14 +886,14 @@ You can build images and deploy containers by forwarding the Docker socket and i
 Installation of VS Code Server requires that your local machine have outbound HTTPS (port 443) connectivity to:
 
 * `update.code.visualstudio.com`
+* `vscode.blob.core.windows.net`
 * `*.vo.msecnd.net` (Azure CDN)
 
-The Remote - Containers extensions will download VS Code Server locally and copy it to the container once connected reduce the need for the container to directly access the internet.
+The Remote - Containers extensions will download VS Code Server locally and copy it to the container once connected.
 
-You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and VS Code Server server will need outbound HTTPS (port 443) access  to:
+You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and VS Code Server will need outbound HTTPS (port 443) access  to:
 
 * `marketplace.visualstudio.com`
-* `vscode.blob.core.windows.net`
 * `*.vo.msecnd.net` (Azure CDN)
 * `*.gallerycdn.vsassets.io` (Azure CDN)
 
