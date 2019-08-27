@@ -385,10 +385,10 @@ Or using **WSL from a command prompt on Windows**:
 wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "$(wslpath -a '%CD%')"
 ```
 
-Or using ***PowerShell and WSL**:
+Or using **WSL from PowerShell on Windows**:
 
 ```bat
-wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "\$(wslpath -a '$PWD')"
+wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "`$(wslpath -a '$PWD')"
 ```
 
 You can rerun this command each time you want to get the latest copy of your files and only updates will be transferred. The `.git` folder is intentionally excluded both for performance reasons and so you can use local Git tools without worrying about the state on the remote host.
