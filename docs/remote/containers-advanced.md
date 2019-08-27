@@ -428,7 +428,7 @@ To connect to both:
 
 1. Run **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) and select the `container1-src` folder.
 2. VS Code will then start up both containers, connect this window to service `container-1`, and install the Go extension.
-3. Next, start up a new window using **File > New Window**.
+3. Next, start up a new window using **File** > **New Window**.
 4. In the new window, run **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) and select the `container2-src` folder.
 5. Since the services are already running, VS Code will then connect to `container-2` and install the ESLint extension.
 
@@ -436,7 +436,7 @@ You can now interact with both containers at once from separate windows.
 
 ### Extending a Docker Compose file when connecting to two containers
 
-If you want to [extend your Docker Compose file for development]((/docs/remote/containers.md#extending-your-docker-compose-file-for-development)), you should use a single `docker-compose.yml` that extends **both** services (as needed) and is referenced in **both** `.devcontainer.json` files.
+If you want to [extend your Docker Compose file for development](/docs/remote/containers.md#extending-your-docker-compose-file-for-development), you should use a single `docker-compose.yml` that extends **both** services (as needed) and is referenced in **both** `.devcontainer.json` files.
 
 For example, consider this `docker-compose.devcontainer.yml` file:
 
