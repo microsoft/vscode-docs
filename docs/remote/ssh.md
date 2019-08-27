@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 8/7/2019
+DateApproved: 8/27/2019
 ---
 # Remote Development using SSH
 
@@ -25,15 +25,13 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 **Remote SSH Host**: A running [SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) on:
 
-- **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
+- x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
+- ARMv7l (AArch32) Raspbian Stretch/9+ (32-bit).
+- ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
 
-- **Experimental support:**
-  - ARMv7l/AArch32 Raspbian Stretch/9+ (32-bit).
-  - ARMv8l/AArch64 Ubuntu 18.04+ (64-bit).
+Other `glibc` based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l (AArch64) should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
 
-Other `glibc` based Linux distributions for x86_64 and ARMv7l/ARMv8l should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
-
-While ARMv7l/ARMv8l support is available in VS Code Insiders, some extensions installed on these devices may not work due to the use of x86 native code in the extension.
+While ARMv7l (AArch32) and ARMv8l (AArch64) support is available, some extensions installed on these devices may not work due to the use of x86 native code in the extension.
 
 ### Installation
 
@@ -49,7 +47,7 @@ To get started, you need to:
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
-> **Note:** See [System Requirements](#system-requirements) for information about supported SSH hosts. When using support for ARMv7l/ARMv8l `glibc` distributions in VS Code Insiders, note that some extensions installed on the remote host may not work due the use of x86 native code in the extension.
+> **Note:** When using ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension. See [system requirements](#system-requirements) for supported hosts.
 
 To get started, follow these steps:
 
@@ -218,7 +216,7 @@ The Docker extension is configured to run as a local "UI" extension by default. 
 
 Many extensions will work on remote SSH hosts without modification. However, in some cases, certain features may require changes. If you run into an extension issue, there is [a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
-In addition, some extensions installed on ARMv7l/ARMv8l (VS Code Insiders only) devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARMv7l/ARMv8l.
+In addition, some extensions installed on ARMv7l (AArch322) / ARMv8l (AArch64) devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARMv7l / ARMv8l.
 
 ## Common questions
 
@@ -246,17 +244,23 @@ See [Linux Prerequisites](/docs/remote/linux.md) for details.
 
 ### What are the connectivity requirements for the VS Code Server when it is running on a remote machine / VM?
 
-The VS Code Server requires outbound HTTPS (port 443) connectivity to:
+Installation of VS Code Server requires that your local machine have outbound HTTPS (port 443) connectivity to:
 
 - `update.code.visualstudio.com`
+- `*.vo.msecnd.net` (Azure CDN)
+
+The Remote - SSH extension will download VS Code Server locally and transfer it remotely once a connection is established reduce the need for server / container to directly access the internet.
+
+You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and VS Code Server server will need outbound HTTPS (port 443) access  to:
+
 - `marketplace.visualstudio.com`
 - `vscode.blob.core.windows.net`
 - `*.vo.msecnd.net` (Azure CDN)
 - `*.gallerycdn.vsassets.io` (Azure CDN)
 
-All other communication between the server and the VS Code client is accomplished through an authenticated, secure, SSH tunnel. You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
-
 Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
+
+All other communication between the server and the VS Code client is accomplished through the authenticated, secure SSH tunnel.
 
 ### Can I use local tools on source code sitting on the remote SSH host?
 

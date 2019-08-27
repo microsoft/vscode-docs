@@ -5,29 +5,24 @@ TOCTitle: Linux Prerequisites
 PageTitle: Linux Prerequisites for Visual Studio Code Remote Development
 ContentId: 7ec8dedf-0659-437e-98f1-2d27f5e243eb
 MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Remote - Containers, and Remote - WSL
-DateApproved: 8/26/2019
+DateApproved: 8/27/2019
 ---
 # Remote Development with Linux
 
 Linux is a highly variable environment and the large number of server, container, and desktop distributions can make it difficult to know what is supported. Visual Studio Code Remote Development has prerequisites for the specific host / container / WSL distribution you will be connecting to.
 
-If you are using a recent stable/LTS version of:
+The extensions are known to work with recent stable/LTS version of:
 
 * **Ubuntu 64-bit x86** (16.04+)
 * **Debian 64-bit x86** (8+)
 * **CentOS / RHEL 64-bit x86** (7+)
-* **Alpine Linux 64-bit x86 containers or WSL hosts** (3.7+) in Remote - Containers, Remote - WSL.
-
-then the VS Code Remote Development extensions should work without additional dependencies.
-
-VS Code Insiders also has experimental support for:
-
-* **Raspbian ARMv7l 32-bit (AArch32)** (Stretch/9+) SSH hosts (Remote - SSH) - e.g RPi 2/3/4
-* **Ubuntu ARMv8l 64-bit (AArch64)** (16.04+) SSH hosts (Remote - SSH) - e.g. Nvidia Jetson Nano.
-
-Note that **other extensions may have dependencies** beyond those listed here. Some extensions also contain compiled native code that **may not work on Alpine Linux or ARMv7/ARMv8**. If you encounter an issue that only occurs with a particular extension, **contact the extension authors** for information on their native dependencies.
+* **Alpine Linux 64-bit x86 containers or WSL hosts** (3.7+) in Remote - Containers, Remote - WSL
+* **Raspbian ARMv7l (AArch32) 32-bit SSH hosts** (Stretch/9+) in Remote - SSH
+* **Ubuntu ARMv8l (AArch64) 64-bit SSH hosts** (18.04+) in Remote - SSH
 
 However, if you are using a non-standard configuration or downstream distribution, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
+
+Note that **other extensions may have dependencies** beyond those listed here. Some extensions also contain compiled native code that **may not work on Alpine Linux, or ARMv7 (AArch32), or ARMv8 (AArch64)**. If you encounter an issue that only occurs with a particular extension, **contact the extension authors** for information on their native dependencies.
 
 ## Local Linux prerequisites
 
@@ -42,7 +37,7 @@ In addition, specific Remote Development extensions have further requirements:
 
 Platform prerequisites are primarily driven by the version of the [Node.js](https://nodejs.org/en/docs/meta/topics/dependencies/) runtime (and by extension the [V8 JavaScript engine](https://v8docs.nodesource.com)) shipped in the server component automatically installed on each remote endpoint. This server also has a set of related native node modules that need to be compiled and tested for each target. **64-bit x86 glibc-based** Linux distributions currently provide the best support given these requirements.
 
-You may encounter issues with certain extensions with native dependencies with **ARMv7l/ARMv8l glibc-based** Linux SSH hosts and **64-bit x86 musl-based Alpine Linux** containers. For ARMv7l/ARMv8l in VS Code Insiders, extensions may only include x86_64 versions of native modules or runtimes in the extension. For Alpine Linux, included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`). In both these cases, extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. Please raise an issue with the appropriate extension author requesting support if you encounter an extension that does note work as expected.
+You may encounter issues with certain extensions with native dependencies with **ARMv7l (AArch32) / ARMv8l (AArch64) glibc-based** Linux SSH hosts and **64-bit x86 musl-based Alpine Linux** containers. For ARMv7l/ARMv8l, extensions may only include x86_64 versions of native modules or runtimes in the extension. For Alpine Linux, included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`). In both these cases, extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. Please raise an issue with the appropriate extension author requesting support if you encounter an extension that does note work as expected.
 
 | Distribution | Base Requirements | Remote - SSH Requirements | Notes |
 |--------------|-------------------|------------------|-------|
@@ -55,28 +50,30 @@ You may encounter issues with certain extensions with native dependencies with *
 
 The following is a list of distributions and any base requirements that may be missing. End-of-life versions of distributions are not included.
 
+(✅ = working, ⚠️ = known limitations, 🛑 = unsupported but has workaround, ❌ = unsupported)
+
 | Server Distribution | Docker Image | Missing libraries | Notes / additional steps |
 |---------------------|--------------|-------------------|------------------|
-| ✅ Alpine Linux 3.10 (64-bit) | `alpine:latest` | `libgcc libstdc++` |  Supported in Remote - Containers and Remote - WSL only. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
+| ⚠️ Alpine Linux 3.10 (64-bit) | `alpine:latest` | `libgcc libstdc++` |  Supported in Remote - Containers and Remote - WSL only. Some extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
 | ✅ CentOS 7 Server (64-bit) | `centos:7` | &lt;none&gt; | &lt;none&gt; |
-| ⚠️ CentOS 6 Server (64-bit) | `centos:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
+| 🛑 CentOS 6 Server (64-bit) | `centos:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | ✅ Debian 9 Server (64-bit) | `debian:9` | &lt;none&gt; | &lt;none&gt; |
 | ✅ Debian 8 Server (64-bit) | `debian:8` | &lt;none&gt; | &lt;none&gt; |
 | ✅ openSUSE Leap Server 15 (64-bit) |   `opensuse/leap:15` | Docker image is missing `tar`. |  &lt;none&gt; |
 | ✅ openSUSE Leap Server 42.3 (64-bit) |  `opensuse/leap:42.3` | Docker image is missing `tar`. |  &lt;none&gt; |
 | ✅ Oracle Linux 7 (64-bit) | `oraclelinux:7` | &lt;none&gt; | &lt;none&gt; |
-| ⚠️ Oracle Linux 6 (64-bit) | `oraclelinux:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18. Docker image is missing `tar`. |  [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
-| 🔬 Raspbian Stretch/9 (ARMv7l 32-bit) | | &lt;none&gt; | Supported in Remote - SSH in VS Code Insiders. Extensions may not work when installed on an ARMv7l host due to extension x86 native code. |
+| 🛑️ Oracle Linux 6 (64-bit) | `oraclelinux:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18. Docker image is missing `tar`. |  [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
+| ⚠️ Raspbian Stretch/9 (ARMv7l 32-bit) | | &lt;none&gt; | Supported in Remote - SSH. Some ☑Extensions may not work when installed on an ARMv7l host due to extension x86 native code. |
 | ✅ RedHat Enterprise Linux 7 (64-bit) |  | &lt;none&gt; | &lt;none&gt; |
-| ⚠️ RedHat Enterprise Linux 6 (64-bit) |  | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
+| 🛑 RedHat Enterprise Linux 6 (64-bit) |  | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | ✅ SUSE Linux Enterprise Server 15 (64-bit) |  |  &lt;none&gt; |  &lt;none&gt; |
 | ✅ SUSE Linux Enterprise Server 12 (64-bit) |  |  &lt;none&gt; |  &lt;none&gt; |
 | ❌ SUSE Linux Enterprise Server 11 (64-bit) |  |  `glibc` >= 2.17, `libstdc++` >= 3.4.18 | Might work compiling glibc from source, but untested. |
+| ⚠️ Ubuntu 18.04 IoT (ARMv8l 64-bit) | | &lt;none&gt; | Supported in Remote - SSH. Some extensions may not work when installed on an ARMv8l host due to extension x86 native code. |
 | ✅ Ubuntu Server 19.04 (64-bit) | `ubuntu:19.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 16.04 (64-bit) | `ubuntu:16.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 14.04 (64-bit) | `ubuntu:14.04` | &lt;none&gt;  | &lt;none&gt; |
-| 🔬 Ubuntu 18.04 IoT (ARMv8l 64-bit) | | &lt;none&gt; | Supported in Remote - SSH in VS Code Insiders. Extensions may not work when installed on an ARMv8l host due to extension x86 native code. |
 
 ## Updating glibc and libstdc++ on RHEL / CentOS 6
 
@@ -146,9 +143,6 @@ RUN  wget -q https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6
         libstdc++-devel-4.8.2-16.3.el6.x86_64.rpm \
         libstdc++-static-4.8.2-16.3.el6.x86_64.rpm \
     && rm *.rpm
-
-# Set the default shell to bash instead of sh
-ENV SHELL /bin/bash
 ```
 
 ## Questions or feedback

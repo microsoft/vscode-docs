@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 8/7/2019
+DateApproved: 8/27/2019
 ---
 # Developing inside a Container
 
@@ -66,9 +66,9 @@ The Remote - Containers extension supports two primary operating models:
 * You can use a container as your [full-time development environment](#creating-a-devcontainerjson-file).
 * You can [attach to a running container](#attaching-to-running-containers) to inspect it.
 
-We will cover how to use a container as your full-time development environment first.
+We will some quick starts on a container as your full-time development environment first.
 
-### Quick start: Try a dev container
+## Quick start: Try a dev container
 
 Let's start by using a sample project to try things out.
 
@@ -99,7 +99,7 @@ Let's start by using a sample project to try things out.
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
 
-### Quick start: Open an existing folder in a container
+## Quick start: Open an existing folder in a container
 
 Next we will cover how to set up a dev container for an existing project to use as your full-time development environment.
 
@@ -111,19 +111,37 @@ The steps are similar to those above:
 
 2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one exists in the folder you selected.
 
-    > **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+    > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
     ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
 
     Note the dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
 
-3. After picking the starting point for your container, VS Code will add the dev container configuration files to your project (`.devcontainer/devcontainer.json`). The VS Code window will reload and start building the dev container. A progress notification provides you status updates. Note that you only have to build a dev container the first time you open it; opening the folder after the first successful build will be much quicker.
+3. After picking the starting point for your container, VS Code will add the dev container configuration files to your project (`.devcontainer/devcontainer.json`).
+
+4. The VS Code window will reload and start building the dev container. A progress notification provides you status updates. Note that you only have to build a dev container the first time you open it; opening the folder after the first successful build will be much quicker.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-4. After building completes, VS Code will automatically connect to the container. You can now interact with your project in VS Code just as you could when opening the project locally. From now on, when you open the project folder, VS Code will automatically pick up and reuse your dev container configuration.
+5. After the build completes, VS Code will automatically connect to the container.
+
+You can now interact with your project in VS Code just as you could when opening the project locally. From now on, when you open the project folder, VS Code will automatically pick up and reuse your dev container configuration.
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
+
+### Open an existing workspace in a container
+
+You can also follow a similar process to open a [VS Code multi-root workspace](/docs/editor/multi-root-workspaces) in a **single container** using the **Remote-Containers: Open Workspace in Container...** command. After selecting a `.code-workspace` file, a `.devcontainer` folder will be added next to the workspace file (if one is not already present).
+
+Alternatively, you can also simply use **File > Open Worksapce...** once you've opened a folder that contains a `.code-workspace` file in a container.
+
+For the workspace to load completely, all referenced paths will need to either be mounted or coped into the container. Therefore, the workspace must either:
+* Reference relative paths to sub-folders of the folder the `.code-workspace` file is in (or the folder itself).
+* Reference paths that have been added to the container as [custom mount points](/docs/remote/containers-advanced.md#adding-another-local-file-mount).
+* References relative paths to folders in the same Git repository as the `.code-workspace` file. (However, note that this does not apply to Docker Compose scenarios).
+* Reference paths of content copied into the container - e.g during Docker build.
+
+While you can connect to [multiple Docker Compose managed containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) from separate windows, we currently do not support workspaces split across multiple containers in the same window.
 
 ## Creating a devcontainer.json file
 
@@ -183,7 +201,7 @@ While using VS Code to spin up a new container can be useful in many situations,
 
 While `devcontainer.json` is not used in this case, you are able to use the same capabilities provided by the extension once connected. You can also use `settings.json` to [specify extensions that should always be installed](#always-installed-extensions) when you attach to a container to speed up setup.
 
-> **Note:** See [System requirements](#system-requirements) for information about supported container. When using support for Alpine Linux in VS Code Insiders, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+> **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
 Once you have a container up and running, you can connect by either:
 
@@ -436,7 +454,7 @@ To get started quickly, **open the folder** you want to work with in VS Code and
 
 You'll be asked to either select an existing Dockerfile (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers) in a filterable list. VS Code will then add `devcontainer.json` and any other required files to the folder. While most of these pre-defined "dev container definitions" include a Dockerfile, you can use them as a starting point for an image instead if you prefer.
 
-> **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+> **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
 You can also create your configuration manually. The difference between configuring VS Code to build a container image using a Dockerfile or just reuse an exiting image is a single property in `devcontainer.json`:
 
@@ -563,7 +581,7 @@ You can either:
 3. [Extend your existing Docker Compose configuration](#extending-your-docker-compose-file-for-development) to develop the service.
 4. Use separate VS Code windows to [work with multiple Docker Compose-defined services](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) at once.
 
-> **Note:** See [System requirements](#system-requirements) for information on supported containers. When using support for Alpine Linux, note that some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension.
+> **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
 VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file. If you've already started the configured containers using the command line, VS Code will **attach to the running service** you've specified instead. This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above while still allowing you to use the command line if you prefer.
 
@@ -864,17 +882,23 @@ You can build images and deploy containers by forwarding the Docker socket and i
 
 ### What are the connectivity requirements for the VS Code Server when it is running in a container?
 
-The VS Code Server requires outbound HTTPS (port 443) connectivity to:
+Installation of VS Code Server requires that your local machine have outbound HTTPS (port 443) connectivity to:
 
 * `update.code.visualstudio.com`
+* `*.vo.msecnd.net` (Azure CDN)
+
+The Remote - Containers extensions will download VS Code Server locally and copy it to the container once connected reduce the need for the container to directly access the internet.
+
+You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and VS Code Server server will need outbound HTTPS (port 443) access  to:
+
 * `marketplace.visualstudio.com`
 * `vscode.blob.core.windows.net`
 * `*.vo.msecnd.net` (Azure CDN)
 * `*.gallerycdn.vsassets.io` (Azure CDN)
 
-All other communication between the server and the VS Code client is accomplished through an authenticated, random, TCP port automatically exposed via the Docker CLI. You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
-
 Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
+
+All other communication between the server and the VS Code client is accomplished through an authenticated, random port automatically exposed via the Docker CLI.
 
 ### As an extension author, what do I need to do to make sure my extension works?
 
