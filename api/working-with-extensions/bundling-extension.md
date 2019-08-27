@@ -96,6 +96,38 @@ Merge these entries into the `scripts` section in `package.json`:
 
 The `webpack` and `webpack-dev` scripts are for development and they produce the bundle file. The `vscode:prepublish` is used by `vsce`, the VS Code packaging and publishing tool, and run before publishing an extension. The difference is in the [mode](https://webpack.js.org/concepts/mode/) and that controls the level of optimization. Using `production` yields the smallest bundle but also takes longer, so else `development` is used. To run above scripts, open a terminal and type `npm run webpack` or select **Tasks: Run Task** from the Command Palette (`kb(workbench.action.showCommands)`).
 
+## Config task
+Accroding to the default config `.vscode/launch.json`, a prelaunch task will be executed before start debug session. When you press `F5` to start a debug session, it will run prelaunch task `webpack --mode development` and match the build success status then start debug session. But the `$tsc-watch` problem matcher is not suitable for webpack, Vs Code will never match build success status and will never start debug session unless prelaunch task is interrupted. So we need to merge these entries into the `problemMatcher` section in `.vscode/tasks.json`:
+
+```json
+"problemMatcher": {
+    "owner": "Webpack (Dev, Continuous)",
+    "severity": "error",
+    "fileLocation": "absolute",
+    "source": "webpack-typescript",
+    "background": {
+        "activeOnStart": true,
+        "beginsPattern": "webpack is watching the files…",
+        "endsPattern": "Time: (\\d+)ms"
+    },
+    "pattern": [
+        {
+            "regexp": "ERROR in ([^\\(]*)\\((\\d+),(\\d+)\\):",
+            "file": 1,
+            "line": 2,
+            "column": 3
+		},
+		{
+            "regexp": "([A-Za-z0-9-]+):(.*)",
+            "message": 2,
+            "code": 1
+		}
+	]
+},
+```
+
+
+
 ## Run the extension
 
 Before you can run the extension, the `main` property in `package.json` must point to the bundle, which for the configuration above is [`"./dist/extension"`](https://github.com/Microsoft/vscode-references-view/blob/d649d01d369e338bbe70c86e03f28269cbf87027/package.json#L26). With that change, the extension can now be executed and tested. For debugging configuration, make sure to update the `outFiles` property in the `launch.json` file.
