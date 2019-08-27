@@ -21,14 +21,14 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ### System requirements
 
-**Local:** See minimum requirements for [VS Code](/docs/supporting/requirements.md). A supported [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) must also be installed.
+**Local:**  A supported [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) must also be installed.
 
 **Remote SSH Host**: A running [SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) on:
 
 - **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
 
 - **Experimental support:**
-  - ARMv7l/AArch32 (or ARMv8 in 32-bit mode) Raspbian Stretch/9+ (32-bit).
+  - ARMv7l/AArch32 Raspbian Stretch/9+ (32-bit).
   - ARMv8l/AArch64 Ubuntu 18.04+ (64-bit).
 
 Other `glibc` based Linux distributions for x86_64 and ARMv7l/ARMv8l should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.

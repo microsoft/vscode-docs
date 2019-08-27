@@ -76,7 +76,7 @@ For example:
 "workspaceFolder": "/workspace"
 ```
 
-This also allows you to do something like a named volume mount instead of a bind mount, which can be useful particularly when [using a remote Docker Host](#developing-inside-a-container-on-a-remote-docker-host) or [improving disk performance](#use-a-named-volume-instead-of-a-bind-mount).
+This also allows you to do something like a named volume mount instead of a bind mount, which can be useful particularly when [using a remote Docker Host](#developing-inside-a-container-on-a-remote-docker-host) or you [want to store your entire source tree in a volume](#use-a-named-volume-for-your-entire-source-tree).
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 

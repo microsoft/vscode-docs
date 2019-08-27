@@ -22,12 +22,12 @@ then the VS Code Remote Development extensions should work without additional de
 
 VS Code Insiders also has experimental support for:
 
-* **Raspbian ARMv7l 32-bit (AArch32)** (Stretch/9+) SSH hosts (Remote - SSH). ARMv8l in 32-bit mode (Pi 3/4) also supported. ARMv6 used in the Raspberry Pi 1/Zero is not supported.
-* **Ubuntu ARMv8l 64-bit (AArch64)** (16.04+) SSH hosts (Remote - SSH).
-
-However, if you are using a non-standard configuration or downstream distribution, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
+* **Raspbian ARMv7l 32-bit (AArch32)** (Stretch/9+) SSH hosts (Remote - SSH) - e.g RPi 2/3/4
+* **Ubuntu ARMv8l 64-bit (AArch64)** (16.04+) SSH hosts (Remote - SSH) - e.g. Nvidia Jetson Nano.
 
 Note that **other extensions may have dependencies** beyond those listed here. Some extensions also contain compiled native code that **may not work on Alpine Linux or ARMv7/ARMv8**. If you encounter an issue that only occurs with a particular extension, **contact the extension authors** for information on their native dependencies.
+
+However, if you are using a non-standard configuration or downstream distribution, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
 
 ## Local Linux prerequisites
 
