@@ -76,7 +76,7 @@ You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azur
 
 ### Team development
 
-* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps servers, allowing you to easily monitory builds, pull requests, and work items for your TFVC or Git source repositories.
+* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps servers, allowing you to easily monitor builds, pull requests, and work items for your TFVC or Git source repositories.
 
 ### Internet of Things
 
