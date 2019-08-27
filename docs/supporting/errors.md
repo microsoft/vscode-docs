@@ -8,7 +8,7 @@ MetaDescription: Several error conditions can easily be resolved by the user thi
 ---
 # Common Error Cases
 
-Some errors that occur when using Visual Studio Code can be worked around or resolved by you. This topic describes several common error conditions, listed by error code number, and what you can do to resolve them.
+Some errors that occur when using Visual Studio Code can be worked around or resolved by you. This topic describes several common error conditions, listed by error code numbers, and what you can do to resolve them.
 
 ## 20002
 
