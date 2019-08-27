@@ -76,7 +76,7 @@ The `disabled`, `errors`, `warnings`, and `information` settings can contain the
 | "parameter-already-specified" | Warning | A argument with this name has already been specified. |
 | "parameter-missing" | Warning | A required positional argument is missing. |
 | "positional-argument-after-keyword" | Warning | A positional argument has been provided after a keyword argument. |
-| "return-in-init" | Warning | Encountered an explicit return in `init` function. | 
+| "return-in-init" | Warning | Encountered an explicit return in `__init__` function. | 
 | "typing-generic-arguments" | Warning | An error occurred while constructing `Generic`. | 
 | "typing-typevar-arguments" | Warning | An error occurred while constructing `TypeVar`. | 
 | "typing-newtype-arguments" | Warning| An error occurred while constructing `NewType`. | 
