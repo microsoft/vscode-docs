@@ -27,7 +27,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 - x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
 - ARMv7l (AArch32) Raspbian Stretch/9+ (32-bit).
-- ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
+- **Experimental** ([VS Code Insiders only](https://code.visualstudio.com/insiders/)): ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
 
 Other `glibc` based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l (AArch64) should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
 
@@ -47,7 +47,7 @@ To get started, you need to:
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
-> **Note:** When using ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension. See [system requirements](#system-requirements) for supported hosts.
+> **Note:** When using ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension. Experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only. See [system requirements](#system-requirements) for supported hosts.
 
 To get started, follow these steps:
 
@@ -196,6 +196,7 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
 - Windows and macOS SSH hosts are **not** yet supported. (Windows and macOS clients **are** supported.)
 - Alpine Linux and non-glibc based Linux SSH hosts are not supported.
+- Experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 - Older (community supported) Linux distributions require workarounds to install the [needed prerequisites](/docs/remote/linux.md).
 - PuTTY is not supported on Windows.
 - If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
@@ -217,6 +218,8 @@ The Docker extension is configured to run as a local "UI" extension by default. 
 Many extensions will work on remote SSH hosts without modification. However, in some cases, certain features may require changes. If you run into an extension issue, there is [a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
 In addition, some extensions installed on ARMv7l (AArch322) / ARMv8l (AArch64) devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARMv7l / ARMv8l.
+
+Experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 ## Common questions
 

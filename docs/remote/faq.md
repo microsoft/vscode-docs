@@ -78,17 +78,16 @@ Finally, some extensions (like C#) download secondary dependencies from `downloa
 All other communication between the server and the VS Code client is accomplished through the following transport channels depending on the extension:
 
 * SSH: An authenticated, secure SSH tunnel.
-* Containers: An authenticated, random port automatically exposed via the Docker CLI.
-* WSL: An authenticated, random local TCP port.
+* Containers: A random port forwarded locally over a channel secured by Docker.
+* WSL: A random local port.
 
 You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
-
 
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
 Remote Development requires kernel >= 3.10, glibc >=2.17, and libstdc++ >= 3.4.18. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
 
-Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for Remote - Containers and Remote - WSL and ARMv7l (AArch32) / ARMv8l (AArch64) is available in Remote - SSH.However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions.
+Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for Remote - Containers and Remote - WSL and ARMv7l (AArch32) / ARMv8l (AArch64) is available in Remote - SSH.However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions. Note that experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 See [Remote Development with Linux](/docs/remote/linux.md) for additional details.
 

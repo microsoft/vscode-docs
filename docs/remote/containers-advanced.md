@@ -65,14 +65,14 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ## Changing the default source code mount
 
-If you add the `image` or `dockerFile` properties to `devcontainer.json`, VS Code will automatically "bind" mount your current workspace folder into the container. While this is convenient, you may want to change [mount settings](https://docs.docker.com/engine/reference/commandline/service_create/#add-bind-mounts-volumes-or-memory-filesystems), alter the type of mount, or [run in a remote container](#developing-inside-a-container-on-a-remote-docker-host).
+If you add the `image` or `dockerFile` properties to `devcontainer.json`, VS Code will automatically "bind" mount your current workspace folder into the container. While this is convenient, you may want to change [mount settings](https://docs.docker.com/engine/reference/commandline/service_create/#add-bind-mounts-volumes-or-memory-filesystems), alter the type of mount, location, or [run in a remote container](#developing-inside-a-container-on-a-remote-docker-host).
 
 You can use the `workspaceMount` property in `devcontainer.json` to change the automatic mounting behavior. It expects the same value as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag).
 
 For example:
 
 ```json
-"workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=delegated",
+"workspaceMount": "src=${localWorkspaceFolder}/sub-folder,dst=/workspace,type=bind,consistency=delegated",
 "workspaceFolder": "/workspace"
 ```
 
@@ -149,30 +149,11 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ### Update the mount consistency to delegated in Docker for Mac
 
-By default, the Remote - Containers extension uses the [cached mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) on macOS since this provides a good mix between performance and write guarantees on the host OS. However, you can opt to use the `delegated` consistency instead if you do not expect to be writing to the same file in both locations very often. Just follow these steps:
+By default, the Remote - Containers extension uses the [cached mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) on macOS since this provides a good mix between performance and write guarantees on the host OS. However, you can opt to use the `delegated` consistency instead if you do not expect to be writing to the same file in both locations very often. Just update the `remote.containers.workspaceMountConsistency` property in settings.json:
 
-* If you are using an **image** or **Dockerfile**, you can change the consistency requirements using `devcontainer.json`. For example:
-
-    ```json
-    "workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=delegated",
-    "workspaceFolder": "/workspace"
-    ```
-
-* For **Docker Compose**, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the consistency requirements. For example:
-
-    ```yaml
-      volumes:
-        - type: bind
-          source: /local/path/to/source/code
-          target: /workspace
-          consistency: delegated
-    ```
-
-    You'll also want to be sure the `workspaceFolder` property in `devcontainer.json` to match:
-
-    ```json
-    "workspaceFolder": "/workspace"
-    ```
+```json
+"remote.containers.workspaceMountConsistency": "delegated"
+```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 

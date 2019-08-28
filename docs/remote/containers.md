@@ -131,18 +131,16 @@ You can now interact with your project in VS Code just as you could when opening
 
 ### Open an existing workspace in a container
 
-You can also follow a similar process to open a [VS Code multi-root workspace](/docs/editor/multi-root-workspaces) in a **single container** using the **Remote-Containers: Open Workspace in Container...** command. After selecting a `.code-workspace` file, a `.devcontainer` folder will be added next to the workspace file (if one is not already present).
+You can also follow a similar process to open a [VS Code multi-root workspace](/docs/editor/multi-root-workspaces) in a **single container** if the workspace only **references relative paths to sub-folders of the folder the `.code-workspace` file is in (or the folder itself).**
 
-Alternatively, you can also simply use **File > Open Worksapce...** once you've opened a folder that contains a `.code-workspace` file in a container.
+You can either:
+- Use the **Remote-Containers: Open Workspace in Container...** command.
+- Use **File > Open Worksapce...** once you've opened a folder that contains a `.code-workspace` file in a container.
 
-For the workspace to load completely, all referenced paths will need to either be mounted or coped into the container. Therefore, the workspace must either:
+Once connected, you may want to **add the `.devcontainer` folder** to the workspace so you can easily edit its contents if it is not already visible.
 
-* Reference relative paths to sub-folders of the folder the `.code-workspace` file is in (or the folder itself).
-* Reference paths that have been added to the container as [custom mount points](/docs/remote/containers-advanced.md#adding-another-local-file-mount).
-* References relative paths to folders in the same Git repository as the `.code-workspace` file. (However, note that this does not apply to Docker Compose scenarios).
-* Reference paths of content copied into the container - e.g during Docker build.
+Also note that, while you cannot use multiple containers for the same workspace in the same VS Code window, you can use [multiple Docker Compose managed containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) from separate windows.
 
-While you can connect to [multiple Docker Compose managed containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) from separate windows, we currently do not support workspaces split across multiple containers in the same window.
 
 ## Creating a devcontainer.json file
 
@@ -800,7 +798,7 @@ See [Setting up a folder to run in a container](#in-depth-setting-up-a-folder-to
 |**Docker Compose**|||
 | `dockerComposeFile` | string  or array | **Required.** Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. Using an array is useful [when extending your Docker Compose configuration](#extending-your-docker-compose-file-for-development). The order of the array matters since the contents of later files can override values set in previous ones. Note that the default `.env` file is picked up from the root of the project, but you can use `env_file` in your Docker Compose file to specify an alternate location. |
 | `service` | string | **Required.** The name of the service VS Code should connect to once running.  |
-| `runServices` | array | An array of services in your Docker Compose configuration that should be started by VS Code. Defaults to all services. |
+| `runServices` | array | An array of services in your Docker Compose configuration that should be started by VS Code. These will also be stopped when you disconnect unless `"shutdownAction"` is `"none"`. Defaults to all services. |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
 | `shutdownAction` | enum: `none`, `stopCompose` | Indicates whether VS Code should stop the containers when the VS Code window is closed / shut down. Defaults to `stopCompose`. |
 |**General**|||
@@ -899,7 +897,7 @@ You can install extensions manually without an internet connection using the **E
 
 Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
-All other communication between the server and the VS Code client is accomplished through an authenticated, random port automatically exposed via the Docker CLI.
+VS Code (client) communicates with VS Code Server in the container using a random port forwarded locally over a channel secured by Docker.
 
 ### As an extension author, what do I need to do to make sure my extension works?
 
