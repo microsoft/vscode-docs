@@ -410,7 +410,7 @@
                                         "when": "commentEditorFocused" },
 { "key": "cmd+enter",             "command": "workbench.action.submitComment",
                                         "when": "commentEditorFocused" },
-{ "key": "shift+alt+left",        "command": "cursorWordAccessibilitLeftSelecty",
+{ "key": "shift+alt+left",        "command": "cursorWordAccessibilityLeftSelect",
                                         "when": "accessibilityModeEnabled && textInputFocus" },
 { "key": "alt+left",              "command": "cursorWordAccessibilityLeft",
                                         "when": "accessibilityModeEnabled && textInputFocus" },

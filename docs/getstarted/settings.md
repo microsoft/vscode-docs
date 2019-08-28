@@ -1883,7 +1883,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Confirm before synchronizing git repositories.
   "git.confirmSync": true,
 
-  // Controls the git badge counter.
+  // Controls the Git count badge.
   //  - all: Count all changes.
   //  - tracked: Count only tracked changes.
   //  - off: Turn off counter.
