@@ -310,7 +310,7 @@ Context name | True when
 `editorPinned` | True when the active editor in a group is pinned (not in preview mode).
 `activeEditor` | The identifier of the active editor in a group.
 **Configuration settings contexts** |
-config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` is `true`.
+`config.editor.minimap.enabled` | True when the setting `editor.minimap.enabled` is `true`.
 
 >**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
 
