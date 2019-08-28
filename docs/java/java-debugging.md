@@ -60,7 +60,7 @@ Once you click **Run** on the CodeLens or press `kb(workbench.action.debug.start
   <source src="/docs/java/java-debugging/debug-intro.mp4" type="video/mp4">
 </video>
 
-It's possible that there might be multiple debugging configurations for your project and you can always add and modify those then select the desired one to run.
+It's possible that there might be multiple debugging configurations for your project and you can always add and modify those, then select the desired one to run.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/java-debug.mp4" type="video/mp4">
