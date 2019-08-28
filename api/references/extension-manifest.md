@@ -201,7 +201,7 @@ We allow badges from the following URL prefixes:
 - www.bithound.io
 - www.versioneye.com
 
-If you have other badges you would like to use, please open a Github [issue](https://github.com/Microsoft/vscode/issues) and we're happy to take a look.
+If you have other badges you would like to use, please open a GitHub [issue](https://github.com/Microsoft/vscode/issues) and we're happy to take a look.
 
 ## Combining Extension Contributions
 
