@@ -233,7 +233,7 @@ See [Installing a supported SSH server](/docs/remote/troubleshooting.md#installi
 
 ### Can I sign into my SSH server with another/additional authentication mechanism like a password?
 
-Yes, you should be prompted to enter your token or password automatically. If this is not working, set the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) to show the connection process in a terminal window so that you can respond to any prompts. Also note that passwords are not saved, so using [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) is typically more convenient.
+Yes, you should be prompted to enter your token or password automatically. However, note that passwords are not saved, so using [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) is typically more convenient.
 
 ### How do I fix SSH errors about "bad permissions"?
 
@@ -255,7 +255,7 @@ Installation of VS Code Server requires that your local machine has outbound HTT
 
 By default, the Remote - SSH will attempt to download on the remote host, but if you enable `remote.SSH.allowLocalServerDownload`, the extension will fall back to downloading VS Code Server locally and transferring it remotely once a connection is established.
 
-You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and VS Code Server server will need outbound HTTPS (port 443) access  to:
+You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel to install extensions, your local machine and VS Code Server server will need outbound HTTPS (port 443) access  to:
 
 - `marketplace.visualstudio.com`
 - `*.vo.msecnd.net` (Azure CDN)
