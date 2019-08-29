@@ -47,8 +47,6 @@ To get started, follow these steps:
 
     2. Right-click on the Docker taskbar item and update **Settings / Preferences > Shared Drives / File Sharing** with any source code locations you want to open in a container. If you run into trouble, see [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) on avoiding common problems with sharing.
 
-    3. **Windows**: Consider adding a `.gitattributes` file to your repos or disabling automatic line ending conversion for Git on the **Windows side** by using a command prompt to run: `git config --global core.autocrlf input` If left enabled, this setting can cause files that you have not edited to appear modified due to line ending differences. See [Tips and Tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
-
     **Linux**:
 
     1. Follow the [official install instructions for Docker CE/EE for your distribution](https://docs.docker.com/install/#supported-platforms). If you are using Docker Compose, follow the [Docker Compose directions](https://docs.docker.com/compose/install/) as well.
@@ -61,12 +59,17 @@ To get started, follow these steps:
 
 3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
-The Remote - Containers extension supports two primary operating models:
+**Working with Git?** Here are two tips to consider:
+
+* If you are working with the same repository both locally in Windows and inside a container, be sure to set up consistent line endings. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
+* If you clone using a Git credential manager, your container should already have access to your credentials! If you use SSH keys, you can also opt-in to sharing them. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container) for details.
+
+**Next Steps:** The Remote - Containers extension supports two primary operating models:
 
 * You can use a container as your [full-time development environment](#creating-a-devcontainerjson-file).
 * You can [attach to a running container](#attaching-to-running-containers) to inspect it.
 
-We will some quick starts on a container as your full-time development environment first.
+We will cover using a container as your full-time development environment first.
 
 ## Quick start: Try a dev container
 
@@ -140,7 +143,6 @@ You can either:
 Once connected, you may want to **add the `.devcontainer` folder** to the workspace so you can easily edit its contents if it is not already visible.
 
 Also note that, while you cannot use multiple containers for the same workspace in the same VS Code window, you can use [multiple Docker Compose managed containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) from separate windows.
-
 
 ## Creating a devcontainer.json file
 

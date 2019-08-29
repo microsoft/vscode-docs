@@ -698,6 +698,26 @@ git config --global core.autocrlf false
 
 Finally, you may need to clone the repository again for these settings to take effect.
 
+### Sharing Git credentials between Windows and WSL
+
+If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in Windows**, you can share this with WSL so that passwords you enter are persisted on both sides. (Note that this does not apply to using SSH keys.)
+
+Just follow these steps:
+
+1. Configure the credential manager on Windows by running the following in a **Windows command prompt**:
+
+    ```bat
+     git config --global credential.helper wincred
+    ```
+
+2. Confgiure WSL to use the same credential helper, but running the following in a **WSL terminal**:
+
+    ```bash
+     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe"
+    ```
+
+Any password you enter when working with Git on the Windows side will now be available to WSL and vice versa.
+
 ### Resolving hangs when doing a Git push or sync from WSL
 
 If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
