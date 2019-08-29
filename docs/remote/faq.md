@@ -78,7 +78,7 @@ Finally, some extensions (like C#) download secondary dependencies from `downloa
 All other communication between the server and the VS Code client is accomplished through the following transport channels depending on the extension:
 
 * SSH: An authenticated, secure SSH tunnel.
-* Containers: A random port forwarded locally over a channel secured by Docker.
+* Containers: Docker's configured communication channel (via `docker exec`).
 * WSL: A random local port.
 
 You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).

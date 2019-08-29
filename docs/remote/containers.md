@@ -899,7 +899,7 @@ You can install extensions manually without an internet connection using the **E
 
 Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
-VS Code (client) communicates with VS Code Server in the container using a random port forwarded locally over a channel secured by Docker.
+VS Code Server runs on a random port inside the container and VS Code itself uses `docker exec` to communicate with it over Docker's configured communication channel.
 
 ### As an extension author, what do I need to do to make sure my extension works?
 
