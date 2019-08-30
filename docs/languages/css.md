@@ -99,6 +99,12 @@ This is supported for Sass and Less variables in the same file. [CSS variables](
 
 There is jump to definition for `@import` and `url()` links in CSS, SCSS and Less.
 
+## CSS custom data
+
+You can extend VS Code's CSS support through a declarative [custom data format](https://github.com/Microsoft/vscode-css-languageservice/blob/master/docs/customData.md). By setting `css.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new CSS properties, at-directives, pseudo-classes and pesudo-elements. VS Code will then offer language support such as completion & hover information for the provided properties, at-directives, pseudo-classes and pesudo-elements.
+
+You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
+
 ## Transpiling Sass and Less into CSS
 
 VS Code can integrate with Sass and Less transpilers through our integrated [task runner](/docs/editor/tasks.md). We can use this to transpile `.scss` or `.less` files into `.css` files. Let's walk through transpiling a simple Sass/Less file.
