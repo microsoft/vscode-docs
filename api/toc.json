@@ -56,8 +56,7 @@
       ["Language Configuration Guide", "/api/language-extensions/language-configuration-guide"],
       ["Programmatic Language Features", "/api/language-extensions/programmatic-language-features"],
       // ["Smart Editing Guide", "/api/language-extensions/smart-editing-guide"],
-      ["Language Server Extension Guide", "/api/language-extensions/language-server-extension-guide"],
-      ["Custom Data Guide", "/api/language-extensions/custom-data-guide"]
+      ["Language Server Extension Guide", "/api/language-extensions/language-server-extension-guide"]
     ]
   },
   {
@@ -67,7 +66,7 @@
       ["Extension Host", "/api/advanced-topics/extension-host"],
       ["Remote Development", "/api/advanced-topics/remote-extensions"],
       // ["Extension Dependencies", "/api/advanced-topics/extension-dependencies"],
-      ["Using Proposed API", "/api/advanced-topics/using-proposed-api"],
+      ["Using Proposed API", "/api/advanced-topics/using-proposed-api"]
       // ["Exposing API", "/api/advanced-topics/exposing-api"],
       // ["Native Modules", "/api/advanced-topics/native-modules"],
       // ["Web Assembly", "/api/advanced-topics/web-assembly"],

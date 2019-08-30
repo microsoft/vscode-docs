@@ -103,7 +103,7 @@ There is jump to definition for `@import` and `url()` links in CSS, SCSS and Les
 
 You can extend VS Code's CSS support through a declarative [custom data format](https://github.com/Microsoft/vscode-css-languageservice/blob/master/docs/customData.md). By setting `css.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new CSS properties, at-directives, pseudo-classes and pesudo-elements. VS Code will then offer language support such as completion & hover information for the provided properties, at-directives, pseudo-classes and pesudo-elements.
 
-If you want to write an extension that provides a pre-defined set of custom data, please refer to [Language Extensions / Custom Data]().
+You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
 
 ## Transpiling Sass and Less into CSS
 
