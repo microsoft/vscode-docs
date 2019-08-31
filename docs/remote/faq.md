@@ -87,7 +87,7 @@ You can find a list of locations VS Code itself needs access to in the [network 
 
 Remote Development requires kernel >= 3.10, glibc >=2.17, and libstdc++ >= 3.4.18. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
 
-Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for Remote - Containers and Remote - WSL and ARMv7l (AArch32) / ARMv8l (AArch64) is available in Remote - SSH.However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions. Note that experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
+Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for Remote - Containers and Remote - WSL and ARMv7l (AArch32) / ARMv8l (AArch64) is available in Remote - SSH. However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions. Note that experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 See [Remote Development with Linux](/docs/remote/linux.md) for additional details.
 
