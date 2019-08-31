@@ -103,7 +103,7 @@ Selecting an interpreter sets the `python.pythonPath` value in your workspace se
 
 ## Create a Python Hello World source code file
 
-From the File Explorer toolbar, click the New File button on the `hello` folder:
+From the File Explorer toolbar, select the **New File** button on the `hello` folder:
 
 ![File Explorer New File](images/tutorial/toolbar-new-file.png)
 
