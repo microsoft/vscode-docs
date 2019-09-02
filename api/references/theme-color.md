@@ -360,6 +360,7 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.modifiedBackground`: Editor gutter background color for lines that are modified.
 - `editorGutter.addedBackground`: Editor gutter background color for lines that are added.
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
+- `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
 
 ## Diff editor colors
 
