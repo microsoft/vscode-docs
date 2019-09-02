@@ -193,11 +193,17 @@ While `devcontainer.json` is not used in this case, you are able to use the same
 
 Once you have a container up and running, you can connect by either:
 
-### Option 1: Use the Attach to Running Container command
+### Option 1: Use the Containers Remote Explorer
+
+Open the **Remote Explorer** viewlet from the activity bar and use **Connect to Container** inline action on the container you want to connect to.
+
+![Containers Explorer screenshot](images/containers/containers-attach.png)
+
+### Option 2: Use the Attach to Running Container command
 
 Run **Remote-Containers: Attach to Running Container...** command from the Command Palette (`kbstyle(F1)`) and selecting a container.
 
-### Option 2: Use the Docker extension
+### Option 3: Use the Docker extension
 
 1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view (search for "docker") if it is not already installed.
 
@@ -381,7 +387,13 @@ By default, the Remote - Containers extension automatically starts the container
 
 You can also manually manage your containers using one of the following options:
 
-### Option 1: Use the Docker extension
+### Option 1: Use the Containers Remote Explorer
+
+From the containers explorer you can right click on a running container and stop it. You can also start exited containers, remove containers, and remove recent folders. From the Details view you can forward ports and open already forward ports in the browser.
+
+![Containers Explorer screenshot](images/containers/containers-explorer.png)
+
+### Option 2: Use the Docker extension
 
 1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view, if not already installed.
 
@@ -391,7 +403,7 @@ You can also manually manage your containers using one of the following options:
 
     ![Docker Explorer screenshot](images/containers/docker-stop.png)
 
-### Option 2: Use the Docker CLI
+### Option 3: Use the Docker CLI
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Type `docker ps` to see running containers. Use `docker ps -a` to also see any stopped containers.
@@ -404,7 +416,7 @@ If `docker ps` does not provide enough information to identify the container you
 docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}}\t\{{.Image}}\tvscode-\{{.Label \"vsch.quality\"}}\t\{{.Label \"vsch.local.folder\"}}"
 ```
 
-### Option 3: Use Docker Compose
+### Option 4: Use Docker Compose
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Go to the directory with your `docker-compose.yml` file.
