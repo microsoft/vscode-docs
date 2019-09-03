@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 8/7/2019
+DateApproved: 8/27/2019
 ---
 # Remote Development Tips and Tricks
 
@@ -187,7 +187,8 @@ If you are connecting to an SSH remote host and are either:
 
 ...VS Code should automatically prompt you to enter needed information. If you do not see the prompt, enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your auth code, password, or passphrase when the terminal appears.
 
-However, you may be prompted to enter this information multiple times due to [vscode-remote-release#642](https://github.com/microsoft/vscode-remote-release/issues/642). On macOS and Linux, you can avoid this problem by enabling the `ControlMaster` feature on your local machine so that OpenSSH runs multiple SSH sessions over a single connection.
+If you are on macOS and Linux and want to reduce how often you have to enter a password or token, you can enable the `ControlMaster` feature on your **local machine** so that OpenSSH runs multiple SSH sessions over a single connection.
+
 To enable `ControlMaster`:
 
 1. Add an entry like this to your SSH config file:
@@ -200,8 +201,6 @@ To enable `ControlMaster`:
     ```
 
 2. Then run `mkdir -p ~/.ssh/sockets` to create the sockets folder.
-
-With `ControlMaster` enabled, you will only have to enter your auth code/password/passphrase once.
 
 ### Setting up the SSH Agent
 
@@ -386,6 +385,12 @@ Or using **WSL from a command prompt on Windows**:
 wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "$(wslpath -a '%CD%')"
 ```
 
+Or using **WSL from PowerShell on Windows**:
+
+```bat
+wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "`$(wslpath -a '$PWD')"
+```
+
 You can rerun this command each time you want to get the latest copy of your files and only updates will be transferred. The `.git` folder is intentionally excluded both for performance reasons and so you can use local Git tools without worrying about the state on the remote host.
 
 To push content, reverse the source and target parameters in the command. However, **on Windows** you should add a `.gitattributes` file to your project to **force consistent line endings** before doing so. See [Resolving Git line ending issues](#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
@@ -509,7 +514,7 @@ If you determine that you need to give your container more of your machine's cap
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
 3. On Mac, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
-Finally, if your container is disk intensive, you should avoid using a volume (bind) mount of your local filesystem to store data files (for example database data files) particularly on Windows. You can also use the [cached mount consistency on Mac](/docs/remote/containers-advanced.md#update-the-mount-consistency-in-docker-for-mac) or use a [named volume for your source code](/docs/remote/containers-advanced.md#use-a-named-volume-instead-of-a-bind-mount) instead.
+Finally, if your container is **doing disk intensive** operations or you are just looking for faster response times, see [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance) for tips. VS Code's defaults optimize for convenance and universal support, but can be optimized.
 
 ### Cleaning out unused containers and images
 
@@ -521,7 +526,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
     > **Note:** Using the Docker extension from a VS Code window opened in a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local window and use the Docker extension from this VS Code window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
- 1. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
+ 2. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
 
      ![Docker Explorer screenshot](images/containers/docker-remove.png)
 
@@ -692,6 +697,26 @@ git config --global core.autocrlf false
 ```
 
 Finally, you may need to clone the repository again for these settings to take effect.
+
+### Sharing Git credentials between Windows and WSL
+
+If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in Windows**, you can share this with WSL so that passwords you enter are persisted on both sides. (Note that this does not apply to using SSH keys.)
+
+Just follow these steps:
+
+1. Configure the credential manager on Windows by running the following in a **Windows command prompt**:
+
+    ```bat
+     git config --global credential.helper wincred
+    ```
+
+2. Confgiure WSL to use the same credential helper, but running the following in a **WSL terminal**:
+
+    ```bash
+     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe"
+    ```
+
+Any password you enter when working with Git on the Windows side will now be available to WSL and vice versa.
 
 ### Resolving hangs when doing a Git push or sync from WSL
 

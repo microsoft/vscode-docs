@@ -44,5 +44,5 @@ If you would like to learn how the Remote - Containers extension sets up and con
 
 ----
 
-<a class="tutorial-next-btn" href="/remote-tutorials/containers/how-it-works">Docker is running</a>
+<a class="tutorial-next-btn" href="/remote-tutorials/containers/how-it-works">Show me how it works</a>
 <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-containers', 'run-in-container')" href="javascript:void(0)">I ran into an issue</a>

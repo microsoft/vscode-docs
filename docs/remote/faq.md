@@ -57,29 +57,39 @@ Yes, we [announced a cloud-hosted environments service](https://aka.ms/vsfutures
 
 ### What are the connectivity requirements for VS Code Server?
 
-The VS Code Server requires outbound HTTPS (port 443) connectivity to:
+Installation of VS Code Server requires that your local machine have outbound HTTPS (port 443) connectivity to:
 
 * `update.code.visualstudio.com`
+* `*.vo.msecnd.net` (Azure CDN)
+
+By default, the Remote - SSH will attempt to download on the remote host, but if you enable `remote.SSH.allowLocalServerDownload`, the extension will fall back to downloading VS Code Server locally and transferring it remotely once a connection is established.
+
+The Remote - Containers extension always downloads locally and transfers into the container.
+
+You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and VS Code Server will need outbound HTTPS (port 443) access to:
+
 * `marketplace.visualstudio.com`
 * `vscode.blob.core.windows.net`
 * `*.vo.msecnd.net` (Azure CDN)
 * `*.gallerycdn.vsassets.io` (Azure CDN)
 
+Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
+
 All other communication between the server and the VS Code client is accomplished through the following transport channels depending on the extension:
 
 * SSH: An authenticated, secure SSH tunnel.
-* Containers: An authenticated, random port automatically exposed via the Docker CLI.
-* WSL: An authenticated, random local TCP port.
+* Containers: Docker's configured communication channel (via `docker exec`).
+* WSL: A random local port.
 
 You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
-Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
-
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
-Most Linux distributions will not require additional dependency installation steps. For SSH, Linux hosts need to have Bash (`/bin/bash`), `tar`, and either `curl` or `wget` installed and those utilities could be missing from certain stripped down distributions. Remote Development also requires kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18. Only glibc-based distributions are supported currently, so by extension [Alpine Linux](https://alpinelinux.org) is not supported.
+Remote Development requires kernel >= 3.10, glibc >=2.17, and libstdc++ >= 3.4.18. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
 
-See [Linux Prerequisites](/docs/remote/linux.md) for details.
+Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for Remote - Containers and Remote - WSL and ARMv7l (AArch32) / ARMv8l (AArch64) is available in Remote - SSH. However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions. Note that experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
+
+See [Remote Development with Linux](/docs/remote/linux.md) for additional details.
 
 ### Can the Docker extension run as a remote "workspace" extension?
 
