@@ -34,7 +34,7 @@ Open WSL either by launching the Windows Terminal and creating a new WSL tab or 
 
 ![WSL cow say example](wsl-cow-say.png)
 
-From your terminal launch into Visual Studio Code using `code .` from WSL or you can even use `wsl code .` to switch to Linux inline, launch into VS Code, then return to your Windows shell. 😏
+From your terminal, launch into Visual Studio Code using `code .` from WSL. You can even use `wsl code .` to switch to Linux inline, launch into VS Code, then return to your Windows shell. 😏
 
 Personally, I'm using WSL 2 for 100% of my development on Windows – all dev tools such as Git and Node.js are installed in my Linux environment. Check out this [Tips and Tricks post](https://devblogs.microsoft.com/commandline/tips-and-tricks-for-linux-development-with-wsl-and-visual-studio-code) for more on customizing VS Code in WSL to meet your needs.
 
@@ -60,7 +60,7 @@ Add in the Remote - WSL extension in Visual Studio Code and you have the best of
 
 ## Further reading
 
-To help you set up VS Code with WSL, there is a step-by-step [Working in WSL tutorial](https://code.visualstudio.com/remote-tututorial/wsl/getting-started). If you want to learn more about VS Code Remote and how it can also work over SSH and inside Docker containers, see the full VS Code [remote development documentation](https://code.visualstudio.com/docs/remote/remote-overview).
+To help you set up VS Code with WSL, there is a step-by-step [Working in WSL tutorial](https://code.visualstudio.com/remote-tutorials/wsl/getting-started). If you want to learn more about VS Code Remote and how it can also work over SSH and inside Docker containers, see the full VS Code [Remote Development documentation](https://code.visualstudio.com/docs/remote/remote-overview).
 
 Happy Remote Coding,
 
