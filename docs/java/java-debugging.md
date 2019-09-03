@@ -60,7 +60,7 @@ Once you click **Run** on the CodeLens or press `kb(workbench.action.debug.start
   <source src="/docs/java/java-debugging/debug-intro.mp4" type="video/mp4">
 </video>
 
-It's possible that there might be multiple debugging configurations for your project and you can always add and modify those then select the desired one to run.
+It's possible that there might be multiple debugging configurations for your project and you can always add and modify those, then select the desired one to run.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/java-debug.mp4" type="video/mp4">
@@ -68,7 +68,7 @@ It's possible that there might be multiple debugging configurations for your pro
 
 If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations). For more details, please read [Launch configurations](/docs/editor/debugging.md#launch-configurations)
 
-There's also a convenient setting for debugging `current file` so the editor knows which file is currently active and choose it as the entry point.
+There's also a convenient setting for debugging `current file`, so the editor knows which file is currently active and choose it as the entry point.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/current-file.mp4" type="video/mp4">

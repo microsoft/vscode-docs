@@ -82,7 +82,7 @@ There are a few other changes that we have documented in the new Emmet [page](/d
 
 I want to thank [Sergey Chikuyonok](https://github.com/sergeche) for his amazing work on modularizing Emmet and helping us bring these improvements to VS Code.
 
-Thanks also goes to everyone who used the new Emmet in VS Code when it was in preview and provided great feedback through GitHub issues. The discussions in Github issues were very helpful in getting to the current user experience.
+Thanks also goes to everyone who used the new Emmet in VS Code when it was in preview and provided great feedback through GitHub issues. The discussions in GitHub issues were very helpful in getting to the current user experience.
 
 Special thanks to [Steve Lombardi](https://github.com/smlombardi), [Jens Hausdorf](https://github.com/jens1o), [Vladimir Sizikov](https://github.com/vvs), [Niichie](https://github.com/Niichie), [Thomas Klepzig](https://github.com/tklepzig) and many more who used the VS Code Insiders builds to test my bug fixes and feature additions.
 
