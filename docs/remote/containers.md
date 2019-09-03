@@ -803,6 +803,7 @@ If you've already built the container and connected to it, be sure to run **Remo
 ### Remote - Containers limitations
 
 * Windows container images are **not** yet supported.
+* When using Alpine 3.10 containers, you may see an `Error: Cannot find module 'spdlog'` message in the Dev Containers terminal window [due to an upstream issue](https://github.com/microsoft/vscode-remote-release/issues/1026). This error only affects VS Code logging and can be **safely ignored**.
 * Using a remote Docker Host is possible, but requires [additional setup steps](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host).
 * All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
 * The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
