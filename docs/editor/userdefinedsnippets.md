@@ -135,6 +135,7 @@ For inserting the current date and time:
 * `CURRENT_HOUR` The current hour in 24-hour clock format
 * `CURRENT_MINUTE` The current minute
 * `CURRENT_SECOND` The current second
+* `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
 
 For inserting line or block comments, honoring the current language:
 

@@ -101,6 +101,48 @@ You can configure hot exit by setting `files.hotExit` to the following values:
 * `"onExit"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu). All windows with backups will be restored upon next launch.
 * `"onExitAndWindowClose"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu), and also for any window with a folder opened regardless of whether it is the last window. All windows without folders opened will be restored upon next launch. To restore folder windows as they were before shutdown, set `window.restoreWindows` to `all`.
 
+## Find and Replace
+
+VS Code allows you to quickly find text and replace in the currently opened file. Press `kb(actions.find)` to open the Find Widget in the editor, search results will be highlighted in the editor, overview ruler and minimap.
+
+If there are more than one matched result in the current opened file, you can press `kb(editor.action.nextMatchFindAction)` and `kb(editor.action.previousMatchFindAction)` to navigate to next or previous result when the find input box is focused.
+
+### Seed Search String From Selection
+
+When the Find Widget is opened, it will automatically populate the selected text in the editor into the find input box. If the selection is empty, the word under the cursor will be inserted into the input box instead.
+
+![Seed Search String From Selection](images/codebasics/seed-search-string-from-selection.gif)
+
+This feature can be turned off by setting `editor.find.seedSearchStringFromSelection` to `false`.
+
+### Find In Selection
+
+By default, the find operations are run on the entire file in the editor. It can also be run on selected text. You can turn this feature on by clicking the hamburger icon on the Find Widget.
+
+![Find In Selection](images/codebasics/find-in-selection.gif)
+
+If you want it to be the default behavior of the Find Widget, you can set `editor.find.autoFindInSelection` to `true`.
+
+### Advanced find and replace options
+
+In addition to find and replace with plain text, the Find Widget also has three advanced search options:
+
+* Match Case
+* Match Whole Word
+* Regular Expression
+
+The replace input box support case preserving, you can turn it on by clicking the Preserve Case (**AB**) button.
+
+### Multiline support and Find Widget resizing
+
+You can search multiple line text by pasting the text into the Find input box and Replace input box. Pressing `Ctrl+Enter` inserts a new line in the input box.
+
+![Multiple Line Support](images/codebasics/multiple-line-support.gif)
+
+While searching long text, the default size of Find Widget might be too small. You can drag the left sash to enlarge the Find Widget or double click the left sash to maximize it or shrink it to its default size.
+
+![Resize Find Widget](images/codebasics/resize-find-widget.gif)
+
 ## Search across files
 
 VS Code allows you to quickly search over all files in the currently opened folder.  Press `kb(workbench.view.search)` and enter your search term. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
