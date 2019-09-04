@@ -31,6 +31,8 @@ msg = "Hello again"
 print(msg)
 ```
 
+Save the file above with a .py extension.
+
 When the Python extension detects a code cell, it adds **Run Cell** and **Debug Cell** CodeLens adornments. The first cell also includes **Run Below** and all subsequent cells include **Run Above** :
 
 ![Jupyter adornments for code cells in the VS Code editor](images/jupyter/code-cells-01.png)
