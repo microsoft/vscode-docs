@@ -4,7 +4,7 @@ Area: wsl
 TOCTitle: Install Python
 PageTitle: Install Python tools
 MetaDescription: Install Python tools into Windows Subsystem for Linux
-DateApproved: 7/26/2019
+DateApproved: 9/4/2019
 ---
 # Python development
 

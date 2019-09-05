@@ -4,7 +4,7 @@ Area: wsl
 TOCTitle: Run in WSL
 PageTitle: Run Visual Studio Code in Windows Subsystem for Linux
 MetaDescription: Run Visual Studio Code in Windows Subsystem for Linux
-DateApproved: 7/26/2019
+DateApproved: 9/4/2019
 ---
 # Run in Windows Subsystem for Linux
 
