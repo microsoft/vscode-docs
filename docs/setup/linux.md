@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -73,7 +73,7 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 Then update the package cache and install the package using `dnf` (Fedora 22 and above):
 
 ```bash
-dnf check-update
+sudo dnf check-update
 sudo dnf install code
 ```
 
@@ -242,10 +242,10 @@ This error can appear during installation and is typically caused by the package
 sudo apt-get update
 
 # For .rpm (Fedora 21 and below)
-sudo yum update
+sudo yum check-update
 
 # For .rpm (Fedora 22 and above)
-sudo dnf update
+sudo dnf check-update
 ```
 
 ### The code bin command does not bring the window to the foreground on Ubuntu

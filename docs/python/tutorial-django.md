@@ -357,7 +357,7 @@ In this section, you start by creating a single page using a template. In subseq
             <title>Hello, Django</title>
         </head>
         <body>
-            <strong>Hello there, \{{ name }}!</strong> It's \{{ date | date:'l, d F, Y' }} at \{{ date | time:'H:i:s' }}
+            <strong>Hello there, \{{ name }}!</strong> It's \{{ date | date:"l, d F, Y" }} at \{{ date | time:"H:i:s" }}
         </body>
     </html>
     ```
