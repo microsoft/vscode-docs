@@ -15,13 +15,12 @@ MetaSocialImage: images/tutorial/social.png
 
 By the end of this tutorial, you will have completed the following set of activities:
 
-- Work with Jupyter-like code cells
-- Run code in the Python Interactive Window 
-- View, inspect, and filter variables using the Variable explorer and data viewer
-- Learn how to connect to a remote Jupyter server
-- Debug a Jupyter notebook
-- Export a Jupyter notebook
-
+- Worked with Jupyter-like code cells
+- Run code in the Python Interactive Window
+- Viewed, inspected, and filtered variables using the Variable explorer and data viewer
+- Learned how to connect to a remote Jupyter server
+- Debugged a Jupyter notebook
+- Exported a Jupyter notebook
 
 To work with Jupyter notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
