@@ -40,7 +40,7 @@ msg = "Hello again"
 print(msg)
 ```
 
-Save the file above with a .py extension.
+> **Note**: Make sure to save the code shown above in a file with a .py extension.
 
 When the Python extension detects a code cell, it adds **Run Cell** and **Debug Cell** CodeLens adornments. The first cell also includes **Run Below** and all subsequent cells include **Run Above** :
 
