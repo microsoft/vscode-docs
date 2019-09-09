@@ -369,7 +369,7 @@ After your first deployment, you can make changes to your code, such as adding a
 
 1. Start the debugger by pressing F5 or selecting the **Debug** > **Start Debugging** menu command. The **Output** window should now show both endpoints in your project:
 
-    ```output
+    ```
     Http Functions:
 
             DigitsOfPi: [GET] http://localhost:7071/api/DigitsOfPi
