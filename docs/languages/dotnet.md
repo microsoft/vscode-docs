@@ -29,7 +29,7 @@ Install the following:
    * Open a terminal and navigate to the folder in which you'd like to create the app.
    * Enter the following command in the command shell:
 
-   ```console
+   ```cmd
      dotnet new console
    ```
 
@@ -40,7 +40,7 @@ Install the following:
 
 3. Run the app by entering the following command in the command shell:
 
-   ```console
+   ```cmd
     dotnet run
    ```
 
