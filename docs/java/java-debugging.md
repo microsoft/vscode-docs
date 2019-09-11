@@ -52,6 +52,12 @@ Once the debugger is activated, you will find **Run|Debug** on the [CodeLens](/b
 
 ![CodeLens](images/java-debugging/java-codelens.gif)
 
+### Context menu
+
+Another entry to start debugging is to right click a Java file in the file explorer or opened editor, you will find Run and Debug option in the context menu.
+
+![ContextMenu](images/java-debugging/context-menu.png)
+
 ### Pressing F5
 
 Once you click **Run** on the CodeLens or press `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Debug** menu or the Debug view opened by the Debug icon in the Activity Bar on the side of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
@@ -73,16 +79,6 @@ There's also a convenient setting for debugging `current file`, so the editor kn
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/current-file.mp4" type="video/mp4">
 </video>
-
-### Accepting inputs
-
-Currently, the VS Code Java Debugger uses the Debug Console as the default console, which doesn't accept input. In order for the console to accept your input (for example when using **Scanner**), you need to change the console to use the Integrated Terminal in `launch.json`.
-
-```json
-"console": "integratedTerminal"
-```
-
-If you'd like to use that setting each time you launch a Java program, you can configure it as a global user setting with `java.debug.settings.console`.
 
 ### Debugging single files
 
@@ -129,6 +125,14 @@ The debugger also lets you evaluate expressions in the **WATCH** window as well 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/expression-evaluation.mp4" type="video/mp4">
 </video>
+
+Currently, the VS Code Java Debugger uses the Integrated Terminal as the default console, which doesn't support expression evaluation. In order for the console to use this feature, you need to change the console to use the Internal Console in `launch.json`.
+
+```json
+"console": "internalConsole"
+```
+
+If you'd like to use that setting each time you launch a Java program, you can configure it as a global user setting with `java.debug.settings.console`.
 
 ### Conditional breakpoint
 
