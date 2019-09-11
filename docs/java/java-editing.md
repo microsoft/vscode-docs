@@ -103,7 +103,7 @@ With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select
 
 ## Refactoring and Code Actions
 
-Here we will show you the most used refactoring features for Java in Visual Studio Code, namely rename, extract methods and variables.
+Here we will show you the most used refactoring features for Java in Visual Studio Code, namely rename, move, extract methods and variables and more.
 
 ### Rename
 
@@ -111,6 +111,28 @@ Rename allows you to rename variables, classes, methods, packages, folders, and 
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/rename.mp4" type="video/mp4">
+</video>
+
+### Move
+
+The Move refactoring lets you move packages and classes between the source roots of a project, class members to other classes and inner classes to upper hierarchy levels.
+
+For example, you can perform the move refactoring on static method if it is used more in another class than in its own class.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/move-static-method.mp4" type="video/mp4">
+</video>
+
+ou can also move a class to another package.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/move-class.mp4" type="video/mp4">
+</video>
+
+And move inner class to new a new file. 
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/move-inner-type.mp4" type="video/mp4">
 </video>
 
 ### Extract methods and variables
