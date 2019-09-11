@@ -189,7 +189,7 @@ msg.split()
 
 Select the blue **Continue** button on the toolbar again (or press F5) to run the program to completion. "Hello World" appears in the **Python Debug Console** if you switch back to it, and VS Code exits debugging mode once the program is complete.
 
-If you restart the debugger, the debugger again stops on the first breakpoint (or the first line if `stopOnEntry` is set to true, in which case the debugger stops before any code is run.)
+If you restart the debugger, the debugger again stops on the first breakpoint. 
 
 To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Debug > Stop debugging** menu command.
 
