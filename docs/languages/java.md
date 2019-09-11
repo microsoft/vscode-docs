@@ -62,6 +62,12 @@ Thanks to the great Java community around VS Code, the list doesn't end there. Y
 
 This document describes some of the key features included in those Java extensions.
 
+## Getting started
+
+For developers new to Java or new to VS Code, we provide a Getting Started experience. Once you've installed the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can use the command **Java: Getting Started** to get the quick start guide.
+
+![Java Getting Started](images/java/getting-started.png)
+
 ## Java project support
 
 Maven, Eclipse, and Gradle Java projects are supported through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](https://www.eclipse.org/m2e/), which provides Maven support, and [Buildship](https://github.com/eclipse/buildship), which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).

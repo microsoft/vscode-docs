@@ -90,7 +90,7 @@ When you open a project with test cases from supported frameworks, Test Runner w
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-testing/report.mp4" type="video/mp4">
-</video>
+</video>\
 
 ## JUnit5 Support
 
