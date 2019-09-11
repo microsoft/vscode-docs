@@ -21,7 +21,9 @@ These are the steps for testing Proposed API in local extension development:
 - Add `"enableProposedApi": true` to your `package.json`.
 - Copy the latest version of the [`vscode.proposed.d.ts`](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.proposed.d.ts) into your project.
 
-We now provide [vscode-dts](https://github.com/microsoft/vscode-dts) module that allows you to quickly download latest `vscode.proposed.d.ts` for development.
+The [vscode-dts](https://github.com/microsoft/vscode-dts) CLI utility that allows you to quickly download latest `vscode.proposed.d.ts` for development.
+
+Here is a sample using proposed API: [proposed-api-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/proposed-api-sample).
 
 ```bash
 > npx vscode-dts dev
@@ -29,3 +31,11 @@ Downloading vscode.proposed.d.ts to /Users/username/Code/vscode-docs/vscode.prop
 Please set "enableProposedApi": true in package.json.
 Read more about proposed API at: https://code.visualstudio.com/api/advanced-topics/using-proposed-api
 ```
+
+## Proposed API incompatibility
+
+On the master branch, the `vscode.proposed.d.ts` is always compatible with `vscode.d.ts`. However, when you add `vscode.proposed.d.ts` to your project that uses `@types/vscode`, the latest `vscode.proposed.d.ts` might be incompatible with the version in `@types/vscode`.
+
+You can solve this issue by either:
+- Remove dependency on `@types/vscode` and use `npx vscode-dts master` to download `vscode.d.ts` from `microsoft/vscode` master branch.
+- Use `@types/vscode@<version>` and also use `npx vscode-dts dev <version>` to download the `vscode.proposed.d.ts` from an old branch of `microsoft/vscode`. However, be careful the API might have changed in the latest version of VS Code Insiders.
