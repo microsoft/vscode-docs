@@ -236,6 +236,14 @@ Add a constructor from super class.
   <source src="/docs/java/java-editing/generate-constructor.mp4" type="video/mp4">
 </video>
 
+### Invert local variable
+
+This refactoring lets you change the sense of a Boolean variable to the opposite one.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/invert-variable.mp4" type="video/mp4">
+</video>
+
 ### Assign parameter to new field
 
 This source action assigns a parameter to a new field for unused parameter(s) in a constructor.
@@ -243,6 +251,12 @@ This source action assigns a parameter to a new field for unused parameter(s) in
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/assign-to-field.mp4" type="video/mp4">
 </video>
+
+### Other code actions supported
+The list of code actions supported by VS Code keeps growing and we can only list the most popular ones as above. Other notable supported actions include (but not limited to)
+1. Convert anonymous class to lambda expression
+2. Convert lambda to anonymous class
+3. Create unresolved types
 
 ### Code Snippets
 
