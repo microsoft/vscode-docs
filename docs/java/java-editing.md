@@ -284,6 +284,8 @@ And batch check.
   <source src="/docs/java/java-editing/checkstyle-batch.mp4" type="video/mp4">
 </video>
 
+Problems panel will be opened when you click the checkstyle status icon in status bar.
+
 ### Set Checkstyle configuration file
 
 ![Set Checkstyle configuration file](images/java-editing/set_config.png)
@@ -292,6 +294,8 @@ And batch check.
 * You can also trigger the command **Checkstyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. You will also see the two built-in configurations:
   * **Google's Check**
   * **Sun's Check**
+
+The extension will detects checkstyle.xml file in your workspace to make the configuration easier.
 
 ### Check the style and fix the violations
 
