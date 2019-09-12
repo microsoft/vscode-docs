@@ -320,7 +320,7 @@ A function breakpoint is created by pressing the **+** button in the **BREAKPOIN
 
 ### Data breakpoints
 
-If a debugger supports data breakpoints they can be set from the **VARIABLES** view and will get hit when the value of the underlying variable changes. Data breakpoints are shown with a red octagon in the **BREAKPOINTS** section.
+If a debugger supports data breakpoints they can be set from the **VARIABLES** view and will get hit when the value of the underlying variable changes. Data breakpoints are shown with a red hexagon in the **BREAKPOINTS** section.
 
 ## Debug Console REPL
 
