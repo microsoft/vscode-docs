@@ -90,7 +90,7 @@ When you open a project with test cases from supported frameworks, Test Runner w
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-testing/report.mp4" type="video/mp4">
-</video>\
+</video>
 
 ## JUnit5 Support
 
@@ -98,7 +98,7 @@ When you open a project with test cases from supported frameworks, Test Runner w
   <source src="/docs/java/java-testing/test-junit5.mp4" type="video/mp4">
 </video>
 
-The JUnit 5 support covers frequently used annotations such as `@DisplayName`, `@ParameterizedTest`, `@TestFactory`, `@TestTemplate` and `@Nested`. It also support meta-annotations and composed annotations.
+The JUnit 5 support covers frequently used annotations such as `@DisplayName`, `@ParameterizedTest`, `@TestFactory`, `@TestTemplate`, and `@Nested`. It also supports meta-annotations and composed annotations.
 
 ![DisplayName annotation](images/java-testing/displayname.png)
 

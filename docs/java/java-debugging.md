@@ -54,7 +54,7 @@ Once the debugger is activated, you will find **Run|Debug** on the [CodeLens](/b
 
 ### Context menu
 
-Another entry to start debugging is to right click a Java file in the file explorer or opened editor, you will find Run and Debug option in the context menu.
+Another way to start debugging is to right-click a Java file in the File Explorer or editor and select **Run** or **Debug** in the context menu.
 
 ![ContextMenu](images/java-debugging/context-menu.png)
 
