@@ -53,11 +53,17 @@ There is the Microsoft [Java Extension Pack](https://marketplace.visualstudio.co
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
+You can also select which extensions you would like to install separately. For this tutorial, only [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) are needed.
+
 [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) also detects your environment to see whether a JDK is present. If not, it will provide you links to download reliable JDK at your choice.
 
-![Acquire JDK](images/java-tutorial/jdk.acquisition.guide.gif)
+![Acquire JDK](images/java-tutorial/jdk-configuration.png)
 
-You can also select which extensions you would like to install separately. For this tutorial, only [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) are needed.
+This page also allows you to configure your JDK anytime you want in various levels. You can get it by using the command **Java: Configure Java Runtime**.
+
+With the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), we also provide a easy way for you to start Java with VS Code by using the command **Java: Getting Started**. It will then provides a quick start guide as well as tips for code editing and debugging. It also has an FAQ to answer some of the most asked questions.
+
+![Java Getting Started](images/java-tutorial/getting-started.png)
 
 ## Create the program
 
