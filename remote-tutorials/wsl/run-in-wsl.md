@@ -10,6 +10,8 @@ DateApproved: 9/4/2019
 
 In the WSL terminal, make sure you are in the helloWorld folder, and type in `'code .'` to launch Visual Studio Code. The `'.'` argument tells VS Code to open the current folder.
 
+> **Tip**: If you are on WSL 2 and the `code` shell command hangs, update to the latest Windows Insiders build from Windows Update.
+
 ![launch VS Code](images/wsl/launch-code.png)
 
 The first thing you'll see is a message about "Installing VS Code Server" (the c7d83e57… number is the version of the VS Code Server that matches the client-side tools you just installed). VS Code is installing a small server on the Linux side that the desktop VS Code will then talk to. That server will then install and host extensions in WSL, so that they run in the context of the tools and frameworks installed in WSL. In other words, your language extensions will run against the tools and frameworks installed in WSL, not against what is installed on the Windows side, as it should for the proper development experience.
