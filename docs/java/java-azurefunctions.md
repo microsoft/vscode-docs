@@ -104,8 +104,7 @@ brew install azure-functions-core-tools
 1. Register the Microsoft Product key as trusted.
 
 ```bash
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 ```
 
 2. Add source
