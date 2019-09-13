@@ -13,14 +13,14 @@ MetaSocialImage: images/tutorial/social.png
 
 [Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a *notebook*.
 
-By the end of this tutorial, you will have completed the following set of activities:
+By working through this tutorial, you will learn to:
 
-- Worked with Jupyter-like code cells
+- Work with Jupyter-like code cells
 - Run code in the Python Interactive Window
-- Viewed, inspected, and filtered variables using the Variable explorer and data viewer
-- Learned how to connect to a remote Jupyter server
-- Debugged a Jupyter notebook
-- Exported a Jupyter notebook
+- View, inspect, and filter variables using the Variable explorer and data viewer
+- Connect to a remote Jupyter server
+- Debug a Jupyter notebook
+- Export a Jupyter notebook
 
 To work with Jupyter notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -45,6 +45,8 @@ print(msg)
 When the Python extension detects a code cell, it adds **Run Cell** and **Debug Cell** CodeLens adornments. The first cell also includes **Run Below** and all subsequent cells include **Run Above** :
 
 ![Jupyter adornments for code cells in the VS Code editor](images/jupyter/code-cells-01.png)
+
+> **Note:** By default, **Debug Cell** just steps into user code. If you want to step into non-user code, you need to uncheck **Data Science: Debug Just My Code** in the Python extension settings (`kb(workbench.action.openSettings)`).
 
 **Run Cell** applies to only the one code cell. **Run Below**, which appears on the first cell, runs all the code in the file. **Run Above** applies to all the code cells up to, but not including, the cell with the adornment. You would use **Run Above**, for example, to initialize the state of the runtime environment before running that specific cell.
 
@@ -139,7 +141,7 @@ The Visual Studio Code debugger lets you step through your code, set breakpoints
 1. To start the debugger, use one of the following options:
 
     - For the whole notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **Python: Debug Current File in Python Interactive Window** command.
-    - For an individual cell, use the **Debug Cell** adornment that appears above the cell. The debugger specifically starts on the code in that cell.
+    - For an individual cell, use the **Debug Cell** adornment that appears above the cell. The debugger specifically starts on the code in that cell. By default, **Debug Cell** just steps into user code. If you want to step into non-user code, you need to uncheck **Data Science: Debug Just My Code** in the Python extension settings (`kb(workbench.action.openSettings)`).
 
 1. To familiarize yourself with the general debugging features of VS Code, such as inspecting variables, setting breakpoints, and other activities, review [VS Code debugging](/docs/editor/debugging.md).
 
