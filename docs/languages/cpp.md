@@ -10,7 +10,7 @@ MetaSocialImage: images/cpp/languages_cpp.png
 ---
 # C/C++ for Visual Studio Code (Preview)
 
-C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to enable cross-platform C and C++ development on Windows, Linux, and macOS. The extension is still in preview and our focus is code editing, navigation, and debugging support for C and C++ code everywhere that VS Code runs. The extension also supports [Remote Development](../remote/remote-overview) in the [Visual Studio Code Insiders build](https://code.visualstudio.com/insiders/).
+C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to enable cross-platform C and C++ development on Windows, Linux, and macOS. The extension is still in preview and our focus is code editing, navigation, and debugging support for C and C++ code everywhere that VS Code runs. The extension also supports [Remote Development](/docs/remote/remote-overview.md) in the [Visual Studio Code Insiders build](https://code.visualstudio.com/insiders/).
 
 ![cpp hero](images/cpp/cpp-hero.png)
 
@@ -36,7 +36,7 @@ If you run into any issues or have suggestions for the Microsoft C/C++ extension
 
 ![cpp extension](images/cpp/cpp-extension.png)
 
-To install support for [Remote Development](../remote/remote-overview.md):
+To install support for [Remote Development](/docs/remote/remote-overview.md):
 
 1. Install the [Visual Studio Code Insiders build](https://code.visualstudio.com/insiders/). You can install this side by side with the stable build.
 1. Install the [Visual Studio Code Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
