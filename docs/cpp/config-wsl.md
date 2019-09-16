@@ -253,23 +253,22 @@ The remaining steps are provided as an optional exercise to help you get familia
 1. Paste in this source code:
 
    ```cpp
-    #include <iostream>
-    #include <vector>
-    #include <string>
+   #include <iostream>
+   #include <vector>
+   #include <string>
 
-    using namespace std;
+   using namespace std;
 
-    int main()
-    {
+   int main()
+   {
+      vector<string> msg {"Hello", "C++", "World", "from", "VS Code!", "and the C++ extension!"};
 
-        vector<string> msg {"Hello", "C++", "World", "from", "VS Code!", "and the C++ extension!"};
-
-        for (const string& word : msg)
-        {
-            cout << word << " ";
-        }
-        cout << endl;
-    }
+      for (const string& word : msg)
+      {
+         cout << word << " ";
+      }
+      cout << endl;
+   }
    ```
 
 1. Now press `kb(workbench.action.files.save)` to save the file. Notice how all the files you have just edited appear in the **File Explorer** view in the left panel of VS Code:
