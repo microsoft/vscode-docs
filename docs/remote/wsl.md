@@ -5,7 +5,7 @@ TOCTitle: WSL
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 ---
 # Developing in WSL
 
@@ -23,9 +23,9 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 To get started, you need to:
 
-1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution. (Note that Alpine Linux support is only available in [VS Code Insiders](https://code.visualstudio.com/insiders).)
+1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution.
 
-    > **Note:** WSL does have some [known limitations](#known-limitations) for certain types of development that can also affect your VS Code experience.
+    > **Note:** WSL1 does have some [known limitations](#known-limitations) for certain types of development and WSL2 support is **experimental**. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
 
 2. Install [Visual Studio Code](https://code.visualstudio.com/) on the **Windows** side (not in WSL).
 
@@ -33,7 +33,10 @@ To get started, you need to:
 
 3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
-4. Consider adding a `.gitattributes` file to your repos or disabling automatic line ending conversion for Git on the **Windows side** by using a command prompt to run: `git config --global core.autocrlf input` If left enabled, this setting can cause files that you have not edited to appear modified due to line ending differences. See [Tips and Tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
+**Working with Git?** Here are two tips to consider:
+
+- If you are working with the same repository in WSL and Windows, be sure to set up consistent line endings. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
+- You can also avoid passwords by configuring WSL to use the Windows Git credential manager. See [tips and tricks](/docs/remote/troubleshooting.md#sharing-git-credentials-between-windows-and-wsl) to for details.
 
 ### Open a folder in WSL
 
@@ -166,6 +169,8 @@ Fortunately, if you've [installed the Docker CLI in WSL and configured it to wor
 
 Many extensions will work in WSL without modification. However, in some cases, certain features may require changes. If you run into an extension issue, see [here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
+In addition, some extensions installed in an WSL when using an Alpine Linux-based distribution may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development with Linux](/docs/remote/linux.md) article for details.
+
 ## Common questions
 
 ### How do I change the distribution Remote - WSL uses?
@@ -198,9 +203,9 @@ For large workspace you want to increase the polling interval: `remote.WSL.fileW
 
 WSL2 does not have that file watcher problem is also not affected by the new setting.
 
-### What are the connectivity requirements for the VS Code Server when it is running in WSL?
+### What are the connectivity requirements for the Remote - WSL extension?
 
-The VS Code Server requires outbound HTTPS (port 443) connectivity to:
+The Remote - WSL extension and VS Code Server require outbound HTTPS (port 443) connectivity to:
 
 - `update.code.visualstudio.com`
 - `marketplace.visualstudio.com`
@@ -208,9 +213,9 @@ The VS Code Server requires outbound HTTPS (port 443) connectivity to:
 - `*.vo.msecnd.net` (Azure CDN)
 - `*.gallerycdn.vsassets.io` (Azure CDN)
 
-All other communication between the server and the VS Code client is accomplished through an authenticated, random, local TCP port. You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
+Some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
-Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
+All other communication between the server and the VS Code client is accomplished through an random local TCP port. You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
 ### As an extension author, what do I need to do?
 

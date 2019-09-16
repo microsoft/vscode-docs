@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -205,6 +205,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls the cursor style.
   "editor.cursorStyle": "line",
+
+  // Controls the minimal number of visible leading and trailing lines surrounding the cursor. Known as 'scrollOff' or `scrollOffset` in some other editors.
+  "editor.cursorSurroundingLines": 0,
 
   // Controls the width of the cursor when `editor.cursorStyle` is set to `line`.
   "editor.cursorWidth": 0,
@@ -511,8 +514,14 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether inline actions are always visible in the Source Control view.
   "scm.alwaysShowActions": false,
 
-  // Controls whether to always show the Source Control Provider section.
+  // Controls whether to show the Source Control Provider section even when there's only one Provider registered.
   "scm.alwaysShowProviders": false,
+
+  // Controls the Source Control count badge.
+  //  - all: Show the sum of all Source Control Providers count badges.
+  //  - focused: Show the count badge of the focused Source Control Provider.
+  //  - off: Disable the Source Control count badge.
+  "scm.countBadge": "all",
 
   // Controls diff decorations in the editor.
   "scm.diffDecorations": "all",
@@ -757,7 +766,8 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - none: Never reopen a window. Always start with an empty one.
   "window.restoreWindows": "one",
 
-  // Controls the window title based on the active editor. Variables are substituted based on the context:`${activeEditorShort}`: the file name (e.g. myFile.txt).
+  // Controls the window title based on the active editor. Variables are substituted based on the context:
+  // - `${activeEditorShort}`: the file name (e.g. myFile.txt).
   // - `${activeEditorMedium}`: the path of the file relative to the workspace folder (e.g. myFolder/myFileFolder/myFile.txt).
   // - `${activeEditorLong}`: the full path of the file (e.g. /Users/Development/myFolder/myFileFolder/myFile.txt).
   // - `${activeFolderShort}`: the name of the folder the file is contained in (e.g. myFileFolder).
@@ -845,6 +855,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     "**/node_modules/*/**": true
   },
 
+// Screencast Mode
+
+  // Only show keyboard shortcuts in Screencast Mode.
+  "screencastMode.onlyKeyboardShortcuts": false,
+
+  // Controls the vertical offset of the screencast mode overlay from the bottom as a percentage of the workbench height.
+  "screencastMode.verticalOffset": 20,
+
 // Zen Mode
 
   // Controls whether turning on Zen Mode also centers the layout.
@@ -887,6 +905,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether the explorer should allow to move files and folders via drag and drop.
   "explorer.enableDragAndDrop": true,
+
+  // Controls what naming strategy to use when a giving a new name to a duplicated explorer item on paste.
+  //  - simple: Appends the word "copy" at the end of the duplicated name potentially followed by a number
+  //  - smart: Adds a number at the end of the duplicated name. If some number is already part of the name, tries to increase that number
+  "explorer.incrementalNaming": "simple",
 
   // Number of editors shown in the Open Editors pane.
   "explorer.openEditors.visible": 9,
@@ -984,6 +1007,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Configure whether you receive automatic updates. Requires a restart after change. The updates are fetched from a Microsoft online service.
   //  - none: Disable updates.
   //  - manual: Disable automatic background update checks. Updates will be available if you manually check for updates.
+  //  - start: Check for updates only on startup. Disable automatic background update checks.
   //  - default: Enable automatic update checks. Code will check for updates automatically and periodically.
   "update.mode": "default",
 
@@ -1009,6 +1033,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether the non-debug hovers should be enabled while debugging. When enabled the hover providers will be called to provide a hover. Regular hovers will not be shown even if this setting is enabled.
   "debug.enableAllHovers": false,
+
+  // Controls whether the workbench window should be focused when the debugger breaks.
+  "debug.focusWindowOnBreak": true,
 
   // Show variable values inline in editor while debugging.
   "debug.inlineValues": false,
@@ -1605,12 +1632,14 @@ Below are the Visual Studio Code default settings and their values. You can also
   // When enabled, recommendations will not be fetched or shown unless specifically requested by the user. Some recommendations are fetched from a Microsoft online service.
   "extensions.showRecommendationsOnlyOnDemand": false,
 
-// External Terminal
+// Terminal
 
   // Customizes what kind of terminal to launch.
   //  - integrated: Use VS Code's integrated terminal.
   //  - external: Use the configured external terminal.
   "terminal.explorerKind": "integrated",
+
+// External Terminal
 
   // Customizes which terminal to run on Linux.
   "terminal.external.linuxExec": "xterm",
@@ -1622,6 +1651,15 @@ Below are the Visual Studio Code default settings and their values. You can also
   "terminal.external.windowsExec": "C:\\WINDOWS\\System32\\cmd.exe",
 
 // Integrated Terminal
+
+  // A path that when set will override `terminal.integrated.shell.linux` and ignore `shellArgs` values for automation-related terminal usage like tasks and debug.
+  "terminal.integrated.automationShell.linux": null,
+
+  // A path that when set will override `terminal.integrated.shell.osx` and ignore `shellArgs` values for automation-related terminal usage like tasks and debug.
+  "terminal.integrated.automationShell.osx": null,
+
+  // A path that when set will override `terminal.integrated.shell.windows` and ignore `shellArgs` values for automation-related terminal usage like tasks and debug.
+  "terminal.integrated.automationShell.windows": null,
 
   // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open.
   "terminal.integrated.commandsToSkipShell": [],
@@ -1752,6 +1790,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - last: Only show the last element of the file path in the breadcrumbs view.
   "breadcrumbs.filePath": "on",
 
+  // Render breadcrumb items with icons.
+  "breadcrumbs.icons": true,
+
   // Controls whether and how symbols are shown in the breadcrumbs view.
   //  - on: Show all symbols in the breadcrumbs view.
   //  - off: Do not show symbols in the breadcrumbs view.
@@ -1787,63 +1828,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Show Errors & Warnings on Outline Elements.
   "outline.problems.enabled": true,
 
-// Remote
-
-  // Override the kind of an extension. `ui` extensions are installed and run on the local machine while `workspace` extensions are run on the remote. By overriding an extension's default kind using this setting, you specify if that extension should be installed and enabled locally or remotely.
-  "remote.extensionKind": {
-    "pub.name": "ui"
-  },
-
-// Default Configuration Overrides
-
-// Configure editor settings to be overridden for [git-commit] language.
-  "[git-commit]":  {
-    "editor.rulers": [
-        72
-    ]
-  },
-
-  // Configure editor settings to be overridden for [go] language.
-  "[go]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [json] language.
-  "[json]":  {
-    "editor.quickSuggestions": {
-        "strings": true
-    }
-  },
-
-  // Configure editor settings to be overridden for [makefile] language.
-  "[makefile]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [markdown] language.
-  "[markdown]":  {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": false
-  },
-
-  // Configure editor settings to be overridden for [yaml] language.
-  "[yaml]":  {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": false
-  },
-
-// Node debug
-
-  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
-  //  - disabled: Auto attach is disabled and not shown in status bar.
-  //  - on: Auto attach is active.
-  //  - off: Auto attach is inactive.
-  "debug.node.autoAttach": "disabled",
-
-  // Controls whether to show a warning when the 'useWSL' attribute is used.
-  "debug.node.showUseWslIsDeprecatedWarning": true,
-
 // Git
 
   // Controls whether force push (with or without lease) is enabled.
@@ -1874,6 +1858,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Stash any changes before pulling and restore them after successful pull.
   "git.autoStash": false,
 
+  // Controls the sort order for branches.
+  "git.branchSortOrder": "committerdate",
+
   // A regular expression to validate new branch names.
   "git.branchValidationRegex": "",
 
@@ -1896,7 +1883,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Confirm before synchronizing git repositories.
   "git.confirmSync": true,
 
-  // Controls the git badge counter.
+  // Controls the Git count badge.
   //  - all: Count all changes.
   //  - tracked: Count only tracked changes.
   //  - off: Turn off counter.
@@ -1922,6 +1909,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Commit all changes when there are no staged changes.
   "git.enableSmartCommit": false,
+
+  // Controls whether the Git Sync command appears in the status bar.
+  "git.enableStatusBarSync": true,
 
   // Fetch all branches when pulling or just the current one.
   "git.fetchOnPull": false,
@@ -1960,7 +1950,10 @@ Below are the Visual Studio Code default settings and their values. You can also
   "git.postCommitCommand": "none",
 
   // Controls whether Git should check for unsaved files before committing.
-  "git.promptToSaveFilesBeforeCommit": true,
+  //  - always: Check for any unsaved files.
+  //  - staged: Check only for unsaved staged files.
+  //  - never: Disable this check.
+  "git.promptToSaveFilesBeforeCommit": "always",
 
   // Fetch all tags when pulling.
   "git.pullTags": true,
@@ -1980,8 +1973,87 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to show a notification when a push is successful.
   "git.showPushSuccessNotification": false,
 
+  // Control which changes are automatically staged by Smart Commit.
+  //  - all: Automatically stage all changes.
+  //  - tracked: Automatically staged tracked changes only.
+  "git.smartCommitChanges": "all",
+
+  // Suggests to enable smart commit (commit all changes when there are no staged changes).
+  "git.suggestSmartCommit": true,
+
+  // Controls whether a notification comes up when running the Sync action, which allows the user to cancel the operation.
+  "git.supportCancellation": false,
+
   // Controls whether force pushing uses the safer force-with-lease variant.
   "git.useForcePushWithLease": true,
+
+// Merge Conflict
+
+  // Whether to automatically navigate to the next merge conflict after resolving a merge conflict.
+  "merge-conflict.autoNavigateNextConflict.enabled": false,
+
+  // Create a Code Lens for merge conflict blocks within editor.
+  "merge-conflict.codeLens.enabled": true,
+
+  // Create decorators for merge conflict blocks within editor.
+  "merge-conflict.decorators.enabled": true,
+
+  // Controls where the diff view should be opened when comparing changes in merge conflicts.
+  //  - Current: Open the diff view in the current editor group.
+  //  - Beside: Open the diff view next to the current editor group.
+  //  - Below: Open the diff view below the current editor group.
+  "merge-conflict.diffViewPosition": "Current",
+
+// Default Configuration Overrides
+
+  // Configure editor settings to be overridden for [git-commit] language.
+  "[git-commit]":  {
+    "editor.rulers": [
+        72
+    ]
+  },
+
+  // Configure editor settings to be overridden for [go] language.
+  "[go]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [json] language.
+  "[json]":  {
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+  },
+
+  // Configure editor settings to be overridden for [makefile] language.
+  "[makefile]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [markdown] language.
+  "[markdown]":  {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
+  },
+
+  // Configure editor settings to be overridden for [yaml] language.
+  "[yaml]":  {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": false
+  },
+
+// Gulp
+
+  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
+  "gulp.autoDetect": "on",
+
+// Remote
+
+  // Override the kind of an extension. `ui` extensions are installed and run on the local machine while `workspace` extensions are run on the remote. By overriding an extension's default kind using this setting, you specify if that extension should be installed and enabled locally or remotely.
+  "remote.extensionKind": {
+    "pub.name": "ui"
+  },
 
 // Npm
 
@@ -2013,22 +2085,16 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - view: Show references in separate view.
   "references.preferredLocation": "peek",
 
-// Merge Conflict
+// Node debug
 
-  // Whether to automatically navigate to the next merge conflict after resolving a merge conflict.
-  "merge-conflict.autoNavigateNextConflict.enabled": false,
+  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
+  //  - disabled: Auto attach is disabled and not shown in status bar.
+  //  - on: Auto attach is active.
+  //  - off: Auto attach is inactive.
+  "debug.node.autoAttach": "disabled",
 
-  // Create a Code Lens for merge conflict blocks within editor.
-  "merge-conflict.codeLens.enabled": true,
-
-  // Create decorators for merge conflict blocks within editor.
-  "merge-conflict.decorators.enabled": true,
-
-  // Controls where the diff view should be opened when comparing changes in merge conflicts.
-  //  - Current: Open the diff view in the current editor group.
-  //  - Beside: Open the diff view next to the current editor group.
-  //  - Below: Open the diff view below the current editor group.
-  "merge-conflict.diffViewPosition": "Current",
+  // Controls whether to show a warning when the 'useWSL' attribute is used.
+  "debug.node.showUseWslIsDeprecatedWarning": true,
 
 // Grunt
 
@@ -2079,11 +2145,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether auto detection of Jake tasks is on or off. Default is on.
   "jake.autoDetect": "on",
-
-// Gulp
-
-  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
-  "gulp.autoDetect": "on",
 }
 ```
 

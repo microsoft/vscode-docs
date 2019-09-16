@@ -102,7 +102,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 1. To verify the Django project, make sure your virtual environment is activated, then start Django's development server using the command `python manage.py runserver`. The server runs on the default port 8000, and you see output like the following output in the terminal window:
 
-    ```output
+    ```
     Performing system checks...
 
     System check identified no issues (0 silenced).
@@ -357,7 +357,7 @@ In this section, you start by creating a single page using a template. In subseq
             <title>Hello, Django</title>
         </head>
         <body>
-            <strong>Hello there, \{{ name }}!</strong> It's \{{ date | date:'l, d F, Y' }} at \{{ date | time:'H:i:s' }}
+            <strong>Hello there, \{{ name }}!</strong> It's \{{ date | date:"l, d F, Y" }} at \{{ date | time:"H:i:s" }}
         </body>
     </html>
     ```

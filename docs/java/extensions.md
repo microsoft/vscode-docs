@@ -13,7 +13,7 @@ Visual Studio Code provides many features as a Java language editor. You can als
 
 > **Tip:** To see how to install and manage your extensions, refer to the [extension documentation](/docs/editor/extension-gallery.md).
 
-Thanks to the great Java community around VS Code, you can search for a great number of Java extensions easily within VS Code:
+Thanks to the great Java community around VS Code, you can search for a large number of Java extensions easily within VS Code:
 
 1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
 2. Filter the extensions list by typing "java".
@@ -61,7 +61,7 @@ We also appreciate contributions to any of our existing extensions and we hope y
 
 ## Recommended extensions with great Java support
 
-We'd also like to recommend couple other extensions we believe are great to make VS Code even better for Java developers.
+We'd also like to recommend a couple of other extensions we believe are great to make VS Code even better for Java developers.
 
 1. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
 2. [LeetCode](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-leetcode) helps you sharpen your coding skills by solving LeetCode problems with Visual Studio Code.
@@ -76,7 +76,7 @@ You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azur
 
 ### Team development
 
-* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps servers, allowing you to easily monitory builds, pull requests, and work items for your TFVC or Git source repositories.
+* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps servers, allowing you to easily monitor builds, pull requests, and work items for your TFVC or Git source repositories.
 
 ### Internet of Things
 
@@ -84,7 +84,7 @@ You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azur
 
 ### General tools
 
-* The [Azure Tools Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) provides a rich set of extensions that make it easy to discover and interact with Azure services to power your applications.
+* The [Azure Tools Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) provides a rich set of extensions that makes it easy to discover and interact with Azure services to power your applications.
 
 * The [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author Azure Resource Manager templates in VS Code.
 

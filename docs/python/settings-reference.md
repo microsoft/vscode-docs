@@ -29,6 +29,7 @@ Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our
 | python.terminal.launchArgs | `[]` | Launch arguments that are given to the Python interpreter when you run a file using commands such as **Python: Run Python File in Terminal**. In the `launchArgs` list, each item is a top-level command-line element that's separated by a space (quoted values that contain spaces are a single top-level element and are thus one item in the list). For example, for the arguments `--a --b --c {"value1" : 1, "value2" : 2}`, the list items should be `["--a", "--b", "--c", "{\"value1\" : 1, \"value2\" : 2}\""]`. Note that Visual Studio code ignores this setting when debugging because it instead uses arguments from your selected debugging configuration in `launch.json`. |
 | python.terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
 | python.terminal.activateEnvironment | `true` | Indicates whether to automatically activate the environment you select using the **Python: Select Interpreter** command. For example, when this setting is `true` and you select a virtual environment, the extension automatically runs the environment's *activate* command (`source env/bin/activate` on macOS/Linux; `env\scripts\activate` on Windows). |
+| python.insidersChannel | `off` | Specifies whether to participate in the Insiders program and the channel to use. Set to `weekly` or `daily` to automatically download and install the latest Insiders builds of the Python extension, which include upcoming features and bug fixes.
 
 ## Workspace symbol (tags) settings
 
@@ -70,15 +71,21 @@ The `disabled`, `errors`, `warnings`, and `information` settings can contain the
 
 | Value | Default type | Description or message text |
 | --- | --- | --- |
-| "not-callable" | Warning | (object may not be callable) |
-| "undefined-variable" | Warning | (unknown variable '{0}') |
-| "unresolved-import" | Warning | "Unable to resolve 'module_name'. IntelliSense may be missing for this module." |
-| "too-many-function-arguments" | Warning | Too many arguments have been provided to a function call. |
-| "too-many-positional-arguments-before-star" | Warning | Too many arguments have been provided before a starred argument. |
-| "positional-argument-after-keyword" | Warning | A positional argument has been provided after a keyword argument. |
-| "unknown-parameter-name" | Warning | The keyword argument name provided is unknown. |
-| "parameter-already-specified" | Warning | A argument with this name has already been specified. |
-| "parameter-missing" | Warning | A required positional argument is missing. |
+| inherit-non-class | Warning | Attempted to inherit something that is not a class. |
+| too-many-function-arguments | Warning | Too many arguments have been provided to a function call. |
+| too-many-positional-arguments-before-star | Warning | Too many arguments have been provided before a starred argument. |
+| parameter-already-specified | Warning | A argument with this name has already been specified. |
+| parameter-missing | Warning | A required positional argument is missing. |
+| positional-argument-after-keyword | Warning | A positional argument has been provided after a keyword argument. |
+| return-in-init | Warning | Encountered an explicit return in `__init__` function. |
+| typing-generic-arguments | Warning | An error occurred while constructing `Generic`. |
+| typing-typevar-arguments | Warning | An error occurred while constructing `TypeVar`. |
+| typing-newtype-arguments | Warning| An error occurred while constructing `NewType`. |
+| unknown-parameter-name | Warning | The keyword argument name provided is unknown. |
+| unresolved-import | Warning | An import cannot be resolved, and may be missing.|
+| undefined-variable | Warning | A variable has been used that has not yet been defined.|
+| variable-not-defined-globally | Warning | A variable is not defined in the global scope. |
+| variable-not-defined-nonlocal | Warning | A variable is not defined in non-local scopes. |
 
 To suppress the "undefined-variable" messages, for example, use the setting `"python.analysis.disabled": ["undefined-variable"]`. To suppress those messages and "too-many-function-arguments" messages as well, use the setting `"python.analysis.disabled": ["undefined-variable", "too-many-function-arguments"]`.
 

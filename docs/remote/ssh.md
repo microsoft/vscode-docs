@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 ---
 # Remote Development using SSH
 
@@ -21,17 +21,17 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ### System requirements
 
-**Local:** See minimum requirements for [VS Code](/docs/supporting/requirements.md). A supported [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) must also be installed.
+**Local:**  A supported [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) must also be installed.
 
 **Remote SSH Host**: A running [SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) on:
 
-- **Full support:** x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
+- x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
+- ARMv7l (AArch32) Raspbian Stretch/9+ (32-bit).
+- **Experimental** ([VS Code Insiders only](https://code.visualstudio.com/insiders/)): ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
 
-- **Experimental support:** ARMv7l (or ARMv8 in 32-bit mode) Raspbian Stretch/9+ (32-bit).
+Other `glibc` based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l (AArch64) should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
 
-Other `glibc` based Linux distributions for x86_64 and ARMv7l should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
-
-While ARMv7l support is available in VS Code Insiders, some extensions installed on these devices may not work due to the use of x86 native code in the extension.
+While ARMv7l (AArch32) and ARMv8l (AArch64) support is available, some extensions installed on these devices may not work due to the use of x86 native code in the extension.
 
 ### Installation
 
@@ -43,19 +43,17 @@ To get started, you need to:
 
 3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
-4. [Optional] If you are on macOS or Linux and need to enter a token or password when connecting to your host, [you can enable `ControlMaster` in your SSH config](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) to prevent you from having to enter it multiple times.
-
 ### Connect to a remote host
 
 Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
-> **Note:** See [System Requirements](#system-requirements) for information about supported SSH hosts. When using support for ARMv7l `glibc` distributions like Raspbian in VS Code Insiders, note that some extensions installed on the remote host may not work due the use of x86 native code in the extension.
+> **Note:** When using ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension. Experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only. See [system requirements](#system-requirements) for supported hosts.
 
 To get started, follow these steps:
 
 1. First, **configure key based authentication** on the host you plan to connect to by adding your local public SSH key to `~/.ssh/authorized_keys` on the host. If you are new to SSH or are running into trouble, see [Configuring key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) for additional information on setting this up. If you followed the Azure VM tutorial, you can skip this step.
 
-    > **Note:** If you skip this step, you will end up needing to enter your password twice due to [vscode-remote-release#642](https://github.com/microsoft/vscode-remote-release/issues/642). Also note that PuTTY for Windows is not a [supported client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
+    > **Note:** PuTTY for Windows is not a [supported client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
 
 2. Run **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) and enter the host and your user on the host in the input box as follows: `user@hostname`.
 
@@ -198,6 +196,7 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
 - Windows and macOS SSH hosts are **not** yet supported. (Windows and macOS clients **are** supported.)
 - Alpine Linux and non-glibc based Linux SSH hosts are not supported.
+- Experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 - Older (community supported) Linux distributions require workarounds to install the [needed prerequisites](/docs/remote/linux.md).
 - PuTTY is not supported on Windows.
 - If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
@@ -218,7 +217,9 @@ The Docker extension is configured to run as a local "UI" extension by default. 
 
 Many extensions will work on remote SSH hosts without modification. However, in some cases, certain features may require changes. If you run into an extension issue, there is [a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
-In addition, some extensions installed on ARMv7l (VS Code Insiders only) devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARMv7l.
+In addition, some extensions installed on ARMv7l (AArch322) / ARMv8l (AArch64) devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARMv7l / ARMv8l.
+
+Experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 ## Common questions
 
@@ -232,9 +233,7 @@ See [Installing a supported SSH server](/docs/remote/troubleshooting.md#installi
 
 ### Can I sign into my SSH server with another/additional authentication mechanism like a password?
 
-Yes, you should be prompted to enter your token or password automatically.
-
-However, you will end up needing to enter your password twice due to [vscode-remote-release#642](https://github.com/microsoft/vscode-remote-release/issues/642). Enabling `ControlMaster` in your SSH config can help, but we have seen mixed results with this setting on Windows SSH clients. See [Enabling alternate SSH authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) for information on the correct settings.
+Yes, you should be prompted to enter your token or password automatically. However, note that passwords are not saved, so using [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) is typically more convenient.
 
 ### How do I fix SSH errors about "bad permissions"?
 
@@ -248,17 +247,23 @@ See [Linux Prerequisites](/docs/remote/linux.md) for details.
 
 ### What are the connectivity requirements for the VS Code Server when it is running on a remote machine / VM?
 
-The VS Code Server requires outbound HTTPS (port 443) connectivity to:
+Installation of VS Code Server requires that your local machine has outbound HTTPS (port 443) connectivity to:
 
 - `update.code.visualstudio.com`
-- `marketplace.visualstudio.com`
 - `vscode.blob.core.windows.net`
+- `*.vo.msecnd.net` (Azure CDN)
+
+By default, the Remote - SSH will attempt to download on the remote host, but if you enable `remote.SSH.allowLocalServerDownload`, the extension will fall back to downloading VS Code Server locally and transferring it remotely once a connection is established.
+
+You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel to install extensions, your local machine and VS Code Server server will need outbound HTTPS (port 443) access  to:
+
+- `marketplace.visualstudio.com`
 - `*.vo.msecnd.net` (Azure CDN)
 - `*.gallerycdn.vsassets.io` (Azure CDN)
 
-All other communication between the server and the VS Code client is accomplished through an authenticated, secure, SSH tunnel. You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
-
 Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
+
+All other communication between the server and the VS Code client is accomplished through the authenticated, secure SSH tunnel.
 
 ### Can I use local tools on source code sitting on the remote SSH host?
 

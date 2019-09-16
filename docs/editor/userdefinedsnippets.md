@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Snippets in Visual Studio Code
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Snippets in Visual Studio Code
@@ -135,6 +135,7 @@ For inserting the current date and time:
 * `CURRENT_HOUR` The current hour in 24-hour clock format
 * `CURRENT_MINUTE` The current minute
 * `CURRENT_SECOND` The current second
+* `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
 
 For inserting line or block comments, honoring the current language:
 

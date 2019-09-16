@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 49744351-83ef-4ef6-99e7-2485e6e9c79f
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to contribute tasks to Visual Studio Code through an extension (plug-in).
@@ -68,7 +68,7 @@ const taskProvider = vscode.tasks.registerTaskProvider('rake', {
 });
 ```
 
-Like `provideTasks`, the `resolveTask` method is called by VS Code to get tasks from the extension. `resolveTask` is called ***after*** `provideTasks`, and is intended to provide an optional performance increase for providers that implement it but don't provide tasks from `provideTasks`. It is good practice to have a setting that allows users to turn off individual task providers, so this is common. A user might notice that tasks from a specific provider are slower to get and turn off the provider. In this case, the user might still reference some of the tasks from this provider in their `tasks.json`. If `resolveTask` is not implemented, then there will be a warning that the task in their `tasks.json` was not created. With `resolveTask` an extension can still provide a task for the task defined in `tasks.json`. 
+Like `provideTasks`, the `resolveTask` method is called by VS Code to get tasks from the extension. `resolveTask` is called ***after*** `provideTasks`, and is intended to provide an optional performance increase for providers that implement it but don't provide tasks from `provideTasks`. It is good practice to have a setting that allows users to turn off individual task providers, so this is common. A user might notice that tasks from a specific provider are slower to get and turn off the provider. In this case, the user might still reference some of the tasks from this provider in their `tasks.json`. If `resolveTask` is not implemented, then there will be a warning that the task in their `tasks.json` was not created. With `resolveTask` an extension can still provide a task for the task defined in `tasks.json`.
 
 The `getRakeTasks` implementation does the following:
 

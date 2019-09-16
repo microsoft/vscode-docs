@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -66,6 +66,9 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 - `button.background`: Button background color.
 - `button.foreground`: Button foreground color.
 - `button.hoverBackground`: Button background color when hovering.
+- `checkbox.background`: Background color of checkbox widget.
+- `checkbox.foreground`: Foreground color of checkbox widget.
+- `checkbox.border`: Border color of checkbox widget.
 
 ## Dropdown control
 
@@ -357,6 +360,7 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.modifiedBackground`: Editor gutter background color for lines that are modified.
 - `editorGutter.addedBackground`: Editor gutter background color for lines that are added.
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
+- `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
 
 ## Diff editor colors
 
@@ -372,6 +376,7 @@ For coloring inserted and removed text, use either a background or a border colo
 
 The Editor widget is shown in front of the editor content. Examples are the Find/Replace dialog, the suggestion widget, and the editor hover.
 
+- `editorWidget.foreground`: Foreground color of editor widgets, such as find/replace.
 - `editorWidget.background`: Background color of editor widgets, such as Find/Replace.
 - `editorWidget.border`: Border color of the editor widget unless the widget does not contain a border or defines its own border color.
 - `editorWidget.resizeBorder`: Border color of the resize bar of editor widgets. The color is only used if the widget chooses to have a resize border and if the color is not overridden by a widget.
@@ -384,6 +389,7 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 
 - `editorHoverWidget.background`: Background color of the editor hover.
 - `editorHoverWidget.border`: Border color of the editor hover.
+- `editorHoverWidget.statusBarBackground`: Background color of the editor hover status bar.
 
 The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
 
@@ -445,6 +451,11 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panelTitle.activeBorder`: Border color for the active panel title.
 - `panelTitle.activeForeground`: Title color for the active panel.
 - `panelTitle.inactiveForeground`: Title color for the inactive panel.
+- `panelInput.border`: Input box border for inputs in the panel.
+
+### Preview
+
+- `imagePreview.border`: Border color for image in image preview.
 
 ## Status Bar colors
 
@@ -464,6 +475,8 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.prominentForeground`: Status Bar prominent items foreground color.
 - `statusBarItem.prominentBackground`: Status Bar prominent items background color.
 - `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering.
+- `statusBarItem.remoteBackground`: Background color for the remote indicator on the status bar.
+- `statusBarItem.remoteForeground`: Foreground color for the remote indicator on the status bar.
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
 
@@ -486,6 +499,7 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 - `menu.selectionBackground`: Background color of the selected menu item in menus.
 - `menu.selectionBorder`: Border color of the selected menu item in menus.
 - `menu.separatorBackground`: Color of a separator menu item in menus.
+- `menu.border`: Border color of menus.
 
 ## Notification colors
 
@@ -527,11 +541,15 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `extensionButton.prominentForeground`: Extension view button foreground color (for example **Install** button).
 - `extensionButton.prominentBackground`: Extension view button background color.
 - `extensionButton.prominentHoverBackground`: Extension view button background hover color.
+- `extensionBadge.remoteBackground`: Background color for the remote badge in the extensions view.
+- `extensionBadge.remoteForeground`: Foreground color for the remote badge in the extensions view.
 
 ## Quick picker
 
 - `pickerGroup.border`: Quick picker (Quick Open) color for grouping borders.
 - `pickerGroup.foreground`: Quick picker (Quick Open) color for grouping labels.
+- `quickInput.background`: Quick input background color. The quick input widget is the container for views like the color theme picker.
+- `quickInput.foreground`: Quick input foreground color. The quick input widget is the container for views like the color theme picker.
 
 ## Integrated Terminal colors
 

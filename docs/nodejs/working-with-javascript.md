@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Working with JavaScript
 PageTitle: Working with JavaScript in Visual Studio Code
 ContentId: 3e5af2a6-7669-4b5d-b19f-78077af14fda
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 MetaDescription: Working with JavaScript in Visual Studio Code
 ---
 # Working with JavaScript
@@ -34,19 +34,23 @@ Automatic type acquisition requires [npmjs](https://www.npmjs.com), the Node.js 
 Type declaration files are automatically downloaded and managed by Visual Studio Code for packages listed in your project's `package.json` or that you import into a JavaScript file.
 
 ```json
+{
     "dependencies": {
         "lodash": "^4.17.0"
     }
+}
 ```
 
 You can alternately explicitly list packages to acquire type declaration files for in a [`jsconfig.json`](#_javascript-projects-jsconfigjson).
 
 ```json
+{
     "typeAcquisition": {
         "include": [
             "jquery"
         ]
     }
+}
 ```
 
 Most common JavaScript libraries ship with declaration files or have type declaration files available. You can search for a library's type declaration file package using the [TypeSearch](https://microsoft.github.io/TypeSearch) site.
@@ -64,7 +68,9 @@ If you have npm installed but still see a warning message, you can explicitly te
 For example, on Windows, you would add a path like this to your `settings.json` file:
 
 ```json
+{
   "typescript.npm": "C:\\Program Files\\nodejs\\npm.cmd"
+}
 ```
 
 ## JavaScript projects (jsconfig.json)

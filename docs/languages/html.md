@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
 # HTML in Visual Studio Code
@@ -97,7 +97,7 @@ If you prefer to switch to indentation based folding for HTML use:
 
 ## Formatting
 
-To improve the formatting of your HTML source code, press `kb(editor.action.formatSelection)` and the selected area will be reformatted.
+To improve the formatting of your HTML source code, you can use the **Format Document** command `kb(editor.action.formatDocument)` to format the entire file or **Format Selection** `kb(editor.action.formatSelection)` to just format the selected text.
 
 The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-beautify). The formatting options offered by that library are surfaced in the VS Code [settings](/docs/getstarted/settings.md):
 
@@ -141,6 +141,12 @@ For example, to use Emmet HTML abbreviations inside JavaScript:
 ```
 
 We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
+
+## HTML custom data
+
+You can extend VS Code's HTML support through a declarative [custom data format](https://github.com/Microsoft/vscode-html-languageservice/blob/master/docs/customData.md). By setting `html.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new HTML tags, attributes and attribute values. VS Code will then offer language support such as completion & hover information for the provided tags, attributes and attribute values.
+
+You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
 
 ## HTML extensions
 

@@ -126,8 +126,8 @@ Key|Command
 `kb(workbench.action.focusFirstEditorGroup)`|Focus into first editor group
 `kb(workbench.action.focusSecondEditorGroup)`|Focus into second editor group
 `kb(workbench.action.focusThirdEditorGroup)`|Focus into third editor group
-`kb(workbench.action.focuspreviousGroup)`|Focus into previous editor group
-`kb(workbench.action.focusnextGroup)`|Focus into next editor group
+`kb(workbench.action.focusPreviousGroup)`|Focus into previous editor group
+`kb(workbench.action.focusNextGroup)`|Focus into next editor group
 `kb(workbench.action.moveEditorLeftInGroup)`| Move editor left
 `kb(workbench.action.moveEditorRightInGroup)`| Move editor right
 `kb(workbench.action.moveActiveEditorGroupLeft)`|Move active editor group left/up

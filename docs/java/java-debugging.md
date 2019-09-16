@@ -52,6 +52,12 @@ Once the debugger is activated, you will find **Run|Debug** on the [CodeLens](/b
 
 ![CodeLens](images/java-debugging/java-codelens.gif)
 
+### Context menu
+
+Another way to start debugging is to right-click a Java file in the File Explorer or editor and select **Run** or **Debug** in the context menu.
+
+![ContextMenu](images/java-debugging/context-menu.png)
+
 ### Pressing F5
 
 Once you click **Run** on the CodeLens or press `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Debug** menu or the Debug view opened by the Debug icon in the Activity Bar on the side of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
@@ -60,7 +66,7 @@ Once you click **Run** on the CodeLens or press `kb(workbench.action.debug.start
   <source src="/docs/java/java-debugging/debug-intro.mp4" type="video/mp4">
 </video>
 
-It's possible that there might be multiple debugging configurations for your project and you can always add and modify those then select the desired one to run.
+It's possible that there might be multiple debugging configurations for your project and you can always add and modify those, then select the desired one to run.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/java-debug.mp4" type="video/mp4">
@@ -68,21 +74,11 @@ It's possible that there might be multiple debugging configurations for your pro
 
 If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations). For more details, please read [Launch configurations](/docs/editor/debugging.md#launch-configurations)
 
-There's also a convenient setting for debugging `current file` so the editor knows which file is currently active and choose it as the entry point.
+There's also a convenient setting for debugging `current file`, so the editor knows which file is currently active and choose it as the entry point.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/current-file.mp4" type="video/mp4">
 </video>
-
-### Accepting inputs
-
-Currently, the VS Code Java Debugger uses the Debug Console as the default console, which doesn't accept input. In order for the console to accept your input (for example when using **Scanner**), you need to change the console to use the Integrated Terminal in `launch.json`.
-
-```json
-"console": "integratedTerminal"
-```
-
-If you'd like to use that setting each time you launch a Java program, you can configure it as a global user setting with `java.debug.settings.console`.
 
 ### Debugging single files
 
@@ -129,6 +125,14 @@ The debugger also lets you evaluate expressions in the **WATCH** window as well 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/expression-evaluation.mp4" type="video/mp4">
 </video>
+
+Currently, the VS Code Java Debugger uses the Integrated Terminal as the default console, which doesn't support expression evaluation. In order for the console to use this feature, you need to change the console to use the Internal Console in `launch.json`.
+
+```json
+"console": "internalConsole"
+```
+
+If you'd like to use that setting each time you launch a Java program, you can configure it as a global user setting with `java.debug.settings.console`.
 
 ### Conditional breakpoint
 
@@ -229,7 +233,7 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `java.debug.settings.enableHotCodeReplace`: Enable hot code replace for Java code. Make sure the auto build is not disabled for [VS Code Java](https://github.com/redhat-developer/vscode-java). See the [Hot Code Replace wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
 - `java.debug.settings.enableRunDebugCodeLens`: Enable the CodeLens provider for the run and debug buttons over main entry points, defaults to `true`.
 - `java.debug.settings.forceBuildBeforeLaunch`: Force building the workspace before launching java program, defaults to `true`.
-- `java.debug.settings.console`: The specified console to launch a Java program, defaults to `internalConsole`. If you want to customize the console for a specific debug session, please modify the `console` configuration in `launch.json`.
+- `java.debug.settings.console`: The specified console to launch a Java program, defaults to `integratedTerminal`. If you want to customize the console for a specific debug session, please modify the `console` configuration in `launch.json`.
   - `internalConsole` - VS Code debug console (input stream not supported).
   - `integratedTerminal` - VS Code integrated terminal.
   - `externalTerminal` - External terminal that can be configured in user settings.

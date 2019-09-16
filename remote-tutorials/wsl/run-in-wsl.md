@@ -4,11 +4,13 @@ Area: wsl
 TOCTitle: Run in WSL
 PageTitle: Run Visual Studio Code in Windows Subsystem for Linux
 MetaDescription: Run Visual Studio Code in Windows Subsystem for Linux
-DateApproved: 7/26/2019
+DateApproved: 9/4/2019
 ---
 # Run in Windows Subsystem for Linux
 
 In the WSL terminal, make sure you are in the helloWorld folder, and type in `'code .'` to launch Visual Studio Code. The `'.'` argument tells VS Code to open the current folder.
+
+> **Tip**: If you are on WSL 2 and the `code` shell command hangs, update to the latest Windows Insiders build from Windows Update.
 
 ![launch VS Code](images/wsl/launch-code.png)
 

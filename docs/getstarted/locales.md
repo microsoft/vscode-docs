@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Display Language
 PageTitle: Visual Studio Code Display Language (Locale)
 ContentId: 413A7FA3-94F8-4FCB-A4A3-F4C1E77EF716
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 MetaDescription: How to change the display language (locale) of Visual Studio Code.
 ---
 # Display Language
@@ -84,3 +84,7 @@ code . --locale=fr
 ### Unable to write to file because the file is dirty
 
 This notification may mean that your `locale.json` file wasn't saved after a previous change. Make sure the file is saved and try to install the Language Pack again.
+
+### Can I contribute to a language pack's translations?
+
+Yes, the [Visual Studio Code Community Localization Project](https://aka.ms/vscodeloc) is open to anyone, where contributors can provide new translations, vote on existing translations, or suggest process improvements.

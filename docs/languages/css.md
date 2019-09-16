@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, SCSS and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, SCSS, and Less support in Visual Studio Code
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less
@@ -98,6 +98,12 @@ Hovering over a selector or property will provide an HTML snippet that is matche
 This is supported for Sass and Less variables in the same file. [CSS variables](https://developer.mozilla.org/docs/Web/CSS/Using_CSS_variables) per the [draft standards proposal](https://drafts.csswg.org/css-variables/) are also supported.
 
 There is jump to definition for `@import` and `url()` links in CSS, SCSS and Less.
+
+## CSS custom data
+
+You can extend VS Code's CSS support through a declarative [custom data format](https://github.com/Microsoft/vscode-css-languageservice/blob/master/docs/customData.md). By setting `css.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new CSS properties, at-directives, pseudo-classes and pesudo-elements. VS Code will then offer language support such as completion & hover information for the provided properties, at-directives, pseudo-classes and pesudo-elements.
+
+You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
 
 ## Transpiling Sass and Less into CSS
 

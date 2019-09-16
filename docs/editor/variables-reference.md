@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
@@ -191,7 +191,7 @@ Running the example:
 
 ![Inputs Example](images/tasks/run-input-example.gif)
 
-The following example shows how to use a user input variable of type `command` in a debug configuration that lets the user pick a test case from a list of all test cases found in a specific folder. It is assumed that some extension provides an `extension.mochaSupport.testPicker` command that locates all test cases in a configurable location and shows a picker UI to pick one of them.
+The following example shows how to use a user input variable of type `command` in a debug configuration that lets the user pick a test case from a list of all test cases found in a specific folder. It is assumed that some extension provides an `extension.mochaSupport.testPicker` command that locates all test cases in a configurable location and shows a picker UI to pick one of them. The arguments for a command input are defined by the command itself.
 
 ```json
 {
@@ -211,6 +211,30 @@ The following example shows how to use a user input variable of type `command` i
             "args": {
                 "testFolder": "/out/tests",
             }
+        }
+    ]
+}
+```
+
+Command inputs can also be used with tasks. In this example, the built-in Terminate Task command is used. It can accept an argument to terminate all tasks.
+
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Terminate All Tasks",
+            "command": "echo ${input:terminate}",
+            "type": "shell",
+            "problemMatcher": []
+        }
+    ],
+     "inputs": [
+        {
+            "id": "terminate",
+            "type": "command",
+            "command": "workbench.action.tasks.terminate",
+            "args": "terminateAll"
         }
     ]
 }

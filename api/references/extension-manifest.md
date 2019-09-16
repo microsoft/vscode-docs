@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -29,7 +29,6 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 | `main`                                                  |          | `string`                                   | The entry point to your extension.                                                                                                                                                                                                                                                                                     |
 | [`contributes`](/api/references/contribution-points)    |          | `object`                                   | An object describing the extension's [contributions](/api/references/contribution-points).                                                                                                                                                                                                                             |
 | [`activationEvents`](/api/references/activation-events) |          | `array`                                    | An array of the [activation events](/api/references/activation-events) for this extension.                                                                                                                                                                                                                             |
-| `badges`                                                |          | `array`                                    | Array of [approved](/api/references/extension-manifest#approved-badges) badges to display in the sidebar of the Marketplace's extension page. Each badge is an object containing 3 properties: `url` for the badge's image URL, `href` for the link users will follow when clicking the badge and `description`.       |
 | `markdown`                                              |          | `string`                                   | Controls the Markdown rendering engine used in the Marketplace. Either `github` (default) or `standard`.                                                                                                                                                                                                               |
 | `qna`                                                   |          | `marketplace` (default), `string`, `false` | Controls the **Q & A** link in the Marketplace. Set to `marketplace` to enable the default Marketplace Q & A site. Set to a string to provide the URL of a custom Q & A site. Set to `false` to disable Q & A altogether.                                                                                              |
 | `dependencies`                                          |          | `object`                                   | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).                                                                                                                                                            |
@@ -152,56 +151,6 @@ Set a `category` for your extension. Extensions in the same `category` are group
   "categories": ["Linters", "Programming Languages", "Other"]
 }
 ```
-
-### Approved Badges
-
-Due to security concerns, we only allow badges from trusted services.
-
-We allow badges from the following URL prefixes:
-
-- api.bintray.com
-- api.travis-ci.com
-- api.travis-ci.org
-- app.fossa.io
-- badge.buildkite.com
-- badge.fury.io
-- badge.waffle.io
-- badgen.net
-- badges.frapsoft.com
-- badges.gitter.im
-- badges.greenkeeper.io
-- cdn.travis-ci.com
-- cdn.travis-ci.org
-- ci.appveyor.com
-- circleci.com
-- [cla.opensource.microsoft.com](https://cla.opensource.microsoft.com)
-- codacy.com
-- codeclimate.com
-- codecov.io
-- coveralls.io
-- david-dm.org
-- deepscan.io
-- [dev.azure.com](https://dev.azure.com)
-- docs.rs
-- gemnasium.com
-- githost.io
-- gitlab.com
-- godoc.org
-- goreportcard.com
-- img.shields.io
-- isitmaintained.com
-- [marketplace.visualstudio.com](https://marketplace.visualstudio.com)
-- nodesecurity.io
-- opencollective.com
-- snyk.io
-- travis-ci.com
-- travis-ci.org
-- [visualstudio.com](https://visualstudio.com)
-- vsmarketplacebadge.apphb.com
-- www.bithound.io
-- www.versioneye.com
-
-If you have other badges you would like to use, please open a Github [issue](https://github.com/Microsoft/vscode/issues) and we're happy to take a look.
 
 ## Combining Extension Contributions
 

@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Get the sample
 PageTitle: Clone the sample Node.js repository
 MetaDescription: Clone the sample Node.js GitHub repository
-DateApproved: 7/26/2019
+DateApproved: 9/4/2019
 ---
 # Get the sample
 

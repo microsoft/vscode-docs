@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 ---
 # Advanced Container Configuration
 
@@ -65,67 +65,107 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ## Changing the default source code mount
 
-If you add the `image` or `dockerFile` properties to `devcontainer.json`, VS Code will automatically "bind" mount your current workspace folder into the container. While this is convenient, you may want to change [mount settings](https://docs.docker.com/engine/reference/commandline/service_create/#add-bind-mounts-volumes-or-memory-filesystems), alter the type of mount, or [run in a remote container](#developing-inside-a-container-on-a-remote-docker-host).
+If you add the `image` or `dockerFile` properties to `devcontainer.json`, VS Code will automatically "bind" mount your current workspace folder into the container. While this is convenient, you may want to change [mount settings](https://docs.docker.com/engine/reference/commandline/service_create/#add-bind-mounts-volumes-or-memory-filesystems), alter the type of mount, location, or [run in a remote container](#developing-inside-a-container-on-a-remote-docker-host).
 
 You can use the `workspaceMount` property in `devcontainer.json` to change the automatic mounting behavior. It expects the same value as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag).
 
 For example:
 
 ```json
-"workspaceMount": "src=/absolute/path/to/source/code,dst=/workspace,type=bind,consistency=cached",
+"workspaceMount": "src=${localWorkspaceFolder}/sub-folder,dst=/workspace,type=bind,consistency=delegated",
 "workspaceFolder": "/workspace"
 ```
 
-This also allows you to do something like a volume mount instead, which can be useful particularly when [using a remote Docker Host](#developing-inside-a-container-on-a-remote-docker-host) or [improving disk performance](#use-a-named-volume-instead-of-a-bind-mount).
+This also allows you to do something like a named volume mount instead of a bind mount, which can be useful particularly when [using a remote Docker Host](#developing-inside-a-container-on-a-remote-docker-host) or you [want to store your entire source tree in a volume](#use-a-named-volume-for-your-entire-source-tree).
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
 ## Improving container disk performance
 
-The Remote - Containers extension uses Docker's defaults for creating "bind mounts" to the local filesystem for your source code. While this is the safest option, you may encounter slower individual file disk performance when running commands like `yarn install` or `npm install` from inside the container. There are a two things you can do to resolve these types of issue.
+The Remote - Containers extension uses Docker's defaults for creating "bind mounts" to the local filesystem for your source code. While this is the simplest option, on macOS and Windows, you may encounter slower disk performance when running commands like `npm install` from inside the container. There are few things you can do to resolve these types of issue.
 
-### Update the mount consistency in Docker for Mac
+### Use a targeted named volume
 
-A trick that is often used with Docker Desktop for Mac is to change the [mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) to `cached` or `delegated`.
+Since macOS and Windows run containers in a VM, "bind" mounts are not as fast as using the container's filesystem directly. Fortunately, Docker has the concept of a  "named volume" that can act like the container's filesystem but survives container rebuilds. This makes it ideal for storing package folders like `node_modules` or output folders like `build` or `bin` where write performance is critical. Just follow the steps below
 
-* If you are using an **image** or **Dockerfile**, you can change the consistency requirements using `devcontainer.json`. For example:
+**Dockerfile or image**:
 
-    ```json
-    "workspaceMount": "src=/absolute/path/to/local/source/code,dst=/workspace,type=bind,consistency=cached",
-    "workspaceFolder": "/workspace"
-    ```
+The [vscode-remote-try-node](https://github.com/Microsoft/vscode-remote-try-node) repo illustrates this idea with the `node_modules` folder. Consider this line from  `devcontainer.json`:
 
-* For **Docker Compose**, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the consistency requirements. For example:
+```json
+"workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=cached",
+"workspaceFolder": "/workspace"
+"runArgs": [
+    "-v", "try-node-node_modules:/workspace/node_modules"
+]
+```
 
-    ```yaml
-      volumes:
-        - type: bind
-          source: /local/path/to/source/code
-          target: /workspace
-          consistency: cached
-    ```
+The `workspaceMount` property ensures the source code is always mounted into the container in the same location. The `runArgs` command then creates a named volume called `try-node-node_modules` and mounts the `node_modules` sub-folder into it instead. The rest of the files then come from the local filesystem.
 
-    You'll also want to be sure the `workspaceFolder` property in `devcontainer.json` to match:
+Since this sample [runs VS Code as non-root user](#adding-a-non-root-user-to-your-dev-container) in the container called "node", a `postCreateCommand` is included to make sure the user can access the `node_modules` folder.
 
-    ```json
-    "workspaceFolder": "/workspace"
-    ```
+```json
+"workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=cached",
+"workspaceFolder": "/workspace",
+"runArgs": [
+    "-u", "node",
+    "-v", "try-node-node_modules:/workspacee/node_modules"
+],
+"postCreateCommand": "sudo chown node:node node_modules"
+```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-### Use a named volume instead of a bind mount
+**Docker Compose**:
+In this case, you will add the named volume to your Docker Compose file (or an [extended one](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) for the appropriate service(s). For example:
 
-Local filesystem bind mounts are convenient, but are not as fast as using the container's filesystem directly. The problem with using the container's filesystem is that it is lost once you remove or rebuild the container. A middle ground is to use a "named volume". A named volume acts like the container's filesystem but survives container rebuilds and can even be shared across containers.
+```yaml
+version: '3'
+services:
+  your-service-name-here:
+    volumes:
+       # Or wherever you've mounted your source code
+      - .:/workspace
+      - your-service-name-here-node_modules: /workspace/node_modules
 
-Note that using a named volume will require you to **clone your source code inside of the volume** rather than on your local filesystem.
+volumes:
+  - try-node-node_modules:
+```
 
-You can set up a named volume by taking an existing `devcontainer.json` configuration and modifying it as follows (updating `your-volume-name-here` with whatever you want to call the volume).
+You'll also want to be sure the `workspaceFolder` property in `devcontainer.json` matches the place your actual source code mounted:
+
+```json
+"workspaceFolder": "/workspace"
+```
+
+If you're running in the container with a [user other than root](#adding-a-non-root-user-to-your-dev-container), add a postCreateCommand to update the owner of the folder you mount since it may have been mounted as root.
+
+```json
+"workspaceFolder": "/workspace",
+"postCreateCommand": "sudo chown your-user-name-here node_modules"
+```
+
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+### Update the mount consistency to delegated in Docker for Mac
+
+By default, the Remote - Containers extension uses the [cached mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) on macOS since this provides a good mix between performance and write guarantees on the host OS. However, you can opt to use the `delegated` consistency instead if you do not expect to be writing to the same file in both locations very often. Just update the `remote.containers.workspaceMountConsistency` property in settings.json:
+
+```json
+"remote.containers.workspaceMountConsistency": "delegated"
+```
+
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+### Use a named volume for your entire source tree
+
+Finally, if none of the above options meet your needs, you can go one step farther and **clone your entire source tree inside of a named volume** rather than locally. You can set up a named volume by taking an existing `devcontainer.json` configuration and modifying it as follows (updating `your-volume-name-here` with whatever you want to call the volume).
 
 * If you are using an **image** or **Dockerfile**, you can specify a named volume using `devcontainer.json`. For example:
 
     ```json
-    "workspaceFolder": "/workspace",
     "workspaceMount": "src=your-volume-name-here,dst=/workspace,type=volume,volume-driver=local"
+    "workspaceFolder": "/workspace",
     ```
 
 * When a **Docker Compose** file is referenced, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service(s):
@@ -148,6 +188,8 @@ You can set up a named volume by taking an existing `devcontainer.json` configur
     ```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+Finally, **start an integrated terminal** `kbstyle(Ctrl+Shift+)` and use the `git clone` command to clone your source code into the `/workspace` folder.
 
 ## Avoiding extension reinstalls on container rebuild
 
@@ -520,15 +562,15 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
     If you do **not** have login access to the remote host, use a Docker "volume" for your source code. Update `.devcontainer/devcontainer.json` as follows (replacing `remote-workspace` with a unique volume name if desired):
 
     ```json
-    "workspaceFolder": "/workspace",
     "workspaceMount": "src=remote-workspace,dst=/workspace,type=volume,volume-driver=local"
+    "workspaceFolder": "/workspace",
     ```
 
     If you **do** have login access, you can use a remote filesystem bind mount instead:
 
     ```json
-    "workspaceFolder": "/workspace",
     "workspaceMount": "src=/absolute/path/on/remote/machine,dst=/workspace,type=bind"
+    "workspaceFolder": "/workspace",
     ```
 
     The `workspaceMount` property supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag) if you have a different scenario in mind.

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -239,6 +239,19 @@ Split terminals on Windows will start in the directory that the parent terminal 
 ```
 
 There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
+
+## Changing shell for tasks and debug
+
+You can set `terminal.integrated.automationShell.<platform>` to override the shell and shell args used by tasks and debug:
+
+```jsonc
+{
+    "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+    // Use a fully POSIX-compatible shell and avoid running a complex ~/.fishrc
+    // for tasks and debug
+    "terminal.integrated.automationShell.osx": "/bin/sh"
+}
+```
 
 ## Changing how the terminal is rendered
 

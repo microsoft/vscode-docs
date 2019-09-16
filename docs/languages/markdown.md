@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
@@ -27,7 +27,7 @@ Here is an example with a very simple file.
 
 ![Markdown Preview](images/Markdown/preview.png)
 
->**Tip:** You can also right-click on the editor Tab and select **Open Preview to the Side** or use the **Command Palette** (`kb(workbench.action.showCommands)`) to run the **Markdown: Open Preview to the Side** command.
+>**Tip:** You can also right-click on the editor Tab and select **Open Preview** (`kb(markdown.showPreview)`) or use the **Command Palette** (`kb(workbench.action.showCommands)`) to run the **Markdown: Open Preview to the Side** command (`kb(markdown.showPreviewToSide)`).
 
 ### Dynamic previews and preview locking
 
@@ -114,13 +114,13 @@ Here are the details about each of these security levels:
 
 ### Strict
 
-This is the default setting. Only loads trusted content and disables script execution. Blocks `http` images and all SVG images not from one of our [trusted badge providers](/api/references/extension-manifest.md#approved-badges).
+This is the default setting. Only loads trusted content and disables script execution. Blocks `http` images.
 
 It is strongly recommended that you keep `Strict` security enabled unless you have a very good reason to change it AND you trust all markdown files in the workspace.
 
 ### Allow insecure content
 
-Keeps scripts disabled but allows content to be loaded over `http`. Also enables SVG images.
+Keeps scripts disabled but allows content to be loaded over `http`.
 
 ### Disable
 

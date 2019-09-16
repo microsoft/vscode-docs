@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Compiling
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
 PageTitle: TypeScript Compiling with Visual Studio Code
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 MetaDescription: Learn about TypeScript compiling with Visual Studio Code.
 ---
 # Compiling TypeScript
@@ -40,7 +40,7 @@ Later in the article, we'll discuss how you can [change](#using-newer-typescript
 
 ## tsconfig.json
 
-Typically the first step in any new TypeScript project is to add in a `tsconfig.json` file. This defines the TypeScript [project settings](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) such as the compiler options and the files that should be included. To do this, open up the folder where you want to store your source and add in a new file named `tsconfig.json`. Once in this file, IntelliSense (`kb(editor.action.triggerSuggest)`) will help you along the way.
+Typically the first step in any new TypeScript project is to add a `tsconfig.json` file. This defines the TypeScript [project settings](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) such as the compiler options and the files that should be included. To do this, open up the folder where you want to store your source and add a new file named `tsconfig.json`. Once in this file, IntelliSense (`kb(editor.action.triggerSuggest)`) will help you along the way.
 
 ![tsconfig.json IntelliSense](images/compiling/tsconfigintellisense.png)
 
@@ -114,19 +114,19 @@ You can also define the TypeScript build task as the default build task so that 
 }
 ```
 
-Notice that the task has a `group` JSON object which sets the task `kind` to `build` and makes it the default. Now when you select the **Run Build Task** command or press (`kb(workbench.action.tasks.build)`), you are not prompted to select a task and your compile starts.
+Notice that the task has a `group` JSON object which sets the task `kind` to `build` and makes it the default. Now when you select the **Run Build Task** command or press (`kb(workbench.action.tasks.build)`), you are not prompted to select a task and your compilation starts.
 
 > **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging Node.js applications in VS Code can be found in the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md#debugging-your-node-application)
 
 ### Step 4: Reviewing build issues
 
-The VS Code task system can also detect build issues through a [problem matcher](/docs/editor/tasks.md#defining-a-problem-matcher). A problem matcher parse build output based on the specific build tool and provides integrated issue display and navigation. VS Code ships with many problem matchers and `$tsc` seen above in `tasks.json` is the problem matcher for TypeScript compiler output.
+The VS Code task system can also detect build issues through a [problem matcher](/docs/editor/tasks.md#defining-a-problem-matcher). A problem matcher parses build output based on the specific build tool and provides integrated issue display and navigation. VS Code ships with many problem matchers and `$tsc` seen above in `tasks.json` is the problem matcher for TypeScript compiler output.
 
 As an example, if there was a simple error (extra 'g' in `console.log`) in our TypeScript file, we may get the following output from `tsc`:
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
-This would show up in the terminal panel (`kb(workbench.action.terminal.toggleTerminal)`) and selecting the terminal **Tasks - build tsconfig.json** in the terminal view drop-down.
+This would show up in the terminal panel (`kb(workbench.action.terminal.toggleTerminal)`) and selecting the **Tasks - build tsconfig.json** in the terminal view drop-down.
 
 You can see the error and warning counts in the Status Bar. Click on the error and warnings icon to get a list of the problems and navigate to them.
 

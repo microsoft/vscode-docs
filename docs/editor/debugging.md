@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 8/7/2019
+DateApproved: 9/4/2019
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/Debugging.png
 ---
@@ -317,6 +317,10 @@ Inline breakpoints can also have conditions. Editing multiple breakpoints on a l
 Instead of placing breakpoints directly in source code, a debugger can support creating breakpoints by specifying a function name. This is useful in situations where source is not available but a function name is known.
 
 A function breakpoint is created by pressing the **+** button in the **BREAKPOINTS** section header and entering the function name. Function breakpoints are shown with a red triangle in the **BREAKPOINTS** section.
+
+### Data breakpoints
+
+If a debugger supports data breakpoints they can be set from the **VARIABLES** view and will get hit when the value of the underlying variable changes. Data breakpoints are shown with a red octagon in the **BREAKPOINTS** section.
 
 ## Debug Console REPL
 
