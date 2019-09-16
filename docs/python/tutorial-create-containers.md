@@ -62,7 +62,7 @@ To create an Azure Container Registry, as shown later in this tutorial, do the f
 
 1. Make sure that the registry endpoint you created is visible under **Registries** in the **Docker** explorer of VS Code:
 
-    ![Docker explorer in VS Code showing registries](images/deploy-containers/registries.png)
+    ![Docker explorer in VS Code showing registries](images/create-containers/registries.png)
 
 ## Create a container image
 
@@ -239,7 +239,7 @@ With the necessary `Dockerfile` in place, you're ready to build the Docker image
 
 1. When the build is complete, the image appears in the **Docker** explorer under **Images**:
 
-    ![Docker Image](images/deploy-containers/image-list.png)
+    ![Docker Image](images/create-containers/image-list.png)
 
 1. Run and test your container locally by using the following command, replacing `<image_name>` with your specific image, and changing the port numbers as needed. For web apps, you can then open browser to `localhost:<port>` to see the running app.
 
@@ -255,11 +255,11 @@ With the necessary `Dockerfile` in place, you're ready to build the Docker image
 
 The Docker extension provides a simple UI to manage and even run your images rather than using the Docker CLI. Just expand the **Image** node in the Docker explorer, right-click any image, and select any of the menu items:
 
-![Managing images with the Docker extension](images/deploy-containers/manage-images.png)
+![Managing images with the Docker extension](images/create-containers/manage-images.png)
 
 In addition, on the top of the Docker explorer, next to the refresh button, is a button for **System Prune**. This command cleans up any dangling and otherwise unused images on your local computer. It's a good idea to periodically use the command to reclaim space on your file system.
 
-![System Prune command in the Docker explorer](images/deploy-containers/system-prune-command.png)
+![System Prune command in the Docker explorer](images/create-containers/system-prune-command.png)
 
 ## Push the image to a registry
 
@@ -271,7 +271,7 @@ Once you're confident that your image works, the next step is to push it to your
 
 1. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Docker** explorer, then expand the registry and image name to see the exact image. (You may need to refresh the **Docker** explorer.)
 
-    ![The built app image in the Azure Container Registry](images/deploy-containers/image-in-acr.png)
+    ![The built app image in the Azure Container Registry](images/create-containers/image-in-acr.png)
 
 > **Tip:** The first time you push an image, you see that VS Code uploads all of the different layers that make up the image. Subsequent push operations, however, upload only those layers that have changed. Because it's typically only your app code that's changes, those uploads happen much more quickly, making for a tight edit-build-deploy-test loop. To see this, make a small change to your code, rebuild the image, and then push again to the registry. The whole process typically completes in a matter of seconds.
 
