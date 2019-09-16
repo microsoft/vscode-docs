@@ -189,7 +189,7 @@ msg.split()
 
 Select the blue **Continue** button on the toolbar again (or press F5) to run the program to completion. "Hello World" appears in the **Python Debug Console** if you switch back to it, and VS Code exits debugging mode once the program is complete.
 
-If you restart the debugger, the debugger again stops on the first breakpoint. 
+If you restart the debugger, the debugger again stops on the first breakpoint.
 
 To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Debug > Stop debugging** menu command.
 
@@ -331,5 +331,5 @@ There is then much more to explore with Python in Visual Studio Code:
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-- [Deploy Python to Azure App Service using containers](/docs/python/tutorial-deploy-containers.md)
-- [Deploy Python to Azure App Service on Linux (Preview)](/docs/python/tutorial-deploy-app-service-on-linux.md)
+- [Deploy Python to Azure App Service using containers](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01)
+- [Deploy Python to Azure App Service on Linux](https://docs.microsoft.com/azure/python/tutorial-deploy-app-service-on-linux-01)

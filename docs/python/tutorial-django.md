@@ -928,7 +928,7 @@ The completed code project from this tutorial can be found on GitHub: [python-sa
 
 In this tutorial, we've only scratched the surface of everything Django can do. Be sure to visit the [Django documentation](https://docs.djangoproject.com/en/2.1/) and the [official Django tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) for many more details on views, templates, data models, URL routing, the administrative interface, using other kinds of databases, deployment to production, and more.
 
-To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](/docs/python/tutorial-deploy-containers.md). Azure also offers a standard container, [App Service on Linux (Preview)](/docs/python/tutorial-deploy-app-service-on-linux.md), to which you deploy web apps from within VS Code.
+To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01). Azure also offers a standard container, [App Service on Linux](https://docs.microsoft.com/azure/python/tutorial-deploy-app-service-on-linux-01), to which you deploy web apps from within VS Code.
 
 You may also want to review the following articles in the VS Code docs that are relevant to Python:
 
