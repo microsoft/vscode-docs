@@ -26,7 +26,7 @@ Autocomplete and IntelliSense are provided for all files within the current work
 
 While editing, you can right-click different identifiers to take advantage of several convenient commands
 
-- **Go to Definition** (`kb(editor.action.revealDefinition)`) jumps from your code into the code that defines an object. This command is very helpful when you're working with libraries.
+- **Go to Definition** (`kb(editor.action.revealDefinition)`) jumps from your code into the code that defines an object. This command is helpful when you're working with libraries.
 
 - **Peek Definition** (`kb(editor.action.peekDefinition)`), is similar, but displays the definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `kbstyle(Escape)` to close the Peek window or use the **x** in the upper right corner.
 
@@ -36,7 +36,7 @@ While editing, you can right-click different identifiers to take advantage of se
 
 ### Customize Intellisense behavior
 
-To customize the behavior of the analysis engine, see the [code analysis settings](settings-reference.md#code-analysis-settings) and [autocomplete settings](settings-reference.md#autocomplete-settings).
+To customize the behavior of the analysis engine, see the [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings) and [autocomplete settings](/docs/python/settings-reference.md#autocomplete-settings).
 
 You can also customize the general behavior of autocomplete and IntelliSense, even to disable these features entirely. See [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense).
 
@@ -85,7 +85,7 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 
 ## Automatic indentation
 
-When you press `Enter` at the end of statements like `else`, `elif`, `except`, `finally`, `break`, `continue`, `pass`, and `raise`, VS Code provides automatic indenting and de-intenting according to the context. This feature means that you don't need to explicitly indent or de-intent as you type those statements.
+When you press `kbstyle(Enter)` at the end of statements like `else`, `elif`, `except`, `finally`, `break`, `continue`, `pass`, and `raise`, VS Code provides automatic indenting and de-intenting according to the context. This feature means that you don't need to explicitly indent or de-intent as you type those statements.
 
 ## Run Selection/Line in Terminal (REPL)
 

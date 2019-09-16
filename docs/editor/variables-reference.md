@@ -61,7 +61,7 @@ For example, in a multi root workspace with folders `Server` and `Client`, a `${
 
 ## Environment variables
 
-You can also reference environment variables through the **${env:Name}** syntax (for example, `${env:PATH}`).
+You can also reference environment variables through the **${env:Name}** syntax (for example, `${env:USERNAME}`).
 
 ```json
 {
@@ -73,8 +73,6 @@ You can also reference environment variables through the **${env:Name}** syntax 
     "args": [ "${env:USERNAME}" ]
 }
 ```
-
-**Note**: Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
 
 ## Configuration variables
 
@@ -103,7 +101,7 @@ An example for this functionality can be found in VS Code's Node.js debugger ext
 
 ## Input variables
 
-Command variables are already powerful but they lack a mechanism to configure the command being run to a specific use case. For example, it is not possible to pass a **prompt message** or a **default value** to a generic "user input prompt".
+Command variables are already powerful but they lack a mechanism to configure the command being run for a specific use case. For example, it is not possible to pass a **prompt message** or a **default value** to a generic "user input prompt".
 
 This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified.
 

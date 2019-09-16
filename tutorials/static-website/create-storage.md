@@ -24,7 +24,9 @@ In the **AZURE STORAGE** explorer, right-click on your subscription and choose *
 
 3. Choose a location in a [region](https://azure.microsoft.com/en-us/regions/) near you or near other services you may need to access.
 
-Right-click the Storage Account that was just created and click **Configure Static Website...**
+Your Storage Account is now being created.
+
+After it is created, right-click the Storage Account and click **Configure Static Website...**
 
 ![Create Storage Account](images/static-website/configure-static-website.png)
 
@@ -32,7 +34,7 @@ Right-click the Storage Account that was just created and click **Configure Stat
 
 2. Enter **index.html** for the 404 error document name.
 
-  **Note:** Index.html is used for the error document because modern Single Page Applications (SPAs) such as React will handle errors in the client. For classic static websites, use the error document to customize your 404 page.
+  **Note:** index.html is used for the error document because modern Single Page Applications (SPAs) such as React, Angular, and Vue will handle errors in the client. For classic static websites, use the error document to customize your 404 page.
 
 
 With Static Website hosting enabled, your configured index document will be served by default along with all of your static assets.

@@ -29,7 +29,7 @@ If you would like to install an additional SCM provider, you can search on the *
 
 ## Git support
 
-VS Code ships with a Git source control manager (SCM) extension. Most of the source control UI and work flows are common across other SCM extensions so reading about the Git support will help you understand how to use another provider.
+VS Code ships with a Git source control manager (SCM) extension. Most of the source control UI and work flows are common across other SCM extensions, so reading about the Git support will help you understand how to use another provider.
 
 >**Note:** If you are new to Git, the [git-scm](https://git-scm.com/documentation) website is a good place to start with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
 
@@ -37,7 +37,7 @@ VS Code ships with a Git source control manager (SCM) extension. Most of the sou
 
 >**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](https://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
 
->**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Azure DevOps Services](https://azure.microsoft.com/services/devops) is a great free option. [Click here to sign-up](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
+>**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Azure DevOps Services](https://azure.microsoft.com/services/devops) is a great free option. You can sign up at [Get started with Azure DevOps](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
 
 The Source Control icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
 
@@ -87,7 +87,7 @@ The **Git: Create Branch** command lets you quickly create a new branch.  Just p
 
 Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull** and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **More Actions** `...` menu.
 
-VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. Starting with VS Code 1.19, this feature is disabled by default and you use the `git.autofetch` [setting](/docs/getstarted/settings.md) to enable it.
+VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. Starting with VS Code 1.19, this feature is disabled by default and you can use the `git.autofetch` [setting](/docs/getstarted/settings.md) to enable it.
 
 >**Tip:** You should [set up a credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `git.autofetch` [setting](/docs/getstarted/settings.md) to reduce the number of prompts you get.
 
@@ -115,7 +115,7 @@ If you open a folder that is a Git repository and begin making changes, VS Code 
 
 ![Git merge](images/versioncontrol/merge-conflict.png)
 
-Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
+Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either one or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
 
 ## Viewing diffs
 
@@ -141,7 +141,7 @@ To open the Git output window, run **View** > **Output** and select **Git** from
 
 ## Initialize a repository
 
-If your workspace isn't under Git source control, you can easily create a Git repository with the **Initialize Repository** command.  When VS Code doesn't detect an existing Git repository, you will see a **There are no active source control providers.** message in the Source Control view and the **Initialize Repository** command will be available on the title bar. You can also run the **Git: Initialize Repository** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+If your workspace isn't under Git source control, you can easily create a Git repository with the **Initialize Repository** command.  When VS Code doesn't detect an existing Git repository, you will see a **No source control providers registered.** message in the Source Control view and the **Initialize Repository** command will be available on the title bar. You can also run the **Git: Initialize Repository** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![Git initialize repository](images/versioncontrol/git-initialize.png)
 

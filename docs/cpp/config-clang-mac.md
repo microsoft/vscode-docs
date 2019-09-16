@@ -64,11 +64,11 @@ To reuse the configuration, you can copy these files to a new workspace and adju
 
    ![Command Palette](images/clang-mac/intellisense-configurations-mac-clang.png)
 
-1. Find the **Compiler path** setting. VS Code will attempt to populate it with a default compiler based on what it finds on your system. For Clang on MacOS, the path should look like this: `/usr/bin/clang`.
+1. Find the **Compiler path** setting. VS Code will attempt to populate it with a default compiler based on what it finds on your system. For Clang on macOS, the path should look like this: `/usr/bin/clang`.
 
    The **Compiler path** setting is the most important setting in your configuration. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide lots of useful information to you as you write code. This information is called *IntelliSense* and you'll see some examples later in this tutorial.
 
-1. Set **IntelliSense mode** to `${default}`, which on MacOS is `clang-x64`.
+1. Set **IntelliSense mode** to `${default}`, which on macOS is `clang-x64`.
 
 1. You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or in the standard library path.
 
@@ -103,7 +103,7 @@ Visual Studio code places these settings in `.vscode/c_cpp_properties.json`. If 
 
 Next, we need to create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the Clang compiler to create an executable file based on the source code.
 
-1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Add a default build task** then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
+1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Configure Default Build Task**. In the dropdown, select **Create tasks.json file from template**, then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
 1. Go ahead and replace the entire file contents with the following code snippet:
 
 ```json
@@ -174,7 +174,7 @@ Your complete `launch.json` file should look something like this:
 }
 ```
 
-VS Code is now configured to use Clang on MacOS. The configuration applies to the current workspace. To reuse the configuration, just copy the three JSON files to a .vscode folder in a new workspace and change the names of the source file(s) and executable as needed.
+VS Code is now configured to use Clang on macOS. The configuration applies to the current workspace. To reuse the configuration, just copy the three JSON files to a .vscode folder in a new workspace and change the names of the source file(s) and executable as needed.
 
 The remaining steps are provided as an optional exercise to help you get familiar with the editing and debugging experience.
 

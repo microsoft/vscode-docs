@@ -34,6 +34,14 @@ You'll start a new instance of the bash shell in WSL, again from VS Code running
 
 ![Remote - WSL Status bar](images/wsl/wsl-status-bar.png)
 
+### Known issue: Missing Activity bar icons
+
+When VS Code restarted connected to WSL, some icons provided by extensions may be missing. This is a [known issue](https://github.com/microsoft/vscode-remote-release/issues/687) and the workaround is to close and reopen the connection.
+
+* Close the connection with **File** > **Close Remote Connection**.
+* Open the **File** > **Open Recent** list.
+* Choose the folder with the **[WSL: Ubuntu]** suffix.
+
 ----
 
 <a class="tutorial-next-btn" href="/remote-tutorials/wsl/edit-and-debug">I'm running VS Code in WSL</a> <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-wsl', 'run-in-wsl')" href="javascript:void(0)">I ran into an issue</a>

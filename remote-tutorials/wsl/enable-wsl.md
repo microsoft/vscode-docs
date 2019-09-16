@@ -34,7 +34,7 @@ After the command runs, you will be prompted to restart Windows.
 
 After restarting Windows, you can check that you have WSL enabled by opening a Command Prompt and typing 'wsl'.
 
-![wsl-check](images/wsl/wsl-check.png)
+![WSL check](images/wsl/wsl-check.png)
 
 WSL is enabled but you haven't installed a Linux distribution yet.
 
