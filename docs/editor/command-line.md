@@ -100,7 +100,7 @@ Argument|Description
 
 ## Opening VS Code with URLs
 
-On Windows and macOS, you can also open projects and files using the platform's URL handling mechanism. Use the following URL formats to:
+You can also open projects and files using the platform's URL handling mechanism. Use the following URL formats to:
 
 Open a project
 
@@ -129,6 +129,8 @@ vscode://file/c:/myProject/package.json:5:10
 You can use the URL in applications such as browsers or file explorers that can parse and redirect the URL. For example, on Windows, you could pass a `vscode://` URL directly to the Windows Explorer or to the command line as `start vscode://{full path to file}`.
 
 ![vscode url in Windows Explorer](images/command-line/vscode-url.png)
+
+>**Note**: If you are using VS Code [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://`.
 
 ## Next steps
 
