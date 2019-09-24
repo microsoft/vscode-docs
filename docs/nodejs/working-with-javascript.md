@@ -100,7 +100,8 @@ Below is a simple template for `jsconfig.json` file, which defines the JavaScrip
 ```json
 {
     "compilerOptions": {
-        "target": "ES6"
+        "module": "commonjs",
+        "target": "es6"
     },
     "exclude": [
         "node_modules",
@@ -118,7 +119,8 @@ Here is an example with an explicit `include` attribute:
 ```json
 {
     "compilerOptions": {
-        "target": "ES6"
+        "module": "commonjs",
+        "target": "es6"
     },
     "include": [
         "src/**/*"

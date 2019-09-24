@@ -48,6 +48,7 @@ The `exclude` attribute (a glob pattern) tells the language service what files a
 ```json
 {
     "compilerOptions": {
+        "module": "commonjs",
         "target": "es6"
     },
     "exclude": [
@@ -65,6 +66,7 @@ Alternatively, you can explicitly set the files in your project using the `inclu
 ```json
 {
     "compilerOptions": {
+        "module": "commonjs",
         "target": "es6"
     },
     "include": [
@@ -84,7 +86,8 @@ Below are `jsconfig` `"compilerOptions"` to configure the JavaScript language su
 Option  | Description
 ----------------|-----
 `noLib` | Do not include the default library file (lib.d.ts)
-`target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es6", "es2015", "es2016", "es2017", "es2018", "esnext".
+`target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es6", "es2015", "es2016", "es2017", "es2018", "es2019", "es2020", "esnext".
+`module` | Specifies the module system for resolving imports. The value are "amd", "commonJS", "es2015", "es6", "esnext", "none", "system", "umd".
 `checkJs` | Enable type checking on JavaScript files.
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just type checking.
