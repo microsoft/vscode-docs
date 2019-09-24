@@ -210,14 +210,15 @@ For more details on these and other features, see the [JSON Schema Reference](ht
 
 **scope**
 
-A configuration setting can have one of four possible scopes:
+A configuration setting can have one of the following possible scopes:
 
 - `application` - Settings that apply to all instances of VS Code and can only be configured in user settings.
+- `machine` - Machine specific settings that can be set in user or remote settings. For example, an installation path which shouldn't be shared across machines.
+- `machine-overridable` - Machine specific settings that can be overridden by workspace or folder settings.
 - `window` - Windows (instance) specific settings which can be configured in user, workspace, or remote settings.
-- `machine` - Machine specific settings. For example, an installation path which shouldn't be shared across machines.
-- `resource` - Resource settings, which apply to files and folders and can be configured in all settings levels, even folder settings.
+- `resource` - Resource settings, which apply to files and folders, and can be configured in all settings levels, even folder settings.
 
-Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable.
+Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable. If no `scope` is declared, the default is `window`.
 
 Below are example configuration scopes from the built-in Git extension:
 
