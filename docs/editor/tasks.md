@@ -176,7 +176,11 @@ The task's properties have the following semantic:
 - **options**: Override the defaults for `cwd` (current working directory), `env` (environment variables), or `shell` (default shell). Options can be set per task but also globally or per platform. Environment variables configured here can only be referenced from within your task script or process and will not be resolved if they are part of your args, command, or other task attributes.
 - **runOptions**: Defines when and how a task is run.
 
-To see the full set of task properties and values, you can review the [tasks.json schema](/docs/editor/tasks-appendix.md).
+You can see the full set of task properties and values with IntelliSense in your `tasks.json` file. Bring up suggestions with **Trigger Suggest** (`kb(editor.action.triggerSuggest)`) and read the descriptions on hover or with the **Read More...** ('i') flyout.
+
+![tasks.json IntelliSense](images/tasks/tasks-intellisense.png)
+
+You can also review the [tasks.json schema](/docs/editor/tasks-appendix.md).
 
 Shell commands need special treatment when it comes to commands and arguments that contain spaces or other special characters like `$`. By default, the task system supports the following behavior:
 
