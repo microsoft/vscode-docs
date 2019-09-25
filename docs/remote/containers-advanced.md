@@ -126,7 +126,7 @@ services:
     volumes:
        # Or wherever you've mounted your source code
       - .:/workspace
-      - try-node-node_modules: /workspace/node_modules
+      - try-node-node_modules:/workspace/node_modules
 
 volumes:
   - try-node-node_modules:
