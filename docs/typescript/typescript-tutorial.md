@@ -93,7 +93,7 @@ When editing `tsconfig.json`, IntelliSense (`kb(editor.action.triggerSuggest)`) 
 
 ![tsconfig.json IntelliSense](images/tutorial/tsconfig-intellisense.png)
 
-By default, TypeScript includes all the `.ts` files in the current folder and subfolders if the `files` attribute isn't included so we don't need to list `helloworld.ts` explicitly.
+By default, TypeScript includes all the `.ts` files in the current folder and subfolders if the `files` attribute isn't included, so we don't need to list `helloworld.ts` explicitly.
 
 Now to build from the terminal, you can just type `tsc` and the TypeScript compiler knows to look at your `tsconfig.json` for project settings and compiler options.
 
