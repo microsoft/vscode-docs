@@ -99,7 +99,7 @@ Now to build from the terminal, you can just type `tsc` and the TypeScript compi
 
 ### Change the build output
 
-Having the generated JavaScript file in the same folder at the TypeScript source will quickly get cluttered on larger projects, so you can specify the output directory for the compiler with the `outDir` attribute.
+Having the generated JavaScript file in the same folder as the TypeScript source will quickly get cluttered on larger projects, so you can specify the output directory for the compiler with the `outDir` attribute.
 
 ```json
 {
