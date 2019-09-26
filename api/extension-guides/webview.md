@@ -450,7 +450,7 @@ If we debug this code, we'd see that the actual value for `catGifSrc` is somethi
 vscode-resource:/Users/toonces/projects/vscode-cat-coding/media/cat.gif
 ```
 
-VS Code understands this special URI and will used it to load our gif from the disk!
+VS Code understands this special URI and will use it to load our gif from the disk!
 
 By default, webviews can only access resources in the following locations:
 
