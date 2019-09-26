@@ -288,3 +288,9 @@ To learn more, see:
 ### Can I use the version of TypeScript that ships with VS 2015?
 
 No, the TypeScript language service that ships with Visual Studio 2015 and 2017 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
+
+### How can I use the latest TypeScript beta with VS Code?
+
+The simplest way to try out the latest TypeScript features in VS Code is to install the [JavaScript and TypeScript Nightly extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
+
+You can also [configure VS Code to use a specific TypeScript version](/docs/typescript/typescript-compiling#_using-newer-typescript-versions).

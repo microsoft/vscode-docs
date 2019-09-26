@@ -222,7 +222,7 @@ The `typescript.tsdk` workspace setting only tells VS Code that a workspace vers
 
 ### Using TypeScript nightly builds
 
-The simplest way to try out the latest TypeScript features in VS Code is to install the [JavaScript and TypeScript Nightly extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next)
+The simplest way to try out the latest TypeScript features in VS Code is to install the [JavaScript and TypeScript Nightly extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
 
 This extension automatically replaces VS Code's built-in TypeScript version with the latest TypeScript nightly build. Just make sure you [switch back to using VS Code's TypeScript version](#_using-the-workspace-version-of-typescript) if you've configured
 
