@@ -15,15 +15,15 @@ You can deploy your Node.js applications to [Azure](https://azure.microsoft.com)
 
 ## Azure tutorials
 
-The tutorials below will walk you through creating a simple website and deploying it to Azure:
+The tutorials below, hosted on the [Azure JavaScript Developer Center](https://docs.microsoft.cm/azure/javascript), walk you through different ways of creating a simple website and deploying it to Azure:
 
 Tutorial | Description
 --- | ---
-[Deploy Azure Functions](/tutorials/functions-extension/getting-started) | Build and manage Azure Functions serverless apps directly in VS Code with the Azure Functions extension.
-[Deploy using the App Service extension](/tutorials/app-service-extension/getting-started) | Manage Azure resources directly in VS Code with the Azure App Service extension.
-[Deploy using Docker](/tutorials/docker-extension/getting-started) | Deploy your website using a Docker container.
-[Deploy using the Azure CLI](/tutorials/nodejs-deployment/getting-started) | Create, deploy, and update a website using a terminal and the Azure CLI.
-[Deploy a static website](/tutorials/static-website/getting-started) | Create, deploy, and update a static website on Azure Storage.
+[Deploy Azure Functions](https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-01) | Build and manage Azure Functions serverless apps directly in VS Code with the Azure Functions extension.
+[Deploy using the App Service extension](https://docs.microsoft.com/azure/javascript/tutorial-vscode-azure-app-service-node-01) | Manage Azure resources directly in VS Code with the Azure App Service extension.
+[Deploy using Docker](https://docs.microsoft.com/azure/javascript/tutorial-vscode-docker-node-01) | Deploy your website using a Docker container.
+[Deploy using the Azure CLI](https://docs.microsoft.com/azure/javascript/tutorial-vscode-azure-cli-node-01) | Create, deploy, and update a website using a terminal and the Azure CLI.
+[Deploy a static website](https://docs.microsoft.com/azure/javascript/tutorial-vscode-static-website-node-01) | Create, deploy, and update a static website on Azure Storage.
 
 ## Azure extensions
 
