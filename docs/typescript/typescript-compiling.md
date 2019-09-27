@@ -177,7 +177,9 @@ This is a bit of a trick. The search glob pattern is used as a key. The settings
 
 ## Using newer TypeScript versions
 
-VS Code ships with a recent stable version of the TypeScript language service and uses this by default to provide IntelliSense in your workspace. The workspace version of TypeScript is independent of the version of TypeScript you use to compile your `*.ts` files. You can just use VS Code's built-in TypeScript version for IntelliSense without worry for most common cases, but sometimes you may need to change the version of TypeScript VS Code uses for IntelliSense. Reason for doing this include:
+VS Code ships with a recent stable version of the TypeScript language service and uses this by default to provide IntelliSense in your workspace. The workspace version of TypeScript is independent of the version of TypeScript you use to compile your `*.ts` files. You can just use VS Code's built-in TypeScript version for IntelliSense without worry for most common cases, but sometimes you may need to change the version of TypeScript VS Code uses for IntelliSense.
+
+Reasons for doing this include:
 
 * Trying out the latest TypeScript features by switching to the TypeScript nightly build (`typescript@next`).
 * Making sure you are using the same version of TypeScript for IntelliSense that you use to compile your code.
@@ -194,7 +196,7 @@ If your workspace has a specific TypeScript version, you can switch between the 
 
 ![TypeScript version selector](images/compiling/select-ts-version-message.png)
 
-Use this to switch between the version of TypeScript that comes with VS Code and the version of TypeScript your workspace. You can also trigger the TypeScript version selector with the `TypeScript: Select TypeScript Version` command.
+Use this to switch between the version of TypeScript that comes with VS Code and the version of TypeScript in your workspace. You can also trigger the TypeScript version selector with the **TypeScript: Select TypeScript Version** command.
 
 VS Code will automatically detect workspace versions of TypeScript that are installed under `node_modules` in the root of your workspace. You can also explicitly tell VS Code which version of TypeScript to use by configuring the `typescript.tsdk` in your user or workspace [settings](/docs/getstarted/settings.md). The `typescript.tsdk` setting should point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`. The `tsserver.js` file is usually in the `lib` folder.
 
@@ -218,13 +220,13 @@ You can also tell VS Code to use a specific version of TypeScript in a particula
 }
 ```
 
-The `typescript.tsdk` workspace setting only tells VS Code that a workspace version of TypeScript exists. To actually start using the workspace version for IntelliSense, you must run the `TypeScript: Select TypeScript Version` command and select the workspace version.
+The `typescript.tsdk` workspace setting only tells VS Code that a workspace version of TypeScript exists. To actually start using the workspace version for IntelliSense, you must run the **TypeScript: Select TypeScript Version** command and select the workspace version.
 
 ### Using TypeScript nightly builds
 
 The simplest way to try out the latest TypeScript features in VS Code is to install the [JavaScript and TypeScript Nightly extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
 
-This extension automatically replaces VS Code's built-in TypeScript version with the latest TypeScript nightly build. Just make sure you [switch back to using VS Code's TypeScript version](#_using-the-workspace-version-of-typescript) if you've configured
+This extension automatically replaces VS Code's built-in TypeScript version with the latest TypeScript nightly build. Just make sure you [switch back to using VS Code's TypeScript version](#_using-the-workspace-version-of-typescript) if you've configured your TypeScript version with the **TypeScript: Select TypeScript Version** command.
 
 ## Mixed TypeScript and JavaScript projects
 

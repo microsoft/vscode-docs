@@ -109,7 +109,7 @@ Since this sample [runs VS Code as non-root user](#adding-a-non-root-user-to-you
 "workspaceFolder": "/workspace",
 "runArgs": [
     "-u", "node",
-    "-v", "try-node-node_modules:/workspacee/node_modules"
+    "-v", "try-node-node_modules:/workspace/node_modules"
 ],
 "postCreateCommand": "sudo chown node:node node_modules"
 ```
