@@ -87,12 +87,15 @@ Option  | Description
 ----------------|-----
 `noLib` | Do not include the default library file (lib.d.ts)
 `target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es6", "es2015", "es2016", "es2017", "es2018", "es2019", "es2020", "esnext".
-`module` | Specifies the module system for resolving imports. The value are "amd", "commonJS", "es2015", "es6", "esnext", "none", "system", "umd".
+`module` | Specifies the module system, when generating module code. The values are "amd", "commonJS", "es2015", "es6", "esnext", "none", "system", "umd".
+`moduleResolution` | Specifies how modules are resolved for imports. The values are "node" and "classic".
 `checkJs` | Enable type checking on JavaScript files.
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just type checking.
 `baseUrl`|Base directory to resolve non-relative module names.
 `paths`|Specify path mapping to be computed relative to baseUrl option.
+
+You can read more about the available `compilerOptions` in the [TypeScript compilerOptions documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
 
 ## Using webpack aliases
 
@@ -123,12 +126,12 @@ Whenever possible, you should exclude folders with JavaScript files that are not
 
 >**Tip:** If you do not have a `jsconfig.json` in your workspace, VS Code will by default exclude the `node_modules` folder.
 
-Below is a table mapping common project components to their installation folders which are recommended to exclude:
+Below is a table, mapping common project components to their installation folders that are recommended to exclude:
 
 Component | folder to exclude
 ----------|-----------
 `node` | exclude the `node_modules` folder
-`webpack`, `webpack-dev-server` | exclude the content folder, e.g., `dist`.
+`webpack`, `webpack-dev-server` | exclude the content folder, for example `dist`.
 `bower` | exclude the `bower_components` folder
 `ember` | exclude the `tmp` and `temp` folders
 `jspm` | exclude the `jspm_packages` folder
