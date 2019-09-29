@@ -101,7 +101,9 @@ If your extension is not functioning as expected, it may be running in the wrong
 If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [`package.json`](/api/get-started/extension-anatomy#extension-manifest):
 
 ```json
-"extensionKind": "ui"
+{
+    "extensionKind": "ui"
+}
 ```
 
 - `"extensionKind": "ui"` — Forces the extension to be a UI extension that is always run on the user's local machine.
@@ -110,9 +112,11 @@ If the **Developer: Show Running Extensions** command shows that a UI extension 
 You can also quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you wish to force the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) to be a workspace extension (instead of its UI default), you would set:
 
 ```json
-"remote.extensionKind": {
-    "ms-azuretools.vscode-cosmosdb": "ui",
-    "msjsdiag.debugger-for-chrome": "workspace"
+{
+  "remote.extensionKind": {
+      "ms-azuretools.vscode-cosmosdb": "ui",
+      "msjsdiag.debugger-for-chrome": "workspace"
+  }
 }
 ```
 
@@ -129,8 +133,10 @@ If you are persisting simple key-value pairs, you can store workspace specific o
 These APIs were added in VS Code 1.31. To use them, start by updating your `engines.vscode` value in `package.json`:
 
 ```json
-"engines": {
-    "vscode": "^1.31.0"
+{
+    "engines": {
+        "vscode": "^1.31.0"
+    }
 }
 ```
 

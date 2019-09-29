@@ -54,12 +54,22 @@ Pick a command with the keybinding you think is overloaded and you can see if mu
 
 ![show keybinding conflicts result](images/keybinding/show-conflicts-result.png)
 
+## Viewing modified keybindings
+
+You can view any user modified keyboard shortcuts in VS Code in the **Keyboard Shortcuts** editor with the **Show User Keybindings** command in the **More Actions** (**...**) menu. This applies the `@source:user` filter to the **Keyboard Shortcuts** editor (**Source** is 'User').
+
+![Default Keyboard Shortcuts](images/keybinding/user-keyboard-shortcuts.png)
+
 ## Advanced customization
 
 All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
 
-* To configure keyboard shortcuts the way you want, open **Keyboard Shortcuts** editor and click on **{}** button on the right of the editor title bar.
+* To configure keyboard shortcuts through the JSON  file, open **Keyboard Shortcuts** editor and select the **Open Keyboard Shortcuts (JSON)** button on the right of the editor title bar.
 * This will open your `keybindings.json` file where you can overwrite the [Default Keybindings](/docs/getstarted/keybindings.md#default-keybindings).
+
+![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png)
+
+You can also open the `keybindings.json` file from the Command Palette (`kb(workbench.action.showCommands)`) with the **Preferences: Open Keyboard Shortcuts (JSON)** command.
 
 ## Keyboard rules
 
@@ -377,11 +387,11 @@ This is covered in depth in the [Refactoring](/docs/editor/refactoring.md#keybin
 
 ## Default Keyboard Shortcuts
 
-You can view all default keyboard shortcuts in VS Code in the **Keyboard Shortcuts** editor
+You can view all default keyboard shortcuts in VS Code in the **Keyboard Shortcuts** editor with the **Show Default Keybindings** command in the **More Actions** (**...**) menu. This applies the `@source:default` filter to the **Keyboard Shortcuts** editor (**Source** is 'Default').
 
 ![Default Keyboard Shortcuts](images/keybinding/default-keyboard-shortcuts.png)
 
-or as a JSON file using the command **Preferences: Open Default Keyboard Shortcuts (JSON)**.
+You can view the default keyboard shortcuts as a JSON file using the command **Preferences: Open Default Keyboard Shortcuts (JSON)**.
 
 >**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts). You can view the currently active keyboard shortcuts in VS Code in the **Command Palette** (**View** -> **Command Palette**) or in the **Keyboard Shortcuts** editor (**File** > **Preferences** > **Keyboard Shortcuts**).
 
@@ -622,9 +632,9 @@ Now that you know about our Key binding support, what's next...
 
 ### How can I find out what command is bound to a specific key?
 
-In the **Default Keyboard Shortcuts**, open `Quick Outline` by pressing `kb(workbench.action.gotoSymbol)`
+In the **Keyboard Shortcut** editor, you can filter on specific keystrokes to see which commands are bound to which keys. Below you can see that `kbstyle(Ctrl+Shift+P)` is bound to **Show All Commands** to bring up the Command Palette.
 
-![Key bindings quick outline](images/keybinding/outline.png)
+![Key bindings quick outline](images/keybinding/filter-on-keys.png)
 
 ### How to add a key binding to an action? For example, add Ctrl+D to Delete Lines
 

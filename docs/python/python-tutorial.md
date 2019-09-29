@@ -155,44 +155,17 @@ First, set a breakpoint on line 2 of `hello.py` by placing the cursor on the `pr
 
 ![Setting a breakpoint in hello.py](images/tutorial/breakpoint-set.png)
 
-Next, select the Debug View in the sidebar:
-
-![Debug icon](images/tutorial/debug-icon.png)
-
-Then select the settings icon on the debug toolbar (or use the **Debug** > **Open configurations** menu command):
-
-![Debug toolbar settings command](images/tutorial/debug-settings.png)
-
-Selecting the settings icon automatically opens a configuration menu from the Command Palette, allowing you to select the type of debug configuration you would like for the opened file.
+Next, to initialize the debugger, press `kb(workbench.action.debug.start)`. Since this is your first time debugging this file, a configuration menu will open from the Command Palette allowing you to select the type of debug configuration you would like for the opened file.
 
 ![Debug configurations after launch.json is created](images/tutorial/debug-configurations.png)
 
 **Note**: VS Code uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.
 
-These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python File**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter. Once selected the Python extension creates and opens a `launch.json` file that contains a pre-defined configuration based on your selection.
+These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python File**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter. Once selected the Python extension creates a `launch.json` file within a `.vscode` folder (located in the folder's root directory) that contains a pre-defined configuration based on your selection (you can also learn more about this file in [Debugging configurations](/docs/python/debugging.md)).
 
-To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in the generated `launch.json` file, so that the whole configuration appears as follows:
+The debugger will stop at the first line of the file breakpoint. The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you will see now defined `msg` variable appears in the **Local** pane.
 
-```json
-{
-    "name": "Python: Current File",
-    "type": "python",
-    "request": "launch",
-    "program": "${file}",
-    "console": "integratedTerminal",
-    "stopOnEntry": true
-},
-```
-
-Save `launch.json` after making changes.
-
-> **Tip:** If you need to specify the exact folder containing the interpreter to use for debugging, include an entry for `pythonPath` in the configuration, such as `"pythonPath": "${workspaceFolder}"` or `"pythonPath": "${workspaceFolder}/.venv"`.
-
-> **Tip:** To specify command-line arguments for the Python program, add a line `"args": []` to the configuration, and place each argument as elements inside the `[]` list. For examples, see [Debugging - args](/docs/python/debugging.md#args).
-
-Switch to `hello.py` in the editor, then run the debugger by selecting the arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. The debugger stops at the first line of the file breakpoint (or the first line if `stopOnEntry` is set to true). The current line is indicated with a yellow arrow in the left margin. If you're stopped on the first line and examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
-
-![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
+![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 
 A debug toolbar appears along the top with the following commands from left to right: continue (`kb(workbench.action.debug.start)`), step over (`kb(workbench.action.debug.stepOver)`), step into (`kb(workbench.action.debug.stepInto)`), step out (`kb(workbench.action.debug.stepOut)`), restart (`kb(workbench.action.debug.restart)`), and stop (`kb(workbench.action.debug.stop)`).
 
@@ -200,10 +173,9 @@ A debug toolbar appears along the top with the following commands from left to r
 
 The Status Bar also changes color (orange in many themes) to indicate that you're in debug mode. The **Python Debug Console** also appears automatically in the lower right panel to show the commands being run, along with the program output.
 
-To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the next breakpoint. The now-defined `msg` variable appears in the **Local** pane.
-> **Tip** Debugging information can also be seen by hovering over code, such as variables. In the case of `msg`, hovering over the variable will display the string `Hello world` in a box above the variable.
+To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the end.
 
-![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
+> **Tip** Debugging information can also be seen by hovering over code, such as variables. In the case of `msg`, hovering over the variable will display the string `Hello world` in a box above the variable.
 
 You can also work with variables in the **Debug Console** (If you don't see it, select **Debug Console** in the lower right area of VS Code, or select it from the **...** menu.) Then try entering the following lines, one by one, at the **>** prompt at the bottom of the console:
 
@@ -217,7 +189,7 @@ msg.split()
 
 Select the blue **Continue** button on the toolbar again (or press F5) to run the program to completion. "Hello World" appears in the **Python Debug Console** if you switch back to it, and VS Code exits debugging mode once the program is complete.
 
-If you restart the debugger, the debugger again stops on the first breakpoint (or the first line is `stopOnEntry` is set to true, in which case the debugger stops before any code is run.)
+If you restart the debugger, the debugger again stops on the first breakpoint.
 
 To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Debug > Stop debugging** menu command.
 
@@ -283,7 +255,7 @@ plt.show()                   # Display the plot
 
 > **Tip**: If you enter the above code by hand, you may find that auto-completions change the names after the `as` keywords when you press `kbstyle(Enter)` at the end of a line. To avoid this, type a space, then `kbstyle(Enter)`.
 
-Next, try running the file in the debugger using the "Python: Current file" configuration as described in the last section. (If you still have `"stopOnEntry": true` in that configuration, you need to select the run command again to continue.)
+Next, try running the file in the debugger using the "Python: Current file" configuration as described in the last section.
 
 Unless you're using an Anaconda distribution or have previously installed the `matplotlib` package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'". Such a message indicates that the required package isn't available in your system.
 
@@ -359,5 +331,5 @@ There is then much more to explore with Python in Visual Studio Code:
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-- [Deploy Python to Azure App Service using containers](/docs/python/tutorial-deploy-containers.md)
-- [Deploy Python to Azure App Service on Linux (Preview)](/docs/python/tutorial-deploy-app-service-on-linux.md)
+- [Deploy Python to Azure App Service using containers](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01)
+- [Deploy Python to Azure App Service on Linux](https://docs.microsoft.com/azure/python/tutorial-deploy-app-service-on-linux-01)

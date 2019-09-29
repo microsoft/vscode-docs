@@ -26,10 +26,10 @@ Install the following:
 
 1. Initialize a C# project:
 
-   * Open a terminal and navigate to the folder in which you'd like to create the app.
+   * Open a terminal/command prompt and navigate to the folder in which you'd like to create the app.
    * Enter the following command in the command shell:
 
-   ```console
+   ```cmd
      dotnet new console
    ```
 
@@ -40,7 +40,7 @@ Install the following:
 
 3. Run the app by entering the following command in the command shell:
 
-   ```console
+   ```cmd
     dotnet run
    ```
 

@@ -23,6 +23,12 @@ Once you have a version of Python installed, activate it using the **Python: Sel
 
 You configure the Python extension through settings. See the [Settings reference](/docs/python/settings-reference.md).
 
+## Insiders program
+
+The Insiders program allows you to try out and automatically install new versions of the Python extension prior to release, including new features and fixes.
+
+If you'd like to opt into the program, you can either open the Command Palette (`kb(workbench.action.showCommands)`) and select **Python: Switch to Insiders Daily/Weekly Channel** or else you can open settings (`kb(workbench.action.openSettings)`) and look for **Python: Insiders Channel** to set the channel to “daily” or “weekly”.
+
 ## Run Python code
 
 To experience Python, create a file (using the [File Explorer](/docs/getstarted/userinterface.md#explorer)) named `hello.py` and paste in the following code (assuming Python 3):
@@ -108,13 +114,13 @@ Furthermore, importing a notebook into VS Code allows you to use all of VS Code'
 
 For more information, see [Jupyter support](/docs/python/jupyter-support.md).
 
-## Unit testing
+## Testing
 
-The Python extension supports [unit testing](/docs/python/testing.md) with the unittest, pytest, and nose test frameworks.
+The Python extension supports [testing](/docs/python/testing.md) with the unittest, pytest, and nose test frameworks.
 
-To run unit tests, you enable one of the frameworks in settings. Each framework also has specific settings, such as arguments that identify paths and patterns for test discovery.
+To run tests, you enable one of the frameworks in settings. Each framework also has specific settings, such as arguments that identify paths and patterns for test discovery.
 
-Once discovered, VS Code provides a variety of commands (on the Status Bar, the Command Palette, and elsewhere) to run and debug tests, including ability to run individual test files and individual methods.
+Once discovered, VS Code provides a variety of commands (on the Status Bar, the Command Palette, and elsewhere) to run and debug tests, including the ability to run individual test files and individual methods.
 
 ## Configuration
 

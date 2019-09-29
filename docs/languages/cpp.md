@@ -10,7 +10,7 @@ MetaSocialImage: images/cpp/languages_cpp.png
 ---
 # C/C++ for Visual Studio Code (Preview)
 
-C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to enable cross-platform C and C++ development on Windows, Linux, and macOS. The extension is still in preview and our focus is code editing, navigation, and debugging support for C and C++ code everywhere that VS Code runs. The extension also supports [Remote Development](../remote/remote-overview.md) in the [Visual Studio Code Insiders build](https://code.visualstudio.com/insiders/).
+C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to enable cross-platform C and C++ development on Windows, Linux, and macOS. The extension is still in preview and our focus is code editing, navigation, and debugging support for C and C++ code everywhere that VS Code runs. The extension also supports [Remote Development](/docs/remote/remote-overview.md) to work over SSH, in Windows Subsystem for Linux, or inside a Docker container.
 
 ![cpp hero](images/cpp/cpp-hero.png)
 
@@ -36,13 +36,12 @@ If you run into any issues or have suggestions for the Microsoft C/C++ extension
 
 ![cpp extension](images/cpp/cpp-extension.png)
 
-To install support for [Remote Development](../remote/remote-overview.md):
+To install support for [Remote Development](/docs/remote/remote-overview.md):
 
-1. Install the [Visual Studio Code Insiders build](https://code.visualstudio.com/insiders/). You can install this side by side with the stable build.
-1. Install the [Visual Studio Code Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
-1. If the remote source files are hosted in WSL, download the **Remote - WSL** extension.
-1. If you are connecting to a remote machine with SSH, download the **Remote - SSH** extension.
-1. If the remote source files are hosted in a container (i.e. Docker), download the **Remote - Containers** extension.
+1. Install the VS Code [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
+1. If the remote source files are hosted in WSL, use the **Remote - WSL** extension.
+1. If you are connecting to a remote machine with SSH, use the **Remote - SSH** extension.
+1. If the remote source files are hosted in a container (for example, Docker), use the **Remote - Containers** extension.
 
 **Note**: The C/C++ extension does not include a C++ compiler or debugger. You will need to install these tools or use those already installed on your computer. Popular C++ compilers are [GCC](https://gcc.gnu.org/) on Linux or in a [Mingw-w64](http://www.mingw-w64.org/) environment on Windows, Clang for [XCode](https://developer.apple.com/xcode/) on macOS, and the [Microsoft C++ compiler](https://docs.microsoft.com/cpp/build/building-on-the-command-line?view=vs-2019) on Windows. Make sure your compiler executable is in your platform path so the extension can find it. The extension also supports the [Windows Subsystem for Linux](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/Windows%20Subsystem%20for%20Linux.md).
 

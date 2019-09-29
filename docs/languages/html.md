@@ -97,7 +97,7 @@ If you prefer to switch to indentation based folding for HTML use:
 
 ## Formatting
 
-To improve the formatting of your HTML source code, press `kb(editor.action.formatSelection)` and the selected area will be reformatted.
+To improve the formatting of your HTML source code, you can use the **Format Document** command `kb(editor.action.formatDocument)` to format the entire file or **Format Selection** `kb(editor.action.formatSelection)` to just format the selected text.
 
 The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-beautify). The formatting options offered by that library are surfaced in the VS Code [settings](/docs/getstarted/settings.md):
 

@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Java in Visual Studio Code
 
-The Java support in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md). By installing extensions, you can have a lightweight and performant code editor which also supports many popular Java development tools. VS Code provides essential language features such as code completion, refactoring, linting, formatting, and code snippets along with convenient debugging and unit test support. VS Code can also integrate with tooling and frameworks such as Maven, Tomcat, Jetty, and Spring Boot. Leveraging the power of Visual Studio Code, Java developers get an excellent tool for both quick code editing and also the full debugging and testing cycle. It's a great choice for your Java work if you're looking for a tool which:
+The Java support in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md). By installing extensions, you can have a lightweight and performant code editor that also supports many popular Java development tools. VS Code provides essential language features such as code completion, refactoring, linting, formatting, and code snippets along with convenient debugging and unit test support. VS Code can also integrate with tooling and frameworks such as Maven, Tomcat, Jetty, and Spring Boot. Leveraging the power of Visual Studio Code, Java developers get an excellent tool for both quick code editing and also the full debugging and testing cycle. It's a great choice for your Java work if you're looking for a tool which:
 
 - Is fast and lightweight, free, and open source
 - Supports multiple, or all the programming languages you use
@@ -61,6 +61,12 @@ Thanks to the great Java community around VS Code, the list doesn't end there. Y
 ![Java Extensions](images/java/extensions.png)
 
 This document describes some of the key features included in those Java extensions.
+
+## Getting started
+
+For developers new to Java or new to VS Code, we provide a Getting Started experience. Once you've installed the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can use the command **Java: Getting Started** to get the Quick Start guide.
+
+![Java Getting Started](images/java/getting-started.png)
 
 ## Java project support
 

@@ -34,19 +34,23 @@ Automatic type acquisition requires [npmjs](https://www.npmjs.com), the Node.js 
 Type declaration files are automatically downloaded and managed by Visual Studio Code for packages listed in your project's `package.json` or that you import into a JavaScript file.
 
 ```json
+{
     "dependencies": {
         "lodash": "^4.17.0"
     }
+}
 ```
 
 You can alternately explicitly list packages to acquire type declaration files for in a [`jsconfig.json`](#_javascript-projects-jsconfigjson).
 
 ```json
+{
     "typeAcquisition": {
         "include": [
             "jquery"
         ]
     }
+}
 ```
 
 Most common JavaScript libraries ship with declaration files or have type declaration files available. You can search for a library's type declaration file package using the [TypeSearch](https://microsoft.github.io/TypeSearch) site.
@@ -64,7 +68,9 @@ If you have npm installed but still see a warning message, you can explicitly te
 For example, on Windows, you would add a path like this to your `settings.json` file:
 
 ```json
+{
   "typescript.npm": "C:\\Program Files\\nodejs\\npm.cmd"
+}
 ```
 
 ## JavaScript projects (jsconfig.json)
@@ -94,7 +100,8 @@ Below is a simple template for `jsconfig.json` file, which defines the JavaScrip
 ```json
 {
     "compilerOptions": {
-        "target": "ES6"
+        "module": "commonjs",
+        "target": "es6"
     },
     "exclude": [
         "node_modules",
@@ -112,7 +119,8 @@ Here is an example with an explicit `include` attribute:
 ```json
 {
     "compilerOptions": {
-        "target": "ES6"
+        "module": "commonjs",
+        "target": "es6"
     },
     "include": [
         "src/**/*"
