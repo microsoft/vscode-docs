@@ -228,7 +228,7 @@ Accepted scan codes:
 
 VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times.
 
-Below are some of the possible `when` clause contexts which evaluate to Boolean true/false. For conditional expressions, you can use either equality `==` (`"editorLangId == typescript"`) or inequality `!=` (`"resourceExtname != .js"`).
+Below are some of the possible `when` clause contexts which evaluate to Boolean true/false. For conditional expressions, you can use either equality `==` (`"editorLangId == typescript"`), inequality `!=` (`"resourceExtname != .js"`), either-or `||` (`"resourceExtname || .js"`) or and `&&` (`"resourceExtname && .js"`).
 
 Context name | True when
 ------------ | ------------
