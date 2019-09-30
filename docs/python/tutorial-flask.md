@@ -191,7 +191,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Switch to **Debug** view in VS Code (using the left-side activity bar). Along the top of the Debug view, you may see "No Configurations" and a warning dot on the gear icon. Both indicators mean that you don't yet have a `launch.json` file containing debug configurations:
 
-    ![Flask tutorial: initial view of the debug panel](images/flask-tutorial/debug-panel-initial-view.png)
+    ![Flask tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
 1. Select the gear icon and select **Flask** from the list that appears. VS Code creates and opens a `launch.json` file. This JSON file contains a debugging configuration, which is a JSON object within the `configuration` array.
 
@@ -205,6 +205,8 @@ Debugging gives you the opportunity to pause a running program on a particular l
         "module": "flask",
         "env": {
             "FLASK_APP": "app.py",
+            "FLASK_ENV": "development",
+            "FLASK_DEBUG": "0"
         },
         "args": [
             "run",
