@@ -51,7 +51,7 @@ code (Get-ChildItem $Home\.vscode\extensions\ms-vscode.PowerShell-*\examples)[-1
 If using the [Insiders](/insiders) edition:
 
 ```bash
-code-insiders (Get-ChildItem $Home\.vscode\extensions\ms-vscode.PowerShell-*\examples)[-1]
+code-insiders (Get-ChildItem $Home\.vscode-insiders\extensions\ms-vscode.PowerShell-*\examples)[-1]
 ```
 
 You can also open the examples from the Command Palette (`kb(workbench.action.showCommands)`) with the **PowerShell: Open Examples Folder** command.
