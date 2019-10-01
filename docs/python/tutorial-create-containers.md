@@ -277,7 +277,7 @@ Once you're confident that your image works, the next step is to push it to your
 
 ## Next steps
 
-Now that you've created a container with your app, you're ready to deploy it to any container-ready cloud service. For details on deploying to Azure App Service, see, [Deploy a container](tutorial-deploy-containers.md).
+Now that you've created a container with your app, you're ready to deploy it to any container-ready cloud service. For details on deploying to Azure App Service, see, [Deploy a container](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01).
 
 You can also learn more about the Docker extension for VS Code by visiting the [vscode-docker](https://github.com/Microsoft/vscode-docker) repository on GitHub. Issues and contributions are welcome.
 
