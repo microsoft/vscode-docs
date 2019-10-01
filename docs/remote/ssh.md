@@ -69,6 +69,10 @@ To get started, follow these steps:
 
 5. After a moment, the folder or workspace you selected will open. Install **any extensions** you want to use on this host from the Extensions view.
 
+### Disconnect from a remote host
+
+Close the connection when you finish editing files on the remote host. Simply choose **File > Close Remote Connection** to disconnect from the host. The default configuration does not include a keyboard shortcut for this command. You can also simply exit VS Code to close the remote connection.
+
 ### Remembering hosts you connect to frequently
 
 If you have a few hosts you use frequently, you can add them to an SSH config file so they automatically appear in the host dropdown. Run **Remote-SSH: Open Configuration File...** and add the host to the file using the [SSH config file format](https://linux.die.net/man/5/ssh_config).
