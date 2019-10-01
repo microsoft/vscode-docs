@@ -13,7 +13,7 @@ Visual Studio Code makes it easy to deploy your applications to [Azure](https://
 
 ## Deployment tutorials
 
-The tutorials below, hosted on the [Azure JavaScript Developer Center](https://docs.microsoft.cm/azure/javascript), walk you through different ways of creating a simple website and deploying it to Azure:
+The tutorials below, hosted on the [Azure JavaScript Developer Center](https://docs.microsoft.com/azure/javascript), walk you through different ways of creating a simple website and deploying it to Azure:
 
 Tutorial | Description
 --- | ---
