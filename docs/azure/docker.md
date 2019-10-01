@@ -125,7 +125,7 @@ You can now right click on an image in Docker Hub or an Azure Container Registry
 
 From here, you will be prompted for an Azure Resource Group, a location, an App Service Plan, and a globally unique website name.
 
-To see the full workflow, there is a detailed [Deploy using Docker](/tutorials/docker-extension/getting-started.md) tutorial that creates a web application, puts it into a Docker container, pushes it to an Azure Container Registry, and then deploys to Azure.
+To see the full workflow, there is a detailed [Deploy using Docker](https://docs.microsoft.com/azure/javascript/tutorial-vscode-docker-node-01) tutorial that creates a web application, puts it into a Docker container, pushes it to an Azure Container Registry, and then deploys to Azure.
 
 ## Connecting to `docker-machine`
 
