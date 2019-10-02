@@ -165,6 +165,12 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - never
   "editor.autoClosingBrackets": "languageDefined",
 
+  // Controls whether the editor should type over closing quotes or brackets.
+  //  - always
+  //  - auto: Type over closing quotes or brackets only if they were automatically inserted.
+  //  - never
+  "editor.autoClosingOvertype": "auto",
+
   // Controls whether the editor should automatically close quotes after the user adds an opening quote.
   //  - always
   //  - languageDefined: Use language configurations to determine when to autoclose quotes.
@@ -177,8 +183,8 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether the editor should automatically surround selections.
   //  - languageDefined: Use language configurations to determine when to automatically surround selections.
-  //  - brackets: Surround with brackets but not quotes.
   //  - quotes: Surround with quotes but not brackets.
+  //  - brackets: Surround with brackets but not quotes.
   //  - never
   "editor.autoSurround": "languageDefined",
 
@@ -339,10 +345,15 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Zoom the font of the editor when using mouse wheel and holding `Ctrl`.
   "editor.mouseWheelZoom": false,
 
-  // The modifier to be used to add multiple cursors with the mouse. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier. [Read more](https://code.visualstudio.com/docs/editor/codebasics#_multicursor-modifier).
+  // The modifier to be used to add multiple cursors with the mouse. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.
   //  - ctrlCmd: Maps to `Control` on Windows and Linux and to `Command` on macOS.
   //  - alt: Maps to `Alt` on Windows and Linux and to `Option` on macOS.
   "editor.multiCursorModifier": "alt",
+
+  // Controls pasting when the line count of the pasted text matches the cursor count.
+  //  - spread: Each cursor pastes a single line of the text.
+  //  - full: Each cursor pastes the full text.
+  "editor.multiCursorPaste": "spread",
 
   // Controls whether the editor should highlight semantic symbol occurrences.
   "editor.occurrencesHighlight": true,
@@ -429,7 +440,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Keep peek editors open even when double clicking their content or when hitting `Escape`.
   "editor.stablePeek": false,
 
-  // Controls whether some suggestion types should be filtered from IntelliSense. A list of suggestion types can be found here: https://code.visualstudio.com/docs/editor/intellisense#_types-of-completions.
+  // Controls whether some suggestion types should be filtered from IntelliSense.
   "editor.suggest.filteredTypes": {
     "keyword": true,
     "snippet": true
@@ -522,6 +533,11 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - focused: Show the count badge of the focused Source Control Provider.
   //  - off: Disable the Source Control count badge.
   "scm.countBadge": "all",
+
+  // Controls the default Source Control repository view mode.
+  //  - tree: Show the repository changes as a tree.
+  //  - list: Show the repository changes as a list.
+  "scm.defaultViewMode": "tree",
 
   // Controls diff decorations in the editor.
   "scm.diffDecorations": "all",
@@ -727,6 +743,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - visible: Menu is always visible even in full screen mode.
   //  - toggle: Menu is hidden but can be displayed via Alt key.
   //  - hidden: Menu is always hidden.
+  //  - compact: Menu is displayed as a compact button in the sidebar.
   "window.menuBarVisibility": "default",
 
   // Controls the dimensions of opening a new window when at least one window is already opened. Note that this setting does not have an impact on the first window that is opened. The first window will always restore the size and location as you left it before closing.
@@ -778,6 +795,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // - `${rootName}`: name of the workspace (e.g. myFolder or myWorkspace).
   // - `${rootPath}`: file path of the workspace (e.g. /Users/Development/myWorkspace).
   // - `${appName}`: e.g. VS Code.
+  // - `${remoteName}`: e.g. SSH
   // - `${dirty}`: a dirty indicator if the active editor is dirty.
   // - `${separator}`: a conditional separator (" - ") that only shows when surrounded by variables with values or static text.
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
@@ -796,7 +814,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // When enabled, the editor will attempt to guess the character set encoding when opening files. This setting can also be configured per language.
   "files.autoGuessEncoding": false,
 
-  // Controls auto save of dirty files. Read more about autosave [here](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save).
+  // Controls auto save of dirty files.
   //  - off: A dirty file is never automatically saved.
   //  - afterDelay: A dirty file is automatically saved after the configured `files.autoSaveDelay`.
   //  - onFocusChange: A dirty file is automatically saved when the editor loses focus.
@@ -821,7 +839,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - auto: Uses operating system specific end of line character.
   "files.eol": "auto",
 
-  // Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting. Read more about glob patterns [here](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options).
+  // Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting.
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -935,7 +953,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - alwaysExpand
   "search.collapseResults": "auto",
 
-  // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the `files.exclude` setting. Read more about glob patterns [here](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options).
+  // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the `files.exclude` setting.
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true
@@ -1043,6 +1061,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls when the internal debug console should open.
   "debug.internalConsoleOptions": "openOnFirstSessionStart",
 
+  // Controls what to do when errors are encountered after running a preLaunchTask.
+  "debug.onTaskErrors": "prompt",
+
   // Controls when the debug view should open.
   "debug.openDebug": "openOnSessionStart",
 
@@ -1071,6 +1092,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Enable/disable autoclosing of HTML tags.
   "html.autoClosingTags": true,
+
+  // A list of relative file paths pointing to JSON files following the custom data format.
+  // VS Code loads custom data on startup to enhance its HTML support for the custom HTML tags, attributes and attribute values you specify in the JSON files.
+  // The file paths are relative to workspace and only workspace folder settings are considered.
+  "html.customData": [],
 
   // List of tags, comma separated, where the content shouldn't be reformatted. `null` defaults to the `pre` tag.
   "html.format.contentUnformatted": "pre,code,textarea",
@@ -1158,7 +1184,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Mark the current editor selection in the markdown preview.
   "markdown.preview.markEditorSelection": true,
 
-  // How should clicking on links to markdown files be handled in the preview.
+  // Controls how links to other markdown files in the markdown preview should be opened.
   //  - inPreview: Try to open links in the markdown preview
   //  - inEditor: Try to open links in the editor
   "markdown.preview.openMarkdownLinks": "inPreview",
@@ -1238,6 +1264,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Defines whether an open brace is put onto a new line for functions or not.
   "javascript.format.placeOpenBraceOnNewLineForFunctions": false,
+
+  // Defines handling of optional semicolons. Requires using TypeScript 3.7 or newer in the workspace.
+  //  - ignore: Don't insert or remove any semicolons.
+  //  - insert: Insert semicolons at statement ends.
+  //  - remove: Remove unnecessary semicolons.
+  "javascript.format.semicolons": "ignore",
 
   // Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting. Requires using TypeScript 2.3.1 or newer in the workspace.
   "javascript.implicitProjectConfig.checkJs": false,
@@ -1344,6 +1376,12 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines whether an open brace is put onto a new line for functions or not.
   "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
 
+  // Defines handling of optional semicolons. Requires using TypeScript 3.7 or newer in the workspace.
+  //  - ignore: Don't insert or remove any semicolons.
+  //  - insert: Insert semicolons at statement ends.
+  //  - remove: Remove unnecessary semicolons.
+  "typescript.format.semicolons": "ignore",
+
   // Enable/disable implementations CodeLens. This CodeLens shows the implementers of an interface.
   "typescript.implementationsCodeLens.enabled": false,
 
@@ -1396,17 +1434,22 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - watch: Only create compile and watch tasks.
   "typescript.tsc.autoDetect": "on",
 
-  // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
+  // Specifies the folder path to the tsserver and lib*.d.ts files under a TypeScript install to use for IntelliSense, for example: `./node_modules/typescript/lib`.
+  // - When specified as a user setting, the TypeScript version from `typescript.tsdk` automatically replaces the built-in TypeScript version.
+  // - When specified as a workspace setting, `typescript.tsdk` allows you to switch to use that workspace version of TypeScript for IntelliSense with the `TypeScript: Select TypeScript version` command.
   "typescript.tsdk": null,
 
   // Enables logging of the TS server to a file. This log can be used to diagnose TS Server issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.log": "off",
 
-  // Additional paths to discover Typescript Language Service plugins. Requires using TypeScript 2.3.0 or newer in the workspace.
+  // Additional paths to discover TypeScript Language Service plugins. Requires using TypeScript 2.3.0 or newer in the workspace.
   "typescript.tsserver.pluginPaths": [],
 
   // Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.trace": "off",
+
+  // Enable/disable spawning a separate TypeScript server that can more quickly respond to syntax related operations, such as calculating folding or computing document symbols. Requires using TypeScript 3.4.0 or newer in the workspace.
+  "typescript.tsserver.useSeparateSyntaxServer": true,
 
   // Enable/disable automatic updating of import paths when you rename or move a file in VS Code. Requires using TypeScript 2.9 or newer in the workspace.
   //  - prompt: Prompt on each rename.
@@ -1421,6 +1464,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // By default, VS Code triggers property value completion after selecting a CSS property. Use this setting to disable this behavior.
   "css.completion.triggerPropertyValueCompletion": true,
+
+  // A list of relative file paths pointing to JSON files following the custom data format.
+  // VS Code loads custom data on startup to enhance its CSS support for the custom CSS properties, at directives, pseudo classes and pseudo elements you specify in the JSON files.
+  // The file paths are relative to workspace and only workspace folder settings are considered.
+  "css.customData": [],
 
   // Invalid number of parameters.
   "css.lint.argumentsInColorFunction": "error",
@@ -1679,11 +1727,20 @@ Below are the Visual Studio Code default settings and their values. You can also
   // An explicit start path where the terminal will be launched, this is used as the current working directory (cwd) for the shell process. This may be particularly useful in workspace settings if the root directory is not a convenient cwd.
   "terminal.integrated.cwd": "",
 
+  // Controls whether to detect and set the `$LANG` environment variable to a UTF-8 compliant option since VS Code's terminal only supports UTF-8 encoded data coming from the shell.
+  //  - auto: Set the `$LANG` environment variable if the existing variable does not exist or it does not end in `'.UTF-8'`.
+  //  - off: Do not set the `$LANG` environment variable.
+  //  - on: Always set the `$LANG` environment variable.
+  "terminal.integrated.detectLocale": "auto",
+
   // Controls whether bold text in the terminal will always use the "bright" ANSI color variant.
   "terminal.integrated.drawBoldTextInBrightColors": true,
 
   // Controls whether the terminal bell is enabled.
   "terminal.integrated.enableBell": false,
+
+  // Whether to enable file links in the terminal. Links can be slow when working on a network drive in particular because each file link is verified against the file system.
+  "terminal.integrated.enableFileLinks": true,
 
   // Object with environment variables that will be added to the VS Code process to be used by the terminal on Linux. Set to `null` to delete the environment variable.
   "terminal.integrated.env.linux": {},
@@ -1739,24 +1796,24 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether locale variables are set at startup of the terminal.
   "terminal.integrated.setLocaleVariables": true,
 
-  // The path of the shell that the terminal uses on Linux (default: /bin/bash). [Read more about configuring the shell](https://code.visualstudio.com/docs/editor/integrated-terminal#_configuration).
+  // The path of the shell that the terminal uses on Linux (default: /bin/bash).
   "terminal.integrated.shell.linux": null,
 
-  // The path of the shell that the terminal uses on macOS (default: /bin/bash). [Read more about configuring the shell](https://code.visualstudio.com/docs/editor/integrated-terminal#_configuration).
+  // The path of the shell that the terminal uses on macOS (default: /bin/bash).
   "terminal.integrated.shell.osx": null,
 
-  // The path of the shell that the terminal uses on Windows (default: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe). [Read more about configuring the shell](https://code.visualstudio.com/docs/editor/integrated-terminal#_configuration).
+  // The path of the shell that the terminal uses on Windows (default: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe).
   "terminal.integrated.shell.windows": null,
 
-  // The command line arguments to use when on the Linux terminal. [Read more about configuring the shell](https://code.visualstudio.com/docs/editor/integrated-terminal#_configuration).
+  // The command line arguments to use when on the Linux terminal.
   "terminal.integrated.shellArgs.linux": [],
 
-  // The command line arguments to use when on the macOS terminal. [Read more about configuring the shell](https://code.visualstudio.com/docs/editor/integrated-terminal#_configuration).
+  // The command line arguments to use when on the macOS terminal.
   "terminal.integrated.shellArgs.osx": [
     "-l"
   ],
 
-  // The command line arguments to use when on the Windows terminal. [Read more about configuring the shell](https://code.visualstudio.com/docs/editor/integrated-terminal#_configuration).
+  // The command line arguments to use when on the Windows terminal.
   "terminal.integrated.shellArgs.windows": [],
 
   // Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
@@ -2060,7 +2117,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether npm scripts should be automatically detected.
   "npm.autoDetect": "on",
 
-  // Enable an explorer view for npm scripts.
+  // Enable an explorer view for npm scripts when there is no top-level 'package.json' file.
   "npm.enableScriptExplorer": false,
 
   // Configure glob patterns for folders that should be excluded from automatic script detection.
