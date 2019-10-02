@@ -281,7 +281,24 @@ For example, the `test_decrement` functions given earlier are failing because th
 
 The **Python: Debug All Tests** and **Python: Debug Test Method** commands (on both the Command Palette and Status Bar menu) launch the debugger for all tests and a single test method, respectively. You can also use the "bug" icons in **Test Explorer** to launch the debugger for all tests in a selected scope as well as all discovered tests.
 
-The debugger works the same for tests as for other Python code, including breakpoints, variable inspection, and so on. For more information, see [Python debugging configurations](/docs/python/debugging.md) and the general VS Code [Debugging](/docs/editor/debugging.md) article.
+The debugger works the same for tests as for other Python code, including breakpoints, variable inspection, and so on. To customize settings for debugging tests, you can specify ```"request":"test"``` in the launch.json file in the ```.vscode``` folder from your workspace. This configuration will be used when you run **Python: Debug All Tests** and **Python: Debug Test Method** commands.
+
+For example, the configuration below in the ```launch.json``` file disables the ```justMyCode``` setting for debugging tests:
+
+```py
+{
+    "name": "Debug Tests",
+    "type": "python",
+    "request": "test",
+    "console": "integratedTerminal",
+    "justMyCode": false
+}
+```
+
+If you have more than one configuration entry with ```"request":"test"```, the first definition will be used since we currently don't support multiple definitions for this request type.
+
+For more information on debugging, see [Python debugging configurations](/docs/python/debugging.md) and the general VS Code [Debugging](/docs/editor/debugging.md) article.
+
 
 ## Test configuration settings
 

@@ -84,3 +84,7 @@ code . --locale=fr
 ### Unable to write to file because the file is dirty
 
 This notification may mean that your `locale.json` file wasn't saved after a previous change. Make sure the file is saved and try to install the Language Pack again.
+
+### Can I contribute to a language pack's translations?
+
+Yes, the [Visual Studio Code Community Localization Project](https://aka.ms/vscodeloc) is open to anyone, where contributors can provide new translations, vote on existing translations, or suggest process improvements.

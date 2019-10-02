@@ -103,7 +103,7 @@ With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select
 
 ## Refactoring and Code Actions
 
-Here we will show you the most used refactoring features for Java in Visual Studio Code, namely rename, extract methods and variables.
+Here we will show you the most used refactoring features for Java in Visual Studio Code, namely rename, move, extract methods and variables and more.
 
 ### Rename
 
@@ -111,6 +111,28 @@ Rename allows you to rename variables, classes, methods, packages, folders, and 
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/rename.mp4" type="video/mp4">
+</video>
+
+### Move
+
+The Move refactoring lets you move packages and classes between the source roots of a project, class members to other classes, and inner classes to upper hierarchy levels.
+
+For example, you can perform the move refactoring on a static method if it is used more in another class than in its own class.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/move-static-method.mp4" type="video/mp4">
+</video>
+
+You can also move a class to another package.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/move-class.mp4" type="video/mp4">
+</video>
+
+And move an inner class to new a new file.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/move-inner-type.mp4" type="video/mp4">
 </video>
 
 ### Extract methods and variables
@@ -214,6 +236,14 @@ Add a constructor from super class.
   <source src="/docs/java/java-editing/generate-constructor.mp4" type="video/mp4">
 </video>
 
+### Invert local variable
+
+This refactoring lets you change the sense of a Boolean variable to the opposite one.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/invert-variable.mp4" type="video/mp4">
+</video>
+
 ### Assign parameter to new field
 
 This source action assigns a parameter to a new field for unused parameter(s) in a constructor.
@@ -221,6 +251,14 @@ This source action assigns a parameter to a new field for unused parameter(s) in
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/assign-to-field.mp4" type="video/mp4">
 </video>
+
+### Other Code Actions supported
+
+The list of Code Actions supported by VS Code keeps growing and only listed the most popular ones above. Other notable supported actions include (but not limited to):
+
+* Convert anonymous class to lambda expression
+* Convert lambda to anonymous class
+* Create unresolved types
 
 ### Code Snippets
 
@@ -248,14 +286,19 @@ And batch check.
   <source src="/docs/java/java-editing/checkstyle-batch.mp4" type="video/mp4">
 </video>
 
+The Problems panel will open when you click the Checkstyle status icon in the Status bar.
+
 ### Set Checkstyle configuration file
 
 ![Set Checkstyle configuration file](images/java-editing/set_config.png)
 
-* To set the configuration file, Just Right click the `.xml` file and select `Set the Checkstyle Configuration File`.
-* You can also trigger the command **Checkstyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. You will also see the two built-in configurations:
+* To set the configuration file, right-click the `.xml` file and select **Set the Checkstyle Configuration File**.
+* You can also trigger the command **Checksjtyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. You will also see the two built-in configurations:
+
   * **Google's Check**
   * **Sun's Check**
+
+The extension looks for a `checkstyle.xml` file in your workspace to make Checkstyle configuration easier.
 
 ### Check the style and fix the violations
 

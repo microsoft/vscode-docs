@@ -19,17 +19,15 @@ The two [Contribution Points](/api/references/contribution-points) for using cus
 For example, by including this section in an extension's `package.json`:
 
 ```json
-"contributes": {
+{
+  "contributes": {
     "html": {
-        "customData": [
-            "./html.html-data.json"
-        ]
+      "customData": ["./html.html-data.json"]
     },
     "css": {
-        "customData": [
-            "./css.css-data.json"
-        ]
+      "customData": ["./css.css-data.json"]
     }
+  }
 }
 ```
 

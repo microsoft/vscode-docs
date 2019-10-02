@@ -60,8 +60,8 @@ VS Code IntelliSense offers different types of completions, including language s
 | ![module](images/intellisense/Namespace_16x.svg) | Modules | `module` |
 | ![property](images/intellisense/Property_16x.svg) | Properties and Attributes | `property` |
 | ![enumeration icon](images/intellisense/EnumItem_16x.svg) | Values and Enumerations | `value`, `enum` |
-| ![color](images/intellisense/Enumerator_16x.svg) | References | `reference` |
-| ![keyword](images/intellisense/IntelliSenseKeyword_16x.svg) | Keywords | `keyword` |
+| ![reference](images/intellisense/Reference_16x.svg) | References | `reference` |
+| ![keyword](images/intellisense/Keyword_16x.svg) | Keywords | `keyword` |
 | ![color](images/intellisense/ColorPalette_16x.svg) | Colors | `color` |
 | ![unit](images/intellisense/Ruler_16x.svg) | Unit | `unit` |
 | ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet Prefixes | `snippet` |

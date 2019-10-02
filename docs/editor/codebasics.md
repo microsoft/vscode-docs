@@ -261,7 +261,7 @@ Regions can also be defined by markers defined by each language. The following l
 * HTML:
 * PHP: `#region` and `#endregion`
 * Powershell: `#region` and `#endregion`
-* Python: `#region` and `#endregion`
+* Python: `#region` and `#endregion` and `# region` and `# endregion`
 * TypeScript/JavaScript:  `//#region` and `//#endregion`  and `//region` and `//endregion`
 * VB: `#Region` and `#End Region`
 * Bat: `::#region` and `::#endregion`

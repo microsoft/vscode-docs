@@ -23,6 +23,44 @@ Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files open i
 
 Alternatively, you can use `kb(workbench.action.navigateBack)` and `kb(workbench.action.navigateForward)` to navigate between files and edit locations. If you are jumping around between different lines of the same file, these shortcuts allow you to navigate between those locations easily.
 
+## Breadcrumbs
+
+The editor has a navigation bar above its contents called [Breadcrumbs](https://en.wikipedia.org/wiki/Breadcrumb_(navigation)). It shows the current location and allows you to quickly navigate between folders, files, and symbols.
+
+![Breadcrumbs](images/editingevolved/breadcrumbs.png)
+
+Breadcrumbs always show the file path and, with the help of language extensions, the symbol path up to the cursor position. The symbols shown are the same as in Outline view and Go to Symbol.
+
+Selecting a breadcrumb in the path displays a dropdown with that level's siblings so you can quickly navigate to other folders and files.
+
+![breadcrumb folder dropdown](images/editingevolved/breadcrumb-folder-dropdown.png)
+
+If the current file type has language support for symbols, you will see the current symbol path and a dropdown of other symbols at the same level and below.
+
+![breadcrumb symbol dropdown](images/editingevolved/breadcrumb-symbol-dropdown.png)
+
+You can turn off breadcrumbs with the **View** > **Show Breadcrumbs** toggle or with the `breadcrumbs.enabled` [setting](/docs/getstarted/settings.md).
+
+### Breadcrumb customization
+
+The appearance of breadcrumbs can be customized. If you have very long paths or are only interested in either file paths or symbols paths, you can use the `breadcrumbs.filePath` and `breadcrumbs.symbolPath` settings. Both support `on`, `off`, and `last` and they define if or what part of the path you see. By default, breadcrumbs show file and symbol icons to the left of the breadcrumb but you can remove the icons by setting `breadcrumbs.icons` to false.
+
+### Symbol order in Breadcrumbs
+
+You can control how symbols are ordered in the Breadcrumbs dropdown with the `breadcrumbs.symbolSortOrder` settings.
+
+Allowed values are:
+
+* `position` - position in the file (default)
+* `name` - alphabetical order
+* `type` - symbol type order
+
+### Breadcrumb keyboard navigation
+
+To interact with breadcrumbs, use the **Focus Breadcrumbs** command or press `kb(breadcrumbs.focusAndSelect)`. It will select that last element and open a dropdown that allows you to navigate to a sibling file or symbol. Use the `kb(breadcrumbs.focusPrevious)` and `kb(breadcrumbs.focusNext)` keyboard shortcuts to go to elements before or after the current element. When the dropdown appears, simply start typing - all matching elements will be highlighted and the best match will be selected for quick navigation.
+
+You can also interact with breadcrumbs without the dropdown. Press `kb(breadcrumbs.focus)` to focus the last element, use `kb(breadcrumbs.focusPrevious)` and `kb(breadcrumbs.focusNext)` to navigate, and use `kb(breadcrumbs.revealFocused)` to reveal the element in the editor.
+
 ## Go to Definition
 
 If a [language](/docs/languages/overview.md) supports it, you can go to the definition of a symbol by pressing `kb(editor.action.revealDefinition)`.

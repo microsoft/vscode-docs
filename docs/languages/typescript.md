@@ -157,16 +157,16 @@ Available refactorings include:
 
 See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
-## Quick fixes
+## Quick Fixes
 
-Quick fixes are suggested edits that address simple coding errors. Example quick fixes include:
+Quick Fixes are suggested edits that address simple coding errors. Example Quick Fixes include:
 
 - Adding a missing `this` to a member access.
 - Fixing a misspelled property name.
 - Removing unreachable code or unused imports
 - Declaring
 
-When you move your cursor on to a TypeScript error, VS Code shows a lightbulb that indicates that quick fixes are available. Click the lightbulb or press `kb(editor.action.quickFix)` to show a list of available quick fixes and [refactorings](#refactoring).
+When you move your cursor on to a TypeScript error, VS Code shows a lightbulb that indicates that Quick Fixes are available. Click the lightbulb or press `kb(editor.action.quickFix)` to show a list of available Quick Fixes and [refactorings](#refactoring).
 
 ## Unused variables and unreachable code
 
@@ -174,7 +174,7 @@ Unused TypeScript code, such as the `else` block of an `if` statement that is al
 
 ![Unreachable source code faded out](images/typescript/unreachable.png)
 
-You can quickly remove this unused code by placing the cursor on it and triggering the quick fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
+You can quickly remove this unused code by placing the cursor on it and triggering the Quick Fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
 
 To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in TypeScriptScript by setting:
 
@@ -265,7 +265,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 [Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/editor/extension-gallery.md) available in the marketplace.
 
-[TSLint](https://github.com/palantir/tslint) is a popular TypeScript linter. The [TSLint extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) integrates TSLint into VS Code so you can see linting errors right in the editor and even quickly many of fix them with [quick fixes](#quick-fixes).
+[ESLint](https://eslint.org) is a popular linter which also supports TypeScript. The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates ESLint into VS Code so you can see linting errors right in the editor and even quickly many of fix them with [Quick Fixes](#quick-fixes). [The ESLint plugin guide](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/README.md) details how to configure ESLint for your TypeScript projects.
 
 ## TypeScript extensions
 
@@ -288,3 +288,9 @@ To learn more, see:
 ### Can I use the version of TypeScript that ships with VS 2015?
 
 No, the TypeScript language service that ships with Visual Studio 2015 and 2017 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
+
+### How can I use the latest TypeScript beta with VS Code?
+
+The simplest way to try out the latest TypeScript features in VS Code is to install the [JavaScript and TypeScript Nightly extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
+
+You can also [configure VS Code to use a specific TypeScript version](/docs/typescript/typescript-compiling.md#using-newer-typescript-versions).

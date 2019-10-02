@@ -4,7 +4,7 @@ Area: remote
 TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
-MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
+MetaDescription: Advanced seatup for using the VS Code Remote - Containers extension
 DateApproved: 9/4/2019
 ---
 # Advanced Container Configuration
@@ -144,7 +144,7 @@ As an example, let's use the [vscode-remote-try-node](https://github.com/Microso
     "workspaceFolder": "/workspace",
     "runArgs": [
         "-u", "node",
-        "-v", "try-node-node_modules:/workspacee/node_modules"
+        "-v", "try-node-node_modules:/workspace/node_modules"
     ],
     "postCreateCommand": "sudo chown node:node node_modules"
     ```

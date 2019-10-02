@@ -18,7 +18,7 @@ sudo apt install python3 python3-pip
 And to verify, run:
 
 ```bash
-python3 –version
+python3 --version
 ```
 
 Start with the canonical "Hello World" app. Create a new folder called "helloWorld" and then add a Python file that will print a message when run:
