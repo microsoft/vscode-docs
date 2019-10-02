@@ -220,7 +220,7 @@ This usually means there is no credential management configured in Git and you'r
 
 You can always set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) in order to pull and push from a remote server without having VS Code prompt for your credentials each time.
 
-### How can I sign into Git with my Azure DevOps organization which requires multi-factor authentication?
+### How can I sign in to Git with my Azure DevOps organization which requires multi-factor authentication?
 
 There are now [Git credential helpers](https://devblogs.microsoft.com/devops/git-credential-manager-for-mac-and-linux) that assist with multi-factor authentication. You can download these from [Git Credential Manager for Mac and Linux](https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux) and [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows).
 

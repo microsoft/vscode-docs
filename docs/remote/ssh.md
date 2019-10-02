@@ -235,7 +235,7 @@ See [Installing a supported SSH client](/docs/remote/troubleshooting.md#installi
 
 See [Installing a supported SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) for details on setting up an SSH server for your host.
 
-### Can I sign into my SSH server with another/additional authentication mechanism like a password?
+### Can I sign in to my SSH server with another/additional authentication mechanism like a password?
 
 Yes, you should be prompted to enter your token or password automatically. However, note that passwords are not saved, so using [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) is typically more convenient.
 
