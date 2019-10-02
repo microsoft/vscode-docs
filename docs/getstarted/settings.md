@@ -1462,6 +1462,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // CSS
 
+  // Insert semicolon at end of line when completing CSS properties
+  "css.completion.completePropertyWithSemicolon": true,
+
   // By default, VS Code triggers property value completion after selecting a CSS property. Use this setting to disable this behavior.
   "css.completion.triggerPropertyValueCompletion": true,
 

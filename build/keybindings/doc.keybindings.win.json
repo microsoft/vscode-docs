@@ -309,7 +309,7 @@
                                         "when": "hasSymbols && config.editor.gotoLocation.multiple == 'goto'" },
 { "key": "escape",                "command": "editor.gotoNextSymbolFromResult.cancel",
                                         "when": "hasSymbols" },
-{ "key": "ctrl+k ctrl+k",         "command": "editor.toggleFold",
+{ "key": "ctrl+k ctrl+l",         "command": "editor.toggleFold",
                                         "when": "editorTextFocus && foldingEnabled" },
 { "key": "ctrl+shift+]",          "command": "editor.unfold",
                                         "when": "editorTextFocus && foldingEnabled" },
