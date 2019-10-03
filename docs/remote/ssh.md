@@ -73,6 +73,10 @@ To get started, follow these steps:
 
 5. After a moment, the folder or workspace you selected will open. Install **any extensions** you want to use on this host from the Extensions view.
 
+### Disconnect from a remote host
+
+Close the connection when you finish editing files on the remote host. Simply choose **File > Close Remote Connection** to disconnect from the host. The default configuration does not include a keyboard shortcut for this command. You can also simply exit VS Code to close the remote connection.
+
 ### Remembering hosts you connect to frequently
 
 If you have a few hosts you use frequently, you can add them to an SSH config file so they automatically appear in the host dropdown. Run **Remote-SSH: Open Configuration File...** and add the host to the file using the [SSH config file format](https://linux.die.net/man/5/ssh_config).
@@ -235,7 +239,7 @@ See [Installing a supported SSH client](/docs/remote/troubleshooting.md#installi
 
 See [Installing a supported SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) for details on setting up an SSH server for your host.
 
-### Can I sign into my SSH server with another/additional authentication mechanism like a password?
+### Can I sign in to my SSH server with another/additional authentication mechanism like a password?
 
 Yes, you should be prompted to enter your token or password automatically. However, note that passwords are not saved, so using [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) is typically more convenient.
 
