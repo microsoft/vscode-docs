@@ -1541,6 +1541,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // LESS
 
+  // Insert semicolon at end of line when completing CSS properties
+  "less.completion.completePropertyWithSemicolon": true,
+
+  // By default, VS Code triggers property value completion after selecting a CSS property. Use this setting to disable this behavior.
+  "less.completion.triggerPropertyValueCompletion": true,
+
   // Invalid number of parameters.
   "less.lint.argumentsInColorFunction": "error",
 
@@ -1602,6 +1608,12 @@ Below are the Visual Studio Code default settings and their values. You can also
   "less.validate": true,
 
 // SCSS (Sass)
+
+  // Insert semicolon at end of line when completing CSS properties
+  "scss.completion.completePropertyWithSemicolon": true,
+
+  // By default, VS Code triggers property value completion after selecting a CSS property. Use this setting to disable this behavior.
+  "scss.completion.triggerPropertyValueCompletion": true,
 
   // Invalid number of parameters.
   "scss.lint.argumentsInColorFunction": "error",
