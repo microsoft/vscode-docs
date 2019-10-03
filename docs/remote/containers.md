@@ -756,11 +756,9 @@ version: '3'
   services:
     your-service-name-here:
       volumes:
-        # Mounts the project folder to '/workspace'. The target path inside the container
-        # should match what your application expects. In this case, the compose file is
-        # in a sub-folder, so we will mount '..'. We'll then reference this as the
-        # workspaceFolder in '.devcontainer/devcontainer.json' so VS Code starts here.
-        - ..:/workspace
+        # Mounts the project folder to '/workspace'. While this file is in .devcontainer,
+        # mounts are relative to the first file in the list, which is a level up.
+        - .:/workspace
 
         # [Optional] If you are using SSH keys w/Git, mount your .ssh folder to
         # /root/.ssh-localhost so we can copy its contents
@@ -814,7 +812,7 @@ version: '3'
          # Location is relative to folder containing this compose file
          dockerfile: Dockerfile
        volumes:
-         - ..:/workspace
+         - .:/workspace
          - ~/.ssh:/root/.ssh-localhost
        command: /bin/sh -c "while sleep 1000; do :; done"
 ```
