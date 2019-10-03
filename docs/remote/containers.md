@@ -29,7 +29,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 **Containers**: x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+, Alpine Linux based containers.
 
-Note that the Docker daemon/service does not need to be running locally if you are [using a remote Docker host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host).
+Note that the Docker daemon/service does not need to be running locally if you are [using a remote Docker host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host), but you do need the Docker CLI installed.
 
 Other `glibc` based Linux containers may work if they have [needed prerequisites](/docs/remote/linux.md).
 
@@ -137,12 +137,35 @@ You can now interact with your project in VS Code just as you could when opening
 You can also follow a similar process to open a [VS Code multi-root workspace](/docs/editor/multi-root-workspaces) in a **single container** if the workspace only **references relative paths to sub-folders of the folder the `.code-workspace` file is in (or the folder itself).**
 
 You can either:
-- Use the **Remote-Containers: Open Workspace in Container...** command.
-- Use **File > Open Worksapce...** once you've opened a folder that contains a `.code-workspace` file in a container.
+
+* Use the **Remote-Containers: Open Workspace in Container...** command.
+* Use **File > Open Worksapce...** once you've opened a folder that contains a `.code-workspace` file in a container.
 
 Once connected, you may want to **add the `.devcontainer` folder** to the workspace so you can easily edit its contents if it is not already visible.
 
 Also note that, while you cannot use multiple containers for the same workspace in the same VS Code window, you can use [multiple Docker Compose managed containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) from separate windows.
+
+## Quick start: Open a Git repository in an isolated container volume
+
+While you can [open locally cloned repository in a container](#quick-start-open-an-existing-folder-in-a-container), you may want to work with an isolated copy of a repository for a PR review or to investigate another branch without impacting your work. If you're working with a public GitHub repository with an existing `devcontainer.json` file, you can use a Repository Container instead.
+
+Repository Containers use isolated, local Docker volumes instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS. (See [Advanced Configuration](/docs/remote/containers-advanced.md#improving-container-disk-performance) for information on how to use these types of volumes in other scenarios.)
+
+For example, follow these steps to open one of the "try" repositories from the first quick start in a Repository Container instead.
+
+1. Start VS Code and run **Remote-Containers: Open Repository in Container...** from the Command Palette (`kbstyle(F1)`).
+
+2. Enter `microsoft/vscode-remote-try-node` (or one of the other repositories) in the input box that appears and press enter.
+
+    ![Input box with a repository name in it](images/containers/vscode-remote-try-node.png)
+
+3. The VS Code window will reload, clone the source code, and start building the dev container. A progress notification provides you status updates.
+
+    ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+
+4. After the build completes, VS Code will automatically connect to the container.
+
+You can now work with the code in this isolated environment as you would if you'd cloned the code locally.
 
 ## Creating a devcontainer.json file
 
@@ -198,13 +221,11 @@ Beyond the advantages of having your team use a consistent environment and tool-
 
 ## Attaching to running containers
 
-While using VS Code to spin up a new container can be useful in many situations, it may not match your workflow and you may prefer to "attach" VS Code to an already running container.
-
-While `devcontainer.json` is not used in this case, you are able to use the same capabilities provided by the extension once connected. You can also use `settings.json` to [specify extensions that should always be installed](#always-installed-extensions) when you attach to a container to speed up setup.
+While using VS Code to spin up a new container can be useful in many situations, it may not match your workflow and you may prefer to "attach" VS Code to an already running Docker container - regardless of how it was started (Docker, Docker Compose, Kubernetes with Docker as the container engine, etc). Once attached, you can install extensions, edit, and debug like you can when open a folder in a container using `devcontainer.json`.
 
 > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
-Once you have a container up and running, you can connect by either:
+Use one of the following options to attach to the container.
 
 ### Option 1: Use the Containers Remote Explorer
 
@@ -227,6 +248,29 @@ Run **Remote-Containers: Attach to Running Container...** command from the Comma
     ![Docker Explorer screenshot](images/containers/docker-attach.png)
 
 After a brief moment, a new window will appear and you'll be connected to the running container.
+
+### Attached container configuration files
+
+VS Code supports image-level configuration files to speed up setup when you repeatedly connect to a given container. Once attached, any time you open a folder or [install an extension](#managing-extensions), a local image specific configuration file will open in the editor with the appropriate updates that you can opt to save or edit. This json file support two properties:
+
+```json
+{
+    // Default path to open when attaching to a new container.
+    "workspaceFolder": "/path/to/code/in/container/here",
+
+    // An array of extension IDs that specify the extensions to
+    // install inside the container when you first attach to it.
+    "extensions": [
+        "dbaeumer.vscode-eslint"
+    ]
+}
+```
+
+Once saved, whenever you open a container for the first time with the same image name, these properties will be used to configure the environment.
+
+You can always modify these files later,by using the **Remote-Containers: Open Attached Container Configuration File...** command from the Command Palette (`kbstyle(F1)`) and selecting an image name from the list. The appropriate json file will then open.
+
+Finally, if you have extensions you want installed regardless of the container you attach to, you can update `settings.json` to specify a list of [extensions that should always be installed](#always-installed-extensions). We will cover this option in the next section.
 
 ## Managing extensions
 
@@ -365,32 +409,38 @@ There are some cases when you may be cloning your repository using SSH keys inst
 
 However, there is a cross-platform way of copying the contents of the `.ssh` folder into the container when it is created, without modifying your image or Dockerfile.
 
-* When an **image** or **Dockerfile** is referenced in `devcontainer.json`, add the following to this same file:
+1. Mount your local SSH folder into a location inside the container. Depending on what you are referencing in `devcontainer.json`:
 
-    ```json
-    // Mount your .ssh folder to /root/.ssh-localhost so we can copy its contents
-    "runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro" ],
+   * **Dockerfile or image**: Add the following to `devcontainer.json`:
 
-    // Copy the contents to the correct location and set permissions
-    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
-    ```
+        ```json
+        "runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro" ]
+        ```
 
-* When a **Docker Compose** file is referenced, first update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+   * **Docker Compose**: Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
-    ```yaml
-    version: '3'
-    services:
-      your-service-name-here:
-        # ...
-        volumes:
-          - ~/.ssh:~/.ssh-localhost:ro
-    ```
+       ```yaml
+       version: '3'
+       services:
+         your-service-name-here:
+           # ...
+           volumes:
+             - ~/.ssh:/root/.ssh-localhost:ro
+       ```
 
-    And then add this to `devcontainer.json` to copy the keys to the correct location with the right permissions:
+2. Copy the keys and set permissions by adding one following lines to `devcontainer.json`:
 
-    ```json
-    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
-    ```
+    * If running as **root**:
+
+        ```json
+        "postCreateCommand": "mkdir -p /root/.ssh && cp -r /root/.ssh-localhost/* /root/.ssh && chmod 700 /root/.ssh && chmod 600 /root/.ssh/*"
+        ```
+
+    * If running as a **[non-root user](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)**:
+
+        ```json
+        "postCreateCommand": "sudo cp -r /root/.ssh-localhost ~ && sudo chown -R $(id -u):$(id -g) ~/.ssh-localhost && mv ~/.ssh-localhost ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
+        ```
 
 Note that, after you create your container for the first time, you will need to run the **Remote-Containers: Rebuild Container** command for updates to `devcontainer.json`, your Docker Compose files, or related Dockerfiles to take effect.
 

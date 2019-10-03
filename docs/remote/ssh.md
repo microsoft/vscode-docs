@@ -27,7 +27,11 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 - x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
 - ARMv7l (AArch32) Raspbian Stretch/9+ (32-bit).
-- **Experimental** ([VS Code Insiders only](https://code.visualstudio.com/insiders/)): ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
+
+**Experimental SSH Host Support** ([VS Code Insiders only](https://code.visualstudio.com/insiders/)):
+
+- ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
+- Windows 10 / Server 2016/2019 (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
 
 Other `glibc` based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l (AArch64) should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
 
@@ -194,9 +198,9 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 ### Remote - SSH limitations
 
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
-- Windows and macOS SSH hosts are **not** yet supported. (Windows and macOS clients **are** supported.)
+- macOS SSH hosts are **not** yet supported. (macOS clients **are** supported.)
 - Alpine Linux and non-glibc based Linux SSH hosts are not supported.
-- Experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
+- Experimental Windows 10 / Server 2016/2019 and ARMv8l (AArch64) support is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 - Older (community supported) Linux distributions require workarounds to install the [needed prerequisites](/docs/remote/linux.md).
 - PuTTY is not supported on Windows.
 - If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.

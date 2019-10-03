@@ -22,8 +22,9 @@ The extensions are known to work with recent stable/LTS version of:
 There is also experimental support in **[VS Code Insiders](https://code.visualstudio.com/insiders/)** for:
 
 * **Ubuntu ARMv8l (AArch64) 64-bit SSH hosts** (18.04+) in Remote - SSH
+* **Windows 10 / Server 2016/2019 SSH hosts** (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
 
-However, if you are using a non-standard configuration or downstream distribution, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
+However, if you are using a non-standard configuration or downstream distribution of Linux, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
 
 Note that **other extensions may have dependencies** beyond those listed here. Some extensions also contain compiled native code that **may not work on Alpine Linux, or ARMv7 (AArch32), or ARMv8 (AArch64)**. These platforms are considered in "preview" or "experimental" for this reason. If you encounter an issue that only occurs with a particular extension, **contact the extension authors** for information on their native dependencies.
 
@@ -83,6 +84,8 @@ The following is a list of distributions and any base requirements that may be m
 | ✅ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 16.04 (64-bit) | `ubuntu:16.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 14.04 (64-bit) | `ubuntu:14.04` | &lt;none&gt;  | &lt;none&gt; |
+| 🔬 Windows 10 1903 (64-bit) | Not supported. | &lt;none&gt;  | Use the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
+| 🔬 Windows Server 2019 1903 (64-bit) | Not supported. | &lt;none&gt;  | Use the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
 
 ## Updating glibc and libstdc++ on RHEL / CentOS 6
 
