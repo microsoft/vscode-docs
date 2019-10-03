@@ -4,7 +4,7 @@ Area: remote
 TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
-MetaDescription: Advanced seatup for using the VS Code Remote - Containers extension
+MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
 DateApproved: 9/4/2019
 ---
 # Advanced Container Configuration
@@ -13,16 +13,18 @@ This article includes advanced setup scenarios for the [Visual Studio Code Remot
 
 ## Adding environment variables
 
-You can update environment variables in your container without altering the container image by following one of steps below.
+You can set environment variables in your container without altering the container image by using one of options below.
 
-### Adding a single variable
+### Option 1: Add individual variables
 
 Depending on what you reference in `devcontainer.json`:
 
 * **Dockerfile or image**: Add the following to the `runArgs` property in `devcontainer.json`:
 
      ```json
-     "runArgs": ["-e","YOUR_ENV_VAR_NAME=your-value-goes-here"]
+     "runArgs": [
+       "-e","YOUR_ENV_VAR_NAME=your-value-goes-here",
+       "-e", "ANOTHER_VAR=another-value" ]
      ```
 
 * **Docker Compose**: Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
@@ -33,12 +35,13 @@ Depending on what you reference in `devcontainer.json`:
        your-service-name-here:
          environment:
            - YOUR_ENV_VAR_NAME=your-value-goes-here
+           - ANOTHER_VAR=another-value
          # ...
      ```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-### Using an env file
+### Option 2: Use an env file
 
 If you have a large number of environment variables you need to set, you can use a `.env` instead. VS Code will automatically pick up a file called `.env` in your workspace root, but you can also create one in another location.
 
@@ -71,7 +74,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ## Adding another local file mount
 
-You can add a volume bound to any local folder using by following one of these steps (depending on what you reference in `devcontainer.json`):
+You can add a volume bound to any local folder using by following the appropriate steps below based on what you reference in `devcontainer.json`:
 
 * **Dockerfile or image**: Add the following to the `runArgs` property in this same file:
 
@@ -117,17 +120,17 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ## Improving container disk performance
 
-The Remote - Containers extension uses Docker's defaults for creating "bind mounts" to the local filesystem for your source code. While this is the simplest option, on macOS and Windows, you may encounter slower disk performance when running commands like `yarn install` from inside the container. There are few things you can do to resolve these types of issue.
+The Remote - Containers extension uses "bind mounts" to source code in your local filesystem by default. While this is the simplest option, on macOS and Windows, you may encounter slower disk performance when running commands like `yarn install` from inside the container. There are few things you can do to resolve these types of issue.
 
 ### Use a targeted named volume
 
-Since macOS and Windows run containers in a VM, "bind" mounts are not as fast as using the container's filesystem directly. Fortunately, Docker has the concept of a  "named volume" that can act like the container's filesystem but survives container rebuilds. This makes it ideal for storing package folders like `node_modules` or output folders like `build` or `bin` where write performance is critical. Just follow one of the steps below depending on what you reference in `devcontainer.json`.
+Since macOS and Windows run containers in a VM, "bind" mounts are not as fast as using the container's filesystem directly. Fortunately, Docker has the concept of a local "named volume" that can act like the container's filesystem but survives container rebuilds. This makes it ideal for storing package folders like `node_modules`, data folders, or output folders like `build` where write performance is critical. Just follow the appropriate steps below based on what you reference in `devcontainer.json`.
 
 **Dockerfile or image**:
 
-As an example, let's use the [vscode-remote-try-node](https://github.com/Microsoft/vscode-remote-try-node) repo and speed up `yarn install`. Follow these steps:
+Let's use the [vscode-remote-try-node](https://github.com/Microsoft/vscode-remote-try-node) repo to illustrate how to speed up `yarn install`. Follow these steps:
 
-1. Use the `workspaceMount` property in `devcontainer.json` to tell VS Code where to bind your source code and then `runArgs` to mount the `node_modules` sub-folder into a named local volume instead.
+1. Use the `workspaceMount` property in `devcontainer.json` to tell VS Code where to bind your source code. Then `runArgs` to mount the `node_modules` sub-folder into a named local volume instead.
 
     ```json
     "workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=cached",
@@ -496,6 +499,8 @@ This list of compose files is used when starting the containers, so referencing 
 
 Sometimes you may want to use the Remote - Containers extension to develop inside a container that sits on remote server. Docker does **not** support mounting (binding) your local filesystem into a remote container, so VS Code's default `devcontainer.json` behavior to use your local source code will not work. Fortunately, that is just the default behavior. This section we will cover connecting to a remote host so that you can either [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers), or use a local `devcontainer.json` file as a way to configure, create, and connect to a remote dev container.
 
+However, note that the **Docker CLI still needs to be installed locally** (along with the Docker Compose CLI if you are using it).
+
 ### A basic remote devcontainer.json example
 
 There are two different approaches to use `devcontainer.json` with a remote host. One is to **create your remote dev container first**, and then **clone your source code a named volume** since this does not require you to have direct access to the filesystem on the remote host. Here is a basic example of this setup:
@@ -514,7 +519,7 @@ The second is to **(bind) mount a folder on the remote machine** into your conta
 "workspaceMount": "src=/absolute/path/on/remote/machine,dst=/workspace,type=bind"
 ```
 
-To try it out, connect to the remote Docker host using [Settings or environment variables](#option-1-use-vs-code-settings-or-local-environment-variables), [Docker Machine](#option-1-connect-using-docker-machine), or [SSH](#option-2-connect-using-an-ssh-tunnel), start VS Code, run **Remote-Containers: Open Folder in Container...**, and select the local folder with the `.devcontainer.json` file in it.
+To try it out, connect to the remote Docker host using [settings or environment variables](#option-1-use-vs-code-settings-or-local-environment-variables), [Docker Machine](#option-1-connect-using-docker-machine), or [SSH](#option-2-connect-using-an-ssh-tunnel), start VS Code, run **Remote-Containers: Open Folder in Container...**, and select the local folder with the `.devcontainer.json` file in it.
 
 You can learn more about [converting an existing or pre-defined devcontainer.json](#converting-an-existing-or-predefined-devcontainerjson) for remote use later in this section, but first we'll discuss how to connect to your remote Docker host.
 
@@ -527,8 +532,6 @@ If you already have a remote Docker host up and running, you can use the followi
 "docker.certPath": "/optional/path/to/folder/with/certificate/files",
 "docker.tlsVerify": true // or false
 ```
-
-**Restart / reload** VS Code after updating so the settings take effect.
 
 Alternatively, you can set **environment variables** in a terminal. To do so:
 

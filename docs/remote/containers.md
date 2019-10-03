@@ -29,7 +29,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 **Containers**: x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+, Alpine Linux based containers.
 
-Note that the Docker daemon/service does not need to be running locally if you are [using a remote Docker host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host).
+Note that the Docker daemon/service does not need to be running locally if you are [using a remote Docker host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host), but you do need the Docker CLI installed.
 
 Other `glibc` based Linux containers may work if they have [needed prerequisites](/docs/remote/linux.md).
 
@@ -145,13 +145,13 @@ Once connected, you may want to **add the `.devcontainer` folder** to the worksp
 
 Also note that, while you cannot use multiple containers for the same workspace in the same VS Code window, you can use [multiple Docker Compose managed containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) from separate windows.
 
-## Quick start: Open a GitHub repository in an isolated container volume
+## Quick start: Open a Git repository in an isolated container volume
 
-While you can [open a folder in a container](#quick-start-open-an-existing-folder-in-a-container) to work with a locally cloned repository, you may want to work with an isolated copy for a PR review or to investigate another branch without impacting your work. If you're working with a public GitHub repository with an existing `devcontainer.json` file, you can use a Repository Container instead.
+While you can [open locally cloned repository in a container](#quick-start-open-an-existing-folder-in-a-container), you may want to work with an isolated copy of a repository for a PR review or to investigate another branch without impacting your work. If you're working with a public GitHub repository with an existing `devcontainer.json` file, you can use a Repository Container instead.
 
-Repository Containers use isolated local Docker volumes instead of the local filesystem which, in addition to not polluting your source directory, has the added benefit of improved performance on Windows and macOS. (See [Advanced Configuration](/docs/remote/containers-advanced.md#improving-container-disk-performance) for information on how to use local volumes in other scenarios as well.)
+Repository Containers use isolated, local Docker volumes instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS. (See [Advanced Configuration](/docs/remote/containers-advanced.md#improving-container-disk-performance) for information on how to use these types of volumes in other scenarios.)
 
-Let's demonstrate this by using one of the "try" repositories from the first quick start.
+For example, follow these steps to open one of the "try" repositories from the first quick start in a Repository Container instead.
 
 1. Start VS Code and run **Remote-Containers: Open Repository in Container...** from the Command Palette (`kbstyle(F1)`).
 
@@ -159,7 +159,7 @@ Let's demonstrate this by using one of the "try" repositories from the first qui
 
     ![Input box with a repository name in it](images/containers/vscode-remote-try-node.png)
 
-3. The VS Code window will reload and start building the dev container. A progress notification provides you status updates. Note that you only have to build a dev container the first time you open it; opening the folder after the first successful build will be much quicker.
+3. The VS Code window will reload, clone the source code, and start building the dev container. A progress notification provides you status updates.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
@@ -225,7 +225,7 @@ While using VS Code to spin up a new container can be useful in many situations,
 
 > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
-There three  ways you to attach to a running container.
+Use one of the following options to attach to the container.
 
 ### Option 1: Use the Containers Remote Explorer
 
@@ -251,13 +251,26 @@ After a brief moment, a new window will appear and you'll be connected to the ru
 
 ### Attached container configuration files
 
-VS Code supports image-level configuration files to speed up setup. Once attached to a container, any time you open a folder in the container or [install an extension in the container](#managing-extensions), VS Code will automatically modify and open a local image configuration file that you can save or edit. The file supports a subset of [`devcontainer.json` properties](#devcontainerjson-reference).
+VS Code supports image-level configuration files to speed up setup when you repeatedly connect to a given container. Once attached, any time you open a folder or [install an extension](#managing-extensions), a local image specific configuration file will open in the editor with the appropriate updates that you can opt to save or edit. This json file support two properties:
 
-Once updated, whenever you open a new container with the same image name, these contents of this json file will be used to configure the environment.
+```json
+{
+    // Default path to open when attaching to a new container.
+    "workspaceFolder": "/path/to/code/in/container/here",
 
-You can also modify these configuration files before attaching to a container by running the **Remote-Containers: Open Attached Container Configuration File...** command from the Command Palette (`kbstyle(F1)`) at any time select an image name from the list.
+    // An array of extension IDs that specify the extensions to
+    // install inside the container when you first attach to it.
+    "extensions": [
+        "dbaeumer.vscode-eslint"
+    ]
+}
+```
 
-Finally, if you have extensions you want installed regardless of container you attach to, you can update `settings.json` to specify a list of [extensions that should always be installed](#always-installed-extensions).
+Once saved, whenever you open a container for the first time with the same image name, these properties will be used to configure the environment.
+
+You can always modify these files later,by using the **Remote-Containers: Open Attached Container Configuration File...** command from the Command Palette (`kbstyle(F1)`) and selecting an image name from the list. The appropriate json file will then open.
+
+Finally, if you have extensions you want installed regardless of the container you attach to, you can update `settings.json` to specify a list of [extensions that should always be installed](#always-installed-extensions). We will cover this option in the next section.
 
 ## Managing extensions
 
