@@ -176,7 +176,7 @@ The steps are identical for Docker Compose, but the volume mount configuration i
       - try-node-node_modules:
     ```
 
-2. Next, be sure the `workspaceFolder` property in `devcontainer.json` matches the place your actual source code mounted:
+2. Next, be sure the `workspaceFolder` property in `devcontainer.json` matches the place your actual source code is mounted:
 
     ```json
     "workspaceFolder": "/workspace"

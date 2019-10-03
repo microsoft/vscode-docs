@@ -145,7 +145,7 @@ Once connected, you may want to **add the `.devcontainer` folder** to the worksp
 
 Also note that, while you cannot use multiple containers for the same workspace in the same VS Code window, you can use [multiple Docker Compose managed containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) from separate windows.
 
-## Quick start: Open a Git repository in an isolated container volume
+## Quick start: Open a public Git repository in an isolated container volume
 
 While you can [open locally cloned repository in a container](#quick-start-open-an-existing-folder-in-a-container), you may want to work with an isolated copy of a repository for a PR review or to investigate another branch without impacting your work. If you're working with a public GitHub repository with an existing `devcontainer.json` file, you can use a Repository Container instead.
 
@@ -251,7 +251,7 @@ After a brief moment, a new window will appear and you'll be connected to the ru
 
 ### Attached container configuration files
 
-VS Code supports image-level configuration files to speed up setup when you repeatedly connect to a given container. Once attached, any time you open a folder or [install an extension](#managing-extensions), a local image specific configuration file will open in the editor with the appropriate updates that you can opt to save or edit. This json file support two properties:
+VS Code supports image-level configuration files to speed up setup when you repeatedly connect to a given container. Once attached, any time you open a folder or [install an extension](#managing-extensions), or [forward a port](#temporarily-forwarding-a-port), a local image specific configuration file will open in the editor with the appropriate updates that you can opt to save or edit. This json file support three properties:
 
 ```json
 {
@@ -262,7 +262,10 @@ VS Code supports image-level configuration files to speed up setup when you repe
     // install inside the container when you first attach to it.
     "extensions": [
         "dbaeumer.vscode-eslint"
-    ]
+    ],
+
+    // An array port numbers to forward
+    "forwardPorts": [8000]
 }
 ```
 
