@@ -530,7 +530,7 @@ If you already have a remote Docker host up and running, you can use the followi
 ```json
 "docker.host":"tcp://your-remote-machine-fqdn-or-ip-here:port",
 "docker.certPath": "/optional/path/to/folder/with/certificate/files",
-"docker.tlsVerify": true // or false
+"docker.tlsVerify": "1" // or "0"
 ```
 
 Alternatively, you can set **environment variables** in a terminal. To do so:
