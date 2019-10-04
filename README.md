@@ -35,7 +35,7 @@ If you think the issue is with the VS Code product itself, please enter issues i
 
 ## Contributing
 
-To contribute with new topics / information or make changes to existing documentation, please read the [Contributing Guideline](./CONTRIBUTING.md#contributing).
+To contribute new topics/information or make changes to existing documentation, please read the [Contributing Guideline](./CONTRIBUTING.md#contributing).
 
 ### Workflow
 
