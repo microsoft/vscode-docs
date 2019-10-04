@@ -104,15 +104,17 @@ Packages are installed using the **Terminal** panel and commands like `pip insta
 
 ## Jupyter notebooks
 
-If you open a [Jupyter notebook](http://jupyter.org/) file (`.ipynb`) in VS Code, the Python extension prompts you to import the notebook as a Python code file. The notebook's cells are delimited in the Python file with `#%%` comments, and the Python extension shows **Run Cell** or **Run All Cells** CodeLens. Selecting either CodeLens starts the Jupyter server and runs the cell(s) in the Python interactive window:
+If you open a [Jupyter notebook](http://jupyter.org/) file (`.ipynb`) in VS Code, you can use the Jupyter Notebook Editor to directly view, modify, and run code cells.
+
+![Jupyter notebook running in VS code in the Notebook Editor](images/python/native-jupyter.png)
+
+You can also convert and open the notebook as a Python code file. The notebook's cells are delimited in the Python file with `#%%` comments, and the Python extension shows **Run Cell** or **Run All Cells** CodeLens. Selecting either CodeLens starts the Jupyter server and runs the cell(s) in the Python interactive window:
 
 ![Jupyter notebook running in VS Code and the Python interactive window](images/python/jupyter.png)
 
-You can also connect to a remote Jupyter server for running the code.
+Opening a notebook as a Python file allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in the Notebook Editor, Jupyter, or even upload it to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
 
-Furthermore, importing a notebook into VS Code allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in Jupyter or upload to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
-
-For more information, see [Jupyter support](/docs/python/jupyter-support.md).
+Using either method, Notebook Editor or a Python file, you can also connect to a remote Jupyter server for running the code. For more information, see [Jupyter support](/docs/python/jupyter-support.md).
 
 ## Testing
 
