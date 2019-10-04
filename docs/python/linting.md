@@ -158,7 +158,14 @@ To control which Pylint messages are shown, add the following contents to an opt
 You can easily generate an options file using Pylint itself:
 
 ```bash
+# Using an *nix shell or cmd on Windows
 pylint --generate-rcfile > .pylintrc
+```
+
+For PowerShell you have to explictly specify a UTF-8 output encoding:
+
+```ps
+pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
 ```
 
 The generated file contains sections for all the Pylint options, along with documentation in the comments.
