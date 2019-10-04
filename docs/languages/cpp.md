@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: C++
 ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
 PageTitle: C++ programming with Visual Studio Code
-DateApproved: 06/24/2019
+DateApproved: 10/3/2019
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 MetaSocialImage: images/cpp/languages_cpp.png
 ---
@@ -26,14 +26,18 @@ Below you can see syntax highlighting, smart suggestions, and IntelliSense for C
 - C++ code analysis tools including C++ Core Guidelines checkers
 - the state-of-the-art Visual Studio debugger
 
-## Getting started in VS Code
+## Getting started
+
+### Install Visual Studio Code
+
+If you don't have VS Code installed, go to the [Download](/download) page to find the VS Code install that matches your platform. Installing VS Code is fast and should only take a few minutes.
 
 ### Install the Microsoft C/C++ extension
 
 1. Open VS Code.
 1. Click the Extensions view icon on the Sidebar (`kb(workbench.view.extensions)`).
 1. Search for `c++`.
-1. Click **Install**, then click **Reload**.
+1. Click **Install**.
 
 ![cpp extension](images/cpp/cpp-extension.png)
 
@@ -59,11 +63,11 @@ For instructions on configuring VS Code for specific environments, see:
 - [Get Started with C++ and Clang/LLVM on macOS](/docs/cpp/config-clang-mac.md)
 - [Get Started with C++ MSVC](/docs/cpp/config-msvc.md)
 
-## Further documentation
+## Documentation
 
-You can find more documentation on using the Microsoft C/C++ extension under the [C++](/docs/cpp) section, where you'll find topics on:
+You can find more documentation on using the Microsoft C/C++ extension under the [C++ section](/docs/cpp), where you'll find topics on:
 
-- [Debugging](/docs/cpp/cpp-debugging.md)
+- [Debugging](/docs/cpp/cpp-debug.md)
 - [Editing](/docs/cpp/cpp-ide.md)
 - [Settings](/docs/cpp/customize-default-settings-cpp.md)
 - [FAQ](/docs/cpp/faq-cpp.md)
