@@ -503,7 +503,9 @@ However, note that the **Docker CLI still needs to be installed locally** (along
 
 ### A basic remote devcontainer.json example
 
-There are two different approaches to use `devcontainer.json` with a remote host. One is to **create your remote dev container first**, and then **clone your source code a named volume** since this does not require you to have direct access to the filesystem on the remote host. Here is a basic example of this setup:
+There are two different approaches to use `devcontainer.json` with a remote host. One is to **create your remote dev container first**, and then **clone your source code into a named volume** since this does not require you to have direct access to the filesystem on the remote host.
+
+Here is a basic example of this setup:
 
 ```json
 {
@@ -513,7 +515,7 @@ There are two different approaches to use `devcontainer.json` with a remote host
 }
 ```
 
-The second is to **(bind) mount a folder on the remote machine** into your container. This requires you to have access to the remote filesystem, but also allows you to work with **existing source code** on the remote machine. Just update one property in the example above to follow this model instead:
+The second approach is to **(bind) mount a folder on the remote machine** into your container. This requires you to have access to the remote filesystem, but also allows you to work with **existing source code** on the remote machine. Just update one property in the example above to follow this model instead:
 
 ```json
 "workspaceMount": "src=/absolute/path/on/remote/machine,dst=/workspace,type=bind"
