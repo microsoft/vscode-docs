@@ -151,7 +151,7 @@ To control which Pylint messages are shown, add the following contents to an opt
 
 You can easily generate an options file using Pylint itself:
 
-```bash
+```ps
 pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
 ```
 
