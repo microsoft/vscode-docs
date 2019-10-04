@@ -83,13 +83,13 @@ You can move the Docker view up or down by dragging the Docker icon and you can 
 
 ![show and hide the view](images/docker/viewRightClick.png)
 
-### Logging into Docker Hub
+### Signing in to Docker Hub
 
-The first time you expand the Docker Hub node, you'll be prompted to log into your Docker Hub account.
+The first time you expand the Docker Hub node, you'll be prompted to sign in to your Docker Hub account.
 
 ![Docker Hub Login](images/docker/dockerHubLogin.png)
 
-Your user name and password are stored in your operating system credentials vault (for example macOS keychain, Windows Credential Store) so that you don't need to log in every time. You can log out of Docker Hub by right clicking on the Docker Hub label and choosing **Docker Hub Logout**. This will delete the credentials from the OS store.
+Your user name and password are stored in your operating system credentials vault (for example macOS keychain, Windows Credential Store) so that you don't need to sign in every time. You can log out of Docker Hub by right clicking on the Docker Hub label and choosing **Docker Hub Logout**. This will delete the credentials from the OS store.
 
 ## Configuration settings
 
@@ -111,7 +111,7 @@ You can control specific linting rules to either be a warning, error, or ignored
 
 With the Docker Explorer, you can deploy images from Docker Hub or Azure Container Registries, directly to an Azure App Service instance. This functionality requires installing the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension and an Azure Subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com/free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
-To log into Azure, use the **Azure: Sign In** command from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign into your account using the Device Login flow. Click on **Copy & Open** to open your default browser.
+To sign in to Azure, use the **Azure: Sign In** command from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign in to your account using the Device Login flow. Click on **Copy & Open** to open your default browser.
 
 ![Azure Login](images/docker/devicelogin.png)
 
@@ -125,7 +125,7 @@ You can now right click on an image in Docker Hub or an Azure Container Registry
 
 From here, you will be prompted for an Azure Resource Group, a location, an App Service Plan, and a globally unique website name.
 
-To see the full workflow, there is a detailed [Deploy using Docker](/tutorials/docker-extension/getting-started.md) tutorial that creates a web application, puts it into a Docker container, pushes it to an Azure Container Registry, and then deploys to Azure.
+To see the full workflow, there is a detailed [Deploy using Docker](https://docs.microsoft.com/azure/javascript/tutorial-vscode-docker-node-01) tutorial that creates a web application, puts it into a Docker container, pushes it to an Azure Container Registry, and then deploys to Azure.
 
 ## Connecting to `docker-machine`
 

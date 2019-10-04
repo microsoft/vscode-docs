@@ -29,7 +29,7 @@ Each extension in the list includes a brief description, the publisher, the down
 
 ### Install an extension
 
-Click the **Install** button and after a successful install, you'll see a **Reload** button. Clicking on this will restart VS Code to enable the new extension.
+To install an extension, click the **Install** button. Once the installation is complete, the **Install** button will change to the **Manage** gear button.
 
 ### Extension details
 

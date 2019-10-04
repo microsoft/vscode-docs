@@ -11,24 +11,6 @@ MetaDescription: Learn about Visual Studio Code editor features (syntax highligh
 
 Visual Studio Code is a great editor for PHP development. You get features like syntax highlighting and bracket matching, IntelliSense (code completion), and snippets out of the box and you can add more functionality through community-created VS Code [extensions](/docs/editor/extension-gallery.md).
 
-## PHP extensions
-
-There are many PHP language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) and more are being created. You can search for PHP extensions from within VS Code in the **Extensions** view (`kb(workbench.view.extensions)`) then filter the extensions drop-down list by typing `php`.
-
-<div class="marketplace-extensions-php"></div>
-
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
-
-> Tip: The following [setting](/docs/getstarted/settings.md) allows to disable the built-in PHP completions in favor of proposals created by installed PHP extensions.
-
-- `php.suggest.basic`: Configures if the built-in PHP language suggestions are enabled. Enabled by default.
-
-## Snippets
-
-Visual Studio Code includes a set of common snippets for PHP. To access these, hit `kb(editor.action.triggerSuggest)` to get a context-specific list.
-
-![PHP Snippets](images/php/php-snippets.png)
-
 ## Linting
 
 VS Code uses the official PHP linter (`php -l`) for PHP language diagnostics. This allows VS Code to stay current with PHP linter improvements.
@@ -41,11 +23,13 @@ There are three [settings](/docs/getstarted/settings.md) to control the PHP lint
 * `php.validate.executablePath`: points to the PHP executable on disk. Set this if the PHP executable is not on the system path.
 * `php.validate.run`: controls whether the validation is triggered on save (value: `"onSave"`) or on type (value: `"onType"`). Default is on save.
 
+To change the PHP settings, open your **User or Workspace Settings** (`kb(workbench.action.openSettings)`) and type 'php' to filter the list of available settings.
+
 ![show PHP settings](images/php/php-settings.png)
 
-To set the PHP executable path, open your **User or Workspace Settings** and add the `php.validate.executablePath`:
+To set the PHP executable path, select the **Edit in settings.json** link under **PHP > Validate: Executable Path**, which will open your user `settings.json` file. Add the `php.validate.executablePath` setting with the path to your PHP installation:
 
-### Windows
+### Windows:
 
 ```json
 {
@@ -53,13 +37,31 @@ To set the PHP executable path, open your **User or Workspace Settings** and add
 }
 ```
 
-### Linux and macOS
+### Linux and macOS:
 
 ```json
 {
     "php.validate.executablePath": "/usr/bin/php"
 }
 ```
+
+## Snippets
+
+Visual Studio Code includes a set of common snippets for PHP. To access these, hit `kb(editor.action.triggerSuggest)` to get a context-specific list.
+
+![PHP Snippets](images/php/php-snippets.png)
+
+## PHP extensions
+
+There are many PHP language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) and more are being created. You can search for PHP extensions from within VS Code in the **Extensions** view (`kb(workbench.view.extensions)`) then filter the extensions drop-down list by typing 'php'.
+
+<div class="marketplace-extensions-php"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+
+### Disable built-in PHP support
+
+To disable the built-in PHP smart completions in favor of suggestions from an installed PHP extension, uncheck **PHP > Suggest: Basic**, which sets `php.suggest.basic` to false in your `settings.json` file.
 
 ## Debugging
 

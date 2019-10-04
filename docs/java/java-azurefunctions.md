@@ -17,7 +17,7 @@ This tutorial walks you through creating and deploying a Java Azure Functions ap
 
 To develop Azure Functions with Java, you'll need the following tools installed:
 
-- [Java Developer Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK), version 1.8.
+- [Java Developer Kit](https://aka.ms/azure-jdks) (JDK), version 1.8.
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
 >**Important**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
@@ -156,7 +156,7 @@ If you don't have an Azure subscription, you can sign up for a [free Azure accou
 
 The deploy process leverages the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension (installed along with the Azure Functions extension as an dependency) and you need to sign in with your Azure subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
-To log into Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign into your account using the **Device Login** flow. Click on **Copy & Open** to open your default browser.
+To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign in to your account using the **Device Login** flow. Select **Copy & Open** to open your default browser.
 
 ![Azure sign in code](images/java-azurefunctions/devicelogin.png)
 

@@ -24,6 +24,12 @@ Enabling a linter prompts you to install the required packages in your selected 
 
 > **Note**: If you're using a global environment and VS Code is not running elevated, linter installation may fail. In that case, either run VS Code elevated, or manually run the Python package manager to install the linter at an elevated command prompt for the same environment: for example `sudo pip3 install pylint` (macOS/Linux) or `pip install pylint` (Windows, at an elevated prompt)
 
+## Disable linting
+
+You can disable all Python linting with the **Python: Enable Linting** command, which shows a dropdown with the current linting state and options to turn Python linting `on` or `off`.
+
+![Python Enable Linting command dropdown](images/linting/enable-linting-dropdown.png)
+
 ## Run linting
 
 To perform linting:

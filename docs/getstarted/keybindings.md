@@ -226,9 +226,22 @@ Accepted scan codes:
 
 ## 'when' clause contexts
 
-VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times.
+VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times. A `when` clause evaluates to either Boolean true or false for enabling key bindings.
 
-Below are some of the possible `when` clause contexts which evaluate to Boolean true/false. For conditional expressions, you can use either equality `==` (`"editorLangId == typescript"`) or inequality `!=` (`"resourceExtname != .js"`).
+### Conditional operators
+
+For conditional expressions, you can use the following conditional operators:
+
+Operator | Symbol | Example
+-------- | ------ | -----
+Equality | `==` | `"editorLangId == typescript"`
+Inequality | `!=` | `"resourceExtname != .js"`
+Or | `||` | `"isLinux || isWindows"`
+And | `&&` | `"textInputFocus && !editorReadonly"`
+
+### Contexts
+
+Below are some of the possible `when` clause contexts which evaluate to Boolean true/false.
 
 Context name | True when
 ------------ | ------------
