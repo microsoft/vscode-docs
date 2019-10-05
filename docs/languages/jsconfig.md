@@ -137,5 +137,3 @@ Component | folder to exclude
 `jspm` | exclude the `jspm_packages` folder
 
 When your JavaScript project is growing too large and performance slows, it is often because of library folders like `node_modules`. If VS Code detects that your project is growing too large, it will prompt you to edit the `exclude` list.
-
->**Tip:** Sometimes changes to configuration, such as adding or editing a `jsconfig.json` file are not picked up correctly. Running the **Reload JavaScript Project** command should reload the project and pick up the changes.
