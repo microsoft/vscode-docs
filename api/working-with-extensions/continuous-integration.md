@@ -102,39 +102,14 @@ You can configure the CI to publish a new version of the extension automatically
 
 The publish command is similar to the command of publishing from local environment using [`vsce`](https://github.com/Microsoft/vsce) service but this time the command needs to pass also the the Personal Access Token ("PAT").
 
-So, to configure the CI to also publish the extension, follow those steps:
-
-1. Install `vsce` as `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`)
-2. Add a `deploy` script in `package.json`
-
-```json
-"scripts": {
-  "deploy": "vsce publish -p [your-personal-access-token]"
-}
-```
-
-3. Add the publish step in `azure-pipelines.yml`
-```yaml
-- bash: |
-    echo ">>> Publish"
-    yarn deploy
-  displayName: Publish
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Agent.OS'], 'Linux'))
-```
-
-You can use the [`condition`](https://docs.microsoft.com/azure/devops/pipelines/process/conditions) to tell the CI not to publish in certain cases. For example, publishing only if the tests are passed, only for `master` builds or only when the build is running on a specific platform.
-
-### Publishing a public project
-
-In case that the project is [public](https://docs.microsoft.com/azure/devops/pipelines/repos/github#public-github-repository-and-azure-pipelines-in-a-public-project) the PAT probably shouldn't be exposed with the rest of the code.
-
-In this case, you can store the PAT in a "secret variable". The value of that variable will not be exposed and you can use it in the `azure-pipelines.yml` file.
+But the PAT probably shouldn't be exposed with the rest of the code (it's a sensitive information), so you can store it in a "secret variable". The value of that variable will not be exposed and you can use it in the `azure-pipelines.yml` file.
 
 To create a secret variable, follow the [instructions](https://docs.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables)
 
 Next steps will be:
 
-1. Declare the `deploy` script in `package.json` without the PAT
+1. Install `vsce` as `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`)
+2. Declare a `deploy` script in `package.json` without the PAT
 
 ```json
 "scripts": {
@@ -142,12 +117,31 @@ Next steps will be:
 }
 ```
 
-2. Use it in the `publish` step in `azure-pipelines.yml`
+3. Config the CI so the build will run for all the branches including tags by adding a `trigger` section in `azure-pipelines.yml`
+
+```yaml
+trigger:
+  branches:
+    include: ['*']
+  tags:
+    include: ['*']
+```
+
+4. Add a `publish` step in `azure-pipelines.yml` that calls `yarn deploy` with the secret variable.
+(`VSCODE_MARKETPLACE_TOKEN` in the example should be replaced with the name of the secret you created at the beggining of the process)
 
 ```yaml
 - bash: |
     echo ">>> Publish"
-    yarn deploy $([the-name-of-the-secret-variable])
+    yarn deploy $(VSCODE_MARKETPLACE_TOKEN)
   displayName: Publish
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Agent.OS'], 'Linux'))
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Agent.OS'], 'Linux'))
 ```
+
+The [`condition`](https://docs.microsoft.com/azure/devops/pipelines/process/conditions) property meant to tells the CI to run the publish step only in certain cases.
+
+In our example:
+
+- `succeeded()` - publishing only if the tests are passed
+- `startsWith(variables['Build.SourceBranch'], 'refs/tags/')` publishing only in a tag (release) build
+- `eq(variables['Agent.OS'], 'Linux')` - in case of running the build on multiple aganents (Windows, Linux etc.) If it's not your case, remove that part of the condition
