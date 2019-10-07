@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 6
 Area: python
 TOCTitle: Jupyter Support
 ContentId: C26E4F82-C6CD-4C52-818F-31A95F58207E
@@ -104,7 +104,7 @@ You can offload intensive computation in a Jupyter notebook to other computers b
 To connect to a remote Jupyter server:
 
 1. Run the **Python: Specify Jupyter server URI** command from the Command Palette (`kb(workbench.action.showCommands)`).
-2. When prompted, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.)
+2. When prompted, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
 
     ![Prompt to supply a Jupyter server URI](images/jupyter/enter-url-auth-token.png)
 
