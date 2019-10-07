@@ -125,6 +125,14 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 VS Code's local user settings are also reused when you have opened a folder in WSL. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and WSL. Fortunately, once you have connected to WSL, you can also set WSL specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the settings editor. These will override any local settings you have in place whenever you open a folder in WSL.
 
+## Advanced: Environment setup script
+
+When VS Code Remote is started in WSL, no shell startup scripts are run. This was done to avoid issues with startup scripts that are tuned for shells. If you want to run additional commands or modify the environment this can be done in a setup script `~/.vscode-server/server-env-setup` (Insiders: `~/.vscode-server-insiders/server-env-setup`). If present, the script is processed before the server is started.
+
+The script needs to be a valid Bourne shell script. Be aware that an invalid script will prevent the server from starting up. If end up with a script that prevents the server to start, you will have to use a regular WSL shell and delete or rename the setup script.
+
+Check the WSL log (Remote WSL: Open WSL Log) for output and errors.
+
 ## Known limitations
 
 This section contains a list of common know issues with WSL. The intent is not to provide a complete list of issues but to highlight some of the common problems seen with WSL.
