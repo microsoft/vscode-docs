@@ -231,6 +231,7 @@ You can also use the following actions:
 
 * Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor.
 * Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor.
+* Toggle Fold (`kb(editor.toggleFold)`) folds or unfolds the region at the cursor.
 * Fold Recursively (`kb(editor.foldRecursively)`) folds the innermost uncollapsed region at the cursor and all regions inside that region.
 * Unfold Recursively (`kb(editor.unfoldRecursively)`) unfolds the region at the cursor and all regions inside that region.
 * Fold All (`kb(editor.foldAll)`) folds all regions in the editor.
