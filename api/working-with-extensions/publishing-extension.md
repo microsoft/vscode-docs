@@ -9,7 +9,7 @@ MetaDescription: Learn how to publish Visual Studio Code extensions to the publi
 
 # Publishing Extension
 
-Once you have made a high-quality extension, you can publish it to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode) so others can find, download and use your extension. Alternatively, you can [package](#packaging-extensions) an extension into the installable VSIX format and share it with other users.
+Once you have made a high-quality extension, you can publish it to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode) so others can find, download, and use your extension. Alternatively, you can [package](#packaging-extensions) an extension into the installable VSIX format and share it with other users.
 
 This topics covers:
 
@@ -41,7 +41,7 @@ $ vsce publish
 # <publisherID>.myExtension published to VS Code MarketPlace
 ```
 
-`vsce` can also search, get metadata of and unpublish extensions. For a reference on all the available `vsce` commands, run `vsce --help`.
+`vsce` can also search, retrieve metadata, and unpublish extensions. For a reference on all the available `vsce` commands, run `vsce --help`.
 
 ## Publishing extensions
 
@@ -61,7 +61,7 @@ Select `Personal access tokens` and click **New Token** to create a new Personal
 
 ![Create personal access token](images/publishing-extension/token2.png)
 
-Give the Personal Access Token a name, optionally extend its expiration date to 1 year, make it accessible to every organization, select a **custom defined** scope ruleset and click **Show all scopes**:
+Give the Personal Access Token a name, optionally extend its expiration date to one year, make it accessible to every organization, select a **custom defined** scope ruleset and click **Show all scopes**:
 
 ![Personal access token details](images/publishing-extension/token3.png)
 
@@ -83,9 +83,9 @@ vsce create-publisher (publisher name)
 
 `vsce` will remember the provided Personal Access Token for future references to this publisher.
 
-**Note:** Alternatively, create your publisher in the Marketplace publisher [management page](https://marketplace.visualstudio.com/manage) and login in `vsce`, as described in the next section.
+**Note:** Alternatively, create your publisher in the Marketplace publisher [management page](https://marketplace.visualstudio.com/manage) and log in through `vsce`, as described in the next section.
 
-### Login to a publisher
+### Log in to a publisher
 
 If you already created a publisher before and want to use it with `vsce`:
 
@@ -124,7 +124,7 @@ the commit message with `%s`.)
 
 ## Unpublishing extensions
 
-You can unpublish an extension with the vsce tool by specifying the extension id `publisher.extension`.
+You can unpublish an extension with the vsce tool by specifying the extension ID `publisher.extension`.
 
 ```bash
 vsce unpublish (publisher name).(extension name)
@@ -166,9 +166,9 @@ When authoring an extension, you will need to describe what is the extension's c
 
 A value of `1.8.0` means that your extension is compatible only with VS Code `1.8.0`. A value of `^1.8.0` means that your extension is compatible with VS Code `1.8.0` and onwards, including `1.8.1`, `1.9.0`, etc.
 
-You can use the `engines.vscode` field to make sure the extension only gets installed for clients which contain the API you depend on. This mechanism plays well with the Stable release as well as the Insiders one.
+You can use the `engines.vscode` field to make sure the extension only gets installed for clients that contain the API you depend on. This mechanism plays well with the Stable release as well as the Insiders one.
 
-For example, imagine that the latest Stable version of VS Code is `1.8.0` and that during `1.9.0`'s development a new API is introduced and thus made available in the Insider release through version `1.9.0-insider`. If you want to publish an extension version which benefits from this API, you should indicate a version dependency of `^1.9.0`. Your new extension version will be installed only on VS Code `>=1.9.0`, which means all current Insider customers will get it, while the Stable ones will only get the update when Stable reaches `1.9.0`.
+For example, imagine that the latest Stable version of VS Code is `1.8.0` and that during `1.9.0`'s development a new API is introduced and thus made available in the Insider release through version `1.9.0-insider`. If you want to publish an extension version that benefits from this API, you should indicate a version dependency of `^1.9.0`. Your new extension version will be installed only on VS Code `>=1.9.0`, which means all current Insider customers will get it, while the Stable ones will only get the update when Stable reaches `1.9.0`.
 
 ## Advanced usage
 
@@ -243,3 +243,7 @@ You may have changed your extension ID or publisher name. You can also manage yo
 ### Why does vsce not preserve file attributes?
 
 Please note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and macOS works as expected.
+
+### Can I publish from a continuous integration (CI) build?
+
+Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration.md#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration.md) topic to learn how to configure Azure DevOps to automatically publish your extension to the Marketplace.
