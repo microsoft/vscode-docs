@@ -104,15 +104,13 @@ Once your code is added, you can run a cell using the green run arrow and the ou
 
 ![Run Jupyter code cell](images/jupyter/native-code-cells-03.png)
 
-You can also use the Command Palette and key combos to run a selected code cell. `kbstyle(Ctrl+Enter)` runs the currently selected cell, `kbstyle(Shift+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus moves to new cell), and `kbstyle(Alt+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus remains on current cell). These keyboard combos can be used in both command and edit modes. To run a code cell using the Command Palette, just open the Command Palette (`kb(workbench.action.showCommands)`) and run the **Python: Run Cell** command.
+You can also use key combos to run a selected code cell. `kbstyle(Ctrl+Enter)` runs the currently selected cell, `kbstyle(Shift+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus moves to new cell), and `kbstyle(Alt+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus remains on current cell). These keyboard combos can be used in both command and edit modes.
 
 ### Run multiple code cells
 
 Running multiple code cells can be accomplished in a number of ways. You can use the double arrow in the toolbar of the Notebook Editor to run all cells within the Notebook or the hover toolbar arrows to run all cells above or below the current code cell.
 
 ![Run multiple code cells](images/jupyter/native-code-cells-04.png)
-
-Additionally, you can use the Command Palette (`kb(workbench.action.showCommands)`) and run the **Python: Run All Cells** command.
 
 ### Move a code cell
 
