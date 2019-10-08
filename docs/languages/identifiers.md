@@ -20,7 +20,7 @@ Note that casing matters for exact identifier matching ('Markdown' != 'markdown'
 
 The language identifier becomes essential for VS Code extension developers when adding new language capabilities or when replacing a language support.
 
-Every language defines its *id* through the `languages` configuration point:
+Every language defines its *id* through the `languages` configuration point in the extension's `package.json` file:
 
 ```json
     "languages": [{
