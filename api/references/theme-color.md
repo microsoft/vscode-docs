@@ -44,6 +44,7 @@ The contrast colors are typically only set for high contrast themes. If set, the
 - `selection.background`: Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal).
 - `descriptionForeground`: Foreground color for description text providing additional information, for example for a label.
 - `errorForeground`: Overall foreground color for error messages (this color is only used if not overridden by a component).
+- `icon.foreground`: The default color for icons in the workbench.
 
 ## Text colors
 
@@ -314,6 +315,11 @@ CodeLens:
 
 - `editorCodeLens.foreground`: Foreground color of an editor CodeLens.
 
+Lightbulb:
+
+- `editorLightBulb.foreground`: The color used for the lightbulb actions icon.
+- `editorLightBulbAutoFix.foreground`: The color used for the lightbulb auto fix actions icon.
+
 Bracket matches:
 
 ![Bracket colors](images/theme-color/bracket-colors.png)
@@ -349,6 +355,9 @@ Errors and warnings:
 - `editorInfo.border`: Border color of info boxes in the editor.
 - `editorHint.foreground`: Foreground color of hints in the editor.
 - `editorHint.border`: Border color of hint boxes in the editor.
+- `problemsErrorIcon.foreground`: The color used for the problems error icon.
+- `problemsWarningIcon.foreground`: The color used for the problems warning icon.
+- `problemsInfoIcon.foreground`: The color used for the problems info icon.
 
 Unused source code:
 
@@ -522,6 +531,9 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `notifications.background`: Notification background color.
 - `notifications.border`: Notification border color separating from other notifications in the Notification Center.
 - `notificationLink.foreground`: Notification links foreground color.
+- `notificationsErrorIcon.foreground`: The color used for the notification error icon.
+- `notificationsWarningIcon.foreground`: The color used for the notification warning icon.
+- `notificationsInfoIcon.foreground`: The color used for the notification info icon.
 
 If you target VS Code versions before the 1.21 (February 2018) release, these are the old (no longer supported) colors:
 
