@@ -28,6 +28,7 @@ The following predefined variables are supported:
 - **${lineNumber}** - the current selected line number in the active file
 - **${selectedText}** - the current selected text in the active file
 - **${execPath}** - the path to the running VS Code executable
+- **${defaultBuildTask}** - the name of the default build task
 
 ### Predefined variables examples
 
