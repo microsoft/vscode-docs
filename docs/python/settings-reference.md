@@ -12,14 +12,14 @@ MetaSocialImage: images/tutorial/social.png
 
 The Python Extension for Visual Studio Code is highly configurable. This page describes the key settings you can work with.
 
-Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our more about working with settings in VS Code generally.
+Refer to [User and workspace settings](/docs/getstarted/settings.md) to find out more about working with settings in VS Code generally.
 
 ## General settings
 
 | Setting | Default | Description |
 | --- | --- | --- |
 | python.condaPath | `"conda"` | Path to the `conda` executable. |
-| python.pythonPath | `"python"` | Path to the python interpreter, or the path to a folder containing the Python interpreter. Can use variables like `${workspaceFolder}` and `${workspaceFolder}/.venv`. Using a path to a folder allows anyone working with a project to create an environment in the `.venv` folder as appropriate to their operating system, rather than having to specify an exact platform-dependent path. The `settings.json` file can then be included in a source code repository. |
+| python.pythonPath | `"python"` | Path to the Python interpreter, or the path to a folder containing the Python interpreter. Can use variables like `${workspaceFolder}` and `${workspaceFolder}/.venv`. Using a path to a folder allows anyone working with a project to create an environment in the `.venv` folder as appropriate to their operating system, rather than having to specify an exact platform-dependent path. The `settings.json` file can then be included in a source code repository. |
 | python.pipenvPath | `"pipenv"` | Path to the pipenv executable to use for activation. |
 | python.disableInstallationCheck | `false` | If set to `true`, disables a warning from the extension if no Python interpreter is installed. On macOS, also disables a warning that appears if you're using the OS-installed Python interpreter. It's generally recommended to install a separate interpreter on macOS. |
 | python.venvPath | `""` | Path to a folder, where virtual environments are created. Depending on the virtualization tool used, it can be the project itself: `${workspaceFolder}`, or separate folder for all virtual environments located side by side: `.\envs`, `~/.virtualenvs`, and so on. |
