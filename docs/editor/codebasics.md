@@ -261,7 +261,7 @@ Regions can also be defined by markers defined by each language. The following l
 * Java: `//#region` and `// #endregion` and `//<editor-fold>` and `//</editor-fold>`
 * HTML:
 * PHP: `#region` and `#endregion`
-* Powershell: `#region` and `#endregion`
+* PowerShell: `#region` and `#endregion`
 * Python: `#region` and `#endregion` and `# region` and `# endregion`
 * TypeScript/JavaScript:  `//#region` and `//#endregion`  and `//region` and `//endregion`
 * VB: `#Region` and `#End Region`
