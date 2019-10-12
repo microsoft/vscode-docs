@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 30
 Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C

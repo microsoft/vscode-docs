@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 60
 Area: editor
 TOCTitle: Refactoring
 ContentId: 481dfd3a-d847-4ed3-b37b-7fc8d234a4c2

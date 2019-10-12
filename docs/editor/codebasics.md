@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 20
 Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
