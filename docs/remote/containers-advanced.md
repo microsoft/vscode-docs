@@ -539,8 +539,8 @@ Alternatively, you can set **environment variables** in a terminal. To do so:
 
 1. Shut down all instances of VS Code.
 2. Ensure VS Code is in your `PATH`.
-3. Set the environment variables (e.g. `DOCKER_HOST`) in a terminal / command prompt.
-4. Type `code` in this same terminal / command prompt to launch VS Code with the variables set.
+3. Set the environment variables (e.g. `DOCKER_HOST`) in a terminal / PowerShell.
+4. Type `code` in this same terminal / PowerShell to launch VS Code with the variables set.
 
 ### Option 2: Connect using Docker Machine
 
@@ -571,14 +571,7 @@ Once you have a machine setup:
     docker-machine env give-it-a-name-here | Invoke-Expression
     code
     ```
-
-    **Windows Command Prompt**:
-
-    ```bat
-    @FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd give-it-a-name-here') DO @%i
-    code
-    ```
-
+  
 ### Option 3: Connect using an SSH tunnel
 
 Docker CE / EE / Desktop will not expose the required Docker daemon TCP port by default since this can leave the machine vulnerable if not secured properly. Fortunately, if you have SSH access, you can use a tunnel to forward the Docker socket from your remote host to your local machine as needed.
@@ -595,7 +588,7 @@ Just follow these steps:
 
     You can also set a `DOCKER_HOST` environment variable before starting VS Code instead if you prefer.
 
-3. Run the following command from a local terminal / command prompt (replacing `user@hostname` with the remote user and hostname / IP for your server):
+3. Run the following command from a local terminal / PowerShell (replacing `user@hostname` with the remote user and hostname / IP for your server):
 
     ```bash
     ssh -NL localhost:23750:/var/run/docker.sock user@hostname
@@ -603,7 +596,7 @@ Just follow these steps:
 
 VS Code will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
 
-Once you are done, press `kbstyle(Ctrl+C)` in the terminal / command prompt to close the tunnel.
+Once you are done, press `kbstyle(Ctrl+C)` in the terminal / PowerShell to close the tunnel.
 
 > **Note:** If the `ssh` command fails, you may need to `AllowStreamLocalForwarding` on your SSH host.
 >

@@ -25,7 +25,7 @@ To set up SSH key based authentication for your remote host:
 
 1. Check to see if you already have an SSH key on your **local** machine. The public key is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and at `%USERPROFILE%\.ssh\id_rsa.pub` on Windows.
 
-    If you do not have a key, run the following command in a **local** terminal / command prompt to generate an SSH key pair:
+    If you do not have a key, run the following command in a **local** terminal / PowerShell to generate an SSH key pair:
 
     ```bash
     ssh-keygen -t rsa -b 4096
@@ -35,19 +35,19 @@ To set up SSH key based authentication for your remote host:
 
 2. Add the contents of your **local** public key (the `id_rsa.pub` file) to the appropriate `authorized_keys` file(s) on the **SSH host**.
 
-    On **macOS / Linux**, run the following command in a **local terminal**, replacing the user and host name as appropriate.
+    **macOS / Linux**: Run the following, in a **local terminal** replacing user and host name as appropriate:
 
     ```bash
     ssh-copy-id your-user-name-on-host@host-fqdn-or-ip-goes-here
     ```
 
-    On **Windows**, run the following commands in a **local command prompt** replacing the value of `REMOTEHOST` as appropriate.
+    **Windows**: Run the following in a **local PowerShell**, replacing the value of `REMOTEHOST` as appropriate:
 
-    ```bat
-    SET REMOTEHOST=your-user-name-on-host@host-fqdn-or-ip-goes-here
+    ```powershell
+    $REMOTEHOST="your-user-name-on-host@host-fqdn-or-ip-goes-here"
 
-    scp %USERPROFILE%\.ssh\id_rsa.pub %REMOTEHOST%:~/tmp.pub
-    ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
+    scp "$env:USERPROFILE\.ssh\id_rsa.pub" "$REMOTEHOST:~/tmp.pub"
+    ssh "$REMOTEHOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
     ```
 
 ### Improving your security with a dedicated key
@@ -56,16 +56,16 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
 
 1. Generate a separate SSH key in a different file.
 
-    On macOS / Linux, run the following command in a **local terminal**:
+    **macOS / Linux**: Run the following command in a **local terminal**:
 
     ```bash
     ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa-remote-ssh
     ```
 
-    On Windows, run the following command in a **local command prompt**:
+    **Windows**: Run the following command in a **local PowerShell**:
 
-    ```bat
-    ssh-keygen -t rsa -b 4096 -f %USERPROFILE%\.ssh\id_rsa-remote-ssh
+    ```powershell
+    ssh-keygen -t rsa -b 4096 -f "$env:USERPROFILE\.ssh\id_rsa-remote-ssh"
     ```
 
 2. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
@@ -79,20 +79,19 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
 
 3. Add the contents of the **local** `id_rsa-remote-ssh.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the **SSH host**.
 
-    On **macOS / Linux**, run the following command in a **local terminal**, replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2:
+    **macOS / Linux**: Run the following command in a **local terminal**, replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2:
 
     ```bash
     ssh-copy-id -i ~/.ssh/id_rsa-remote-ssh.pub name-of-ssh-host-here
     ```
 
-    On **Windows**, run the following commands in a **local command prompt**, replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2.
+    **Windows**: Run the following commands in a **local PowerShell**, replacing replacing the value of `$REMOTEHOST` the host name in the SSH config file from step 2.
 
-    ```bat
-    SET REMOTEHOST=name-of-ssh-host-here
-    SET PATHOFIDENTITYFILE=%USERPROFILE%\.ssh\id_rsa-remote-ssh.pub
+    ```powershell
+    $REMOTEHOST="name-of-ssh-host-here"
 
-    scp %PATHOFIDENTITYFILE% %REMOTEHOST%:~/tmp.pub
-    ssh %REMOTEHOST% "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
+    scp "$env:USERPROFILE\.ssh\id_rsa-remote-ssh.pub" "$REMOTEHOST:~/tmp.pub"
+    ssh "$REMOTEHOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
     ```
 
 ### Reusing a key generated in PuTTYGen
@@ -100,7 +99,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
 If you used PuTTYGen to set up SSH public key authentication for the host you are connecting to, you need to convert your private key so that other SSH clients can use it. To do this:
 
 1. Open PuTTYGen **locally** and load the private key you want to convert.
-2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a **local** location such as `%USERPROFILE%\.ssh`.
+2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a **local** location such as the `.ssh` directory in your user profile folder (`C:\Users\youruser\.ssh`).
 3. Validate that the **local** permissions on the exported key file only grant `Full Control` to your user, Administrators, and SYSTEM.
 4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you wish to change, and add (or modify) a host entry in the config file as follows:
 
@@ -210,7 +209,7 @@ To verify that the agent is running and is reachable from VS Code's environment,
 
 **Windows:**
 
-To enable SSH Agent automatically on Windows, start PowerShell as an Administrator and run the following commands:
+To enable SSH Agent automatically on Windows, start a **local Administrator PowerShell** as and run the following commands:
 
 ```powershell
 # Make sure you're running as an Administrator
@@ -379,15 +378,9 @@ On **macOS, Linux, or inside WSL**:
 rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" .
 ```
 
-Or using **WSL from a command prompt on Windows**:
-
-```bat
-wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "$(wslpath -a '%CD%')"
-```
-
 Or using **WSL from PowerShell on Windows**:
 
-```bat
+```powershell
 wsl rsync -rlptzv --progress --delete --exclude=.git "user@hostname:/remote/source/code/path" "`$(wslpath -a '$PWD')"
 ```
 
@@ -704,7 +697,7 @@ If you use HTTPS to clone your repositories and **have a [credential helper conf
 
 Just follow these steps:
 
-1. Configure the credential manager on Windows by running the following in a **Windows command prompt**:
+1. Configure the credential manager on Windows by running the following in a **Windows command prompt** or **PowerShell**:
 
     ```bat
      git config --global credential.helper wincred

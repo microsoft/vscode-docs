@@ -40,9 +40,9 @@ To get started, you need to:
 
 ### Open a folder in WSL
 
-Opening a folder inside the Windows Subsystem for Linux in VS Code is very similar to opening up a Windows folder from the command prompt.
+Opening a folder inside the Windows Subsystem for Linux in VS Code is very similar to opening up a Windows folder from the command prompt or PowerShell.
 
-1. Open a **WSL terminal window** (using the start menu item or by typing `wsl` from the command prompt).
+1. Open a **WSL terminal window** (using the start menu item or by typing `wsl` from a command prompt / PowerShell).
 
 2. Navigate to a folder you'd like to open in VS Code (including, but not limited to, Windows filesystem mounts like `/mnt/c`)
 
