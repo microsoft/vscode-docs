@@ -50,7 +50,7 @@ Linting is the analysis of your T-SQL code for potential syntax errors. Use Visu
 
 ## Peek Definition/Go to Definition
 
-Use **Peek Definition** and **Go to Definition** to quickly browse the definition of schema objects in your database such as tables, functions, and procedures while typing T-SQL code.
+Use **Peek Definition** or **Go to Definition** to quickly browse the definition of schema objects in your database such as tables, functions, and procedures while typing T-SQL code.
 
 ![tsql peek definition](images/tsql/peekdefinition.gif)
 
