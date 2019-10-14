@@ -67,7 +67,7 @@ The following attributes are supported in launch configurations of type `launch`
 * `sourceMaps` - enable source maps by setting this to `true`. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
 * `outFiles` - array of glob patterns for locating generated JavaScript files. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
 * `restart` - restart session on termination. See section [Restarting debug session automatically](/docs/nodejs/nodejs-debugging.md#restarting-debug-sessions-automatically-when-source-is-edited).
-* `autoAttachChildProcesses` - track all subprocesses of debuggee and automatically attach to those that are launched in debug mode. See section [Automatically attach debugger to Node.js subprocesses](/docs/nodejs/nodejs-debugging.md#automatically-attach-debugger-to-nodejs-subprocesses) below.
+
 * `timeout` - when restarting a session, give up after this number of milliseconds. See section [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs).
 * `stopOnEntry` - break immediately when the program launches.
 * `localRoot` - VS Code's root directory. See section [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) below.
@@ -88,6 +88,7 @@ These attributes are only available for launch configurations of request type `l
 * `envFile` - optional path to a file containing environment variable definitions. See section [Load environment variables from external file](/docs/nodejs/nodejs-debugging.md#load-environment-variables-from-external-file-node) below.
 * `console` - kind of console to launch the program (`internalConsole`, `integratedTerminal`, `externalTerminal`). See section [Node Console](/docs/nodejs/nodejs-debugging.md#node-console) below.
 * `outputCapture` - if set to `std`, output from the process stdout/stderr will be shown in the Debug Console, instead of listening to output over the debug port. This is useful for programs or log libraries that write directly to the stdout/stderr streams instead of using `console.*` APIs.
+* `autoAttachChildProcesses` - track all subprocesses of debuggee and automatically attach to those that are launched in debug mode. See section [Automatically attach debugger to Node.js subprocesses](/docs/nodejs/nodejs-debugging.md#automatically-attach-debugger-to-nodejs-subprocesses) below.
 
 This attribute is only available for launch configurations of request type `attach`:
 
