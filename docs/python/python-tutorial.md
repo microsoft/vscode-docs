@@ -39,8 +39,6 @@ To successfully complete this tutorial, complete the following requirements:
    - (Windows) Install Python from the Windows Store.
    - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
-   > **Note** You can use the `py -0` command in the integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
-
 1. On macOS, make sure the location of your VS Code installation is included in your PATH environment variable.  See [the setup instructions](/docs/setup/mac.md#launching-from-the-command-line) for more information.
 
 ### Windows Subsystem for Linux
@@ -68,6 +66,8 @@ To verify that you've installed Python successfully on your machine, run one of 
     ```
 
 If the installation was successful, the output window should show the version of Python that you installed.
+
+   > **Note** You can use the `py -0` command in the integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
 
 ## Start VS Code in a project (workspace) folder
 
