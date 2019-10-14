@@ -190,6 +190,7 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 * [JavaScript](/docs/languages/javascript.md) - Get the most out of your JavaScript development, including configuring IntelliSense.
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - See an example of IntelliSense in action in the Node.js walkthrough.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
+* [Creating Language extensions](/api/language-extensions/programmatic-language-features.md) - Learn how to create extensions that add IntelliSense for new programming languages.
 
 ## Common questions
 
