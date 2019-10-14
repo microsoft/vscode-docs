@@ -11,7 +11,7 @@ MetaDescription: In Visual Studio Code we have support for all common languages 
 
 ## Hundreds of programming languages supported
 
-In Visual Studio Code, we have support for almost every major programming language. Several ship in the box, for example, JavaScript, TypeScript, CSS, and HTML but more rich language extensions can be found in the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
+In Visual Studio Code, we have support for almost every major programming language. Several ship in the box, for example, JavaScript, TypeScript, CSS, and HTML, but even richer language extensions can be found in the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
 
 Here are eight of the most popular language extensions:
 
