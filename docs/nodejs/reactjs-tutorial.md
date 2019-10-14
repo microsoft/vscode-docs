@@ -94,12 +94,12 @@ Let's update the sample application to "Hello World!". Add the link to declare a
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
 import './index.css';
 
 var element = React.createElement('h1', { className: 'greeting' }, 'Hello, world!');
 ReactDOM.render(element, document.getElementById('root'));
-registerServiceWorker();
+serviceWorker.unregister();
 ```
 
 Once you save the `index.js` file, the running instance of the server will update the web page and you'll see "Hello World!".
