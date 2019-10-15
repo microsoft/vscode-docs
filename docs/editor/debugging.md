@@ -331,7 +331,7 @@ Expressions can be evaluated with the **Debug Console** REPL ([Read-Eval-Print L
 
 **Note**: You must be in a running debug session to use the Debug Console REPL.
 
-## Redirect input to the debug target
+## Redirect input/output to/from the debug target
 
 Redirecting input/output is debugger/runtime specific, so VS Code does not have a built-in solution that works for all debuggers.
 
@@ -343,6 +343,7 @@ Here are two approaches you might want to consider:
 
 Here's an example `launch.json` configuration:
 
+```json
 {
     "name": "launch program that reads a file from stdin",
     "type": "node",
@@ -353,7 +354,8 @@ Here's an example `launch.json` configuration:
         "<",
         "in.txt"
     ]
- }
+}
+```
 
 This approach requires that the "<" syntax is passed through the debugger extension and ends up unmodified in the Integrated Terminal.
 
