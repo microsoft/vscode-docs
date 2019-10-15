@@ -9,13 +9,14 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Java in Visual Studio Code
 
-The Java support in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md). By installing extensions, you can have a lightweight and performant code editor that also supports many popular Java development tools. VS Code provides essential language features such as code completion, refactoring, linting, formatting, and code snippets along with convenient debugging and unit test support. VS Code can also integrate with tooling and frameworks such as Maven, Tomcat, Jetty, and Spring Boot. Leveraging the power of Visual Studio Code, Java developers get an excellent tool for both quick code editing and also the full debugging and testing cycle. It's a great choice for your Java work if you're looking for a tool which:
+Support for Java in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md). Combined with the power of core VS Code, these extensions give you a lightweight and performant code editor that also supports many the most common Java development techniques. VS Code provides essential language features such as code completion, refactoring, linting, formatting, and code snippets along with convenient debugging and unit test support. VS Code can also integrate with tooling and frameworks such as Maven, Tomcat, Jetty, and Spring Boot. Leveraging the power of Visual Studio Code, Java developers get an excellent tool for both quick code editing and also the full debugging and testing cycle. It's a great choice for your Java work if you're looking for a tool which:
 
-- Is fast and lightweight, free, and open source
-- Supports multiple, or all the programming languages you use
+- Is fast, lightweight, gratis, and open source
+- Supports many other languages, not just Java
 - Helps start your Java journey without installing and learning a complex IDE
-- Provides great microservices support including popular framework, container tooling and cloud integration
-- Improves your productivity through smartness and collaboration features
+- Provides great microservices support including popular frameworks, container tooling and cloud integration
+- Offers team-based collaboration features
+- Improves your productivity through intellisense and other code-aware editing aids
 
 This article will give you an overview of different capabilities of Visual Studio Code for Java developers. For a quick walkthrough of editing, running, and debugging a Java program with Visual Studio Code, see the [Java Tutorial](/docs/java/java-tutorial).
 
@@ -27,7 +28,7 @@ To help you get started quickly, we created a special [Installer of Visual Studi
 
 <a class="tutorial-install-extension-btn" href="https://aka.ms/vscode-java-installer-win">Download Visual Studio Code Java Pack Installer</a>
 
-> **Note**: The installer is currently only available for Windows. For other OS, please install those components (JDK, VS Code and Java extensions) individually. We're working on the macOS version, please stay tuned.
+> **Note**: The installer is currently only available for Windows. For other OS, don't worry.  Everything still works, you just have to  install those components (JDK, VS Code and Java extensions) individually. We're working on the macOS version, please stay tuned.  The documentation will tell you which extensions to install.
 
 Alternatively, you can also add Java language support to VS Code by installing the popular Java extensions by yourself.
 
@@ -64,15 +65,15 @@ This document describes some of the key features included in those Java extensio
 
 ## Getting started
 
-For developers new to Java or new to VS Code, we provide a Getting Started experience. Once you've installed the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can use the command **Java: Getting Started** to get the Quick Start guide.
+Once you're done reading through this article, for developers new to Java or new to VS Code, we provide a Getting Started experience. Once you've installed the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).  To open the Getting Started experience from within VS Code, you use a "command".  A command is something you execute from [the Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) in the UI.  Open the command palette by typing Ctrl-Shift-P on Windows or &#2318; &#25B2; P on Mac.  This opens a little text field at the top middle of the UI where you type **Java: Getting Started** to get the Quick Start guide.
 
 ![Java Getting Started](images/java/getting-started.png)
 
 ## Java project support
 
-Maven, Eclipse, and Gradle Java projects are supported through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](https://www.eclipse.org/m2e/), which provides Maven support, and [Buildship](https://github.com/eclipse/buildship), which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).
+In marked contrast to IDEs such as IntelliJ IDEA, NetBeans, or Eclipse, the concept of a "java project" is provided entirely by extensions, and is not a core concept in the base VS Code.  For example, Maven, Eclipse, and Gradle Java projects are supported through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](https://www.eclipse.org/m2e/), which provides Maven support, and [Buildship](https://github.com/eclipse/buildship), which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).
 
-With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate projects from [Maven Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html), browse through all the Maven projects within your workspace, and execute Maven goals easily from an embedded explorer. Projects can also be created and managed with the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension.
+With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate projects from [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html), browse through all the Maven projects within your workspace, and execute Maven goals easily from an embedded explorer. Projects can also be created and managed with the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/languages/java/package-viewer.mp4" type="video/mp4">
