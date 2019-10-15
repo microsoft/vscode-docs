@@ -9,9 +9,9 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Java in Visual Studio Code
 
-Support for Java in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md). Combined with the power of core VS Code, these extensions give you a lightweight and performant code editor that also supports many the most common Java development techniques. VS Code provides essential language features such as code completion, refactoring, linting, formatting, and code snippets along with convenient debugging and unit test support. VS Code can also integrate with tooling and frameworks such as Maven, Tomcat, Jetty, and Spring Boot. Leveraging the power of Visual Studio Code, Java developers get an excellent tool for both quick code editing and also the full debugging and testing cycle. It's a great choice for your Java work if you're looking for a tool which:
+Support for Java in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md). Combined with the power of core VS Code, these extensions give you a lightweight and performant code editor that also supports many of the most common Java development techniques. VS Code provides essential language features such as code completion, refactoring, linting, formatting, and code snippets along with convenient debugging and unit test support. VS Code can also integrate with tooling and frameworks such as Maven, Tomcat, Jetty, and Spring Boot. Leveraging the power of Visual Studio Code, Java developers get an excellent tool for both quick code editing and also the full debugging and testing cycle. It's a great choice for your Java work if you're looking for a tool which:
 
-- Is fast, lightweight, gratis, and open source
+- Is fast, lightweight, free, and open source
 - Supports many other languages, not just Java
 - Helps start your Java journey without installing and learning a complex IDE
 - Provides great microservices support including popular frameworks, container tooling and cloud integration
