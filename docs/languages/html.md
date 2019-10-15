@@ -19,7 +19,7 @@ As you type in HTML, we offer suggestions via HTML IntelliSense. In the image be
 
 We also offer up suggestions for elements, tags, some values (as defined in HTML5), Ionic and AngularJS tags. Document symbols are also available for HTML, allowing you to quickly navigate to DOM nodes by id and class name.
 
-You can also work with embedded CSS and JavaScript. However, note that script and style includes from other files are not followed, the language support only looks at the content of the HTML file.
+You can also work with embedded CSS and JavaScript. However, note that script and style included from other files are not followed, the language support only looks at the content of the HTML file.
 
 You can trigger suggestions at any time by pressing `kb(editor.action.triggerSuggest)`.
 
