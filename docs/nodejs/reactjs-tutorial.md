@@ -41,7 +41,9 @@ cd my-app
 npm start
 ```
 
-You should see "Welcome to React" on [http://localhost:3000](http://localhost:3000) in your browser. We'll leave the web server running while we look at the application with VS Code.
+<!-- TBD mention yarn and link -->
+
+You should see the React logo and a link to "Learn React" on [http://localhost:3000](http://localhost:3000) in your browser. We'll leave the web server running while we look at the application with VS Code.
 
 To open your React application in VS Code, open another terminal or command prompt window, navigate to the `my-app` folder and type `code .`:
 
