@@ -44,7 +44,7 @@ Make sure you have the below tools available already
 
 You may refer to [Java Extensions](/docs/java/java-tutorial.md#before-you-begin) to set up the environment.
 
-To get started, visit [JUnit 4 Getting Started](https://github.com/junit-team/junit4/wiki/Getting-started), [JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/#overview), and [TestNG Doc](https://testng.org/doc/).
+To get started with Java testing frameworks, visit [JUnit 4 Getting Started](https://github.com/junit-team/junit4/wiki/Getting-started), [JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/#overview), and [TestNG Doc](https://testng.org/doc/).
 
 When you open a project with test cases from supported frameworks, Test Runner will be activated and you will find **Run|Debug** on the CodeLens of your test functions. Click on the CodeLens to run the individual test case. You can also access and run a group of test cases from the Test Explorer. For more information on debugging test cases, see [Debugging Java](/docs/java/java-debugging.md). Here's a brief session with TestNG:
 

@@ -21,7 +21,7 @@ If you run into any issues when following this tutorial, you can contact us by c
 
 Before going through this tutorial, you must have the Java SE Development Kit (JDK) on your local development environment. If you don't have them installed, you can do so now.
 
-Download and install the Java SE Development Kit (JDK). Java support on Visual Studio Code works with all major Java versions up to 12, see a few JDK distributions you can choose from:
+Download and install the Java SE Development Kit (JDK). Java support on Visual Studio Code works with all major Java versions up to 13, see a few JDK distributions you can choose from:
 
 * [OpenJDK](https://adoptopenjdk.net/)
 * [Azul Zulu Enterprise for Azure](https://www.azul.com/downloads/azure-only/zulu/)
