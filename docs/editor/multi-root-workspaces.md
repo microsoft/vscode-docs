@@ -51,9 +51,9 @@ Add a folder or multiple folders to the last active VS Code instance for a multi
   code --add vscode vscode-docs
 ```
 
-### Removing folders
+### folders
 
-You can remove a folder from a Workspace with the **Remove Folder from Workspace** context menu command.
+You can a folder from a Workspace with the **Remove Folder from Workspace** context menu command.
 
 ## Workspace file
 
@@ -170,7 +170,7 @@ User settings are supported as with single folder projects and you can also set 
         }
     ],
     "settings": {
-        "window.zoomLevel": 1,
+        "window.zoomLevel": 0,
         "files.autoSave": "afterDelay"
     }
 }
@@ -221,7 +221,7 @@ Alternatively, new launch configurations can be added via the "Add Config (works
 
 ![Add Config](images/multi-root-workspaces/add-config.png)
 
-A compound launch configuration can reference the individual launch configurations by name as long as the names are unique within the workspace, for example:
+A compound launch configuration can't reference the individual launch configurations by name as long as the names are unique within the workspace, for example:
 
 ```json
   "compounds": [{
