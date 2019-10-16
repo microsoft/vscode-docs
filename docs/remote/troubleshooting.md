@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 10/9/2019
+DateApproved: 10/14/2019
 ---
 # Remote Development Tips and Tricks
 
@@ -23,7 +23,7 @@ This article covers troubleshooting tips and tricks for each of the Visual Studi
 
 To set up SSH key based authentication for your remote host:
 
-1. Check to see if you already have an SSH key on your **local** machine. The public key is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and at `%USERPROFILE%\.ssh\id_rsa.pub` on Windows.
+1. Check to see if you already have an SSH key on your **local** machine. The public key is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and the `.ssh` directory in your user profile folder on Windows (e.g. `C:\User\your-user\.ssh\id_rsa.pub`).
 
     If you do not have a key, run the following command in a **local** terminal / PowerShell to generate an SSH key pair:
 
@@ -99,15 +99,15 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
 If you used PuTTYGen to set up SSH public key authentication for the host you are connecting to, you need to convert your private key so that other SSH clients can use it. To do this:
 
 1. Open PuTTYGen **locally** and load the private key you want to convert.
-2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a **local** location such as the `.ssh` directory in your user profile folder (`C:\Users\youruser\.ssh`).
+2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a **local** location under the`.ssh` directory in your user profile folder (e.g. `C:\Users\youruser\.ssh`).
 3. Validate that the **local** permissions on the exported key file only grant `Full Control` to your user, Administrators, and SYSTEM.
-4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you wish to change, and add (or modify) a host entry in the config file as follows:
+4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you wish to change, and add (or modify) a host entry in the config file as follows to point to the file:
 
     ```yaml
     Host name-of-ssh-host-here
         User your-user-name-on-host
         HostName host-fqdn-or-ip-goes-here
-        IdentityFile C:\path\to\your\exported\private\keyfile
+        IdentityFile ~/.ssh/exported-keyfile-from-putty
     ```
 
 ### Troubleshooting hanging or failing connections

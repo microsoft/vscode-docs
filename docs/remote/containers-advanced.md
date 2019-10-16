@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 10/9/2019
+DateApproved: 10/14/2019
 ---
 # Advanced Container Configuration
 
@@ -21,23 +21,23 @@ Depending on what you reference in `devcontainer.json`:
 
 * **Dockerfile or image**: Add the following to the `runArgs` property in `devcontainer.json`:
 
-     ```json
-     "runArgs": [
-       "-e","YOUR_ENV_VAR_NAME=your-value-goes-here",
-       "-e", "ANOTHER_VAR=another-value" ]
-     ```
+    ```json
+    "runArgs": [
+      "-e","YOUR_ENV_VAR_NAME=your-value-goes-here",
+      "-e", "ANOTHER_VAR=another-value" ]
+    ```
 
 * **Docker Compose**: Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
-     ```yaml
-     version: '3'
-     services:
-       your-service-name-here:
-         environment:
-           - YOUR_ENV_VAR_NAME=your-value-goes-here
-           - ANOTHER_VAR=another-value
+    ```yaml
+    version: '3'
+    services:
+      your-service-name-here:
+        environment:
+          - YOUR_ENV_VAR_NAME=your-value-goes-here
+          - ANOTHER_VAR=another-value
          # ...
-     ```
+    ```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
@@ -90,14 +90,14 @@ You can add a volume bound to any local folder using by following the appropriat
 
 * **Docker Compose:** Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
-     ```yaml
-     version: '3'
-     services:
-       your-service-name-here:
-         volumes:
-           - /local/source/path/goes/here:/target/path/in/container/goes/here
+    ```yaml
+    version: '3'
+    services:
+      your-service-name-here:
+        volumes:
+          - /local/source/path/goes/here:/target/path/in/container/goes/here
          # ...
-     ```
+    ```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
@@ -130,7 +130,7 @@ Since macOS and Windows run containers in a VM, "bind" mounts are not as fast as
 
 Let's use the [vscode-remote-try-node](https://github.com/Microsoft/vscode-remote-try-node) repo to illustrate how to speed up `yarn install`. Follow these steps:
 
-1. Use the `workspaceMount` property in `devcontainer.json` to tell VS Code where to bind your source code. Then `runArgs` to mount the `node_modules` sub-folder into a named local volume instead.
+1. Use the `workspaceMount` property in `devcontainer.json` to tell VS Code where to bind your source code. Then use `runArgs` to mount the `node_modules` sub-folder into a named local volume instead.
 
     ```json
     "workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=cached",
@@ -140,7 +140,7 @@ Let's use the [vscode-remote-try-node](https://github.com/Microsoft/vscode-remot
     ]
     ```
 
-2. Since this repository [runs VS Code as non-root "node" user](#adding-a-non-root-user-to-your-dev-container), we need to add a `postCreateCommand` sure the user can access the folder.
+2. Since this repository [runs VS Code as non-root "node" user](#adding-a-non-root-user-to-your-dev-container), we need to add a `postCreateCommand` to be sure the user can access the folder.
 
     ```json
     "workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=cached",
@@ -173,7 +173,7 @@ The steps are identical for Docker Compose, but the volume mount configuration i
         # ...
 
     volumes:
-      - try-node-node_modules:
+      try-node-node_modules:
     ```
 
 2. Next, be sure the `workspaceFolder` property in `devcontainer.json` matches the place your actual source code is mounted:
@@ -225,7 +225,7 @@ Depending on what you reference in `devcontainer.json`:
         # ...
 
     volumes:
-      - your-volume-name-here:
+      your-volume-name-here:
     ```
 
     You'll also want to be sure the `workspaceFolder` property in `devcontainer.json` matches the place the volume is mounted (or a sub-folder inside the volume):
@@ -290,6 +290,7 @@ To create the named local volume, follow these steps:
 
     volumes:
       unique-vol-name-here:
+      unique-vol-name-here-insiders:
     ```
 
 3. Finally, if you've already built the container and connected to it, you'll need to run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Reopen Folder in Container** to connect to the container for the first time.
