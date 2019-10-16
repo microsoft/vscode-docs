@@ -112,8 +112,6 @@ Hovering over the filter box and clicking `Enable Filter on Type` will show only
 
 ![Filtering files in the File Explorer](images/userinterface/file-editor-filter.png)
 
-<<IMAGE>>
-
 ### Outline view
 
 The Outline view is a separate section in the bottom of the File Explorer. When expanded, it will show the symbol tree of the currently active editor.
