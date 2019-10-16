@@ -104,6 +104,16 @@ You can select multiple files in the **File Explorer** and **OPEN EDITORS** view
 "workbench.list.multiSelectModifier": "alt"
 ```
 
+### Filtering the document tree
+
+You can type to filter the currently visible files in the **File Explorer**. With the focus on the **File Explorer** start to type part of the file name you want to match. You will see a filter box in the top-right of the **File Explorer** showing what you have typed so far and matching file names will be highlighted. When you press the cursor keys to move up and down the file list it will jump between matching files or folders.
+
+Hovering over the filter box and clicking `Enable Filter on Type` will show only matching files/folders. Click the cross to clear the filter.
+
+![Filtering files in the File Explorer](images/userinterface/file-editor-filter.png)
+
+<<IMAGE>>
+
 ### Outline view
 
 The Outline view is a separate section in the bottom of the File Explorer. When expanded, it will show the symbol tree of the currently active editor.
