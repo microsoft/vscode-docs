@@ -27,6 +27,10 @@ Specifies the full path to executable the debugger will launch or attach to.
 
 Tells the Visual Studio Windows Debugger what paths to search for symbol (.pdb) files. Separate multiple paths with a semicolon. For example: `"C:\\Symbols;C:\\SymbolDir2"`.
 
+### requireExactSource
+
+An optional flag that tells the Visual Studio Windows Debugger to require current source code to match the pdb.
+
 ### additionalSOLibSearchPath
 
 Tells GDB or LLDB what paths to search for .so files. Separate multiple paths with a semicolon. For example: `"/Users/user/dir1;/Users/user/dir2"`.
@@ -167,6 +171,11 @@ The command to execute after the debugger is fully set up in order to cause the 
    }
 }
 ```
+
+### loadSymbolInfo
+
+- **loadAll**: If true, symbols for all libs will be loaded, otherwise no solib symbols will be loaded. Modified by ExceptionList. Default value is true.
+- **exceptionList**: List of filenames (wildcards allowed) separated by semicolons `;`. Modifies behavior of LoadAll. If LoadAll is true then don't load symbols for libs that match any name in the list. Otherwise only load symbols for libs that match. Example: ```"foo.so;bar.so"```
 
 ## Debugging dump files
 
