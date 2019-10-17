@@ -52,7 +52,7 @@ Once the debugger is activated, you will find **Run|Debug** on the [CodeLens](/b
 
 ![CodeLens](images/java-debugging/java-codelens.gif)
 
-You can also disable the Code Lens if you don't like it. In this case, you could still access the **Run|Debug** easily by hover your `main()` function.
+You can also disable the CodeLens if you prefer, with the **Enable Run Debug CodeLens** setting. While CodeLens is disabled, you can still access the **Run|Debug** actions by hovering over your `main()` function.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/debug-hover.mp4" type="video/mp4">
@@ -246,19 +246,22 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 
 ## Troubleshooting
 
-In case you encounter issues when using the debugger, a detailed troubleshooting guide can be found in the [vscode-java-debug GitHub repository](https://github.com/Microsoft/vscode-java-debug/blob/master/Troubleshooting.md). Common issues explained include
-* [Java Language Support extension fails to start.](https://github.com/microsoft/vscode-java-debug/blob/master/Troubleshooting.md#java-language-support-extension-fails-to-start)
-* [Build failed, do you want to continue?](https://github.com/microsoft/vscode-java-debug/blob/master/Troubleshooting.md#build-failed-do-you-want-to-continue)
-* [*.java isn't on the classpath. Only syntax errors will be reported.](https://github.com/microsoft/vscode-java-debug/blob/master/Troubleshooting.md#xjava-isnt-on-the-classpath-only-syntax-errors-will-be-reported)
-* [Program Error: Could not find or load main class X.](https://github.com/microsoft/vscode-java-debug/blob/master/Troubleshooting.md#program-error-could-not-find-or-load-main-class-x)
-* [Program throws ClassNotFoundException.](https://github.com/microsoft/vscode-java-debug/blob/master/Troubleshooting.md#program-throws-classnotfoundexception)
-* [Failed to complete hot code replace.](https://github.com/microsoft/vscode-java-debug/blob/master/Troubleshooting.md#failed-to-complete-hot-code-replace)
-* [Please specify the host name and the port of the remote debuggee in the launch.json.](https://github.com/microsoft/vscode-java-debug/blob/master/Troubleshooting.md#please-specify-the-host-name-and-the-port-of-the-remote-debuggee-in-the-launchjson)
-* [Failed to evaluate. Reason: Cannot evaluate because the thread is resumed.](https://github.com/microsoft/vscode-java-debug/blob/master/Troubleshooting.md#failed-to-evaluate-reason-cannot-evaluate-because-the-thread-is-resumed)
-* [Cannot find a class with the main method.](https://github.com/microsoft/vscode-java-debug/blob/master/Troubleshooting.md#cannot-find-a-class-with-the-main-method)
-* [No delegateCommandHandler for vscode.java.startDebugSession when starting Debugger.](https://github.com/microsoft/vscode-java-debug/blob/master/Troubleshooting.md#no-delegatecommandhandler-for-vscodejavastartdebugsession-when-starting-debugger)
-* [Failed to resolve classpath.](https://github.com/microsoft/vscode-java-debug/blob/master/Troubleshooting.md#failed-to-resolve-classpath)
-* [Request type "X" is not supported. Only "launch" and "attach" are supported.](https://github.com/microsoft/vscode-java-debug/blob/master/Troubleshooting.md#request-type-xyz-is-not-supported-only-launch-and-attach-are-supported)
+If you encounter issues when using the debugger, a detailed troubleshooting guide can be found in the [vscode-java-debug GitHub repository](https://github.com/Microsoft/vscode-java-debug/blob/master/Troubleshooting.md).
+
+Common issues explained include:
+
+* Java Language Support extension fails to start.
+* Build failed, do you want to continue?
+* *.java isn't on the classpath. Only syntax errors will be reported.
+* Program Error: Could not find or load main class X.
+* Program throws ClassNotFoundException.
+* Failed to complete hot code replace.
+* Please specify the host name and the port of the remote debuggee in the launch.json.
+* Failed to evaluate. Reason: Cannot evaluate because the thread is resumed.
+* Cannot find a class with the main method.
+* No delegateCommandHandler for vscode.java.startDebugSession when starting Debugger.
+* Failed to resolve classpath.
+* Request type "X" is not supported. Only "launch" and "attach" are supported.
 
 ## Feedback and questions
 

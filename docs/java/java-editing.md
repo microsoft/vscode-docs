@@ -65,9 +65,9 @@ You can also quickly navigate to where a symbol is defined by using the Go to De
 
 To go to a symbol's definition, place your cursor on the symbol anywhere it is used in your source code and then press `kb(editor.action.revealDefinition)`. Alternatively, you can choose __Go to Definition__ from the context menu (right-click, then choose __Go to Definition__). When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section and you have to choose the definition that you want to go to.
 
-### Go to super implementation
+### Go to Super Implementation
 
-You can keep track of class implementations and overriding methods by clicking the *Go to Super Implementation* link when hover.
+You can keep track of class implementations and overriding methods by clicking the **Go to Super Implementation** link on hover.
 
 ![Spring Navigation](images/java-editing/goto-super.png)
 
@@ -278,17 +278,17 @@ This source action assigns a parameter to a new field for unused parameter(s) in
   <source src="/docs/java/java-editing/assign-to-field.mp4" type="video/mp4">
 </video>
 
-### Fix non accessible reference
+### Fix non-accessible reference
 
-This quick fix helps you fix non acessible reference.
+This Quick Fix helps you fix non-accessible reference.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/fix-non-access-reference.mp4" type="video/mp4">
 </video>
 
-### Create non existing package
+### Create non-existing package
 
-When your package name doesn’t match the folder name, you have the options to either change the package name in your code, or move the folder in file system (even when the destination folder doesn’t exist yet).
+When your package name doesn't match the folder name, you have the options to either change the package name in your source code, or move the folder in the file system (even when the destination folder doesn't exist yet).
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/create-non-exist-package.mp4" type="video/mp4">
@@ -305,7 +305,7 @@ The list of Code Actions supported by VS Code keeps growing and only listed the 
 
 ### Code Snippets
 
-Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Leveraging the information from Java language server, it also provides preview of the code snippet during the selection.
+Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Leveraging information from Java language server, it also provides a preview of the code snippet during the selection.
 
 ![Code Snippet](images/java-editing/code-snippet.png)
 
@@ -342,15 +342,19 @@ The Problems panel will open when you click the Checkstyle status icon in the St
 
   * **Google's Check**
   * **Sun's Check**
-* Command **Checkstyle: Set the Checkstyle Configuration** detects potential **Checkstyle** configuration files and list them. You can also provide a configuration file by directly writing a URL in the input box.
+
+* Command **Checkstyle: Set the Checkstyle Configuration** detects potential **Checkstyle** configuration files and lists them. You can also provide a configuration file by directly writing a URL in the input box.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/checkstyle-configuration.mp4" type="video/mp4">
 </video>
 
-You can also set checkstyle version by using command **Checkstyle: Set the Checkstyle Version**. It supports
-* List the latest Checkstyle version from main repo.
-* List all the download versions.
+You can also set the checkstyle version by using the command **Checkstyle: Set the Checkstyle Version**.
+
+The command will:
+
+* List the latest Checkstyle version from the main repo.
+* List all the downloaded versions.
 * List all the supported versions.
 * Mark the currently used version with a check symbol.
 
