@@ -313,7 +313,7 @@ Many Docker images use root as the default user, but there are cases where you m
 
 * **Docker CE/EE on Linux**: Inside the container, any mounted files/folders will have the exact same permissions as outside the container - including the owner user ID (UID) and group ID (GID). Because of this, your container user will either need to have the same UID or be in a group with the same GID. The actual name of the user / group does not matter. The first user on a machine typically gets a UID of 1000, so most containers use this as the ID of the user to try to avoid this problem.
 
-If your image or Dockerfile provides a non-root user (like the `node` image) but still defaults to root, you can opt into using it in one of two ways depending on what you reference in `devcontainer.json`:
+If the image or Dockerfile you are using **already provides an optional non-root user** (like the `node` image) but still defaults to root, you can opt into using it in one of two ways depending on what you reference in `devcontainer.json`:
 
 * **Dockerfile or image**: Add the following to your `devcontainer.json`:
 
@@ -327,9 +327,9 @@ If your image or Dockerfile provides a non-root user (like the `node` image) but
     user: user-name-or-UID-goes-here
     ```
 
-If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+However, many images and Dockerfiles only provide a root user and Docker will not automatically create a user in the container if you specify a user or UID that doesn't exist.
 
-For images that only provide a root user, you can automatically create a non-root user by using a Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
+Fortunatley, you can update or create a Dockerfile that adds a non-root user into your container. Running your application as a non-root user is generally reccomended even in production (since it is more secure), so this is a good idea even if you're reusing an existing Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
@@ -342,7 +342,8 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
     && mkdir -p /home/$USERNAME/.vscode-server /home/$USERNAME/.vscode-server-insiders \
     && chown ${USER_UID}:${USER_GID} /home/$USERNAME/.vscode-server* \
-    # [Optional] Add sudo support
+    #
+    # [Optional] Add sudo support, omit if you don't need to install software after connecting.
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
@@ -351,13 +352,13 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # * Anything else you want to do like clean up goes here *
 # ********************************************************
 
-# Set the default user
+# [Optional] Set the default user - Omit if you want to keep the default as root
 USER $USERNAME
 ```
 
 > **Tip:** If you hit an error when building about the GID or UID already existing, the image you selected likely already has a non-root user you can just take advantage of directly.
 
-If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+In either case, if you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
 ## Using Docker or Kubernetes from a container
 
