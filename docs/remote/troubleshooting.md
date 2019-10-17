@@ -512,7 +512,7 @@ If you determine that you need to give your container more of your machine's cap
 
 1. Right-click on the Docker task bar item and select **Settings** / **Preferences**.
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
-3. On Mac, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
+3. On macOS, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
 Finally, if your container is **doing disk intensive** operations or you are just looking for faster response times, see [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance) for tips. VS Code's defaults optimize for convenance and universal support, but can be optimized.
 
