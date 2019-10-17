@@ -25,7 +25,7 @@ We also offer IntelliSense for specific value sets such as package and project d
 
 ## Quick navigation
 
-JSON files can get large and we support quick navigation to properties the **Go to Symbol** command (`kb(workbench.action.gotoSymbol)`).
+JSON files can get large and we support quick navigation to properties using the **Go to Symbol** command (`kb(workbench.action.gotoSymbol)`).
 
 ![Goto Symbol](images/json/gotosymbol.png)
 
