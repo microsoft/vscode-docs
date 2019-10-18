@@ -417,7 +417,7 @@ This error can occur due to anti-virus software intercepting winpty from creatin
 
 ### How do I fix when a terminal exits with error code 3221225786 on Windows?
 
-This happens when you have legacy console mode enabled in conhost's properties. To change this, open `cmd.exe`, right click the title bar, go to **Properties** and under the **Options** tab uncheck **Use legacy console**.
+This happens when you have legacy console mode enabled in conhost's properties. To change this, open `cmd.exe`, right click the title bar, go to **Properties** and under the **Options** tab, uncheck **Use legacy console**.
 
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
 
