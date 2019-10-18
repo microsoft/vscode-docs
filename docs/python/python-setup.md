@@ -75,3 +75,7 @@ If you are working on Windows and want an isolated environment for working with 
 If you choose this option, you'll also want to install the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). The Remote - WSL extension runs commands and extensions directly in WSL so you don't have to worry about pathing issues, binary compatibility, or other cross-OS challenges. You'll be able to use VS Code in WSL just as you would from Windows.
 
 For more information about using WSL with VS Code, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/remote-tutorials/wsl/getting-started.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
+
+## Next steps
+
+Now that your development environment is setup, get started developing with Python in VS Code by following the [Python tutorial](/docs/python/python-tutorial.md).
