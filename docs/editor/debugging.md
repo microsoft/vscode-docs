@@ -181,6 +181,10 @@ Variables and expressions can also be evaluated and watched in the Debug view's 
 
 ![Debug Watch](images/debugging/watch.png)
 
+Variable names and values can be filtered by typing while the focus is on the **VARIABLES** section
+
+![Filtering in the Variables section](images/debugging/filtering-variables.png)
+
 ## Launch.json attributes
 
 There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned above, you can use IntelliSense (`kb(editor.action.triggerSuggest)`) to see the list of available attributes once you have specified a value for the `type` attribute.
