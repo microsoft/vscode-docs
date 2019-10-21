@@ -333,7 +333,7 @@ If the image or Dockerfile you are using **already provides an optional non-root
 
 However, many images and Dockerfiles only provide a root user and Docker will not automatically create a user in the container if you specify a user or UID that doesn't exist.
 
-Fortunatley, you can update or create a Dockerfile that adds a non-root user into your container. Running your application as a non-root user is generally reccomended even in production (since it is more secure), so this is a good idea even if you're reusing an existing Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
+Fortunately, you can update or create a Dockerfile that adds a non-root user into your container. Running your application as a non-root user is recommended even in production (since it is more secure), so this is a good idea even if you're reusing an existing Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
@@ -347,7 +347,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && mkdir -p /home/$USERNAME/.vscode-server /home/$USERNAME/.vscode-server-insiders \
     && chown ${USER_UID}:${USER_GID} /home/$USERNAME/.vscode-server* \
     #
-    # [Optional] Add sudo support, omit if you don't need to install software after connecting.
+    # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
@@ -356,7 +356,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # * Anything else you want to do like clean up goes here *
 # ********************************************************
 
-# [Optional] Set the default user - Omit if you want to keep the default as root
+# [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
 ```
 
@@ -575,7 +575,7 @@ Once you have a machine set up:
 
     **Windows PowerShell**:
 
-    ```PowerShell
+    ```powershell
     docker-machine env give-it-a-name-here | Invoke-Expression
     code
     ```
