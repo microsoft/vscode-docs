@@ -143,6 +143,8 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `listFilterWidget.background`: List/Tree Filter background color of typed text when searching inside the list/tree.
 - `listFilterWidget.outline`: List/Tree Filter Widget's outline color of typed text when searching inside the list/tree.
 - `listFilterWidget.noMatchesOutline`: List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
+- `list.filterMatchBackground`: Background color of the filtered matches in lists and trees.
+- `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
 - `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
 
 ## Activity Bar
