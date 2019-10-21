@@ -14,8 +14,6 @@ In this tutorial, you use Python 3 to create the simplest Python "Hello World" a
 
 This tutorial introduces you to VS Code as a Python environment, primarily how to edit, run, and debug code through the following tasks:
 
-- Install the Python extension for VS Code
-- Download and Install Python 3 (for Linux/macOS or Windows)
 - Write, run, and debug a Python "Hello World" Application
 - Learn how to install packages by creating Python virtual environments
 - Write a simple Python script to plot figures within VS Code
@@ -28,46 +26,7 @@ If you have any problems, feel free to file an issue for this tutorial in the [V
 
 ## Prerequisites
 
-To successfully complete this tutorial, complete the following requirements:
-
-1. Install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). For details on installing extensions, see [Extension Marketplace](/docs/editor/extension-gallery.md). The Python extension is named **Python** and published by Microsoft.
-
-1. Install a version of Python 3 (for which this tutorial is written). Options include:
-   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); you can typically use the **Download Python 3.7.4** button that appears first on the page (or whatever is the latest version).
-   - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must install `pip` with [`get-pip.py`](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
-   - (macOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
-   - (Windows) Install Python from the Windows Store.
-   - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
-
-1. On macOS, make sure the location of your VS Code installation is included in your PATH environment variable.  See [the setup instructions](/docs/setup/mac.md#launching-from-the-command-line) for more information.
-
-### Windows Subsystem for Linux
-
-If you are working on Windows and want an isolated environment for working with Python, the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) (WSL) is a great option. You can enable WSL and install a Linux distribution on your Windows machine, completely isolated from your normal development environment. This Python tutorial can be done inside WSL, using the VS Code [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
-
-For more information, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/remote-tutorials/wsl/getting-started.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
-
-Once you have WSL running, you can return to this tutorial and verify the prerequisites with a WSL terminal or VS Code integrated terminal.
-
-### Verify the Python installation
-
-To verify that you've installed Python successfully on your machine, run one of the following commands (depending on your operating system):
-
-- Linux/macOS: open a Terminal Window and type the following command:
-
-    ```bash
-    python3 --version
-    ```
-
-- Windows: open a command prompt and run the following command:
-
-    ```ps
-    py -3 --version
-    ```
-
-If the installation was successful, the output window should show the version of Python that you installed.
-
-   > **Note** You can use the `py -0` command in the integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
+To successfully complete this tutorial, you need to first setup your development environment. Prior to attempting this tutorial, follow the guidance in the **[Python setup](/docs/python/python-setup.md)** topic to install the Python extension for VS Code and the appropriate version of Python 3 for your OS and needs. Once you have the extension and Python interpreter installed, you can continue with the tutorial.
 
 ## Start VS Code in a project (workspace) folder
 
@@ -79,7 +38,7 @@ cd hello
 code .
 ```
 
-When using an Anaconda distribution, be sure to use an Anaconda command prompt.
+>**Note**: If you're using an Anaconda distribution, be sure to use an Anaconda command prompt.
 
 By starting VS Code in a folder, that folder becomes your "workspace". VS Code stores settings that are specific to that workspace in `.vscode/settings.json`, which are separate from user settings that are stored globally.
 
@@ -142,10 +101,12 @@ The command opens a terminal panel in which your Python interpreter is automatic
 
 ![Program output in a Python terminal](images/tutorial/output-in-terminal.png)
 
-There are two other ways you can run Python within VS Code:
+There are three other ways you can run Python within VS Code:
 
 - Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is convenient for testing just a part of a file.
 - From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start REPL** command to open a REPL terminal for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
+- From the **Run Python File in Terminal** play button in the top-right side of the editor.
+![Run python file in terminal button](images/tutorial/run-python-file-in-terminal-button.png)
 
 ## Configure and run the debugger
 
