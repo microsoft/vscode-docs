@@ -8,51 +8,51 @@ DateApproved: 10/9/2019
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
-# Using React in Visual Studio Code
+# Visual Studio Code에서 React의 사용
 
-[React](https://facebook.github.io/react/) is a popular JavaScript library developed by Facebook for building web application user interfaces. The Visual Studio Code editor supports React.js IntelliSense and code navigation out of the box.
+[React](https://facebook.github.io/react/) 는 웹 Application UI(user interfaces)를 위해 Facebook에서 개발한 잘알려진 JavaScript library입니다. Visual Studio Code editor는 React.js IntelliSense와 code navigation을 즉시 사용가능하도록 해줍니다.
 
 ![welcome to react](images/reactjs/welcome-to-react.png)
 
 ## Welcome to React
 
-We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To install and use the generator as well as run the React application server, you'll need [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (Node.js package manager) installed. npm is included with Node.js which you can download and install from [Node.js downloads](https://nodejs.org/en/download/).
+우리는 튜토리얼을 위해 `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) 를 사용할 것입니다. 이 Generator를 설치 및 사용하고 React Application Server를 구동하기 위해서 [Node.js](https://nodejs.org/) JavaScript runtime과 [npm](https://www.npmjs.com/) (Node.js package manager) 이 설치되어져 있어야 합니다. npm이 탑재된 Node.js는 [Node.js downloads](https://nodejs.org/en/download/)로부터 다운로드 하실수 있습니다.
 
->**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
+>**Tip**: 당신의 설비에 Node.js 와 npm이 정확히 설치되어 있는지 테스트 하기 위해서, Terminal 또는 Command Prompt에 `node --version`과 `npm --version`를 쳐볼수 있습니다.
 
-To install the `create-react-app` generator, in a terminal or command prompt type:
+`create-react-app`를 설치하기 위해서 terminal 또는 command prompt에 입력하십시오.:
 
 ```bash
 npm install -g create-react-app
 ```
 
-This may take a few minutes to install. You can now create a new React application by typing:
+인스톨을 위해 몇 분 정도 소요될 것입니다. 이제 입력하는 것으로 새로운 React application을 생성할 수 있습니다.:
 
 ```bash
 create-react-app my-app
 ```
 
-where `my-app` is the name of the folder for your application. This may take a few minutes to create the React application and install its dependencies.
+여기서 `my-app`은 당신의 Application 폴더 이름입니다. React Application 생성과 dependency들을 설치하기 위해 몇 분 정도 소요될 것입니다.
 
-Let's quickly run our React application by navigating to the new folder and typing `npm start` to start the web server and open the application in a browser:
+새폴더로 찾아서 `npm start` 를 입력하는 것으로 웹 서버를 시작하고 브라우저에서 application을 여는 것으로 React application을 빠르게 실행해 봅시다.:
 
 ```bash
 cd my-app
 npm start
 ```
 
-You should see "Welcome to React" on [http://localhost:3000](http://localhost:3000) in your browser. We'll leave the web server running while we look at the application with VS Code.
+당신의 브라우져의 [http://localhost:3000](http://localhost:3000) 에서 "Welcome to React"를 볼 수 있어야 합니다. 우리가 VS Code를 사용하여 application을 보는 동안 웹서버는 Running으로 남겨둡니다. 
 
-To open your React application in VS Code, open another terminal or command prompt window, navigate to the `my-app` folder and type `code .`:
+VS Code에서 당신의 React application을 열기 위해서 새로운 terminal 또는 command prompt 창을 열고 `my-app` 폴더를 찾아서 `code .`를 입력합니다.:
 
 ```bash
 cd my-app
 code .
 ```
 
-### Markdown preview
+### 마크다운 미리보기(Markdown Preview)
 
-In the File Explorer, one file you'll see is the application `README.md` Markdown file. This has lots of great information about the application and React in general. A nice way to review the README is by using the VS Code [Markdown Preview](/docs/languages/markdown.md#markdown-preview). You can open the preview in either the current editor group (**Markdown: Open Preview** `kb(markdown.showPreview)`) or in a new editor group to the side (**Markdown: Open Preview to the Side** `kb(markdown.showPreviewToSide)`). You'll get nice formatting, hyperlink navigation to headers, and syntax highlighting in code blocks.
+파일탐색기에서 볼 수 있는 파일 중 하나는 application `README.md` Markdown 파일입니다.  여기에는 application과 React 에 관한 많은 일반적인 정보를 담고 있습니다. README를 검토하기 좋은 방법은 VS Code 마크다운 미리보기[Markdown Preview](/docs/languages/markdown.md#markdown-preview)를 사용하는 것입니다. 현재 편집기 그룹(**Markdown: Open Preview** `kb(markdown.showPreview)`) 이나 측면에 새 편집기 그룹 (**Markdown: Open Preview to the Side** `kb(markdown.showPreviewToSide)`)에 미리보기를 열수 있습니다. 좋은 포멧팅(formatting), 하이퍼링크(hyperlink) navigation to headers와 코드블럭에서 구문 강조(syntax highlighting)에 대한 정보를 얻을수 있습니다.
 
 ![README markdown preview](images/reactjs/markdown-preview.png)
 
