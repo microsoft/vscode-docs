@@ -218,15 +218,18 @@ plt.show()                   # Display the plot
 
 Next, try running the file in the debugger using the "Python: Current file" configuration as described in the last section.
 
-Unless you're using an Anaconda distribution or have previously installed the `matplotlib` package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'". Such a message indicates that the required package isn't available in your system.
+Unless you're using an Anaconda distribution or have previously installed the `matplotlib` package, you should see the message, **"ModuleNotFoundError: No module named 'matplotlib'"**. Such a message indicates that the required package isn't available in your system.
 
 To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`)). This command opens a command prompt for your selected interpreter.
 
-A best practice among Python developers is to avoid installing packages into a global interpreter environment. You instead use a project-specific `virtual environment` that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments. Such isolation reduces many complications that can arise from conflicting package versions. To create a `virtual environment` and install the required packages, enter the following commands as appropriate for your operating system:
+A best practice among Python developers is to avoid installing packages into a global interpreter environment. You instead use a project-specific `virtual environment` that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments. Such isolation reduces many complications that can arise from conflicting package versions. To create a *virtual environment* and install the required packages, enter the following commands as appropriate for your operating system:
 
 > **Note**: For additional information about virtual environments, see [Environments](/docs/python/environments.md#global-virtual-and-conda-environments).
 
 1. Create and activate the virtual environment
+   >**Note**: When you create a new virtual environment, you should be prompted by VS  Code to set it as the default for your workspace folder. If selected, the environment will automatically be activated when you open a new terminal.
+
+   ![Virtual environment dialog](images/tutorial/virtual-env-dialog.png)
 
    **For windows**
 
@@ -234,9 +237,11 @@ A best practice among Python developers is to avoid installing packages into a g
    py -3 -m venv .venv
    .venv\scripts\activate
    ```
+
    If the activate command generates the message "Activate.ps1 is not digitally signed. You cannot run this script on the
    current system.", then you need to temporarily change the PowerShell execution policy to allow scripts to
    run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=135170) in the PowerShell documentation):
+
    ```cmd
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
    ```
@@ -247,6 +252,8 @@ A best practice among Python developers is to avoid installing packages into a g
    python3 -m venv .venv
    source .venv/bin/activate
    ```
+
+1. Select your new environment by using the **Python: Select Interpreter** command from the **Command Palette**.
 
 1. Install the packages
 
@@ -263,8 +270,6 @@ A best practice among Python developers is to avoid installing packages into a g
    apt-get install python3-tk
    python3 -m pip install matplotlib
    ```
-
-1. Select your new environment by using the **Python: Select Interpreter** command from the **Command Palette**.
 
 1. Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
 
