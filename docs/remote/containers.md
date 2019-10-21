@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 10/9/2019
+DateApproved: 10/14/2019
 ---
 # Developing inside a Container
 
@@ -471,20 +471,14 @@ From the Containers Explorer you can right-click on a running container and stop
 
 ### Option 3: Use the Docker CLI
 
-1. Open a **local** terminal/command prompt (or use a local window in VS Code).
+1. Open a **local** terminal/PowerShell (or use a local window in VS Code).
 2. Type `docker ps` to see running containers. Use `docker ps -a` to also see any stopped containers.
 3. Type `docker stop <Container ID>` from this list to stop a container.
 4. If you would like to delete a container, type `docker rm <Container ID>` to remove it.
 
-If `docker ps` does not provide enough information to identify the container you want to manage, the following command will list all development containers managed by VS Code and the folder used to generate them.
-
-```bash
-docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}}\t\{{.Image}}\tvscode-\{{.Label \"vsch.quality\"}}\t\{{.Label \"vsch.local.folder\"}}"
-```
-
 ### Option 4: Use Docker Compose
 
-1. Open a **local** terminal/command prompt (or use a local window in VS Code).
+1. Open a **local** terminal/PowerShell (or use a local window in VS Code).
 2. Go to the directory with your `docker-compose.yml` file.
 3. Type `docker-compose top` to see running processes.
 4. Type `docker-compose stop` to stop the containers. If you have more than one Docker Compose file, you can specify additional Docker Compose files with the `-f` argument.
@@ -880,7 +874,6 @@ If you've already built the container and connected to it, be sure to run **Remo
 ### Remote - Containers limitations
 
 * Windows container images are **not** yet supported.
-* When using Alpine 3.10 containers, you may see an `Error: Cannot find module 'spdlog'` message in the Dev Containers terminal window [due to an upstream issue](https://github.com/microsoft/vscode-remote-release/issues/1026). This error only affects VS Code logging and can be **safely ignored**.
 * Using a remote Docker Host is possible, but requires [additional setup steps](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host).
 * All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
 * The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
