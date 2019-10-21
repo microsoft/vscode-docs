@@ -52,6 +52,12 @@ Once the debugger is activated, you will find **Run|Debug** on the [CodeLens](/b
 
 ![CodeLens](images/java-debugging/java-codelens.gif)
 
+You can also disable the CodeLens if you prefer, with the **Enable Run Debug CodeLens** setting. While CodeLens is disabled, you can still access the **Run|Debug** actions by hovering over your `main()` function.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-debugging/debug-hover.mp4" type="video/mp4">
+</video>
+
 ### Context menu
 
 Another way to start debugging is to right-click a Java file in the File Explorer or editor and select **Run** or **Debug** in the context menu.
@@ -240,7 +246,22 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 
 ## Troubleshooting
 
-A detailed troubleshooting guide can be found in the [vscode-java-debug GitHub repository](https://github.com/Microsoft/vscode-java-debug/blob/master/Troubleshooting.md).
+If you encounter issues when using the debugger, a detailed troubleshooting guide can be found in the [vscode-java-debug GitHub repository](https://github.com/Microsoft/vscode-java-debug/blob/master/Troubleshooting.md).
+
+Common issues explained include:
+
+* Java Language Support extension fails to start.
+* Build failed, do you want to continue?
+* *.java isn't on the classpath. Only syntax errors will be reported.
+* Program Error: Could not find or load main class X.
+* Program throws ClassNotFoundException.
+* Failed to complete hot code replace.
+* Please specify the host name and the port of the remote debuggee in the launch.json.
+* Failed to evaluate. Reason: Cannot evaluate because the thread is resumed.
+* Cannot find a class with the main method.
+* No delegateCommandHandler for vscode.java.startDebugSession when starting Debugger.
+* Failed to resolve classpath.
+* Request type "X" is not supported. Only "launch" and "attach" are supported.
 
 ## Feedback and questions
 

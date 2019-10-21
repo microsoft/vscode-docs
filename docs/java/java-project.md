@@ -89,6 +89,14 @@ Once a Maven project is loaded, the extension will be activated and it will auto
 
 ![Maven Explorer](images/java-project/maven-explorer.png)
 
+### Resolve unknown type
+
+The Maven extension also supports searching Maven Central to resolve unknown types in your source code. You can do this by selecting the **Resolve unknown type** link shown on hover.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/maven-resolve-unknown-type.mp4" type="video/mp4">
+</video>
+
 ### Working with POM.xml
 
 The extension provides code snippets and auto completion for adding Maven dependencies based on local Maven repositories. See how easy it is to add a new dependency to your `pom.xml` with those convenient features.

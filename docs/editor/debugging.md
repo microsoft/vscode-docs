@@ -181,6 +181,10 @@ Variables and expressions can also be evaluated and watched in the Debug view's 
 
 ![Debug Watch](images/debugging/watch.png)
 
+Variable names and values can be filtered by typing while the focus is on the **VARIABLES** section
+
+![Filtering in the Variables section](images/debugging/filtering-variables.png)
+
 ## Launch.json attributes
 
 There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned above, you can use IntelliSense (`kb(editor.action.triggerSuggest)`) to see the list of available attributes once you have specified a value for the `type` attribute.
@@ -252,7 +256,8 @@ Below is an example that passes `"args"` to the program differently on Windows:
 
 Valid operating properties are `"windows"` for Windows, `"linux"` for Linux and `"osx"` for macOS. Properties defined in an operating system specific scope override properties defined in the global scope.
 
-In the example below debugging the program always _stops on entry_ except on macOS:
+In the example below debugging the program always **stops on entry** except on macOS:
+
 ```json
 {
     "version": "0.2.0",
@@ -329,6 +334,34 @@ Expressions can be evaluated with the **Debug Console** REPL ([Read-Eval-Print L
 ![Debug Console](images/debugging/debugconsole.png)
 
 **Note**: You must be in a running debug session to use the Debug Console REPL.
+
+## Redirect input/output to/from the debug target
+
+Redirecting input/output is debugger/runtime specific, so VS Code does not have a built-in solution that works for all debuggers.
+
+Here are two approaches you might want to consider:
+
+1. Launch the program to debug ("debug target") manually in a terminal or command prompt and redirect input/output as needed. Make sure to pass the appropriate command line options to the debug target so that a debugger can attach to it. Create and run an "attach" debug configuration that attaches to the debug target.
+
+2. If the debugger extension you are using can run the debug target in VS Code's Integrated Terminal (or an external terminal), you can try to pass the shell redirect syntax (for example "<" or ">") as arguments.
+
+Here's an example `launch.json` configuration:
+
+```json
+{
+    "name": "launch program that reads a file from stdin",
+    "type": "node",
+    "request": "launch",
+    "program": "program.js",
+    "console": "integratedTerminal",
+    "args": [
+        "<",
+        "in.txt"
+    ]
+}
+```
+
+This approach requires that the "<" syntax is passed through the debugger extension and ends up unmodified in the Integrated Terminal.
 
 ## Multi-target debugging
 

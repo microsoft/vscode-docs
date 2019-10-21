@@ -415,6 +415,10 @@ This error can occur due to anti-virus software intercepting winpty from creatin
 <install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
 ```
 
+### How do I fix when a terminal exits with error code 3221225786 on Windows?
+
+This happens when you have legacy console mode enabled in conhost's properties. To change this, open `cmd.exe`, right click the title bar, go to **Properties** and under the **Options** tab, uncheck **Use legacy console**.
+
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
 
 The terminal can have problems rendering in some environments, for example you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.rendererType": "dom"` to avoid using the canvas in the terminal.

@@ -753,7 +753,7 @@ Contribute a view container into which [Custom views](#contributes.views) can be
 
 ### Icon specifications
 
-- `Size:` Icons should be 28x28 and centered.
+- `Size:` Icons should be 24x24 and centered.
 - `Color:` Icons should use a single monochrome color.
 - `Format:` It is recommended that icons be in SVG, though any image file type is accepted.
 - `States:` All icons inherit the following state styles:
