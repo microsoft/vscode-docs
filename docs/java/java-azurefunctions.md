@@ -171,7 +171,7 @@ After signing in, click **Deploy to Function App** button, select the folder of 
 Once the function is deployed, test the function app running on Azure using curl:
 
 ```bash
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/httptrigger-java -d AzureFunctions
 ```
 
 You should see:
