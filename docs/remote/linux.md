@@ -50,8 +50,8 @@ Note that **ARMv8 (AArch64) support is experminetal and in [VS Code Insiders](ht
 | Ubuntu 16.04+, Debian 8+, Raspbian Stretch/9+ and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18. Debian < 8 (Jessie) and Ubuntu < 14.04 do not meet this requirement.  |
 | RHEL / CentOS 7+ | `glibc libgcc libstdc++ python ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18.  RHEL / CentOS < 7 does not meet this requirement without using a [workaround to upgrade](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | Alpine Linux 3.7+ | `musl libgcc libstdc++`. musl >= 1.1.18, glibc not required. | Not yet supported. | Supported in Remote - Containers and Remote - WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
-| SUSE Linux Enterprise 15+|tar,gzip|`bash`, and `curl` or `wget` |none|
-| openSUSE Leap 15+|tar,gzip|`bash`, and `curl` or `wget` |none|
+| SUSE Linux Enterprise 15+|`gzip tar`|`curl` or `wget` |Requires kernel >= 3.10, glibc, libstdc++6|
+| openSUSE Leap 15+|`gzip tar`|`curl` or `wget` |none|
 
 ## Tips by Linux distribution
 
