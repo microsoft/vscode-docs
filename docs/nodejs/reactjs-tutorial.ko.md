@@ -1,13 +1,3 @@
----
-Order: 5
-Area: nodejs
-TOCTitle: React Tutorial
-ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
-PageTitle: React JavaScript Tutorial in Visual Studio Code
-DateApproved: 10/9/2019
-MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
-MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
----
 # Visual Studio Code에서 React의 사용
 
 [React](https://facebook.github.io/react/) 는 웹 Application UI(user interfaces)를 위해 Facebook에서 개발한 잘알려진 JavaScript library입니다. Visual Studio Code editor는 React.js IntelliSense와 code navigation을 즉시 사용가능하도록 해줍니다.
@@ -56,39 +46,40 @@ code .
 
 ![README markdown preview](images/reactjs/markdown-preview.png)
 
-### Syntax highlighting and bracket matching
+### 구문 강조와 괄호 매칭
 
-Now expand the `src` folder and select the `index.js` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parenthesis, the matching bracket is also selected.
+이제 `src`폴더를 확장하고 `index.js`파일을 선택하십시오. VS Code는 다양한 소스코드 요소에 대한 구문 강조되며, 괄호 위에 커서를 놓으면 일치하는 브라켓이 선택 된다는 것을 알 수 있을 것입니다. 
 
 ![react bracket matching](images/reactjs/bracket-matching.png)
 
 ### IntelliSense
 
-As you start typing in `index.js`, you'll see smart suggestions or completions.
+`index.js`에 타이핑하기 시작하면 스마트 제안이나 완성을 볼 수 있습니다.
 
 ![react suggestions](images/reactjs/suggestions.png)
 
-After you select a suggestion and type `.`, you see the types and methods on the object through [IntelliSense](/docs/editor/intellisense.md).
+제안을 선택하고 `.`을 입력한 후에, [IntelliSense](/docs/editor/intellisense.md)를 통해 오브젝트(Object)의 타입(Type)과 메소드(Method)를 볼 수 있습니다.
 
 ![react intellisense](images/reactjs/intellisense.png)
 
-VS Code uses the TypeScript language service for its JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+VS Code는 JavaScript code intelligence와 [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA)라고 불리는 기능을 가지는 TypeScript language service를 사용합니다. ATA는 `package.json`에서 참조하는 npm 모듈에 대한 npm 유형 선언 파일(`*.d.ts`)을 가져 옵니다.
 
-If you select a method, you'll also get parameter help:
+만약 한 method를 선택하면 parameter 도움말을 얻을 수 있습니다:
 
 ![react parameter help](images/reactjs/parameter-help.png)
 
 ### Go to Definition, Peek definition
 
-Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Put the cursor over the `App`, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `App` definition from `App.js`.
+VS Code는 TypeScript 언어 서비스를 통해 **Go to Definition** (`kb(editor.action.revealDefinition)`)나**Peek Definition** (`kb(editor.action.peekDefinition)`)로 이동함으로써 에디터에서 타입 정의 정보를 제공할 수 있습니다. `App` 위에 커서를 놓고 마우스 오른쪽 버튼을 클릭한 후 **Peek Definition**을 선택하십시오. 
+app.js의 app 정의를 보여주는 [Peek window](/docs/editor/editingevolved.md#peek)가 열립니다.
 
 ![react peek definition](images/reactjs/peek-definition.png)
 
-Press `kbstyle(Escape)` to close the Peek window.
+Peek window를 닫기 위해 `kbstyle(Escape)`를 누르세요.
 
 ## Hello World!
 
-Let's update the sample application to "Hello World!". Add the link to declare a new H1 header and replace the `<App />` tag in `ReactDOM.render` with `element`.
+샘플 프로그램을 "Hello World!"로 업데이트 합시다. 링크를 추가하여 새 H1 헤더를 선언하고 `ReactDOM.render`의 `<App />` 태그를 `element`로 교체하세요.
 
 ```js
 import React from 'react';
@@ -102,31 +93,31 @@ ReactDOM.render(element, document.getElementById('root'));
 registerServiceWorker();
 ```
 
-Once you save the `index.js` file, the running instance of the server will update the web page and you'll see "Hello World!".
+`index.js` 파일을 저장하면 서버의 실행 중인 인스턴스가 웹 페이지를 업데이트하고 "Hello World!"를 볼 수 있습니다.
 
->**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
+>**Tip**: VS 코드는 Auto Save를 지원하므로, 기본으로 delay 후에 파일이 저장됩니다.  to  나 . Auto Save를 켜기 위해 **File** menu의 **Auto Save**옵션을 체크하거나 직접 `files.autoSave` user [setting](/docs/getstarted/settings.md)를 구성하세요.
 
 ![hello world](images/reactjs/hello-world.png)
 
 ## Debugging React
 
-To debug the client side React code, we'll need to install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+사이드에서 React code를 디버그 하기 위해서 [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension이 필요할 것입니다.
 
->Note: This tutorial assumes you have the Chrome browser installed. Microsoft also publishes a version of this extension for their [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browser.
+>Note: 이 튜토리얼은 당신이 Chrome 브라우저를 설치했다고 가정한다. 마이크로소프트는 또한 그들의 [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) 브라우저를 위해 이 확장 버전을 발행한다.
 
-Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome' in the search box. You'll see several extensions which reference Chrome.
+확장 보기(`kb(workbench.view.extensions)`)를 열고 검색 상자에 '크롬'을 입력하십시오. Chrome을 참조하는 몇 개의 확장자를 보게 될 것이다.
 
 ![debugger for chrome](images/reactjs/debugger-for-chrome.png)
 
-Press the **Install** button for **Debugger for Chrome**.
+**Debugger for Chrome**하기 위해 **Install** button을 누릅니다.
 
-### Set a breakpoint
+### breakpoint 설정
 
-To set a breakpoint in `index.js`, click on the gutter to the left of the line numbers. This will set a breakpoint which will be visible as a red circle.
+`index.js`에서 Breakpoint를 설정하기 위해서는, 줄번호의 왼쪽편에 있는 홈통(gutter)를 클릭하세요. 빨간 원형으로 보이게 될 breakpoint를 놓을 것입니다.
 
 ![set a breakpoint](images/reactjs/breakpoint.png)
 
-### Configure the Chrome debugger
+### Chrome debugger 구성
 
 We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on the gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** drop-down list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
