@@ -873,6 +873,12 @@ Contributes new themable colors. These colors can be used by the extension in ed
 
 Color default values can be defined for light, dark and high contrast theme and can either be a reference to an existing color or a [Color Hex Value](/api/references/theme-color#color-formats).
 
+Extensions can consume new and existing theme colors with the `ThemeColor` API:
+
+```ts
+const errorColor = new vscode.ThemeColor("superstatus.error");
+```
+
 ## contributes.typescriptServerPlugins
 
 Contributes [TypeScript server plugins](https://github.com/Microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin) that augment VS Code's JavaScript and TypeScript support:
