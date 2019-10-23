@@ -119,9 +119,9 @@ registerServiceWorker();
 
 ### Chrome debugger 구성
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on the gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** drop-down list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
+우리는 처음으로 [debugger](/docs/editor/debugging.md)를 구성하는 것이 필요합니다. 그렇게 하기 위해서, Debug view (`kb(workbench.view.debug)`)로 가서 Gear 버튼을 클릭하여 `launch.json`debugger구성 파일을 생성합니다. **Select Environment**의 drop-down 리스트에서 **Chrome**을 선택하십시오. 이것은 당신의 프로젝트의 `.vscode`폴더 안에  웹사이트를 시작하는 구성을 포함하는 새로운 `launch.json`파일을 생성할 것입니다.
 
-We need to make one change for our example: change the port of the `url` from `8080` to `3000`. Your `launch.json` should look like this:
+우리는 우리의 예제를 위한 한가지 변경이 필요합니다. : `url`의 포트를 `8080`에서 `3000`로 변경하세요. 당신의 `launch.json`는 이렇게 보여질 것입니다 :
 
 ```json
 {
@@ -138,11 +138,12 @@ We need to make one change for our example: change the port of the `url` from `8
 }
 ```
 
-Ensure that your development server is running ("npm start"). Then press `kb(workbench.action.debug.start)` or the green arrow to launch the debugger and open a new browser instance. The source code where the breakpoint is set runs on startup before the debugger was attached so we won't hit the breakpoint until we refresh the web page. Refresh the page and you should hit your breakpoint.
+당신의 개발 서버가 구동중인지 확인하십시오("npm start"). 그리고 나서 `kb(workbench.action.debug.start)`나 녹색 화살표를 눌러 Debugger를 시작하고 새 브라우저 인스턴스를 여십시오. 웹페이지를 리프레쉬할 때까지는 중단점을 칠수 없을 것이다. 브레이크포인트가 걸려 있는 소스코드는 debugger가 붙기 전에 .... 페이지를 새로고침하고 브레이크 포인트에 맞닥드리
+The source code where the breakpoint is set runs on startup before the debugger was attached so we won't hit the breakpoint until we refresh the web page. Refresh the page and you should hit your breakpoint.
 
 ![hit breakpoint](images/reactjs/hit-breakpoint.png)
 
-You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `element`, and see the call stack of the client side React application.
+당신은 당신의 소스코드 (`kb(workbench.action.debug.stepOver)`)를 움직여 `element`와 같은 변수들을 검사할 수 있고, client쪽 React 응용프로그램의 call stack을 볼수 있다. 
 
 ![debug variable](images/reactjs/debug-variable.png)
 
