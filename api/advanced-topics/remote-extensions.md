@@ -171,7 +171,7 @@ However, if your extension relies on current VS Code pathing conventions (for ex
 
 If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStoragePath` and `storagePath` properties provide "safe" paths that you can use to read/write global workspace-specific information in a file.
 
-These APIs were added in VS Code 1.31. To use them, start by updating your `engines.vscode` value in `package.json`:
+These APIs were added in VS Code 1.31. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
 ```json
 {
@@ -252,9 +252,9 @@ const password = await keytar.getPassword('my-service-name','my-account');
 
 ### Using the clipboard
 
-Historically, extension authors have used Node.js modules such as `clipboardy` to interact with the clipboard. Unfortunately, if you use these modules in a Workspace Extension, they will use the remote clipboard instead of the user's local one.
+Historically, extension authors have used Node.js modules such as `clipboardy` to interact with the clipboard. Unfortunately, if you use these modules in a Workspace Extension, they will use the remote clipboard instead of the user's local one.The VS Code clipboard API solves this problem. It is always run locally, regardless of the type of extension that calls it.
 
-The VS Code clipboard API solves this problem. It is always run locally, regardless of the type of extension that calls it. This API was added in VS Code 1.30, so to use it, update the `engines.vscode` value in `package.json` and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+This API was added in VS Code 1.30. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
 ```json
 "engines": {
@@ -286,9 +286,9 @@ Spawning a process or using a module like `opn` to launch a browser or other app
 
 Instead of relying on a third-party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better, `vscode.env.openExternal` **does automatic localhost port forwarding!** You can use it to point to a local web server on a remote machine or environment and serve up content even if that port is blocked externally.
 
-> **Note:** Currently the forwarding mechanism in the Visual Studio Online browser-based editor supports **http and https requests only**. Web sockets and other protocols will not work even if served up in web content. However, using Visual Studio Online in VS Code itself does not have this limitation.
+> **Note:** Currently the forwarding mechanism in Visual Studio Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Visual Studio Online extensions for VS Code itself do not have this limitation.
 
-This API was added in VS Code 1.31. To get started, update your `engines.vscode` value in `package.json`:
+This API was added in VS Code 1.31. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
 ```json
 "engines": {
@@ -322,9 +322,9 @@ export async function activate(context: vscode.ExtensionContext) {
 
 While the [localhost forwarding mechanism in `vscode.env.openExternal` is useful](#opening-something-in-a-local-browser-or-application), there may also be situations where you want to forward something without actually launching a new browser window. This is where the `vscode.env.asExternalUri` API comes in.
 
-> **Note:** Currently the forwarding mechanism in the Visual Studio Online browser-based editor supports **http and https requests only**. Web sockets and other protocols will not work even if served up in web content. However, using Visual Studio Online in VS Code itself does not have this limitation.
+> **Note:** Currently the forwarding mechanism in Visual Studio Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Visual Studio Online extensions for VS Code itself do not have this limitation.
 
-This API was added in VS Code 1.40. To get started, update your `engines.vscode` value in `package.json`:
+This API was added in VS Code 1.40. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
 ```json
 "engines": {
@@ -347,7 +347,8 @@ export async function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(vscode.commands.registerCommand('myAmazingExtension.forwardLocalhost', async () =>
 
         // Make the port available locally and get the full URI
-        const fullUri = await vscode.env.asExternalUri(vscode.Uri.parse(`http://localhost:${dynamicServerPort}`));
+        const fullUri = await vscode.env.asExternalUri(
+            vscode.Uri.parse(`http://localhost:${dynamicServerPort}`));
 
         // ... do something with the fullUri ...
 
@@ -389,7 +390,17 @@ Like the clipboard API, the [Webview API](/api/extension-guides/webview) is alwa
 
 ### Always Use asWebviewUri
 
-VS Code 1.39 introduced a new `asWebviewUri` API to manage local extension resources. Using this API is required to ensure the Visual Studio Online browser-based editor works with your extension. See the [Webview API](/api/extension-guides/webview) guide for details, but here is a quick sample:
+VS Code 1.39 introduced a new `asWebviewUri` API to manage local extension resources. Using this API is required to ensure the Visual Studio Online browser-based editor works with your extension. See the [Webview API](/api/extension-guides/webview) guide for details, but here is a quick sample.
+
+To start, update the `engines.vscode` value in `package.json` to at least 1.39 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+
+```json
+"engines": {
+    "vscode": "^1.39.0"
+}
+```
+
+Next, you can use the API in your content as follows:
 
 ```typescript
 // Create the webview
@@ -398,9 +409,11 @@ const panel = vscode.window.createWebviewPanel(
     'Cat Webview',
     vscode.ViewColumn.One);
 
-const catGifUri = vscode.env.asWebviewUri(vscode.Uri.file(
+// Get the content Uri
+const catGifUri = panel.webview.asWebviewUri(vscode.Uri.file(
         path.join(context.extensionPath, 'media', 'cat.gif')));;
 
+// Reference it in your content
 panel.webview.html = `<!DOCTYPE html>
 <html>
 <body>
@@ -429,7 +442,7 @@ If you must access a localhost server from your webview, there are two ways to d
 
 If you do **not intend to support Visual Studio Online's browser-based editor** you can use the `portMapping` option available in the webview API. (This approach will also work with Visual Studio Online in VS Code, just not the browser).
 
-The port mapping API was added in VS Code 1.34. To use it, start by updating the `engines.vscode` value in your extension's `package.json`:
+The port mapping API was added in VS Code 1.34. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
 ```json
 "engines": {
@@ -442,7 +455,6 @@ Now when you publish your extension, only users on VS Code 1.34 or newer will ge
 To use a port mapping, just pass in a `portMapping` object when you create your webview:
 
 ```typescript
-// Gets Express.js web server port
 const LOCAL_STATIC_PORT = 3000;
 const dynamicServerPort = await getWebServerPort();
 
@@ -452,12 +464,12 @@ const panel = vscode.window.createWebviewPanel(
     'Remote Mapping Example',
     vscode.ViewColumn.One, {
         portMapping: [
-            // This maps localhost:3000 in the webview to the express server port on the remote host.
+            // This maps localhost:3000 in the webview to the web server port on the remote host.
             { webviewPort: LOCAL_STATIC_PORT, extensionHostPort: dynamicServerPort }
         ]
     });
 
-// Reference the "webviewPort" variable in any full URIs you reference in your HTML.
+// Reference the port in any full URIs you reference in your HTML.
 panel.webview.html = `<!DOCTYPE html>
     <body>
         <!-- This will resolve to the dynamic server port on the remote machine -->
@@ -470,11 +482,11 @@ In this example, in both the remote and local cases, any requests made to `http:
 
 ### Webview localhost option 2 - Use asExternalUri
 
-Version 1.40 of VS code introduced an `asExternalUri` API that allows you to forward local HTTP and HTTPS requests remotely in a programmatic way. If you intend to only serve up content in an iframe, you can use this API to support VS Code and Visual Studio Online's browser-based editor.
+VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local HTTP and HTTPS requests remotely in a programmatic way. If you intend to **only serve up content in an iframe**, you can use this API to support VS Code and Visual Studio Online's browser-based editor.
 
-> **Note:** Currently the forwarding mechanism in the Visual Studio Online browser-based editor supports **http and https requests only**. Web sockets and other protocols will not work even if served up in forwarded web content or used in JavaScript code. However, using Visual Studio Online in VS Code itself does not have this limitation.
+> **Note:** Currently the forwarding mechanism in Visual Studio Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Visual Studio Online extensions for VS Code itself do not have this limitation.
 
-Start by updating the `engines.vscode` value in your extension's `package.json` to at least 1.40:
+To start, update the `engines.vscode` value in `package.json` to at least 1.40 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
 ```json
 "engines": {
@@ -484,13 +496,12 @@ Start by updating the `engines.vscode` value in your extension's `package.json` 
 
 Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version.
 
-Next, use the API to get a full URI that for the iframe and add it to your HTML. You will also need to enable scripts and add a CSP to your HTML content.
+Next, use the API to get a full URI that for the iframe and add it to your HTML. You will also need to enable scripts in your webview and add a CSP to your HTML content.
 
 ```typescript
-// Use asExternalUri to get the URI to connect any web server or
-// services started locally by your extension.
-const dynamicWebServerPort = getWebServerPort();
-const localhostWebServerUri = await vscode.env.asExternalUri(
+// Use asExternalUri to get the URI for the web server
+const dynamicWebServerPort = await getWebServerPort();
+const fullWebServerUri = await vscode.env.asExternalUri(
         vscode.Uri.parse(`http://localhost:${dynamicWebServerPort}`)
     );
 
@@ -505,12 +516,12 @@ panel.webview.html = `<!DOCTYPE html>
         <head>
             <meta
                 http-equiv="Content-Security-Policy"
-                content="default-src 'none'; frame-src: ${localhostWebServerUri} https:; img-src ${webview.cspSource} https:; script-src ${webview.cspSource}; style-src ${webview.cspSource};"
+                content="default-src 'none'; frame-src: ${fullWebServerUri} https:; img-src ${webview.cspSource} https:; script-src ${webview.cspSource}; style-src ${webview.cspSource};"
             />
         </head>
         <body>
         <!-- All content from the web server must be in an iframe -->
-        <iframe src="${localhostWebServerUri}">
+        <iframe src="${fullWebServerUri}">
     </body>
     </html>`;
 ```
