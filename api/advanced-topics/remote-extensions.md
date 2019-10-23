@@ -3,92 +3,133 @@ ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
 DateApproved: 10/9/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: A guide to adding Visual Studio Code Remote Development support to extensions
+MetaDescription: A guide to adding Visual Studio Code Remote Development and Visual Studio Online support to extensions
 ---
-# Supporting Remote Development
+# Supporting Remote Development and VS Online
 
-**[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). This means you can use the same VS Code extensions you love even while working in remote workspaces.
+**[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). **[Visual Studo Online](http://aka.ms/vso)** is a service that provides similar capabilities, but adds features like managed cloud-based evnrionments, support for connecting self-hosted environments (desktop or server) without a SSH server or having to open a port, and a browser-based editor so you can access either of these types of environments from anywhere. To ensure performance, Remote Development and Visual Studio Online both transparently run certain VS Code extensions remotely.
 
-This article summarizes what extension authors need to know about VS Code Remote Development. This includes the [VS Code Remote Development extension architecture](#architecture-and-extension-types), how to [test your extension](#testing-and-debugging-your-extension) in remote workspaces, and recommendations on [what to do if your extension does not work properly when being run remotely](#common-problems). While many extensions will work in remote workspaces without any modifications, you may need to make changes so that your extension works properly in all environments, although these changes are often fairly minor.
+However, this can have subtle impacts on how extensions need to work.  While many extensions will work without any modifications, you may need to make changes so that your extension works properly in all environments, although these changes are often fairly minor.
+
+This article summarizes what extension authors need to know about VS Code Remote Development and Visual Studio Online including the extension [architecture](#architecture-and-extension-types), how to [debug your extension](#debugging-extensions) in remote workspaces or Visual Studio Online, and recommendations on [what to do if your extension does not work properly](#common-problems).
 
 ## Architecture and extension types
 
-In order to make remote development as transparent as possible to users, VS Code distinguishes two classes of extensions:
+In order to make Remote Development and Visual Studio Online as transparent as possible to users, VS Code distinguishes two classes of extensions:
 
-- **UI Extensions**: These extensions make contributions to the VS Code user interface and are always run on the user's local machine. UI Extensions cannot directly access files in the workspace, or run scripts/tools installed in that workspace or on the machine. Example UI Extensions include: themes, snippets, language grammars, and keymaps.
+- **UI Extensions**: These extensions typically make personalization contributions VS Code user interface and are always run on the user's local machine. In the case of Visual Studio Online's browser-based editor, they may even run in the browser itself. UI Extensions cannot directly access files in the workspace, or run scripts/tools installed in that workspace or on the machine. Example UI Extensions include: themes, snippets, language grammars, and keymaps.
 
-- **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions are run on the local machine. When in a remote workspace, Workspace Extensions are run on the remote machine. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in workspace (either themselves or by invoking scripts/tools). While Workspace extensions do not focus on UI customization, they can contribute explorers, views, and other UI elements as well.
+- **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions are run on the local machine. When in a remote workspace or when using Visual Studio Online, Workspace Extensions are run on the remote machine / environment. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in workspace (either themselves or by invoking scripts/tools). While Workspace extensions do not focus on UI customization, they can contribute explorers, views, and other UI elements as well.
 
-When a user installs an extension, VS Code automatically installs it to the correct location based on its type: UI Extensions are run by VS Code's [local Extension Host](/api/advanced-topics/extension-host), while Workspace Extensions are run by a **Remote Extension Host** that sits in a small **VS Code Server**. This server is automatically installed (or updated) when you open a folder in Windows Subsystem for Linux (WSL), in a container, or on a remote SSH host. (VS Code also automatically manages starting and stopping the server, so users are often not aware of its presence.)
+When a user installs an extension, VS Code automatically installs it to the correct location based on its type: UI Extensions are run by VS Code's [local Extension Host](/api/advanced-topics/extension-host), while Workspace Extensions are run by a **Remote Extension Host** that sits in a small **VS Code Server**. This server is automatically installed (or updated) when you open a folder in Windows Subsystem for Linux (WSL), in a container, or on a remote SSH host. (VS Code also automatically manages starting and stopping the server, so users are often not aware of its presence.)  
+
+In the case of Visual Studio Online's browser-based editor, VS Code will run more extensions remotely given browser limitations, but the idea is the same.
 
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
 VS Code APIs are designed to automatically run on the correct machine (either local or remote) when called from both UI or Workspace Extensions. However, if your extension uses APIs not provided by VS Code — such using Node APIs or running shell scripts — it may not work properly when run remotely. We recommend that you test that all features of your extension work properly in both local and remote workspaces.
 
-## Testing and debugging your extension
+## Debugging Extensions
 
-This section explains how to test and debug a development version of your extension in remote workspaces. Specifically, we will look at how to test an extension using a local [dev container](/docs/remote/containers). Dev containers are cross-platform, easy to set up, and restrict port and file system access. Combined with a thin OS footprint, dev containers provide the environment where your extension is most likely to hit a problem (if it has one at all). WSL, on the other hand, is typically the least restrictive, with SSH being somewhere in the middle. In most cases, only small adjustments are needed to resolve issues. See [common problems](#common-problems) for more information.
+While you [can install a development version of your extension](#installing-a-development-version-of-your-extension) for simple tests, you probably will want to actually debug your extension in a remote environment or in Visual Studio Online to make fixes. We will cover how to edit, launch, and debug your extension in [Visual Studio Online](#debugging-with-visual-studio-online), a [local container](#debugging-in-a-development-container), a [SSH host](#debugging-using-ssh), or in [WSL](#debugging-using-wsl) in this section.
 
-### Installing a development version of your extension
+Note that typically your best starting point is test using something that restricts port access (VS Online, containers, remote SSH hosts with a restrictive firewall) since extensions that work in these environments tend to work in less restrictive ones like WSL.
 
-Currently, any time VS Code automatically installs an extension on an SSH host or inside a container or WSL, the Marketplace version is used (and not the version already installed on your local machine). While this makes sense in most situations, you may want to use an unpublished version of your extension for testing. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into a VS Code window that is already connected to a running remote environment.
+### Debugging with Visual Studio Online
+
+Debugging your extension in [Visual Studio Online](https://aka.ms/vso) is a good starting point since you use both VS Code and Visual Studio Online's browser-based editor. Note that, while there is a cost to the service's cloud-based managed environments, you can use your own desktop/laptop as a self-managed environment to test the extension at no cost.
+
+Just follow these steps:
+
+1. Install the [Visual Studio Online extension and sign in](https://vso-docs/vscode).
+
+2. Create a new managed [cloud-hosted environment](https://aka.ms/vso-docs/vscode/cloud-hosted) (paid) or register your own desktop as a [self-hosted environment](https://aka.ms/vso-docs/vscode/self-hosted) (free).
+
+3. If you have not already connected to your environment, select  **VS Online: Connect to Environment** from the command palette (`kbstyle(F1)`) in VS Code to connect.
+
+4. Once connected, either use **File > Open... / Open Folder...** to select the environment folder with your extension source code in it or select **Git: Clone** from the command palette (`kbstyle(F1)`) to clone it into the environment and open it.
+
+5. While Visual Studio Online's cloud-based environments should have all the needed pre-requistes for most extensions, you can install any other required dependencies that might be missing (e.g. using `yarn install` or `apt-get`) in a new VS Code terminal window (`kbstyle(Ctrl/Cmd+Shift+``)`).
+
+6. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension inside in the Visal Studio Online environment.
+
+    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the environment.
+
+The extension development host window that appears will include your extension running in a VS Online environment with the debugger attached to it.
+
+**Using the VS Online browser-based editor**
+
+Once you have an environment with your extension source code, you can also use Visual Studio Online's browser-based editor by [going to the portal](https://aka.ms/vso) to connect or selecting **VS Online: Open in Browser** from VS Code's command palette (`kbstyle(F1)`) locally. Once connected to the environment, you can **edit and debug your extension in the browser** exactly like you can from VS Code.
+
+### Debugging in a development container
+
+Just follow these steps:
+
+1. After [installing and configuring the Remote - Containers extension](/docs/remote/containers#_getting-started), use **File > Open... / Open Folder...** to open your source code locally in VS Code.
+
+2. Select **Remote-Containers: Add Development Container Configuration Files...** from the command palette (`kbstyle(F1)`), and pick **Node.js 8 & TypeScript** (or just Node.js 8 if you are not using TypeScript) to add the needed container configuration files.
+
+3. **[Optional]** After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the in-depth [Remote - Containers](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container) documentation for details.
+
+4. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You will now be able to develop your source code from inside the container just as you would in the local case.
+
+5. Run `yarn install` or `npm install` in a new VS Code terminal window (`kbstyle(Ctrl/Cmd+Shift+``)`) to ensure the Linux versions Node.js native dependencies are install. You can also install other OS or runtime dependencies, but you may want to add these to `.devcontainer/Dockerfile` as well so they are available if you rebuild the container.
+
+6. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension inside this same container and attach the debugger.
+
+    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the container.
+
+The extension development host window that appears will include your extension running in the container you defined in step 2 with the debugger attached to it.
+
+### Debugging using SSH
+
+Just follow steps:
+
+1. After [installing and configuring the Remote - SSH extension](/docs/remote/ssh#_getting-started), select **Remote-SSH: Connect to Host...** from the command palette (`kbstyle(F1)`) in VS Code to connect to a host.
+
+2. Once connected, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the command palette (`kbstyle(F1)`) to clone it and open it on the remote host.
+
+3. Install any required dependencies that might be missing (e.g. using `yarn install` or `apt-get`) in a new VS Code terminal window (`kbstyle(Ctrl/Cmd+Shift+``)`).
+
+4. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension inside on the remote host and attach the debugger.
+
+    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else on the SSH host.
+
+The extension development host window that appears will include your extension running on the SSH host with the debugger attached to it.
+
+### Debugging using WSL
+
+Just follow these steps:
+
+1. After [installing and configuring the Remote - WSL extension](/docs/remote/wsl), select **Remote-WSL: New Window** from the command palette (`kbstyle(F1)`) in VS Code.
+
+2. In the new window that appears, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the command palette (`kbstyle(F1)`) to clone it and open it in WSL.
+
+    > **Tip:** You can select the `/mnt/c` folder to access any cloned source code you have on the Windows side.
+
+3. Install any required dependencies that might be missing (e.g. using `apt-get`) in a new VS Code terminal window (`kbstyle(Ctrl/Cmd+Shift+``)`). You will at least want to run `yarn install` or `npm install` to ensure Linux versions of native Node.js dependencies are available.
+
+4. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension and attach the debugger as you would locally.
+
+    > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in WSL.
+
+The extension development host window that appears will include your extension running in WSL with the debugger attached to it.
+
+## Installing a development version of your extension
+
+Currently, any time VS Code automatically installs an extension on an SSH host, inside a container or WSL, or through Visual Studio Online, the Marketplace version is used (and not the version already installed on your local machine).
+
+While this makes sense in most situations, you may want to use (or share) an unpublished version of your extension for testing without having to set up a debugging environment. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into a VS Code window that is already connected to a running remote environment.
 
 Follow these steps:
 
 1. If this is a published extension, you may want to add `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest Marketplace version.
 2. Next, use `vsce package` to package your extension as a VSIX.
-3. Connect to a [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
+3. Connect to a [Visual Studio Online environment](https://aka.ms/vso), [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
 4. Use the **Install from VSIX...** command available in the Extensions view **More Actions** (`...`) menu to install the extension in this specific window (not a local one).
 5. Reload when prompted.
 
 > **Tip:** Once installed, you can use the **Developer: Show Running Extensions** command to see whether VS Code is running the extension locally or remotely.
-
-### Debugging your extension in a remote environment
-
-Normally when you build an extension, you edit, launch, and debug it all on your local machine. Debugging your extension in a remote environment follows this same pattern. You will just edit, launch, and debug your extension all on a remote machine, container, or in WSL instead of your local machine.
-
-#### Using a development container
-
-You can edit and debug your extension in a container by following these steps.
-
-1. Add the Node.js dev container definition to your extension folder by pressing `kbstyle(F1)`, selecting the **Remote-Containers: Create Configuration File...** command, and picking **Node.js 8 & TypeScript** (or just Node.js 8 if you are not using TypeScript). This will define the container you will use edit, debug, and test the extension.
-
-2. After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the in-depth [Containers](/docs/remote/containers#_indepth-setting-up-a-folder-to-run-in-a-container) documentation for details.
-
-3. **[Optional]** Edit your `launch.json` to add a second argument to the `args` property that points to the path of a test project / test data in your workspace folder or another path inside the container. For example, if your test data is in a `data` folder in your workspace, you would add `${workspaceFolder}/data` as follows:
-
-    > **Note:** You **cannot** use `${workspaceFolder}` alone for this second argument.
-
-    ```json
-    {
-        "name": "Launch Extension",
-        "type": "extensionHost",
-        "request": "launch",
-        "runtimeExecutable": "${execPath}",
-        "args": [
-            "--extensionDevelopmentPath=${workspaceFolder}",
-            "${workspaceFolder}/data"
-        ],
-        "stopOnEntry": false,
-        "sourceMaps": true,
-        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
-        "preLaunchTask": "npm"
-    }
-    ```
-
-4. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You will now be able to develop your source code from inside the container just as you would in the local case.
-
-5. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension inside this same container and attach the debugger. You will be able to interact with it just as you would in the local case, but from inside the development container you defined in step 1 instead.
-
-#### Using SSH or WSL
-
-You can edit and debug your extension on a remote [SSH host](/docs/remote/ssh) or in [WSL](/docs/remote/wsl) by following similar steps to the container case.
-
-1. For SSH, you'll need to instead open a copy of the extension project on the remote host (for example, by using the **Remote-SSH: Connect to Host...** command, and then **File** > **Open** to select the cloned copy of the extension.) For WSL, open the local folder containing your extension project in WSL (for example by using **File** > **New WSL Window** and then **File** > **Open** to select the folder).
-
-2. Once the folder is open on the SSH host / in WSL, you can edit your source code as you would in the local case.
-
-3. Finally, press `kbstyle(F5)` or use the **Debug view** to launch the extension and attach the debugger as you would locally. The window that appears now contains your extension running on the SSH Host / in WSL with the debugger attached to it.
 
 ## Common problems
 
@@ -106,8 +147,8 @@ If the **Developer: Show Running Extensions** command shows that a UI extension 
 }
 ```
 
-- `"extensionKind": "ui"` — Forces the extension to be a UI extension that is always run on the user's local machine.
-- `"extensionKind": "workspace"` — Forces the extension to be a workspace extension that will be run remotely by the VS Code Server for remote workspaces.
+- `"extensionKind": "ui"` — Forces the extension to be a UI extension that runs on the local machine when in VS Code. In Visual Studio Online's browser-based editors, some of these extensions may run in the browser itself.
+- `"extensionKind": "workspace"` — Forces the extension to be a workspace extension that will be run remotely by the VS Code Server for remote workspaces or Visual Studio Online environment.
 
 You can also quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you wish to force the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) to be a workspace extension (instead of its UI default), you would set:
 
@@ -182,7 +223,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 ### Persisting secrets
 
-If your Workspace Extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a `libsecret`-based keyring on Linux) rather than the one on the remote machine. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a container.
+If your Workspace Extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a `libsecret`-based keyring on Linux, or an online equivalent) rather than the one on the remote machine environment. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a container.
 
 Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in a Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.
 
@@ -239,6 +280,36 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
+### Communicating between extensions using commands
+
+Some extensions return APIs as a part of their activation that are intended for use by other extensions (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI Extensions or all Workspace Extensions), these will not work between UI and Workspace Extensions.
+
+Fortunately, VS Code automatically routes any executed commands to the correct extension regardless of its location. You can freely invoke any command (including those provided by other extensions) without worrying about impacts.
+
+If you have a set of extensions that need to interact with one another, exposing functionality using a private command can help you avoid unexpected impacts. However, any objects you pass in as parameters will be "stringified" (`JSON.stringify`) before being transmitted, so the object cannot have cyclic references and will end up as a "plain old javascript object" on the other side.
+
+For example:
+
+```typescript
+import * as vscode from 'vscode';
+
+export async function activate(context: vscode.ExtensionContext) {
+    // Register the private echo command
+    const echoCommand = vscode.commands.registerCommand('_private.command.called.echo',
+        (value: string) => {
+            return value;
+        }
+    );
+    context.subscriptions.push(echoCommand);
+}
+```
+
+See the [command API guide](/api/extension-guides/command) for details on working with commands.
+
+## Handling extension exposed ports
+
+In some cases, your extension may be running something on a HTTP server that developers using your extension need to be able to access. In others you may simply want to expose something from a developer's application or a runtime.
+
 ### Opening something in a local browser or application
 
 Spawning a process or using a module like `opn` to launch a browser or other application for particular URI can work well for local scenarios, but Workspace Extensions run remotely, which can cause the application to launch on the wrong side. VS Code Remote Development **partially** shims the `opn` node module to allow existing extensions to function. You can call the module with a URI and VS Code will cause the default application for the URI to appear on the client side. However, this is not a complete implementation, as options are not support and a `child_process` object is not returned.
@@ -266,41 +337,18 @@ export async function activate(context: vscode.ExtensionContext) {
         // Example 1 - Open the VS Code homepage in the default browser.
         vscode.env.openExternal(vscode.Uri.parse('https://code.visualstudio.com'));
 
-        // Example 2 - Open the default email application.
+        // Example 2 - Open an auto-forwarded localhost HTTP server.
+        vscode.env.openExternal(vscode.Uri.parse('http://localhost:3000'));
+
+        // Example 3 - Open the default email application.
         vscode.env.openExternal(vscode.Uri.parse('mailto:vscode@microsoft.com'));
     }));
 }
 ```
 
-### Communicating between extensions using commands
-
-Some extensions return APIs as a part of their activation that are intended for use by other extensions (via `vscode.extension.getExtension(extensionName).exports`). While these will work if all extensions involved are on the same side (either all UI Extensions or all Workspace Extensions), these will not work between UI and Workspace Extensions.
-
-Fortunately, VS Code automatically routes any executed commands to the correct extension regardless of its location. You can freely invoke any command (including those provided by other extensions) without worrying about impacts.
-
-If you have a set of extensions that need to interact with one another, exposing functionality using a private command can help you avoid unexpected impacts. However, any objects you pass in as parameters will be "stringified" (`JSON.stringify`) before being transmitted, so the object cannot have cyclic references and will end up as a "plain old javascript object" on the other side.
-
-For example:
-
-```typescript
-import * as vscode from 'vscode';
-
-export async function activate(context: vscode.ExtensionContext) {
-    // Register the private echo command
-    const echoCommand = vscode.commands.registerCommand('_private.command.called.echo',
-        (value: string) => {
-            return value;
-        }
-    );
-    context.subscriptions.push(echoCommand);
-}
-```
-
-See the [command API guide](/api/extension-guides/command) for details on working with commands.
-
 ## Using the Webview API
 
-Like the clipboard API, the [Webview API](/api/extension-guides/webview) is always run on the user's local machine, even when used from a Workspace extension. This means that many webview-based extensions should just work, even when used in remote workspaces. However there are some considerations to be aware of to make sure that your webview extension works properly when run remotely.
+Like the clipboard API, the [Webview API](/api/extension-guides/webview) is always run on the user's local machine or in the browser, even when used from a Workspace extension. This means that many webview-based extensions should just work, even when used in remote workspaces or Visual Studio Online environments. However there are some considerations to be aware of to make sure that your webview extension works properly when run remotely.
 
 ### Accessing localhost
 
@@ -308,50 +356,68 @@ By default, `localhost` inside a webview resolves to the user's local machine. T
 
 ![Webview problem](images/remote-extensions/webview-problem.png)
 
-You can work around this by using the webview [message passing](/api/extension-guides/webview#scripts-and-message-passing) API instead of accessing localhost directly. Alternatively, you can **add a port mapping** to your webview so that certain ports are transparently forwarded to the remote machine where the extension is running.
+You can work around this by doing one of the following:
 
-Port mapping maps a localhost port used inside your webview to an arbitrary port on the machine where your extension is running. If your workspace extension is running remotely and defines a port mapping, traffic will be automatically and securely forwarded from the local machine to the remote machine. If your extension is running locally, a port mapping simply remaps one localhost port to another. Webview port mapping works for both UI and Workspace Extensions, and in both local and remote workspaces.
+1. Use the recommended webview [message passing](/api/extension-guides/webview#scripts-and-message-passing) API instead of accessing localhost directly. This avoids the issue entirely.
 
-The port mapping API was added in VS Code 1.34. To use it, start by updating the `engines.vscode` value in your extension's `package.json`:
+2. If you do not intend to support Visual Studio Online's browser-based editor you can use the `portMapping` option available in the webview API since VS Code 1.34.
+
+    ```typescript
+    const panel = vscode.window.createWebviewPanel(
+        'remoteMappingExample',
+        'Remote Mapping Example',
+        vscode.ViewColumn.One, {
+            portMapping: [
+                // This maps localhost:4000 in the locally to port 3000 on the remote host.
+                { webviewPort: 4000, extensionHostPort: 3000 }
+            ]
+        });
+    const baseUri = 'http://localhost:4000';
+    ```
+
+3. Use the `vscode.env.asExternalUri` API available since VS Code 1.40.
+
+    ```typescript
+    const baseUri = vscode.env.asExternalUri(vscode.Uri.parse('http://localhost:3000'));
+    ```
+
+In the case of the latter two options, if your workspace extension is running remotely, requests made to `baseUri` in the examples above will be automatically and securely forwarded from the local machine (or browser) to the remote machine or environment. In other cases it will just resolve locally.
+
+![Webview Solution](images/remote-extensions/webview-solution.png)
+
+Let's go through a full example of using `asExternalUri`. The API was added in VS Code 1.40. To use it, start by updating the `engines.vscode` value in your extension's `package.json`:
 
 ```json
 "engines": {
-    "vscode": "^1.34.0"
+    "vscode": "^1.40.0"
 }
 ```
 
-Now when you publish your extension, only users on VS Code 1.34 or newer will get the updated version.
+Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version.
 
-To use a port mapping, just pass in a `portMapping` object when you create your webview:
+Next, use the API to get a full base URI that either VS Code or the browser can access and reference it in any content you serve up.
 
 ```typescript
-const STATIC_PORT = 3000;
 const dynamicServerPort = getExpressServerPort();
-const webviewPort = STATIC_PORT;
+const baseUri = vscode.env.asExternalUri(vscode.Uri.parse(`http://localhost:${ dynamicServerPort}`));
 
-// Create webview and pass portMapping in
+// Create the webview
 const panel = vscode.window.createWebviewPanel(
     'remoteMappingExample',
     'Remote Mapping Example',
-    vscode.ViewColumn.One, {
-        portMapping: [
-            // This maps localhost:3000 in the webview to the express server port on the remote host.
-            { webviewPort: webviewPort, extensionHostPort: dynamicServerPort }
-        ]
-    });
+    vscode.ViewColumn.One);
 
-// Reference the "webviewPort" variable in any full URIs you reference in your HTML.
+// Create webview
 panel.webview.html = `<!DOCTYPE html>
     <body>
-        <!-- This will resolve to the dynamic server port on the remote machine -->
-        <img src="http://localhost:${webviewPort}/canvas.png">
+        <img src="${baseExternalUri}/canvas.png">
+        <!-- Works with iframes too -->
+        <iframe src="${baseExternalUri}/web-page">
     </body>
     </html>`;
 ```
 
-Now the webview's traffic to `localhost:3000` will be transparently routed to the remote machine using VS Code's existing secure communication channel:
-
-![Webview Solution](images/remote-extensions/webview-solution.png)
+Note that any HTML content served up the `iframe` in the example above should use relative pathing rather than hardcoding `localhost`.
 
 ## Using native Node.js modules
 
