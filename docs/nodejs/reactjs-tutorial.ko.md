@@ -138,48 +138,47 @@ registerServiceWorker();
 }
 ```
 
-당신의 개발 서버가 구동중인지 확인하십시오("npm start"). 그리고 나서 `kb(workbench.action.debug.start)`나 녹색 화살표를 눌러 Debugger를 시작하고 새 브라우저 인스턴스를 여십시오. 웹페이지를 리프레쉬할 때까지는 중단점을 칠수 없을 것이다. 브레이크포인트가 걸려 있는 소스코드는 debugger가 붙기 전에 .... 페이지를 새로고침하고 브레이크 포인트에 맞닥드리
-The source code where the breakpoint is set runs on startup before the debugger was attached so we won't hit the breakpoint until we refresh the web page. Refresh the page and you should hit your breakpoint.
+당신의 개발 서버가 구동중인지 확인하십시오("npm start"). 그리고 나서 `kb(workbench.action.debug.start)`나 녹색 화살표를 눌러 Debugger를 시작하고 새 브라우저 인스턴스를 여십시오. 디버거가 연결되기 전에 시작 시 중단점이 설정된 소스 코드가 실행되어 웹 페이지를 새로 고치기 전까지 중단점에 도달하지 않을 것입니다. 페이지를 새로 고치면 중단점에 도달할 수 있습니다.
 
 ![hit breakpoint](images/reactjs/hit-breakpoint.png)
 
-당신은 당신의 소스코드 (`kb(workbench.action.debug.stepOver)`)를 움직여 `element`와 같은 변수들을 검사할 수 있고, client쪽 React 응용프로그램의 call stack을 볼수 있다. 
+당신은 당신의 소스코드 (`kb(workbench.action.debug.stepOver)`)를 움직여 `element`와 같은 변수들을 검사할 수 있고, client쪽 React 응용프로그램의 call stack을 볼수 있습니다. 
 
 ![debug variable](images/reactjs/debug-variable.png)
 
-The **Debugger for Chrome** extension README has lots of information on other configurations, working with sourcemaps, and troubleshooting. You can review it directly within VS Code from the **Extensions** view by clicking on the extension item and opening the **Details** view.
+**Debugger for Chrome** 확장 README는 다른 구성, 소스 맵 작업 및 문제 해결에 대한 많은 정보를 가지고 있습니다. 확장 항목을 클릭하고 **Details**뷰를 여는 것으로 VS Code 내의 **Extensions**에서 직접 검토할 수 있습니다.
 
 ![debugger for chrome readme](images/reactjs/chrome-debugger-readme.png)
 
-### Live editing and debugging
+### 실시간 편집 및 디버깅
 
-If you are using [webpack](https://webpack.js.org/) together with your React app, you can have a more efficient workflow by taking advantage of webpack's HMR mechanism which enables you to have live editing and debugging directly from VS Code. You can learn more in this [Live edit and debug your React apps directly from VS Code](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f) blog post and the [webpack Hot Module Replacement documentation](https://webpack.js.org/concepts/hot-module-replacement/).
+만약 당신이 당신의 React app과 함께 [webpack](https://webpack.js.org/)을 사용 중이라면, 당신은 VS Code로부터 실시간 편집 및 디버깅을 직접적으로 당신에게 가능하게 해주는 Webpack의 HMR 메커니즘의 이점을 취함으로서 좀더 효율적인 워크플로우를 가질수 있습니다. 당신은  [Live edit and debug your React apps directly from VS Code](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f) blog post 와 the [webpack Hot Module Replacement documentation](https://webpack.js.org/concepts/hot-module-replacement/)에서 더 많이 배울수 있습니다.
 
 ## Linting
 
-Linters analyze your source code and can warn you about potential problems before you run your application. The JavaScript language services included with VS Code has syntax error checking support by default which you can see in action in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
+Linters는 당신의 소스코드를 분석하고 당신의 프로그램을 구동하기 전에 잠재적인 문제에 관해서 경고할수 있습니다. VS Code에 포함된 JavaScript 언어 서비스는 기본적으로 **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`)에서 확인 할 수 있는 실행중인 구문 에러(Syntax Error) 확인을 지원하고 있습니다.
 
-Try making a small error in your React source code and you'll see a red squiggle and an error in the **Problems** panel.
+당신의 React 소스코드에 작은 오류를 만들어 보면 빨간 물결모양과 **Problems**에서 에러를 볼수 있을 것입니다.
 
 ![javascript error](images/reactjs/js-error.png)
 
-Linters can provide more sophisticated analysis, enforcing coding conventions and detecting anti-patterns. A popular JavaScript linter is [ESLint](https://eslint.org/). ESLint, when combined with the ESLint VS Code [extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint), provides a great in-product linting experience.
+Linters는 더욱 복잡한 분석, 코딩 규칙 강제와 안티패턴 탐지 기능을 제공할 수 있습니다. 잘알려진 JavaScript linter는 [ESLint](https://eslint.org/)입니다. ESLint는 ESLint VS Code [extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint)와 결합될 때 내재화된 엄청난 Linting 경험을 제공합니다.
 
-First, install the ESLint command-line tool:
+처음으로, ESLint ommand-line tool을 설치합니다.:
 
 ```bash
 npm install -g eslint
 ```
 
-Then install the ESLint extension by going to the **Extensions** view and typing 'eslint'.
+그리고 나서 **Extensions** view에 가서 'eslint'를 치는 것으로 ESLint extension을 설치합니다. 
 
 ![ESLint extension](images/reactjs/eslint-extension.png)
 
-Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file `.eslintrc.json`. You can create one using the extension's **ESLint: Create ESLint configuration** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+ESLint extension이 설치하고 나서 VS Code를 재시작을 한번 하면, 당신은 ESLint 구성 파일`.eslintrc.json`을 생성하려고 할 것입니다. 당신은 **Command Palette** (`kb(workbench.action.showCommands)`)에서 extension의 **ESLint: Create ESLint configuration** 명령을 사용하여 생성할 수 있습니다.
 
 ![create eslintrc](images/reactjs/create-eslintrc.png)
 
-The command will create a `.eslintrc.json` file in your project root:
+이 명령은 당신의 프로젝트 root에서 `.eslintrc.json`을 생성할 것입니다.:
 
 ```json
 {
@@ -207,15 +206,15 @@ The command will create a `.eslintrc.json` file in your project root:
 }
 ```
 
-ESLint will now analyze open files and shows a warning in `index.js` about 'App' being defined but never used.
+ESLint는 이제 열려 있는 파일을 분석하여 'App'이 정의되었지만 사용되지 않는 것에 대한 경고를 `index.js`에 표시할 것입니다.
 
 ![App is unused](images/reactjs/app-is-unused.png)
 
-You can modify the ESLint [rules](https://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense in `.eslintrc.json`.
+당신은 ESLint [rules](https://eslint.org/docs/rules/)를 수정할 수 있으며 ESLint extension `.eslintrc.json`에서 IntelliSense를 제공합니다.
 
 ![eslintrc IntelliSense](images/reactjs/eslintrc-intellisense.png)
 
-Let's add an error rule for extra semi-colons:
+여분의 세미콜론에 대한 오류 규칙을 추가합시다:
 
 ```json
  "rules": {
@@ -230,34 +229,36 @@ Let's add an error rule for extra semi-colons:
     }
 ```
 
-Now when you mistakenly have multiple semicolons on a line, you'll see an error (red squiggle) in the editor and error entry in the **Problems** panel.
+이제 실수로 여러 개의 세미콜론이 한 줄에 있는 경우 편집기에 오류(빨간색 물결무늬)가 표시되고 **Problems** 패널에 오류 항목이 표시됩니다.
 
 ![extra semicolon error](images/reactjs/extra-semi-error.png)
 
 ## Popular Starter Kits
 
-In this tutorial, we used the `create-react-app` generator to create a simple React application. There are lots of great samples and starter kits available to help build your first React application.
+본 자습서에서는, 간단한 리액트 어플리케이션을 만들기 위해 `create-react-app`을 이용했습니다. 첫 번째 React 응용 프로그램을 만드는 데 도움이 되는 많은 좋은 샘플과 스타터 키트가 있습니다.
 
-### VS Code React Sample
 
-This is a [sample](https://github.com/Microsoft/vscode-react-sample) React application used for a [demo](https://channel9.msdn.com/events/Build/2017/T6078) at this year's //Build conference. The sample creates a simple TODO application and includes the source code for a Node.js [Express](https://expressjs.com/) server. It also shows how to use the [Babel](https://babeljs.io) ES6 transpiler and then use [webpack](https://webpack.js.org/) to bundle the site assets.
+### VS Code React 예제
+
+이것은 올해 //Build 컨퍼런스에서 [demo](https://channel9.msdn.com/events/Build/2017/T6078)에 사용된 [sample](https://github.com/Microsoft/vscode-react-sample) React 애플리케이션입니다. 샘플은 간단한 TODO 애플리케이션을 생성하고 Node.js [Express](https://expressjs.com/) 서버에 대한 소스 코드를 포함합니다. 또한 [Babel](https://babeljs.io) ES6 transfiler를 사용한 다음 [webpack](https://webpack.js.org/)을 사용하여 사이트 자산을 묶는 방법도 보여줍니다.
 
 ### MERN Starter
 
-If you'd like to see a full MERN (MongoDB, Express, React, Node.js) stack example, look at the [MERN Starter](http://mern.io/). You'll need to install and start [MongoDB](https://docs.mongodb.com/v3.0/installation/) but you'll quickly have a MERN application running. There is helpful VS Code-specific documentation at [vscode-recipes](https://github.com/Microsoft/vscode-recipes/tree/master/MERN-Starter) which details setting up Node.js server debugging. VS Code also has great [MongoDB support](/docs/azure/mongodb.md) through the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
+전체 MERN(MongoDB, Express, React, Node.js) 스택 예를 보려면 [MERN Starter](http://mern.io/)를 참조하십시오. [MongoDB](https://docs.mongodb.com/v3.0/installation/)을 설치하고 시작해야 하지만 MERN 응용 프로그램이 빠르게 실행될 것입니다. [vscode-recipes](https://github.com/Microsoft/vscode-recipes/tree/master/MERN-Starter)에는 Node.js 서버 디버깅 설정을 자세히 설명하는 유용한 VS 코드 관련 문서가 있습니다. VS Code 역시 [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) 확장판을 통해 훌륭한 [MongoDB support](/docs/azure/mongodb.md)가 있습니다.
 
 ### TypeScript React
 
-If you're curious about TypeScript and React, you can also create a TypeScript version of the `create-react-app` application. See the details at [TypeScript-React-Starter](https://github.com/Microsoft/TypeScript-React-Starter) on the [TypeScript Quick Start](https://www.typescriptlang.org/samples/index.html) site.
+TypeScript 및 React에 대해 궁금한 경우, `create-react-app` 응용 프로그램의 TypeScript 버전을 만들 수도 있다. 자세한 내용은 [TypeScript Quick Start](https://www.typescriptlang.org/samples/index.html) 사이트의 [TypeScript-React-Starter](https://github.com/Microsoft/TypeScript-React-Starter)에서 확인하십시오.
 
 ### Angular
 
-[Angular](https://angular.io/) is another popular web framework. If you'd like to see an example of Angular working with VS Code, check out the [Chrome Debugging with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI) recipe. It will walk you through creating an Angular application and configuring the `launch.json` file for the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+[Angular](https://angular.io/)은 또 다른 인기 있는 웹 프레임워크입니다. VS Code를 사용하는 Angular의 예를 보려면 [Chrome Debugging with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI) 레시피를 확인하십시오. Angular 응용 프로그램을 만들고  [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) 확장을 위한 파일을 구성하는 과정을 안내합니다.
 
-## Common questions
 
-### Can I get IntelliSense within declarative JSX?
+## 일반적인 질문
 
-Yes. For example, if you open the `create-react-app` project's `App.js` file, you can see IntelliSense within the React JSX in the `render()` method.
+### JSX선언 내에 IntelliSense를 얻을 수 있나요?
+
+네. 예를들어, `create-react-app` 프로젝트의 `App.js`를 연다면, 당신은  `render()` method에서 React JSX 내의 IntelliSense를 확인할 수 있습니다.
 
 ![JSX IntelliSense](images/reactjs/jsx-intellisense.png)
