@@ -1,5 +1,5 @@
 ---
-Order: 1
+Order: 2
 Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
@@ -72,7 +72,9 @@ Name the file `hello.py`, and it automatically opens in the editor:
 
 By using the `.py` file extension, you tell VS Code to interpret this file as a Python program, so that it evaluates the contents with the Python extension and the selected interpreter.
 
-Next, start entering the following source code if using Python 3:
+>**Note**: The File Explorer toolbar also allows you to create folders within your workspace to better organize your code. You can use the **New folder** button to quickly create a folder.
+
+Now that you have a code file in your Workspace, enter the following source code in `hello.py`:
 
 ```python
 msg = "Hello World"
