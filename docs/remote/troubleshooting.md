@@ -761,15 +761,21 @@ When working inside a container or SSH host, the port the browser is connecting 
 
 ### WebView contents do not appear
 
-If the extension's WebView content uses an iframe to connect to a local web server, the port the WebView is connecting to may be blocked.
+If the extension's WebView content uses an iframe to connect to a local web server, the port the WebView is connecting to may be blocked. In addition, if the extension hard codes `vscode-resource://` URIs instead of using `asWebviewUri`, content may not appear in VS Online's browser editor.
 
-**Resolution:** The WebView API now includes a `portMapping` property that the extension can use to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#accessing-localhost) for details.
+**Resolution:** The extension can use use `asWebviewUri` and/or `asExternalUri` to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#accessing-localhost) for details.
 
 ### Blocked localhost ports
 
 If you are trying to connect to a localhost port from an external application, the port may be blocked.
 
-**Resolution:** There currently is no API for extensions to programmatically forward arbitrary ports, but you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...** to do so manually.
+**Resolution:** VS Code 1.40 introduced a new `vscode.env.asExternalUri` API for extensions to programmatically forward arbitrary ports.  See the extension guide for details. In the mean time, you can can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...**, or **VS Online: Forward Port** commands to do so manually.
+
+### Websockets do not function in forwarded content in the VS Online browser editor
+
+Currently websockets are not supported in content forwarded by VS Online's browser based editor.
+
+**Resolution:** None currently. The VS Online team is investigating solutions to this problem.
 
 ### Errors storing extension data
 
