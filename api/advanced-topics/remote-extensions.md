@@ -43,6 +43,8 @@ Just follow these steps:
 
 2. Create a new managed [cloud-hosted environment](https://aka.ms/vso-docs/vscode/cloud-hosted) (paid) or register your own desktop as a [self-hosted environment](https://aka.ms/vso-docs/vscode/self-hosted) (free).
 
+    > **Note:** When using a self-hosted environment, you may have to re-register your machine after a reboot due to a bug. See [MicrosoftDocs/vsonline#5](https://github.com/MicrosoftDocs/vsonline/issues/5) for more information.
+
 3. If you have not already connected to your environment, select  **VS Online: Connect to Environment** from the command palette (`kbstyle(F1)`) in VS Code to connect.
 
 4. Once connected, either use **File > Open... / Open Folder...** to select the environment folder with your extension source code in it or select **Git: Clone** from the command palette (`kbstyle(F1)`) to clone it into the environment and open it.
@@ -284,7 +286,8 @@ Spawning a process or using a module like `opn` to launch a browser or other app
 
 Instead of relying on a third-party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better, `vscode.env.openExternal` **does automatic localhost port forwarding!** You can use it to point to a local web server on a remote machine or environment and serve up content even if that port is blocked externally.
 
-> **Note:** Currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for VS Code itself do not have this limitation.
+> **Note:** Currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for VS Code itself do not have this limitation. See [MicrosoftDocs/vsonline#6](https://github.com/MicrosoftDocs/vsonline/issues/6) for details.
+
 
 This API was added in VS Code 1.31. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -320,7 +323,8 @@ export async function activate(context: vscode.ExtensionContext) {
 
 While the [localhost forwarding mechanism in `vscode.env.openExternal` is useful](#opening-something-in-a-local-browser-or-application), there may also be situations where you want to forward something without actually launching a new browser window. This is where the `vscode.env.asExternalUri` API comes in.
 
-> **Note:** Currently the forwarding mechanism in Visual Studio Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Visual Studio Online extensions for VS Code itself do not have this limitation.
+> **Note:** Currently the forwarding mechanism in Visual Studio Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Visual Studio Online extensions for VS Code itself do not have this limitation. See [MicrosoftDocs/vsonline#6](https://github.com/MicrosoftDocs/vsonline/issues/6) for details.
+
 
 This API was added in VS Code 1.40. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -516,7 +520,7 @@ In this example, in both the remote and local cases, any requests made to `http:
 
 VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local HTTP and HTTPS requests remotely in a programmatic way. If you intend to **only serve up content in an iframe**, you can use this API to support VS Code and VS Online's browser-based editor.
 
-> **Note:** Currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for VS Code itself do not have this limitation.
+> **Note:** Currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for VS Code itself do not have this limitation. See [MicrosoftDocs/vsonline#6](https://github.com/MicrosoftDocs/vsonline/issues/6) for details.
 
 To start, update the `engines.vscode` value in `package.json` to at least 1.40 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -618,8 +622,8 @@ There are a few extension problems that could be resolved with some added functi
 
 | Problem | Description |
 |---------|-------------|
-| **When using the VS Online browser-based editor (only), web sockets referenced in forwarded content do not work** | Only the HTTP and HTTPS protocols are supported by VS Online's browser-based forwarding mechanism. Web sockets and other protocols will not work even if served up in web content. |
-| **When using the VS Online browser-based editor (only), webview content cannot directly access content from a local web server** | Webviews cannot directly reference content forward by VS Online's browser-based forwarding mechanism. Instead, all references to local web server content [must be housed in an iframe](#webview-localhost-option-2---use-asexternaluri). |
+| **Websockets do not work in port forwarded content in VS Online's browser-based editor** | Only the HTTP and HTTPS protocols are supported by VS Online's browser-based forwarding mechanism. Web sockets and other protocols will not work even if served up in web content. See [MicrosoftDocs/vsonline#6](https://github.com/MicrosoftDocs/vsonline/issues/6) for details. (Note that his does not affect the Remote Development or VS Online extensions for VS Code itself.) |
+| **Webview HTML content cannot directly access port forwarded servers in VS Online's browser-based editor** | Because of how security is implemented in VS Online's browser-based forwarding mechanism, webview HTML cannot directly reference forwarded web content or services. Instead, all local web server content [must be housed in an iframe](#webview-localhost-option-2---use-asexternaluri). (Note that his does not affect the Remote Development or VS Online extensions for VS Code itself.) |
 | **Cannot access / transfer remote workspace files to local machine** | Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem. |
 | **Cannot access attached devices from Workspace extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. We are investigating the best approach to solve this problem. |
 
