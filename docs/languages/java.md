@@ -11,12 +11,12 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 
 Support for Java in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md). Combined with the power of core VS Code, these extensions give you a lightweight and performant code editor that also supports many of the most common Java development techniques. VS Code provides essential language features such as code completion, refactoring, linting, formatting, and code snippets along with convenient debugging and unit test support. VS Code can also integrate with tooling and frameworks such as Maven, Tomcat, Jetty, and Spring Boot. Leveraging the power of Visual Studio Code, Java developers get an excellent tool for both quick code editing and also the full debugging and testing cycle. It's a great choice for your Java work if you're looking for a tool which:
 
-- Is fast, lightweight, free, and open source
-- Supports many other languages, not just Java
-- Helps start your Java journey without installing and learning a complex IDE
-- Provides great microservices support including popular frameworks, container tooling and cloud integration
-- Offers team-based collaboration features
-- Improves your productivity through intellisense and other code-aware editing aids
+- Is fast, lightweight, free, and open source.
+- Supports many other languages, not just Java.
+- Helps start your Java journey without installing and learning a complex IDE.
+- Provides great microservices support including popular frameworks, container tooling, and cloud integration.
+- Offers team-based collaboration features such as [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share).
+- Improves your productivity through IntelliSense and other code-aware editing features.
 
 This article will give you an overview of different capabilities of Visual Studio Code for Java developers. For a quick walkthrough of editing, running, and debugging a Java program with Visual Studio Code, see the [Java Tutorial](/docs/java/java-tutorial).
 
@@ -65,16 +65,9 @@ This document describes some of the key features included in those Java extensio
 
 ## Getting started
 
-**NOTE:** If you are using VS Code on Windows, but want to take
-advantage of the Windows Subsystem for Linux, stop reading this guide,
-go over to [Developing in WSL](/docs/remote/wsl), read and understand
-that, and then come back here.  Briefly, you must start VS Code from the
-WSL Linux command line, passing the directory to open, such as `code .`.
-That dot is very important.  You can tell that VS Code is correctly
-connected to WSL by the presence of this indicator along the bottom of
-the VS code window. ![Java Extensions](images/java/wsl-ubuntu.png).
+**NOTE:** If you are using VS Code on Windows and want to take advantage of the Windows Subsystem for Linux, see [Developing in WSL](/docs/remote/wsl).
 
-Once you're done reading through this article, for developers new to Java or new to VS Code, we provide a Getting Started experience. Once you've installed the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).  To open the Getting Started experience from within VS Code, you use a "command".  A command is something you execute from [the Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) in the UI.  Open the command palette by typing Ctrl-Shift-P on Windows or &#2318; &#25B2; P on Mac.  This opens a little text field at the top middle of the UI where you type **Java: Getting Started** to get the Quick Start guide.
+For developers new to Java or new to VS Code, we provide a Getting Started experience. Once you've installed the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can open the Getting Started experience from within VS Code with the **Java: Getting Started** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Java Getting Started](images/java/getting-started.png)
 
@@ -84,36 +77,21 @@ There are three things you must understand to work with Java in VS Code:
 
 1. How does VS Code handle Workspaces?
 2. How does VS Code handle Java?
-3. How does VS code handle Workspaces that contain Java?
+3. How does VS Code handle Workspaces that contain Java?
 
 ### VS Code Workspaces
 
-In Visual Studio Code, a "Workspace" means a collection of one or more
-filesystem folders (and their children) and all of the VS Code
-configurations that take effect when that "Workspace" is open in VS
-Code.  There are two kinds of "Workspaces" in VS code, "folder
-workspaces" and "multi-root workspaces".
+In Visual Studio Code, a "Workspace" means a collection of one or more filesystem folders (and their children) and all of the VS Code configurations that take effect when that "Workspace" is open in VS Code.  There are two kinds of "Workspaces" in VS Code, "folder workspaces" and "multi-root workspaces".
 
-A "folder workspace" is presented by VS Code when you open a filesystem
-folder (also called a directory) in VS Code.
+A "folder workspace" is presented by VS Code when you open a filesystem folder (directory) in VS Code.
 
-A "multi-root workspace", so called because it can refer to multiple
-folders (aka directories) from disparate parts of the file system, lets
-VS Code easily expose the contents the folder(s) of the workspace in the
-[Side Bar](/docs/getstarted/userinterface#_basic-layout).  For complete
-details on multi-root workspaces see [the definitive documentation of
-the feature](/docs/editor/multi-root-workspaces).
+A "multi-root workspace" can refer to multiple folders (directories) from disparate parts of the file system and VS Code displays the contents of the folder(s) of the workspace together in the [File Explorer](/docs/getstarted/userinterface.md#basic-layout). To learn more, see [Multi-root Workspaces](/docs/editor/multi-root-workspaces.md).
 
 ### Java in VS Code
 
-In marked contrast to IDEs such as IntelliJ IDEA, NetBeans, or Eclipse,
-the concept of a "java project" is provided entirely by extensions, and
-is not a core concept in the base VS Code.  When working with "java
-projects" in VS Code, you must first ensure you have the necessary
-extensions installed, as detailed above.  That done, ensure you
-understand how VS Code handles "Workspaces".
+In contrast to IDEs such as IntelliJ IDEA, NetBeans, or Eclipse, the concept of a "Java project" is provided entirely by extensions, and is not a core concept in the base VS Code. When working with "Java projects" in VS Code, you need to the necessary extensions installed to work with those project files.
 
-For example, Maven, Eclipse, and Gradle Java projects are supported through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](https://www.eclipse.org/m2e/), which provides Maven support, and [Buildship](https://github.com/eclipse/buildship), which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).  
+For example, Maven, Eclipse, and Gradle Java projects are supported through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](https://www.eclipse.org/m2e/), which provides Maven support, and [Buildship](https://github.com/eclipse/buildship), which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).
 
 With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate projects from [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html), browse through all the Maven projects within your workspace, and execute Maven goals easily from an embedded explorer. Projects can also be created and managed with the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension.
 
@@ -125,9 +103,7 @@ Visual Studio Code also supports working with standalone Java files outside of a
 
 ### VS Code Workspaces that contain Java
 
-Assuming the necessary extensions are installed, opening a VS Code
-workspace that contains Java artifacts will cause those extensions to
-understand those artifacts and present options for working with them.
+Assuming the necessary Java extensions are installed, opening a VS Code workspace that contains Java artifacts will cause those extensions to understand those artifacts and present options for working with them.
 
 More details about Java project support can be found in [Java Project Management in Visual Studio Code](/docs/java/java-project.md).
 
