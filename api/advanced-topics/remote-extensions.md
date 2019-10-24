@@ -516,7 +516,7 @@ panel.webview.html = `<!DOCTYPE html>
         <head>
             <meta
                 http-equiv="Content-Security-Policy"
-                content="default-src 'none'; frame-src: ${fullWebServerUri} https:; img-src ${webview.cspSource} https:; script-src ${webview.cspSource}; style-src ${webview.cspSource};"
+                content="default-src 'none'; frame-src ${fullWebServerUri} https:; img-src ${webview.cspSource} https:; script-src ${webview.cspSource}; style-src ${webview.cspSource};"
             />
         </head>
         <body>
