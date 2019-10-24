@@ -26,9 +26,10 @@ To successfully complete this tutorial, you must do the following:
 1. Install [Mingw-w64](http://mingw-w64.org/doku.php/download/mingw-builds) to a folder that has no spaces in its path (in other words, NOT the default location of C:/Program Files/). In this tutorial, we assume it is installed under `C:\Mingw-w64`.
 
 1. Add the path to your Mingw-w64 `bin` folder to the Windows PATH environment variable.
-   1. In the Windows search box, type "cmd" and then choose **Command prompt** from the results list.
-   1. On the command line, use `setx` to add the Mingw-w64 path to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. Here is an example: `setx path "%path%;c:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin"`.
-   1. Close the console window because the new path is not available in it.
+   1. Go to your Windows OS Settings and search for **Edit environment variables for your account**.
+   1. Choose the `Path` variable and then select **Edit**.
+   1. Select **New** and add the Mingw-w64 path to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. Here is an example: `c:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin`.
+   1. Select **OK** to save the `Path` update. You will need to reopen any console windows for the new PATH location to be available.
 
 ## Create a workspace
 
