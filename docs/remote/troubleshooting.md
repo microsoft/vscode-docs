@@ -5,13 +5,17 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 10/14/2019
+DateApproved: 10/23/2019
 ---
 # Remote Development Tips and Tricks
 
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension. Or try the step by step [Tutorials](/docs/remote/remote-tutorials.md) to help get you running quickly in a remote environment.
 
 ## SSH tips
+
+SSH is powerful and flexible, but this also adds some setup complexity. This section includes some tips and tricks for getting the Remote - SSH extension up and running in different environments.
+
+If you are still running into trouble, you may want to try the preview of [Visual Studio Online's free self-hosted environment option](https://aka.ms/vso-docs/vscode) since it does not require a SSH server or even a directly accessible port on the remote host. The service also allows you use its browser-based editor with the remote host.
 
 ### Configuring key based authentication
 
@@ -407,6 +411,10 @@ rm -rf ~/.vscode-server # Or ~/.vscode-server-insiders
 The VS Code Server was previously installed under `~/.vscode-remote` so you can check that location too.
 
 ## Container tips
+
+This section includes some tips and tricks for getting the Remote - Containers extension up and running in different environments.
+
+If you are running into Docker issues or would prefer not to run Docker locally, you may want to try the preview of [Visual Studio Online's managed cloud-based environments](https://aka.ms/vso-docs/vscode). Over time this service will support an increasing number of `devcontainer.json` properties and you can also use it's browser-based editor in addition to VS Code.
 
 ### Docker Desktop for Windows tips
 
