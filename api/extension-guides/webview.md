@@ -767,7 +767,7 @@ function getWebviewContent() {
 
 ![Passing messages from the webview to the main extension](images/webview/scripts-webview_to_extension.gif)
 
-For security reasons, you must keep the VS Code API object private and make sure it is never leaked into the global state.
+For security reasons, you must keep the VS Code API object private and make sure it is never leaked into the global scope.
 
 ## Security
 
