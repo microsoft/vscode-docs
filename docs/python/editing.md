@@ -33,7 +33,7 @@ While editing, you can right-click different identifiers to take advantage of se
 
 - **Peek Declaration** is similar, but displays the declaration directly in the editor. Again, use `kbstyle(Escape)` or the **x** in the upper right corner to close the Peek window.
 
-### Customize Intellisense behavior
+### Customize IntelliSense behavior
 
 To customize the behavior of the analysis engine, see the [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings) and [autocomplete settings](/docs/python/settings-reference.md#autocomplete-settings).
 
