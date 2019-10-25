@@ -144,11 +144,11 @@ If you'd like to clear the code cell output or restart/interrupt the kernel, you
 
 ![Additional Notebook Editor toolbar commands](images/jupyter/native-toolbar-additional-commands.png)
 
-## Intellisense support in the Jupyter Notebook Editor
+## IntelliSense support in the Jupyter Notebook Editor
 
 The Python Jupyter Notebook Editor window has full IntelliSense – code completions, member lists, quick info for methods, and parameter hints. You can be just as productive typing in the Notebook Editor window as you are in the code editor.
 
-![Intellisense support](images/jupyter/native-intellisense.png)
+![IntelliSense support](images/jupyter/native-intellisense.png)
 
 ## Variable explorer and data viewer
 

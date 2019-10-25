@@ -180,7 +180,7 @@ There are many options and settings available to configure the debugger. For exa
 
 Consult the documentation for the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension for help with setting up your project.
 
-For the mostly used setups you may encounter, samples are available in [VS Code Java Debugger Configuration](https://github.com/microsoft/vscode-java-debug/blob/master/Configuration.md). The document explains how the debugger automatically generate the configurations for you, and if you need to modify it, how to do so with Main class, different arguments, environment, attaching to other Java process and usage for other more advanced feature. 
+For many commonly-used setups, there are samples available in [VS Code Java Debugger Configuration](https://github.com/microsoft/vscode-java-debug/blob/master/Configuration.md). The document explains how the Java debugger automatically generates configurations for you, and if you need to modify them, how to do so with Main class, different arguments, environment, attaching to other Java processes, and usage of more advanced feature.
 
 Below are all the configurations available for `Launch` and `Attach`. For more information about how to write the `launch.json` file, refer to [Debugging](/docs/editor/debugging.md).
 
