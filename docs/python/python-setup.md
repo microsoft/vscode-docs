@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Installing Python in VS Code
 
-The Python extension for Visual Studio Code makes an excellent Python IDE, and works on any operating system with a variety of Python interpreters. It leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with the ability to easily switch between Python environments, including virtual and conda environments.
+The Python extension for Visual Studio Code makes an excellent Python editor, and works on any operating system with a variety of Python interpreters. It leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with the ability to easily switch between Python environments, including virtual and conda environments.
 
 ## Installing the Python extension for VS Code
 
@@ -20,11 +20,11 @@ Begin by installing the [Python extension for VS Code](https://marketplace.visua
 
 ## Installing a Python interpreter
 
-Along with the Python extension, you need to install a Python interpreter. Which interpreter you use is dependent on your specific needs, but some guidance is proved below.
+Along with the Python extension, you need to install a Python interpreter. Which interpreter you use is dependent on your specific needs, but some guidance is provided below.
 
 ### All operating systems
 
- For a quick install, you can use [Python from python.org](https://www.python.org/downloads/). Python.org provides installations for Windows, Linux/Unix, and macOS. You can typically use the **Download Python 3.8.0** button that appears first on the page (or whatever is the latest version).
+ For a quick install, you can use [Python from python.org](https://www.python.org/downloads/). Python.org provides installations for Windows, Linux/Unix, and macOS. You can typically use the **Download Python** button that appears first on the page to download the latest version.
 
 ### Windows
 
