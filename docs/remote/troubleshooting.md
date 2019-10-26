@@ -46,7 +46,7 @@ To set up SSH key based authentication for your remote host:
     ```powershell
     $REMOTEHOST="your-user-name-on-host@host-fqdn-or-ip-goes-here"
 
-    scp "$env:USERPROFILE\.ssh\id_rsa.pub" "$REMOTEHOST:~/tmp.pub"
+    scp "$env:USERPROFILE\.ssh\id_rsa.pub" "${REMOTEHOST}:~/tmp.pub"
     ssh "$REMOTEHOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
     ```
 
@@ -90,7 +90,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     ```powershell
     $REMOTEHOST="name-of-ssh-host-here"
 
-    scp "$env:USERPROFILE\.ssh\id_rsa-remote-ssh.pub" "$REMOTEHOST:~/tmp.pub"
+    scp "$env:USERPROFILE\.ssh\id_rsa-remote-ssh.pub" "${REMOTEHOST}:~/tmp.pub"
     ssh "$REMOTEHOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
     ```
 
