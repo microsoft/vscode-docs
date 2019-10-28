@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 6
 Area: python
 TOCTitle: Python Interactive
 ContentId: C26E4F82-C6CD-4C52-818F-31A95F58207E
