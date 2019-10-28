@@ -277,7 +277,7 @@ Context name | True when
 `resourceFilename` | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
 `resourceExtname` | True when the Explorer or editor filename extension matches. Example: `"resourceExtname == .js"`
 `resourceLangId` | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
-`isFileSystemResource`isFileSystemResource | True when the Explorer or editor file is a file system resource that can be handled  from a file system provider
+`isFileSystemResource` | True when the Explorer or editor file is a file system resource that can be handled  from a file system provider
 `resourceSet` | True when an Explorer or editor file is set
 `resource` | The full Uri of the Explorer or editor file
 **Explorer contexts** |
