@@ -460,23 +460,83 @@ panel.webview.html = `<!DOCTYPE html>
 
 Hard coding `vscode-resource://` URIs will work in some cases, but will not work inVS Online's browser-based editor.
 
-### Accessing localhost from a webview
+### Use the message passing API to provide dynamic webview content
 
-By default, `localhost` inside a webview resolves to the user's local machine. This means that for a remotely running workspace extension, the webviews it creates would not be able to access local servers spawned by the extension. Even if you use the IP of the machine, the ports you are connecting to will typically be blocked by default in a cloud VM or a container. Here's an illustration of the problem when using the Remote - SSH extension:
+The VS Code webview supports a [message passing](/api/extension-guides/webview#scripts-and-message-passing) API that, along with `asWebviewUri`, allows you to dynamically update your webview content without the use of a local web server. Even if your extension is running some local web services that you want to interact with to update webview content, you can do this from the extension itself rather than directly from your HTML content.
+
+This is an important pattern for Remote Development and VS Online to ensure your webview code works both from VS Code and VS Online's browser-based editor.
+
+**Why message passing instead of a localhost web server?**
+
+The alternate pattern is to serve up web content in an `iframe` or have webview content interact with a localhost server. Unfortunately, by default, `localhost` inside a webview will resolve to a developer's local machine. This means that for a remotely running workspace extension, the webviews it creates would not be able to access local servers spawned by the extension. Even if you use the IP of the machine, the ports you are connecting to will typically be blocked by default in a cloud VM or a container. Even if this worked from VS Code, it would not work from VS Online's browser-based editor.
+
+Here's an illustration of the problem when using the Remote - SSH extension, but the problem exists for Remote - Containers and Visual Studio Online as:
 
 ![Webview problem](images/remote-extensions/webview-problem.png)
 
-This same issue can occur with VS Online or Remote - Containers.
+If at all possible, **you should avoid doing this** since it complicates your extension significantly. [Message passing](/api/extension-guides/webview#scripts-and-message-passing) API and `asWebviewUri` can enable the same type of user experience without these types of headaches. The extension itself will be running in VS Code Server on the remote side, so it can transparently interact with any web servers your extension starts up as a result of any messages passed to it from the webview.
 
-If at all possible, **you should avoid doing this** since it complicates your extension significantly. Dynamic webview contents can be managed using the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API and `asWebviewUri` without the use of a local web server.
+### Workarounds for using localhost from a webview
 
-If you must access a localhost server from your webview, there are two ways to do it, each of which have some limitations. The idea is that, if your workspace extension is running remotely, requests made from the webview are automatically and securely forwarded to the remote machine or environment where your extension's server sits. Updating the previous illustration for Remote - SSH, you now have this:
+If you absolutely must access a localhost server from your webview directly instead of using [message passing](/api/extension-guides/webview#scripts-and-message-passing), there are two approaches that can work for the Remote Development and Visual Studio Online extensions in VS Code. Unfortunatley, neither of these approaches currently work with the VS Online browser-based editor due to [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11).
+
+The way this works is it routes other webview content through the same channel that allows VS Code to talk to VS Code Server. For example, if we update the illustration in the previous section for Remote - SSH, you now have this:
 
 ![Webview Solution](images/remote-extensions/webview-solution.png)
 
-### Webview localhost option 1 - Use a port mapping
+### Workaround option 1 - Use asExternalUri
 
-If you do **not intend to support VS Online's browser-based editor** you can use the `portMapping` option available in the webview API. (This approach will also work with VVSOnline in VS Code, just not the browser).
+VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local HTTP and HTTPS requests remotely in a programmatic way. In the future, if you intend to **only serve up content in an iframe**, you will be able to use this API to support VS Code and VS Online's browser-based editor. However, **browser-based editor support is currently  blocked** by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11).
+
+> **Note:** In addition to the issue above, currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for VS Code itself do not have this limitation. See [MicrosoftDocs/vsonline#6](https://github.com/MicrosoftDocs/vsonline/issues/6) for details.
+
+To start, update the `engines.vscode` value in `package.json` to at least 1.40 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+
+```json
+"engines": {
+    "vscode": "^1.40.0"
+}
+```
+
+Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version.
+
+Next, use the API to get a full URI that for the iframe and add it to your HTML. You will also need to enable scripts in your webview and add a CSP to your HTML content.
+
+```typescript
+// Use asExternalUri to get the URI for the web server
+const dynamicWebServerPort = await getWebServerPort();
+const fullWebServerUri = await vscode.env.asExternalUri(
+        vscode.Uri.parse(`http://localhost:${dynamicWebServerPort}`)
+    );
+
+// Create the webview
+const panel = vscode.window.createWebviewPanel(
+    'asExternalUriWebview',
+    'asExternalUri Example',
+    vscode.ViewColumn.One, {
+        enableScripts: true
+    });
+
+const cspSource = panel.webview.cspSource;
+panel.webview.html = `<!DOCTYPE html>
+        <head>
+            <meta
+                http-equiv="Content-Security-Policy"
+                content="default-src 'none'; frame-src ${fullWebServerUri} ${cspSource} https:; img-src ${cspSource} https:; script-src ${cspSource}; style-src ${cspSource};"
+            />
+        </head>
+        <body>
+        <!-- All content from the web server must be in an iframe -->
+        <iframe src="${fullWebServerUri}">
+    </body>
+    </html>`;
+```
+
+Note that any HTML content served up the `iframe` in the example above **needs to use use relative pathing** rather than hard coding `localhost`.
+
+### Workaround option 2 - Use a port mapping
+
+If you do **not intend to support VS Online's browser-based editor** you can use the `portMapping` option available in the webview API. (This approach will also work with VS Online in VS Code, just not the browser).
 
 The port mapping API was added in VS Code 1.34. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -515,54 +575,6 @@ panel.webview.html = `<!DOCTYPE html>
 ```
 
 In this example, in both the remote and local cases, any requests made to `http://localhost:3000` will automatically be mapped to the dynamic port an Express.js web server is running on.
-
-### Webview localhost option 2 - Use asExternalUri
-
-VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local HTTP and HTTPS requests remotely in a programmatic way. If you intend to **only serve up content in an iframe**, you can use this API to support VS Code and VS Online's browser-based editor.
-
-> **Note:** Currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for VS Code itself do not have this limitation. See [MicrosoftDocs/vsonline#6](https://github.com/MicrosoftDocs/vsonline/issues/6) for details.
-
-To start, update the `engines.vscode` value in `package.json` to at least 1.40 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
-
-```json
-"engines": {
-    "vscode": "^1.40.0"
-}
-```
-
-Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version.
-
-Next, use the API to get a full URI that for the iframe and add it to your HTML. You will also need to enable scripts in your webview and add a CSP to your HTML content.
-
-```typescript
-// Use asExternalUri to get the URI for the web server
-const dynamicWebServerPort = await getWebServerPort();
-const fullWebServerUri = await vscode.env.asExternalUri(
-        vscode.Uri.parse(`http://localhost:${dynamicWebServerPort}`)
-    );
-
-// Create the webview
-const panel = vscode.window.createWebviewPanel(
-    'asExternalUriWebview',
-    'asExternalUri Example',
-    vscode.ViewColumn.One, {
-        enableScripts: true
-    });
-panel.webview.html = `<!DOCTYPE html>
-        <head>
-            <meta
-                http-equiv="Content-Security-Policy"
-                content="default-src 'none'; frame-src ${fullWebServerUri} https:; img-src ${webview.cspSource} https:; script-src ${webview.cspSource}; style-src ${webview.cspSource};"
-            />
-        </head>
-        <body>
-        <!-- All content from the web server must be in an iframe -->
-        <iframe src="${fullWebServerUri}">
-    </body>
-    </html>`;
-```
-
-Note that any HTML content served up the `iframe` in the example above **needs to use use relative pathing** rather than hard coding `localhost`.
 
 ## Using native Node.js modules
 
@@ -622,8 +634,8 @@ There are a few extension problems that could be resolved with some added functi
 
 | Problem | Description |
 |---------|-------------|
+| **Webview HTML content cannot directly access port forwarded servers in VS Online's browser-based editor** | Currently this is blocked by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). We generally suggest moving to the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API for webview content and interacting with any servers you spin up from the VS Code extension instead of directly in the webview HTML since this would work transparently. In the future, we hope to allow local web server content [housed in an iframe](#webview-localhost-option-2---use-asexternaluri) to work from a webview. (Note that his does not affect the Remote Development or VS Online extensions for VS Code itself.) |
 | **Websockets do not work in port forwarded content in VS Online's browser-based editor** | Only the HTTP and HTTPS protocols are supported by VS Online's browser-based forwarding mechanism. Web sockets and other protocols will not work even if served up in web content. See [MicrosoftDocs/vsonline#6](https://github.com/MicrosoftDocs/vsonline/issues/6) for details. (Note that his does not affect the Remote Development or VS Online extensions for VS Code itself.) |
-| **Webview HTML content cannot directly access port forwarded servers in VS Online's browser-based editor** | Because of how security is implemented in VS Online's browser-based forwarding mechanism, webview HTML cannot directly reference forwarded web content or services. Instead, all local web server content [must be housed in an iframe](#webview-localhost-option-2---use-asexternaluri). (Note that his does not affect the Remote Development or VS Online extensions for VS Code itself.) |
 | **Cannot access / transfer remote workspace files to local machine** | Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem. |
 | **Cannot access attached devices from Workspace extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. We are investigating the best approach to solve this problem. |
 
