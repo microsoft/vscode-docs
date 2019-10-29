@@ -9,7 +9,7 @@ DateApproved: 10/23/2019
 ---
 # Remote Development FAQ
 
-This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the step by step [Tutorials](/docs/remote/remote-tutorials.md) to help get you running quickly in a remote environment.  
+This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the step by step [Tutorials](/docs/remote/remote-tutorials.md) to help get you running quickly in a remote environment.
 
 For frequently asked questions about [Visual Studio Online](https://aka.ms/vso), see the [FAQ in the service's documentation](https://aka.ms/vso-docs/faq).
 
@@ -33,9 +33,9 @@ Compared to using a network share or synchronizing files, VS Code Remote Develop
 
 ### How do the Remote Development extensions relate to Visual Studio Online?
 
-**[Visual Studio Online](http://aka.ms/vso)** is a service that provides managed cloud-based environments, the ability to set up self-hosted environments (desktop or server) without a SSH server or having to open a port, and includes both a VS Code extension and a browser-based editor that allows you to develop in either of these types of environments from anywhere. You can read more about Visual Studio Online in [its documentation](https://aka.ms/vso-docs).
+[Visual Studio Online](http://aka.ms/vso) is a service that provides managed cloud-hosted development environments accessible from both VS Code and a new browser-based editor. The service also allows VS Code and the browser-based editor to access self-hosted environments (desktop or server) without requiring an SSH server or even a direct network route. You can read more about Visual Studio Online in [its documentation](https://aka.ms/vso-docs).
 
-While the Remote Development extensions and Visual Studio Online share technology and features, the Remote Development extensions do not require the use of the Visual Studio Online service.
+While the Remote Development and Visual Studio Online extensions share technology and features, the Remote Development extensions are released separately and can operate independently from Visual Studio Online (and therefore do not require a Visual Studio Online plan).
 
 ### How do the Remote Development extensions work?
 

@@ -767,13 +767,11 @@ When working inside a container, SSH host, or VS Online environment the port the
 
 ### Webview contents do not appear
 
-If the extension's webview content uses an iframe to connect to a local web server, the port the webview is connecting to may be blocked. In addition, if the extension hard codes `vscode-resource://` URIs instead of using `asWebviewUri`, content may not appear in VS Online's browser editor.
+If the extension's webview content uses an `iframe` to connect to a local web server, the port the webview is connecting to may be blocked. In addition, if the extension hard codes `vscode-resource://` URIs instead of using `asWebviewUri`, content may not appear in VS Online's browser editor.
 
-**Resolution:** The extension can use use the `webview.asWebviewUri` to resolve issues with `vscode-resource://` URIs.  
+**Resolution:** The extension can use use the `webview.asWebviewUri` to resolve issues with `vscode-resource://` URIs.
 
-In the case of ports being blocked, the best approach is to instead use the [webview message passing](/api/extension-guides/webview#scripts-and-message-passing) API.
-
-As a workaround, `vscode.env.asExternalUri`  can be used allow the webview to connect to spawned localhost web servers from VS Code. However, this is currently blocked for VS Online's browser-based editor (only) by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). See the [extension author's guide](/api/advanced-topics/remote-extensions#workarounds-for-using-localhost-from-a-webview) for details on the workaround.
+In the case of ports being blocked, the best approach is to instead use the [webview message passing](/api/extension-guides/webview#scripts-and-message-passing) API. As a workaround, `vscode.env.asExternalUri`  can be used allow the webview to connect to spawned localhost web servers from VS Code. However, this is currently blocked for VS Online's browser-based editor (only) by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). See the [extension author's guide](/api/advanced-topics/remote-extensions#workarounds-for-using-localhost-from-a-webview) for details on the workaround.
 
 ### Blocked localhost ports
 
