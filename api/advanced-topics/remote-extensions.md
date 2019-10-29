@@ -29,7 +29,7 @@ VS Code APIs are designed to automatically run on the correct machine (either lo
 
 ## Debugging Extensions
 
-While you [can install a development version of your extension](#installing-a-development-version-of-your-extension) in a remote environment for testing, if you encounter issues, you will likely want to debug your extension directly in a remote environment. In this section, we will cover how to edit, launch, and debug your extension in [Visual Studio Online](#debugging-with-visual-studio-online), a [local container](#debugging-in-a-development-container), a [SSH host](#debugging-using-ssh), or in [WSL](#debugging-using-wsl) in this section.
+While you [can install a development version of your extension](#installing-a-development-version-of-your-extension) in a remote environment for testing, if you encounter issues, you will likely want to debug your extension directly in a remote environment. In this section, we will cover how to edit, launch, and debug your extension in [Visual Studio Online](#debugging-with-visual-studio-online), a [local container](#debugging-in-a-development-container), a [SSH host](#debugging-using-ssh), or in [WSL](#debugging-using-wsl).
 
 Typically, your best starting point is to use a remote environment that restricts port access (VS Online, containers, remote SSH hosts with a restrictive firewall) since extensions that work in these environments tend to work in less restrictive ones like WSL.
 
