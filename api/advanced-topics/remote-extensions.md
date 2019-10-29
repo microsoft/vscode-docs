@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 10/28/2019
+DateApproved: 10/29/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development and Visual Studio Online support to extensions
@@ -357,6 +357,61 @@ export async function activate(context: vscode.ExtensionContext) {
 ```
 
 It is important to note that the URI that is passed back by the API **may not reference localhost at all**, so you should use it in its entirety. This is particularly important for VS Online's browser-based editor where localhost cannot be used.
+
+### Callbacks and URI handlers
+
+The `vscode.window.registerUriHandler` API allows your extension to register a custom URI that, if opened in a browser, will fire a callback function in your extension. A common use case for registering a URI handler is when implementing a service sign in with an [Oauth 2.0](https://oauth.net/2/) authentication provider (e.g Azure AD). However, it can be used for any scenario where you want an external application or the browser to send information to your extension.
+
+The Remote Development and VS Online extensions in VS Code will transparently handle passing the URI to your extension regardless of where it is actually running (local or remote). However, `vscode://` URIs will not work with VS Online's browser-based editor since opening these URIs in something like a browser would attempt to pass them to the local VS Code client rather than the browser-based editor. Fortunately, this can be easily remedied by using the `vscoode.env.asExternalUri` API.
+
+The `vscode.env.asExternalUri` API was added in VS Code 1.40. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+
+```json
+"engines": {
+    "vscode": "^1.40.0"
+}
+```
+
+Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version.
+
+Next, let's use a combination of `vscode.window.registerUriHandler` and `vscode.env.asExternalUri` to wire up a sample Oauth authentication callback:
+
+```typescript
+import * as vscode from 'vscode';
+
+// This is ${publisher}.${name} from package.json
+const extensionId = 'my.amazing-extension';
+
+export async function activate(context: vscode.ExtensionContext) {
+
+    // Register a URI handler for the authentication callback
+    vscode.window.registerUriHandler({
+        handleUri(uri: vscode.Uri): vscode.ProviderResult<void> {
+
+            // Add your code for what to do when the auth completes here.
+            if (uri.path === '/auth-complete') {
+                vscode.window.showInformationMessage('Sign in successful!');
+            }
+
+        }
+    });
+
+    // Register a sign in command
+    context.subscriptions.push(vscode.commands.registerCommand(`${extensionId}.signin`, async () => {
+
+        // Get an externally addressable callback URI for the handler that the auth provider can use
+        const callbackUri = await vscode.env.asExternalUri(vscode.Uri.parse(`${vscode.env.uriScheme}://${extensionId}/auth-complete`));
+
+        // Add your code to integrate with an authentication provider here - we'll fake it.
+        vscode.env.clipboard.writeText(callbackUri.toString());
+        await vscode.window.showInformationMessage('Open the URI copied to the clipboard in a browser window to authorize.');
+    }));
+}
+```
+
+When running this sample in VS Code, it wires up a `vscode://` or `vscode-insiders://` URI that can be used as a callback for an authentication provider. When running in VS Online's browser-based editor, it wires up a `https://*.online.visualstudio.com` URI without any code changes or special conditions.
+
+While Oauth is outside the scope of this document, note that if you adapted this sample to a real authentication provider, you may need to build a proxy service in front of the provider. This is because not all providers allow `vscode://` callback URIs and others do not allow wildcard host names for callbacks over HTTPS. We also recommend using an [Oauth 2.0 Authorization Code with PKCE flow](https://oauth.net/2/pkce/) wherever possible (e.g Azure AD supports PKCE) to improve the security of the callback.
 
 ### Varying behaviors when running remotely or VS Online's browser editor
 
