@@ -123,9 +123,7 @@ Key|Command
 `kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom
 `kb(workbench.action.terminal.clear)`|Clear the terminal
 
-Other terminal commands are available and can be bound to your preferred keyboard shortcuts.
-
-They are:
+Other terminal commands are available and can be bound to your preferred keyboard shortcuts, such as:
 
 * `workbench.action.terminal.focus`: Focus the terminal. This is like toggle but focuses the terminal instead of hiding it, if it is visible.
 * `workbench.action.terminal.focusNext`: Focuses the next terminal instance.
