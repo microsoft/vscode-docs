@@ -43,7 +43,7 @@ Platform prerequisites are primarily driven by the version of the [Node.js](http
 
 You may encounter issues with certain extensions with native dependencies with **ARMv7l (AArch32) / ARMv8l (AArch64) glibc-based** Linux SSH hosts and **64-bit x86 musl-based Alpine Linux** containers. For ARMv7l/ARMv8l, extensions may only include x86_64 versions of native modules or runtimes in the extension. For Alpine Linux, included native code or runtimes may not work due to [fundamental differences](https://wiki.musl-libc.org/functional-differences-from-glibc.html) between how `libc` is implemented in Alpine Linux (`musl`) and other distributions (`glibc`). In both these cases, extensions will need to opt-in to supporting these platforms by compiling / including binaries for these additional targets. Please raise an issue with the appropriate extension author requesting support if you encounter an extension that does note work as expected.
 
-Note that **ARMv8 (AArch64) support is experminetal and in [VS Code Insiders](https://code.visualstudio.com/insiders/)** only.
+Note that **ARMv8 (AArch64) support is experimental and in [VS Code Insiders](https://code.visualstudio.com/insiders/)** only.
 
 | Distribution | Base Requirements | Remote - SSH Requirements | Notes |
 |--------------|-------------------|------------------|-------|

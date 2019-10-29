@@ -41,7 +41,9 @@ cd my-app
 npm start
 ```
 
-You should see "Welcome to React" on [http://localhost:3000](http://localhost:3000) in your browser. We'll leave the web server running while we look at the application with VS Code.
+<!-- TBD mention yarn and link -->
+
+You should see the React logo and a link to "Learn React" on [http://localhost:3000](http://localhost:3000) in your browser. We'll leave the web server running while we look at the application with VS Code.
 
 To open your React application in VS Code, open another terminal or command prompt window, navigate to the `my-app` folder and type `code .`:
 
@@ -94,12 +96,12 @@ Let's update the sample application to "Hello World!". Add the link to declare a
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
 import './index.css';
 
 var element = React.createElement('h1', { className: 'greeting' }, 'Hello, world!');
 ReactDOM.render(element, document.getElementById('root'));
-registerServiceWorker();
+serviceWorker.unregister();
 ```
 
 Once you save the `index.js` file, the running instance of the server will update the web page and you'll see "Hello World!".

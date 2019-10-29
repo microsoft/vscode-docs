@@ -253,20 +253,21 @@ If you prefer to switch back to indentation-based folding for one (or all) of th
 
 Regions can also be defined by markers defined by each language. The following languages currently have markers defined:
 
-* C#: `#region` and `#endregion`
-* C/C++: `#pragma region` and `#pragma endregion`
-* CSS/Less/SCSS: `/*#region*/` and `/*#endregion*/`
-* Coffeescript: `#region` and `#endregion`
-* F#: `//#region` and `//#endregion` and `(#region)` and `(#endregion)`
-* Java: `//#region` and `// #endregion` and `//<editor-fold>` and `//</editor-fold>`
-* HTML:
-* PHP: `#region` and `#endregion`
-* Powershell: `#region` and `#endregion`
-* Python: `#region` and `#endregion` and `# region` and `# endregion`
-* TypeScript/JavaScript:  `//#region` and `//#endregion`  and `//region` and `//endregion`
-* VB: `#Region` and `#End Region`
-* Bat: `::#region` and `::#endregion`
-* Markdown: `<!-- #region -->` and `<!-- #endregion -->`
+Language|Start region|End region
+--------|------------|----------
+C#|`#region`|`#endregion`
+C/C++|`#pragma region`|`#pragma endregion`
+CSS/Less/SCSS|`/*#region*/`|`/*#endregion*/`
+Coffeescript|`#region`|`#endregion`
+F#|`//#region` or `(#region)`|`//#endregion` or `(#endregion)`
+Java|`//#region` or `//<editor-fold>`|`// #endregion` or `//</editor-fold>`
+PHP|`#region`|`#endregion`
+PowerShell|`#region`|`#endregion`
+Python|`#region` or `# region`|`#endregion` or `# endregion`
+TypeScript/JavaScript|`//#region` or `//region`|`//#endregion` or `//endregion`
+Visual Basic|`#Region`|`#End Region`
+Bat| `::#region`|`::#endregion`
+Markdown|`<!-- #region -->`|`<!-- #endregion -->`
 
 To fold and unfold only the regions defined by markers use:
 

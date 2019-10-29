@@ -75,7 +75,7 @@ To get started, follow these steps:
 
 ### Disconnect from a remote host
 
-Close the connection when you finish editing files on the remote host. Simply choose **File > Close Remote Connection** to disconnect from the host. The default configuration does not include a keyboard shortcut for this command. You can also simply exit VS Code to close the remote connection.
+To close the connection when you finish editing files on the remote host, choose **File > Close Remote Connection** to disconnect from the host. The default configuration does not include a keyboard shortcut for this command. You can also simply exit VS Code to close the remote connection.
 
 ### Remembering hosts you connect to frequently
 

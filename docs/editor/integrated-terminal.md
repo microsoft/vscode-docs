@@ -298,9 +298,9 @@ Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to add the
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
 
-### Powershell on macOS is complaining about a "-l" argument, how do I fix it?
+### PowerShell on macOS is complaining about a "-l" argument, how do I fix it?
 
-When configuring the integrated terminal to use Powershell on macOS you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
+When configuring the integrated terminal to use PowerShell on macOS you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
 
 ```js
 "terminal.integrated.shellArgs.osx": []
@@ -414,6 +414,10 @@ This error can occur due to anti-virus software intercepting winpty from creatin
 ```bash
 <install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
 ```
+
+### How do I fix when a terminal exits with error code 3221225786 on Windows?
+
+This happens when you have legacy console mode enabled in conhost's properties. To change this, open `cmd.exe`, right click the title bar, go to **Properties** and under the **Options** tab, uncheck **Use legacy console**.
 
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
 

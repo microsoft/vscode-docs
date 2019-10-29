@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 10/9/2019
+DateApproved: 10/14/2019
 ---
 # Developing inside a Container
 
@@ -23,7 +23,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 **Local:**
 
-* **Windows:** [Docker Desktop](https://www.docker.com/products/docker-desktop) 2.0+ on Windows 10 Pro/Enterprise. (Docker Toolbox is not supported.)
+* **Windows:** [Docker Desktop](https://www.docker.com/products/docker-desktop) 2.0+ on Windows 10 Pro/Enterprise. (Docker Toolbox is not supported. Windows container images are not supported.)
 * **macOS**:  [Docker Desktop](https://www.docker.com/products/docker-desktop) 2.0+.
 * **Linux**: [Docker CE/EE](https://docs.docker.com/install/#supported-platforms) 18.06+ and [Docker Compose](https://docs.docker.com/compose/install) 1.21+. (The Ubuntu snap package is not supported.)
 
@@ -122,7 +122,7 @@ The steps are similar to those above:
 
 3. After picking the starting point for your container, VS Code will add the dev container configuration files to your project (`.devcontainer/devcontainer.json`).
 
-4. The VS Code window will reload and start building the dev container. A progress notification provides you status updates. Note that you only have to build a dev container the first time you open it; opening the folder after the first successful build will be much quicker.
+4. The VS Code window will reload and start building the dev container. A progress notification provides status updates. Note that you only have to build a dev container the first time you open it; opening the folder after the first successful build will be much quicker.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
@@ -139,7 +139,7 @@ You can also follow a similar process to open a [VS Code multi-root workspace](/
 You can either:
 
 * Use the **Remote-Containers: Open Workspace in Container...** command.
-* Use **File > Open Worksapce...** once you've opened a folder that contains a `.code-workspace` file in a container.
+* Use **File > Open Workspace...** once you've opened a folder that contains a `.code-workspace` file in a container.
 
 Once connected, you may want to **add the `.devcontainer` folder** to the workspace so you can easily edit its contents if it is not already visible.
 
@@ -147,25 +147,25 @@ Also note that, while you cannot use multiple containers for the same workspace 
 
 ## Quick start: Open a public Git repository in an isolated container volume
 
-While you can [open locally cloned repository in a container](#quick-start-open-an-existing-folder-in-a-container), you may want to work with an isolated copy of a repository for a PR review or to investigate another branch without impacting your work. If you're working with a public GitHub repository with an existing `devcontainer.json` file, you can use a Repository Container instead.
+While you can [open a locally cloned repository in a container](#quick-start-open-an-existing-folder-in-a-container), you may want to work with an isolated copy of a repository for a PR review or to investigate another branch without impacting your work. If you're working with a public GitHub repository with an existing `devcontainer.json` file, you can use a Repository Container instead.
 
 Repository Containers use isolated, local Docker volumes instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS. (See [Advanced Configuration](/docs/remote/containers-advanced.md#improving-container-disk-performance) for information on how to use these types of volumes in other scenarios.)
 
-For example, follow these steps to open one of the "try" repositories from the first quick start in a Repository Container instead.
+For example, follow these steps to open one of the "try" repositories in a Repository Container:
 
 1. Start VS Code and run **Remote-Containers: Open Repository in Container...** from the Command Palette (`kbstyle(F1)`).
 
-2. Enter `microsoft/vscode-remote-try-node` (or one of the other repositories) in the input box that appears and press enter.
+2. Enter `microsoft/vscode-remote-try-node` (or one of the other "try" repositories) in the input box that appears and press `kbstyle(Enter)`.
 
     ![Input box with a repository name in it](images/containers/vscode-remote-try-node.png)
 
-3. The VS Code window will reload, clone the source code, and start building the dev container. A progress notification provides you status updates.
+3. The VS Code window (instance) will reload, clone the source code, and start building the dev container. A progress notification provides status updates.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
 4. After the build completes, VS Code will automatically connect to the container.
 
-You can now work with the code in this isolated environment as you would if you'd cloned the code locally.
+You can now work with the repository source code in this isolated environment as you would if you'd cloned the code locally.
 
 ## Creating a devcontainer.json file
 
@@ -221,7 +221,7 @@ Beyond the advantages of having your team use a consistent environment and tool-
 
 ## Attaching to running containers
 
-While using VS Code to spin up a new container can be useful in many situations, it may not match your workflow and you may prefer to "attach" VS Code to an already running Docker container - regardless of how it was started (Docker, Docker Compose, Kubernetes with Docker as the container engine, etc). Once attached, you can install extensions, edit, and debug like you can when open a folder in a container using `devcontainer.json`.
+While using VS Code to spin up a new container can be useful in many situations, it may not match your workflow and you may prefer to "attach" VS Code to an already running Docker container - regardless of how it was started (Docker, Docker Compose, Kubernetes with Docker as the container engine, etc.). Once attached, you can install extensions, edit, and debug like you can when open a folder in a container using `devcontainer.json`.
 
 > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
@@ -251,7 +251,7 @@ After a brief moment, a new window will appear and you'll be connected to the ru
 
 ### Attached container configuration files
 
-VS Code supports image-level configuration files to speed up setup when you repeatedly connect to a given container. Once attached, any time you open a folder or [install an extension](#managing-extensions), or [forward a port](#temporarily-forwarding-a-port), a local image specific configuration file will open in the editor with the appropriate updates that you can opt to save or edit. This json file support three properties:
+VS Code supports image-level configuration files to speed up setup when you repeatedly connect to a given container. Once attached, any time you open a folder, [install an extension](#managing-extensions), or [forward a port](#temporarily-forwarding-a-port), a local image-specific configuration file will open in the editor with the appropriate updates that you can opt to save or edit. This JSON file supports three properties:
 
 ```json
 {
@@ -271,7 +271,7 @@ VS Code supports image-level configuration files to speed up setup when you repe
 
 Once saved, whenever you open a container for the first time with the same image name, these properties will be used to configure the environment.
 
-You can always modify these files later,by using the **Remote-Containers: Open Attached Container Configuration File...** command from the Command Palette (`kbstyle(F1)`) and selecting an image name from the list. The appropriate json file will then open.
+You can always modify these files later, by using the **Remote-Containers: Open Attached Container Configuration File...** command from the Command Palette (`kbstyle(F1)`) and selecting an image name from the list. The appropriate JSON file will then open.
 
 Finally, if you have extensions you want installed regardless of the container you attach to, you can update `settings.json` to specify a list of [extensions that should always be installed](#always-installed-extensions). We will cover this option in the next section.
 
@@ -431,7 +431,7 @@ However, there is a cross-platform way of copying the contents of the `.ssh` fol
              - ~/.ssh:/root/.ssh-localhost:ro
        ```
 
-2. Copy the keys and set permissions by adding one following lines to `devcontainer.json`:
+2. Copy the keys and set permissions by adding one of the following lines to `devcontainer.json`:
 
     * If running as **root**:
 
@@ -455,7 +455,7 @@ You can also manually manage your containers using one of the following options:
 
 ### Option 1: Use the Containers Remote Explorer
 
-From the containers explorer you can right click on a running container and stop it. You can also start exited containers, remove containers, and remove recent folders. From the Details view you can forward ports and open already forward ports in the browser.
+From the Containers Explorer you can right-click on a running container and stop it. You can also start exited containers, remove containers, and remove recent folders. From the Details view you can forward ports and open already forward ports in the browser.
 
 ![Containers Explorer screenshot](images/containers/containers-explorer.png)
 
@@ -471,20 +471,14 @@ From the containers explorer you can right click on a running container and stop
 
 ### Option 3: Use the Docker CLI
 
-1. Open a **local** terminal/command prompt (or use a local window in VS Code).
+1. Open a **local** terminal/PowerShell (or use a local window in VS Code).
 2. Type `docker ps` to see running containers. Use `docker ps -a` to also see any stopped containers.
 3. Type `docker stop <Container ID>` from this list to stop a container.
 4. If you would like to delete a container, type `docker rm <Container ID>` to remove it.
 
-If `docker ps` does not provide enough information to identify the container you want to manage, the following command will list all development containers managed by VS Code and the folder used to generate them.
-
-```bash
-docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}}\t\{{.Image}}\tvscode-\{{.Label \"vsch.quality\"}}\t\{{.Label \"vsch.local.folder\"}}"
-```
-
 ### Option 4: Use Docker Compose
 
-1. Open a **local** terminal/command prompt (or use a local window in VS Code).
+1. Open a **local** terminal/PowerShell (or use a local window in VS Code).
 2. Go to the directory with your `docker-compose.yml` file.
 3. Type `docker-compose top` to see running processes.
 4. Type `docker-compose stop` to stop the containers. If you have more than one Docker Compose file, you can specify additional Docker Compose files with the `-f` argument.
@@ -611,7 +605,7 @@ This command is run once your source code is mounted, so you can also use the pr
 "postCreateCommand": "bash scripts/install-dev-tools.sh"
 ```
 
-By default, when VS Code starts a container, it will **override the container's default command** to be `/bin/sh -c "while sleep 1000; do :; done"`. This is done because the container will stop if the default command fails or simply exits. However, this may not work for certain images. If the image you are using requires the default command be run to work properly, add the following to your `devcontainer.json` file.
+By default, when VS Code starts a container, it will **override the container's default command** to be `/bin/sh -c "while sleep 1000; do :; done"`. This is done because the container will stop if the default command fails or exits. However, this may not work for certain images. If the image you are using requires the default command be run to work properly, add the following to your `devcontainer.json` file.
 
 ```json
 "overrideCommand": false
@@ -705,7 +699,7 @@ volumes:
   - ..:/workspace
 ```
 
-However, note that on Linux you may need to setup and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details.
+However, note that on Linux you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details.
 
 ```yaml
 user: your-user-name-here
@@ -880,7 +874,6 @@ If you've already built the container and connected to it, be sure to run **Remo
 ### Remote - Containers limitations
 
 * Windows container images are **not** yet supported.
-* When using Alpine 3.10 containers, you may see an `Error: Cannot find module 'spdlog'` message in the Dev Containers terminal window [due to an upstream issue](https://github.com/microsoft/vscode-remote-release/issues/1026). This error only affects VS Code logging and can be **safely ignored**.
 * Using a remote Docker Host is possible, but requires [additional setup steps](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host).
 * All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
 * The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).

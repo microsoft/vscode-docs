@@ -176,6 +176,8 @@ The following steps summarize the configuration used in the [python-sample-vscod
     processes = 4
     ```
 
+1. To serve static files, copy the *nginx.conf* file from the [django-react-devcontainer repo](https://github.com/qubitron/django-react-devcontainer/blob/master/nginx.conf) into your Django project folder.
+
 1. Modify the `Dockerfile` to indicate the location of `uwsgi.ini`, set the location of static files for nginx, and make sure the SQLite database file is writable. (The `Dockerfile` in the sample contains further explanatory comments that are omitted here.)
 
     ```dockerfile

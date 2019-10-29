@@ -300,6 +300,14 @@ See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-g
 
 ![commands extension point example](images/contribution-points/commands.png)
 
+### Command icon specifications
+
+- `Size:` Icons should be 16x16 with a 1 pixel padding (image is 14x14) and centered.
+- `Color:` Icons should use a single color.
+- `Format:` It is recommended that icons be in SVG, though any image file type is accepted.
+
+![command icons](images/contribution-points/command-icons.png)
+
 ## contributes.menus
 
 Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause, which uses the key bindings [when clause contexts](/docs/getstarted/keybindings#_when-clause-contexts).
@@ -753,8 +761,8 @@ Contribute a view container into which [Custom views](#contributes.views) can be
 
 ### Icon specifications
 
-- `Size:` Icons should be 28x28 and centered.
-- `Color:` Icons should use a single monochrome color.
+- `Size:` Icons should be 24x24 and centered.
+- `Color:` Icons should use a single color.
 - `Format:` It is recommended that icons be in SVG, though any image file type is accepted.
 - `States:` All icons inherit the following state styles:
 
@@ -872,6 +880,12 @@ Contributes new themable colors. These colors can be used by the extension in ed
 ```
 
 Color default values can be defined for light, dark and high contrast theme and can either be a reference to an existing color or a [Color Hex Value](/api/references/theme-color#color-formats).
+
+Extensions can consume new and existing theme colors with the `ThemeColor` API:
+
+```ts
+const errorColor = new vscode.ThemeColor("superstatus.error");
+```
 
 ## contributes.typescriptServerPlugins
 

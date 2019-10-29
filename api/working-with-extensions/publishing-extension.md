@@ -45,6 +45,19 @@ $ vsce publish
 
 ## Publishing extensions
 
+---
+
+**Note:** Due to security concerns, `vsce` will not publish extensions which contain user provided SVG images.
+
+The publishing tool checks the following constraints:
+
+- The icon provided in `package.json` may not be an SVG.
+- The badges provided in the `package.json` may not be SVGs unless they are from [trusted badge providers](/api/references/extension-manifest#approved-badges).
+- Image URLs in `README.md` and `CHANGELOG.md` need to resolve to `https` URLs.
+- Images in `README.md` and `CHANGELOG.md` may not be SVGs unless they are from [trusted badge providers](/api/references/extension-manifest#approved-badges).
+
+---
+
 Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.

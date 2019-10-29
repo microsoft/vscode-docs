@@ -52,6 +52,12 @@ Once the debugger is activated, you will find **Run|Debug** on the [CodeLens](/b
 
 ![CodeLens](images/java-debugging/java-codelens.gif)
 
+You can also disable the CodeLens if you prefer, with the **Enable Run Debug CodeLens** setting. While CodeLens is disabled, you can still access the **Run|Debug** actions by hovering over your `main()` function.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-debugging/debug-hover.mp4" type="video/mp4">
+</video>
+
 ### Context menu
 
 Another way to start debugging is to right-click a Java file in the File Explorer or editor and select **Run** or **Debug** in the context menu.
@@ -174,6 +180,8 @@ There are many options and settings available to configure the debugger. For exa
 
 Consult the documentation for the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension for help with setting up your project.
 
+For many commonly used setups, there are samples available in [VS Code Java Debugger Configuration](https://github.com/microsoft/vscode-java-debug/blob/master/Configuration.md). The document explains how the Java debugger automatically generates configurations for you, and if you need to modify them, how to do so with Main class, different arguments, environment, attaching to other Java processes, and usage of more advanced features.
+
 Below are all the configurations available for `Launch` and `Attach`. For more information about how to write the `launch.json` file, refer to [Debugging](/docs/editor/debugging.md).
 
 ### Launch
@@ -191,7 +199,7 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `stopOnEntry` - Automatically pause the program after launching.
 - `console` - The specified console to launch the program. If not specified, use the console specified by the `java.debug.settings.console` user setting.
   - `internalConsole` - VS Code debug console (input stream not supported).
-  - `integratedTerminal` - VS Code integrated terminal.
+  - `integratedTerminal` - VS Code Integrated Terminal.
   - `externalTerminal` - External terminal that can be configured in user settings.
 - `shortenCommandLine` - When the project has long classpath or big VM arguments, the command line to launch the program may exceed the maximum command-line string limitation allowed by the OS. This configuration item provides multiple approaches to shorten the command line. Defaults to `auto`.
   - `none` - Launch the program with the standard command line 'java [options] classname [args]'.
@@ -225,7 +233,7 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `java.debug.settings.showQualifiedNames`: Show fully qualified class names in **Variables**, defaults to `false`.
 - `java.debug.settings.showLogicalStructure`: Show the logical structure for the Collection and Map classes in **Variables**, defaults to `true`.
 - `java.debug.settings.showToString`: Show 'toString()' value for all classes that override 'toString' method in **Variables**, defaults to `true`.
-- `java.debug.settings.maxStringLength`: The maximum length of strings displayed in **Variables** or **Debug Console**, strings longer than this limit will be trimmed, defaults to `0` which means no trim is performed.
+- `java.debug.settings.maxStringLength`: The maximum length of strings displayed in **Variables** or **Debug Console**. Strings longer than this limit will be trimmed. The default is `0`, which means no trim is performed.
 - `java.debug.settings.hotCodeReplace`: Reload the changed Java classes during debugging, defaults to `manual`. Make sure `java.autobuild.enabled` is not disabled for [VSCode Java](https://github.com/redhat-developer/vscode-java). See the [Hot Code Replace wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
   - manual - Click the toolbar to apply the changes.
   - auto - Automatically apply the changes after compilation.
@@ -235,12 +243,27 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `java.debug.settings.forceBuildBeforeLaunch`: Force building the workspace before launching java program, defaults to `true`.
 - `java.debug.settings.console`: The specified console to launch a Java program, defaults to `integratedTerminal`. If you want to customize the console for a specific debug session, please modify the `console` configuration in `launch.json`.
   - `internalConsole` - VS Code debug console (input stream not supported).
-  - `integratedTerminal` - VS Code integrated terminal.
+  - `integratedTerminal` - VS Code Integrated Terminal.
   - `externalTerminal` - External terminal that can be configured in user settings.
 
 ## Troubleshooting
 
-A detailed troubleshooting guide can be found in the [vscode-java-debug GitHub repository](https://github.com/Microsoft/vscode-java-debug/blob/master/Troubleshooting.md).
+If you encounter issues when using the debugger, a detailed troubleshooting guide can be found in the [vscode-java-debug GitHub repository](https://github.com/Microsoft/vscode-java-debug/blob/master/Troubleshooting.md).
+
+Common issues explained include:
+
+* Java Language Support extension fails to start.
+* Build failed, do you want to continue?
+* *.java isn't on the classpath. Only syntax errors will be reported.
+* Program Error: Could not find or load main class X.
+* Program throws ClassNotFoundException.
+* Failed to complete hot code replace.
+* Please specify the host name and the port of the remote debuggee in the launch.json.
+* Failed to evaluate. Reason: Cannot evaluate because the thread is resumed.
+* Cannot find a class with the main method.
+* No delegateCommandHandler for vscode.java.startDebugSession when starting Debugger.
+* Failed to resolve classpath.
+* Request type "X" is not supported. Only "launch" and "attach" are supported.
 
 ## Feedback and questions
 
