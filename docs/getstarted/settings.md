@@ -18,7 +18,9 @@ VS Code provides two different scopes for settings:
 * **User Settings** - Settings that apply globally to any instance of VS Code you open.
 * **Workspace Settings** - Settings stored inside your workspace and only apply when the workspace is opened.
 
-Workspace settings override user settings.
+Workspace settings override user settings. Workspace settings are specific to a project and can be shared across developers on a project.
+
+>**Note**: A VS Code "workspace" is usually just your project root folder. Workspace settings as well as [debugging](/docs/editor/debugging.md) and [task](/docs/editor/tasks.md) configurations are stored at the root in a `.vscode` folder. You can also have more that one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md).
 
 ## Creating User and Workspace Settings
 
