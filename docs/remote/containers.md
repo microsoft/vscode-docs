@@ -295,6 +295,8 @@ You can also install all locally installed extensions inside the Dev Container b
 
 ![Install all extensions](images/containers/install-all-extn-containers.png)
 
+> **Note:** Certain extensions - notably [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/) - require the installation of system-level dependencies which are [listed in their documentation](https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/linux#install-prerequisites-manually). The need for these dependencies may depend on the operating system (e.g. the specific Linux distribution) used by your Docker image. If experiencing fatal errors with an extension suggesting it is incompatible with the development container environment, you may need to install these dependencies during the Docker build process, by adding required commands to your Dockerfile. Search the specific extension's documentation (such as that linked above for Live Share), to check for any such dependencies.
+
 ### "Always installed" extensions
 
 If there are extensions that you would like always installed in any container, you can update the `remote.containers.defaultExtensions` User [setting](/docs/getstarted/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
