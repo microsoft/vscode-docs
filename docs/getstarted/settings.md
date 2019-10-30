@@ -139,6 +139,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether the diff editor shows changes in leading or trailing whitespace as diffs.
   "diffEditor.ignoreTrimWhitespace": true,
 
+  // Timeout in milliseconds after which diff computation is cancelled. Use 0 for no timeout.
+  "diffEditor.maxComputationTime": 5000,
+
   // Controls whether the diff editor shows +/- indicators for added/removed changes.
   "diffEditor.renderIndicators": true,
 
@@ -217,6 +220,11 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls the minimal number of visible leading and trailing lines surrounding the cursor. Known as 'scrollOff' or `scrollOffset` in some other editors.
   "editor.cursorSurroundingLines": 0,
 
+  // Controls when `cursorSurroundingLines` should be enforced
+  //  - default: `cursorSurroundingLines` is enforced only when triggered from keyboard and API
+  //  - all: `cursorSurroundingLines` is enforced always.
+  "editor.cursorSurroundingLinesStyle": "default",
+
   // Controls the width of the cursor when `editor.cursorStyle` is set to `line`.
   "editor.cursorWidth": 0,
 
@@ -239,7 +247,10 @@ Below are the Visual Studio Code default settings and their values. You can also
   "editor.find.addExtraSpaceOnTop": true,
 
   // Controls whether the find operation is carried out on selected text or the entire file in the editor.
-  "editor.find.autoFindInSelection": false,
+  //  - never: Never turn on Find in selection automatically (default)
+  //  - always: Always turn on Find in selection automatically
+  //  - multiline: Turn on Find in selection automatically when multiple lines of content are selected.
+  "editor.find.autoFindInSelection": "never",
 
   // Controls whether the Find Widget should read or modify the shared find clipboard on macOS.
   "editor.find.globalFindClipboard": true,
@@ -335,7 +346,10 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Render the actual characters on a line as opposed to color blocks.
   "editor.minimap.renderCharacters": true,
 
-  // Controls whether the minimap slider is automatically hidden.
+  // Scale of content drawn in the minimap.
+  "editor.minimap.scale": 1,
+
+  // Controls when the minimap slider is shown.
   "editor.minimap.showSlider": "mouseover",
 
   // Controls the side where to render the minimap.
@@ -362,9 +376,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether a border should be drawn around the overview ruler.
   "editor.overviewRulerBorder": true,
-
-  // Controls the number of decorations that can show up at the same position in the overview ruler.
-  "editor.overviewRulerLanes": 3,
 
   // Controls whether the parameter hints menu cycles or closes when reaching the end of the list.
   "editor.parameterHints.cycle": false,
@@ -442,11 +453,83 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Keep peek editors open even when double clicking their content or when hitting `Escape`.
   "editor.stablePeek": false,
 
-  // Controls whether some suggestion types should be filtered from IntelliSense.
-  "editor.suggest.filteredTypes": {
-    "keyword": true,
-    "snippet": true
-  },
+  // When set to `false` IntelliSense never shows `class` suggestions.
+  "editor.suggest.filteredTypes.class": true,
+
+  // When set to `false` IntelliSense never shows `color` suggestions.
+  "editor.suggest.filteredTypes.color": true,
+
+  // When set to `false` IntelliSense never shows `constant` suggestions.
+  "editor.suggest.filteredTypes.constant": true,
+
+  // When set to `false` IntelliSense never shows `constructor` suggestions.
+  "editor.suggest.filteredTypes.constructor": true,
+
+  // When set to `false` IntelliSense never shows `customcolor` suggestions.
+  "editor.suggest.filteredTypes.customcolor": true,
+
+  // When set to `false` IntelliSense never shows `enum` suggestions.
+  "editor.suggest.filteredTypes.enum": true,
+
+  // When set to `false` IntelliSense never shows `enumMember` suggestions.
+  "editor.suggest.filteredTypes.enumMember": true,
+
+  // When set to `false` IntelliSense never shows `event` suggestions.
+  "editor.suggest.filteredTypes.event": true,
+
+  // When set to `false` IntelliSense never shows `field` suggestions.
+  "editor.suggest.filteredTypes.field": true,
+
+  // When set to `false` IntelliSense never shows `file` suggestions.
+  "editor.suggest.filteredTypes.file": true,
+
+  // When set to `false` IntelliSense never shows `folder` suggestions.
+  "editor.suggest.filteredTypes.folder": true,
+
+  // When set to `false` IntelliSense never shows `function` suggestions.
+  "editor.suggest.filteredTypes.function": true,
+
+  // When set to `false` IntelliSense never shows `interface` suggestions.
+  "editor.suggest.filteredTypes.interface": true,
+
+  // When set to `false` IntelliSense never shows `keyword` suggestions.
+  "editor.suggest.filteredTypes.keyword": true,
+
+  // When set to `false` IntelliSense never shows `method` suggestions.
+  "editor.suggest.filteredTypes.method": true,
+
+  // When set to `false` IntelliSense never shows `module` suggestions.
+  "editor.suggest.filteredTypes.module": true,
+
+  // When set to `false` IntelliSense never shows `operator` suggestions.
+  "editor.suggest.filteredTypes.operator": true,
+
+  // When set to `false` IntelliSense never shows `property` suggestions.
+  "editor.suggest.filteredTypes.property": true,
+
+  // When set to `false` IntelliSense never shows `reference` suggestions.
+  "editor.suggest.filteredTypes.reference": true,
+
+  // When set to `false` IntelliSense never shows `snippet` suggestions.
+  "editor.suggest.filteredTypes.snippet": true,
+
+  // When set to `false` IntelliSense never shows `struct` suggestions.
+  "editor.suggest.filteredTypes.struct": true,
+
+  // When set to `false` IntelliSense never shows `text` suggestions.
+  "editor.suggest.filteredTypes.text": true,
+
+  // When set to `false` IntelliSense never shows `typeParameter` suggestions.
+  "editor.suggest.filteredTypes.typeParameter": true,
+
+  // When set to `false` IntelliSense never shows `unit` suggestions.
+  "editor.suggest.filteredTypes.unit": true,
+
+  // When set to `false` IntelliSense never shows `value` suggestions.
+  "editor.suggest.filteredTypes.value": true,
+
+  // When set to `false` IntelliSense never shows `variable` suggestions.
+  "editor.suggest.filteredTypes.variable": true,
 
   // Controls whether filtering and sorting suggestions accounts for small typos.
   "editor.suggest.filterGraceful": true,
@@ -456,6 +539,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls how many suggestions IntelliSense will show before showing a scrollbar (maximum 15).
   "editor.suggest.maxVisibleSuggestions": 12,
+
+  // Controls whether words are overwritten when accepting completions.
+  "editor.suggest.overwriteOnAccept": false,
 
   // Controls whether remembered suggestion selections are shared between multiple workspaces and windows (needs `editor.suggestSelection`).
   "editor.suggest.shareSuggestSelections": false,
@@ -530,6 +616,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to show the Source Control Provider section even when there's only one Provider registered.
   "scm.alwaysShowProviders": false,
 
+  // Controls whether the SCM view should automatically reveal and select files when opening them.
+  "scm.autoReveal": true,
+
   // Controls the Source Control count badge.
   //  - all: Show the sum of all Source Control Providers count badges.
   //  - focused: Show the count badge of the focused Source Control Provider.
@@ -539,10 +628,15 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls the default Source Control repository view mode.
   //  - tree: Show the repository changes as a tree.
   //  - list: Show the repository changes as a list.
-  "scm.defaultViewMode": "tree",
+  "scm.defaultViewMode": "list",
 
   // Controls diff decorations in the editor.
   "scm.diffDecorations": "all",
+
+  // Controls the visibility of the Source Control diff decorator in the gutter.
+  //  - always: Show the diff decorator in the gutter at all times.
+  //  - hover: Show the diff decorator in the gutter only on hover.
+  "scm.diffDecorationsGutterVisibility": "always",
 
   // Controls the width(px) of diff decorations in gutter (added & modified).
   "scm.diffDecorationsGutterWidth": 3,
@@ -618,6 +712,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Navigate between open files using three-finger swipe horizontally.
   "workbench.editor.swipeToNavigate": false,
+
+  // Controls the sizing of editor groups when splitting them.
+  //  - distribute: Splits all the editor groups to equal parts.
+  //  - split: Splits the active editor group to equal parts.
+  "workbench.editor.splitSizing": "distribute",
 
   // Controls the position of the editor's tabs close buttons, or disables them when set to 'off'.
   "workbench.editor.tabCloseButton": "right",
@@ -906,6 +1005,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether a window should restore to zen mode if it was exited in zen mode.
   "zenMode.restore": false,
 
+  // Controls whether notifications are shown while in zen mode. If true, only error notifications will pop out.
+  "zenMode.silentNotifications": true,
+
 // File Explorer
 
   // Controls whether the explorer should automatically reveal and select files when opening them.
@@ -1064,6 +1166,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   "debug.internalConsoleOptions": "openOnFirstSessionStart",
 
   // Controls what to do when errors are encountered after running a preLaunchTask.
+  //  - debugAnyway: Ignore task errors and start debugging.
+  //  - showErrors: Show the Problems view and do not start debugging.
+  //  - prompt: Prompt user.
   "debug.onTaskErrors": "prompt",
 
   // Controls when the debug view should open.
@@ -1071,6 +1176,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Automatically open the explorer view at the end of a debug session.
   "debug.openExplorerOnEnd": false,
+
+  // Controls whether breakpoints should be shown in the overview ruler.
+  "debug.showBreakpointsInOverviewRuler": false,
 
   // Controls when the debug status bar should be visible.
   //  - never: Never show debug in status bar
@@ -1164,6 +1272,11 @@ Below are the Visual Studio Code default settings and their values. You can also
   "json.trace.server": "off",
 
 // Markdown
+
+  // Controls where links in markdown files should be opened.
+  //  - currentGroup: Open links in the active editor group.
+  //  - beside: Open links beside the active editor.
+  "markdown.links.openLocation": "currentGroup",
 
   // Sets how line-breaks are rendered in the markdown preview. Setting it to 'true' creates a <br> for every newline.
   "markdown.preview.breaks": false,
@@ -1303,7 +1416,10 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enabled/disable autocomplete suggestions.
   "javascript.suggest.enabled": true,
 
-  // Enable/disable including unique names from the file in JavaScript suggestions.
+  // Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires TS 3.7+ and strict null checks to be enabled.
+  "javascript.suggest.includeAutomaticOptionalChainCompletions": true,
+
+  // Enable/disable including unique names from the file in JavaScript suggestions. Note that name suggestions are always disabled in JavaScript code that is semantically checked using `@ts-check` or `checkJs`.
   "javascript.suggest.names": true,
 
   // Enable/disable suggestions for paths in import statements and require calls.
@@ -1422,6 +1538,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Enabled/disable autocomplete suggestions.
   "typescript.suggest.enabled": true,
+
+  // Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires TS 3.7+ and strict null checks to be enabled.
+  "typescript.suggest.includeAutomaticOptionalChainCompletions": true,
 
   // Enable/disable suggestions for paths in import statements and require calls.
   "typescript.suggest.paths": true,
@@ -1591,6 +1710,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // The universal selector (`*`) is known to be slow.
   "less.lint.universalSelector": "ignore",
 
+  // Unknown at-rule.
+  "less.lint.unknownAtRules": "warning",
+
   // Unknown property.
   "less.lint.unknownProperties": "warning",
 
@@ -1659,6 +1781,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // The universal selector (`*`) is known to be slow.
   "scss.lint.universalSelector": "ignore",
 
+  // Unknown at-rule.
+  "scss.lint.unknownAtRules": "warning",
+
   // Unknown property.
   "scss.lint.unknownProperties": "warning",
 
@@ -1716,6 +1841,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   "terminal.external.windowsExec": "C:\\WINDOWS\\System32\\cmd.exe",
 
 // Integrated Terminal
+
+  // Whether or not to allow chord keybindings in the terminal. Note that when this is true and the keystroke results in a chord it will bypass `terminal.integrated.commandsToSkipShell`, setting this to false is particularly useful when you want ctrl+k to go to your shell (not VS Code).
+  "terminal.integrated.allowChords": true,
 
   // A path that when set will override `terminal.integrated.shell.linux` and ignore `shellArgs` values for automation-related terminal usage like tasks and debug.
   "terminal.integrated.automationShell.linux": null,
@@ -1804,14 +1932,12 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls how terminal reacts to right click.
   //  - default: Show the context menu.
   //  - copyPaste: Copy when there is a selection, otherwise paste.
+  //  - paste: Paste on right click.
   //  - selectWord: Select the word under the cursor and show the context menu.
   "terminal.integrated.rightClickBehavior": "copyPaste",
 
   // Controls the maximum amount of lines the terminal keeps in its buffer.
   "terminal.integrated.scrollback": 1000,
-
-  // Controls whether locale variables are set at startup of the terminal.
-  "terminal.integrated.setLocaleVariables": true,
 
   // The path of the shell that the terminal uses on Linux (default: /bin/bash).
   "terminal.integrated.shell.linux": null,
@@ -1845,6 +1971,26 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Whether to use ConPTY for Windows terminal process communication (requires Windows 10 build number 18309+). Winpty will be used if this is false.
   "terminal.integrated.windowsEnableConpty": true,
 
+// Tasks
+
+  // Controls enablement of `provideTasks` for all task provider extension. If the Tasks: Run Task command is slow, disabling auto detect for task providers may help. Individual extensions my provide settings to disabled auto detection.
+  "task.autoDetect": true,
+
+  // Configures whether to show the problem matcher prompt when running a task. Set to `true` to never promp, or use a dictionary of task types to turn off prompting only for specific task types.
+  "task.problemMatchers.neverPrompt": false,
+
+  // Controls whether to show the task detail for task that have a detail in the Run Task quick pick.
+  "task.quickOpen.detail": true,
+
+  // Controls the number of recent items tracked in task quick open dialog.
+  "task.quickOpen.history": 30,
+
+  // Controls whether the task quick pick is skipped when there is only one task to pick from.
+  "task.quickOpen.skip": false,
+
+  // Configures whether a warning is shown when a provider is slow
+  "task.slowProviderWarning": true,
+
 // Problems
 
   // Controls whether Problems view should automatically reveal files when opening them.
@@ -1863,6 +2009,84 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - off: Do not show the file path in the breadcrumbs view.
   //  - last: Only show the last element of the file path in the breadcrumbs view.
   "breadcrumbs.filePath": "on",
+
+  // When set to `false` breadcrumbs never show `array`-symbols.
+  "breadcrumbs.filteredTypes.array": true,
+
+  // When set to `false` breadcrumbs never show `boolean`-symbols.
+  "breadcrumbs.filteredTypes.boolean": true,
+
+  // When set to `false` breadcrumbs never show `class`-symbols.
+  "breadcrumbs.filteredTypes.class": true,
+
+  // When set to `false` breadcrumbs never show `constant`-symbols.
+  "breadcrumbs.filteredTypes.constant": true,
+
+  // When set to `false` breadcrumbs never show `constructor`-symbols.
+  "breadcrumbs.filteredTypes.constructor": true,
+
+  // When set to `false` breadcrumbs never show `enum`-symbols.
+  "breadcrumbs.filteredTypes.enum": true,
+
+  // When set to `false` breadcrumbs never show `enumMember`-symbols.
+  "breadcrumbs.filteredTypes.enumMember": true,
+
+  // When set to `false` breadcrumbs never show `event`-symbols.
+  "breadcrumbs.filteredTypes.event": true,
+
+  // When set to `false` breadcrumbs never show `field`-symbols.
+  "breadcrumbs.filteredTypes.field": true,
+
+  // When set to `false` breadcrumbs never show `file`-symbols.
+  "breadcrumbs.filteredTypes.file": true,
+
+  // When set to `false` breadcrumbs never show `function`-symbols.
+  "breadcrumbs.filteredTypes.function": true,
+
+  // When set to `false` breadcrumbs never show `interface`-symbols.
+  "breadcrumbs.filteredTypes.interface": true,
+
+  // When set to `false` breadcrumbs never show `key`-symbols.
+  "breadcrumbs.filteredTypes.key": true,
+
+  // When set to `false` breadcrumbs never show `method`-symbols.
+  "breadcrumbs.filteredTypes.method": true,
+
+  // When set to `false` breadcrumbs never show `module`-symbols.
+  "breadcrumbs.filteredTypes.module": true,
+
+  // When set to `false` breadcrumbs never show `namespace`-symbols.
+  "breadcrumbs.filteredTypes.namespace": true,
+
+  // When set to `false` breadcrumbs never show `null`-symbols.
+  "breadcrumbs.filteredTypes.null": true,
+
+  // When set to `false` breadcrumbs never show `number`-symbols.
+  "breadcrumbs.filteredTypes.number": true,
+
+  // When set to `false` breadcrumbs never show `object`-symbols.
+  "breadcrumbs.filteredTypes.object": true,
+
+  // When set to `false` breadcrumbs never show `operator`-symbols.
+  "breadcrumbs.filteredTypes.operator": true,
+
+  // When set to `false` breadcrumbs never show `package`-symbols.
+  "breadcrumbs.filteredTypes.package": true,
+
+  // When set to `false` breadcrumbs never show `property`-symbols.
+  "breadcrumbs.filteredTypes.property": true,
+
+  // When set to `false` breadcrumbs never show `string`-symbols.
+  "breadcrumbs.filteredTypes.string": true,
+
+  // When set to `false` breadcrumbs never show `struct`-symbols.
+  "breadcrumbs.filteredTypes.struct": true,
+
+  // When set to `false` breadcrumbs never show `typeParameter`-symbols.
+  "breadcrumbs.filteredTypes.typeParameter": true,
+
+  // When set to `false` breadcrumbs never show `variable`-symbols.
+  "breadcrumbs.filteredTypes.variable": true,
 
   // Render breadcrumb items with icons.
   "breadcrumbs.icons": true,
@@ -1890,6 +2114,84 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Outline
 
+  // When set to `false` outline never shows `array`-symbols.
+  "outline.filteredTypes.array": true,
+
+  // When set to `false` outline never shows `boolean`-symbols.
+  "outline.filteredTypes.boolean": true,
+
+  // When set to `false` outline never shows `class`-symbols.
+  "outline.filteredTypes.class": true,
+
+  // When set to `false` outline never shows `constant`-symbols.
+  "outline.filteredTypes.constant": true,
+
+  // When set to `false` outline never shows `constructor`-symbols.
+  "outline.filteredTypes.constructor": true,
+
+  // When set to `false` outline never shows `enum`-symbols.
+  "outline.filteredTypes.enum": true,
+
+  // When set to `false` outline never shows `enumMember`-symbols.
+  "outline.filteredTypes.enumMember": true,
+
+  // When set to `false` outline never shows `event`-symbols.
+  "outline.filteredTypes.event": true,
+
+  // When set to `false` outline never shows `field`-symbols.
+  "outline.filteredTypes.field": true,
+
+  // When set to `false` outline never shows `file`-symbols.
+  "outline.filteredTypes.file": true,
+
+  // When set to `false` outline never shows `function`-symbols.
+  "outline.filteredTypes.function": true,
+
+  // When set to `false` outline never shows `interface`-symbols.
+  "outline.filteredTypes.interface": true,
+
+  // When set to `false` outline never shows `key`-symbols.
+  "outline.filteredTypes.key": true,
+
+  // When set to `false` outline never shows `method`-symbols.
+  "outline.filteredTypes.method": true,
+
+  // When set to `false` outline never shows `module`-symbols.
+  "outline.filteredTypes.module": true,
+
+  // When set to `false` outline never shows `namespace`-symbols.
+  "outline.filteredTypes.namespace": true,
+
+  // When set to `false` outline never shows `null`-symbols.
+  "outline.filteredTypes.null": true,
+
+  // When set to `false` outline never shows `number`-symbols.
+  "outline.filteredTypes.number": true,
+
+  // When set to `false` outline never shows `object`-symbols.
+  "outline.filteredTypes.object": true,
+
+  // When set to `false` outline never shows `operator`-symbols.
+  "outline.filteredTypes.operator": true,
+
+  // When set to `false` outline never shows `package`-symbols.
+  "outline.filteredTypes.package": true,
+
+  // When set to `false` outline never shows `property`-symbols.
+  "outline.filteredTypes.property": true,
+
+  // When set to `false` outline never shows `string`-symbols.
+  "outline.filteredTypes.string": true,
+
+  // When set to `false` outline never shows `struct`-symbols.
+  "outline.filteredTypes.struct": true,
+
+  // When set to `false` outline never shows `typeParameter`-symbols.
+  "outline.filteredTypes.typeParameter": true,
+
+  // When set to `false` outline never shows `variable`-symbols.
+  "outline.filteredTypes.variable": true,
+
   // Render Outline Elements with Icons.
   "outline.icons": true,
 
@@ -1901,6 +2203,108 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Show Errors & Warnings on Outline Elements.
   "outline.problems.enabled": true,
+
+// Default Configuration Overrides
+
+  // Configure editor settings to be overridden for [git-commit] language.
+  "[git-commit]":  {
+    "editor.rulers": [
+        72
+    ]
+  },
+
+  // Configure editor settings to be overridden for [go] language.
+  "[go]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [json] language.
+  "[json]":  {
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+  },
+
+  // Configure editor settings to be overridden for [makefile] language.
+  "[makefile]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [markdown] language.
+  "[markdown]":  {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
+  },
+
+  // Configure editor settings to be overridden for [shellscript] language.
+  "[shellscript]":  {
+    "files.eol": "\n"
+  },
+
+  // Configure editor settings to be overridden for [yaml] language.
+  "[yaml]":  {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": false
+  },
+
+// Remote
+
+  // Override the kind of an extension. `ui` extensions are installed and run on the local machine while `workspace` extensions are run on the remote. By overriding an extension's default kind using this setting, you specify if that extension should be installed and enabled locally or remotely.
+  "remote.extensionKind": {
+    "pub.name": "ui"
+  },
+
+// Node debug
+
+  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
+  //  - disabled: Auto attach is disabled and not shown in status bar.
+  //  - on: Auto attach is active.
+  //  - off: Auto attach is inactive.
+  "debug.node.autoAttach": "disabled",
+
+  // Controls whether to show a warning when the 'useWSL' attribute is used.
+  "debug.node.showUseWslIsDeprecatedWarning": true,
+
+//Emmet
+
+  // An array of languages where Emmet abbreviations should not be expanded.
+  "emmet.excludeLanguages": [
+    "markdown"
+  ],
+
+  // Path to a folder containing Emmet profiles and snippets.
+  "emmet.extensionsPath": null,
+
+  // Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
+  //  E.g.: `{"vue-html": "html", "javascript": "javascriptreact"}`
+  "emmet.includeLanguages": {},
+
+  // When set to `false`, the whole file is parsed to determine if current position is valid for expanding Emmet abbreviations. When set to `true`, only the content around the current position in css/scss/less files is parsed.
+  "emmet.optimizeStylesheetParsing": true,
+
+  // Preferences used to modify behavior of some actions and resolvers of Emmet.
+  "emmet.preferences": {},
+
+  // Shows possible Emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to `"never"`.
+  "emmet.showAbbreviationSuggestions": true,
+
+  // Shows expanded Emmet abbreviations as suggestions.
+  // The option `"inMarkupAndStylesheetFilesOnly"` applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
+  // The option `"always"` applies to all parts of the file regardless of markup/css.
+  "emmet.showExpandedAbbreviation": "always",
+
+  // If `true`, then Emmet suggestions will show up as snippets allowing you to order them as per `editor.snippetSuggestions` setting.
+  "emmet.showSuggestionsAsSnippets": false,
+
+  // Define profile for specified syntax or use your own profile with specific rules.
+  "emmet.syntaxProfiles": {},
+
+  // When enabled, Emmet abbreviations are expanded when pressing TAB.
+  "emmet.triggerExpansionOnTab": false,
+
+  // Variables to be used in Emmet snippets
+  "emmet.variables": {},
 
 // Git
 
@@ -1948,7 +2352,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - remote: Show only remote branches.
   "git.checkoutType": "all",
 
-  // Always confirm the creation of empty commits.
+  // Always confirm the creation of empty commits for the 'Git: Commit Empty' command.
   "git.confirmEmptyCommits": true,
 
   // Controls whether to ask for confirmation before force-pushing.
@@ -2058,8 +2462,29 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether a notification comes up when running the Sync action, which allows the user to cancel the operation.
   "git.supportCancellation": false,
 
+  // Controls how untracked changes behave.
+  //  - mixed: All changes, tracked and untracked, appear together and behave equally.
+  //  - separate: Untracked changes appear separately in the Source Control view. They are also excluded from several actions.
+  //  - hidden: Untracked changes are hidden and excluded from several actions.
+  "git.untrackedChanges": "mixed",
+
   // Controls whether force pushing uses the safer force-with-lease variant.
   "git.useForcePushWithLease": true,
+
+// Grunt
+
+  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
+  "grunt.autoDetect": "on",
+
+// Gulp
+
+  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
+  "gulp.autoDetect": "on",
+
+// Jake
+
+  // Controls whether auto detection of Jake tasks is on or off. Default is on.
+  "jake.autoDetect": "on",
 
 // Merge Conflict
 
@@ -2078,61 +2503,20 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - Below: Open the diff view below the current editor group.
   "merge-conflict.diffViewPosition": "Current",
 
-// Default Configuration Overrides
+// References Search View
 
-  // Configure editor settings to be overridden for [git-commit] language.
-  "[git-commit]":  {
-    "editor.rulers": [
-        72
-    ]
-  },
-
-  // Configure editor settings to be overridden for [go] language.
-  "[go]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [json] language.
-  "[json]":  {
-    "editor.quickSuggestions": {
-        "strings": true
-    }
-  },
-
-  // Configure editor settings to be overridden for [makefile] language.
-  "[makefile]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [markdown] language.
-  "[markdown]":  {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": false
-  },
-
-  // Configure editor settings to be overridden for [yaml] language.
-  "[yaml]":  {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": false
-  },
-
-// Gulp
-
-  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
-  "gulp.autoDetect": "on",
-
-// Remote
-
-  // Override the kind of an extension. `ui` extensions are installed and run on the local machine while `workspace` extensions are run on the remote. By overriding an extension's default kind using this setting, you specify if that extension should be installed and enabled locally or remotely.
-  "remote.extensionKind": {
-    "pub.name": "ui"
-  },
+  // Controls whether 'Peek References' or 'Find References' is invoked when selecting code lens references
+  //  - peek: Show references in peek editor.
+  //  - view: Show references in separate view.
+  "references.preferredLocation": "peek",
 
 // Npm
 
   // Controls whether npm scripts should be automatically detected.
   "npm.autoDetect": "on",
+
+  // Enable running NPM scripts contained in a folder from the Explorer context menu.
+  "npm.enableRunFromFolder": false,
 
   // Enable an explorer view for npm scripts when there is no top-level 'package.json' file.
   "npm.enableScriptExplorer": false,
@@ -2140,7 +2524,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Configure glob patterns for folders that should be excluded from automatic script detection.
   "npm.exclude": "",
 
-  // Fetch data from https://registry.npmjs/org and https://registry.bower.io to provide auto-completion and information on hover features on npm dependencies.
+  // Fetch data from https://registry.npmjs.org and https://registry.bower.io to provide auto-completion and information on hover features on npm dependencies.
   "npm.fetchOnlinePackageInfo": true,
 
   // The package manager used to run scripts.
@@ -2149,76 +2533,8 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Run npm commands with the `--silent` option.
   "npm.runSilent": false,
 
-  // The default click action used in the scripts explorer: `open` or `run`, the default is `open`.
+  // The default click action used in the npm scripts explorer: `open` or `run`, the default is `open`.
   "npm.scriptExplorerAction": "open",
-
-// Reference Search View
-
-  // Controls whether 'Peek References' or 'Find References' is invoked when selecting code lens references
-  //  - peek: Show references in peek editor.
-  //  - view: Show references in separate view.
-  "references.preferredLocation": "peek",
-
-// Node debug
-
-  // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
-  //  - disabled: Auto attach is disabled and not shown in status bar.
-  //  - on: Auto attach is active.
-  //  - off: Auto attach is inactive.
-  "debug.node.autoAttach": "disabled",
-
-  // Controls whether to show a warning when the 'useWSL' attribute is used.
-  "debug.node.showUseWslIsDeprecatedWarning": true,
-
-// Grunt
-
-  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
-  "grunt.autoDetect": "on",
-
-// Emmet
-
-  // An array of languages where Emmet abbreviations should not be expanded.
-  "emmet.excludeLanguages": [
-    "markdown"
-  ],
-
-  // Path to a folder containing Emmet profiles and snippets.
-  "emmet.extensionsPath": null,
-
-  // Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
-  //  E.g.: `{"vue-html": "html", "javascript": "javascriptreact"}`
-  "emmet.includeLanguages": {},
-
-  // When set to `false`, the whole file is parsed to determine if current position is valid for expanding Emmet abbreviations. When set to `true`, only the content around the current position in css/scss/less files is parsed.
-  "emmet.optimizeStylesheetParsing": true,
-
-  // Preferences used to modify behavior of some actions and resolvers of Emmet.
-  "emmet.preferences": {},
-
-  // Shows possible Emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to `"never"`.
-  "emmet.showAbbreviationSuggestions": true,
-
-  // Shows expanded Emmet abbreviations as suggestions.
-  // The option `"inMarkupAndStylesheetFilesOnly"` applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
-  // The option `"always"` applies to all parts of the file regardless of markup/css.
-  "emmet.showExpandedAbbreviation": "always",
-
-  // If `true`, then Emmet suggestions will show up as snippets allowing you to order them as per `editor.snippetSuggestions` setting.
-  "emmet.showSuggestionsAsSnippets": false,
-
-  // Define profile for specified syntax or use your own profile with specific rules.
-  "emmet.syntaxProfiles": {},
-
-  // When enabled, Emmet abbreviations are expanded when pressing TAB.
-  "emmet.triggerExpansionOnTab": false,
-
-  // Variables to be used in Emmet snippets
-  "emmet.variables": {},
-
-// Jake
-
-  // Controls whether auto detection of Jake tasks is on or off. Default is on.
-  "jake.autoDetect": "on",
 }
 ```
 
