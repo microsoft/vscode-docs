@@ -8,7 +8,7 @@ Date: 2019-10-31
 ShortDescription: Inspecting Docker Containers with Visual Studio Code
 Author: Bowden Kelly
 ---
-# Inspecting Docker Containers with Visual Studio Code
+# Inspecting Containers with VS Code
 
 October 31, 2019 by Bowden Kelly, [@bowdenk7](https://twitter.com/bowdenk7)
 
@@ -56,7 +56,7 @@ And, you should be able to navigate to http://localhost:3000 and see the followi
 
 ![Welcome to Express web page](welcome-express.png)
 
-## Attaching to the container
+## Attach to the container
 
 We can now use the Remote - Containers extension to attach to our running container, inspect the environment, and debug the application.
 
@@ -94,7 +94,7 @@ From here, you can do anything that you can do in a normal local VS Code context
 
 For example, open `app.js`. Right click on line 8 and execute **Find All References** to find all usages of `usersRouter`. Any edits are persisted to the local disk, because we mounted the local file system into the container using the docker-compose file.
 
-## Debugging inside the container
+## Debug inside the container
 
 To further show how similar the remote container is to a local environment, let's attach a debugger. We started our Node app with the `–inspect` parameter in `docker-compose.yaml`, so all we have to do is attach a debugger to that process.
 
@@ -110,7 +110,7 @@ res.render('index', { title: 'Express' });
 
 Now go to http://localhost:3000 in your browser and see the breakpoint trigger as expected!
 
-## Extensions
+## Install extensions
 
 Just like a normal instance of VS Code, you can install and use extensions while attached to a remote container.
 
