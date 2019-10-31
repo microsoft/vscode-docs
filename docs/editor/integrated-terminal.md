@@ -170,6 +170,16 @@ While focus is in the integrated terminal, many key bindings will not work as th
 
 Look at the setting details to see the complete list of default commands.
 
+### Chord keybindings in the terminal
+
+By default, when a chord keybinding is the highest priority keybinding it will always skip the terminal shell (bypassing `terminal.integrated.commandsToSkipShell`) and be evaluated by VS Code instead of the terminal. This is typically the desired behavior unless you're on Windows/Linux and want your shell to use ctrl+k (for bash this cuts the line after the cursor). This can be disabled with the following setting:
+
+```json
+{
+  "terminal.integrated.allowChords": false
+}
+```
+
 ### Find
 
 The Integrated Terminal has basic find functionality which can be triggered with `kb(workbench.action.terminal.focusFindWidget)`.
