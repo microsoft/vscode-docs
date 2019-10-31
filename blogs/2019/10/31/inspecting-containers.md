@@ -60,7 +60,7 @@ And, you should be able to navigate to http://localhost:3000 and see the followi
 
 We can now use the Remote - Containers extension to attach to our running container, inspect the environment, and debug the application.
 
-Select on the Remote Explorer in the Activity Bar to see a list of running containers that you can attach to in the **Other Containers** section. Find the container we just started, it has the name 'express_server_1', and then attach to it by using the **Connect to Container** button. That container should now be displayed in the **Attached Containers** section of the Remote Explorer.
+Select the Remote Explorer in the Activity Bar to see a list of running containers that you can attach to in the **Other Containers** section. Find the container we just started, it has the name 'express_server_1', and then attach to it by using the **Connect to Container** button. That container should now be displayed in the **Attached Containers** section of the Remote Explorer.
 
 ![Attached Containers in the Remote Explorer](attached-containers.png)
 
@@ -68,11 +68,11 @@ This will launch a new VS Code window (instance) that has the following notifica
 
 ![Installing Dev Container notification](installing-dev-container.png)
 
-During this time, VS Code is installing an instance of the VS Code **server** inside the container where your app is running. To see more details and progress about this installation step, you can select the **details** link that is shown in the notification. Once the VS Code server is installed, your local VS Code client will connect to the remote VS Code server. The result is your local instance of VS Code, with all your settings, themes, and key bindings, is connected to a "back-end" running inside the container alongside your application.
+During this time, VS Code is installing an instance of the VS Code **Server** inside the container where your app is running. To see more details and progress about this installation step, you can select the **details** link that is shown in the notification. Once the VS Code server is installed, your local VS Code client will connect to the remote VS Code server. The result is your local instance of VS Code, with all your settings, themes, and key bindings, is connected to a "back-end" running inside the container alongside your application.
 
 ![Remote Container architecture diagram](remote-container-architecture.png)
 
-Once the connection is complete, you should have a new VS Code window with a green indicator in the bottom left that shows this instance of VS Code is running in a remote context. If you click on the indicator, you see will see a drop down of commands relevant to the current remote context.
+Once the connection is complete, you should have a new VS Code window with a green indicator in the bottom left that shows this instance of VS Code is running in a remote context. If you click on the indicator, you see will see a drop-down of commands relevant to the current remote context.
 
 ![Remote context shown in the Status bar](remote-context-status-bar.png)
 
@@ -98,7 +98,7 @@ For example, open `app.js`. Right click on line 8 and execute **Find All Referen
 
 To further show how similar the remote container is to a local environment, let's attach a debugger. We started our Node app with the `–inspect` parameter in `docker-compose.yaml`, so all we have to do is attach a debugger to that process.
 
-In the Command Palette ((`kb(workbench.action.showCommands)`), search for and select **Debug: Attach to Node Process**. There will probably be several Node processes running inside the container. We want the process that is running our application, so select the one that shows `bin/www`.
+In the Command Palette (`kb(workbench.action.showCommands)`), search for and select **Debug: Attach to Node Process**. There will probably be several Node processes running inside the container. We want the process that is running our application, so select the one that shows `bin/www`.
 
 ![Node process picker list](node-process-picker.png)
 
@@ -114,7 +114,7 @@ Now go to http://localhost:3000 in your browser and see the breakpoint trigger a
 
 Just like a normal instance of VS Code, you can install and use extensions while attached to a remote container.
 
-Depending on the type of extension, it can either run on the client side or in the container on the remote VS Code server. Extensions that are primarily UI-based such as themes and snippets stay on the client side, while all other extensions get installed in the container. This allows you to have only the extensions you need when working in each environment while maintaining a consist UI across all environments.
+Depending on the type of extension, it can either run on the client side or in the container on the remote VS Code server. Extensions that are primarily UI-based such as themes and snippets stay on the client side, while all other extensions are installed in the container. This allows you to have only the extensions you need when working in each environment while maintaining a consist UI across all environments.
 
 If you open the Extensions view (`kb(workbench.view.extensions)`), you will see the list of extensions that you have installed locally and extensions you have installed in your current container instance. Locally installed extensions that need to be installed in the container (like the Azure Account extension below) will appear grayed out.
 
