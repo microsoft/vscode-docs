@@ -9,7 +9,9 @@ DateApproved: 10/9/2019
 ---
 # Visual Studio Online
 
-[Visual Studio Online](https://docs.microsoft.com/visualstudio/online/overview/what-is-vsonline) provides cloud-powered development environments for any activity - whether it's a long-term project, or a short-term task like reviewing a pull request. You can work with these environments from three possible clients: Visual Studio Code, a browser-based version of VS Code, or the Visual Studio IDE (currently in Private Preview).
+[Visual Studio Online](https://docs.microsoft.com/visualstudio/online/overview/what-is-vsonline) provides cloud-powered development environments for any activity - whether it's a long-term project, or a short-term task like reviewing a pull request. You can work with these environments from three possible clients: Visual Studio Code, a browser-based editor, or the Visual Studio IDE (currently in Private Preview).
+
+![Visual Studio Online extension](images/vsonline/vsonline-extension.png)
 
 ## Environments
 
@@ -17,7 +19,7 @@ An [environment](https://docs.microsoft.com/visualstudio/online/overview/what-is
 
 ## Customization
 
-Visual Studio Online's environments are fully customizable on a per project basis. This is accomplished by including a [devcontainer.json](/docs/remote/containers.md#creating-a-devcontainerjson-file) file in the project's repository.
+Visual Studio Online's environments are fully customizable on a per project basis. This is accomplished by including a `devcontainer.json` file in the project's repository, similar to VS Code [Remote Container](/docs/remote/containers.md) development.
 
 Example customizations include:
 
