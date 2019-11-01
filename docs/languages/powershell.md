@@ -11,14 +11,14 @@ MetaDescription: Learn about using PowerShell in Visual Studio Code
 
 [PowerShell](https://docs.microsoft.com/powershell/) is a task-based command-line shell and scripting language built on [.NET](https://docs.microsoft.com/dotnet), which provides a powerful toolset for administrators on any platform.
 
-The Microsoft [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) extension for Visual Studio Code provides rich language support and capabilities such as completions, definition tracking, and linting analysis for PowerShell versions 3, 4, 5, and 5.1 as well as all versions of [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60).
+The Microsoft [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) extension for [Visual Studio Code](https://code.visualstudio.com) provides rich language support and capabilities such as completions, definition tracking, and linting analysis for PowerShell versions 3, 4, 5, and 5.1 as well as all versions of [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60).
 
 ## Install the PowerShell extension
 
 The official PowerShell extension can be installed by following the steps described in the
-[Visual Studio Code User Guide](/docs/editor/extension-gallery.md) or by going directly to the Visual Studio Code Marketplace and clicking the [Install Button](vscode:extension/ms-vscode.PowerShell).
+[Visual Studio Code User Guide](/docs/editor/extension-gallery.md) or by going directly to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) and clicking the [Install Button](vscode:extension/ms-vscode.PowerShell).
 
-You can also install the PowerShell extension from within Visual Studio Code by opening the Extensions view with keyboard shortcut `kb(workbench.view.extensions)` and typing "PowerShell" and select the PowerShell extension:
+You can also install the [PowerShell](https://docs.microsoft.com/powershell/) extension from within [Visual Studio Code](https://code.visualstudio.com) by opening the Extensions view with keyboard shortcut `kb(workbench.view.extensions)` and typing "PowerShell" and select the PowerShell extension:
 
 ![PowerShell extension](images/powershell/PowerShellExtension.png)
 
