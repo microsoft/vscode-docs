@@ -29,7 +29,7 @@ Example customizations include:
 * Setting environment variables.
 * Configuring editor settings and installing preferred extensions.
 
-See the [VS Online Configuring documentation](https://docs.microsoft.com/visualstudio/online/reference/configuring) for VS Online specific `devcontainer.json` settings.
+See the [VS Online Configuring](https://docs.microsoft.com/visualstudio/online/reference/configuring) documentation for VS Online specific `devcontainer.json` settings.
 
 ## Dotfile per user configuration
 
@@ -37,13 +37,13 @@ Dotfiles are files whose filename begins with a dot (.). They typically contain 
 
 You can specify a GitHub repo containing your dotfiles, a target location for the files, as well as install commands when creating a VS Online environment.
 
-See the [VS Online Personalizing documentation](https://docs.microsoft.com/visualstudio/online/reference/personalizing) to learn how to add your dotfile configurations to an environment.
+See the [VS Online Personalizing](https://docs.microsoft.com/visualstudio/online/reference/personalizing) documentation to learn how to add your dotfile configurations to an environment.
 
 ## Getting started
 
 The Visual Studio Online documentation has Quickstarts for all three clients. The Quickstarts will fast-track you through signing in to VS Online, creating your first environment, and connecting to it with your preferred client:
 
-* [VS Online in VS Code](https://docs.microsoft.com/visualstudio/online/quickstarts/vscode) - Use VS Code to connect and work in your VS Online environment.
+* [VS Online in VS Code](https://docs.microsoft.com/visualstudio/online/quickstarts/vscode) - Use the Visual Studio Online extension to connect and work in your environment.
 * [VS Online in the browser](https://docs.microsoft.com/visualstudio/online/quickstarts/browser) - Connect to your VS Online environment through a browser-based editor.
 * [VS Online in Visual Studio IDE](https://docs.microsoft.com/visualstudio/online/quickstarts/vs) - Try out the Visual Studio IDE Private Preview for VS Online.
 
