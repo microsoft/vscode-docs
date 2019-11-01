@@ -21,17 +21,17 @@ Visual Studio Online's environments are fully customizable on a per project basi
 
 Example customizations include:
 
-* Setting which Linux-based operating system to use
-* Automatically installing various tools, runtimes, and frameworks
-* Forwarding commonly used ports
-* Setting environment variables
-* Configuring editor settings and installing preferred extensions
+* Setting which Linux-based operating system to use.
+* Automatically installing various tools, runtimes, and frameworks.
+* Forwarding commonly used ports.
+* Setting environment variables.
+* Configuring editor settings and installing preferred extensions.
 
-See [VS Online Configuring documentation](https://docs.microsoft.com/visualstudio/online/reference/configuring) for VS Online specific `devcontainer.json` settings.
+See the [VS Online Configuring documentation](https://docs.microsoft.com/visualstudio/online/reference/configuring) for VS Online specific `devcontainer.json` settings.
 
 ## Dotfile per user configuration
 
-Dotfiles are files whose filename begins with a dot (.). They typically contain configuration information for various applications and can control how terminals, editors, source control, and various other tools behave. `.bashrc`, `.gitignore` and `.editorconfig` are examples of dotfiles commonly used by developers.
+Dotfiles are files whose filename begins with a dot (.). They typically contain configuration information for applications and can control how terminals, editors, source control, and various other tools behave. `.bashrc`, `.gitignore` and `.editorconfig` are examples of dotfiles commonly used by developers.
 
 You can specify a GitHub repo containing your dotfiles, a target location for the files, as well as install commands when creating a VS Online environment.
 
@@ -39,11 +39,11 @@ See the [VS Online Personalizing documentation](https://docs.microsoft.com/visua
 
 ## Getting started
 
-The Visual Studio Online documentation has Quickstarts for all three clients. They will fast track you through signing in to VS Online, creating your first environment, and connecting to it with your preferred client:
+The Visual Studio Online documentation has Quickstarts for all three clients. The Quickstarts will fast-track you through signing in to VS Online, creating your first environment, and connecting to it with your preferred client:
 
 * [VS Online in VS Code](https://docs.microsoft.com/visualstudio/online/quickstarts/vscode) - Use VS Code to connect and work in your VS Online environment.
 * [VS Online in the browser](https://docs.microsoft.com/visualstudio/online/quickstarts/browser) - Connect to your VS Online environment through a browser-based editor.
-* [VS Online in Visual Studio IDE](https://docs.microsoft.com/visualstudio/online/quickstarts/vs) - Try out the Visual Studio IDE Private Preview with VS Online.
+* [VS Online in Visual Studio IDE](https://docs.microsoft.com/visualstudio/online/quickstarts/vs) - Try out the Visual Studio IDE Private Preview for VS Online.
 
 ## How-to guides
 
@@ -54,8 +54,8 @@ In addition to the Quickstarts, there are How-to guides, which go into more deta
 
 ## Self-hosted environments
 
-You can even connect your own self-hosted environments to Visual Studio Online at no cost.
+If you already have a working development environment, you can connect your own [self-hosted environments](https://docs.microsoft.com/visualstudio/online/how-to/vscode#self-hosted) to Visual Studio Online. This lets you and your team have the same consistent development experience, whether you are working on a managed cloud-hosted environment or your own infrastructure.
 
 ## Questions or feedback
 
-If you have questions, you can consult the VS Online [Troubleshooting guide](https://docs.microsoft.com/visualstudio/online/resources/troubleshooting) and [FAQ](https://docs.microsoft.com/visualstudio/online/resources/faq). You can provide [Feedback](https://docs.microsoft.com/visualstudio/online/resources/feedback) through the [vsoline](https://github.com/MicrosoftDocs/vsonline) GitHub repository.
+If you have questions, you can consult the Visual Studio Online [Troubleshooting guide](https://docs.microsoft.com/visualstudio/online/resources/troubleshooting) and [FAQ](https://docs.microsoft.com/visualstudio/online/resources/faq). If you want to provide [Feedback](https://docs.microsoft.com/visualstudio/online/resources/feedback), you can enter issues in the [vsoline](https://github.com/MicrosoftDocs/vsonline) GitHub repository.
