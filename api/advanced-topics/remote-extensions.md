@@ -7,7 +7,7 @@ MetaDescription: A guide to adding Visual Studio Code Remote Development and Vis
 ---
 # Supporting Remote Development and VS Online
 
-**[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). **[Visual Studio Online](http://aka.ms/vso)** is a service that expands these capabilities with managed cloud-hosted or self-hosted environments that are accessible from both VS Code and a browser-based editor.
+**[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). **[Visual Studio Online](http://aka.ms/vso)** is a preview service that expands these capabilities with managed cloud-hosted or self-hosted environments that are accessible from both VS Code and a browser-based editor.
 
 To ensure performance, Remote Development and Visual Studio Online both transparently run certain VS Code extensions remotely. However, this can have subtle impacts on how extensions need to work.  While many extensions will work without any modifications, you may need to make changes so that your extension works properly in all environments, although these changes are often fairly minor.
 
@@ -35,7 +35,7 @@ Typically, your best starting point for testing is to use a remote environment t
 
 ### Debugging with Visual Studio Online
 
-Debugging your extension in [Visual Studio Online](https://aka.ms/vso) is a great starting point since you can use both VS Code and VS Online's browser-based editor for testing and troubleshooting. Note that, while there is a cost to the service's cloud-based managed environments, you can use your own desktop/laptop as a self-hosted environment at no cost.
+Debugging your extension in [Visual Studio Online](https://aka.ms/vso) preview can be a great starting point since you can use both VS Code and VS Online's browser-based editor for testing and troubleshooting. Note that, while there is a cost to the service's cloud-based managed environments, you can use your own desktop/laptop as a self-hosted environment at no cost.
 
 Follow these steps:
 
@@ -43,7 +43,7 @@ Follow these steps:
 
 2. Create a new managed [cloud-hosted environment](https://aka.ms/vso-docs/vscode/cloud-hosted) (paid) or register your own desktop as a [self-hosted environment](https://aka.ms/vso-docs/vscode/self-hosted) (free).
 
-    > **Note:** When using a self-hosted environment, you may have to re-register your machine after a reboot due to a bug. See [MicrosoftDocs/vsonline#5](https://github.com/MicrosoftDocs/vsonline/issues/5) for more information.
+    > **Note:** When using a self-hosted environment, you may have to restore your environment on restart or after a network glitch using the **VS Online: Restore Local Environment** command due to bugs. See [MicrosoftDocs/vsonline#5](https://github.com/MicrosoftDocs/vsonline/issues/5), [MicrosoftDocs/vsonline#14](https://github.com/MicrosoftDocs/vsonline/issues/14) for more information.
 
 3. If you have not already connected to your environment, select  **VS Online: Connect to Environment** from the Command Palette (`kbstyle(F1)`) in VS Code to connect.
 
