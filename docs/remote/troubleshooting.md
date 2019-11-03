@@ -785,7 +785,7 @@ Currently the forwarding mechanism in VS Online's browser-based editor only supp
 
 However, the Remote Development and VS Online extensions for VS Code itself do not have this limitation.
 
-**Resolution:** Use the VS Online extension for VS Code when working with something that requires web sockets instead of the browser-based editor. The VS Online team is investigating solutions to this problem. See [MicrosoftDocs/vsonline#6](https://github.com/MicrosoftDocs/vsonline/issues/6) for details.
+**Resolution:** Use the VS Online extension for VS Code when working with something that requires web sockets instead of the browser-based editor. The VS Online team is investigating solutions to this problem. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/6) for details.
 
 ### Errors storing extension data
 
