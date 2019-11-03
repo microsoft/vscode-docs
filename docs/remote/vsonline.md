@@ -58,6 +58,10 @@ In addition to the Quickstarts, there are How-to guides, which go into more deta
 
 If you already have a working development environment, you can connect your own [self-hosted environments](https://docs.microsoft.com/visualstudio/online/how-to/vscode#self-hosted) to Visual Studio Online. This lets you and your team have the same consistent development experience, whether you are working on a managed cloud-hosted environment or your own infrastructure.
 
+## Extension authors
+
+The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work in Visual Studio Online environments without any modification. However, we recommend that you test your extension in VS Online to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development and VS Online](/api/advanced-topics/remote-extensions.md) for details.
+
 ## Questions or feedback
 
 If you have questions, you can consult the Visual Studio Online [Troubleshooting guide](https://docs.microsoft.com/visualstudio/online/resources/troubleshooting) and [FAQ](https://docs.microsoft.com/visualstudio/online/resources/faq). If you want to provide [Feedback](https://docs.microsoft.com/visualstudio/online/resources/feedback), you can enter issues in the [vsoline](https://github.com/MicrosoftDocs/vsonline) GitHub repository.
