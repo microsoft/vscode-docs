@@ -43,7 +43,7 @@ See the [VS Online Personalizing](https://docs.microsoft.com/visualstudio/online
 
 The Visual Studio Online documentation has Quickstarts for all three clients. The Quickstarts will fast-track you through signing in to VS Online, creating your first environment, and connecting to it with your preferred client:
 
-* [VS Online in VS Code](https://docs.microsoft.com/visualstudio/online/quickstarts/vscode) - Use the Visual Studio Online extension to connect and work in your environment.
+* [VS Online in VS Code](https://docs.microsoft.com/visualstudio/online/quickstarts/vscode) - Use the [VS Online extension](https://marketplace.visualstudio.com/items?itemName=ms-vsonline.vsonline) to connect and work in your environment.
 * [VS Online in the browser](https://docs.microsoft.com/visualstudio/online/quickstarts/browser) - Connect to your VS Online environment through a browser-based editor.
 * [VS Online in Visual Studio IDE](https://docs.microsoft.com/visualstudio/online/quickstarts/vs) - Try out the Visual Studio IDE Private Preview for VS Online.
 
@@ -60,7 +60,7 @@ If you already have a working development environment, you can connect your own 
 
 ## Extension authors
 
-The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work in Visual Studio Online environments without any modification. However, we recommend that you test your extension in VS Online to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development and VS Online](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work in Visual Studio Online environments without any modification. However, we recommend that you test your extension in VS Online to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development and Visual Studio Online](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Questions or feedback
 
