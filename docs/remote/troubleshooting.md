@@ -598,13 +598,13 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 
 ## WSL tips
 
-### First time start: VS Code Server Prerequisits
+### First time start: VS Code Server prerequisites
 
 Some WSL Linux distributions are lacking libraries that are required by the VS Code server to start up. You can add additional libraries into your Linux distribution by using its package manager.
 
 #### Debian
 
-Open the Debian WSL shell to add `wget` and `ca-certificates:
+Open the Debian WSL shell to add `wget` and `ca-certificates`:
 
 ```sh
 sudo apt-get update && apt-get install wget ca-certificates
@@ -632,7 +632,6 @@ apk update && apk add bash
 
 To open a non-default distro, run `code .` from the WSL shell of the distro to use or use **Remote-WSL: New Window using Distro**.
 
-
 Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL versions, VS Code can only use the **default distro**.
 
 You can use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
@@ -657,15 +656,15 @@ If you need to configure the startup environment, you can use the environment se
 ### Configure the environment for the remote extension host
 
 The environment for the remote extension host and terminal are based on the default shell's configuration scripts:
-To evaluate the environment variables for the remote extension host process, the server creates an instance of the default shell as _interactive login shell_. It probes the environment variables from it and uses them as initial environment for the remote extension host process. The values of environment variables therefore depend on what shell is configured as default shell and the configuration scripts for that shell.
+To evaluate the environment variables for the remote extension host process, the server creates an instance of the default shell as _interactive login shell_. It probes the environment variables from it and uses them as initial environment for the remote extension host process. The values of environment variables therefore depend on what shell is configured as default and the content of the configuration scripts for that shell.
 
-Most WSL distributions have `/bin/bash` configured as the default shell. `/bin/bash` will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`. See [here](https://github.com/rbenv/rbenv/wiki/unix-shell-initialization) for an overview of each shells configuration scripts.
+See [here](https://github.com/rbenv/rbenv/wiki/unix-shell-initialization) for an overview of each shells configuration scripts. Most WSL distributions have `/bin/bash` configured as the default shell. `/bin/bash` will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`.
 
 To change the default shell of a WSL distro, follow the instructions of [this blog post](https://medium.com/@vinhp/set-and-use-zsh-as-default-shell-in-wsl-on-windows-10-the-right-way-4f30ed9592dc).
 
 ### Fixing problems with the code command not working
 
-If typing `code` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
+If typing `code` from a WSL terminal on Window does not work because `code` can not be found, you may be missing some key locations from your PATH in WSL.
 
 Check by opening a WSL terminal and typing `echo $PATH`. You should see VS Code install path listed. By default, this would be:
 
@@ -685,7 +684,9 @@ But, if you used the **System Installer**, the install path is:
 /mnt/c/Program Files (x86)/Microsoft VS Code/bin
 ```
 
-If the VS Code install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
+It's a feature of WSL that paths are inherited from the PATH variable in Windows. To change the Windows PATH variable, use the `Edit environment variables for your account` command from the start menu in Windows.
+
+If you have disabled the path sharing feature, edit your `.bashrc`, add the following, and start a new terminal:
 
 ```bash
 WINDOWS_USERNAME="Your Windows Alias"
