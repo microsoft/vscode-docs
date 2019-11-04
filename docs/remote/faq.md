@@ -33,7 +33,7 @@ Compared to using a network share or synchronizing files, VS Code Remote Develop
 
 ### How do the Remote Development extensions relate to Visual Studio Online?
 
-[Visual Studio Online](http://aka.ms/vso) is a service that provides managed cloud-hosted development environments accessible from both VS Code and a new browser-based editor. The service also allows VS Code and the browser-based editor to access self-hosted environments (desktop or server) without requiring an SSH server or even a direct network route. You can read more about Visual Studio Online in [its documentation](https://aka.ms/vso-docs).
+[Visual Studio Online](https://aka.ms/vso) is a service that provides managed cloud-hosted development environments accessible from both VS Code and a new browser-based editor. The service also allows VS Code and the browser-based editor to access self-hosted environments (desktop or server) without requiring an SSH server or even a direct network route. You can read more about Visual Studio Online in [its documentation](https://aka.ms/vso-docs).
 
 While the Remote Development and Visual Studio Online extensions share technology and features, the Remote Development extensions are released separately and can operate independently from Visual Studio Online (and therefore do not require a Visual Studio Online plan).
 
