@@ -5,7 +5,7 @@ TOCTitle: Tutorials
 PageTitle: Remote Development with Visual Studio Code Tutorials
 ContentId: 45d57c4d-a66f-4b58-88b2-dd2a6fd31b5a
 MetaDescription: Remote Development with Visual Studio Code Tutorials
-DateApproved: 10/9/2019
+DateApproved: 11/4/2019
 ---
 # Remote Development tutorials
 
@@ -29,5 +29,6 @@ Tutorial | Description
 * [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 * [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
 * [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+* [Visual Studio Online](https://marketplace.visualstudio.com/items?itemName=ms-vsonline.vsonline)
 
 Install all three Remote extensions with the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
