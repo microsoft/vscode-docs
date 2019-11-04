@@ -1,15 +1,17 @@
 ---
-Order: 9
+Order: 10
 Area: remote
 TOCTitle: FAQ
 PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 10/9/2019
+DateApproved: 10/23/2019
 ---
 # Remote Development FAQ
 
 This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the step by step [Tutorials](/docs/remote/remote-tutorials.md) to help get you running quickly in a remote environment.
+
+For frequently asked questions about [Visual Studio Online](https://aka.ms/vso), see the [FAQ in the service's documentation](https://aka.ms/vso-docs/faq).
 
 ## General
 
@@ -29,6 +31,12 @@ Some benefits of remote development include:
 
 Compared to using a network share or synchronizing files, VS Code Remote Development provides dramatically better performance along with better control over your development environment and tools.
 
+### How do the Remote Development extensions relate to Visual Studio Online?
+
+[Visual Studio Online](http://aka.ms/vso) is a service that provides managed cloud-hosted development environments accessible from both VS Code and a new browser-based editor. The service also allows VS Code and the browser-based editor to access self-hosted environments (desktop or server) without requiring an SSH server or even a direct network route. You can read more about Visual Studio Online in [its documentation](https://aka.ms/vso-docs).
+
+While the Remote Development and Visual Studio Online extensions share technology and features, the Remote Development extensions are released separately and can operate independently from Visual Studio Online (and therefore do not require a Visual Studio Online plan).
+
 ### How do the Remote Development extensions work?
 
 Visual Studio Code Remote Development allows your local VS Code installation to transparently interact with source code and runtime environments on other machines (whether virtual or physical) by moving the execution of certain commands to a "remote server". The **VS Code Server** is quickly installed by VS Code when you connect to a remote endpoint and can host extensions that interact directly with the remote workspace, machine, and file system.
@@ -46,14 +54,6 @@ The VS Code Server that is injected runs as the same user you used to sign in to
 ### Can VS Code Server be installed or used on its own?
 
 No. The VS Code Server is a component of the Remote Development extensions and is managed by a VS Code client. It is installed and updated automatically by VS Code when it connects to an endpoint and if installed separately could become quickly out of date. It is not intended or [licensed](#license-and-privacy) for use by other clients.
-
-### Are there any plans to introduce a Web UI based on VS Code Server?
-
-Yes, we [announced a new web companion called Visual Studio Online](https://aka.ms/vsfutures) at //build 2019.
-
-### Will there be a service to host managed VS Code development environments in the cloud?
-
-Yes, we [announced a cloud-hosted environments service](https://aka.ms/vsfutures) at //build 2019.
 
 ### What are the connectivity requirements for VS Code Server?
 
@@ -165,13 +165,13 @@ You can find the licenses for the VS Code Remote Development extensions here:
 
 ### Why aren't the Remote Development extensions or their components open source?
 
-The Visual Studio Code Remote Development extensions and their related components use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open source. The extensions share source code which is also used in fully managed remote development services like [those announced at //build 2019](https://aka.ms/vsfutures). Given that these services also support other proprietary products (for example Visual Studio IDE), the extensions are available under a Microsoft pre-release license like other service-based, cross-product extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license) were during their preview periods.
+The Visual Studio Code Remote Development extensions and their related components use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open source. The extensions share source code which is also used in fully managed remote development services like [Visual Studio Online](https://aka.ms/vso) and their related extensions. Given that these services also will support other proprietary products (for example Visual Studio IDE), the extensions are available under a Microsoft pre-release license like other service-based, cross-product extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license) were during their preview periods.
 
 See the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) and [Microsoft Extension Licenses](/docs/supporting/oss-extensions.md) articles for more information.
 
-### Will you charge for the extensions once they exit "Preview"?
+### Will you charge for the Remote Development extensions once they exit "Preview"?
 
-No, they will remain free of charge. In the future, we may provide "premium" developer services, which provide additional functionality, but the extensions will be free.
+No, they will remain free of charge. In the future, we may provide additional "premium" developer services like [Visual Studio Online](https://aka.ms/vso), which provide additional functionality, but the extensions will be free.
 
 ### Are there any restrictions on where the Remote Development extensions can connect?
 

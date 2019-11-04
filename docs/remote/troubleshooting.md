@@ -1,17 +1,23 @@
 ---
-Order: 6
+Order: 7
 Area: remote
 TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 10/14/2019
+DateApproved: 10/24/2019
 ---
 # Remote Development Tips and Tricks
 
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension. Or try the step by step [Tutorials](/docs/remote/remote-tutorials.md) to help get you running quickly in a remote environment.
 
+Troubleshooting tips for [Visual Studio Online](https://aka.ms/vso) can be found in the [service's documentation](https://aka.ms/vso-docs/troubleshooting).
+
 ## SSH tips
+
+SSH is powerful and flexible, but this also adds some setup complexity. This section includes some tips and tricks for getting the Remote - SSH extension up and running in different environments.
+
+If you are still running into trouble, you may want to try the preview of [Visual Studio Online's free self-hosted environment option](https://aka.ms/vso-docs/vscode) since it does not require a SSH server or even an open / directly accessible port on the remote host. The service also allows you use its browser-based editor with the host you register.
 
 ### Configuring key based authentication
 
@@ -408,6 +414,10 @@ The VS Code Server was previously installed under `~/.vscode-remote` so you can 
 
 ## Container tips
 
+This section includes some tips and tricks for getting the Remote - Containers extension up and running in different environments.
+
+If you are running into Docker issues or would prefer not to run Docker locally, you may want to try the preview of [Visual Studio Online's managed cloud-based environments](https://aka.ms/vso-docs/vscode). Over time this service will support an increasing number of `devcontainer.json` properties and you can also use it's browser-based editor in addition to VS Code.
+
 ### Docker Desktop for Windows tips
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few "gotchas" that can cause problems. Here are some tips on avoiding them:
@@ -481,7 +491,7 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 ### Resolving errors about missing Linux dependencies
 
-Some extensions rely on libraries not found in the certain Docker images. See the [Containers](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) article for a few options on resolving this issue.
+Some extensions rely on libraries not found in the certain Docker images. See the [Containers](/docs/remote/containers.md#installing-additional-software) article for a few options on resolving this issue.
 
 ### Speeding up containers in Docker Desktop
 
@@ -717,6 +727,10 @@ If you clone a Git repository using SSH and your SSH key has a passphrase, VS Co
 
 Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
+## VS Online tips
+
+See the [Visual Studio Online troubleshooting article](https://aka.ms/vso-docs/troubleshooting) for tips and tricks related to the service or extension.
+
 ## Extension tips
 
 While many extensions will work unmodified, there are a few issues that can prevent certain features from working as expected. In some cases, you can use another command to work around the issue, while in others, the extension may need to be modified. This section provides a quick reference for common issues and tips on resolving them. You can also refer to the main extension article on [Supporting Remote Development](/api/advanced-topics/remote-extensions) for an in-depth guide on modifying extensions to support remote extension hosts.
@@ -737,7 +751,7 @@ Sometimes you want to install a local VSIX on a remote machine, either during de
 
 Some extensions use external node modules or custom code to launch a browser window. Unfortunately, this may cause the extension to launch the browser remotely instead of locally.
 
-**Resolution:** The extension can switch to using the `vscode.env.openExternal` API to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**Resolution:** The extension can use the `vscode.env.openExternal` API to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
 
 ### Clipboard does not work
 
@@ -747,21 +761,31 @@ Some extensions use node modules like `clipboardy` to integrate with the clipboa
 
 ### Cannot access local web server from browser or application
 
-When working inside a container or SSH host, the port the browser is connecting to may be blocked.
+When working inside a container, SSH host, or VS Online environment the port the browser is connecting to may be blocked.
 
-**Resolution:** The extension can switch to the  `vscode.env.openExternal` API (which automatically forwards localhost ports) to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**Resolution:** Extensions can can use the `vscode.env.openExternal` or `vscode.env.asExternalUri` APIs (which automatically forwards localhost ports) to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details. As a workaround, use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...**, or **VS Online: Forward Port** commands to do so manually.
 
-### WebView contents do not appear
+### Webview contents do not appear
 
-If the extension's WebView content uses an iframe to connect to a local web server, the port the WebView is connecting to may be blocked.
+If the extension's webview content uses an `iframe` to connect to a local web server, the port the webview is connecting to may be blocked. In addition, if the extension hard codes `vscode-resource://` URIs instead of using `asWebviewUri`, content may not appear in VS Online's browser editor.
 
-**Resolution:** The WebView API now includes a `portMapping` property that the extension can use to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#accessing-localhost) for details.
+**Resolution:** The extension can use use the `webview.asWebviewUri` to resolve issues with `vscode-resource://` URIs.
+
+In the case of ports being blocked, the best approach is to instead use the [webview message passing](/api/extension-guides/webview#scripts-and-message-passing) API. As a workaround, `vscode.env.asExternalUri`  can be used allow the webview to connect to spawned localhost web servers from VS Code. However, this is currently blocked for VS Online's browser-based editor (only) by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). See the [extension author's guide](/api/advanced-topics/remote-extensions#workarounds-for-using-localhost-from-a-webview) for details on the workaround.
 
 ### Blocked localhost ports
 
 If you are trying to connect to a localhost port from an external application, the port may be blocked.
 
-**Resolution:** There currently is no API for extensions to programmatically forward arbitrary ports, but you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...** to do so manually.
+**Resolution:** VS Code 1.40 introduced a new `vscode.env.asExternalUri` API for extensions to programmatically forward arbitrary ports.  See the [extension author's guide](/api/advanced-topics/remote-extensions#forwarding-localhost) for details. As a workaround, you can can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...**, or **VS Online: Forward Port** commands to do so manually.
+
+### Websockets do not work in port forwarded content in VS Online's browser-based editor
+
+Currently the forwarding mechanism in VS Online's browser-based editor only supports http and https requests. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. This can affect both user applications and extensions that use websockets from webviews.
+
+However, the Remote Development and VS Online extensions for VS Code itself do not have this limitation.
+
+**Resolution:** Use the VS Online extension for VS Code when working with something that requires web sockets instead of the browser-based editor. The VS Online team is investigating solutions to this problem. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/6) for details.
 
 ### Errors storing extension data
 

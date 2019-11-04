@@ -295,6 +295,8 @@ You can also install all locally installed extensions inside the Dev Container b
 
 ![Install all extensions](images/containers/install-all-extn-containers.png)
 
+However, note that some extensions may require you to [install additional software](#installing-additional-software) in the container. Consult extension documentation for details if you encounter issues.
+
 ### "Always installed" extensions
 
 If there are extensions that you would like always installed in any container, you can update the `remote.containers.defaultExtensions` User [setting](/docs/getstarted/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
@@ -560,7 +562,7 @@ You can also add **additional local mount points** to give your container access
 For example, you can mount your home / user profile folder:
 
 ```json
-"runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/local-home" ]
+"runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}:/root/local-home" ]
 ```
 
 This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container) for details.
@@ -599,6 +601,8 @@ For example, here is a `devcontainer.json` that adds `git` and the [Git Lens](ht
 }
 ```
 
+See [installing additional software](#installing-additional-software) for more information on using `apt-get` to install software.
+
 This command is run once your source code is mounted, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree.
 
 ```json
@@ -613,22 +617,41 @@ By default, when VS Code starts a container, it will **override the container's 
 
 Note that, after you create your container for the first time, you will need to run the **Remote-Containers: Rebuild Container** command for updates to `devcontainer.json` or your Dockerfile to take effect.
 
-### Installing additional software in the sandbox
+### Installing additional software
 
 Once VS Code is connected to the container, you can open a VS Code terminal and execute any command against the OS inside the container. This allows you to install new command-line utilities and spin up databases or application services from inside the Linux container.
 
-Most container images are based on Debian or Ubuntu, where the `apt-get` command is used to install new packages. Documentation for the software you want to install will usually provide specific instructions, but note that you may not need to prefix commands with `sudo` if you are running as root in the container.
+Most container images are based on Debian or Ubuntu, where the `apt` or `apt-get` command is used to install new packages. You can learn more about the command [in Ubuntu's documentation](https://help.ubuntu.com/lts/serverguide/apt.html). Alpine images include a [similar `apk` command](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management) while CentOS / RHEL / Oracle SE / Fedora images [use `yum`](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-yum) or [more recently `dnf`](https://fedoraproject.org/wiki/DNF?rd=Dnf).
 
-For example:
+Documentation for the software you want to install will usually provide specific instructions, but note that you may not need to prefix commands with `sudo` if you are running as root in the container. For example:
 
 ```bash
+# If running as root
 apt-get update # Critical step - you won't be able to install software before you do this
 apt-get install <package>
 ```
 
-If you would **prefer not to run as root**, see the [Advanced Container Configuration](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) article for how to set up a separate user with `sudo` access.
+If you would **prefer not to run as root**, see the [Advanced Container Configuration](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) article for how to set up a separate user with `sudo` access. Regardless, if you install and configure `sudo` you'll be able to use it when running as any user including root.
 
-However, note that if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property or use a custom Dockerfile instead.
+```bash
+# If sudo is installed and configured
+sudo apt-get update # Critical step - you won't be able to install software before you do this
+sudo apt-get install <package>
+```
+
+However, note that if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can either use a series of commands in the `postCreateCommand` property in `devcontainer.json` or the `RUN` instruction [in a custom Dockerfile](#using-an-image-or-dockerfile).
+
+Using `devcontainer.json`:
+
+```
+"postCreateCommand": "apt-get update && apt-get install <package>"
+```
+
+Using a Dockerfile:
+
+```Dockerfile
+RUN apt-get update && apt-get install <packaging>
+```
 
 ### Using Docker Compose
 
@@ -707,11 +730,13 @@ user: your-user-name-here
 
 This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container) for details.
 
-If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as Git inside the service's container. While less efficient than adding these tools to the container image, you can also use the `postCreateCommand` property for this purpose. For example:
+If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as Git inside the service's container. While less efficient than adding these tools to the container image, you can also use the `postCreateCommand` property for this purpose. For example, if `sudo` is already installed in the container:
 
 ```json
-"postCreateCommand": "apt-get update && apt-get install -y git"
+"postCreateCommand": "sudo apt-get update && sudo apt-get install -y git"
 ```
+
+See [installing additional software](#installing-additional-software) for more information on using `apt-get` to install software.
 
 This command is run once the container is running, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
 
@@ -782,10 +807,8 @@ This same file can provide additional settings, such as port mappings, as needed
 
     "service": "your-service-name-here",
     "workspaceFolder": "/workspace",
-    "shutdownAction": "stopCompose",
+    "shutdownAction": "stopCompose"
 
-    // [Optional] If you are using SSH keys w/Git, copy them and set correct permissions
-    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
 }
 ```
 
@@ -864,7 +887,7 @@ See [Setting up a folder to run in a container](#in-depth-setting-up-a-folder-to
 | `name` | string | A display name for the container. |
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
 | `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |
-| `postCreateCommand` | string or array | A command string or list of command arguments to run after the container is created. Use `&&` in a string to execute multiple commands. For example, `"yarn install"`, `["yarn", "install"]`, or `"apt-get update && apt-get install -y git"`. It fires after your source code has been mounted, so you can also run shell scripts from your source tree. For example: `bash scripts/install-dev-tools.sh`. Defaults to none. |
+| `postCreateCommand` | string or array | A command string or list of command arguments to run after the container is created. The commands execute from the `workspaceFolder` in the container. Use `&&` in a string to execute multiple commands. For example, `"yarn install"`, `["yarn", "install"]`, or `"apt-get update && apt-get install -y git"`. It fires after your source code has been mounted, so you can also run shell scripts from your source tree. For example: `bash scripts/install-dev-tools.sh`. Defaults to none. |
 | `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
 
 If you've already built the container and connected to it, be sure to run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
@@ -924,7 +947,7 @@ If you see "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates
 
 ### I'm seeing an error about a missing library or dependency
 
-Some extensions rely on libraries not found in the certain Docker images. See [Installing additional software](#installing-additional-software-in-the-sandbox) for help with resolving the problem.
+Some extensions rely on libraries not found in the certain Docker images. See [Installing additional software](#installing-additional-software) for help with resolving the problem.
 
 ### Can I connect to multiple containers at once?
 
