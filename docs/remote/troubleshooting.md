@@ -598,9 +598,43 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 
 ## WSL tips
 
-### Selecting the default distribution used by Remote - WSL
+### First time start: VS Code Server prerequisites
 
-Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL versions, VS Code will use your system **default distro**. You can use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
+Some WSL Linux distributions are lacking libraries that are required by the VS Code server to start up. You can add additional libraries into your Linux distribution by using its package manager.
+
+#### Debian
+
+Open the Debian WSL shell to add `wget` and `ca-certificates`:
+
+```sh
+sudo apt-get update && apt-get install wget ca-certificates
+```
+
+
+#### Alpine
+
+Open the Alpine WSL shell as root (`wsl -d Alpine -u root`) to add `libstdc++`:
+
+```sh
+apk update && apk add libstdc++
+```
+
+On Windows 10 April 2018 Update (build 1803) and older, `/bin/bash` is required:
+
+```sh
+apk update && apk add bash
+```
+
+
+### Selecting the distribution used by Remote - WSL
+
+**Remote-WSL: New Window** will open the WSL distro registered as default.
+
+To open a non-default distro, run `code .` from the WSL shell of the distro to use or use **Remote-WSL: New Window using Distro**.
+
+Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL versions, VS Code can only use the **default distro**.
+
+You can use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
 
 For example:
 
@@ -614,17 +648,23 @@ You can see which distributions you have installed by running:
 wslconfig /l
 ```
 
-### VS Code server hangs when starting up
+### Configure the environment for the server startup
 
-This can happen if there are custom startup scripts that prevent startup.
+When the Remote WSL extension starts the VS Code server in WSL, it does not run any shell configuration scripts. This was done to avoid that custom configuration scripts can prevent the startup.
+If you need to configure the startup environment, you can use the environment setup script as described here [here](https://code.visualstudio.com/docs/remote/wsl#_advanced-environment-setup-script).
 
-The VS Code server is started in an interactive login shell and uses the shell that is configured. See this [blog post](https://medium.com/@vinhp/set-and-use-zsh-as-default-shell-in-wsl-on-windows-10-the-right-way-4f30ed9592dc) for more information on how to specify a shell.
+### Configure the environment for the remote extension host
 
-By default, `bash` is used as the shell. Bash will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`. If this lookup seems unnecessary, you may include all startup settings in `~/.bashrc`. Check whether these files contain any commands that could block the server from starting. For example, it is not recommended using the startup script to start another shell.
+The environment for the remote extension host and terminal are based on the default shell's configuration scripts:
+To evaluate the environment variables for the remote extension host process, the server creates an instance of the default shell as _interactive login shell_. It probes the environment variables from it and uses them as initial environment for the remote extension host process. The values of environment variables therefore depend on what shell is configured as default and the content of the configuration scripts for that shell.
+
+See [here](https://github.com/rbenv/rbenv/wiki/unix-shell-initialization) for an overview of each shells configuration scripts. Most WSL distributions have `/bin/bash` configured as the default shell. `/bin/bash` will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`.
+
+To change the default shell of a WSL distro, follow the instructions of [this blog post](https://medium.com/@vinhp/set-and-use-zsh-as-default-shell-in-wsl-on-windows-10-the-right-way-4f30ed9592dc).
 
 ### Fixing problems with the code command not working
 
-If typing `code` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
+If typing `code` from a WSL terminal on Window does not work because `code` can not be found, you may be missing some key locations from your PATH in WSL.
 
 Check by opening a WSL terminal and typing `echo $PATH`. You should see VS Code install path listed. By default, this would be:
 
@@ -644,7 +684,9 @@ But, if you used the **System Installer**, the install path is:
 /mnt/c/Program Files (x86)/Microsoft VS Code/bin
 ```
 
-If the VS Code install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
+It's a feature of WSL that paths are inherited from the PATH variable in Windows. To change the Windows PATH variable, use the `Edit environment variables for your account` command from the start menu in Windows.
+
+If you have disabled the path sharing feature, edit your `.bashrc`, add the following, and start a new terminal:
 
 ```bash
 WINDOWS_USERNAME="Your Windows Alias"
@@ -659,9 +701,16 @@ export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppD
 
 > **Note:** Be sure to quote or escape spaces in the directory names.
 
-### Resolving errors about missing dependencies
+### I see EACCESS: permission denied error trying to rename a folder in the open workspace
 
-Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager. For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
+That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL2.
+
+To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based has a performance impact for large workspaces.
+
+For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `files.watcherExclude`.
+
+[WSL2](https://docs.microsoft.com/en-us/windows/wsl/wsl2-index) does not have that file watcher problem is also not affected by the new setting.
+
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 
@@ -720,6 +769,10 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 ## Extension tips
 
 While many extensions will work unmodified, there are a few issues that can prevent certain features from working as expected. In some cases, you can use another command to work around the issue, while in others, the extension may need to be modified. This section provides a quick reference for common issues and tips on resolving them. You can also refer to the main extension article on [Supporting Remote Development](/api/advanced-topics/remote-extensions) for an in-depth guide on modifying extensions to support remote extension hosts.
+
+### Resolving errors about missing dependencies
+
+Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager. For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
 
 ### Local absolute path settings fail when applied remotely
 
