@@ -25,7 +25,7 @@ To get started, you need to:
 
 1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution.
 
-    > **Note:** WSL1 does have some [known limitations](#known-limitations) for certain types of development and WSL2 support is **experimental**. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
+    > **Note:** WSL 1 does have some [known limitations](#known-limitations) for certain types of development and WSL 2 support is **experimental**. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
 
 2. Install [Visual Studio Code](https://code.visualstudio.com/) on the **Windows** side (not in WSL).
 
@@ -203,13 +203,13 @@ Some extensions rely on libraries not found in the vanilla install of certain WS
 
 ### I see EACCESS: permission denied error trying to rename a folder in the open workspace
 
-That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL2.
+That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
 
 To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based has a performance impact for large workspaces.
 
 For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `files.watcherExclude`.
 
-WSL2 does not have that file watcher problem is also not affected by the new setting.
+WSL 2 does not have that file watcher problem is also not affected by the new setting.
 
 ### What are the connectivity requirements for the Remote - WSL extension?
 

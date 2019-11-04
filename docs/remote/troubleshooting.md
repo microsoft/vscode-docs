@@ -331,7 +331,7 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 On Linux, you can use your distribution's package manager to install SSHFS. For Debian/Ubuntu: `sudo apt-get install sshfs`
 
-> **Note:** WSL 1 does not support FUSE or SSHFS, so the instructions differ for Windows currently. **WSL2 does include FUSE and SSHFS support**, so this will change soon.
+> **Note:** WSL 1 does not support FUSE or SSHFS, so the instructions differ for Windows currently. **WSL 2 does include FUSE and SSHFS support**, so this will change soon.
 
 On macOS, you can install SSHFS using [Homebrew](https://brew.sh/): `brew install sshfs` In addition, if you would prefer not to use the command line to mount the remote filesystem, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
 
@@ -610,7 +610,6 @@ Open the Debian WSL shell to add `wget` and `ca-certificates`:
 sudo apt-get update && apt-get install wget ca-certificates
 ```
 
-
 #### Alpine
 
 Open the Alpine WSL shell as root (`wsl -d Alpine -u root`) to add `libstdc++`:
@@ -624,7 +623,6 @@ On Windows 10 April 2018 Update (build 1803) and older, `/bin/bash` is required:
 ```sh
 apk update && apk add bash
 ```
-
 
 ### Selecting the distribution used by Remote - WSL
 
@@ -651,14 +649,14 @@ wslconfig /l
 ### Configure the environment for the server startup
 
 When the Remote WSL extension starts the VS Code server in WSL, it does not run any shell configuration scripts. This was done to avoid that custom configuration scripts can prevent the startup.
-If you need to configure the startup environment, you can use the environment setup script as described here [here](https://code.visualstudio.com/docs/remote/wsl#_advanced-environment-setup-script).
+
+If you need to configure the startup environment, you can use the environment setup script as described [here](/docs/remote/wsl.md#advanced-environment-setup-script).
 
 ### Configure the environment for the remote extension host
 
-The environment for the remote extension host and terminal are based on the default shell's configuration scripts:
-To evaluate the environment variables for the remote extension host process, the server creates an instance of the default shell as _interactive login shell_. It probes the environment variables from it and uses them as initial environment for the remote extension host process. The values of environment variables therefore depend on what shell is configured as default and the content of the configuration scripts for that shell.
+The environment for the remote extension host and terminal are based on the default shell's configuration scripts. To evaluate the environment variables for the remote extension host process, the server creates an instance of the default shell as an **interactive login shell**. It probes the environment variables from it and uses them as the initial environment for the remote extension host process. The values of environment variables therefore depend on what shell is configured as the default and the content of the configuration scripts for that shell.
 
-See [here](https://github.com/rbenv/rbenv/wiki/unix-shell-initialization) for an overview of each shells configuration scripts. Most WSL distributions have `/bin/bash` configured as the default shell. `/bin/bash` will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`.
+See [Unix shell initialization](https://github.com/rbenv/rbenv/wiki/unix-shell-initialization) for an overview of each shells configuration scripts. Most WSL distributions have `/bin/bash` configured as the default shell. `/bin/bash` will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`.
 
 To change the default shell of a WSL distro, follow the instructions of [this blog post](https://medium.com/@vinhp/set-and-use-zsh-as-default-shell-in-wsl-on-windows-10-the-right-way-4f30ed9592dc).
 
@@ -684,7 +682,7 @@ But, if you used the **System Installer**, the install path is:
 /mnt/c/Program Files (x86)/Microsoft VS Code/bin
 ```
 
-It's a feature of WSL that paths are inherited from the PATH variable in Windows. To change the Windows PATH variable, use the `Edit environment variables for your account` command from the start menu in Windows.
+It's a feature of WSL that paths are inherited from the PATH variable in Windows. To change the Windows PATH variable, use the **Edit environment variables for your account** command from the start menu in Windows.
 
 If you have disabled the path sharing feature, edit your `.bashrc`, add the following, and start a new terminal:
 
@@ -699,18 +697,17 @@ export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppD
 
 ```
 
-> **Note:** Be sure to quote or escape spaces in the directory names.
+> **Note:** Be sure to quote or escape space characters in the directory names.
 
 ### I see EACCESS: permission denied error trying to rename a folder in the open workspace
 
-That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL2.
+This is a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VS Code. The issue will only be fixed in WSL 2.
 
 To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based has a performance impact for large workspaces.
 
-For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `files.watcherExclude`.
+For large workspace you may want to increase the polling interval, `remote.WSL.fileWatcher.pollingInterval`, and control the folders that are watched with `files.watcherExclude`.
 
-[WSL2](https://docs.microsoft.com/en-us/windows/wsl/wsl2-index) does not have that file watcher problem is also not affected by the new setting.
-
+[WSL 2](https://docs.microsoft.com/en-us/windows/wsl/wsl2-index) does not have that file watcher problem and is not affected by the new setting.
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 
@@ -772,7 +769,7 @@ While many extensions will work unmodified, there are a few issues that can prev
 
 ### Resolving errors about missing dependencies
 
-Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager. For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
+Some extensions rely on libraries not found in the basic install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager. For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned in the error message for additional installation details.
 
 ### Local absolute path settings fail when applied remotely
 
