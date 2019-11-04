@@ -157,6 +157,10 @@ The **Reapply All Breakpoints** command sets all breakpoints again to their orig
 
 ![Breakpoints](images/debugging/breakpoints.png)
 
+Optionally breakpoints can be shown in the editor's overview ruler by enabling the setting `debug.showBreakpointsInOverviewRuler`:
+
+![breakpoints in overview ruler](images/debugging/bpts-in-overview.png)
+
 ## Logpoints
 
 A Logpoint is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the console. Logpoints are especially useful for injecting logging while debugging production servers that cannot be paused or stopped.
@@ -375,7 +379,7 @@ Using multi-target debugging is simple: after you've started a first debug sessi
 
 ### Compound launch configurations
 
-An alternative way to start multiple debug sessions is by using a **compound** launch configuration. A compound launch configuration lists the names of two or more launch configurations that should be launched in parallel. Compound launch configurations are displayed in the launch configuration drop-down menu.
+An alternative way to start multiple debug sessions is by using a **compound** launch configuration. A compound launch configuration lists the names of two or more launch configurations that should be launched in parallel. Optionally a `preLaunchTask` can be specified that is run before the individual debug sessions are started.
 
 ```json
 {
@@ -385,25 +389,26 @@ An alternative way to start multiple debug sessions is by using a **compound** l
             "type": "node",
             "request": "launch",
             "name": "Server",
-            "program": "${workspaceFolder}/server.js",
-            "cwd": "${workspaceFolder}"
+            "program": "${workspaceFolder}/server.js"
         },
         {
             "type": "node",
             "request": "launch",
             "name": "Client",
-            "program": "${workspaceFolder}/client.js",
-            "cwd": "${workspaceFolder}"
+            "program": "${workspaceFolder}/client.js"
         }
     ],
     "compounds": [
         {
             "name": "Server/Client",
-            "configurations": ["Server", "Client"]
+            "configurations": ["Server", "Client"],
+            "preLaunchTask": "${defaultBuildTask}"
         }
     ]
 }
 ```
+
+Compound launch configurations are displayed in the launch configuration drop-down menu.
 
 ## Remote debugging
 
