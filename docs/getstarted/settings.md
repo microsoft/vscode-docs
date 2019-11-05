@@ -2115,12 +2115,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Outline
 
-  // When set to `false` outline never shows `array`-symbols.
-  "outline.filteredTypes.array": true,
-
-  // When set to `false` outline never shows `boolean`-symbols.
-  "outline.filteredTypes.boolean": true,
-
   // Render Outline Elements with Icons.
   "outline.icons": true,
 
