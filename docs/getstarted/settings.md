@@ -267,7 +267,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls the font family.
   "editor.fontFamily": "Consolas, 'Courier New', monospace",
 
-  // Enables/Disables font ligatures.
+  // Configures font ligatures.
   "editor.fontLigatures": false,
 
   // Controls the font size in pixels.
@@ -453,83 +453,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Keep peek editors open even when double clicking their content or when hitting `Escape`.
   "editor.stablePeek": false,
 
-  // When set to `false` IntelliSense never shows `class` suggestions.
-  "editor.suggest.filteredTypes.class": true,
-
-  // When set to `false` IntelliSense never shows `color` suggestions.
-  "editor.suggest.filteredTypes.color": true,
-
-  // When set to `false` IntelliSense never shows `constant` suggestions.
-  "editor.suggest.filteredTypes.constant": true,
-
-  // When set to `false` IntelliSense never shows `constructor` suggestions.
-  "editor.suggest.filteredTypes.constructor": true,
-
-  // When set to `false` IntelliSense never shows `customcolor` suggestions.
-  "editor.suggest.filteredTypes.customcolor": true,
-
-  // When set to `false` IntelliSense never shows `enum` suggestions.
-  "editor.suggest.filteredTypes.enum": true,
-
-  // When set to `false` IntelliSense never shows `enumMember` suggestions.
-  "editor.suggest.filteredTypes.enumMember": true,
-
-  // When set to `false` IntelliSense never shows `event` suggestions.
-  "editor.suggest.filteredTypes.event": true,
-
-  // When set to `false` IntelliSense never shows `field` suggestions.
-  "editor.suggest.filteredTypes.field": true,
-
-  // When set to `false` IntelliSense never shows `file` suggestions.
-  "editor.suggest.filteredTypes.file": true,
-
-  // When set to `false` IntelliSense never shows `folder` suggestions.
-  "editor.suggest.filteredTypes.folder": true,
-
-  // When set to `false` IntelliSense never shows `function` suggestions.
-  "editor.suggest.filteredTypes.function": true,
-
-  // When set to `false` IntelliSense never shows `interface` suggestions.
-  "editor.suggest.filteredTypes.interface": true,
-
-  // When set to `false` IntelliSense never shows `keyword` suggestions.
-  "editor.suggest.filteredTypes.keyword": true,
-
-  // When set to `false` IntelliSense never shows `method` suggestions.
-  "editor.suggest.filteredTypes.method": true,
-
-  // When set to `false` IntelliSense never shows `module` suggestions.
-  "editor.suggest.filteredTypes.module": true,
-
-  // When set to `false` IntelliSense never shows `operator` suggestions.
-  "editor.suggest.filteredTypes.operator": true,
-
-  // When set to `false` IntelliSense never shows `property` suggestions.
-  "editor.suggest.filteredTypes.property": true,
-
-  // When set to `false` IntelliSense never shows `reference` suggestions.
-  "editor.suggest.filteredTypes.reference": true,
-
-  // When set to `false` IntelliSense never shows `snippet` suggestions.
-  "editor.suggest.filteredTypes.snippet": true,
-
-  // When set to `false` IntelliSense never shows `struct` suggestions.
-  "editor.suggest.filteredTypes.struct": true,
-
-  // When set to `false` IntelliSense never shows `text` suggestions.
-  "editor.suggest.filteredTypes.text": true,
-
-  // When set to `false` IntelliSense never shows `typeParameter` suggestions.
-  "editor.suggest.filteredTypes.typeParameter": true,
-
-  // When set to `false` IntelliSense never shows `unit` suggestions.
-  "editor.suggest.filteredTypes.unit": true,
-
-  // When set to `false` IntelliSense never shows `value` suggestions.
-  "editor.suggest.filteredTypes.value": true,
-
-  // When set to `false` IntelliSense never shows `variable` suggestions.
-  "editor.suggest.filteredTypes.variable": true,
 
   // Controls whether filtering and sorting suggestions accounts for small typos.
   "editor.suggest.filterGraceful": true,
@@ -540,14 +463,89 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls how many suggestions IntelliSense will show before showing a scrollbar (maximum 15).
   "editor.suggest.maxVisibleSuggestions": 12,
 
-  // Controls whether words are overwritten when accepting completions.
-  "editor.suggest.overwriteOnAccept": false,
-
   // Controls whether remembered suggestion selections are shared between multiple workspaces and windows (needs `editor.suggestSelection`).
   "editor.suggest.shareSuggestSelections": false,
 
+  // When enabled IntelliSense shows `class`-suggestions.
+  "editor.suggest.showClasses": true,
+
+  // When enabled IntelliSense shows `color`-suggestions.
+  "editor.suggest.showColors": true,
+
+  // When enabled IntelliSense shows `constant`-suggestions.
+  "editor.suggest.showConstants": true,
+
+  // When enabled IntelliSense shows `constructor`-suggestions.
+  "editor.suggest.showConstructors": true,
+
+  // When enabled IntelliSense shows `customcolor`-suggestions.
+  "editor.suggest.showCustomcolors": true,
+
+  // When enabled IntelliSense shows `enumMember`-suggestions.
+  "editor.suggest.showEnumMembers": true,
+
+  // When enabled IntelliSense shows `enum`-suggestions.
+  "editor.suggest.showEnums": true,
+
+  // When enabled IntelliSense shows `event`-suggestions.
+  "editor.suggest.showEvents": true,
+
+  // When enabled IntelliSense shows `field`-suggestions.
+  "editor.suggest.showFields": true,
+
+  // When enabled IntelliSense shows `file`-suggestions.
+  "editor.suggest.showFiles": true,
+
+  // When enabled IntelliSense shows `folder`-suggestions.
+  "editor.suggest.showFolders": true,
+
+  // When enabled IntelliSense shows `function`-suggestions.
+  "editor.suggest.showFunctions": true,
+
   // Controls whether to show or hide icons in suggestions.
   "editor.suggest.showIcons": true,
+
+  // When enabled IntelliSense shows `interface`-suggestions.
+  "editor.suggest.showInterfaces": true,
+
+  // When enabled IntelliSense shows `keyword`-suggestions.
+  "editor.suggest.showKeywords": true,
+
+  // When enabled IntelliSense shows `method`-suggestions.
+  "editor.suggest.showMethods": true,
+
+  // When enabled IntelliSense shows `module`-suggestions.
+  "editor.suggest.showModules": true,
+
+  // When enabled IntelliSense shows `operator`-suggestions.
+  "editor.suggest.showOperators": true,
+
+  // When enabled IntelliSense shows `property`-suggestions.
+  "editor.suggest.showProperties": true,
+
+  // When enabled IntelliSense shows `reference`-suggestions.
+  "editor.suggest.showReferences": true,
+
+  // When enabled IntelliSense shows `snippet`-suggestions.
+  "editor.suggest.showSnippets": true,
+
+  // When enabled IntelliSense shows `struct`-suggestions.
+  "editor.suggest.showStructs": true,
+
+  // When enabled IntelliSense shows `typeParameter`-suggestions.
+  "editor.suggest.showTypeParameters": true,
+
+  // When enabled IntelliSense shows `unit`-suggestions.
+  "editor.suggest.showUnits": true,
+
+  // When enabled IntelliSense shows `value`-suggestions.
+  "editor.suggest.showValues": true,
+
+  // When enabled IntelliSense shows `variable`-suggestions.
+  "editor.suggest.showVariables": true,
+
+  // When enabled IntelliSense shows `text`-suggestions.
+  "editor.suggest.showWords": true,
 
   // Control whether an active snippet prevents quick suggestions.
   "editor.suggest.snippetsPreventQuickSuggestions": true,
@@ -844,7 +842,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - visible: Menu is always visible even in full screen mode.
   //  - toggle: Menu is hidden but can be displayed via Alt key.
   //  - hidden: Menu is always hidden.
-  //  - compact: Menu is displayed as a compact button in the sidebar.
+  //  - compact: Menu is displayed as a compact button in the sidebar. This value is ignored when 'window.titleBarStyle' is 'native'.
   "window.menuBarVisibility": "default",
 
   // Controls the dimensions of opening a new window when at least one window is already opened. Note that this setting does not have an impact on the first window that is opened. The first window will always restore the size and location as you left it before closing.
@@ -1563,6 +1561,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enables logging of the TS server to a file. This log can be used to diagnose TS Server issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.log": "off",
 
+  // Set the maximum amount of memory (in MB) to allocate to the TypeScript server process
+  "typescript.tsserver.maxTsServerMemory": 3072,
+
   // Additional paths to discover TypeScript Language Service plugins. Requires using TypeScript 2.3.0 or newer in the workspace.
   "typescript.tsserver.pluginPaths": [],
 
@@ -1974,7 +1975,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 // Tasks
 
   // Controls enablement of `provideTasks` for all task provider extension. If the Tasks: Run Task command is slow, disabling auto detect for task providers may help. Individual extensions my provide settings to disabled auto detection.
-  "task.autoDetect": true,
+  "task.autoDetect": "on",
 
   // Configures whether to show the problem matcher prompt when running a task. Set to `true` to never promp, or use a dictionary of task types to turn off prompting only for specific task types.
   "task.problemMatchers.neverPrompt": false,
@@ -2010,86 +2011,86 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - last: Only show the last element of the file path in the breadcrumbs view.
   "breadcrumbs.filePath": "on",
 
-  // When set to `false` breadcrumbs never show `array`-symbols.
-  "breadcrumbs.filteredTypes.array": true,
-
-  // When set to `false` breadcrumbs never show `boolean`-symbols.
-  "breadcrumbs.filteredTypes.boolean": true,
-
-  // When set to `false` breadcrumbs never show `class`-symbols.
-  "breadcrumbs.filteredTypes.class": true,
-
-  // When set to `false` breadcrumbs never show `constant`-symbols.
-  "breadcrumbs.filteredTypes.constant": true,
-
-  // When set to `false` breadcrumbs never show `constructor`-symbols.
-  "breadcrumbs.filteredTypes.constructor": true,
-
-  // When set to `false` breadcrumbs never show `enum`-symbols.
-  "breadcrumbs.filteredTypes.enum": true,
-
-  // When set to `false` breadcrumbs never show `enumMember`-symbols.
-  "breadcrumbs.filteredTypes.enumMember": true,
-
-  // When set to `false` breadcrumbs never show `event`-symbols.
-  "breadcrumbs.filteredTypes.event": true,
-
-  // When set to `false` breadcrumbs never show `field`-symbols.
-  "breadcrumbs.filteredTypes.field": true,
-
-  // When set to `false` breadcrumbs never show `file`-symbols.
-  "breadcrumbs.filteredTypes.file": true,
-
-  // When set to `false` breadcrumbs never show `function`-symbols.
-  "breadcrumbs.filteredTypes.function": true,
-
-  // When set to `false` breadcrumbs never show `interface`-symbols.
-  "breadcrumbs.filteredTypes.interface": true,
-
-  // When set to `false` breadcrumbs never show `key`-symbols.
-  "breadcrumbs.filteredTypes.key": true,
-
-  // When set to `false` breadcrumbs never show `method`-symbols.
-  "breadcrumbs.filteredTypes.method": true,
-
-  // When set to `false` breadcrumbs never show `module`-symbols.
-  "breadcrumbs.filteredTypes.module": true,
-
-  // When set to `false` breadcrumbs never show `namespace`-symbols.
-  "breadcrumbs.filteredTypes.namespace": true,
-
-  // When set to `false` breadcrumbs never show `null`-symbols.
-  "breadcrumbs.filteredTypes.null": true,
-
-  // When set to `false` breadcrumbs never show `number`-symbols.
-  "breadcrumbs.filteredTypes.number": true,
-
-  // When set to `false` breadcrumbs never show `object`-symbols.
-  "breadcrumbs.filteredTypes.object": true,
-
-  // When set to `false` breadcrumbs never show `operator`-symbols.
-  "breadcrumbs.filteredTypes.operator": true,
-
-  // When set to `false` breadcrumbs never show `package`-symbols.
-  "breadcrumbs.filteredTypes.package": true,
-
-  // When set to `false` breadcrumbs never show `property`-symbols.
-  "breadcrumbs.filteredTypes.property": true,
-
-  // When set to `false` breadcrumbs never show `string`-symbols.
-  "breadcrumbs.filteredTypes.string": true,
-
-  // When set to `false` breadcrumbs never show `struct`-symbols.
-  "breadcrumbs.filteredTypes.struct": true,
-
-  // When set to `false` breadcrumbs never show `typeParameter`-symbols.
-  "breadcrumbs.filteredTypes.typeParameter": true,
-
-  // When set to `false` breadcrumbs never show `variable`-symbols.
-  "breadcrumbs.filteredTypes.variable": true,
-
   // Render breadcrumb items with icons.
   "breadcrumbs.icons": true,
+
+  // When enabled breadcrumbs show `array`-symbols.
+  "breadcrumbs.showArrays": true,
+
+  // When enabled breadcrumbs show `boolean`-symbols.
+  "breadcrumbs.showBooleans": true,
+
+  // When enabled breadcrumbs show `class`-symbols.
+  "breadcrumbs.showClasses": true,
+
+  // When enabled breadcrumbs show `constant`-symbols.
+  "breadcrumbs.showConstants": true,
+
+  // When enabled breadcrumbs show `constructor`-symbols.
+  "breadcrumbs.showConstructors": true,
+
+  // When enabled breadcrumbs show `enumMember`-symbols.
+  "breadcrumbs.showEnumMembers": true,
+
+  // When enabled breadcrumbs show `enum`-symbols.
+  "breadcrumbs.showEnums": true,
+
+  // When enabled breadcrumbs show `event`-symbols.
+  "breadcrumbs.showEvents": true,
+
+  // When enabled breadcrumbs show `field`-symbols.
+  "breadcrumbs.showFields": true,
+
+  // When enabled breadcrumbs show `file`-symbols.
+  "breadcrumbs.showFiles": true,
+
+  // When enabled breadcrumbs show `function`-symbols.
+  "breadcrumbs.showFunctions": true,
+
+  // When enabled breadcrumbs show `interface`-symbols.
+  "breadcrumbs.showInterfaces": true,
+
+  // When enabled breadcrumbs show `key`-symbols.
+  "breadcrumbs.showKeys": true,
+
+  // When enabled breadcrumbs show `method`-symbols.
+  "breadcrumbs.showMethods": true,
+
+  // When enabled breadcrumbs show `module`-symbols.
+  "breadcrumbs.showModules": true,
+
+  // When enabled breadcrumbs show `namespace`-symbols.
+  "breadcrumbs.showNamespaces": true,
+
+  // When enabled breadcrumbs show `null`-symbols.
+  "breadcrumbs.showNull": true,
+
+  // When enabled breadcrumbs show `number`-symbols.
+  "breadcrumbs.showNumbers": true,
+
+  // When enabled breadcrumbs show `object`-symbols.
+  "breadcrumbs.showObjects": true,
+
+  // When enabled breadcrumbs show `operator`-symbols.
+  "breadcrumbs.showOperators": true,
+
+  // When enabled breadcrumbs show `package`-symbols.
+  "breadcrumbs.showPackages": true,
+
+  // When enabled breadcrumbs show `property`-symbols.
+  "breadcrumbs.showProperties": true,
+
+  // When enabled breadcrumbs show `string`-symbols.
+  "breadcrumbs.showStrings": true,
+
+  // When enabled breadcrumbs show `struct`-symbols.
+  "breadcrumbs.showStructs": true,
+
+  // When enabled breadcrumbs show `typeParameter`-symbols.
+  "breadcrumbs.showTypeParameters": true,
+
+  // When enabled breadcrumbs show `variable`-symbols.
+  "breadcrumbs.showVariables": true,
 
   // Controls whether and how symbols are shown in the breadcrumbs view.
   //  - on: Show all symbols in the breadcrumbs view.
@@ -2120,78 +2121,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   // When set to `false` outline never shows `boolean`-symbols.
   "outline.filteredTypes.boolean": true,
 
-  // When set to `false` outline never shows `class`-symbols.
-  "outline.filteredTypes.class": true,
-
-  // When set to `false` outline never shows `constant`-symbols.
-  "outline.filteredTypes.constant": true,
-
-  // When set to `false` outline never shows `constructor`-symbols.
-  "outline.filteredTypes.constructor": true,
-
-  // When set to `false` outline never shows `enum`-symbols.
-  "outline.filteredTypes.enum": true,
-
-  // When set to `false` outline never shows `enumMember`-symbols.
-  "outline.filteredTypes.enumMember": true,
-
-  // When set to `false` outline never shows `event`-symbols.
-  "outline.filteredTypes.event": true,
-
-  // When set to `false` outline never shows `field`-symbols.
-  "outline.filteredTypes.field": true,
-
-  // When set to `false` outline never shows `file`-symbols.
-  "outline.filteredTypes.file": true,
-
-  // When set to `false` outline never shows `function`-symbols.
-  "outline.filteredTypes.function": true,
-
-  // When set to `false` outline never shows `interface`-symbols.
-  "outline.filteredTypes.interface": true,
-
-  // When set to `false` outline never shows `key`-symbols.
-  "outline.filteredTypes.key": true,
-
-  // When set to `false` outline never shows `method`-symbols.
-  "outline.filteredTypes.method": true,
-
-  // When set to `false` outline never shows `module`-symbols.
-  "outline.filteredTypes.module": true,
-
-  // When set to `false` outline never shows `namespace`-symbols.
-  "outline.filteredTypes.namespace": true,
-
-  // When set to `false` outline never shows `null`-symbols.
-  "outline.filteredTypes.null": true,
-
-  // When set to `false` outline never shows `number`-symbols.
-  "outline.filteredTypes.number": true,
-
-  // When set to `false` outline never shows `object`-symbols.
-  "outline.filteredTypes.object": true,
-
-  // When set to `false` outline never shows `operator`-symbols.
-  "outline.filteredTypes.operator": true,
-
-  // When set to `false` outline never shows `package`-symbols.
-  "outline.filteredTypes.package": true,
-
-  // When set to `false` outline never shows `property`-symbols.
-  "outline.filteredTypes.property": true,
-
-  // When set to `false` outline never shows `string`-symbols.
-  "outline.filteredTypes.string": true,
-
-  // When set to `false` outline never shows `struct`-symbols.
-  "outline.filteredTypes.struct": true,
-
-  // When set to `false` outline never shows `typeParameter`-symbols.
-  "outline.filteredTypes.typeParameter": true,
-
-  // When set to `false` outline never shows `variable`-symbols.
-  "outline.filteredTypes.variable": true,
-
   // Render Outline Elements with Icons.
   "outline.icons": true,
 
@@ -2203,6 +2132,84 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Show Errors & Warnings on Outline Elements.
   "outline.problems.enabled": true,
+
+  // When enabled outline shows `array`-symbols.
+  "outline.showArrays": true,
+
+  // When enabled outline shows `boolean`-symbols.
+  "outline.showBooleans": true,
+
+  // When enabled outline shows `class`-symbols.
+  "outline.showClasses": true,
+
+  // When enabled outline shows `constant`-symbols.
+  "outline.showConstants": true,
+
+  // When enabled outline shows `constructor`-symbols.
+  "outline.showConstructors": true,
+
+  // When enabled outline shows `enumMember`-symbols.
+  "outline.showEnumMembers": true,
+
+  // When enabled outline shows `enum`-symbols.
+  "outline.showEnums": true,
+
+  // When enabled outline shows `event`-symbols.
+  "outline.showEvents": true,
+
+  // When enabled outline shows `field`-symbols.
+  "outline.showFields": true,
+
+  // When enabled outline shows `file`-symbols.
+  "outline.showFiles": true,
+
+  // When enabled outline shows `function`-symbols.
+  "outline.showFunctions": true,
+
+  // When enabled outline shows `interface`-symbols.
+  "outline.showInterfaces": true,
+
+  // When enabled outline shows `key`-symbols.
+  "outline.showKeys": true,
+
+  // When enabled outline shows `method`-symbols.
+  "outline.showMethods": true,
+
+  // When enabled outline shows `module`-symbols.
+  "outline.showModules": true,
+
+  // When enabled outline shows `namespace`-symbols.
+  "outline.showNamespaces": true,
+
+  // When enabled outline shows `null`-symbols.
+  "outline.showNull": true,
+
+  // When enabled outline shows `number`-symbols.
+  "outline.showNumbers": true,
+
+  // When enabled outline shows `object`-symbols.
+  "outline.showObjects": true,
+
+  // When enabled outline shows `operator`-symbols.
+  "outline.showOperators": true,
+
+  // When enabled outline shows `package`-symbols.
+  "outline.showPackages": true,
+
+  // When enabled outline shows `property`-symbols.
+  "outline.showProperties": true,
+
+  // When enabled outline shows `string`-symbols.
+  "outline.showStrings": true,
+
+  // When enabled outline shows `struct`-symbols.
+  "outline.showStructs": true,
+
+  // When enabled outline shows `typeParameter`-symbols.
+  "outline.showTypeParameters": true,
+
+  // When enabled outline shows `variable`-symbols.
+  "outline.showVariables": true,
 
 // Default Configuration Overrides
 
