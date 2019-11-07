@@ -14,6 +14,10 @@ In this topic, we'll teach you the fundamental concepts for building extensions.
 ```bash
 npm install -g yo generator-code
 ```
+or
+```bash
+npx -p yo -p generator-code -- yo code
+```
 
 The generator scaffolds a project ready for development. Run the generator and fill out a few fields:
 
