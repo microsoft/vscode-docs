@@ -24,7 +24,7 @@ You can also install the PowerShell extension from within Visual Studio Code by 
 
 ## Install from the command line
 
-Alternatively, the PowerShell extension can be installed from any command line (including PowerShell, Cmd, bash) on all platforms with the following command
+Alternatively, the PowerShell extension can be installed from any command line (including PowerShell, Cmd, bash) on all platforms using the following command
 
 ```bash
 code --install-extension ms-vscode.powershell
