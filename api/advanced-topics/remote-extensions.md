@@ -13,15 +13,15 @@ To ensure performance, Remote Development and Visual Studio Online both transpar
 
 This article summarizes what extension authors need to know about VS Code Remote Development and VS Online including the extension [architecture](#architecture-and-extension-types), how to [debug your extension](#debugging-extensions) in remote workspaces or VS Online, and recommendations on [what to do if your extension does not work properly](#common-problems).
 
-## Architecture and extension types
+## Architecture and extension kinds
 
-In order to make working with Remote Development or VS Online as transparent as possible to users, VS Code distinguishes two classes of extensions:
+In order to make working with Remote Development or VS Online as transparent as possible to users, VS Code distinguishes two kinds of extensions:
 
 - **UI Extensions**: These extensions contribute to the VS Code user interface and are always run on the user's local machine. In the case of VS Online's browser-based editor, they may even run in the browser itself. UI Extensions cannot directly access files in the workspace, or run scripts/tools installed in that workspace or on the machine. Example UI Extensions include: themes, snippets, language grammars, and keymaps.
 
 - **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions run on the local machine. When in a remote workspace or when using VS Online, Workspace Extensions run on the remote machine / environment. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in the workspace (either directly or by invoking scripts/tools). While Workspace Extensions do not focus on modifying the UI, they can contribute explorers, views, and other UI elements as well.
 
-When a user installs an extension, VS Code automatically installs it to the correct location based on its type: UI Extensions are run in VS Code's [local Extension Host](/api/advanced-topics/extension-host), while Workspace Extensions are run in a **Remote Extension Host** that sits in a small **VS Code Server**. To ensure the latest VS Code client features are available, the server needs to match the VS Code client version exactly. Therefore, the server is automatically installed (or updated) by the Remote Development or VS Online extensions when you open a folder in a container, on a remote SSH host, in a VS Online environment, or in the Windows Subsystem for Linux (WSL). (VS Code also automatically manages starting and stopping the server, so users aren't aware of its presence.)
+When a user installs an extension, VS Code automatically installs it to the correct location based on its type. If an extension can run as either kind, VS Code will attempt to choose the optimal one for the situation. UI Extensions are run in VS Code's [local Extension Host](/api/advanced-topics/extension-host), while Workspace Extensions are run in a **Remote Extension Host** that sits in a small **VS Code Server**. To ensure the latest VS Code client features are available, the server needs to match the VS Code client version exactly. Therefore, the server is automatically installed (or updated) by the Remote Development or VS Online extensions when you open a folder in a container, on a remote SSH host, in a VS Online environment, or in the Windows Subsystem for Linux (WSL). (VS Code also automatically manages starting and stopping the server, so users aren't aware of its presence.)
 
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
@@ -141,14 +141,19 @@ If your extension is not functioning as expected, it may be running in the wrong
 
 If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [`package.json`](/api/get-started/extension-anatomy#extension-manifest):
 
+As of VS Code 1.40, this value is an array:
+
 ```json
 {
-    "extensionKind": "ui"
+    "extensionKind": ["ui"]
 }
 ```
 
-- `"extensionKind": "ui"` — Forces the extension to be a UI extension that runs on the local machine when in VS Code. In VS Online's browser-based editors, some of these extensions may run in the browser itself.
-- `"extensionKind": "workspace"` — Forces the extension to be a workspace extension that will be run remotely by the VS Code Server for remote workspaces or VS Online environment.
+Prior releases only allowed an extension to specify one location as a string. Extensions can now specify more than one.
+
+- `"extensionKind": ["ui"]` — Indicates the extension requires access to local capabilities and therefore can only run in the VS Code client.
+- `"extensionKind": ["workspace"]` — Indicates the extension requires access to workspace contents and therefore will run in VS Code Server when connected to a remote workspace or VS Online.
+- `"extensionKind": ["ui", "workspace"]` — Indicates the extension can run in either location, but will default to the VS Code client.
 
 You can also quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you wish to force the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) to be a workspace extension (instead of its UI default), you would set:
 
@@ -286,7 +291,7 @@ Spawning a process or using a module like `opn` to launch a browser or other app
 
 Instead of relying on a third-party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better, `vscode.env.openExternal` **does automatic localhost port forwarding!** You can use it to point to a local web server on a remote machine or environment and serve up content even if that port is blocked externally.
 
-> **Note:** Currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for VS Code do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/6) for details.
+> **Note:** Currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for VS Code do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
 
 This API was added in VS Code 1.31. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -322,7 +327,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 While the [localhost forwarding mechanism in `vscode.env.openExternal` is useful](#opening-something-in-a-local-browser-or-application), there may also be situations where you want to forward something without actually launching a new browser window or application. This is where the `vscode.env.asExternalUri` API comes in.
 
-> **Note:** Currently the forwarding mechanism in Visual Studio Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Visual Studio Online extensions for VS Code do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/6) for details.
+> **Note:** Currently the forwarding mechanism in Visual Studio Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Visual Studio Online extensions for VS Code do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
 
 This API was added in VS Code 1.40. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -415,9 +420,9 @@ While OAuth is outside the scope of this document, note that if you adapted this
 
 ### Varying behaviors when running remotely or VS Online's browser editor
 
-In some cases, your Workspace Extension may need to vary the behavior when running remotely. In others, you might want to vary its behavior when running in VS Online's browser-based editor. VS Code provides two APIs to detect these situations: `vscode.env.uiKind` and `extension.extensionKind`.
+In some cases, your Workspace Extension may need to vary the behavior when running remotely. In others, you might want to vary its behavior when running in VS Online's browser-based editor. VS Code provides three APIs to detect these situations: `vscode.env.uiKind`, `extension.extensionKind`, `vscode.env.remoteName`.
 
-The `vscode.env.uiKind` API was added in VS Code 1.40 while `extension.extensionKind` was added in 1.36. To start, update the `engines.vscode` value in `package.json` to one of these versions and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
+The `vscode.env.uiKind` and `vscode.env.remoteName` APIs were added to VS Code 1.40 while `extension.extensionKind` was added in 1.36. To start, update the `engines.vscode` value in `package.json` to one of these versions and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
 ```json
 "engines": {
@@ -427,7 +432,7 @@ The `vscode.env.uiKind` API was added in VS Code 1.40 while `extension.extension
 
 Now when you publish your extension, only users of this version of VS Code or newer will get the updated version.
 
-Next, you can use the two APIs as follows:
+Next, you can use the three APIs as follows:
 
 ```typescript
 import * as vscode from 'vscode';
@@ -444,6 +449,12 @@ export async function activate(context: vscode.ExtensionContext) {
     if (vscode.env.uiKind === vscode.UIKind.Web) {
         vscode.window.showInformationMessage('I am running in the VS Online browser editor!');
     }
+
+    // VS Code will return undefined for remoteName if working with a local workspace
+    if (typeof(vscode.env.remoteName) === 'undefined') {
+        vscode.window.showInformationMessage('Not currently connected to a remote workspace.');
+    }
+
 }
 ```
 
@@ -477,7 +488,7 @@ See the [command API guide](/api/extension-guides/command) for details on workin
 
 Like the clipboard API, the [Webview API](/api/extension-guides/webview) is always run on the user's local machine or in the browser, even when used from a Workspace Extension. This means that many webview-based extensions should just work, even when used in remote workspaces or VS Online environments. However, there are some considerations to be aware of so that your webview extension works properly when run remotely.
 
-### Always Use asWebviewUri
+### Always use asWebviewUri
 
 VS Code 1.39 introduced a new `asWebviewUri` API to manage extension resources. Using this API instead of hard coding `vscode-resource://` URIs is required to ensure the VS Online browser-based editor works with your extension. See the [Webview API](/api/extension-guides/webview) guide for details, but here is a quick example.
 
@@ -541,7 +552,7 @@ Each option allows webview content to route through the same channel VS Code use
 
 VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local http and https requests remotely in a programmatic way. You can be use this same API to forward requests to localhost web servers from the webview when your extension is running in VS Code. In the future, if you intend to **only serve up content in an iframe**, you will be able to use this API to support VS Online's browser-based editor but this is **currently blocked** by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11).
 
-> **Note:** In addition to the issue above, currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for the VS Code client do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/6) for details.
+> **Note:** In addition to the issue above, currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for the VS Code client do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
 
 To start, update the `engines.vscode` value in `package.json` to at least 1.40 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -688,7 +699,7 @@ There are a few extension problems that could be resolved with some added functi
 | Problem | Description |
 |---------|-------------|
 | **Webview HTML content cannot directly access port forwarded servers in VS Online's browser-based editor** | Currently this is blocked by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). (Note that this does not affect the Remote Development or VS Online extensions for the VS Code client.) We generally suggest moving to the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API for webview content and interacting with any servers your extension spins up since this avoids the problem. In the future, we hope to allow local web server content [housed in an iframe](#webview-localhost-option-2---use-asexternaluri) to work from a webview. |
-| **Websockets do not work in port forwarded content in VS Online's browser-based editor** | Currently, only the http and https protocols are supported by VS Online's browser-based forwarding mechanism. Web sockets and other protocols will not work even if served up in web content. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/6) for details. (Note that this does not affect the Remote Development or VS Online extensions for the VS Code client.) |
+| **Websockets do not work in port forwarded content in VS Online's browser-based editor** | Currently, only the http and https protocols are supported by VS Online's browser-based forwarding mechanism. Web sockets and other protocols will not work even if served up in web content. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details. (Note that this does not affect the Remote Development or VS Online extensions for the VS Code client.) |
 | **Cannot access / transfer remote workspace files to local machine** | Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem. |
 | **Cannot access attached devices from Workspace extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. We are investigating the best approach to solve this problem. |
 

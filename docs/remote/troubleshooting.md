@@ -523,7 +523,15 @@ Finally, if your container is **doing disk intensive** operations or you are jus
 
 If you see an error from Docker reporting that you are out of disk space, you can typically resolve this by cleaning out unused containers and images. There are a few ways to do this:
 
-**Option 1: Use the Docker extension.**
+**Option 1: Use the Remote Explorer**
+
+You can clean our containers by selecting the **Remote Explorer**, right-click on the container you want to remove, and select **Remove Container**.
+
+![Remote Explorer screenshot](images/containers/containers-explorer-remove.png)
+
+However, this does not clean up any images you may have downloaded which can clutter up your system.
+
+**Option 2: Use the Docker extension**
 
  1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view if not already present.
 
@@ -533,7 +541,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
      ![Docker Explorer screenshot](images/containers/docker-remove.png)
 
-**Option 2: Use the Docker CLI to pick containers to delete**:
+**Option 3: Use the Docker CLI to pick containers to delete**
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Type `docker ps -a` to see a list of all containers.
@@ -546,7 +554,7 @@ If `docker ps` does not provide enough information to identify the container you
 docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}}\t\{{.Image}}\tvscode-\{{.Label \"vsch.quality\"}}\t\{{.Label \"vsch.local.folder\"}}"
 ```
 
-**Option 3: Use Docker Compose**:
+**Option 4: Use Docker Compose**
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Go to the directory with your `docker-compose.yml` file.
@@ -785,7 +793,7 @@ Currently the forwarding mechanism in VS Online's browser-based editor only supp
 
 However, the Remote Development and VS Online extensions for VS Code itself do not have this limitation.
 
-**Resolution:** Use the VS Online extension for VS Code when working with something that requires web sockets instead of the browser-based editor. The VS Online team is investigating solutions to this problem. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/6) for details.
+**Resolution:** Use the VS Online extension for VS Code when working with something that requires web sockets instead of the browser-based editor. The VS Online team is investigating solutions to this problem. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
 
 ### Errors storing extension data
 
