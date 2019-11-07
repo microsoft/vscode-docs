@@ -47,6 +47,9 @@ Along with the Python extension, you need to install a Python interpreter. Which
 
 Install [Python from python.org](https://www.python.org/downloads/). You can typically use the **Download Python** button that appears first on the page to download the latest version.
 
+Additionally, you can install through Scoop (https://scoop.sh/) by `scoop install python` on PowerShell. Scoop automatically handles most options on its own that you have to go through an installer GUI for and even sets all required environment variables. The quick start guide explains how to install Scoop to a custom directory
+https://github.com/lukesampson/scoop/wiki/Quick-Start#installing-scoop-to-custom-directory
+
 >**Note**: If you don't have admin access, an additional option for installing Python on Windows is to use the Microsoft Store. The Microsoft Store provides installs of [Python 3.7](https://www.microsoft.com/en-us/p/python-37/9nj46sx7x90p) and [Python 3.8](https://www.microsoft.com/en-us/p/python-38/9mssztt1n39l). Be aware that you might have compatibility issues with some packages using this method.
 
 For additional information about Python on Windows, see [Using Python on Windows at Python.org](https://docs.python.org/3.7/using/windows.html)
