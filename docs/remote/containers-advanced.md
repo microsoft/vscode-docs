@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: remote
 TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
@@ -71,6 +71,28 @@ Next, depending on what you reference in `devcontainer.json`:
   ```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+## Persist `bash` history between runs
+
+This change allows your command history from the container to be persisted between sessions.
+
+Add the following mount path to your `devcontainer.json` file. This volume will be used to store the command history from the container.
+
+```json
+  "runArgs": [
+    // Keep command history
+    "-v", "projectname-bashhistory:/root/commandhistory",
+  ],
+```
+
+Next update the `Dockerfile` so that each time a command is used in `bash`, the history is updated and stored in the new mount added to the `devcontainer.json` file.
+
+```Dockerfile
+RUN echo "export PROMPT_COMMAND='history -a'" >> "/root/.bashrc" \
+    && echo "export HISTFILE=/root/commandhistory/.bash_history" >> "/root/.bashrc"
+```
+
+> Note: If you are mapping the user of the dev container, you'll need to update the references to `root` in the above scripts to the users home directory.
 
 ## Adding another local file mount
 
@@ -240,7 +262,9 @@ Depending on what you reference in `devcontainer.json`:
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-Finally, **start an integrated terminal** `kbstyle(Ctrl+Shift+)` and use the `git clone` command to clone your source code into the `/workspace` folder.
+Next, either use the **Git: Clone** command from the Command Palette or **start an integrated terminal** `kb(workbench.action.terminal.new)` and use the `git clone` command to clone your source code into the `/workspace` folder.
+
+Finally, use the **File > Open... / Open Folder...** command to open the cloned repository in the container.
 
 ## Avoiding extension reinstalls on container rebuild
 

@@ -272,7 +272,7 @@ For details, see [Flake8 configuration](http://flake8.pycqa.org/en/latest/user/c
 
 The Python extension maps flake8 message categories to VS Code categories through the following settings. If desired, change the setting to change the mapping.
 
-| Flake8 category | Applicable setting<br/>(python.liting.) | VS Code category mapping |
+| Flake8 category | Applicable setting<br/>(python.linting.) | VS Code category mapping |
 | --- | --- | --- |
 | F | flake8CategorySeverity.F | Error |
 | E | flake8CategorySeverity.E | Error |

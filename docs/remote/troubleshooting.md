@@ -1,17 +1,23 @@
 ---
-Order: 6
+Order: 7
 Area: remote
 TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 10/14/2019
+DateApproved: 10/24/2019
 ---
 # Remote Development Tips and Tricks
 
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension. Or try the step by step [Tutorials](/docs/remote/remote-tutorials.md) to help get you running quickly in a remote environment.
 
+Troubleshooting tips for [Visual Studio Online](https://aka.ms/vso) can be found in the [service's documentation](https://aka.ms/vso-docs/troubleshooting).
+
 ## SSH tips
+
+SSH is powerful and flexible, but this also adds some setup complexity. This section includes some tips and tricks for getting the Remote - SSH extension up and running in different environments.
+
+If you are still running into trouble, you may want to try the preview of [Visual Studio Online's free self-hosted environment option](https://aka.ms/vso-docs/vscode) since it does not require an SSH server or even an open / directly accessible port on the remote host. The service also allows you use its browser-based editor with the host you register.
 
 ### Configuring key based authentication
 
@@ -85,7 +91,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     ssh-copy-id -i ~/.ssh/id_rsa-remote-ssh.pub name-of-ssh-host-here
     ```
 
-    **Windows**: Run the following commands in a **local PowerShell**, replacing replacing the value of `$REMOTEHOST` the host name in the SSH config file from step 2.
+    **Windows**: Run the following commands in a **local PowerShell**, replacing the value of `$REMOTEHOST` the host name in the SSH config file from step 2.
 
     ```powershell
     $REMOTEHOST="name-of-ssh-host-here"
@@ -408,6 +414,10 @@ The VS Code Server was previously installed under `~/.vscode-remote` so you can 
 
 ## Container tips
 
+This section includes some tips and tricks for getting the Remote - Containers extension up and running in different environments.
+
+If you are running into Docker issues or would prefer not to run Docker locally, you may want to try the preview of [Visual Studio Online's managed cloud-based environments](https://aka.ms/vso-docs/vscode). Over time this service will support an increasing number of `devcontainer.json` properties and you can also use its browser-based editor in addition to VS Code.
+
 ### Docker Desktop for Windows tips
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few "gotchas" that can cause problems. Here are some tips on avoiding them:
@@ -416,7 +426,7 @@ The VS Code Server was previously installed under `~/.vscode-remote` so you can 
 
 2. **Stick with alphanumeric passwords to avoid drive sharing problems.** When asked to share your drives on Windows, you will be prompted for the username and password of an account with admin privileges on the machine. If you are warned about an incorrect username or password, this may be due to special characters in the password. For example, `!`, `[` and `]` are known to cause issues. Change your password to alphanumeric characters to resolve. See this issue about [Docker volume mounting problems](https://github.com/moby/moby/issues/23992#issuecomment-234979036) for details.
 
-3. **Make sure your firewall allows Docker to setup a shared drive.** Docker only needs to connect between two machine local IPs, but some firewall software may still block any drive sharing or the needed ports. See [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps on resolving this problem.
+3. **Make sure your firewall allows Docker to set up a shared drive.** Docker only needs to connect between two machine local IPs, but some firewall software may still block any drive sharing or the needed ports. See [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps on resolving this problem.
 
 4. **Use your Docker ID to sign in to Docker (not your email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
@@ -481,7 +491,7 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 ### Resolving errors about missing Linux dependencies
 
-Some extensions rely on libraries not found in the certain Docker images. See the [Containers](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) article for a few options on resolving this issue.
+Some extensions rely on libraries not found in the certain Docker images. See the [Containers](/docs/remote/containers.md#installing-additional-software) article for a few options on resolving this issue.
 
 ### Speeding up containers in Docker Desktop
 
@@ -507,13 +517,21 @@ If you determine that you need to give your container more of your machine's cap
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
 3. On macOS, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
-Finally, if your container is **doing disk intensive** operations or you are just looking for faster response times, see [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance) for tips. VS Code's defaults optimize for convenance and universal support, but can be optimized.
+Finally, if your container is **doing disk intensive** operations or you are just looking for faster response times, see [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance) for tips. VS Code's defaults optimize for convenience and universal support, but can be optimized.
 
 ### Cleaning out unused containers and images
 
 If you see an error from Docker reporting that you are out of disk space, you can typically resolve this by cleaning out unused containers and images. There are a few ways to do this:
 
-**Option 1: Use the Docker extension.**
+**Option 1: Use the Remote Explorer**
+
+You can delete containers by selecting the **Remote Explorer**, right-click on the container you want to remove, and select **Remove Container**.
+
+![Remote Explorer screenshot](images/containers/containers-explorer-remove.png)
+
+However, this does not clean up any images you may have downloaded, which can clutter up your system.
+
+**Option 2: Use the Docker extension**
 
  1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view if not already present.
 
@@ -523,7 +541,7 @@ If you see an error from Docker reporting that you are out of disk space, you ca
 
      ![Docker Explorer screenshot](images/containers/docker-remove.png)
 
-**Option 2: Use the Docker CLI to pick containers to delete**:
+**Option 3: Use the Docker CLI to pick containers to delete**
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Type `docker ps -a` to see a list of all containers.
@@ -536,7 +554,7 @@ If `docker ps` does not provide enough information to identify the container you
 docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}}\t\{{.Image}}\tvscode-\{{.Label \"vsch.quality\"}}\t\{{.Label \"vsch.local.folder\"}}"
 ```
 
-**Option 3: Use Docker Compose**:
+**Option 4: Use Docker Compose**
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Go to the directory with your `docker-compose.yml` file.
@@ -749,7 +767,7 @@ Just follow these steps:
      git config --global credential.helper wincred
     ```
 
-2. Confgiure WSL to use the same credential helper, but running the following in a **WSL terminal**:
+2. Configure WSL to use the same credential helper, but running the following in a **WSL terminal**:
 
     ```bash
      git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe"
@@ -762,6 +780,10 @@ Any password you enter when working with Git on the Windows side will now be ava
 If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
 
 Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
+
+## VS Online tips
+
+See the [Visual Studio Online troubleshooting article](https://aka.ms/vso-docs/troubleshooting) for tips and tricks related to the service or extension.
 
 ## Extension tips
 
@@ -787,7 +809,7 @@ Sometimes you want to install a local VSIX on a remote machine, either during de
 
 Some extensions use external node modules or custom code to launch a browser window. Unfortunately, this may cause the extension to launch the browser remotely instead of locally.
 
-**Resolution:** The extension can switch to using the `vscode.env.openExternal` API to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**Resolution:** The extension can use the `vscode.env.openExternal` API to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
 
 ### Clipboard does not work
 
@@ -797,21 +819,31 @@ Some extensions use node modules like `clipboardy` to integrate with the clipboa
 
 ### Cannot access local web server from browser or application
 
-When working inside a container or SSH host, the port the browser is connecting to may be blocked.
+When working inside a container, SSH host, or VS Online environment the port the browser is connecting to may be blocked.
 
-**Resolution:** The extension can switch to the  `vscode.env.openExternal` API (which automatically forwards localhost ports) to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**Resolution:** Extensions can use the `vscode.env.openExternal` or `vscode.env.asExternalUri` APIs (which automatically forwards localhost ports) to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details. As a workaround, use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...**, or **VS Online: Forward Port** commands to do so manually.
 
-### WebView contents do not appear
+### Webview contents do not appear
 
-If the extension's WebView content uses an iframe to connect to a local web server, the port the WebView is connecting to may be blocked.
+If the extension's webview content uses an `iframe` to connect to a local web server, the port the webview is connecting to may be blocked. In addition, if the extension hard codes `vscode-resource://` URIs instead of using `asWebviewUri`, content may not appear in VS Online's browser editor.
 
-**Resolution:** The WebView API now includes a `portMapping` property that the extension can use to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#accessing-localhost) for details.
+**Resolution:** The extension can use the `webview.asWebviewUri` to resolve issues with `vscode-resource://` URIs.
+
+In the case of ports being blocked, the best approach is to instead use the [webview message passing](/api/extension-guides/webview#scripts-and-message-passing) API. As a workaround, `vscode.env.asExternalUri`  can be used allow the webview to connect to spawned localhost web servers from VS Code. However, this is currently blocked for VS Online's browser-based editor (only) by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). See the [extension author's guide](/api/advanced-topics/remote-extensions#workarounds-for-using-localhost-from-a-webview) for details on the workaround.
 
 ### Blocked localhost ports
 
 If you are trying to connect to a localhost port from an external application, the port may be blocked.
 
-**Resolution:** There currently is no API for extensions to programmatically forward arbitrary ports, but you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...** to do so manually.
+**Resolution:** VS Code 1.40 introduced a new `vscode.env.asExternalUri` API for extensions to programmatically forward arbitrary ports.  See the [extension author's guide](/api/advanced-topics/remote-extensions#forwarding-localhost) for details. As a workaround, you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...**, or **VS Online: Forward Port** commands to do so manually.
+
+### Websockets do not work in port forwarded content in VS Online's browser-based editor
+
+Currently the forwarding mechanism in VS Online's browser-based editor only supports http and https requests. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. This can affect both user applications and extensions that use websockets from webviews.
+
+However, the Remote Development and VS Online extensions for VS Code itself do not have this limitation.
+
+**Resolution:** Use the VS Online extension for VS Code when working with something that requires web sockets instead of the browser-based editor. The VS Online team is investigating solutions to this problem. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
 
 ### Errors storing extension data
 
