@@ -62,7 +62,7 @@ To get started, follow these steps:
 **Working with Git?** Here are two tips to consider:
 
 * If you are working with the same repository both locally in Windows and inside a container, be sure to set up consistent line endings. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
-* If you clone using a Git credential manager, your container should already have access to your credentials! If you use SSH keys, you can also opt-in to sharing them. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container) for details.
+* If you clone using a Git credential manager, your container should already have access to your credentials! If you use SSH keys, you can also opt in to sharing them. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container) for details.
 
 **Next Steps:** The Remote - Containers extension supports two primary operating models:
 
@@ -149,7 +149,9 @@ Also note that, while you cannot use multiple containers for the same workspace 
 
 ## Quick start: Configure a sandbox for multiple projects or folders
 
-While development containers often are tied to a single folder, repository, or project, they can also be used with multiple folders as a way to simplify setup or sandbox your tools. Imagine you had your source code across multiple repos in a single folder for a given toolset. For example:
+While development containers often are tied to a single folder, repository, or project, they can also be used with multiple folders as a way to simplify setup or sandbox your tools. Imagine you had your source code across multiple repositories in a single folder for a given toolset.
+
+For example:
 
 ```text
 📁 Repos
@@ -188,11 +190,11 @@ Let's set up a container for use with all of the Python projects in the `./Repos
 
     ![Open python folder in the container](images/containers/open-folder-python.png)
 
-6. In a moment, VS Code will open the folder inside the same container. In the future you can use the **Remote Explorer** in the activity bar to open this sub-folder in the container directly.
+6. In a moment, VS Code will open the folder inside the same container. In the future, you can use the **Remote Explorer** in the Activity Bar to open this sub-folder in the container directly.
 
     ![Container explorer with multiple folders under python container](images/containers/containers-explorer-python.png)
 
-> **Tip:** Instead of mounting the local filesystem, you can use a similar flow to setup an container with an isolated, more performant volume that you clone your source code into. See the [Advanced Containers](/docs/remote/containers-advanced.md#use-a-named-volume-for-your-entire-source-tree) article for details.
+> **Tip:** Instead of mounting the local filesystem, you can use a similar flow to set up a container with an isolated, more performant volume that you clone your source code into. See the [Advanced Containers](/docs/remote/containers-advanced.md#use-a-named-volume-for-your-entire-source-tree) article for details.
 
 ## Quick start: Open a public Git repository in an isolated container volume
 
@@ -220,7 +222,7 @@ You can now work with the repository source code in this isolated environment as
 
 VS Code's container configuration is stored in a [`devcontainer.json`](#devcontainerjson-reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. You can also specify any extensions to install once the container is running or post-create commands to prepare the environment. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
-Selecting the **Remote-Containers: Add Development Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the need files to your project, where you can further customize for your needs.
+Selecting the **Remote-Containers: Add Development Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project, which you can further customize for your needs.
 
 The command lets you pick a pre-defined container configuration:
 
@@ -286,7 +288,7 @@ While using VS Code to spin up a new container can be useful in many situations,
 
 > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
-You can either select the **Remote-Containers: Attach to Running Container...** command from the Command Palette (`kbstyle(F1)`) or use the **Remote Explorer** in the the activity bar and click on the **Connect to Container** inline action on the container you want to connect to.
+You can either select the **Remote-Containers: Attach to Running Container...** command from the Command Palette (`kbstyle(F1)`) or use the **Remote Explorer** in the Activity Bar and select the **Connect to Container** inline action on the container you want to connect to.
 
 ![Containers Explorer screenshot](images/containers/containers-attach.png)
 
