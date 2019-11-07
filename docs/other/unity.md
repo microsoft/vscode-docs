@@ -25,7 +25,7 @@ From [Using .NET Core in Visual Studio Code](/docs/languages/dotnet.md):
 
 1. [macOS only] To avoid seeing "Some projects have trouble loading. Please review the output for more details", make sure to install the latest stable [Mono](https://www.mono-project.com/download/) release.
 
-   **Note**: This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
+   **Note**: This version of Mono, once installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
 
 1. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
 
