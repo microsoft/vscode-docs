@@ -74,25 +74,25 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ## Persist `bash` history between runs
 
-This change allows your command history from the container to be persisted between sessions. 
+This change allows your command history from the container to be persisted between sessions.
 
-Add the following mount path to your `devcontainer.json` file. This volume will be used to store the command history from the container. 
+Add the following mount path to your `devcontainer.json` file. This volume will be used to store the command history from the container.
 
-     ```json
-          "runArgs": [
-               // Keep command history 
-               "-v", "projectname-bashhistory:/root/commandhistory",
-          ],
-      ```
- 
- Next update the `Dockerfile` so that each time a command is used in `bash` the history is updated and stored in the new mount added to the `devcontainer.json` file. 
- 
-      ```Dockerfile
-      RUN echo "export PROMPT_COMMAND='history -a'" >> "/root/.bashrc" \
-          && echo "export HISTFILE=/root/commandhistory/.bash_history" >> "/root/.bashrc"
-      ```
+```json
+  "runArgs": [
+    // Keep command history
+    "-v", "projectname-bashhistory:/root/commandhistory",
+  ],
+```
 
-> Note: If you are mapping the user of the dev container you'll need to update the references to `root` in the above scripts to the users home directory. 
+Next update the `Dockerfile` so that each time a command is used in `bash`, the history is updated and stored in the new mount added to the `devcontainer.json` file.
+
+```Dockerfile
+RUN echo "export PROMPT_COMMAND='history -a'" >> "/root/.bashrc" \
+    && echo "export HISTFILE=/root/commandhistory/.bash_history" >> "/root/.bashrc"
+```
+
+> Note: If you are mapping the user of the dev container, you'll need to update the references to `root` in the above scripts to the users home directory.
 
 ## Adding another local file mount
 
