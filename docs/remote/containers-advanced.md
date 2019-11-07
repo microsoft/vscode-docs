@@ -262,7 +262,7 @@ Depending on what you reference in `devcontainer.json`:
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-Next, either use the **Git: Clone** command from the Command Palette or **start an integrated terminal** `kb(workbench.action.terminal.new)` and use the `git clone` command to clone your source code into the `/workspace` folder.
+Next, either use the **Git: Clone** command from the Command Palette or **start an integrated terminal** (`kb(workbench.action.terminal.new)`) and use the `git clone` command to clone your source code into the `/workspace` folder.
 
 Finally, use the **File > Open... / Open Folder...** command to open the cloned repository in the container.
 
@@ -708,7 +708,7 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
 
 4. Run the **Remote-Containers: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`) or **Remote-Containers: Rebuild Container**.
 
-5. Use ``kbstyle(Ctrl+Shift+`)`` to open a terminal inside the container. You can run `git clone` from here to pull down your source code. You can then use **File > Open... / Open Folder...** to open the cloned repository.
+5. Use `kb(workbench.action.terminal.new)` to open a terminal inside the container. You can run `git clone` from here to pull down your source code. You can then use **File > Open... / Open Folder...** to open the cloned repository.
 
 Next time you want to connect to this same container, run **Remote-Containers: Open Folder in Container...** and select the same local folder in a VS Code window with `DOCKER_HOST` set.
 
