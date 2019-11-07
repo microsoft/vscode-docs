@@ -4,7 +4,7 @@ Area: ssh
 TOCTitle: Edit and debug
 PageTitle: Edit and debug the web app on your virtual machine
 MetaDescription: Edit and debug the web app on your virtual machine
-DateApproved: 10/9/2019
+DateApproved: 11/7/2019
 ---
 # Edit and debug with VS Code
 

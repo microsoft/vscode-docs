@@ -4,7 +4,7 @@ Area: wsl
 TOCTitle: Install Linux
 PageTitle: Install a Linux distribution
 MetaDescription: Install a Linux distribution
-DateApproved: 10/9/2019
+DateApproved: 11/7/2019
 ---
 # Install a Linux distro
 

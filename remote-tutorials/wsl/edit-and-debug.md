@@ -4,7 +4,7 @@ Area: wsl
 TOCTitle: Edit and debug
 PageTitle: Edit and debug Python in WSL with Visual Studio Code
 MetaDescription: Edit and debug Python in WSL with Visual Studio Code
-DateApproved: 10/9/2019
+DateApproved: 11/7/2019
 ---
 # Edit and debug with VS Code
 
