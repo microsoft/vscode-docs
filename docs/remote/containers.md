@@ -108,15 +108,17 @@ Next we will cover how to set up a dev container for an existing project to use 
 
 The steps are similar to those above:
 
-1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette, and select the project folder you'd like to set up the container for.
+1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette (`kbstyle(F1)`) or quick actions status bar item, and select the project folder you'd like to set up the container for.
 
-    > **Note:** If you want to edit the container's contents or settings before opening the folder, you can run **Remote-Containers: Add Development Container Configuration Files...** instead.
+    > **Tip:** If you want to edit the container's contents or settings before opening the folder, you can run **Remote-Containers: Add Development Container Configuration Files...** instead.
+
+    ![Quick actions status bar item](images/common/remote-dev-status-bar.png)
 
 2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one exists in the folder you selected.
 
     > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
-    ![Dev Container Progress Notification](images/containers/select-dev-container-def.png)
+    ![Select a node dev container definition](images/containers/select-dev-container-def.png)
 
     Note the dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
 
@@ -145,6 +147,53 @@ Once connected, you may want to **add the `.devcontainer` folder** to the worksp
 
 Also note that, while you cannot use multiple containers for the same workspace in the same VS Code window, you can use [multiple Docker Compose managed containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) from separate windows.
 
+## Quick start: Configure a sandbox for multiple projects or folders
+
+While development containers often are tied to a single folder, repository, or project, they can also be used with multiple folders as a way to simplify setup or sandbox your tools. Imagine you had your source code across multiple repos in a single folder for a given toolset. For example:
+
+```text
+📁 Repos
+   📁 node
+   📁 python
+      📁 starter-snake-python
+      📁 vscode-remote-try-python
+      📁 your-python-project-here
+   📁 go
+   📁 dotnet
+```
+
+Let's set up a container for use with all of the Python projects in the `./Repos/python` folder.
+
+1. Start VS Code, select **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) or quick actions status bar item, and select the `./Repos/python` folder.
+
+    > **Tip:** If you want to edit the container's contents or settings before opening the folder, you can run **Remote-Containers: Add Development Container Configuration Files...** instead.
+
+    ![Quick actions status bar item](images/common/remote-dev-status-bar.png)
+
+2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one exists in the folder you selected.
+
+    > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
+
+    ![Select a python dev container definition](images/containers/select-dev-container-def-python.png)
+
+    Note the dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
+
+3. After picking the starting point for your container, VS Code will add the dev container configuration files to the `./Repos/python/.devcontainer` folder.
+
+4. The VS Code window will reload and start building the dev container. A progress notification provides status updates. Note that you only have to build a dev container the first time you open it; opening the folder after the first successful build will be much quicker.
+
+    ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+
+5. After the build completes, VS Code will automatically connect to the container. Once connected use **File > Open... / Open Folder...** to select one of the folders under `./Repos/python`.
+
+    ![Open python folder in the container](images/containers/open-folder-python.png)
+
+6. In a moment, VS Code will open the folder inside the same container. In the future you can use the **Remote Explorer** in the activity bar to open this sub-folder in the container directly.
+
+    ![Container explorer with multiple folders under python container](images/containers/containers-explorer-python.png)
+
+> **Tip:** Instead of mounting the local filesystem, you can use a similar flow to setup an container with an isolated, more performant volume that you clone your source code into. See the [Advanced Containers](/docs/remote/containers-advanced.md#use-a-named-volume-for-your-entire-source-tree) article for details.
+
 ## Quick start: Open a public Git repository in an isolated container volume
 
 While you can [open a locally cloned repository in a container](#quick-start-open-an-existing-folder-in-a-container), you may want to work with an isolated copy of a repository for a PR review or to investigate another branch without impacting your work. If you're working with a public GitHub repository with an existing `devcontainer.json` file, you can use a Repository Container instead.
@@ -171,7 +220,19 @@ You can now work with the repository source code in this isolated environment as
 
 VS Code's container configuration is stored in a [`devcontainer.json`](#devcontainerjson-reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. You can also specify any extensions to install once the container is running or post-create commands to prepare the environment. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
-The **Remote-Containers: Add Development Container Configuration Files...** command adds the file to your project, where you can further customize for your needs.
+Selecting the **Remote-Containers: Add Development Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the need files to your project, where you can further customize for your needs.
+
+The command lets you pick a pre-defined container configuration:
+
+![Add a dev container definition](images/containers/select-dev-container-def-all.png)
+
+Or reuse an existing Dockerfile:
+
+![Add a dev container definition](images/containers/select-dockerfile.png)
+
+Or reuse an existing Docker Compose file:
+
+![Add a dev container definition](images/containers/select-docker-compose.png)
 
 For example, through a `devcontainer.json` file, you can:
 
@@ -179,7 +240,7 @@ For example, through a `devcontainer.json` file, you can:
 * Work with a container deployed application defined by an [image, Dockerfile](#using-an-image-or-dockerfile), or [Docker Compose](#using-docker-compose).
 * [Use Docker or Kubernetes](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container) from inside a dev container to build and deploy your app.
 
-The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) has examples of `devcontainer.json` for different scenarios. You can [alter your configuration](#indepth-setting-up-a-folder-to-run-in-a-container) to:
+All of the predefined container configurations you can pick from come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), which has examples of `devcontainer.json` for different scenarios. You can [alter your configuration](#indepth-setting-up-a-folder-to-run-in-a-container) to:
 
 * Install additional tools such as Git in the container.
 * Automatically install extensions.
@@ -225,29 +286,9 @@ While using VS Code to spin up a new container can be useful in many situations,
 
 > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
-Use one of the following options to attach to the container.
-
-### Option 1: Use the Containers Remote Explorer
-
-Open the **Remote Explorer** viewlet from the activity bar and use **Connect to Container** inline action on the container you want to connect to.
+You can either select the **Remote-Containers: Attach to Running Container...** command from the Command Palette (`kbstyle(F1)`) or use the **Remote Explorer** in the the activity bar and click on the **Connect to Container** inline action on the container you want to connect to.
 
 ![Containers Explorer screenshot](images/containers/containers-attach.png)
-
-### Option 2: Use the Attach to Running Container command
-
-Run **Remote-Containers: Attach to Running Container...** command from the Command Palette (`kbstyle(F1)`) and selecting a container.
-
-### Option 3: Use the Docker extension
-
-1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view (search for "docker") if it is not already installed.
-
-2. Go to the Docker view and expand the **Containers** node in the explorer.
-
-3. Right-click and select **Attach Visual Studio Code**.
-
-    ![Docker Explorer screenshot](images/containers/docker-attach.png)
-
-After a brief moment, a new window will appear and you'll be connected to the running container.
 
 ### Attached container configuration files
 
@@ -461,24 +502,14 @@ From the Containers Explorer you can right-click on a running container and stop
 
 ![Containers Explorer screenshot](images/containers/containers-explorer.png)
 
-### Option 2: Use the Docker extension
-
-1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view, if not already installed.
-
-    > **Note:** Some Docker commands invoked from the Docker extension can fail when invoked from a VS Code window opened in a container. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local VS Code window and use the Docker extension from this window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
-
-2. You can then go to the Docker view and expand the **Containers** node to see what containers are running. Right-click and select **Stop Container** to shut one down.
-
-    ![Docker Explorer screenshot](images/containers/docker-stop.png)
-
-### Option 3: Use the Docker CLI
+### Option 2: Use the Docker CLI
 
 1. Open a **local** terminal/PowerShell (or use a local window in VS Code).
 2. Type `docker ps` to see running containers. Use `docker ps -a` to also see any stopped containers.
 3. Type `docker stop <Container ID>` from this list to stop a container.
 4. If you would like to delete a container, type `docker rm <Container ID>` to remove it.
 
-### Option 4: Use Docker Compose
+### Option 3: Use Docker Compose
 
 1. Open a **local** terminal/PowerShell (or use a local window in VS Code).
 2. Go to the directory with your `docker-compose.yml` file.
@@ -631,7 +662,7 @@ apt-get update # Critical step - you won't be able to install software before yo
 apt-get install <package>
 ```
 
-If you would **prefer not to run as root**, see the [Advanced Container Configuration](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) article for how to set up a separate user with `sudo` access. Regardless, if you install and configure `sudo` you'll be able to use it when running as any user including root.
+If you are running as root, you can install software as long as `sudo` is configured in your container. All predefined containers have `sudo` set up, but the [Advanced Container Configuration](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) article can help you set this up for your own containers. Regardless, if you install and configure `sudo` you'll be able to use it when running as any user including root.
 
 ```bash
 # If sudo is installed and configured
@@ -639,7 +670,7 @@ sudo apt-get update # Critical step - you won't be able to install software befo
 sudo apt-get install <package>
 ```
 
-However, note that if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can either use a series of commands in the `postCreateCommand` property in `devcontainer.json` or the `RUN` instruction [in a custom Dockerfile](#using-an-image-or-dockerfile).
+However, note that if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can either use a series of commands in the `postCreateCommand` property in `devcontainer.json` or the `RUN` instruction [in a custom Dockerfile](#using-an-image-or-dockerfile). You can use `&&` to string together multiple commands.
 
 Using `devcontainer.json`:
 
