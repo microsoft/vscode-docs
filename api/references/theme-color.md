@@ -702,7 +702,7 @@ Color ids can also be contributed by extensions through the [color contribution 
 
 ## Themable window border
 
-The theme colors for VSCode window:
+The theme colors for VSCode editor window.
 
 ![window border](https://code.visualstudio.com/assets/updates/1_40/window-border.gif)
 
