@@ -159,6 +159,8 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.border`: Activity Bar border color with the Side Bar.
 - `activityBarBadge.background`: Activity notification badge background color.
 - `activityBarBadge.foreground`: Activity notification badge foreground color.
+- `activityBar.activeBorder`: Activity bar active indicator border color.
+- `activityBar.activeBackground`: Activity bar optional background color for the active elementactivityBar.activeBackground.
 
 ## Side Bar
 
@@ -697,3 +699,12 @@ Color ids can also be contributed by extensions through the [color contribution 
 ## Extension colors
 
 Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
+
+## Themable window border
+
+The theme colors for VSCode window:
+
+![window border](https://code.visualstudio.com/assets/updates/1_40/window-border.gif)
+
+- `window.activeBorder`: Border color for the active (focused) window.
+- `window.inactiveBorder`: Border color for the inactive (unfocused) windows.
