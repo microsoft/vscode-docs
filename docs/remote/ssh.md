@@ -96,6 +96,16 @@ Host example-remote-linux-machine-with-identity-file
 
 The second example uses an alternate location for your SSH key if you want to use more than one. See [Tips and Tricks](/docs/remote/troubleshooting.md#improving-your-security-with-a-dedicated-key) for details. You can also set the `"remote.SSH.configFile"` property in `settings.json` if you want to use a different config file than those listed.
 
+### Connect to a remote host from the terminal
+
+Once a host has been configured, you can connect to it directly from the terminal by passing a remote URI. For example, to connect to `remote_server` and open the `/code/my_project` folder, run
+
+```bash
+code --folder-uri "vscode-remote://ssh-remote+remote_server/code/my_project"
+```
+
+You can also use the `--file-uri` switch to open a specific file instead.
+
 ## Managing extensions
 
 VS Code runs extensions in one of two places: locally on the UI / client side, or remotely on the SSH host. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside on the SSH host. This ensures you have smooth experience and allows you to install any needed extensions for a given workspace on an SSH host from your local machine. This way, you can pick up exactly where you left off, from a different machine complete with your extensions.
