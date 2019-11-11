@@ -329,7 +329,7 @@ Currently extension writers can contribute to:
 - The debug toolbar - `debug/toolbar`
 - The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
 - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
-- [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resource/context`
+- [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resourceState/context`
 - [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
 - The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
 - The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
