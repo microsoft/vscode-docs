@@ -111,6 +111,10 @@ Want an early peek at new VS Code features?  You can try prerelease versions of 
 
 To install the Insiders build, go to the [Insiders download page](/insiders).
 
+## What is a VS Code "workspace"?
+
+A VS Code "workspace" is usually just your project root folder. VS Code uses the "workspace" concept in order to scope project configurations such as project-specific settings as well as config files for [debugging](/docs/editor/debugging.md) and [tasks](/docs/editor/tasks.md). Workspace files are stored at the project root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md).
+
 ## Can I run a portable version of VS Code?
 
 Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
