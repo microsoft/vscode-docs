@@ -27,6 +27,7 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `vscode.search.windows.net`
 * `raw.githubusercontent.com`
 * `vsmarketplacebadge.apphb.com`
+* `az764295.vo.msecnd.net`
 
 ## Proxy server support
 
