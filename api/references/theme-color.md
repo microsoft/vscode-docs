@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 10/9/2019
+DateApproved: 11/7/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -45,6 +45,13 @@ The contrast colors are typically only set for high contrast themes. If set, the
 - `descriptionForeground`: Foreground color for description text providing additional information, for example for a label.
 - `errorForeground`: Overall foreground color for error messages (this color is only used if not overridden by a component).
 - `icon.foreground`: The default color for icons in the workbench.
+
+## Window border
+
+The theme colors for VS Code window border.
+
+- `window.activeBorder`: Border color for the active (focused) window.
+- `window.inactiveBorder`: Border color for the inactive (unfocused) windows.
 
 ## Text colors
 
@@ -144,6 +151,8 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `listFilterWidget.background`: List/Tree Filter background color of typed text when searching inside the list/tree.
 - `listFilterWidget.outline`: List/Tree Filter Widget's outline color of typed text when searching inside the list/tree.
 - `listFilterWidget.noMatchesOutline`: List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
+- `list.filterMatchBackground`: Background color of the filtered matches in lists and trees.
+- `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
 - `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
 
 ## Activity Bar
@@ -152,11 +161,13 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 
 - `activityBar.background`: Activity Bar background color.
 - `activityBar.dropBackground`: Drag and drop feedback color for the Activity Bar items.
-- `activityBar.foreground`: Activity bar foreground color (for example used for the icons).
-- `activityBar.inactiveForeground`: Activity bar item foreground color when it is inactive.
+- `activityBar.foreground`: Activity Bar foreground color (for example used for the icons).
+- `activityBar.inactiveForeground`: Activity Bar item foreground color when it is inactive.
 - `activityBar.border`: Activity Bar border color with the Side Bar.
 - `activityBarBadge.background`: Activity notification badge background color.
 - `activityBarBadge.foreground`: Activity notification badge foreground color.
+- `activityBar.activeBorder`: Activity Bar active indicator border color.
+- `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 
 ## Side Bar
 
@@ -651,6 +662,44 @@ The theme colors for snippets:
 - `editor.snippetTabstopHighlightBorder`: Highlight border color of a snippet tabstop.
 - `editor.snippetFinalTabstopHighlightBackground`: Highlight background color of the final tabstop of a snippet.
 - `editor.snippetFinalTabstopHighlightBorder`: Highlight border color of the final tabstop of a snippet.
+
+## Symbol Icons
+
+The theme colors for symbol icons that appears in the Outline view, breadcrumb navigation, and suggest widget:
+
+- `symbolIcon.arrayForeground`: The foreground color for array symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.booleanForeground`: The foreground color for boolean symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.classForeground`: The foreground color for class symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.colorForeground`: The foreground color for color symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.constantForeground`: The foreground color for constant symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.constructorForeground`: The foreground color for constructor symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.enumeratorForeground`: The foreground color for enumerator symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.enumeratorMemberForeground`: The foreground color for enumerator member symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.eventForeground`: The foreground color for event symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.fieldForeground`: The foreground color for field symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.fileForeground`: The foreground color for file symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.folderForeground`: The foreground color for folder symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.functionForeground`: The foreground color for function symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.interfaceForeground`: The foreground color for interface symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.keyForeground`: The foreground color for key symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.keywordForeground`: The foreground color for keyword symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.methodForeground`: The foreground color for method symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.moduleForeground`: The foreground color for module symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.namespaceForeground`: The foreground color for namespace symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.nullForeground`: The foreground color for null symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.numberForeground`: The foreground color for number symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.objectForeground`: The foreground color for object symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.operatorForeground`: The foreground color for operator symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.packageForeground`: The foreground color for package symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.propertyForeground`: The foreground color for property symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.referenceForeground`: The foreground color for reference symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.snippetForeground`: The foreground color for snippet symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.stringForeground`: The foreground color for string symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.structForeground`: The foreground color for struct symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.textForeground`: The foreground color for text symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.typeParameterForeground`: The foreground color for type parameter symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.unitForeground`: The foreground color for unit symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.variableForeground`: The foreground color for variable symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
 
 Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
 

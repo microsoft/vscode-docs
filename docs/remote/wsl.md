@@ -1,11 +1,11 @@
 ---
-Order: 4
+Order: 5
 Area: remote
-TOCTitle: WSL
+TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 10/9/2019
+DateApproved: 11/7/2019
 ---
 # Developing in WSL
 
@@ -25,7 +25,7 @@ To get started, you need to:
 
 1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution.
 
-    > **Note:** WSL1 does have some [known limitations](#known-limitations) for certain types of development and WSL2 support is **experimental**. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
+    > **Note:** WSL 1 does have some [known limitations](#known-limitations) for certain types of development and WSL 2 support is **experimental**. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
 
 2. Install [Visual Studio Code](https://code.visualstudio.com/) on the **Windows** side (not in WSL).
 
@@ -96,12 +96,12 @@ You can also install all locally installed extensions inside WSL by going to the
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the Docker and Debugger for Chrome extensions to run remotely instead of their local defaults:
+For example, the setting below will force the Docker extension to run locally and Debugger for Chrome extension to run remotely instead of their defaults:
 
 ```json
 "remote.extensionKind": {
     "msjsdiag.debugger-for-chrome": "workspace",
-    "ms-azuretools.vscode-docker": "workspace"
+    "ms-azuretools.vscode-docker": "ui"
 }
 ```
 
@@ -129,7 +129,7 @@ VS Code's local user settings are also reused when you have opened a folder in W
 
 When VS Code Remote is started in WSL, no shell startup scripts are run. This was done to avoid issues with startup scripts that are tuned for shells. If you want to run additional commands or modify the environment this can be done in a setup script `~/.vscode-server/server-env-setup` (Insiders: `~/.vscode-server-insiders/server-env-setup`). If present, the script is processed before the server is started.
 
-The script needs to be a valid Bourne shell script. Be aware that an invalid script will prevent the server from starting up. If end up with a script that prevents the server to start, you will have to use a regular WSL shell and delete or rename the setup script.
+The script needs to be a valid Bourne shell script. Be aware that an invalid script will prevent the server from starting up. If you end up with a script that prevents the server from starting, you will have to use a regular WSL shell and delete or rename the setup script.
 
 Check the WSL log (Remote WSL: Open WSL Log) for output and errors.
 
@@ -163,15 +163,17 @@ If you clone a Git repository using SSH and your SSH key has a passphrase, VS Co
 
 ### Docker Extension limitations
 
-The Docker extension is configured to run as a local "UI" extension that runs on the Windows side by default. This enables the extension to work with your local Docker installation when you are developing in WSL or [inside a container](/docs/remote/containers.md) since the Docker CLI is not available by default in these environments. However, commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail.
+By default, the Docker extension will run remotely. Depending on how WSL is configured, this can prevent the extension from seeing local containers.
 
-Fortunately, if you've [installed the Docker CLI in WSL and configured it to work with your local Docker host](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly), you can install the Docker extension inside WSL to solve this problem. Just add the following to `settings.json`:
+You can use one of the following solutions to resolve this problem:
 
-```json
-"remote.extensionKind": {
-    "ms-azuretools.vscode-docker": "workspace"
-}
-```
+- Use the [Docker Technical Preview for WSL 2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL 1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
+
+- Open a new local window (**File > New Window**) and use it to work with local containers.
+
+- Install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/remote/containers.md#option-1-use-the-containers-remote-explorer) in situations when you need to see your local containers.
+
+- Use the [`extensionKind` property](/docs/remote/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
 
 ### Extension limitations
 
@@ -203,13 +205,13 @@ Some extensions rely on libraries not found in the vanilla install of certain WS
 
 ### I see EACCESS: permission denied error trying to rename a folder in the open workspace
 
-That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL2.
+That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
 
 To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based has a performance impact for large workspaces.
 
 For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `files.watcherExclude`.
 
-WSL2 does not have that file watcher problem is also not affected by the new setting.
+WSL 2 does not have that file watcher problem is also not affected by the new setting.
 
 ### What are the connectivity requirements for the Remote - WSL extension?
 

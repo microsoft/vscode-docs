@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 10/9/2019
+DateApproved: 11/7/2019
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -167,6 +167,16 @@ While focus is in the integrated terminal, many key bindings will not work as th
 ```
 
 Look at the setting details to see the complete list of default commands.
+
+### Chord keybindings in the terminal
+
+By default, when a chord keybinding is the highest priority keybinding it will always skip the terminal shell (bypassing `terminal.integrated.commandsToSkipShell`) and be evaluated by VS Code instead of the terminal. This is typically the desired behavior unless you're on Windows/Linux and want your shell to use ctrl+k (for bash this cuts the line after the cursor). This can be disabled with the following setting:
+
+```json
+{
+  "terminal.integrated.allowChords": false
+}
+```
 
 ### Find
 

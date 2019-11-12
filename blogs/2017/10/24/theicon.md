@@ -60,7 +60,7 @@ Until we landed on the current "fish", which tested well with admittedly, a smal
 
 ## Rotation
 
-We have a lot more design freedom on the macOS (and Linux), which is why we have a different icon there. While we wanted to keep the same icon shape, we were not limited to a single color and we could resolve contrast issues by mounting the icon on a dark panel. The rotation actually adheres to the [Apple design guidelines](https://developer.apple.com/macos/human-interface-guidelines/icons-and-images/app-icon).
+We have a lot more design freedom on macOS (and Linux), which is why we have a different icon there. While we wanted to keep the same icon shape, we were not limited to a single color and we could resolve contrast issues by mounting the icon on a dark panel. The rotation actually adheres to the [Apple design guidelines](https://developer.apple.com/macos/human-interface-guidelines/icons-and-images/app-icon).
 
 That said, the feedback that the rotation is outdated and the mount makes the icon appear smaller than other icons in the Dock is completely fair.
 

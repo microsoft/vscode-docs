@@ -1,17 +1,23 @@
 ---
-Order: 6
+Order: 7
 Area: remote
 TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 10/14/2019
+DateApproved: 11/7/2019
 ---
 # Remote Development Tips and Tricks
 
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension. Or try the step by step [Tutorials](/docs/remote/remote-tutorials.md) to help get you running quickly in a remote environment.
 
+Troubleshooting tips for [Visual Studio Online](https://aka.ms/vso) can be found in the [service's documentation](https://aka.ms/vso-docs/troubleshooting).
+
 ## SSH tips
+
+SSH is powerful and flexible, but this also adds some setup complexity. This section includes some tips and tricks for getting the Remote - SSH extension up and running in different environments.
+
+If you are still running into trouble, you may want to try the preview of [Visual Studio Online's free self-hosted environment option](https://aka.ms/vso-docs/vscode) since it does not require an SSH server or even an open / directly accessible port on the remote host. The service also allows you use its browser-based editor with the host you register.
 
 ### Configuring key based authentication
 
@@ -85,7 +91,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     ssh-copy-id -i ~/.ssh/id_rsa-remote-ssh.pub name-of-ssh-host-here
     ```
 
-    **Windows**: Run the following commands in a **local PowerShell**, replacing replacing the value of `$REMOTEHOST` the host name in the SSH config file from step 2.
+    **Windows**: Run the following commands in a **local PowerShell**, replacing the value of `$REMOTEHOST` the host name in the SSH config file from step 2.
 
     ```powershell
     $REMOTEHOST="name-of-ssh-host-here"
@@ -331,7 +337,7 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 On Linux, you can use your distribution's package manager to install SSHFS. For Debian/Ubuntu: `sudo apt-get install sshfs`
 
-> **Note:** WSL 1 does not support FUSE or SSHFS, so the instructions differ for Windows currently. **WSL2 does include FUSE and SSHFS support**, so this will change soon.
+> **Note:** WSL 1 does not support FUSE or SSHFS, so the instructions differ for Windows currently. **WSL 2 does include FUSE and SSHFS support**, so this will change soon.
 
 On macOS, you can install SSHFS using [Homebrew](https://brew.sh/): `brew install sshfs` In addition, if you would prefer not to use the command line to mount the remote filesystem, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
 
@@ -408,6 +414,10 @@ The VS Code Server was previously installed under `~/.vscode-remote` so you can 
 
 ## Container tips
 
+This section includes some tips and tricks for getting the Remote - Containers extension up and running in different environments.
+
+If you are running into Docker issues or would prefer not to run Docker locally, you may want to try the preview of [Visual Studio Online's managed cloud-based environments](https://aka.ms/vso-docs/vscode). Over time this service will support an increasing number of `devcontainer.json` properties and you can also use its browser-based editor in addition to VS Code.
+
 ### Docker Desktop for Windows tips
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few "gotchas" that can cause problems. Here are some tips on avoiding them:
@@ -416,7 +426,7 @@ The VS Code Server was previously installed under `~/.vscode-remote` so you can 
 
 2. **Stick with alphanumeric passwords to avoid drive sharing problems.** When asked to share your drives on Windows, you will be prompted for the username and password of an account with admin privileges on the machine. If you are warned about an incorrect username or password, this may be due to special characters in the password. For example, `!`, `[` and `]` are known to cause issues. Change your password to alphanumeric characters to resolve. See this issue about [Docker volume mounting problems](https://github.com/moby/moby/issues/23992#issuecomment-234979036) for details.
 
-3. **Make sure your firewall allows Docker to setup a shared drive.** Docker only needs to connect between two machine local IPs, but some firewall software may still block any drive sharing or the needed ports. See [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps on resolving this problem.
+3. **Make sure your firewall allows Docker to set up a shared drive.** Docker only needs to connect between two machine local IPs, but some firewall software may still block any drive sharing or the needed ports. See [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps on resolving this problem.
 
 4. **Use your Docker ID to sign in to Docker (not your email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
@@ -481,7 +491,7 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 ### Resolving errors about missing Linux dependencies
 
-Some extensions rely on libraries not found in the certain Docker images. See the [Containers](/docs/remote/containers.md#installing-additional-software-in-the-sandbox) article for a few options on resolving this issue.
+Some extensions rely on libraries not found in the certain Docker images. See the [Containers](/docs/remote/containers.md#installing-additional-software) article for a few options on resolving this issue.
 
 ### Speeding up containers in Docker Desktop
 
@@ -507,23 +517,31 @@ If you determine that you need to give your container more of your machine's cap
 2. Go to **Advanced** to increase CPU, Memory, or Swap.
 3. On macOS, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
 
-Finally, if your container is **doing disk intensive** operations or you are just looking for faster response times, see [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance) for tips. VS Code's defaults optimize for convenance and universal support, but can be optimized.
+Finally, if your container is **doing disk intensive** operations or you are just looking for faster response times, see [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance) for tips. VS Code's defaults optimize for convenience and universal support, but can be optimized.
 
 ### Cleaning out unused containers and images
 
 If you see an error from Docker reporting that you are out of disk space, you can typically resolve this by cleaning out unused containers and images. There are a few ways to do this:
 
-**Option 1: Use the Docker extension.**
+**Option 1: Use the Remote Explorer**
 
- 1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view if not already present.
+You can delete containers by selecting the **Remote Explorer**, right-click on the container you want to remove, and select **Remove Container**.
 
-    > **Note:** Using the Docker extension from a VS Code window opened in a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local window and use the Docker extension from this VS Code window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
+![Remote Explorer screenshot](images/containers/containers-explorer-remove.png)
 
- 2. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
+However, this does not clean up any images you may have downloaded, which can clutter up your system.
+
+**Option 2: Use the Docker extension**
+
+1. Open a **local** window in VS Code (**File > New Window**).
+
+2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view if not already present.
+
+3. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
 
      ![Docker Explorer screenshot](images/containers/docker-remove.png)
 
-**Option 2: Use the Docker CLI to pick containers to delete**:
+**Option 3: Use the Docker CLI to pick containers to delete**
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Type `docker ps -a` to see a list of all containers.
@@ -536,7 +554,7 @@ If `docker ps` does not provide enough information to identify the container you
 docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}}\t\{{.Image}}\tvscode-\{{.Label \"vsch.quality\"}}\t\{{.Label \"vsch.local.folder\"}}"
 ```
 
-**Option 3: Use Docker Compose**:
+**Option 4: Use Docker Compose**
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
 2. Go to the directory with your `docker-compose.yml` file.
@@ -598,9 +616,41 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 
 ## WSL tips
 
-### Selecting the default distribution used by Remote - WSL
+### First time start: VS Code Server prerequisites
 
-Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL versions, VS Code will use your system **default distro**. You can use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
+Some WSL Linux distributions are lacking libraries that are required by the VS Code server to start up. You can add additional libraries into your Linux distribution by using its package manager.
+
+#### Debian
+
+Open the Debian WSL shell to add `wget` and `ca-certificates`:
+
+```sh
+sudo apt-get update && apt-get install wget ca-certificates
+```
+
+#### Alpine
+
+Open the Alpine WSL shell as root (`wsl -d Alpine -u root`) to add `libstdc++`:
+
+```sh
+apk update && apk add libstdc++
+```
+
+On Windows 10 April 2018 Update (build 1803) and older, `/bin/bash` is required:
+
+```sh
+apk update && apk add bash
+```
+
+### Selecting the distribution used by Remote - WSL
+
+**Remote-WSL: New Window** will open the WSL distro registered as default.
+
+To open a non-default distro, run `code .` from the WSL shell of the distro to use or use **Remote-WSL: New Window using Distro**.
+
+Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL versions, VS Code can only use the **default distro**.
+
+You can use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
 
 For example:
 
@@ -614,17 +664,23 @@ You can see which distributions you have installed by running:
 wslconfig /l
 ```
 
-### VS Code server hangs when starting up
+### Configure the environment for the server startup
 
-This can happen if there are custom startup scripts that prevent startup.
+When the Remote WSL extension starts the VS Code server in WSL, it does not run any shell configuration scripts. This was done to avoid that custom configuration scripts can prevent the startup.
 
-The VS Code server is started in an interactive login shell and uses the shell that is configured. See this [blog post](https://medium.com/@vinhp/set-and-use-zsh-as-default-shell-in-wsl-on-windows-10-the-right-way-4f30ed9592dc) for more information on how to specify a shell.
+If you need to configure the startup environment, you can use the environment setup script as described [here](/docs/remote/wsl.md#advanced-environment-setup-script).
 
-By default, `bash` is used as the shell. Bash will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`. If this lookup seems unnecessary, you may include all startup settings in `~/.bashrc`. Check whether these files contain any commands that could block the server from starting. For example, it is not recommended using the startup script to start another shell.
+### Configure the environment for the remote extension host
+
+The environment for the remote extension host and terminal are based on the default shell's configuration scripts. To evaluate the environment variables for the remote extension host process, the server creates an instance of the default shell as an **interactive login shell**. It probes the environment variables from it and uses them as the initial environment for the remote extension host process. The values of environment variables therefore depend on what shell is configured as the default and the content of the configuration scripts for that shell.
+
+See [Unix shell initialization](https://github.com/rbenv/rbenv/wiki/unix-shell-initialization) for an overview of each shells configuration scripts. Most WSL distributions have `/bin/bash` configured as the default shell. `/bin/bash` will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`.
+
+To change the default shell of a WSL distro, follow the instructions of [this blog post](https://medium.com/@vinhp/set-and-use-zsh-as-default-shell-in-wsl-on-windows-10-the-right-way-4f30ed9592dc).
 
 ### Fixing problems with the code command not working
 
-If typing `code` from a WSL terminal on Window does not work, you may be missing some key locations from your PATH in WSL.
+If typing `code` from a WSL terminal on Window does not work because `code` can not be found, you may be missing some key locations from your PATH in WSL.
 
 Check by opening a WSL terminal and typing `echo $PATH`. You should see VS Code install path listed. By default, this would be:
 
@@ -644,7 +700,9 @@ But, if you used the **System Installer**, the install path is:
 /mnt/c/Program Files (x86)/Microsoft VS Code/bin
 ```
 
-If the VS Code install path is missing, edit your `.bashrc`, add the following, and start a new terminal:
+It's a feature of WSL that paths are inherited from the PATH variable in Windows. To change the Windows PATH variable, use the **Edit environment variables for your account** command from the start menu in Windows.
+
+If you have disabled the path sharing feature, edit your `.bashrc`, add the following, and start a new terminal:
 
 ```bash
 WINDOWS_USERNAME="Your Windows Alias"
@@ -657,11 +715,17 @@ export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppD
 
 ```
 
-> **Note:** Be sure to quote or escape spaces in the directory names.
+> **Note:** Be sure to quote or escape space characters in the directory names.
 
-### Resolving errors about missing dependencies
+### I see EACCESS: permission denied error trying to rename a folder in the open workspace
 
-Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager. For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
+This is a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VS Code. The issue will only be fixed in WSL 2.
+
+To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based has a performance impact for large workspaces.
+
+For large workspace you may want to increase the polling interval, `remote.WSL.fileWatcher.pollingInterval`, and control the folders that are watched with `files.watcherExclude`.
+
+[WSL 2](https://docs.microsoft.com/en-us/windows/wsl/wsl2-index) does not have that file watcher problem and is not affected by the new setting.
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 
@@ -703,7 +767,7 @@ Just follow these steps:
      git config --global credential.helper wincred
     ```
 
-2. Confgiure WSL to use the same credential helper, but running the following in a **WSL terminal**:
+2. Configure WSL to use the same credential helper, but running the following in a **WSL terminal**:
 
     ```bash
      git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe"
@@ -717,9 +781,17 @@ If you clone a Git repository using SSH and your SSH key has a passphrase, VS Co
 
 Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
+## VS Online tips
+
+See the [Visual Studio Online troubleshooting article](https://aka.ms/vso-docs/troubleshooting) for tips and tricks related to the service or extension.
+
 ## Extension tips
 
 While many extensions will work unmodified, there are a few issues that can prevent certain features from working as expected. In some cases, you can use another command to work around the issue, while in others, the extension may need to be modified. This section provides a quick reference for common issues and tips on resolving them. You can also refer to the main extension article on [Supporting Remote Development](/api/advanced-topics/remote-extensions) for an in-depth guide on modifying extensions to support remote extension hosts.
+
+### Resolving errors about missing dependencies
+
+Some extensions rely on libraries not found in the basic install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager. For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned in the error message for additional installation details.
 
 ### Local absolute path settings fail when applied remotely
 
@@ -737,7 +809,7 @@ Sometimes you want to install a local VSIX on a remote machine, either during de
 
 Some extensions use external node modules or custom code to launch a browser window. Unfortunately, this may cause the extension to launch the browser remotely instead of locally.
 
-**Resolution:** The extension can switch to using the `vscode.env.openExternal` API to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**Resolution:** The extension can use the `vscode.env.openExternal` API to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
 
 ### Clipboard does not work
 
@@ -747,21 +819,31 @@ Some extensions use node modules like `clipboardy` to integrate with the clipboa
 
 ### Cannot access local web server from browser or application
 
-When working inside a container or SSH host, the port the browser is connecting to may be blocked.
+When working inside a container, SSH host, or VS Online environment the port the browser is connecting to may be blocked.
 
-**Resolution:** The extension can switch to the  `vscode.env.openExternal` API (which automatically forwards localhost ports) to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details.
+**Resolution:** Extensions can use the `vscode.env.openExternal` or `vscode.env.asExternalUri` APIs (which automatically forwards localhost ports) to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details. As a workaround, use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...**, or **VS Online: Forward Port** commands to do so manually.
 
-### WebView contents do not appear
+### Webview contents do not appear
 
-If the extension's WebView content uses an iframe to connect to a local web server, the port the WebView is connecting to may be blocked.
+If the extension's webview content uses an `iframe` to connect to a local web server, the port the webview is connecting to may be blocked. In addition, if the extension hard codes `vscode-resource://` URIs instead of using `asWebviewUri`, content may not appear in VS Online's browser editor.
 
-**Resolution:** The WebView API now includes a `portMapping` property that the extension can use to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#accessing-localhost) for details.
+**Resolution:** The extension can use the `webview.asWebviewUri` to resolve issues with `vscode-resource://` URIs.
+
+In the case of ports being blocked, the best approach is to instead use the [webview message passing](/api/extension-guides/webview#scripts-and-message-passing) API. As a workaround, `vscode.env.asExternalUri`  can be used allow the webview to connect to spawned localhost web servers from VS Code. However, this is currently blocked for VS Online's browser-based editor (only) by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). See the [extension author's guide](/api/advanced-topics/remote-extensions#workarounds-for-using-localhost-from-a-webview) for details on the workaround.
 
 ### Blocked localhost ports
 
 If you are trying to connect to a localhost port from an external application, the port may be blocked.
 
-**Resolution:** There currently is no API for extensions to programmatically forward arbitrary ports, but you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...** to do so manually.
+**Resolution:** VS Code 1.40 introduced a new `vscode.env.asExternalUri` API for extensions to programmatically forward arbitrary ports.  See the [extension author's guide](/api/advanced-topics/remote-extensions#forwarding-localhost) for details. As a workaround, you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...**, or **VS Online: Forward Port** commands to do so manually.
+
+### Websockets do not work in port forwarded content in VS Online's browser-based editor
+
+Currently the forwarding mechanism in VS Online's browser-based editor only supports http and https requests. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. This can affect both user applications and extensions that use websockets from webviews.
+
+However, the Remote Development and VS Online extensions for VS Code itself do not have this limitation.
+
+**Resolution:** Use the VS Online extension for VS Code when working with something that requires web sockets instead of the browser-based editor. The VS Online team is investigating solutions to this problem. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
 
 ### Errors storing extension data
 

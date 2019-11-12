@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 10/9/2019
+DateApproved: 11/7/2019
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/Debugging.png
 ---
@@ -156,6 +156,10 @@ Breakpoints can be toggled by clicking on the **editor margin** or using `kb(edi
 The **Reapply All Breakpoints** command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed.
 
 ![Breakpoints](images/debugging/breakpoints.png)
+
+Optionally breakpoints can be shown in the editor's overview ruler by enabling the setting `debug.showBreakpointsInOverviewRuler`:
+
+![breakpoints in overview ruler](images/debugging/bpts-in-overview.png)
 
 ## Logpoints
 
@@ -375,7 +379,7 @@ Using multi-target debugging is simple: after you've started a first debug sessi
 
 ### Compound launch configurations
 
-An alternative way to start multiple debug sessions is by using a **compound** launch configuration. A compound launch configuration lists the names of two or more launch configurations that should be launched in parallel. Compound launch configurations are displayed in the launch configuration drop-down menu.
+An alternative way to start multiple debug sessions is by using a **compound** launch configuration. A compound launch configuration lists the names of two or more launch configurations that should be launched in parallel. Optionally a `preLaunchTask` can be specified that is run before the individual debug sessions are started.
 
 ```json
 {
@@ -385,25 +389,26 @@ An alternative way to start multiple debug sessions is by using a **compound** l
             "type": "node",
             "request": "launch",
             "name": "Server",
-            "program": "${workspaceFolder}/server.js",
-            "cwd": "${workspaceFolder}"
+            "program": "${workspaceFolder}/server.js"
         },
         {
             "type": "node",
             "request": "launch",
             "name": "Client",
-            "program": "${workspaceFolder}/client.js",
-            "cwd": "${workspaceFolder}"
+            "program": "${workspaceFolder}/client.js"
         }
     ],
     "compounds": [
         {
             "name": "Server/Client",
-            "configurations": ["Server", "Client"]
+            "configurations": ["Server", "Client"],
+            "preLaunchTask": "${defaultBuildTask}"
         }
     ]
 }
 ```
+
+Compound launch configurations are displayed in the launch configuration drop-down menu.
 
 ## Remote debugging
 
