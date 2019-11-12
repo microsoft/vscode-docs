@@ -351,7 +351,7 @@ If there are extensions that you would like always installed in any container, y
 ]
 ```
 
-### Advanced: Forcing an extension to run locally / remotely
+### Advanced: Forcing an extension to run locally or remotely
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
@@ -958,7 +958,7 @@ See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docke
 
 ### Docker Extension limitations
 
-By default, the Docker extension will run remotely. While this is a sensible default for SSH and WSL2, it means the extension will not show local containers when VS Code is connected to a container.
+By default, the Docker extension will run remotely. While this is a sensible default for SSH and WSL 2, it means the extension will not show local containers when VS Code is connected to a container.
 
 You can use one of the following solutions to resolve this problem:
 
@@ -968,7 +968,7 @@ You can use one of the following solutions to resolve this problem:
 
 * Forward the [Docker socket and install the Docker CLI](https://aka.ms/vscode-remote/samples/docker-in-docker) (only) in the container.
 
-* Use the [`extensionKind` property](#advanced-forcing-an-extension-to-run-locally--remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
+* Use the [`extensionKind` property](#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
 
 ### Extension limitations
 
@@ -990,7 +990,7 @@ If you see "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates
 
 ### I'm seeing an error about a missing library or dependency
 
-Some extensions rely on libraries not found in the certain Docker images. See [Installing additional software](#installing-additional-software) for help with resolving the problem.
+Some extensions rely on libraries not found in specific Docker images. For example, [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/) requires the installation of system-level dependencies, which are [listed in their documentation](https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/linux#install-prerequisites-manually). The need for these dependencies may depend on the operating system (for example, specific Linux distribution) used by your Docker image. You may need to install these dependencies during the Docker build process, by adding required commands to your Dockerfile. Search the specific extension's documentation to check for dependencies and see [Installing additional software](#installing-additional-software) for help with resolving the problem.
 
 ### Can I connect to multiple containers at once?
 
