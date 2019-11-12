@@ -61,7 +61,7 @@ You can also select which extensions you would like to install separately. For t
 
 This page also allows you to configure your JDK anytime you want in various levels. You can get it by using the command **Java: Configure Java Runtime**.
 
-With the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), we also provide an easy way for you to start Java with VS Code by using the command **Java: Getting Started**. This command opens a Quick Start guide as well as tips for code editing and debugging. It also has a FAQ to answer some of the most asked questions.
+With the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), we also provide an easy way for you to start Java with VS Code by using the command **Java: Getting Started** from the Command Palette (`kb((workbench.action.showCommands)`). This command opens a Quick Start guide as well as tips for code editing and debugging. It also has a FAQ to answer some of the most asked questions.
 
 ![Java Getting Started](images/java-tutorial/getting-started.png)
 

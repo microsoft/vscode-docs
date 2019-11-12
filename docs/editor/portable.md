@@ -13,7 +13,7 @@ Visual Studio Code supports [Portable mode](https://en.wikipedia.org/wiki/Portab
 
 This mode also provides a way to set the installation folder location for VS Code extensions, useful for corporate environments that prevent extensions from being installed in the Windows AppData folder.
 
-Portable mode is supported on the ZIP download for Windows and Linux, as well as the regular Application download for macOS.
+Portable mode is supported on the ZIP download for Windows and Linux, as well as the regular Application download for macOS. See the [Download page](/download) to find the correct `.zip` file for your platform.
 
 > **Note:** Do not attempt to configure portable mode on an installation from the **Windows User or System installers**. Portable mode is only supported on the Windows ZIP (`.zip`) archive. Note as well that the Windows ZIP archive does not support auto update.
 
@@ -62,7 +62,7 @@ On **macOS**, automatic updates should work as always, no extra work needed.
 
 You can also migrate an existing installation to Portable mode:
 
-1. Download the VS Code ZIP distribution for your platform.
+1. [Download](/download) the VS Code ZIP distribution for your platform.
 2. Create the `data` or `code-portable-data` folder as above.
 3. Copy the user data directory to `data` and rename it to `user-data`:
     * **Windows** `%APPDATA%\Code`
