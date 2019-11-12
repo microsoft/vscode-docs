@@ -97,8 +97,6 @@ You can use one of the following solutions to resolve this problem:
 
 * **Remote - Containers only**: Forward the [Docker socket and install the Docker CLI](https://aka.ms/vscode-remote/samples/docker-in-docker) (only) in the container.
 
-* Use the [`extensionKind` property](#advanced-forcing-an-extension-to-run-locally--remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
-
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
 Remote Development requires kernel >= 3.10, glibc >=2.17, and libstdc++ >= 3.4.18. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
