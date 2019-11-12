@@ -958,7 +958,7 @@ See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docke
 
 ### Docker Extension limitations
 
-By default, the Docker extension will run remotely. While this is a sensible default for SSH and WSL2, it means the extension will not show local containers when VS Code is connected to a container.
+By default, the Docker extension will run remotely. While this is a sensible default for SSH and WSL 2, it means the extension will not show local containers when VS Code is connected to a container.
 
 You can use one of the following solutions to resolve this problem:
 
