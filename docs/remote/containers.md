@@ -351,7 +351,7 @@ If there are extensions that you would like always installed in any container, y
 ]
 ```
 
-### Advanced: Forcing an extension to run locally / remotely
+### Advanced: Forcing an extension to run locally or remotely
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
@@ -968,7 +968,7 @@ You can use one of the following solutions to resolve this problem:
 
 * Forward the [Docker socket and install the Docker CLI](https://aka.ms/vscode-remote/samples/docker-in-docker) (only) in the container.
 
-* Use the [`extensionKind` property](#advanced-forcing-an-extension-to-run-locally--remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
+* Use the [`extensionKind` property](#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
 
 ### Extension limitations
 
