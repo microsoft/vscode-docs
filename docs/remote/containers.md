@@ -338,9 +338,8 @@ You can also install all locally installed extensions inside the Dev Container b
 
 ![Install all extensions](images/containers/install-all-extn-containers.png)
 
-> **Note:** Certain extensions - such as [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/) - require the installation of system-level dependencies which are [listed in their documentation](https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/linux#install-prerequisites-manually). The need for these dependencies may depend on the operating system (e.g. the specific Linux distribution) used by your Docker image. If experiencing fatal errors with an extension suggesting it is incompatible with the development container environment, you may need to install these dependencies during the Docker build process, by adding required commands to your Dockerfile. Search the specific extension's documentation (such as that linked above for Live Share), to check for any such dependencies.
 However, note that some extensions may require you to [install additional software](#installing-additional-software) in the container. Consult extension documentation for details if you encounter issues.
-s
+
 ### "Always installed" extensions
 
 If there are extensions that you would like always installed in any container, you can update the `remote.containers.defaultExtensions` User [setting](/docs/getstarted/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
@@ -991,7 +990,7 @@ If you see "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates
 
 ### I'm seeing an error about a missing library or dependency
 
-Some extensions rely on libraries not found in the certain Docker images. See [Installing additional software](#installing-additional-software) for help with resolving the problem.
+Some extensions rely on libraries not found in specific Docker images. For example, [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/) requires the installation of system-level dependencies which are [listed in their documentation](https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/linux#install-prerequisites-manually). The need for these dependencies may depend on the operating system (for example specific Linux distribution) used by your Docker image. You may need to install these dependencies during the Docker build process, by adding required commands to your Dockerfile. Search the specific extension's documentation to check for dependencies and see [Installing additional software](#installing-additional-software) for help with resolving the problem.
 
 ### Can I connect to multiple containers at once?
 
