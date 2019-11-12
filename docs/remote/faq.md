@@ -83,6 +83,22 @@ All other communication between the server and the VS Code client is accomplishe
 
 You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
+### Why can't I see my local containers in the Docker extension when using the Remote - extensions?
+
+By default, the Docker extension will run remotely. While this is a sensible default in some cases, it means the extension may not show local containers when VS Code is connected to a remote SSH host, container, or WSL.
+
+You can use one of the following solutions to resolve this problem:
+
+* Open a new local window (**File > New Window**) and use it to work with local containers.
+
+* Install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/remote/containers.md#option-1-use-the-containers-remote-explorer) in situations when you need to see your local containers.
+
+* **Remote - WSL only**:  Use the [Docker Technical Preview for WSL2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
+
+* **Remote - Containers only**: Forward the [Docker socket and install the Docker CLI](https://aka.ms/vscode-remote/samples/docker-in-docker) (only) in the container.
+
+* Use the [`extensionKind` property](#advanced-forcing-an-extension-to-run-locally--remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
+
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
 Remote Development requires kernel >= 3.10, glibc >=2.17, and libstdc++ >= 3.4.18. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
@@ -90,16 +106,6 @@ Remote Development requires kernel >= 3.10, glibc >=2.17, and libstdc++ >= 3.4.1
 Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for Remote - Containers and Remote - WSL and ARMv7l (AArch32) / ARMv8l (AArch64) is available in Remote - SSH. However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions. Note that experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 See [Remote Development with Linux](/docs/remote/linux.md) for additional details.
-
-### Can the Docker extension run as a remote "workspace" extension?
-
-The Docker extension is configured to run as a local "UI" extension by default. This enables the extension to work with your local Docker installation when you are developing inside a container. However, you may want to use the extension with a Docker Machine installed on a remote host instead. Fortunately, you can configure the Docker extension to run on the host by adding the following to `settings.json`:
-
-```json
-"remote.extensionKind": {
-    "ms-azuretools.vscode-docker": "workspace"
-}
-```
 
 ### Can I install individual extensions instead of the extension pack?
 
@@ -134,10 +140,6 @@ The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) inc
 ### Do "dev containers definitions" define how an application is built? Like Buildpacks?
 
 No. The [Buildpacks](https://buildpacks.io/) concept focuses on taking source code and generating deployable container images through a series of defined steps. A dev container is an environment in which you can develop your application before you are ready to build. They are therefore complementary concepts.
-
-### Why do some commands invoked from the Docker extension fail?
-
-Using the Docker extension from a VS Code window opened in a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local window and use the Docker extension from this VS Code window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
 ## Extensions authors
 

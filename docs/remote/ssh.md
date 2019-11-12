@@ -131,12 +131,12 @@ If there are extensions that you would like to always have installed on any SSH 
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the Docker and Debugger for Chrome extensions to run remotely instead of their local defaults:
+For example, the setting below will force the Docker extension to run locally and Debugger for Chrome extension to run remotely instead of their defaults:
 
 ```json
 "remote.extensionKind": {
     "msjsdiag.debugger-for-chrome": "workspace",
-    "ms-azuretools.vscode-docker": "workspace"
+    "ms-azuretools.vscode-docker": "ui"
 }
 ```
 
@@ -213,13 +213,15 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 
 ### Docker Extension limitations
 
-The Docker extension is configured to run as a local "UI" extension by default. This enables the extension to work with your local Docker installation when you are developing inside a container. However, you may want to use the extension with a Docker Machine installed on a remote host instead. Fortunately, you can configure the Docker extension to run on the host by adding the following to `settings.json`:
+By default, the Docker extension will run remotely. While this allows you to see containers on your SSH host, it means the extension will not show you local containers when connected to a remote host.
 
-```json
-"remote.extensionKind": {
-    "ms-azuretools.vscode-docker": "workspace"
-}
-```
+You can use one of the following solutions to resolve this problem:
+
+- Open a new local window (**File > New Window**) and use it to work with local containers.
+
+- Install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/remote/containers.md#option-1-use-the-containers-remote-explorer) in situations when you need to see your local containers.
+
+- Use the [`extensionKind` property](#advanced-forcing-an-extension-to-run-locally--remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
 
 ### Extension limitations
 
