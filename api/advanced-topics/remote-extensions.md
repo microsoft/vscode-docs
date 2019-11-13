@@ -17,7 +17,7 @@ This article summarizes what extension authors need to know about VS Code Remote
 
 In order to make working with Remote Development or VS Online as transparent as possible to users, VS Code distinguishes two kinds of extensions:
 
-- **UI Extensions**: These extensions contribute to the VS Code user interface and are always run on the user's local machine. In the case of VS Online's browser-based editor, they may even run in the browser itself. UI Extensions cannot directly access files in the workspace, or run scripts/tools installed in that workspace or on the machine. Example UI Extensions include: themes, snippets, language grammars, and keymaps.
+- **UI Extensions**: These extensions contribute to the VS Code user interface and are always run on the user's local machine. UI Extensions cannot directly access files in the remote workspace, or run scripts/tools installed in that workspace or on the machine. Example UI Extensions include: themes, snippets, language grammars, and keymaps.
 
 - **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions run on the local machine. When in a remote workspace or when using VS Online, Workspace Extensions run on the remote machine / environment. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in the workspace (either directly or by invoking scripts/tools). While Workspace Extensions do not focus on modifying the UI, they can contribute explorers, views, and other UI elements as well.
 
@@ -145,15 +145,15 @@ As of VS Code 1.40, this value is an array:
 
 ```json
 {
-    "extensionKind": ["ui"]
+    "extensionKind": ["ui", "workspace"]
 }
 ```
 
 Prior releases only allowed an extension to specify one location as a string. Extensions can now specify more than one.
 
-- `"extensionKind": ["ui"]` — Indicates the extension requires access to local capabilities and therefore can only run in the VS Code client.
-- `"extensionKind": ["workspace"]` — Indicates the extension requires access to workspace contents and therefore will run in VS Code Server when connected to a remote workspace or VS Online.
-- `"extensionKind": ["ui", "workspace"]` — Indicates the extension can run in either location, but will default to the VS Code client.
+- `"extensionKind": ["workspace"]` — Indicates the extension requires access to workspace contents and therefore will run in VS Code Server when connected to a remote workspace or VS Online. Most extensions fall into this category.
+- `"extensionKind": ["ui", "workspace"]` — Indicates the extension **prefers** to run as a UI extension, but does not have any hard requirements on local assets, devices, or capabilities. When using VS Code, the extension will run in VS Code's local extension host. When using VS Online's browser-based editor, it will run in the remote extension host instead (as no local extension host is available). The old  `"ui"`  value (as a string) maps to this type for backwards compatibility, but is considered deprecated.
+- `"extensionKind": ["ui"]` — Indicates the extension **must** run as a UI extension because it requires access to local assets, devices, or capabilities. Therefore, it can only run in VS Code's local extension host and will not work in VS Online's browser-based editor (as there is no local extension host available).
 
 You can also quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you wish to force the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) to be a workspace extension (instead of its UI default), you would set:
 

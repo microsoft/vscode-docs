@@ -49,52 +49,80 @@ To get started, you need to:
 
 ### Connect to a remote host
 
-Visual Studio Code uses [SSH configuration files](https://linux.die.net/man/5/ssh_config) and requires [SSH key based authentication](https://www.ssh.com/ssh/public-key-authentication) to connect to your host. If you do not have a host yet, you can create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
+In this quick start, we'll cover how to connect to a SSH host with minimal setup. [In the next section](#remember-hosts-and-advanced-settings), we'll cover how you can configure VS Code to remember hosts you connect to frequently along with any advanced settings.
+
+If you do not have a host yet, you can [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) or create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > **Note:** When using ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension. Experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only. See [system requirements](#system-requirements) for supported hosts.
 
 To get started, follow these steps:
 
-1. First, **configure key based authentication** on the host you plan to connect to by adding your local public SSH key to `~/.ssh/authorized_keys` on the host. If you are new to SSH or are running into trouble, see [Configuring key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) for additional information on setting this up. If you followed the Azure VM tutorial, you can skip this step.
+1. **[Optional]** While password-based authentication is supported, we recommend setting up **key based authentication** on the host you plan to connect to by adding your local public SSH key to `~/.ssh/authorized_keys` on the host. See the [Tips and Tricks](/docs/remote/troubleshooting.md#configuring-key-based-authentication) article for details.
 
-    > **Note:** PuTTY for Windows is not a [supported client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
+    > **Tip:** PuTTY for Windows is not a [supported client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
 
-2. Run **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) and enter the host and your user on the host in the input box as follows: `user@hostname`.
+2. Select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) and enter the host and your user on the host in the input box as follows: `user@hostname`.
 
     ![Illustration of user@host input box](images/ssh/ssh-user@box.png)
 
-    > **Note:** If you see errors about bad SSH file permissions when connecting, see [Fixing SSH file permission errors](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) for details on the correct settings.
-
 3. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up-to-date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
 
-    > **Note:** If your connection is hanging, you may need to enable TCP forwarding or respond to a server prompt. See [Tips and Tricks](/docs/remote/troubleshooting.md#troubleshooting-hanging-or-failing-connections) for details.
+    > **Tip:** If you see errors about bad SSH file permissions when connecting, see [fixing SSH file permission errors](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors). If your connection is hanging, you may need to enable TCP forwarding or respond to a server prompt. See [Tips and Tricks](/docs/remote/troubleshooting.md#troubleshooting-hanging-or-failing-connections) for details.
 
 4. After you are connected, you'll be in an empty window. You can then open a folder or workspace on the remote machine using **File > Open...** or **File > Open Workspace...**
 
-5. After a moment, the folder or workspace you selected will open. Install **any extensions** you want to use on this host from the Extensions view.
+    ![File > Open on a remote SSH host](images/ssh/ssh-open-folder.png)
+
+5. The window will reload and the folder or workspace you selected will open. If you have multiple VS Code windows open, you can refer to the status bar to see which one is connected to the host.
+
+    ![SSH status bar item](images/ssh/ssh-statusbar.png)
+
+    Clicking on this same status bar item at any time will show you a set of quick actions you can select from while you are connected.
+
+From here, [install any extensions](#managing-extensions) you want to use when connected to the host and  start editing!
 
 ### Disconnect from a remote host
 
 To close the connection when you finish editing files on the remote host, choose **File > Close Remote Connection** to disconnect from the host. The default configuration does not include a keyboard shortcut for this command. You can also simply exit VS Code to close the remote connection.
 
-### Remembering hosts you connect to frequently
+### Remember hosts and advanced settings
 
-If you have a few hosts you use frequently, you can add them to an SSH config file so they automatically appear in the host dropdown. Run **Remote-SSH: Open Configuration File...** and add the host to the file using the [SSH config file format](https://linux.die.net/man/5/ssh_config).
+If you have a set of hosts you use frequently or you need to connect to a host using some additional options, you can add them to a local file that follows the [SSH config file format](http://man7.org/linux/man-pages/man5/ssh_config.5.html).
 
-For example, here are two example hosts:
+To make setup easy, the extension can guide you through adding a host without having to hand edit this file.
+
+Start by selecting **Remote-SSH: Add New SSH Host...** from the Command Palette (`kbstyle(F1)`) or clicking on the "Add New" icon in the SSH **Remote Explorer** in the Activity Bar.
+
+![Remote Explorer add new item](images/ssh/ssh-explorer-add-new.png)
+
+You'll then be asked to enter the SSH connection information. You can either enter a host name:
+
+![Remote Explorer add new item](images/ssh/ssh-host-input.png)
+
+Or a the a full `ssh` command you would use to connect to the host from the command line:
+
+![Remote Explorer add new item](images/ssh/ssh-command-input.png)
+
+Finally, you'll be asked to pick a config file to use. You can also set the `"remote.SSH.configFile"` property in `settings.json` if you want to use a different config file than those listed. The extension takes care of the rest!
+
+For example, entering `ssh -i ~/.ssh/id_rsa-remote-ssh yourname@remotehost.yourcompany.com` in the input box would generate this entry:
 
 ```text
-Host example-remote-linux-machine
-    User your-user-name-here
-    HostName host-fqdn-or-ip-goes-here
-
-Host example-remote-linux-machine-with-identity-file
-    User your-user-name-on-host
+Host remotehost.yourcompany.com
+    User remotehost.yourcompany.com`
     HostName another-host-fqdn-or-ip-goes-here
     IdentityFile ~/.ssh/id_rsa-remote-ssh
 ```
 
-The second example uses an alternate location for your SSH key if you want to use more than one. See [Tips and Tricks](/docs/remote/troubleshooting.md#improving-your-security-with-a-dedicated-key) for details. You can also set the `"remote.SSH.configFile"` property in `settings.json` if you want to use a different config file than those listed.
+See [Tips and Tricks](/docs/remote/troubleshooting.md#improving-your-security-with-a-dedicated-key) for details on generating the key shown here. Regardless, you can manually edit this file with anything the [SSH config file format](http://man7.org/linux/man-pages/man5/ssh_config.5.html) supports, so this is just one example.
+
+From this point forward, the host will appear in the list of hosts when you select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) or in the SSH section of the **Remote Explorer**.
+
+![Input box for a SSH command](images/ssh/ssh-explorer-connect.png)
+
+The **Remote Explorer** allows you to both open a new empty window on the remote host or directly open a folder you previously opened. Simply expand the host and click on the "Open Folder" icon next to the folder you want to open on the host.
+
+![Remote Explorer open folder](images/ssh/ssh-explorer-open-folder.png)
 
 ## Managing extensions
 
@@ -148,15 +176,21 @@ Sometimes when developing, you may need to access a port on a remote machine tha
 
 ### Temporarily forwarding a port
 
-If you want to **temporarily forward** a new port for the duration of the session, run the **Remote-SSH: Forward Port from Active Host...** command when connected to an active SSH host.
+Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Remote-SSH: Forward Port from Active Host...** from the Command Palette (`kbstyle(F1)`) or click on the "Forward New Port" icon in the **Remote Explorer** after selecting it from the Activity Bar.
+
+![Remote explorer forward port button](images/ssh/ssh-explorer-forward-port.png)
+
+You'll then be asked to enter the port you would like to forward and you can give it a name.
 
 ![Forward port input](images/ssh/forward-port-ssh.png)
 
-After entering a port number, a notification will tell you the localhost port you should use to access the remote port. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote HTTP server using http://localhost:4123.
+A notification will tell you the localhost port you should use to access the remote port. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost since 3000 was already in use. You can then connect to this remote HTTP server using http://localhost:4123.
+
+This same information is available in the Forwarded Ports section of the Remote Explorer if you need to access it later.
 
 ### Always forwarding a port
 
-If you have ports that you **always want to forward**, you can use the `LocalForward` directive in the same SSH config file you created above in the [Remembering hosts](#remembering-hosts-you-connect-to-frequently) section above.
+If you have ports that you **always want to forward**, you can use the `LocalForward` directive in the same SSH config file you use to [remember hosts and advanced settings](#remember-hosts-and-advanced-settings).
 
 For example, if you wanted to forward ports 3000 and 27017, you could update the file as follows:
 
