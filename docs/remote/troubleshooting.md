@@ -501,7 +501,7 @@ First, try [stopping any running containers](/docs/remote/containers.md#managing
 
 If this doesn't solve your problem, you may want to see if CPU usage is actually the issue or if there is something else going on. An easy way to check this is to install the [Resource Monitor extension](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor&ssr=false#overview). When installed in a container, it provides information about capacity for your containers in the Status bar.
 
-![Resource use status bar](images/troubleshooting/resource-monitor.png)
+![Resource use Status bar](images/troubleshooting/resource-monitor.png)
 
 If you'd like this extension to always be installed, add this to your `settings.json`:
 
@@ -725,7 +725,7 @@ To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polli
 
 For large workspace you may want to increase the polling interval, `remote.WSL.fileWatcher.pollingInterval`, and control the folders that are watched with `files.watcherExclude`.
 
-[WSL 2](https://docs.microsoft.com/en-us/windows/wsl/wsl2-index) does not have that file watcher problem and is not affected by the new setting.
+[WSL 2](https://docs.microsoft.com/windows/wsl/wsl2-index) does not have that file watcher problem and is not affected by the new setting.
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 

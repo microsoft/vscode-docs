@@ -49,7 +49,7 @@ To get started, you need to:
 
 ### Connect to a remote host
 
-In this quick start, we'll cover how to connect to a SSH host with minimal setup. [In the next section](#remember-hosts-and-advanced-settings), we'll cover how you can configure VS Code to remember hosts you connect to frequently along with any advanced settings.
+In this quick start, we'll cover how to connect to an SSH host with minimal setup. [In the next section](#remember-hosts-and-advanced-settings), we'll cover how you can configure VS Code to remember hosts you frequently connect to, along with any advanced settings.
 
 If you do not have a host yet, you can [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) or create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -71,15 +71,15 @@ To get started, follow these steps:
 
 4. After you are connected, you'll be in an empty window. You can then open a folder or workspace on the remote machine using **File > Open...** or **File > Open Workspace...**
 
-    ![File > Open on a remote SSH host](images/ssh/ssh-open-folder.png)
+    ![File Open on a remote SSH host](images/ssh/ssh-open-folder.png)
 
-5. The window will reload and the folder or workspace you selected will open. If you have multiple VS Code windows open, you can refer to the status bar to see which one is connected to the host.
+5. The window will reload and the folder or workspace you selected will open. If you have multiple VS Code windows open, you can refer to the Status bar to see which one is connected to the host.
 
-    ![SSH status bar item](images/ssh/ssh-statusbar.png)
+    ![SSH Status bar item](images/ssh/ssh-statusbar.png)
 
-    Clicking on this same status bar item at any time will show you a set of quick actions you can select from while you are connected.
+    Clicking on the Status bar item at any time will provide a list of remote commands while you are connected.
 
-From here, [install any extensions](#managing-extensions) you want to use when connected to the host and  start editing!
+From here, [install any extensions](#managing-extensions) you want to use when connected to the host and start editing!
 
 ### Disconnect from a remote host
 
@@ -91,19 +91,19 @@ If you have a set of hosts you use frequently or you need to connect to a host u
 
 To make setup easy, the extension can guide you through adding a host without having to hand edit this file.
 
-Start by selecting **Remote-SSH: Add New SSH Host...** from the Command Palette (`kbstyle(F1)`) or clicking on the "Add New" icon in the SSH **Remote Explorer** in the Activity Bar.
+Start by selecting **Remote-SSH: Add New SSH Host...** from the Command Palette (`kbstyle(F1)`) or clicking on the **Add New** icon in the SSH **Remote Explorer** in the Activity Bar.
 
-![Remote Explorer add new item](images/ssh/ssh-explorer-add-new.png)
+![Remote Explorer Add New item](images/ssh/ssh-explorer-add-new.png)
 
 You'll then be asked to enter the SSH connection information. You can either enter a host name:
 
-![Remote Explorer add new item](images/ssh/ssh-host-input.png)
+![Remote Explorer SSH host input](images/ssh/ssh-host-input.png)
 
-Or a the a full `ssh` command you would use to connect to the host from the command line:
+Or the full `ssh` command you would use to connect to the host from the command line:
 
-![Remote Explorer add new item](images/ssh/ssh-command-input.png)
+![Remote Explorer SSH command input](images/ssh/ssh-command-input.png)
 
-Finally, you'll be asked to pick a config file to use. You can also set the `"remote.SSH.configFile"` property in `settings.json` if you want to use a different config file than those listed. The extension takes care of the rest!
+Finally, you'll be asked to pick a config file to use. You can also set the `"remote.SSH.configFile"` property in your User `settings.json` file if you want to use a different config file than those listed. The extension takes care of the rest!
 
 For example, entering `ssh -i ~/.ssh/id_rsa-remote-ssh yourname@remotehost.yourcompany.com` in the input box would generate this entry:
 
@@ -114,13 +114,13 @@ Host remotehost.yourcompany.com
     IdentityFile ~/.ssh/id_rsa-remote-ssh
 ```
 
-See [Tips and Tricks](/docs/remote/troubleshooting.md#improving-your-security-with-a-dedicated-key) for details on generating the key shown here. Regardless, you can manually edit this file with anything the [SSH config file format](http://man7.org/linux/man-pages/man5/ssh_config.5.html) supports, so this is just one example.
+See [Tips and Tricks](/docs/remote/troubleshooting.md#improving-your-security-with-a-dedicated-key) for details on generating the key shown here. You can manually edit this file with anything the [SSH config file format](http://man7.org/linux/man-pages/man5/ssh_config.5.html) supports, so this is just one example.
 
-From this point forward, the host will appear in the list of hosts when you select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) or in the SSH section of the **Remote Explorer**.
+From this point forward, the host will appear in the list of hosts when you select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) or in the **SSH Targets** section of the **Remote Explorer**.
 
-![Input box for a SSH command](images/ssh/ssh-explorer-connect.png)
+![SSH targets in the Remote Explorer](images/ssh/ssh-explorer-connect.png)
 
-The **Remote Explorer** allows you to both open a new empty window on the remote host or directly open a folder you previously opened. Simply expand the host and click on the "Open Folder" icon next to the folder you want to open on the host.
+The **Remote Explorer** allows you to both open a new empty window on the remote host or directly open a folder you previously opened. Expand the host and click on the **Open Folder** icon next to the folder you want to open on the host.
 
 ![Remote Explorer open folder](images/ssh/ssh-explorer-open-folder.png)
 
@@ -128,9 +128,13 @@ The **Remote Explorer** allows you to both open a new empty window on the remote
 
 VS Code runs extensions in one of two places: locally on the UI / client side, or remotely on the SSH host. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside on the SSH host. This ensures you have smooth experience and allows you to install any needed extensions for a given workspace on an SSH host from your local machine. This way, you can pick up exactly where you left off, from a different machine complete with your extensions.
 
-If you install an extension from the Extensions view, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category grouping. There will be a category for your remote SSH host and a **Local - Installed** category.
+If you install an extension from the Extensions view, it will automatically be installed in the correct location. Once installed, you can tell where an extension is installed based on the category grouping.
+
+There will be a category for your remote SSH host:
 
 ![Workspace Extension Category](images/ssh/ssh-installed-remote-indicator.png)
+
+And also a **Local - Installed** category:
 
 ![Local Extension Category](images/common/local-installed-extensions.png)
 
@@ -176,17 +180,17 @@ Sometimes when developing, you may need to access a port on a remote machine tha
 
 ### Temporarily forwarding a port
 
-Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Remote-SSH: Forward Port from Active Host...** from the Command Palette (`kbstyle(F1)`) or click on the "Forward New Port" icon in the **Remote Explorer** after selecting it from the Activity Bar.
+Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Remote-SSH: Forward Port from Active Host...** from the Command Palette (`kbstyle(F1)`) or click on the **Forward New Port** icon in the **Remote Explorer** after selecting it from the Activity Bar.
 
-![Remote explorer forward port button](images/ssh/ssh-explorer-forward-port.png)
+![Remote Explorer forward port button](images/ssh/ssh-explorer-forward-port.png)
 
-You'll then be asked to enter the port you would like to forward and you can give it a name.
+You'll be asked to enter the port you would like to forward and you can give it a name.
 
 ![Forward port input](images/ssh/forward-port-ssh.png)
 
 A notification will tell you the localhost port you should use to access the remote port. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost since 3000 was already in use. You can then connect to this remote HTTP server using http://localhost:4123.
 
-This same information is available in the Forwarded Ports section of the Remote Explorer if you need to access it later.
+This same information is available in the **Forwarded Ports** section of the Remote Explorer if you need to access it later.
 
 ### Always forwarding a port
 
@@ -277,7 +281,7 @@ See [Installing a supported SSH server](/docs/remote/troubleshooting.md#installi
 
 ### Can I sign in to my SSH server with another/additional authentication mechanism like a password?
 
-Yes, you should be prompted to enter your token or password automatically. However, note that passwords are not saved, so using [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) is typically more convenient.
+Yes, you should be prompted to enter your token or password automatically. However, passwords are not saved, so using [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) is typically more convenient.
 
 ### How do I fix SSH errors about "bad permissions"?
 
