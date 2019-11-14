@@ -113,7 +113,7 @@ Next steps will be:
 
 ```json
 "scripts": {
-  "deploy": "vsce publish -p"
+  "deploy": "vsce publish --yarn"
 }
 ```
 
@@ -132,7 +132,7 @@ trigger:
 ```yaml
 - bash: |
     echo ">>> Publish"
-    yarn deploy $(VSCODE_MARKETPLACE_TOKEN)
+    yarn deploy -p $(VSCODE_MARKETPLACE_TOKEN)
   displayName: Publish
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Agent.OS'], 'Linux'))
 ```
