@@ -302,6 +302,8 @@ The list of Code Actions supported by VS Code keeps growing and only listed the 
 * Convert lambda to anonymous class
 * Convert anonymous class to nested class
 * Create unresolved types
+* Add `final` modifier where possible
+* Remove unnecessary cast
 
 ### Code Snippets
 
