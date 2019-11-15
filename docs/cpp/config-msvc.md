@@ -210,7 +210,7 @@ You can press the TAB key to insert the selected member; then, when you add the 
 
 1. When the task starts, you should see the integrated Terminal window appear below the code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful MSVC build, the output looks something like this:
 
-![MSVC build output in terminal](images/msvc/msvc-task-in-terminal.png)
+   ![MSVC build output in terminal](images/msvc/msvc-task-in-terminal.png)
 
 1. As the message instructs, press any key to close the build message; the terminal now returns to the shell command prompt.
 
