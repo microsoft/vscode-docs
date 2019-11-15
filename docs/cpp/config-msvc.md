@@ -30,7 +30,7 @@ To use MSVC in VS Code, you must start VS Code from a **Developer Command Prompt
 
 1. To open the Developer Command Prompt for VS, start typing "Developer" in the Windows Start menu, and you should see it appear in the list of suggestions. The exact name depends on which version of Visual Studio or the Visual Studio Build Tools you have installed. Click on the item to open the prompt.
 
-![Developer Command Prompt](images/msvc/developer-cmd-prompt-menu.png)
+   ![Developer Command Prompt](images/msvc/developer-cmd-prompt-menu.png)
 
 1. From the developer command prompt, create an empty folder called "projects" where you can store all your VS Code projects, then create a subfolder called "helloworld", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
