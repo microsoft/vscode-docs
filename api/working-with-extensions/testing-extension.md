@@ -13,7 +13,7 @@ Visual Studio Code supports running and debugging tests for your extension. Thes
 
 ## Overview
 
-*If you are migrating from `vscode`, see [migrating from `vscode`](#migrating-from-vscode)*.
+_If you are migrating from `vscode`, see [migrating from `vscode`](#migrating-from-vscode)_.
 
 If you are using the [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold an extension, integration tests are already created for you.
 
@@ -235,24 +235,41 @@ await runTests({
 Sometimes you might want to run custom setups, such as running `code --install-extension` to install another extension before starting your test. `vscode-test` has a more granular API to accommodate that case:
 
 ```ts
-const cp = require('child_process')
-const { downloadAndUnzipVSCode, resolveCliPathFromExecutablePath } = require('vscode-test')
-const vscodeExecutablePath = await downloadAndUnzipVSCode('1.34.0');
-const cliPath = resolveCliPathFromExecutablePath(vscodeExecutablePath);
+import * as cp from 'child_process';
+import * as path from 'path';
+import {
+  downloadAndUnzipVSCode,
+  resolveCliPathFromVSCodeExecutablePath,
+  runTests
+} from 'vscode-test';
 
-// Use cp.spawn / cp.exec for custom setup
-cp.spawnSync(cliPath, ['--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
-  encoding: 'utf-8',
-  stdio: 'inherit'
-});
+async function main() {
+  try {
+    const extensionDevelopmentPath = path.resolve(__dirname, '../../../');
+    const extensionTestsPath = path.resolve(__dirname, './suite/index');
+    const vscodeExecutablePath = await downloadAndUnzipVSCode('1.40.1');
+    const cliPath = resolveCliPathFromVSCodeExecutablePath(vscodeExecutablePath);
 
-// Run the extension test
-await runTests({
-  // Use the specified `code` executable
-  vscodeExecutablePath,
-  extensionPath,
-  testRunnerPath
-});
+    // Use cp.spawn / cp.exec for custom setup
+    cp.spawnSync(cliPath, ['--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
+      encoding: 'utf-8',
+      stdio: 'inherit'
+    });
+
+    // Run the extension test
+    await runTests({
+      // Use the specified `code` executable
+      vscodeExecutablePath,
+      extensionDevelopmentPath,
+      extensionTestsPath
+    });
+  } catch (err) {
+    console.error('Failed to run tests');
+    process.exit(1);
+  }
+}
+
+main();
 ```
 
 ### Migrating from `vscode`
