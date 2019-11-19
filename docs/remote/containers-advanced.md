@@ -96,7 +96,7 @@ RUN echo "export PROMPT_COMMAND='history -a'" >> "/root/.bashrc" \
 
 ## Adding another local file mount
 
-You can add a volume bound to any local folder using by following the appropriate steps below based on what you reference in `devcontainer.json`:
+You can add a volume bound to any local folder by using the following appropriate steps, based on what you reference in `devcontainer.json`:
 
 * **Dockerfile or image**: Add the following to the `runArgs` property in this same file:
 
