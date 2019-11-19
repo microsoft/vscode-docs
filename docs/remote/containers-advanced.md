@@ -13,7 +13,7 @@ This article includes advanced setup scenarios for the [Visual Studio Code Remot
 
 ## Adding environment variables
 
-You can set environment variables in your container without altering the container image by using one of options below.
+You can set environment variables in your container without altering the container image by using one of the options below.
 
 ### Option 1: Add individual variables
 
