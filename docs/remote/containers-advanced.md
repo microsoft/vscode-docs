@@ -229,7 +229,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ### Use a named volume for your entire source tree
 
-Finally, if none of the above options meet your needs, you can go one step farther and **clone your entire source tree inside of a named volume** rather than locally. You can set up a named volume by taking an existing `devcontainer.json` configuration and modifying it as follows (updating `your-volume-name-here` with whatever you want to call the volume).
+Finally, if none of the above options meet your needs, you can go one step further and **clone your entire source tree inside of a named volume** rather than locally. You can set up a named volume by taking an existing `devcontainer.json` configuration and modifying it as follows (updating `your-volume-name-here` with whatever you want to call the volume).
 
 Depending on what you reference in `devcontainer.json`:
 
