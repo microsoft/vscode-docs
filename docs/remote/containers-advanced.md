@@ -176,7 +176,7 @@ Follow these steps:
     "postCreateCommand": "sudo chown node:node node_modules"
     ```
 
-    This second step is not required if you will be running in the container as `root`.
+    This second step is not required if you will be running the container as `root`.
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
