@@ -289,7 +289,11 @@ hand, shows disabled items but doesn't show the category label.
       {
         "command": "extension.sayHello",
         "title": "Hello World",
-        "category": "Hello"
+        "category": "Hello",
+        "icon": {
+          "light": "path/to/light/icon.svg",
+          "dark": "path/to/dark/icon.svg"
+        }
       }
     ]
   }
