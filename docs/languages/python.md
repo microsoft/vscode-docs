@@ -130,7 +130,7 @@ The Python extension provides a wide variety of settings for its various feature
 
 ## Other popular Python extensions
 
-The [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) provides all of the features described previously in this article. Additional Python language support can be added to VS Code by installing other popular Python extensions. For Jupyter support, we recommend the "Jupyter" extension from Don Jayamanne.
+The [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) provides all of the features described previously in this article. Additional Python language support can be added to VS Code by installing other popular Python extensions.
 
 1. Open the **Extensions** view (`kb(workbench.view.extensions)`).
 1. Filter the extension list by typing 'python'.
