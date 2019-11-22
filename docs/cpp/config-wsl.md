@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: GCC on Windows Subsystem for Linux
 ContentId: dc79a06a-6665-478c-9298-a1fc9cf8010d
 PageTitle: Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code
-DateApproved: 07/25/2019
+DateApproved: 11/22/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and GDB on WSL installation with Ubuntu
 ---
 # Using C++ and WSL in VS Code
@@ -72,7 +72,7 @@ To successfully complete this tutorial, you must do the following steps:
 
 >**Note**: The setup steps for installing the g++ compiler and GDB debugger apply if you are working directly on a Linux machine rather than in WSL. Running VS Code in your helloworld project, as well as the editing, building, and debugging steps are the same.
 
-## Run Visual Studio Code in WSL
+## Run VS Code in WSL
 
 Navigate to your helloworld project folder and launch VS Code from the WSL terminal with `code .`:
 
@@ -138,9 +138,9 @@ Now paste in this source code:
    }
    ```
 
-1. Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
+Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
 
-   ![File Explorer](images/wsl/file-explorer-helloworld.png)
+![File Explorer](images/wsl/file-explorer-helloworld.png)
 
 You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
@@ -150,7 +150,7 @@ The Activity Bar on the far left lets you open different views such as **Search*
 
 In your new `helloworld.cpp` file, hover over `vector` or `string` to see type information. After the declaration of the `msg` variable, start typing `msg.` as you would when calling a member function. You should immediately see a completion list that shows all the member functions, and a window that shows the type information for the `msg` object:
 
-   ![Statement completion IntelliSense](images/wsl/msg-intellisense.png)
+![Statement completion IntelliSense](images/wsl/msg-intellisense.png)
 
 You can press the `kbstyle(Tab)` key to insert the selected member; then, when you add the opening parenthesis, you will see information about any arguments that the function requires.
 
@@ -160,7 +160,7 @@ Next, you will create a `tasks.json` file to tell VS Code how to build (compile)
 
 From the main menu, choose **Terminal** > **Configure Default Build Task**. In the dropdown, which will display a tasks dropdown listing various predefined build tasks for C++ compilers. Choose **g++ build active file**, which will build the file which is currently displayed (active) in the editor.
 
-![Tasks C++ build dropdown](images/wsl/g++-build-active-file.png)
+![Tasks C++ build dropdown](images/wsl/build-active-file.png)
 
 This will create a `tasks.json` file in a `.vscode` folder and open it in the editor.
 
@@ -225,7 +225,7 @@ Next, you'll create a `launch.json` file to configure VS Code to launch the GDB 
 
 You'll then see a dropdown for various predefined debugging configurations. Choose **g++ build and debug active file**.
 
-![C++ debug configuration dropdown](images/wsl/g++-build-and-debug-active-file.png)
+![C++ debug configuration dropdown](images/wsl/build-and-debug-active-file.png)
 
 VS Code creates a `launch.json` file, opens it in the editor, and builds and runs 'helloworld'.
 
@@ -361,7 +361,7 @@ Visual Studio Code places these settings in `.vscode/c_cpp_properties.json`. If 
 
 ## Closing the WSL session
 
-When you are done working in WSL, you can close your remote session with the **Close Remote Connection** command available in the main **File** menu and the Command Palette (`kb(workbench.action.showCommands`). This will restart VS Code running locally. You can easily reopen your WSL session from the **File** > **Open Recent** list by selecting folders with the **[WSL]** suffix.
+When you are done working in WSL, you can close your remote session with the **Close Remote Connection** command available in the main **File** menu and the Command Palette (`kb(workbench.action.showCommands)`). This will restart VS Code running locally. You can easily reopen your WSL session from the **File** > **Open Recent** list by selecting folders with the **[WSL]** suffix.
 
 ## Next steps
 
