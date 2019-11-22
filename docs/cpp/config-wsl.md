@@ -103,11 +103,19 @@ In the File Explorer title bar, select the **New File** button and name the file
 
 ![New File title bar button](images/wsl/new-file-button.png)
 
-Once you create the file and VS Code detects it is a C++ language file, you will be prompted to install the [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+### Install the C/C++ extension
+
+Once you create the file and VS Code detects it is a C++ language file, you may be prompted to install the [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) if you don't already have it installed.
 
 ![C++ extension notification](images/wsl/cpp-extension-notification.png)
 
 Choose **Install** and then **Reload Required** when the button is displayed in the Extensions view to complete installing the C/C++ extension.
+
+If you already have C/C++ language extensions installed locally in VS Code, you'll need to go to the Extensions view (`kb(workbench.view.extensions)`) and install those extensions into WSL. Locally installed extensions can be installed into WSL by selecting the **Install in WSL** button and then **Reload Required**.
+
+![Install in WSL button](images/wsl/install-in-wsl.png)
+
+### Add hello world source code
 
 Now paste in this source code:
 
@@ -130,7 +138,7 @@ Now paste in this source code:
    }
    ```
 
-1. Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view in the side bar of VS Code:
+1. Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
 
    ![File Explorer](images/wsl/file-explorer-helloworld.png)
 
