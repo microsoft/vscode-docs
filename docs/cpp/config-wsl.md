@@ -89,7 +89,7 @@ You can also tell the remote context from the Status bar.
 
 ![Remote context in the Status bar](images/wsl/wsl-status-bar.png)
 
-If you click on the Remote Status bar item, you will see a dropdown of Remote commands appropriate for the session. For example, if you want to end your session running in WSL, you can select the **Close Remote Connection** command from the dropdown.
+If you click on the Remote Status bar item, you will see a dropdown of Remote commands appropriate for the session. For example, if you want to end your session running in WSL, you can select the **Close Remote Connection** command from the dropdown. Running `code .` from your WSL command prompt will restart VS Code running in WSL.
 
 The **code .** command opened VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
 
@@ -120,7 +120,7 @@ Now paste in this source code:
 
    int main()
    {
-      vector<string> msg {"Hello", "C++", "World", "from", "VS Code!", "and the C++ extension!"};
+      vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
 
       for (const string& word : msg)
       {
@@ -258,7 +258,8 @@ The remaining steps are provided as an optional exercise to help you get familia
 
 ### Start a debugging session
 
-1. You are now ready to run the program. Make sure `helloworld.cpp` is the active file and press `kb(workbench.action.debug.start)` or from the main menu choose **Debug > Start Debugging**. Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
+1. Go back to `helloworld.cpp` so that it is the active file.
+2. Press `kb(workbench.action.debug.start)` or from the main menu choose **Debug > Start Debugging**. Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
 
 - The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
 - The editor highlights the first statement in the `main` method. This is a breakpoint that the C++ extension automatically sets for you:
@@ -319,7 +320,7 @@ Sometimes you might want to keep track of the value of a variable as your progra
 
 If you want more control over the C/C++ extension, you can create a `c_cpp_properties.json` file, which will allow you to change settings such as the path to the compiler, include paths, C++ standard (default is C++17), and more.
 
-You can view the C/C++ configuration UI by running the command **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.actions.showCommands)`).
+You can view the C/C++ configuration UI by running the command **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Command Palette](images/cpp/command-palette.png)
 
@@ -349,6 +350,10 @@ Visual Studio Code places these settings in `.vscode/c_cpp_properties.json`. If 
     "version": 4
 }
 ```
+
+## Closing the WSL session
+
+When you are done working in WSL, you can close your remote session with the **Close Remote Connection** command available in the main **File** menu and the Command Palette (`kb(workbench.action.showCommands`). This will restart VS Code running locally. You can easily reopen your WSL session from the **File** > **Open Recent** list by selecting folders with the **[WSL]** suffix.
 
 ## Next steps
 
