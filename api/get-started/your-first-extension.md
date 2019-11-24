@@ -29,7 +29,7 @@ yo code
 # ? Initialize a git repository? Yes
 # ? Which package manager to use? npm
 
-code ./helloworld
+cd ./helloworld
 ```
 
 Then, inside the editor, press `kb(workbench.action.debug.start)`. This will compile and run the extension in a new **Extension Development Host** window.
