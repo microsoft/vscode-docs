@@ -109,7 +109,7 @@ For example, entering `ssh -i ~/.ssh/id_rsa-remote-ssh yourname@remotehost.yourc
 
 ```text
 Host remotehost.yourcompany.com
-    User remotehost.yourcompany.com`
+    User remotehost.yourcompany.com
     HostName another-host-fqdn-or-ip-goes-here
     IdentityFile ~/.ssh/id_rsa-remote-ssh
 ```
