@@ -57,7 +57,7 @@ Next, depending on what you reference in `devcontainer.json`:
 * **Dockerfile or image**: Edit `devcontainer.json` and add a path to the `.env` file relative to the location of `devcontainer.json`:
 
     ```json
-    "runArgs": ["--env_file","devcontainer.env"]
+    "runArgs": ["--env-file","devcontainer.env"]
     ```
 
 * **Docker Compose:** Edit `docker-compose.yml` and add a path to the `.env` file relative to the Docker Compose file:
