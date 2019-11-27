@@ -45,7 +45,7 @@ When applicable, a language service will surface the underlying types in the qui
 
 ## Types of completions
 
-The JavaScript code below illustrates IntelliSense completions. IntelliSense gives both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (shown by the document icon).
+The JavaScript code below illustrates IntelliSense completions. IntelliSense gives both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (shown by the Word icon).
 
 ![intellisense icons](images/intellisense/intellisense_icons.png)
 
@@ -54,7 +54,8 @@ VS Code IntelliSense offers different types of completions, including language s
 |       |         |       |
 | ----- | ------- | ----- |
 | ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`  |
-| ![variable icon](images/intellisense/Field_16x.svg) | Variables and Fields | `variable`, `field` |
+| ![variable icon](images/intellisense/Variable_16x.svg) | Variables | `variable` |
+| ![field icon](images/intellisense/Field_16x.svg) | Fields | `field` |
 | ![class](images/intellisense/Class_16x.svg) | Classes | `class` |
 | ![interface](images/intellisense/Interface_16x.svg) | Interfaces | `interface` |
 | ![module](images/intellisense/Namespace_16x.svg) | Modules | `module` |
