@@ -620,12 +620,12 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 
 Some WSL Linux distributions are lacking libraries that are required by the VS Code server to start up. You can add additional libraries into your Linux distribution by using its package manager.
 
-#### Debian
+#### Debian and Ubuntu
 
-Open the Debian WSL shell to add `wget` and `ca-certificates`:
+Open the Debian or Ubuntu WSL shell to add `wget` and `ca-certificates`:
 
 ```sh
-sudo apt-get update && apt-get install wget ca-certificates
+sudo apt-get update && sudo apt-get install wget ca-certificates
 ```
 
 #### Alpine
