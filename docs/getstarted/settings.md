@@ -157,6 +157,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - off
   "editor.acceptSuggestionOnEnter": "on",
 
+  // Controls the number of lines in the editor that can be read out by a screen reader. Warning: this has a performance implication for numbers larger than the default.
+  "editor.accessibilityPageSize": 10,
+
   // Controls whether the editor should run in a mode where it is optimized for screen readers.
   //  - auto: The editor will use platform APIs to detect when a Screen Reader is attached.
   //  - on: The editor will be permanently optimized for usage with a Screen Reader.
@@ -183,8 +186,13 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - never
   "editor.autoClosingQuotes": "languageDefined",
 
-  // Controls whether the editor should automatically adjust the indentation when users type, paste or move lines. Extensions with indentation rules of the language must be available.
-  "editor.autoIndent": true,
+  // Controls whether the editor should automatically adjust the indentation when users type, paste, move or indent lines.
+  //  - none: The editor will not insert indentation automatically.
+  //  - keep: The editor will keep the current line's indentation.
+  //  - brackets: The editor will keep the current line's indentation and honor language defined brackets.
+  //  - advanced: The editor will keep the current line's indentation, honor language defined brackets and invoke special onEnterRules defined by languages.
+  //  - full: The editor will keep the current line's indentation, honor language defined brackets, invoke special onEnterRules defined by languages, and honor indentationRules defined by languages.
+  "editor.autoIndent": "full",
 
   // Controls whether the editor should automatically surround selections.
   //  - languageDefined: Use language configurations to determine when to automatically surround selections.
@@ -220,8 +228,8 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls the minimal number of visible leading and trailing lines surrounding the cursor. Known as 'scrollOff' or `scrollOffset` in some other editors.
   "editor.cursorSurroundingLines": 0,
 
-  // Controls when `cursorSurroundingLines` should be enforced
-  //  - default: `cursorSurroundingLines` is enforced only when triggered from keyboard and API
+  // Controls when `cursorSurroundingLines` should be enforced.
+  //  - default: `cursorSurroundingLines` is enforced only when triggered via the keyboard or API.
   //  - all: `cursorSurroundingLines` is enforced always.
   "editor.cursorSurroundingLinesStyle": "default",
 
@@ -291,11 +299,50 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether the editor should render the vertical glyph margin. Glyph margin is mostly used for debugging.
   "editor.glyphMargin": true,
 
-  // Controls the behavior of 'Go To' commands, like Go To Definition, when multiple target locations exist.
+  // Alternative command id that is being executed when the result of 'Go to Declaration' is the current location.
+  "editor.gotoLocation.alternativeDeclarationCommand": "editor.action.goToReferences",
+
+  // Alternative command id that is being executed when the result of 'Go to Definition' is the current location.
+  "editor.gotoLocation.alternativeDefinitionCommand": "editor.action.goToReferences",
+
+  // Alternative command id that is being executed when the result of 'Go to Implementation' is the current location.
+  "editor.gotoLocation.alternativeImplementationCommand": "",
+
+  // Alternative command id that is being executed when the result of 'Go to Reference' is the current location.
+  "editor.gotoLocation.alternativeReferenceCommand": "",
+
+  // Alternative command id that is being executed when the result of 'Go to Type Definition' is the current location.
+  "editor.gotoLocation.alternativeTypeDefinitionCommand": "editor.action.goToReferences",
+
+  // Controls the behavior the 'Go to Declaration'-command when multiple target locations exist.
   //  - peek: Show peek view of the results (default)
   //  - gotoAndPeek: Go to the primary result and show a peek view
   //  - goto: Go to the primary result and enable peek-less navigation to others
-  "editor.gotoLocation.multiple": "peek",
+  "editor.gotoLocation.multipleDeclarations": "peek",
+
+  // Controls the behavior the 'Go to Definition'-command when multiple target locations exist.
+  //  - peek: Show peek view of the results (default)
+  //  - gotoAndPeek: Go to the primary result and show a peek view
+  //  - goto: Go to the primary result and enable peek-less navigation to others
+  "editor.gotoLocation.multipleDefinitions": "peek",
+
+  // Controls the behavior the 'Go to Implementations'-command when multiple target locations exist.
+  //  - peek: Show peek view of the results (default)
+  //  - gotoAndPeek: Go to the primary result and show a peek view
+  //  - goto: Go to the primary result and enable peek-less navigation to others
+  "editor.gotoLocation.multipleImplementations": "peek",
+
+  // Controls the behavior the 'Go to References'-command when multiple target locations exist.
+  //  - peek: Show peek view of the results (default)
+  //  - gotoAndPeek: Go to the primary result and show a peek view
+  //  - goto: Go to the primary result and enable peek-less navigation to others
+  "editor.gotoLocation.multipleReferences": "peek",
+
+  // Controls the behavior the 'Go to Type Definition'-command when multiple target locations exist.
+  //  - peek: Show peek view of the results (default)
+  //  - gotoAndPeek: Go to the primary result and show a peek view
+  //  - goto: Go to the primary result and enable peek-less navigation to others
+  "editor.gotoLocation.multipleTypeDefinitions": "peek",
 
   // Controls whether the cursor should be hidden in the overview ruler.
   "editor.hideCursorInOverviewRuler": false,
@@ -452,7 +499,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Keep peek editors open even when double clicking their content or when hitting `Escape`.
   "editor.stablePeek": false,
-
 
   // Controls whether filtering and sorting suggestions accounts for small typos.
   "editor.suggest.filterGraceful": true,
@@ -671,7 +717,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether opened editors show as preview. Preview editors are reused until they are pinned (e.g. via double click or editing) and show up with an italic font style.
   "workbench.editor.enablePreview": true,
 
-  // Controls whether opened editors from Quick Open show as preview. Preview editors are reused until they are pinned (e.g. via double click or editing).
+  // Controls whether editors opened from Quick Open show as preview. Preview editors are reused until they are pinned (e.g. via double click or editing).
   "workbench.editor.enablePreviewFromQuickOpen": true,
 
   // Controls whether tabs are closed in most recently used order or from left to right.
@@ -1011,6 +1057,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether the explorer should automatically reveal and select files when opening them.
   "explorer.autoReveal": true,
 
+  // Controls whether the explorer should render folders in a compact form. In such a form, single child folders will be compressed in a combined tree element. Useful for Java package structures, for example.
+  "explorer.compactFolders": true,
+
   // Controls whether the explorer should ask for confirmation when deleting a file via the trash.
   "explorer.confirmDelete": true,
 
@@ -1053,7 +1102,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  - auto: Files with less than 10 results are expanded. Others are collapsed.
   //  - alwaysCollapse
   //  - alwaysExpand
-  "search.collapseResults": "auto",
+  "search.collapseResults": "alwaysExpand",
 
   // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the `files.exclude` setting.
   "search.exclude": {
@@ -1075,6 +1124,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Whether to include results from a global symbol search in the file results for Quick Open.
   "search.quickOpen.includeSymbols": false,
+
+  // Search all files as you type.
+  "search.searchOnType": true,
 
   // Controls whether to show line numbers for search results.
   "search.showLineNumbers": false,
@@ -1157,6 +1209,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether the workbench window should be focused when the debugger breaks.
   "debug.focusWindowOnBreak": true,
 
+  // Controls whether inline breakpoints candidate decorations should be shown in the editor while debugging.
+  "debug.inlineBreakpointCandidates": true,
+
   // Show variable values inline in editor while debugging.
   "debug.inlineValues": false,
 
@@ -1200,6 +1255,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Enable/disable autoclosing of HTML tags.
   "html.autoClosingTags": true,
+
+  // Enable/disable auto selecting matching HTML tags.
+  "html.autoSelectingMatchingTags": true,
 
   // A list of relative file paths pointing to JSON files following the custom data format.
   // VS Code loads custom data on startup to enhance its HTML support for the custom HTML tags, attributes and attribute values you specify in the JSON files.
@@ -1402,6 +1460,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enable/disable references CodeLens in JavaScript files.
   "javascript.referencesCodeLens.enabled": false,
 
+  // Enable/disable references CodeLens on all functions in JavaScript files.
+  "javascript.referencesCodeLens.showOnAllFunctions": false,
+
   // Enable/disable auto import suggestions. Requires using TypeScript 2.6.1 or newer in the workspace.
   "javascript.suggest.autoImports": true,
 
@@ -1521,6 +1582,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Enable/disable references CodeLens in TypeScript files.
   "typescript.referencesCodeLens.enabled": false,
+
+  // Enable/disable references CodeLens on all functions in TypeScript files.
+  "typescript.referencesCodeLens.showOnAllFunctions": false,
 
   // Report style checks as warnings.
   "typescript.reportStyleChecksAsWarnings": true,
@@ -1924,9 +1988,17 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to treat the option key as the meta key in the terminal on macOS.
   "terminal.integrated.macOptionIsMeta": false,
 
+  // When set the foreground color of each cell will change to try meet the contrast ratio specified. Example values:
+  //
+  // - 1: The default, do nothing.
+  // - 4.5: Minimum for WCAG AA compliance.
+  // - 7: Minimum for WCAG AAA compliance.
+  // - 21: White on black or black on white.
+  "terminal.integrated.minimumContrastRatio": 1,
+
   // Controls how the terminal is rendered.
   //  - auto: Let VS Code guess which renderer to use.
-  //  - canvas: Use the standard GPU/canvas-based renderer
+  //  - canvas: Use the standard GPU/canvas-based renderer.
   //  - dom: Use the fallback DOM-based renderer.
   "terminal.integrated.rendererType": "auto",
 
@@ -1977,7 +2049,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls enablement of `provideTasks` for all task provider extension. If the Tasks: Run Task command is slow, disabling auto detect for task providers may help. Individual extensions my provide settings to disabled auto detection.
   "task.autoDetect": "on",
 
-  // Configures whether to show the problem matcher prompt when running a task. Set to `true` to never promp, or use a dictionary of task types to turn off prompting only for specific task types.
+  // Configures whether to show the problem matcher prompt when running a task. Set to `true` to never prompt, or use a dictionary of task types to turn off prompting only for specific task types.
   "task.problemMatchers.neverPrompt": false,
 
   // Controls whether to show the task detail for task that have a detail in the Run Task quick pick.
@@ -1999,6 +2071,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Show Errors & Warnings on files and folder.
   "problems.decorations.enabled": true,
+
+  // When enabled shows the current problem in the status bar.
+  "problems.showCurrentInStatus": false,
 
 // Breadcrumb Navigation
 
@@ -2246,14 +2321,19 @@ Below are the Visual Studio Code default settings and their values. You can also
   "[yaml]":  {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "editor.autoIndent": false
+    "editor.autoIndent": "advanced"
   },
 
 // Remote
 
+  // When enabled extensions are downloaded locally and installed on remote.
+  "remote.downloadExtensionsLocally": false,
+
   // Override the kind of an extension. `ui` extensions are installed and run on the local machine while `workspace` extensions are run on the remote. By overriding an extension's default kind using this setting, you specify if that extension should be installed and enabled locally or remotely.
   "remote.extensionKind": {
-    "pub.name": "ui"
+    "pub.name": [
+      "ui"
+    ]
   },
 
 // Node debug
@@ -2516,7 +2596,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether npm scripts should be automatically detected.
   "npm.autoDetect": "on",
 
-  // Enable running NPM scripts contained in a folder from the Explorer context menu.
+  // Enable running npm scripts contained in a folder from the Explorer context menu.
   "npm.enableRunFromFolder": false,
 
   // Enable an explorer view for npm scripts when there is no top-level 'package.json' file.
