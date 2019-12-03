@@ -64,7 +64,7 @@ We also appreciate contributions to any of our existing extensions and we hope y
 We'd also like to recommend a couple of other extensions we believe are great to make VS Code even better for Java developers.
 
 1. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
-2. [Remote Extensions](https://code.visualstudio.com/docs/remote/remote-overview) helps you using VS Code to access a container, a remote machine or the Windows Subsystems for Linux.
+2. The [Remote Development](/docs/remote/remote-overview.md) extensions let you use VS Code to access a container, a remote machine, or the Windows Subsystem for Linux.
 
 ## Extension for container development
 
@@ -76,7 +76,7 @@ You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azur
 
 ### Team development
 
-* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps servers, allowing you to easily monitor builds, pull requests, and work items for your TFVC or Git source repositories.
+* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps Servers, allowing you to easily monitor builds, pull requests, and work items for your TFVC or Git source repositories.
 
 ### Internet of Things
 
