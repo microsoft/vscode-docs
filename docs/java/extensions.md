@@ -64,7 +64,6 @@ We also appreciate contributions to any of our existing extensions and we hope y
 We'd also like to recommend a couple of other extensions we believe are great to make VS Code even better for Java developers.
 
 1. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
-2. [LeetCode](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-leetcode) helps you sharpen your coding skills by solving LeetCode problems with Visual Studio Code.
 
 ## Extension for container development
 
