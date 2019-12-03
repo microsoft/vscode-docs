@@ -621,9 +621,9 @@ You can go back to your previous location with the **Go** > **Back** command or 
 
 You can also see the type definition if you press `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) when you are hovering over the type.
 
-### Peek References
+### Go to References
 
-Select a symbol then type `kb(editor.action.referenceSearch.trigger)`. Alternatively, you can use the context menu.
+Select a symbol then type `kb(editor.action.goToReferences)`. Alternatively, you can use the context menu.
 
 ![peek references](images/tips-and-tricks/find_all_references.gif)
 

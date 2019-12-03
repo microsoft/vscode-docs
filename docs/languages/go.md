@@ -49,7 +49,7 @@ Code navigation features are available in the context menu in the editor.
 
 - **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
 - **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window with the type definition.
-- **Peek References** `kb(editor.action.referenceSearch.trigger)` - Show all references for the type.
+- **Go to References** `kb(editor.action.goToReferences)` - Show all references for the type.
 
 You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
 

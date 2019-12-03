@@ -127,7 +127,7 @@ Code navigation lets you quickly navigate TypeScript projects.
 
 - **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
 - **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
-- **Peek References** `kb(editor.action.referenceSearch.trigger)` - Show all references to a symbol.
+- **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
 - **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
 - **Go to Implementation** `kb(editor.action.goToImplementation)` - Go to the implementations of an interface or abstract method.
 

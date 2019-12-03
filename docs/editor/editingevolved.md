@@ -93,7 +93,7 @@ Some languages support jumping to a symbol across files with `kb(workbench.actio
 
 ## Peek
 
-We think there's nothing worse than a big context switch when all you want is to quickly check something. That's why we support peeked editors. When you execute a **Peek References** search (via `kb(editor.action.referenceSearch.trigger)`), or a **Peek Definition** (via `kb(editor.action.peekDefinition)`), we embed the result inline:
+We think there's nothing worse than a big context switch when all you want is to quickly check something. That's why we support peeked editors. When you execute a **Go to References** search (via `kb(editor.action.goToReferences)`), or a **Peek Definition** (via `kb(editor.action.peekDefinition)`), we embed the result inline:
 
 ![Peek References](images/editingevolved/references.png)
 

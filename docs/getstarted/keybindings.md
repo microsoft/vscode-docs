@@ -478,7 +478,7 @@ Key|Command|Command id
 `kb(editor.action.peekDefinition)`|Peek Definition|`editor.action.peekDefinition`
 `kb(editor.action.revealDefinitionAside)`|Open Definition to the Side|`editor.action.revealDefinitionAside`
 `kb(editor.action.quickFix)`|Quick Fix|`editor.action.quickFix`
-`kb(editor.action.referenceSearch.trigger)`|Peek References|`editor.action.referenceSearch.trigger`
+`kb(editor.action.goToReferences)`|Go to References|`editor.action.goToReferences`
 `kb(editor.action.rename)`|Rename Symbol|`editor.action.rename`
 `kb(editor.action.inPlaceReplace.down)`|Replace with Next Value|`editor.action.inPlaceReplace.down`
 `kb(editor.action.inPlaceReplace.up)`|Replace with Previous Value|`editor.action.inPlaceReplace.up`
