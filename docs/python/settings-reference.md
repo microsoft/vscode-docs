@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 The Python Extension for Visual Studio Code is highly configurable. This page describes the key settings you can work with.
 
-Refer to [User and workspace settings](/docs/getstarted/settings.md) to find out more about working with settings in VS Code generally.
+For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md), as well as the [Variables reference](/docs/editor/variables-reference.md) for information about predefined variable support.
 
 ## General settings
 
@@ -74,9 +74,13 @@ The `disabled`, `errors`, `warnings`, and `information` settings can contain the
 | inherit-non-class | Warning | Attempted to inherit something that is not a class. |
 | too-many-function-arguments | Warning | Too many arguments have been provided to a function call. |
 | too-many-positional-arguments-before-star | Warning | Too many arguments have been provided before a starred argument. |
+| no-cls-argument | Warning | First parameter in a class method must be cls. |
+| no-method-argument | Warning | Method has no arguments. |
+| no-self-argument | Warning | First parameter in a method must be self. |
 | parameter-already-specified | Warning | A argument with this name has already been specified. |
 | parameter-missing | Warning | A required positional argument is missing. |
 | positional-argument-after-keyword | Warning | A positional argument has been provided after a keyword argument. |
+| positional-only-named | Warning | A positional-only argument (3.8+) has been named in a function call. |
 | return-in-init | Warning | Encountered an explicit return in `__init__` function. |
 | typing-generic-arguments | Warning | An error occurred while constructing `Generic`. |
 | typing-typevar-arguments | Warning | An error occurred while constructing `TypeVar`. |
@@ -87,7 +91,7 @@ The `disabled`, `errors`, `warnings`, and `information` settings can contain the
 | variable-not-defined-globally | Warning | A variable is not defined in the global scope. |
 | variable-not-defined-nonlocal | Warning | A variable is not defined in non-local scopes. |
 
-To suppress the "undefined-variable" messages, for example, use the setting `"python.analysis.disabled": ["undefined-variable"]`. To suppress those messages and "too-many-function-arguments" messages as well, use the setting `"python.analysis.disabled": ["undefined-variable", "too-many-function-arguments"]`.
+To suppress the "undefined-variable" messages, for example, use the setting `"python.analysis.disabled": ["undefined-variable"]`. To suppress those messages and "too-many-function-arguments" messages as well, use the setting `"python.analysis.disabled": ["undefined-variable", "too-many-function-arguments"]`. You can similarly set `"python.analysis.errors"`, `"python.analysis.warnings"`, and `"python.analysis.information"` to control the visibility and severity of the diagnostics.
 
 ## AutoComplete settings
 
@@ -223,6 +227,29 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 | nosetestsEnabled | `false` | Specifies whether Nose  is enabled for testing. | [Testing](/docs/python/testing.md) |
 | nosetestPath | `"nosetests"` | Path to Nose. Use a full path if pytest is located outside the current environment. | [Testing](/docs/python/testing.md) |
 | nosetestArgs | `[]` | Arguments to pass to Nose, where each top-level element that's separated by a space is a separate item in the list. | [Testing](/docs/python/testing.md) |
+
+## Predefined variables
+
+The Python extension settings support predefined variables. Similar to the general VS Code settings, variables use the **${variableName}** syntax. Specifically, the extension supports the following variables:
+
+- **${cwd}** - the task runner's current working directory on startup
+- **${workspaceRoot}** - the path of the folder opened in VS Code
+- **${workspaceFolder}** - the path of the folder opened in VS Code
+- **${workspaceRootFolderName}** - the name of the folder opened in VS Code without any slashes (/)
+- **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
+- **${file}** - the current opened file
+- **${relativeFile}** - the current opened file relative to `workspaceFolder`
+- **${relativeFileDirname}** - the current opened file's dirname relative to `workspaceFolder`
+- **${fileBasename}** - the current opened file's basename
+- **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
+- **${fileDirname}** - the current opened file's dirname
+- **${fileExtname}** - the current opened file's extension
+
+- **${lineNumber}** - the current selected line number in the active file
+- **${selectedText}** - the current selected text in the active file
+- **${execPath}** - the path to the running VS Code executable
+
+For additional information about predefined variables and example usages, see the the [Variables reference](/docs/editor/variables-reference.md) in the general VS Code docs.
 
 ## Next steps
 
