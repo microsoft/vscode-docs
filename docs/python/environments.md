@@ -253,15 +253,19 @@ Within this syntax, the following rules apply:
 
 ## Use of the PYTHONPATH variable
 
-The [PYTHONPATH](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH) environment variable specifies additional locations where the Python interpreter should look for modules.
+The [PYTHONPATH](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH) environment variable specifies additional locations where the Python interpreter should look for modules.In VS Code, PYTHONPATH can be set through the terminal settings (terminal.integrated.env.*) and/or within an .env file.
 
-In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, testing, and any other operation that depends on Python resolving modules. For example, suppose you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, those tests can't normally access modules in `src` unless you hard-code relative paths. To solve this problem, add the path to `src` to PYTHONPATH.
+When the terminal settings are used, PYTHONPATH affects any tools that are run within the terminal by a user, as well as any action the extension performs for a user that is routed through the terminal such as debugging. However, in this case when the extension is performing an action that isn’t routed through the terminal, such as the use of a linter or formatter, then this setting will not have an affect on module look-up.
 
-The best way to specify a value for the PYTHONPATH variable is to use the `terminal.integrated.env.linux`, `terminal.integrated.env.osx`, or `terminal.integrated.env.windows` settings in VS Code. Each setting allows you to specify the exact locations for each operating system.
+When PYTHONPATH is set using an .env file, it will affect anything the extension does on your behalf and actions performed by the debugger, but it will not affect tools run in the terminal.
+
+If needed, you can set PYTHONPATH using both methods.
+
+An example of when to use PYTHONPATH would be if you  source code in a `src` folder and tests in a `tests` folder. When running tests, however, those tests can't normally access modules in `src` unless you hard-code relative paths. To solve this problem, add the path to `src` to PYTHONPATH.
 
 The value of PYTHONPATH can contain multiple locations separated by `os.pathsep`: a semicolon (`;`) on Windows and a colon (`:`) on Linux/macOS. Invalid paths are ignored. If you find that your value for PYTHONPATH isn't working as expected, make sure that you're using the correct separator between locations for the operating system. For example, using a colon to separate locations on Windows, or using a semicolon to separate locations on Linux/macOS results in an invalid value for PYTHONPATH, which is again ignored.
 
-> **Note**: PYTHONPATH does **not**, repeat **not**, specify a path to a Python interpreter itself, and thus you **never** use it with the `python.pythonPath` setting. Clearly, the environment variable was badly named, but...[c'est la vie](https://www.dictionary.com/browse/c-est-la-vie). So make sure to read the [PYTHONPATH documentation](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH) several times and fix in your mind that PYTHONPATH is **not** a path to an interpreter.
+> **Note**: PYTHONPATH does **not**, specify a path to a Python interpreter itself, and should not be used with the python.pythonPath setting. For additional information about PYTHONPATH, read the [PYTHONPATH documentation](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH).
 
 ## Next steps
 
