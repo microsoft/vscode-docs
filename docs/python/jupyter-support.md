@@ -148,7 +148,7 @@ If you'd like to clear the code cell output or restart/interrupt the kernel, you
 
 You can enable or disable line numbering within a code cell using the `kbstyle(L)` key.
 
-![Line numbers enabled in code cell](images/jupyter/native-line-numbers.png)
+![Line numbers enabled in code cell](images/jupyter/native-line-number.png)
 
 ## IntelliSense support in the Jupyter Notebook Editor
 
@@ -178,7 +178,7 @@ Within the Notebook Editor window, double-click any plot to open it in the viewe
 
 ![Plot Viewer with a selected plot](images/jupyter/native-plot-viewer-02.png)
 
-> **Note:** There is support for rendering plots created with [matplotlib](https://matplotlib.org/) and [altair](https://altair-viz.github.io/index.html).
+> **Note:** There is support for rendering plots created with [matplotlib](https://matplotlib.org/) and [Altair](https://altair-viz.github.io/index.html).
 
 ## Debug a Jupyter Notebook
 

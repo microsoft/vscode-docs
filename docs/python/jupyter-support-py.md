@@ -77,7 +77,7 @@ Within the Python Interactive window, double-click any plot to open it in the vi
 
 ![Plot Viewer with the Python Interactive window](images/jupyter/plot-viewer.gif)
 
-> **Note:** The Python Interactive window supports rendering plots created with [matplotlib](https://matplotlib.org/) and [altair](https://altair-viz.github.io/index.html).
+> **Note:** The Python Interactive window supports rendering plots created with [matplotlib](https://matplotlib.org/) and [Altair](https://altair-viz.github.io/index.html).
 
 ### Live Share for Python Interactive
 
