@@ -199,7 +199,7 @@ In VS Code, there are three kinds of folding:
 }
 ```
 
-For example, `if (true) {` matches `increasedIndentPattern`, then if you press `kbstyle(Enter)` after the open bracket `{`, the editor will automatically indent once, and your code will end up as:
+For example, `if (true) {` matches `increaseIndentPattern`, then if you press `kbstyle(Enter)` after the open bracket `{`, the editor will automatically indent once, and your code will end up as:
 
 ```javascript
 if (true) {
