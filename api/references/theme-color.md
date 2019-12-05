@@ -46,6 +46,13 @@ The contrast colors are typically only set for high contrast themes. If set, the
 - `errorForeground`: Overall foreground color for error messages (this color is only used if not overridden by a component).
 - `icon.foreground`: The default color for icons in the workbench.
 
+## Window border
+
+The theme colors for VS Code window border.
+
+- `window.activeBorder`: Border color for the active (focused) window.
+- `window.inactiveBorder`: Border color for the inactive (unfocused) windows.
+
 ## Text colors
 
 Colors inside a text document, such as the welcome page.
@@ -154,11 +161,13 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 
 - `activityBar.background`: Activity Bar background color.
 - `activityBar.dropBackground`: Drag and drop feedback color for the Activity Bar items.
-- `activityBar.foreground`: Activity bar foreground color (for example used for the icons).
-- `activityBar.inactiveForeground`: Activity bar item foreground color when it is inactive.
+- `activityBar.foreground`: Activity Bar foreground color (for example used for the icons).
+- `activityBar.inactiveForeground`: Activity Bar item foreground color when it is inactive.
 - `activityBar.border`: Activity Bar border color with the Side Bar.
 - `activityBarBadge.background`: Activity notification badge background color.
 - `activityBarBadge.foreground`: Activity notification badge foreground color.
+- `activityBar.activeBorder`: Activity Bar active indicator border color.
+- `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 
 ## Side Bar
 

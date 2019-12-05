@@ -30,7 +30,7 @@ To use MSVC in VS Code, you must start VS Code from a **Developer Command Prompt
 
 1. To open the Developer Command Prompt for VS, start typing "Developer" in the Windows Start menu, and you should see it appear in the list of suggestions. The exact name depends on which version of Visual Studio or the Visual Studio Build Tools you have installed. Click on the item to open the prompt.
 
-![Developer Command Prompt](images/msvc/developer-cmd-prompt-menu.png)
+   ![Developer Command Prompt](images/msvc/developer-cmd-prompt-menu.png)
 
 1. From the developer command prompt, create an empty folder called "projects" where you can store all your VS Code projects, then create a subfolder called "helloworld", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
@@ -210,7 +210,7 @@ You can press the TAB key to insert the selected member; then, when you add the 
 
 1. When the task starts, you should see the integrated Terminal window appear below the code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful MSVC build, the output looks something like this:
 
-![MSVC build output in terminal](images/msvc/msvc-task-in-terminal.png)
+   ![MSVC build output in terminal](images/msvc/msvc-task-in-terminal.png)
 
 1. As the message instructs, press any key to close the build message; the terminal now returns to the shell command prompt.
 

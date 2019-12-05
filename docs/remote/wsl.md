@@ -96,12 +96,12 @@ You can also install all locally installed extensions inside WSL by going to the
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the Docker and Debugger for Chrome extensions to run remotely instead of their local defaults:
+For example, the setting below will force the Docker extension to run locally and Debugger for Chrome extension to run remotely instead of their defaults:
 
 ```json
 "remote.extensionKind": {
     "msjsdiag.debugger-for-chrome": "workspace",
-    "ms-azuretools.vscode-docker": "workspace"
+    "ms-azuretools.vscode-docker": "ui"
 }
 ```
 
@@ -163,15 +163,17 @@ If you clone a Git repository using SSH and your SSH key has a passphrase, VS Co
 
 ### Docker Extension limitations
 
-The Docker extension is configured to run as a local "UI" extension that runs on the Windows side by default. This enables the extension to work with your local Docker installation when you are developing in WSL or [inside a container](/docs/remote/containers.md) since the Docker CLI is not available by default in these environments. However, commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail.
+By default, the Docker extension will run remotely. Depending on how WSL is configured, this can prevent the extension from seeing local containers.
 
-Fortunately, if you've [installed the Docker CLI in WSL and configured it to work with your local Docker host](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly), you can install the Docker extension inside WSL to solve this problem. Just add the following to `settings.json`:
+You can use one of the following solutions to resolve this problem:
 
-```json
-"remote.extensionKind": {
-    "ms-azuretools.vscode-docker": "workspace"
-}
-```
+- Use the [Docker Technical Preview for WSL 2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL 1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
+
+- Open a new local window (**File > New Window**) and use it to work with local containers.
+
+- Install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/remote/containers.md#option-1-use-the-containers-remote-explorer) in situations when you need to see your local containers.
+
+- Use the [`extensionKind` property](/docs/remote/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
 
 ### Extension limitations
 

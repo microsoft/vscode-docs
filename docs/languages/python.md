@@ -21,7 +21,7 @@ The [tutorial](/docs/python/python-tutorial.md) guides you through installing Py
 
 Once you have a version of Python installed, activate it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
 
-You configure the Python extension through settings. See the [Settings reference](/docs/python/settings-reference.md).
+You can configure the Python extension through settings. See the [Settings reference](/docs/python/settings-reference.md).
 
 ## Insiders program
 
@@ -130,7 +130,7 @@ The Python extension provides a wide variety of settings for its various feature
 
 ## Other popular Python extensions
 
-The [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) provides all of the features described previously in this article. Additional Python language support can be added to VS Code by installing other popular Python extensions. For Jupyter support, we recommend the "Jupyter" extension from Don Jayamanne.
+The [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) provides all of the features described previously in this article. Additional Python language support can be added to VS Code by installing other popular Python extensions.
 
 1. Open the **Extensions** view (`kb(workbench.view.extensions)`).
 1. Filter the extension list by typing 'python'.

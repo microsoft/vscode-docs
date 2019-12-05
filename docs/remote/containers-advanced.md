@@ -13,7 +13,7 @@ This article includes advanced setup scenarios for the [Visual Studio Code Remot
 
 ## Adding environment variables
 
-You can set environment variables in your container without altering the container image by using one of options below.
+You can set environment variables in your container without altering the container image by using one of the options below.
 
 ### Option 1: Add individual variables
 
@@ -43,7 +43,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ### Option 2: Use an env file
 
-If you have a large number of environment variables you need to set, you can use a `.env` file instead. VS Code will automatically pick up a file called `.env` in your workspace root, but you can also create one in another location.
+If you have a large number of environment variables that you need to set, you can use a `.env` file instead. VS Code will automatically pick up a file called `.env` in your workspace root, but you can also create one in another location.
 
 First, create an environment file somewhere in your source tree. Consider this `.devcontainer/devcontainer.env` file:
 
@@ -66,7 +66,7 @@ Next, depending on what you reference in `devcontainer.json`:
     version: '3'
     services:
       your-service-name-here:
-        env-file: devcontainer.env
+        env_file: devcontainer.env
         # ...
   ```
 
@@ -96,7 +96,7 @@ RUN echo "export PROMPT_COMMAND='history -a'" >> "/root/.bashrc" \
 
 ## Adding another local file mount
 
-You can add a volume bound to any local folder using by following the appropriate steps below based on what you reference in `devcontainer.json`:
+You can add a volume bound to any local folder by using the following appropriate steps, based on what you reference in `devcontainer.json`:
 
 * **Dockerfile or image**: Add the following to the `runArgs` property in this same file:
 
@@ -142,7 +142,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ## Improving container disk performance
 
-The Remote - Containers extension uses "bind mounts" to source code in your local filesystem by default. While this is the simplest option, on macOS and Windows, you may encounter slower disk performance when running commands like `yarn install` from inside the container. There are few things you can do to resolve these types of issue.
+The Remote - Containers extension uses "bind mounts" to source code in your local filesystem by default. While this is the simplest option, on macOS and Windows, you may encounter slower disk performance when running commands like `yarn install` from inside the container. There are few things you can do to resolve these type of issues.
 
 ### Use a targeted named volume
 
@@ -229,7 +229,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ### Use a named volume for your entire source tree
 
-Finally, if none of the above options meet your needs, you can go one step farther and **clone your entire source tree inside of a named volume** rather than locally. You can set up a named volume by taking an existing `devcontainer.json` configuration and modifying it as follows (updating `your-volume-name-here` with whatever you want to call the volume).
+Finally, if none of the above options meet your needs, you can go one step further and **clone your entire source tree inside of a named volume** rather than locally. You can set up a named volume by taking an existing `devcontainer.json` configuration and modifying it as follows (updating `your-volume-name-here` with whatever you want to call the volume).
 
 Depending on what you reference in `devcontainer.json`:
 
@@ -262,7 +262,7 @@ Depending on what you reference in `devcontainer.json`:
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-Next, either use the **Git: Clone** command from the Command Palette or **start an integrated terminal** `kb(workbench.action.terminal.new)` and use the `git clone` command to clone your source code into the `/workspace` folder.
+Next, either use the **Git: Clone** command from the Command Palette or **start an integrated terminal** (`kb(workbench.action.terminal.new)`) and use the `git clone` command to clone your source code into the `/workspace` folder.
 
 Finally, use the **File > Open... / Open Folder...** command to open the cloned repository in the container.
 
@@ -708,7 +708,7 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
 
 4. Run the **Remote-Containers: Reopen Folder in Container** command from the Command Palette (`kbstyle(F1)`) or **Remote-Containers: Rebuild Container**.
 
-5. Use ``kbstyle(Ctrl+Shift+`)`` to open a terminal inside the container. You can run `git clone` from here to pull down your source code. You can then use **File > Open... / Open Folder...** to open the cloned repository.
+5. Use `kb(workbench.action.terminal.new)` to open a terminal inside the container. You can run `git clone` from here to pull down your source code. You can then use **File > Open... / Open Folder...** to open the cloned repository.
 
 Next time you want to connect to this same container, run **Remote-Containers: Open Folder in Container...** and select the same local folder in a VS Code window with `DOCKER_HOST` set.
 

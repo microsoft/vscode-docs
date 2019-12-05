@@ -144,6 +144,12 @@ If you'd like to clear the code cell output or restart/interrupt the kernel, you
 
 ![Additional Notebook Editor toolbar commands](images/jupyter/native-toolbar-additional-commands.png)
 
+### Enable/Disable line numbers
+
+You can enable or disable line numbering within a code cell using the `kbstyle(L)` key.
+
+![Line numbers enabled in code cell](images/jupyter/native-line-number.png)
+
 ## IntelliSense support in the Jupyter Notebook Editor
 
 The Python Jupyter Notebook Editor window has full IntelliSense – code completions, member lists, quick info for methods, and parameter hints. You can be just as productive typing in the Notebook Editor window as you are in the code editor.
@@ -171,6 +177,8 @@ Within the Notebook Editor window, double-click any plot to open it in the viewe
 ![Plot Viewer icon in the Notebook Editor](images/jupyter/native-plot-viewer.png)
 
 ![Plot Viewer with a selected plot](images/jupyter/native-plot-viewer-02.png)
+
+> **Note:** There is support for rendering plots created with [matplotlib](https://matplotlib.org/) and [Altair](https://altair-viz.github.io/index.html).
 
 ## Debug a Jupyter Notebook
 

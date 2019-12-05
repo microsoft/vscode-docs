@@ -501,7 +501,7 @@ First, try [stopping any running containers](/docs/remote/containers.md#managing
 
 If this doesn't solve your problem, you may want to see if CPU usage is actually the issue or if there is something else going on. An easy way to check this is to install the [Resource Monitor extension](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor&ssr=false#overview). When installed in a container, it provides information about capacity for your containers in the Status bar.
 
-![Resource use status bar](images/troubleshooting/resource-monitor.png)
+![Resource use Status bar](images/troubleshooting/resource-monitor.png)
 
 If you'd like this extension to always be installed, add this to your `settings.json`:
 
@@ -533,11 +533,11 @@ However, this does not clean up any images you may have downloaded, which can cl
 
 **Option 2: Use the Docker extension**
 
- 1. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view if not already present.
+1. Open a **local** window in VS Code (**File > New Window**).
 
-    > **Note:** Using the Docker extension from a VS Code window opened in a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local window and use the Docker extension from this VS Code window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
+2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view if not already present.
 
- 2. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
+3. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
 
      ![Docker Explorer screenshot](images/containers/docker-remove.png)
 
@@ -620,12 +620,12 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 
 Some WSL Linux distributions are lacking libraries that are required by the VS Code server to start up. You can add additional libraries into your Linux distribution by using its package manager.
 
-#### Debian
+#### Debian and Ubuntu
 
-Open the Debian WSL shell to add `wget` and `ca-certificates`:
+Open the Debian or Ubuntu WSL shell to add `wget` and `ca-certificates`:
 
 ```sh
-sudo apt-get update && apt-get install wget ca-certificates
+sudo apt-get update && sudo apt-get install wget ca-certificates
 ```
 
 #### Alpine
@@ -725,7 +725,7 @@ To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polli
 
 For large workspace you may want to increase the polling interval, `remote.WSL.fileWatcher.pollingInterval`, and control the folders that are watched with `files.watcherExclude`.
 
-[WSL 2](https://docs.microsoft.com/en-us/windows/wsl/wsl2-index) does not have that file watcher problem and is not affected by the new setting.
+[WSL 2](https://docs.microsoft.com/windows/wsl/wsl2-index) does not have that file watcher problem and is not affected by the new setting.
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 

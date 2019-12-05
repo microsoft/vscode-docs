@@ -1203,9 +1203,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls if the lines should wrap in the debug console.
   "debug.console.wordWrap": true,
 
-  // Controls whether the non-debug hovers should be enabled while debugging. When enabled the hover providers will be called to provide a hover. Regular hovers will not be shown even if this setting is enabled.
-  "debug.enableAllHovers": false,
-
   // Controls whether the workbench window should be focused when the debugger breaks.
   "debug.focusWindowOnBreak": true,
 

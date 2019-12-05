@@ -205,7 +205,7 @@ When set to `True`, ensures that a Pyramid app is launched with [the necessary `
 
 ### `env`
 
-Sets optional environment variables for the debugger process beyond system environment variables, which the debugger always inherits.
+Sets optional environment variables for the debugger process beyond system environment variables, which the debugger always inherits. The values for these variables must be entered as strings.
 
 ### `envFile`
 

@@ -90,7 +90,7 @@ Let's start by using a sample project to try things out.
 
 2. Start VS Code and click on the quick actions Status Bar item in the lower left corner of the window.
 
-    ![Quick actions status bar item](images/common/remote-dev-status-bar.png)
+    ![Quick actions Status bar item](images/common/remote-dev-status-bar.png)
 
 3. Select **Remote-Containers: Open Folder in Container...** from the command list that appears, and open the root folder of the project you just cloned.
 
@@ -108,11 +108,11 @@ Next we will cover how to set up a dev container for an existing project to use 
 
 The steps are similar to those above:
 
-1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette (`kbstyle(F1)`) or quick actions status bar item, and select the project folder you'd like to set up the container for.
+1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette (`kbstyle(F1)`) or quick actions Status bar item, and select the project folder you'd like to set up the container for.
 
     > **Tip:** If you want to edit the container's contents or settings before opening the folder, you can run **Remote-Containers: Add Development Container Configuration Files...** instead.
 
-    ![Quick actions status bar item](images/common/remote-dev-status-bar.png)
+    ![Quick actions Status bar item](images/common/remote-dev-status-bar.png)
 
 2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one exists in the folder you selected.
 
@@ -166,11 +166,11 @@ For example:
 
 Let's set up a container for use with all of the Python projects in the `./Repos/python` folder.
 
-1. Start VS Code, select **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) or quick actions status bar item, and select the `./Repos/python` folder.
+1. Start VS Code, select **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) or quick actions Status bar item, and select the `./Repos/python` folder.
 
     > **Tip:** If you want to edit the container's contents or settings before opening the folder, you can run **Remote-Containers: Add Development Container Configuration Files...** instead.
 
-    ![Quick actions status bar item](images/common/remote-dev-status-bar.png)
+    ![Quick actions Status bar item](images/common/remote-dev-status-bar.png)
 
 2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one exists in the folder you selected.
 
@@ -351,16 +351,16 @@ If there are extensions that you would like always installed in any container, y
 ]
 ```
 
-### Advanced: Forcing an extension to run locally / remotely
+### Advanced: Forcing an extension to run locally or remotely
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the Docker and Debugger for Chrome extensions to run remotely instead of their local defaults:
+For example, the setting below will force the Docker extension to run locally and Debugger for Chrome extension to run remotely instead of their defaults:
 
 ```json
 "remote.extensionKind": {
     "msjsdiag.debugger-for-chrome": "workspace",
-    "ms-azuretools.vscode-docker": "workspace"
+    "ms-azuretools.vscode-docker": "ui"
 }
 ```
 
@@ -958,7 +958,17 @@ See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docke
 
 ### Docker Extension limitations
 
-Some Docker commands invoked from the Docker extension can fail when invoked from a VS Code window opened in a container. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local VS Code window and use the Docker extension from this window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
+By default, the Docker extension will run remotely. While this is a sensible default for SSH and WSL 2, it means the extension will not show local containers when VS Code is connected to a container.
+
+You can use one of the following solutions to resolve this problem:
+
+* Open a new local window (**File > New Window**) and use it to work with local containers.
+
+* Install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/remote/containers.md#option-1-use-the-containers-remote-explorer) in situations when you need to see your local containers.
+
+* Forward the [Docker socket and install the Docker CLI](https://aka.ms/vscode-remote/samples/docker-in-docker) (only) in the container.
+
+* Use the [`extensionKind` property](#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
 
 ### Extension limitations
 
@@ -980,7 +990,7 @@ If you see "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates
 
 ### I'm seeing an error about a missing library or dependency
 
-Some extensions rely on libraries not found in the certain Docker images. See [Installing additional software](#installing-additional-software) for help with resolving the problem.
+Some extensions rely on libraries not found in specific Docker images. For example, [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/) requires the installation of system-level dependencies, which are [listed in their documentation](https://docs.microsoft.com/visualstudio/liveshare/reference/linux#install-prerequisites-manually). The need for these dependencies may depend on the operating system (for example, specific Linux distribution) used by your Docker image. You may need to install these dependencies during the Docker build process, by adding required commands to your Dockerfile. Search the specific extension's documentation to check for dependencies and see [Installing additional software](#installing-additional-software) for help with resolving the problem.
 
 ### Can I connect to multiple containers at once?
 

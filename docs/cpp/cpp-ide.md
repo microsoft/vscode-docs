@@ -41,7 +41,7 @@ The Visual Studio clang-format style is not yet an official clang-format style b
 ```json
 UseTab: (VS Code current setting)
 IndentWidth: (VS Code current setting)
-BreakBeforeBraces: AllMan
+BreakBeforeBraces: Allman
 AllowShortIfStatementsOnASingleLine: false
 IndentCaseLabels: false
 ColumnLimit: 0
