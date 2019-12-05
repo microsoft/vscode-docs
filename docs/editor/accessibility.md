@@ -92,6 +92,10 @@ Certain features such as folding, minimap (code overview), and word wrap are dis
 
 Output in the Integrated Terminal can be navigated through by using the scroll commands available in the Command Palette (press `kbstyle(F1)` and search for "Terminal Scroll").
 
+### Minimum contrast ratio
+
+The setting `terminal.integrated.minimumContrastRatio` can be set to a number between 1 and 21, this will cause the text color either increase or reduce luminance until the contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.
+
 ## Debugger accessibility
 
 The VS Code debugger UI is user accessible and has the following features:
