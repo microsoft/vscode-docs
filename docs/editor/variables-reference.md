@@ -147,11 +147,10 @@ Each type requires additional configuration attributes:
 - **options**:  An array of options for the user to pick from.
 - **default**: Default value that will be used if the user doesn't enter something else. It must be one of the option values.
 
-`Command`:
+`command`:
 
 - **command**: Command being run on variable interpolation.
 - **args**: Optional option bag passed to the command's implementation.
-
 
 Below is an example of a `tasks.json` that illustrates the use of `inputs` using Angular CLI:
 
