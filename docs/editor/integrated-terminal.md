@@ -273,6 +273,14 @@ By default, the integrated terminal will render using multiple `<canvas>` elemen
 
 Something else that might improve performance is to ignore Chromium's GPU disallow list by launching VS Code with `code --ignore-gpu-blacklist`.
 
+There is an experimental renderer based on WebGL that can also be enabled:
+
+```js
+{
+    "terminal.integrated.rendererType": "experimentalWebgl"
+}
+```
+
 ## Next steps
 
 The basics of the terminal have been covered in this document, read on to find out more about:
