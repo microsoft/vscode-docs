@@ -187,8 +187,14 @@ The Side Bar contains views like the Explorer and Search.
 
 The Minimap shows a minified version of the current file.
 
-- `minimap.findMatchHighlight`: Highlight color for matches from search within files
-- `minimap.selectionHighlight`: Highlight color for the editor selection
+- `minimap.findMatchHighlight`: Highlight color for matches from search within files.
+- `minimap.selectionHighlight`: Highlight color for the editor selection.
+- `minimap.errorHighlight`: Highlight color for errors within the editor.
+- `minimap.warningHighlight`: Highlight color for warnings within the editor.
+
+- `minimapGutter.addedBackground`: Minimap gutter color for added content.
+- `minimapGutter.modifiedBackground`: Minimap gutter color for modified content.
+- `minimapGutter.deletedBackground`: Minimap gutter color for deleted content.
 
 ## Editor Groups & Tabs
 
