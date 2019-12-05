@@ -503,6 +503,14 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether filtering and sorting suggestions accounts for small typos.
   "editor.suggest.filterGraceful": true,
 
+  // Controls whether unexpected text modifications while accepting completions should be highlighted, e.g `insertMode` is `replace` but the completion only supports `insert`.
+  "editor.suggest.insertHighlight": false,
+
+  // Controls whether words are overwritten when accepting completions. Note that this depends on extensions opting into this feature.
+  //  - insert: Insert suggestion without overwriting text right of the cursor.
+  //  - replace: Insert suggestion and overwrite text right of the cursor.
+  "editor.suggest.insertMode": "insert",
+
   // Controls whether sorting favours words that appear close to the cursor.
   "editor.suggest.localityBonus": false,
 
@@ -675,6 +683,11 @@ Below are the Visual Studio Code default settings and their values. You can also
   "scm.defaultViewMode": "list",
 
   // Controls diff decorations in the editor.
+  //  - all: Show the diff decorations in all available locations.
+  //  - gutter: Show the diff decorations only in the editor gutter.
+  //  - overview: Show the diff decorations only in the overview ruler.
+  //  - minimap: Show the diff decorations only in the minimap.
+  //  - none: Do not show the diff decorations.
   "scm.diffDecorations": "all",
 
   // Controls the visibility of the Source Control diff decorator in the gutter.
@@ -1107,7 +1120,8 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the `files.exclude` setting.
   "search.exclude": {
     "**/node_modules": true,
-    "**/bower_components": true
+    "**/bower_components": true,
+    "**/*.code-search": true
   },
 
   // Controls whether to follow symlinks while searching.
@@ -1206,9 +1220,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether the workbench window should be focused when the debugger breaks.
   "debug.focusWindowOnBreak": true,
 
-  // Controls whether inline breakpoints candidate decorations should be shown in the editor while debugging.
-  "debug.inlineBreakpointCandidates": true,
-
   // Show variable values inline in editor while debugging.
   "debug.inlineValues": false,
 
@@ -1229,6 +1240,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether breakpoints should be shown in the overview ruler.
   "debug.showBreakpointsInOverviewRuler": false,
+
+  // Controls whether inline breakpoints candidate decorations should be shown in the editor while debugging.
+  "debug.showInlineBreakpointCandidates": true,
 
   // Controls when the debug status bar should be visible.
   //  - never: Never show debug in status bar
@@ -1252,9 +1266,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Enable/disable autoclosing of HTML tags.
   "html.autoClosingTags": true,
-
-  // Enable/disable auto selecting matching HTML tags.
-  "html.autoSelectingMatchingTags": true,
 
   // A list of relative file paths pointing to JSON files following the custom data format.
   // VS Code loads custom data on startup to enhance its HTML support for the custom HTML tags, attributes and attribute values you specify in the JSON files.
@@ -1300,6 +1311,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Maximum amount of characters per line (0 = disable).
   "html.format.wrapLineLength": 120,
+
+  // Enable/disable mirroring cursor on matching HTML tag.
+  "html.mirrorCursorOnMatchingTag": true,
 
   // Controls whether the built-in HTML language support suggests HTML5 tags, properties and values.
   "html.suggest.html5": true,
@@ -2279,6 +2293,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Default Configuration Overrides
 
+  // Configure editor settings to be overridden for [css] language.
+  "[css]":  {
+    "editor.suggest.insertMode": "replace"
+  },
+
   // Configure editor settings to be overridden for [git-commit] language.
   "[git-commit]":  {
     "editor.rulers": [
@@ -2291,11 +2310,35 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.insertSpaces": false
   },
 
+  // Configure editor settings to be overridden for [handlebars] language.
+  "[handlebars]":  {
+    "editor.suggest.insertMode": "replace"
+  },
+
+  // Configure editor settings to be overridden for [html] language.
+  "[html]":  {
+    "editor.suggest.insertMode": "replace"
+  },
+
   // Configure editor settings to be overridden for [json] language.
   "[json]":  {
     "editor.quickSuggestions": {
         "strings": true
-    }
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+
+  // Configure editor settings to be overridden for [jsonc] language.
+  "[jsonc]":  {
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+
+  // Configure editor settings to be overridden for [less] language.
+  "[less]":  {
+    "editor.suggest.insertMode": "replace"
   },
 
   // Configure editor settings to be overridden for [makefile] language.
@@ -2307,6 +2350,16 @@ Below are the Visual Studio Code default settings and their values. You can also
   "[markdown]":  {
     "editor.wordWrap": "on",
     "editor.quickSuggestions": false
+  },
+
+  // Configure editor settings to be overridden for [scss] language.
+  "[scss]":  {
+    "editor.suggest.insertMode": "replace"
+  },
+
+  // Configure editor settings to be overridden for [search-result] language.
+  "[search-result]":  {
+    "editor.lineNumbers": "off"
   },
 
   // Configure editor settings to be overridden for [shellscript] language.
