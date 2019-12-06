@@ -52,6 +52,21 @@ You can turn off autoclosing tags with the following [setting](/docs/getstarted/
 "html.autoClosingTags": false
 ```
 
+## Mirror Cursor
+
+To help you edit opening and closing tags at the same time, VS Code adds a "mirror cursor" when you are editing HTML tags.
+
+Mirror cursor works by adding a [multi-cursor](https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor) to the matching tag when your cursor moves into a HTML tag name range. Just like in multi-cursor mode, you can use word-wise deletion or word-wise selection. The mirrored cursor is removed when you move your cursor outside the tag name range.
+
+One special case is entering space when the cursor is at the end of the opening tag: `<div|></div|>`. In this case, VS Code removes the inserted space after the closing tag name and exits mirror cursor mode, so you can continue to edit HTML attributes.
+
+![HTML Mirror Cursor](images/html/html-mirror-cursor.gif)
+
+You can turn off mirror cursor with the following [setting](/docs/getstarted/settings.md):
+```json
+"html.mirrorCursorOnMatchingTag": false
+```
+
 ## Color picker
 
 The VS Code color picker UI is now available in HTML style sections.
