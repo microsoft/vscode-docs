@@ -33,8 +33,6 @@ $(sync~spin)
 
 Below are the full listings of the icons that ships with the product:
 
-### Table Listing
-
 <div id="codicon-listing">
 
 | preview                                                | name                   |
