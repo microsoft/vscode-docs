@@ -217,15 +217,16 @@ All other communication between the server and the VS Code client is accomplishe
 Proxy settings might be missing on either the Windows or the WSL side.
 
 When a remote window is opened out of VSCode, the Remote - WSL extension tries to download the VSCode server on the Windows side. It therefore uses the Window side proxy configuration:
+
 - inherited from the OS settings
 - as described in [Network Connections in Visual Studio Code](/docs/setup/network)
 
 When the remote VSCode is started from a WSL terminal, the download is done using `wget` in the WSL distro. Proxy settings can be configured in:
+
 - wget proxy settings: https://stackoverflow.com/questions/11211705/how-to-set-proxy-for-wget
 - manually in the [server setup script](/docs/remote/wsl#_advanced-environment-setup-script)
 
 Once the server is up and running the proxy settings on the *Remote* tab are used.
-
 
 ### Can I force an extension to run locally / remotely ?
 
@@ -235,8 +236,8 @@ For example, the setting below will force the Docker extension to run locally an
 
 ```json
 "remote.extensionKind": {
-    "msjsdiag.debugger-for-chrome": "workspace",
-    "ms-azuretools.vscode-docker": "ui"
+    "ms-azuretools.vscode-docker": [ "ui" ],
+    "msjsdiag.debugger-for-chrome": [ "workspace" ]
 }
 ```
 

@@ -359,8 +359,8 @@ For example, the setting below will force the Docker extension to run locally an
 
 ```json
 "remote.extensionKind": {
-    "msjsdiag.debugger-for-chrome": "workspace",
-    "ms-azuretools.vscode-docker": "ui"
+    "ms-azuretools.vscode-docker": [ "ui" ],
+    "msjsdiag.debugger-for-chrome": [ "workspace" ]
 }
 ```
 
