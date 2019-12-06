@@ -141,7 +141,7 @@ If your extension is not functioning as expected, it may be running in the wrong
 
 If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [`package.json`](/api/get-started/extension-anatomy#extension-manifest):
 
-As of VS Code 1.41, this value is an array which means extensions can specify more than one kind. Eg:
+As of VS Code 1.40, this value is an array which means extensions can specify more than one kind. Eg:
 
 ```json
 {
