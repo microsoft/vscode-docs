@@ -141,7 +141,7 @@ If your extension is not functioning as expected, it may be running in the wrong
 
 If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [`package.json`](/api/get-started/extension-anatomy#extension-manifest):
 
-As of VS Code 1.40, this value is an array:
+As of VS Code 1.41, this value is an array which means extensions can specify more than one kind. Eg:
 
 ```json
 {
@@ -149,19 +149,22 @@ As of VS Code 1.40, this value is an array:
 }
 ```
 
-Prior releases only allowed an extension to specify one location as a string. Extensions can now specify more than one.
+**Note:** Prior releases allowed an extension to specify single location as a string and it is deprecated in favour of multiple location support (array).
+
+Following combination of locations are supported:
 
 - `"extensionKind": ["workspace"]` — Indicates the extension requires access to workspace contents and therefore will run in VS Code Server when connected to a remote workspace or VS Online. Most extensions fall into this category.
-- `"extensionKind": ["ui", "workspace"]` — Indicates the extension **prefers** to run as a UI extension, but does not have any hard requirements on local assets, devices, or capabilities. When using VS Code, the extension will run in VS Code's local extension host. When using VS Online's browser-based editor, it will run in the remote extension host instead (as no local extension host is available). The old  `"ui"`  value (as a string) maps to this type for backwards compatibility, but is considered deprecated.
 - `"extensionKind": ["ui"]` — Indicates the extension **must** run as a UI extension because it requires access to local assets, devices, or capabilities. Therefore, it can only run in VS Code's local extension host and will not work in VS Online's browser-based editor (as there is no local extension host available).
+- `"extensionKind": ["ui", "workspace"]` — Indicates the extension **prefers** to run as a UI extension, but does not have any hard requirements on local assets, devices, or capabilities. When using VS Code, the extension will run in VS Code's local extension host if exists locally otherwise will run in VS Code's workspace extension host if exists there. When using VS Online's browser-based editor, it will run in the remote extension host always (as no local extension host is available). The old  `"ui"`  value (as a string) maps to this type for backwards compatibility, but is considered deprecated.
+- `"extensionKind": ["workspace", "ui"]` — Indicates the extension **prefers** to run as a workspace extension, but does not have any hard requirements on accessing workspace contents. When using VS Code, the extension will run in VS Code's workspace extension host if exists in remote workspace otherwise will run in VS Code's local extension host if exists locally. When using VS Online's browser-based editor, it will run in the remote extension host always (as no local extension host is available).
 
 You can also quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you wish to force the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) to be a workspace extension (instead of its UI default), you would set:
 
 ```json
 {
   "remote.extensionKind": {
-      "ms-azuretools.vscode-cosmosdb": "ui",
-      "msjsdiag.debugger-for-chrome": "workspace"
+      "ms-azuretools.vscode-cosmosdb": ["ui"],
+      "msjsdiag.debugger-for-chrome": ["workspace"]
   }
 }
 ```
