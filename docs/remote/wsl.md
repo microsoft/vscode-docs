@@ -33,10 +33,6 @@ To get started, you need to:
 
 3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
-**Working with Git?** Here are two tips to consider:
-
-- If you are working with the same repository in WSL and Windows, be sure to set up consistent line endings. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
-- You can also avoid passwords by configuring WSL to use the Windows Git credential manager. See [tips and tricks](/docs/remote/troubleshooting.md#sharing-git-credentials-between-windows-and-wsl) to for details.
 
 ### Open a folder in WSL
 
@@ -65,12 +61,18 @@ That's it! Any VS Code operations you perform in this window will be executed in
 Alternatively, you can open a Remote WSL window directly from VS Code:
 
 1. Start VS Code.
-2. Press `kbstyle(F1)`, select **Remote-WSL: New Window** for the default distro or **Remote-WSL: New Window using Distro**.
+2. Press `kbstyle(F1)`, select **Remote-WSL: New Window** for the default distro or **Remote-WSL: New Window using Distro** for a specific distro.
 3. Use the File menu to open your folder.
 
 If you already have a folder open, you can also use the **Remote-WSL: Reopen in WSL** command. You will be prompted which distro to use.
 
 If you are in a WSL window and want to open the current input in a local window, use **Remote-WSL: Reopen in Windows**.
+
+## Working with Git
+
+If you are working with the same repository in WSL and Windows, be sure to set up consistent line endings. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
+
+You can also avoid passwords by configuring WSL to use the Windows Git credential manager. See [tips and tricks](/docs/remote/troubleshooting.md#sharing-git-credentials-between-windows-and-wsl) to for details.
 
 ## Managing extensions
 
@@ -91,21 +93,6 @@ Local extensions that actually need to run remotely will appear **Disabled** in 
 You can also install all locally installed extensions inside WSL by going to the Extensions view and selecting **Install Local Extensions in WSL: [Name]** from the **More Actions** menu (...).
 
 ![Install all extensions](images/wsl/install-all-extn-wsl.png)
-
-### Advanced: Forcing an extension to run locally / remotely
-
-Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
-
-For example, the setting below will force the Docker extension to run locally and Debugger for Chrome extension to run remotely instead of their defaults:
-
-```json
-"remote.extensionKind": {
-    "msjsdiag.debugger-for-chrome": "workspace",
-    "ms-azuretools.vscode-docker": "ui"
-}
-```
-
-A value of `"ui"` instead of `"workspace"` will force the extension to run on the local UI/client side instead. Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Opening a terminal in WSL
 
@@ -139,9 +126,15 @@ This section contains a list of common know issues with WSL. The intent is not t
 
 See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) related to WSL.
 
-### Common limitations in WSL
+### I see EACCESS: permission denied error trying to rename a folder in the open workspace
 
-Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL versions, VS Code will use your **default distro**, so use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
+That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
+
+To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based has a performance impact for large workspaces.
+
+For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `files.watcherExclude`.
+
+[WSL 2](https://docs.microsoft.com/windows/wsl/wsl2-index) does not have that file watcher problem is also not affected by the new setting.
 
 ### Golang in WSL
 
@@ -183,9 +176,11 @@ In addition, some extensions installed in an WSL when using an Alpine Linux-base
 
 ## Common questions
 
-### How do I change the distribution Remote - WSL uses?
+### Why am I asked to change the default distro?
 
-Use **Remote-WSL: New Window using Distro** but note that VSCode requires Windows 10, May 2019 Update (version 1903) for this to work. For older WSL versions, the Remote - WSL extension uses your **default distribution**, which you can change using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
+When using **Remote-WSL: New Window using Distro** and running on WSL older than Windows 10, May 2019 Update (version 1903) you will be asked to switch the **default distribution** as the WSL command can only work on the default distro as it does not support the `-d` option yet.
+
+You can always manually switch the default distro by using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
 
 For example:
 
@@ -203,16 +198,6 @@ wslconfig /l
 
 Some extensions rely on libraries not found in the vanilla install of certain WSL Linux distributions. You can add additional libraries into your Linux distribution by using its package manager.  For Ubuntu and Debian based distributions, run `sudo apt-get install <package>` to install the needed libraries. Check the documentation for your extension or the runtime that is mentioned for additional installation details.
 
-### I see EACCESS: permission denied error trying to rename a folder in the open workspace
-
-That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
-
-To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based has a performance impact for large workspaces.
-
-For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `files.watcherExclude`.
-
-WSL 2 does not have that file watcher problem is also not affected by the new setting.
-
 ### What are the connectivity requirements for the Remote - WSL extension?
 
 The Remote - WSL extension and VS Code Server require outbound HTTPS (port 443) connectivity to:
@@ -226,6 +211,36 @@ The Remote - WSL extension and VS Code Server require outbound HTTPS (port 443) 
 Some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
 All other communication between the server and the VS Code client is accomplished through an random local TCP port. You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
+
+### I'm behind a proxy and have connectivty issues
+
+Proxy settings might be missing on either the Windows or the WSL side.
+
+When a remote window is opened out of VSCode, the Remote - WSL extension tries to download the VSCode server on the Windows side. It therefore uses the Window side proxy configuration:
+- inherited from the OS settings
+- as described in [Network Connections in Visual Studio Code](/docs/setup/network)
+
+When the remote VSCode is started from a WSL terminal, the download is done using `wget` in the WSL distro. Proxy settings can be configured in:
+- wget proxy settings: https://stackoverflow.com/questions/11211705/how-to-set-proxy-for-wget
+- manually in the [server setup script](/docs/remote/wsl#_advanced-environment-setup-script)
+
+Once the server is up and running the proxy settings on the *Remote* tab are used.
+
+
+### Can I force an extension to run locally / remotely ?
+
+Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
+
+For example, the setting below will force the Docker extension to run locally and Debugger for Chrome extension to run remotely instead of their defaults:
+
+```json
+"remote.extensionKind": {
+    "msjsdiag.debugger-for-chrome": "workspace",
+    "ms-azuretools.vscode-docker": "ui"
+}
+```
+
+A value of `"ui"` instead of `"workspace"` will force the extension to run on the local UI/client side instead. Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
 ### As an extension author, what do I need to do?
 

@@ -648,9 +648,9 @@ apk update && apk add bash
 
 To open a non-default distro, run `code .` from the WSL shell of the distro to use or use **Remote-WSL: New Window using Distro**.
 
-Opening a remote WSL window on a non-default WSL distro requires Windows 10, May 2019 Update (version 1903). With older WSL versions, VS Code can only use the **default distro**.
+ With WSL versions older than Windows 10, May 2019 Update (version 1903), the WSL command can only use the **default distro**. For this reason, the Remote- WSL might prompt you if you agree to change the default distro.
 
-You can use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default as needed.
+You can always use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default.
 
 For example:
 
