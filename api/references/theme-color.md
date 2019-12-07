@@ -287,8 +287,7 @@ Find colors depend on the current find string in the Find/Replace dialog.
 - `editor.findMatchHighlightBorder`: Border color of the other search matches.
 - `editor.findRangeHighlightBorder`: Border color the range limiting the search (Enable 'Find in Selection' in the find widget).
 
-
-Search Editor colors highlight results in a Search Editor. This can be configured seprately from other find matches in order to better differentiate between differnt classes of match in the same editor.
+Search Editor colors highlight results in a Search Editor. This can be configured separately from other find matches in order to better differentiate between different classes of match in the same editor.
 
 ![Search Editor Matches](images/theme-color/searchEditorMatches.png)
 
