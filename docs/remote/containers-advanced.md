@@ -372,6 +372,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chown ${USER_UID}:${USER_GID} /home/$USERNAME/.vscode-server* \
     #
     # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
+    && apt-get update \
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
