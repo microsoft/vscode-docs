@@ -64,4 +64,4 @@ The VS Code extension API hides most of the implementation details of running re
 
 ## Questions or feedback
 
-If you have questions, you can consult the Visual Studio Online [Troubleshooting guide](https://docs.microsoft.com/visualstudio/online/resources/troubleshooting) and [FAQ](https://docs.microsoft.com/visualstudio/online/resources/faq). If you want to provide [Feedback](https://docs.microsoft.com/visualstudio/online/resources/feedback), you can enter issues in the [vsoline](https://github.com/MicrosoftDocs/vsonline) GitHub repository.
+If you have questions, you can consult the Visual Studio Online [Troubleshooting guide](https://docs.microsoft.com/visualstudio/online/resources/troubleshooting) and [FAQ](https://docs.microsoft.com/visualstudio/online/resources/faq). If you want to provide [Feedback](https://docs.microsoft.com/visualstudio/online/resources/feedback), you can enter issues in the [vsonline](https://github.com/MicrosoftDocs/vsonline) GitHub repository.
