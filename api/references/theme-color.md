@@ -168,6 +168,7 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBarBadge.foreground`: Activity notification badge foreground color.
 - `activityBar.activeBorder`: Activity Bar active indicator border color.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
+- `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
 
 ## Side Bar
 
@@ -320,6 +321,11 @@ The range highlight is visible when selecting a search result.
 - `editor.rangeHighlightBackground`: Background color of highlighted ranges, used by Quick Open, Symbol in File and Find features. The color must not be opaque so as not to hide underlying decorations.
 - `editor.rangeHighlightBorder`: Background color of the border around highlighted ranges.
 
+The symbol highlight is visible when navigating to a symbol via a command such as go to definition.
+
+- `editor.symbolHighlightBackground`: Background color of highlighted symbol. The color must not be opaque so as not to hide underlying decorations.
+- `editor.symbolHighlightBorder`: Background color of the border around highlighted symbols.
+
 To see the editor white spaces, enable **Toggle Render Whitespace**.
 
 - `editorWhitespace.foreground`: Color of whitespace characters in the editor.
@@ -421,6 +427,7 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorSuggestWidget.highlightForeground`: Color of the match highlights in the suggestion widget.
 - `editorSuggestWidget.selectedBackground`: Background color of the selected entry in the suggestion widget.
 
+- `editorHoverWidget.foreground`: Foreground color of the editor hover.
 - `editorHoverWidget.background`: Background color of the editor hover.
 - `editorHoverWidget.border`: Border color of the editor hover.
 - `editorHoverWidget.statusBarBackground`: Background color of the editor hover status bar.
@@ -680,39 +687,57 @@ The theme colors for snippets:
 
 The theme colors for symbol icons that appears in the Outline view, breadcrumb navigation, and suggest widget:
 
-- `symbolIcon.arrayForeground`: The foreground color for array symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.booleanForeground`: The foreground color for boolean symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.classForeground`: The foreground color for class symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.colorForeground`: The foreground color for color symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.constantForeground`: The foreground color for constant symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.constructorForeground`: The foreground color for constructor symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.enumeratorForeground`: The foreground color for enumerator symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.enumeratorMemberForeground`: The foreground color for enumerator member symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.eventForeground`: The foreground color for event symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.fieldForeground`: The foreground color for field symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.fileForeground`: The foreground color for file symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.folderForeground`: The foreground color for folder symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.functionForeground`: The foreground color for function symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.interfaceForeground`: The foreground color for interface symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.keyForeground`: The foreground color for key symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.keywordForeground`: The foreground color for keyword symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.methodForeground`: The foreground color for method symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.moduleForeground`: The foreground color for module symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.namespaceForeground`: The foreground color for namespace symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.nullForeground`: The foreground color for null symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.numberForeground`: The foreground color for number symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.objectForeground`: The foreground color for object symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.operatorForeground`: The foreground color for operator symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.packageForeground`: The foreground color for package symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.propertyForeground`: The foreground color for property symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.referenceForeground`: The foreground color for reference symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.snippetForeground`: The foreground color for snippet symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.stringForeground`: The foreground color for string symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.structForeground`: The foreground color for struct symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.textForeground`: The foreground color for text symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.typeParameterForeground`: The foreground color for type parameter symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.unitForeground`: The foreground color for unit symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
-- `symbolIcon.variableForeground`: The foreground color for variable symbols. These symbols appear in the outline, breadcrumb, and suggest widget.
+- `symbolIcon.arrayForeground`: The foreground color for array symbols.
+- `symbolIcon.booleanForeground`: The foreground color for boolean symbols.
+- `symbolIcon.classForeground`: The foreground color for class symbols.
+- `symbolIcon.colorForeground`: The foreground color for color symbols.
+- `symbolIcon.constantForeground`: The foreground color for constant symbols.
+- `symbolIcon.constructorForeground`: The foreground color for constructor symbols.
+- `symbolIcon.enumeratorForeground`: The foreground color for enumerator symbols.
+- `symbolIcon.enumeratorMemberForeground`: The foreground color for enumerator member symbols.
+- `symbolIcon.eventForeground`: The foreground color for event symbols.
+- `symbolIcon.fieldForeground`: The foreground color for field symbols.
+- `symbolIcon.fileForeground`: The foreground color for file symbols.
+- `symbolIcon.folderForeground`: The foreground color for folder symbols.
+- `symbolIcon.functionForeground`: The foreground color for function symbols.
+- `symbolIcon.interfaceForeground`: The foreground color for interface symbols.
+- `symbolIcon.keyForeground`: The foreground color for key symbols.
+- `symbolIcon.keywordForeground`: The foreground color for keyword symbols.
+- `symbolIcon.methodForeground`: The foreground color for method symbols.
+- `symbolIcon.moduleForeground`: The foreground color for module symbols.
+- `symbolIcon.namespaceForeground`: The foreground color for namespace symbols.
+- `symbolIcon.nullForeground`: The foreground color for null symbols.
+- `symbolIcon.numberForeground`: The foreground color for number symbols.
+- `symbolIcon.objectForeground`: The foreground color for object symbols.
+- `symbolIcon.operatorForeground`: The foreground color for operator symbols.
+- `symbolIcon.packageForeground`: The foreground color for package symbols.
+- `symbolIcon.propertyForeground`: The foreground color for property symbols.
+- `symbolIcon.referenceForeground`: The foreground color for reference symbols.
+- `symbolIcon.snippetForeground`: The foreground color for snippet symbols.
+- `symbolIcon.stringForeground`: The foreground color for string symbols.
+- `symbolIcon.structForeground`: The foreground color for struct symbols.
+- `symbolIcon.textForeground`: The foreground color for text symbols.
+- `symbolIcon.typeParameterForeground`: The foreground color for type parameter symbols.
+- `symbolIcon.unitForeground`: The foreground color for unit symbols.
+- `symbolIcon.variableForeground`: The foreground color for variable symbols.
+
+## Debug Icons
+
+- `debugIcon.breakpointForeground`: Icon color for breakpoints.
+- `debugIcon.breakpointDisabledForeground`: Icon color for disabled breakpoints.
+- `debugIcon.breakpointUnverifiedForeground`: Icon color for unverified breakpoints.
+- `debugIcon.breakpointCurrentStackframeForeground`: Icon color for the current breakpoint stack frame.
+- `debugIcon.breakpointStackframeForeground`: Icon color for all breakpoint stack frames.
+- `debugIcon.startForeground`: Debug toolbar icon for start debugging.
+- `debugIcon.pauseForeground`: Debug toolbar icon for pause.
+- `debugIcon.stopForeground`: Debug toolbar icon for stop.
+- `debugIcon.disconnectForeground`: Debug toolbar icon for disconnect.
+- `debugIcon.restartForeground`: Debug toolbar icon for restart.
+- `debugIcon.stepOverForeground`: Debug toolbar icon for step over.
+- `debugIcon.stepIntoForeground`: Debug toolbar icon for step into.
+- `debugIcon.stepOutForeground`: Debug toolbar icon for step over.
+- `debugIcon.continueForeground`: Debug toolbar icon for continue.
+- `debugIcon.stepBackForeground`: Debug toolbar icon for step back.
 
 Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
 
