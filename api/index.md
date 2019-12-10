@@ -19,6 +19,15 @@ This documentation describes:
 
 If you are looking for published extensions, head to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode).
 
+## What's new in Visual Studio Code extensibility
+
+Visual Studio Code updates on a monthly cadence and that applies to the Extension API as well. New features and APIs become available every month to increase the power and scope of VS Code extensions.
+
+To stay current with the Extension API, you can review the monthly release notes, which have dedicated sections covering:
+
+* [Extension authoring](https://code.visualstudio.com/updates#_extension-authoring) - Learn what new extension APIs are available in the latest release.
+* [Proposed extension APIs](https://code.visualstudio.com/updates#_proposed-extension-apis) - Review and give feedback on upcoming proposed APIs.
+
 ## What can extensions do?
 
 Here are some examples of what you can achieve with the Extension API:
