@@ -55,7 +55,7 @@ Visual Studio Code's experience for authoring `docker-compose.yml` is also very 
 
  ![Docker Compose image suggestions](images/docker/dockercomposeimageintellisense.png)
 
-VS Code will first show a list of popular images along with metadata such as the number of stars and description. If you continue typing VS Code will query the Docker Hub index for matching images, including searching public profiles. For example, searching for `Microsoft` will show you all the public Microsoft images.
+VS Code will first show a list of popular images along with metadata such as the number of stars and description. If you continue typing, VS Code will query the Docker Hub index for matching images, including searching public profiles. For example, searching for `Microsoft` will show you all the public Microsoft images.
 
  ![Docker Compose Microsoft image suggestions](images/docker/dockercomposesearch.png)
 
