@@ -599,6 +599,43 @@ As a workaround, use your Docker ID to sign in to Docker rather than your email.
 
 There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, high CPU usage occurring when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
 
+### Using a SSH tunnel to connect to a remote Docker host
+
+The [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) article covers how to setup VS Code when working with a remote Docker host. This is often as simple as setting the `docker.host` property in `settings.json` or the or `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.
+
+However, you may run into situations where this does not work in your environment due to SSH config complexity or other limitations. In this case, a SSH tunnel can be used as a fallback.
+
+***Using a SSH tunnel as a fallback option**
+
+Another option you can use instead is to setup a SSH tunnel and forward the Docker socket from your remote host to your local machine as needed.
+
+Follow these steps:
+
+1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client).
+
+2. Update the `docker.host` property in your user or workspace `settings.json` as follows:
+
+    ```json
+    "docker.host":"tcp://localhost:23750"
+    ```
+
+3. Run the following command from a local terminal / PowerShell (replacing `user@hostname` with the remote user and hostname / IP for your server):
+
+    ```bash
+    ssh -NL localhost:23750:/var/run/docker.sock user@hostname
+    ```
+
+VS Code will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
+
+Once you are done, press `kbstyle(Ctrl+C)` in the terminal / PowerShell to close the tunnel.
+
+> **Note:** If the `ssh` command fails, you may need to `AllowStreamLocalForwarding` on your SSH host.
+>
+> 1. Open `/etc/ssh/sshd_config` in an editor  (like vim, nano, or pico) on the **SSH host** (not locally).
+> 2. Add the setting  `AllowStreamLocalForwarding yes`.
+> 3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
+> 4. Retry.
+
 ### Advanced container configuration tips
 
 See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following topics:

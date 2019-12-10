@@ -27,7 +27,15 @@ This lets VS Code provide a **local-quality development experience** — includi
 * **macOS**:  [Docker Desktop](https://www.docker.com/products/docker-desktop) 2.0+.
 * **Linux**: [Docker CE/EE](https://docs.docker.com/install/#supported-platforms) 18.06+ and [Docker Compose](https://docs.docker.com/compose/install) 1.21+. (The Ubuntu snap package is not supported.)
 
-**Containers**: x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+, Alpine Linux based containers.
+**Containers**:
+
+* x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+
+* x86_64 Alpine Linux 3.7+
+
+**Experimental Container Support** ([VS Code Insiders only](https://code.visualstudio.com/insiders/)):
+
+* ARMv7l (AArch32) Debian 9+, Ubuntu 16.04+ (32-bit)
+* ARMv8l (AArch64) Debian 9+, Ubuntu 16.04+ (64-bit)
 
 Note that the Docker daemon/service does not need to be running locally if you are [using a remote Docker host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host), but you do need the Docker CLI installed.
 
@@ -438,59 +446,67 @@ Since this just establishes the default, you are still able to change the settin
 
 ## Sharing Git credentials with your container
 
-### Using a credential helper
+The Remote - Containers extension provides out of box support for using local Git credentials from inside a container. In this section, we'll walk through the two supported options. 
 
-If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in your local OS, no further setup is required.** Credentials you've entered locally will be reused in the container and vice versa.
-
-This works by copying your local `.gitconfig` file into the container on startup VS Code Server will automatically forward any git credential helper commands to your local operating system.
-
-Note that, if you do not have your user name or email address set up locally, you may be prompted to do so. You can do this on your local machine by running the following commands:
+Note that, if you do not have your user name or email address set up locally, you may be prompted to do so. You can do this on your **local** machine by running the following commands:
 
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "your.email@address"
 ```
 
+The extension will automatically copy your local `.gitconfig` file into the container on startup so you should not need to do this in the container itself.
+
+### Using a credential helper
+
+If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in your local OS, no further setup is required.** Credentials you've entered locally will be reused in the container and vice versa.
+
 ### Using SSH keys
 
-There are some cases when you may be cloning your repository using SSH keys instead of a credential helper. Simply mounting your local `~/.ssh` folder into the container works on macOS/Linux, but unfortunately this does not work on Windows due to the permissions set by the Windows OS. The contents of the `.ssh` folder is not automatically copied into the container since some of the keys could be used for accessing test or production servers and could pose a security risk.
+There are some cases when you may be cloning your repository using SSH keys instead of a credential helper. To enable this scenario, the extension will automatically forward your **local [SSH agent](https://www.ssh.com/ssh/agent) if one is running**.
 
-However, there is a cross-platform way of copying the contents of the `.ssh` folder into the container when it is created, without modifying your image or Dockerfile.
+You can add your local SSH keys to the agent if it is running by using the `ssh-add` command. For example:
 
-1. Mount your local SSH folder into a location inside the container. Depending on what you are referencing in `devcontainer.json`:
+```bash
+ssh-add $HOME/.ssh/github_rsa
+```
 
-   * **Dockerfile or image**: Add the following to `devcontainer.json`:
+On Windows and Linux, you may get an error because the agent is not running (macOS typically has it running by default). Follow these steps to resolve the problem:
 
-        ```json
-        "runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro" ]
-        ```
+**Windows**:
 
-   * **Docker Compose**: Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+Start a **local Administrator PowerShell** as and run the following commands:
 
-       ```yaml
-       version: '3'
-       services:
-         your-service-name-here:
-           # ...
-           volumes:
-             - ~/.ssh:/root/.ssh-localhost:ro
-       ```
+```powershell
+# Make sure you're running as an Administrator
+Set-Service ssh-agent -StartupType Automatic
+Start-Service ssh-agent
+Get-Service ssh-agent
+```
 
-2. Copy the keys and set permissions by adding one of the following lines to `devcontainer.json`:
+**Linux:**
 
-    * If running as **root**:
+First, start the SSH Agent in the background by running the following in a terminal:
 
-        ```json
-        "postCreateCommand": "mkdir -p /root/.ssh && cp -r /root/.ssh-localhost/* /root/.ssh && chmod 700 /root/.ssh && chmod 600 /root/.ssh/*"
-        ```
+```bash
+eval "$(ssh-agent -s)"
+```
 
-    * If running as a **[non-root user](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)**:
+Then add these lines to your `~/.bash_profile` so it starts on login:
 
-        ```json
-        "postCreateCommand": "sudo cp -r /root/.ssh-localhost ~ && sudo chown -R $(id -u):$(id -g) ~/.ssh-localhost && mv ~/.ssh-localhost ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*"
-        ```
-
-Note that, after you create your container for the first time, you will need to run the **Remote-Containers: Rebuild Container** command for updates to `devcontainer.json`, your Docker Compose files, or related Dockerfiles to take effect.
+```bash
+if [ -z "$SSH_AUTH_SOCK" ]
+then
+   # Check for a currently running instance of the agent
+   RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+   if [ "$RUNNING_AGENT" = "0" ]
+   then
+        # Launch a new instance of the agent
+        ssh-agent -s &> .ssh/ssh-agent
+   fi
+   eval `cat .ssh/ssh-agent`
+fi
+```
 
 ## Managing containers
 
@@ -587,18 +603,23 @@ Once you have added a `.devcontainer/devcontainer.json` file to your folder, run
 However, note that on Linux, you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details.
 
 ```yaml
-"runArgs": [ "-u", "your-user-name-here" ]
+# Change user for VS Code and sub-processes (terminals, tasks, debugging)
+"remoteUser": "your-user-name-here",
+# Or change the user for all container processes
+"containerUser": "your-user-name-here"
 ```
 
-You can also add **additional local mount points** to give your container access to other locations using the `runArgs` property.
+You can also add **additional local mount points** to give your container access to other locations using the `mounts` property.
 
 For example, you can mount your home / user profile folder:
 
 ```json
-"runArgs": [ "-v", "${env:HOME}${env:USERPROFILE}:/root/local-home" ]
+"mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE},target=/root/local-home,type=bind"
+]
 ```
 
-This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container) for details.
+You can reference `"${localWorkspaceFolder}` if you need to mount something from the local filesystem into the container.
 
 The `runArgs` property supports the same list of arguments as the [`docker run` command](https://docs.docker.com/engine/reference/commandline/run/) and can be useful for a wide variety of scenarios including [setting environment variables](/docs/remote/containers-advanced.md#adding-environment-variables).
 
@@ -616,7 +637,8 @@ For example:
     "runArgs": [
         "--cap-add=SYS_PTRACE",
         "--security-opt",
-        "seccomp=unconfined" ]
+        "seccomp=unconfined"
+    ]
 }
 ```
 
@@ -660,7 +682,7 @@ Documentation for the software you want to install will usually provide specific
 
 ```bash
 # If running as root
-apt-get update # Critical step - you won't be able to install software before you do this
+apt-get update
 apt-get install <package>
 ```
 
@@ -668,7 +690,7 @@ If you are running as root, you can install software as long as `sudo` is config
 
 ```bash
 # If sudo is installed and configured
-sudo apt-get update # Critical step - you won't be able to install software before you do this
+sudo apt-get update
 sudo apt-get install <package>
 ```
 
@@ -676,8 +698,14 @@ However, note that if you **rebuild** the container, you will have to **reinstal
 
 Using `devcontainer.json`:
 
-```
+```json
 "postCreateCommand": "apt-get update && apt-get install <package>"
+```
+
+Or if running as a [non-root user](docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container):
+
+```json
+"postCreateCommand": "sudo apt-get update && sudo apt-get install <package>"
 ```
 
 Using a Dockerfile:
@@ -755,13 +783,17 @@ volumes:
   - ..:/workspace
 ```
 
-However, note that on Linux you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details.
+However, note that on Linux you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details. To have VS Code run as a different user, add this to `devcontainer.json`:
+
+```json
+"remoteUser": "your-user-name-here"
+```
+
+If you want all processes to run as a different user, add this to the appropriate service in your Docker Compose file:
 
 ```yaml
 user: your-user-name-here
 ```
-
-This same technique can be used to **mount or copy your local SSH keys into the container** for use with Git. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container) for details.
 
 If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as Git inside the service's container. While less efficient than adding these tools to the container image, you can also use the `postCreateCommand` property for this purpose. For example, if `sudo` is already installed in the container:
 
@@ -812,10 +844,6 @@ version: '3'
         # mounts are relative to the first file in the list, which is a level up.
         - .:/workspace
 
-        # [Optional] If you are using SSH keys w/Git, mount your .ssh folder to
-        # /root/.ssh-localhost so we can copy its contents
-        - ~/.ssh:/root/.ssh-localhost:ro
-
       # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
       cap_add:
         - SYS_PTRACE
@@ -863,7 +891,6 @@ version: '3'
          dockerfile: Dockerfile
        volumes:
          - .:/workspace
-         - ~/.ssh:/root/.ssh-localhost
        command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
@@ -905,9 +932,15 @@ See [Setting up a folder to run in a container](#in-depth-setting-up-a-folder-to
 | `dockerFile` | string |**Required** when [using a Dockerfile](#using-an-image-or-dockerfile). The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes in the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers). |
 | `context` | string | Path that the Docker build should be run from relative to `devcontainer.json`. For example, a value of `".."` would allow you to reference content in sibling directories. Defaults to `"."`. |
 | `appPort` | integer, string, or array | A port or array of ports that should be [published](https://stackoverflow.com/a/22150099) locally when the container is running. Note that your application may need to listen on all interfaces (`0.0.0.0`) not just `localhost` for it to be available externally. Defaults to `[]`. |
-| `workspaceMount` | string | Overrides the default local mount point for the workspace. Supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag). Primarily useful for [configuring remote containers](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) or [improving disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance). You can use `${localWorkspaceFolder}` in this property to refer to the local source code or using the following format to refer to environment variables: `${env:VARNAMEHERE}` |
+| `containerEnv` | object | A set of name-value pairs that sets or overrides environment variables for the container. Rhe value can reference local OS variable values using the following format: `${localEnv:VARIABLE_NAME}`. e.g. `"containerEnv": { "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }` Requires the container be recreated / rebuilt to change. |
+| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. The value can reference local OS variable values using the following format: `${localEnv:VARIABLE_NAME}` It can also reference or update an existing variable in the container using this format: `${containerEnv:VARIABLE}` e.g. `"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path", "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }` Updates if the container is simply restarted. |
+| `containerUser` | string | Overrides the user all operations run as inside the container. Defaults to either `root` or the last `USER` instruction in the related Dockerfile used to create the image. Requires the container be recreated / rebuilt to change. |
+| `remoteUser` | string | Overrides the user that VS Code runs as in the container (along with sub-processes like terminals, tasks, or debugging). Defaults to the `containerUser`. On Linux, the specified container user's UID/GID will be updated to match the local user's UID/GID to avoid permission problems with bind mounts (unless disabled using `updateRemoteUserID`). Updates if the container is simply restarted, but UID/GID updates are only applied when the container is created and requires a rebuild to change. |
+| `updateRemoteUserUID` | boolean | On Linux, if a `remoteUser` is specified, the container user's UID/GID will be updated to match the local user's UID/GID to avoid permission problems with bind mounts. Defaults to `true`. |
+| `mounts` | array | An array of additional bind mounts to add to the container. Each value is a string that accepts the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag). You can use `${localWorkspaceFolder}` in this property to refer to the local source code or using the following format to refer to environment variables: `${localEnv:VARNAMEHERE}` e.g. `"mounts": ["source=${localEnv:HOME}${localEnv:USERPROFILE},target=/host-home-folder,type=bind"]` |
+| `workspaceMount` | string | Overrides the default local mount point for the workspace. Supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag). Primarily useful for [configuring remote containers](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) or [improving disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance). You can use `${localWorkspaceFolder}` in this property to refer to the local source code or using the following format to refer to environment variables: `${localEnv:VARNAMEHERE}` |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container. Typically used in conjunction with `workspaceMount`. Defaults to the automatic source code mount location. |
-| `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`. Useful for [setting environment variables](/docs/remote/containers-advanced.md#adding-environment-variables), [adding mount points](/docs/remote/containers-advanced.md#adding-another-local-file-mount), and more. A run argument can use `${localWorkspaceFolder}` to refer to the local source code or using the following format to refer to environment variables: `${env:VARNAMEHERE}` |
+| `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`. Useful for [setting environment variables](/docs/remote/containers-advanced.md#adding-environment-variables), [adding mount points](/docs/remote/containers-advanced.md#adding-another-local-file-mount), and more. A run argument can use `${localWorkspaceFolder}` to refer to the local source code or using the following format to refer to environment variables: `${localEnv:VARNAMEHERE}` |
 | `overrideCommand` | boolean | Tells VS Code whether it should run `/bin/sh -c "while sleep 1000; do :; done"` when starting the container instead of the container's default command. Defaults to `true` since the container can shut down if the default command fails. Set to `false` if the default command must run for the container to function properly. |
 | `shutdownAction` | enum: `none`, `stopContainer` | Indicates whether VS Code should stop the container when the VS Code window is closed / shut down. Defaults to `stopContainer`. |
 |**Docker Compose**|||
@@ -915,6 +948,8 @@ See [Setting up a folder to run in a container](#in-depth-setting-up-a-folder-to
 | `service` | string | **Required.** The name of the service VS Code should connect to once running.  |
 | `runServices` | array | An array of services in your Docker Compose configuration that should be started by VS Code. These will also be stopped when you disconnect unless `"shutdownAction"` is `"none"`. Defaults to all services. |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
+| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. The value can reference local OS variable values using the following format: `${localEnv:VARIABLE_NAME}` It can also reference or update an existing variable in the container using this format: `${containerEnv:VARIABLE}` e.g. `"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path", "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }` Updates if the container is simply restarted. |
+| `remoteUser` | string | Overrides the user that VS Code runs as in the container (along with sub-processes like terminals, tasks, or debugging). Does not change the user the container as a whole runs as (which can be [set in your Docker Compose file](https://docs.docker.com/compose/compose-file/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir)). Defaults to the user the container as a whole is running as (often `root`). |
 | `shutdownAction` | enum: `none`, `stopCompose` | Indicates whether VS Code should stop the containers when the VS Code window is closed / shut down. Defaults to `stopCompose`. |
 |**General**|||
 | `name` | string | A display name for the container. |
