@@ -41,7 +41,7 @@ https://docs.docker.com/articles/dockerfile_best-practices/) on [docker.com](htt
 
 ## Docker Compose
 
-[Docker Compose](https://docs.docker.com/compose/) lets you define and run multi-container applications with Docker. You define what the shape of these containers look like with a file called `docker-compose.yml`.
+[Docker Compose](https://docs.docker.com/compose/) lets you define and run multi-container applications with Docker. You can define what  shape these containers look like with a file called `docker-compose.yml`.
 
 Visual Studio Code's experience for authoring `docker-compose.yml` is also very rich, providing IntelliSense for valid Docker compose directives and it will query Docker Hub for metadata on public Docker images.
 
