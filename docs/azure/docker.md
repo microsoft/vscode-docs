@@ -19,7 +19,7 @@ Docker support for VS Code is provided by an extension. To install the Docker ex
 
 ## Dockerfiles
 
-With Docker, you can build images by specifying the step by step commands needed to build the image in a `Dockerfile`. A Dockerfile is just a text file that contains the build instructions.
+With Docker, you can build images by using the step by step commands needed to build the image in a `Dockerfile`. A Dockerfile is just a text file that contains the build instructions.
 
 VS Code understands the structure of Dockerfiles as well as the available set of instructions, so you get a great experience when authoring these files.
 
