@@ -25,7 +25,7 @@ There is also a [Node Pack for Azure](https://marketplace.visualstudio.com/items
 
 ## Searching for extensions
 
-You can also search for Azure or cloud extensions in the VS Code Extensions view (`kb(workbench.view.extensions)`) and typing 'azure'.
+You can also search for Azure or cloud extensions in the VS Code Extensions view (`kb(workbench.view.extensions)`) and type 'azure'.
 
 ![popular Azure extensions](images/extensions/popular-azure-extensions.png)
 
