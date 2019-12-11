@@ -93,6 +93,7 @@ Objective-C | `objective-c`
 Objective-C++ | `objective-cpp`
 Perl | `perl` and `perl6`
 PHP | `php`
+Plain Text | `plaintext`
 PowerShell | `powershell`
 Pug | `jade`
 Python | `python`
