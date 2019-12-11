@@ -136,9 +136,14 @@ First, update your `Dockerfile` so that each time a command is used in `bash`, t
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
-RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=$HOME/commandhistory/.bash_history" \
+
+RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
     && echo $SNIPPET >> "/root/.bashrc" \
-    && echo $SNIPPET >> "/home/$USERNAME/.bashrc"
+    # [Optional] If you have a non-root user
+    && mkdir /commandhistory \
+    && touch /commandhistory/.bash_history \
+    && chown -R $USERNAME /commandhistory \
+    && echo $SNIPPET >> "/home/$USERNAME/.bashrc" \
 ```
 
 Next, add a local volume to store the command history. This step varies depending on whether or not you are using Docker Compose.
@@ -147,9 +152,7 @@ Next, add a local volume to store the command history. This step varies dependin
 
     ```json
       "mounts": [
-          // Keep command history
-          "source=projectname-bashhistory,target=/root/commandhistory,type=volume",
-          "source=projectname-bashhistory,target=/home/user-name-goes-here/commandhistory,type=volume"
+          "source=projectname-bashhistory,target=/commandhistory,type=volume"
       ]
     ```
 
