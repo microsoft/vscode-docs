@@ -230,7 +230,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 **Docker Compose**:
 
-The steps are identical for Docker Compose, but the volume mount configuration is placed in a different file.
+While vscode-remote-try-node does not use Docker Compose, the steps are similar, but the volume mount configuration is placed in a different file.
 
 1. In your Docker Compose file (or an [extended one](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)), add a named local volume mount to the `node_modules` sub-folder for the appropriate service(s). For example:
 
@@ -257,7 +257,7 @@ The steps are identical for Docker Compose, but the volume mount configuration i
 3. If you're running in the container with a [user other than root](#adding-a-non-root-user-to-your-dev-container), add a `postCreateCommand` to update the owner of the folder you mount since it may have been mounted as root. Replace `your-user-name-here` with the appropriate user.
 
     ```json
-    "remoteUser": "your-user-name-here",
+    "remoteUser": "node",
     "workspaceFolder": "/workspace",
     "postCreateCommand": "sudo chown your-user-name-here node_modules"
     ```
@@ -330,6 +330,7 @@ To create the named local volume, follow these steps:
 
     ```Dockerfile
     ARG USERNAME=user-name-goes-here
+
     RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
             /home/$USERNAME/.vscode-server-insiders/extensions \
         && chown -R user-name-goes-here \
@@ -500,7 +501,7 @@ services:
     image: ubuntu:bionic
     volumes:
       # Mount the root folder that contains .git
-      - .:/workspace
+      - .:/workspace:cached
     command: /bin/sh -c "while sleep 1000; do :; done"
     links:
       - container-2
@@ -510,7 +511,7 @@ services:
     image: ubuntu:bionic
     volumes:
       # Mount the root folder that contains .git
-      - .:/workspace
+      - .:/workspace:cached
     command: /bin/sh -c "while sleep 1000; do :; done"
     # ...
 ```
@@ -599,7 +600,7 @@ Setting up VS Code to simply attach to container on a remote Docker host can be 
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
 ```
 
-At this point you can [attach](/docs/remote/containers.md#attaching-to-running-containers) to containers on the remote host. We'll cover more on information on how you can connect using [settings and environment variables](#Connect useing-vs-code-settings-or-local-environment-variables) or [Docker Machine](#connect-using-docker-machine) later in this section.
+At this point you can [attach](/docs/remote/containers.md#attaching-to-running-containers) to containers on the remote host. We'll cover more on information on how you can connect using [settings and environment variables](#connect-using-vs-code-settings-or-local-environment-variables) or [Docker Machine](#connect-using-docker-machine) later in this section.
 
 For `devcontainer.json`, there is one additional step: You'll need to update any configured (or auto-configured) bind mounts so they no longer point to the local filesystem.
 
@@ -763,11 +764,11 @@ Next time you want to connect to this same container, run **Remote-Containers: O
 
 If you store your source code on the remote host's filesystem instead of inside a Docker volume, there are several ways you can access the files locally:
 
-1. [Use the mount command](https://docs.docker.com/machine/reference/mount/) if you are using [Docker Machine](https://docs.docker.com/machine/).
-2. [Mount the remote filesystem using SSHFS](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host).
-3. [Sync files from the remote host to your local machine using `rsync`](/docs/remote/troubleshooting.md#using-rsync-to-maintain-a-local-copy-of-your-source-code).
+1. [Mount the remote filesystem using SSHFS](/docs/remote/troubleshooting.md#using-sshfs-to-access-files-on-your-remote-host).
+2. [Sync files from the remote host to your local machine using `rsync`](/docs/remote/troubleshooting.md#using-rsync-to-maintain-a-local-copy-of-your-source-code).
+3. [Use the mount command](https://docs.docker.com/machine/reference/mount/) if you are using [Docker Machine](https://docs.docker.com/machine/).
 
-Using Docker Machine's mount command or SSHFS are the more convenient options and do not require any file sync'ing. However, performance will be significantly slower than working through VS Code, so they are best used for single file edits and uploading/downloading content. If you need to use an application that bulk reads/write to many files at once (like a local source control tool), rsync is a better choice.
+Using SSHFS or Docker Machine's mount command are the more convenient options and do not require any file sync'ing. However, performance will be significantly slower than working through VS Code, so they are best used for single file edits and uploading/downloading content. If you need to use an application that bulk reads/write to many files at once (like a local source control tool), rsync is a better choice.
 
 ## Reducing Dockerfile build warnings
 
