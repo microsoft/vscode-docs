@@ -302,7 +302,7 @@ You can either select the **Remote-Containers: Attach to Running Container...** 
 
 ### Attached container configuration files
 
-VS Code supports image-level configuration files to speed up setup when you repeatedly connect to a given container. Once attached, any time you open a folder, [install an extension](#managing-extensions), or [forward a port](#temporarily-forwarding-a-port), a local image-specific configuration file will open in the editor with the appropriate updates that you can opt to save or edit. This JSON file supports three properties:
+VS Code supports image-level configuration files to speed up setup when you repeatedly connect to a given container. Once attached, any time you open a folder, [install an extension](#managing-extensions), or [forward a port](#temporarily-forwarding-a-port), a local image-specific configuration file will open in the editor with the appropriate updates that you can opt to save or edit. This JSON file supports a subset of `devcontainer.json` properties:
 
 ```json
 {
@@ -315,8 +315,19 @@ VS Code supports image-level configuration files to speed up setup when you repe
         "dbaeumer.vscode-eslint"
     ],
 
+    // Any container specific VS Code settings
+    "settings": {
+        "java.home": "/docker-java-home"
+    },
+
     // An array port numbers to forward
-    "forwardPorts": [8000]
+    "forwardPorts": [8000],
+
+    // Container user VS Code should use when connecting
+    "remoteUser": "vscode",
+
+    // Set environment variables for VS Code and sub-processes
+    "remoteEnv": { "MY_VARIABLE": "some-value" }
 }
 ```
 
@@ -921,7 +932,7 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 * [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
 * [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
 
-## devcontainer.json  reference
+## devcontainer.json reference
 
 See [Setting up a folder to run in a container](#in-depth-setting-up-a-folder-to-run-in-a-container) for more information on configuring a dev container or the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers) for a wide variety of base configurations.
 
@@ -959,6 +970,18 @@ See [Setting up a folder to run in a container](#in-depth-setting-up-a-folder-to
 | `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
 
 If you've already built the container and connected to it, be sure to run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
+
+### Attached container config reference
+
+[Attached container configuration files](#attached-container-configuration-files) are similar to `devcontainer.json` and supports a subset of its properties.
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
+| `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
+| `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |
+| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. The value can reference local OS variable values using the following format: `${localEnv:VARIABLE_NAME}` It can also reference or update an existing variable in the container using this format: `${containerEnv:VARIABLE}` e.g. `"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path", "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }` Updates if the container is simply restarted. |
+| `remoteUser` | string | Overrides the user that VS Code runs as in the container (along with sub-processes like terminals, tasks, or debugging). Defaults to the user the container as a whole is running as (often `root`). |
 
 ## Known limitations
 
