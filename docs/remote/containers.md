@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 11/7/2019
+DateApproved: 12/10/2019
 ---
 # Developing inside a Container
 
@@ -791,7 +791,7 @@ volumes:
   # should match what your application expects. In this case, the compose file is
   # in a sub-folder, so we will mount '..'. You would then reference this path as the
   # 'workspaceFolder' in '.devcontainer/devcontainer.json' so VS Code starts here.
-  - ..:/workspace
+  - ..:/workspace:cached
 ```
 
 However, note that on Linux you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details. To have VS Code run as a different user, add this to `devcontainer.json`:
@@ -853,7 +853,7 @@ version: '3'
       volumes:
         # Mounts the project folder to '/workspace'. While this file is in .devcontainer,
         # mounts are relative to the first file in the list, which is a level up.
-        - .:/workspace
+        - .:/workspace:cached
 
       # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
       cap_add:
@@ -901,7 +901,7 @@ version: '3'
          # Location is relative to folder containing this compose file
          dockerfile: Dockerfile
        volumes:
-         - .:/workspace
+         - .:/workspace:cachced
        command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 

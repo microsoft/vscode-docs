@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 11/7/2019
+DateApproved: 12/10/2019
 ---
 # Advanced Container Configuration
 
@@ -120,9 +120,9 @@ You can add a volume bound to any local folder by using the following appropriat
     services:
       your-service-name-here:
         volumes:
-          - /local/source/path/goes/here:/target/path/in/container/goes/here
-          - ~:/host-home-folder
-          - ./data-subfolder:/data
+          - /local/source/path/goes/here:/target/path/in/container/goes/here:cached
+          - ~:/host-home-folder:cached
+          - ./data-subfolder:/data:cached
          # ...
     ```
 
@@ -238,7 +238,7 @@ The steps are identical for Docker Compose, but the volume mount configuration i
       your-service-name-here:
         volumes:
           # Or wherever you've mounted your source code
-          - .:/workspace
+          - .:/workspace:cached
           - try-node-node_modules:/workspace/node_modules
         # ...
 
@@ -563,12 +563,12 @@ version: '3'
 services:
   container-1:
     volumes:
-      - ~:~/local-home-folder # Additional bind mount
+      - ~:~/local-home-folder:cached # Additional bind mount
     # ...
 
   container-2:
     volumes:
-      - ~/some-folder:~/some-folder # Additional bind mount
+      - ~/some-folder:~/some-folder:cached # Additional bind mount
     # ...
 ```
 
@@ -745,7 +745,7 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
     services:
       your-service-name-here:
         volumes:
-          - /absolute/path/on/remote/machine:/workspace
+          - /absolute/path/on/remote/machine:/workspace:cached
         # ...
     ```
 
