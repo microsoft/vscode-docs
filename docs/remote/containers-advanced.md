@@ -100,7 +100,7 @@ You can add a volume bound to any local folder by using the following appropriat
 
     ```json
     "mounts": [
-      "source=/local/source/path/goes/here,target=/target/path/in/container/goes/here,type=bind"
+      "source=/local/source/path/goes/here,target=/target/path/in/container/goes/here,type=bind,consistency=cached"
     ]
     ```
 
@@ -108,8 +108,8 @@ You can add a volume bound to any local folder by using the following appropriat
 
     ```json
     "mounts": [
-        "source=${localEnv:HOME}${localEnv:USERPROFILE},target=/host-home-folder,type=bind",
-        "source=${localWorkspaceFolder}/data,target=/data,type=bind"
+        "source=${localEnv:HOME}${localEnv:USERPROFILE},target=/host-home-folder,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder}/data,target=/data,type=bind,consistency=cached"
     ]
     ```
 
@@ -616,7 +616,7 @@ The second approach is to **bind mount a folder on the remote machine** into you
 Update the `workspaceMount` property in the example above to use this model instead:
 
 ```json
-"workspaceMount": "source=/absolute/path/on/remote/machine,target=/workspace,type=bind"
+"workspaceMount": "source=/absolute/path/on/remote/machine,target=/workspace,type=bind,consistency=cached"
 ```
 
 In either case, to try it out, run **Remote-Containers: Open Folder in Container...**, and select the local folder with the `.devcontainer.json` file in it.
@@ -716,7 +716,7 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
     If you **do** have login access, you can use a remote filesystem bind mount instead:
 
     ```json
-    "workspaceMount": "source=/absolute/path/on/remote/machine,target=/workspace,type=bind"
+    "workspaceMount": "source=/absolute/path/on/remote/machine,target=/workspace,type=bind,consistency=cached"
     "workspaceFolder": "/workspace",
     ```
 
