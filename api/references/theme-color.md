@@ -321,7 +321,7 @@ The range highlight is visible when selecting a search result.
 - `editor.rangeHighlightBackground`: Background color of highlighted ranges, used by Quick Open, Symbol in File and Find features. The color must not be opaque so as not to hide underlying decorations.
 - `editor.rangeHighlightBorder`: Background color of the border around highlighted ranges.
 
-The symbol highlight is visible when navigating to a symbol via a command such as go to definition.
+The symbol highlight is visible when navigating to a symbol via a command such as **Go to Definition**.
 
 - `editor.symbolHighlightBackground`: Background color of highlighted symbol. The color must not be opaque so as not to hide underlying decorations.
 - `editor.symbolHighlightBorder`: Background color of the border around highlighted symbols.
