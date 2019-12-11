@@ -163,8 +163,7 @@ Next, add a local volume to store the command history. This step varies dependin
     services:
       your-service-name-here:
         volumes:
-          - projectname-bashhistory:/root/.commandhistory
-          - projectname-bashhistory:/home/user-name-goes-here/.commandhistory
+          - projectname-bashhistory:/commandhistory
          # ...
     volumes:
       projectname-bashhistory:
