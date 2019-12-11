@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 11/7/2019
+DateApproved: 12/11/2019
 ---
 # Remote Development using SSH
 
@@ -27,10 +27,10 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 - x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
 - ARMv7l (AArch32) Raspbian Stretch/9+ (32-bit).
+- ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
 
 **Experimental SSH Host Support** ([VS Code Insiders only](https://code.visualstudio.com/insiders/)):
 
-- ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
 - Windows 10 / Server 2016/2019 (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
 
 Other `glibc` based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l (AArch64) should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
@@ -53,7 +53,7 @@ In this quick start, we'll cover how to connect to an SSH host with minimal setu
 
 If you do not have a host yet, you can [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) or create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-> **Note:** When using ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension. Experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only. See [system requirements](#system-requirements) for supported hosts.
+> **Note:** When using ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension.
 
 To get started, follow these steps:
 
@@ -242,7 +242,7 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
 - macOS SSH hosts are **not** yet supported. (macOS clients **are** supported.)
 - Alpine Linux and non-glibc based Linux SSH hosts are not supported.
-- Experimental Windows 10 / Server 2016/2019 and ARMv8l (AArch64) support is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
+- Experimental Windows 10 / Server 2016/2019 support is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 - Older (community supported) Linux distributions require workarounds to install the [needed prerequisites](/docs/remote/linux.md).
 - PuTTY is not supported on Windows.
 - If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
@@ -266,8 +266,6 @@ You can use one of the following solutions to resolve this problem:
 Many extensions will work on remote SSH hosts without modification. However, in some cases, certain features may require changes. If you run into an extension issue, there is [a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
 In addition, some extensions installed on ARMv7l (AArch322) / ARMv8l (AArch64) devices may not work due to native modules or runtimes in the extension that only support x86_64. In these cases, the extensions would need to opt-in to supporting these platforms by compiling / including binaries for ARMv7l / ARMv8l.
-
-Experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 ## Common questions
 

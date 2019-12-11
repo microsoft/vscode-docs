@@ -5,39 +5,27 @@ TOCTitle: Linux Prerequisites
 PageTitle: Linux Prerequisites for Visual Studio Code Remote Development
 ContentId: 7ec8dedf-0659-437e-98f1-2d27f5e243eb
 MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Remote - Containers, and Remote - WSL
-DateApproved: 11/7/2019
+DateApproved: 12/11/2019
 ---
 # Remote Development with Linux
 
 Linux is a highly variable environment and the large number of server, container, and desktop distributions can make it difficult to know what is supported. Visual Studio Code Remote Development has prerequisites for the specific host / container / WSL distribution you will be connecting to.
 
-The extensions are known to work with recent stable/LTS version of:
+The extensions are known to work when connecting to recent stable/LTS version of:
 
-* **Ubuntu 64-bit x86** (16.04+)
-* **Debian 64-bit x86** (8+)
+* **Ubuntu 64-bit x86, ARMv8l (AArch64)** (16.04+, IoT 18.04+)
+* **Debian 64-bit x86, ARMv8l (AArch64)** (Stretch/9+)
+* **Raspbian ARMv7l (AArch32) 32-bit** (Stretch/9+)
 * **CentOS / RHEL 64-bit x86** (7+)
 * **Alpine Linux 64-bit x86 containers or WSL hosts** (3.7+) in Remote - Containers, Remote - WSL
-* **Raspbian ARMv7l (AArch32) 32-bit SSH hosts** (Stretch/9+) in Remote - SSH
 
 There is also experimental support in **[VS Code Insiders](https://code.visualstudio.com/insiders/)** for:
 
-SSH Hosts (Remote - SSH):
-
-* **Ubuntu ARMv8l (AArch64) 64-bit** (18.04+)
-* **Windows 10 / Server 2016/2019** (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
-
-Containers (Remote - Containers)
-
-* **Ubuntu, Debian ARMv8l (AArch64) 64-bit Containers** (18.04+, Stretch/9+)
-* **Ubuntu, Debian ARMv7l (AArch32) 32-bit** (18.04+, Stretch/9+)
-
-WSL:
-
-* WSL on **ARMv8l (AArch64) 64-bit** for devices like the Surface X.
+* **Windows 10 / Server 2016/2019 SSH hosts** (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
 
 However, if you are using a non-standard configuration or downstream distribution of Linux, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
 
-Note that **other extensions may have dependencies** beyond those listed here. Some extensions also contain compiled native code that **may not work on Alpine Linux, or ARMv7 (AArch32), or ARMv8 (AArch64)**. These platforms are considered in "preview" or "experimental" for this reason. If you encounter an issue that only occurs with a particular extension, **contact the extension authors** for information on their native dependencies.
+Note that **other extensions may have dependencies** beyond those listed here. Some extensions also contain compiled native code that **may not work on Alpine Linux, or ARMv7 (AArch32), or ARMv8 (AArch64)**. These platforms are considered in "preview" for this reason. If you encounter an issue that only occurs with a particular extension, **contact the extension authors** for information on their native dependencies.
 
 ## Local Linux prerequisites
 
@@ -78,17 +66,17 @@ The following is a list of distributions and any base requirements that may be m
 | 🛑 CentOS 6 Server (64-bit) | `centos:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | ✅ Debian 9 Server (64-bit) | `debian:9` | &lt;none&gt; | &lt;none&gt; |
 | ✅ Debian 8 Server (64-bit) | `debian:8` | &lt;none&gt; | &lt;none&gt; |
-| ✅ openSUSE Leap Server 15 (64-bit) |   `opensuse/leap:15` | Docker image is missing `tar`. |  &lt;none&gt; |
+| ✅ openSUSE Leap Server 15 (64-bit) |  `opensuse/leap:15` | Docker image is missing `tar`. |  &lt;none&gt; |
 | ✅ openSUSE Leap Server 42.3 (64-bit) |  `opensuse/leap:42.3` | Docker image is missing `tar`. |  &lt;none&gt; |
 | ✅ Oracle Linux 7 (64-bit) | `oraclelinux:7` | &lt;none&gt; | &lt;none&gt; |
 | 🛑️ Oracle Linux 6 (64-bit) | `oraclelinux:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18. Docker image is missing `tar`. |  [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
-| ⚠️ Raspbian Stretch/9 (ARMv7l 32-bit) | | &lt;none&gt; | Some extensions may not work when installed on an ARMv7l host due to extension x86 native code. |
+| ⚠️ Raspbian Stretch/9 (ARMv7l 32-bit) | &lt;n/a&gt; | &lt;none&gt; | Some extensions may not work when installed on an ARMv7l host due to extension x86 native code. Remote - Containers **does** support connecting to containers on an ARM host. |
 | ✅ RedHat Enterprise Linux 7 (64-bit) |  | &lt;none&gt; | &lt;none&gt; |
 | 🛑 RedHat Enterprise Linux 6 (64-bit) |  | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | ✅ SUSE Linux Enterprise Server 15 (64-bit) |  |  &lt;none&gt; |  &lt;none&gt; |
 | ✅ SUSE Linux Enterprise Server 12 (64-bit) |  |  &lt;none&gt; |  &lt;none&gt; |
 | ❌ SUSE Linux Enterprise Server 11 (64-bit) |  |  `glibc` >= 2.17, `libstdc++` >= 3.4.18 | Might work compiling glibc from source, but untested. |
-| 🔬 Ubuntu 18.04 IoT (ARMv8l 64-bit) | | &lt;none&gt;| Some extensions may not work when installed on an ARMv8l host due to extension x86 native code. |
+| ⚠️ Ubuntu 18.04 IoT (ARMv8l 64-bit) | | &lt;n/a&gt; | Some extensions may not work when installed on an ARMv8l host due to extension x86 native code. Remote - Containers **does** support connecting to containers on an ARM host. |
 | ✅ Ubuntu Server 19.04 (64-bit) | `ubuntu:19.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 16.04 (64-bit) | `ubuntu:16.04` | &lt;none&gt;  | &lt;none&gt; |

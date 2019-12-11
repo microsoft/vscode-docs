@@ -254,12 +254,12 @@ While vscode-remote-try-node does not use Docker Compose, the steps are similar,
     "workspaceFolder": "/workspace"
     ```
 
-3. If you're running in the container with a [user other than root](#adding-a-non-root-user-to-your-dev-container), add a `postCreateCommand` to update the owner of the folder you mount since it may have been mounted as root. Replace `your-user-name-here` with the appropriate user.
+3. If you're running in the container with a [user other than root](#adding-a-non-root-user-to-your-dev-container), add a `postCreateCommand` to update the owner of the folder you mount since it may have been mounted as root. Replace `user-name-goes-here` with the appropriate user.
 
     ```json
     "remoteUser": "node",
     "workspaceFolder": "/workspace",
-    "postCreateCommand": "sudo chown your-user-name-here node_modules"
+    "postCreateCommand": "sudo chown user-name-goes-here node_modules"
     ```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
@@ -400,7 +400,7 @@ If the image or Dockerfile you are using **already provides an optional non-root
 
 On Linux, if you are referencing a **Dockerfile or image** in `devcontainer.json`, this will also automatically update the container user's UID/GID to match your local user to avoid the bind mount permissions problem that exists in this environment (unless you set `"updateRemoteUserUID": false`).
 
-Since this setting only affects VS Code and related sub-processes, the container just needs to be restarted for it to take effect. However, UID/GID updates are only applied when the container is created and requires a rebuild to change.
+Since this setting only affects VS Code and related sub-processes, VS Code just needs to be restarted (or the window reloaded) for it to take effect. However, UID/GID updates are only applied when the container is created and requires a rebuild to change.
 
 ### Specifying the default container user
 
@@ -409,11 +409,10 @@ In some cases, you may need all processes in the container to run as a different
 * **Dockerfile and image**: Add the `containerUser` property to this same file.
 
     ```json
-    "containerUser": "user-name-goes-here",
-    "remoteUser": "user-name-goes-here"
+    "containerUser": "user-name-goes-here"
     ```
 
-    Note that the `containerUser` property alone will not update the UID on Linux.
+    On Linux, like `remoteUser`, this will also automatically update the container user's UID/GID to match your local user to avoid the bind mount permissions problem that exists in this environment (unless you set `"updateRemoteUserUID": false`).
 
 * **Docker Compose**: Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
@@ -435,8 +434,6 @@ ARG USER_GID=$USER_UID
 # Create the user
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    && mkdir -p /home/$USERNAME/.vscode-server/extensions /home/$USERNAME/.vscode-server-insiders/extensions \
-    && chown -R ${USER_UID}:${USER_GID} /home/$USERNAME/.vscode-server* \
     #
     # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
     && apt-get update \
@@ -594,7 +591,7 @@ However, note that the **Docker CLI still needs to be installed locally** (along
 
 ### A basic remote example
 
-Setting up VS Code to simply attach to container on a remote Docker host can be simple as easy as setting the `docker.host` property in `settings.json` and restarting VS Code. For example:
+Setting up VS Code to simply attach to container on a remote Docker host can be simple as easy as setting the `docker.host` property in `settings.json` and restart VS Code (or reload the window). For example:
 
 ```json
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
@@ -604,7 +601,9 @@ At this point you can [attach](/docs/remote/containers.md#attaching-to-running-c
 
 For `devcontainer.json`, there is one additional step: You'll need to update any configured (or auto-configured) bind mounts so they no longer point to the local filesystem.
 
-There's two variations of this setup. The first is to **create your remote dev container first**, and then **clone your source code into a named volume** since this does not require you to have direct access to the filesystem on the remote host. Here is a basic `devcontainer.json` example of this setup:
+There's two variations of this setup. The first is to **create your remote dev container first**, and then **clone your source code into a named volume** since this does not require you to have direct access to the filesystem on the remote host.
+
+Here is a basic `devcontainer.json` example of this setup:
 
 ```json
 {
@@ -613,6 +612,8 @@ There's two variations of this setup. The first is to **create your remote dev c
     "workspaceMount": "source=remote-workspace,target=/workspace,type=volume"
 }
 ```
+
+In fact, the **Remote-Containers: Open Repository in Container...** commend in the command palette (`kbstyle(F1)`) uses this same technique. If you already have a `devcontainer.json` file in a GitHub repository that references an image or Dockerfile, the command will automatically use a named volume instead of a bind mount - which also works with remote hosts.
 
 The second approach is to **bind mount a folder on the remote machine** into your container. This requires you to have access to the remote filesystem, but also allows you to work with **existing source code** on the remote machine.
 
@@ -642,7 +643,7 @@ Then, simply add the following to `settings.json` (replacing values as appropria
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
 ```
 
-After restarting VS Code, you will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
+After restarting VS Code (or reloading the window), you will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
 
 > **Tip:** If this is not working for you but you are able to connect to the host using SSH from the command like, you can use [a SSH tunnel as a fallback](/docs/remote/troubleshooting.md#using-a-ssh-tunnel-to-connect-to-a-remote-docker host) instead.
 
@@ -656,7 +657,7 @@ While the SSH protocol has its own built-in authorization mechanism, using the T
 "docker.tlsVerify": "1" // or "0"
 ```
 
-As with SSH, simply restart VS Code for the settings to take effect.
+As with SSH, simply restart VS Code (or reload the window) for the settings to take effect.
 
 **Using environment variables instead of settings.json**
 
