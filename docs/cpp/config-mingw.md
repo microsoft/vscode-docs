@@ -129,7 +129,7 @@ Next, create a `tasks.json` file to tell VS Code how to build (compile) the prog
 
    The `label` value is what you will see in the VS Code Command Palette; you can name this whatever you like.
 
-   The `isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false you'll have to run it from the Command Palette menu under **Run Build Task**.
+   The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false you'll have to run it from the Command Palette menu under **Run Build Task**.
 
 ## Configure debug settings
 

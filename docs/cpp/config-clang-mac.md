@@ -133,7 +133,7 @@ Next, we need to create a `tasks.json` file to tell VS Code how to build (compil
 
 The `label` value is used to identify the task in the VS Code Command Palette; you can name this whatever you like. The `args` array specifies the command-line arguments that will be passed to the compiler that was specified in the previous step. These arguments must be specified in the order expected by the compiler.
 
-The `isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. The `--debug` argument causes debug symbols to be produced, which is required for stepping through code when you debug.
+The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. The `--debug` argument causes debug symbols to be produced, which is required for stepping through code when you debug.
 
 ## Configure debug settings
 

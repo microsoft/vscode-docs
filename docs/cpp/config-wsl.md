@@ -199,7 +199,7 @@ The `command` setting specifies the program to run; in this case that is g++. Th
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
-The `isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false, you can still run it from the Terminal menu with **Tasks: Run Build Task**.
+The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false, you can still run it from the Terminal menu with **Tasks: Run Build Task**.
 
 ### Running the build
 
