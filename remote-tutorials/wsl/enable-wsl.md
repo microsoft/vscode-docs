@@ -4,7 +4,7 @@ Area: wsl
 TOCTitle: Enable WSL
 PageTitle: Enable Windows Subsystem for Linux
 MetaDescription: Enable Windows Subsystem for Linux
-DateApproved: 11/7/2019
+DateApproved: 12/12/2019
 ---
 # Enable WSL
 
