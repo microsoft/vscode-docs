@@ -29,14 +29,11 @@ Press `kbstyle(Enter)` and a list of installed languages by [locale](#available-
 
 ![installed languages list](images/locales/installed-languages-list.png)
 
-Use the "Install additional languages..." option to install more Language Packs from the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Downloads), or select a different `locale` from the list. Changing the `locale` requires a restart of VS Code. You will be prompted to restart when you select a `locale`.
+Use the **Install additional languages...** option to install more Language Packs from the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Downloads), or select a different `locale` from the list. Changing the `locale` requires a restart of VS Code. You will be prompted to restart when you select a `locale`.
 
-The **Configure Display Language** command creates a `locale.json` file in your user VS Code folder. Depending on your platform, the `locale.json` file is located here:
-* **Windows** `%APPDATA%\Code\User\locale.json`
-* **macOS** `$HOME/Library/Application Support/Code/User/locale.json`
-* **Linux** `$HOME/.config/Code/User/locale.json`
+The **Configure Display Language** command writes to the Runtime Configuration Arguments file `argv.json` in your user VS Code folder (`.vscode`).
 
-The `locale` can also be changed by editing this file and restarting VS Code.
+The `locale` can also be changed by editing the `argv.json` file directly (**Preferences: Configure Runtime Arguments**) and restarting VS Code.
 
 ## Available locales
 
@@ -83,7 +80,7 @@ code . --locale=fr
 
 ### Unable to write to file because the file is dirty
 
-This notification may mean that your `locale.json` file wasn't saved after a previous change. Make sure the file is saved and try to install the Language Pack again.
+This notification may mean that your `argv.json` file wasn't saved after a previous change. Check if there are any errors in the file (**Preferences: Configure Runtime Arguments**), make sure the file is saved, and try to install the Language Pack again.
 
 ### Can I contribute to a language pack's translations?
 
