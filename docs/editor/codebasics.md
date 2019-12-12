@@ -255,19 +255,20 @@ Regions can also be defined by markers defined by each language. The following l
 
 Language|Start region|End region
 --------|------------|----------
+Bat| `::#region` or `REM #region`|`::#endregion` or `REM #endregion`
 C#|`#region`|`#endregion`
 C/C++|`#pragma region`|`#pragma endregion`
 CSS/Less/SCSS|`/*#region*/`|`/*#endregion*/`
 Coffeescript|`#region`|`#endregion`
 F#|`//#region` or `(#region)`|`//#endregion` or `(#endregion)`
 Java|`//#region` or `//<editor-fold>`|`// #endregion` or `//</editor-fold>`
+Markdown|`<!-- #region -->`|`<!-- #endregion -->`
+Perl5|`#region` or `=pod`|`#endregion` or `=cut`
 PHP|`#region`|`#endregion`
 PowerShell|`#region`|`#endregion`
 Python|`#region` or `# region`|`#endregion` or `# endregion`
 TypeScript/JavaScript|`//#region` or `//region`|`//#endregion` or `//endregion`
 Visual Basic|`#Region`|`#End Region`
-Bat| `::#region`|`::#endregion`
-Markdown|`<!-- #region -->`|`<!-- #endregion -->`
 
 To fold and unfold only the regions defined by markers use:
 
