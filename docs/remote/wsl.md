@@ -33,7 +33,6 @@ To get started, you need to:
 
 3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
-
 ### Open a folder in WSL
 
 Opening a folder inside the Windows Subsystem for Linux in VS Code is very similar to opening up a Windows folder from the command prompt or PowerShell.
@@ -212,7 +211,7 @@ Some extensions (like C#) download secondary dependencies from `download.microso
 
 All other communication between the server and the VS Code client is accomplished through an random local TCP port. You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
-### I'm behind a proxy and have connectivty issues
+### I'm behind a proxy and have connectivity issues
 
 Proxy settings might be missing on either the Windows or the WSL side.
 
