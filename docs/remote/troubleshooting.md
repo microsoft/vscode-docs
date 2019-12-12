@@ -215,7 +215,7 @@ To verify that the agent is running and is reachable from VS Code's environment,
 
 **Windows:**
 
-To enable SSH Agent automatically on Windows, start a **local Administrator PowerShell** as and run the following commands:
+To enable SSH Agent automatically on Windows, start a **local Administrator PowerShell** and run the following commands:
 
 ```powershell
 # Make sure you're running as an Administrator
@@ -422,7 +422,7 @@ If you are running into Docker issues or would prefer not to run Docker locally,
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few "gotchas" that can cause problems. Here are some tips on avoiding them:
 
-1. **Use an AD domain account or local administrator account when sharing drives. Do not use an AAD (email-based) account.** AAD (email-based) accounts have well known issues, as documented in Docker [issue #132](https://github.com/docker/for-win/issues/132) and [issue #1352](https://github.com/docker/for-win/issues/1352). If you must use an AAD account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
+1. **Use an AD domain account or local administrator account when sharing drives. Do not use an AAD (email-based) account.** AAD (email-based) accounts have well-known issues, as documented in Docker [issue #132](https://github.com/docker/for-win/issues/132) and [issue #1352](https://github.com/docker/for-win/issues/1352). If you must use an AAD account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
 
 2. **Stick with alphanumeric passwords to avoid drive sharing problems.** When asked to share your drives on Windows, you will be prompted for the username and password of an account with admin privileges on the machine. If you are warned about an incorrect username or password, this may be due to special characters in the password. For example, `!`, `[` and `]` are known to cause issues. Change your password to alphanumeric characters to resolve. See this issue about [Docker volume mounting problems](https://github.com/moby/moby/issues/23992#issuecomment-234979036) for details.
 
@@ -599,15 +599,15 @@ As a workaround, use your Docker ID to sign in to Docker rather than your email.
 
 There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, high CPU usage occurring when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
 
-### Using a SSH tunnel to connect to a remote Docker host
+### Using an SSH tunnel to connect to a remote Docker host
 
-The [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) article covers how to setup VS Code when working with a remote Docker host. This is often as simple as setting the `docker.host` property in `settings.json` or the or `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.
+The [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) article covers how to setup VS Code when working with a remote Docker host. This is often as simple as setting the `docker.host` property in `settings.json` or the `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.
 
-However, you may run into situations where this does not work in your environment due to SSH config complexity or other limitations. In this case, a SSH tunnel can be used as a fallback.
+However, you may run into situations where this does not work in your environment due to SSH configuration complexity or other limitations. In this case, an SSH tunnel can be used as a fallback.
 
-***Using a SSH tunnel as a fallback option**
+***Using an SSH tunnel as a fallback option**
 
-Another option you can use instead is to setup a SSH tunnel and forward the Docker socket from your remote host to your local machine as needed.
+You can set up an SSH tunnel and forward the Docker socket from your remote host to your local machine.
 
 Follow these steps:
 
@@ -711,13 +711,13 @@ If you need to configure the startup environment, you can use the environment se
 
 The environment for the remote extension host and terminal are based on the default shell's configuration scripts. To evaluate the environment variables for the remote extension host process, the server creates an instance of the default shell as an **interactive login shell**. It probes the environment variables from it and uses them as the initial environment for the remote extension host process. The values of environment variables therefore depend on what shell is configured as the default and the content of the configuration scripts for that shell.
 
-See [Unix shell initialization](https://github.com/rbenv/rbenv/wiki/unix-shell-initialization) for an overview of each shells configuration scripts. Most WSL distributions have `/bin/bash` configured as the default shell. `/bin/bash` will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`.
+See [Unix shell initialization](https://github.com/rbenv/rbenv/wiki/unix-shell-initialization) for an overview of each shell's configuration scripts. Most WSL distributions have `/bin/bash` configured as the default shell. `/bin/bash` will look for startup files under `/etc/profile` first and for any startup files under `~/.bash_profile`, `~/.bash_login`, `~/.profile`.
 
 To change the default shell of a WSL distro, follow the instructions of [this blog post](https://medium.com/@vinhp/set-and-use-zsh-as-default-shell-in-wsl-on-windows-10-the-right-way-4f30ed9592dc).
 
 ### Fixing problems with the code command not working
 
-If typing `code` from a WSL terminal on Window does not work because `code` can not be found, you may be missing some key locations from your PATH in WSL.
+If typing `code` from a WSL terminal on Window does not work because `code` cannot be found, you may be missing some key locations from your PATH in WSL.
 
 Check by opening a WSL terminal and typing `echo $PATH`. You should see VS Code install path listed. By default, this would be:
 
@@ -866,7 +866,7 @@ If the extension's webview content uses an `iframe` to connect to a local web se
 
 **Resolution:** The extension can use the `webview.asWebviewUri` to resolve issues with `vscode-resource://` URIs.
 
-In the case of ports being blocked, the best approach is to instead use the [webview message passing](/api/extension-guides/webview#scripts-and-message-passing) API. As a workaround, `vscode.env.asExternalUri`  can be used allow the webview to connect to spawned localhost web servers from VS Code. However, this is currently blocked for VS Online's browser-based editor (only) by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). See the [extension author's guide](/api/advanced-topics/remote-extensions#workarounds-for-using-localhost-from-a-webview) for details on the workaround.
+If ports are being blocked, the best approach is to instead use the [webview message passing](/api/extension-guides/webview#scripts-and-message-passing) API. As a workaround, `vscode.env.asExternalUri`  can be used allow the webview to connect to spawned localhost web servers from VS Code. However, this is currently blocked for VS Online's browser-based editor (only) by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). See the [extension author's guide](/api/advanced-topics/remote-extensions#workarounds-for-using-localhost-from-a-webview) for details on the workaround.
 
 ### Blocked localhost ports
 

@@ -111,7 +111,7 @@ Next we will cover how to set up a dev container for an existing project to use 
 
 The steps are similar to those above:
 
-1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette (`kbstyle(F1)`) or quick actions Status bar item, and select the project folder you'd like to set up the container for.
+1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette (`kbstyle(F1)`) or quick actions Status bar item, and select the project folder you would like to set up the container for.
 
     > **Tip:** If you want to edit the container's contents or settings before opening the folder, you can run **Remote-Containers: Add Development Container Configuration Files...** instead.
 
@@ -144,7 +144,7 @@ You can also follow a similar process to open a [VS Code multi-root workspace](/
 You can either:
 
 * Use the **Remote-Containers: Open Workspace in Container...** command.
-* Use **File > Open Workspace...** once you've opened a folder that contains a `.code-workspace` file in a container.
+* Use **File > Open Workspace...** once you have opened a folder that contains a `.code-workspace` file in a container.
 
 Once connected, you may want to **add the `.devcontainer` folder** to the workspace so you can easily edit its contents if it is not already visible.
 
@@ -201,7 +201,7 @@ Let's set up a container for use with all of the Python projects in the `./Repos
 
 ## Quick start: Open a public Git repository in an isolated container volume
 
-While you can [open a locally cloned repository in a container](#quick-start-open-an-existing-folder-in-a-container), you may want to work with an isolated copy of a repository for a PR review or to investigate another branch without impacting your work. If you're working with a public GitHub repository with an existing `devcontainer.json` file, you can use a Repository Container instead.
+While you can [open a locally cloned repository in a container](#quick-start-open-an-existing-folder-in-a-container), you may want to work with an isolated copy of a repository for a PR review or to investigate another branch without impacting your work. If you are working with a public GitHub repository with an existing `devcontainer.json` file, you can use a Repository Container instead.
 
 Repository Containers use isolated, local Docker volumes instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS. (See [Advanced Configuration](/docs/remote/containers-advanced.md#improving-container-disk-performance) for information on how to use these types of volumes in other scenarios.)
 
@@ -219,7 +219,7 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
 4. After the build completes, VS Code will automatically connect to the container.
 
-You can now work with the repository source code in this isolated environment as you would if you'd cloned the code locally.
+You can now work with the repository source code in this isolated environment as you would if you had cloned the code locally.
 
 ## Creating a devcontainer.json file
 
@@ -452,7 +452,7 @@ Since this just establishes the default, you are still able to change the settin
 
 ## Sharing Git credentials with your container
 
-The Remote - Containers extension provides out of box support for using local Git credentials from inside a container. In this section, we'll walk through the two supported options. 
+The Remote - Containers extension provides out of box support for using local Git credentials from inside a container. In this section, we'll walk through the two supported options.
 
 Note that, if you do not have your user name or email address set up locally, you may be prompted to do so. You can do this on your **local** machine by running the following commands:
 
@@ -481,7 +481,7 @@ On Windows and Linux, you may get an error because the agent is not running (mac
 
 **Windows**:
 
-Start a **local Administrator PowerShell** as and run the following commands:
+Start a **local Administrator PowerShell** and run the following commands:
 
 ```powershell
 # Make sure you're running as an Administrator
