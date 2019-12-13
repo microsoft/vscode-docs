@@ -25,7 +25,7 @@ Specifies the full path to executable the debugger will launch or attach to.
 
 ### symbolSearchPath
 
-Tells the Visual Studio Windows Debugger what paths to search for symbol (.pdb) files. Separate multiple paths with a semicolon. For example: `"C:\\Symbols;C:\\SymbolDir2"`.
+Tells the Visual Studio Windows Debugger what paths to search for symbol (.pdb) files. Separates multiple paths with a semicolon. For example: `"C:\\Symbols;C:\\SymbolDir2"`.
 
 ### requireExactSource
 
