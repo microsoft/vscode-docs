@@ -35,7 +35,7 @@ In this guide you will learn how to:
 1. Open the project folder in VS Code
 1. Open Command Palette (`F1`) and use `Docker: Add Docker Files to Workspace...` command:
 
-   [[images/quickstart-aspnetcore-add-dotnet.png|alt=Add Dockerfile to a .NET project]]
+   ![Add Dockerfile to a .NET project](images/quickstarts/aspnetcore-add-dotnet.png)
 
 1. Use `ASP.NET Core` when prompted for application platform.
 1. Choose `Windows` or `Linux` when prompted to choose the operating system.
@@ -64,12 +64,13 @@ In this guide you will learn how to:
    ```
 
 ## Add an environment variable to the image
+
 You can use the Docker extension to author Docker files. The extension provides completions and contextual help. To see these capabilities add an environment variable to your service image by following these:
 
 1. Open the `Dockerfile` file.
 1. Use `ENV` instruction to add an environment variable to the service container image. The instruction should be placed in the `base` stage of the `Dockerfile` (the first stage in the file). Set the `ASPNETCORE_URLS` variable to `http://*:5000`:
 
-   [[images/quickstart-aspnetcore-intellisense-env.png|alt=Add an environment variable to Docker image]]
+   ![Add an environment variable to Docker image](images/quickstarts/aspnetcore-intellisense-env.png)
 
    Note how the Docker extension lists all available Dockerfile instructions and describes the syntax.
 
@@ -81,13 +82,13 @@ You can use the Docker extension to author Docker files. The extension provides 
 1. Open command palette (`F1`) and issue `Docker Images: Build Image...` command.
 1. Open Docker view and verify that the new image is visible in the Images tree:
 
-   [[images/quickstart-aspnetcore-verify-image.png|alt=Verify Docker image existence]]
+   ![Verify Docker image exists](images/quickstarts/aspnetcore-verify-image.png)
 
 ## Test the service container
 
 1. Right-click on the image built in previous step and choose `Run` or `Run Interactive`. The container should start and you should be able to see it in the "Containers" pane of the Docker view:
 
-   [[images/quickstart-aspnetcore-running-container.png|alt=Running service container]]
+   ![Running service container](images/quickstarts/aspnetcore-running-container.png)
 
 1. Open the web browser and navigate to [http://localhost:5000/WeatherForecast](http://localhost:5000/WeatherForecast). You should see weather data in JSON format, similar to following:
 
@@ -119,14 +120,14 @@ When Docker files were added to the application, the Docker extension also added
 
 1. Make sure the configuration is selected as active:
 
-    [[images/quickstart-aspnetcore-debug-configuration.png|alt=Selected Docker debug configuration]]
+    ![Selected Docker debug configuration](images/quickstarts/aspnetcore-debug-configuration.png)
 
-1. Start debugging (`F5` key). 
+1. Start debugging (`F5` key).
     - The debug version of the service container builds and starts.
     - The browser opens to request a new weather forecast.
     - The breakpoint in the `WeatherForecastController` is hit.
 
-By default Docker will assign a randomly-chosen **host port** to a port exposed by a container (the **container port**). In this case the exposed (container) port is 5000, but it will be exposed on the host via a random port, such as 32737. 
+By default Docker will assign a randomly-chosen **host port** to a port exposed by a container (the **container port**). In this case the exposed (container) port is 5000, but it will be exposed on the host via a random port, such as 32737.
 
 You can use specific port on the host by changing the Docker run options used by `docker-run: debug` task (defined in `.vscode/tasks.json` file). For example, if you want to use the same port (5000) to expose the service, the `docker-run: debug` task definition would look like this:
 
@@ -151,6 +152,6 @@ You can use specific port on the host by changing the Docker run options used by
 
 ## Next steps
 
-(learn more about debugging for .NET?) <br/>
+[Learn more about debugging for .NET?](/docs/containers/debug-netcore.md) <br/>
 (learn more about Dockerfile?) <br/>
 (multi-service development with Docker Compose?)

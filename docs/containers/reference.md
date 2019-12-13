@@ -1,11 +1,11 @@
 ---
 Order: 8
 Area: containers
-TOCTitle: Properties and Tasks
+TOCTitle: Reference
 ContentId: 6784FBBE-9EE4-44A8-AC48-A52617EB1968
-PageTitle: 
+PageTitle: Reference for Visual Studio Code Docker extension properties and tasks.
 DateApproved: 12/12/2019
-MetaDescription: 
+MetaDescription: Reference for Docker build and Docker run tasks and properties in the Visual Studio Code Docker extension.
 ---
 # Docker tasks
 
@@ -88,7 +88,7 @@ For Node.js Docker images, the `docker-build` task infers the following options:
 | `dockerBuild.dockerfile` | The file `Dockerfile` in the same directory as the `package.json` resides. |
 | `dockerBuild.tag` | The application's `name` property in `package.json` (if defined), else the base name of the folder in which `package.json` resides. |
 
-### Build Task Reference
+## Build Task Reference
 
 Here are all properties available for configuring `docker-build` task. All properties are optional unless indicated otherwise.
 
@@ -99,7 +99,7 @@ Here are all properties available for configuring `docker-build` task. All prope
 | `netCore` | Determines options specific for .NET Core projects, ([see below](#netCore-object-properties-docker-build-task)). |
 | `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-docker-run-task)). |
 
-#### `dockerBuild` object properties:
+### `dockerBuild` object properties:
 
 | Property | Description | `docker build` CLI Equivalent |
 | --- | --- | --- |
@@ -111,13 +111,13 @@ Here are all properties available for configuring `docker-build` task. All prope
 | `target` | The target in the Dockerfile to build to. | `--target` |
 | `pull` | Whether or not to pull new base images before building. | `--pull` |
 
-#### `netCore` object properties (`docker-build` task)
+### `netCore` object properties (`docker-build` task)
 
 | Property | Description |
 | --- | --- |
 | `appProject` | The .NET Core project file (`.csproj`, `.fsproj`, etc.) associated with the Dockerfile and `docker-build` task. <br/> Required always.  |
 
-#### `node` object properties (`docker-build` task)
+### `node` object properties (`docker-build` task)
 
 | Property | Description | Default |
 | --- | --- | --- |
@@ -200,7 +200,7 @@ For Node.js-based Docker images, the `docker-run` task infers the following opti
 | `dockerRun.containerName` | Derived from the application package name. |
 | `dockerRun.image` | The tag from a dependent `docker-build` task (if one exists) or derived from the application package name, itself derived from the `name` property within `package.json` or the base name of the folder in which it resides. |
 
-### Run Task Reference
+## Run Task Reference
 
 Here are all properties available for configuring `docker-run` task. All properties are optional unless indicated otherwise.
 
@@ -211,7 +211,7 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `netCore` | For .NET Core projects, this controls various options ([see below](#netCore-object-properties-docker-run-task)). |
 | `node` | For Node.js projects, this controls various options ([see below](#node-object-properties-docker-run-task)). |
 
-### `dockerRun` object properties:
+### `dockerRun` object properties
 
 | Property | Description | CLI Equivalent | 
 | --- | --- | --- | 
@@ -229,7 +229,7 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `extraHosts` |  The hosts to add to the container for DNS resolution. This is a list of objects ([see below](#extraHosts-object-properties)). | `--add-host` | 
 | `volumes` |  The volumes to map into the started container. This is a list of objects ([see below](#volumes-object-properties)). | `-v` or `--volume` | 
 
-### `ports` object properties:
+### `ports` object properties
 
 | Property | Description | Default |
 | --- | --- | --- |
@@ -237,14 +237,14 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `hostPort` |  The port number bound on the host. | (randomly selected by Docker) |
 | `protocol` |  The protocol for the binding (`tcp` or `udp`). | `tcp` |
 
-### `extraHosts` object properties:
+### `extraHosts` object properties
 
 | Property | Description |
 | --- | --- |
 | `hostname` | The hostname for DNS resolution. <br/> Required. |
 | `ip` | The IP address associated with the above hostname. <br/> Required. |
 
-### `volumes` object properties:
+### `volumes` object properties
 
 | Property | Description | Default |
 | --- | --- | --- |

@@ -24,7 +24,7 @@ The second important choice is whether to debug your service running as a ordina
 1. Consider [development container](https://code.visualstudio.com/docs/remote/containers) first if you need a remote environment.
     - On Windows, [Windows Subsystem for Linux (WSL)](#windows-subsystem-for-linux) is worth considering as an alternative.
 
-1. Debugging your service running in a container is possible, but brings additional complexity. Use normal debugging by default, and debugging in container when you need it. 
+1. Debugging your service running in a container is possible, but brings additional complexity. Use normal debugging by default, and debugging in container when you need it.
 
 > The Docker extension natively supports container debugging for .NET- and Node.js-based services only.
 
@@ -33,11 +33,12 @@ The second important choice is whether to debug your service running as a ordina
 The way to enable Docker CLI inside a remote development environment varies depending on the type of remote environment you choose.
 
 ### Development container
+
 For a development container you should **redirect the Docker CLI inside the container to the Docker daemon running on the local machine**.
 
 First, make sure Docker CLI is installed into your development container. Exact steps [depend on Linux distribution the container is using](https://docs.docker.com/install/); here is an example for Ubuntu-based distros (from `.devcontainer/Dockerfile`):
 
-```
+```cli
     ...
     && apt-get -y install software-properties-common \
     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - 2>/dev/null \
@@ -61,7 +62,7 @@ Next, ensure that Docker socket is mapped into the development container (`.devc
 
 Windows Subsystem for Linux represents a great choice for container-based service development on Windows. [Windows Subsystem for Linux version 2 (WSL 2)](https://docs.microsoft.com/windows/wsl/wsl2-index) is strongly recommended. Docker Desktop for Windows has been updated to work with WSL 2 and has a graphical setting to enable Docker CLI inside WSL 2 distribution(s):
 
-[[images/devenv-enable-docker-wsl2.png|alt=Enable Docker inside WSL 2 distribution]]
+![Enable Docker inside WSL 2 distribution](images/devenv/devenv-enable-docker-wsl2.png)
 
 > As of November 2019, WSL 2 is part of Windows Insider builds. To try out the new Docker engine you will need  Windows Insider build 19018 or newer, and the [Docker Desktop for Windows Edge release 2.1.6.1 or newer](https://docs.docker.com/docker-for-windows/edge-release-notes/)
 >
@@ -69,10 +70,12 @@ Windows Subsystem for Linux represents a great choice for container-based servic
 
 ### Remote machine or virtual machine
 
-##### Docker in Docker
+#### Docker in Docker
+
 The simplest way to enable container development with a remote machine is to do [a full Docker installation](https://docs.docker.com/install/) on the machine, including Docker daemon. For a local VM you need to enable **nested virtualization** option in your virtualization software. Nested virtualization is supported by all mainstream virtualization technologies such as Hyper-V, Parallels or Oracle VirtualBox.
 
-##### Reusing the host Docker daemon
+#### Reusing the host Docker daemon
+
 Alternatively, you can install just the Docker CLI inside development environment and point the CLI to the Docker host (daemon) running on the developer workstation using [Docker context mechanism](https://docs.docker.com/engine/context/working-with-contexts/). The main concern with this approach is to ensure network connectivity from the VM to the Docker daemon on the host, **and to do so in a secure way**. One option is to use [[SSH tunelling|SSH]] to developer workstation. Another option is to [make Docker daemon listen on HTTPS port](https://docs.docker.com/engine/security/https/). Both options are considered advanced and outside the scope of this document.
 
 ## Debugging in a container
@@ -86,4 +89,4 @@ Debugging in a container may be somewhat harder to set up than regular debugging
 
 Because of the concerns above, it is generally recommended to use regular debugging, and employ debugging in a container when necessary.
 
-For more information about how to set up debugging inside a container see [[ASP.NET Core quickstart|ASP-NET-Core]], [[Node.js quickstart|Node-JS]], and [[Docker extension task properties|Extension-Properties-And-Tasks]] (`docker-build` and `docker-run` tasks).
+For more information about how to set up debugging inside a container see [ASP.NET Core quickstart](/docs/containers/quickstart-aspnet-core.md), [Node.js quickstart](/docs/containers/quickstart-node.md), and [Docker extension task properties](/docs/containers/reference.md) (`docker-build` and `docker-run` tasks).

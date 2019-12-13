@@ -21,13 +21,13 @@ On Linux, you should also [enable Docker CLI for the non-root user account](http
 
 To install the extension, open Extensions view (`Ctrl+Shift+X`), search for `docker` to filter results and select Docker extension authored by Microsoft.
 
-[[images/home-installation-extension-search.png|alt=Select Docker extension]]
+![Select Docker extension](images/overview/home-installation-extension-search.png)
 
 ## Editing Docker files
 
 You can get IntelliSense when editing your `Dockerfile` and `docker-compose.yml` files, with completions and syntax help for common commands.
 
-[[images/home-dockerfile-intellisense.png|alt=IntelliSense for Dockerfiles]]
+![IntelliSense for Dockerfiles](images/overview/home-dockerfile-intellisense.png)
 
 In addition, you can use the Problems panel to view common errors for `Dockerfile` and `docker-compose.yml` files.
 
@@ -43,17 +43,17 @@ The Docker extension contributes a Docker view to VS Code. The Docker view lets 
 
 The right-click menu provides access to commonly-used commands for each type of asset.
 
-[[images/home-docker-view-context-menu.gif|alt=Docker view context menu]]
+![Docker view context menu](images/overview/home-docker-view-context-menu.gif)
 
 You can rearrange the Docker view panes by dragging them up or down with a mouse and use the context menu to hide or show them.
 
-[[images/home-docker-view-rearrange.gif|alt=Customize Docker view]]
+![Customize Docker view](images/overview/home-docker-view-rearrange.gif)
 
 ## Docker commands
 
 Many of the most common Docker commands are built right into the Command Palette:
 
-[[images/home-command-palette.png|alt=Docker commands]]
+![Docker commands](images/overview/home-command-palette.png)
 
 You can run Docker commands to manage [images](https://docs.docker.com/engine/reference/commandline/image/), [networks](https://docs.docker.com/engine/reference/commandline/network/), [volumes](https://docs.docker.com/engine/reference/commandline/volume/), [image registries](https://docs.docker.com/engine/reference/commandline/push/) and [Docker Compose](https://docs.docker.com/compose/reference/overview/). In addition, the `Docker: Prune System` command will remove stopped containers, dangling images, and unused networks and volumes.
 
@@ -61,13 +61,13 @@ You can run Docker commands to manage [images](https://docs.docker.com/engine/re
 
 You can display the content and push/pull/delete images from [Docker Hub](https://hub.docker.com/) and [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/):
 
-[[images/home-container-registry.png|alt=Azure Container Registry content]]
+![Azure Container Registry content](images/overview/home-container-registry.png)
 
-An image in an Azure Container Registry can be deployed to Azure App Service directly from VS Code&mdash;see [[Deploy images to Azure App Service|App-Service]] page. For more information about how to authenticate to and work with registries see [[Work with container registries|Quickstart-Container-Registries]] page. 
+An image in an Azure Container Registry can be deployed to Azure App Service directly from VS Code; see [Deploy images to Azure App Service](/docs/containers/app-service.md) page. For more information about how to authenticate to and work with registries see [Work with container registries](/docs/containers/quickstart-container-registries.md) page.
 
 ## Debugging services running inside a container
 
-You can debug services build using .NET (C#) and Node.js that are running inside a container. The extension offers custom tasks that help with launching a service under the debugger and with attaching the debugger to a running service instance. For more information see [[Debug container application|Quickstart-Debugging]]  and [[Extension Properties and Tasks|Extension-Properties-And-Tasks]] pages.
+You can debug services build using .NET (C#) and Node.js that are running inside a container. The extension offers custom tasks that help with launching a service under the debugger and with attaching the debugger to a running service instance. For more information see [Debug container application](/docs/containers/debug-common.md)  and [Extension Properties and Tasks](/docs/containers/reference.md) pages.
 
 ## Azure CLI integration
 

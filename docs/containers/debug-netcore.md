@@ -17,7 +17,7 @@ MetaDescription: Debug a .NET Core app running in a Docker container, using Visu
 
 1. Mac users only: add `/usr/local/share/dotnet/sdk/NuGetFallbackFolder` as a shared folder in your Docker preferences.
 
-![dockerSharedFolders](images/mac-folders.png)
+![dockerSharedFolders](images/debug/mac-folders.png)
 
 ## Walkthrough
 
@@ -31,4 +31,4 @@ MetaDescription: Debug a .NET Core app running in a Docker container, using Visu
 1. Optionally, set a breakpoint.
 1. Start debugging! (<kbd>F5</kbd> by default)
 
-For additional customization options, see the documentation on [Tasks](extension-properties-and-tasks.md) and [Debugging](debug-common.md).
+For additional customization options, see the documentation on [Tasks](/docs/containers/reference.md) and [Debugging](/docs/containers/debug-common.md).
