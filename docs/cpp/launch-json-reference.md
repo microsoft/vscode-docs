@@ -11,7 +11,7 @@ MetaDescription: Configure launch.json for C/C++ debugging in Visual Studio Code
 
 The `launch.json` file is used to configure the debugger in Visual Studio Code.
 
-Visual Studio Code generates a `launch.json` with almost all of the required information. To get started debugging you need to fill in the `program` field with the path to the executable you plan to debug. This must be specified for both the launch and attach (if you plan to attach to a running instance at any point) configurations.
+Visual Studio Code generates a `launch.json` with almost all of the required information. To get started with debugging you need to fill in the `program` field with the path to the executable you plan to debug. This must be specified for both the launch and attach (if you plan to attach to a running instance at any point) configurations.
 
 The generated file contains two sections, one that configures debugging for launch and a second that configures debugging for attach.
 
