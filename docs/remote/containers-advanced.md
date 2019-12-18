@@ -647,7 +647,7 @@ Then, add the following to `settings.json` (replacing values as appropriate):
 
 After restarting VS Code (or reloading the window), you will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
 
-> **Tip:** If this is not working for you but you are able to connect to the host using SSH from the command line, be sure you have the [SSH agent running with your auth key](/docs/remote/containers.md#using-ssh-keys). If all else fails, you can use [a SSH tunnel as a fallback](/docs/remote/troubleshooting.md#using-an-ssh-tunnel-to-connect-to-a-remote-docker-host) instead.
+> **Tip:** If this is not working for you but you are able to connect to the host using SSH from the command line, be sure you have the [SSH agent running with your authentication key](/docs/remote/containers.md#using-ssh-keys). If all else fails, you can use [an SSH tunnel as a fallback](/docs/remote/troubleshooting.md#using-an-ssh-tunnel-to-connect-to-a-remote-docker-host) instead.
 
 **Using the TCP protocol**
 
