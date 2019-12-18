@@ -597,6 +597,8 @@ Setting up VS Code to attach to a container on a remote Docker host can be as ea
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
 ```
 
+Using SSH requires a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), that you have [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication)) configured for the remote host, and that the **key is imported into your local SSH agent**. See the article on [using SSH Keys with Git](/docs/remote/containers.md#using-ssh-keys) for details on configuring the agent and adding your key.
+
 At this point, you can [attach](/docs/remote/containers.md#attaching-to-running-containers) to containers on the remote host. We'll cover more on information on how you can connect using [settings and environment variables](#connect-using-vs-code-settings-or-local-environment-variables) or [Docker Machine](#connect-using-docker-machine) later in this section.
 
 For `devcontainer.json`, there is one additional step: You'll need to update any configured (or auto-configured) bind mounts so they no longer point to the local filesystem.
@@ -635,7 +637,7 @@ If you already have a remote Docker host up and running, you can use the followi
 
 Recent versions of Docker (18.06+) have added support for the SSH protocol to connect to remote Docker Host. This is easy to configure as you only need to set one property in `settings.json` to use it.
 
-First, install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) and set up [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) for your host.
+First, install a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), configure [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication)), and then **import your key into your local SSH agent** (which often is not running by default on Windows and Linux). See the article on [using SSH Keys with Git](/docs/remote/containers.md#using-ssh-keys) for details on configuring the agent and adding the key.
 
 Then, add the following to `settings.json` (replacing values as appropriate):
 
@@ -645,7 +647,7 @@ Then, add the following to `settings.json` (replacing values as appropriate):
 
 After restarting VS Code (or reloading the window), you will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
 
-> **Tip:** If this is not working for you but you are able to connect to the host using SSH from the command line, you can use [an SSH tunnel as a fallback](/docs/remote/troubleshooting.md#using-an-ssh-tunnel-to-connect-to-a-remote-docker host) instead.
+> **Tip:** If this is not working for you but you are able to connect to the host using SSH from the command line, be sure you have the [SSH agent running with your auth key](/docs/remote/containers.md#using-ssh-keys). If all else fails, you can use [a SSH tunnel as a fallback](/docs/remote/troubleshooting.md#using-an-ssh-tunnel-to-connect-to-a-remote-docker-host) instead.
 
 **Using the TCP protocol**
 
