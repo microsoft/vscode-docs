@@ -124,6 +124,16 @@ The **Remote Explorer** allows you to both open a new empty window on the remote
 
 ![Remote Explorer open folder](images/ssh/ssh-explorer-open-folder.png)
 
+### Connect to a remote host from the terminal
+
+Once a host has been configured, you can connect to it directly from the terminal by passing a remote URI. For example, to connect to `remote_server` and open the `/code/my_project` folder, run
+
+```bash
+code --folder-uri "vscode-remote://ssh-remote+remote_server/code/my_project"
+```
+
+You can also use the `--file-uri` switch to open a specific file instead.
+
 ## Managing extensions
 
 VS Code runs extensions in one of two places: locally on the UI / client side, or remotely on the SSH host. While extensions that affect the VS Code UI, like themes and snippets, are installed locally, most extensions will reside on the SSH host. This ensures you have smooth experience and allows you to install any needed extensions for a given workspace on an SSH host from your local machine. This way, you can pick up exactly where you left off, from a different machine complete with your extensions.
