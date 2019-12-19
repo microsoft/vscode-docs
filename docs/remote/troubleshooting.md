@@ -116,6 +116,18 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
         IdentityFile ~/.ssh/exported-keyfile-from-putty
     ```
 
+### Connect to a remote host from the terminal
+
+Once a host has been configured, you can connect to it directly from the terminal by passing a remote URI.
+
+For example, to connect to `remote_server` and open the `/code/my_project` folder, run:
+
+```bash
+code --folder-uri "vscode-remote://ssh-remote+remote_server/code/my_project"
+```
+
+You can also use the `--file-uri` switch to open a specific file instead.
+
 ### Troubleshooting hanging or failing connections
 
 If you are running into problems with VS Code hanging while trying to connect (and potentially timing out), there are a few things you can do to try to resolve the issue.
@@ -605,7 +617,7 @@ The [Developing inside a container on a remote Docker Machine or SSH host](/docs
 
 However, you may run into situations where this does not work in your environment due to SSH configuration complexity or other limitations. In this case, an SSH tunnel can be used as a fallback.
 
-***Using an SSH tunnel as a fallback option**
+**Using an SSH tunnel as a fallback option**
 
 You can set up an SSH tunnel and forward the Docker socket from your remote host to your local machine.
 
@@ -625,7 +637,7 @@ Follow these steps:
     ssh -NL localhost:23750:/var/run/docker.sock user@hostname
     ```
 
-VS Code will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
+VS Code will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](/docs/remote/containers-advanced.md#converting-an-existing-or-predefined-devcontainerjson).
 
 Once you are done, press `kbstyle(Ctrl+C)` in the terminal / PowerShell to close the tunnel.
 

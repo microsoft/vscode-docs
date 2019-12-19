@@ -467,24 +467,26 @@ See the following example dev containers definitions for additional information 
 
 * [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Includes the Docker CLI, kubectl, and Helm and illustrates how you can use them from inside a dev container to access a local Minikube or Docker provided Kubernetes cluster.
 
+### Mounting host volumes with Docker from inside a container
 
-### Mounting Host Volumes with `docker` from inside `devcontainer`
-
-When using `docker` inside the `devcontainer` the host's docker daemon is used. This effects mounting directories from inside the `devcontainer` as the path inside the `devcontainer` may not match the path of the directory on the host. 
+When using Docker inside a container, the host's Docker daemon is used. This effects mounting directories from inside the container as the path inside the container may not match the path of the directory on the host.
 
 For example:
 
-`docker run -v /workspace/examplefile.txt:/incontainer/path busybox` 
-
-Will fail as the path on the host, outside the `devcontainer`, isn't `/workspace/...`. To work around this issue you can pass the host directory into the `devcontainer` an an environment variable then use as follows. 
-
-```json
-	"runArgs": [
-		// Pass in the host directory for docker mount commands from inside the container
-		"-e", "HOST_PROJECT_PATH=${localWorkspaceFolder}",
+```bash
+docker run -v /workspace/examplefile.txt:/incontainer/path busybox
 ```
 
-The use this as follows from the `devcontainer`. This example is from a `makefile` and mounts the `KUBECONFIG` file from the `devcontainer` into a `docker` container it starts.
+This will fail as the path on the host, outside the container isn't `/workspace/...`. To work around this issue, you can pass the host directory into the container as an environment variable as follows in `devcontainer.json`:
+
+```json
+  "remoteEnv": {
+    // Pass in the host directory for Docker mount commands from inside the container
+    "HOST_PROJECT_PATH": "${localWorkspaceFolder}"
+  }
+```
+
+The example below is from a `makefile` and mounts the `KUBECONFIG` file from the development container into the new Docker container it starts:
 
 ```make
 docker run -p 8089:8089 -p 9090:9090 -v $(shell echo ${KUBECONFIG} | sed s#/workspace#${HOST_PROJECT_PATH}#):/kubeconfig.json -e KUBECONFIG=/kubeconfig.json ${IMG} -f behaviours/run_submit_locust.py
@@ -620,7 +622,7 @@ Setting up VS Code to attach to a container on a remote Docker host can be as ea
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
 ```
 
-Using SSH requires a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), that you have [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication)) configured for the remote host, and that the **key is imported into your local SSH agent**. See the article on [using SSH Keys with Git](/docs/remote/containers.md#using-ssh-keys) for details on configuring the agent and adding your key.
+Using SSH requires a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), that you have [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) configured for the remote host, and that the **key is imported into your local SSH agent**. See the article on [using SSH Keys with Git](/docs/remote/containers.md#using-ssh-keys) for details on configuring the agent and adding your key.
 
 At this point, you can [attach](/docs/remote/containers.md#attaching-to-running-containers) to containers on the remote host. We'll cover more on information on how you can connect using [settings and environment variables](#connect-using-vs-code-settings-or-local-environment-variables) or [Docker Machine](#connect-using-docker-machine) later in this section.
 
