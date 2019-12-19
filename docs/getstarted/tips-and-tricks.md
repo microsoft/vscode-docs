@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -621,9 +621,9 @@ You can go back to your previous location with the **Go** > **Back** command or 
 
 You can also see the type definition if you press `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) when you are hovering over the type.
 
-### Peek References
+### Go to References
 
-Select a symbol then type `kb(editor.action.referenceSearch.trigger)`. Alternatively, you can use the context menu.
+Select a symbol then type `kb(editor.action.goToReferences)`. Alternatively, you can use the context menu.
 
 ![peek references](images/tips-and-tricks/find_all_references.gif)
 
@@ -882,6 +882,8 @@ With the setting `npm.enableScriptExplorer`, you can enable an explorer that sho
 ![Filter problems](images/tips-and-tricks/script_explorer.png)
 
 From the explorer you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). The default action on click is to open the script. To run a script on a single click, set `npm.scriptExplorerAction` to "run". Use the setting `npm.exclude` to exclude scripts in `package.json` files contained in particular folders.
+
+With the setting `npm.enableRunFromFolder`, you can enable to run npm scripts from the File Explorer's context menu for a folder. The setting enables the command **Run NPM Script in Folder...** when a folder is selected. The command shows a Quick Pick list of the npm scripts contained in this folder and you can select the script to be executed as a task.
 
 ## Portable mode
 

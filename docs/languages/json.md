@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 # Editing JSON with Visual Studio Code
@@ -15,7 +15,7 @@ JSON is a data format that is common in configuration files like `package.json` 
 
 ## IntelliSense and validation
 
-For properties and values, both for JSON data with and without a schema, we offer up suggestions as you type with IntelliSense. You can also manually see suggestions with the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`). We also perform structural and value verification based on an associated JSON schema giving you red squiggles.
+For properties and values, both for JSON data with or without a schema, we offer up suggestions as you type with IntelliSense. You can also manually see suggestions with the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`). We also perform structural and value verification based on an associated JSON schema giving you red squiggles.
 
 ![IntelliSense](images/json/intellisense.png)
 
@@ -25,7 +25,7 @@ We also offer IntelliSense for specific value sets such as package and project d
 
 ## Quick navigation
 
-JSON files can get large and we support quick navigation to properties the **Go to Symbol** command (`kb(workbench.action.gotoSymbol)`).
+JSON files can get large and we support quick navigation to properties using the **Go to Symbol** command (`kb(workbench.action.gotoSymbol)`).
 
 ![Goto Symbol](images/json/gotosymbol.png)
 

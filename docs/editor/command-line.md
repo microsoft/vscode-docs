@@ -4,16 +4,22 @@ Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code command-line options
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: Visual Studio Code command-line options (switches).
 ---
 # Command Line Interface (CLI)
 
-Visual Studio Code has a powerful command line interface that lets you control how you launch the editor. You can open files, install extensions, change the display language, and output diagnostics through command-line options (switches).
+Visual Studio Code has a powerful command line interface built-in that lets you control how you launch the editor. You can open files, install extensions, change the display language, and output diagnostics through command-line options (switches).
 
 ![command line example](images/command-line/hero.png)
 
 If you are looking for how to run command-line tools inside VS Code, see the [Integrated Terminal](/docs/editor/integrated-terminal.md).
+
+## Command line help
+
+To get an overview of the VS Code command line interface, open a terminal or command prompt and type `code --help`. You will see the version, usage example, and list of command line options.
+
+![command line help](images/command-line/command-line-help.png)
 
 ## Launching from command line
 

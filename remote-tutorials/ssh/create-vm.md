@@ -4,7 +4,7 @@ Area: ssh
 TOCTitle: Create a VM
 PageTitle: Create a virtual machine on Azure
 MetaDescription: Create a virtual machine on Azure
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 ---
 # Create a virtual machine
 

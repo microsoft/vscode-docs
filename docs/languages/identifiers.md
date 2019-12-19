@@ -3,7 +3,7 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
@@ -93,7 +93,8 @@ Objective-C | `objective-c`
 Objective-C++ | `objective-cpp`
 Perl | `perl` and `perl6`
 PHP | `php`
-Powershell | `powershell`
+Plain Text | `plaintext`
+PowerShell | `powershell`
 Pug | `jade`
 Python | `python`
 R | `r`

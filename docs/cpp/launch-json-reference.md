@@ -11,7 +11,7 @@ MetaDescription: Configure launch.json for C/C++ debugging in Visual Studio Code
 
 The `launch.json` file is used to configure the debugger in Visual Studio Code.
 
-Visual Studio Code generates a `launch.json` with almost all of the required information. To get started debugging you need to fill in the `program` field with the path to the executable you plan to debug. This must be specified for both the launch and attach (if you plan to attach to a running instance at any point) configurations.
+Visual Studio Code generates a `launch.json` with almost all of the required information. To get started with debugging you need to fill in the `program` field with the path to the executable you plan to debug. This must be specified for both the launch and attach (if you plan to attach to a running instance at any point) configurations.
 
 The generated file contains two sections, one that configures debugging for launch and a second that configures debugging for attach.
 
@@ -26,6 +26,10 @@ Specifies the full path to executable the debugger will launch or attach to.
 ### symbolSearchPath
 
 Tells the Visual Studio Windows Debugger what paths to search for symbol (.pdb) files. Separate multiple paths with a semicolon. For example: `"C:\\Symbols;C:\\SymbolDir2"`.
+
+### requireExactSource
+
+An optional flag that tells the Visual Studio Windows Debugger to require current source code to match the pdb.
 
 ### additionalSOLibSearchPath
 
@@ -167,6 +171,11 @@ The command to execute after the debugger is fully set up in order to cause the 
    }
 }
 ```
+
+### loadSymbolInfo
+
+- **loadAll**: If true, symbols for all libs will be loaded, otherwise no solib symbols will be loaded. Modified by ExceptionList. Default value is true.
+- **exceptionList**: List of filenames (wildcards allowed) separated by semicolons `;`. Modifies behavior of LoadAll. If LoadAll is true then don't load symbols for libs that match any name in the list. Otherwise only load symbols for libs that match. Example: ```"foo.so;bar.so"```
 
 ## Debugging dump files
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 891072bb-c46d-4392-800a-84d747072ce3
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Continuous Integration for testing Visual Studio Code extensions (plug-ins).
@@ -113,7 +113,7 @@ Next steps will be:
 
 ```json
 "scripts": {
-  "deploy": "vsce publish -p"
+  "deploy": "vsce publish --yarn"
 }
 ```
 
@@ -132,7 +132,7 @@ trigger:
 ```yaml
 - bash: |
     echo ">>> Publish"
-    yarn deploy $(VSCODE_MARKETPLACE_TOKEN)
+    yarn deploy -p $(VSCODE_MARKETPLACE_TOKEN)
   displayName: Publish
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Agent.OS'], 'Linux'))
 ```

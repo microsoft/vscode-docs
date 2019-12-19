@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -231,6 +231,7 @@ You can also use the following actions:
 
 * Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor.
 * Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor.
+* Toggle Fold (`kb(editor.toggleFold)`) folds or unfolds the region at the cursor.
 * Fold Recursively (`kb(editor.foldRecursively)`) folds the innermost uncollapsed region at the cursor and all regions inside that region.
 * Unfold Recursively (`kb(editor.unfoldRecursively)`) unfolds the region at the cursor and all regions inside that region.
 * Fold All (`kb(editor.foldAll)`) folds all regions in the editor.
@@ -252,20 +253,21 @@ If you prefer to switch back to indentation-based folding for one (or all) of th
 
 Regions can also be defined by markers defined by each language. The following languages currently have markers defined:
 
-* C#: `#region` and `#endregion`
-* C/C++: `#pragma region` and `#pragma endregion`
-* CSS/Less/SCSS: `/*#region*/` and `/*#endregion*/`
-* Coffeescript: `#region` and `#endregion`
-* F#: `//#region` and `//#endregion` and `(#region)` and `(#endregion)`
-* Java: `//#region` and `// #endregion` and `//<editor-fold>` and `//</editor-fold>`
-* HTML:
-* PHP: `#region` and `#endregion`
-* Powershell: `#region` and `#endregion`
-* Python: `#region` and `#endregion` and `# region` and `# endregion`
-* TypeScript/JavaScript:  `//#region` and `//#endregion`  and `//region` and `//endregion`
-* VB: `#Region` and `#End Region`
-* Bat: `::#region` and `::#endregion`
-* Markdown: `<!-- #region -->` and `<!-- #endregion -->`
+Language|Start region|End region
+--------|------------|----------
+C#|`#region`|`#endregion`
+C/C++|`#pragma region`|`#pragma endregion`
+CSS/Less/SCSS|`/*#region*/`|`/*#endregion*/`
+Coffeescript|`#region`|`#endregion`
+F#|`//#region` or `(#region)`|`//#endregion` or `(#endregion)`
+Java|`//#region` or `//<editor-fold>`|`// #endregion` or `//</editor-fold>`
+PHP|`#region`|`#endregion`
+PowerShell|`#region`|`#endregion`
+Python|`#region` or `# region`|`#endregion` or `# endregion`
+TypeScript/JavaScript|`//#region` or `//region`|`//#endregion` or `//endregion`
+Visual Basic|`#Region`|`#End Region`
+Bat| `::#region`|`::#endregion`
+Markdown|`<!-- #region -->`|`<!-- #endregion -->`
 
 To fold and unfold only the regions defined by markers use:
 

@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: React Tutorial
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
 PageTitle: React JavaScript Tutorial in Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
@@ -41,7 +41,9 @@ cd my-app
 npm start
 ```
 
-You should see "Welcome to React" on [http://localhost:3000](http://localhost:3000) in your browser. We'll leave the web server running while we look at the application with VS Code.
+<!-- TBD mention yarn and link -->
+
+You should see the React logo and a link to "Learn React" on [http://localhost:3000](http://localhost:3000) in your browser. We'll leave the web server running while we look at the application with VS Code.
 
 To open your React application in VS Code, open another terminal or command prompt window, navigate to the `my-app` folder and type `code .`:
 
@@ -94,12 +96,12 @@ Let's update the sample application to "Hello World!". Add the link to declare a
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
 import './index.css';
 
 var element = React.createElement('h1', { className: 'greeting' }, 'Hello, world!');
 ReactDOM.render(element, document.getElementById('root'));
-registerServiceWorker();
+serviceWorker.unregister();
 ```
 
 Once you save the `index.js` file, the running instance of the server will update the web page and you'll see "Hello World!".
@@ -112,7 +114,7 @@ Once you save the `index.js` file, the running instance of the server will updat
 
 To debug the client side React code, we'll need to install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
 
->Note: This tutorial assumes you have the Chrome browser installed. Microsoft also publishes a version of this extension for their [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browser.
+>Note: This tutorial assumes you have the Chrome browser installed. There are also debugger extensions for the [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) and [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) browsers.
 
 Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome' in the search box. You'll see several extensions which reference Chrome.
 

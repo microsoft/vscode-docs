@@ -65,6 +65,16 @@ You can also quickly navigate to where a symbol is defined by using the Go to De
 
 To go to a symbol's definition, place your cursor on the symbol anywhere it is used in your source code and then press `kb(editor.action.revealDefinition)`. Alternatively, you can choose __Go to Definition__ from the context menu (right-click, then choose __Go to Definition__). When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section and you have to choose the definition that you want to go to.
 
+### Go to Super Implementation
+
+You can keep track of class implementations and overriding methods by clicking the **Go to Super Implementation** link on hover.
+
+![Spring Navigation](images/java-editing/goto-super.png)
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/goto-super-implementation.mp4" type="video/mp4">
+</video>
+
 ### Navigating code with Spring Boot
 
 [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for Spring Boot projects.
@@ -167,6 +177,22 @@ When selecting a variable declaration, convert the variable to field.
   <source src="/docs/java/java-editing/convert-field.mp4" type="video/mp4">
 </video>
 
+### Inline
+
+The Inline refactoring lets you reverse the refactoring for a local variable, method, and constant.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/inline.mp4" type="video/mp4">
+</video>
+
+### Convert to enhanced for-loop
+
+The enhanced for-loop is a popular feature. Its simple structure allows one to simplify code by presenting for-loops that visit each element of an array/collection without explicitly expressing how one goes from element to element.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/convert-for-loop.mp4" type="video/mp4">
+</video>
+
 ### Generate getters and setters
 
 You can bulk generate getters and setters for all new member variables. If the class has more than one field, the source action will prompt a Quick Pick for you to select the target fields to use to generate the accessor methods.
@@ -252,29 +278,52 @@ This source action assigns a parameter to a new field for unused parameter(s) in
   <source src="/docs/java/java-editing/assign-to-field.mp4" type="video/mp4">
 </video>
 
+### Fix non-accessible reference
+
+This Quick Fix helps you fix non-accessible reference.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/fix-non-access-reference.mp4" type="video/mp4">
+</video>
+
+### Create non-existing package
+
+When your package name doesn't match the folder name, you have the options to either change the package name in your source code, or move the folder in the file system (even when the destination folder doesn't exist yet).
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/create-non-exist-package.mp4" type="video/mp4">
+</video>
+
 ### Other Code Actions supported
 
 The list of Code Actions supported by VS Code keeps growing and only listed the most popular ones above. Other notable supported actions include (but not limited to):
 
 * Convert anonymous class to lambda expression
 * Convert lambda to anonymous class
+* Convert anonymous class to nested class
 * Create unresolved types
+* Add `final` modifier where possible
+* Remove unnecessary cast
 
 ### Code Snippets
 
-Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. You can review all supported code snippets at [vscode-java/snippets/java.json](https://github.com/redhat-developer/vscode-java/blob/master/snippets/java.json).
+Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Leveraging information from Java language server, it also provides a preview of the code snippet during the selection.
+
+![Code Snippet](images/java-editing/code-snippet.png)
 
 ## Formatting
 
 [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) also provides [formatting settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings). You can export an Eclipse formatter file and then use it for your project in VS Code.
 
-In addition, there's a [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension, which you can use with either existing `checkstyle` configurations (Google's or Sun's Check) or your own customized files. When opening or saving a Java file, the extension will check the file format and provide quick fixes if possible.
+In addition, there's a [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension, which you can use with either existing `checkstyle` configurations (Google's or Sun's Check) or your own customized files. When editing a Java file, the extension will check the file format and provide Quick Fixes if possible on the fly.
+
+Set Checkstyle configuration file.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/checkstyle.mp4" type="video/mp4">
 </video>
 
-The [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension also supports live linting.
+The [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension supports live linting.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/checkstyle-live-linting.mp4" type="video/mp4">
@@ -293,17 +342,36 @@ The Problems panel will open when you click the Checkstyle status icon in the St
 ![Set Checkstyle configuration file](images/java-editing/set_config.png)
 
 * To set the configuration file, right-click the `.xml` file and select **Set the Checkstyle Configuration File**.
-* You can also trigger the command **Checksjtyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. You will also see the two built-in configurations:
+* You can also trigger the command **Checkstyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. The extension looks for a `checkstyle.xml` file in your workspace to make Checkstyle configuration easier. You will also see the two built-in configurations:
 
   * **Google's Check**
   * **Sun's Check**
 
-The extension looks for a `checkstyle.xml` file in your workspace to make Checkstyle configuration easier.
+* Command **Checkstyle: Set the Checkstyle Configuration** detects potential **Checkstyle** configuration files and lists them. You can also provide a configuration file by directly writing a URL in the input box.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/checkstyle-configuration.mp4" type="video/mp4">
+</video>
+
+You can also set the Checkstyle version by using the command **Checkstyle: Set the Checkstyle Version**.
+
+The command will:
+
+* List the latest Checkstyle version from the main repo.
+* List all the downloaded versions.
+* List all the supported versions.
+* Mark the currently used version with a check symbol.
+
+In addition, you can also bring any 3rd-party modules for Checkstyle by configuring its path. For example, after using the configuration below, you can add `<module name="SingleBreakOrContinueCheck"/>` or `<module name="com.github.sevntu.checkstyle.checks.naming.SingleBreakOrContinueCheck"/>` to `checkstyle.xml` to leverage those checks.
+
+```json
+"java.checkstyle.modules": [ "${workspaceFolder}/src/main/resources/sevntu-checks-1.35.0.jar" ]
+```
 
 ### Check the style and fix the violations
 
 ![Fix style violation](images/java-editing/quick_fix.png)
 
-* When opening or saving a Java file, the extension will check the file format and provide Quick Fixes if possible. You can click the lightbulb button in the editor to show the available Quick Fixes.
+* When editing a Java file, the extension will check the file format and provide Quick Fixes if possible. You can click the lightbulb button in the editor to show the available Quick Fixes.
 
 For more details about [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle), visit its [GitHub Repository](https://github.com/jdneo/vscode-checkstyle).

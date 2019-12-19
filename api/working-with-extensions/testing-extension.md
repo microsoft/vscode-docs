@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
@@ -13,7 +13,7 @@ Visual Studio Code supports running and debugging tests for your extension. Thes
 
 ## Overview
 
-*If you are migrating from `vscode`, see [migrating from `vscode`](#migrating-from-vscode)*.
+_If you are migrating from `vscode`, see [migrating from `vscode`](#migrating-from-vscode)_.
 
 If you are using the [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold an extension, integration tests are already created for you.
 
@@ -62,6 +62,7 @@ async function main() {
     // Download VS Code, unzip it and run the integration test
     await runTests({ extensionDevelopmentPath, extensionTestsPath });
   } catch (err) {
+    console.error(err);
     console.error('Failed to run tests');
     process.exit(1);
   }
@@ -235,24 +236,41 @@ await runTests({
 Sometimes you might want to run custom setups, such as running `code --install-extension` to install another extension before starting your test. `vscode-test` has a more granular API to accommodate that case:
 
 ```ts
-const cp = require('child_process')
-const { downloadAndUnzipVSCode, resolveCliPathFromExecutablePath } = require('vscode-test')
-const vscodeExecutablePath = await downloadAndUnzipVSCode('1.34.0');
-const cliPath = resolveCliPathFromExecutablePath(vscodeExecutablePath);
+import * as cp from 'child_process';
+import * as path from 'path';
+import {
+  downloadAndUnzipVSCode,
+  resolveCliPathFromVSCodeExecutablePath,
+  runTests
+} from 'vscode-test';
 
-// Use cp.spawn / cp.exec for custom setup
-cp.spawnSync(cliPath, ['--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
-  encoding: 'utf-8',
-  stdio: 'inherit'
-});
+async function main() {
+  try {
+    const extensionDevelopmentPath = path.resolve(__dirname, '../../../');
+    const extensionTestsPath = path.resolve(__dirname, './suite/index');
+    const vscodeExecutablePath = await downloadAndUnzipVSCode('1.40.1');
+    const cliPath = resolveCliPathFromVSCodeExecutablePath(vscodeExecutablePath);
 
-// Run the extension test
-await runTests({
-  // Use the specified `code` executable
-  vscodeExecutablePath,
-  extensionPath,
-  testRunnerPath
-});
+    // Use cp.spawn / cp.exec for custom setup
+    cp.spawnSync(cliPath, ['--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
+      encoding: 'utf-8',
+      stdio: 'inherit'
+    });
+
+    // Run the extension test
+    await runTests({
+      // Use the specified `code` executable
+      vscodeExecutablePath,
+      extensionDevelopmentPath,
+      extensionTestsPath
+    });
+  } catch (err) {
+    console.error('Failed to run tests');
+    process.exit(1);
+  }
+}
+
+main();
 ```
 
 ### Migrating from `vscode`

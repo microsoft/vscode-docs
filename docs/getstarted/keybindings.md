@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -277,7 +277,7 @@ Context name | True when
 `resourceFilename` | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
 `resourceExtname` | True when the Explorer or editor filename extension matches. Example: `"resourceExtname == .js"`
 `resourceLangId` | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
-`isFileSystemResource`isFileSystemResource | True when the Explorer or editor file is a file system resource that can be handled  from a file system provider
+`isFileSystemResource` | True when the Explorer or editor file is a file system resource that can be handled  from a file system provider
 `resourceSet` | True when an Explorer or editor file is set
 `resource` | The full Uri of the Explorer or editor file
 **Explorer contexts** |
@@ -478,7 +478,7 @@ Key|Command|Command id
 `kb(editor.action.peekDefinition)`|Peek Definition|`editor.action.peekDefinition`
 `kb(editor.action.revealDefinitionAside)`|Open Definition to the Side|`editor.action.revealDefinitionAside`
 `kb(editor.action.quickFix)`|Quick Fix|`editor.action.quickFix`
-`kb(editor.action.referenceSearch.trigger)`|Peek References|`editor.action.referenceSearch.trigger`
+`kb(editor.action.goToReferences)`|Go to References|`editor.action.goToReferences`
 `kb(editor.action.rename)`|Rename Symbol|`editor.action.rename`
 `kb(editor.action.inPlaceReplace.down)`|Replace with Next Value|`editor.action.inPlaceReplace.down`
 `kb(editor.action.inPlaceReplace.up)`|Replace with Previous Value|`editor.action.inPlaceReplace.up`

@@ -4,7 +4,7 @@ Area: azure
 TOCTitle: Docker
 ContentId: 42F8B9F8-BD03-4159-9479-17C5BDE30531
 PageTitle: Working with Docker in Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: Working with Docker containers in Visual Studio Code.
 ---
 # Working with Docker
@@ -41,7 +41,7 @@ https://docs.docker.com/articles/dockerfile_best-practices/) on [docker.com](htt
 
 ## Docker Compose
 
-[Docker Compose](https://docs.docker.com/compose/) lets you define and run multi-container applications with Docker. You define what the shape of these containers look like with a file called `docker-compose.yml`.
+[Docker Compose](https://docs.docker.com/compose/) lets you define and run multi-container applications with Docker. You can define what  shape these containers look like with a file called `docker-compose.yml`.
 
 Visual Studio Code's experience for authoring `docker-compose.yml` is also very rich, providing IntelliSense for valid Docker compose directives and it will query Docker Hub for metadata on public Docker images.
 
@@ -55,7 +55,7 @@ Visual Studio Code's experience for authoring `docker-compose.yml` is also very 
 
  ![Docker Compose image suggestions](images/docker/dockercomposeimageintellisense.png)
 
-VS Code will first show a list of popular images along with metadata such as the number of stars and description. If you continue typing VS Code will query the Docker Hub index for matching images, including searching public profiles. For example, searching for `Microsoft` will show you all the public Microsoft images.
+VS Code will first show a list of popular images along with metadata such as the number of stars and description. If you continue typing, VS Code will query the Docker Hub index for matching images, including searching public profiles. For example, searching for `Microsoft` will show you all the public Microsoft images.
 
  ![Docker Compose Microsoft image suggestions](images/docker/dockercomposesearch.png)
 

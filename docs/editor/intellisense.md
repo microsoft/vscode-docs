@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
@@ -45,7 +45,7 @@ When applicable, a language service will surface the underlying types in the qui
 
 ## Types of completions
 
-The JavaScript code below illustrates IntelliSense completions. IntelliSense gives both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (shown by the document icon).
+The JavaScript code below illustrates IntelliSense completions. IntelliSense gives both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (shown by the Word icon).
 
 ![intellisense icons](images/intellisense/intellisense_icons.png)
 
@@ -54,7 +54,8 @@ VS Code IntelliSense offers different types of completions, including language s
 |       |         |       |
 | ----- | ------- | ----- |
 | ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`  |
-| ![variable icon](images/intellisense/Field_16x.svg) | Variables and Fields | `variable`, `field` |
+| ![variable icon](images/intellisense/Variable_16x.svg) | Variables | `variable` |
+| ![field icon](images/intellisense/Field_16x.svg) | Fields | `field` |
 | ![class](images/intellisense/Class_16x.svg) | Classes | `class` |
 | ![interface](images/intellisense/Interface_16x.svg) | Interfaces | `interface` |
 | ![module](images/intellisense/Namespace_16x.svg) | Modules | `module` |
@@ -83,6 +84,9 @@ The settings shown below are the default settings. You can change these settings
         "comments": false,
         "strings": false
     },
+
+     // Controls whether suggestions should be accepted on commit characters. For example, in JavaScript, the semi-colon (`;`) can be a commit character that accepts a suggestion and types that character.
+    "editor.acceptSuggestionOnCommitCharacter": true,
 
     // Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions. The value 'smart' means only accept a suggestion with Enter when it makes a textual change
     "editor.acceptSuggestionOnEnter": "on",
@@ -190,6 +194,7 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 * [JavaScript](/docs/languages/javascript.md) - Get the most out of your JavaScript development, including configuring IntelliSense.
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - See an example of IntelliSense in action in the Node.js walkthrough.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
+* [Creating Language extensions](/api/language-extensions/programmatic-language-features.md) - Learn how to create extensions that add IntelliSense for new programming languages.
 
 ## Common questions
 

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Color Themes
@@ -27,7 +27,6 @@ The active color theme is stored in your user [settings](/docs/getstarted/settin
 ```json
   // Specifies the color theme used in the workbench.
   "workbench.colorTheme": "Default Dark+"
-}
 ```
 
 > **Tip:** By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#creating-user-and-workspace-settings).
@@ -126,7 +125,6 @@ The active File Icon theme is persisted in your user [settings](/docs/getstarted
 ```json
   // Specifies the icon theme used in the workbench.
   "workbench.iconTheme": "vs-seti"
-}
 ```
 
 ## Creating your own File Icon Theme

@@ -35,9 +35,9 @@ We're currently publishing our updates at [The Visual Studio Blog](https://devbl
 
 While you're using Java within VS Code, you might also see a *Release Notes* once you update the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). That will give you an overview on the notable updates included in the extensions.
 
-## How can I use Visual Studio Code with Java 12?
+## How can I use Visual Studio Code with Java 12 and 13?
 
-Thanks to the upstream update from JDT, you can now build your project with Java 12 features with VS Code as well. To use the experimental language features such as the new `switch` statement, add the following settings to `pom.xml`:
+Thanks to the upstream update from JDT, you can now build your project with Java 12 and Java 13 features with VS Code as well. To use the experimental language features such as the new `switch` statement, add the following settings to `pom.xml`:
 
 ```xml
 <build>

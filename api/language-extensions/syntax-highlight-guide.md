@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2bb06188-d394-4b98-872c-0bf26c8a674d
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to
@@ -146,7 +146,7 @@ The `embeddedLanguages` contribution point maps a scope in the embedded language
         "path": "./syntaxes/abc.tmLanguage.json",
         "scopeName": "source.abc",
         "embeddedLanguages": {
-          "meta.embedded.block.javascript": "source.js"
+          "meta.embedded.block.javascript": "javascript"
         }
       }
     ]
@@ -289,7 +289,7 @@ An extension that highlights sql queries in javascript strings for example may u
         "scopeName": "sql-string.injection",
         "injectTo": ["source.js"],
         "embeddedLanguages": {
-          "meta.embedded.inline.sql": "source.sql"
+          "meta.embedded.inline.sql": "sql"
         }
       }
     ]
@@ -314,7 +314,7 @@ If you can't add a `meta.embedded.*` scope to your grammar, you can alternativel
         "scopeName": "sql-string.injection",
         "injectTo": ["source.js"],
         "embeddedLanguages": {
-          "my.sql.template.string": "source.sql"
+          "my.sql.template.string": "sql"
         },
         "tokenTypes": {
           "my.sql.template.string": "other"

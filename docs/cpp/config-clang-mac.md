@@ -133,7 +133,7 @@ Next, we need to create a `tasks.json` file to tell VS Code how to build (compil
 
 The `label` value is used to identify the task in the VS Code Command Palette; you can name this whatever you like. The `args` array specifies the command-line arguments that will be passed to the compiler that was specified in the previous step. These arguments must be specified in the order expected by the compiler.
 
-The `isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. The `--debug` argument causes debug symbols to be produced, which is required for stepping through code when you debug.
+The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. The `--debug` argument causes debug symbols to be produced, which is required for stepping through code when you debug.
 
 ## Configure debug settings
 
@@ -218,9 +218,10 @@ In your new `helloworld.cpp` file, hover over `vector` or `string` to see type i
 ## Build the program
 
 1. To run the build task that you defined in tasks.json, press `kb(workbench.action.tasks.build)` or from the main menu choose **View > Command Palette** and start typing "Tasks: Run Build Task". The option will appear before you finish typing.
+
 1. When the task starts, you should see an integrated terminal window appear below the code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful Clang build, the output looks something like this:
 
-![Clang build output in terminal](images/clang-mac/clang-task-in-terminal.png)
+   ![Clang build output in terminal](images/clang-mac/clang-task-in-terminal.png)
 
 1. As the message instructs, press any key to close the integrated terminal.
 

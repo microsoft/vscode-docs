@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Getting started
 PageTitle: Getting started with Dev Containers
 MetaDescription: Getting started with Dev Containers
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 ---
 # Remote development in Containers
 

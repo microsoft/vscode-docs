@@ -13,6 +13,7 @@ MetaSocialImage: images/tutorial/social.png
 The Python extension provides many features for editing Python source code in Visual Studio Code:
 
 - [Autocomplete and IntelliSense](#autocomplete-and-intellisense)
+- [Quick Fixes](#quick-fixes)
 - [Run Selection/Line in Terminal (REPL)](#run-selectionline-in-terminal-repl)
 - [Formatting](#formatting)
 - [Refactoring](#refactoring)
@@ -33,7 +34,7 @@ While editing, you can right-click different identifiers to take advantage of se
 
 - **Peek Declaration** is similar, but displays the declaration directly in the editor. Again, use `kbstyle(Escape)` or the **x** in the upper right corner to close the Peek window.
 
-### Customize Intellisense behavior
+### Customize IntelliSense behavior
 
 To customize the behavior of the analysis engine, see the [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings) and [autocomplete settings](/docs/python/settings-reference.md#autocomplete-settings).
 
@@ -81,6 +82,20 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 | --- | --- |
 | The path to the python interpreter is incorrect | Check the `pythonPath` setting. Restart VS Code if you make a correction. |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
+
+## Quick Fixes
+
+The add imports Quick Fix allows you to quickly complete import statements. Begin by typing a package name within the editor and you will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports.
+
+![Adding an import](images/editing/quickFix.gif)
+
+The add imports Code Action also recognizes some of the popular abbreviations for the following common Python packages: `numpy` as np, `tensorflow` as tf, `pandas` as pd, `matplotlib.pyplot` as plt, `matplotlib`, as mpl, `math` as m, `scipi.io` as spio, and `scipy` as sp.
+
+![Common package abbreviations](images/editing/packageAbbreviations.gif)
+
+The import suggestions list is ordered with import statements for packages (or modules) at the top, followed by statements for additional modules and/or members (classes, objects, etc.) from specified packages.
+
+> **Note**: This functionality requires use of the [Microsoft Python Language Server](https://devblogs.microsoft.com/python/introducing-the-python-language-server). To enable the language server,  set `python.jediEnabled` to **false** in your [settings.json file](/docs/python/settings-reference.md). Additionally, you'll need to make sure that linting is enabled by opening the Command Palette (**View > Command Palette...** or `kb(workbench.action.showCommands)`) and running the **Python: Enable Linting** command (Select **On** in the drop-down menu that appears).
 
 ## Run Selection/Line in Terminal (REPL)
 

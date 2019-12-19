@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Appendix - jsconfig.json
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
 PageTitle: jsconfig.json Reference
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: View the reference for jsconfig.json.
 ---
 # jsconfig.json
@@ -43,7 +43,7 @@ By default the JavaScript language service will analyze and provide IntelliSense
 
 ### Using the `"exclude"` property
 
-The `exclude` attribute (a glob pattern) tells the language service what files are and are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects the slow down).
+The `exclude` attribute (a glob pattern) tells the language service what files are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects the slow down).
 
 ```json
 {

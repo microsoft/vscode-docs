@@ -4,7 +4,7 @@ Area: ssh
 TOCTitle: Set up SSH
 PageTitle: Set up SSH
 MetaDescription: Set up an SSH key to use with Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 ---
 # Set up SSH
 
@@ -29,4 +29,3 @@ Next, you'll add the SSH key to your virtual machine SSH host.
 ---
 
 <a class="tutorial-next-btn" href="/remote-tutorials/ssh/add-ssh-key">I have an SSH key</a> <a class="tutorial-feedback-btn" onclick="reportIssue('remote-tutorials-ssh', 'create-ssh-key')" href="javascript:void(0)">I ran into an issue</a>
-

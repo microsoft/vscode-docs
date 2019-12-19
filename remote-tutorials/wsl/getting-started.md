@@ -4,7 +4,7 @@ Area: wsl
 TOCTitle: Getting started
 PageTitle: Work in Windows Subsystem for Linux with Visual Studio Code
 MetaDescription: Work in Windows Subsystem for Linux with Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 ---
 # Remote development in WSL
 

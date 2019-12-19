@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -541,7 +541,7 @@ The following font related variables are also defined:
 
 - `--vscode-editor-font-family` - Editor font family (from the `editor.fontFamily` setting).
 - `--vscode-editor-font-weight` - Editor font weight (from the `editor.fontWeight` setting).
-- `--vscode-editor-font-size` - Editor font size (from the `editor.fontWeight` setting).
+- `--vscode-editor-font-size` - Editor font size (from the `editor.fontSize` setting).
 
 ## Scripts and message passing
 
@@ -767,7 +767,7 @@ function getWebviewContent() {
 
 ![Passing messages from the webview to the main extension](images/webview/scripts-webview_to_extension.gif)
 
-For security reasons, you must keep the VS Code API object private and make sure it is never leaked into the global state.
+For security reasons, you must keep the VS Code API object private and make sure it is never leaked into the global scope.
 
 ## Security
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -289,7 +289,11 @@ hand, shows disabled items but doesn't show the category label.
       {
         "command": "extension.sayHello",
         "title": "Hello World",
-        "category": "Hello"
+        "category": "Hello",
+        "icon": {
+          "light": "path/to/light/icon.svg",
+          "dark": "path/to/dark/icon.svg"
+        }
       }
     ]
   }
@@ -299,6 +303,14 @@ hand, shows disabled items but doesn't show the category label.
 See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-guides/command) to learn more about using commands in VS Code extensions.
 
 ![commands extension point example](images/contribution-points/commands.png)
+
+### Command icon specifications
+
+- `Size:` Icons should be 16x16 with a 1 pixel padding (image is 14x14) and centered.
+- `Color:` Icons should use a single color.
+- `Format:` It is recommended that icons be in SVG, though any image file type is accepted.
+
+![command icons](images/contribution-points/command-icons.png)
 
 ## contributes.menus
 
@@ -321,7 +333,7 @@ Currently extension writers can contribute to:
 - The debug toolbar - `debug/toolbar`
 - The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
 - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
-- [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resource/context`
+- [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resourceState/context`
 - [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
 - The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
 - The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
@@ -753,8 +765,8 @@ Contribute a view container into which [Custom views](#contributes.views) can be
 
 ### Icon specifications
 
-- `Size:` Icons should be 28x28 and centered.
-- `Color:` Icons should use a single monochrome color.
+- `Size:` Icons should be 24x24 and centered.
+- `Color:` Icons should use a single color.
 - `Format:` It is recommended that icons be in SVG, though any image file type is accepted.
 - `States:` All icons inherit the following state styles:
 
@@ -872,6 +884,12 @@ Contributes new themable colors. These colors can be used by the extension in ed
 ```
 
 Color default values can be defined for light, dark and high contrast theme and can either be a reference to an existing color or a [Color Hex Value](/api/references/theme-color#color-formats).
+
+Extensions can consume new and existing theme colors with the `ThemeColor` API:
+
+```ts
+const errorColor = new vscode.ThemeColor("superstatus.error");
+```
 
 ## contributes.typescriptServerPlugins
 

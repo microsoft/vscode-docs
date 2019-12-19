@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Network
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
 PageTitle: Setup Visual Studio Code's Network Connection
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: Setup VS Code's Network Connection.
 ---
 # Network Connections in Visual Studio Code
@@ -27,6 +27,7 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `vscode.search.windows.net`
 * `raw.githubusercontent.com`
 * `vsmarketplacebadge.apphb.com`
+* `az764295.vo.msecnd.net`
 
 ## Proxy server support
 

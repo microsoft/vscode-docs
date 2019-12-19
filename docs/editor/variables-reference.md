@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
@@ -28,6 +28,7 @@ The following predefined variables are supported:
 - **${lineNumber}** - the current selected line number in the active file
 - **${selectedText}** - the current selected text in the active file
 - **${execPath}** - the path to the running VS Code executable
+- **${defaultBuildTask}** - the name of the default build task
 
 ### Predefined variables examples
 
@@ -146,11 +147,10 @@ Each type requires additional configuration attributes:
 - **options**:  An array of options for the user to pick from.
 - **default**: Default value that will be used if the user doesn't enter something else. It must be one of the option values.
 
-`Command`:
+`command`:
 
 - **command**: Command being run on variable interpolation.
 - **args**: Optional option bag passed to the command's implementation.
-
 
 Below is an example of a `tasks.json` that illustrates the use of `inputs` using Angular CLI:
 

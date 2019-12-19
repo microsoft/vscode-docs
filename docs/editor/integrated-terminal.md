@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -123,9 +123,7 @@ Key|Command
 `kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom
 `kb(workbench.action.terminal.clear)`|Clear the terminal
 
-Other terminal commands are available and can be bound to your preferred keyboard shortcuts.
-
-They are:
+Other terminal commands are available and can be bound to your preferred keyboard shortcuts, such as:
 
 * `workbench.action.terminal.focus`: Focus the terminal. This is like toggle but focuses the terminal instead of hiding it, if it is visible.
 * `workbench.action.terminal.focusNext`: Focuses the next terminal instance.
@@ -169,6 +167,16 @@ While focus is in the integrated terminal, many key bindings will not work as th
 ```
 
 Look at the setting details to see the complete list of default commands.
+
+### Chord keybindings in the terminal
+
+By default, when a chord keybinding is the highest priority keybinding it will always skip the terminal shell (bypassing `terminal.integrated.commandsToSkipShell`) and be evaluated by VS Code instead of the terminal. This is typically the desired behavior unless you're on Windows/Linux and want your shell to use ctrl+k (for bash this cuts the line after the cursor). This can be disabled with the following setting:
+
+```json
+{
+  "terminal.integrated.allowChords": false
+}
+```
 
 ### Find
 
@@ -265,6 +273,14 @@ By default, the integrated terminal will render using multiple `<canvas>` elemen
 
 Something else that might improve performance is to ignore Chromium's GPU disallow list by launching VS Code with `code --ignore-gpu-blacklist`.
 
+There is an experimental renderer based on WebGL that can also be enabled:
+
+```js
+{
+    "terminal.integrated.rendererType": "experimentalWebgl"
+}
+```
+
 ## Next steps
 
 The basics of the terminal have been covered in this document, read on to find out more about:
@@ -298,9 +314,9 @@ Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to add the
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
 
-### Powershell on macOS is complaining about a "-l" argument, how do I fix it?
+### PowerShell on macOS is complaining about a "-l" argument, how do I fix it?
 
-When configuring the integrated terminal to use Powershell on macOS you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
+When configuring the integrated terminal to use PowerShell on macOS you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
 
 ```js
 "terminal.integrated.shellArgs.osx": []
@@ -414,6 +430,10 @@ This error can occur due to anti-virus software intercepting winpty from creatin
 ```bash
 <install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
 ```
+
+### How do I fix when a terminal exits with error code 3221225786 on Windows?
+
+This happens when you have legacy console mode enabled in conhost's properties. To change this, open `cmd.exe`, right click the title bar, go to **Properties** and under the **Options** tab, uncheck **Use legacy console**.
 
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
 

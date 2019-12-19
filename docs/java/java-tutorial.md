@@ -21,7 +21,7 @@ If you run into any issues when following this tutorial, you can contact us by c
 
 Before going through this tutorial, you must have the Java SE Development Kit (JDK) on your local development environment. If you don't have them installed, you can do so now.
 
-Download and install the Java SE Development Kit (JDK). Java support on Visual Studio Code works with all major Java versions up to 12, see a few JDK distributions you can choose from:
+Download and install the Java SE Development Kit (JDK). Java support on Visual Studio Code works with all major Java versions up to 13, see a few JDK distributions you can choose from:
 
 * [OpenJDK](https://adoptopenjdk.net/)
 * [Azul Zulu Enterprise for Azure](https://www.azul.com/downloads/azure-only/zulu/)
@@ -61,7 +61,7 @@ You can also select which extensions you would like to install separately. For t
 
 This page also allows you to configure your JDK anytime you want in various levels. You can get it by using the command **Java: Configure Java Runtime**.
 
-With the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), we also provide an easy way for you to start Java with VS Code by using the command **Java: Getting Started**. This command opens a Quick Start guide as well as tips for code editing and debugging. It also has a FAQ to answer some of the most asked questions.
+With the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), we also provide an easy way for you to start Java with VS Code by using the command **Java: Getting Started** from the Command Palette (`kb(workbench.action.showCommands)`). This command opens a Quick Start guide as well as tips for code editing and debugging. It also has a FAQ to answer some of the most asked questions.
 
 ![Java Getting Started](images/java-tutorial/getting-started.png)
 

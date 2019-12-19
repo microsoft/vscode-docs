@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -44,6 +44,14 @@ The contrast colors are typically only set for high contrast themes. If set, the
 - `selection.background`: Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal).
 - `descriptionForeground`: Foreground color for description text providing additional information, for example for a label.
 - `errorForeground`: Overall foreground color for error messages (this color is only used if not overridden by a component).
+- `icon.foreground`: The default color for icons in the workbench.
+
+## Window border
+
+The theme colors for VS Code window border.
+
+- `window.activeBorder`: Border color for the active (focused) window.
+- `window.inactiveBorder`: Border color for the inactive (unfocused) windows.
 
 ## Text colors
 
@@ -143,6 +151,8 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `listFilterWidget.background`: List/Tree Filter background color of typed text when searching inside the list/tree.
 - `listFilterWidget.outline`: List/Tree Filter Widget's outline color of typed text when searching inside the list/tree.
 - `listFilterWidget.noMatchesOutline`: List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
+- `list.filterMatchBackground`: Background color of the filtered matches in lists and trees.
+- `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
 - `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
 
 ## Activity Bar
@@ -151,11 +161,14 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 
 - `activityBar.background`: Activity Bar background color.
 - `activityBar.dropBackground`: Drag and drop feedback color for the Activity Bar items.
-- `activityBar.foreground`: Activity bar foreground color (for example used for the icons).
-- `activityBar.inactiveForeground`: Activity bar item foreground color when it is inactive.
+- `activityBar.foreground`: Activity Bar foreground color (for example used for the icons).
+- `activityBar.inactiveForeground`: Activity Bar item foreground color when it is inactive.
 - `activityBar.border`: Activity Bar border color with the Side Bar.
 - `activityBarBadge.background`: Activity notification badge background color.
 - `activityBarBadge.foreground`: Activity notification badge foreground color.
+- `activityBar.activeBorder`: Activity Bar active indicator border color.
+- `activityBar.activeBackground`: Activity Bar optional background color for the active element.
+- `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
 
 ## Side Bar
 
@@ -175,7 +188,14 @@ The Side Bar contains views like the Explorer and Search.
 
 The Minimap shows a minified version of the current file.
 
-- `minimap.findMatchHighlight`: Highlight color for matches from search within files
+- `minimap.findMatchHighlight`: Highlight color for matches from search within files.
+- `minimap.selectionHighlight`: Highlight color for the editor selection.
+- `minimap.errorHighlight`: Highlight color for errors within the editor.
+- `minimap.warningHighlight`: Highlight color for warnings within the editor.
+
+- `minimapGutter.addedBackground`: Minimap gutter color for added content.
+- `minimapGutter.modifiedBackground`: Minimap gutter color for modified content.
+- `minimapGutter.deletedBackground`: Minimap gutter color for deleted content.
 
 ## Editor Groups & Tabs
 
@@ -268,6 +288,13 @@ Find colors depend on the current find string in the Find/Replace dialog.
 - `editor.findMatchHighlightBorder`: Border color of the other search matches.
 - `editor.findRangeHighlightBorder`: Border color the range limiting the search (Enable 'Find in Selection' in the find widget).
 
+Search Editor colors highlight results in a Search Editor. This can be configured separately from other find matches in order to better differentiate between different classes of match in the same editor.
+
+![Search Editor Matches](images/theme-color/searchEditorMatches.png)
+
+- `searchEditor.findMatchBackground`: Color of the editor's results.
+- `searchEditor.findMatchBorder`: Border color of the editor's results.
+
 The hover highlight is shown behind the symbol for which a hover is shown.
 
 ![Hover Highlight](images/theme-color/hoverhighlight.png)
@@ -294,6 +321,11 @@ The range highlight is visible when selecting a search result.
 - `editor.rangeHighlightBackground`: Background color of highlighted ranges, used by Quick Open, Symbol in File and Find features. The color must not be opaque so as not to hide underlying decorations.
 - `editor.rangeHighlightBorder`: Background color of the border around highlighted ranges.
 
+The symbol highlight is visible when navigating to a symbol via a command such as **Go to Definition**.
+
+- `editor.symbolHighlightBackground`: Background color of highlighted symbol. The color must not be opaque so as not to hide underlying decorations.
+- `editor.symbolHighlightBorder`: Background color of the border around highlighted symbols.
+
 To see the editor white spaces, enable **Toggle Render Whitespace**.
 
 - `editorWhitespace.foreground`: Color of whitespace characters in the editor.
@@ -312,6 +344,11 @@ CodeLens:
 ![Code Lenses](images/theme-color/codelens.png)
 
 - `editorCodeLens.foreground`: Foreground color of an editor CodeLens.
+
+Lightbulb:
+
+- `editorLightBulb.foreground`: The color used for the lightbulb actions icon.
+- `editorLightBulbAutoFix.foreground`: The color used for the lightbulb auto fix actions icon.
 
 Bracket matches:
 
@@ -348,6 +385,9 @@ Errors and warnings:
 - `editorInfo.border`: Border color of info boxes in the editor.
 - `editorHint.foreground`: Foreground color of hints in the editor.
 - `editorHint.border`: Border color of hint boxes in the editor.
+- `problemsErrorIcon.foreground`: The color used for the problems error icon.
+- `problemsWarningIcon.foreground`: The color used for the problems warning icon.
+- `problemsInfoIcon.foreground`: The color used for the problems info icon.
 
 Unused source code:
 
@@ -387,6 +427,7 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorSuggestWidget.highlightForeground`: Color of the match highlights in the suggestion widget.
 - `editorSuggestWidget.selectedBackground`: Background color of the selected entry in the suggestion widget.
 
+- `editorHoverWidget.foreground`: Foreground color of the editor hover.
 - `editorHoverWidget.background`: Background color of the editor hover.
 - `editorHoverWidget.border`: Border color of the editor hover.
 - `editorHoverWidget.statusBarBackground`: Background color of the editor hover status bar.
@@ -521,6 +562,9 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `notifications.background`: Notification background color.
 - `notifications.border`: Notification border color separating from other notifications in the Notification Center.
 - `notificationLink.foreground`: Notification links foreground color.
+- `notificationsErrorIcon.foreground`: The color used for the notification error icon.
+- `notificationsWarningIcon.foreground`: The color used for the notification warning icon.
+- `notificationsInfoIcon.foreground`: The color used for the notification info icon.
 
 If you target VS Code versions before the 1.21 (February 2018) release, these are the old (no longer supported) colors:
 
@@ -638,6 +682,62 @@ The theme colors for snippets:
 - `editor.snippetTabstopHighlightBorder`: Highlight border color of a snippet tabstop.
 - `editor.snippetFinalTabstopHighlightBackground`: Highlight background color of the final tabstop of a snippet.
 - `editor.snippetFinalTabstopHighlightBorder`: Highlight border color of the final tabstop of a snippet.
+
+## Symbol Icons
+
+The theme colors for symbol icons that appears in the Outline view, breadcrumb navigation, and suggest widget:
+
+- `symbolIcon.arrayForeground`: The foreground color for array symbols.
+- `symbolIcon.booleanForeground`: The foreground color for boolean symbols.
+- `symbolIcon.classForeground`: The foreground color for class symbols.
+- `symbolIcon.colorForeground`: The foreground color for color symbols.
+- `symbolIcon.constantForeground`: The foreground color for constant symbols.
+- `symbolIcon.constructorForeground`: The foreground color for constructor symbols.
+- `symbolIcon.enumeratorForeground`: The foreground color for enumerator symbols.
+- `symbolIcon.enumeratorMemberForeground`: The foreground color for enumerator member symbols.
+- `symbolIcon.eventForeground`: The foreground color for event symbols.
+- `symbolIcon.fieldForeground`: The foreground color for field symbols.
+- `symbolIcon.fileForeground`: The foreground color for file symbols.
+- `symbolIcon.folderForeground`: The foreground color for folder symbols.
+- `symbolIcon.functionForeground`: The foreground color for function symbols.
+- `symbolIcon.interfaceForeground`: The foreground color for interface symbols.
+- `symbolIcon.keyForeground`: The foreground color for key symbols.
+- `symbolIcon.keywordForeground`: The foreground color for keyword symbols.
+- `symbolIcon.methodForeground`: The foreground color for method symbols.
+- `symbolIcon.moduleForeground`: The foreground color for module symbols.
+- `symbolIcon.namespaceForeground`: The foreground color for namespace symbols.
+- `symbolIcon.nullForeground`: The foreground color for null symbols.
+- `symbolIcon.numberForeground`: The foreground color for number symbols.
+- `symbolIcon.objectForeground`: The foreground color for object symbols.
+- `symbolIcon.operatorForeground`: The foreground color for operator symbols.
+- `symbolIcon.packageForeground`: The foreground color for package symbols.
+- `symbolIcon.propertyForeground`: The foreground color for property symbols.
+- `symbolIcon.referenceForeground`: The foreground color for reference symbols.
+- `symbolIcon.snippetForeground`: The foreground color for snippet symbols.
+- `symbolIcon.stringForeground`: The foreground color for string symbols.
+- `symbolIcon.structForeground`: The foreground color for struct symbols.
+- `symbolIcon.textForeground`: The foreground color for text symbols.
+- `symbolIcon.typeParameterForeground`: The foreground color for type parameter symbols.
+- `symbolIcon.unitForeground`: The foreground color for unit symbols.
+- `symbolIcon.variableForeground`: The foreground color for variable symbols.
+
+## Debug Icons
+
+- `debugIcon.breakpointForeground`: Icon color for breakpoints.
+- `debugIcon.breakpointDisabledForeground`: Icon color for disabled breakpoints.
+- `debugIcon.breakpointUnverifiedForeground`: Icon color for unverified breakpoints.
+- `debugIcon.breakpointCurrentStackframeForeground`: Icon color for the current breakpoint stack frame.
+- `debugIcon.breakpointStackframeForeground`: Icon color for all breakpoint stack frames.
+- `debugIcon.startForeground`: Debug toolbar icon for start debugging.
+- `debugIcon.pauseForeground`: Debug toolbar icon for pause.
+- `debugIcon.stopForeground`: Debug toolbar icon for stop.
+- `debugIcon.disconnectForeground`: Debug toolbar icon for disconnect.
+- `debugIcon.restartForeground`: Debug toolbar icon for restart.
+- `debugIcon.stepOverForeground`: Debug toolbar icon for step over.
+- `debugIcon.stepIntoForeground`: Debug toolbar icon for step into.
+- `debugIcon.stepOutForeground`: Debug toolbar icon for step over.
+- `debugIcon.continueForeground`: Debug toolbar icon for continue.
+- `debugIcon.stepBackForeground`: Debug toolbar icon for step back.
 
 Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: cd928e7f-bb5a-43b0-8e15-d398e416386d
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to configure language support for any language in Visual Studio Code.
@@ -178,7 +178,7 @@ In VS Code, there are three kinds of folding:
 
 ## Word Pattern
 
-`wordPattern` defines what's considered as a word in the programming language. So when you use word related commands, like **Move cursor to word start** (`kb(cursorWordStartLeft)`) or **Move cursor to word end** (`kb(cursorWordEndRight)`)，the editor will use this regex to find the word boundaries.
+`wordPattern` defines what's considered as a word in the programming language. Code suggestion related features will use this setting to determine word bondaries if it exits. Please note this setting won't affect word related editor commands, which should be contributed by the editor setting `editor.wordSeparators`.
 
 ```json
 {
@@ -199,7 +199,7 @@ In VS Code, there are three kinds of folding:
 }
 ```
 
-For example, `if (true) {` matches `increasedIndentPattern`, then if you press `kbstyle(Enter)` after the open bracket `{`, the editor will automatically indent once, and your code will end up as:
+For example, `if (true) {` matches `increaseIndentPattern`, then if you press `kbstyle(Enter)` after the open bracket `{`, the editor will automatically indent once, and your code will end up as:
 
 ```javascript
 if (true) {

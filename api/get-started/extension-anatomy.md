@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8027f6fb-6c9e-4106-8ef1-f9b0ba1b7085
-DateApproved: 9/4/2019
+DateApproved: 12/12/2019
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Explain the structure of a Visual Studio Code extension (plug-in)
@@ -21,7 +21,7 @@ Understanding these three concepts is crucial to writing extensions in VS Code:
 
 - [**Activation Events**](/api/references/activation-events): events upon which your extension becomes active.
 - [**Contribution Points**](/api/references/contribution-points): static declarations that you make in the `package.json` [Extension Manifest](#extension-manifest) to extend VS Code.
-- [**VS Code API**](/api/references/vscode-api): a set of JavaScript API that you can invoke in your extension code.
+- [**VS Code API**](/api/references/vscode-api): a set of JavaScript APIs that you can invoke in your extension code.
 
 In general, your extension would use a combination of Contribution Points and VS Code API to extend VS Code's functionality. The [Extension Capabilities Overview](/api/extension-capabilities/overview) topic helps you find the right Contribution Point and VS Code API for your extension.
 
