@@ -467,6 +467,29 @@ See the following example dev containers definitions for additional information 
 
 * [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Includes the Docker CLI, kubectl, and Helm and illustrates how you can use them from inside a dev container to access a local Minikube or Docker provided Kubernetes cluster.
 
+
+### Mounting Host Volumes with `docker` from inside `devcontainer`
+
+When using `docker` inside the `devcontainer` the host's docker daemon is used. This effects mounting directories from inside the `devcontainer` as the path inside the `devcontainer` may not match the path of the directory on the host. 
+
+For example:
+
+`docker run -v /workspace/examplefile.txt:/incontainer/path busybox` 
+
+Will fail as the path on the host, outside the `devcontainer`, isn't `/workspace/...`. To work around this issue you can pass the host directory into the `devcontainer` an an environment variable then use as follows. 
+
+```json
+	"runArgs": [
+		// Pass in the host directory for docker mount commands from inside the container
+		"-e", "HOST_PROJECT_PATH=${localWorkspaceFolder}",
+```
+
+The use this as follows from the `devcontainer`. This example is from a `makefile` and mounts the `KUBECONFIG` file from the `devcontainer` into a `docker` container it starts.
+
+```make
+docker run -p 8089:8089 -p 9090:9090 -v $(shell echo ${KUBECONFIG} | sed s#/workspace#${HOST_PROJECT_PATH}#):/kubeconfig.json -e KUBECONFIG=/kubeconfig.json ${IMG} -f behaviours/run_submit_locust.py
+```
+
 ## Connecting to multiple containers at once
 
 Currently you can only connect to one container per VS Code window. However, you can spin up multiple VS Code windows to [attach to them](/docs/remote/containers.md#attaching-to-running-containers).
