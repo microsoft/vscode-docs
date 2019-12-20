@@ -23,6 +23,7 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `vscode.blob.core.windows.net`
 * `marketplace.visualstudio.com`
 * `*.gallery.vsassets.io`
+* `*.gallerycdn.vsassets.io`
 * `rink.hockeyapp.net`
 * `vscode.search.windows.net`
 * `raw.githubusercontent.com`
