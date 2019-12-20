@@ -189,7 +189,7 @@ This option is typically disabled when using `"console": "integratedTerminal"` o
 
 ### `justMyCode`
 
-When omitted or set to `True` (the default), restricts debugging to user-written code only. Set to `False` to also enable debugging of standard library functions.
+When omitted or set to `true` (the default), restricts debugging to user-written code only. Set to `false` to also enable debugging of standard library functions.
 
 ### `django`
 
