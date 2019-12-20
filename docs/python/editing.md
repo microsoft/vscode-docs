@@ -139,7 +139,7 @@ When using custom arguments, each top-level element of an argument string that's
 
 ```json
 "python.formatting.autopep8Args": ["--max-line-length", "120", "--experimental"],
-"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]
+"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"],
 "python.formatting.blackArgs": ["--line-length", "100"]
 ```
 
