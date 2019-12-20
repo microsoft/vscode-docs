@@ -178,7 +178,7 @@ In VS Code, there are three kinds of folding:
 
 ## Word Pattern
 
-`wordPattern` defines what's considered as a word in the programming language. Code suggestion related features will use this setting to determine word bondaries if it exits. Please note this setting won't affect word related editor commands, which should be contributed by the editor setting `editor.wordSeparators`.
+`wordPattern` defines what's considered as a word in the programming language. Code suggestion related features will use this setting to determine word boundaries if it exists. Please note this setting won't affect word related editor commands, which should be contributed by the editor setting `editor.wordSeparators`.
 
 ```json
 {
