@@ -47,7 +47,7 @@ $ vsce publish
 
 ---
 
-**Note:** Due to security concerns, `vsce` will not publish extensions which contain user provided SVG images.
+**Note:** Due to security concerns, `vsce` will not publish extensions which contain user-provided SVG images.
 
 The publishing tool checks the following constraints:
 
