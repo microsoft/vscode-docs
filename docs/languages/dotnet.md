@@ -19,7 +19,7 @@ MetaTags:
 
 Install the following:
 
-- [.NET Core](https://dotnet.microsoft.com/download).
+- [.NET Core](https://dotnet.microsoft.com/download). You will need both the Runtime and the SDK.
 - The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
 
 ## Create a "Hello World" app
@@ -35,7 +35,7 @@ Install the following:
 
 2. When the project folder is first opened in VS Code:
 
-   * A "Would you like to add the required assets to build and debug your project?" notification appears at the top of the window.
+   * A "Required assets to build and debug are missing. Add them?" notification appears at the bottom right of the window.
    * Select **Yes**.
 
 3. Run the app by entering the following command in the command shell:
