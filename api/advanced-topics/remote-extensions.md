@@ -39,7 +39,7 @@ Debugging your extension in [Visual Studio Online](https://aka.ms/vso) preview c
 
 Follow these steps:
 
-1. Install the [Visual Studio Online extension and sign in](https://vso-docs/vscode).
+1. Install the [Visual Studio Online extension and sign in](https://aka.ms/vso-docs/vscode).
 
 2. Create a new managed [cloud-hosted environment](https://aka.ms/vso-docs/vscode/cloud-hosted) (paid) or register your own desktop as a [self-hosted environment](https://aka.ms/vso-docs/vscode/self-hosted) (free).
 
