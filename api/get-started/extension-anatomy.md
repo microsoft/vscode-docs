@@ -58,7 +58,6 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
 - `main`: The extension entry point.
 - `activationEvents` and `contributes`: [Activation Events](/api/references/activation-events) and [Contribution Points](/api/references/contribution-points).
 - `engines.vscode`: This specifies the minimum version of VS Code API that the extension depends on.
-- The `postinstall` script: This would install the 1.34.0 version of VS Code API as specified in `engines.vscode`. Once the `vscode.d.ts` file is downloaded to `node_modules/vscode/vscode.d.ts`, you will get IntelliSense, jump to definition and error checking for all usage of VS Code API.
 
 ```json
 {
@@ -86,7 +85,6 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
   },
   "devDependencies": {
     "@types/node": "^8.10.25",
