@@ -227,6 +227,8 @@ In your new `helloworld.cpp` file, hover over `vector` or `string` to see type i
 
 ## Start a debugging session
 
+> **Note**: You may have issues debugging on macOS Catalina. See [issue #3829](https://github.com/microsoft/vscode-cpptools/issues/3829) for details and possible workarounds.
+
 1. You are now ready to run the program. Press `kb(workbench.action.debug.start)` or from the main menu choose **Debug > Start Debugging**. Before we start stepping through the code, let's take a moment to notice several changes in the user interface:
 
 - The **Debug Console** appears and displays output from the debugger.
