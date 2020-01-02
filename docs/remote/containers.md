@@ -902,7 +902,7 @@ version: '3'
          # Location is relative to folder containing this compose file
          dockerfile: Dockerfile
        volumes:
-         - .:/workspace:cachced
+         - .:/workspace:cached
        command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
