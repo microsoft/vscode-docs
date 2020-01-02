@@ -152,6 +152,6 @@ You can use specific port on the host by changing the Docker run options used by
 
 ## Next steps
 
-[Learn more about debugging for .NET?](/docs/containers/debug-netcore.md) <br/>
+[Learn more about debugging for .NET](/docs/containers/debug-netcore.md) <br/>
 (learn more about Dockerfile?) <br/>
 (multi-service development with Docker Compose?)

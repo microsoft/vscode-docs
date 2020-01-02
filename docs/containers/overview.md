@@ -21,13 +21,13 @@ On Linux, you should also [enable Docker CLI for the non-root user account](http
 
 To install the extension, open Extensions view (`Ctrl+Shift+X`), search for `docker` to filter results and select Docker extension authored by Microsoft.
 
-![Select Docker extension](images/overview/home-installation-extension-search.png)
+![Select Docker extension](images/overview/installation-extension-search.png)
 
 ## Editing Docker files
 
 You can get IntelliSense when editing your `Dockerfile` and `docker-compose.yml` files, with completions and syntax help for common commands.
 
-![IntelliSense for Dockerfiles](images/overview/home-dockerfile-intellisense.png)
+![IntelliSense for Dockerfiles](images/overview/dockerfile-intellisense.png)
 
 In addition, you can use the Problems panel to view common errors for `Dockerfile` and `docker-compose.yml` files.
 
@@ -43,17 +43,17 @@ The Docker extension contributes a Docker view to VS Code. The Docker view lets 
 
 The right-click menu provides access to commonly-used commands for each type of asset.
 
-![Docker view context menu](images/overview/home-docker-view-context-menu.gif)
+![Docker view context menu](images/overview/docker-view-context-menu.gif)
 
 You can rearrange the Docker view panes by dragging them up or down with a mouse and use the context menu to hide or show them.
 
-![Customize Docker view](images/overview/home-docker-view-rearrange.gif)
+![Customize Docker view](images/overview/docker-view-rearrange.gif)
 
 ## Docker commands
 
 Many of the most common Docker commands are built right into the Command Palette:
 
-![Docker commands](images/overview/home-command-palette.png)
+![Docker commands](images/overview/command-palette.png)
 
 You can run Docker commands to manage [images](https://docs.docker.com/engine/reference/commandline/image/), [networks](https://docs.docker.com/engine/reference/commandline/network/), [volumes](https://docs.docker.com/engine/reference/commandline/volume/), [image registries](https://docs.docker.com/engine/reference/commandline/push/) and [Docker Compose](https://docs.docker.com/compose/reference/overview/). In addition, the `Docker: Prune System` command will remove stopped containers, dangling images, and unused networks and volumes.
 
@@ -61,7 +61,7 @@ You can run Docker commands to manage [images](https://docs.docker.com/engine/re
 
 You can display the content and push/pull/delete images from [Docker Hub](https://hub.docker.com/) and [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/):
 
-![Azure Container Registry content](images/overview/home-container-registry.png)
+![Azure Container Registry content](images/overview/container-registry.png)
 
 An image in an Azure Container Registry can be deployed to Azure App Service directly from VS Code; see [Deploy images to Azure App Service](/docs/containers/app-service.md) page. For more information about how to authenticate to and work with registries see [Work with container registries](/docs/containers/quickstart-container-registries.md) page.
 
