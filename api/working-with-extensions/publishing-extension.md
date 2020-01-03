@@ -66,11 +66,11 @@ Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services
 
 First, make sure you have an Azure DevOps [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
 
-In the following examples, the organization's name is `vscode`. From your organization's home page (for example: `https://dev.azure.com/vscode`), go to the **Security** page:
+In the following examples, the organization's name is `vscode`. From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
 
-![Security page](images/publishing-extension/token1.png)
+![Personal settings menu](images/publishing-extension/token1.png)
 
-Select `Personal access tokens` and click **New Token** to create a new Personal Access Token:
+On the **Personal Access Tokens** page, click **New Token** to create a new Personal Access Token:
 
 ![Create personal access token](images/publishing-extension/token2.png)
 
@@ -82,7 +82,7 @@ Finally, scroll down the list of possible scopes until you find **Marketplace** 
 
 ![Personal access token details](images/publishing-extension/token4.png)
 
-Click **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
+Select **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
 
 ### Create a publisher
 
