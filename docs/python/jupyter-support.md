@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 7
 Area: python
 TOCTitle: Jupyter Notebook Support
 ContentId: 779b7ad3-0aaa-4632-9998-0d8f964c0599
