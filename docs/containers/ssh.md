@@ -1,4 +1,5 @@
 ---
+Area: containers
 ContentId: DDE07043-BA8C-4D75-B392-ABACC31F6EA8
 PageTitle: Connect to Docker running on a remote machine
 DateApproved: 12/12/2019
