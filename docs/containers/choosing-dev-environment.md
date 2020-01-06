@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 5
 Area: containers
 TOCTitle: Choose a dev environment
 ContentId: AF3D8F58-8F73-44CD-962C-B7F029E50478
@@ -76,7 +76,7 @@ The simplest way to enable container development with a remote machine is to do 
 
 #### Reusing the host Docker daemon
 
-Alternatively, you can install just the Docker CLI inside development environment and point the CLI to the Docker host (daemon) running on the developer workstation using [Docker context mechanism](https://docs.docker.com/engine/context/working-with-contexts/). The main concern with this approach is to ensure network connectivity from the VM to the Docker daemon on the host, **and to do so in a secure way**. One option is to use [[SSH tunelling|SSH]] to developer workstation. Another option is to [make Docker daemon listen on HTTPS port](https://docs.docker.com/engine/security/https/). Both options are considered advanced and outside the scope of this document.
+Alternatively, you can install just the Docker CLI inside development environment and point the CLI to the Docker host (daemon) running on the developer workstation using [Docker context mechanism](https://docs.docker.com/engine/context/working-with-contexts/). The main concern with this approach is to ensure network connectivity from the VM to the Docker daemon on the host, **and to do so in a secure way**. One option is to use [SSH tunelling](ssh.md) to developer workstation. Another option is to [make Docker daemon listen on HTTPS port](https://docs.docker.com/engine/security/https/). Both options are considered advanced and outside the scope of this document.
 
 ## Debugging in a container
 

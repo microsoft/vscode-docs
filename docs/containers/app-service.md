@@ -20,7 +20,7 @@ In this guide you will learn how to:
 - An Azure subscription.
 - [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) and [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extensions must be installed.
 - A [**web** application](https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image) that produces a docker image. You could also follow [Create a sample ASP .NET Core application](ASP-Net-Core) to create such application.
-- You need a [Docker Hub](https://hub.docker.com/) account or an instance of [Azure Container Registry (ACR)](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal).
+- You need a [Docker Hub](https://hub.docker.com/) account or an instance of [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).
 
 ## Create the application image 
 
@@ -28,7 +28,7 @@ If you already have an image, skip this step and proceed to [Push the image to c
 
 1. Open the application folder in VS Code.
 
-2. Open Command Palette (`F1`) and use `Docker Images: Build Image...` command to build the image.
+2. Open Command Palette (`kb(workbench.action.showCommands)`) and use `Docker Images: Build Image...` command to build the image.
 
     ![Build container image](images/app-service/command-build-image.png)
 
@@ -38,7 +38,7 @@ If you already have an image, skip this step and proceed to [Push the image to c
 
 ## Push the image to container registry
 
-Before deploying the image to an App Service, the image must be uploaded to a container registry. The image can be uploaded to either [Azure Container Registry (ACR)](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) or [Docker Hub](https://hub.docker.com/).
+Before deploying the image to an App Service, the image must be uploaded to a container registry. The image can be uploaded to either [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) or [Docker Hub](https://hub.docker.com/).
 
 1. Open the Docker view and select 'Connect Registry...' icon under Registries group and follow the prompt. Choose the provider (Azure or Docker Hub) and provide the credential to connect to the registry.
 

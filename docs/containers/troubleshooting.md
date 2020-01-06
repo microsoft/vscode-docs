@@ -1,7 +1,4 @@
 ---
-Order: 13
-Area: containers
-TOCTitle: Troubleshooting
 ContentId: 028C3555-AB2D-4762-BD32-99EDCB737BAD
 PageTitle: Troubleshooting Docker development in Visual Studio Code
 DateApproved: 12/12/2019

@@ -1,7 +1,5 @@
 ---
-Order: 12
 Area: containers
-TOCTitle: Debug Node.js
 ContentId: F0C800DD-C477-492D-9545-745F570FE042
 PageTitle: Debug a Node.js app running in a Docker container
 DateApproved: 12/12/2019
@@ -22,7 +20,7 @@ Start with an existing Node.js application or create a new one
 
 Add Docker files to the application
 
-Press <kbd>F1</kbd> to open the command palette and select the `Docker: Add Docker Files to Workspace` command
+Press `kb(workbench.action.showCommands)` to open the command palette and select the `Docker: Add Docker Files to Workspace` command
 
 Select `Node.js`
 

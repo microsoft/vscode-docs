@@ -1,7 +1,5 @@
 ---
-Order: 11
 Area: containers
-TOCTitle: Debug .NET Core
 ContentId: B1DF33C0-400C-413D-B60B-D1AA278F6DE3
 PageTitle: Debug a .NET Core app running in a Docker container
 DateApproved: 12/12/2019
@@ -23,12 +21,12 @@ MetaDescription: Debug a .NET Core app running in a Docker container, using Visu
 
 1. If needed, create a .NET Core project with `dotnet new`.
 1. Open the project folder in VSCode.
-1. Wait until a popup shows, asking if you want to add required assets for debugging. Click "Yes":
+1. Wait until a popup shows, asking if you want to add required assets for debugging. Click **Yes**:
    ![csharpPrompt](images/csharp-prompt.png)
-1. Open the command palette (<kbd>F1</kbd> by default) and enter `Docker: Add Docker Files to Workspace...`. If you have already dockerized your app, you can instead do `Docker: Initialize for Docker debugging`. Follow the prompts.
+1. Open the command palette (`kb(workbench.action.showCommands)` by default) and enter `Docker: Add Docker Files to Workspace...`. If you have already dockerized your app, you can instead do `Docker: Initialize for Docker debugging`. Follow the prompts.
 1. Switch to the debugging tab.
 1. Select the "Docker .NET Core Launch" launch profile.
 1. Optionally, set a breakpoint.
-1. Start debugging! (<kbd>F5</kbd> by default)
+1. Start debugging! (`kb(workbench.action.debug.start)` by default)
 
 For additional customization options, see the documentation on [Tasks](/docs/containers/reference.md) and [Debugging](/docs/containers/debug-common.md).

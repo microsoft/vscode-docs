@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 2
 Area: containers
 TOCTitle: ASP.NET Core
 ContentId: 29F731D4-C6FE-4742-A1E7-7288FDB81CB9
@@ -33,7 +33,7 @@ In this guide you will learn how to:
 ## Add Docker files to the project
 
 1. Open the project folder in VS Code
-1. Open Command Palette (`F1`) and use `Docker: Add Docker Files to Workspace...` command:
+1. Open Command Palette (`kb(workbench.action.showCommands)`) and use `Docker: Add Docker Files to Workspace...` command:
 
    ![Add Dockerfile to a .NET project](images/quickstarts/aspnetcore-add-dotnet.png)
 
@@ -47,7 +47,7 @@ In this guide you will learn how to:
 
 ## Build the application
 
-1. Open terminal prompt (<code>Ctrl-`</code>).
+1. Open terminal prompt (`kb(workbench.action.terminal.toggleTerminal)`).
 1. Issue `dotnet build` command to build the application:
 
    ``` output
@@ -79,7 +79,7 @@ You can use the Docker extension to author Docker files. The extension provides 
 
 ## Build the image
 
-1. Open command palette (`F1`) and issue `Docker Images: Build Image...` command.
+1. Open command palette (`kb(workbench.action.showCommands)`) and issue `Docker Images: Build Image...` command.
 1. Open Docker view and verify that the new image is visible in the Images tree:
 
    ![Verify Docker image exists](images/quickstarts/aspnetcore-verify-image.png)

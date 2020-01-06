@@ -1,13 +1,13 @@
 ---
 Order: 8
 Area: containers
-TOCTitle: Reference
+TOCTitle: Customize
 ContentId: 6784FBBE-9EE4-44A8-AC48-A52617EB1968
 PageTitle: Reference for Visual Studio Code Docker extension properties and tasks.
 DateApproved: 12/12/2019
 MetaDescription: Reference for Docker build and Docker run tasks and properties in the Visual Studio Code Docker extension.
 ---
-# Docker tasks
+# Customize the Docker extension with properties and tasks
 
 Starting with version version 0.9.0, the Docker extension adds several Visual Studio Code tasks. These tasks can be used to control the behavior of Docker [build](#docker-build-task) and [run](#docker-run-task), and form the basis of container startup for debugging.
 
