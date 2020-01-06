@@ -146,6 +146,9 @@ Additional notes:
 
 - Conda environments can't be automatically activated in the VS Code Integrated Terminal if the default shell is set to PowerShell. To change the shell, see [Integrated terminal - Configuration](/docs/editor/integrated-terminal.md#configuration).
 
+- You can manually specify the path to the conda executable to use for activation (version 4.4+). To do so, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Preferences: Open User Settings**. Then set `python.condaPath`, which is in the Python extension section of User Settings, with the appropriate path.
+
+
 ### Manually specify an interpreter
 
 If VS Code does not automatically locate an interpreter you want to use, you can set the path to it manually in your Workspace Settings `settings.json` file. With any of the entries that follow, you can just add the line as a sibling to other existing settings.)
