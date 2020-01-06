@@ -1,7 +1,4 @@
 ---
-Order: 12
-Area: containers
-TOCTitle: Debug Node.js
 ContentId: F0C800DD-C477-492D-9545-745F570FE042
 PageTitle: Debug a Node.js app running in a Docker container
 DateApproved: 12/12/2019
