@@ -20,7 +20,7 @@ MetaDescription: Debug a .NET Core app running in a Docker container, using Visu
 ## Walkthrough
 
 1. If needed, create a .NET Core project with `dotnet new`.
-1. Open the project folder in VSCode.
+1. Open the project folder in VS Code.
 1. Wait until a popup shows, asking if you want to add required assets for debugging. Click **Yes**:
    ![csharpPrompt](images/csharp-prompt.png)
 1. Open the command palette (`kb(workbench.action.showCommands)` by default) and enter `Docker: Add Docker Files to Workspace...`. If you have already dockerized your app, you can instead do `Docker: Initialize for Docker debugging`. Follow the prompts.
