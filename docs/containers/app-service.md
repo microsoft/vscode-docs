@@ -28,7 +28,7 @@ If you already have an image, skip this step and proceed to [Push the image to c
 
 1. Open the application folder in VS Code.
 
-2. Open Command Palette (`F1`) and use `Docker Images: Build Image...` command to build the image.
+2. Open Command Palette (`kb(workbench.action.showCommands)`) and use `Docker Images: Build Image...` command to build the image.
 
     ![Build container image](images/app-service/command-build-image.png)
 

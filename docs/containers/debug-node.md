@@ -20,7 +20,7 @@ Start with an existing Node.js application or create a new one
 
 Add Docker files to the application
 
-Press <kbd>F1</kbd> to open the command palette and select the `Docker: Add Docker Files to Workspace` command
+Press `kb(workbench.action.showCommands)` to open the command palette and select the `Docker: Add Docker Files to Workspace` command
 
 Select `Node.js`
 

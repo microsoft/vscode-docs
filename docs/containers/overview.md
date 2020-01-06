@@ -19,7 +19,7 @@ This page provides an overview of the Docker extension capabilities; use the sid
 
 On Linux, you should also [enable Docker CLI for the non-root user account](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) that will be used to run VS Code.
 
-To install the extension, open Extensions view (`Ctrl+Shift+X`), search for `docker` to filter results and select Docker extension authored by Microsoft.
+To install the extension, open Extensions view (`kb(workbench-view-extensions)`), search for `docker` to filter results and select Docker extension authored by Microsoft.
 
 ![Select Docker extension](images/overview/installation-extension-search.png)
 
@@ -33,7 +33,7 @@ In addition, you can use the Problems panel to view common errors for `Dockerfil
 
 ## Generating Docker files
 
-You can add Docker files to your workspace by opening the Command Palette (`F1` key) and using `Docker: Add Docker Files to Workspace` command. The command will generate `Dockerfile` and `.dockerignore` files and add them to your workspace. The command will also query you if you want the Docker Compose files added as well; this is optional.
+You can add Docker files to your workspace by opening the Command Palette (`kb(workbench.action.showCommands)` key) and using `Docker: Add Docker Files to Workspace` command. The command will generate `Dockerfile` and `.dockerignore` files and add them to your workspace. The command will also query you if you want the Docker Compose files added as well; this is optional.
 
 The extension recognizes workspaces that use most popular development languages (C#, Node.js, Python, Ruby, Go and Java) and customizes generated Docker files accordingly.
 
