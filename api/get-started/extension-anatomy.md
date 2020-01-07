@@ -84,7 +84,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-     "watch": "tsc -watch -p ./"
+    "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
     "@types/node": "^8.10.25",
