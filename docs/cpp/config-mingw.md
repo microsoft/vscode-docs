@@ -43,7 +43,7 @@ g++ --version
 gdb --version
 ```
 
-If you don't see the expected output or `g++` or `gdb` is not a recognized command, check your installation (**Control Panel** > **Programs**) and make sure your PATH entry matches the Mingw-w64 location.
+If you don't see the expected output or `g++` or `gdb` is not a recognized command, check your installation (Windows **Control Panel** > **Programs**) and make sure your PATH entry matches the Mingw-w64 location.
 
 ## Create Hello World
 
@@ -94,7 +94,7 @@ Now paste in this source code:
 
 Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
 
-![File Explorer](images/wsl/file-explorer-helloworld.png)
+![File Explorer](images/mingw/file-explorer-mingw.png)
 
 You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
@@ -171,13 +171,13 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 
     ![Hello World in PowerShell terminal](images/mingw/helloworld-in-terminal.png)
 
-1. You can run `helloworld` in the terminal by typing `./helloworld.exe`.
+1. You can run `helloworld` in the terminal by typing `.\helloworld.exe`.
 
 >**Note**: You might need to press `kbstyle(Enter)` a couple of times initially to see the PowerShell prompt in the terminal. This issue should be fixed in a future release of Windows.
 
 ### Modifying tasks.json
 
-You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}\\*.cpp"` instead of `${file}`. This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example `"${workspaceFolder}\\myProgram.exe"`).
+You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}\\*.cpp"` instead of `${file}`. This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}\\${fileBasenameNoExtension}.exe"` with a hard-coded filename (for example `"${workspaceFolder}\\myProgram.exe"`).
 
 ## Debug helloworld.cpp
 
@@ -292,7 +292,7 @@ This opens the **C/C++ Configurations** page. When you make changes here, VS Cod
 
 ![Command Palette](images/mingw/intellisense-configurations-mingw.png)
 
-Visual Studio Code places these settings in `.vscode/c_cpp_properties.json`. If you open that file directly, it should look something like this:
+Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If you open that file directly, it should look something like this:
 
 ```json
 {
@@ -317,7 +317,7 @@ Visual Studio Code places these settings in `.vscode/c_cpp_properties.json`. If 
 }
 ```
 
-You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or in the standard library path.
+You only need to add to the **Include path** array setting if your program includes header files that are not in your workspace or in the standard library path.
 
 ### Compiler path
 
