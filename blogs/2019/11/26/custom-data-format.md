@@ -85,6 +85,8 @@ The data is used in VS Code's HTML/CSS language support and published to the [vs
 
 VS Code is a text editor built with web technologies, and we are commited to providing a good editing experience for the web. Through the Custom Data Format, we stay close to the latest HTML and CSS languages and offer a simple interface for users and extension authors to customize their HTML and CSS editing experience.
 
+![Simple interface](simple-interface.png)
+
 You can read more about the Custom Data Format at: https://github.com/microsoft/vscode-custom-data. Please feel free to open issues and feature requests.
 
 Happy Coding!
