@@ -78,7 +78,9 @@ It's possible that there might be multiple debugging configurations for your pro
   <source src="/docs/java/java-debugging/java-debug.mp4" type="video/mp4">
 </video>
 
-If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations). For more details, please read [Launch configurations](/docs/editor/debugging.md#launch-configurations)
+If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations). For more details, please read [Launch configurations](/docs/editor/debugging.md#launch-configurations). By default, the Java debugger doesn't persist the `launch.json` in your workspace. If you would like to save it, you can click the link `create a launch.json file` in the debug panel where you will also find the `Debug` and `Run` button.
+
+![Debug Menu](images/java-debugging/run-debug-button.png)
 
 There's also a convenient setting for debugging `current file`, so the editor knows which file is currently active and choose it as the entry point.
 
@@ -147,6 +149,12 @@ With the help of expression evaluation, the debugger also supports conditional b
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/conditional-bp.mp4" type="video/mp4">
 </video>
+
+### Data Breakpoint
+
+You can have the debugger break when a variable change its value. See the illustration below.
+
+![Data Breakpoint](images/java-debugging/data-breakpoint.png)
 
 ### Hot Code replacement
 
