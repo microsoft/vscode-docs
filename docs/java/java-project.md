@@ -173,6 +173,14 @@ There are two ways to generate a Maven project:
   <source src="/docs/java/java-project/maven-archetype.mp4" type="video/mp4">
 </video>
 
+## Build Status
+
+As you code in Visual Studio Code, the language server is building your workspace to provide you the necessary language features. Now you can see the detailed build task status and understand what’s happening behind the scene by simply clicking the language server status icon.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/java.build.status.mp4" type="video/mp4">
+</video>
+
 ### Additional resources
 
 Visit the [GitHub Repo](https://github.com/Microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/Microsoft/vscode-maven/tree/master#additional-configurations) and a [troubleshooting guide](https://github.com/Microsoft/vscode-maven/blob/master/Troubleshooting.md).
