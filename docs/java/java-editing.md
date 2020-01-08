@@ -310,6 +310,8 @@ The list of Code Actions supported by VS Code keeps growing and only listed the 
 * Create unresolved types
 * Add `final` modifier where possible
 * Remove unnecessary cast
+* Jump to definition on break/continue
+* Correct access to static elements
 
 ### Code Snippets
 
