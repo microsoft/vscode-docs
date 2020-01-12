@@ -102,6 +102,10 @@ Here's a brief session with TestNG:
 
 ![Report Navigation](images/java-testing/report_navigate.png)
 
+- For a quick peek of the test status or results, you can see them in test explorer directly.
+
+![Test Status in Explorer](images/java-testing/test-status.png)
+
 - You can navigate to the source location of the target test case by clicking the navigate button.
 
 <video autoplay loop muted playsinline controls>
