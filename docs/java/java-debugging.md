@@ -78,7 +78,9 @@ It's possible that there might be multiple debugging configurations for your pro
   <source src="/docs/java/java-debugging/java-debug.mp4" type="video/mp4">
 </video>
 
-If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations). For more details, please read [Launch configurations](/docs/editor/debugging.md#launch-configurations). By default, the Java debugger doesn't persist the `launch.json` in your workspace. If you would like to save it, you can click the link `create a launch.json file` in the debug panel where you will also find the `Debug` and `Run` button.
+If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations). For more details, please read [Launch configurations](/docs/editor/debugging.md#launch-configurations).
+
+By default, the Java debugger doesn't persist the `launch.json` in your workspace. If you would like to save it, you can click the **create a launch.json file** link in the Debug view where you will also find the **Debug** and **Run** buttons.
 
 ![Debug Menu](images/java-debugging/run-debug-button.png)
 
@@ -152,7 +154,7 @@ With the help of expression evaluation, the debugger also supports conditional b
 
 ### Data Breakpoint
 
-You can have the debugger break when a variable change its value. See the illustration below.
+You can have the debugger break when a variable change its value.
 
 ![Data Breakpoint](images/java-debugging/data-breakpoint.png)
 

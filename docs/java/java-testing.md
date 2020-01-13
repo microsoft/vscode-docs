@@ -72,7 +72,7 @@ Here's a brief session with TestNG:
 
 ![Run from Codelens](images/java-testing/run_codelens.png)
 
-- The extension will generate `Run Test` and `Debug Test` shortcuts (also known as CodeLens) above the class and method definition. Simply click on them will start running or debugging the target test cases.
+- The extension will generate **Run Test** and **Debug Test** shortcuts (also known as CodeLens) above the class and method definition. Select them to start running or debugging the target test cases.
 
 > Note: If you cannot see the CodeLens in your editor, please refer to this [issue comment](https://github.com/Microsoft/vscode-java-test/issues/470#issuecomment-444681714) as a workaround.
 
@@ -102,7 +102,7 @@ Here's a brief session with TestNG:
 
 ![Report Navigation](images/java-testing/report_navigate.png)
 
-- For a quick peek of the test status or results, you can see them in test explorer directly.
+- For a quick peek of the test status or results, you can see them in the Test Explorer directly.
 
 ![Test Status in Explorer](images/java-testing/test-status.png)
 

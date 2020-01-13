@@ -175,7 +175,7 @@ There are two ways to generate a Maven project:
 
 ## Build Status
 
-As you code in Visual Studio Code, the language server is building your workspace to provide you the necessary language features. Now you can see the detailed build task status and understand what’s happening behind the scene by simply clicking the language server status icon.
+When you edit Java source code in Visual Studio Code, the Java language server is building your workspace to provide you with the necessary language features. You can see the detailed build task status and watch what is happening behind the scene by clicking the language server Status bar icon in the lower right.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/java.build.status.mp4" type="video/mp4">

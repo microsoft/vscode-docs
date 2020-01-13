@@ -3,11 +3,11 @@ Order: 2
 Area: java
 TOCTitle: Working with source code
 ContentId: 843e139a-9e3c-4b4f-95d1-32a9a7480e8e
-PageTitle: Working with Java Source Code in Visual Studio Code
+PageTitle: Working with Java source code in Visual Studio Code
 DateApproved: 6/17/2019
 MetaDescription: Editing Java in Visual Studio Code with IntelliSense, Refactoring and Formatting.
 ---
-# Working with Java Source Code in Visual Studio Code
+# Working with Java source code
 
 Visual Studio Code is a source code editor first and foremost with rich editing [features](/docs/editor/codebasics.md). In this document, we will go through a few Java-specific features, which are helpful when working with Java.
 
@@ -77,7 +77,7 @@ You can keep track of class implementations and overriding methods by clicking t
 
 ### Call Hierarchy
 
-A call hierarchy view shows all calls from or to a function and allows you to drill into callers of callers and call of calls. Just right-click on the functions and click `Peek` -> `Peek Call Hierarchy`.
+A Call Hierarchy view shows all calls from or to a function and allows you to drill into callers of callers and call of calls. Right-click on a function and select **Peek** > **Peek Call Hierarchy**.
 
 ![Call Hierarchy](images/java-editing/call-hierarchy.png)
 
