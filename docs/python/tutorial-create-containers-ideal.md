@@ -124,10 +124,10 @@ With the necessary `Dockerfile` in place, you're ready to build the Docker image
 
 ## Next steps
 
-Now that you've created a container with your app, you're ready to push the image to a container registry before deploying it to any container-ready cloud service.
+Now that you've created a container with your app, you're ready to push the image to a container registry. Ultimately, this will allow you to deploy your image to any container-ready cloud service.
 
-- For Django apps, see [Push Django images to a registry](https://docs.microsoft.com/azure/python/tutorial-django-push-to-registry).
-- For Flask and other apps, see [Quickstart: Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) and then [Deploy a container to Azure App Service](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01).
+- For Django apps, see [Push Django Images to a Registry](https://docs.microsoft.com/azure/python/tutorial-django-push-to-registry).
+- For Flask and other Python apps, see [Quickstart: Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) and then [Deploy a container to Azure App Service](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01).
 
 You can also learn more about the Docker extension for VS Code by visiting the [vscode-docker](https://github.com/Microsoft/vscode-docker) repository on GitHub. Issues and contributions are welcome.
 
