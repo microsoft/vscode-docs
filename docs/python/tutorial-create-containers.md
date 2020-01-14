@@ -237,7 +237,7 @@ With the necessary `Dockerfile` in place, you're ready to build the Docker image
 
 1. Each step of Docker's build process appears in the VS Code Terminal panel, including any errors that occur running the steps in the `Dockerfile`.
 
-    > **Tip**: every time you run the **Docker: Build image** command, the Docker extension opens another Terminal in VS Code in which to run the command. You can close each terminal once the build is complete. Alternately, you can reuse the same terminal to build the image by scrolling up in the command history using the up arrow.
+    > **Tip**: Every time you run the **Docker: Build image** command, the Docker extension opens another Terminal in VS Code in which to run the command. You can close each terminal once the build is complete. Alternately, you can reuse the same terminal to build the image by scrolling up in the command history using the up arrow.
 
 1. When the build is complete, the image appears in the **Docker** explorer under **Images**:
 
@@ -269,7 +269,7 @@ Once you're confident that your image works, the next step is to push it to your
 
 1. On the **Command Palette** (`kb(workbench.action.showCommands)`), select **Docker: Push**.
 
-1. Choose the image you just built to push the image to the registry; upload progress appears in the Terminal.
+1. Choose the image you just built to push the image to the registry. Upload progress will appear in the Terminal.
 
 1. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Docker** explorer, then expand the registry and image name to see the exact image. (You may need to refresh the **Docker** explorer.)
 
