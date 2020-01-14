@@ -177,7 +177,7 @@ The Side Bar contains views like the Explorer and Search.
 - `sideBar.background`: Side Bar background color.
 - `sideBar.foreground`: Side Bar foreground color. The Side Bar is the container for views like Explorer and Search.
 - `sideBar.border`: Side Bar border color on the side separating the editor.
-- `sideBar.dropBackground`: Drag and drop feedback color for the side bar sections. The color should have transparency so that the side bar sections can still shine through. The side bar is the container for views like explorer and search.
+- `sideBar.dropBackground`: Drag and drop feedback color for the side bar sections. The color should have transparency so that the side bar sections can still shine through.
 
 - `sideBarTitle.foreground`: Side Bar title foreground color.
 - `sideBarSectionHeader.background`: Side Bar section header background color.

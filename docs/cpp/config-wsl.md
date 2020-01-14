@@ -158,7 +158,7 @@ You can press the `kbstyle(Tab)` key to insert the selected member; then, when y
 
 Next, you will create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the g++ compiler on WSL to create an executable file based on the source code.
 
-From the main menu, choose **Terminal** > **Configure Default Build Task**. In the dropdown, which will display a tasks dropdown listing various predefined build tasks for C++ compilers. Choose **g++ build active file**, which will build the file which is currently displayed (active) in the editor.
+From the main menu, choose **Terminal** > **Configure Default Build Task**. In the dropdown, which will display a tasks dropdown listing various predefined build tasks for C++ compilers. Choose **g++ build active file**, which will build the file that is currently displayed (active) in the editor.
 
 ![Tasks C++ build dropdown](images/wsl/build-active-file.png)
 
@@ -196,6 +196,8 @@ Your new `tasks.json` file should look similar to the JSON below:
 ```
 
 The `command` setting specifies the program to run; in this case that is g++. The `args` array specifies the command-line arguments that will be passed to g++. These arguments must be specified in the order expected by the compiler. This task tells g++ to take the active file (`${file}`), compile it, and create an executable file in the current directory (`${fileDirname}`) with the same name as the active file but without an extension (`${fileBasenameNoExtension}`), resulting in `helloworld` for our example.
+
+>**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 

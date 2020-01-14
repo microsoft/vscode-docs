@@ -43,7 +43,7 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
 3. Type **`code .`** in the terminal. When doing this for the first time, you should see VS Code fetching components needed to run in WSL. This should only take a short while, and is only needed once.
 
-    > **Note:** If this command does not work, you may not have added VS Code to your path when it was installed.
+    > **Note:** If this command does not work, you may need to restart your terminal or you may not have added VS Code to your path when it was installed.
 
 4. After a moment, a new VS Code window will appear, and you'll see a notification that VS Code is opening the folder in WSL.
 
