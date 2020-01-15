@@ -36,7 +36,7 @@ Other `glibc` based Linux containers may work if they have [needed prerequisites
 
 While ARMv7l (AArch32), ARMv8l (AArch64), and `musl` based Alpine Linux support is available, some extensions installed on these devices may not work due to the use of `glibc` or `x86` compiled native code in the extension. See the [Remote Development with Linux](/docs/remote/linux.md) article for details.
 
-While the Docker CLI is required, the Docker daemon/service does not need to be running locally if you are [using a remote Docker host](docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host).
+While the Docker CLI is required, the Docker daemon/service does not need to be running locally if you are [using a remote Docker host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host).
 
 ### Installation
 
@@ -714,7 +714,7 @@ Using `devcontainer.json`:
 "postCreateCommand": "apt-get update && apt-get install <package>"
 ```
 
-Or if running as a [non-root user](docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container):
+Or if running as a [non-root user](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container):
 
 ```json
 "postCreateCommand": "sudo apt-get update && sudo apt-get install <package>"
