@@ -17,12 +17,12 @@ In this guide you will learn how to:
 
 ## Prerequisites
 
-- Docker and the VS Code Docker extension must be installed as described on the [[Home page|Home#installation]]
+- Both Docker and the VS Code Docker extension must be installed as described on the [[Home page|Home#installation]]
 - [Node.js](https://nodejs.org/) version 10 or later
 
-## Create a Node.js application
+## Create an Express Node.js application
 
-1. Open the project folder in VS Code
+1. Create a folder for the project
 1. Open a development command prompt in the project folder and create the project:
 
    ```bash
@@ -32,14 +32,16 @@ In this guide you will learn how to:
 
 ## Add Docker file to the project
 
+1. Open the project folder in VS Code
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and use `Docker: Add Docker Files to Workspace...` command:
 
-   // TODO: Add image
+   ![Add Dockerfile to a Node.js project](images/quickstarts/node-add-node.png)
 
 1. Select `Node.js` when prompted for the application platform
-1. Select `Yes` or `No` when prompted to include Docker Compose files
+1. Select either `Yes` or `No` when prompted to include Docker Compose files
 
-   > The Docker Compose files are optional and not used for debugging the application within a container.
+   > The Docker Compose files are optional and not used for debugging the application within a container, so either choice is ok.
+
 1. Enter `3000` when prompted for the application port
 
 The extension will create the `Dockerfile` and `.dockerignore` files. If Docker Compose files are included, they will be generated as well. Finally, the extension will create a set of **VS Code tasks** for building and running the container (in both debug- and release-configurations), and a **debugging configuration** for launching the container in debug mode.
@@ -59,17 +61,17 @@ The extension will create the `Dockerfile` and `.dockerignore` files. If Docker 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and select the `Docker Images: Build Image...` command
 1. Open the Docker view and verify that the new image is visible in the Images tree:
 
-   // TODO: Add image
+   ![Verify Docker image exists](images/quickstarts/node-verify-image.png)
 
 ## Test the service container
 
 1. Right-click on the image built in the previous step and select `Run` or `Run Interactive`. The container should start and you should be able to see it in the Containers tree:
 
-   // TODO: Add image
+   ![Running service container](images/quickstarts/node-running-container.png)
 
 1. Open the web browser and navigate to [http://localhost:3000](http://localhost:3000). You should see a page similar to the following:
 
-   // TODO: Add image
+   ![Application page in browser](images/quickstarts/node-run-browser.png)
 
 1. When done testing, right-click the container in the Containers tree and select `Stop`
 
@@ -89,13 +91,20 @@ When Docker files were added to the application, the Docker extension also added
    debug.log = console.debug.bind(console);
    ```
 
+1. Set a breakpoint in the `get()` handler for the `/` route in `routes/index.js`
+
 1. Make sure the `Docker Node.js Launch and Attach` is selected
 
-   // TODO: Add image
+   ![Selected Docker debug configuration](images/quickstarts/node-debug-configuration.png)
 
 1. Start debugging (use the `F5` key)
     - The Docker container for the service is built
     - The browser opens to the (random) port mapped to the service container
+    - The breakpoint in `index.js` is hit
+
+    > Note that, because the debugger attaches *after* the application starts, the breakpoint may missed the first time around; you might have to refresh the browser to see the debugger break on the second try.
+    >
+    > You can configure the application to wait for the debugger to attach before starting execution by setting the [`inspectMode`](/docs/containers/reference.md#node-object-properties-docker-run-task) property to `break` in the `docker-run: debug` task in `tasks.json`.
 
 ## Next steps
 
