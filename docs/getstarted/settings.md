@@ -49,7 +49,7 @@ When you open the settings editor, you can search and discover settings you are 
 
 ### Edit settings
 
-Each setting can be edited by either a **checkbox**, an **input** or by a **drop-down**. Simply edit the text or select the option you want to change to the desired settings.
+Each setting can be edited by either a **checkbox**, an **input** or by a **drop-down**. Edit the text or select the option you want to change to the desired settings.
 
 ![Edit a Setting](images/settings/settings-edit.png)
 

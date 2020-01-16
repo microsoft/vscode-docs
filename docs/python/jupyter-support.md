@@ -53,7 +53,7 @@ The Notebook Editor makes it easy to create, edit, and run code cells within you
 
 ### Create a code cell
 
-By default, a blank Notebook will have an empty code cell for you to start with and an existing Notebook will place one at the bottom. Simply add your code to the empty code cell to get started.
+By default, a blank Notebook will have an empty code cell for you to start with and an existing Notebook will place one at the bottom. Add your code to the empty code cell to get started.
 
 ```python
 msg = "Hello world"
@@ -114,7 +114,7 @@ Running multiple code cells can be accomplished in a number of ways. You can use
 
 ### Move a code cell
 
-Moving code cells up or down within a Notebook can be accomplished using the vertical arrows beside each code cell. Simply hover over the code cell and then click the up arrow to move the cell up and the down arrow to move the cell down.
+Moving code cells up or down within a Notebook can be accomplished using the vertical arrows beside each code cell. Hover over the code cell and then click the up arrow to move the cell up and the down arrow to move the cell down.
 
 ![Move a code cell](images/jupyter/native-code-cells-05.png)
 

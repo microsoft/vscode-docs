@@ -19,7 +19,7 @@ Visual Studio Code is officially distributed as a Snap package in the [Snap Stor
 
 [![Get it from the Snap Store](images/linux/snap-store.png)](https://snapcraft.io/code)
 
-You can install it simply by running:
+You can install it by running:
 
 ```bash
 sudo snap install --classic code # or code-insiders

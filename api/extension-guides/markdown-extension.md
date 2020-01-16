@@ -55,7 +55,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-To contribute multiple markdown-it plugins, simply return multiple `use` statements chained together:
+To contribute multiple markdown-it plugins, return multiple `use` statements chained together:
 
 ```ts
 return md.use(require('markdown-it-emoji')).use(require('markdown-it-hashtag'));
