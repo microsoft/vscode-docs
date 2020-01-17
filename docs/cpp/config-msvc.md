@@ -165,7 +165,7 @@ The remaining steps are provided as an optional exercise to help you get familia
 
 ## Add a source code file
 
-1. In the main VS Code menu, click on **File > New File** and name it `helloworld.cpp`.
+1. Select the "HELLOWORLD" folder in the side bar. Right-click there and select **New File** from the popup menu. Name the file `helloworld.cpp`. Ensure it is not in the `.vscode` subfolder.
 1. Paste in this source code:
 
     ```cpp
