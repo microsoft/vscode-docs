@@ -21,7 +21,7 @@ Set or change the following options to control VS Code's behavior during debuggi
 
 ### program (required)
 
-Specifies the full path to executable the debugger will launch or attach to.
+Specifies the full path to executable the debugger will launch or attach to. The debugger requires this to load debug symbols from.
 
 ### symbolSearchPath
 
@@ -36,6 +36,8 @@ An optional flag that tells the Visual Studio Windows Debugger to require curren
 Tells GDB or LLDB what paths to search for .so files. Separate multiple paths with a semicolon. For example: `"/Users/user/dir1;/Users/user/dir2"`.
 
 ### externalConsole
+
+Used only when launching the debuggee. For `attach`, this parameter does not change the debuggee's behavior.
 
 - **Windows**: When set to true, it will spawn an external console. When set to false, it will use VS Code's integratedTerminal.
 - **Linux**: When set to true, it will notify VS Code to spawn an external console. When set to false, it will use VS Code's integratedTerminal.
