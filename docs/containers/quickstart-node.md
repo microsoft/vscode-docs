@@ -11,7 +11,7 @@ MetaDescription: Develop, build, and debug a Node.js app in a Docker container, 
 
 In this guide you will learn how to:
 
-- Create a `Dockerfile` file for a simple Node.js service container
+- Create a `Dockerfile` file for an [Express](https://expressjs.com/) Node.js service container
 - Build, run, and verify the functionality of the service
 - Debug the service running within a container
 
@@ -40,11 +40,11 @@ In this guide you will learn how to:
 1. Select `Node.js` when prompted for the application platform
 1. Select either `Yes` or `No` when prompted to include Docker Compose files
 
-   > The Docker Compose files are optional and not used for debugging the application within a container, so either choice is ok.
+   > The Docker Compose files are optional and not used for debugging the application within a container, so either is a valid choice.
 
 1. Enter `3000` when prompted for the application port
 
-The extension will create the `Dockerfile` and `.dockerignore` files. If Docker Compose files are included, they will be generated as well. Finally, the extension will create a set of **VS Code tasks** for building and running the container (in both debug- and release-configurations), and a **debugging configuration** for launching the container in debug mode.
+The extension will create `Dockerfile` and `.dockerignore` files. If you elected to include Docker Compose files, `docker-compose.yml` and `docker-compose.debug.yml` will be generated as well. Finally, the extension will create a set of **VS Code tasks** in `.vscode/tasks.json` for building and running the container (in both debug- and release-configurations) and a **launch debug configuration** in `.vscode/launch.json` for debugging the service within the container.
 
 ## Start the application
 
@@ -56,16 +56,16 @@ The extension will create the `Dockerfile` and `.dockerignore` files. If Docker 
    > node ./bin/www
    ```
 
-## Build the image
+## Build the service image
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and select the `Docker Images: Build Image...` command
 1. Open the Docker view and verify that the new image is visible in the Images tree:
 
    ![Verify Docker image exists](images/quickstarts/node-verify-image.png)
 
-## Test the service container
+## Run the service container
 
-1. Right-click on the image built in the previous step and select `Run` or `Run Interactive`. The container should start and you should be able to see it in the Containers tree:
+1. Right-click on the image built in the previous section and select `Run` or `Run Interactive`. The container should start and you should be able to see it in the Docker Containers tree:
 
    ![Running service container](images/quickstarts/node-running-container.png)
 
@@ -77,28 +77,29 @@ The extension will create the `Dockerfile` and `.dockerignore` files. If Docker 
 
 ## Debug in the service container
 
-When Docker files were added to the application, the Docker extension also added a **VS Code debugger configuration** for debugging the service when it is running inside a container. The extension will automatically detect the protocol and port that the service is using and point the browser to the service, but the application needs to ensure that its output is written to the debug console:
+When Docker files were added to the application, the Docker extension also added a **VS Code debugger configuration** in `.vscode/launch.json` for debugging the service when running inside a container. The extension will detect the protocol and port used by the service and point the browser to the service, but the application needs to ensure that its output is written to the debug console:
 
 1. Open the `.bin/www` file in the editor
-1. After the `require()` statements shown below, add:
+1. After the `require()` statements, add a line that forces the debug logger to write to the debug console, as shown below:
 
    ```javascript
    var app = require('../app');
-   var debug = require('debug')('express-guide-2:server');
+   var debug = require('debug')('express-app:server');
    var http = require('http');
 
    // Add the following line to force the debug logger to write to the debug console.
    debug.log = console.debug.bind(console);
    ```
 
-1. Set a breakpoint in the `get()` handler for the `/` route in `routes/index.js`
+1. Set a breakpoint in the `get()` handler for the `'/'` route in `routes/index.js`
 
 1. Make sure the `Docker Node.js Launch and Attach` is selected
 
    ![Selected Docker debug configuration](images/quickstarts/node-debug-configuration.png)
 
 1. Start debugging (use the `F5` key)
-    - The Docker container for the service is built
+    - The Docker image for the service is built
+    - The Docker container for the service is run
     - The browser opens to the (random) port mapped to the service container
     - The breakpoint in `index.js` is hit
 
