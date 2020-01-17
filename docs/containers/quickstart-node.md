@@ -99,7 +99,7 @@ When Docker files were added to the application, the Docker extension also added
 
 1. Set a breakpoint in the `get()` handler for the `'/'` route in `routes/index.js`
 
-1. Make sure the `Docker Node.js Launch and Attach` is selected
+1. Make sure the `Docker Node.js Launch and Attach` debugger configuration is selected
 
    ![Selected Docker debug configuration](images/quickstarts/node-debug-configuration.png)
 
