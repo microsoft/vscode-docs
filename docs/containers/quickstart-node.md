@@ -46,7 +46,7 @@ In this guide you will learn how to:
 
 The extension will create `Dockerfile` and `.dockerignore` files. If you elected to include Docker Compose files, `docker-compose.yml` and `docker-compose.debug.yml` will be generated as well. Finally, the extension will create a set of **VS Code tasks** in `.vscode/tasks.json` for building and running the container (in both debug- and release-configurations) and a **launch debug configuration** in `.vscode/launch.json` for debugging the service within the container.
 
-## Start the application
+## Run the service locally
 
 1. Open a terminal (`kb(workbench.action.terminal.toggleTerminal)`)
 1. Enter `npm run start` to start the application:
@@ -55,6 +55,12 @@ The extension will create `Dockerfile` and `.dockerignore` files. If you elected
    > express-app@0.0.0 start /Users/user/code/scratch/express-app
    > node ./bin/www
    ```
+
+1. Open the web browser and navigate to [http://localhost:3000](http://localhost:3000). You should see a page similar to the following:
+
+   ![Application page in browser](images/quickstarts/node-run-browser.png)
+
+1. When done testing, type `Ctrl+C` in the terminal
 
 ## Build the service image
 
@@ -98,10 +104,10 @@ When Docker files were added to the application, the Docker extension also added
    ![Selected Docker debug configuration](images/quickstarts/node-debug-configuration.png)
 
 1. Start debugging (use the `F5` key)
-    - The Docker image for the service is built
-    - The Docker container for the service is run
+    - The Docker image for the service builds
+    - The Docker container for the service runs
     - The browser opens to the (random) port mapped to the service container
-    - The breakpoint in `index.js` is hit
+    - The debugger hits the breakpoint in `index.js`
 
     > Note that, because the debugger attaches *after* the application starts, the breakpoint may missed the first time around; you might have to refresh the browser to see the debugger break on the second try.
     >
