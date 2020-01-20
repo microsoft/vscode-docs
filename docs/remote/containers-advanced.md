@@ -220,7 +220,7 @@ Follow these steps:
     "workspaceFolder": "/workspace",
     "mounts": [
         "source=try-node-node_modules,target=/workspace/node_modules,type=volume"
-    ]
+    ],
     "postCreateCommand": "sudo chown node node_modules"
     ```
 
