@@ -333,7 +333,7 @@ To create the named local volume, follow these steps:
 
     RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
             /home/$USERNAME/.vscode-server-insiders/extensions \
-        && chown -R user-name-goes-here \
+        && chown -R $USERNAME \
             /home/$USERNAME/.vscode-server/extensions \
             /home/$USERNAME/.vscode-server-insiders/extensions
     ```
