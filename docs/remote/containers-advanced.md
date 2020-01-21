@@ -333,9 +333,9 @@ To create the named local volume, follow these steps:
 
     RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
             /home/$USERNAME/.vscode-server-insiders/extensions \
-        && chown -R user-name-goes-here \
-            /home/$USERNAME/.vscode-server/extensions \
-            /home/$USERNAME/.vscode-server-insiders/extensions
+        && chown -R $USERNAME \
+            /home/$USERNAME/.vscode-server \
+            /home/$USERNAME/.vscode-server-insiders
     ```
 
 2. Next, we'll configure a named volume mount for `~/.vscode-server/extensions` and `~/.vscode-server-insiders/extensions` in the container. The configuration will depend on whether you specify an image, Dockerfile, or Docker Compose file in your `devcontainer.json` file.
