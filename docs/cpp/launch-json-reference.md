@@ -21,7 +21,7 @@ Set or change the following options to control VS Code's behavior during debuggi
 
 ### program (required)
 
-Specifies the full path to executable the debugger will launch or attach to. The debugger requires this to load debug symbols from.
+Specifies the full path to the executable the debugger will launch or attach to. The debugger requires this location in order to load debug symbols.
 
 ### symbolSearchPath
 
@@ -174,7 +174,7 @@ The command to execute after the debugger is fully set up in order to cause the 
 }
 ```
 
-### loadSymbolInfo
+### symbolLoadInfo
 
 - **loadAll**: If true, symbols for all libs will be loaded, otherwise no solib symbols will be loaded. Modified by ExceptionList. Default value is true.
 - **exceptionList**: List of filenames (wildcards allowed) separated by semicolons `;`. Modifies behavior of LoadAll. If LoadAll is true then don't load symbols for libs that match any name in the list. Otherwise only load symbols for libs that match. Example: ```"foo.so;bar.so"```
