@@ -8,13 +8,13 @@ MetaDescription: How to configure and troubleshoot debugging of Node.js apps run
 
 # Common Node.js Debugging Configuration Tasks
 
-When adding Docker files to a Node.js project, tasks and launch configurations are added intended to enable one to debug that application within a Docker container. However, due to the large ecosystem surrounding Node.js, those tasks cannot accommodate every application framework or library, which means that some applications will require additional configuration.
+When adding Docker files to a Node.js project, tasks and launch configurations are added to enable debugging that application within a Docker container. However, due to the large ecosystem surrounding Node.js, those tasks cannot accommodate every application framework or library, which means that some applications will require additional configuration.
 
 ## Configuring the Docker container entry point
 
-The Docker extension infers the entry point of the Docker container--that is, the command line for starting the application in a debug mode within the Docker container--via properties of `package.json`.  The extension will first look for the `start` script in the `scripts` object; if found and, if it starts with a `node` or `nodejs` command, it will be used to build the command line for starting the application in debug mode.  If not found or, if not a recognized `node` command, the `main` property in the `package.json` will be used.  If neither is found or recognized, then the user will need to set the `dockerRun.command` property of the `docker-run` task used to start the Docker container.
+The Docker extension infers the entry point of the Docker container--that is, the command line for starting the application in a debug mode within the Docker container--via properties of `package.json`.  The extension first looks for the `start` script in the `scripts` object; if found and, if it starts with a `node` or `nodejs` command, it uses that to build the command line for starting the application in debug mode.  If not found or, if not a recognized `node` command, the `main` property in the `package.json` is used.  If neither is found or recognized, then you need to explicitly set the `dockerRun.command` property of the `docker-run` task used to start the Docker container.
 
-Some Node.js application frameworks include CLIs for managing the application and are used to start the application in the `start` script, which obscure the underlying `node` commands. In these cases, the Docker extension cannot infer the start command and it must be configured explicitly.
+Some Node.js application frameworks include CLIs for managing the application and are used to start the application in the `start` script, which obscure the underlying `node` commands. In these cases, the Docker extension cannot infer the start command and you must  explicitly configure the start command.
 
 ### Example: Configuring the entry point for a [Nest.js](https://nestjs.com/) application
 
@@ -74,7 +74,7 @@ While the default settings may work for an Express.js based application, other N
 
 ### Ensuring application logs are written to the debug console
 
-This feature depends on the application writing its logs to the debug console of the attached debugger.  However, not all logging frameworks will write to the debug console, even when configured to use a console-based logger (as some "console" loggers will actually bypass the console and write directly to `stdout`).
+This feature depends on the application writing its logs to the debug console of the attached debugger.  However, not all logging frameworks write to the debug console, even when configured to use a console-based logger (as some "console" loggers actually bypass the console and write directly to `stdout`).
 
 The solution varies depending on the logging framework, but it generally requires creating/adding a logger that *actually* writes to the console.
 
@@ -91,7 +91,7 @@ var http = require('http');
 debug.log = console.debug.bind(console);
 ```
 
-Also note that the `debug` logger will not write logs unless enabled via the `DEBUG` environment variable, which can be set in the `docker-run` task. (This environment variable is set to `*` by default when Docker files are added to the application.)
+Also note that the `debug` logger writes logs only when enabled via the `DEBUG` environment variable, which can be set in the `docker-run` task. (This environment variable is set to `*` by default when Docker files are added to the application.)
 
 ```json
 {
@@ -118,7 +118,7 @@ Also note that the `debug` logger will not write logs unless enabled via the `DE
 ### Configuring when the application is "ready"
 
 The extension determines the application is "ready" to receive HTTP connections when it writes a message of the form `Listening on port <number>` to the debug console, as Express.js does by default.  If the application logs a different
-message, then the `pattern` property of the [`dockerServerReadyAction`]((debug-common.md#dockerServerReadyAction-object-properties)) object of the debug launch configuration should be set to a [JavaScript regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) that matches that message. The regular expression should include a capture group that corresponds to the port on which the application is listening.
+message, then you should set the `pattern` property of the [`dockerServerReadyAction`]((debug-common.md#dockerServerReadyAction-object-properties)) object of the debug launch configuration to a [JavaScript regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) that matches that message. The regular expression should include a capture group that corresponds to the port on which the application is listening.
 
 For example, suppose the application logs the following message:
 
@@ -132,7 +132,7 @@ function onListening() {
 }
 ```
 
-The corresponding `pattern` in the debug launch configuration (in `launch.json`) would be:
+The corresponding `pattern` in the debug launch configuration (in `launch.json`) is:
 
 ```json
 {
@@ -150,6 +150,8 @@ The corresponding `pattern` in the debug launch configuration (in `launch.json`)
     ]
 }
 ```
+
+> Note the `(\\d+)` capture group for the port number, and the use of `\` as a JSON escape character for the backslash in the `\d` character class.
 
 ### Configuring the application entry page
 
@@ -178,7 +180,7 @@ The corresponding `uriFormat` in the debug launch configuration (in `launch.json
 
 By default, the Docker extension assumes the application source files in the running Docker container are located in an `/usr/src/app` folder, and the debugger then maps those files back to the root of the opened workspace, in order to translate breakpoints from the container back to Visual Studio Code.
 
-If the application source files are in a different location (e.g. different Node.js frameworks have different conventions), either within the Docker container or within the opened workspace, then one or both of the `localRoot` and `remoteRoot` properties of the [`node`](debug-node.md#node-object-properties) object of the debug launch configuration should be set the root source locations within the workspace and the Docker container, respectively.
+If the application source files are in a different location (for example, different Node.js frameworks have different conventions), either within the Docker container or within the opened workspace, then one or both of the `localRoot` and `remoteRoot` properties of the [`node`](debug-node.md#node-object-properties) object of the debug launch configuration should be set the root source locations within the workspace and the Docker container, respectively.
 
 For example, if the application instead resides in `/usr/my-custom-location`, the corresponding `remoteRoot` property would be:
 
@@ -192,7 +194,7 @@ For example, if the application instead resides in `/usr/my-custom-location`, th
             "preLaunchTask": "docker-run: debug",
             "platform": "node",
             "node": {
-                "remoteRoot": "/usr/my-custom-location
+                "remoteRoot": "/usr/my-custom-location"
             }
         }
     ]
@@ -203,9 +205,9 @@ For example, if the application instead resides in `/usr/my-custom-location`, th
 
 ## Problem: Docker image fails to build or start due to missing `node_modules` folder
 
-Dockerfiles are often arranged in such a way as to optimize either image build time, image size, or both.  However, not every Node.js application frameworks supports all of the typical Node.js Dockerfile optimizations.  In particular, some frameworks the `node_modules` folder be an immediate subfolder of the application root folder, whereas, the Docker extension scaffolds a Dockerfile where the `node_modules` folder exists at a parent or ancestor level (which is generally allowed by Node.js).
+Dockerfiles are often arranged in such a way as to optimize either image build time, image size, or both.  However, not every Node.js application framework supports all of the typical Node.js Dockerfile optimizations.  In particular, for some frameworks, the `node_modules` folder must be an immediate subfolder of the application root folder, whereas, the Docker extension scaffolds a Dockerfile where the `node_modules` folder exists at a parent or ancestor level (which is generally allowed by Node.js).
 
-The solution is to simply remove that optimization from the `Dockerfile`:
+The solution is to remove that optimization from the `Dockerfile`:
 
 ```dockerfile
 FROM node:10.13-alpine
