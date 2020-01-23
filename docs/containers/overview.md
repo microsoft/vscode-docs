@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Overview
 ContentId: 4B462667-8915-4BE0-B8D0-EDE51CB2D273
 PageTitle: Container tools extension for Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 
 MetaDescription: Tools for developing and debugging with Docker containers, using Visual Studio Code.
 ---
 # Container Tools extension
@@ -72,3 +72,12 @@ You can debug services build using .NET (C#) and Node.js that are running inside
 ## Azure CLI integration
 
 You can start Azure CLI (command-line interface) in a standalone, Linux-based container with `Docker Images: Run Azure CLI` command. This allows access to full Azure CLI command set in an isolated environment. See [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest#sign-in) page for more information on available commands.
+
+## Next steps
+
+Read on to learn more about
+
+- [Choosing your development environment](/docs/containers/choosing-dev-environment.md)
+- [Build and run a Node.js app in a container](/docs/containers/quickstart-node.md)
+- [Build and run a .NET Core app in a container](/docs/containers/quickstart-aspnet-core.md)
+- [Debug apps within Docker containers](/docs/containers/debug-common.md)

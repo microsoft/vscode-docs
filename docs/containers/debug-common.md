@@ -1,15 +1,15 @@
 ---
-Order: 10
+Order: 9
 Area: containers
 TOCTitle: Debug
 ContentId: A1371726-5310-4923-B43B-240F36C6264E
 PageTitle: Debug an app running in a Docker container
-DateApproved: 12/12/2019
+DateApproved: 
 MetaDescription: Debug an app running in a Docker container, using Visual Studio Code.
 ---
-# Debugging within Docker containers
+# Debug apps within Docker containers
 
-With version 0.9.0, the Docker extension provides more support for debugging applications within Docker containers, such as scaffolding `launch.json` configurations for attaching a debugger to applications running within a container.
+With version 0.9.0 and later, the Docker extension provides more support for debugging applications within Docker containers, such as scaffolding `launch.json` configurations for attaching a debugger to applications running within a container.
 
 The Docker extension provides a `docker` debug configuration provider that manages how VS Code will launch an application and/or attach a debugger to the application in a running Docker container. This provider is configured via entries within `launch.json`, with configuration being specific to each application platform supported by the provider.
 
@@ -110,3 +110,9 @@ More information about debugging Node.js applications within Docker containers c
 | `smartStep` | Optional. Try to automatically step over code that doesn't map to source files. |
 | `skipFiles` | Optional. Automatically skip files covered by these glob patterns. |
 | `trace` | Optional. Enable diagnostic output. |
+
+## Next steps
+
+Read on to learn more about
+- [Debug Node.js within Docker containers](/docs/containers/debug-node.md)
+- [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md)

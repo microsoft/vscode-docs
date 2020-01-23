@@ -4,10 +4,10 @@ Area: containers
 TOCTitle: Choose a dev environment
 ContentId: AF3D8F58-8F73-44CD-962C-B7F029E50478
 PageTitle: Choosing an environment for container development
-DateApproved: 12/12/2019
+DateApproved:
 MetaDescription: Guidance on choosing remote or local environments for developing and debugging containerized apps, using Visual Studio Code.
 ---
-# Development environment choices
+# Choosing your development environment
 
 You can choose whether to develop a container-based service in the **local environment**, or in a **remote environment**. The local environment is the operating system of your developer workstation; using the local environment means you build and run your service container(s) using Docker installed on your workstation.
 
@@ -64,7 +64,7 @@ Windows Subsystem for Linux represents a great choice for container-based servic
 
 ![Enable Docker inside WSL 2 distribution](images/devenv/devenv-enable-docker-wsl2.png)
 
-> As of November 2019, WSL 2 is part of Windows Insider builds. To try out the new Docker engine you will need  Windows Insider build 19018 or newer, and the [Docker Desktop for Windows Edge release 2.1.6.1 or newer](https://docs.docker.com/docker-for-windows/edge-release-notes/)
+> As of November 2019, WSL 2 is part of Windows Insider builds. To try out the new Docker engine you will need Windows Insider build 19018 or newer, and the [Docker Desktop for Windows Edge release 2.1.6.1 or newer](https://docs.docker.com/docker-for-windows/edge-release-notes/)
 >
 > The old version of WSL (WSL 1) does not provide an easy way to connect to the Docker daemon on the host.
 
@@ -76,11 +76,11 @@ The simplest way to enable container development with a remote machine is to do 
 
 #### Reusing the host Docker daemon
 
-Alternatively, you can install just the Docker CLI inside development environment and point the CLI to the Docker host (daemon) running on the developer workstation using [Docker context mechanism](https://docs.docker.com/engine/context/working-with-contexts/). The main concern with this approach is to ensure network connectivity from the VM to the Docker daemon on the host, **and to do so in a secure way**. One option is to use [SSH tunelling](ssh.md) to developer workstation. Another option is to [make Docker daemon listen on HTTPS port](https://docs.docker.com/engine/security/https/). Both options are considered advanced and outside the scope of this document.
+Alternatively, you can install just the Docker CLI inside development environment and point the CLI to the Docker host (daemon) running on the developer workstation using [Docker context mechanism](https://docs.docker.com/engine/context/working-with-contexts/). The main concern with this approach is to ensure network connectivity from the VM to the Docker daemon on the host, **and to do so in a secure way**. One option is to use [SSH tunnelling](ssh.md) to developer workstation. Another option is to [make Docker daemon listen on HTTPS port](https://docs.docker.com/engine/security/https/). Both options are considered advanced and outside the scope of this document.
 
 ## Debugging in a container
 
-The Docker extension supports debugging .NET Core&ndash;based and Node.js&ndash;based services running inside a container. Other programming languages are not supported at this time.
+The Docker extension supports debugging .NET Core-based and Node.js-based services running inside a container. Other programming languages are not supported at this time.
 
 Debugging in a container may be somewhat harder to set up than regular debugging because a container is a stronger isolation mechanism than a process. In particular:
 
@@ -90,3 +90,10 @@ Debugging in a container may be somewhat harder to set up than regular debugging
 Because of the concerns above, it is generally recommended to use regular debugging, and employ debugging in a container when necessary.
 
 For more information about how to set up debugging inside a container see [ASP.NET Core quickstart](/docs/containers/quickstart-aspnet-core.md), [Node.js quickstart](/docs/containers/quickstart-node.md), and [Docker extension task properties](/docs/containers/reference.md) (`docker-build` and `docker-run` tasks).
+
+## Next steps
+
+Read on to learn more about
+
+- [Build and run a Node.js app in a container](/docs/containers/quickstart-node.md)
+- [Build and run a .NET Core app in a container](/docs/containers/quickstart-aspnet-core.md)

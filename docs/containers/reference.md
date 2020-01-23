@@ -4,14 +4,14 @@ Area: containers
 TOCTitle: Customize
 ContentId: 6784FBBE-9EE4-44A8-AC48-A52617EB1968
 PageTitle: Reference for Visual Studio Code Docker extension properties and tasks.
-DateApproved: 12/12/2019
+DateApproved: 
 MetaDescription: Reference for Docker build and Docker run tasks and properties in the Visual Studio Code Docker extension.
 ---
 # Customize the Docker extension with properties and tasks
 
 Starting with version version 0.9.0, the Docker extension adds several Visual Studio Code tasks. These tasks can be used to control the behavior of Docker [build](#docker-build-task) and [run](#docker-run-task), and form the basis of container startup for debugging.
 
-The tasks allow for a great deal of configuration. Generally speaking, the ultimate configuration that is used is a combination of universal defaults, platform-specific defaults (e.g. .NET Core and Node.js), and user input. As a rule we respect user input as authoritative anytime it conflicts with defaults, _even if it results in debugging not working_. Our philosophy is that the user knows best.
+The tasks allow for a great deal of configuration. Generally speaking, the ultimate configuration that is used is a combination of universal defaults, platform-specific defaults (such as .NET Core and Node.js), and user input. As a rule we respect user input as authoritative anytime it conflicts with defaults, _even if it results in debugging not working_. Our philosophy is that the user knows best.
 
 ## Docker build task
 
@@ -26,7 +26,7 @@ See [property reference](#build-task-reference) for full list of all task proper
 
 ### Platform support
 
-While the `docker-build` task can be used to build any Docker image, the extension has explicit support (and simplified configuration) for .NET Core and Node.js. 
+While the `docker-build` task can be used to build any Docker image, the extension has explicit support (and simplified configuration) for .NET Core and Node.js.
 
 #### .NET Core
 

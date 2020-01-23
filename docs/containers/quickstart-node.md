@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 2
 Area: containers
 TOCTitle: Node.js
 ContentId: A963901F-BF3F-455F-AD75-AB54EAE72BEF
@@ -64,7 +64,7 @@ The extension will create `Dockerfile` and `.dockerignore` files. If you elected
 
 ## Build the service image
 
-1. Open the Command Palette (`kb(workbench.action.showCommands)`) and select the `Docker Images: Build Image...` command.
+1. Open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Docker Images: Build Image...** command.
 1. Open the Docker view and verify that the new image is visible in the Images tree:
 
    ![Verify Docker image exists](images/quickstarts/node-verify-image.png)

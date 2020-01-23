@@ -1,10 +1,10 @@
 ---
-Order: 2
+Order: 3
 Area: containers
 TOCTitle: ASP.NET Core
 ContentId: 29F731D4-C6FE-4742-A1E7-7288FDB81CB9
 PageTitle: Build and run an ASP.NET Core app in a container
-DateApproved: 12/12/2019
+DateApproved: 
 MetaDescription: Develop, build, and debug an ASP.NET Core app in a Docker container, using Visual Studio Code.
 ---
 # Build and run an ASP.NET Core app in a container
@@ -152,6 +152,6 @@ You can use specific port on the host by changing the Docker run options used by
 
 ## Next steps
 
-[Learn more about debugging for .NET](/docs/containers/debug-netcore.md) <br/>
-(learn more about Dockerfile?) <br/>
-(multi-service development with Docker Compose?)
+Read on to learn more about
+- [Debug .NET Core within a Docker container](/docs/containers/debug-netcore.md)
+- [Deploy a containerized app to Azure App Service](/docs/containers/app-service.md)

@@ -1,12 +1,12 @@
 ---
 Area: containers
 ContentId: F0C800DD-C477-492D-9545-745F570FE042
-PageTitle: Configure & troubleshoot debugging of Node.js apps running in a Docker container
-DateApproved: 12/12/2019
+PageTitle: Configure and troubleshoot debugging of Node.js apps running in a Docker container
+DateApproved: 
 MetaDescription: How to configure and troubleshoot debugging of Node.js apps running in a Docker container, using Visual Studio Code.
 ---
 
-# Common Node.js Debugging Configuration Tasks
+# Debug Node.js within Docker containers
 
 When adding Docker files to a Node.js project, tasks and launch configurations are added to enable debugging that application within a Docker container. However, due to the large ecosystem surrounding Node.js, those tasks cannot accommodate every application framework or library, which means that some applications will require additional configuration.
 
