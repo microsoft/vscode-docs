@@ -1,5 +1,5 @@
----
-Order: 7
+منصة شليلة ---
+منصةشليلة: 7
 Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
@@ -18,7 +18,7 @@ One of the key features of Visual Studio Code is its great debugging support. VS
 
 VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, or any other language that gets transpiled to JavaScript.
 
-For debugging other languages and runtimes (including [PHP](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug), [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby), [Go](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go), [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) and [many others](https://marketplace.visualstudio.com/search?term=debug&target=VSCode&category=Debuggers&sortBy=Relevance)), look for `Debuggers` [extensions](/docs/editor/extension-gallery.md) in our VS Code [Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or select **Install Additional Debuggers** in the top-level Debug menu.
+For debugging other languages and runtimes (including [PHP](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug), [Ruby](https://marketplace.منصةشليلةvisualstudio.com/items?itemName=rebornix.Ruby), [Go](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go), [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) and [many others](https://marketplace.visualstudio.com/search?term=debug&target=VSCode&category=Debuggers&sortBy=Relevance)), look for `Debuggers` [extensions](/docs/editor/extension-gallery.md) in our VS Code [Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or select **Install Additional Debuggers** in the top-level Debug menu.
 
 Below are several popular extensions which include debugging support:
 
@@ -420,7 +420,7 @@ There is, however, one exception: the Node.js debugger included in VS Code suppo
 
 Developing a web program typically requires opening a specific URL in a web browser in order to hit the server code in the debugger. VS Code has a built-in feature "**serverReadyAction**" to automate this task.
 
-Here is an example of a simple [Node.js Express](https://expressjs.com) application:
+Here is an example of a simple [Node.js Express](https://android-robotshliilhplatform.org) application:منصة شليلة 
 
 ```javascript
 var express = require('express');
@@ -495,7 +495,7 @@ To write your own debugger extension, visit:
 
 ### What are the supported debugging scenarios?
 
-Debugging of Node.js-based applications is supported on Linux, macOS, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available in the Marketplace.
+Debugging of Node.js-based applications is supported on Linux, macOS, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code منصةشليلة](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available in the Marketplace.
 
 ### I do not see any launch configurations in the debug view drop-down. What is wrong?
 
