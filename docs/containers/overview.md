@@ -73,6 +73,26 @@ You can debug services build using .NET (C#) and Node.js that are running inside
 
 You can start Azure CLI (command-line interface) in a standalone, Linux-based container with `Docker Images: Run Azure CLI` command. This allows access to full Azure CLI command set in an isolated environment. See [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest#sign-in) page for more information on available commands.
 
+## Docker Compose
+
+[Docker Compose](https://docs.docker.com/compose/) lets you define and run multi-container applications with Docker. You can define what  shape these containers look like with a file called `docker-compose.yml`.
+
+Visual Studio Code's experience for authoring `docker-compose.yml` is also very rich, providing IntelliSense for valid Docker compose directives and it will query Docker Hub for metadata on public Docker images.
+
+1. Create a new file in your workspace called `docker-compose.yml`
+2. Define a new service called `web:`
+3. On the second line, bring up IntelliSense by pressing `kb(editor.action.triggerSuggest)` to see a list of all valid compose directives.
+
+ ![Docker Compose IntelliSense](images/docker/dockercomposeintellisense.png)
+
+4. For the `image` directive, you can press `kb(editor.action.triggerSuggest)` again and VS Code will query the Docker Hub index for public images.
+
+ ![Docker Compose image suggestions](images/docker/dockercomposeimageintellisense.png)
+
+VS Code will first show a list of popular images along with metadata such as the number of stars and description. If you continue typing, VS Code will query the Docker Hub index for matching images, including searching public profiles. For example, searching for `Microsoft` will show you all the public Microsoft images.
+
+ ![Docker Compose Microsoft image suggestions](images/docker/dockercomposesearch.png)
+
 ## Next steps
 
 Read on to learn more about
