@@ -74,8 +74,6 @@ When the suggestions pop up, they will get announced to screen readers. It is po
 
 The **Go to Next/Previous Difference** actions (`kb(editor.action.diffReview.next)` and `kb(editor.action.diffReview.prev)`), when in a diff editor pane, will bring up the Diff Review pane, which allows the navigation of the diffs, presented in a unified patch format. Arrow Up and Arrow Down can be used to navigate through the unchanged, inserted or deleted lines. Pressing `kbstyle(Enter)` will return focus to the modified pane of the diff editor at the selected line number (or closest still existing line number in case a deleted line is selected). Use `kbstyle(Escape)` or `kb(Shift+Escape)` to dismiss the Diff Review pane.
 
-> Setting `editor.accessibilityPageSize` controls the number of lines in the editor that can be read out by a screen reader at once. Warning: this has a performance implication for numbers larger than the default, for good machines we recommend a value of 1000.
-
 ## Accessibility help
 
 You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Accessibility Help** dialog while in an editor to check the state of various accessibility options in VS Code:
