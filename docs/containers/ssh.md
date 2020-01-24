@@ -21,9 +21,7 @@ The simplest way is to use VS Code's [Remote - SSH](https://marketplace.visualst
 
 1. A new VS Code window opens, remoted to the target machine. If using password authentication, the password will be prompted here. It is recommended to set up [SSH key authentication](https://www.ssh.com/ssh/public-key-authentication), for ease of use. In the Extensions tab, install the Docker extension (on the remote host) (a reload may be required after this step):
 
-![image](https://user-images.githubusercontent.com/36966225/66958480-3f280b80-f036-11e9-8d75-b4e55eb3913f.png)
-
-1. Enjoy!
+   ![Screenshot - Installing the Docker extension](images/ssh/install-in-ssh.png)
 
 NOTE: If you are using the Extension to build Docker images, etc. (and thus you have source code for something)--the above approach probably means you have to have your source enlistment on the _remote host_, rather than your local machine. If you are just using the extension for the Explorer features then you can disregard this.
 

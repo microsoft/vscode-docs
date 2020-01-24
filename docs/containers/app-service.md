@@ -19,7 +19,7 @@ In this guide you will learn how to:
 
 - An Azure subscription.
 - [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) and [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extensions must be installed.
-- A [**web** application](https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image) that produces a docker image. You could also follow [Create a sample ASP .NET Core application](ASP-Net-Core) to create such application.
+- A [**web** application](https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image) that produces a docker image. You could also follow [Create a sample ASP .NET Core application](/docs/containers/quickstart-aspnet-core.md) to create such application.
 - You need a [Docker Hub](https://hub.docker.com/) account or an instance of [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).
 
 ## Create the application image

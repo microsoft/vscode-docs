@@ -15,11 +15,11 @@ The Docker extension provides a `docker` debug configuration provider that manag
 
 ## Platform Support
 
-The Docker extension currently supports debugging .NET Core and Node.js applications within Docker containers. 
+The Docker extension currently supports debugging .NET Core and Node.js applications within Docker containers.
 
 ### .NET Core
 
-More information about debugging .NET Core applications within Docker containers can be found [here](/docs/containers/debug-netcore.md).
+More information about debugging .NET Core applications within Docker containers can be found in [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md).
 
 > The previous (Preview) .NET Core Docker debugging support is being deprecated. You can still find documentation on that support [here](https://github.com/microsoft/vscode-docker/wiki/Debug-NetCore-Deprecated).
 
