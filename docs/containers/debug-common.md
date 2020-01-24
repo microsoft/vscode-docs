@@ -21,7 +21,7 @@ The Docker extension currently supports debugging .NET Core and Node.js applicat
 
 More information about debugging .NET Core applications within Docker containers can be found in [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md).
 
-> The previous (Preview) .NET Core Docker debugging support is being deprecated. You can still find documentation on that support [here](https://github.com/microsoft/vscode-docker/wiki/Debug-NetCore-Deprecated).
+> The previous (Preview) .NET Core Docker debugging support is being deprecated. You can still find documentation on that support at [Debug .NET Core - Deprecated](https://github.com/microsoft/vscode-docker/wiki/Debug-NetCore-Deprecated).
 
 #### Example `launch.json` configuration for debugging a .NET Core application
 
@@ -44,7 +44,7 @@ More information about debugging .NET Core applications within Docker containers
 
 ### Node.js
 
-More information about debugging Node.js applications within Docker containers can be found [here](/docs/containers/debug-node.md).
+More information about debugging Node.js applications within Docker containers can be found at [Debug Node.js within a container](/docs/containers/debug-node.md).
 
 #### Example `launch.json` configuration for debugging a Node.js application
 
