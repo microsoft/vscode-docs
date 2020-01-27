@@ -499,7 +499,7 @@ Key|Command|Command id
 `kb(editor.action.marker.nextInFiles)`|Go to Next Error or Warning|`editor.action.marker.nextInFiles`
 `kb(editor.action.marker.prevInFiles)`|Go to Previous Error or Warning|`editor.action.marker.prevInFiles`
 `kb(workbench.action.showCommands)` or `kbstyle(F1)`|Show All Commands|`workbench.action.showCommands`
-`kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Navigate Editor Group History|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
+`kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`|Navigate Editor Group History|`workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup`
 `kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`
 `kb(workbench.action.quickInputBack)`|Go back in Quick Input|`workbench.action.quickInputBack`
 `kb(workbench.action.navigateForward)`|Go Forward|`workbench.action.navigateForward`
@@ -544,8 +544,6 @@ Key|Command|Command id
 `kb(workbench.action.closeAllEditors)`|Close All|`workbench.action.closeAllEditors`
 `kb(workbench.action.reopenClosedEditor)`|Reopen Closed Editor|`workbench.action.reopenClosedEditor`
 `kb(workbench.action.keepEditor)`|Keep Open|`workbench.action.keepEditor`
-`kb(workbench.action.openNextRecentlyUsedEditorInGroup)`|Open Next|`workbench.action.openNextRecentlyUsedEditorInGroup`
-`kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Open Previous|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
 `kb(workbench.action.files.copyPathOfActiveFile)`|Copy Path of Active File|`workbench.action.files.copyPathOfActiveFile`
 `kb(workbench.action.files.revealActiveFileInWindows)`|Reveal Active File in Windows|`workbench.action.files.revealActiveFileInWindows`
 `kb(workbench.action.files.showOpenedFileInNewWindow)`|Show Opened File in New Window|`workbench.action.files.showOpenedFileInNewWindow`
