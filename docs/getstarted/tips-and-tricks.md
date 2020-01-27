@@ -436,7 +436,7 @@ Keyboard Shortcut: `kb(workbench.action.closeActiveEditor)`
 
 ### Navigation history
 
-Navigate entire history: `kb(wworkbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`
+Navigate entire history: `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`
 
 Navigate back: `kb(workbench.action.navigateBack)`
 
