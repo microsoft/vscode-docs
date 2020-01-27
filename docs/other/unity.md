@@ -19,7 +19,7 @@ Read on to find out how to configure Unity and your project to get the best poss
 
 From [Using .NET Core in Visual Studio Code](/docs/languages/dotnet.md):
 
-1. Install [.NET Core](https://dotnet.microsoft.com/download), which includes the `dotnet` command.
+1. Install [.NET Core](https://dotnet.microsoft.com/download), both the Runtime and the SDK, which includes the `dotnet` command.
 
 1. [Windows only] Logout or restart Windows to allow changes to `%PATH%` to take effect.
 

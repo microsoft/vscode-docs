@@ -39,7 +39,7 @@ Debugging your extension in [Visual Studio Online](https://aka.ms/vso) preview c
 
 Follow these steps:
 
-1. Install the [Visual Studio Online extension and sign in](https://vso-docs/vscode).
+1. Install the [Visual Studio Online extension and sign in](https://aka.ms/vso-docs/vscode).
 
 2. Create a new managed [cloud-hosted environment](https://aka.ms/vso-docs/vscode/cloud-hosted) (paid) or register your own desktop as a [self-hosted environment](https://aka.ms/vso-docs/vscode/self-hosted) (free).
 
@@ -396,7 +396,7 @@ export async function activate(context: vscode.ExtensionContext) {
     vscode.window.registerUriHandler({
         handleUri(uri: vscode.Uri): vscode.ProviderResult<void> {
 
-            // Add your code for what to do when the auth completes here.
+            // Add your code for what to do when the authentication completes here.
             if (uri.path === '/auth-complete') {
                 vscode.window.showInformationMessage('Sign in successful!');
             }
@@ -407,7 +407,7 @@ export async function activate(context: vscode.ExtensionContext) {
     // Register a sign in command
     context.subscriptions.push(vscode.commands.registerCommand(`${extensionId}.signin`, async () => {
 
-        // Get an externally addressable callback URI for the handler that the auth provider can use
+        // Get an externally addressable callback URI for the handler that the authentication provider can use
         const callbackUri = await vscode.env.asExternalUri(vscode.Uri.parse(`${vscode.env.uriScheme}://${extensionId}/auth-complete`));
 
         // Add your code to integrate with an authentication provider here - we'll fake it.

@@ -57,7 +57,7 @@ Allowed values are:
 
 ### Breadcrumb keyboard navigation
 
-To interact with breadcrumbs, use the **Focus Breadcrumbs** command or press `kb(breadcrumbs.focusAndSelect)`. It will select that last element and open a dropdown that allows you to navigate to a sibling file or symbol. Use the `kb(breadcrumbs.focusPrevious)` and `kb(breadcrumbs.focusNext)` keyboard shortcuts to go to elements before or after the current element. When the dropdown appears, simply start typing - all matching elements will be highlighted and the best match will be selected for quick navigation.
+To interact with breadcrumbs, use the **Focus Breadcrumbs** command or press `kb(breadcrumbs.focusAndSelect)`. It will select that last element and open a dropdown that allows you to navigate to a sibling file or symbol. Use the `kb(breadcrumbs.focusPrevious)` and `kb(breadcrumbs.focusNext)` keyboard shortcuts to go to elements before or after the current element. When the dropdown appears, start typing - all matching elements will be highlighted and the best match will be selected for quick navigation.
 
 You can also interact with breadcrumbs without the dropdown. Press `kb(breadcrumbs.focus)` to focus the last element, use `kb(breadcrumbs.focusPrevious)` and `kb(breadcrumbs.focusNext)` to navigate, and use `kb(breadcrumbs.revealFocused)` to reveal the element in the editor.
 
@@ -117,7 +117,7 @@ Some languages like C# support inline reference information, that is updated liv
 
 > **Tip:** Directly invoke the **Peek References** action by clicking on these annotations.
 
-> **Tip:** Reference information shown in CodeLens can be turned on or off through the `editor.codeLens` setting.
+> **Tip:** Reference information shown in CodeLens can be turned on or off through the `editor.codeLens` [setting](/docs/getstarted/settings.md).
 
 ## Rename symbol
 

@@ -165,7 +165,8 @@ The remaining steps are provided as an optional exercise to help you get familia
 
 ## Add a source code file
 
-1. In the main VS Code menu, click on **File > New File** and name it `helloworld.cpp`.
+1. Select the "HELLOWORLD" folder in the File Explorer. Right-click in the pane and select **New File** from the context menu. Name the file `helloworld.cpp`. Ensure that the file is not in the `.vscode` subfolder.
+
 1. Paste in this source code:
 
     ```cpp
@@ -264,7 +265,7 @@ Sometimes you might want to keep track of the value of a variable as your progra
 
 1. Add another watch by adding this statement before the loop: `int i = 0;`. Then, inside the loop, add this statement: `++i;`. Now add a watch for `i` as you did in the previous step.
 
-1. To quickly view the value of any variable while execution is paused on a breakpoint, you can simply hover over it with the mouse pointer.
+1. To quickly view the value of any variable while execution is paused on a breakpoint, you can hover over it with the mouse pointer.
 
    ![Mouse hover](images/cpp/mouse-hover.png)
 
