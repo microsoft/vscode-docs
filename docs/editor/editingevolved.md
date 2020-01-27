@@ -171,12 +171,17 @@ With the command `workbench.action.quickOpenPreviousEditor` you can decide to ha
 
 ### How can I configure Ctrl+Tab to navigate across all editors of all groups
 
-By default you will notice that `Ctrl+Tab` is assigned to navigate between editors of the same editor group. If you want to navigate across all opened editors in all groups instead, you can configure the `workbench.action.quickOpenPreviousRecentlyUsedEditor` command instead, e.g.:
+By default you will notice that `Ctrl+Tab` is assigned to navigate between editors of the same editor group. If you want to navigate across all opened editors in all groups instead, you can configure the `workbench.action.quickOpenPreviousRecentlyUsedEditor` and `workbench.action.quickOpenLeastRecentlyUsedEditor` command instead, e.g.:
 
 ```json
 {
-	"key": "ctrl+tab",
-	"command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
+    "key": "ctrl+tab",
+    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
+    "when": "!inEditorsPicker"
+},
+{
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.quickOpenLeastRecentlyUsedEditor",
     "when": "!inEditorsPicker"
 }
 ```
