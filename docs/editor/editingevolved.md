@@ -154,9 +154,9 @@ Now that you know how the editor works, time to try a few other things...
 
 ## Common questions
 
-### How can I automatically select the second entry in quick open instead of the first?
+### How can I automatically select the second entry in Quick Open instead of the first?
 
-With the command `workbench.action.quickOpenPreviousEditor` you can decide to have the second entry automatically selected in quick open. This can be useful if you prefer to often select the previous entry from the list without having to invoke another keybinding:
+With the command `workbench.action.quickOpenPreviousEditor`, you can have the second entry automatically selected in Quick Open. This can be useful if you want to select the previous entry from the list without having to invoke another keybinding:
 
 ```json
 {
@@ -171,7 +171,7 @@ With the command `workbench.action.quickOpenPreviousEditor` you can decide to ha
 
 ### How can I configure Ctrl+Tab to navigate across all editors of all groups
 
-By default you will notice that `Ctrl+Tab` is assigned to navigate between editors of the same editor group. If you want to navigate across all opened editors in all groups instead, you can configure the `workbench.action.quickOpenPreviousRecentlyUsedEditor` and `workbench.action.quickOpenLeastRecentlyUsedEditor` command instead, e.g.:
+By default, `kbstyle(Ctrl+Tab)` navigates between editors of the same editor group. If you want to navigate across all opened editors in all groups, you can create keyboard shortcuts for the `workbench.action.quickOpenPreviousRecentlyUsedEditor` and `workbench.action.quickOpenLeastRecentlyUsedEditor` commands:
 
 ```json
 {
