@@ -7,7 +7,7 @@ PageTitle: Build and run an ASP.NET Core app in a container
 DateApproved:
 MetaDescription: Develop, build, and debug an ASP.NET Core app in a Docker container, using Visual Studio Code.
 ---
-# Build and run an ASP.NET Core app in a container
+# ASP.NET Core in a container
 
 In this guide you will learn how to:
 

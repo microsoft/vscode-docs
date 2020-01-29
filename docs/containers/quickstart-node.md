@@ -7,7 +7,7 @@ PageTitle: Build and run a Node.js app in a container
 DateApproved:
 MetaDescription: Develop, build, and debug a Node.js app in a Docker container, using Visual Studio Code.
 ---
-# Build and run a Node.js app in a container
+# Node.js in a container
 
 In this guide you will learn how to:
 

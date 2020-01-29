@@ -7,7 +7,7 @@ PageTitle: Choosing an environment for container development
 DateApproved:
 MetaDescription: Guidance on choosing remote or local environments for developing and debugging containerized apps, using Visual Studio Code.
 ---
-# Choosing your development environment
+# Your development environment
 
 You can choose whether to develop a container-based service in the **local environment**, or in a **remote environment**. The local environment is the operating system of your developer workstation; using the local environment means you build and run your service container(s) using Docker installed on your workstation.
 
