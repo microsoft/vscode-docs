@@ -13,11 +13,30 @@ With version 0.9.0 and later, the Docker extension provides more support for deb
 
 The Docker extension provides a `docker` debug configuration provider that manages how VS Code will launch an application and/or attach a debugger to the application in a running Docker container. This provider is configured via entries within `launch.json`, with configuration being specific to each application platform supported by the provider.
 
-## Platform support
+The Docker extension currently supports debugging [Node.js](#node-js) and [.NET Core](#net-core) applications within Docker containers.
 
-The Docker extension currently supports debugging .NET Core and Node.js applications within Docker containers.
+## Node.js
 
-### .NET Core
+More information about debugging Node.js applications within Docker containers can be found at [Debug Node.js within a container](/docs/containers/debug-node.md).
+
+Example `launch.json` configuration for debugging a Node.js application:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Node.js in Docker",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "Run Docker Container",
+            "platform": "node"
+        }
+    ]
+}
+```
+
+## .NET Core
 
 More information about debugging .NET Core applications within Docker containers can be found in [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md).
 
@@ -37,27 +56,6 @@ Example `launch.json` configuration for debugging a .NET Core application:
             "netCore": {
                 "appProject": "${workspaceFolder}/project.csproj"
             }
-        }
-    ]
-}
-```
-
-### Node.js
-
-More information about debugging Node.js applications within Docker containers can be found at [Debug Node.js within a container](/docs/containers/debug-node.md).
-
-Example `launch.json` configuration for debugging a Node.js application:
-
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Launch Node.js in Docker",
-            "type": "docker",
-            "request": "launch",
-            "preLaunchTask": "Run Docker Container",
-            "platform": "node"
         }
     ]
 }
