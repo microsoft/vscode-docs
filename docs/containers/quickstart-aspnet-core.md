@@ -11,13 +11,13 @@ MetaDescription: Develop, build, and debug an ASP.NET Core app in a Docker conta
 
 In this guide you will learn how to:
 
-- Create a `Dockerfile`  file describing a simple .NET Core service container.
+- Create a `Dockerfile` file describing a simple .NET Core service container.
 - Build, run, and verify the functionality of the service.
 - Debug the service running as a container.
 
 ## Prerequisites
 
-- Docker and the VS Code Docker extension must be installed as described on the [[Home page|Home#installation]].
+- Docker and the VS Code Docker extension must be installed as described on the [overview](overview.md#installation).
 - For .NET development, install [.NET Core SDK](https://dotnet.microsoft.com/download).
 - [C# VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
