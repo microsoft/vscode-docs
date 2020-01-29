@@ -9,11 +9,11 @@ MetaDescription: Debug a .NET Core app running in a Docker container, using Visu
 
 ## Prerequisites
 
-1. Install the [.NET Core SDK](https://www.microsoft.com/net/download) which includes support for attaching to the .NET Core debugger.
+1. Install the [.NET Core SDK](https://www.microsoft.com/net/download), which includes support for attaching to the .NET Core debugger.
 
-1. Install the [C# VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) which includes support for attaching to the .NET Core debugger in VS Code.
+1. Install the [C# VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which includes support for attaching to the .NET Core debugger in VS Code.
 
-1. Mac users only: add `/usr/local/share/dotnet/sdk/NuGetFallbackFolder` as a shared folder in your Docker preferences.
+1. macOS users only: add `/usr/local/share/dotnet/sdk/NuGetFallbackFolder` as a shared folder in your Docker preferences.
 
 ![dockerSharedFolders](images/debug/mac-folders.png)
 

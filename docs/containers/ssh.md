@@ -2,7 +2,7 @@
 Area: containers
 ContentId: DDE07043-BA8C-4D75-B392-ABACC31F6EA8
 PageTitle: Connect to Docker running on a remote machine
-DateApproved: 
+DateApproved:
 MetaDescription: Connect to a container image running on a remote machine, using Visual Studio Code.
 ---
 # Connect to a remote Docker daemon over SSH
@@ -23,7 +23,7 @@ The simplest way is to use VS Code's [Remote - SSH](https://marketplace.visualst
 
    ![Screenshot - Installing the Docker extension](images/ssh/install-in-ssh.png)
 
-NOTE: If you are using the Extension to build Docker images, etc. (and thus you have source code for something)--the above approach probably means you have to have your source enlistment on the _remote host_, rather than your local machine. If you are just using the extension for the Explorer features then you can disregard this.
+NOTE: If you are using the Extension to build Docker images, etc. (and thus you have source code for something)--the above approach probably means you have to have your source enlistment on the _remote host_, rather than your local machine. If you are just using the extension for the Explorer features, then you can disregard this.
 
 ## Directly via SSH
 
@@ -39,7 +39,7 @@ It is possible to connect to a remote Docker daemon over SSH without using VS Co
 
     1. Linux (Ubuntu was tested; you might have different results on other distributions): `ssh-agent` is present by default. Do `ssh-add <keyfile>`.
 
-    1. Mac: `ssh-agent` is present by default, **but `ssh-add` does not persist across logins**. Do `ssh-add <keyfile>`. We recommend configuring VS Code to run this command on terminal startup with `terminal.integrated.shellArgs.osx`, or otherwise configuring a startup script, or otherwise just manually running that command each login.
+    1. macOS: `ssh-agent` is present by default, **but `ssh-add` does not persist across logins**. Do `ssh-add <keyfile>`. We recommend configuring VS Code to run this command on terminal startup with `terminal.integrated.shellArgs.osx`, or otherwise configuring a startup script, or otherwise just manually running that command each login.
 
 1. Verify that your identity is available to the agent with `ssh-add -l`. It should list one or more identities that look something like `2048 SHA256:abcdefghijk somethingsomething (RSA)`. **If it does not list any identity, you will not be able to connect.** Also, it needs to have the right identity, of course. The Docker CLI working does _not_ mean that the Explorer window will work--the Explorer window uses [dockerode](https://www.npmjs.com/package/dockerode) (which in turn uses [ssh2](https://www.npmjs.com/package/ssh2)), whereas the Docker CLI uses simply the `ssh` command, and benefits from more automatically inferred configuration.
 
@@ -47,6 +47,6 @@ It is possible to connect to a remote Docker daemon over SSH without using VS Co
 
     1. You can simply use the `DOCKER_HOST` environment variable, or
 
-    1. There's a setting `docker.host` in VS Code which has the same effect, but allows for user or workspace settings instead of machine settings.
+    1. There's a setting `docker.host` in VS Code, which has the same effect, but allows for user or workspace settings instead of machine settings.
 
 1. It is recommended to change the refresh rate to something longer with the `docker.explorerRefreshInterval` setting. The connection over SSH is slow, and it can result in trying to refresh again before the previous refresh even finished. We recommend at least 3000 ms.

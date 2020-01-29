@@ -37,8 +37,8 @@ In this guide you will learn how to:
 
    ![Add Dockerfile to a Node.js project](images/quickstarts/node-add-node.png)
 
-1. Select `Node.js` when prompted for the application platform.
-1. Select either `Yes` or `No` when prompted to include Docker Compose files.
+1. Select **Node.js** when prompted for the application platform.
+1. Select either **Yes** or **No** when prompted to include Docker Compose files.
 
    > The Docker Compose files are optional and not used for debugging the application within a container, so either is a valid choice.
 
@@ -71,7 +71,7 @@ The extension will create `Dockerfile` and `.dockerignore` files. If you elected
 
 ## Run the service container
 
-1. Right-click on the image built in the previous section and select `Run` or `Run Interactive`. The container should start and you should be able to see it in the Docker Containers tree:
+1. Right-click on the image built in the previous section and select **Run** or **Run Interactive**. The container should start and you should be able to see it in the Docker Containers tree:
 
    ![Running service container](images/quickstarts/node-running-container.png)
 
@@ -79,7 +79,7 @@ The extension will create `Dockerfile` and `.dockerignore` files. If you elected
 
    ![Application page in browser](images/quickstarts/node-run-browser.png)
 
-1. When done testing, right-click the container in the Containers tree and select `Stop`.
+1. When done testing, right-click the container in the Containers tree and select **Stop**.
 
 ## Debug in the service container
 
@@ -99,7 +99,7 @@ When the Docker extension adds files to the application, it also adds a **VS Cod
 
 1. Set a breakpoint in the `get()` handler for the `'/'` route in `routes/index.js`.
 
-1. Make sure the `Docker Node.js Launch and Attach` debugger configuration is selected.
+1. Make sure the **Docker Node.js Launch and Attach** debugger configuration is selected.
 
    ![Selected Docker debug configuration](images/quickstarts/node-debug-configuration.png)
 

@@ -7,7 +7,7 @@ PageTitle: Deploy a containerized app to Azure App Service
 DateApproved:
 MetaDescription: Using Visual Studio Code, build a container image for your application, push the image to a container registry, and deploy to Azure App Service.
 ---
-# Deploy a containerized app to Azure App Service
+# Deploy to Azure App Service
 
 In this guide you will learn how to:
 
@@ -28,7 +28,7 @@ If you already have an image, skip this step and proceed to [Push the image to c
 
 1. Open the application folder in VS Code.
 
-2. Open Command Palette (`kb(workbench.action.showCommands)`) and use `Docker Images: Build Image...` command to build the image.
+2. Open Command Palette (`kb(workbench.action.showCommands)`) and use **Docker Images: Build Image...** command to build the image.
 
     ![Build container image](images/app-service/command-build-image.png)
 
@@ -36,11 +36,11 @@ If you already have an image, skip this step and proceed to [Push the image to c
 
     ![Build image output](images/app-service/terminal-output-build-image.png)
 
-## Push the image to container registry
+## Push the image to a container registry
 
 Before deploying the image to an App Service, the image must be uploaded to a container registry. The image can be uploaded to either [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) or [Docker Hub](https://hub.docker.com/).
 
-1. Open the Docker view and select 'Connect Registry...' icon under Registries group and follow the prompt. Choose the provider (Azure or Docker Hub) and provide the credential to connect to the registry.
+1. Open the Docker view and select **Connect Registry...** icon under **Registries** group and follow the prompt. Choose the provider (Azure or Docker Hub) and provide the credential to connect to the registry.
 
     ![Connect to Registry](images/app-service/explorer-connect-registry.png)
 
@@ -55,7 +55,7 @@ Before deploying the image to an App Service, the image must be uploaded to a co
     - Specify the new name `<your registry or username>/<image name>:<tag>` and complete the
     tag action. For example, new image name for ACR would be 'mainacr.azurecr.io/webapp6:latest' and for Docker Hub it would be 'myusername/webapp6:latest'.
 
-4. The newly tagged image will show up in the Docker view under the registry that the image tag points to. Select this image and choose "Push".
+4. The newly tagged image will show up in the Docker view under the registry that the image tag points to. Select this image and choose **Push**.
 
     ![Push image](images/app-service/explorer-push-image.png)
 
@@ -94,4 +94,4 @@ Read on to learn more about
 
 - [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
 - [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
-- [Working with MongoDB](/docs/azure/mongodb.md) - Create, manage and query MongoDB databases from within VS Code.
+- [Working with MongoDB](/docs/azure/mongodb.md) - Create, manage, and query MongoDB databases from within VS Code.

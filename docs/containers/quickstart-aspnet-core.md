@@ -12,13 +12,13 @@ MetaDescription: Develop, build, and debug an ASP.NET Core app in a Docker conta
 In this guide you will learn how to:
 
 - Create a `Dockerfile`  file describing a simple .NET Core service container.
-- Build, run and verify the functionality of the service.
+- Build, run, and verify the functionality of the service.
 - Debug the service running as a container.
 
 ## Prerequisites
 
 - Docker and the VS Code Docker extension must be installed as described on the [[Home page|Home#installation]].
-- For .NET development install [.NET Core SDK](https://dotnet.microsoft.com/download).
+- For .NET development, install [.NET Core SDK](https://dotnet.microsoft.com/download).
 - [C# VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## Create a .NET Core Web API project
@@ -37,9 +37,9 @@ In this guide you will learn how to:
 
    ![Add Dockerfile to a .NET project](images/quickstarts/aspnetcore-add-dotnet.png)
 
-1. Use `ASP.NET Core` when prompted for application platform.
-1. Choose `Windows` or `Linux` when prompted to choose the operating system.
-    > `Windows` is only applicable if your Docker installation is configured to use Windows containers.
+1. Use **ASP.NET Core** when prompted for application platform.
+1. Choose **Windows** or **Linux** when prompted to choose the operating system.
+    > Windows is only applicable if your Docker installation is configured to use Windows containers.
 1. Change the port for application endpoint to `5000`.
 1. `Dockerfile` and `.dockerignore` files are added to the workspace.
 
@@ -79,14 +79,14 @@ You can use the Docker extension to author Docker files. The extension provides 
 
 ## Build the image
 
-1. Open command palette (`kb(workbench.action.showCommands)`) and issue `Docker Images: Build Image...` command.
+1. Open command palette (`kb(workbench.action.showCommands)`) and issue **Docker Images: Build Image...** command.
 1. Open Docker view and verify that the new image is visible in the Images tree:
 
    ![Verify Docker image exists](images/quickstarts/aspnetcore-verify-image.png)
 
 ## Test the service container
 
-1. Right-click on the image built in previous step and choose `Run` or `Run Interactive`. The container should start and you should be able to see it in the "Containers" pane of the Docker view:
+1. Right-click on the image built in previous step and choose **Run** or **Run Interactive**. The container should start and you should be able to see it in the "Containers" pane of the Docker view:
 
    ![Running service container](images/quickstarts/aspnetcore-running-container.png)
 
@@ -102,7 +102,7 @@ You can use the Docker extension to author Docker files. The extension provides 
     ]
    ```
 
-1. When done testing, right-click the container in the Docker view and choose `Stop`.
+1. When done testing, right-click the container in the Docker view and choose **Stop**.
 
 ## Debug in container
 
@@ -122,12 +122,12 @@ When Docker files were added to the application, the Docker extension also added
 
     ![Selected Docker debug configuration](images/quickstarts/aspnetcore-debug-configuration.png)
 
-1. Start debugging (`F5` key).
+1. Start debugging (`kb(workbench.action.debug.start)`).
     - The debug version of the service container builds and starts.
     - The browser opens to request a new weather forecast.
     - The breakpoint in the `WeatherForecastController` is hit.
 
-By default Docker will assign a randomly-chosen **host port** to a port exposed by a container (the **container port**). In this case the exposed (container) port is 5000, but it will be exposed on the host via a random port, such as 32737.
+By default Docker will assign a randomly chosen **host port** to a port exposed by a container (the **container port**). In this case the exposed (container) port is 5000, but it will be exposed on the host via a random port, such as 32737.
 
 You can use specific port on the host by changing the Docker run options used by `docker-run: debug` task (defined in `.vscode/tasks.json` file). For example, if you want to use the same port (5000) to expose the service, the `docker-run: debug` task definition would look like this:
 
@@ -152,6 +152,7 @@ You can use specific port on the host by changing the Docker run options used by
 
 ## Next steps
 
-Read on to learn more about
+Read on to learn more about:
+
 - [Debug .NET Core within a Docker container](/docs/containers/debug-netcore.md)
 - [Deploy a containerized app to Azure App Service](/docs/containers/app-service.md)

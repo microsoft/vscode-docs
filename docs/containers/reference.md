@@ -4,14 +4,14 @@ Area: containers
 TOCTitle: Customize
 ContentId: 6784FBBE-9EE4-44A8-AC48-A52617EB1968
 PageTitle: Reference for Visual Studio Code Docker extension properties and tasks.
-DateApproved: 
+DateApproved:
 MetaDescription: Reference for Docker build and Docker run tasks and properties in the Visual Studio Code Docker extension.
 ---
-# Customize the Docker extension with properties and tasks
+# Customize the Docker extension
 
-Starting with version version 0.9.0, the Docker extension adds several Visual Studio Code tasks. These tasks can be used to control the behavior of Docker [build](#docker-build-task) and [run](#docker-run-task), and form the basis of container startup for debugging.
+The Docker extension includes several Visual Studio Code tasks to control the behavior of Docker [build](#docker-build-task) and [run](#docker-run-task), and form the basis of container startup for debugging.
 
-The tasks allow for a great deal of configuration. Generally speaking, the ultimate configuration that is used is a combination of universal defaults, platform-specific defaults (such as .NET Core and Node.js), and user input. As a rule we respect user input as authoritative anytime it conflicts with defaults, _even if it results in debugging not working_. Our philosophy is that the user knows best.
+The tasks allow for a great deal of control and customization. The final configuration is a combination of general defaults, platform-specific defaults (such as .NET Core and Node.js), and user input. User input takes precedence when it conflicts with defaults.
 
 ## Docker build task
 
@@ -28,9 +28,9 @@ See [property reference](#build-task-reference) for full list of all task proper
 
 While the `docker-build` task can be used to build any Docker image, the extension has explicit support (and simplified configuration) for .NET Core and Node.js.
 
-#### .NET Core
+### .NET Core
 
-*Minimal configuration using defaults*
+**Minimal configuration using defaults**
 
 When building .NET Core-based Docker image, one can omit the `platform` property and just set the `netCore` object (`platform` is implicitly set to `netcore` when `netCore` object is present). Note that `appProject` is a required property:
 
@@ -49,7 +49,7 @@ When building .NET Core-based Docker image, one can omit the `platform` property
 }
 ```
 
-*Platform defaults*
+**Platform defaults**
 
 For .NET Core-based images, the `docker-build` task infers the following options:
 
@@ -59,9 +59,9 @@ For .NET Core-based images, the `docker-build` task infers the following options
 | `dockerBuild.dockerfile` | The file `Dockerfile` in the root workspace folder. |
 | `dockerBuild.tag` | The base name of the root workspace folder. |
 
-#### Node.js
+### Node.js
 
-*Minimal configuration using defaults*
+**Minimal configuration using defaults**
 
 A Node.js based Docker image with no specific platform options can just set the `platform` property to `node`:
 
@@ -78,7 +78,7 @@ A Node.js based Docker image with no specific platform options can just set the 
 }
 ```
 
-*Platform defaults*
+**Platform defaults**
 
 For Node.js Docker images, the `docker-build` task infers the following options:
 
@@ -88,15 +88,15 @@ For Node.js Docker images, the `docker-build` task infers the following options:
 | `dockerBuild.dockerfile` | The file `Dockerfile` in the same directory as the `package.json` resides. |
 | `dockerBuild.tag` | The application's `name` property in `package.json` (if defined), else the base name of the folder in which `package.json` resides. |
 
-## Build Task Reference
+## Build task reference
 
 Here are all properties available for configuring `docker-build` task. All properties are optional unless indicated otherwise.
 
-| Property | Description | 
+| Property | Description |
 | --- | --- |
 | `dockerBuild` | Options for controlling the `docker build` command executed ([see below](#dockerBuild-object-properties)). <br/> Required unless `platform` is set. |
 | `platform` | Determines the platform: .NET Core (`netcore`) or Node.js (`node`) and default settings for `docker build` command. |
-| `netCore` | Determines options specific for .NET Core projects, ([see below](#netCore-object-properties-docker-build-task)). |
+| `netCore` | Determines options specific for .NET Core projects ([see below](#netCore-object-properties-docker-build-task)). |
 | `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-docker-run-task)). |
 
 ### `dockerBuild` object properties:
@@ -125,7 +125,7 @@ Here are all properties available for configuring `docker-build` task. All prope
 
 ## Docker run task
 
-The `docker-run` task runs (i.e. creates/starts) a Docker container using the Docker command line (CLI). The task can be used by itself, or as part of a chain of tasks to debug an application within a Docker container.
+The `docker-run` task runs (creates/starts) a Docker container using the Docker command line (CLI). The task can be used by itself, or as part of a chain of tasks to debug an application within a Docker container.
 
 The most important configuration settings for the `docker-run` task are `dockerRun` and `platform`:
 
@@ -134,13 +134,13 @@ The most important configuration settings for the `docker-run` task are `dockerR
 
 See [property reference](#run-task-reference) for full list of all task properties.
 
-### Platform Support
+### Platform support
 
-While the `docker-run` task can be used to run any Docker image, the extension has explicit support (and simplified configuration) for .NET Core and Node.js. 
+While the `docker-run` task can be used to run any Docker image, the extension has explicit support (and simplified configuration) for .NET Core and Node.js.
 
-#### .NET Core
+### .NET Core
 
-*Minimal configuration using defaults*
+**Minimal configuration using defaults**
 
 When building .NET Core-based Docker image, one can omit the `platform` property and just set the `netCore` object (`platform` is implicitly set to `netcore` when `netCore` object is present). Note that `appProject` is a required property:
 
@@ -159,7 +159,7 @@ When building .NET Core-based Docker image, one can omit the `platform` property
 }
 ```
 
-*Platform defaults*
+**Platform defaults**
 
 For .NET Core-based images, the `docker-run` task infers the following options:
 
@@ -171,9 +171,9 @@ For .NET Core-based images, the `docker-run` task infers the following options:
 | `dockerRun.os` | `Linux` |
 | `dockerRun.volumes` | Adds the following volumes as required: the local application folder, the source folder, the debugger folder, the NuGet package folder, and NuGet fallback folder. |
 
-#### Node.js
+### Node.js
 
-*Minimal configuration using defaults*
+**Minimal configuration using defaults**
 
 A Node.js based Docker image with no specific platform options can just set the `platform` property to `node`.
 
@@ -190,7 +190,7 @@ A Node.js based Docker image with no specific platform options can just set the 
 }
 ```
 
-*Platform defaults*
+**Platform defaults**
 
 For Node.js-based Docker images, the `docker-run` task infers the following options:
 
@@ -200,7 +200,7 @@ For Node.js-based Docker images, the `docker-run` task infers the following opti
 | `dockerRun.containerName` | Derived from the application package name. |
 | `dockerRun.image` | The tag from a dependent `docker-build` task (if one exists) or derived from the application package name, itself derived from the `name` property within `package.json` or the base name of the folder in which it resides. |
 
-## Run Task Reference
+## Run task reference
 
 Here are all properties available for configuring `docker-run` task. All properties are optional unless indicated otherwise.
 
@@ -211,25 +211,25 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `netCore` | For .NET Core projects, this controls various options ([see below](#netCore-object-properties-docker-run-task)). |
 | `node` | For Node.js projects, this controls various options ([see below](#node-object-properties-docker-run-task)). |
 
-### `dockerRun` object properties
+### dockerRun object properties
 
-| Property | Description | CLI Equivalent | 
-| --- | --- | --- | 
-| `image` | The name (tag) of the image to run. <br/> Required unless inferred from the platform. | `IMAGE` | 
-| `command` | The command to run upon starting the container. <br/> Required, unless inferred from the platform. | `COMMAND [ARG...]` | 
-| `containerName` | The name given to the started container. <br/> Required, unless inferred from the platform. | `--name` | 
-| `env` | Environment variables set in the container. This is a list of key-value pairs. | `-e` or `--env` | 
-| `envFiles` | This is a list of `.env` files. | `--env-file` | 
-| `labels` |  Labels given to the started container. This is a list of key-value pairs. | `--label` | 
-| `network` |  The name of the network to which the container will be connected. | `--network` | 
-| `networkAlias` |  The network-scoped alias for the started container. | `--network-alias` | 
+| Property | Description | CLI Equivalent |
+| --- | --- | --- |
+| `image` | The name (tag) of the image to run. <br/> Required unless inferred from the platform. | `IMAGE` |
+| `command` | The command to run upon starting the container. <br/> Required, unless inferred from the platform. | `COMMAND [ARG...]` |
+| `containerName` | The name given to the started container. <br/> Required, unless inferred from the platform. | `--name` |
+| `env` | Environment variables set in the container. This is a list of key-value pairs. | `-e` or `--env` |
+| `envFiles` | This is a list of `.env` files. | `--env-file` |
+| `labels` |  Labels given to the started container. This is a list of key-value pairs. | `--label` |
+| `network` |  The name of the network to which the container will be connected. | `--network` |
+| `networkAlias` |  The network-scoped alias for the started container. | `--network-alias` |
 | `os` |  Default is `Linux`, the other option is `Windows`. The container operating system used. | N/A |
-| `ports` |  The ports to publish (i.e. map) from container to host. This is a list of objects ([see below](#ports-object-properties)). | `-p` or `--publish` | 
-| `portsPublishAll` |  Whether to publish all ports exposed by the Docker image.  Defaults to `true` if no ports are specifically published. | `-P ` |  
-| `extraHosts` |  The hosts to add to the container for DNS resolution. This is a list of objects ([see below](#extraHosts-object-properties)). | `--add-host` | 
-| `volumes` |  The volumes to map into the started container. This is a list of objects ([see below](#volumes-object-properties)). | `-v` or `--volume` | 
+| `ports` |  The ports to publish (map) from container to host. This is a list of objects ([see below](#ports-object-properties)). | `-p` or `--publish` |
+| `portsPublishAll` |  Whether to publish all ports exposed by the Docker image.  Defaults to `true` if no ports are explicitly published. | `-P ` |
+| `extraHosts` |  The hosts to add to the container for DNS resolution. This is a list of objects ([see below](#extraHosts-object-properties)). | `--add-host` |
+| `volumes` |  The volumes to map into the started container. This is a list of objects ([see below](#volumes-object-properties)). | `-v` or `--volume` |
 
-### `ports` object properties
+### ports object properties
 
 | Property | Description | Default |
 | --- | --- | --- |
@@ -237,14 +237,14 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `hostPort` |  The port number bound on the host. | (randomly selected by Docker) |
 | `protocol` |  The protocol for the binding (`tcp` or `udp`). | `tcp` |
 
-### `extraHosts` object properties
+### extraHosts object properties
 
 | Property | Description |
 | --- | --- |
 | `hostname` | The hostname for DNS resolution. <br/> Required. |
 | `ip` | The IP address associated with the above hostname. <br/> Required. |
 
-### `volumes` object properties
+### volumes object properties
 
 | Property | Description | Default |
 | --- | --- | --- |
@@ -252,7 +252,7 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `containerPath` | The path in the container to which the local path will be mapped. <br/> Required. |
 | `permissions` |  Permissions the container has on the mapped path. Can be `ro` (read-only) or `rw` (read-write). | Container dependent.|
 
-### `netCore` object properties (`docker-run` task)
+### netCore object properties (`docker-run` task)
 
 | Property | Description |
 | --- | --- |
@@ -260,7 +260,7 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `configureSsl` |  Whether to configure ASP.NET Core SSL certificates and other settings to enable SSL on the service in the container. |
 | `enableDebugging` |  Whether to enable the started container for debugging. This will infer additional volume mappings and other options necessary for debugging. |
 
-### `node` object properties (`docker-run` task)
+### node object properties (`docker-run` task)
 
 | Property | Description | Default |
 | --- | --- | --- |

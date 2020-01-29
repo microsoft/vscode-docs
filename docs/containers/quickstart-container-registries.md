@@ -4,12 +4,13 @@ Area: containers
 TOCTitle: Registries
 ContentId: 318A4299-AF24-4ADA-863D-E73B314FC440
 PageTitle: Quickstart - Using container registries
-DateApproved: 
+DateApproved:
 MetaDescription: Work with Docker container registries in Visual Studio Code
 ---
-# Using registries
+# Using container registries
 
-A registry is a storage and content delivery system, holding named Docker images, available in different tagged versions.  
+A container registry is a storage and content delivery system, holding named Docker images, available in different tagged versions.
+
 Users can connect to Docker registries from the following sources:
 
 - [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)
@@ -20,11 +21,11 @@ Users can connect to Docker registries from the following sources:
 ## Azure Container Registry
 
 This option requires the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to be able to connect to your Azure account and display all of the different subscriptions and registries.
-Once authenticated, the node **Azure** will display the subscriptions along with registries each have:  
+Once authenticated, the node **Azure** will display the subscriptions along with registries each have:
 
 ![Azure Container Registry](images/registries/azure-registries.png)
 
-For each registry, users have different actions that can be performed using the context menu:  
+For each registry, users have different actions that can be performed using the context menu:
 
 ![Azure registry context menu](images/registries/azure-registry-context-menu.png)
 
@@ -34,7 +35,7 @@ For each registry, users have different actions that can be performed using the 
 - **View properties**: opens the registry properties in a json format
 - **Refresh**: refreshes the registry to reflect changes
 
-For each repository in a given registry, here are the actions that can be performed:  
+For each repository in a given registry, here are the actions that can be performed:
 
 ![Azure repository context menu](images/registries/azure-repository-context-menu.png)
 
@@ -42,7 +43,7 @@ For each repository in a given registry, here are the actions that can be perfor
 - **Delete repository**: deletes the repository permanently
 - **Refresh**: refreshes the repository to reflect changes
 
-For each tagged image in a repository, here are the actions that can be performed:  
+For each tagged image in a repository, here are the actions that can be performed:
 
 ![Azure image context menu](images/registries/azure-image-context-menu.png)
 
@@ -55,7 +56,8 @@ For each tagged image in a repository, here are the actions that can be performe
 ## Docker Hub
 
 This connects to [Docker Hub](https://hub.docker.com/) and lists all of the repositories and images under the given account.
-Once you select this option, you will be required to type in your Docker Hub credentials.  
+Once you select this option, you will be required to type in your Docker Hub credentials.
+
 ![Docker Hub](images/registries/docker-hub.png)
 
 For each repository in the Docker Hub registry, here are the actions that can be performed:
@@ -72,7 +74,8 @@ For each tagged image in a repository, here are the actions that can be performe
 ## GitLab
 
 This connects to Docker registries in your [GitLab](https://gitlab.com/) account.
-Once you select this option, you will be required to type in your GitLab account credentials.  
+Once you select this option, you will be required to type in your GitLab account credentials.
+
 ![GitLab](images/registries/gitlab.png)
 
 For each repository in the GitLab registry, here are the actions that can be performed:

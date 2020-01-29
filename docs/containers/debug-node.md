@@ -2,7 +2,7 @@
 Area: containers
 ContentId: F0C800DD-C477-492D-9545-745F570FE042
 PageTitle: Configure and troubleshoot debugging of Node.js apps running in a Docker container
-DateApproved: 
+DateApproved:
 MetaDescription: How to configure and troubleshoot debugging of Node.js apps running in a Docker container, using Visual Studio Code.
 ---
 
@@ -78,7 +78,7 @@ This feature depends on the application writing its logs to the debug console of
 
 The solution varies depending on the logging framework, but it generally requires creating/adding a logger that *actually* writes to the console.
 
-#### Example: Configuring [Express.js](https://expressjs.com/) applications to write to the debug console
+### Example: Configuring [Express.js](https://expressjs.com/) applications to write to the debug console
 
 By default, [Express.js](https://expressjs.com/) uses the [`debug`](https://github.com/visionmedia/debug) logging module, which can bypass the console.  This can be resolved by explicitly binding the log function to the console's `debug()` method.
 
