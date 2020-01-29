@@ -1045,7 +1045,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "files.maxMemoryForLargeFilesMB": 4096,
 
     // When enabled, will prevent to save a file that has been changed since it was last edited. Instead, a diff editor is provided to compare the changes and accept or revert them. This setting should only be disabled if you frequently encounter save conflict errors and may result in data loss if used without caution.
-    "files.preventSaveConflicts": true,
+    "files.saveConflictResolution": true,
 
     // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
     "files.trimFinalNewlines": false,
