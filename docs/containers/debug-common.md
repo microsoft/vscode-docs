@@ -1,0 +1,118 @@
+---
+Order: 9
+Area: containers
+TOCTitle: Debug
+ContentId: A1371726-5310-4923-B43B-240F36C6264E
+PageTitle: Debug an app running in a Docker container
+DateApproved: 
+MetaDescription: Debug an app running in a Docker container, using Visual Studio Code.
+---
+# Debug apps within Docker containers
+
+With version 0.9.0 and later, the Docker extension provides more support for debugging applications within Docker containers, such as scaffolding `launch.json` configurations for attaching a debugger to applications running within a container.
+
+The Docker extension provides a `docker` debug configuration provider that manages how VS Code will launch an application and/or attach a debugger to the application in a running Docker container. This provider is configured via entries within `launch.json`, with configuration being specific to each application platform supported by the provider.
+
+## Platform Support
+
+The Docker extension currently supports debugging .NET Core and Node.js applications within Docker containers.
+
+### .NET Core
+
+More information about debugging .NET Core applications within Docker containers can be found in [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md).
+
+> The previous (Preview) .NET Core Docker debugging support is being deprecated. You can still find documentation on that support at [Debug .NET Core - Deprecated](https://github.com/microsoft/vscode-docker/wiki/Debug-NetCore-Deprecated).
+
+#### Example `launch.json` configuration for debugging a .NET Core application
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch .NET Core in Docker",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "Run Docker Container",
+            "netCore": {
+                "appProject": "${workspaceFolder}/project.csproj"
+            }
+        }
+    ]
+}
+```
+
+### Node.js
+
+More information about debugging Node.js applications within Docker containers can be found at [Debug Node.js within a container](/docs/containers/debug-node.md).
+
+#### Example `launch.json` configuration for debugging a Node.js application
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Node.js in Docker",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "Run Docker Container",
+            "platform": "node"
+        }
+    ]
+}
+```
+
+## Configuration Reference
+
+| Property | Description |
+| --- | --- |
+| `containerName` | Name of the container used for debugging. |
+| `dockerServerReadyAction` | Options for launching a browser to the Docker container. Similar to serverReadyAction, but replaces container ports with host ports. |
+| `removeContainerAfterDebug` | Whether to remove the debug container after debugging. |
+| `platform` | The target plaform for the application. Can be `netCore` or `node`. |
+| `netCore` | Options for debugging .NET Core projects in Docker. |
+| `node` | Options for debugging Node.js projects in Docker. |
+
+### `dockerServerReadyAction` Object Properties
+
+| Property | Description |
+| --- | --- |
+| `action` | The action to take when the pattern is found. Can be `debugWithChrome` or `openExternally`. |
+| `containerName` | The container name to match the host port. |
+| `pattern` | The regex pattern to look for in Debug console output. |
+| `uriFormat` | The URI format to launch. |
+| `webRoot` | The root folder from which web pages are served. Used only when `action` is set to `debugWithChrome`. |
+
+### `netCore` Object Properties
+
+> Properties passed in the `netCore` object are generally passed on to the .NET Core debug adaptor, even if not specifically listed below. The complete list of debugger properties is in the [OmniSharp VS Code extension documentation](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md).
+
+| Property | Description |
+| --- | --- |
+| `appProject` | The .NET Core project (.csproj, .fsproj, etc.) to debug. |
+
+### `node` Object Properties
+
+> These properties are the same as those described in the [VS Code documentation](https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_launch-configuration-attributes) for attaching a debugger to Node.js applications. All properties passed in the `node` object will be passed on to the Node.js debug adaptor, even if not specifically listed below.
+
+| Property | Description | Default |
+| --- | --- | --- |
+| `port` | Optional. The debug port to use. | `9229` |
+| `address` | Optional. TCP/IP address of the debug port. |
+| `sourceMaps` | Optional. Enable source maps by setting this to `true`. |
+| `outFiles` | Optional. Array of glob patterns for locating generated JavaScript files. |
+| `autoAttachChildProcesses` | Optional. Track all subprocesses of debuggee and automatically attach to those that are launched in debug mode. |
+| `timeout` | Optional. When restarting a session, give up after this number of milliseconds. |
+| `stopOnEntry` | Optional. Break immediately when the program launches. |
+| `localRoot` | Optional. VS Code's root directory. | The root workspace folder. |
+| `remoteRoot` | Optional. Node's root directory within the Docker container. | `/usr/src/app` |
+| `smartStep` | Optional. Try to automatically step over code that doesn't map to source files. |
+| `skipFiles` | Optional. Automatically skip files covered by these glob patterns. |
+| `trace` | Optional. Enable diagnostic output. |
+
+## Next steps
+
+Read on to learn more about
+- [Debug Node.js within Docker containers](/docs/containers/debug-node.md)
+- [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md)
