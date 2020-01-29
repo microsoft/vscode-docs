@@ -33,7 +33,7 @@ In this guide you will learn how to:
 ## Add Docker file to the project
 
 1. Open the project folder in VS Code.
-1. Open the Command Palette (`kb(workbench.action.showCommands)`) and use `Docker: Add Docker Files to Workspace...` command:
+1. Open the Command Palette (`kb(workbench.action.showCommands)`) and use **Docker: Add Docker Files to Workspace...** command:
 
    ![Add Dockerfile to a Node.js project](images/quickstarts/node-add-node.png)
 
@@ -60,7 +60,7 @@ The extension will create `Dockerfile` and `.dockerignore` files. If you elected
 
    ![Application page in browser](images/quickstarts/node-run-browser.png)
 
-1. When done testing, type `Ctrl+C` in the terminal.
+1. When done testing, type `kbstyle(Ctrl+C)` in the terminal.
 
 ## Build the service image
 

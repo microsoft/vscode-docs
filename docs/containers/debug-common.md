@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Debug
 ContentId: A1371726-5310-4923-B43B-240F36C6264E
 PageTitle: Debug an app running in a Docker container
-DateApproved: 
+DateApproved:
 MetaDescription: Debug an app running in a Docker container, using Visual Studio Code.
 ---
 # Debug apps within Docker containers
@@ -94,7 +94,7 @@ More information about debugging Node.js applications within Docker containers c
 
 ### `node` Object Properties
 
-> These properties are the same as those described in the [VS Code documentation](https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_launch-configuration-attributes) for attaching a debugger to Node.js applications. All properties passed in the `node` object will be passed on to the Node.js debug adaptor, even if not specifically listed below.
+> These properties are the same as those described in the [VS Code documentation](/docs/nodejs/nodejs-debugging.md#launch-configuration-attributes) for attaching a debugger to Node.js applications. All properties passed in the `node` object will be passed on to the Node.js debug adaptor, even if not specifically listed below.
 
 | Property | Description | Default |
 | --- | --- | --- |

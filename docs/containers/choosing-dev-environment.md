@@ -11,17 +11,17 @@ MetaDescription: Guidance on choosing remote or local environments for developin
 
 You can choose whether to develop a container-based service in the **local environment**, or in a **remote environment**. The local environment is the operating system of your developer workstation; using the local environment means you build and run your service container(s) using Docker installed on your workstation.
 
-[A remote development environment](https://code.visualstudio.com/docs/remote/remote-overview) is different from your developer workstation. It can be a remote machine accessible via SSH, a virtual machine running on your developer workstation, or a development container. A remote environment can have advantages over the local environment, the main one being **the ability to use the same operating system during development, and when your service is running in production**. To use a remote environment, you need to ensure that `docker` command (Docker CLI) [is available and functional within that environment](#enabling-docker-cli-inside-a-development-environment).
+[A remote development environment](/docs/remote/remote-overview.md) is different from your developer workstation. It can be a remote machine accessible via SSH, a virtual machine running on your developer workstation, or a development container. A remote environment can have advantages over the local environment, the main one being **the ability to use the same operating system during development, and when your service is running in production**. To use a remote environment, you need to ensure that `docker` command (Docker CLI) [is available and functional within that environment](#enabling-docker-cli-inside-a-development-environment).
 
 The second important choice is whether to debug your service running as a ordinary process, or **debug your service running in a container**.
 
 ## Guidelines for choosing a development environment
 
 1. Use the local environment when you are not particularly concerned about:
-   - using the same OS for development and inside the service container, nor 
+   - using the same OS for development and inside the service container, nor
    - installing necessary tools and dependencies on top of your local environment.
 
-1. Consider [development container](https://code.visualstudio.com/docs/remote/containers) first if you need a remote environment.
+1. Consider [development container](/docs/remote/containers.md) first if you need a remote environment.
     - On Windows, [Windows Subsystem for Linux (WSL)](#windows-subsystem-for-linux) is worth considering as an alternative.
 
 1. Debugging your service running in a container is possible, but brings additional complexity. Use normal debugging by default, and debugging in container when you need it.

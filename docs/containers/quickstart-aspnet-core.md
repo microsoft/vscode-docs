@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: ASP.NET Core
 ContentId: 29F731D4-C6FE-4742-A1E7-7288FDB81CB9
 PageTitle: Build and run an ASP.NET Core app in a container
-DateApproved: 
+DateApproved:
 MetaDescription: Develop, build, and debug an ASP.NET Core app in a Docker container, using Visual Studio Code.
 ---
 # Build and run an ASP.NET Core app in a container
@@ -18,7 +18,7 @@ In this guide you will learn how to:
 ## Prerequisites
 
 - Docker and the VS Code Docker extension must be installed as described on the [[Home page|Home#installation]].
-- For .NET development install [.NET Core SDK](https://dotnet.microsoft.com/download). 
+- For .NET development install [.NET Core SDK](https://dotnet.microsoft.com/download).
 - [C# VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## Create a .NET Core Web API project
@@ -33,7 +33,7 @@ In this guide you will learn how to:
 ## Add Docker files to the project
 
 1. Open the project folder in VS Code
-1. Open Command Palette (`kb(workbench.action.showCommands)`) and use `Docker: Add Docker Files to Workspace...` command:
+1. Open Command Palette (`kb(workbench.action.showCommands)`) and use **Docker: Add Docker Files to Workspace...** command:
 
    ![Add Dockerfile to a .NET project](images/quickstarts/aspnetcore-add-dotnet.png)
 
@@ -41,7 +41,7 @@ In this guide you will learn how to:
 1. Choose `Windows` or `Linux` when prompted to choose the operating system.
     > `Windows` is only applicable if your Docker installation is configured to use Windows containers.
 1. Change the port for application endpoint to `5000`.
-1. `Dockerfile` and `.dockerignore` files are added to the workspace. 
+1. `Dockerfile` and `.dockerignore` files are added to the workspace.
 
    The extension will also create a set of **VS Code tasks** for building and running the container (in both debug- and release configuration, four tasks in total), and a **debugging configuration** for launching the container in debug mode.
 
