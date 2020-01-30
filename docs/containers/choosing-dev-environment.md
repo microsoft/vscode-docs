@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 7
 Area: containers
 TOCTitle: Choose a dev environment
 ContentId: AF3D8F58-8F73-44CD-962C-B7F029E50478
@@ -7,11 +7,11 @@ PageTitle: Choosing an environment for container development
 DateApproved:
 MetaDescription: Guidance on choosing remote or local environments for developing and debugging containerized apps, using Visual Studio Code.
 ---
-# Choosing your development environment
+# Your development environment
 
 You can choose whether to develop a container-based service in the **local environment**, or in a **remote environment**. The local environment is the operating system of your developer workstation; using the local environment means you build and run your service container(s) using Docker installed on your workstation.
 
-[A remote development environment](/docs/remote/remote-overview.md) is different from your developer workstation. It can be a remote machine accessible via SSH, a virtual machine running on your developer workstation, or a development container. A remote environment can have advantages over the local environment, the main one being the ability to use the same operating system during development, and when your service is running in production. To use a remote environment, you need to ensure that `docker` command (Docker CLI) [is available and functional within that environment](#enabling-docker-cli-inside-a-development-environment).
+[A remote development environment](/docs/remote/remote-overview.md) is different from your developer workstation. It can be a remote machine accessible via SSH, a virtual machine running on your developer workstation, or a development container. A remote environment can have advantages over the local environment, the main one being the ability to use the same operating system during development, and when your service is running in production. To use a remote environment, you need to ensure that `docker` command (Docker CLI) [is available and functional within that environment](#enabling-docker-cli-inside-a-remote-development-environment).
 
 The second important choice is whether to debug your service running as an ordinary process, or debug your service running in a container.
 

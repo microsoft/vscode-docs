@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: containers
 TOCTitle: Deploy to Azure
 ContentId: 044913F5-F99D-4228-A916-0443260AB7FB
@@ -24,7 +24,7 @@ In this guide you will learn how to:
 
 ## Create the application image
 
-If you already have an image, skip this step and proceed to [Push the image to container registry](#push-the-image-to-container-registry) step.
+If you already have an image, skip this step and proceed to [Push the image to container registry](#push-the-image-to-a-container-registry) step.
 
 1. Open the application folder in VS Code.
 

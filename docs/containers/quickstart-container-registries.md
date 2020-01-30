@@ -49,7 +49,7 @@ For each tagged image in a repository, here are the actions that can be performe
 
 - **Pull image**: copies the latest version of the image locally
 - **Copy image digest**: copies the image digest, which is a SHA256 hash identifier that Docker uses, to the clipboard. See [Docker Docs](https://docs.docker.com/engine/reference/commandline/images/#list-image-digests) for more info on image digests
-- **Deploy image to Azure App Service**: deploys the image to Azure App Service, see [Deploy images to Azure App Service](https://github.com/microsoft/vscode-docker/wiki/App-Service) page
+- **Deploy image to Azure App Service**: deploys the image to Azure App Service, see [Deploy images to Azure App Service](/docs/containers/appservice.md) page
 - **Untag image**: untags the image
 - **Delete image**: deletes the image permanently
 
