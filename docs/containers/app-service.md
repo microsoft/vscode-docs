@@ -24,7 +24,7 @@ In this guide you will learn how to:
 
 ## Create the application image
 
-If you already have an image, skip this step and proceed to [Push the image to container registry](#push-the-image-to-a-container-registry) step.
+If you already have an image, skip this step and proceed to [Push the image to a container registry](#push-the-image-to-a-container-registry) step.
 
 1. Open the application folder in VS Code.
 
