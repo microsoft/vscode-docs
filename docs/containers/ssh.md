@@ -7,8 +7,6 @@ MetaDescription: Connect to a container image running on a remote machine, using
 ---
 # Connect to remote Docker over SSH
 
-## Overview
-
 In order to connect to a remote Docker daemon over SSH (as opposed to HTTPS with certificate authentication), there are two options for configuring the extension:
 
 * Visual Studio Code [Remote Development using SSH](/docs/remote/ssh.md) - Run your VS Code client in the context of the remote host.

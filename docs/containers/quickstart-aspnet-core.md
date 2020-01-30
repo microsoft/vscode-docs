@@ -79,7 +79,7 @@ You can use the Docker extension to author Docker files. The extension provides 
 
 ## Build the image
 
-1. Open command palette (`kb(workbench.action.showCommands)`) and issue **Docker Images: Build Image...** command.
+1. Open Command Palette (`kb(workbench.action.showCommands)`) and issue **Docker Images: Build Image...** command.
 1. Open Docker view and verify that the new image is visible in the Images tree:
 
    ![Verify Docker image exists](images/quickstarts/aspnetcore-verify-image.png)
