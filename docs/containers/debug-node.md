@@ -78,9 +78,9 @@ This feature depends on the application writing its logs to the debug console of
 
 The solution varies depending on the logging framework, but it generally requires creating/adding a logger that *actually* writes to the console.
 
-### Example: Configuring [Express.js](https://expressjs.com/) applications to write to the debug console
+### Example: Configuring Express applications to write to the debug console
 
-By default, [Express.js](https://expressjs.com/) uses the [`debug`](https://github.com/visionmedia/debug) logging module, which can bypass the console.  This can be resolved by explicitly binding the log function to the console's `debug()` method.
+By default, [Express.js](https://expressjs.com/) uses the [debug](https://github.com/visionmedia/debug) logging module, which can bypass the console.  This can be resolved by explicitly binding the log function to the console's `debug()` method.
 
 ```js
 var app = require('../app');
@@ -118,7 +118,7 @@ Also note that the `debug` logger writes logs only when enabled via the `DEBUG` 
 ### Configuring when the application is "ready"
 
 The extension determines the application is "ready" to receive HTTP connections when it writes a message of the form `Listening on port <number>` to the debug console, as Express.js does by default.  If the application logs a different
-message, then you should set the `pattern` property of the [`dockerServerReadyAction`]((debug-common.md#dockerServerReadyAction-object-properties)) object of the debug launch configuration to a [JavaScript regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) that matches that message. The regular expression should include a capture group that corresponds to the port on which the application is listening.
+message, then you should set the `pattern` property of the [dockerServerReadyAction](/docs/containers/debug-common.md#dockerServerReadyAction-object-properties) object of the debug launch configuration to a [JavaScript regular expression](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions) that matches that message. The regular expression should include a capture group that corresponds to the port on which the application is listening.
 
 For example, suppose the application logs the following message:
 
@@ -155,7 +155,7 @@ The corresponding `pattern` in the debug launch configuration (in `launch.json`)
 
 ### Configuring the application entry page
 
-By default, the Docker extension will open the "main" page of the browser (however that is determined by the application).  If the browser should be opened to a specific page, the `uriFormat` property of the [`dockerServerReadyAction`]((debug-common.md#dockerServerReadyAction-object-properties)) object of the debug launch configuration should be set to a Node.js format string, with one string token that indicates where the port should be substituted.
+By default, the Docker extension will open the "main" page of the browser (however that is determined by the application).  If the browser should be opened to a specific page, the `uriFormat` property of the [dockerServerReadyAction](debug-common.md#dockerServerReadyAction-object-properties) object of the debug launch configuration should be set to a Node.js format string, with one string token that indicates where the port should be substituted.
 
 The corresponding `uriFormat` in the debug launch configuration (in `launch.json`) to open the `about.html` page instead of the main page would be:
 
@@ -180,7 +180,7 @@ The corresponding `uriFormat` in the debug launch configuration (in `launch.json
 
 By default, the Docker extension assumes the application source files in the running Docker container are located in an `/usr/src/app` folder, and the debugger then maps those files back to the root of the opened workspace, in order to translate breakpoints from the container back to Visual Studio Code.
 
-If the application source files are in a different location (for example, different Node.js frameworks have different conventions), either within the Docker container or within the opened workspace, then one or both of the `localRoot` and `remoteRoot` properties of the [`node`](debug-node.md#node-object-properties) object of the debug launch configuration should be set the root source locations within the workspace and the Docker container, respectively.
+If the application source files are in a different location (for example, different Node.js frameworks have different conventions), either within the Docker container or within the opened workspace, then one or both of the `localRoot` and `remoteRoot` properties of the [node](/docs/containers/debug-node.md#node-object-properties) object of the debug launch configuration should be set the root source locations within the workspace and the Docker container, respectively.
 
 For example, if the application instead resides in `/usr/my-custom-location`, the corresponding `remoteRoot` property would be:
 
@@ -203,9 +203,9 @@ For example, if the application instead resides in `/usr/my-custom-location`, th
 
 # Troubleshooting
 
-## Problem: Docker image fails to build or start due to missing `node_modules` folder
+## Docker image fails to build or start due to missing node_modules
 
-Dockerfiles are often arranged in such a way as to optimize either image build time, image size, or both.  However, not every Node.js application framework supports all of the typical Node.js Dockerfile optimizations.  In particular, for some frameworks, the `node_modules` folder must be an immediate subfolder of the application root folder, whereas, the Docker extension scaffolds a Dockerfile where the `node_modules` folder exists at a parent or ancestor level (which is generally allowed by Node.js).
+Dockerfiles are often arranged in such a way as to optimize either image build time, image size, or both.  However, not every Node.js application framework supports all of the typical Node.js Dockerfile optimizations. In particular, for some frameworks, the `node_modules` folder must be an immediate subfolder of the application root folder, whereas, the Docker extension scaffolds a Dockerfile where the `node_modules` folder exists at a parent or ancestor level (which is generally allowed by Node.js).
 
 The solution is to remove that optimization from the `Dockerfile`:
 

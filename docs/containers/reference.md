@@ -99,7 +99,7 @@ Here are all properties available for configuring `docker-build` task. All prope
 | `netCore` | Determines options specific for .NET Core projects ([see below](#netcore-object-properties-dockerbuild-task)). |
 | `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-dockerrun-task)). |
 
-### `dockerBuild` object properties:
+### dockerBuild object properties:
 
 | Property | Description | `docker build` CLI Equivalent |
 | --- | --- | --- |
@@ -111,13 +111,13 @@ Here are all properties available for configuring `docker-build` task. All prope
 | `target` | The target in the Dockerfile to build to. | `--target` |
 | `pull` | Whether or not to pull new base images before building. | `--pull` |
 
-### `netCore` object properties (`docker-build` task)
+### netCore object properties (`docker-build` task)
 
 | Property | Description |
 | --- | --- |
 | `appProject` | The .NET Core project file (`.csproj`, `.fsproj`, etc.) associated with the Dockerfile and `docker-build` task. <br/> Required always.  |
 
-### `node` object properties (`docker-build` task)
+### node object properties (`docker-build` task)
 
 | Property | Description | Default |
 | --- | --- | --- |
