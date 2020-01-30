@@ -94,10 +94,10 @@ Here are all properties available for configuring `docker-build` task. All prope
 
 | Property | Description |
 | --- | --- |
-| `dockerBuild` | Options for controlling the `docker build` command executed ([see below](#dockerBuild-object-properties)). <br/> Required unless `platform` is set. |
+| `dockerBuild` | Options for controlling the `docker build` command executed ([see below](#dockerbuild-object-properties)). <br/> Required unless `platform` is set. |
 | `platform` | Determines the platform: .NET Core (`netcore`) or Node.js (`node`) and default settings for `docker build` command. |
-| `netCore` | Determines options specific for .NET Core projects ([see below](#netCore-object-properties-docker-build-task)). |
-| `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-docker-run-task)). |
+| `netCore` | Determines options specific for .NET Core projects ([see below](#netcore-object-properties-dockerbuild-task)). |
+| `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-dockerrun-task)). |
 
 ### `dockerBuild` object properties:
 
@@ -206,10 +206,10 @@ Here are all properties available for configuring `docker-run` task. All propert
 
 | Property | Description |
 | --- | --- |
-| `dockerRun` | Options for controlling the `docker run` command executed ([see below](#dockerRun-object-properties)). <br/> Required unless `platform` is set. |
+| `dockerRun` | Options for controlling the `docker run` command executed ([see below](#dockerrun-object-properties)). <br/> Required unless `platform` is set. |
 | `platform` |  Determines the platform: .NET Core (`netcore`) or Node.js (`node`) and default settings for `docker run` command. |
-| `netCore` | For .NET Core projects, this controls various options ([see below](#netCore-object-properties-docker-run-task)). |
-| `node` | For Node.js projects, this controls various options ([see below](#node-object-properties-docker-run-task)). |
+| `netCore` | For .NET Core projects, this controls various options ([see below](#netcore-object-properties-dockerrun-task)). |
+| `node` | For Node.js projects, this controls various options ([see below](#node-object-properties-dockerrun-task)). |
 
 ### dockerRun object properties
 
@@ -226,7 +226,7 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `os` |  Default is `Linux`, the other option is `Windows`. The container operating system used. | N/A |
 | `ports` |  The ports to publish (map) from container to host. This is a list of objects ([see below](#ports-object-properties)). | `-p` or `--publish` |
 | `portsPublishAll` |  Whether to publish all ports exposed by the Docker image.  Defaults to `true` if no ports are explicitly published. | `-P ` |
-| `extraHosts` |  The hosts to add to the container for DNS resolution. This is a list of objects ([see below](#extraHosts-object-properties)). | `--add-host` |
+| `extraHosts` |  The hosts to add to the container for DNS resolution. This is a list of objects ([see below](#extrahosts-object-properties)). | `--add-host` |
 | `volumes` |  The volumes to map into the started container. This is a list of objects ([see below](#volumes-object-properties)). | `-v` or `--volume` |
 
 ### ports object properties
