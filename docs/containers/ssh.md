@@ -2,7 +2,7 @@
 Area: containers
 ContentId: DDE07043-BA8C-4D75-B392-ABACC31F6EA8
 PageTitle: Connect to Docker running on a remote machine
-DateApproved:
+DateApproved: 01/29/2020
 MetaDescription: Connect to a container image running on a remote machine, using Visual Studio Code.
 ---
 # Connect to a remote Docker daemon over SSH

@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Customize
 ContentId: 6784FBBE-9EE4-44A8-AC48-A52617EB1968
 PageTitle: Reference for Visual Studio Code Docker extension properties and tasks.
-DateApproved:
+DateApproved: 01/29/2020
 MetaDescription: Reference for Docker build and Docker run tasks and properties in the Visual Studio Code Docker extension.
 ---
 # Customize the Docker extension
