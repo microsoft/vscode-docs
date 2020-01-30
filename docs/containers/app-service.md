@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 7
 Area: containers
 TOCTitle: Deploy to Azure
 ContentId: 044913F5-F99D-4228-A916-0443260AB7FB
