@@ -7,7 +7,7 @@ PageTitle: Debug an app running in a Docker container
 DateApproved:
 MetaDescription: Debug an app running in a Docker container, using Visual Studio Code.
 ---
-# Debug with Docker containers
+# Debug containerized apps
 
 With version 0.9.0 and later, the Docker extension provides more support for debugging applications within Docker containers, such as scaffolding `launch.json` configurations for attaching a debugger to applications running within a container.
 
