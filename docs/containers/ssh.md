@@ -5,7 +5,7 @@ PageTitle: Connect to Docker running on a remote machine
 DateApproved: 01/29/2020
 MetaDescription: Connect to a container image running on a remote machine, using Visual Studio Code.
 ---
-# Connect to a remote Docker daemon over SSH
+# Connect to remote Docker over SSH
 
 ## Overview
 
@@ -15,15 +15,15 @@ In order to connect to a remote Docker daemon over SSH (as opposed to HTTPS with
 
 The simplest way is to use VS Code's [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension, from the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack.
 
-1. Run command `Remote-SSH: Add new SSH host...` and follow the prompts to set up a connection to the target host.
+1. Run command **Remote-SSH: Add new SSH host...** and follow the prompts to set up a connection to the target host.
 
-1. Run command `Remote-SSH: Connect to host...` and connect to the host.
+1. Run command **Remote-SSH: Connect to host...** and connect to the host.
 
 1. A new VS Code window opens, remoted to the target machine. If using password authentication, the password will be prompted here. It is recommended to set up [SSH key authentication](https://www.ssh.com/ssh/public-key-authentication), for ease of use. In the Extensions tab, install the Docker extension (on the remote host) (a reload may be required after this step):
 
    ![Screenshot - Installing the Docker extension](images/ssh/install-in-ssh.png)
 
-NOTE: If you are using the Extension to build Docker images, etc. (and thus you have source code for something)--the above approach probably means you have to have your source enlistment on the _remote host_, rather than your local machine. If you are just using the extension for the Explorer features, then you can disregard this.
+>**NOTE**: If you are using the Docker extension to build Docker images and have source code, the approach above probably means you have your source enlistment on the remote host, rather than your local machine. If you are just using the Docker extension for the Docker Explorer features, then you can disregard this.
 
 ## Directly via SSH
 
