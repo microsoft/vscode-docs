@@ -217,6 +217,7 @@ A configuration setting can have one of the following possible scopes:
 - `machine-overridable` - Machine specific settings that can be overridden by workspace or folder settings.
 - `window` - Windows (instance) specific settings which can be configured in user, workspace, or remote settings.
 - `resource` - Resource settings, which apply to files and folders, and can be configured in all settings levels, even folder settings.
+- `language-overridable` - Resource settings that can be overridable at a language level.
 
 Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable. If no `scope` is declared, the default is `window`.
 

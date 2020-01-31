@@ -72,6 +72,14 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 ## Common questions
 
+### Unable to open on macOS Catalina
+
+After downloading, when you try to open VS Code on macOS Catalina, you may see a message '"Visual Studio Code" can't be opened because Apple cannot check it for malicious software'. This is because VS Code is not currently notarized but VS Code will run successfully on macOS Catalina.
+
+To workaround the notarization check, follow the instructions to [Open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac) or from the Apple menu, go to **System Preferences** > **Security & Privacy** > **General** and choose **Open Anyway**.
+
+![Notarization check workaround to Open Anyway](images/mac/open-anyway.png)
+
 ### Why do I see "Visual Studio Code would like access to your calendar."
 
 If you are running macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave [discussed above](#mojave-privacy-protections). It is fine to choose **Don't Allow** since VS Code does not need access to those folders.

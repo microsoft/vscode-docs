@@ -356,7 +356,7 @@ The Natvis schema is provided here for convenience:
     <xs:annotation>
       <xs:documentation>
         Specifies an optional name, in &lt;DisplayString&gt; syntax, for this node. If omitted, the name
-        of the node will simply be the index of the item in the tree traversal. Expressions in curly braces
+        of the node will be the index of the item in the tree traversal. Expressions in curly braces
         are evaluated in the context of the node.
       </xs:documentation>
     </xs:annotation>

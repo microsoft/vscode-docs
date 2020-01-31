@@ -157,7 +157,7 @@ Specifies arguments to pass to the Python program. Each element of the argument 
 
 ### `stopOnEntry`
 
-When set to `True`, breaks the debugger at the first line of the program being debugged. If omitted (the default) or set to `False`, the debugger runs the program to the first breakpoint.
+When set to `true`, breaks the debugger at the first line of the program being debugged. If omitted (the default) or set to `false`, the debugger runs the program to the first breakpoint.
 
 ### `console`
 
@@ -183,25 +183,25 @@ As an example, say `${workspaceFolder}` contains a `py_code` folder containing `
 
 ### `redirectOutput`
 
-When omitted or set to `True` (the default), causes the debugger to print all output from the program into the VS Code debug output window. If set to `False`, program output is not displayed in the debugger output window.
+When omitted or set to `true` (the default), causes the debugger to print all output from the program into the VS Code debug output window. If set to `false`, program output is not displayed in the debugger output window.
 
 This option is typically disabled when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console.
 
 ### `justMyCode`
 
-When omitted or set to `True` (the default), restricts debugging to user-written code only. Set to `False` to also enable debugging of standard library functions.
+When omitted or set to `true` (the default), restricts debugging to user-written code only. Set to `false` to also enable debugging of standard library functions.
 
 ### `django`
 
-When set to `True`, activates debugging features specific to the Django web framework.
+When set to `true`, activates debugging features specific to the Django web framework.
 
 ### `sudo`
 
-When set to `True` and used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password.
+When set to `true` and used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password.
 
 ### `pyramid`
 
-When set to `True`, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve).
+When set to `true`, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve).
 
 ### `env`
 
