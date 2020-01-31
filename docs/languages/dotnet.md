@@ -43,7 +43,7 @@ Install the following:
 3. Run the app by entering the following command in the command shell:
 
    ```cmd
-    dotnet run
+   dotnet run
    ```
    
 ## Create a F# "Hello World" app
@@ -60,7 +60,7 @@ Install the following:
 2. Once it completes, open the project in Visual Studio Code:
 
    ```cmd
-     code .
+   code .
    ```
 
 3. Run the app by entering the following command in the command shell:
