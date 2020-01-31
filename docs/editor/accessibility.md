@@ -13,7 +13,7 @@ Visual Studio Code has many features to help make the editor accessible to all u
 
 ## Zoom
 
-You can increase the Zoom level in VS Code with the **View** > **Zoom In** command (`kb(workbench.action.zoomIn)`).  The zoom level increases by 20% each time the command is executed. The **View** > **Zoom Out** (`kb(workbench.action.zoomOut)`) command lets you decrease the Zoom level.
+You can increase the Zoom level in VS Code with the **View** > **Appearance** > **Zoom In** command (`kb(workbench.action.zoomIn)`).  The zoom level increases by 20% each time the command is executed. The **View** > **Appearance** > **Zoom Out** (`kb(workbench.action.zoomOut)`) command lets you decrease the Zoom level. You can reset the Zoom level with **View** > **Appearance** > **Reset Zoom** (`kb(workbench.action.zoomReset)`).
 
 ![Zoomed in editor](images/accessibility/zoomed-in.png)
 
