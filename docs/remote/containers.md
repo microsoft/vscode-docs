@@ -571,6 +571,29 @@ From the Containers Explorer you can right-click on a running container and stop
 
 If you want to clean out images or mass-delete containers, see [Cleaning out unused containers and images](/docs/remote/troubleshooting.md#cleaning-out-unused-containers-and-images) for different options.
 
+## Personalizing with dotfile repositories
+
+Dotfiles are files whose filename begins with a dot (`.`) and typically contain configuration information for various applications. Since development containers can cover a wide range of application types, it can be useful to store these files somewhere so that you can easily copy them into a container once it is up and running.
+
+A common way to do this is to store these dotfiles in a GitHub repository and then use a utility to clone and apply them. The Remote - Containers extension has bulit-in support for using these with your own containers. If you are new to the idea, take a look at [the different dotfiles bootstrap repositories](https://dotfiles.github.io/) that exist.
+
+However, note that **your local `.gitconfig` file is automatically copied into the container**, so if you are using a tool that will error if a file already exists, you may need to modify the install script to remove the file first.
+
+To use it, update your user `settings.json` file as follows:
+
+```json
+{
+    // Dotfile repository
+    "remote.containers.dotfiles.repository": "https://github.com/your-github-id/your-dotfiles-repo.git",
+    // [Optional] Alternate location to clone the dotfiles
+    "remote.containers.dotfiles.targetPath": "~/dotfiles",
+    // [Optional] Install command to run if not install.sh
+    "remote.containers.dotfiles.installCommand": "~/dotfiles/install.sh"
+}
+```
+
+From this point forward, the dotfiles repository will be used whenever a container is created.
+
 ## In-depth: Setting up a folder to run in a container
 
 There are a few different ways VS Code Remote - Containers can be used to develop an application inside a fully containerized environment. In general, there are two primary scenarios that drive interest in this development style:
