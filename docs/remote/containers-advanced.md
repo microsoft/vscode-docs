@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 9
 Area: remote
 TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
@@ -398,7 +398,7 @@ If the image or Dockerfile you are using **already provides an optional non-root
 "remoteUser": "user-name-goes-here"
 ```
 
-On Linux, if you are referencing a **Dockerfile or image** in `devcontainer.json`, this will also automatically update the container user's UID/GID to match your local user to avoid the bind mount permissions problem that exists in this environment (unless you set `"updateRemoteUserUID": false`).
+On Linux, if you are referencing a **Dockerfile or image** in `devcontainer.json`, this will also automatically update the container user's UID/GID to match your local user to avoid the bind mount permissions problem that exists in this environment (unless you set `"updateRemoteUserUID": false`). In the **Docker Compose** case, you can [manually change these values]().
 
 Since this setting only affects VS Code and related sub-processes, VS Code needs to be restarted (or the window reloaded) for it to take effect. However, UID/GID updates are only applied when the container is created and requires a rebuild to change.
 
@@ -452,6 +452,26 @@ USER $USERNAME
 > **Tip:** If you hit an error when building about the GID or UID already existing, the image you selected likely already has a non-root user you can take advantage of directly.
 
 In either case, if you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+### Manually changing the UID/GID of an existing container user
+
+While the `remoteUser` property tries to automatically update the UID/GID as appropriate on Linux when using a **Dockerfile or image**, you can use this snippet to your Dockerfile to manually change the UID/GID of a user instead. Simply update the `ARG` values as appropriate.
+
+```Dockerfile
+ARG USERNAME=user-name-goes-here
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupmod --gid $USER_GID $USERNAME \
+    && usermod --uid $USER_UID --gid $USER_GID $USERNAME \
+    && chown -R $USER_UID:$USER_GID /home/$USERNAME
+```
+
+Note that on Alpine Linux, you'll need to install the `shadow` package first.
+
+```Dockerfile
+RUN apk add --no-cache shadow
+```
 
 ## Using Docker or Kubernetes from a container
 
