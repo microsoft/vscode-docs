@@ -227,7 +227,19 @@ You can now work with the repository source code in this isolated environment as
 
 VS Code's container configuration is stored in a [`devcontainer.json`](#devcontainerjson-reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. You can also specify any extensions to install once the container is running or post-create commands to prepare the environment. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
-Selecting the **Remote-Containers: Add Development Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project, which you can further customize for your needs.
+You can use any image, Dockerfile, or set of Docker Compose files as a starting point. Here is a simple example that uses one of the pre-built [VS Code Development Container images](https://hub.docker.com/_/microsoft-vscode-devcontainers):
+
+```json
+{
+    "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12",
+    "forwardPorts": [ 3000 ],
+    "extensions": [
+        "dbaeumer.vscode-eslint"
+    ]
+}
+```
+
+Selecting the **Remote-Containers: Add Development Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs.
 
 The command lets you pick a pre-defined container configuration:
 
@@ -355,6 +367,12 @@ You can also install all locally installed extensions inside the Dev Container b
 ![Install all extensions](images/containers/install-all-extn-containers.png)
 
 However, note that some extensions may require you to [install additional software](#installing-additional-software) in the container. Consult extension documentation for details if you encounter issues.
+
+### Adding an extension to devcontainer.json
+
+While you can edit your [devcontainer.json](#creating-a-devcontainerjson-file) file by hand to add a list of extension IDs, you can also right-click on any extension in the Extensions view and select **Add to devcontainer.json**.
+
+![Add to devcontainer.json menu](images/containers/containers-addto-devcontainer.png)
 
 ### "Always installed" extensions
 
@@ -585,25 +603,12 @@ You'll be asked to either select an existing Dockerfile (if one exists), or pick
 
 You can also create your configuration manually. The difference between configuring VS Code to build a container image using a Dockerfile or just reuse an exiting image is a single property in `devcontainer.json`:
 
-* **To use an image:**  Set the `image` property. For example, this will use the .NET SDK image, forward port 8090, and install the C# VS Code extension:
+* **To use an image:**  Set the `image` property. For example, this will use the Javascript & Node 12 pre-built [VS Code Development Container image](https://hub.docker.com/_/microsoft-vscode-devcontainers), forward port 3000, install the ES Lint extension, and run `npm install` the when done:
 
     ```json
     {
         "name": "My Project",
-        "image": "mcr.microsoft.com/dotnet/core/sdk:latest",
-        "forwardPorts": [8090],
-        "extensions": [
-            "ms-vscode.csharp"
-        ]
-    }
-    ```
-
-* **To use a Dockerfile:** Set the `dockerFile` property. For example, this will cause VS Code to build the dev container image using the specified `Dockerfile`, forward port 3000, install the ES Lint extension in the container, and run `npm install` once it is done:
-
-    ```json
-    {
-        "name": "My Node.js App",
-        "dockerFile": "Dockerfile",
+        "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-12",
         "forwardPorts": [3000],
         "extensions": [
             "dbaeumer.vscode-eslint"
@@ -612,11 +617,24 @@ You can also create your configuration manually. The difference between configur
     }
     ```
 
+* **To use a Dockerfile:** Set the `dockerFile` property. For example, this will cause VS Code to build the dev container image using the specified `Dockerfile`, forward port 5000, install the C# extension in the container:
+
+    ```json
+    {
+        "name": "My Node.js App",
+        "dockerFile": "Dockerfile",
+        "forwardPorts": [5000],
+        "extensions": [
+            "ms-vscode.csharp"
+        ]
+    }
+    ```
+
 See the [devcontainer.json reference](#devcontainerjson-reference) for information on other available properties such as `forwardPorts`, `postCreateCommand`, and the `extensions` list.
 
 Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen Folder in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in VS Code)  from the Command Palette (`kbstyle(F1)`). After the container is created, the **local filesystem is automatically "bind" mount into the container**, unless you [change this behavior](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount), and you can start working with it from VS Code.
 
-However, note that on Linux, you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details.
+However, note that on Linux, you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root.  All of the configuration files and images the extension ships with include a non-root user you can specify. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details.
 
 ```yaml
 # Change user for VS Code and sub-processes (terminals, tasks, debugging)
