@@ -54,7 +54,7 @@ Install the following:
    * Enter the following command in the command shell:
 
    ```cmd
-     dotnet new console -lang F#
+   dotnet new console -lang F#
    ```
 
 2. Once it completes, open the project in Visual Studio Code:
