@@ -46,9 +46,9 @@ Install the following:
    dotnet run
    ```
    
-## Create a F# "Hello World" app
+## Create an F# "Hello World" app
 
-1. Initialize a F# project:
+1. Initialize an F# project:
 
    * Open a terminal/command prompt and navigate to the folder in which you'd like to create the app.
    * Enter the following command in the command shell:
