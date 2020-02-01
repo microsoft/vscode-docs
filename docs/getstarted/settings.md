@@ -261,7 +261,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.find.autoFindInSelection": "never",
 
     // Controls whether the Find Widget should read or modify the shared find clipboard on macOS.
-    "editor.find.globalFindClipboard": true,
+    "editor.find.globalFindClipboard": false,
 
     // Controls whether the search string in the Find Widget is seeded from the editor selection.
     "editor.find.seedSearchStringFromSelection": true,
@@ -431,7 +431,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.parameterHints.enabled": true,
 
     // Controls whether to focus the inline editor or the tree in the peek widget.
-    //  - tree: Focus the tree when openeing peek
+    //  - tree: Focus the tree when opening peek
     //  - editor: Focus the editor when opening peek
     "editor.peekWidgetDefaultFocus": "tree",
 
@@ -664,17 +664,17 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the wrapping column of the editor when `editor.wordWrap` is `wordWrapColumn` or `bounded`.
     "editor.wordWrapColumn": 80,
 
-    // Controls the algorithm that computes wrapping points.
-    //  - monospace: Assumes that all characters are of the same width. This is a fast algorithm.
-    //  - dom: Delegates wrapping points computation to the DOM. This is a slow algorithm, that might cause freezes for large files.
-    "editor.wrappingAlgorithm": "monospace",
-
     // Controls the indentation of wrapped lines.
     //  - none: No indentation. Wrapped lines begin at column 1.
     //  - same: Wrapped lines get the same indentation as the parent.
     //  - indent: Wrapped lines get +1 indentation toward the parent.
     //  - deepIndent: Wrapped lines get +2 indentation toward the parent.
     "editor.wrappingIndent": "same",
+
+    // Controls the algorithm that computes wrapping points.
+    //  - simple: Assumes that all characters are of the same width. This is a fast algorithm that works correctly for monospace fonts and certain scripts (like Latin characters) where glyphs are of equal width.
+    //  - advanced: Delegates wrapping points computation to the browser. This is a slow algorithm, that might cause freezes for large files, but it works correctly in all cases.
+    "editor.wrappingStrategy": "simple",
 
 // SCM
 
@@ -791,9 +791,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether opened editors should show in tabs or not.
     "workbench.editor.showTabs": true,
-
-    // Navigate between open files using three-finger swipe horizontally.
-   "workbench.editor.swipeToNavigate": false,
 
     // Controls the sizing of editor groups when splitting them.
     //  - distribute: Splits all the editor groups to equal parts.
@@ -915,6 +912,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // If enabled, double clicking the application icon in the title bar will close the window and the window cannot be dragged by the icon. This setting only has an effect when `window.titleBarStyle` is set to `custom`.
     "window.doubleClickIconToClose": false,
 
+    // Controls if native full-screen should be used on macOS. Disable this option to prevent macOS from creating a new space when going full-screen.
+    "window.nativeFullScreen": true,
+
     // Enables macOS Sierra window tabs. Note that changes require a full restart to apply and that native tabs will disable a custom title bar style if configured.
     "window.nativeTabs": false,
 
@@ -941,7 +941,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Note that there can still be cases where this setting is ignored (e.g. when using the `--new-window` or `--reuse-window` command line option).
     //  - on: Files will open in a new window.
     //  - off: Files will open in the window with the files' folder open or the last active window.
-    //  - default: Files will open in a new window unless picked from within the application (e.g. via the File menu).
+    //  - default: Files will open in the window with the files' folder open or the last active window unless opened via the Dock or from Finder.
     "window.openFilesInNewWindow": "off",
 
     // Controls whether folders should open in a new window or replace the last active window.
@@ -1044,9 +1044,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the memory available to VS Code after restart when trying to open large files. Same effect as specifying `--max-memory=NEWSIZE` on the command line.
     "files.maxMemoryForLargeFilesMB": 4096,
 
-    // When enabled, will prevent to save a file that has been changed since it was last edited. Instead, a diff editor is provided to compare the changes and accept or revert them. This setting should only be disabled if you frequently encounter save conflict errors and may result in data loss if used without caution.
-    "files.saveConflictResolution": true,
+    // Timeout in milliseconds after which file participants for create, rename, and delete are cancelled. Use `0` to disable participants.
+    "files.participants.timeout": 5000,
 
+    // A save conflict can occur when a file is saved to disk that was changed by another program in the meantime. To prevent data loss, the user is asked to compare the changes in the editor with the version on disk. This setting should only be changed if you frequently encounter save conflict errors and may result in data loss if used without caution.
+    //  - askUser: Will refuse to save and ask for resolving the save conflict manually.
+    //  - overwriteFileOnDisk: Will resolve the save conflict by overwriting the file on disk with the changes in the editor.
+    "files.saveConflictResolution": "askUser",
     // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
     "files.trimFinalNewlines": false,
 
@@ -1159,8 +1163,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the search view should read or modify the shared find clipboard on macOS.
     "search.globalFindClipboard": false,
 
-    // Controls whether the search will be shown as a view in the sidebar or as a panel in the panel area for more horizontal space.
-    "search.location": "sidebar",
 
     // Whether to include results from recently opened files in the file results for Quick Open.
     "search.quickOpen.includeHistory": true,
@@ -1170,6 +1172,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Search all files as you type.
     "search.searchOnType": true,
+
+    // When `search.searchOnType` is enabled, controls the timeout in milliseconds between a character being typed and the search starting. Has no effect when `search.searchOnType` is disabled.
+    "search.searchOnTypeDebouncePeriod": 300,
 
     // Controls whether to show line numbers for search results.
     "search.showLineNumbers": false,
@@ -1222,6 +1227,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enables the macOS touchbar buttons on the keyboard if available.
     "keyboard.touchbar.enabled": true,
+
+    // A set of identifiers for entries in the touchbar that should not show up (for example `workbench.action.navigateBack`.
+    "keyboard.touchbar.ignored": [],
 
 // Update
 
