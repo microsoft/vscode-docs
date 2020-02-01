@@ -68,6 +68,34 @@ Finally, [create a new pipeline](https://docs.microsoft.com/azure/devops/pipelin
 
 You can enable the build to run continuously when pushing to a branch and even on pull requests. See [Build pipeline triggers](https://docs.microsoft.com/azure/devops/pipelines/build/triggers) to learn more.
 
+## Github Actions
+
+With Github Actions is simpler since there is already an [action](https://github.com/marketplace/actions/gabrielbb-xvfb-action) that automatically checks if linux is being used, if that's the case then it runs the tests in a XVFB enabled environment:
+
+```yaml
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 8.x
+      - run: npm install 
+      - name: Run tests
+        uses: GabrielBB/xvfb-action@v1.0
+        with:
+          run: npm test
+
+```
+
 ## Travis CI
 
 [vscode-test](https://github.com/microsoft/vscode-test) also includes a [Travis CI build definition](https://github.com/microsoft/vscode-test/blob/master/.travis.yml). Because the way to define environment variables is different from Azure Pipelines to Travis CI, the `xvfb` script is a little bit different:
