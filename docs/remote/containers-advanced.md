@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 8
 Area: remote
 TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
@@ -398,7 +398,7 @@ If the image or Dockerfile you are using **already provides an optional non-root
 "remoteUser": "user-name-goes-here"
 ```
 
-On Linux, if you are referencing a **Dockerfile or image** in `devcontainer.json`, this will also automatically update the container user's UID/GID to match your local user to avoid the bind mount permissions problem that exists in this environment (unless you set `"updateRemoteUserUID": false`). In the **Docker Compose** case, you can [manually change these values]().
+On Linux, if you are referencing a **Dockerfile or image** in `devcontainer.json`, this will also automatically update the container user's UID/GID to match your local user to avoid the bind mount permissions problem that exists in this environment (unless you set `"updateRemoteUserUID": false`). In the **Docker Compose** case, the container user's UID/GID will not be updated but you can [manually change these values in a Dockerfile](#change-the-uidgid-of-an-existing-container-user).
 
 Since this setting only affects VS Code and related sub-processes, VS Code needs to be restarted (or the window reloaded) for it to take effect. However, UID/GID updates are only applied when the container is created and requires a rebuild to change.
 
@@ -453,9 +453,9 @@ USER $USERNAME
 
 In either case, if you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-### Manually changing the UID/GID of an existing container user
+### Change the UID/GID of an existing container user
 
-While the `remoteUser` property tries to automatically update the UID/GID as appropriate on Linux when using a **Dockerfile or image**, you can use this snippet to your Dockerfile to manually change the UID/GID of a user instead. Simply update the `ARG` values as appropriate.
+While the `remoteUser` property tries to automatically update the UID/GID as appropriate on Linux when using a **Dockerfile or image**, you can use this snippet in your Dockerfile to manually change the UID/GID of a user instead. Update the `ARG` values as appropriate.
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
