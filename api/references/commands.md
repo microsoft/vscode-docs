@@ -22,7 +22,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 ## Commands
 
-`vscode.executeWorkspaceSymbolProvider` - Execute all workspace symbol provider.
+`vscode.executeWorkspaceSymbolProvider` - Execute all workspace symbol providers.
 
 - _query_ - Search string
 - _(returns)_ - A promise that resolves to an array of SymbolInformation and DocumentSymbol instances.
