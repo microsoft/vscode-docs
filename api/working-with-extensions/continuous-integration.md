@@ -70,7 +70,7 @@ You can enable the build to run continuously when pushing to a branch and even o
 
 ## Github Actions
 
-With Github Actions is simpler since there is already an [action](https://github.com/marketplace/actions/gabrielbb-xvfb-action) that automatically checks if linux is being used, if that's the case then it runs the tests in a XVFB enabled environment:
+You can also configure Github Actions to run your extension CI using the [gabrielbb xvfb action](https://github.com/marketplace/actions/gabrielbb-xvfb-action). This automatically checks if Linux is the current OS and runs the tests in an Xvfb enabled environment accordingly:
 
 ```yaml
 on: [push]
