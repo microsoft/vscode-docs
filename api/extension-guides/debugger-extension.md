@@ -346,7 +346,7 @@ This catch-all `onDebug` is triggered as soon as any debug functionality is used
 A better approach for expensive debug extensions is to use more fine-grained activation events:
 
 - `onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
-- `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
+- `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` or `resolveDebugConfigurationWithSubstitutedVariables` methods of the `DebugConfigurationProvider` for the specified type is called.
 
 **Rule of thumb:** If activation of a debug extensions is cheap, use `onDebug`. If it is expensive, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`.
 
@@ -369,7 +369,7 @@ Today VS Code supports three different ways for running a debug adapter and cons
 
 - `DebugAdapterExecutable`: this object describes a debug adapter as an external executable with a path and optional arguments and runtime. The executable must implement the Debug Adapter Protocol and communicate via stdin/stdout. This is VS Code's default mode of operation and VS Code uses this descriptor automatically with the corresponding values from the package.json if no `DebugAdapterDescriptorFactory` is explicitely registered.
 - `DebugAdapterServer`: this object describes a debug adapter running as a server that communicates via a specific local or remote port. A debug adapter implementation based on the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module supports this server mode automatically.
-- `DebugAdapterInlineImplementation`: this object describes a debug adapter as a JavaScript or Typescript object that implements the `vscode.DebugAdapter` interface. A debug adapter implementation based on version 1.38 or later of the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module implements the interface automatically.
+- `DebugAdapterInlineImplementation`: this object describes a debug adapter as a JavaScript or Typescript object that implements the `vscode.DebugAdapter` interface. A debug adapter implementation based on version 1.38-pre.4 or later of the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module implements the interface automatically.
 
 Mock Debug shows examples for the [three types of DebugAdapterDescriptorFactories](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L91-L150)  and how they are [registered for the 'mock' debug type](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L50). The run mode to use can be selected by [setting the global variable `runMode`](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L16) to one of the possible values `external`, `server`, or `inline`.
 
