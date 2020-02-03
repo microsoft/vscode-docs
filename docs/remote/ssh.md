@@ -192,9 +192,9 @@ A notification will tell you the localhost port you should use to access the rem
 
 This same information is available in the **Forwarded Ports** section of the Remote Explorer if you need to access it later.
 
-If you would like VS Code to remember any ports you have forwarded, check **Remote: Restore Forwarded Ports** in the settings editor (`kbstyle(Cmd/Ctrl + ,)`) or set `"remote.restoreForwardedPorts": true` in `settings.json`.
+If you would like VS Code to remember any ports you have forwarded, check **Remote: Restore Forwarded Ports** in the Settings editor (`kb(workbench.action.openSettings)`) or set `"remote.restoreForwardedPorts": true` in `settings.json`.
 
-![Restore forwareded ports setting](images/common/restore-forwarded-ports.png)
+![Restore forwarded ports setting](images/common/restore-forwarded-ports.png)
 
 ### Always forwarding a port
 
@@ -220,13 +220,13 @@ You can also use the `code` command line from this same terminal window to perfo
 
 ## Debugging on the SSH host
 
-Once you are connected to a remote host, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kbstyle(F5)`), the application will start on remote host and attach the debugger to it.
+Once you are connected to a remote host, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kb(workbench.action.debug.start)`), the application will start on remote host and attach the debugger to it.
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
 ## SSH host-specific settings
 
-VS Code's local user settings are also reused when you are connected to an SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting on the **Remote** tab in the settings editor. These will override any local settings you have in place whenever you connect to the host.
+VS Code's local user settings are also reused when you are connected to an SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting on the **Remote** tab in the Settings editor. These will override any local settings you have in place whenever you connect to the host.
 
 ![Host-specific settings tab](images/ssh/ssh-settings.png)
 

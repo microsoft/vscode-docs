@@ -424,9 +424,9 @@ After selecting a port, a notification will tell you the localhost port you shou
 
 This same information is available in the **Forwarded Ports** section of the Remote Explorer if you need to access it later.
 
-If you would like VS Code to remember any ports you have forwarded, check **Remote: Restore Forwarded Ports** in the settings editor (`kbstyle(Cmd/Ctrl + ,)`) or set `"remote.restoreForwardedPorts": true` in `settings.json`.
+If you would like VS Code to remember any ports you have forwarded, check **Remote: Restore Forwarded Ports** in the Settings editor (`kb(workbench.action.openSettings)`) or set `"remote.restoreForwardedPorts": true` in `settings.json`.
 
-![Restore forwareded ports setting](images/common/restore-forwarded-ports.png)
+![Restore forwarded ports setting](images/common/restore-forwarded-ports.png)
 
 ### Publishing a port
 
@@ -460,13 +460,13 @@ You can also use the `code` command line from this same terminal window to perfo
 
 ## Debugging in a container
 
-Once you've opened a folder in a container, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kbstyle(F5)`), the application will start on the remote host and attach the debugger to it.
+Once you've opened a folder in a container, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kb(workbench.action.debug.start)`), the application will start on the remote host and attach the debugger to it.
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
 ## Container specific settings
 
-VS Code's local user settings are also reused when you are connected to a dev container. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each container. Fortunately, once you have connected to a container, you can also set container-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the settings editor. These will override any local settings you have in place whenever you connect to the container.
+VS Code's local user settings are also reused when you are connected to a dev container. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each container. Fortunately, once you have connected to a container, you can also set container-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the Settings editor. These will override any local settings you have in place whenever you connect to the container.
 
 ![Container specific settings tab](images/containers/container-settings.png)
 
@@ -581,9 +581,9 @@ If you want to clean out images or mass-delete containers, see [Cleaning out unu
 
 Dotfiles are files whose filename begins with a dot (`.`) and typically contain configuration information for various applications. Since development containers can cover a wide range of application types, it can be useful to store these files somewhere so that you can easily copy them into a container once it is up and running.
 
-A common way to do this is to store these dotfiles in a GitHub repository and then use a utility to clone and apply them. The Remote - Containers extension has bulit-in support for using these with your own containers. If you are new to the idea, take a look at [the different dotfiles bootstrap repositories](https://dotfiles.github.io/) that exist.
+A common way to do this is to store these dotfiles in a GitHub repository and then use a utility to clone and apply them. The Remote - Containers extension has built-in support for using these with your own containers. If you are new to the idea, take a look at [the different dotfiles bootstrap repositories](https://dotfiles.github.io/) that exist.
 
-To use it, add your dotfiles GitHub repository to VS Code's user settings (`kbstyle(Cmd/Ctrl + ,)`) as follows:
+To use it, add your dotfiles GitHub repository to VS Code's User Settings (`kb(workbench.action.openSettings)`) as follows:
 
 ![Settings for dotfiles](images/containers/dotfiles.png)
 

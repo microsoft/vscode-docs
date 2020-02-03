@@ -846,7 +846,7 @@ Some extensions rely on libraries not found in the basic install of certain WSL 
 
 VS Code's local user settings are reused when you connect to a remote endpoint. While this keeps your user experience consistent, you may need to vary absolute path settings between your local machine and each host / container / WSL since the target locations are different.
 
-**Resolution:** You can set endpoint-specific settings after you connect to a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the settings editor. These settings will override any local settings you have in place whenever you connect.
+**Resolution:** You can set endpoint-specific settings after you connect to a remote endpoint by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the Settings editor. These settings will override any local settings you have in place whenever you connect.
 
 ### Need to install local VSIX on remote endpoint
 
