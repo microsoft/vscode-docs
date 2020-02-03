@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 12/12/2019
+DateApproved: 2/3/2019
 ---
 # Developing inside a Container
 
@@ -284,8 +284,8 @@ Here is the typical edit loop using these commands:
 2. Edit the contents of the `.devcontainer` folder as required.
 3. Try it with **Remote-Containers: Reopen Folder in Container**.
 4. If you see an error, click on **Open Folder Locally** in the dialog that appears.
-5. A copy of the **build log will appear** in the new, local window so you can investigate the problem. Edit the contents of the `.devcontainer` folder as required.
-6. Run **Remote-Containers: Rebuild and Reopen Folder in Container** and jump to step 4 if needed.
+5. After the window reloads, a copy of the **build log will appear** in the so you can investigate the problem. Edit the contents of the `.devcontainer` folder as required. (You can also use the **Remote-Containers: Open Log File...** command to see the log again if you close it.)
+1. Run **Remote-Containers: Rebuild and Reopen Folder in Container** and jump to step 4 if needed.
 
 If you already have a successful build, you can still edit the contents of the `.devcontainer` folder as required when connected to the container and then select **Remote-Containers: Rebuild Container** in the Command Palette (`kbstyle(F1)`) so the changes take effect.
 
@@ -421,6 +421,12 @@ If you need to access a port that you didn't add to `devcontainer.json` or publi
 ![Forward port input](images/containers/forward-port-containers.png)
 
 After selecting a port, a notification will tell you the localhost port you should use to access the port in the container. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost. You can then connect to this remote HTTP server using `http://localhost:4123`.
+
+This same information is available in the **Forwarded Ports** section of the Remote Explorer if you need to access it later.
+
+If you would like VS Code to remember any ports you have forwarded, check **Remote: Restore Forwarded Ports** in the settings editor (`kbstyle(Cmd/Ctrl + ,)`) or set `"remote.restoreForwardedPorts": true` in `settings.json`.
+
+![Restore forwareded ports setting](images/common/restore-forwarded-ports.png)
 
 ### Publishing a port
 
@@ -577,17 +583,16 @@ Dotfiles are files whose filename begins with a dot (`.`) and typically contain 
 
 A common way to do this is to store these dotfiles in a GitHub repository and then use a utility to clone and apply them. The Remote - Containers extension has bulit-in support for using these with your own containers. If you are new to the idea, take a look at [the different dotfiles bootstrap repositories](https://dotfiles.github.io/) that exist.
 
-However, note that **your local `.gitconfig` file is automatically copied into the container**, so if you are using a tool that will error if a file already exists, you may need to modify the install script to remove the file first.
+To use it, add your dotfiles GitHub repository to VS Code's user settings (`kbstyle(Cmd/Ctrl + ,)`) as follows:
 
-To use it, update your user `settings.json` file as follows:
+![Settings for dotfiles](images/containers/dotfiles.png)
+
+Or in `settings.json`:
 
 ```json
 {
-    // Dotfile repository
-    "remote.containers.dotfiles.repository": "https://github.com/your-github-id/your-dotfiles-repo.git",
-    // [Optional] Alternate location to clone the dotfiles
+    "remote.containers.dotfiles.repository": "your-github-id/your-dotfiles-repo",
     "remote.containers.dotfiles.targetPath": "~/dotfiles",
-    // [Optional] Install command to run if not install.sh
     "remote.containers.dotfiles.installCommand": "~/dotfiles/install.sh"
 }
 ```
