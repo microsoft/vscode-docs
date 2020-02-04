@@ -40,6 +40,10 @@ To bring up the Debug view, select the Debug icon in the **Activity Bar** on the
 
 The Debug view displays all information related to debugging and has a top bar with debugging commands and configuration settings.
 
+If debugging is not yet configured (no `launch.json` has been created) we show the Debug start view.
+
+![Simplified initial Debug view](images/debugging/debug-start.png)
+
 ## Debug menu
 
 The top-level **Debug** menu has the most common debug commands:
