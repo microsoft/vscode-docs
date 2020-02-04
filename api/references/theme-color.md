@@ -294,6 +294,7 @@ Search Editor colors highlight results in a Search Editor. This can be configure
 
 - `searchEditor.findMatchBackground`: Color of the editor's results.
 - `searchEditor.findMatchBorder`: Border color of the editor's results.
+- `searchEditor.textInputBorder`: Search editor text input box border."
 
 The hover highlight is shown behind the symbol for which a hover is shown.
 
@@ -356,6 +357,11 @@ Bracket matches:
 
 - `editorBracketMatch.background`: Background color behind matching brackets.
 - `editorBracketMatch.border`: Color for matching brackets boxes.
+
+
+Folding:
+
+"`editor.foldBackground`: Background color for folded ranges."
 
 Overview ruler:
 
