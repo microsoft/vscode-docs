@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 891072bb-c46d-4392-800a-84d747072ce3
-DateApproved: 12/12/2019
+DateApproved: 2/5/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Continuous Integration for testing Visual Studio Code extensions (plug-ins).
@@ -88,7 +88,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 8.x
-      - run: npm install 
+      - run: npm install
       - name: Run tests
         uses: GabrielBB/xvfb-action@v1.0
         with:
