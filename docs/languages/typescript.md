@@ -148,14 +148,39 @@ VS Code includes some handy refactorings for TypeScript such as **Extract functi
 
 ![TypeScript refactoring](images/typescript/refactorings.png)
 
-Available refactorings include:
-
-- Extract to method or function.
-- Extract to constant.
-- Convert between named imports and namespace imports.
-- Move to new file.
-
 See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
+
+Available TypeScript refactorings include:
+
+* **Extract to method or function** - Extract the selected statements or expressions to either a new method or a new function in the file.
+
+   ![Triggering the extract method refactoring on a selection](images/typescript/refactor-extract-function.gif)
+
+   After selecting the **Extract to method** or **Extract to function** refactoring, enter the name of the extracted method/function.
+
+* **Extract to constant** - Extract the selected expression to a new constant in the file.
+
+   ![Extracting a constant from a selection](images/typescript/refactor-extract-constant.gif)
+
+* **Extract type to interface or type alias** - Extract the selected complex type to either an interface or a type alias.
+
+   ![Extract an inline type to an interface](images/typescript/refactor-extract-interface.gif)
+
+* **Move to new file** - Move one or more classes, functions, constants, or interfaces in the top-level scope of the file to a new file. The new file's name is inferred from the selected symbol's name.
+
+   ![Moving a class to a new file](images/typescript/refactor-move-file.gif)
+
+* **Convert between named imports and namespace imports** - Convert between named imports (`import { Name } from './foo'`) and namespace imports (`import * as foo from './foo'`).
+
+   ![Converting a named import to a namespace import](images/typescript/refactor-convert-import.gif)
+
+* **Convert between default export and named export** - Convert from using a `export default` and having a named export (`export const Foo = ...`).
+
+* **Generate get and set accessors** - Encapsulate a selected class property by generating a getter and setter for it.
+
+   ![Generating getters and setters from class property](images/typescript/refactor-generate-get-set.gif)
+
+* **Convert parameters to destructured object** - Rewrite a function that takes a long list of arguments to take a single arguments object.
 
 ## Quick Fixes
 
