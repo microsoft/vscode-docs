@@ -90,7 +90,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-The list of arguments to the command is passed as a JSON array that has been properly URI encoded: The example below uses the `git.stage` command to create a hover like that stages the current file:
+The list of arguments to the command is passed as a JSON array that has been properly URI encoded: The example below uses the `git.stage` command to create a hover link that stages the current file:
 
 ```ts
 import * as vscode from 'vscode';
