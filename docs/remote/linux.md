@@ -21,7 +21,7 @@ The extensions are known to work when connecting to recent stable/LTS version of
 
 There is also experimental support in **[VS Code Insiders](https://code.visualstudio.com/insiders/)** for:
 
-* **Windows 10 / Server 2016/2019 SSH hosts** (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enabling **Use Local Server** [in VS Code settings](/docs/getstarted/settings.md).
+* **Windows 10 / Server 2016/2019 SSH hosts** (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enabling `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md).
 
 However, if you are using a non-standard configuration or downstream distribution of Linux, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
 
@@ -82,8 +82,8 @@ The following is a list of distributions and any base requirements that may be m
 | ✅ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 16.04 (64-bit) | `ubuntu:16.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 14.04 (64-bit) | `ubuntu:14.04` | &lt;none&gt;  | &lt;none&gt; |
-| 🔬 Windows 10 1903 (64-bit) | Not supported. | &lt;none&gt;  | Use the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enable **Use Local Server** [in VS Code settings](/docs/getstarted/settings.md). |
-| 🔬 Windows Server 2019 1903 (64-bit) | Not supported. | &lt;none&gt;  | Use the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enable **Use Local Server** [in VS Code settings](/docs/getstarted/settings.md). |
+| 🔬 Windows 10 1903 (64-bit) | Not supported. | &lt;none&gt;  | Use the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enable `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md). |
+| 🔬 Windows Server 2019 1903 (64-bit) | Not supported. | &lt;none&gt;  | Use the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enable `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md). |
 
 ## Updating glibc and libstdc++ on RHEL / CentOS 6
 

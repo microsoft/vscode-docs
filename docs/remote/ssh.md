@@ -31,7 +31,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 **Experimental SSH Host Support** ([VS Code Insiders only](https://code.visualstudio.com/insiders/)):
 
-- Windows 10 / Server 2016/2019 (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enabling **Use Local Server** [in VS Code settings](/docs/getstarted/settings.md).
+- Windows 10 / Server 2016/2019 (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enabling `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md).
 
 Other `glibc` based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l (AArch64) should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
 
@@ -53,7 +53,7 @@ In this quick start, we'll cover how to connect to an SSH host with minimal setu
 
 If you do not have a host yet, you can [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) or create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-> **Note:** When using experimental Windows 10/Server SSH host support, enable **Use Local Server** [in VS Code settings](/docs/getstarted/settings.md).
+> **Note:** When using experimental Windows 10/Server SSH host support, enable `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md).
 >
 > ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension.
 
@@ -248,7 +248,7 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
 - macOS SSH hosts are **not** yet supported. (macOS clients **are** supported.)
 - Alpine Linux and non-glibc based Linux SSH hosts are not supported.
-- Experimental Windows 10 / Server 2016/2019 support is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only and requires and enabling **Use Local Server** [in VS Code settings](/docs/getstarted/settings.md).
+- Experimental Windows 10 / Server 2016/2019 support is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only and requires and enabling `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md).
 - Older (community supported) Linux distributions require workarounds to install the [needed prerequisites](/docs/remote/linux.md).
 - PuTTY is not supported on Windows.
 - If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
