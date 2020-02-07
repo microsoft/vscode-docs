@@ -111,9 +111,9 @@ Or run the **PowerShell: Show Session Menu** command from the Command Palette (`
 
 ## Pester
 
-[Pester](https://github.com/pester/Pester/wiki/Pester) is a [Behavior-driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development) (BDD) based unit test runner for PowerShell. Pester provides a framework for running unit tests to execute and validate PowerShell commands. Pester follows a file naming convention for naming tests to be discovered by Pester at test time and a simple set of functions that expose a testing [domain-specific language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL) for isolating, running, evaluating and reporting the results of PowerShell commands.
+[Pester](https://pester.dev/) is a [Behavior-driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development) (BDD) based unit test runner for PowerShell. Pester provides a framework for running unit tests to execute and validate PowerShell commands. Pester follows a file naming convention for naming tests to be discovered by Pester at test time and a simple set of functions that expose a testing [domain-specific language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL) for isolating, running, evaluating and reporting the results of PowerShell commands.
 
-Windows 10 and Server 2016 comes with Pester 3.40 pre-installed. To update Pester or to install the latest version on other platforms follow the [Pester installation instructions](https://github.com/pester/Pester#installation).
+Windows 10 and Server 2016 comes with Pester 3.40 pre-installed. To update Pester or to install the latest version on other platforms follow the [Pester installation instructions](https://pester.dev/docs/introduction/installation).
 
 ![Pester CodeLens Integration](images/powershell/pesterCodeLens.png)
 
