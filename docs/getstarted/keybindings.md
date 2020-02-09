@@ -423,6 +423,8 @@ Key|Command|Command id
 `kb(editor.action.moveLinesUpAction)`|Move Line Up|`editor.action.moveLinesUpAction`
 `kb(editor.action.copyLinesDownAction)`|Copy Line Down|`editor.action.copyLinesDownAction`
 `kb(editor.action.copyLinesUpAction)`|Copy Line Up|`editor.action.copyLinesUpAction`
+`kb(undo)`|Undo|`undo`
+`kb(redo)`|Redo|`redo`
 `kb(editor.action.addSelectionToNextFindMatch)`|Add Selection To Next Find Match|`editor.action.addSelectionToNextFindMatch`
 `kb(editor.action.moveSelectionToNextFindMatch)`|Move Last Selection To Next Find Match|`editor.action.moveSelectionToNextFindMatch`
 `kb(cursorUndo)`|Undo last cursor operation|`cursorUndo`
