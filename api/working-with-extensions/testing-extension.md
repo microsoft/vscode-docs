@@ -22,10 +22,12 @@ In the generated extension, you can use `npm run test` or `yarn test` to run the
 - Downloads and unzips latest version of VS Code.
 - Runs the [Mocha](https://mochajs.org) tests specified by the extension test runner script.
 
-Alternatively, you can find the configuration for this guide in the [helloworld-test-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-test-sample). The rest of this document explains these files in the context of the sample:
+You can find the configuration for this guide in the [helloworld-test-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-test-sample). The rest of this document explains these files in the context of the sample:
 
 - The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts))
 - The **test runner script** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts))
+
+Alternatively, you can test your extension with [Jest](https://jestjs.io/), since VS Code supports any test framework that can run programmatically. You can find a sample configuration in the [helloworld-jest-test-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-jest-test-sample) and jump to the [Testing extension with Jest](#testing-extension-with-jest) section of this guide.
 
 ## The test script
 
@@ -176,6 +178,134 @@ Here is a sample `launch.json` debugger configuration:
 <video autoplay loop muted playsinline controls>
   <source src="/api/working-with-extensions/testing-extension/debug.mp4" type="video/mp4">
 </video>
+
+## Testing extension with Jest
+
+As mentioned earlier, you can replace Mocha with any test framework that can run programmatically. Follow the steps outlined below to configure [Jest](https://jestjs.io/) as your test runner. You can reference the configuration for this guide in the [helloworld-jest-test-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-jest-test-sample).
+
+### Install `vscode-jest-test-runner`
+
+Instead of writing and maintaining a **test runner script**, you can install [vscode-jest-test-runner](https://github.com/bmealhouse/vscode-jest-test-runner), which will:
+
+- Implement the test runner script for you.
+- Expose the VS Code API to your test files.
+- Allow you to create and update snapshots.
+
+#### `npm`
+
+```sh
+npm install vscode-jest-test-runner jest --save-dev
+```
+
+#### `yarn`
+
+```sh
+yarn add vscode-jest-test-runner jest --dev
+```
+
+### Setup the test script
+
+The **test script** ([`helloworld-jest-test-sample/src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-jest-test-sample/src/test/runTest.ts)) follows the same approach described earlier, however, instead of creating a **test runner script**, you will reference [vscode-jest-test-runner](https://github.com/bmealhouse/vscode-jest-test-runner) for the `extensionTestsPath`.
+
+```ts
+import * as path from 'path';
+import { runTests } from 'vscode-test';
+
+async function main() {
+  try {
+    // The folder containing the Extension Manifest package.json
+    // Passed to `--extensionDevelopmentPath`
+    const extensionDevelopmentPath = path.resolve(__dirname, '../../');
+
+    // The path to the extension test script
+    // Passed to --extensionTestsPath
+    const extensionTestsPath = path.resolve(
+      __dirname,
+      '../../node_modules/vscode-jest-test-runner'
+    );
+
+    // Download VS Code, unzip it and run the integration test
+    await runTests({
+      extensionDevelopmentPath,
+      extensionTestsPath
+    });
+  } catch (err) {
+    console.error('Failed to run tests');
+    process.exit(1);
+  }
+}
+
+main();
+```
+
+### Updating Jest snapshots
+
+Snapshots can be updated using the CLI or a specialized `launch.json` configuration.
+
+To update snapshots from the CLI, create a [`test:update`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-jest-test-sample/package.json#L33) script in your [`package.json`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-jest-test-sample/package.json#L33) that runs tests with `JEST_TEST_RUNNER_UPDATE_SNAPSHOTS=true`.
+
+```json
+{
+  "scripts": {
+    "test": "node ./out/tests/runTest.js",
+    "test:update": "cross-env JEST_TEST_RUNNER_UPDATE_SNAPSHOTS=true npm test"
+  }
+}
+```
+
+You can also update snapshots using this sample `launch.json` configuration:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Jest: Update All Snapshots",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/node_modules/vscode-jest-test-runner"
+      ],
+      "outFiles": ["${workspaceFolder}/out/**/*.js"],
+      "preLaunchTask": "npm: compile",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "JEST_TEST_RUNNER_UPDATE_SNAPSHOTS": "true"
+      }
+    }
+  ]
+}
+```
+
+### Debugging tests with Jest
+
+To debug tests with Jest, here is a sample `launch.json` debugger configuration:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Jest: Extension Tests",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/node_modules/vscode-jest-test-runner"
+      ],
+      "outFiles": ["${workspaceFolder}/out/**/*.js"],
+      "preLaunchTask": "npm: compile",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "JEST_TEST_RUNNER_UPDATE_SNAPSHOTS": "false"
+      }
+    }
+  ]
+}
+```
 
 ## Tips
 
