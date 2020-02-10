@@ -80,7 +80,7 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: $\{{ matrix.os }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2

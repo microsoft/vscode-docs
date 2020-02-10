@@ -1333,7 +1333,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // List of tags, comma separated, that should have an extra newline before them. `null` defaults to `"head, body, /html"`.
     "html.format.extraLiners": "head, body, /html",
 
-    // Format and indent `{{#foo}}` and `{{/foo}}`.
+    // Format and indent `\{{#foo}}` and `\{{/foo}}`.
     "html.format.indentHandlebars": false,
 
     // Indent `<head>` and `<body>` sections.
