@@ -416,6 +416,7 @@ Key|Command|Command id
 ---|-------|----------
 `kb(editor.action.clipboardCutAction)`|Cut line (empty selection)|`editor.action.clipboardCutAction`
 `kb(editor.action.clipboardCopyAction)`|Copy line (empty selection)|`editor.action.clipboardCopyAction`
+`kb(editor.action.clipboardPasteAction)`|Paste|`editor.action.clipboardPasteAction`
 `kb(editor.action.deleteLines)`|Delete Line|`editor.action.deleteLines`
 `kb(editor.action.insertLineAfter)`|Insert Line Below|`editor.action.insertLineAfter`
 `kb(editor.action.insertLineBefore)`|Insert Line Above|`editor.action.insertLineBefore`
