@@ -611,9 +611,9 @@ As a workaround, use your Docker ID to sign in to Docker rather than your email.
 
 There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, high CPU usage occurring when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
 
-### Using an SSH tunnel to connect to a remote Docker host
+### Using SSH to connect to a remote Docker host
 
-The [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) article covers how to setup VS Code when working with a remote Docker host. This is often as simple as setting the `docker.host` property in `settings.json` or the `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.
+The [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) article covers how to setup VS Code when working with a remote Docker host. This is often as simple as setting the `docker.host` property in `settings.json` or the `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.  For information on how to set this up, see [Connect to remote Docker over SSH](/docs/containers/ssh).
 
 However, you may run into situations where this does not work in your environment due to SSH configuration complexity or other limitations. In this case, an SSH tunnel can be used as a fallback.
 
