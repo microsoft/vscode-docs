@@ -9,7 +9,9 @@ MetaDescription: Configure the C++ extension in Visual Studio Code to target Mic
 ---
 # Configure VS Code for Microsoft C++
 
-In this tutorial, you configure Visual Studio Code to use the Microsoft C++ compiler and debugger on Windows. After configuring VS Code, you will compile and debug a simple program to get familiar with the VS Code user interface. After completing this tutorial, you will be ready to create and configure your own workspace, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you details about Windows or the Microsoft C++ toolset or the C++ language. For those subjects, there are many good resources available on the Web.
+In this tutorial, you configure Visual Studio Code to use the Microsoft Visual C++ compiler and debugger on Windows.
+
+After configuring VS Code, you will compile and debug a simple Hello World program in VS Code. This tutorial does not teach you details about or the Microsoft C++ toolset or the C++ language. For those subjects, there are many good resources available on the Web.
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
@@ -18,21 +20,40 @@ If you have any problems, feel free to file an issue for this tutorial in the [V
 To successfully complete this tutorial, you must do the following:
 
 1. Install [Visual Studio Code](/download).
-1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 
-1. Install the Microsoft C++ (MSVC) compiler toolset.
-   - If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. If it's not installed, then check the box and click the **Modify** button in the installer.
-   - Or, download the standalone toolset by clicking the Visual Studio Build Tools link on the [Downloads page](https://visualstudio.microsoft.com/downloads/#other) and follow the prompts. With the default settings, the download size is about 1GB and the size on disk is about 4GB. If you don't require CMake support (and the Windows SDK that it depends on) the size on disk should be about 3GB.
+1. Install the [C/C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'c++' in the Extensions view (`kb(workbench.view.extensions)`).
 
-## Start VS Code from the Developer Command Prompt
+    ![C/C++ extension](images/cpp/cpp-extension.png)
 
-To use MSVC in VS Code, you must start VS Code from a **Developer Command Prompt for Visual Studio**. An ordinary Windows command prompt, or a Bash prompt, does not have the necessary environment variables set.
+1. Install the Microsoft Visual C++ (MSVC) compiler toolset.
 
-1. To open the Developer Command Prompt for VS, start typing "Developer" in the Windows Start menu, and you should see it appear in the list of suggestions. The exact name depends on which version of Visual Studio or the Visual Studio Build Tools you have installed. Click on the item to open the prompt.
+   If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. If it's not installed, then check the box and click the **Modify** button in the installer.
 
-   ![Developer Command Prompt](images/msvc/developer-cmd-prompt-menu.png)
+   You can also install just the **C++ Build Tools**, without a full Visual Studio IDE installation. From the Visual Studio [Downloads](https://visualstudio.microsoft.com/downloads#other) page, scroll down until you see **Tools for Visual Studio** under the **All downloads** section and select the download for **Build Tools for Visual Studio**.
 
-1. From the developer command prompt, create an empty folder called "projects" where you can store all your VS Code projects, then create a subfolder called "helloworld", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
+   ![Build Tools for Visual Studio download](images/msvc/build-tools-for-vs.png)
+
+   This will launch the Visual Studio Installer, which will bring up a dialog showing the available Visual Studio Build Tools workloads. Check the **C++ build tools** workload and select **Install**.
+
+   ![Cpp build tools workload](images/msvc/cpp-build-tools.png)
+
+### Check your Microsoft Visual C++ installation
+
+To use MSVC from a command line or VS Code, you must run from a **Developer Command Prompt for Visual Studio**. An ordinary shell such as PowerShell, Bash, or the Windows command prompt does not have the necessary path environment variables set.
+
+To open the Developer Command Prompt for VS, start typing 'developer' in the Windows Start menu, and you should see it appear in the list of suggestions. The exact name depends on which version of Visual Studio or the Visual Studio Build Tools you have installed. Click on the item to open the prompt.
+
+![Developer Command Prompt](images/msvc/developer-cmd-prompt-menu.png)
+
+You can test that you have the C++ compiler, `cl.exe`, installed correctly by typing 'cl' and you should see a copyright message with the version and basic usage description.
+
+![Checking cl.exe installation](images/msvc/check-cl-exe.png)
+
+If the Developer Command Prompt is using the BuildTools location as the starting directory (you wouldn't want to put projects there), navigate to your user folder (`C:\users\{your username}\`) before you start creating new projects.
+
+## Create Hello World
+
+From the Developer Command Prompt, create an empty folder called "projects" where you can store all your VS Code projects, then create a subfolder called "helloworld", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
 ```cmd
 mkdir projects
@@ -41,6 +62,19 @@ mkdir helloworld
 cd helloworld
 code .
 ```
+
+The **code .** command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
+
+- `tasks.json` (build instructions)
+- `launch.json` (debugger settings)
+- `c_cpp_properties.json` (compiler path and IntelliSense settings)
+
+### Add a source code file
+
+In the File Explorer title bar, select the **New File** button and name the file `helloworld.cpp`.
+
+TBD double check cl.exe in the terminal
+TBD mention that PowerShell is the default, can set to Command Prompt cmd.exe (add to MinGW as well)
 
 The **code .** command opens VS Code in the current working folder, which becomes your *workspace*. Before we can get IntelliSense support, or compile and debug our code, we have to configure VS Code for MSVC. After completing the configuration, we will have three files in a `.vscode` subfolder:
 
