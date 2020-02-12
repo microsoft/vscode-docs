@@ -7,7 +7,7 @@ PageTitle: How to set up debugging on macOS with LLDB-MI
 DateApproved: 2/12/2020
 MetaDescription: How to set up debugging on macOS with LLDB-MI
 ---
-# macOS debugging with LLDB-MI
+# Debugging with LLDB-MI on macOS
 
 The debug adapter for the [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) utilizes the machine interface mode for both gdb and lldb. To use this interface in lldb, the extension utilizes `lldb-mi`. The `lldb-mi` executable was built from the GitHub [lldb-mi repository](https://github.com/lldb-tools/lldb-mi) and has a dependency on the `LLDB.framework`, which is part of XCode.
 
@@ -17,37 +17,43 @@ The `lldb-mi` executable requires `LLDB.framework` to run.
 
 ### How to obtain the LLDB.framework
 
-You can get the `LLDB.framework` one of two ways:
+You can get the `LLDB.framework` one of two ways.
 
-* XCode
-    1. Open the **Apple App Store**.
-    2. Search for 'XCode'.
-    3. Select the **XCode** application and then **Install**.
+XCode:
 
-* XCode Command Line Tools
-    1. Open a terminal.
-    2. Run `xcode-select --install`.
-    3. Confirm the prompt.
+   1. Open the **Apple App Store**.
+   2. Search for 'XCode'.
+   3. Select the **XCode** application and then **Install**.
 
-## Example launch.json debug configuration
+XCode Command Line Tools:
+
+   1. Open a terminal.
+   2. Run `xcode-select --install`.
+   3. Confirm the prompt.
+
+## Example launch.json
+
+Below is an example `launch.json` debug configuration entry for `lldb`:
 
 ```json
 {
-    "name": "Launch (lldb)",
-    "type": "cppdbg",
-    "request": "launch",
-    "program": "${workspaceFolder}/a.out",
-    "args": [],
-    "stopAtEntry": false,
-    "cwd": "${workspaceFolder}",
-    "environment": [],
-    "externalConsole": false
+    "configurations": [
+        {
+            "name": "Launch (lldb)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/a.out",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false
+        }
+    ]
 }
 ```
 
-## Additional Information
-
-### If you get the Developer Tool Access prompt
+## If you get a Developer Tool Access prompt
 
 ![Developer Tool Access problem](images/debugger/DeveloperToolsAccess.png)
 
@@ -58,6 +64,8 @@ If you wish to permanently dismiss this prompt, you can run the following comman
 ```bash
 sudo DevToolsSecurity --enable
 ```
+
+## Additional configurations
 
 ### Using an LLDB.framework not installed via XCode
 
@@ -79,7 +87,7 @@ For example, if you have the `LLDB.framework` folder located at `/Users/default/
    }
    ```
 
-## Using a custom-built lldb-mi
+### Using a custom-built lldb-mi
 
 If you built your own `lldb-mi`, you can use it by setting `miDebuggerPath` to the full path of the executable.
 
