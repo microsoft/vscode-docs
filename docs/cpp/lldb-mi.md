@@ -51,11 +51,13 @@ Below is an example `launch.json` debug configuration entry for `lldb`:
 ]
 ```
 
-## If you get a Developer Tool Access prompt
+## If you get a Developer Tools Access prompt
+
+You may see a dialog saying "Developer Tools Access needs to take control of another process for debugging to continue."
 
 ![Developer Tool Access problem](images/debugger/DeveloperToolsAccess.png)
 
-If you get this prompt, you will have to type in your username and password to allow debugging.
+If you get this prompt, you will have to enter your username and password to allow debugging.
 
 If you wish to permanently dismiss this prompt, you can run the following command in a terminal:
 
