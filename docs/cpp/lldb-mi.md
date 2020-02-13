@@ -36,21 +36,19 @@ XCode Command Line Tools:
 Below is an example `launch.json` debug configuration entry for `lldb`:
 
 ```json
-{
-    "configurations": [
-        {
-            "name": "Launch (lldb)",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/a.out",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false
-        }
-    ]
-}
+"configurations": [
+    {
+        "name": "Launch (lldb)",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/a.out",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false
+    }
+]
 ```
 
 ## If you get a Developer Tool Access prompt
@@ -82,9 +80,7 @@ For example, if you have the `LLDB.framework` folder located at `/Users/default/
 2. Add the following to your existing configuration:
 
    ```json
-   {
-       "miDebuggerPath": "/Users/default/example/lldb-mi"
-   }
+   "miDebuggerPath": "/Users/default/example/lldb-mi"
    ```
 
 ### Using a custom-built lldb-mi
