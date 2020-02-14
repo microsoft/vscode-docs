@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 12/12/2019
+DateApproved: 2/5/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development and Visual Studio Online support to extensions
@@ -238,22 +238,28 @@ Visual Studio Code does not provide a secret persistence mechanism itself, but m
 For example:
 
 ```typescript
-import * as vscode from 'vscode';
+import { env } from 'vscode';
+import * as keytarType from 'keytar';
 
-function getCoreNodeModule(moduleName) {
-    try {
-        return require(`${vscode.env.appRoot}/node_modules.asar/${moduleName}`);
-    }
-    catch (err) { }
-    try {
-        return require(`${vscode.env.appRoot}/node_modules/${moduleName}`);
-    }
-    catch (err) { }
-    return undefined;
+declare const __webpack_require__: typeof require;
+declare const __non_webpack_require__: typeof require;
+function getNodeModule<T>(moduleName: string): T | undefined {
+	const r = typeof __webpack_require__ === "function" ? __non_webpack_require__ : require;
+	try {
+		return r(`${env.appRoot}/node_modules.asar/${moduleName}`);
+	} catch (err) {
+		// Not in ASAR.
+	}
+	try {
+		return r(`${env.appRoot}/node_modules/${moduleName}`);
+	} catch (err) {
+		// Not available.
+	}
+	return undefined;
 }
 
 // Use it
-const keytar = getCoreNodeModule('keytar');
+const keytar = getNodeModule<typeof keytarType>('keytar');
 await keytar.setPassword('my-service-name','my-account','iamal337d00d');
 const password = await keytar.getPassword('my-service-name','my-account');
 ```

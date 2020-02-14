@@ -662,7 +662,7 @@ Throughout this Flask tutorial, all the app code is contained in a single `app.p
 
     ![Flask tutorial: modified project structure with separate files and folders for parts of the app](images/flask-tutorial/project-structure.png)
 
-1. Run the app in the debugger again to make sure everything works. To run the app outside of the VS Code debugger, use the following steps from terminal:
+1. Run the app in the debugger again to make sure everything works. To run the app outside of the VS Code debugger, use the following steps from a terminal:
     1. Set an environment variable for `FLASK_APP`. On Linux and macOS, use `export set FLASK_APP=webapp`; on Windows use `set FLASK_APP=webapp`.
     1. Navigate into the `hello_app` folder, then launch the program using `python3 -m flask run` (Linux/macOS) or `python -m flask run` (Windows).
 

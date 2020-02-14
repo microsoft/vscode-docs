@@ -23,8 +23,8 @@ Before going through this tutorial, you must have the Java SE Development Kit (J
 
 Download and install the Java SE Development Kit (JDK). Java support on Visual Studio Code works with all major Java versions up to 13, see a few JDK distributions you can choose from:
 
-* [OpenJDK](https://adoptopenjdk.net/)
-* [Azul Zulu Enterprise for Azure](https://www.azul.com/downloads/azure-only/zulu/)
+* [AdoptOpenJDK](https://adoptopenjdk.net/)
+* [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/)
 * [Java SE Downloads by Oracle](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 >**Note**: After installing the JDK, you would need to configure your environment for Java development. The most common way is to [set](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) `JAVA_HOME` environment variable to the install location of the JDK while you can also use `java.home` setting in Visual Studio Code settings ([workspace or user settings](/docs/getstarted/settings)) to configure it just for the editor.

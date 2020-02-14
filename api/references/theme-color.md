@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 12/12/2019
+DateApproved: 2/5/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -294,6 +294,7 @@ Search Editor colors highlight results in a Search Editor. This can be configure
 
 - `searchEditor.findMatchBackground`: Color of the editor's results.
 - `searchEditor.findMatchBorder`: Border color of the editor's results.
+- `searchEditor.textInputBorder`: Search editor text input box border."
 
 The hover highlight is shown behind the symbol for which a hover is shown.
 
@@ -356,6 +357,11 @@ Bracket matches:
 
 - `editorBracketMatch.background`: Background color behind matching brackets.
 - `editorBracketMatch.border`: Color for matching brackets boxes.
+
+
+Folding:
+
+"`editor.foldBackground`: Background color for folded ranges."
 
 Overview ruler:
 
@@ -738,8 +744,6 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `debugIcon.stepOutForeground`: Debug toolbar icon for step over.
 - `debugIcon.continueForeground`: Debug toolbar icon for continue.
 - `debugIcon.stepBackForeground`: Debug toolbar icon for step back.
-
-Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
 
 ## Extension colors
 

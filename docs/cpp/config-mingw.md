@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Mingw-w64 on Windows
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
 PageTitle: Get Started with C++ and Mingw-w64 in Visual Studio Code
-DateApproved: 07/25/2019
+DateApproved: 1/6/2020
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a Mingw-w64 installation
 ---
 # Using Mingw-w64 in VS Code
@@ -276,7 +276,7 @@ Sometimes you might want to keep track of the value of a variable as your progra
 
 1. Add another watch by adding this statement before the loop: `int i = 0;`. Then, inside the loop, add this statement: `++i;`. Now add a watch for `i` as you did in the previous step.
 
-1. To quickly view the value of any variable while execution is paused on a breakpoint, you can simply hover over it with the mouse pointer.
+1. To quickly view the value of any variable while execution is paused on a breakpoint, you can hover over it with the mouse pointer.
 
    ![Mouse hover](images/cpp/mouse-hover.png)
 

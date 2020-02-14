@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 2/5/2020
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/Debugging.png
 ---
@@ -39,6 +39,10 @@ To bring up the Debug view, select the Debug icon in the **Activity Bar** on the
 ![Debug icon](images/debugging/debugicon.png)
 
 The Debug view displays all information related to debugging and has a top bar with debugging commands and configuration settings.
+
+If debugging is not yet configured (no `launch.json` has been created) we show the Debug start view.
+
+![Simplified initial Debug view](images/debugging/debug-start.png)
 
 ## Debug menu
 
@@ -203,6 +207,7 @@ The following attributes are mandatory for every launch configuration:
 
 Here are some optional attributes available to all launch configurations:
 
+* `presentation` - using the `order`, `group`, and `hidden` attributes in the `presentation` object you can sort, group, and hide configurations and compounds in the Debug configuration dropdown and in the Debug quick pick.
 * `preLaunchTask` - to launch a task before the start of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (in the workspace's `.vscode` folder). Or, this can be set to `${defaultBuildTask}` to use your default build task.
 * `postDebugTask` - to launch a task at the very end of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (in the workspace's `.vscode` folder).
 * `internalConsoleOptions` - this attribute controls the visibility of the Debug Console panel during a debugging session.
@@ -334,6 +339,7 @@ If a debugger supports data breakpoints they can be set from the **VARIABLES** v
 ## Debug Console REPL
 
 Expressions can be evaluated with the **Debug Console** REPL ([Read-Eval-Print Loop](https://en.wikipedia.org/wiki/Read–eval–print_loop)) feature. To open the Debug Console, use the **Debug Console** action at the top of the Debug pane or use the **View: Debug Console** command (`kb(workbench.debug.action.toggleRepl)`). Expressions are evaluated after you press `kbstyle(Enter)` and the Debug Console REPL shows suggestions as you type. If you need to enter multiple lines, use `kbstyle(Shift+Enter)` between the lines and then send all lines for evaluation with `kbstyle(Enter)`.
+Debug Console input uses the mode of the active editor, which means that the Debug Console input supports syntax coloring, indentation, auto closing of quotes, and other language features.
 
 ![Debug Console](images/debugging/debugconsole.png)
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 2/5/2020
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -239,9 +239,9 @@ You can also use the following actions:
 * Fold Level X (`kb(editor.foldLevel2)` for level 2) folds all regions of level X, except the region at the current cursor position.
 * Fold All Block Comments (`kb(editor.foldAllBlockComments)`) folds all regions that start with a block comment token.
 
-Folding ranges are by default evaluated based on the indentation of lines. A folding range starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
+Folding regions are by default evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
 
-Since the 1.22 release, folding ranges can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding: Markdown, HTML, CSS, LESS, SCSS, and JSON.
+Since the 1.22 release, folding regions can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding: Markdown, HTML, CSS, LESS, SCSS, and JSON.
 
 If you prefer to switch back to indentation-based folding for one (or all) of the languages above, use:
 
@@ -255,19 +255,20 @@ Regions can also be defined by markers defined by each language. The following l
 
 Language|Start region|End region
 --------|------------|----------
+Bat|`::#region` or `REM #region`|`::#endregion` or `REM #endregion`
 C#|`#region`|`#endregion`
 C/C++|`#pragma region`|`#pragma endregion`
 CSS/Less/SCSS|`/*#region*/`|`/*#endregion*/`
 Coffeescript|`#region`|`#endregion`
 F#|`//#region` or `(#region)`|`//#endregion` or `(#endregion)`
 Java|`//#region` or `//<editor-fold>`|`// #endregion` or `//</editor-fold>`
+Markdown|`<!-- #region -->`|`<!-- #endregion -->`
+Perl5|`#region` or `=pod`|`#endregion` or `=cut`
 PHP|`#region`|`#endregion`
 PowerShell|`#region`|`#endregion`
 Python|`#region` or `# region`|`#endregion` or `# endregion`
 TypeScript/JavaScript|`//#region` or `//region`|`//#endregion` or `//endregion`
 Visual Basic|`#Region`|`#End Region`
-Bat| `::#region`|`::#endregion`
-Markdown|`<!-- #region -->`|`<!-- #endregion -->`
 
 To fold and unfold only the regions defined by markers use:
 

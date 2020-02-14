@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 12/12/2019
+DateApproved: 2/5/2020
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -436,7 +436,7 @@ Keyboard Shortcut: `kb(workbench.action.closeActiveEditor)`
 
 ### Navigation history
 
-Navigate entire history: `kb(workbench.action.openNextRecentlyUsedEditorInGroup)`
+Navigate entire history: `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`
 
 Navigate back: `kb(workbench.action.navigateBack)`
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03
-DateApproved: 12/12/2019
+DateApproved: 2/5/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to create Language Servers to provide rich language features in Visual Studio Code.
@@ -383,7 +383,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 
 connection.onDidChangeWatchedFiles(_change => {
   // Monitored files have change in VS Code
-  connection.console.log('We received an file change event');
+  connection.console.log('We received a file change event');
 });
 
 // This handler provides the initial list of the completion items.

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 12/12/2019
+DateApproved: 2/5/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -217,6 +217,7 @@ A configuration setting can have one of the following possible scopes:
 - `machine-overridable` - Machine specific settings that can be overridden by workspace or folder settings.
 - `window` - Windows (instance) specific settings which can be configured in user, workspace, or remote settings.
 - `resource` - Resource settings, which apply to files and folders, and can be configured in all settings levels, even folder settings.
+- `language-overridable` - Resource settings that can be overridable at a language level.
 
 Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable. If no `scope` is declared, the default is `window`.
 

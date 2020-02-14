@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 113b458a-3692-4ccf-a181-048bd572a120
-DateApproved: 12/12/2019
+DateApproved: 2/5/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating Color Theme in Visual Studio Code
@@ -34,7 +34,7 @@ A complete list of all themable colors can be found in the [color reference](/ap
 
 ## Syntax colors
 
-For syntax highlighting colors, there are two approaches. You just simply reference an existing TextMate theme (`.tmTheme` file) from the community, or you can come up with your own theming rules. The easiest way is to start with an existing theme and customize it, much like in the workbench colors section above.
+For syntax highlighting colors, there are two approaches. You can reference an existing TextMate theme (`.tmTheme` file) from the community, or you can create your own theming rules. The easiest way is to start with an existing theme and customize it, much like in the workbench colors section above.
 
 First switch to the color theme to customize and use the `editor.tokenColorCustomizations` [settings](/docs/getstarted/settings). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
 

@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 12/12/2019
+DateApproved: 2/5/2020
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -150,6 +150,12 @@ The Electron shell used by Visual Studio Code has trouble with some GPU (graphic
 ```bash
 code --disable-gpu
 ```
+
+## Unable to open on macOS Catalina
+
+After downloading, when you try to open VS Code on macOS Catalina, you may see a message '"Visual Studio Code" can't be opened because Apple cannot check it for malicious software'. This is because VS Code not currently notarized but VS Code will run successfully on macOS Catalina.
+
+To workaround the notarization check, follow the instructions to [Open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac) or from the Apple menu, go to **System Preferences** > **Security & Privacy** > **General** and choose **Open Anyway**.
 
 ## Blurriness on macOS Mojave
 
