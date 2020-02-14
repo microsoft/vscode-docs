@@ -110,7 +110,7 @@ In total, we were thrilled to see a combined ~50% reduction in VS Code’s CI bu
 
 Happy Caching,
 
-Ethan Dennis, Senior Software Engineer
+Ethan Dennis, Azure DevOps Senior Software Engineer
 [@erdennis13](https://twitter.com/erdennis13)
 
 João Moreno, VS Code Senior Software Engineer
