@@ -94,6 +94,6 @@ If you want to remove all user data after uninstalling VS Code, you can delete t
 
 The folder locations will vary depending on your platform:
 
-* **Windows** - Delete `%APPDATA%\Code` and `%USERPROFILE%\.vscode\extensions`.
-* **macOS** - Delete `$HOME/Library/Application Support/Code` and `~/.vscode/extensions`.
-* **Linux** - Delete `$HOME/.config/Code` and `~/.vscode/extensions`.
+* **Windows** - Delete `%APPDATA%\Code` and `%USERPROFILE%\.vscode`.
+* **macOS** - Delete `$HOME/Library/Application Support/Code` and `~/.vscode`.
+* **Linux** - Delete `$HOME/.config/Code` and `~/.vscode`.
