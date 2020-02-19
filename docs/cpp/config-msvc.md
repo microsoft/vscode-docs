@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Microsoft C++
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
 PageTitle: Configure Visual Studio Code for Microsoft C++
-DateApproved: 07/25/2019
+DateApproved: 02/19/2020
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows.
 ---
 # Configure VS Code for Microsoft C++
@@ -171,7 +171,7 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 
    ![C++ build output in terminal](images/msvc/build-output-in-terminal.png)
 
-1. Create a new terminal using the **+** button and you'll have a new terminal (running PowerShell) with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld.exe` along with various intermediate C++ output and debugging files (`helloworld.obj`, `helloworld.pdb`)
+1. Create a new terminal using the **+** button and you'll have a new terminal (running PowerShell) with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld.exe` along with various intermediate C++ output and debugging files (`helloworld.obj`, `helloworld.pdb`).
 
     ![Hello World in PowerShell terminal](images/msvc/helloworld-in-terminal.png)
 
@@ -329,9 +329,9 @@ VS Code is now configured to use the Microsoft C++ compiler. The configuration a
 
 ## Troubleshooting
 
-### The term 'cl.exe' is not recognized as the name of a cmdlet, function, script file, or operable program.
+### The term 'cl.exe' is not recognized
 
-This error usually means you are running VS Code outside of a **Developer Command Prompt for Visual Studio** and VS Code doesn't know the path to the `cl.exe` compiler.
+If you see the error "The term 'cl.exe' is not recognized as the name of a cmdlet, function, script file, or operable program.", this usually means you are running VS Code outside of a **Developer Command Prompt for Visual Studio** and VS Code doesn't know the path to the `cl.exe` compiler.
 
 You can always check that you are running VS Code in the context of the Developer Command Prompt by opening a new Terminal (`kb(workbench.action.terminal.new)`) and typing 'cl' to verify `cl.exe` is available to VS Code.
 
