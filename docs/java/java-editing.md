@@ -308,8 +308,12 @@ The list of Code Actions supported by VS Code keeps growing and only listed the 
 * Convert lambda to anonymous class
 * Convert anonymous class to nested class
 * Create unresolved types
+* Assign statement to new varialbe/field
 * Add `final` modifier where possible
+* Remove the `final` modifier
 * Remove unnecessary cast
+* Remove redundant interfaces
+* Add missing case labels in switch statements
 * Jump to definition on break/continue
 * Correct access to static elements
 
