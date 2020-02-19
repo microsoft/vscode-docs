@@ -49,15 +49,15 @@ If you don't see the expected output or `g++` or `gdb` is not a recognized comma
 
 From a Windows command prompt, create an empty folder called `projects` where you can place all your VS Code projects. Then create a sub-folder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
 
-   ```cmd
-   mkdir projects
-   cd projects
-   mkdir helloworld
-   cd helloworld
-   code .
-   ```
+```cmd
+mkdir projects
+cd projects
+mkdir helloworld
+cd helloworld
+code .
+```
 
-The **code .** command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
+The "code ." command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
 
 - `tasks.json` (build instructions)
 - `launch.json` (debugger settings)
@@ -73,24 +73,24 @@ In the File Explorer title bar, select the **New File** button and name the file
 
 Now paste in this source code:
 
-   ```cpp
-   #include <iostream>
-   #include <vector>
-   #include <string>
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
 
-   using namespace std;
+using namespace std;
 
-   int main()
-   {
-      vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+int main()
+{
+    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
 
-      for (const string& word : msg)
-      {
-         cout << word << " ";
-      }
-      cout << endl;
-   }
-   ```
+    for (const string& word : msg)
+    {
+        cout << word << " ";
+    }
+    cout << endl;
+}
+```
 
 Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
 
