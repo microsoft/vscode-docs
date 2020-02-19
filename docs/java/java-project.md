@@ -63,11 +63,75 @@ If you have multiple subfolders that have source code for your project, you can 
 
 ### Adding external JAR
 
-In case you need to bring additional JAR files as dependencies, you can create a `lib/` folder in the root directory of the standalone files and place your JAR files there. Source for `foo.jar` is automatically detected if there is a `foo-sources.jar` in the `lib/` folder.
+You can use Java Dependency Viewer to add any Jar to your project
+
+![Add Dependency](images/java-project/manage-dependencies.gif)
+
+The other easy way to bring additional JAR files as dependencies, you can create a `lib/` folder in the root directory of the standalone files and place your JAR files there. Source for `foo.jar` is automatically detected if there is a `foo-sources.jar` in the `lib/` folder.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/lib.mp4" type="video/mp4">
 </video>
+
+Behind the scene, there's a setting `java.project.referencedLibaries`. Below are the details about how to customize this setting.
+
+#### Include libraries
+
+The libraries to reference is described using a set of glob patterns:
+
+```json
+"java.project.referencedLibraries": [
+    "library/**/*.jar",
+    "/home/username/lib/foo.jar"
+]
+```
+
+In this way, all `.jar` files in workspace’s library folder, and `foo.jar` in the specified absolute path is added to the project’s external dependencies.
+
+The referenced libraries is then watched by VS Code, and the project will be refreshed once there’s change in these dependent files.
+
+By default, VS Code will reference all jar files in workspace’s `lib` directory using glob `lib/**/*.jar`.
+
+#### Exclude some libraries
+
+If you want to exclude some libraries from the project, just expand java.project.referencedLibraries to full include-exclude-sources pattern and provide globs to exclude field:
+
+```json
+"java.project.referencedLibraries": {
+    "include": [
+        "library/**/*.jar",
+        "/home/username/lib/foo.jar"
+    ],
+    "exclude": [
+        "library/sources/**"
+    ]
+}
+```
+
+In this way, any binary jar in `library/sources` folder is ignored from the project’s external dependencies.
+
+### Attach source jars
+
+By default, a referenced `{binary}.jar` will try to search `{binary}-sources.jar` under the same directory, and attach it as source if one match is found.
+
+If you want to manually specify a jar as source attachment, you can provide a key-value map in the sources field:
+
+```json
+"java.project.referencedLibraries": {
+    "include": [
+        "library/**/*.jar",
+        "/home/username/lib/foo.jar"
+    ],
+    "exclude": [
+        "library/sources/**"
+    ],
+    "sources": {
+        "library/bar.jar": "library/sources/bar-src.jar"
+    }
+}
+```
+
+In this way, `bar-src.jar` is attached to bar.jar as its source.
 
 In case VS Code throws an error for a classpath issue, try setting your classpath manually by either [setting the CLASSPATH environment variable](https://docs.oracle.com/javadb/10.8.3.0/getstart/tgs26250.html) or editing the `.classpath` file with the path to the JAR file:
 
@@ -76,6 +140,36 @@ In case VS Code throws an error for a classpath issue, try setting your classpat
 ```
 
 In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean the java language server workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
+
+### Configure multiple JDK
+
+As Java evolves, lots of Java developers need to deal with multiple Java runtimes. Now we support a new preference mapping java.configuration.runtimes for Java execution environments. VS Code will detect the runtime required for your project and choose the appropriate one configured. See below as an example.
+
+```json
+"java.configuration.runtimes": [
+  {
+    "name": "JavaSE-1.8",
+    "path": "/usr/local/jdk1.8.0_201"
+  },
+  {
+    "name": "JavaSE-11",
+    "path": "/usr/local/jdk-11.0.3",
+    "sources" : "/usr/local/jdk-11.0.3/lib/src.zip",
+    "javadoc" : "https://docs.oracle.com/en/java/javase/11/docs/api",
+    "default":  true
+   },
+   {
+    "name": "JavaSE-12",
+    "path": "/usr/local/jdk-12.0.2"
+   },
+   {
+    "name": "JavaSE-13",
+    "path": "/usr/local/jdk-13"
+   }
+]
+```
+
+Runtime name must be one of: “J2SE-1.5”, “JavaSE-1.6”, “JavaSE-1.7”, “JavaSE-1.8”, “JavaSE-9”, “JavaSE-10”, “JavaSE-11”, “JavaSE-12”, “JavaSE-13”. We will update the list with each supported release of the JDK
 
 ## Maven
 
@@ -115,6 +209,12 @@ You can also use the command **Maven: Add a Dependency** (or `maven.project.addD
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/maven-add-dependency.mp4" type="video/mp4">
+</video>
+
+You can also add dependency through Java Dependency Viewer, which calls the same Maven command.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/maven-add-dependency-2.mp4" type="video/mp4">
 </video>
 
 Furthermore, VS Code also supports showing dependencies in a tree view, which allows you to inspect all dependencies in your project at a single place and check for potential issues.
