@@ -67,14 +67,14 @@ The `html.customData` and `css.customData` settings serve as a good starting poi
 Today, many web frameworks build on top of HTML. For example, the [MAVO](https://mavo.io) project extends HTML syntax with various `mv-` attributes. Custom Data makes it easy to support such web frameworks:
 
 - Generate [Custom Data for all MAVO attributes](https://github.com/octref/vscode-mavo/blob/master/data/mavo.json)
-- Point to the Custom Data file in an [Contribution Point](https://code.visualstudio.com/api/references/contribution-pointsc), `contributes.html.customData`
+- Point to the Custom Data file in an [Contribution Point](https://code.visualstudio.com/api/references/contribution-points), `contributes.html.customData`
 - Publish the [extension](https://marketplace.visualstudio.com/items?itemName=octref.vscode-mavo) to help others use MAVO framework in VS Code
 
 By downloading the [MAVO extension](https://marketplace.visualstudio.com/items?itemName=octref.vscode-mavo), users get auto-completion and hover information for all MAVO attributes in HTML files:
 
 ![MAVO demo](mavo-demo.gif)
 
-The extension's source code is at [vscode-mavo](https://github.com/octref/vscode-mavo) repository. We hope the project gives you a starting point to add language support for you web framework of choice in VS Code. You can also find more information about the `contributes.html.customData` and `contributes.css.customData` Contribution Points at [vscode-custom-data](https://github.com/microsoft/vscode-custom-data).
+The extension's source code is at [vscode-mavo](https://github.com/octref/vscode-mavo) repository. We hope the project serves as a starting point for implementing web framework or language support in VS Code. You can find more information about the `contributes.html.customData` and `contributes.css.customData` Contribution Points at [vscode-custom-data](https://github.com/microsoft/vscode-custom-data).
 
 ## Using Custom Data for language servers
 
@@ -97,7 +97,7 @@ Our built-in [HTML language server](https://github.com/microsoft/vscode/tree/mas
 
 We have published this set of data to [NPM](https://www.npmjs.com/package/vscode-web-custom-data). You can find the data [on GitHub](https://github.com/microsoft/vscode-custom-data/tree/master/web-data) as well. Language server authors might use this dataset in combination with our HTML/CSS language services to implement support for their languages that extend or embed HTML/CSS, or they could use this data to implement support for languages that transpile to HTML/CSS, such as Pug or Stylus. Finally, we will continue to curate this dataset to provide up-to-date language support for HTML/CSS in VS Code.
 
-## Looking forward
+## Summary
 
 At VS Code team, we are commited to providing a good editing experience for languages of the web. Through the Custom Data Format, we stay close to the latest HTML and CSS languages and offer a simple interface for users and extension authors to customize their HTML and CSS editing experience.
 
