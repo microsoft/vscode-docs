@@ -361,7 +361,7 @@ Bracket matches:
 
 Folding:
 
-"`editor.foldBackground`: Background color for folded ranges."
+"`editor.foldBackground`: Background color for folded ranges. The color must not be opaque so as not to hide underlying decorations."
 
 Overview ruler:
 
