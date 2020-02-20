@@ -41,7 +41,9 @@ To create an Azure Container Registry:
 
     Without this entry, you'll see a "DisallowedHost" message after deployment that instructs to you add the website domain to `ALLOWED_HOSTS`. This will require you to rebuild, push, and redeploy the image once again.
 
-1. On the **Command Palette** (`kb(workbench.action.showCommands)`), select **Docker: Build Image** to rebuild image with new settings.
+2. On the **Command Palette** (`kb(workbench.action.showCommands)`), select **Docker: Build Image** to rebuild image with new settings.
+
+>**Tip**: If you want to test your image in production on multiple App Services, you can simple input `"*"` in ALLOWED_HOSTS.
 
 ## Push the image to a registry
 
