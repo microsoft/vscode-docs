@@ -63,21 +63,23 @@ If you have multiple subfolders that have source code for your project, you can 
 
 ### Adding external JAR
 
-You can use Java Dependency Viewer to add any Jar to your project
+You can use the Java Dependency Viewer to add any JAR file to your project.
 
 ![Add Dependency](images/java-project/manage-dependencies.gif)
 
-The other easy way to bring additional JAR files as dependencies, you can create a `lib/` folder in the root directory of the standalone files and place your JAR files there. Source for `foo.jar` is automatically detected if there is a `foo-sources.jar` in the `lib/` folder.
+The other easy way to bring additional JAR files as dependencies is to create a `lib/` folder in the root directory of the standalone files and place your JAR files there. Source for `foo.jar` is automatically detected if there is a `foo-sources.jar` in the `lib/` folder.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/lib.mp4" type="video/mp4">
 </video>
 
-Behind the scene, there's a setting `java.project.referencedLibaries`. Below are the details about how to customize this setting.
+Behind the scene, there's a setting `java.project.referencedLibaries`. Below are details on how to customize this setting.
 
-#### Include libraries
+**Include libraries**
 
-The libraries to reference is described using a set of glob patterns:
+The libraries to reference are described using a set of glob patterns.
+
+For example:
 
 ```json
 "java.project.referencedLibraries": [
@@ -86,15 +88,15 @@ The libraries to reference is described using a set of glob patterns:
 ]
 ```
 
-In this way, all `.jar` files in workspace’s library folder, and `foo.jar` in the specified absolute path is added to the project’s external dependencies.
+The settings above will add all `.jar` files in workspace's library folder along with `foo.jar` from a specified absolute path to the project's external dependencies.
 
-The referenced libraries is then watched by VS Code, and the project will be refreshed once there’s change in these dependent files.
+The referenced libraries are then watched by VS Code, and the project will be refreshed if there is a change to any of these dependent files.
 
-By default, VS Code will reference all jar files in workspace’s `lib` directory using glob `lib/**/*.jar`.
+By default, VS Code will reference all JAR files in workspace's `lib` directory using the glob pattern `lib/**/*.jar`.
 
-#### Exclude some libraries
+**Exclude some libraries**
 
-If you want to exclude some libraries from the project, just expand java.project.referencedLibraries to full include-exclude-sources pattern and provide globs to exclude field:
+If you want to exclude some libraries from the project, you can expand `java.project.referencedLibraries` to use `include/exclude` fields and add an `exclude` glob pattern:
 
 ```json
 "java.project.referencedLibraries": {
@@ -108,13 +110,13 @@ If you want to exclude some libraries from the project, just expand java.project
 }
 ```
 
-In this way, any binary jar in `library/sources` folder is ignored from the project’s external dependencies.
+In the example above, any binary JAR files in the `library/sources` folder are ignored as the project's external dependencies.
 
-### Attach source jars
+**Attach source jars**
 
 By default, a referenced `{binary}.jar` will try to search `{binary}-sources.jar` under the same directory, and attach it as source if one match is found.
 
-If you want to manually specify a jar as source attachment, you can provide a key-value map in the sources field:
+If you want to manually specify a JAR file as a source attachment, you can provide a key-value map in the `sources` field:
 
 ```json
 "java.project.referencedLibraries": {
@@ -143,7 +145,7 @@ In some rare cases, you may need to clean the Java workspace by executing the **
 
 ### Configure multiple JDK
 
-As Java evolves, lots of Java developers need to deal with multiple Java runtimes. Now we support a new preference mapping java.configuration.runtimes for Java execution environments. VS Code will detect the runtime required for your project and choose the appropriate one configured. See below as an example.
+As Java evolves, Java developers sometimes need to deal with multiple Java runtimes. The Java extension supports preference mapping through the `java.configuration.runtimes` array for Java execution environments. VS Code will detect the runtime required for your project and choose the appropriate one configured.
 
 ```json
 "java.configuration.runtimes": [
@@ -169,7 +171,7 @@ As Java evolves, lots of Java developers need to deal with multiple Java runtime
 ]
 ```
 
-Runtime name must be one of: “J2SE-1.5”, “JavaSE-1.6”, “JavaSE-1.7”, “JavaSE-1.8”, “JavaSE-9”, “JavaSE-10”, “JavaSE-11”, “JavaSE-12”, “JavaSE-13”. We will update the list with each supported release of the JDK
+Runtime names must be one of: "J2SE-1.5", "JavaSE-1.6", "JavaSE-1.7", "JavaSE-1.8", "JavaSE-9", "JavaSE-10", "JavaSE-11", "JavaSE-12", "JavaSE-13". We will update the list with each supported release of the JDK.
 
 ## Maven
 
@@ -211,7 +213,7 @@ You can also use the command **Maven: Add a Dependency** (or `maven.project.addD
   <source src="/docs/java/java-project/maven-add-dependency.mp4" type="video/mp4">
 </video>
 
-You can also add dependency through Java Dependency Viewer, which calls the same Maven command.
+You can also add dependencies through the Java Dependency Viewer, which calls the same Maven command.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/maven-add-dependency-2.mp4" type="video/mp4">

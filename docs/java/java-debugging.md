@@ -114,7 +114,7 @@ Java 9 and newer versions are supported with VS Code Java Debugger as well.
 
 ### Threads
 
-As you can see all the threads in the call stack window, you can also working with individual thread using the context menu.
+You can see all the running threads in the **Call Stack** pane and work with individual thread using the context menu.
 
 ![ContextMenu](images/java-debugging/thread-context-menu.png)
 
