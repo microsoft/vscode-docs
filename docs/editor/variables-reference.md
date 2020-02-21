@@ -138,12 +138,13 @@ Each type requires additional configuration attributes:
 
 `promptString`:
 
-- **description**: Shown in the quick input provides context for the input.
+- **description**: Shown in the quick input, provides context for the input.
 - **default**: Default value that will be used if the user doesn't enter something else.
+- **password**: Set to true to input with a password prompt that will not show the typed value.
 
 `pickString`:
 
-- **description**: Shown in the quick pick provides context for the input.
+- **description**: Shown in the quick pick, provides context for the input.
 - **options**:  An array of options for the user to pick from.
 - **default**: Default value that will be used if the user doesn't enter something else. It must be one of the option values.
 
