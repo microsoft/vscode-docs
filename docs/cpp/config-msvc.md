@@ -144,7 +144,7 @@ Your new `tasks.json` file should look similar to the JSON below:
             "${file}"
         ],
         "problemMatcher": [
-            "$gcc"
+            "$msCompile"
         ],
         "group": {
             "kind": "build",
@@ -160,6 +160,8 @@ The `command` setting specifies the program to run; in this case that is "cl.exe
 >**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
+
+The `problemMatcher` value selects the output parser to use for finding errors and warnings in the compiler output. For cl.exe, you'll get the best results if you use the `$msCompile` problem matcher.
 
 The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false, you can still run it from the Terminal menu with **Tasks: Run Build Task**.
 
