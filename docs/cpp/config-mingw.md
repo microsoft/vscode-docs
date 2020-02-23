@@ -1,13 +1,13 @@
 ---
 Order: 1
 Area: cpp
-TOCTitle: Mingw-w64 on Windows
+TOCTitle: GCC on Windows
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
 PageTitle: Get Started with C++ and Mingw-w64 in Visual Studio Code
 DateApproved: 1/6/2020
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a Mingw-w64 installation
 ---
-# Using Mingw-w64 in VS Code
+# Using GCC with MinGW
 
 In this tutorial, you configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger from [Mingw-w64](http://mingw-w64.org/doku.php/start) to create programs that run on Windows.
 
