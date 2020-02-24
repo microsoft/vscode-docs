@@ -49,11 +49,14 @@ After verifying your app runs properly, you can now Dockerize your application.
 1. Select either **Yes** or **No** when prompted to include [Docker Compose](https://docs.docker.com/compose/) files.
 
 1. Enter the relative path to the app’s entry point. This excludes the workspace folder you start from. [For Django](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. [For Flask](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you created your Flask instance.
-1. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000 while Flask defaults to port 5000, however, any unrestricted port will work.
 
-1. With all this information, the Docker extension creates the following files:
+>**Tip**: You may also enter the path to a folder name as long as this folder includes a `__main__.py` file.
 
-    - A `Dockerfile`. By default, the name of the image is the name of the workspace folder in VS Code. To learn more about Intellisense in this file, read [Working with Docker](/docs/azure/docker.md).
+6. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000 while Flask defaults to port 5000, however, any unrestricted port will work.
+
+7. With all this information, the Docker extension creates the following files:
+
+    - A `Dockerfile`. To learn more about Intellisense in this file, refer to the [overview](/docs/containers/overview.md).
 
     - A `.dockerignore` file to reduce the image size by excluding files and folders that aren't needed such as `.git`, `.vscode`, and `__pycache__`.
 
@@ -125,10 +128,10 @@ print("I'm in a container!")
 
 ## Next steps
 
-- [Set up Compose Debugging for Python Application](/docs/notcreated/yet)
+- [Set up Compose Debugging for a Python Application](/docs/notcreated/yet)
 
 Once your container is ready, you may want to:
 
-- [Push Django Images to a Registry](https://docs.microsoft.com/azure/python/tutorial-django-push-to-registry)
 - [Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
-- [Deploy a containerized app to Azure App Service](/docs/containers/app-service.md)
+- [Push Django Images to Azure Container Registry](docs/notcreated/yet)
+- [Deploy a containerized app to Azure App Service](https://docs.microsoft.com/en-us/azure/python/tutorial-deploy-containers-01)
