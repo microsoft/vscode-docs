@@ -12,7 +12,7 @@ MetaSocialImage:
 
 February 24, 2020 by Pine Wu, [@octref](https://github.com/octref)
 
-The web evolves and so do its languages, with new entities appearing in HTML and CSS. [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) and [Houdini](https://developer.mozilla.org/en-US/docs/Web/Houdini) allow users to extend HTML and CSS semantics and many developers today develop on languages that embed HTML and CSS. Although HTML and CSS see increasingly flexible usage, editor support for new features often lags behind.
+The web evolves and so do its languages, with new entities appearing in HTML and CSS. [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) and [Houdini](https://developer.mozilla.org/en-US/docs/Web/Houdini) allow users to extend HTML and CSS semantics. Many developers today use programming languages that embed HTML and CSS. Although HTML and CSS see increasingly flexible usage, editor support for new features often lags behind.
 
 To modernize the HTML and CSS language support in Visual Studio Code, we designed the [Custom Data Format](https://github.com/microsoft/vscode-custom-data), a declarative JSON format for describing HTML and CSS entities. VS Code's HTML and CSS language servers can read data defined in this format and provide language support for the newly defined HTML and CSS entities.
 
@@ -46,7 +46,7 @@ To get started, end users can write a JSON file `html.html-data.json`:
 }
 ```
 
-Then define a `html.customData` value in your user or workspace [settings](/docs/getstarted/settings.mg) pointing to that data file:
+Then define a `html.customData` value in your user or workspace [settings](/docs/getstarted/settings.md) pointing to that data file:
 
 ```json
 {
@@ -58,7 +58,7 @@ You then get language features for the defined entities:
 
 ![Custom Data helloworld](custom-data-helloworld.png)
 
-You can try this feature by opening the preconfigured [helloworld sample](https://github.com/microsoft/vscode-custom-data/tree/master/samples/helloworld) with VS Code. You can edit the HTML/CSS custom data files, in order to add, remove, or refine the definitions of custom entities and fine-tune the language features.
+You can try this feature by opening the preconfigured [Custom Data hello world sample](https://github.com/microsoft/vscode-custom-data/tree/master/samples/helloworld) with VS Code. You can edit the HTML/CSS custom data files in order to add, remove, or refine the definitions of custom entities and fine-tune the language features.
 
 The `html.customData` and `css.customData` settings serve as a good starting point for using Custom Data. However, there are other ways to take advantage of Custom Data as well. In the following sections, we describe how extension authors can share curated sets of Custom Data or leverage Custom Data to build language support.
 
@@ -67,7 +67,7 @@ The `html.customData` and `css.customData` settings serve as a good starting poi
 Today, many web frameworks are built on top of HTML. For example, the [Mavo](https://mavo.io) project extends HTML syntax with various `mv-` attributes. Custom Data makes it easy to support such web frameworks:
 
 - Generate [Custom Data for all Mavo attributes](https://github.com/octref/vscode-mavo/blob/master/data/mavo.json).
-- Point to the Custom Data file in the `contributes.html.customData` extension [Contribution Point](https://code.vi.sualstudio.com/api/references/contribution-points)
+- Point to the Custom Data file in the `contributes.html.customData` extension [Contribution Point](https://code.visualstudio.com/api/references/contribution-points).
 - Publish the [extension](https://marketplace.visualstudio.com/items?itemName=octref.vscode-mavo) to help others use the Mavo framework in VS Code.
 
 By downloading the [Mavo extension](https://marketplace.visualstudio.com/items?itemName=octref.vscode-mavo), users get auto-completion and hover information for all Mavo attributes in HTML files:
@@ -103,7 +103,7 @@ The VS Code team is committed to providing a good editing experience for web lan
 
 ![Simple interface](simple-interface.png)
 
-You can read more about the Custom Data Format in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data)repository, where you can open issues and feature requests.
+You can read more about the Custom Data Format in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository, where you can open issues and feature requests.
 
 Happy Coding!
 
