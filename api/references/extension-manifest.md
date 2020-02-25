@@ -22,7 +22,7 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 | `license`                                               |          | `string`                                   | Refer to [npm's documentation](https://docs.npmjs.com/files/package.json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`.                                                                                                     |
 | `displayName`                                           |          | `string`                                   | The display name for the extension used in the Marketplace.                                                                                                                                                                                                                                                            |
 | `description`                                           |          | `string`                                   | A short description of what your extension is and does.                                                                                                                                                                                                                                                                |
-| `categories`                                            |          | `string[]`                                 | the categories you want to use for the extensions allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`                                                                                                          |
+| `categories`                                            |          | `string[]`                                 | The categories you want to use for the extensions. Allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`                                                                                                          |
 | `keywords`                                              |          | `array`                                    | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace. This list is currently limited to 5 keywords.                                                                                                                                   |
 | `galleryBanner`                                         |          | `object`                                   | Helps format the Marketplace header to match your icon. See details below.                                                                                                                                                                                                                                             |
 | `preview`                                               |          | `boolean`                                  | Sets the extension to be flagged as a Preview in the Marketplace.                                                                                                                                                                                                                                                      |
@@ -107,7 +107,7 @@ Provide a good display name and description. This is important for the Marketpla
     "description": "Markdown Word Count Example - reports out the number of words in a Markdown file.",
 ```
 
-An Icon and a contrasting banner color looks great on the Marketplace page header. The `theme` attribute refers to the font to be used in the banner - `dark` or `light`.
+An icon and a contrasting banner color look great on the Marketplace page header. The `theme` attribute refers to the font to be used in the banner - `dark` or `light`.
 
 ```json
 {
@@ -311,7 +311,7 @@ There are several Node.js modules available on npmjs to help with writing VS Cod
 
 ## Next steps
 
-To learn more about VS Code extensibility model, try these topic:
+To learn more about VS Code extensibility model, try these topics:
 
 - [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference
 - [Activation Events](/api/references/activation-events) - VS Code activation events reference
