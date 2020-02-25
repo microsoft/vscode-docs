@@ -25,7 +25,7 @@ To successfully complete this tutorial, you must do the following steps:
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
-1. Install [Mingw-w64](http://mingw-w64.org/doku.php/download/mingw-builds) via the SourceForge website to a folder that has no spaces in its path (in other words, NOT the default location of C:/Program Files/). In this tutorial, we assume it is installed under `C:\mingw-w64`.
+1. You will install Mingw-w64 via the SourceForge website. Click [Mingw-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download) to begin downloading the compressed archive file. Extract the tools from the compressed file to a folder that has no spaces in its path. In this tutorial, we assume it is installed under `C:\mingw-w64`.
 
 1. Add the path to your Mingw-w64 `bin` folder to the Windows PATH environment variable.
    1. In the Windows search bar, type 'settings' to open your Windows Settings.
