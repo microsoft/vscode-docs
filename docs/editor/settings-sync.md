@@ -13,17 +13,6 @@ MetaDescription: Synchronize your user settings across all your Visual Studio Co
 
 ## To enable Settings Sync
 
-Add following to your User [settings]:
-
-```json
-"configurationSync.store": {
-  "url": "https://vscode-sync-test.azurewebsites.net",
-  "authenticationProviderId": "MSA"
-}
-```
-
-You will need to restart VS Code.
-
 Turn on sync using **Sync: Turn On** entry in the gear menu.
 
 ## Next steps
