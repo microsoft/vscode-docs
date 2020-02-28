@@ -62,7 +62,9 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
   A friendly name that identifies a configuration. `Linux`, `Mac`, and `Win32` are special identifiers for configurations that will be autoselected on those platforms. The status bar in VS Code will show you which configuration is active. You can also click on the label in the status bar to change the active configuration.
 
 - `compilerPath` (optional)
-  The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. The extension will query the compiler to determine the system include paths and default defines to use for IntelliSense.  Putting "compilerPath": "" will skip this step: Useful if your compiler doesn't support this query, as VS Code will default back to any compiler it can find ( like Visual C ) if you give it a bad folder, exe, or even if you just leave this field out
+  The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. The extension will query the compiler to determine the system include paths and default defines to use for IntelliSense.
+
+  Putting `"compilerPath": ""` (empty string) will skip querying a compiler. This is useful if a specified compiler doesn't support the arguments that are used for the query, as the extension will default back to any compiler it can find (like Visual C). Leaving out the `compilerPath` property does not skip the query.
 
 - `compilerArgs` (optional)
   Compiler arguments to modify the includes or defines used, for example `-nostdinc++`, `-m32`, etc.
