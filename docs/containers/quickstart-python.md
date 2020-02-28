@@ -43,7 +43,7 @@ After verifying your app runs properly, you can now Dockerize your application.
 1. Open the project folder in VS Code.
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and use **Docker: Add Docker Files to Workspace...** command:
 
-  ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
+    ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
 
 3. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we will select **Python: General**.
 1. Select either **Yes** or **No** when prompted to include [Docker Compose](https://docs.docker.com/compose/) files.
@@ -133,5 +133,5 @@ print("I'm in a container!")
 Once your container is ready, you may want to:
 
 - [Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
-- [Push Django Images to Azure Container Registry](docs/notcreated/yet)
-- [Deploy a containerized app to Azure App Service](https://docs.microsoft.com/en-us/azure/python/tutorial-deploy-containers-01)
+- [Deploy a containerized app to Azure App Service](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01)
+<!-- - [Push Django Images to Azure Container Registry](docs/notcreated/yet) -->
