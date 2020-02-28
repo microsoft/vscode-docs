@@ -1,6 +1,5 @@
 ---
-Order: 12
-Area: python
+Area: containers
 TOCTitle: Push Django Images to a Registry
 ContentId: 4eb2543d-84a7-4e11-b835-0d238ce7ed7a
 PageTitle: Push Django Images to a Registry in Visual Studio Code
