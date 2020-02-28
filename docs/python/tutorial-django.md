@@ -123,7 +123,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 1. When you're done, close the browser window and stop the server in VS Code using `kbstyle(Ctrl+C)` as indicated in the terminal output window.
 
-### Create A Django app
+### Create a Django app
 
 1. In the VS Code Terminal with your virtual environment activated, run the administrative utility's `startapp` command in your project folder (where `manage.py` resides):
 
