@@ -61,6 +61,32 @@ Example `launch.json` configuration for debugging a .NET Core application:
 }
 ```
 
+## Python
+
+Example `launch.json` configuration for debugging a Python application:
+
+```json
+{
+  "configurations": [
+    {
+      "name": "Docker: Python - Django",
+      "type": "docker",
+      "request": "launch",
+      "preLaunchTask": "docker-run: debug",
+      "python": {
+        "pathMappings": [
+          {
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "/app"
+          }
+        ],
+        "projectType": "django"
+      }
+    }
+  ]
+}
+```
+
 ## Configuration reference
 
 | Property | Description |
@@ -71,6 +97,7 @@ Example `launch.json` configuration for debugging a .NET Core application:
 | `platform` | The target plaform for the application. Can be `netCore` or `node`. |
 | `netCore` | Options for debugging .NET Core projects in Docker. |
 | `node` | Options for debugging Node.js projects in Docker. |
+| `python` | Options for debugging Python projects in Docker. |
 
 ### dockerServerReadyAction object properties
 
@@ -108,6 +135,17 @@ Example `launch.json` configuration for debugging a .NET Core application:
 | `smartStep` | Optional. Try to automatically step over code that doesn't map to source files. |
 | `skipFiles` | Optional. Automatically skip files covered by these glob patterns. |
 | `trace` | Optional. Enable diagnostic output. |
+
+### python object properties
+| Property | Description | Default |
+| --- | --- | --- |
+| `host` | The host for remote debugging. | |
+| `port` | The port for remote debugging. | `5678` |
+| `pathMappings` | Maps the project path between local machine and remote host  | |
+| `projectType` | Type of Python app | |
+| `justMyCode` | Debug only user-written code. | |
+| `django` | Django debugging. | `false` |
+| `jinja` | Jinja template debugging (e.g. Flask). | `false` |
 
 ## Next steps
 
