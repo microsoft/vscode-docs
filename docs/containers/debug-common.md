@@ -137,6 +137,7 @@ Example `launch.json` configuration for debugging a Python application:
 | `trace` | Optional. Enable diagnostic output. |
 
 ### python object properties
+
 | Property | Description | Default |
 | --- | --- | --- |
 | `host` | The host for remote debugging. | |
