@@ -25,7 +25,7 @@ This new Docker architecture works a lot like Visual Studio Code's [WSL remote d
 
 DockerD runs directly within WSL so there's no need for the Hyper-V VM and all Linux containers run within the Linux userspace on Windows for improved performance and compatibility.
 
-## Set up Docker in WSL 2
+## Getting set up
 
 First some prerequisites:
 
@@ -53,7 +53,9 @@ Running the `docker ps` command over in WSL, you'll see the container as expecte
 
 ![docker ps command in WSL](docker-ps-in-wsl.png)
 
-With this setup and running, you can install the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension and access your containers. If you're already running WSL 2 and the [Remote - WSL](https://code.visualstudio.com/remote-tutorials/wsl/getting-started) extension, this will help you get Docker integrated into your WSL workflow rather than switching contexts when you need containers. And because the Docker CLI's context is set to use DockerD in WSL, the extension will work with your containers regardless of whether you open VS Code using the Remote - WSL extension.
+## Using VS Code
+
+With this setup and running, you can install the VS Code [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension and access your containers. If you're already running WSL 2 and the [Remote - WSL](https://code.visualstudio.com/remote-tutorials/wsl/getting-started) extension, this will help you get Docker integrated into your WSL workflow rather than switching contexts when you need containers. And because the Docker CLI's context is set to use DockerD in WSL, the extension will work with your containers regardless of whether you open VS Code using the Remote - WSL extension.
 
 Notice how in the screenshot below, I'm connected and working in WSL and still building/running containers without changing from my preferred environment (zsh in Ubuntu).
 
@@ -62,6 +64,8 @@ Notice how in the screenshot below, I'm connected and working in WSL and still b
 *Theme: Noctis Sereno*
 
 I've personally noticed a vast improvement in container execution times using this configuration and each part of my typical development workflow remains. I'm also using the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension within WSL for testing specific environments without setting things up directly on my machine.
+
+## We want your feedback
 
 Keep in mind that you're using prerelease software and, while the Windows Insiders Slow ring is very stable, you may run into some issues. If you do find something that isn't working as expected, please open an issue via the Feedback tool in Windows. Any direct Docker issues or feedback can be logged in the [Docker for Windows](https://github.com/docker/for-win/issues) repo.
 
