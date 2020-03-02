@@ -33,7 +33,9 @@ To get started, you need to:
 
 3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
-### Open a folder in WSL
+### Open a remote folder or workspace
+
+#### From the WSL terminal
 
 Opening a folder inside the Windows Subsystem for Linux in VS Code is very similar to opening up a Windows folder from the command prompt or PowerShell.
 
@@ -57,6 +59,8 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
 That's it! Any VS Code operations you perform in this window will be executed in the WSL environment, everything from editing and file operations, to debugging, using terminals, and more.
 
+#### From VS Code
+
 Alternatively, you can open a Remote WSL window directly from VS Code:
 
 1. Start VS Code.
@@ -66,6 +70,14 @@ Alternatively, you can open a Remote WSL window directly from VS Code:
 If you already have a folder open, you can also use the **Remote-WSL: Reopen in WSL** command. You will be prompted which distro to use.
 
 If you are in a WSL window and want to open the current input in a local window, use **Remote-WSL: Reopen in Windows**.
+
+#### From the Windows command prompt
+
+To open a WSL window directly from a Windows prompt use the `--remote` command line parameter:
+
+`code --remote wsl+<distro name> <path in WSL>`
+
+for example: `code --remote wsl+Ubuntu /home/jim/projects/c`
 
 ## Working with Git
 
@@ -129,7 +141,7 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) 
 
 That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
 
-To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based has a performance impact for large workspaces.
+To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based file watching has a performance impact for large workspaces.
 
 For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `files.watcherExclude`.
 
