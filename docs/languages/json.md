@@ -129,6 +129,24 @@ To map a schema that is defined in the User or Workspace settings, use the `sche
 
 Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/api/references/contribution-points.md#contributes.jsonValidation).
 
+
+### File match syntax
+
+The file match syntax supports the '*' wildcard. Also, you can define exclusion patterns, starting with '!'. For an association to match, at least one pattern needs to match and the last matching pattern must not be an exclusion pattern.
+
+```json
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "/receipts/*.json",
+        "!/receipts/*.excluded.json"
+      ],
+      "url": "./receipts.schema.json"
+    }
+  ]
+```
+
+
 ### Define snippets in JSON schemas
 
 JSON schemas describe the shape of the JSON file, as well as value sets and default values, which are used by the JSON language support to provide completion proposals. If you are a schema author and want to provide even more customized completion proposals, you can also specify snippets in the schema.
