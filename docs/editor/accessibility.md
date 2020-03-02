@@ -64,7 +64,7 @@ Read-only files never trap the `kbstyle(Tab)` key. The **Integrated Terminal** p
 
 ## Screen readers
 
-VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](https://www.nvaccess.org), but we expect all screen readers to benefit from this support.
+VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](https://www.nvaccess.org), VoiceOver on macOS and Orca on Linux.
 
 There is a community developed [NVDA add-on for VS Code](https://github.com/pawelurbanski/nvda-for-vs-code), that improves unintentional switching between forms and browse mode as well as providing better text reading while using IntelliSense. The add-on requires VS Code version 1.33 or higher. See the add-on [README](https://github.com/pawelurbanski/nvda-for-vs-code/blob/master/README.md) file for more details.
 
@@ -112,7 +112,7 @@ The VS Code debugger UI is user accessible and has the following features:
 
 ## Current known issues
 
-VS Code has some known accessibility issues depending on the platform.
+VS Code has some known accessibility issues depending on the platform. Here's a [full list](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility) of VS Code accessibility issues.
 
 ### macOS
 
@@ -120,7 +120,13 @@ There is limited screen reader support for the editor with VoiceOver.
 
 ### Linux
 
-There is no screen reader support for the editor. This is because there is no accessibility implementation for Chrome on Linux.
+Screen reader support for the editor is still work in progress because the accessibility implementation for Chrome on Linux is work in progress.
+Thus there are a couple of things needed in order to have screen reader Orca working with VS Code:
+
+* Make sure to use the latest version of Orca out of master. Instructions can be found in [issue #91063](https://github.com/microsoft/vscode/issues/91063).
+* Make sure to have the setting `"editor.accessibilitySupport": "on"` in VS Code. You can do this using settings, or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn on accessibilitySupport.
+
+After enabling that setting, VS Code should work with the Orca screen reader.
 
 ## Next steps
 
