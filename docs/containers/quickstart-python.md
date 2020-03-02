@@ -46,7 +46,6 @@ After verifying your app runs properly, you can now Dockerize your application.
 2. Open the Command Palette (`kb(workbench.action.showCommands)`) and use **Docker: Add Docker Files to Workspace...** command:
 
     ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
-
 3. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we will select **Python: Django**.
 4. Select either **Yes** or **No** when prompted to include [Docker Compose](https://docs.docker.com/compose/) files.
 
@@ -81,7 +80,7 @@ To use Gunicorn, it must bind to an application callable as an entry point. This
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "{workspace_folder_name}.wsgi"]`
 ```
 
-This assumption is based off Django's default project structure. If your project does not follow `django_project_name (workspace folder) -> django_project_name (subfolder) -> wsgi.py`, you must overwrite the Gunicorn entry point in the Dockerfile to locate the correct `wsgi.py` file.
+If your project does not follow Django's default project structure (that is, a workspace folder and a wsgi.py file within a subfolder named the same as the workspace) you must overwrite the Gunicorn entry point in the Dockerfile to locate the correct `wsgi.py` file.
 
 > **Tip**: If your `wsgi.py` file is in the root folder, the final argument in the command above will be `"wsgi"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.wsgi"`.
 
@@ -116,7 +115,7 @@ The **Docker: Add Docker Files to Workspace...** command automatically creates a
 
 >**Note**: If you have created an app project as shown in the [Create a Django app](https://code.visualstudio.com/docs/python/tutorial-django#_create-a-django-app) section of the Django tutorial, you may set a breakpoint in `views.py` or wherever you choose.
 
-2. Navigate to Run and Debug then select **Docker: Python - Django**.
+2. Navigate to **Run and Debug** then select **Docker: Python - Django**.
 
   ![Selected Docker debug configuration](images/quickstarts/python-debug-configuration.png)
 
@@ -125,8 +124,8 @@ The **Docker: Add Docker Files to Workspace...** command automatically creates a
     - The Docker container runs.
     - The python debugger hits the breakpoint in `manage.py`.
 
-4. Step over this line once
-5. Navigate to the Debug Console and type `os.environ["DJANGO_SETTINGS_MODULE"]`
+4. Step over this line once.
+5. Navigate to the **Debug Console** and type `os.environ["DJANGO_SETTINGS_MODULE"]`
 6. Once you view the output, hit continue.
 
 The Docker extension will automatically map a random port to your app container and launch your browser.

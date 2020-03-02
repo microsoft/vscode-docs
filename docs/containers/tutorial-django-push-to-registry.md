@@ -22,9 +22,9 @@ Registry options include the following:
 
 To create an Azure Container Registry:
 
-1. Follow [Quickstart: Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal), but stop before "Push image to ACR". Django deployments must include the settings described below to work properly.
+1. Follow [Quickstart: Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal), but stop before "Push image to ACR". Django deployments must include the following settings to work properly.
 
-2. Make sure that the registry endpoint you created is visible under **Registries** in the **Docker** explorer of VS Code:
+1. Make sure that the registry endpoint you created is visible under **Registries** in the **Docker** explorer of VS Code:
 
     ![Docker explorer in VS Code showing registries](images/quickstarts/python-django-registries.png)
 
@@ -49,16 +49,16 @@ To create an Azure Container Registry:
 
 Once `ALLOWED_HOSTS` have been declared, the next step is to push your Django image to a container registry:
 
-1. Ensure you image is tagged with the correct path registry path (e.g `username.azurecr.io/django-tutorial:latest`)
+1. Ensure your image is tagged with the correct path registry path (for example, `username.azurecr.io/django-tutorial:latest`).
 
-2. Open the **Command Palette** (`kb(workbench.action.showCommands)`) and select **Docker: Push**.
+1. Open the **Command Palette** (`kb(workbench.action.showCommands)`) and select **Docker: Push**.
 
-3. Choose the image you just built to push into the registry. Upload progress will appear in the Terminal.
+1. Choose the image you just built to push into the registry. Upload progress will appear in the Terminal.
 
-4. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Docker** explorer, then expand the registry and image name to see the exact image. (You may need to refresh the **Docker** explorer.)
+1. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Docker** explorer, then expand the registry and image name to see the exact image. (You may need to refresh the **Docker** explorer.)
 
     ![The built app image in the Azure Container Registry](images/quickstarts/python-django-image-in-acr.png)
 
-> **Tip:** The first time you push an image, you see that VS Code uploads all of the different layers that make up the image. Subsequent push operations, however, upload only the layers that have changed. Because it's typically only your app code that's changes, these uploads happen much more quickly, making for a tight inner loop. To see this, make a small change to your code, rebuild the image, and then push again to the registry. The whole process typically completes in a matter of seconds.
+> **Tip**: The first time you push an image, you will see that VS Code uploads each layer the image is comprised of. Subsequent push operations, however, will only update layers starting from the first that has been changed. Since you app code is usually what changes most often, this is typically why app code is copied in the final lines of a Dockerfile. To see this inner loop in action, make a small change to your code, rebuild the image, and then push again to the registry.
 
 Now that you've pushed your image to a registry, you're ready to deploy it to any container-ready cloud service. For details on deploying to Azure App Service, see [Deploy a container](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01).
