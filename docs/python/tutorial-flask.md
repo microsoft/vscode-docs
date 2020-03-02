@@ -666,6 +666,14 @@ Throughout this Flask tutorial, all the app code is contained in a single `app.p
     1. Set an environment variable for `FLASK_APP`. On Linux and macOS, use `export set FLASK_APP=webapp`; on Windows use `set FLASK_APP=webapp`.
     1. Navigate into the `hello_app` folder, then launch the program using `python3 -m flask run` (Linux/macOS) or `python -m flask run` (Windows).
 
+### Create a container for a Flask app using the Docker extension
+
+The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. If you're interested in learning how to create a Python container for the Flask app developed in this tutorial, check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
+
+- Create a `Dockerfile` file describing a simple Python container.
+- Build, run, and verify the functionality of a [Flask](http://flask.pocoo.org/) app.
+- Debug the app running in a container.
+
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Next steps

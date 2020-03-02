@@ -128,7 +128,9 @@ The **Docker: Add Docker Files to Workspace...** command automatically creates a
 5. Navigate to the **Debug Console** and type `os.environ["DJANGO_SETTINGS_MODULE"]`
 6. Once you view the output, hit continue.
 
-The Docker extension will automatically map a random port to your app container and launch your browser.
+The Docker extension will launch your browser to a randomly mapped port:
+
+  ![Django website launches](images/quickstarts/python-web-launch.png)
 
 >**Tip**: To modify your Docker build settings, such as changing the image tag, navigate to `.vscode -> tasks.json` under the `dockerBuild` attribute in the `docker-build` task. Use IntelliSense within the file (`kb(editor.action.triggerSuggest)`) to display all other valid directives.
 
