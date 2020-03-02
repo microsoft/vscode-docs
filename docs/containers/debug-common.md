@@ -142,8 +142,8 @@ Example `launch.json` configuration for debugging a Python application:
 | --- | --- | --- |
 | `host` | The host for remote debugging. | |
 | `port` | The port for remote debugging. | `5678` |
-| `pathMappings` | Maps the project path between local machine and remote host  | |
-| `projectType` | Type of Python app | |
+| `pathMappings` | Maps the project path between local machine and remote host.  | |
+| `projectType` | Type of Python app. | |
 | `justMyCode` | Debug only user-written code. | |
 | `django` | Django debugging. | `false` |
 | `jinja` | Jinja template debugging (e.g. Flask). | `false` |
