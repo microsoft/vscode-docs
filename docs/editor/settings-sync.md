@@ -13,7 +13,19 @@ MetaDescription: Synchronize your user settings across all your Visual Studio Co
 
 ## To enable Settings Sync
 
-Turn on sync using **Sync: Turn On** entry in the gear menu.
+Turn on sync using **Sync: Turn On** entry in the gear menu at the bottom of the activity bar. You will be asked what preferences you would like to sync; currently Settings, Keyboard Shortcuts, Extensions, and the Display Language are supported.
+
+After making this selection, the browser will open so that you can login to a Microsoft account. Both personal accounts, such as Outlook accounts, and Azure accounts can be used. If you're signing in to Microsoft for the first time, there is also an option to sign in with GitHub. If at any time you decide you want to sync your data to a different account, you can use the `Microsoft: Sign Out` command from the command palette, and then use the `Sync: Sign in to sync` entry from the gear menu.
+
+## Configuring synced data
+
+## Conflicts
+
+## Restoring data
+
+## Reporting issues
+
+Settings Sync activity can be monitored in the **Log (Sync)** output view. If you experience a problem with settings sync, please include this log when creating the issue. If your problem is authentication related, please include the log from the **Account** output view.
 
 ## Next steps
 
