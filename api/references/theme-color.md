@@ -192,6 +192,11 @@ The Minimap shows a minified version of the current file.
 - `minimap.selectionHighlight`: Highlight color for the editor selection.
 - `minimap.errorHighlight`: Highlight color for errors within the editor.
 - `minimap.warningHighlight`: Highlight color for warnings within the editor.
+- `minimap.background`: Minimap background color.
+
+- `minimapSlider.background`: Minimap slider background color.
+- `minimapSlider.hoverBackground`: Minimap slider background color when hovering.
+- `minimapSlider.activeBackground`: Minimap slider background color when clicked on.
 
 - `minimapGutter.addedBackground`: Minimap gutter color for added content.
 - `minimapGutter.modifiedBackground`: Minimap gutter color for modified content.
@@ -294,7 +299,7 @@ Search Editor colors highlight results in a Search Editor. This can be configure
 
 - `searchEditor.findMatchBackground`: Color of the editor's results.
 - `searchEditor.findMatchBorder`: Border color of the editor's results.
-- `searchEditor.textInputBorder`: Search editor text input box border."
+- `searchEditor.textInputBorder`: Search editor text input box border.
 
 The hover highlight is shown behind the symbol for which a hover is shown.
 
@@ -361,7 +366,7 @@ Bracket matches:
 
 Folding:
 
-"`editor.foldBackground`: Background color for folded ranges. The color must not be opaque so as not to hide underlying decorations."
+- `editor.foldBackground`: Background color for folded ranges. The color must not be opaque so as not to hide underlying decorations.
 
 Overview ruler:
 
