@@ -9,7 +9,7 @@ MetaSocialImage:
 ---
 # Using Docker in WSL 2
 
-March 3, 2020 by Matt Hernandez, [@fiveisprime](https://twitter.com/fiveisprime)
+March 2, 2020 by Matt Hernandez, [@fiveisprime](https://twitter.com/fiveisprime)
 
 Last June, the Docker team [announced](https://engineering.docker.com/2019/06/docker-hearts-wsl-2/) that they will be investing in getting Docker running with the Windows Subsystem for Linux (WSL). All of this is made possible with the recent changes to the architecture of WSL to run within a lightweight virtual machine (VM), which we talked about in an earlier [blog post about WSL 2](https://code.visualstudio.com/blogs/2019/09/03/wsl2). Since this announcement, the Docker team has released a [Technical Preview](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) of Docker that includes support for running with WSL 2.
 
