@@ -1,36 +1,13 @@
 ---
 Area: containers
 ContentId: DDE07043-BA8C-4D75-B392-ABACC31F6EA8
-PageTitle: Connect to Docker running on a remote machine
+PageTitle: Connect to Docker engine running on a remote machine
 DateApproved: 01/29/2020
-MetaDescription: Connect to a container image running on a remote machine, using Visual Studio Code.
+MetaDescription: Connect via SSH to Docker engine running on a remote machine and use the remote machine as a development environment for Visual Studio Code.
 ---
-# Connect to remote Docker over SSH
+# Connect to remote Docker engine over SSH
 
-In order to connect to a remote Docker daemon over SSH (as opposed to HTTPS with certificate authentication), there are two options for configuring the extension:
-
-* Visual Studio Code [Remote Development using SSH](/docs/remote/ssh.md) - Run your VS Code client in the context of the remote host.
-* Directly via SSH - Manually set up an SSH connection to the remote host.
-
-## Using VS Code remote development
-
-The simplest way is to use VS Code's [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension, from the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack.
-
-1. Run command **Remote-SSH: Add new SSH host...** and follow the prompts to set up a connection to the target host.
-
-1. Run command **Remote-SSH: Connect to host...** and connect to the host.
-
-1. A new VS Code window opens, running in the context of the target machine. If using password authentication, the password will be prompted here. It is recommended to set up [SSH key authentication](https://www.ssh.com/ssh/public-key-authentication), for ease of use.
-
-1. In the Extensions view, install the Docker extension (on the remote host) (a reload may be required after this step):
-
-   ![Screenshot - Installing the Docker extension](images/ssh/install-in-ssh.png)
-
->**NOTE**: If you are using the Docker extension to build Docker images and have source code, the approach above probably means you have your source enlistment on the remote host, rather than your local machine. If you are just using the Docker extension for the Docker Explorer features, then you can disregard this.
-
-## Directly via SSH
-
-It is possible to connect to a remote Docker daemon over SSH without using VS Code remoting, but it is more complicated. This is only recommended if you cannot have your source code on the Docker daemon server.
+It is possible to connect to a remote Docker engine over SSH without [using VS Code remoting extension](/docs/containers/choosing-dev-environment.md#remote-machine), but it is an advanced scenario that requires good SSH configuration skills:
 
 1. Use `ssh-keygen` or similar to get and configure a public/private key pair for SSH authentication: https://www.ssh.com/ssh/keygen/. Password authentication is not supported by Docker and not possible with a `DOCKER_HOST`-based configuration. If a key pair has already been set up, it can be used.
 

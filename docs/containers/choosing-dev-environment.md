@@ -72,13 +72,27 @@ Windows Subsystem for Linux represents a great choice for container-based servic
 >
 > The old version of WSL (WSL 1) does not provide an easy way to connect to the Docker daemon on the host.
 
-### Remote machine or virtual machine
+### Remote machine
 
-**Docker in Docker**
+The recommended way to enable container development with a remote machine is to do [a full Docker installation](https://docs.docker.com/install/) on the machine, including Docker daemon.
 
-The simplest way to enable container development with a remote machine is to do [a full Docker installation](https://docs.docker.com/install/) on the machine, including Docker daemon. For a local VM, you need to enable **nested virtualization** option in your virtualization software. Nested virtualization is supported by all mainstream virtualization technologies such as Hyper-V, Parallels, or Oracle VirtualBox.
+After Docker is installed and working on the remote machine, you can use VS Code's [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension from the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack to connect to your remote machine and work there.
 
-**Reusing the host Docker daemon**
+1. Run command **Remote-SSH: Add new SSH host...** and follow the prompts to set up a connection to the target host.
+
+1. Run command **Remote-SSH: Connect to host...** and connect to the host.
+
+1. A new VS Code window opens, running in the context of the target machine. If using password authentication, the password will be prompted here. It is recommended to set up [SSH key authentication](https://www.ssh.com/ssh/public-key-authentication), for ease of use.
+
+1. In the Extensions view, install the Docker extension (on the remote host) (a reload may be required after this step):
+
+   ![Screenshot - Installing the Docker extension](images/devenv/install-in-ssh.png)
+
+>**NOTE**: If you are using the Docker extension to build Docker images and have source code, the approach above probably means you have your source enlistment on the remote host, rather than on your developer workstation. If you are just using the Docker extension for the Docker Explorer features, then you can disregard this.
+
+### Local VM
+
+To use a virtual machine running on your developer workstation, you need to enable **nested virtualization** option in your virtualization software. Nested virtualization is supported by all mainstream virtualization technologies such as Hyper-V, Parallels, or Oracle VirtualBox. Then you can [install Docker](https://docs.docker.com/install/) in the same way as you would install it on a remote machine.
 
 Alternatively, you can install just the Docker CLI inside development environment and point the CLI to the Docker host (daemon) running on the developer workstation using [Docker context mechanism](https://docs.docker.com/engine/context/working-with-contexts/). The main concern with this approach is to ensure network connectivity from the VM to the Docker daemon on the host, and to do so in a secure way. One option is to use [SSH tunneling](/docs/containers/ssh.md) to developer workstation. Another option is to [make Docker daemon listen on HTTPS port](https://docs.docker.com/engine/security/https/). Both options are considered advanced and outside the scope of this document.
 
