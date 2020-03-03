@@ -43,13 +43,13 @@ In the editor, conditional breakpoints are indicated by a breakpoint symbol that
 
 ## Function breakpoints
 
-Function breakpoints enable you to break execution at the beginning of a function instead of on a particular line of code. To set a function breakpoint, on the **Debug** pane right-click inside the **Breakpoints** section, then choose **Add Function Breakpoint** and enter the name of the function on which you want to break execution.
+Function breakpoints enable you to break execution at the beginning of a function instead of on a particular line of code. To set a function breakpoint, on the **Run** view right-click inside the **Breakpoints** section, then choose **Add Function Breakpoint** and enter the name of the function on which you want to break execution.
 
 ## Expression evaluation
 
 VS Code supports expression evaluation in several contexts:
 
-* You can type an expression into the **Watch** section of the **Debug** panel and it will be evaluated each time a breakpoint is hit.
+* You can type an expression into the **Watch** section of the **Run** view and it will be evaluated each time a breakpoint is hit.
 * You can type an expression into the **Debug Console** and it will be evaluated only once.
 * You can evaluate any expression that appears in your code while you're stopped at a breakpoint.
 

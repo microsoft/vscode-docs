@@ -22,9 +22,9 @@ A configuration drives VS Code's behavior during a debugging session. Configurat
 
 > **Note** In order to change debugging configuration, your code must be stored in a folder.
 
-To initialize debug configurations, first select the Debug View in the sidebar:
+To initialize debug configurations, first select the Run view in the sidebar:
 
-![Debug icon](images/debugging/debug-icon.png)
+![Run icon](images/debugging/debug-icon.png)
 
 If you don't yet have any configurations defined, you'll see "No Configurations" in the drop-down list, and a dot on the settings icon:
 
@@ -32,12 +32,12 @@ If you don't yet have any configurations defined, you'll see "No Configurations"
 
 To generate a `launch.json` file with Python configurations, do the following steps:
 
-1. Select the settings button (circled in the image above) or use the **Debug** > **Open configurations** menu command.
+1. Select the settings button (circled in the image above) or use the **Run** > **Open configurations** menu command.
 
 1. A configuration menu will open from the Command Palette allowing you to choose the type of debug configuration you want for the opened file. For now, in the **Select a debug configuration** menu that appears, select **Python File**.
 ![Debug configurations menu](images/debugging/debug-configurations.png)
 
-> **Note** Starting a debugging session through the Debug Panel, **F5** or **Debug > Start Debugging**, when no configuration exists will also bring up the debug configuration menu.
+> **Note** Starting a debugging session through the Debug Panel, **F5** or **Run > Start Debugging**, when no configuration exists will also bring up the debug configuration menu.
 
 1. The Python extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
 ![Configuration json](images/debugging/configuration-json.png)
@@ -247,7 +247,7 @@ In some scenarios, you need to debug a Python script that's invoked locally by a
 
 1. In the terminal, start Python with the script, for example, `python3 myscript.py`. You should see the "Waiting for debugger attach" message that's included in the code, and the script halts at the `ptvsd.wait_for_attach()` call.
 
-1. Switch to the Debug view, select **Python: Attach** from the debugger drop-down list, and start the debugger.
+1. Switch to the Run view, select **Python: Attach** from the debugger drop-down list, and start the debugger.
 
 1. The debugger should stop on the `breakpoint()` call, from which point you can use the debugger normally. You can, of course, set other breakpoints in the script code instead of using `breakpoint()`.
 
@@ -299,7 +299,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
     #ptvsd.wait_for_attach()
     ```
 
-1. Local computer: switch to Debug View in VS Code, select the **Python: Attach** configuration, and select the settings (gear) icon to open `launch.json` to that configuration.
+1. Local computer: switch to Run view in VS Code, select the **Python: Attach** configuration, and select the settings (gear) icon to open `launch.json` to that configuration.
 
 1. Local computer: Modify the configuration so that `remoteRoot` provides the location of the program on the remote computer's file system. Also modify `host` and `port` to match the values in the `ptvsd.enable_attach` call added to the source code, except that you need to use the remote computer's public IP address for `host`. You might also change `name` to specifically identify the configuration. For example:
 

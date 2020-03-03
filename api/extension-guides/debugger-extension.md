@@ -82,7 +82,7 @@ To try Mock Debug:
 
 - Create a new empty folder `mock test` and open it in VS Code.
 - Create a file `readme.md` and enter several lines of arbitrary text.
-- Switch to the Debug view and press the gear icon.
+- Switch to the Run view and press the gear icon.
 - VS Code will let you select an "environment" in order to create a default launch configuration. Pick "Mock Debug".
 - Press the green Start button and then Enter to confirm the suggested file `readme.md`.
 
@@ -298,7 +298,7 @@ Since VS Code runs on different platforms, we have to make sure that the DA prog
 
 **configurationAttributes** declares the schema for the `launch.json` attributes that are available for this debugger. This schema is used for validating the `launch.json` and supporting IntelliSense and hover help when editing the launch configuration.
 
-The **initialConfigurations** define the initial content of the default `launch.json` for this debugger. This information is used when a project does not have a `launch.json` and a user starts a debug session or clicks on the gear icon in the debug viewlet. In this case VS Code lets the user pick a debug environment and then creates the corresponding `launch.json`:
+The **initialConfigurations** define the initial content of the default `launch.json` for this debugger. This information is used when a project does not have a `launch.json` and a user starts a debug session or clicks on the gear icon in the Run view. In this case VS Code lets the user pick a debug environment and then creates the corresponding `launch.json`:
 
 ![Debugger Quickpick](images/debugger-extension/debug-init-config.png)
 

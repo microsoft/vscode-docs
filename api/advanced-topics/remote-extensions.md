@@ -51,7 +51,7 @@ Follow these steps:
 
 5. While VS Online's cloud-based environments should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
 
-6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside in the Visual Studio Online environment.
+6. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension inside in the Visual Studio Online environment.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the environment.
 
@@ -75,7 +75,7 @@ Follow these steps:
 
 5. Run `yarn install` or `npm install` in a new VS Code terminal window (`kb(workbench.action.terminal.new)`) to ensure the Linux versions Node.js native dependencies are install. You can also install other OS or runtime dependencies, but you may want to add these to `.devcontainer/Dockerfile` as well so they are available if you rebuild the container.
 
-6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside this same container and attach the debugger.
+6. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension inside this same container and attach the debugger.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the container.
 
@@ -91,7 +91,7 @@ Follow steps:
 
 3. Install any required dependencies that might be missing (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
 
-4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside on the remote host and attach the debugger.
+4. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension inside on the remote host and attach the debugger.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else on the SSH host.
 
@@ -109,7 +109,7 @@ Follow these steps:
 
 3. Install any required dependencies that might be missing (for example using `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`). You will at least want to run `yarn install` or `npm install` to ensure Linux versions of native Node.js dependencies are available.
 
-4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension and attach the debugger as you would locally.
+4. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension and attach the debugger as you would locally.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in WSL.
 

@@ -820,7 +820,7 @@ Place breakpoints next to the line number. Navigate forward with the Debug widge
 
 ### Data inspection
 
-Inspect variables in the **Debug** panels and in the console.
+Inspect variables in the **Run** panels and in the console.
 
 ![data inspection](images/tips-and-tricks/debug_data_inspection.gif)
 

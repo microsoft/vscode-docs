@@ -704,7 +704,7 @@ Contribute a view to VS Code. You must specify an identifier and name for the vi
 
 - `explorer`: Explorer view container in the Activity Bar
 - `scm`: Source Control Management (SCM) view container in the Activity Bar
-- `debug`: Debug view container in the Activity Bar
+- `debug`: Run and Debug view container in the Activity Bar
 - `test`: Test view container in the Activity Bar
 - [Custom view containers](#contributes.viewsContainers) contributed by Extensions.
 

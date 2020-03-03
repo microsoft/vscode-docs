@@ -134,7 +134,7 @@ The `group` value specifies that this task will be run when you press `kb(workbe
 
 Next, you'll create a `launch.json` file to configure VS Code to launch the debugger when you press `kb(workbench.action.debug.start)` to debug the program.
 
-1. From the main menu, choose **Debug > Add Configuration...** and then choose **C/C++ Windows (Launch)**. This causes the `launch.json` file to be created and opened. Replace the contents of the file with this
+1. From the main menu, choose **Run > Add Configuration...** and then choose **C/C++ Windows (Launch)**. This causes the `launch.json` file to be created and opened. Replace the contents of the file with this
 
 ```json
 {
@@ -193,7 +193,7 @@ The remaining steps are provided as an optional exercise to help you get familia
 
 ![File Explorer](images/msvc/file-explorer-msvc.png)
 
-This same panel is also used for source control, debugging, searching and replacing text, and managing extensions. The buttons on the left control those views. We'll look at the **Debug View** later in this tutorial. You can find out more about the other views in the VS Code documentation.
+This same panel is also used for source control, debugging, searching and replacing text, and managing extensions. The buttons on the left control those views. We'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code documentation.
 
 ## Explore IntelliSense
 
@@ -217,7 +217,7 @@ You can press the TAB key to insert the selected member; then, when you add the 
 
 ## Start a debugging session
 
-1. You are now ready to run the program. Press `kb(workbench.action.debug.start)` or from the main menu choose **Debug > Start Debugging**. Before we start stepping through the code, let's take a moment to notice several changes in the user interface:
+1. You are now ready to run the program. Press `kb(workbench.action.debug.start)` or from the main menu choose **Run > Start Debugging**. Before we start stepping through the code, let's take a moment to notice several changes in the user interface:
 
 - The code editor highlights the first line in the `main` method. This is a breakpoint that the C++ extension automatically sets for you:
 

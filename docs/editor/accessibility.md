@@ -47,7 +47,7 @@ You can use the `kbstyle(Tab)` key to jump between VS Code UI controls. Use `kbs
 
 Some areas that support Tab navigation are:
 
-* The View switcher (File Explorer, Search, Source Control, Debug, Extensions)
+* The View switcher (File Explorer, Search, Source Control, Run, Extensions)
 * The header of collapsible sections in a view to expand/collapse
 * Actions in views and sections
 * Actions for items in the tree
@@ -106,7 +106,7 @@ The VS Code debugger UI is user accessible and has the following features:
 
 * Changes in debug state are read out (for example 'started', 'breakpoint hit', 'terminated', ...).
 * All debug actions are keyboard accessible.
-* Both the Debug View and Debug Console support Tab navigation.
+* Both the Run view and Debug Console support Tab navigation.
 * Debug hover is keyboard accessible (`kb(editor.action.showHover)`).
 * Keyboard shortcuts can be created to set focus to each debugger area.
 

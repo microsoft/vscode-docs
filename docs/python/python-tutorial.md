@@ -215,7 +215,7 @@ Select the blue **Continue** button on the toolbar again (or press F5) to run th
 
 If you restart the debugger, the debugger again stops on the first breakpoint.
 
-To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Debug > Stop debugging** menu command.
+To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Run > Stop debugging** menu command.
 
 For full details, see [Debugging configurations](/docs/python/debugging.md), which includes notes on how to use a specific Python interpreter for debugging.
 

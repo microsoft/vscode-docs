@@ -150,9 +150,9 @@ The File Explorer is just one of the Views available in VS Code. There are also 
 
 * **Search** - Provides global search and replace across your open folder.
 * **Source Control** - VS Code includes Git source control by default.
-* **Debug** - VS Code's Debug View displays variables, call stacks, and breakpoints.
+* **Run** - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
 * **Extensions** - Install and manage your extensions within VS Code.
-* **Custom views** - Views contributed by extensions under Explorer and Debug views.
+* **Custom views** - Views contributed by extensions.
 
 > **Tip:** You can open any view using the **View: Open View** command.
 

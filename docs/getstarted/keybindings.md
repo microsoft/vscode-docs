@@ -354,7 +354,7 @@ View Identifiers:
 * workbench.view.explorer - File Explorer
 * workbench.view.search - Search
 * workbench.view.scm - Source Control
-* workbench.view.debug - Debug
+* workbench.view.debug - Run
 * workbench.view.extensions - Extensions
 
 Panel Identifiers:
@@ -563,7 +563,7 @@ Key|Command|Command id
 `kb(workbench.view.explorer)`|Show Explorer / Toggle Focus|`workbench.view.explorer`
 `kb(workbench.view.search)`|Show Search|`workbench.view.search`
 `kb(workbench.view.scm)`|Show Source Control|`workbench.view.scm`
-`kb(workbench.view.debug)`|Show Debug|`workbench.view.debug`
+`kb(workbench.view.debug)`|Show Run|`workbench.view.debug`
 `kb(workbench.view.extensions)`|Show Extensions|`workbench.view.extensions`
 `kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
 `kb(workbench.action.quickOpenView)`|Quick Open View|`workbench.action.quickOpenView`

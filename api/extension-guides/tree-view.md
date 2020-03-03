@@ -46,7 +46,7 @@ A view is an UI section that is shown inside the View Container. With the [`cont
 To contribute a view, you should first register it using [`contributes.views`](/api/references/vscode-api) Contribution Point in `package.json`. You must specify an identifier and name for the view, and you can contribute to following locations:
 
 - `explorer`: Explorer view in the Side Bar
-- `debug`: Debug view in the Side Bar
+- `debug`: Run and Debug view in the Side Bar
 - `scm`: Source Control view in the Side Bar
 - `test`: Test explorer view in the Side Bar
 - Contributed View Containers
