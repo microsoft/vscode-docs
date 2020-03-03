@@ -32,27 +32,27 @@ The following documentation is based on the built-in [Node.js](https://nodejs.or
 
 It is helpful to first create a sample Node.js application before reading about debugging. You can follow the [Node.js walkthrough](/docs/nodejs/nodejs-tutorial.md) to install Node.js and create a simple "Hello World" JavaScript application (`app.js`). Once you have a simple application set up, this page will take you through VS Code debugging features.
 
-## Debug view
+## Run view
 
-To bring up the Debug view, select the Debug icon in the **Activity Bar** on the side of VS Code. You can also use the keyboard shortcut `kb(workbench.view.debug)`.
+To bring up the Run view, select the Run icon in the **Activity Bar** on the side of VS Code. You can also use the keyboard shortcut `kb(workbench.view.debug)`.
 
-![Debug icon](images/debugging/debugicon.png)
+![Debug icon](images/debugging/run.png)
 
-The Debug view displays all information related to debugging and has a top bar with debugging commands and configuration settings.
+The Run view displays all information related to running and debugging and has a top bar with debugging commands and configuration settings.
 
-If debugging is not yet configured (no `launch.json` has been created) we show the Debug start view.
+If running and debugging is not yet configured (no `launch.json` has been created) we show the Run start view.
 
 ![Simplified initial Debug view](images/debugging/debug-start.png)
 
-## Debug menu
+## Run menu
 
-The top-level **Debug** menu has the most common debug commands:
+The top-level **Run** menu has the most common run and debug commands:
 
 ![Debug menu](images/debugging/debug-menu.png)
 
 ## Launch configurations
 
-To debug a simple app in VS Code, press `kb(workbench.action.debug.start)` and VS Code will try to debug your currently active file.
+To run or debug a simple app in VS Code, press `kb(workbench.action.debug.start)` and VS Code will try to run your currently active file.
 
 However, for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations).
 
@@ -145,7 +145,7 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 
 ### Run mode
 
-In addition to debugging a program, VS Code supports **running** the program. The **Debug: Start Without Debugging** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running, and pressing the **Stop** button terminates the program.
+In addition to debugging a program, VS Code supports **running** the program. The **Debug: Run (Start Without Debugging)** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running, and pressing the **Stop** button terminates the program.
 
 >**Tip**: The **Run** action is always available, but not all debugger extensions support 'Run'. In this case, 'Run' will be the same as 'Debug'.
 
