@@ -3,13 +3,15 @@ Order: 4
 Area: cpp
 TOCTitle: Clang on macOS
 ContentId: 6ef32219-81ad-4d73-84b8-8d4384a45f8a
-PageTitle: Get Started with C++ and Clang/LLVM in Visual Studio Code on macOS
+PageTitle: Configure VS Code for Clang/LLVM on macOS
 DateApproved: 07/25/2019
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target Clang/LLVM
 ---
-# Using Clang in Visual Studio Code
+# Configure VS Code for Clang on macOS
 
-In this tutorial, you configure Visual Studio Code on macOS to use the Clang/LLVM compiler and debugger. After configuring VS Code, you will compile and debug a simple program to get familiar with the VS Code user interface. After completing this tutorial, you will be ready to create and configure your own workspace, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you about Clang or the C++ language. For those subjects, there are many good resources available on the Web.
+In this tutorial, you configure Visual Studio Code on macOS to use the Clang/LLVM compiler and debugger. 
+
+After configuring VS Code, you will compile and debug a simple program in VS Code. This tutorial does not teach you about Clang or the C++ language. For those subjects, there are many good resources available on the Web.
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
@@ -17,13 +19,15 @@ If you have any problems, feel free to file an issue for this tutorial in the [V
 
 To successfully complete this tutorial, you must do the following steps:
 
-1. Install [Visual Studio Code](/download) and follow the setup instructions in [Visual Studio Code on macOS](/docs/setup/mac.md).
+1. Install Visual Studio Code by following the instructions in [Visual Studio Code on macOS](/docs/setup/mac.md).
 
-1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'c++' in the Extensions view (`kb(workbench.view.extensions)`).
 
-## Add VS Code to your PATH
+    ![C/C++ extension](images/cpp/cpp-extension.png)
 
-In order to start VS Code from the command line, we'll need to add it to the PATH environment variable. This only needs to be done once, on first use.
+### Add VS Code to your PATH
+
+To use VS Code from the command line, add it to the PATH environment variable. This only needs to be done once, on first use.
 
 1. Open VS Code
 1. Press `kb(workbench.action.showCommands)` to open the Command Palette.
@@ -32,37 +36,33 @@ In order to start VS Code from the command line, we'll need to add it to the PAT
    ![Shell command in Command Palette](images/clang-mac/mac-command-palette-shell-command.png)
 
 1. You should see a notification in the lower right of the VS Code window that tells you that VS Code was successfully added to the PATH.
-1. Close VS Code.
 
-## Start VS Code in a folder
+### Ensure that Clang is installed
 
-In the macOS Terminal, create an empty folder called "projects" and then a subfolder called "helloworld". Navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
+1. Open a Terminal window
+1. Enter the following command to see whetherClang is installed:
 
 ```bash
-mkdir projects
-cd projects
-mkdir helloworld
-cd helloworld
-code .
+clang --version
 ```
 
-The **code .** command opens VS Code in the current working folder, which becomes your *workspace*. Before we can get IntelliSense support, or compile and debug our code, we have to configure VS Code to use Clang/LLDB. After completing the configuration, we will have three files in a `.vscode` subfolder:
+3. If you don't have Clang installed on your Mac, enter the following command to get the command line developer tools, which includes Clang:
 
-- `c_cpp_properties.json` (compiler path and IntelliSense settings)
-- `tasks.json` (build instructions)
-- `launch.json` (debugger settings)
+```bash
+xcode-select --install
+```
 
-To reuse the configuration, you can copy these files to a new workspace and adjust the program name and other settings as needed.
+### Configure the compiler path
 
-## Configure the compiler path
-
-1. Press `kb(workbench.action.showCommands)` to open the Command Palette. It looks like this:
+1. In VS Code, press `kb(workbench.action.showCommands)` to open the Command Palette. It looks like this:
 
    ![Command Palette](images/clang-mac/mac-command-palette-configurations.png)
 
-1. Start typing "C/C++" and then choose **Edit Configurations (UI)** from the list of suggestions. This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the .vscode folder.
+1. Type "C/C++" and then choose **C/C++: Edit Configurations (UI)** from the list. This opens the **C/C++ Configurations** page.
 
    ![Command Palette](images/clang-mac/intellisense-configurations-mac-clang.png)
+
+1. In the **C/C++ Configurations** page, click **Add Configuration** and provide a configuration name. Then click **OK**.
 
 1. Find the **Compiler path** setting. VS Code will attempt to populate it with a default compiler based on what it finds on your system. For Clang on macOS, the path should look like this: `/usr/bin/clang`.
 
@@ -98,6 +98,30 @@ Visual Studio code places these settings in `.vscode/c_cpp_properties.json`. If 
     "version": 4
 }
 ```
+
+1. Close VS Code.
+
+## Start VS Code in a folder
+
+In the macOS Terminal, enter the following commands to create an empty folder called "projects" and then a subfolder called "helloworld", and then open VS Code:
+
+```bash
+mkdir projects
+cd projects
+mkdir helloworld
+cd helloworld
+code .
+```
+
+The **code .** command opens VS Code in the current working folder, which becomes your *workspace*. Before we can get IntelliSense support, or compile and debug our code, we have to configure VS Code to use Clang/LLDB. After completing the configuration, there will be three files in a `.vscode` subfolder:
+
+- `c_cpp_properties.json` (compiler path and IntelliSense settings)
+- `tasks.json` (build instructions)
+- `launch.json` (debugger settings)
+
+To reuse the configuration, you can copy these files to a new workspace and adjust the program name and other settings as needed.
+
+
 
 ## Create a build task
 
