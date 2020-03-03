@@ -7,7 +7,7 @@ MetaDescription: Connect via SSH to Docker engine running on a remote machine an
 ---
 # Connect to remote Docker engine over SSH
 
-It is possible to connect to a remote Docker engine over SSH without [using VS Code remoting extension](/docs/containers/choosing-dev-environment.md#remote-machine), but it is an advanced scenario that requires good SSH configuration skills:
+We recommend to use [VS Code Remote-SSH extension](/docs/containers/choosing-dev-environment.md#remote-machine) to connect to a remote machine running Docker engine, but it also possible to connect to the remote Docker engine directly, using SSH tunneling:
 
 1. Use `ssh-keygen` or similar to get and configure a public/private key pair for SSH authentication: https://www.ssh.com/ssh/keygen/. Password authentication is not supported by Docker and not possible with a `DOCKER_HOST`-based configuration. If a key pair has already been set up, it can be used.
 

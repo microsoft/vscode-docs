@@ -82,7 +82,7 @@ After Docker is installed and working on the remote machine, you can use VS Code
 
 1. Run command **Remote-SSH: Connect to host...** and connect to the host.
 
-1. A new VS Code window opens, running in the context of the target machine. If you're using password authentication, the password will be prompted here. We recommend that you set up [SSH key authentication](https://www.ssh.com/ssh/public-key-authentication), for ease of use.
+1. A new VS Code window opens, running in the context of the target machine. If you're using password authentication, the password will be prompted here. We strongly recommend that you set up [SSH key authentication](https://www.ssh.com/ssh/public-key-authentication), for ease of use.
 
 1. In the Extensions view, install the Docker extension (on the remote host) (a reload may be required after this step):
 
@@ -92,9 +92,9 @@ After Docker is installed and working on the remote machine, you can use VS Code
 
 ### Local VM
 
-To use a virtual machine running on your developer workstation, you need to enable **nested virtualization** option in your virtualization software. Nested virtualization is supported by all mainstream virtualization technologies such as Hyper-V, Parallels, or Oracle VirtualBox. Then you can [install Docker](https://docs.docker.com/install/) in the same way as you would install it on a remote machine.
+To use a virtual machine running on your developer workstation, you need to enable **nested virtualization** option in your virtualization software. Nested virtualization is supported by all mainstream virtualization technologies such as [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization), [Parallels](https://kb.parallels.com/116239), or [Oracle VirtualBox](https://docs.oracle.com/en/virtualization/virtualbox/6.0/admin/nested-virt.html). Then you can [install Docker](https://docs.docker.com/install/) in the same way as you would install it on a remote machine.
 
-Alternatively, you can install just the Docker CLI inside your development environment and point the CLI to the Docker host (daemon) running on the developer workstation using [Docker context mechanism](https://docs.docker.com/engine/context/working-with-contexts/). The main concern with this approach is to ensure network connectivity from the VM to the Docker daemon on the host, and to do so in a secure way. One option is to use [SSH tunneling](/docs/containers/ssh.md) to the developer workstation. Another option is to [make Docker daemon listen on HTTPS port](https://docs.docker.com/engine/security/https/). Both options are considered advanced and outside the scope of this document.
+Alternatively, you can install just the Docker CLI inside your development environment and point the CLI to the Docker host (daemon) running on the developer workstation using [Docker context mechanism](https://docs.docker.com/engine/context/working-with-contexts/). The main concern with this approach is to ensure network connectivity from the VM to the Docker daemon on the host, and to do so in a secure way. One option is to use [SSH tunneling](/docs/containers/ssh.md) to the developer workstation. Another option is to [make Docker daemon listen on HTTPS port](https://docs.docker.com/engine/security/https/).
 
 ## Debugging in a container
 
