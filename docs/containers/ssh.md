@@ -5,13 +5,15 @@ PageTitle: Connect to Docker engine running on a remote machine
 DateApproved: 01/29/2020
 MetaDescription: Connect via SSH to Docker engine running on a remote machine and use the remote machine as a development environment for Visual Studio Code.
 ---
-# Connect to remote Docker engine over SSH
+# Connect to remote Docker over SSH
 
-We recommend to use [VS Code Remote-SSH extension](/docs/containers/choosing-dev-environment.md#remote-machine) to connect to a remote machine running Docker engine, but it also possible to connect to the remote Docker engine directly, using SSH tunneling:
+We recommend using the Visual Studio Code [Remote-SSH extension](/docs/containers/choosing-dev-environment.md#remote-machine) to connect to a remote machine running Docker engine, but it also possible to connect to the remote Docker engine directly, using SSH tunneling.
 
-1. Use `ssh-keygen` or similar to get and configure a public/private key pair for SSH authentication: https://www.ssh.com/ssh/keygen/. Password authentication is not supported by Docker and not possible with a `DOCKER_HOST`-based configuration. If a key pair has already been set up, it can be used.
+## Set up SSH Tunneling
 
-1. Configure `ssh-agent` on the _local_ system with the _private_ key file produced above.
+1. Use [ssh-keygen](https://www.ssh.com/ssh/keygen) or similar to get and configure a public/private key pair for SSH authentication. Password authentication is not supported by Docker and not possible with a `DOCKER_HOST`-based configuration. If a key pair has already been set up, it can be used.
+
+1. Configure `ssh-agent` on the _local_ system with the **private** key file produced above.
 
     1. Windows (OpenSSH): the latest version(s) of Windows 10 include OpenSSH by default. There is a Windows service, `ssh-agent` that is disabled by default, and needs to be re-enabled and set to automatic start. From an admin command prompt, run `sc config ssh-agent start=auto` and `net start ssh-agent`. Then, do `ssh-add <keyfile>`.
 
@@ -19,13 +21,13 @@ We recommend to use [VS Code Remote-SSH extension](/docs/containers/choosing-dev
 
     1. Linux (Ubuntu was tested; you might have different results on other distributions): `ssh-agent` is present by default. Do `ssh-add <keyfile>`.
 
-    1. macOS: `ssh-agent` is present by default, **but `ssh-add` does not persist across logins**. Do `ssh-add <keyfile>`. We recommend configuring VS Code to run this command on terminal startup with `terminal.integrated.shellArgs.osx`, or otherwise configuring a startup script, or otherwise just manually running that command each login.
+    1. macOS: `ssh-agent` is present by default, but `ssh-add` does not persist across logins. Do `ssh-add <keyfile>`. We recommend configuring VS Code to run this command on terminal startup with `terminal.integrated.shellArgs.osx` or otherwise configuring a startup script. You can also manually run that command each login.
 
-1. Verify that your identity is available to the agent with `ssh-add -l`. It should list one or more identities that look something like `2048 SHA256:abcdefghijk somethingsomething (RSA)`. **If it does not list any identity, you will not be able to connect.** Also, it needs to have the right identity, of course. The Docker CLI working does _not_ mean that the Explorer window will work--the Explorer window uses [dockerode](https://www.npmjs.com/package/dockerode) (which in turn uses [ssh2](https://www.npmjs.com/package/ssh2)), whereas the Docker CLI uses simply the `ssh` command, and benefits from more automatically inferred configuration.
+1. Verify that your identity is available to the agent with `ssh-add -l`. It should list one or more identities that look something like `2048 SHA256:abcdefghijk somethingsomething (RSA)`. If it does not list any identity, you will not be able to connect. Also, it needs to have the right identity. The Docker CLI working does not mean that the Explorer window will work. The Explorer window uses [dockerode](https://www.npmjs.com/package/dockerode) (which in turn uses [ssh2](https://www.npmjs.com/package/ssh2)), whereas the Docker CLI uses the `ssh` command, and benefits from an automatically inferred configuration.
 
 1. Configure VS Code with your `DOCKER_HOST` to `ssh://username@host`. If you don't include username, it will use your current local user name, which may be wrong.
 
-    1. You can simply use the `DOCKER_HOST` environment variable, or
+    1. You can use the `DOCKER_HOST` environment variable, or
 
     1. There's a setting `docker.host` in VS Code, which has the same effect, but allows for user or workspace settings instead of machine settings.
 
