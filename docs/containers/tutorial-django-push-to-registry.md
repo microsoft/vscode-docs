@@ -41,9 +41,9 @@ To create an Azure Container Registry:
 
     Without this entry, you'll see a "DisallowedHost" message after deployment that instructs to you add the website domain to `ALLOWED_HOSTS`. This will require you to rebuild, push, and redeploy the image once again.
 
-2. On the **Command Palette** (`kb(workbench.action.showCommands)`), select **Docker: Build Image** to rebuild image with new settings.
+1. On the **Command Palette** (`kb(workbench.action.showCommands)`), select **Docker: Build Image** to rebuild image with new settings.
 
->**Tip**: If you want to test your image in production on multiple hosting services, you can simply input `"*"` in ALLOWED_HOSTS.
+    >**Tip**: If you want to test your image in production on multiple hosting services, you can simply input `"*"` in ALLOWED_HOSTS.
 
 ## Push the image to a registry
 
@@ -59,6 +59,6 @@ Once `ALLOWED_HOSTS` have been declared, the next step is to push your Django im
 
     ![The built app image in the Azure Container Registry](images/quickstarts/python-django-image-in-acr.png)
 
-> **Tip**: The first time you push an image, you will see that VS Code uploads each layer the image is comprised of. Subsequent push operations, however, will only update layers starting from the first that has been changed. Since you app code is usually what changes most often, this is typically why app code is copied in the final lines of a Dockerfile. To see this inner loop in action, make a small change to your code, rebuild the image, and then push again to the registry.
+  > **Tip**: The first time you push an image, you will see that VS Code uploads each layer the image is comprised of. Subsequent push operations, however, will only update layers starting from the first that has been changed. Since you app code is usually what changes most often, this is typically why app code is copied in the final lines of a Dockerfile. To see this inner loop in action, make a small change to your code, rebuild the image, and then push again to the registry.
 
 Now that you've pushed your image to a registry, you're ready to deploy it to any container-ready cloud service. For details on deploying to Azure App Service, see [Deploy a container](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01).

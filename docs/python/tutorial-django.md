@@ -922,7 +922,7 @@ You can customize the administrative interface as much as you like. For example,
 
 ### Create a container for a Django app using the Docker extension
 
-The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. If you're interested in learning how to create a Python container for the Django app developed in this tutorial check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
+The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. If you're interested in learning how to create a Python container for the Django app developed in this tutorial, check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
 
 - Create a `Dockerfile` file describing a simple Python container.
 - Build, run, and verify the functionality of a [Django](https://www.djangoproject.com/) app.

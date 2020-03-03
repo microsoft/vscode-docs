@@ -43,19 +43,19 @@ After verifying your app runs properly, you can now Dockerize your application.
 ## Add Docker files to the project
 
 1. Open the project folder in VS Code.
-2. Open the Command Palette (`kb(workbench.action.showCommands)`) and use **Docker: Add Docker Files to Workspace...** command:
+1. Open the Command Palette (`kb(workbench.action.showCommands)`) and use **Docker: Add Docker Files to Workspace...** command:
 
     ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
-3. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we will select **Python: Django**.
-4. Select either **Yes** or **No** when prompted to include [Docker Compose](https://docs.docker.com/compose/) files.
+1. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we will select **Python: Django**.
+1. Select either **Yes** or **No** when prompted to include [Docker Compose](https://docs.docker.com/compose/) files.
 
-5. Enter the relative path to the app’s entry point. This excludes the workspace folder you start from. According to [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. According to [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you create your Flask instance.
+1. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. According to [official Django documentation](https://docs.djangoproject.com/en/1.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. According to [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you create your Flask instance.
 
->**Tip**: You may also enter the path to a folder name as long as this folder includes a `__main__.py` file.
+    >**Tip**: You may also enter the path to a folder name as long as this folder includes a `__main__.py` file.
 
-6. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000 while Flask defaults to port 5000, however, any unused port will work.
+1. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000 while Flask defaults to port 5000; however, any unused port will work.
 
-7. With all this information, the Docker extension creates the following files:
+1. With all this information, the Docker extension creates the following files:
 
     - A `Dockerfile`. To learn more about Intellisense in this file, refer to the [overview](/docs/containers/overview.md).
 
@@ -74,7 +74,7 @@ To give Python Web Developers a great starting point, we chose to use [Gunicorn]
 
 #### Django Apps
 
-To use Gunicorn, it must bind to an application callable as an entry point. This callable is declared in the `wsgi.py` file of a Django application. To accomplish this binding, the final line in the Dockerfile says:
+To use Gunicorn, it must bind to an application callable (what the application server uses to communicate with your code) as an entry point. This callable is declared in the `wsgi.py` file of a Django application. To accomplish this binding, the final line in the Dockerfile says:
 
 ```docker
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "{workspace_folder_name}.wsgi"]`
@@ -82,11 +82,11 @@ CMD ["gunicorn", "--bind", "0.0.0.0:8000", "{workspace_folder_name}.wsgi"]`
 
 If your project does not follow Django's default project structure (that is, a workspace folder and a wsgi.py file within a subfolder named the same as the workspace) you must overwrite the Gunicorn entry point in the Dockerfile to locate the correct `wsgi.py` file.
 
-> **Tip**: If your `wsgi.py` file is in the root folder, the final argument in the command above will be `"wsgi"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.wsgi"`.
+  > **Tip**: If your `wsgi.py` file is in the root folder, the final argument in the command above will be `"wsgi"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.wsgi"`.
 
 #### Flask Apps
 
-To use Gunicorn, it must bind to an application callable as an entry point. This callable corresponds with the **file location** and **variable name** of your created Flask instance. According to [official Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/api/), users generally create a Flask instance in the main module or in the `__init__.py` file of their package in this manner:
+To use Gunicorn, it must bind to an application callable (what the application server uses to communicate with your code) as an entry point. This callable corresponds with the **file location** and **variable name** of your created Flask instance. According to [official Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/api/), users generally create a Flask instance in the main module or in the `__init__.py` file of their package in this manner:
 
 ```python
 from flask import Flask
@@ -99,9 +99,9 @@ To accomplish this binding, the final line in the Dockerfile says:
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "{subfolder}.{module_file}:app"]
 ```
 
-You have already given the path to the Flask instance, but the Docker extension assumes your Flask instance variable is named `app`. If this is not the case, the variable name must be overwritten in the Dockerfile.
+During the **Docker: Add Docker Files to Workspace...** command, you configure the path to the Flask instance, however, the Docker extension assumes your Flask instance variable is named `app`. If this is not the case, you must change the variable name in the Dockerfile.
 
-> **Tip**: If your main module was in the root folder as a file named `main.py` and had a Flask instance variable was named `myapp`, the final argument in the command above will be `"main:myapp"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.main:myapp"`.
+  > **Tip**: If your main module was in the root folder as a file named `main.py` and had a Flask instance variable was named `myapp`, the final argument in the command above will be `"main:myapp"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.main:myapp"`.
 
 ## Build, run, and debug the container
 
@@ -109,24 +109,24 @@ The **Docker: Add Docker Files to Workspace...** command automatically creates a
 
 1. Navigate to the `manage.py` file and set a breakpoint on this line:
 
-```python
-  os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'helloworld.settings')
-```
+    ```python
+      os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'helloworld.settings')
+    ```
 
->**Note**: If you have created an app project as shown in the [Create a Django app](https://code.visualstudio.com/docs/python/tutorial-django#_create-a-django-app) section of the Django tutorial, you may set a breakpoint in `views.py` or wherever you choose.
+    >**Note**: If you have created an app project as shown in the [Create a Django app](https://code.visualstudio.com/docs/python/tutorial-django#_create-a-django-app) section of the Django tutorial, you may set a breakpoint in `views.py` or wherever you choose.
 
-2. Navigate to **Run and Debug** then select **Docker: Python - Django**.
+1. Navigate to **Run and Debug** then select **Docker: Python - Django**.
 
-  ![Selected Docker debug configuration](images/quickstarts/python-debug-configuration.png)
+    ![Selected Docker debug configuration](images/quickstarts/python-debug-configuration.png)
 
-3. Start debugging using the `kb(workbench.action.debug.start)` key.
+1. Start debugging using the `kb(workbench.action.debug.start)` key.
     - The Docker image builds.
     - The Docker container runs.
     - The python debugger hits the breakpoint in `manage.py`.
 
-4. Step over this line once.
-5. Navigate to the **Debug Console** and type `os.environ["DJANGO_SETTINGS_MODULE"]`
-6. Once you view the output, hit continue.
+1. Step over this line once.
+1. Navigate to the **Debug Console** and type `os.environ["DJANGO_SETTINGS_MODULE"]`
+1. Once you view the output, hit continue.
 
 The Docker extension will launch your browser to a randomly mapped port:
 
