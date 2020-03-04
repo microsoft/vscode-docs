@@ -26,13 +26,7 @@ The Docker extension infers the entry point of the Docker container via properti
         "docker-build"
       ],
       "python": {
-        "args": [
-          "runserver",
-          "0.0.0.0:8000",
-          "--nothreading",
-          "--noreload"
-        ],
-        "module": "manage"
+        "module": "myapp"
       }
     }
   ]
@@ -51,7 +45,13 @@ The Docker extension infers the entry point of the Docker container via properti
         "docker-build"
       ],
       "python": {
-        "file": "hello_app/webapp.py"
+        "args": [
+          "runserver",
+          "0.0.0.0:8000",
+          "--nothreading",
+          "--noreload"
+        ],
+        "file": "manage.py"
       }
     }
   ]
@@ -144,6 +144,6 @@ To debug your app running with Gunicorn (or any other web server):
 1. Save the `launch.json` file.
 1. Modify the `docker-compose.yml` file to expose the debugger port by adding `5678:5678` to the [ports section](https://docs.docker.com/compose/). If you are using `docker run` to run your container from the terminal, you must append `-p 5678:5678`.
 1. Start the container by right-clicking on a `docker-compose.yml` file and selecting **Compose Up** or doing `docker run` from the command line.
-1. Set a breakpoint in chosen file.
-1. Navigate to **Run and Debug** and select the **Python: Remote Attach** launch configuration
+1. Set a breakpoint in the chosen file.
+1. Navigate to **Run and Debug** and select the **Python: Remote Attach** launch configuration.
 1. Hit (`kb(workbench.action.debug.start)`) to attach the debugger.
