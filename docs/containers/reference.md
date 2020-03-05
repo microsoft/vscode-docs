@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Customize
 ContentId: 6784FBBE-9EE4-44A8-AC48-A52617EB1968
 PageTitle: Reference for Visual Studio Code Docker extension properties and tasks.
-DateApproved: 01/29/2020
+DateApproved: 3/5/2020
 MetaDescription: Reference for Docker build and Docker run tasks and properties in the Visual Studio Code Docker extension.
 ---
 # Customize the Docker extension
@@ -273,11 +273,11 @@ Here are all properties available for configuring `docker-run` task. All propert
 
 The Docker extension executes a number of Docker CLI commands when you perform various operations, such as to build images, run containers, attach to containers, and view container logs. Some of these commands have a large number of optional arguments, often used in very specific scenarios. Many of these commands can be customized.
 
-For each of these customizable Docker commands, a configuration setting is available to set the template of what to execute. Alternatively, you can define multiple templates, optionally with a regular expression which, when matched, hints the context in which a template should be used. The templates support some tokens similar to `launch.json` and `tasks.json`, for example, `${workspaceFolder}`.
+For each of these customizable Docker commands, a configuration setting is available to set the template of what to execute. Alternatively, you can define multiple templates, optionally with a regular expression, which when matched, hints the context in which a template should be used. The templates support some tokens similar to `launch.json` and `tasks.json`, for example, `${workspaceFolder}`.
 
 ### Settings JSON schema
 
-You have two options for configuring each of the templates (listed below). The first is a single template which overrides the default behavior:
+You have two options for configuring each of the templates (listed below). The first is a single template that overrides the default behavior:
 
 ```json
 {
@@ -285,7 +285,9 @@ You have two options for configuring each of the templates (listed below). The f
 }
 ```
 
-The second is multiple templates which will be chosen based on the `match` regular expression as well as user input. For example, two templates are shown in the following code:
+The second is multiple templates that will be chosen based on the `match` regular expression as well as user input.
+
+For example, two templates are shown in the following example:
 
 ```json
 {
@@ -311,8 +313,8 @@ The command template chosen to execute is selected based on the following rules:
 1. If only a single template is configured (the first example above), that template is chosen.
 1. If multiple templates are configured:
     1. Templates containing a defined `match` property are examined first. The `match` regular expression is compared against the context--for example, image name, container name, etc. All matching templates are selected. More information on the matching context is available below.
-    1. If none match the `match` property, all templates without a defined `match` property are selected.
-    1. If none match the `match` property, and there are no templates without a defined `match` property, then the default command template is chosen.
+    1. If no templates match the `match` property, all templates without a defined `match` property are selected.
+    1. If no templates match the `match` property, and there are no templates without a defined `match` property, then the default command template is chosen.
     1. Any time that multiple templates are selected, the user will be prompted to choose between them on which to execute.
 
 ### Docker Build
@@ -326,12 +328,12 @@ Supported tokens:
 | Token | Description |
 | -- | -- |
 | `${dockerfile}` | The workspace-relative path of the selected `Dockerfile`. |
-| `${tag}` | The value entered/confirmed by the user upon invoking the build command. If previously built, defaults to the previously-entered value for that `Dockerfile`. |
+| `${tag}` | The value entered/confirmed by the user upon invoking the build command. If previously built, defaults to the previously entered value for that `Dockerfile`. |
 | `${context}` | If set, the value of the `docker.imageBuildContextPath` configuration setting. Otherwise, the workspace-relative folder in which the `Dockerfile` resides. |
 
-> **Note**: If the `docker.commands.build` setting does not contain the `${tag}` token, the user will *not* be prompted to enter/confirm a tag.
+> **Note**: If the `docker.commands.build` setting does not contain the `${tag}` token, the user will **not** be prompted to enter/confirm a tag.
 
-> NOTE: The `match` regular expression will be compared against the selected Dockerfile name and the workspace folder name.
+> **Note**: The `match` regular expression will be compared against the selected Dockerfile name and the workspace folder name.
 
 ### Docker Run
 
@@ -344,7 +346,7 @@ Supported tokens:
 
 | Token | Description |
 | -- | -- |
-| `${exposedPorts}` | Generated from the list of exposed ports in the image (i.e. ultimately from the `Dockerfile`), where each exposed port is mapped to the same port on the local machine.  For example, `"EXPOSE 5000 5001"` would generate `"-p 5000:5000 -p 5001:5001"`. |
+| `${exposedPorts}` | Generated from the list of exposed ports in the image (ultimately from the `Dockerfile`), where each exposed port is mapped to the same port on the local machine.  For example, `"EXPOSE 5000 5001"` would generate `"-p 5000:5000 -p 5001:5001"`. |
 | `${tag}` | The full tag of the selected image. |
 
 > **Note**: The `match` regular expression will be compared against the full tag of the selected image.
