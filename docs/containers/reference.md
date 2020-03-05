@@ -268,3 +268,147 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `enableDebugging` |  Whether or not to enable debugging within the container. | `false` |
 | `inspectMode` |  Defines the initial interaction between the application and the debugger (`default` or `break`). <br/> The value `default` allows the application to run until the debugger attaches. <br/> The value `break` prevents the application from running until the debugger attaches. | `default` |
 | `inspectPort` |  The port on which debugging should occur. | `9229` |
+
+## Command customization
+
+The Docker extension executes a number of Docker CLI commands when you perform various operations, such as to build images, run containers, attach to containers, and view container logs. Some of these commands have a large number of optional arguments, often used in very specific scenarios. Many of these commands can be customized.
+
+For each of these customizable Docker commands, a configuration setting is available to set the template of what to execute. Alternatively, you can define multiple templates, optionally with a regular expression which, when matched, hints the context in which a template should be used. The templates support some tokens similar to `launch.json` and `tasks.json`, for example, `${workspaceFolder}`.
+
+### Settings JSON schema
+
+You have two options for configuring each of the templates (listed below). The first is a single template which overrides the default behavior:
+
+```json
+{
+    "docker.commands.build": "docker build --rm -f \"${dockerfile}\" -t ${tag} \"${context}\""
+}
+```
+
+The second is multiple templates which will be chosen based on the `match` regular expression as well as user input. For example, two templates are shown in the following code:
+
+```json
+{
+    "docker.commands.build": [
+        {
+            "label": "Default build command",
+            "template": "docker build --rm -f \"${dockerfile}\" -t ${tag} \"${context}\""
+        },
+        {
+            "label": "Alpine-specific build command",
+            "template": "docker build -p 1234:1234 -f \"${dockerfile}\" -t ${tag} \"${context}\"",
+            "match": "alpine"
+        }
+    ]
+}
+```
+
+### Selection behavior
+
+The command template chosen to execute is selected based on the following rules:
+
+1. If no setting is configured, the default command template is chosen.
+1. If only a single template is configured (the first example above), that template is chosen.
+1. If multiple templates are configured:
+    1. Templates containing a defined `match` property are examined first. The `match` regular expression is compared against the context--for example, image name, container name, etc. All matching templates are selected. More information on the matching context is available below.
+    1. If none match the `match` property, all templates without a defined `match` property are selected.
+    1. If none match the `match` property, and there are no templates without a defined `match` property, then the default command template is chosen.
+    1. Any time that multiple templates are selected, the user will be prompted to choose between them on which to execute.
+
+### Docker Build
+
+| Configuration Setting | Default Value |
+|--|--|
+| `docker.commands.build` | `docker build --rm -f "${dockerfile}" -t ${tag} "${context}"` |
+
+Supported tokens:
+
+| Token | Description |
+| -- | -- |
+| `${dockerfile}` | The workspace-relative path of the selected `Dockerfile`. |
+| `${tag}` | The value entered/confirmed by the user upon invoking the build command. If previously built, defaults to the previously-entered value for that `Dockerfile`. |
+| `${context}` | If set, the value of the `docker.imageBuildContextPath` configuration setting. Otherwise, the workspace-relative folder in which the `Dockerfile` resides. |
+
+> **Note**: If the `docker.commands.build` setting does not contain the `${tag}` token, the user will *not* be prompted to enter/confirm a tag.
+
+> NOTE: The `match` regular expression will be compared against the selected Dockerfile name and the workspace folder name.
+
+### Docker Run
+
+| Configuration Setting | Default Value |
+|--|--|
+| `docker.commands.run` | `docker run --rm -d ${exposedPorts} ${tag}` |
+| `docker.commands.runInteractive` | `docker run --rm -it ${exposedPorts} ${tag}` |
+
+Supported tokens:
+
+| Token | Description |
+| -- | -- |
+| `${exposedPorts}` | Generated from the list of exposed ports in the image (i.e. ultimately from the `Dockerfile`), where each exposed port is mapped to the same port on the local machine.  For example, `"EXPOSE 5000 5001"` would generate `"-p 5000:5000 -p 5001:5001"`. |
+| `${tag}` | The full tag of the selected image. |
+
+> **Note**: The `match` regular expression will be compared against the full tag of the selected image.
+
+### Docker Attach
+
+| Configuration Setting | Default Value |
+|--|--|
+| `docker.commands.attach` | `docker exec -it ${containerId} ${shellCommand}`
+
+Supported tokens:
+
+| Token | Description |
+| -- | -- |
+| `${containerId}` | The ID of the container to attach to. |
+| `${shellCommand}` | The value of the `docker.attachShellCommand.linuxContainer` or `docker.attachShellCommand.windowsContainer` configuration setting, as appropriate. |
+
+> **Note**: The `match` regular expression will be compared against the container name and full tag of the container image.
+
+### Docker Logs
+
+| Configuration Setting | Default Value |
+|--|--|
+| `docker.commands.logs` | `docker logs -f ${containerId}`
+
+Supported tokens:
+
+| Token | Description |
+| -- | -- |
+| `${containerId}` | The ID of the container to view the logs for. |
+
+> **Note**: The `match` regular expression will be compared against the container name and full tag of the container image.
+
+### Docker Compose Up
+
+| Configuration Setting | Default Value |
+|--|--|
+| `docker.commands.composeUp` | `docker-compose ${configurationFile} up ${detached} ${build}` |
+
+Supported tokens:
+
+| Token | Description |
+| -- | -- |
+| `${configurationFile}` | Set to `-f ` plus the workspace-relative path to the selected Docker Compose YAML file. |
+| `${detached}` | Set to `-d` if the configuration setting `docker.dockerComposeDetached` is set to `true`. Otherwise, set to `""`. |
+| `${build}` | Set to `--build` if the configuration setting `docker.dockerComposeBuild` is set to `true`. Otherwise, set to `""`. |
+
+### Docker Compose Down
+
+| Configuration Setting | Default Value |
+|--|--|
+| `docker.commands.composeDown` | `docker-compose ${configurationFile} down` |
+
+Supported tokens:
+
+| Token | Description |
+| -- | -- |
+| `${configurationFile}` | Set to `-f ` plus the workspace-relative path to the selected Docker Compose YAML file. |
+
+### Additional supported tokens
+
+In addition to the command-specific supported tokens, the following tokens are supported in all command templates:
+
+| Token | Description |
+| -- | -- |
+| `${workspaceFolder}` | The selected workspace folder path. |
+| `${config:some.setting.identifier}` | The value of any configuration setting, as long as it is a string, number, or boolean. These setting identifiers can be arbitrarily defined and do not need to belong to Visual Studio Code or to any extension. |
