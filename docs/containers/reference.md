@@ -107,7 +107,7 @@ Here are all properties available for configuring `docker-build` task. All prope
 | `dockerfile` | The path to the Dockerfile. <br/> Required, unless inferred from the platform. | `-f` or `--file` |
 | `tag` | The tag applied to the Docker image. <br/> Required, unless inferred from the platform. | `-t` or `--tag` |
 | `buildArgs` | Build arguments applied to the command line. This is a list of key-value pairs. | `--build-arg` |
-| `labels` | Labels added to the Docker image. This is a list of key-value pairs. <br/> In addition to labels specified here, a label `com.microsoft.created-by`, set to `visual-studio-code` is added to the image. This behavior can be turned off by setting `includeDefaults` extension property to false. | `--label` |
+| `labels` | Labels added to the Docker image. This is a list of key-value pairs (a JSON object). <br/> In addition to labels specified here, a label `com.microsoft.created-by`, set to `visual-studio-code` is added to the image. This behavior can be turned off by setting `includeDefaults` property of the `labels` object to false. | `--label` |
 | `target` | The target in the Dockerfile to build to. | `--target` |
 | `pull` | Whether or not to pull new base images before building. | `--pull` |
 
