@@ -392,8 +392,8 @@ This will give you the resolved path at the end:
 From there, removing the files and relaunching VS Code should fix the issue:
 
 ```bash
-rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
-rm -R /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
+rm /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
+rm /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
 ```
 
 ### Can I use Powerline fonts in the Integrated Terminal?
