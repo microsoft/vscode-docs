@@ -148,7 +148,7 @@ Example `launch.json` configuration for debugging a Python application:
 | `projectType` | Type of Python app. | |
 | `justMyCode` | Debug only user-written code. | |
 | `django` | Django debugging. | `false` |
-| `jinja` | Jinja template debugging (e.g. Flask). | `false` |
+| `jinja` | Jinja template debugging (such as Flask). | `false` |
 
 ## Next steps
 

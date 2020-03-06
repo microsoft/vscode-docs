@@ -2,7 +2,7 @@
 Area: containers
 ContentId: f9ffec31-9253-4f71-a4eb-79ea7b3a8f55
 PageTitle: Configure and troubleshoot debugging of Python apps running in a Docker container
-DateApproved: 01/29/2020
+DateApproved: 03/05/2020
 MetaDescription: How to configure and troubleshoot debugging of Python apps running in a Docker container, using Visual Studio Code.
 ---
 
@@ -60,7 +60,7 @@ The Docker extension infers the entry point of the Docker container via properti
 
 ## Automatically launching the browser to the entry page of the application
 
-When the **Docker: Python - Django** or **Docker: Python - Flask** launch configurations are selected, the Docker extension will automatically launch the browser to the main page of the app. While this feature is enabled by default, this behavior can be configured explicitly via the `dockerServerReadyAction` object in `launch.json`.
+You can select the **Docker: Python - Django** or **Docker: Python - Flask** launch configurations to automatically launch the browser to the main page of the app. This feature is enabled by default, but you can configure this behavior explicitly by setting the `dockerServerReadyAction` object in `launch.json`.
 
 This feature depends on several aspects of the application:
 
@@ -96,6 +96,8 @@ Here is an example of using `dockerServerReadyAction` to launch the browser to o
   ]
 }
 ```
+
+  > **Note**: The regex found in the `pattern` attribute simply attempts to capture a logged message similar to "Starting development server at http://localhost:8000". It accommodates variations in the url for http or https, any host name, and any port.
 
 ### Important dockerServerReadyAction object properties
 
