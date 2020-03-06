@@ -12,7 +12,7 @@ When adding Docker files to a Python project, tasks and launch configurations ar
 
 ## Configuring the Docker container entry point
 
-The Docker extension infers the entry point of the Docker container via properties of `tasks.json`. This container entry point is automatically configured when using the **Docker: Add Docker Files to Workspace...** command.
+You can configure the entry point of the Docker container by setting properties in `tasks.json`. VS Code automatically configures the container entry point when you first use the **Docker: Add Docker Files to Workspace...** command.
 
 ### Example: Configuring the entry point for a Python module
 
