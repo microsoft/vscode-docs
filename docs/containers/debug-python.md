@@ -97,7 +97,7 @@ Here is an example of using `dockerServerReadyAction` to launch the browser to o
 }
 ```
 
-  > **Note**: The regex found in the `pattern` attribute simply attempts to capture a logged message similar to "Starting development server at http://localhost:8000". It accommodates variations in the url for http or https, any host name, and any port.
+  > **Note**: The regex found in the `pattern` attribute simply attempts to capture a logged message similar to "Starting development server at `http://localhost:8000`". It accommodates variations in the url for http or https, any host name, and any port.
 
 ### Important dockerServerReadyAction object properties
 
