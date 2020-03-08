@@ -653,7 +653,7 @@ You can also create your configuration manually. The difference between configur
         "dockerFile": "Dockerfile",
         "forwardPorts": [5000],
         "extensions": [
-            "ms-vscode.csharp"
+            "ms-dotnettools.csharp"
         ]
     }
     ```
