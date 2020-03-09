@@ -63,6 +63,8 @@ Example `launch.json` configuration for debugging a .NET Core application:
 
 ## Python
 
+More information about debugging Python applications within Docker containers can be found at [Debug Python within a container](/docs/containers/debug-python.md).
+
 Example `launch.json` configuration for debugging a Python application:
 
 ```json
@@ -146,10 +148,12 @@ Example `launch.json` configuration for debugging a Python application:
 | `projectType` | Type of Python app. | |
 | `justMyCode` | Debug only user-written code. | |
 | `django` | Django debugging. | `false` |
-| `jinja` | Jinja template debugging (e.g. Flask). | `false` |
+| `jinja` | Jinja template debugging (such as Flask). | `false` |
 
 ## Next steps
 
-Read on to learn more about
-- [Debug Node.js within Docker containers](/docs/containers/debug-node.md)
-- [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md)
+Read on to learn more about:
+
+- [Debugging Node.js within Docker containers](/docs/containers/debug-node.md)
+- [Debugging .NET Core within Docker containers](/docs/containers/debug-netcore.md)
+- [Debugging Python within Docker containers](/docs/containers/debug-python.md)
