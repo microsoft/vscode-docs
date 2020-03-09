@@ -15,18 +15,11 @@ This documentation describes:
 
 - How to build, run, debug, test and publish an extension
 - How to take advantage of VS Code's rich Extension API
-- Where to find guides and code samples to help get you started
+- Where to find [guides](https://code.visualstudio.com/api/extension-guides/overview) and [code samples](https://github.com/Microsoft/vscode-extension-samples) to help get you started
+
+Code samples are available at [Microsoft/vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples).
 
 If you are looking for published extensions, head to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode).
-
-## What's new?
-
-VS Code updates on a monthly cadence, and that applies to the Extension API as well. New features and APIs become available every month to increase the power and scope of VS Code extensions.
-
-To stay current with the Extension API, you can review the monthly release notes, which have dedicated sections covering:
-
-* [Extension authoring](https://code.visualstudio.com/updates#_extension-authoring) - Learn what new extension APIs are available in the latest release.
-* [Proposed extension APIs](https://code.visualstudio.com/updates#_proposed-extension-apis) - Review and give feedback on upcoming proposed APIs.
 
 ## What can extensions do?
 
@@ -51,6 +44,15 @@ Building a good extension can take a lot of effort. Here is what each section of
 - **Language Extensions** illustrates how to add support for a programming language with guides and code samples.
 - **Advanced Topics** explains advanced concepts such as [Extension Host](/api/advanced-topics/extension-host), [Supporting Remote Development and VS Online](/api/advanced-topics/remote-extensions), and [Proposed API](/api/advanced-topics/using-proposed-api).
 - **References** contains exhaustive references for the [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points), and many other topics.
+
+## What's new?
+
+VS Code updates on a monthly cadence, and that applies to the Extension API as well. New features and APIs become available every month to increase the power and scope of VS Code extensions.
+
+To stay current with the Extension API, you can review the monthly release notes, which have dedicated sections covering:
+
+* [Extension authoring](https://code.visualstudio.com/updates#_extension-authoring) - Learn what new extension APIs are available in the latest release.
+* [Proposed extension APIs](https://code.visualstudio.com/updates#_proposed-extension-apis) - Review and give feedback on upcoming proposed APIs.
 
 ## Looking for help
 

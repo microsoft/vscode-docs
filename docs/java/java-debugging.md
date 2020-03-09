@@ -112,6 +112,12 @@ Java 9 and newer versions are supported with VS Code Java Debugger as well.
   <source src="/docs/java/java-debugging/java9.mp4" type="video/mp4">
 </video>
 
+### Threads
+
+You can see all the running threads in the **Call Stack** pane and work with individual thread using the context menu.
+
+![ContextMenu](images/java-debugging/thread-context-menu.png)
+
 ### Debug session inputs
 
 The default Debug Console in VS Code doesn't support inputs. If your program need inputs from a terminal, you can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) within VS Code or an external terminal to launch it.

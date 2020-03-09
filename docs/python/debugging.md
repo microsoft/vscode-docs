@@ -215,11 +215,19 @@ Optional path to a file that contains environment variable definitions. See [Con
 
 If set to `true`, enables debugging of [gevent monkey-patched code](http://www.gevent.org/intro.html).
 
-## Invoking a breakpoint in code
+## Breakpoints and logpoints
+
+The Python extension supports [breakpoints](/docs/editor/debugging.md#breakpoints) and [logpoints](/docs/editor/debugging.md#logpoints) for debugging code. For a short walkthrough of basic debugging and using breakpoints, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger).
+
+### Conditional breakpoints
+
+Breakpoints can also be set to trigger based on expressions, hit counts, or a combination of both. The Python extension support hit counts that are integers, as well as integers preceded by the ==, >, >=, <, <=, and % operators. For example, you could set a breakpoint to trigger after 5 occurrences by setting a hitcount of `>5`  For more information, see [conditional breakpoints](/docs/editor/debugging.md#conditional-breakpoints) in the main VS Code debugging article.
+
+### Invoking a breakpoint in code
 
 In your Python code, you can call `breakpoint()` at any point where you want to pause the debugger during a debugging session.
 
-## Breakpoint validation
+### Breakpoint validation
 
 The Python extension automatically detects breakpoints that are set on non-executable lines, such as `pass` statements or the middle of a multiline statement. In such cases, running the debugger moves the breakpoint to nearest valid line to ensure that code execution stops at that point.
 

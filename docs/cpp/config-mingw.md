@@ -1,13 +1,13 @@
 ---
 Order: 1
 Area: cpp
-TOCTitle: Mingw-w64 on Windows
+TOCTitle: GCC on Windows
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
 PageTitle: Get Started with C++ and Mingw-w64 in Visual Studio Code
 DateApproved: 1/6/2020
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a Mingw-w64 installation
 ---
-# Using Mingw-w64 in VS Code
+# Using GCC with MinGW
 
 In this tutorial, you configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger from [Mingw-w64](http://mingw-w64.org/doku.php/start) to create programs that run on Windows.
 
@@ -25,7 +25,7 @@ To successfully complete this tutorial, you must do the following steps:
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
-1. Install [Mingw-w64](http://mingw-w64.org/doku.php/download/mingw-builds) via the SourceForge website to a folder that has no spaces in its path (in other words, NOT the default location of C:/Program Files/). In this tutorial, we assume it is installed under `C:\mingw-w64`.
+1. You will install Mingw-w64 via the SourceForge website. Click [Mingw-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download) to begin downloading the compressed archive file. Extract the tools from the compressed file to a folder that has no spaces in its path. In this tutorial, we assume it is installed under `C:\mingw-w64`.
 
 1. Add the path to your Mingw-w64 `bin` folder to the Windows PATH environment variable.
    1. In the Windows search bar, type 'settings' to open your Windows Settings.
@@ -49,15 +49,15 @@ If you don't see the expected output or `g++` or `gdb` is not a recognized comma
 
 From a Windows command prompt, create an empty folder called `projects` where you can place all your VS Code projects. Then create a sub-folder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
 
-   ```cmd
-   mkdir projects
-   cd projects
-   mkdir helloworld
-   cd helloworld
-   code .
-   ```
+```cmd
+mkdir projects
+cd projects
+mkdir helloworld
+cd helloworld
+code .
+```
 
-The **code .** command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
+The "code ." command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
 
 - `tasks.json` (build instructions)
 - `launch.json` (debugger settings)
@@ -73,24 +73,24 @@ In the File Explorer title bar, select the **New File** button and name the file
 
 Now paste in this source code:
 
-   ```cpp
-   #include <iostream>
-   #include <vector>
-   #include <string>
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
 
-   using namespace std;
+using namespace std;
 
-   int main()
-   {
-      vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+int main()
+{
+    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
 
-      for (const string& word : msg)
-      {
-         cout << word << " ";
-      }
-      cout << endl;
-   }
-   ```
+    for (const string& word : msg)
+    {
+        cout << word << " ";
+    }
+    cout << endl;
+}
+```
 
 Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
 

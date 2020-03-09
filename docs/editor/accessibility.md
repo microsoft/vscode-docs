@@ -94,7 +94,7 @@ Certain features such as folding, minimap (code overview), and word wrap are dis
 
 ## Terminal accessibility
 
-Output in the Integrated Terminal can be navigated through by using the scroll commands available in the Command Palette (press `kbstyle(F1)` and search for "Terminal Scroll").
+Output in the Integrated Terminal can be navigated through by using the "navigation mode" commands available in the Command Palette (press `kbstyle(F1)` and search for "terminal navigation mode").
 
 ### Minimum contrast ratio
 

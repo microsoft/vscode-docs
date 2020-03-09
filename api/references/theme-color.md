@@ -750,8 +750,6 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `debugIcon.continueForeground`: Debug toolbar icon for continue.
 - `debugIcon.stepBackForeground`: Debug toolbar icon for step back.
 
-Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
-
 ## Extension colors
 
 Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.

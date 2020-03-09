@@ -918,7 +918,20 @@ The above example extension contributes the [`typescript-styled-plugin`](https:/
 }
 ```
 
-TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript.
+TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript, unless the plugin explicitly sets `"enableForWorkspaceTypeScriptVersions": true`.
+
+```json
+{
+  "contributes": {
+    "typescriptServerPlugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "enableForWorkspaceTypeScriptVersions": true
+      }
+    ]
+  }
+}
+```
 
 ## contributes.resourceLabelFormatters
 

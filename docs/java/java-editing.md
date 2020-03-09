@@ -31,7 +31,7 @@ Java support in Visual Studio Code detects issues within your code automatically
 
 As a Java editor, it also supports CodeLens (references) and Javadoc hovers and highlights out of box.
 
-Folding range allows you to fold or unfold code snippet to better view the source code.
+Folding regions allows you to fold or unfold code snippet to better view the source code.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/folding-range.mp4" type="video/mp4">
@@ -308,8 +308,12 @@ The list of Code Actions supported by VS Code keeps growing and only listed the 
 * Convert lambda to anonymous class
 * Convert anonymous class to nested class
 * Create unresolved types
+* Assign statement to new variable/field
 * Add `final` modifier where possible
+* Remove the `final` modifier
 * Remove unnecessary cast
+* Remove redundant interfaces
+* Add missing case labels in switch statements
 * Jump to definition on break/continue
 * Correct access to static elements
 

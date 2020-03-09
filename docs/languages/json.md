@@ -41,7 +41,7 @@ You can format your JSON document using `kb(editor.action.formatDocument)` or **
 
 ## Folding
 
-You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges are available for all object and array elements.
+You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding regions are available for all object and array elements.
 
 ## JSON with Comments
 

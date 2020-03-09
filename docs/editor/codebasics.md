@@ -239,9 +239,9 @@ You can also use the following actions:
 * Fold Level X (`kb(editor.foldLevel2)` for level 2) folds all regions of level X, except the region at the current cursor position.
 * Fold All Block Comments (`kb(editor.foldAllBlockComments)`) folds all regions that start with a block comment token.
 
-Folding ranges are by default evaluated based on the indentation of lines. A folding range starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
+Folding regions are by default evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
 
-Since the 1.22 release, folding ranges can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding: Markdown, HTML, CSS, LESS, SCSS, and JSON.
+Since the 1.22 release, folding regions can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding: Markdown, HTML, CSS, LESS, SCSS, and JSON.
 
 If you prefer to switch back to indentation-based folding for one (or all) of the languages above, use:
 
