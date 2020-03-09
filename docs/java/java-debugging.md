@@ -66,7 +66,7 @@ Another way to start debugging is to right-click a Java file in the File Explore
 
 ### Pressing F5
 
-Once you click **Run** on the CodeLens or press `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Debug** menu or the Debug view opened by the Debug icon in the Activity Bar on the side of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
+Once you click **Run** on the CodeLens or press `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Run** menu or the Run view opened by the Run icon in the Activity Bar on the side of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/debug-intro.mp4" type="video/mp4">
@@ -80,7 +80,7 @@ It's possible that there might be multiple debugging configurations for your pro
 
 If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations). For more details, please read [Launch configurations](/docs/editor/debugging.md#launch-configurations).
 
-By default, the Java debugger doesn't persist the `launch.json` in your workspace. If you would like to save it, you can click the **create a launch.json file** link in the Debug view where you will also find the **Debug** and **Run** buttons.
+By default, the Java debugger doesn't persist the `launch.json` in your workspace. If you would like to save it, you can click the **create a launch.json file** link in the Run view where you will also find the **Debug** and **Run** buttons.
 
 ![Debug Menu](images/java-debugging/run-debug-button.png)
 
@@ -111,6 +111,12 @@ Java 9 and newer versions are supported with VS Code Java Debugger as well.
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/java9.mp4" type="video/mp4">
 </video>
+
+### Threads
+
+You can see all the running threads in the **Call Stack** pane and work with individual thread using the context menu.
+
+![ContextMenu](images/java-debugging/thread-context-menu.png)
 
 ### Debug session inputs
 

@@ -1,13 +1,13 @@
 ---
 Order: 1
 Area: cpp
-TOCTitle: Mingw-w64 on Windows
+TOCTitle: GCC on Windows
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
 PageTitle: Get Started with C++ and Mingw-w64 in Visual Studio Code
 DateApproved: 1/6/2020
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a Mingw-w64 installation
 ---
-# Using Mingw-w64 in VS Code
+# Using GCC with MinGW
 
 In this tutorial, you configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger from [Mingw-w64](http://mingw-w64.org/doku.php/start) to create programs that run on Windows.
 
@@ -25,7 +25,7 @@ To successfully complete this tutorial, you must do the following steps:
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
-1. Install [Mingw-w64](http://mingw-w64.org/doku.php/download/mingw-builds) via the SourceForge website to a folder that has no spaces in its path (in other words, NOT the default location of C:/Program Files/). In this tutorial, we assume it is installed under `C:\mingw-w64`.
+1. You will install Mingw-w64 via the SourceForge website. Click [Mingw-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download) to begin downloading the compressed archive file. Extract the tools from the compressed file to a folder that has no spaces in its path. In this tutorial, we assume it is installed under `C:\mingw-w64`.
 
 1. Add the path to your Mingw-w64 `bin` folder to the Windows PATH environment variable.
    1. In the Windows search bar, type 'settings' to open your Windows Settings.
@@ -49,15 +49,15 @@ If you don't see the expected output or `g++` or `gdb` is not a recognized comma
 
 From a Windows command prompt, create an empty folder called `projects` where you can place all your VS Code projects. Then create a sub-folder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
 
-   ```cmd
-   mkdir projects
-   cd projects
-   mkdir helloworld
-   cd helloworld
-   code .
-   ```
+```cmd
+mkdir projects
+cd projects
+mkdir helloworld
+cd helloworld
+code .
+```
 
-The **code .** command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
+The "code ." command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
 
 - `tasks.json` (build instructions)
 - `launch.json` (debugger settings)
@@ -73,24 +73,24 @@ In the File Explorer title bar, select the **New File** button and name the file
 
 Now paste in this source code:
 
-   ```cpp
-   #include <iostream>
-   #include <vector>
-   #include <string>
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
 
-   using namespace std;
+using namespace std;
 
-   int main()
-   {
-      vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+int main()
+{
+    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
 
-      for (const string& word : msg)
-      {
-         cout << word << " ";
-      }
-      cout << endl;
-   }
-   ```
+    for (const string& word : msg)
+    {
+        cout << word << " ";
+    }
+    cout << endl;
+}
+```
 
 Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
 
@@ -98,7 +98,7 @@ Now press `kb(workbench.action.files.save)` to save the file. Notice how the fil
 
 You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
-The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Debug**. You'll look at the **Debug** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
+The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
 
 >**Note**: When you save or open a C++ file, you may see a notification from the C/C++ extension about the availability of an Insiders version, which lets you test new features and fixes. You can ignore this notification by selecting the `X` (**Clear Notification**).
 
@@ -181,7 +181,7 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 ## Debug helloworld.cpp
 
-Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program. From the main menu, choose **Debug** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
+Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program. From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
 
 You'll then see a dropdown for various predefined debugging configurations. Choose **g++.exe build and debug active file**.
 
@@ -225,14 +225,14 @@ By default, the C++ extension won't add any breakpoints to your source code and 
 ### Start a debugging session
 
 1. Go back to `helloworld.cpp` so that it is the active file.
-2. Press `kb(workbench.action.debug.start)` or from the main menu choose **Debug > Start Debugging**. Before you start stepping through the source code, let's take a moment to notice several changes in the user interface:
+2. Press `kb(workbench.action.debug.start)` or from the main menu choose **Run > Start Debugging**. Before you start stepping through the source code, let's take a moment to notice several changes in the user interface:
 
 - The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
 - The editor highlights the first statement in the `main` method. This is a breakpoint that the C++ extension automatically sets for you:
 
    ![Initial breakpoint](images/mingw/stopAtEntry.png)
 
-- The Debug view on the left shows debugging information. You'll see an example later in the tutorial.
+- The Run view on the left shows debugging information. You'll see an example later in the tutorial.
 
 - At the top of the code editor, a debugging control panel appears. You can move this around the screen by grabbing the dots on the left side.
 

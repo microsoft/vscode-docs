@@ -96,7 +96,7 @@ If you do not want to use the IntelliSense caching feature that improves the per
 
 The debugger needs to be configured to know which executable and debugger to use:
 
-From the main menu, select **Debug** > **Add Configuration...**.
+From the main menu, select **Run** > **Add Configuration...**.
 
 The file `launch.json` will now be open for editing with a new configuration. The default settings will *probably* work except that you need to specify the `program` setting.
 

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -820,7 +820,7 @@ Place breakpoints next to the line number. Navigate forward with the Debug widge
 
 ### Data inspection
 
-Inspect variables in the **Debug** panels and in the console.
+Inspect variables in the **Run** panels and in the console.
 
 ![data inspection](images/tips-and-tricks/debug_data_inspection.gif)
 

@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 4
 Area: cpp
 TOCTitle: Clang on macOS
 ContentId: 6ef32219-81ad-4d73-84b8-8d4384a45f8a
@@ -208,7 +208,7 @@ The remaining steps are provided as an optional exercise to help you get familia
 
 ![File Explorer](images/clang-mac/file-explorer-mac.png)
 
-This same panel is also used for source control, debugging, searching and replacing text, and managing extensions. The buttons on the left control those views. We'll look at the **Debug View** later in this tutorial. You can find out more about the other views in the VS Code documentation.
+This same panel is also used for source control, debugging, searching and replacing text, and managing extensions. The buttons on the left control those views. We'll look at the **Run View** later in this tutorial. You can find out more about the other views in the VS Code documentation.
 
 ## Explore IntelliSense
 
@@ -230,7 +230,7 @@ In your new `helloworld.cpp` file, hover over `vector` or `string` to see type i
 
 > **Note**: You may have issues debugging on macOS Catalina. See [issue #3829](https://github.com/microsoft/vscode-cpptools/issues/3829) for details and possible workarounds.
 
-1. You are now ready to run the program. Press `kb(workbench.action.debug.start)` or from the main menu choose **Debug > Start Debugging**. Before we start stepping through the code, let's take a moment to notice several changes in the user interface:
+1. You are now ready to run the program. Press `kb(workbench.action.debug.start)` or from the main menu choose **Run > Start Debugging**. Before we start stepping through the code, let's take a moment to notice several changes in the user interface:
 
 - The **Debug Console** appears and displays output from the debugger.
 

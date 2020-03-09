@@ -211,6 +211,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/editor/settings-sync</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/editor/integrated-terminal</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -686,6 +691,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/containers/quickstart-python</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/containers/quickstart-container-registries</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -707,6 +717,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/containers/debug-netcore</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/containers/debug-python</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 # Editing JSON with Visual Studio Code
@@ -128,6 +128,24 @@ To map a schema that is defined in the User or Workspace settings, use the `sche
 ### Mapping a schema in an extension
 
 Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/api/references/contribution-points.md#contributes.jsonValidation).
+
+
+### File match syntax
+
+The file match syntax supports the '*' wildcard. Also, you can define exclusion patterns, starting with '!'. For an association to match, at least one pattern needs to match and the last matching pattern must not be an exclusion pattern.
+
+```json
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "/receipts/*.json",
+        "!/receipts/*.excluded.json"
+      ],
+      "url": "./receipts.schema.json"
+    }
+  ]
+```
+
 
 ### Define snippets in JSON schemas
 

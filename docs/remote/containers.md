@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 ---
 # Developing inside a Container
 
@@ -653,7 +653,7 @@ You can also create your configuration manually. The difference between configur
         "dockerFile": "Dockerfile",
         "forwardPorts": [5000],
         "extensions": [
-            "ms-vscode.csharp"
+            "ms-dotnettools.csharp"
         ]
     }
     ```

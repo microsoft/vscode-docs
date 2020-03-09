@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -704,7 +704,7 @@ Contribute a view to VS Code. You must specify an identifier and name for the vi
 
 - `explorer`: Explorer view container in the Activity Bar
 - `scm`: Source Control Management (SCM) view container in the Activity Bar
-- `debug`: Debug view container in the Activity Bar
+- `debug`: Run and Debug view container in the Activity Bar
 - `test`: Test view container in the Activity Bar
 - [Custom view containers](#contributes.viewsContainers) contributed by Extensions.
 
@@ -918,7 +918,20 @@ The above example extension contributes the [`typescript-styled-plugin`](https:/
 }
 ```
 
-TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript.
+TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript, unless the plugin explicitly sets `"enableForWorkspaceTypeScriptVersions": true`.
+
+```json
+{
+  "contributes": {
+    "typescriptServerPlugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "enableForWorkspaceTypeScriptVersions": true
+      }
+    ]
+  }
+}
+```
 
 ## contributes.resourceLabelFormatters
 

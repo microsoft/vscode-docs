@@ -1,6 +1,6 @@
 ---
 ContentId: f00c4913-58e3-4a61-aa42-e769c3430906
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to migrating extension projects from the TSLint linter to ESLint.
@@ -22,7 +22,6 @@ The command above adds ESLint, adds a parser that makes ESLint understand TypeSc
 Now, to make the actual migration simpler, install the [tslint-to-eslint-config](https://github.com/typescript-eslint/tslint-to-eslint-config) utility. This tool will take your TSLint configuration and create the "closest" ESLint configuration from it.
 
 ```bash
-npm install -g tslint-to-eslint-config
 npx tslint-to-eslint-config
 ```
 
@@ -54,7 +53,7 @@ To integrate ESLint with Visual Studio Code, do the following:
 
 ## TSLint: Removal
 
-Congratulations. You should now have a working ESLint setup and it's time to clean up. You can remove the `tslint-to-eslint-config` utility as it was only used for the migration and not for subsequent runs.
+Congratulations. You should now have a working ESLint setup and it's time to clean up.
 
 The removal of TSLint depends on your project, but usually these are the steps:
 
