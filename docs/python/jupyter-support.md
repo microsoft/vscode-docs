@@ -96,7 +96,7 @@ When a code cell is in command mode, the `kbstyle(A)` key can be used to add a c
 
 ### Select a code cell
 
-The selected code cell can be changed using the mouse, the up/down arrow keys on the keyboard, and the `kbstyle(J)` (up) and `kbstyle(K)` (down) keys. To use the keyboard, the cell must be in command mode.
+The selected code cell can be changed using the mouse, the up/down arrow keys on the keyboard, and the `kbstyle(J)` (down) and `kbstyle(K)` (up) keys. To use the keyboard, the cell must be in command mode.
 
 ### Run a single code cell
 

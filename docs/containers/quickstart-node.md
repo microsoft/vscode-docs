@@ -30,7 +30,7 @@ In this guide you will learn how to:
    npm install
    ```
 
-## Add Docker file to the project
+## Add Docker files to the project
 
 1. Open the project folder in VS Code.
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and use **Docker: Add Docker Files to Workspace...** command:

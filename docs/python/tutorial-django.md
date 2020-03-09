@@ -123,7 +123,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 1. When you're done, close the browser window and stop the server in VS Code using `kbstyle(Ctrl+C)` as indicated in the terminal output window.
 
-### Create A Django app
+### Create a Django app
 
 1. In the VS Code Terminal with your virtual environment activated, run the administrative utility's `startapp` command in your project folder (where `manage.py` resides):
 
@@ -919,6 +919,14 @@ Perform the following steps to enable the administrative interface:
     ![Django tutorial: the default Django administrative interface](images/django-tutorial/default-admin-interface.png)
 
 You can customize the administrative interface as much as you like. For example, you could provide capabilities to edit and remove entries in the database. For more information on making customizations, refer to the [Django admin site documentation](https://docs.djangoproject.com/en/2.1/ref/contrib/admin/).
+
+### Create a container for a Django app using the Docker extension
+
+The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. If you're interested in learning how to create a Python container for the Django app developed in this tutorial, check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
+
+- Create a `Dockerfile` file describing a simple Python container.
+- Build, run, and verify the functionality of a [Django](https://www.djangoproject.com/) app.
+- Debug the app running in a container.
 
 ## Next steps
 
