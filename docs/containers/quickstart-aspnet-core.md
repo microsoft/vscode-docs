@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 3
 Area: containers
 TOCTitle: ASP.NET Core
 ContentId: 29F731D4-C6FE-4742-A1E7-7288FDB81CB9
