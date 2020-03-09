@@ -43,19 +43,19 @@ After verifying your app runs properly, you can now Dockerize your application.
 ## Add Docker files to the project
 
 1. Open the project folder in VS Code.
-2. Open the Command Palette (`kb(workbench.action.showCommands)`) and use **Docker: Add Docker Files to Workspace...** command:
+2. Open the Command Palette (`kb(workbench.action.showCommands)`) and use the **Docker: Add Docker Files to Workspace...** command:
 
     ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
 3. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we will select **Python: Django**.
 4. Select either **Yes** or **No** when prompted to include [Docker Compose](https://docs.docker.com/compose/) files.
 
-5. Enter the relative path to the app’s entry point. This excludes the workspace folder you start from. According to [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. According to [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you create your Flask instance.
+5. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. According to [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. According to [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you create your Flask instance.
 
 >**Tip**: You may also enter the path to a folder name as long as this folder includes a `__main__.py` file.
 
 6. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000 while Flask defaults to port 5000, however, any unused port will work.
 
-7. With all this information, the Docker extension creates the following files:
+7. With all of this information, the Docker extension creates the following files:
 
     - A `Dockerfile`. To learn more about Intellisense in this file, refer to the [overview](/docs/containers/overview.md).
 
@@ -105,7 +105,7 @@ You have already given the path to the Flask instance, but the Docker extension 
 
 ## Build, run, and debug the container
 
-The **Docker: Add Docker Files to Workspace...** command automatically creates a Docker task configuration to build and run your container in debug mode. To debug your Python app container:
+The **Docker: Add Docker Files to Workspace...** command automatically creates a Docker launch configuration to build and run your container in debug mode. To debug your Python app container:
 
 1. Navigate to the `manage.py` file and set a breakpoint on this line:
 
@@ -115,7 +115,7 @@ The **Docker: Add Docker Files to Workspace...** command automatically creates a
 
 >**Note**: If you have created an app project as shown in the [Create a Django app](https://code.visualstudio.com/docs/python/tutorial-django#_create-a-django-app) section of the Django tutorial, you may set a breakpoint in `views.py` or wherever you choose.
 
-2. Navigate to **Run and Debug** then select **Docker: Python - Django**.
+2. Navigate to **Run and Debug** and select **Docker: Python - Django**.
 
   ![Selected Docker debug configuration](images/quickstarts/python-debug-configuration.png)
 

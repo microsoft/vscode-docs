@@ -3,7 +3,7 @@ Area: containers
 TOCTitle: Push Django Images to a Registry
 ContentId: 4eb2543d-84a7-4e11-b835-0d238ce7ed7a
 PageTitle: Push Django Images to a Registry in Visual Studio Code
-DateApproved: 08/12/2019
+DateApproved: 02/18/2020
 MetaDescription: How to push a Django image to a container registry using the VS Code docker extension
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -24,9 +24,9 @@ To create an Azure Container Registry:
 
 1. Follow [Quickstart: Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal), but stop before "Push image to ACR". Django deployments must include the following settings to work properly.
 
-1. Make sure that the registry endpoint you created is visible under **Registries** in the **Docker** explorer of VS Code:
+1. Make sure that the registry endpoint you created is visible under **Registries** in the **Docker Explorer** of VS Code:
 
-    ![Docker explorer in VS Code showing registries](images/quickstarts/python-django-registries.png)
+    ![Docker Explorer in VS Code showing registries](images/quickstarts/python-django-registries.png)
 
 ## Settings for Django apps
 
@@ -55,7 +55,7 @@ Once `ALLOWED_HOSTS` have been declared, the next step is to push your Django im
 
 1. Choose the image you just built to push into the registry. Upload progress will appear in the Terminal.
 
-1. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Docker** explorer, then expand the registry and image name to see the exact image. (You may need to refresh the **Docker** explorer.)
+1. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Docker Explorer**, then expand the registry and image name to see the exact image. (You may need to refresh the **Docker Explorer**.)
 
     ![The built app image in the Azure Container Registry](images/quickstarts/python-django-image-in-acr.png)
 
