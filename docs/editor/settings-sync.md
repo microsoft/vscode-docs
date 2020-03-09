@@ -21,11 +21,11 @@ After making this selection, the browser will open so that you can sign in to a 
 
 ## Configuring synced data
 
-Which preferences get shared is configured when you turn on sync for the first time via this dialog:
+Which preferences get shared is configured when you turn on Settings Sync for the first time via this dialog:
 
-![Settings sync configure dialog](images/settings-sync/sync-configure.png)
+![Settings Sync configure dialog](images/settings-sync/sync-configure.png)
 
-Once signed in, you can change what is synced via the **Sync: Configure** command or by clicking the **Manage** gear menu, selecting **Sync is on** and then **Sync: Configure**.
+Once signed in, you can change what is synced via the **Sync: Configure** command or by opening the **Manage** gear menu, selecting **Sync is on**, and then **Sync: Configure**.
 
 Machine settings (with `machine` or `machine-overridable` scopes) are not synchronized by default. You can also add or remove settings you want to this list from the Settings editor or using the setting `sync.ignoredSettings`.
 
@@ -39,19 +39,19 @@ When synchronizing settings between multiple machines, there may occasionally be
 
 - **Accept Local**: Selecting this option will overwrite **remote** settings in the cloud with your local settings.
 - **Accept Remote**: Selecting this option will overwrite **local** settings with remote settings from the cloud.
-- **Show Conflicts**: Selecting this will display a diff editor similar to the Source Control diff editor, where you can preview the local and remote settings and choose to either accept local or remote or manually resolve the changes in your local settings file then accept the local file.
+- **Show Conflicts**: Selecting this will display a diff editor similar to the Source Control diff editor, where you can preview the local and remote settings and choose to either accept local or remote or manually resolve the changes in your local settings file and then accept the local file.
 
 ## Restoring data
 
-In case something goes wrong, VS Code always stores local backups of your preferences, which can be accessed via the **Sync: Open Local Backups Folder** command. The folder is organized by the type of preference and contains the JSON files named with a timestamp of when the backup occurred. These backups are automatically deleted after 30 days.
+In case something goes wrong, VS Code always stores local backups of your preferences, which can be accessed via the **Sync: Open Local Backups Folder** command. The folder is organized by the type of preference and contains versions of your JSON files named with a timestamp of when the backup occurred. These backups are automatically deleted after 30 days.
 
 ## Reporting issues
 
-Settings Sync activity can be monitored in the **Log (Sync)** output view. If you experience a problem with settings sync, please include this log when creating the issue. If your problem is related to authentication, also include the log from the **Account** output view.
+Settings Sync activity can be monitored in the **Log (Sync)** output view. If you experience a problem with Settings Sync, please include this log when creating the issue. If your problem is related to authentication, also include the log from the **Account** output view.
 
 ## How do I delete my data?
 
-If you want to remove all your data from our servers, just turn off sync via the **Manage** gear menu and check the checkbox to clear all cloud data. If you choose to re-enable sync, it will be as if you're signing in for the first time.
+If you want to remove all your data from our servers, just turn off sync via the **Manage** gear menu and select the checkbox to clear all cloud data. If you choose to re-enable sync, it will be as if you're signing in for the first time.
 
 ## Next steps
 
@@ -61,4 +61,4 @@ If you want to remove all your data from our servers, just turn off sync via the
 
 ### Can I access history of remote preferences?
 
-Currently not, but [this is planned](https://github.com/microsoft/vscode/issues/85619) to be done before the feature leaves preview.
+Currently not, but [this is planned](https://github.com/microsoft/vscode/issues/85619) before the feature leaves preview.
