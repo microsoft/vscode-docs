@@ -21,7 +21,7 @@ MetaTags:
 Install the following:
 
 * [.NET Core](https://dotnet.microsoft.com/download). You will need both the Runtime and the SDK.
-* The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
+* The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the VS Code Marketplace.
 * The [F# extension (Ionide)](https://marketplace.visualstudio.com/items?itemName=Ionide.Ionide-fsharp) from the VS Code Marketplace.
 
 ## Create a C# "Hello World" app

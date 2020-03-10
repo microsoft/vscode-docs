@@ -163,7 +163,7 @@ Key|Command
 `kb(workbench.view.explorer)`|Show Explorer / Toggle focus
 `kb(workbench.view.search)`|Show Search
 `kb(workbench.view.scm)`|Show Source Control
-`kb(workbench.view.debug)`|Show Debug
+`kb(workbench.view.debug)`|Show Run
 `kb(workbench.view.extensions)`|Show Extensions
 `kb(workbench.action.replaceInfiles)`|Replace in files
 `kb(workbench.action.search.toggleQueryDetails)`|Toggle Search details

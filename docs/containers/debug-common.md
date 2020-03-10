@@ -36,6 +36,34 @@ Example `launch.json` configuration for debugging a Node.js application:
 }
 ```
 
+## Python
+
+More information about debugging Python applications within Docker containers can be found at [Debug Python within a container](/docs/containers/debug-python.md).
+
+Example `launch.json` configuration for debugging a Python application:
+
+```json
+{
+  "configurations": [
+    {
+      "name": "Docker: Python - Django",
+      "type": "docker",
+      "request": "launch",
+      "preLaunchTask": "docker-run: debug",
+      "python": {
+        "pathMappings": [
+          {
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "/app"
+          }
+        ],
+        "projectType": "django"
+      }
+    }
+  ]
+}
+```
+
 ## .NET Core
 
 More information about debugging .NET Core applications within Docker containers can be found in [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md).
@@ -71,6 +99,7 @@ Example `launch.json` configuration for debugging a .NET Core application:
 | `platform` | The target plaform for the application. Can be `netCore` or `node`. |
 | `netCore` | Options for debugging .NET Core projects in Docker. |
 | `node` | Options for debugging Node.js projects in Docker. |
+| `python` | Options for debugging Python projects in Docker. |
 
 ### dockerServerReadyAction object properties
 
@@ -109,8 +138,22 @@ Example `launch.json` configuration for debugging a .NET Core application:
 | `skipFiles` | Optional. Automatically skip files covered by these glob patterns. |
 | `trace` | Optional. Enable diagnostic output. |
 
+### python object properties
+
+| Property | Description | Default |
+| --- | --- | --- |
+| `host` | The host for remote debugging. | |
+| `port` | The port for remote debugging. | `5678` |
+| `pathMappings` | Maps the project path between local machine and remote host.  | |
+| `projectType` | Type of Python app. | |
+| `justMyCode` | Debug only user-written code. | |
+| `django` | Django debugging. | `false` |
+| `jinja` | Jinja template debugging (such as Flask). | `false` |
+
 ## Next steps
 
-Read on to learn more about
-- [Debug Node.js within Docker containers](/docs/containers/debug-node.md)
-- [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md)
+Read on to learn more about:
+
+- [Debugging Node.js within Docker containers](/docs/containers/debug-node.md)
+- [Debugging .NET Core within Docker containers](/docs/containers/debug-netcore.md)
+- [Debugging Python within Docker containers](/docs/containers/debug-python.md)

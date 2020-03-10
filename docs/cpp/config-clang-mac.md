@@ -283,7 +283,7 @@ You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to aut
 The Activity Bar on the edge of VS Code lets you open different views such as **Search**, **Source Control**, and **Debug**. You'll look at the **Debug** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
 
 >**Note**: When you save or open a C++ file, you may see a notification from the C/C++ extension about the availability of an Insiders version, which lets you test new features and fixes. You can ignore this notification by selecting the `X` (**Clear Notification**).
-This same panel is also used for source control, debugging, searching and replacing text, and managing extensions. The buttons on the left control those views. We'll look at the **Debug View** later in this tutorial. You can find out more about the other views in the VS Code documentation.
+This same panel is also used for source control, debugging, searching and replacing text, and managing extensions. The buttons on the left control those views. We'll look at the **Run View** later in this tutorial. You can find out more about the other views in the VS Code documentation.
 
 ## Explore IntelliSense
 
@@ -307,7 +307,7 @@ You can press the `kbstyle(Tab)` key to insert the selected member; then, when y
 
 > **Note**: You may have issues debugging on macOS Catalina. See [issue #3829](https://github.com/microsoft/vscode-cpptools/issues/3829) for details and possible workarounds.
 
-1. You are now ready to run the program. Press `kb(workbench.action.debug.start)` or from the main menu choose **Debug > Start Debugging**. Before we start stepping through the code, let's take a moment to notice several changes in the user interface:
+1. You are now ready to run the program. Press `kb(workbench.action.debug.start)` or from the main menu choose **Run > Start Debugging**. Before we start stepping through the code, let's take a moment to notice several changes in the user interface:
 
 - The **Debug Console** appears and displays output from the debugger.
 

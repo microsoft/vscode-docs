@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9b10cda2-4eb0-4989-8f82-23a46b96c1bb
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Tree View in Visual Studio Code extension (plug-in).
@@ -46,7 +46,7 @@ A view is an UI section that is shown inside the View Container. With the [`cont
 To contribute a view, you should first register it using [`contributes.views`](/api/references/vscode-api) Contribution Point in `package.json`. You must specify an identifier and name for the view, and you can contribute to following locations:
 
 - `explorer`: Explorer view in the Side Bar
-- `debug`: Debug view in the Side Bar
+- `debug`: Run and Debug view in the Side Bar
 - `scm`: Source Control view in the Side Bar
 - `test`: Test explorer view in the Side Bar
 - Contributed View Containers

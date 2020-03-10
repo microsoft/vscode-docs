@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -150,9 +150,9 @@ The File Explorer is just one of the Views available in VS Code. There are also 
 
 * **Search** - Provides global search and replace across your open folder.
 * **Source Control** - VS Code includes Git source control by default.
-* **Debug** - VS Code's Debug View displays variables, call stacks, and breakpoints.
+* **Run** - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
 * **Extensions** - Install and manage your extensions within VS Code.
-* **Custom views** - Views contributed by extensions under Explorer and Debug views.
+* **Custom views** - Views contributed by extensions.
 
 > **Tip:** You can open any view using the **View: Open View** command.
 
@@ -359,8 +359,7 @@ If configured to be `default`, we will make the best guess about reusing a windo
 
 Note: There can still be cases where this setting is ignored (for example, when using the `-new-window` or `-reuse-window` command-line option).
 
-The `window.restoreWindows` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will
-reopen the last opened window you worked on (setting: `one`). Change this setting to `none` to never reopen any windows and always start with an empty VS Code instance. Change it to `all` to restore all windows you worked on during your previous session or `folders` to only restore windows that had folders opened.
+The `window.restoreWindows` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will restore all windows you worked on during your previous session (setting: `all`). Change this setting to `none` to never reopen any windows and always start with an empty VS Code instance. Change it to `one` to reopen the last opened window you worked on or `folders` to only restore windows that had folders opened.
 
 ## Next steps
 

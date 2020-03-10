@@ -71,7 +71,7 @@ Many language extensions come with snippets included.
 - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Power Shell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) from [Peng Lv](https://marketplace.visualstudio.com/search?term=publisher%3A%22Peng%20Lv%22&target=VSCode&sortBy=Relevance)
-- [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
+- [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Elm](https://marketplace.visualstudio.com/items?itemName=sbrink.elm) from [Sascha Brink](https://marketplace.visualstudio.com/search?term=publisher%3A%22Sascha%20Brink%22&target=VSCode&sortBy=Relevance)
 
 Want to make your own snippet pack? See the documentation for [how to create a snippet pack extension](https://code.visualstudio.com/docs/extensionAPI/language-support#_source-code-snippets).

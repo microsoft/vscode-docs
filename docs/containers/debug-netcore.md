@@ -11,7 +11,7 @@ MetaDescription: Debug a .NET Core app running in a Docker container, using Visu
 
 1. Install the [.NET Core SDK](https://www.microsoft.com/net/download), which includes support for attaching to the .NET Core debugger.
 
-1. Install the Visual Studio Code [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which includes support for attaching to the .NET Core debugger with VS Code.
+1. Install the Visual Studio Code [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which includes support for attaching to the .NET Core debugger with VS Code.
 
 1. macOS users only: Add `/usr/local/share/dotnet/sdk/NuGetFallbackFolder` as a shared folder in your Docker preferences.
 
@@ -26,7 +26,7 @@ MetaDescription: Debug a .NET Core app running in a Docker container, using Visu
    ![csharpPrompt](images/debug/csharp-prompt.png)
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Docker: Add Docker Files to Workspace...**. If you have already dockerized your app, you can instead do **Docker: Initialize for Docker debugging**. Follow the prompts.
-1. Switch to the Debug view (`kb(workbench.view.debug)`).
+1. Switch to the Run view (`kb(workbench.view.debug)`).
 1. Select the **Docker .NET Core Launch** launch configuration.
 1. Optionally, set a breakpoint.
 1. Start debugging! (`kb(workbench.action.debug.start)`)

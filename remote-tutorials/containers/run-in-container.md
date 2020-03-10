@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Run in container
 PageTitle: Run an application in a container with Visual Studio Code
 MetaDescription: Run an application in a container with Visual Studio Code
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 ---
 # Check your environment
 

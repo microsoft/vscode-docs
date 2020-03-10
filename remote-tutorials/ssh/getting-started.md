@@ -4,7 +4,7 @@ Area: ssh
 TOCTitle: Getting started
 PageTitle: Connect over SSH with Visual Studio Code
 MetaDescription: Connect over SSH with Visual Studio Code
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 ---
 # Remote development over SSH
 
