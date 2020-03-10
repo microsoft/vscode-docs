@@ -205,13 +205,13 @@ When you see this notification, it indicates that the VS Code file watcher is ru
 cat /proc/sys/fs/inotify/max_user_watches
 ```
 
-The limit can be increased to its maximum by editing `/etc/sysctl.conf` and adding this line to the end of the file:
+The limit can be increased to its maximum by using the command below:
 
 ```bash
-fs.inotify.max_user_watches=524288
+echo "fs.inotify.max_user_watches=524288" | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
-The new value can then be loaded in by running `sudo sysctl -p`. Note that [Arch Linux](https://www.archlinux.org/) works a little differently, See [Increasing the amount of inotify watchers](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) for details.
+Note that [Arch Linux](https://www.archlinux.org/) works a little differently, See [Increasing the amount of inotify watchers](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) for details.
 
 While 524,288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524,288 watches are consumed, that results in an upper bound of around 256MB (32-bit) or 512MB (64-bit).
 
