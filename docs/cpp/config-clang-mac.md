@@ -9,72 +9,176 @@ MetaDescription: Configuring the C++ extension in Visual Studio Code to target C
 ---
 # Configure VS Code for Clang on macOS
 
-In this tutorial, you configure Visual Studio Code on macOS to use the Clang/LLVM compiler and debugger. 
+In this tutorial, you configure Visual Studio Code on macOS to use the Clang/LLVM compiler and debugger.
 
 After configuring VS Code, you will compile and debug a simple program in VS Code. This tutorial does not teach you about Clang or the C++ language. For those subjects, there are many good resources available on the Web.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you have any trouble, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
-To successfully complete this tutorial, you must do the following steps:
+To successfully complete this tutorial, you must do the following:
 
-1. Install Visual Studio Code by following the instructions in [Visual Studio Code on macOS](/docs/setup/mac.md).
+1. Install [Visual Studio Code on macOS](/docs/setup/mac.md).
 
 1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'c++' in the Extensions view (`kb(workbench.view.extensions)`).
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
-### Add VS Code to your PATH
+### Ensure Clang is installed
 
-To use VS Code from the command line, add it to the PATH environment variable. This only needs to be done once, on first use.
-
-1. Open VS Code
-1. Press `kb(workbench.action.showCommands)` to open the Command Palette.
-1. Start typing "Shell" and from the list of suggestions choose **Shell Command: Install 'code' command in PATH**.
-
-   ![Shell command in Command Palette](images/clang-mac/mac-command-palette-shell-command.png)
-
-1. You should see a notification in the lower right of the VS Code window that tells you that VS Code was successfully added to the PATH.
-
-### Ensure that Clang is installed
-
-1. Open a Terminal window
-1. Enter the following command to see whetherClang is installed:
+On macOS, since Xcode 4.2, Clang is included. To verify that it is installed on your machine, open a macOS Terminal window and enter the following command:
 
 ```bash
 clang --version
 ```
 
-3. If you don't have Clang installed on your Mac, enter the following command to get the command line developer tools, which includes Clang:
+1. If Clang isn't installed, enter the following command to install the command line developer tools:
 
 ```bash
 xcode-select --install
 ```
 
-### Configure the compiler path
+## Create Hello World
+
+From the MacOS Terminal, create an empty folder called `projects` where you can store all your VS Code projects, then create a subfolder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
+
+```cmd
+mkdir projects
+cd projects
+mkdir helloworld
+cd helloworld
+code .
+```
+
+The `code .` command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
+
+- `tasks.json` (build instructions)
+- `launch.json` (debugger settings)
+- `c_cpp_properties.json` (compiler path and IntelliSense settings)
+
+### Add a source code file
+
+In the File Explorer title bar, select **New File** and name the file `helloworld.cpp`.
+
+![New File title bar button](images/msvc/new-file-button.png)
+
+### Add hello world source code
+
+Paste in the following source code:
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+
+    for (const string& word : msg)
+    {
+        cout << word << " ";
+    }
+    cout << endl;
+}
+```
+
+Now press `kb(workbench.action.files.save)` to save the file. Notice that your files are listed in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
+
+![File Explorer](images/msvc/file-explorer.png)
+
+You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+
+The Activity Bar on the edge of Visual Studio Code lets you open different views such as **Search**, **Source Control**, and **Debug**. You'll look at the **Debug** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
+
+>**Note**: When you save or open a C++ file, you may see a notification from the C/C++ extension about the availability of an Insiders version, which lets you test new features and fixes. You can ignore this notification by selecting the `X` (**Clear Notification**).
+
+## Explore IntelliSense
+
+In the `helloworld.cpp` file, hover over `vector` or `string` to see type information. After the declaration of the `msg` variable, start typing `msg.` You should immediately see a completion list that shows all the member functions, and a window that shows the type information for the `msg` object:
+
+![Statement completion IntelliSense](images/wsl/msg-intellisense.png)
+
+You can press the `kbstyle(Tab)` key to insert the selected member. Then, when you add the opening parenthesis, you'll see information about arguments that the function requires.
+
+## Build helloworld.cpp
+
+Next, you'll create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the Clang C++ compiler to create an executable file from the source code.
+
+From the main menu, choose **Terminal** > **Configure Default Build Task**. In the dropdown, which will display a tasks dropdown listing various predefined build tasks for the compilers that VS Code found on your machine. Choose **C/C++ clang++ build active file**, which will build the file that is currently displayed (active) in the editor.
+
+This will create a `tasks.json` file in the `.vscode` folder and open it in the editor.
+
+Your new `tasks.json` file should look similar to the JSON below:
+
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "clang build active file",
+            "command": "/usr/bin/clang",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+```
+
+The `command` setting specifies the program to run; in this case that is "clang". The `args` array specifies the command-line arguments that will be passed to cl.exe. These arguments must be specified in the order expected by the compiler. This task tells the C++ compiler to compile the active file (`${file}`), and create an output file (`-o` switch) in the current directory (`${fileDirname}`) with the same name as the active file (`${fileBasenameNoExtension}.exe`), resulting in `helloworld` for our example.
+
+>**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+
+The `label` value is what you will see in the tasks list; you can name this whatever you like.
+
+The `problemMatcher` value selects the output parser to use for finding errors and warnings in the compiler output. For cl.exe, you'll get the best results if you use the `$msCompile` problem matcher.
+
+The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false, you can still run it from the Terminal menu with **Tasks: Run Build Task**.
+
+### Running the build
+
+=== old below
+
+### Configure the C++ extension
+
+Configure the C++ extension to use Clang as follows:
 
 1. In VS Code, press `kb(workbench.action.showCommands)` to open the Command Palette. It looks like this:
 
    ![Command Palette](images/clang-mac/mac-command-palette-configurations.png)
 
-1. Type "C/C++" and then choose **C/C++: Edit Configurations (UI)** from the list. This opens the **C/C++ Configurations** page.
+1. Open the **C/C++ Configurations** page by typing "C/C++" and then choose **C/C++: Edit Configurations (UI)** from the list.
 
    ![Command Palette](images/clang-mac/intellisense-configurations-mac-clang.png)
 
 1. In the **C/C++ Configurations** page, click **Add Configuration** and provide a configuration name. Then click **OK**.
 
-1. Find the **Compiler path** setting. VS Code will attempt to populate it with a default compiler based on what it finds on your system. For Clang on macOS, the path should look like this: `/usr/bin/clang`.
+1. Find the **Compiler path** setting. VS Code populates it based on what it finds on your system. For Clang on macOS, the path should look like: `/usr/bin/clang`.
 
-   The **Compiler path** setting is the most important setting in your configuration. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide lots of useful information to you as you write code. This information is called *IntelliSense* and you'll see some examples later in this tutorial.
+   The **Compiler path** setting is the most important setting in your configuration. The C++ extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide useful information as you code. This information is called *IntelliSense* and you'll see some examples later in this tutorial.
+1. You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or the standard library path.
 
-1. Set **IntelliSense mode** to `${default}`, which on macOS is `clang-x64`.
+1. Scroll down and expand **Advanced Settings** and ensure that `Mac framework path` points to the system header files. For example: `/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks`
 
-1. You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or in the standard library path.
-
-1. On macOS, you must set the `macFrameworkPath` to point to the system header files.
-
-Visual Studio code places these settings in `.vscode/c_cpp_properties.json`. If you open that file directly, it should look like this (depending on your specific path):
+Visual Studio code saves these settings in `.vscode/c_cpp_properties.json`. If you open that file, it should look something like this (depending on your specific framework and compiler paths):
 
 ```json
 {
@@ -99,77 +203,19 @@ Visual Studio code places these settings in `.vscode/c_cpp_properties.json`. If 
 }
 ```
 
-1. Close VS Code.
-
-## Start VS Code in a folder
-
-In the macOS Terminal, enter the following commands to create an empty folder called "projects" and then a subfolder called "helloworld", and then open VS Code:
-
-```bash
-mkdir projects
-cd projects
-mkdir helloworld
-cd helloworld
-code .
-```
-
-The **code .** command opens VS Code in the current working folder, which becomes your *workspace*. Before we can get IntelliSense support, or compile and debug our code, we have to configure VS Code to use Clang/LLDB. After completing the configuration, there will be three files in a `.vscode` subfolder:
-
-- `c_cpp_properties.json` (compiler path and IntelliSense settings)
-- `tasks.json` (build instructions)
-- `launch.json` (debugger settings)
-
-To reuse the configuration, you can copy these files to a new workspace and adjust the program name and other settings as needed.
-
-
-
-## Create a build task
-
-Next, we need to create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the Clang compiler to create an executable file based on the source code.
-
-1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Configure Default Build Task**. In the dropdown, select **Create tasks.json file from template**, then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
-1. Go ahead and replace the entire file contents with the following code snippet:
-
-```json
-{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Build with Clang",
-            "type": "shell",
-            "command": "clang++",
-            "args": [
-                "-std=c++17",
-                "-stdlib=libc++",
-                "helloworld.cpp",
-                "-o",
-                "helloworld.out",
-                "--debug"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        }
-    ]
-}
-```
-
-The `label` value is used to identify the task in the VS Code Command Palette; you can name this whatever you like. The `args` array specifies the command-line arguments that will be passed to the compiler that was specified in the previous step. These arguments must be specified in the order expected by the compiler.
-
-The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. The `--debug` argument causes debug symbols to be produced, which is required for stepping through code when you debug.
+1. Close VS Code
 
 ## Configure debug settings
 
-Next, we'll configure VS Code to launch the LLDB debugger when you press `kb(workbench.action.debug.start)`.
+Next, configure VS Code to launch the LLDB debugger when you press `kb(workbench.action.debug.start)`.
 
-1. From the Command Palette, type "launch" and then choose **Debug: Open launch.json**. Next, choose the **GDB/LLDB** environment.
+1. From the Command Palette, type "launch" and then choose **Debug: Open launch.json**. This may download some packages. Next, choose the **C++ (GDB/LLDB)** environment.
 
-1. For `program`, use the program name `${workspaceFolder}/helloworld.out` (which matches what you specified in `tasks.json`).
+1. In the launch.json file that appears, for `program`, use `${workspaceFolder}/helloworld.out` (which correlates with the compiler output argument that you specified in `tasks.json`).
 
-1. By default, the C++ extension adds a breakpoint to the first line of `main`. The `stopAtEntry` value is set to `true` to cause the debugger to stop on that breakpoint. You can set this to `false` if you prefer to ignore it.
+1. By default, the C++ extension adds a breakpoint to the first line of `main`. The `stopAtEntry` value is set to `true` to cause the debugger to stop on that breakpoint. You can set this to `false` if you prefer.
 
-1. Set `externalConsole` to `true` to display the program output in an external Terminal window. (Currently on Mac the output cannot be directed to the integrated Terminal window.)
+1. Set `externalConsole` to `true` to display the program output in an external Terminal window. (Currently on Mac, the output cannot be directed to the integrated Terminal window.)
 
 Your complete `launch.json` file should look something like this:
 
@@ -202,11 +248,11 @@ VS Code is now configured to use Clang on macOS. The configuration applies to th
 
 The remaining steps are provided as an optional exercise to help you get familiar with the editing and debugging experience.
 
-## Add a source code file
+## Create Hello World
 
-1. Select the "HELLOWORLD" folder in the File Explorer. Right-click in the pane and select **New File** from the context menu. Name the file `helloworld.cpp`. Ensure that the file is not in the `.vscode` subfolder.
+1. Select the "helloWorld" folder in the File Explorer. Right-click in the pane and select **New File** from the context menu. Name the file `helloworld.cpp`. Ensure that the file is not in the `.vscode` subfolder.
 
-1. Paste in this source code:
+1. Paste the following code into helloWorld.cpp:
 
     ```cpp
     #include <iostream>
@@ -228,10 +274,15 @@ The remaining steps are provided as an optional exercise to help you get familia
     }
     ```
 
-1. Now press `kb(workbench.action.files.save)` to save the file. Notice how all the files we have just edited appear in the **File Explorer** view in the left panel of VS Code:
+1. Now press `kb(workbench.action.files.save)` to save the file. Notice the list of files in the **File Explorer** view in the side bar of VS Code:
 
 ![File Explorer](images/clang-mac/file-explorer-mac.png)
 
+You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+
+The Activity Bar on the edge of VS Code lets you open different views such as **Search**, **Source Control**, and **Debug**. You'll look at the **Debug** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
+
+>**Note**: When you save or open a C++ file, you may see a notification from the C/C++ extension about the availability of an Insiders version, which lets you test new features and fixes. You can ignore this notification by selecting the `X` (**Clear Notification**).
 This same panel is also used for source control, debugging, searching and replacing text, and managing extensions. The buttons on the left control those views. We'll look at the **Debug View** later in this tutorial. You can find out more about the other views in the VS Code documentation.
 
 ## Explore IntelliSense
@@ -240,7 +291,9 @@ In your new `helloworld.cpp` file, hover over `vector` or `string` to see type i
 
 ![Statement completion IntelliSense](images/cpp/cpp-intellisense-vector.png)
 
-## Build the program
+You can press the `kbstyle(Tab)` key to insert the selected member; then, when you add the opening parenthesis, you will see information about any arguments that the function requires.
+
+## Build helloworld.cpp
 
 1. To run the build task that you defined in tasks.json, press `kb(workbench.action.tasks.build)` or from the main menu choose **View > Command Palette** and start typing "Tasks: Run Build Task". The option will appear before you finish typing.
 
