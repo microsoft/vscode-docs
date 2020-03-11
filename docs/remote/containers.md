@@ -416,7 +416,7 @@ Simply reload / reopen the window and the setting will be applied when VS Code c
 
 ### Temporarily forwarding a port
 
-If you need to access a port that you didn't add to `devcontainer.json` or publish in your Docker Compose file, you can to **temporarily forward** a new port for the duration of the session, by running the **Remote-Containers: Forward Port from Container...** command from the Command Palette (`kbstyle(F1)`).
+If you need to access a port that you didn't add to `devcontainer.json` or publish in your Docker Compose file, you can to **temporarily forward** a new port for the duration of the session, by running the **Forward a Port** command from the Command Palette (`kbstyle(F1)`).
 
 ![Forward port input](images/containers/forward-port-containers.png)
 

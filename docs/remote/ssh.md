@@ -182,7 +182,7 @@ Sometimes when developing, you may need to access a port on a remote machine tha
 
 ### Temporarily forwarding a port
 
-Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Remote-SSH: Forward Port from Active Host...** from the Command Palette (`kbstyle(F1)`) or click on the **Forward New Port** icon in the **Remote Explorer** after selecting it from the Activity Bar.
+Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Forward a Port** from the Command Palette (`kbstyle(F1)`) or click on the **Forward New Port** icon in the **Remote Explorer** after selecting it from the Activity Bar.
 
 ![Remote Explorer forward port button](images/ssh/ssh-explorer-forward-port.png)
 

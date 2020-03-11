@@ -870,7 +870,7 @@ Some extensions use node modules like `clipboardy` to integrate with the clipboa
 
 When working inside a container, SSH host, or VS Online environment the port the browser is connecting to may be blocked.
 
-**Resolution:** Extensions can use the `vscode.env.openExternal` or `vscode.env.asExternalUri` APIs (which automatically forwards localhost ports) to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details. As a workaround, use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...**, or **VS Online: Forward Port** commands to do so manually.
+**Resolution:** Extensions can use the `vscode.env.openExternal` or `vscode.env.asExternalUri` APIs (which automatically forwards localhost ports) to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details. As a workaround, use the **Forward a Port** command to do so manually.
 
 ### Webview contents do not appear
 
@@ -884,7 +884,7 @@ If ports are being blocked, the best approach is to instead use the [webview mes
 
 If you are trying to connect to a localhost port from an external application, the port may be blocked.
 
-**Resolution:** VS Code 1.40 introduced a new `vscode.env.asExternalUri` API for extensions to programmatically forward arbitrary ports.  See the [extension author's guide](/api/advanced-topics/remote-extensions#forwarding-localhost) for details. As a workaround, you can use the **Remote-Containers: Forward Port from Container...** or **Remote-SSH: Forward Port from Active Host...**, or **VS Online: Forward Port** commands to do so manually.
+**Resolution:** VS Code 1.40 introduced a new `vscode.env.asExternalUri` API for extensions to programmatically forward arbitrary ports.  See the [extension author's guide](/api/advanced-topics/remote-extensions#forwarding-localhost) for details. As a workaround, you can use the **Forward a Port** command to do so manually.
 
 ### Websockets do not work in port forwarded content in VS Online's browser-based editor
 
