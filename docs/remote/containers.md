@@ -591,9 +591,9 @@ Or in `settings.json`:
 
 ```json
 {
-    "remote.containers.dotfiles.repository": "your-github-id/your-dotfiles-repo",
-    "remote.containers.dotfiles.targetPath": "~/dotfiles",
-    "remote.containers.dotfiles.installCommand": "~/dotfiles/install.sh"
+    "dotfiles.repository": "your-github-id/your-dotfiles-repo",
+    "dotfiles.targetPath": "~/dotfiles",
+    "dotfiles.installCommand": "~/dotfiles/install.sh"
 }
 ```
 
