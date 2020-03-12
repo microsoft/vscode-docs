@@ -162,7 +162,7 @@ The button opens a terminal panel in which your Python interpreter is automatica
 
 ![Program output in a Python terminal](images/tutorial/output-in-terminal.png)
 
-There are three other ways you can run Python file within VS Code:
+There are three other ways you can run Python code within VS Code:
 
 - Right-click anywhere in the editor window and select **Run Python File in Terminal** (which saves the file automatically):
 
