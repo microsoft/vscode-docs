@@ -89,7 +89,7 @@ If the installation was successful, the output window should show the version of
 
 ## Start VS Code in a project (workspace) folder
 
-In a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
+Using a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
 ```bash
 mkdir hello
