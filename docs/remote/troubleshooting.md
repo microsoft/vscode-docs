@@ -49,7 +49,7 @@ Run one of the following commands, in a **local terminal window** replacing user
 
     ```bash
     export USER_AT_HOST="your-user-name-on-host@hostname"
-    export PUBKEYPATH="~/.ssh/id_rsa.pub"
+    export PUBKEYPATH="$HOME/.ssh/id_rsa.pub"
 
     ssh-copy-id -i "$PUBKEYPATH" "$USER_AT_HOST"
     ```
@@ -58,9 +58,9 @@ Run one of the following commands, in a **local terminal window** replacing user
 
     ```bash
     export USER_AT_HOST="your-user-name-on-host@hostname"
-    export PUBKEYPATH="~/.ssh/id_rsa.pub"
+    export PUBKEYPATH="$HOME/.ssh/id_rsa.pub"
 
-    PUBKEY=$(cat $PUBKEYPATH) && ssh $USER_AT_HOST "powershell New-Item -Force -ItemType Directory -Path \"\$HOME\\.ssh\"; Add-Content -Force -Path \"\$HOME\\.ssh\\authorized_keys\" -Value '$PUBKEY'"
+    ssh $USER_AT_HOST "powershell New-Item -Force -ItemType Directory -Path \"\$HOME\\.ssh\"; Add-Content -Force -Path \"\$HOME\\.ssh\\authorized_keys\" -Value '$(tr -d '\n\r' < "$PUBKEYPATH")'"
     ```
 
     You may want to validate that the `authorized_key` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See [the OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
