@@ -75,7 +75,7 @@ Run one of the following commands, in a **local PowerShell** window replacing us
     $USER_AT_HOST="your-user-name-on-host@hostname"
     $PUBKEYPATH="$HOME\.ssh\id_rsa.pub"
 
-    $pubKey=(Get-Content $PUBKEYPATH | Out-String); ssh "$USER_AT_HOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo '${pubKey}' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"`
+    $pubKey=(Get-Content "$PUBKEYPATH" | Out-String); ssh "$USER_AT_HOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo '${pubKey}' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
     ```
 
 * Connecting to a **Windows** SSH host:
@@ -84,7 +84,7 @@ Run one of the following commands, in a **local PowerShell** window replacing us
     $USER_AT_HOST="your-user-name-on-host@hostname"
     $PUBKEYPATH="$HOME\.ssh\id_rsa.pub"
 
-    $pubKey=(Get-Content $PUBKEYPATH | Out-String); ssh $USER_AT_HOST "powershell New-Item -Force -ItemType Directory -Path ^"^$HOME\\.ssh^"; Add-Content -Force -Path ^"^$HOME\\.ssh\\authorized_keys^" -Value '$PubKey'"
+    Get-Content "$PUBKEYPATH" | Out-String | ssh $USER_AT_HOST "powershell `"New-Item -Force -ItemType Directory -Path `"`$HOME\.ssh`"; Add-Content -Force -Path `"`$HOME\.ssh\authorized_keys`" `""
     ```
 
     Validate that the `authorized_key` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See [the OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
