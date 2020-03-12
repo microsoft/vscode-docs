@@ -156,7 +156,7 @@ For full details on editing, formatting, and refactoring, see [Editing code](/do
 
 It's simple to run `hello.py` with Python. Just click the **Run Python File in Terminal** play button in the top-right side of the editor.
 
-![Run python file with the terminal button](images/tutorial/run-python-file-in-terminal-button.png)
+![Using the run python file in terminal button](images/tutorial/run-python-file-in-terminal-button.png)
 
 The button opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows):
 
