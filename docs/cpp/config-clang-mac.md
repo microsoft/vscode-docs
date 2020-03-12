@@ -27,7 +27,7 @@ To successfully complete this tutorial, you must do the following:
 
 ### Ensure Clang is installed
 
-On macOS, since Xcode 4.2, Clang is included. To verify that it is installed on your machine, open a macOS Terminal window and enter the following command:
+Clang may already be installed on your Mac. To verify that it is installed, open a macOS Terminal window and enter the following command:
 
 ```bash
 clang --version
@@ -90,7 +90,7 @@ Now press `kb(workbench.action.files.save)` to save the file. Notice that your f
 
 You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
-The Activity Bar on the edge of Visual Studio Code lets you open different views such as **Search**, **Source Control**, and **Debug**. You'll look at the **Debug** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
+The Activity Bar on the edge of Visual Studio Code lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
 
 >**Note**: When you save or open a C++ file, you may see a notification from the C/C++ extension about the availability of an Insiders version, which lets you test new features and fixes. You can ignore this notification by selecting the `X` (**Clear Notification**).
 
@@ -150,14 +150,15 @@ Replace the contents of that file with the following:
 }
 ```
 
-The JSON above differs from the template code that was generated in the following ways:
-- `"args"` is updated to compile with C++17 because the helloworld.cpp uses C++17 language features and by default the JSON template uses C++98.
+The JSON above differs from the default template code in the following ways:
+
+- `"args"` is updated to compile with C++17 because the helloworld.cpp uses C++17 language features.
 - Changes the current working directory directive (`"cwd"`) to the folder where helloworld.cpp is.
 
 The `command` setting specifies the program to run. In this case, "clang++" is the driver that causes the Clang compiler to expect C++ code and link against the C++ standard library.
 
 The `args` array specifies the command-line arguments that will be passed to clang++. These arguments must be specified in the order expected by the compiler.
-This task tells the C++ compiler to compile the active file (`${file}`), and create an output file (`-o` switch) in the current directory (`${fileDirname}`) with the same name as the active file (`${fileBasenameNoExtension}`), resulting in `helloworld` for our example.
+This task tells the C++ compiler to compile the active file (`${file}`), and create an output file (`-o` switch) in the current directory (`${fileDirname}`) with the same name as the active file (`${fileBasenameNoExtension}`) and `.out` appended, resulting in `helloworld.out` for our example.
 
 The `label` value is what you will see in the tasks list. Name this what you want.
 
@@ -175,9 +176,9 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 
    ![Clang build output in terminal](images/clang-mac/clang-task-in-terminal.png)
 
-1. Create a new terminal using the **+** button and you'll have a new terminal with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld.exe` along with various intermediate C++ output and debugging files (`helloworld.obj`, `helloworld.pdb`).
+1. Create a new terminal using the **+** button and you'll have a new terminal with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld.out` along with the debugging file (`helloworld.out.dSYM`).
 
-    ![Hello World in macOS terminal](images/msvc/helloworld-in-terminal.png)
+    ![Hello World in macOS terminal](images/clang-mac/helloworld-in-terminal.png)
 
 1. You can run `helloworld` in the terminal by typing `.\helloworld`.
 
@@ -187,7 +188,7 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 ## Debug helloworld.cpp
 
-Next, you'll create a `launch.json` file to configure VS Code to launch the LLDB debugger when you press `kb(workbench.action.debug.start)` to debug the program. 
+Next, you'll create a `launch.json` file to configure VS Code to launch the LLDB debugger when you press `kb(workbench.action.debug.start)` to debug the program.
 
 From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
 
@@ -195,7 +196,7 @@ You'll then see a dropdown for various predefined debugging configurations. Choo
 
 ![C++ debug configuration dropdown](images/clang-mac/build-and-debug-active-file.png)
 
-VS Code creates a `launch.json` file, opens it in the editor, and builds and runs 'helloworld'.
+VS Code creates a `launch.json` file, opens it in the editor, and builds and runs 'helloworld'. It will look like this:
 
 ```json
 {
@@ -227,7 +228,7 @@ By default, the C++ extension won't add any breakpoints to your source code and 
 
 > **Note**: You may have issues debugging on macOS Catalina. See [issue #3829](https://github.com/microsoft/vscode-cpptools/issues/3829) for details and possible workarounds.
 
-1. Go back to `helloworld.cpp` so that it is the active file.
+1. Go back to `helloworld.cpp` so that it is the active file. This is really important, because VS Code uses the file it is in to determine that we want to debug a C++ file.
 2. Press `kb(workbench.action.debug.start)` or from the main menu choose **Run > Start Debugging**. Before you start stepping through the source code, let's take a moment to notice several changes in the user interface:
 
 - The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
@@ -243,17 +244,17 @@ By default, the C++ extension won't add any breakpoints to your source code and 
 
 Now you're ready to start stepping through the code.
 
-1. Click or press the **Step over** icon in the debugging control panel until the `for (const string& word : msg)` statement is highlighted.
+1. Click or press the **Step over** icon in the debugging control panel so that the `for (const string& word : msg)` statement is highlighted.
 
     ![Step over button](images/cpp/step-over-button.png)
 
-    The **Step Over** command skip over all the internal function calls within the `vector` and `string` classes that are invoked when the `msg` variable is created and initialized. Notice the change in the **Variables** window on the left. In this case, the errors are expected because, although the variable names for the loop are now visible to the debugger, the statement has not executed yet, so there is nothing to read at this point. The contents of `msg` are visible, however, because that statement has completed.
+    The **Step Over** command skips over all the internal function calls within the `vector` and `string` classes that are invoked when the `msg` variable is created and initialized. Notice the change in the **Variables** window. The contents of `msg` are visible because that statement has completed.
 
-1. Press **Step over** again to advance to the next statement in this program (skipping over all the internal code that is executed to initialize the loop). Now, the **Variables** window shows information about the loop variables.
+1. Press **Step over** again to advance to the next statement (skipping over all the internal code that is executed to initialize the loop). Now, the **Variables** window shows information about the loop variable.
 
-1. Press **Step over** again to execute the `cout` statement. **Note** As of the March 2019 version of the extension, no output is displayed until the loop completes.
+1. Press **Step over** again to execute the `cout` statement. **Note** As of the March 2019 version of the extension, no output will appear in the DEBUG CONSOLE until the last `cout` completes.
 
-1. If you like, you can keep pressing **Step over** until all the words in the vector have been printed to the console. But if you are curious, try pressing the **Step Into** button to step through source code in the C++ standard library!
+1. If you are curious, try pressing the **Step Into** button to step through source code in the C++ standard library!
 
     ![Breakpoint in gcc standard library header](images/msvc/msvc-system-header-stepping.png)
 
@@ -270,8 +271,6 @@ Sometimes you might want to keep track of the value of a variable as your progra
 1. Place the insertion point inside the loop. In the **Watch** window, click the plus sign and in the text box, type `word`, which is the name of the loop variable. Now view the Watch window as you step through the loop.
 
    ![Watch window](images/cpp/watch-window.png)
-
-1. Add another watch by adding this statement before the loop: `int i = 0;`. Then, inside the loop, add this statement: `++i;`. Now add a watch for `i` as you did in the previous step.
 
 1. To quickly view the value of any variable while execution is paused on a breakpoint, you can hover over it with the mouse pointer.
 
