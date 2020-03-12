@@ -23,15 +23,13 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 **Local:**  A supported [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) must also be installed.
 
-**Remote SSH Host**: A running [SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) on:
+**Remote SSH host**: A running [SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) on:
 
 - x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
 - ARMv7l (AArch32) Raspbian Stretch/9+ (32-bit).
 - ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
-
-**Experimental SSH Host Support** ([VS Code Insiders only](https://code.visualstudio.com/insiders/)):
-
 - Windows 10 / Server 2016/2019 (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enabling `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md).
+- macOS 10.14+ (Mojave) SSH hosts with [Remote Login enabled](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
 
 Other `glibc` based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l (AArch64) should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
 
@@ -47,41 +45,51 @@ To get started, you need to:
 
 3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
+### SSH host setup
+
+1. If you do not have a SSH host set up, follow the directions for [Linux](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server), [Windows 10 / Server (1803+)](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse), or [macOS](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac) SSH host or create a [VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+2. **[Optional]** While password-based authentication is supported, we recommend setting up **key based authentication** for your host. See the [Tips and Tricks](/docs/remote/troubleshooting.md#configuring-key-based-authentication) article for details.
+
+3. If you will be connecting to a Windows server, verify **Remote.SSH: Use Local Server** is checked in [VS Code settings](../getstarted/settings.md).
+
+    ![Use Local Server setting](images/ssh/ssh-use-local-server.png)
+
 ### Connect to a remote host
 
-In this quick start, we'll cover how to connect to an SSH host with minimal setup. [In the next section](#remember-hosts-and-advanced-settings), we'll cover how you can configure VS Code to remember hosts you frequently connect to, along with any advanced settings.
+To connect to a remote host for the first time, follow these steps:
 
-If you do not have a host yet, you can [setup an SSH host on an existing machine](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) or create a [Linux VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+1. Verify you can connect to the SSH host by running the following command from a terminal / PowerShell window replacing `user@hostname` as appropriate.
 
-> **Note:** When using experimental Windows 10/Server SSH host support, enable `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md).
->
-> ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension.
+    ```bash
+    ssh user@hostname
+    # Or for Windows when using a domain / AAD account
+    ssh user@domain@hostname
+    ```
 
-To get started, follow these steps:
-
-1. **[Optional]** While password-based authentication is supported, we recommend setting up **key based authentication** on the host you plan to connect to by adding your local public SSH key to `~/.ssh/authorized_keys` on the host. See the [Tips and Tricks](/docs/remote/troubleshooting.md#configuring-key-based-authentication) article for details.
-
-    > **Tip:** PuTTY for Windows is not a [supported client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
-
-2. Select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) and enter the host and your user on the host in the input box as follows: `user@hostname`.
+2. In VS Code, select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) and use the same `user@hostname` as in step 1.
 
     ![Illustration of user@host input box](images/ssh/ssh-user@box.png)
 
 3. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up-to-date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
 
-    > **Tip:** If you see errors about bad SSH file permissions when connecting, see [fixing SSH file permission errors](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors). If your connection is hanging, you may need to enable TCP forwarding or respond to a server prompt. See [Tips and Tricks](/docs/remote/troubleshooting.md#troubleshooting-hanging-or-failing-connections) for details.
+    > **Tip:** Connection hanging or failing? See [troubleshooting tips](/docs/remote/troubleshooting.md#troubleshooting-hanging-or-failing-connections) for info on resolving common problems.
+    >
+    > If you see errors about SSH file permissions, see [tips and tricks](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) for info on updating them.
 
-4. After you are connected, you'll be in an empty window. You can then open a folder or workspace on the remote machine using **File > Open...** or **File > Open Workspace...**
-
-    ![File Open on a remote SSH host](images/ssh/ssh-open-folder.png)
-
-5. The window will reload and the folder or workspace you selected will open. If you have multiple VS Code windows open, you can refer to the Status bar to see which one is connected to the host.
+4. After you are connected, you'll be in an empty window. You can always refer to status bar to see which host the window is connect
 
     ![SSH Status bar item](images/ssh/ssh-statusbar.png)
 
-    Clicking on the Status bar item at any time will provide a list of remote commands while you are connected.
+    Clicking on the status bar item at any time will provide a list of remote commands while you are connected.
+
+5. You can then open any folder or workspace on the remote machine using **File > Open...** or **File > Open Workspace...** just as you would locally!
+
+    ![File Open on a remote SSH host](images/ssh/ssh-open-folder.png)
 
 From here, [install any extensions](#managing-extensions) you want to use when connected to the host and start editing!
+
+> **Note:** ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension.
 
 ### Disconnect from a remote host
 
@@ -111,7 +119,7 @@ For example, entering `ssh -i ~/.ssh/id_rsa-remote-ssh yourname@remotehost.yourc
 
 ```text
 Host remotehost.yourcompany.com
-    User remotehost.yourcompany.com
+    User yourname
     HostName another-host-fqdn-or-ip-goes-here
     IdentityFile ~/.ssh/id_rsa-remote-ssh
 ```
@@ -246,9 +254,7 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 ### Remote - SSH limitations
 
 - Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
-- macOS SSH hosts are **not** yet supported. (macOS clients **are** supported.)
 - Alpine Linux and non-glibc based Linux SSH hosts are not supported.
-- Experimental Windows 10 / Server 2016/2019 support is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only and requires and enabling `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md).
 - Older (community supported) Linux distributions require workarounds to install the [needed prerequisites](/docs/remote/linux.md).
 - PuTTY is not supported on Windows.
 - If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.

@@ -25,36 +25,69 @@ If you are still running into trouble, you may want to try the preview of [Visua
 
 > **Tip:** PuTTY for Windows is not a [supported client](#installing-a-supported-ssh-client), but you can [convert your PuTTYGen keys](#reusing-a-key-generated-in-puttygen).
 
-### Quick start: SSH key
+### Quick start: Using SSH keys
 
-To set up SSH key based authentication for your remote host:
+To set up SSH key based authentication for your remote host. First we'll create a key pair and then copy the public key to the host.
 
-1. Check to see if you already have an SSH key on your **local** machine. The public key is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and the `.ssh` directory in your user profile folder on Windows (for example `C:\Users\your-user\.ssh\id_rsa.pub`).
+**Create your local SSH key pair**
 
-    If you do not have a key, run the following command in a **local** terminal / PowerShell to generate an SSH key pair:
+ Check to see if you already have an SSH key on your **local** machine. This is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and the `.ssh` directory in your user profile folder on Windows (for example `C:\Users\your-user\.ssh\id_rsa.pub`).
+
+If you do not have a key, run the following command in a **local** terminal / PowerShell to generate an SSH key pair:
+
+```bash
+ssh-keygen -t rsa -b 4096
+```
+
+> **Tip:** Don't have `ssh-keygen`? Install [a supported SSH client](#installing-a-supported-ssh-client).
+
+**Authorize your macOS or Linux machine to connect**
+
+Run one of the following commands, in a **local terminal window** replacing user and host name as appropriate to copy add your local public key to the SSH host.
+
+* Connecting to a **macOS or Linux** SSH host:
 
     ```bash
-    ssh-keygen -t rsa -b 4096
+    export USER_AT_HOST="your-user-name-on-host@hostname"
+    export PUBKEYPATH="~/.ssh/id_rsa.pub"
+
+    ssh-copy-id -i "$PUBKEYPATH" "$USER_AT_HOST"
     ```
 
-    > **Tip:** Don't have `ssh-keygen`? Install [a supported SSH client](#installing-a-supported-ssh-client).
-
-2. Add the contents of your **local** public key (the `id_rsa.pub` file) to the appropriate `authorized_keys` file(s) on the **SSH host**.
-
-    **macOS / Linux**: Run the following, in a **local terminal** replacing user and host name as appropriate:
+* Connecting to a **Windows** SSH host:
 
     ```bash
-    ssh-copy-id your-user-name-on-host@host-fqdn-or-ip-goes-here
+    export USER_AT_HOST="your-user-name-on-host@hostname"
+    export PUBKEYPATH="~/.ssh/id_rsa.pub"
+
+    PUBKEY=$(cat $PUBKEYPATH) && ssh $USER_AT_HOST "powershell New-Item -Force -ItemType Directory -Path \"\$HOME\\.ssh\"; Add-Content -Force -Path \"\$HOME\\.ssh\\authorized_keys\" -Value '$PUBKEY'"
     ```
 
-    **Windows**: Run the following in a **local PowerShell**, replacing the value of `REMOTEHOST` as appropriate:
+    You may want to validate that the `authorized_key` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See [the OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
+
+**Authorize your Windows machine to connect**
+
+Run one of the following commands, in a **local PowerShell** window replacing user and host name as appropriate to copy add your local public key to the SSH host.
+
+* Connecting to a **macOS or Linux** SSH host:
 
     ```powershell
-    $REMOTEHOST="your-user-name-on-host@host-fqdn-or-ip-goes-here"
+    $USER_AT_HOST="your-user-name-on-host@hostname"
+    $PUBKEYPATH="$HOME\.ssh\id_rsa.pub"
 
-    scp "$env:USERPROFILE\.ssh\id_rsa.pub" "${REMOTEHOST}:~/tmp.pub"
-    ssh "$REMOTEHOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
+    $pubKey=(Get-Content $PUBKEYPATH | Out-String); ssh "$USER_AT_HOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo '${pubKey}' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"`
     ```
+
+* Connecting to a **Windows** SSH host:
+
+    ```powershell
+    $USER_AT_HOST="your-user-name-on-host@hostname"
+    $PUBKEYPATH="$HOME\.ssh\id_rsa.pub"
+
+    $pubKey=(Get-Content $PUBKEYPATH | Out-String); ssh $USER_AT_HOST "powershell New-Item -Force -ItemType Directory -Path ^"^$HOME\\.ssh^"; Add-Content -Force -Path ^"^$HOME\\.ssh\\authorized_keys^" -Value '$PubKey'"
+    ```
+
+    Validate that the `authorized_key` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See [the OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
 
 ### Improving your security with a dedicated key
 
@@ -71,10 +104,12 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     **Windows**: Run the following command in a **local PowerShell**:
 
     ```powershell
-    ssh-keygen -t rsa -b 4096 -f "$env:USERPROFILE\.ssh\id_rsa-remote-ssh"
+    ssh-keygen -t rsa -b 4096 -f "$HOME\.ssh\id_rsa-remote-ssh"
     ```
 
-2. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
+2. Follow the same steps in the [quick start](#quick-start-using-ssh-keys) to authorize the key on the SSH host, but set the `PUBKEYPATH` to the `id_rsa-remote-ssh.pub` file instead.
+
+3. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
 
     ```yaml
     Host name-of-ssh-host-here
@@ -83,30 +118,13 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
         IdentityFile ~/.ssh/id_rsa-remote-ssh
     ```
 
-3. Add the contents of the **local** `id_rsa-remote-ssh.pub` file generated in step 1 to the appropriate `authorized_keys` file(s) on the **SSH host**.
-
-    **macOS / Linux**: Run the following command in a **local terminal**, replacing `name-of-ssh-host-here` with the host name in the SSH config file from step 2:
-
-    ```bash
-    ssh-copy-id -i ~/.ssh/id_rsa-remote-ssh.pub name-of-ssh-host-here
-    ```
-
-    **Windows**: Run the following commands in a **local PowerShell**, replacing the value of `$REMOTEHOST` the host name in the SSH config file from step 2.
-
-    ```powershell
-    $REMOTEHOST="name-of-ssh-host-here"
-
-    scp "$env:USERPROFILE\.ssh\id_rsa-remote-ssh.pub" "${REMOTEHOST}:~/tmp.pub"
-    ssh "$REMOTEHOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat ~/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f ~/tmp.pub"
-    ```
-
 ### Reusing a key generated in PuTTYGen
 
 If you used PuTTYGen to set up SSH public key authentication for the host you are connecting to, you need to convert your private key so that other SSH clients can use it. To do this:
 
 1. Open PuTTYGen **locally** and load the private key you want to convert.
 2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a **local** location under the`.ssh` directory in your user profile folder (for example `C:\Users\youruser\.ssh`).
-3. Validate that the **local** permissions on the exported key file only grant `Full Control` to your user, Administrators, and SYSTEM.
+3. Validate that this new **local** file is owned by you and no other user has permissions to access it.
 4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you wish to change, and add (or modify) a host entry in the config file as follows to point to the file:
 
     ```yaml
@@ -285,22 +303,15 @@ On your local machine, make sure the following permissions are set:
 
 **Windows:**
 
-The specific expected permissions can vary depending on the exact SSH implementation you are using. We strongly recommend using the out of box [Windows 10 OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_overview). If you are using this official client, cut-and-paste the following in an **administrator PowerShell window** to try to repair your permissions:
+The specific expected permissions can vary depending on the exact SSH implementation you are using. We strongly recommend using the out of box [Windows 10 OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_overview).
 
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+In this case, make sure that all of the files in the `.ssh` folder for your remote user on the SSH host is owned by you and no other user has permissions to access it. See [the Windows OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH) for details.
 
-Install-Module -Force OpenSSHUtils -Scope AllUsers
-
-Repair-UserSshConfigPermission ~/.ssh/config
-Get-ChildItem ~\.ssh\* -Include "id_rsa","id_dsa" -ErrorAction SilentlyContinue | % {
-    Repair-UserKeyPermission -FilePath $_.FullName @psBoundParameters
-}
-```
-
-For all other clients, consult **your client's documentation** for what the implementation expects. However, note that not all SSH clients may work.
+For all other clients, consult your client's documentation for what the implementation expects.
 
 ### Server SSH file and folder permissions
+
+**macOS / Linux:**
 
 On the remote machine you are connecting to, make sure the following permissions are set:
 
@@ -310,6 +321,10 @@ On the remote machine you are connecting to, make sure the following permissions
 | `.ssh/authorized_keys` in your user folder on the server  | `chmod 600 ~/.ssh/authorized_keys` |
 
 Note that only Linux hosts are currently supported, which is why permissions for macOS and Windows 10 have been omitted.
+
+**Windows:**
+
+See [the Windows OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH) for details on setting the appropriate file permissions for the Windows OpenSSH server.
 
 ### Installing a supported SSH client
 
@@ -331,7 +346,7 @@ VS Code will look for the `ssh` command in the PATH. Failing that, on Windows it
 | RHEL / CentOS 7+ | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | See the [RedHat SSH](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-openssh) documentation for details. |
 | SuSE 12+ / openSUSE 42.3+ |  In Yast, go to Services Manager, select "sshd" in the list, and click **Enable**. Next go to Firewall, select the **Permanent** configuration, and under services check **sshd**. | See the [SuSE SSH](https://en.opensuse.org/OpenSSH) documentation for details. |
 | Windows 10 1803+ / Server 2016/2019 1803+ | Install the [Windows OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
-| macOS | Not supported yet. | |
+| macOS 10.14+ (Mojave) | Enable [Remote Login](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac). | |
 
 ### Resolving hangs when doing a Git push or sync on an SSH host
 
