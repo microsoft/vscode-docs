@@ -154,9 +154,19 @@ If you are running into problems with VS Code hanging while trying to connect (a
 
 Enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code and retry. If you are prompted to input a password or token, see [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods) for details on reducing the frequency of prompts.
 
-**Work around a bug with Windows OpenSSH server 8.x**
+If you are still having trouble, set the following properties in `settings.json` and retry:
 
-Due to a bug in certain versions of OpenSSH server 8.x for Windows, the default check to determine if the host is running Windows may not work properly. This does not occur with OpenSSH server 7.9 and below which ships with Windows 1909 and below.
+```json
+"remote.SSH.showLoginTerminal": true,
+"remote.SSH.useLocalServer": false,
+"remote.SSH.windowsRemotes": ["<your remote's hostname>"]
+```
+
+The last property is only required if you are connecting to a Windows host.
+
+**Work around a bug with some versions of Windows OpenSSH server**
+
+Due to a bug in certain versions of OpenSSH server for Windows, the default check to determine if the host is running Windows may not work properly. This does not occur with OpenSSH server that ships with Windows 1909 and below.
 
 Fortunately, you can work around this problem by specifically telling VS Code if your SSH host is running Windows by adding the following to `settings.json`:
 
@@ -234,6 +244,16 @@ If you are connecting to an SSH remote host and are either:
 - using an SSH key with a passphrase when the [SSH Agent](#setting-up-the-ssh-agent) is not running or accessible,
 
 ...VS Code should automatically prompt you to enter needed information. If you do not see the prompt, enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your authentication code, password, or passphrase when the terminal appears.
+
+If you are still having trouble, you may need to the following properties in `settings.json` and retry:
+
+```json
+"remote.SSH.showLoginTerminal": true,
+"remote.SSH.useLocalServer": false,
+"remote.SSH.windowsRemotes": ["<your remote's hostname>"]
+```
+
+The last property is only required if you are connecting to a Windows host.
 
 If you are on macOS and Linux and want to reduce how often you have to enter a password or token, you can enable the `ControlMaster` feature on your **local machine** so that OpenSSH runs multiple SSH sessions over a single connection.
 
