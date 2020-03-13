@@ -1,15 +1,15 @@
 ---
 Order: 3
 Area: azure
-TOCTitle: Remote Debugging for Node.js
-PageTitle: Azure Remote Debugging for Node.js with Visual Studio Code
+TOCTitle: Remote Debugging Web Apps
+PageTitle: Azure Remote Debugging Web Apps with Visual Studio Code
 ContentId: 09cb23b6-b1e9-4a29-a934-cbc16fe109c7
-MetaDescription: Azure Remote Debugging for Node.js with Visual Studio Code
+MetaDescription: Azure Remote Debugging Web Apps with Visual Studio Code
 DateApproved: 3/9/2020
 ---
-# Azure Remote Debugging for Node.js
+# Azure Web Apps Remote Debugging
 
-Connect the Visual Studio Code debugger to your Node.js applications running on **Azure App Service** on **Linux**. The debugger works the same as when it's connected to a local Node.js process - including the use of Breakpoints and Logpoints.
+Connect the Visual Studio Code debugger to your Node.js and Python applications running on **Azure App Service** on **Linux**. The debugger works the same as when it's connected to a local process - including the use of Breakpoints and Logpoints.
 
 ## Install the extension
 
