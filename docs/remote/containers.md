@@ -416,7 +416,7 @@ Simply reload / reopen the window and the setting will be applied when VS Code c
 
 ### Temporarily forwarding a port
 
-If you need to access a port that you didn't add to `devcontainer.json` or publish in your Docker Compose file, you can to **temporarily forward** a new port for the duration of the session, by running the **Remote-Containers: Forward Port from Container...** command from the Command Palette (`kbstyle(F1)`).
+If you need to access a port that you didn't add to `devcontainer.json` or publish in your Docker Compose file, you can to **temporarily forward** a new port for the duration of the session, by running the **Forward a Port** command from the Command Palette (`kbstyle(F1)`).
 
 ![Forward port input](images/containers/forward-port-containers.png)
 
@@ -591,9 +591,9 @@ Or in `settings.json`:
 
 ```json
 {
-    "remote.containers.dotfiles.repository": "your-github-id/your-dotfiles-repo",
-    "remote.containers.dotfiles.targetPath": "~/dotfiles",
-    "remote.containers.dotfiles.installCommand": "~/dotfiles/install.sh"
+    "dotfiles.repository": "your-github-id/your-dotfiles-repo",
+    "dotfiles.targetPath": "~/dotfiles",
+    "dotfiles.installCommand": "~/dotfiles/install.sh"
 }
 ```
 
@@ -1009,6 +1009,8 @@ See [Setting up a folder to run in a container](#in-depth-setting-up-a-folder-to
 | `workspaceMount` | string | Overrides the default local mount point for the workspace. Supports the same values as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag). Primarily useful for [configuring remote containers](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) or [improving disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance). You can use `${localWorkspaceFolder}` in this property to refer to the local source code or using the following format to refer to environment variables: `${localEnv:VARNAMEHERE}` |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container. Typically used in conjunction with `workspaceMount`. Defaults to the automatic source code mount location. |
 | `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`.<br>For example, `"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ]` allows ptrace based debuggers like C++ to work in the container.<br>If required, values can use `${localWorkspaceFolder}` to refer to the local source code path or `${localEnv:VARABLE_NAME}` to refer to local environment variables. |
+| `build.args` | Object | An object containing [Docker image build arguments](https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg) that should be passed when building a Dockerfile. You can refer to local environment variables using the syntax `${localEnv:VARABLE_NAME}`. Defaults to not set. For example: `"build": { "args": { "MYARG": "MYVALUE", "MYARGFROMENVVAR": "${localEnv:VARABLE_NAME}" } }` |
+| `build.target` | string | An string that specifies a [Docker image build target](https://docs.docker.com/engine/reference/commandline/build/#specifying-target-build-stage---target) that should be passed when building a Dockerfile Defaults to not set. For example: `"build": { "target": "development" }` |
 | `overrideCommand` | boolean | Tells VS Code whether it should run `/bin/sh -c "while sleep 1000; do :; done"` when starting the container instead of the container's default command. Defaults to `true` since the container can shut down if the default command fails. Set to `false` if the default command must run for the container to function properly. |
 | `shutdownAction` | enum | Indicates whether VS Code should stop the container when the VS Code window is closed / shut down.<br>Values are `none` and `stopContainer` (default). |
 |**Docker Compose**|||
@@ -1025,6 +1027,7 @@ See [Setting up a folder to run in a container](#in-depth-setting-up-a-folder-to
 | `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |
 | `forwardPorts` | array | An array of ports that should be forwarded from inside the container to the local machine. |
 | `postCreateCommand` | string,<br>array | A command string or list of command arguments to run after the container is created. The commands execute from the `workspaceFolder` in the container. Use `&&` in a string to execute multiple commands. For example, `"yarn install"` or `"apt-get update && apt-get install -y git"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. <br />It fires after your source code has been mounted, so you can also run shell scripts from your source tree. For example: `bash scripts/install-dev-tools.sh`. Not set by default. |
+| `initializeCommand` | string,<br>array | A command string or list of command arguments to run **locally** before  The commands execute from the `workspaceFolder` locally. For example, `"yarn install"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. |
 | `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
 
 If you've already built the container and connected to it, be sure to run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
