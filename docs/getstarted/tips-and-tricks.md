@@ -731,21 +731,19 @@ Git integration comes with VS Code "out-of-the-box". You can install other SCM p
 
 ### Diffs
 
-From the **Source Control** view, select the file to diff.
+From the **Source Control** view, select a file to open the diff.
 
-![git icon](images/tips-and-tricks/source-control-icon.png)
+![git diff from source control](images/tips-and-tricks/msee-changes.gif)
 
-**Side by side**
+Alternatively, click the **Open Changes** button in the top right corner to diff the current open file.
 
-Default is side by side diff.
+**Views**
 
-![git diff side by side](images/tips-and-tricks/git_side_by_side.png)
+The default view for diffs is the **side by side view**.
 
-**Inline view**
+Toggle **inline view** by clicking the **More Actions** (...) button in the top right and selecting **Toggle Inline View**.
 
-Toggle inline view by clicking the **More Actions** (...) button in the top right and selecting **Switch to Inline View**.
-
-![git inline](images/tips-and-tricks/git_inline.png)
+![git switch to inline diff](images/tips-and-tricks/mdiff-switch-to-inline.png)
 
 If you prefer the inline view, you can set `"diffEditor.renderSideBySide": false`.
 
@@ -764,15 +762,17 @@ You can make edits directly in the pending changes of the diff view.
 
 Easily switch between Git branches via the Status Bar.
 
-![switch branches](images/tips-and-tricks/switch_branches.gif)
+![switch branches](images/tips-and-tricks/mswitch-branch.gif)
 
 ### Staging
 
-**Stage all**
+**Stage file changes**
 
 Hover over the number of files and click the plus button.
 
-![git stage all](images/tips-and-tricks/git_stage_all.gif)
+Click the minus button to unstage changes.
+
+![git stage all](images/tips-and-tricks/mstage-unstage.gif)
 
 **Stage selected**
 
@@ -780,7 +780,9 @@ Stage a portion of a file by selecting that file (using the arrows) and then cho
 
 ### Undo last commit
 
-![undo last commit](images/tips-and-tricks/undo_last_commit.gif)
+Click the (...) button and then select **Undo Last Commit** to undo the previous commit. The changes are added to the Staged Changes section.
+
+![undo last commit](images/tips-and-tricks/mundo-last-commit.gif)
 
 ### See Git output
 
@@ -792,7 +794,7 @@ Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) a
 
 View diff decorations in editor. See [documentation](/docs/editor/versioncontrol.md#gutter-indicators) for more details.
 
-![git gutter indicators](images/tips-and-tricks/editingevolved_gutter.png)
+![git gutter indicators](images/tips-and-tricks/mgutter_icons.gif)
 
 ### Resolve merge conflicts
 
@@ -801,7 +803,15 @@ During a merge, go to the **Source Control** view (`kb(workbench.view.scm)`) and
 ### Set VS Code as default merge tool
 
 ```bash
-git config --global merge.tool code
+git config --global merge.tool vscode
+git config --global mergetool.vscode.cmd 'code --wait $MERGED'
+```
+
+### Set VS Code as default diff tool
+
+```bash
+git config --global diff.tool vscode
+git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 ```
 
 ## Debugging
