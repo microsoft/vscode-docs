@@ -154,6 +154,19 @@ If you are running into problems with VS Code hanging while trying to connect (a
 
 Enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code and retry. If you are prompted to input a password or token, see [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods) for details on reducing the frequency of prompts.
 
+**Work around a bug with Windows OpenSSH server 8.x**
+
+Due to a bug in certain versions of OpenSSH server 8.x for Windows, the default check to determine if the host is running Windows may not work properly. This does not occur with OpenSSH server 7.9 and below which ships with Windows 1909 and below.
+
+Fortunately, you can work around this problem by specifically telling VS Code if your SSH host is running Windows by adding the following to `settings.json`:
+
+```json
+"remote.SSH.useLocalServer": false,
+"remote.SSH.windowsRemotes": ["<your remote's hostname>"]
+```
+
+A fix has been merged so this problem should be resolved in a version of the server greater than 8.1.0.0.
+
 **Enable TCP Forwarding on the remote host**
 
 Remote - SSH extension makes use of an SSH tunnel to facilitate communication with the host. In some cases, this may be disabled on your SSH server. To see if this is the problem, open the **Remote - SSH** category in the output window and check for the following message:
@@ -164,9 +177,9 @@ open failed: administratively prohibited: open failed
 
 If you do see that message, follow these steps to update your SSH server's [sshd config](https://www.ssh.com/ssh/sshd_config/):
 
-1. Open `/etc/ssh/sshd_config` in an editor  (like vim, nano, or pico) on the **SSH host** (not locally).
+1. Open `/etc/ssh/sshd_config` or `C:\ProgramData\ssh\sshd_config` in a text editor (like vim, nano, pico, or notepad) on the **SSH host** (not locally).
 2. Add the setting  `AllowTcpForwarding yes`.
-3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
+3. Restart the SSH server. (On Ubuntu, run `sudo systemctl restart sshd`. On Windows, in an admin PowerShell run, `Restart-Service sshd`).
 4. Retry.
 
 **Set the ProxyCommand parameter in your SSH config file**
