@@ -2545,7 +2545,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	"emmet.showAbbreviationSuggestions": true,
 
 	// Shows expanded Emmet abbreviations as suggestions.
-	// The option `"inMarkupAndStylesheetFilesOnly"` applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
+	// The option `"inMarkupAndStylesheetFilesOnly"` applies to html, haml, pug, slim, xml, xsl, css, scss, sass, less and stylus.
 	// The option `"always"` applies to all parts of the file regardless of markup/css.
 	"emmet.showExpandedAbbreviation": "always",
 
