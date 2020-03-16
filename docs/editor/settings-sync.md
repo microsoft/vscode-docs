@@ -17,7 +17,7 @@ Turn on Settings Sync using the **Turn On Sync** entry in the **Manage** gear me
 
 ![Turn on Sync command](images/settings-sync/turn-on-sync.png)
 
-After making this selection, the browser will open so that you can sign in to a Microsoft account. Both personal accounts, such as Outlook accounts, and Azure accounts can be used. You can also sign in with GitHub. If at any time you decide you want to sync your data to a different account, you can use the **Microsoft Account: Sign Out** command from the Command Palette (`kb(workbench.action.showCommands)`), and then use the **Sync: Sign in to sync** entry from the **Manage** gear menu.
+After making this selection, the browser will open so that you can sign in to a Microsoft account. Both personal accounts, such as Outlook accounts, and Azure accounts can be used. You can also link a GitHub account to a new or existing Microsoft account. If at any time you decide you want to sync your data to a different account, you can use the **Microsoft Account: Sign Out** command from the Command Palette (`kb(workbench.action.showCommands)`), and then use the **Sync: Sign in to sync** entry from the **Manage** gear menu.
 
 ## Configuring synced data
 
