@@ -111,7 +111,7 @@ Enable semantic highlighting for all themes:
 },
 ```
 
-The themes that ship with VS Code (for example "Monokai") have `semanticHighlighting` enabled by default. You can disable sematic highlighting for those themes as described above.
+The themes that ship with VS Code (for example the "Dark+" default) have `semanticHighlighting` enabled by default. You can disable sematic highlighting for those themes as described above.
 
 ## Creating your own Color Theme
 
