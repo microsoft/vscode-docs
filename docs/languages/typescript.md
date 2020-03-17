@@ -33,6 +33,19 @@ tsc --version
 
 Another option is to install the TypeScript compiler locally in your project (`npm install --save-dev typescript`) and has the benefit of avoiding possible interactions with other TypeScript projects you may have.
 
+## Syntax Highlighting and Semantic Highlighting
+
+In addition to syntax highlighting, TypeScript and JavaScript also provides semantic highlighting.
+
+Syntax highlighting colors the text based on lexical rules. Semantic highlighting enriches the syntax coloring based on resolved symbol information from the language service.
+
+Whether and how semantic highlighting is visible depends on the current color theme. Each theme can [configure](/docs/getstarted/themes.md#_semantic-highlighting) whether to enable semantic highlighting and how it styles the semantic tokens.
+
+If semantic highlighting is enabled and the color theme has a corresponding styling rule defined, different colors and styles can be seen
+- based on the symbol type a name resolves to: namespace, variable, property, variable, property, class, interface, typeParameter
+- whether the variable/property is read-only (const) or modifiable
+- whether the variable/property type is callable (a function type) or not
+
 ## IntelliSense
 
 IntelliSense shows you intelligent code completion, hover info, and signature information so that you can write code more quickly and correctly.

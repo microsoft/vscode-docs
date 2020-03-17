@@ -83,6 +83,34 @@ Again, to customize a specific theme only, use the following syntax:
 },
 ```
 
+## Semantic Highlighting
+
+Semantic highlighting is available a for TypeScript and JavaScript in 1.43. We expect it to be adopted by other languages soon.
+
+Semantic highlighting enriches the syntax coloring based on symbol information from the language service that has the full understanding of the project The coloring changes appear once the language server is up and running and has computed the semantic token.
+
+Each theme controls whether to enable semantic highlighting with a specific setting that is part of the theme definition. The style each semantic token get is defined by the theme's styling rules.
+
+Users can override the setting and the rules using the `editor.tokenColorCustomizations` setting:
+
+Enable semantic highlighting for a specific theme:
+```json
+"editor.tokenColorCustomizations": {
+    "[Material Theme]": {
+        "semanticHighlighting": true
+    }
+},
+```
+
+Enable semantic highlighting for all themes:
+```json
+"editor.tokenColorCustomizations": {
+    "semanticHighlighting": true
+},
+```
+
+The theme that come out-of-the box with VS Code have `semanticHighlighting` enabled by default. User can change that as described above.
+
 ## Creating your own Color Theme
 
 Creating and publishing a theme extension is quite easy. Customize your colors in your user settings then generate a theme definition file with the **Developer: Generate Color Theme From Current Settings** command.
