@@ -83,17 +83,18 @@ Again, to customize a specific theme only, use the following syntax:
 },
 ```
 
-## Semantic Highlighting
+## Semantic highlighting
 
-Semantic highlighting is available a for TypeScript and JavaScript in 1.43. We expect it to be adopted by other languages soon.
+Semantic highlighting is available for TypeScript and JavaScript in VS Code release 1.43. We expect it to be adopted by other languages soon.
 
-Semantic highlighting enriches the syntax coloring based on symbol information from the language service that has the full understanding of the project The coloring changes appear once the language server is up and running and has computed the semantic token.
+Semantic highlighting enriches syntax coloring based on symbol information from the language service, which has more complete understanding of the project. The coloring changes appear once the language server is running and has computed the semantic tokens.
 
-Each theme controls whether to enable semantic highlighting with a specific setting that is part of the theme definition. The style each semantic token get is defined by the theme's styling rules.
+Each theme controls whether to enable semantic highlighting with a specific setting that is part of the theme definition. The style of each semantic token is defined by the theme's styling rules.
 
-Users can override the setting and the rules using the `editor.tokenColorCustomizations` setting:
+Users can override the semantic highlighting feature and colorization rules using the `editor.tokenColorCustomizations` setting:
 
 Enable semantic highlighting for a specific theme:
+
 ```json
 "editor.tokenColorCustomizations": {
     "[Material Theme]": {
@@ -103,13 +104,14 @@ Enable semantic highlighting for a specific theme:
 ```
 
 Enable semantic highlighting for all themes:
+
 ```json
 "editor.tokenColorCustomizations": {
     "semanticHighlighting": true
 },
 ```
 
-The theme that come out-of-the box with VS Code have `semanticHighlighting` enabled by default. User can change that as described above.
+The themes that ship with VS Code (for example "Monokai") have `semanticHighlighting` enabled by default. You can disable sematic highlighting for those themes as described above.
 
 ## Creating your own Color Theme
 
