@@ -47,7 +47,7 @@ To get started, you need to:
 
 ### SSH host setup
 
-1. If you do not have a SSH host set up, follow the directions for [Linux](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server), [Windows 10 / Server (1803+)](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse), or [macOS](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac) SSH host or create a [VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+1. If you do not have an SSH host set up, follow the directions for [Linux](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server), [Windows 10 / Server (1803+)](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse), or [macOS](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac) SSH host or create a [VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 2. **[Optional]** While password-based authentication is supported, we recommend setting up **key based authentication** for your host. See the [Tips and Tricks](/docs/remote/troubleshooting.md#configuring-key-based-authentication) article for details.
 
@@ -69,15 +69,15 @@ To connect to a remote host for the first time, follow these steps:
 
 3. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up-to-date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
 
-    > **Tip:** Connection hanging or failing? See [troubleshooting tips](/docs/remote/troubleshooting.md#troubleshooting-hanging-or-failing-connections) for info on resolving common problems.
+    > **Tip:** Connection hanging or failing? See [troubleshooting tips](/docs/remote/troubleshooting.md#troubleshooting-hanging-or-failing-connections) for information on resolving common problems.
     >
-    > If you see errors about SSH file permissions, see [tips and tricks](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors) for info on updating them.
+    > If you see errors about SSH file permissions, see the section on [Fixing SSH file permission errors](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors).
 
-4. After you are connected, you'll be in an empty window. You can always refer to status bar to see which host the window is connect
+4. After you are connected, you'll be in an empty window. You can always refer to the Status bar to see which host you are connected to.
 
     ![SSH Status bar item](images/ssh/ssh-statusbar.png)
 
-    Clicking on the status bar item at any time will provide a list of remote commands while you are connected.
+    Clicking on the Status bar item will provide a list of remote commands while you are connected.
 
 5. You can then open any folder or workspace on the remote machine using **File > Open...** or **File > Open Workspace...** just as you would locally!
 
@@ -85,7 +85,7 @@ To connect to a remote host for the first time, follow these steps:
 
 From here, [install any extensions](#managing-extensions) you want to use when connected to the host and start editing!
 
-> **Note:** ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension.
+> **Note:** On ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension.
 
 ### Disconnect from a remote host
 

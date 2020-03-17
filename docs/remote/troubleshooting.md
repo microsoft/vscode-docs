@@ -43,7 +43,7 @@ ssh-keygen -t rsa -b 4096
 
 **Authorize your macOS or Linux machine to connect**
 
-Run one of the following commands, in a **local terminal window** replacing user and host name as appropriate to copy add your local public key to the SSH host.
+Run one of the following commands, in a **local terminal window** replacing user and host name as appropriate to copy your local public key to the SSH host.
 
 * Connecting to a **macOS or Linux** SSH host:
 
@@ -63,11 +63,11 @@ Run one of the following commands, in a **local terminal window** replacing user
     ssh $USER_AT_HOST "powershell New-Item -Force -ItemType Directory -Path \"\$HOME\\.ssh\"; Add-Content -Force -Path \"\$HOME\\.ssh\\authorized_keys\" -Value '$(tr -d '\n\r' < "$PUBKEYPATH")'"
     ```
 
-    You may want to validate that the `authorized_key` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See [the OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
+    You may want to validate that the `authorized_key` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See the [OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
 
 **Authorize your Windows machine to connect**
 
-Run one of the following commands, in a **local PowerShell** window replacing user and host name as appropriate to copy add your local public key to the SSH host.
+Run one of the following commands, in a **local PowerShell** window replacing user and host name as appropriate to copy your local public key to the SSH host.
 
 * Connecting to a **macOS or Linux** SSH host:
 
@@ -87,7 +87,7 @@ Run one of the following commands, in a **local PowerShell** window replacing us
     Get-Content "$PUBKEYPATH" | Out-String | ssh $USER_AT_HOST "powershell `"New-Item -Force -ItemType Directory -Path `"`$HOME\.ssh`"; Add-Content -Force -Path `"`$HOME\.ssh\authorized_keys`" `""
     ```
 
-    Validate that the `authorized_key` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See [the OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
+    Validate that the `authorized_key` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See the [OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
 
 ### Improving your security with a dedicated key
 
@@ -187,7 +187,7 @@ open failed: administratively prohibited: open failed
 
 If you do see that message, follow these steps to update your SSH server's [sshd config](https://www.ssh.com/ssh/sshd_config/):
 
-1. Open `/etc/ssh/sshd_config` or `C:\ProgramData\ssh\sshd_config` in a text editor (like vim, nano, pico, or notepad) on the **SSH host** (not locally).
+1. Open `/etc/ssh/sshd_config` or `C:\ProgramData\ssh\sshd_config` in a text editor (like Vim, nano, Pico, or Notepad) on the **SSH host** (not locally).
 2. Add the setting  `AllowTcpForwarding yes`.
 3. Restart the SSH server. (On Ubuntu, run `sudo systemctl restart sshd`. On Windows, in an admin PowerShell run, `Restart-Service sshd`).
 4. Retry.
@@ -198,7 +198,7 @@ If you are behind a proxy and are unable to connect to your SSH host, you may ne
 
 **Ensure the remote machine has internet access**
 
-The remote machine must have internet access to be able to download the VS Code Server and extensions from the Marketplace. See [the FAQ for details](/docs/remote/faq.md#what-are-the-connectivity-requirements-for-vs-code-server) on connectivity requirements.
+The remote machine must have internet access to be able to download the VS Code Server and extensions from the Marketplace. See the [FAQ for details](/docs/remote/faq.md#what-are-the-connectivity-requirements-for-vs-code-server) on connectivity requirements.
 
 **Set HTTP_PROXY / HTTPS_PROXY on the remote host**
 
@@ -338,7 +338,7 @@ On your local machine, make sure the following permissions are set:
 
 The specific expected permissions can vary depending on the exact SSH implementation you are using. We strongly recommend using the out of box [Windows 10 OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_overview).
 
-In this case, make sure that all of the files in the `.ssh` folder for your remote user on the SSH host is owned by you and no other user has permissions to access it. See [the Windows OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH) for details.
+In this case, make sure that all of the files in the `.ssh` folder for your remote user on the SSH host is owned by you and no other user has permissions to access it. See the [Windows OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH) for details.
 
 For all other clients, consult your client's documentation for what the implementation expects.
 
@@ -357,7 +357,7 @@ Note that only Linux hosts are currently supported, which is why permissions for
 
 **Windows:**
 
-See [the Windows OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH) for details on setting the appropriate file permissions for the Windows OpenSSH server.
+See the [Windows OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH) for details on setting the appropriate file permissions for the Windows OpenSSH server.
 
 ### Installing a supported SSH client
 
@@ -691,7 +691,7 @@ Once you are done, press `kbstyle(Ctrl+C)` in the terminal / PowerShell to close
 
 > **Note:** If the `ssh` command fails, you may need to `AllowStreamLocalForwarding` on your SSH host.
 >
-> 1. Open `/etc/ssh/sshd_config` in an editor  (like vim, nano, or pico) on the **SSH host** (not locally).
+> 1. Open `/etc/ssh/sshd_config` in an editor  (like Vim, nano, or Pico) on the **SSH host** (not locally).
 > 2. Add the setting  `AllowStreamLocalForwarding yes`.
 > 3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
 > 4. Retry.
