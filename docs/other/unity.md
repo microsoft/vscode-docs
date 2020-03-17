@@ -19,7 +19,7 @@ Read on to find out how to configure Unity and your project to get the best poss
 
 From [Using .NET Core in Visual Studio Code](/docs/languages/dotnet.md):
 
-1. Install [.NET Core](https://dotnet.microsoft.com/download), both the Runtime and the SDK, which includes the `dotnet` command.
+1. Install the [.NET Core SDK](https://dotnet.microsoft.com/download), which includes the Runtime and the `dotnet` command.
 
 1. [Windows only] Logout or restart Windows to allow changes to `%PATH%` to take effect.
 
@@ -73,7 +73,7 @@ If you are installing VS Code for the first time, you might be missing targeting
 Targeting pack download links:
 
 * [Windows: .NET Framework 4.6 Targeting Pack](https://www.microsoft.com/download/details.aspx?id=48136)
-* [macOS: Download .NET SDK](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial#macos)
+* [macOS: Download .NET SDK](https://dotnet.microsoft.com/download)
 
 Steps:
 
