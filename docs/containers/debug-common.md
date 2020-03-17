@@ -13,7 +13,7 @@ With version 0.9.0 and later, the Docker extension provides more support for deb
 
 The Docker extension provides a `docker` debug configuration provider that manages how VS Code will launch an application and/or attach a debugger to the application in a running Docker container. This provider is configured via entries within `launch.json`, with configuration being specific to each application platform supported by the provider.
 
-The Docker extension currently supports debugging [Node.js](#node-js) and [.NET Core](#net-core) applications within Docker containers.
+The Docker extension currently supports debugging [Node.js](#node-js), [Python](#python), and [.NET Core](#net-core) applications within Docker containers.
 
 ## Node.js
 
@@ -111,13 +111,6 @@ Example `launch.json` configuration for debugging a Python application:
 | `uriFormat` | The URI format to launch. |
 | `webRoot` | The root folder from which web pages are served. Used only when `action` is set to `debugWithChrome`. |
 
-### netCore object properties
-
-> Properties passed in the `netCore` object are generally passed on to the .NET Core debug adaptor, even if not specifically listed below. The complete list of debugger properties is in the [OmniSharp VS Code extension documentation](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md).
-
-| Property | Description |
-| --- | --- |
-| `appProject` | The .NET Core project (.csproj, .fsproj, etc.) to debug. |
 
 ### node object properties
 
@@ -150,10 +143,18 @@ Example `launch.json` configuration for debugging a Python application:
 | `django` | Django debugging. | `false` |
 | `jinja` | Jinja template debugging (such as Flask). | `false` |
 
+### netCore object properties
+
+> Properties passed in the `netCore` object are generally passed on to the .NET Core debug adaptor, even if not specifically listed below. The complete list of debugger properties is in the [OmniSharp VS Code extension documentation](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md).
+
+| Property | Description |
+| --- | --- |
+| `appProject` | The .NET Core project (.csproj, .fsproj, etc.) to debug. |
+
 ## Next steps
 
 Read on to learn more about:
 
 - [Debugging Node.js within Docker containers](/docs/containers/debug-node.md)
-- [Debugging .NET Core within Docker containers](/docs/containers/debug-netcore.md)
 - [Debugging Python within Docker containers](/docs/containers/debug-python.md)
+- [Debugging .NET Core within Docker containers](/docs/containers/debug-netcore.md)

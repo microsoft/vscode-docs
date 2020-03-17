@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: React Tutorial
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
 PageTitle: React JavaScript Tutorial in Visual Studio Code
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
@@ -130,7 +130,7 @@ To set a breakpoint in `index.js`, click on the gutter to the left of the line n
 
 ### Configure the Chrome debugger
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on the gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** drop-down list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
+We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Run view (`kb(workbench.view.debug)`) and click on the gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** drop-down list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
 We need to make one change for our example: change the port of the `url` from `8080` to `3000`. Your `launch.json` should look like this:
 

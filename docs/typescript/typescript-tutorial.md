@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Tutorial
 ContentId: cb4f3742-733c-49d8-96db-d4bf8403bf64
 PageTitle: TypeScript tutorial with Visual Studio Code
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 MetaDescription: TypeScript tutorial with Visual Studio Code.
 MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
 ---
@@ -152,7 +152,7 @@ The debugger will start a session, run your code, and display the "Hello World" 
 
 ![debug console output](images/tutorial/debug-console.png)
 
-In `helloworld.ts`, set a breakpoint by clicking on the left gutter of the editor. You will see a red circle if the breakpoint is set. Press `kb(workbench.action.debug.start)` again. Execution will stop when the breakpoint is hit and you'll be able to see debugging information such as variable values and the call stack in the Debug view (`kb(workbench.view.debug)`).
+In `helloworld.ts`, set a breakpoint by clicking on the left gutter of the editor. You will see a red circle if the breakpoint is set. Press `kb(workbench.action.debug.start)` again. Execution will stop when the breakpoint is hit and you'll be able to see debugging information such as variable values and the call stack in the Run view (`kb(workbench.view.debug)`).
 
 ![debug breakpoint](images/tutorial/debug-breakpoint.png)
 

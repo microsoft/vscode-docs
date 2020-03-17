@@ -1,10 +1,10 @@
 ---
-Order: 16
+Order: 17
 Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -47,7 +47,7 @@ You can use the `kbstyle(Tab)` key to jump between VS Code UI controls. Use `kbs
 
 Some areas that support Tab navigation are:
 
-* The View switcher (File Explorer, Search, Source Control, Debug, Extensions)
+* The View switcher (File Explorer, Search, Source Control, Run, Extensions)
 * The header of collapsible sections in a view to expand/collapse
 * Actions in views and sections
 * Actions for items in the tree
@@ -64,7 +64,7 @@ Read-only files never trap the `kbstyle(Tab)` key. The **Integrated Terminal** p
 
 ## Screen readers
 
-VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](https://www.nvaccess.org), but we expect all screen readers to benefit from this support.
+VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](https://www.nvaccess.org), VoiceOver on macOS and Orca on Linux.
 
 There is a community developed [NVDA add-on for VS Code](https://github.com/pawelurbanski/nvda-for-vs-code), that improves unintentional switching between forms and browse mode as well as providing better text reading while using IntelliSense. The add-on requires VS Code version 1.33 or higher. See the add-on [README](https://github.com/pawelurbanski/nvda-for-vs-code/blob/master/README.md) file for more details.
 
@@ -106,13 +106,13 @@ The VS Code debugger UI is user accessible and has the following features:
 
 * Changes in debug state are read out (for example 'started', 'breakpoint hit', 'terminated', ...).
 * All debug actions are keyboard accessible.
-* Both the Debug View and Debug Console support Tab navigation.
+* Both the Run view and Debug Console support Tab navigation.
 * Debug hover is keyboard accessible (`kb(editor.action.showHover)`).
 * Keyboard shortcuts can be created to set focus to each debugger area.
 
 ## Current known issues
 
-VS Code has some known accessibility issues depending on the platform.
+VS Code has some known accessibility issues depending on the platform. Here's a [full list](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility) of VS Code accessibility issues.
 
 ### macOS
 
@@ -120,7 +120,13 @@ There is limited screen reader support for the editor with VoiceOver.
 
 ### Linux
 
-There is no screen reader support for the editor. This is because there is no accessibility implementation for Chrome on Linux.
+Screen reader support for the editor is still work in progress because the accessibility implementation for Chrome on Linux is work in progress.
+Thus there are a couple of things needed in order to have screen reader Orca working with VS Code:
+
+* Make sure to use the latest version of Orca out of master. Instructions can be found in [issue #91063](https://github.com/microsoft/vscode/issues/91063).
+* Make sure to have the setting `"editor.accessibilitySupport": "on"` in VS Code. You can do this using settings, or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn on accessibilitySupport.
+
+After enabling that setting, VS Code should work with the Orca screen reader.
 
 ## Next steps
 

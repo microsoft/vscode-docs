@@ -144,7 +144,7 @@ Now press `kb(workbench.action.files.save)` to save the file. Notice how the fil
 
 You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
-The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Debug**. You'll look at the **Debug** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
+The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
 
 ## Explore IntelliSense
 
@@ -223,7 +223,7 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 ## Debug helloworld.cpp
 
-Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program. From the main menu, choose **Debug** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
+Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program. From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
 
 You'll then see a dropdown for various predefined debugging configurations. Choose **g++ build and debug active file**.
 
@@ -269,14 +269,14 @@ The remaining steps are provided as an optional exercise to help you get familia
 ### Start a debugging session
 
 1. Go back to `helloworld.cpp` so that it is the active file.
-2. Press `kb(workbench.action.debug.start)` or from the main menu choose **Debug > Start Debugging**. Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
+2. Press `kb(workbench.action.debug.start)` or from the main menu choose **Run > Start Debugging**. Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
 
 - The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
 - The editor highlights the first statement in the `main` method. This is a breakpoint that the C++ extension automatically sets for you:
 
    ![Initial breakpoint](images/wsl/wsl-breakpoint-default.png)
 
-- The Debug view on the left shows debugging information. You'll see an example later in the tutorial.
+- The Run view on the left shows debugging information. You'll see an example later in the tutorial.
 
 - At the top of the code editor, a debugging control panel appears. You can move this around the screen by grabbing the dots on the left side.
 
