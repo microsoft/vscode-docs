@@ -4,8 +4,8 @@ Area: cpp
 TOCTitle: Clang on macOS
 ContentId: 6ef32219-81ad-4d73-84b8-8d4384a45f8a
 PageTitle: Configure VS Code for Clang/LLVM on macOS
-DateApproved: 07/25/2019
-MetaDescription: Configuring the C++ extension in Visual Studio Code to target Clang/LLVM
+DateApproved: 05/18/2020
+MetaDescription: Configure the C++ extension in Visual Studio Code to target Clang/LLVM
 ---
 # Configure VS Code for Clang on macOS
 
@@ -41,7 +41,7 @@ xcode-select --install
 
 ## Create Hello World
 
-From the MacOS Terminal, create an empty folder called `projects` where you can store all your VS Code projects, then create a subfolder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
+From the macOS Terminal, create an empty folder called `projects` where you can store all your VS Code projects, then create a subfolder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
 
 ```cmd
 mkdir projects
@@ -152,18 +152,18 @@ Replace the contents of that file with the following:
 
 The JSON above differs from the default template JSON in the following ways:
 
-- `"args"` is updated to compile with C++17 because our helloworld.cpp uses C++17 language features.
-- Changes the current working directory directive (`"cwd"`) to the folder where helloworld.cpp is.
+- `"args"` is updated to compile with C++17 because our `helloworld.cpp` uses C++17 language features.
+- Changes the current working directory directive (`"cwd"`) to the folder where `helloworld.cpp` is.
 
-The `command` setting specifies the program to run. In this case, "clang++" is the driver that causes the Clang compiler to expect C++ code and link against the C++ standard library.
+The `command` setting specifies the program to run. In this case, `"clang++"` is the driver that causes the Clang compiler to expect C++ code and link against the C++ standard library.
 
 The `args` array specifies the command-line arguments that will be passed to clang++. These arguments must be specified in the order expected by the compiler.
 
-This task tells the C++ compiler to compile the active file (`${file}`), and create an output file (`-o` switch) in the current directory (`${fileDirname}`) with the same name as the active file (`${fileBasenameNoExtension}`), resulting in `helloworld.out` for our example.
+This task tells the C++ compiler to compile the active file (`${file}`), and create an output file (`-o` switch) in the current directory (`${fileDirname}`) with the same name as the active file (`${fileBasenameNoExtension}`), resulting in `helloworld` for our example.
 
 The `label` value is what you will see in the tasks list. Name this whatever you like.
 
-The `problemMatcher` value selects the output parser to use for finding errors and warnings in the compiler output. For clang++.exe, you'll get the best results if you use the `$gcc` problem matcher.
+The `problemMatcher` value selects the output parser to use for finding errors and warnings in the compiler output. For clang++, you'll get the best results if you use the `$gcc` problem matcher.
 
 The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to `false`, you can still build from the Terminal menu with **Terminal > Run Build Task**.
 
@@ -177,15 +177,15 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 
    ![Clang build output in terminal](images/clang-mac/clang-task-in-terminal.png)
 
-1. Create a new terminal using the **+** button and you'll have a new terminal with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld` along with the debugging file (`helloworld.out.dSYM`).
+1. Create a new terminal using the **+** button and you'll have a new terminal with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld` along with the debugging file (`helloworld.dSYM`).
 
     ![Hello World in macOS terminal](images/clang-mac/helloworld-in-terminal.png)
 
-1. You can run `helloworld` in the terminal by typing `.\helloworld`.
+1. You can run `helloworld` in the terminal by typing `./helloworld`.
 
 ### Modifying tasks.json
 
-You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}\\*.cpp"` instead of `${file}`. This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}\\${fileBasenameNoExtension}"` with a hard-coded filename (for example `"${workspaceFolder}\\myProgram.out"`).
+You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `${file}`. This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example `"${workspaceFolder}/myProgram.out"`).
 
 ## Debug helloworld.cpp
 
@@ -193,7 +193,7 @@ Next, you'll create a `launch.json` file to configure VS Code to launch the LLDB
 
 From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
 
-You'll then see a dropdown for various predefined debugging configurations. Choose **clang++ build and debug active file**.
+You'll then see a dropdown for predefined debugging configurations. Choose **clang++ build and debug active file**.
 
 ![C++ debug configuration dropdown](images/clang-mac/build-and-debug-active-file.png)
 
@@ -261,7 +261,7 @@ Now you're ready to start stepping through the code.
 
 ## Set a watch
 
-Sometimes you might want to keep track of the value of a variable as your program executes. You can do this by setting a **watch** on the variable.
+You might want to keep track of the value of a variable as your program executes. You can do this by setting a **watch** on the variable.
 
 1. Place the insertion point inside the loop. In the **Watch** window, click the plus sign and in the text box, type `word`, which is the name of the loop variable. Now view the **Watch** window as you step through the loop.
 
@@ -271,19 +271,19 @@ Sometimes you might want to keep track of the value of a variable as your progra
 
    ![Mouse hover](images/cpp/mouse-hover.png)
 
-## C/C++ configurations
+## C/C++ configuration
 
-If you want more control over the C/C++ extension, you can create a `c_cpp_properties.json` file, which will allow you to change settings such as the path to the compiler, include paths, C++ standard such as C++17), and more.
+For more control over the C/C++ extension, create a `c_cpp_properties.json` file, which allows you to change settings such as the path to the compiler, include paths, which C++ standard to compile against (such as C++17), and more.
 
-You can view the C/C++ configuration UI by running the command **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`).
+View the C/C++ configuration UI by running the command **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Command Palette](images/clang-mac/mac-command-palette-configurations.png)
 
-This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
+This opens the **C/C++ Configurations** page.
 
-![C++ configuration](images/msvc/configurations-ui.png)
+![C++ configuration](images/clang-mac/intellisense-configurations-mac-clang.png)
 
-Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If you open that file directly, it should look something like this:
+Visual Studio Code places these settings in `.vscode/c_cpp_properties.json`. If you open that file directly, it should look something like this:
 
 ```json
 {
@@ -307,22 +307,20 @@ Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If 
 }
 ```
 
-1. You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or the standard library path.
+You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or the standard library path.
 
 ### Compiler path
 
-The `compilerPath` setting is an important setting in your configuration. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide useful features like smart completions and **Go to Definition** navigation.
+`compilerPath` is an important configuration setting. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide useful features like smart completions and **Go to Definition** navigation.
 
-The C/C++ extension attempts to populate `compilerPath` with the default compiler location based on what it finds on your system. The extension looks in several common compiler locations.
+The C/C++ extension attempts to populate `compilerPath` with the default compiler location based on what it finds on your system. The `compilerPath` search order is:
 
-The `compilerPath` search order is:
-
-* Your PATH for the names of known compilers. The order the compilers appear in the list depend on your PATH.
+* Your PATH for the names of known compilers. The order the compilers appear in the list depends on your PATH.
 * Then hard-coded XCode paths are searched, such as `/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/`
 
 ### Mac framework path
 
-On the C/C++ Configuration screen, scroll down and expand **Advanced Settings** and ensure that `Mac framework path` points to the system header files. For example: `/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks`
+On the C/C++ Configuration screen, scroll down and expand **Advanced Settings** and ensure that **Mac framework path** points to the system header files. For example: `/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks`
 
 ## Reusing your C++ configuration
 
@@ -332,7 +330,7 @@ VS Code is now configured to use Clang on macOS. The configuration applies to th
 
 ### Compiler and linking errors
 
-The most common cause of errors (such as undefined _main, attempting to link with file built for unknown-unsupported file format, and so on) occurs when `helloworld.cpp` is not the active file when you start a build or start debugging. This causes the compiler to try to compile something that isn't source code, like your launch.json, tasks.json, or c_cpp_properties.json file.
+The most common cause of errors (such as `undefined _main`, or `attempting to link with file built for unknown-unsupported file format`, and so on) occurs when `helloworld.cpp` is not the active file when you start a build or start debugging. This is because the compiler is trying to compile something that isn't source code, like your `launch.json`, `tasks.json`, or `c_cpp_properties.json` file.
 
 ## Next steps
 
