@@ -7,7 +7,7 @@ PageTitle: Configure VS Code for Clang/LLVM on macOS
 DateApproved: 05/18/2020
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Clang/LLVM
 ---
-# Configure VS Code for Clang on macOS
+# Using Clang in Visual Studio Code
 
 In this tutorial, you configure Visual Studio Code on macOS to use the Clang/LLVM compiler and debugger.
 
