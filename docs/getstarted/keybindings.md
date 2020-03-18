@@ -311,6 +311,7 @@ Context name | True when
 `inZenMode` | Window is in Zen Mode.
 `isCenteredLayout` | Editor is in centered layout mode.
 `inDebugRepl` | Focus is in the Debug Console REPL.
+`workbenchState` | Can be `empty`, `folder` (1 folder), or `workspace`.
 `workspaceFolderCount` | Count of workspace folders.
 `replaceActive` | Search view Replace text box is open.
 `view` | True when view identifier matches. Example: `"view == myViewsExplorerID"`.
