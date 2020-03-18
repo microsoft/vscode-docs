@@ -289,3 +289,22 @@ Yes, if you would prefer to not have VS Code display extension recommendations i
 * `extensions.ignoreRecommendations` - Set to true to silence extension recommendation notifications.
 
 The **Show Recommended Extensions** command is always available if you wish to see recommendations.
+
+### Can I trust extensions from the Marketplace?
+
+The Marketplace runs a virus scan on each extension package that's published to ensure its safety. The virus scan is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
+
+The Marketplace also prevents extension authors from name-squatting on official publishers such as Microsoft and RedHat.
+
+If a malicious extension is reported and verified, or a vulnerability is found in an extension dependency:
+
+1. The extension is removed from the Marketplace.
+2. The extension is added to a kill list so that if it has been installed, it will be automatically uninstalled by VS Code.
+
+The Marketplace also provides you with resources to make an informed decision about the extensions you install:
+
+* **Ratings & Review** - Read what others think about the extension.
+* **Q & A** - Review existing questions and the level of the publisher's responsiveness. You can also engage with the extension's publisher(s) if you have concerns.
+* **Issues, Repository, and License** - Check if the publisher has provided these and if they have the support you expect.
+
+If you do see an extension that looks suspicious, you can report the extension to the Marketplace with the **Report Abuse** link at the bottom of the extension **More Info** section.

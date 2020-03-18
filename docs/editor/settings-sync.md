@@ -17,7 +17,7 @@ Turn on Settings Sync using the **Turn On Sync** entry in the **Manage** gear me
 
 ![Turn on Sync command](images/settings-sync/turn-on-sync.png)
 
-After making this selection, the browser will open so that you can sign in to a Microsoft account. Both personal accounts, such as Outlook accounts, and Azure accounts can be used. You can also sign in with GitHub. If at any time you decide you want to sync your data to a different account, you can use the **Microsoft Account: Sign Out** command from the Command Palette (`kb(workbench.action.showCommands)`), and then use the **Sync: Sign in to sync** entry from the **Manage** gear menu.
+After making this selection, the browser will open so that you can sign in to a Microsoft account. Both personal accounts, such as Outlook accounts, and Azure accounts can be used. You can also link a GitHub account to a new or existing Microsoft account. If at any time you decide you want to sync your data to a different account, you can use the **Microsoft Account: Sign Out** command from the Command Palette (`kb(workbench.action.showCommands)`), and then use the **Sync: Sign in to sync** entry from the **Manage** gear menu.
 
 ## Configuring synced data
 
@@ -27,7 +27,7 @@ Which preferences get shared is configured when you turn on Settings Sync for th
 
 Once signed in, you can change what is synced via the **Sync: Configure** command or by opening the **Manage** gear menu, selecting **Sync is on**, and then **Sync: Configure**.
 
-Machine settings (with `machine` or `machine-overridable` scopes) are not synchronized by default. You can also add or remove settings you want to this list from the Settings editor or using the setting `sync.ignoredSettings`.
+Machine settings (with `machine` or `machine-overridable` [scopes](updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `sync.ignoredSettings`.
 
 Keyboard Shortcuts are synchronized per platform by default. If your keyboard shortcuts are platform-agnostic, you can synchronize them across platforms by disabling the setting `sync.keybindingsPerPlatform`.
 
