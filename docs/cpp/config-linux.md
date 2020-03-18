@@ -5,12 +5,12 @@ TOCTitle: GCC on Linux
 ContentId: 8ba2e5c6-cb57-4513-bc02-c8b73e6956ad
 
 PageTitle: Get Started with C++ on Linux in Visual Studio Code
-DateApproved: 3/13//2020
+DateApproved: 3/17/2020
 MetaDescription: Configure the C++ extension in Visual Studio Code to target g++ and GDB on Linux
 ---
 # Using C++ on Linux in VS Code
 
-In this tutorial, you will configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger on Ubuntu in the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL). GCC stands for GNU Compiler Collection; GDB is the GNU debugger. WSL is a Linux environment within Windows that runs directly on the machine hardware, not in a virtual machine.
+In this tutorial, you will configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger on Ubuntu in Linux. GCC stands for GNU Compiler Collection; GDB is the GNU debugger. WSL is a Linux environment within Windows that runs directly on the machine hardware, not in a virtual machine.
 
 > **Note**: Much of this tutorial is applicable to working with C++ and VS Code directly on a Linux machine.
 
