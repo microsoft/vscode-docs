@@ -83,9 +83,9 @@ You can reference VS Code settings (aka "configurations") through **${config:Nam
 
 If the predefined variables from above are not sufficient, you can use any VS Code command as a variable through the **${command:commandID}** syntax.
 
-When a command variable is interpolated, the command is run and the variable is substituted by the command's (string) result. The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API.
+The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API.
 
-An example for this functionality can be found in VS Code's Node.js debugger extension which provides an interactive command `extension.pickNodeProcess` for selecting a single process from the list of all running Node.js processes. The command returns the process ID of the selected process. This makes it possible to use the `extension.pickNodeProcess` command in an **Attach by Process ID** launch configuration in the following way:
+An example for this functionality can be found in VS Code's Node.js debugger extension which provides an interactive command `extension.pickNodeProcess` for selecting a single process from the list of all running Node.js processes. The command returns the process ID of the selected process. This makes it possible to use the `extension.pickNodeProcess` command in an **Attach by Process ID** launch configuration in the following way: 
 
 ```json
 {
@@ -242,6 +242,10 @@ Command inputs can also be used with tasks. In this example, the built-in Termin
 ```
 
 ## Common questions
+
+### When does variable substitution occur in configuration parsing?
+
+Only after all variables in the configuration are evaluated, will the variables be substituted with their (string) result.  Duplicate variables are also ignored and will receive the result of the first evaluation.
 
 ### Is variable substitution supported in User and Workspace settings?
 
