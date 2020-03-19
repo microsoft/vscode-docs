@@ -3,9 +3,8 @@ Order: 3
 Area: cpp
 TOCTitle: GCC on Linux
 ContentId: 8ba2e5c6-cb57-4513-bc02-c8b73e6956ad
-
 PageTitle: Get Started with C++ on Linux in Visual Studio Code
-DateApproved: 5/20/2020
+DateApproved: 3/19/2020
 MetaDescription: Configure the C++ extension in Visual Studio Code to target g++ and GDB on Linux
 ---
 # Using C++ on Linux in VS Code
@@ -27,7 +26,7 @@ To successfully complete this tutorial, you must do the following:
 
 ### Ensure GCC is installed
 
-1. Although you'll use VS Code to edit your source code, you'll compile the source code on Linux using the g++ compiler. You'll also use GDB to debug. These tools are not installed by default on Ubuntu, so you have to install them. Fortunately, that's easy.
+Although you'll use VS Code to edit your source code, you'll compile the source code on Linux using the g++ compiler. You'll also use GDB to debug. These tools are not installed by default on Ubuntu, so you have to install them. Fortunately, that's easy.
 
 First, check to see whether GCC is already installed. To verify whether it is, open a Terminal window and enter the following command:
 
@@ -35,17 +34,17 @@ First, check to see whether GCC is already installed. To verify whether it is, o
 gcc -v
 ```
 
-1. If GCC isn't installed,  run the following command from the terminal window to update the Ubuntu package lists. An out-of-date distro can sometimes interfere with attempts to install new packages.
+If GCC isn't installed, run the following command from the terminal window to update the Ubuntu package lists. An out-of-date Linux distribution can sometimes interfere with attempts to install new packages.
 
-   ```bash
-   sudo apt-get update
-   ```
+```bash
+sudo apt-get update
+```
 
-1. From the terminal window, install the GNU compiler tools and the GDB debugger with this command:
+Next install the GNU compiler tools and the GDB debugger with this command:
 
-   ```bash
-   sudo apt-get install build-essential gdb
-   ```
+```bash
+sudo apt-get install build-essential gdb
+```
 
 ## Create Hello World
 
@@ -104,7 +103,7 @@ The Activity Bar on the edge of Visual Studio Code lets you open different views
 
 ## Explore IntelliSense
 
-In the `helloworld.cpp` file, hover over `vector` or `string` to see type information. After the declaration of the `msg` variable, start typing `msg.` You should immediately see a completion list that shows all the member functions, and a window that shows the type information for the `msg` object:
+In the `helloworld.cpp` file, hover over `vector` or `string` to see type information. After the declaration of the `msg` variable, start typing `msg.`as you would when calling a member function. You should immediately see a completion list that shows all the member functions, and a window that shows the type information for the `msg` object:
 
 ![Statement completion IntelliSense](images/wsl/msg-intellisense.png)
 
@@ -116,7 +115,7 @@ Next, you'll create a `tasks.json` file to tell VS Code how to build (compile) t
 
 It's important to have `helloworld.cpp` open in the editor because the next step uses the active file in the editor for context to create the build task in the next step.
 
-From the main menu, choose **Terminal** > **Configure Default Build Task**. A dropdown appears showing various predefined build tasks for C++ compilers. Choose **C/C++:g++ build active file**.
+From the main menu, choose **Terminal** > **Configure Default Build Task**. A dropdown appears showing various predefined build tasks for C++ compilers. Choose **C/C++: g++ build active file**.
 
 ![Tasks C++ build dropdown](images/wsl/build-active-file.png)
 
@@ -152,9 +151,10 @@ Your new `tasks.json` file should look similar to the JSON below:
 ]
 }
 ```
+
 >**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
-The `command` setting specifies the program to run; in this case that is g++.  
+The `command` setting specifies the program to run; in this case that is g++.
 The `args` array specifies the command-line arguments that will be passed to g++. These arguments must be specified in the order expected by the compiler.
 
 This task tells g++ to take the active file (`${file}`), compile it, and create an executable file in the current directory (`${fileDirname}`) with the same name as the active file but without an extension (`${fileBasenameNoExtension}`), resulting in `helloworld` for our example.

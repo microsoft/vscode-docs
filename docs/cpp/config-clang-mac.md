@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Clang on macOS
 ContentId: 6ef32219-81ad-4d73-84b8-8d4384a45f8a
 PageTitle: Configure VS Code for Clang/LLVM on macOS
-DateApproved: 05/18/2020
+DateApproved: 3/18/2020
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Clang/LLVM
 ---
 # Using Clang in Visual Studio Code
@@ -96,7 +96,7 @@ The Activity Bar on the edge of Visual Studio Code lets you open different views
 
 ## Explore IntelliSense
 
-In the `helloworld.cpp` file, hover over `vector` or `string` to see type information. After the declaration of the `msg` variable, start typing `msg.` You should immediately see a completion list that shows all the member functions, and a window that shows the type information for the `msg` object:
+In the `helloworld.cpp` file, hover over `vector` or `string` to see type information. After the declaration of the `msg` variable, start typing `msg.` as you would when calling a member function. You should immediately see a completion list that shows all the member functions, and a window that shows the type information for the `msg` object:
 
 ![Statement completion IntelliSense](images/wsl/msg-intellisense.png)
 
@@ -119,7 +119,7 @@ Replace the contents of that file with the following:
 
 ```json
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
