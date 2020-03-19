@@ -151,12 +151,6 @@ The Electron shell used by Visual Studio Code has trouble with some GPU (graphic
 code --disable-gpu
 ```
 
-## Unable to open on macOS Catalina
-
-After downloading, when you try to open VS Code on macOS Catalina, you may see a message '"Visual Studio Code" can't be opened because Apple cannot check it for malicious software'. This is because VS Code not currently notarized but VS Code will run successfully on macOS Catalina.
-
-To workaround the notarization check, follow the instructions to [Open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac) or from the Apple menu, go to **System Preferences** > **Security & Privacy** > **General** and choose **Open Anyway**.
-
 ## Blurriness on macOS Mojave
 
 If you have updated to macOS 10.14 (Mojave), you might have noticed that fonts in VS Code look blurry if you are not using a high-DPI monitor.
