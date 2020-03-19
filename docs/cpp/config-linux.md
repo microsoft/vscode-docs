@@ -5,161 +5,118 @@ TOCTitle: GCC on Linux
 ContentId: 8ba2e5c6-cb57-4513-bc02-c8b73e6956ad
 
 PageTitle: Get Started with C++ on Linux in Visual Studio Code
-DateApproved: 3/17/2020
+DateApproved: 5/20/2020
 MetaDescription: Configure the C++ extension in Visual Studio Code to target g++ and GDB on Linux
 ---
 # Using C++ on Linux in VS Code
 
-In this tutorial, you will configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger on Ubuntu in Linux. GCC stands for GNU Compiler Collection; GDB is the GNU debugger. WSL is a Linux environment within Windows that runs directly on the machine hardware, not in a virtual machine.
+In this tutorial, you will configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger on Linux. GCC stands for GNU Compiler Collection; GDB is the GNU debugger.
 
-> **Note**: Much of this tutorial is applicable to working with C++ and VS Code directly on a Linux machine.
+After configuring VS Code, you will compile and debug a simple C++ program in VS Code. This tutorial does not teach you GCC, GDB, Ubuntu or the C++ language. For those subjects, there are many good resources available on the Web.
 
-Visual Studio Code has support for working directly in WSL with the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). We recommend this mode of [WSL development](/docs/remote/wsl.md), where all your source code files, in addition to the compiler, are hosted on the Linux distro. For more background, see [VS Code Remote Development](/docs/remote/remote-overview.md).
-
-After completing this tutorial, you will be ready to create and configure your own C++ project, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you about GCC or Linux or the C++ language. For those subjects, there are many good resources available on the Web.
-
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you have trouble, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
-To successfully complete this tutorial, you must do the following steps:
+To successfully complete this tutorial, you must do the following:
 
 1. Install [Visual Studio Code](/download).
+1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'c++' in the Extensions view (`kb(workbench.view.extensions)`).
 
-1. Install the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
+    ![C/C++ extension](images/cpp/cpp-extension.png)
 
-1. Install [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) and then use the links on that same page to install your Linux distribution of choice. This tutorial uses Ubuntu. During installation, remember your Linux user password because you'll need it to install additional software.
+### Ensure GCC is installed
 
-## Set up your Linux environment
+1. Although you'll use VS Code to edit your source code, you'll compile the source code on Linux using the g++ compiler. You'll also use GDB to debug. These tools are not installed by default on Ubuntu, so you have to install them. Fortunately, that's easy.
 
-1. Open the Bash shell for WSL. If you installed an Ubuntu distro, type "Ubuntu" in the Windows search box and then click on it in the result list. For Debian, type "Debian", and so on.
+First, check to see whether GCC is already installed. To verify whether it is, open a Terminal window and enter the following command:
 
-   ![Ubuntu in Start Menu](images/wsl/start-ubuntu.png)
+```bash
+gcc -v
+```
 
-   The shell appears with a command prompt that by default consists of your user name and computer name, and puts you in your home directory. For Ubuntu it looks like this:
-
-   ![Bash Shell](images/wsl/bash-ubuntu.png)
-
-1. Make a directory called `projects` and then subdirectory under that called `helloworld`:
-
-   ```bash
-   mkdir projects
-   cd projects
-   mkdir helloworld
-   ```
-
-1. Although you will be using VS Code to edit your source code, you'll be compiling the source code on Linux using the g++ compiler. You'll also debug on Linux using GDB. These tools are not installed by default on Ubuntu, so you have to install them. Fortunately, that task is quite easy!
-
-1. From the WSL command prompt, first run `apt-get update` to update the Ubuntu package lists. An out-of-date distro can sometimes interfere with attempts to install new packages.
+1. If GCC isn't installed,  run the following command from the terminal window to update the Ubuntu package lists. An out-of-date distro can sometimes interfere with attempts to install new packages.
 
    ```bash
    sudo apt-get update
    ```
 
-   If you like, you can run `sudo apt-get update && sudo apt-get dist-upgrade` to also download the latest versions of the system packages, but this can take significantly longer depending on your connection speed.
-
-1. From the command prompt, install the GNU compiler tools and the GDB debugger by typing:
+1. From the terminal window, install the GNU compiler tools and the GDB debugger with this command:
 
    ```bash
    sudo apt-get install build-essential gdb
    ```
 
-1. Verify that the install succeeded by locating g++ and gdb. If the filenames are not returned from the `whereis` command, try running the update command again.
+## Create Hello World
 
-   ```bash
-   whereis g++
-   whereis gdb
-   ```
+From the terminal window, create an empty folder called `projects` to store your VS Code projects. Then create a subfolder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
 
->**Note**: The setup steps for installing the g++ compiler and GDB debugger apply if you are working directly on a Linux machine rather than in WSL. Running VS Code in your helloworld project, as well as the editing, building, and debugging steps are the same.
-
-## Run VS Code in WSL
-
-Navigate to your helloworld project folder and launch VS Code from the WSL terminal with `code .`:
-
-```bash
-cd $HOME/projects/helloworld
+```cmd
+mkdir projects
+cd projects
+mkdir helloworld
+cd helloworld
 code .
 ```
 
-You'll see a message about "Installing VS Code Server". VS Code is downloading and installing a small server on the Linux side that the desktop VS Code will then talk to. VS Code will then start and open the `helloWorld` folder. The File Explorer shows that VS Code is now running in the context of WSL with the title bar **[WSL: Ubuntu]**.
+The `code .` command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will create three files in a `.vscode` folder in the workspace:
 
-![File Explorer in WSL](images/wsl/file-explorer-wsl.png)
-
-You can also tell the remote context from the Status bar.
-
-![Remote context in the Status bar](images/wsl/wsl-status-bar.png)
-
-If you click on the Remote Status bar item, you will see a dropdown of Remote commands appropriate for the session. For example, if you want to end your session running in WSL, you can select the **Close Remote Connection** command from the dropdown. Running `code .` from your WSL command prompt will restart VS Code running in WSL.
-
-The **code .** command opened VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
-
-- `c_cpp_properties.json` (compiler path and IntelliSense settings)
-- `tasks.json` (build instructions)
+- `tasks.json` (compiler build settings)
 - `launch.json` (debugger settings)
+- `c_cpp_properties.json` (compiler path and IntelliSense settings)
 
-## Add a source code file
+### Add hello world source code file
 
-In the File Explorer title bar, select the **New File** button and name the file `helloworld.cpp`.
+In the File Explorer title bar, select **New File** and name the file `helloworld.cpp`.
 
-![New File title bar button](images/wsl/new-file-button.png)
+![New File title bar button](images/msvc/new-file-button.png)
 
-### Install the C/C++ extension
+Paste in the following source code:
 
-Once you create the file and VS Code detects it is a C++ language file, you may be prompted to install the [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) if you don't already have it installed.
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
 
-![C++ extension notification](images/wsl/cpp-extension-notification.png)
+using namespace std;
 
-Choose **Install** and then **Reload Required** when the button is displayed in the Extensions view to complete installing the C/C++ extension.
+int main()
+{
+    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
 
-If you already have C/C++ language extensions installed locally in VS Code, you'll need to go to the Extensions view (`kb(workbench.view.extensions)`) and install those extensions into WSL. Locally installed extensions can be installed into WSL by selecting the **Install in WSL** button and then **Reload Required**.
+    for (const string& word : msg)
+    {
+        cout << word << " ";
+    }
+    cout << endl;
+}
+```
 
-![Install in WSL button](images/wsl/install-in-wsl.png)
+Now press `kb(workbench.action.files.save)` to save the file. Notice that your files are listed in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
 
-### Add hello world source code
-
-Now paste in this source code:
-
-   ```cpp
-   #include <iostream>
-   #include <vector>
-   #include <string>
-
-   using namespace std;
-
-   int main()
-   {
-      vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
-
-      for (const string& word : msg)
-      {
-         cout << word << " ";
-      }
-      cout << endl;
-   }
-   ```
-
-Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
-
-![File Explorer](images/wsl/file-explorer-helloworld.png)
+![File Explorer](images/msvc/file-explorer.png)
 
 You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
-The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
+The Activity Bar on the edge of Visual Studio Code lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
+
+>**Note**: When you save or open a C++ file, you may see a notification from the C/C++ extension about the availability of an Insiders version, which lets you test new features and fixes. You can ignore this notification by selecting the `X` (**Clear Notification**).
 
 ## Explore IntelliSense
 
-In your new `helloworld.cpp` file, hover over `vector` or `string` to see type information. After the declaration of the `msg` variable, start typing `msg.` as you would when calling a member function. You should immediately see a completion list that shows all the member functions, and a window that shows the type information for the `msg` object:
+In the `helloworld.cpp` file, hover over `vector` or `string` to see type information. After the declaration of the `msg` variable, start typing `msg.` You should immediately see a completion list that shows all the member functions, and a window that shows the type information for the `msg` object:
 
 ![Statement completion IntelliSense](images/wsl/msg-intellisense.png)
 
-You can press the `kbstyle(Tab)` key to insert the selected member; then, when you add the opening parenthesis, you will see information about any arguments that the function requires.
+You can press the `kbstyle(Tab)` key to insert the selected member. Then, when you add the opening parenthesis, you'll see information about arguments that the function requires.
 
 ## Build helloworld.cpp
 
-Next, you will create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the g++ compiler on WSL to create an executable file based on the source code.
+Next, you'll create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the g++ compiler to create an executable file from the source code.
 
-From the main menu, choose **Terminal** > **Configure Default Build Task**. In the dropdown, which will display a tasks dropdown listing various predefined build tasks for C++ compilers. Choose **g++ build active file**, which will build the file that is currently displayed (active) in the editor.
+It's important to have `helloworld.cpp` open in the editor because the next step uses the active file in the editor for context to create the build task in the next step.
+
+From the main menu, choose **Terminal** > **Configure Default Build Task**. A dropdown appears showing various predefined build tasks for C++ compilers. Choose **C/C++:g++ build active file**.
 
 ![Tasks C++ build dropdown](images/wsl/build-active-file.png)
 
@@ -195,10 +152,12 @@ Your new `tasks.json` file should look similar to the JSON below:
 ]
 }
 ```
-
-The `command` setting specifies the program to run; in this case that is g++. The `args` array specifies the command-line arguments that will be passed to g++. These arguments must be specified in the order expected by the compiler. This task tells g++ to take the active file (`${file}`), compile it, and create an executable file in the current directory (`${fileDirname}`) with the same name as the active file but without an extension (`${fileBasenameNoExtension}`), resulting in `helloworld` for our example.
-
 >**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+
+The `command` setting specifies the program to run; in this case that is g++.  
+The `args` array specifies the command-line arguments that will be passed to g++. These arguments must be specified in the order expected by the compiler.
+
+This task tells g++ to take the active file (`${file}`), compile it, and create an executable file in the current directory (`${fileDirname}`) with the same name as the active file but without an extension (`${fileBasenameNoExtension}`), resulting in `helloworld` for our example.
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
@@ -207,7 +166,7 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 ### Running the build
 
 1. Go back to `helloworld.cpp`. Your task builds the active file and you want to build `helloworld.cpp`.
-1. To run the build task defined in `tasks.json`, press `kb(workbench.action.tasks.build)` or from the **Terminal** main menu choose **Tasks: Run Build Task**.
+1. To run the build task defined in `tasks.json`, press `kb(workbench.action.tasks.build)` or from the **Terminal** main menu choose **Run Build Task**.
 1. When the task starts, you should see the Integrated Terminal panel appear below the source code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful g++ build, the output looks something like this:
 
    ![G++ build output in terminal](images/wsl/wsl-task-in-terminal.png)
@@ -224,7 +183,9 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 ## Debug helloworld.cpp
 
-Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program. From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
+Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program.
+
+From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
 
 You'll then see a dropdown for various predefined debugging configurations. Choose **g++ build and debug active file**.
 
@@ -261,11 +222,11 @@ VS Code creates a `launch.json` file, opens it in the editor, and builds and run
 }
 ```
 
- The `program` setting specifies the program you want to debug. Here it is set to the active file folder `${fileDirname}` and active filename without an extension `${fileBasenameNoExtension}`, which if `helloworld.cpp` is the active file will be `helloworld`.
+ In the JSON above, `program` specifies the program you want to debug. Here it is set to the active file folder `${fileDirname}` and active filename without an extension `${fileBasenameNoExtension}`, which if `helloworld.cpp` is the active file will be `helloworld`.
 
-By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`. Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
+By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
 
-The remaining steps are provided as an optional exercise to help you get familiar with the editing and debugging experience.
+ Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
 
 ### Start a debugging session
 
@@ -291,14 +252,12 @@ Now you're ready to start stepping through the code.
 
    ![Step over button](images/cpp/step-over-button.png)
 
-   This will advance program execution to the first line of the for loop, and skip over all the internal function calls within the `vector` and `string` classes that are invoked when the `msg` variable is created and initialized. Notice the change in the **Variables** window on the left.
+   This will advance program execution to the first line of the for loop, and skip over all the internal function calls within the `vector` and `string` classes that are invoked when the `msg` variable is created and initialized. Notice the change in the **Variables** window on the side.
 
    ![Debugging windows](images/wsl/debug-view-variables.png)
 
-   In this case, the errors are expected because, although the variable names for the loop are now visible to the debugger, the statement has not executed yet, so there is nothing to read at this point. The contents of `msg` are visible, however, because that statement has completed.
-
 1. Press **Step over** again to advance to the next statement in this program (skipping over all the internal code that is executed to initialize the loop). Now, the **Variables** window shows information about the loop variables.
-1. Press **Step over** again to execute the `cout` statement. (Note that as of the March 2019 release, the C++ extension does not print any output to the **Debug Console** until the loop exits.)
+1. Press **Step over** again to execute the `cout` statement. (Note that as of the March 2019 release, the C++ extension does not print any output to the **Debug Console** until the last cout executes.)
 1. If you like, you can keep pressing **Step over** until all the words in the vector have been printed to the console. But if you are curious, try pressing the **Step Into** button to step through source code in the C++ standard library!
 
    ![Breakpoint in gcc standard library header](images/cpp/gcc-system-header-stepping.png)
@@ -315,13 +274,11 @@ Now you're ready to start stepping through the code.
 
 ## Set a watch
 
-Sometimes you might want to keep track of the value of a variable as your program executes. You can do this by setting a **watch** on the variable.
+To keep track of the value of a variable as your program executes, set a **watch** on the variable.
 
 1. Place the insertion point inside the loop. In the **Watch** window, click the plus sign and in the text box, type `word`, which is the name of the loop variable. Now view the Watch window as you step through the loop.
 
    ![Watch window](images/cpp/watch-window.png)
-
-1. Add another watch by adding this statement before the loop: `int i = 0;`. Then, inside the loop, add this statement: `++i;`. Now add a watch for `i` as you did in the previous step.
 
 1. To quickly view the value of any variable while execution is paused on a breakpoint, you can hover over it with the mouse pointer.
 
@@ -337,7 +294,7 @@ You can view the C/C++ configuration UI by running the command **C/C++: Edit Con
 
 This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
 
-![Command Palette](images/wsl/intellisense-configurations-wsl.png)
+![Intellisense configuration window](images/wsl/intellisense-configurations-wsl.png)
 
 You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or in the standard library path.
 
@@ -362,9 +319,15 @@ Visual Studio Code places these settings in `.vscode/c_cpp_properties.json`. If 
 }
 ```
 
-## Closing the WSL session
+## Reusing your C++ configuration
 
-When you are done working in WSL, you can close your remote session with the **Close Remote Connection** command available in the main **File** menu and the Command Palette (`kb(workbench.action.showCommands)`). This will restart VS Code running locally. You can easily reopen your WSL session from the **File** > **Open Recent** list by selecting folders with the **[WSL]** suffix.
+VS Code is now configured to use gcc on Linux. The configuration applies to the current workspace. To reuse the configuration, just copy the JSON files to a `.vscode` folder in a new project folder (workspace) and change the names of the source file(s) and executable as needed.
+
+## Troubleshooting
+
+### Compiler and linking errors
+
+The most common cause of errors (such as `undefined _main`, or `attempting to link with file built for unknown-unsupported file format`, and so on) occurs when `helloworld.cpp` is not the active file when you start a build or start debugging. This is because the compiler is trying to compile something that isn't source code, like your `launch.json`, `tasks.json`, or `c_cpp_properties.json` file.
 
 ## Next steps
 
