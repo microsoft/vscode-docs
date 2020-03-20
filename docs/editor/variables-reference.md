@@ -85,7 +85,7 @@ If the predefined variables from above are not sufficient, you can use any VS Co
 
 The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API.
 
-An example for this functionality can be found in VS Code's Node.js debugger extension which provides an interactive command `extension.pickNodeProcess` for selecting a single process from the list of all running Node.js processes. The command returns the process ID of the selected process. This makes it possible to use the `extension.pickNodeProcess` command in an **Attach by Process ID** launch configuration in the following way: 
+An example for this functionality can be found in VS Code's Node.js debugger extension which provides an interactive command `extension.pickNodeProcess` for selecting a single process from the list of all running Node.js processes. The command returns the process ID of the selected process. This makes it possible to use the `extension.pickNodeProcess` command in an **Attach by Process ID** launch configuration in the following way:
 
 ```json
 {
@@ -243,9 +243,13 @@ Command inputs can also be used with tasks. In this example, the built-in Termin
 
 ## Common questions
 
-### When does variable substitution occur in configuration parsing?
+### Details of variable substitution in a debug configurations or tasks
 
-Only after all variables in the configuration are evaluated, will the variables be substituted with their (string) result.  Duplicate variables are also ignored and will receive the result of the first evaluation.
+Variable substitution in debug configurations or tasks is a 2-pass process:
+- in the first pass all variables are evaluated to string results. If a variable occurs more than once, it is only evaluated once.
+- in the second pass all variables are substituted with the results from the first pass.
+
+A consequence of this is that the evaluation of a variable (e.g. a command-based variable implemented in an extension) has **no access** to other substituted variables in the debug configuration or task. It only sees the original variables. This means that variables cannot depend on each other (which ensures isolation and makes substitution robust against evaluation order).
 
 ### Is variable substitution supported in User and Workspace settings?
 
