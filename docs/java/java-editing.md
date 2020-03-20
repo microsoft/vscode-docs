@@ -323,15 +323,15 @@ Visual Studio Code supports a wide range of popular Java code snippets to make y
 
 ![Code Snippet](images/java-editing/code-snippet.png)
 
-## Formatting, Linting and Code Analysis
+## Formatting, linting, and code analysis
 
 [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) also provides [formatting settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings). You can export an Eclipse formatter file and then use it for your project in VS Code.
 
-In addition, there're also [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension and [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension which provide features for live liting and code analysis.
+In addition, there are also the [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) and [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extensions, which provide features for live linting and code analysis.
 
 ### Checkstyle
 
-With [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension, you can use with either existing `checkstyle` configurations (Google's or Sun's Check) or your own customized files for your project. When editing a Java file, the extension will check the file format and provide Quick Fixes if possible on the fly.
+With the [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension, you can use either existing `checkstyle` configurations (Google's or Sun's Check) or your own customized files for your project. When editing a Java file, the extension will check the file format and provide Quick Fixes if possible on the fly.
 
 Set Checkstyle configuration file.
 
@@ -353,7 +353,7 @@ And batch check.
 
 The Problems panel will open when you click the Checkstyle status icon in the Status bar.
 
-#### Set Checkstyle configuration file
+**Set Checkstyle configuration file**
 
 ![Set Checkstyle configuration file](images/java-editing/set_config.png)
 
@@ -384,7 +384,7 @@ In addition, you can also bring any 3rd-party modules for Checkstyle by configur
 "java.checkstyle.modules": [ "${workspaceFolder}/src/main/resources/sevntu-checks-1.35.0.jar" ]
 ```
 
-#### Check the style and fix the violations
+**Check the style and fix the violations**
 
 ![Fix style violation](images/java-editing/quick_fix.png)
 
@@ -394,25 +394,25 @@ For more details about [Checkstyle for Java](https://marketplace.visualstudio.co
 
 ### SonarLint
 
-The [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension lets you detect bugs and vulnerabilities as you write code in VS Code. Java is one of the languages supported, and the extension will simply run in the background and highlight code that poses a quality or security concern.
+The [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension lets you detect bugs and vulnerabilities as you write code in VS Code. Java is one of the languages supported, and the extension will run in the background and highlight source code that poses a quality or security concern.
 
-#### Code Analysis on the fly
+**Code Analysis on the fly**
 
-Issues are highlighted directly in the editor, simply hover on them to understand what’s going on.
+Issues are highlighted directly in the editor with hovers to provide detailed explanations.
 
 ![SonarLint Bug](images/java-editing/SonarLint.Bug.gif)
 
-Issues found in the opened file can also be reviewed through the Problems panel of VS Code. When applicable, secondary code locations are mentioned so you can understand where the issue originates from (i.e. the code path that led to a bug).
+Issues found in the opened file can also be reviewed through the Problems panel of VS Code. When applicable, secondary code locations are mentioned so you can understand where the issue originates from (for example, the code path that led to a bug).
 
-#### Rule documetnation and remediation guidance
+**Rule documentation and remediation guidance**
 
 For any issue detected, SonarLint provides full documentation about the rule that was violated, and the coding best practice it relates to. This lets you understand why an issue is raised, and most importantly how to best fix it.
 
 ![SonarLint Rules](images/java-editing/SonarLint.Rule.Description.gif)
 
-#### Enabling more quality and security rules
+**Enabling more quality and security rules**
 
-Out-of-the-box SonarLint already provides a wide array of rules to detect bugs and vulnerabilities. More can be enabled along the way, through the SonarLint Rules view.
+By default, SonarLint provides a wide array of rules to detect bugs and vulnerabilities. More checks can be enabled through the SonarLint Rules view.
 
 ![SonarLint Activate-Deactivate Rules](images/java-editing/SonarLint.Activate-Deactivate.Rules.gif)
 

@@ -13,7 +13,7 @@ MetaSocialImage:
 
 This document will give you an overview of how to use the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) and [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extensions to manage your projects within Visual Studio Code.
 
-VS Code also support a Syntax Mode for Java which works best for reading and navigating through source files.
+VS Code also supports a Syntax Mode for Java, which works best for reading and navigating through source files.
 
 If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
 
@@ -21,15 +21,15 @@ If you run into any issues when using the features below, you can contact us by 
 
 ## Syntax Mode
 
-Reading and navigating through source code is a common usage for lightweight editor. When developers use VS Code to open a Java source file/folder which doesn't involve a project system, it's annoying to see lots of semantic error reported when the source cannot be resolved as a project. With Syntax Moce, you’ll be able to read code more efficiently with the help of Code Navigation and Outline features. Syntax errors are also reported so you can fix them right away.
+Reading and navigating through source code is a common use for a lightweight editor. When developers use VS Code to open a Java source file/folder that doesn't involve a project system, it's annoying to see semantic errors reported when the source cannot be resolved to a project. With Syntax Mode, you'll be able to read source code more efficiently with the help of Code Navigation and Outline features. Syntax errors are also reported so you can fix them right away.
 
-The good thing about this capability is that you won’t even aware its existence. But there is definitely a way to configure it. Go to PROBLEMS view, and look for the warning `File xxx is non-project file, only syntax errors are reported`, which means you are in Syntax Mode. If you want to see all the type errors and get full support, right click on this warning and the switch is in the context menu. See screenshots below.
+Usually you won't even know Syntax Mode is on, but you can configure it. Go to Problems panel, and look for the warning `File xxx is non-project file, only syntax errors are reported`, which means you are in Syntax Mode. If you want to see all the type errors and get full support, right-click on this warning and switch out of Syntax Mode through the context menu. See the screenshots below.
 
-![Enable Semantic](enablesemantic.png)
+![Enable Semantic](images/java-project/enablesemantic.png)
 
-The project mode will provide you full support for [standalone Java files](#standalone-java-file-support). It's also easy to turn back to Syntax Mode.
+The project mode will provide you full support for [standalone Java files](#standalone-java-file-support). It's also easy to turn back to Syntax Mode for either a single file or any non-project files with the **Only report syntax errors for** actions.
 
-![Switch to Syntax](syntaxonly.png)
+![Switch to Syntax](images/java-project/syntaxonly.png)
 
 ## Project management
 
@@ -61,7 +61,7 @@ The extension also has a hierarchy view of your project and dependencies, which 
 
 ### Standalone Java file support
 
-Visual Studio Code also supports Java files without a project system. The solution is folder-based, so you can open a source folder with Visual Studio Code. After switching from [Syntax Mode](#syntax-mode) to Project Mode (by clicking the `Report compilation errors...` quickfix), all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
+Visual Studio Code also supports Java files without a project system. The solution is folder-based, so you can open a source folder with Visual Studio Code. After switching from [Syntax Mode](#syntax-mode) to Project Mode (by selecting the **Report compilation errors...** Quick Fix), all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
