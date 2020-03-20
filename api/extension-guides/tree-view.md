@@ -9,11 +9,15 @@ MetaDescription: A guide to using Tree View in Visual Studio Code extension (plu
 
 # Tree View API
 
-The Tree View API allows extensions to show content in the sidebar in Visual Studio Code. This content is structured as a tree and conforms to the style of the [built-in views](/docs/getstarted/userinterface#views) of VS Code. For example, the built-in References Search View extension show reference search results as a separate view. This guide teaches you how to write an extension that contributes tree views and view containers to Visual Studio Code.
+The Tree View API allows extensions to show content in the sidebar in Visual Studio Code. This content is structured as a tree and conforms to the style of the [built-in views](/docs/getstarted/userinterface#_views) of VS Code.
+
+For example, the built-in References Search View extension shows reference search results as a separate view.
 
 ![References Search View](images/tree-view/references-search-tree-view.png)
 
 The **Find All References** results are displayed in a **References: Results** Tree View, which is in the **References** View Container.
+
+This guide teaches you how to write an extension that contributes Tree Views and View Containers to Visual Studio Code.
 
 ## Tree View API Basics
 
@@ -180,19 +184,21 @@ class Dependency extends vscode.TreeItem {
 
 ### Registering the TreeDataProvider
 
-The third step is to register the above data provider to your view. This can be done in the following two ways:
+The third step is to register the above data provider to your view.
+
+This can be done in the following two ways:
 
 - `vscode.window.registerTreeDataProvider` - Register the tree data provider by providing the registered view id and above data provider.
 
-```typescript
-vscode.window.registerTreeDataProvider('nodeDependencies', new NodeDependenciesProvider(vscode.workspace.rootPath));
-```
+    ```typescript
+    vscode.window.registerTreeDataProvider('nodeDependencies', new NodeDependenciesProvider(vscode.workspace.rootPath));
+    ```
 
 - `vscode.window.createTreeView` - Create the Tree View by providing the registered view id and above data provider. This will give access to the [TreeView](/api/references/vscode-api#TreeView), which you can use for performing other view operations. Use `createTreeView`, if you need the `TreeView` API.
 
-```typescript
-vscode.window.createTreeView('nodeDependencies', { treeDataProvider: new NodeDependenciesProvider(vscode.workspace.rootPath)});
-```
+    ```typescript
+    vscode.window.createTreeView('nodeDependencies', { treeDataProvider: new NodeDependenciesProvider(vscode.workspace.rootPath)});
+    ```
 
 Here's the extension in action:
 
