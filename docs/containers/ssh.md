@@ -25,7 +25,7 @@ We recommend using the Visual Studio Code [Remote-SSH extension](/docs/container
 
 1. Verify that your identity is available to the agent with `ssh-add -l`. It should list one or more identities that look something like `2048 SHA256:abcdefghijk somethingsomething (RSA)`. If it does not list any identity, you will not be able to connect. Also, it needs to have the right identity. The Docker CLI working does not mean that the Explorer window will work. The Explorer window uses [dockerode](https://www.npmjs.com/package/dockerode) (which in turn uses [ssh2](https://www.npmjs.com/package/ssh2)), whereas the Docker CLI uses the `ssh` command, and benefits from an automatically inferred configuration.
 
-1. Configure VS Code with your `DOCKER_HOST` to `ssh://username@host:port`. If you don't include username, it will use your current local user name, which may be wrong. If you omit the port it will default to 22.
+1. Configure VS Code with your `DOCKER_HOST` to `ssh://username@host:port`. If you don't include username, it will use your current local user name, which might be wrong. If you omit the port, it defaults to 22.
 
     * You can use the `DOCKER_HOST` environment variable, or
 
