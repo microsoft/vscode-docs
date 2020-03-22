@@ -15,6 +15,11 @@ In this topic, we'll teach you the fundamental concepts for building extensions.
 npm install -g yo generator-code
 ```
 
+or run directly without permanent installation:
+```bash
+npx -c "yo code" -p yo -p generator-code 
+```
+
 The generator scaffolds a TypeScript or JavaScript project ready for development. Run the generator and fill out a few fields for a TypeScript project:
 
 ```bash
