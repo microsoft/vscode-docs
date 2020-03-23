@@ -83,7 +83,7 @@ The extension will create `Dockerfile` and `.dockerignore` files. If you elected
 
 ## Debug in the service container
 
-When the Docker extension adds files to the application, it also adds a **VS Code debugger configuration** in `.vscode/launch.json` for debugging the service when running inside a container. The extension detects the protocol and port used by the service and points the browser to the service, but make sure the application's output is written to the debug console.
+When the Docker extension adds files to the application, it also adds a **VS Code debugger configuration** in `.vscode/launch.json` for debugging the service when running inside a container. The extension detects the protocol and port used by the service and points the browser to the service.
 
 1. Set a breakpoint in the `get()` handler for the `'/'` route in `routes/index.js`.
 
