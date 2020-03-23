@@ -138,7 +138,7 @@ The corresponding `pattern` in the debug launch configuration (in `launch.json`)
 {
     "configurations": [
         {
-            "name": "Docker Node.js Launch and Attach",
+            "name": "Docker Node.js Launch",
             "type": "docker",
             "request": "launch",
             "preLaunchTask": "docker-run: debug",
@@ -163,7 +163,7 @@ The corresponding `uriFormat` in the debug launch configuration (in `launch.json
 {
     "configurations": [
         {
-            "name": "Docker Node.js Launch and Attach",
+            "name": "Docker Node.js Launch",
             "type": "docker",
             "request": "launch",
             "preLaunchTask": "docker-run: debug",
@@ -188,7 +188,7 @@ For example, if the application instead resides in `/usr/my-custom-location`, th
 {
     "configurations": [
         {
-            "name": "Docker Node.js Launch and Attach",
+            "name": "Docker Node.js Launch",
             "type": "docker",
             "request": "launch",
             "preLaunchTask": "docker-run: debug",
