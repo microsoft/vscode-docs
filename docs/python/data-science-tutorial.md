@@ -60,7 +60,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
 1. To begin, download the Titanic data from [OpenML.org](https://www.openml.org/d/40945) as a csv file named **data.csv** and save it to the **hello_ds** folder that you created in the previous section.
 1. In VS Code, open the **hello_ds** folder and the Jupyter notebook (**hello.ipynb**), by going to **File** > **Open Folder**.
-1. Within your Jupyter notebook begin by importing the [pandas](https://pandas.pydata.org/) and [numpy](https://numpy.org/) libraries, two common libraries used for manipulating data, and load the Titanic data into a pandas [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html). To do so, copy the below code into the first cell of the notebook. For additional guidance about working with Jupyter notebooks in VS Code, see the documentation [here](https://code.visualstudio.com/docs/python/jupyter-support).
+1. Within your Jupyter notebook begin by importing the [pandas](https://pandas.pydata.org/) and [numpy](https://numpy.org/) libraries, two common libraries used for manipulating data, and loading the Titanic data into a pandas [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html). To do so, copy the below code into the first cell of the notebook. For additional guidance about working with Jupyter notebooks in VS Code, see the documentation [here](https://code.visualstudio.com/docs/python/jupyter-support).
 
    ```python
    import pandas as pd
@@ -68,13 +68,13 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
    data = pd.read_csv('data.csv')
    ```
 
-1. Now, run the cell using the Run cell icon.
+1. Now, run the cell using the Run cell icon or the `kbstyle(Shift+Enter)` shortcut.
 
    ![Running a Jupyter notebook cell](images/data-science-tutorial/jupyter-cell-01.png)
 
 1. After the cell finishes running, you can view the data that was loaded using the variable explorer and data viewer. First click on the chart icon in the notebook's upper toolbar, then the data viewer icon to the right of the *data* variable. For additional information about the data set, refer to [this document](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3info.txt) about how it was constructed.
 
-   ![Data viewer and variable explorer](images/data-science-tutorial/data-viewer.png)
+   ![Data viewer and variable explorer](images/data-science-tutorial/variable-explorer.png)
 
    You can then use the data viewer to view, sort, and filter the rows of data. After reviewing the data, it can then be helpful to graph some aspects of it to help visualize the relationships between the different variables.
 
@@ -82,7 +82,9 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
    While Pandas can read this value into a DataFrame, the result for a column like Age is that its data type will be set to Object instead of a numeric data type, which is problematic for graphing.
 
-   This problem can be corrected by replacing the question mark with a missing value that pandas is able to understand. Add the following code to the next cell in your notebook to replace the question marks in the age and fare columns with the [numpy NaN](https://docs.scipy.org/doc/numpy/reference/constants.html?highlight=nan#numpy.nan) value. Notice that we also need to update the column's data type after replacing the values.
+   This problem can be corrected by replacing the question mark with a missing value that pandas is able to understand. Add the following code to the next cell in your notebook to replace the question marks in the *age* and *fare* columns with the [numpy NaN](https://docs.scipy.org/doc/numpy/reference/constants.html?highlight=nan#numpy.nan) value. Notice that we also need to update the column's data type after replacing the values.
+
+   > **Tip**: To add a new cell you can use the insert cell icon that's in the bottom left corner of an existing cell. Alternatively, you can also use the `kbstyle(Esc)` to enter command mode, followed by the `kbstyle(B)` key.
 
    ```python
    data.replace('?', np.nan, inplace= True)
@@ -109,7 +111,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
    > **Note**: To better view details on the graphs, you can open them in plot viewer by hovering over the upper left corner of the graph and clicking the button that appears.
 
-1. These graphs are helpful in seeing some of the relationships between survival and the input variables of the data, but it's also possible to use pandas to calculate correlations. To do so, all the variables used need to be numeric for the correlation calculation and currently gender is stored as a string. To convert those string values to integers, add and run the following code.
+1. These graphs are helpful in seeing some of the relationships between survival and the input variables of the data, but it's also possible to use **pandas** to calculate correlations. To do so, all the variables used need to be numeric for the correlation calculation and currently gender is stored as a string. To convert those string values to integers, add and run the following code.
 
    ```python
    data.replace({'male': 1, 'female': 0}, inplace=True)
@@ -125,7 +127,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
 1. Looking at the correlation results, you'll notice that some variables like gender have a fairly high correlation to survival, while others like relatives (sibsp = siblings or spouse, parch = parents or children) seem to have little correlation.
 
-   Let's hypothesize that *sibsp* and *parch* are related in how they affect survivability, and group them into a new column called "relatives" to see whether the combination of them has a higher correlation to survivability. To do this, you will check if for a given passenger, the number of *sibsp* and *parch* is greater than 0 and, if so, yuo can then say that they had a relative on board.
+   Let's hypothesize that *sibsp* and *parch* are related in how they affect survivability, and group them into a new column called "relatives" to see whether the combination of them has a higher correlation to survivability. To do this, you will check if for a given passenger, the number of *sibsp* and *parch* is greater than 0 and, if so, you can then say that they had a relative on board.
 
    Use the following code to create a new variable and column in the dataset called *relatives* and check the correlation again.
 
@@ -136,7 +138,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
       ![Determining the correlation between having relatives and survival](images/data-science-tutorial/jupyter-cell-04.png)
 
-1. You'll notice that in fact when looked at from the standpoint of whether a person had relatives, vs how many relatives, there is a higher correlation with survival. With this information in hand, you can now drop from the dataset the low value *sibsp* and *parch* columns, as well as any rows that had **NaN** values, to end up with a dataset that can be used for training a model.
+1. You'll notice that in fact when looked at from the standpoint of whether a person had relatives, versus how many relatives, there is a higher correlation with survival. With this information in hand, you can now drop from the dataset the low value *sibsp* and *parch* columns, as well as any rows that had **NaN** values, to end up with a dataset that can be used for training a model.
 
    ```python
    data = data[['sex', 'pclass','age','relatives','fare','survived']].dropna()
