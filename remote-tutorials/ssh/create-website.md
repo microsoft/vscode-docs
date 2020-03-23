@@ -43,7 +43,7 @@ You can now scaffold a new Express application called `myExpressApp` by running:
 express myExpressApp --view pug
 ```
 
-The `--view pug` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine (formerly known as `jade`).
+The `--view pug` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine.
 
 To install all of the application's dependencies, go to the new folder and run `npm install`.
 

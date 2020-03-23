@@ -77,15 +77,15 @@ You can also reference environment variables through the **${env:Name}** syntax 
 
 ## Configuration variables
 
-You can reference VS Code settings (aka "configurations") through **${config:Name}** syntax (for example, `${config:editor.fontSize}`).
+You can reference VS Code settings ("configurations") through **${config:Name}** syntax (for example, `${config:editor.fontSize}`).
 
 ## Command variables
 
 If the predefined variables from above are not sufficient, you can use any VS Code command as a variable through the **${command:commandID}** syntax.
 
-When a command variable is interpolated, the command is run and the variable is substituted by the command's (string) result. The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API.
+A command variable is replaced with the (string) result from the command evaluation. The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API.
 
-An example for this functionality can be found in VS Code's Node.js debugger extension which provides an interactive command `extension.pickNodeProcess` for selecting a single process from the list of all running Node.js processes. The command returns the process ID of the selected process. This makes it possible to use the `extension.pickNodeProcess` command in an **Attach by Process ID** launch configuration in the following way:
+An example of this functionality is in VS Code's Node.js debugger extension, which provides an interactive command `extension.pickNodeProcess` for selecting a single process from the list of all running Node.js processes. The command returns the process ID of the selected process. This makes it possible to use the `extension.pickNodeProcess` command in an **Attach by Process ID** launch configuration in the following way:
 
 ```json
 {
@@ -242,6 +242,15 @@ Command inputs can also be used with tasks. In this example, the built-in Termin
 ```
 
 ## Common questions
+
+### Details of variable substitution in a debug configuration or task
+
+Variable substitution in debug configurations or tasks is a two pass process:
+
+- In the first pass, all variables are evaluated to string results. If a variable occurs more than once, it is only evaluated once.
+- In the second pass, all variables are substituted with the results from the first pass.
+
+A consequence of this is that the evaluation of a variable (for example, a command-based variable implemented in an extension) has **no access** to other substituted variables in the debug configuration or task. It only sees the original variables. This means that variables cannot depend on each other (which ensures isolation and makes substitution robust against evaluation order).
 
 ### Is variable substitution supported in User and Workspace settings?
 
