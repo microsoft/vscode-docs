@@ -126,7 +126,7 @@ x               source.abc
         xyz     expression.group, expression.group, source.abc
     )           punctuation.paren.close, expression.group, expression.group, source.abc
 )               punctuation.paren.close, expression.group, source.abc
-(               source.abc
+(               punctuation.paren.open, expression.group, source.abc
 a               keyword.letter, source.abc
 ```
 
