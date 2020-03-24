@@ -13,7 +13,7 @@ The Docker extension includes several Visual Studio Code tasks to control the be
 
 The tasks allow for a great deal of control and customization. The final configuration is a combination of general defaults, platform-specific defaults (such as .NET Core and Node.js), and user input. User input takes precedence when it conflicts with defaults.
 
-All common features of Visual Studio Code tasks (for example, grouping tasks into compound tasks) are supported by Docker extension tasks. For more information on common task features and properties see [Visual Studio Code custom task documentation](/docs/editor/tasks.md#custom-tasks).
+All common features of Visual Studio Code tasks (for example, grouping tasks into compound tasks) are supported by Docker extension tasks. For more information on common task features and properties, see the Visual Studio Code [custom task](/docs/editor/tasks.md#custom-tasks) documentation.
 
 ## Docker build task
 
@@ -101,7 +101,7 @@ Here are all properties available for configuring `docker-build` task. All prope
 | `netCore` | Determines options specific for .NET Core projects ([see below](#netcore-object-properties-dockerbuild-task)). |
 | `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-dockerrun-task)). |
 
-### dockerBuild object properties:
+### dockerBuild object properties
 
 | Property | Description | `docker build` CLI Equivalent |
 | --- | --- | --- |
@@ -227,7 +227,7 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `networkAlias` |  The network-scoped alias for the started container. | `--network-alias` |
 | `os` |  Default is `Linux`, the other option is `Windows`. The container operating system used. | N/A |
 | `ports` |  The ports to publish (map) from container to host. This is a list of objects ([see below](#ports-object-properties)). | `-p` or `--publish` |
-| `portsPublishAll` |  Whether to publish all ports exposed by the Docker image.  Defaults to `true` if no ports are explicitly published. | `-P ` |
+| `portsPublishAll` |  Whether to publish all ports exposed by the Docker image.  Defaults to `true` if no ports are explicitly published. | `-P` |
 | `extraHosts` |  The hosts to add to the container for DNS resolution. This is a list of objects ([see below](#extrahosts-object-properties)). | `--add-host` |
 | `volumes` |  The volumes to map into the started container. This is a list of objects ([see below](#volumes-object-properties)). | `-v` or `--volume` |
 
@@ -392,7 +392,7 @@ Supported tokens:
 
 | Token | Description |
 | -- | -- |
-| `${configurationFile}` | Set to `-f ` plus the workspace-relative path to the selected Docker Compose YAML file. |
+| `${configurationFile}` | Set to `-f` plus the workspace-relative path to the selected Docker Compose YAML file. |
 | `${detached}` | Set to `-d` if the configuration setting `docker.dockerComposeDetached` is set to `true`. Otherwise, set to `""`. |
 | `${build}` | Set to `--build` if the configuration setting `docker.dockerComposeBuild` is set to `true`. Otherwise, set to `""`. |
 
@@ -406,7 +406,7 @@ Supported tokens:
 
 | Token | Description |
 | -- | -- |
-| `${configurationFile}` | Set to `-f ` plus the workspace-relative path to the selected Docker Compose YAML file. |
+| `${configurationFile}` | Set to `-f` plus the workspace-relative path to the selected Docker Compose YAML file. |
 
 ### Additional supported tokens
 
