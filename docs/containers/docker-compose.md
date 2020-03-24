@@ -9,9 +9,7 @@ MetaDescription: Develop a multi-container app running in a Docker containers us
 
 Docker Compose provides a way to orchestrate multiple containers in a single app. Examples include a service that processes requests and a front-end web site, or a service that uses a supporting function such as a Redis cache. If you are using the microservices model for your app development, you can use Docker Compose to factor the app code into several independently running services that communicate using web requests. This article helps you enable Docker Compose for your apps, whether they are Node.js, Python, or .NET Core, and also helps you configure debugging in VS Code for these scenarios.
 
-For single container usage, using Docker Compose provides tool-independent configuration.
-
-various settings for your app or service, such as volume mounts for the container, port mappings, and environment variables. With Docker Compose, these settings can be declared in a YML file.
+For single container usage, using Docker Compose provides tool-independent configuration. Configuration settings such as volume mounts for the container, port mappings, and environment variables can be declared in the docker-compose YML files.
 
 To use Docker Compose in VS Code using the Docker extension, you should already be familiar with the basics of [Docker Compose](https://docs.docker.com/compose/).
 
@@ -55,7 +53,7 @@ In Node.js packages, you have the `Dockerfile`, `.dockerignore`, `docker-compose
 
 ### Python
 
-[ same as node, but no docker-compose.debug.yml]
+For Python, the situation is similar to Node.js, but there is no docker-compose.debug.yml file.
 [ Hani will work on a test ]
 
 ### .NET
@@ -64,46 +62,49 @@ For .NET, the folder structure is already set up to handle multiple projects you
 
 ## Debug
 
-[need to mention that F5 experience does not do compose at present - ]
-
-[ when you run attahc, it asks to choose a container, show this screenshot as well - you can also customize that to hardcode the container name so you don't get asked.  And you can  - tries t install vsdbg on target container, but you can also provide a path to a previously installed debugger path]
-
 First, refer to the debugging docs for your target framework,  to understand the basics on debugging in containers with VS Code:
 
 - [Node.js debugging docs](/docs/containers/debug-node.md)
 - [Python Docker debugging docs](/docs/containers/debug-python.md)
 - [.NET Core debugging docs](/docs/containers/debug-netcore.md)
 
-If you want to debug in Docker Compose, run `docker compose up` using one of the two docker compose files, and then attach using the appropriate Attach launch configuration.
+If you want to debug in Docker Compose, run `docker compose up` using one of the two docker compose files, and then attach using the appropriate Attach launch configuration. Launching directly (using `kb(workbench.action.debug.start)`) does not use Docker Compose.
 
 ```cmd
 docker compose up [TODO: add params]
 ```
 
-Create an attach [launch configuration](/docs/editor/debugging#_launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Docker extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The basic process is as follows:
+When you choose attach, VS Code asks to choose a container. You can also specify the container name so you don't get asked. VS code tries to install `vsdbg` on target container using a default path, but you can also provide a path to a previously installed instance of `vsdbg`.
 
-- Pick the appropriate platform 
-- Configure the debugging port in `docker-compose.debug.yml`
-- Point to the right debugging port in the `launch.json` [Use New Configuration... in the UI ?]
-- 
-- select this config: [.NET Core Docker Attach (Preview)]
+![Screenshot of attach choose container][]
+
+Create an attach [launch configuration](/docs/editor/debugging.md#launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Docker extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The basic process is as follows:
+
+- On the **Debug** tab, choose the **Configuration** dropdown, choose **New Configuration** and select the `Docker Attach` configuration template for appropriate platform.  For example, **.NET Core Docker Attach (Preview)**.
+- Configure the debugging port in `docker-compose.debug.yml`.
+- Point to the right debugging port in the `launch.json`, and save the file.
+- On the **Debug**tab in the **configuration** dropdown, select the config.
 
 An example launch configuration for an ASP.NET web app in a Docker container is shown in the following code:
 
 ```json
-
-        // ...
-       }
+        {
+            "name": "Docker .NET Core Attach (Preview)",
+            "type": "docker",
+            "request": "attach",
+            "platform": "netCore",
+            "sourceFileMap": {
+                "/src": "${workspaceFolder}"
+        }
 ```
 
-Once `launch.json` is configured, select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown. Then, you can debug using **Run** > **Start Debugging** (`kb(workbench.action.debug.start)` or attach to a running container as needed, using the standard VS Code mechanism for attaching to a launch configuration using Debug tab and dropdown for configurations.  See for example 
+Once `launch.json` is configured, select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.  
 
 ![Screenshot of Configuration dropdown][]
 
 The extension generates the launch configuration in the `launch.json` file, but you need to review it and make any appropriate changes for your scenario. For example, the exposed port typically maps to the same port locally if you're only debugging one app at a time, but if you have multiple apps and multiple containers, you'll need to map the debug ports to different ports on the host.
 
 The process for configuring debugging is the same for each platform. For .NET Core, the extension generates the launch configuration for attaching to your service. For Python and Node.js, you can copy and modify the following examples. Copy the code into `launch.json` and modify the settings as needed:
-
 
 Node.js launch configuration - Attach:
 
@@ -115,13 +116,11 @@ Python launch configuration - Attach:
 ```json
 ```
 
-
-
 By default, the Docker extension does not do any volume mounting. There's no need for it in .NET Core or Node.js, since it’s built-into the runtime. If your app requires volume mounts ...
 
 If you try to attach to a .NET Core app running in a container, you'll see a prompt asking if you want to install the debugger (`.vsdbg` bits into the container).
 
-[docker compose - don't do any host port - let the docker pick the available port - avoids port conflict issue automatically - random port]
+>[!TIP] When using Docker Compose, don't specify a host port. Instead, let the Docker pick a random available port to automatically avoid port conflict issues.
 
 ## See also
 
