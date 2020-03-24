@@ -953,15 +953,15 @@ While the `postCreateCommand` property allows you to install additional tools in
 
 ```yaml
 version: '3'
-  services:
-    your-service-name-here:
-       build:
-         context: .
-         # Location is relative to folder containing this compose file
-         dockerfile: Dockerfile
-       volumes:
-         - .:/workspace:cached
-       command: /bin/sh -c "while sleep 1000; do :; done"
+services:
+  your-service-name-here:
+      build:
+        context: .
+        # Location is relative to folder containing this compose file
+        dockerfile: Dockerfile
+      volumes:
+        - .:/workspace:cached
+      command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
 ### Docker Compose dev container definitions
