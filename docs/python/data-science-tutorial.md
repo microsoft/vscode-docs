@@ -4,13 +4,13 @@ Area: python
 TOCTitle: Data Science Tutorial
 ContentId: D6F8906F-0DB9-460C-9CE9-DB57AF7B603A
 PageTitle: Python and Data Science Tutorial in Visual Studio Code
-DateApproved: 12/30/2019
+DateApproved: 3/23/2020
 MetaDescription: Python data science tutorial demonstrating the use of common data science and machine learning libraries with Visual Studio code Jupyter Notebook support.
 MetaSocialImage: images/tutorial/social.png
 ---
 # Data Science Tutorial in Visual Studio Code
 
-This tutorial demonstrates using the VS Code Python extension with common data science libraries to explore a basic data science scenario. Specifically, using passenger data from the Titanic, you will learn how to setup a data science environment, import and clean data, create a machine learning model for predicting survival on the Titanic, and evaluate the accuracy of the generated model.
+This tutorial demonstrates using the VS Code Python extension with common data science libraries to explore a basic data science scenario. Specifically, using passenger data from the Titanic, you will learn how to set up a data science environment, import and clean data, create a machine learning model for predicting survival on the Titanic, and evaluate the accuracy of the generated model.
 
 ## Prerequisites
 
@@ -27,12 +27,12 @@ The following installations are required for the completion of the tutorial. If 
 
 ## Set up a data science environment
 
-Visual Studio Code and the Python extension provide a great editor for data science scenarios. With native support for Jupyter notebooks combined with Anaconda, it's very easy to get started. In this section, you will create a workspace for the tutorial, create an Anaconda environment with the data science modules needed for the tutorial, and create a Jupyter notebook that you'll use for creating a machine learning model.
+Visual Studio Code and the Python extension provide a great editor for data science scenarios. With native support for Jupyter notebooks combined with Anaconda, it's easy to get started. In this section, you will create a workspace for the tutorial, create an Anaconda environment with the data science modules needed for the tutorial, and create a Jupyter notebook that you'll use for creating a machine learning model.
 
 1. Begin by creating an Anaconda environment for the data science tutorial. Open an Anaconda command prompt and run `conda create -n myenv python=3.7 pandas jupyter seaborn scikit-learn keras tensorflow` to create an environment named **myenv**. For additional information about creating and managing Anaconda environments, see the [Anaconda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 1. Next, create a folder in a convenient location to serve as your VS Code workspace for the tutorial, name it **hello_ds**.
 1. Open the project folder in VS Code by running VS Code and using the **File** > **Open Folder** command.
-1. Once VS Code launches, open the Command Palette (**View** > **Command Palette** or (`kb(workbench.action.showCommands)`)). Then select the **Python: Select Interpreter** command:
+1. Once VS Code launches, open the Command Palette (**View** > **Command Palette** or `kb(workbench.action.showCommands)`). Then select the **Python: Select Interpreter** command:
 
     ![Data Science tutorial: opening the Command Palette in VS Code](images/shared/command-palette.png)
 
@@ -44,9 +44,9 @@ Visual Studio Code and the Python extension provide a great editor for data scie
 
    ![Creating a new Jupyter Notebook](images/data-science-tutorial/create-notebook.png)
 
-   > **Note**: Alternatively, from the VS Code File Explorer, you can use the New File icon to create a Notebook file named **hello.ipynb**.
+   > **Note**: Alternatively, from the VS Code File Explorer, you can use the New File icon to create a Notebook file named `hello.ipynb`.
 
-1. Use the Save icon on the main notebook toolbar to save the notebook with the filename **hello**.
+1. Use the Save icon on the main notebook toolbar to save the notebook with the filename `hello`.
 
    ![Saving a Jupyter Notebook](images/data-science-tutorial/notebook-save.png)
 
@@ -58,9 +58,9 @@ Visual Studio Code and the Python extension provide a great editor for data scie
 
 This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic.html) available on [OpenML.org](https://www.openml.org/d/40945), which is obtained from Vanderbilt University's Department of Biostatistics at [http://biostat.mc.vanderbilt.edu/DataSets](http://biostat.mc.vanderbilt.edu/DataSets). The Titanic data provides information about the survival of passengers on the Titanic, as well as characteristics about the passengers such as age and ticket class. Using this data, the tutorial will establish a model for predicting whether a given passenger would have survived the sinking of the Titanic. This section shows how to load and manipulate data in your Jupyter notebook.
 
-1. To begin, download the Titanic data from [OpenML.org](https://www.openml.org/d/40945) as a csv file named **data.csv** and save it to the **hello_ds** folder that you created in the previous section.
-1. In VS Code, open the **hello_ds** folder and the Jupyter notebook (**hello.ipynb**), by going to **File** > **Open Folder**.
-1. Within your Jupyter notebook begin by importing the [pandas](https://pandas.pydata.org/) and [numpy](https://numpy.org/) libraries, two common libraries used for manipulating data, and loading the Titanic data into a pandas [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html). To do so, copy the below code into the first cell of the notebook. For additional guidance about working with Jupyter notebooks in VS Code, see the documentation [here](https://code.visualstudio.com/docs/python/jupyter-support).
+1. To begin, download the Titanic data from [OpenML.org](https://www.openml.org/d/40945) as a csv file named `data.csv` and save it to the `hello_ds` folder that you created in the previous section.
+1. In VS Code, open the `hello_ds` folder and the Jupyter notebook (`hello.ipynb`), by going to **File** > **Open Folder**.
+1. Within your Jupyter notebook begin by importing the [pandas](https://pandas.pydata.org/) and [numpy](https://numpy.org/) libraries, two common libraries used for manipulating data, and loading the Titanic data into a pandas [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html). To do so, copy the below code into the first cell of the notebook. For additional guidance about working with Jupyter notebooks in VS Code, see the [Working with Jupyter Notebooks](https://code.visualstudio.com/docs/python/jupyter-support) documentation.
 
    ```python
    import pandas as pd
@@ -72,7 +72,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
    ![Running a Jupyter notebook cell](images/data-science-tutorial/jupyter-cell-01.png)
 
-1. After the cell finishes running, you can view the data that was loaded using the variable explorer and data viewer. First click on the chart icon in the notebook's upper toolbar, then the data viewer icon to the right of the *data* variable. For additional information about the data set, refer to [this document](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3info.txt) about how it was constructed.
+1. After the cell finishes running, you can view the data that was loaded using the variable explorer and data viewer. First click on the chart icon in the notebook's upper toolbar, then the data viewer icon to the right of the `data` variable. For additional information about the data set, refer to [this document](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3info.txt) about how it was constructed.
 
    ![Data viewer and variable explorer](images/data-science-tutorial/variable-explorer.png)
 
@@ -93,7 +93,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
    > **Note**: If you ever need to see the data type that has been used for a column, you can use the [DataFrame dtypes](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html#pandas.DataFrame.dtypes) attribute.
 
-1. Now that the data is in good shape, you can use [seaborn](http://seaborn.pydata.org/) and [matplotlib](https://matplotlib.org) to view how certain columns of the dataset relate to survivability. Add the following code to the next cell in your notebook and run it to see the generated plots.
+1. Now that the data is in good shape, you can use [seaborn](https://seaborn.pydata.org/) and [matplotlib](https://matplotlib.org) to view how certain columns of the dataset relate to survivability. Add the following code to the next cell in your notebook and run it to see the generated plots.
 
    ```python
    import seaborn as sns
@@ -127,9 +127,9 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
 1. Looking at the correlation results, you'll notice that some variables like gender have a fairly high correlation to survival, while others like relatives (sibsp = siblings or spouse, parch = parents or children) seem to have little correlation.
 
-   Let's hypothesize that *sibsp* and *parch* are related in how they affect survivability, and group them into a new column called "relatives" to see whether the combination of them has a higher correlation to survivability. To do this, you will check if for a given passenger, the number of *sibsp* and *parch* is greater than 0 and, if so, you can then say that they had a relative on board.
+   Let's hypothesize that **sibsp** and **parch** are related in how they affect survivability, and group them into a new column called "relatives" to see whether the combination of them has a higher correlation to survivability. To do this, you will check if for a given passenger, the number of **sibsp** and **parch** is greater than 0 and, if so, you can then say that they had a relative on board.
 
-   Use the following code to create a new variable and column in the dataset called *relatives* and check the correlation again.
+   Use the following code to create a new variable and column in the dataset called `relatives` and check the correlation again.
 
    ```python
    data['relatives'] = data.apply (lambda row: int((row['sibsp'] + row['parch']) > 0), axis=1)
@@ -138,7 +138,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
       ![Determining the correlation between having relatives and survival](images/data-science-tutorial/jupyter-cell-04.png)
 
-1. You'll notice that in fact when looked at from the standpoint of whether a person had relatives, versus how many relatives, there is a higher correlation with survival. With this information in hand, you can now drop from the dataset the low value *sibsp* and *parch* columns, as well as any rows that had **NaN** values, to end up with a dataset that can be used for training a model.
+1. You'll notice that in fact when looked at from the standpoint of whether a person had relatives, versus how many relatives, there is a higher correlation with survival. With this information in hand, you can now drop from the dataset the low value **sibsp** and **parch** columns, as well as any rows that had **NaN** values, to end up with a dataset that can be used for training a model.
 
    ```python
    data = data[['sex', 'pclass','age','relatives','fare','survived']].dropna()
@@ -168,7 +168,7 @@ With the dataset ready, you can now begin creating a model. For this section you
    X_test = sc.transform(x_test)
    ```
 
-1. There are a number of different machine learning algorithms that you could choose from to model the data and scikit-learn provides support for a number of [them](https://scikit-learn.org/stable/user_guide.html), as well as a [chart](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html) to help select the one that's right for your scenario. For now, use the [naïve bayes algorithm](https://scikit-learn.org/stable/modules/naive_bayes.html), a common algorithm for classification problems. Add a cell with the following code to create and train the algorithm.
+1. There are a number of different machine learning algorithms that you could choose from to model the data and scikit-learn provides support for a number of [them](https://scikit-learn.org/stable/user_guide.html), as well as a [chart](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html) to help select the one that's right for your scenario. For now, use the [Naïve Bayes algorithm](https://scikit-learn.org/stable/modules/naive_bayes.ntml), a common algorithm for classification problems. Add a cell with the following code to create and train the algorithm.
 
    ```python
    from sklearn.naive_bayes import GaussianNB
@@ -213,7 +213,7 @@ A neural network is a model that uses weights and activation functions, modeling
    - The last layer must output 1, since you want a 1-dimensional output indicating whether a passenger would survive.
    - The middle layer was kept at 5 for simplicity, although that value could have been different.
 
-   The rectified linear unit (relu) activation function is used as a good general activation function for the first two layers, while the sigmoid activation function is required for the final layer as the output you want (of whether a passenger survives or not) needs to be scaled in the range of 0-1 (I.e the probability of a passenger surviving).
+   The rectified linear unit (relu) activation function is used as a good general activation function for the first two layers, while the sigmoid activation function is required for the final layer as the output you want (of whether a passenger survives or not) needs to be scaled in the range of 0-1 (the probability of a passenger surviving).
 
    You can also look at the summary of the model you built with this line of code:
 
@@ -249,6 +249,6 @@ A neural network is a model that uses weights and activation functions, modeling
 
 Now that you're familiar with the basics of performing machine learning within Visual Studio Code, here are some other Microsoft resources and tutorials to check out.
 
-- Learn more about working with [Jupyter Notebooks in VIsual Studio Code](https://youtu.be/FSdIoJdSnig) **(video)**.
-- [Get started with Azure Machine Learning for VS Code](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-vscode-tools) to deploy and optimize your model using the power of Azure.
-- Find additional data to explore on [Azure Open Data Sets](https://azure.microsoft.com/en-us/services/open-datasets/).
+- Learn more about working with [Jupyter Notebooks in Visual Studio Code](https://youtu.be/FSdIoJdSnig) (video).
+- [Get started with Azure Machine Learning for VS Code](https://docs.microsoft.com/azure/machine-learning/service/how-to-vscode-tools) to deploy and optimize your model using the power of Azure.
+- Find additional data to explore on [Azure Open Data Sets](https://azure.microsoft.com/services/open-datasets/).
