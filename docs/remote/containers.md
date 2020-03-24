@@ -907,21 +907,21 @@ For example, consider this additional `.devcontainer/docker-compose.extend.yml` 
 
 ```yaml
 version: '3'
-  services:
-    your-service-name-here:
-      volumes:
-        # Mounts the project folder to '/workspace'. While this file is in .devcontainer,
-        # mounts are relative to the first file in the list, which is a level up.
-        - .:/workspace:cached
+services:
+  your-service-name-here:
+    volumes:
+      # Mounts the project folder to '/workspace'. While this file is in .devcontainer,
+      # mounts are relative to the first file in the list, which is a level up.
+      - .:/workspace:cached
 
-      # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
-      cap_add:
-        - SYS_PTRACE
-      security_opt:
-        - seccomp:unconfined
+    # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
 
-      # Overrides default command so things don't shut down after the process ends.
-      command: /bin/sh -c "while sleep 1000; do :; done"
+    # Overrides default command so things don't shut down after the process ends.
+    command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
 This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to `.devcontainer/devcontainer.extend.yml` in a specific order:
