@@ -179,7 +179,7 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 
 ### Modifying tasks.json
 
-You can modify your `tasks.json` to build multiple C++ files by using an argument like `"*.cpp"` instead of `${file}`. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example 'helloworld.out').
+You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `${file}`. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example 'helloworld.out').
 
 ## Debug helloworld.cpp
 
