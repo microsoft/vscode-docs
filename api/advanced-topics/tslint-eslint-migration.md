@@ -43,7 +43,11 @@ It is time to lint! Use this command: `eslint -c .eslintrc.js --ext .ts <mySrcFo
 "lint": "eslint -c .eslintrc.js --ext .ts <mySrcFolder>"
 ```
 
-To integrate ESLint with Visual Studio Code, install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension.
+To integrate ESLint with Visual Studio Code, do the following:
+
+* Install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension.
+* Create a task via the **Tasks: Configure Task** command and select **npm: lint**.
+* In the resulting `tasks.json` file, configure the problem matcher to be `$eslint-stylish`.
 
 **Hint**: ESLint is sometimes "more correct" in how it does things and you may see warnings that you didn't have before, for example calling out missing semicolons. Try the `--fix` option to let ESLint clean up things up for you.
 
