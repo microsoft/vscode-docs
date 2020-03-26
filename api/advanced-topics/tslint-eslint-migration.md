@@ -19,13 +19,13 @@ npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslin
 
 The command above adds ESLint, adds a parser that makes ESLint understand TypeScript, and adds some TypeScript-specific rules.
 
-Now, to make the actual migration simpler, install the [tslint-to-eslint-config](https://github.com/typescript-eslint/tslint-to-eslint-config) utility. This tool will take your TSLint configuration and create the "closest" ESLint configuration from it.
+Now, to make the actual migration simpler, run the [tslint-to-eslint-config](https://github.com/typescript-eslint/tslint-to-eslint-config) utility. This tool will take your TSLint configuration and create the "closest" ESLint configuration from it.
 
 ```bash
 npx tslint-to-eslint-config
 ```
 
-The first line installs the utility, the second runs the migration. For further options, check the utility's [usage guide](https://github.com/typescript-eslint/tslint-to-eslint-config#usage).
+This command [downloads and executes](https://www.npmjs.com/package/npx) the utility to perform the migration. For further options, check the utility's [usage guide](https://github.com/typescript-eslint/tslint-to-eslint-config#usage).
 
 There should now be a new `.eslintrc.js` file, a log file (`tslint-to-eslint-config.log`), and likely changes to other files, like `.vscode/settings.json`. Carefully review the changes, especially those made to existing files, and check the log file.
 
@@ -46,7 +46,7 @@ It is time to lint! Use this command: `eslint -c .eslintrc.js --ext .ts <mySrcFo
 To integrate ESLint with Visual Studio Code, do the following:
 
 * Install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension.
-* Create a task via the **Tasks: Configure Task** command and select **npm**.
+* Create a task via the **Tasks: Configure Task** command and select **npm: lint**.
 * In the resulting `tasks.json` file, configure the problem matcher to be `$eslint-stylish`.
 
 **Hint**: ESLint is sometimes "more correct" in how it does things and you may see warnings that you didn't have before, for example calling out missing semicolons. Try the `--fix` option to let ESLint clean up things up for you.
