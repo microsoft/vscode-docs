@@ -33,6 +33,7 @@ In this guide you will learn how to:
 ## Add Docker files to the project
 
 1. Open the project folder in VS Code
+1. Wait for the C# VS Code extension to prompt to add required assets for build and debug and say yes, or otherwise open Command Palette (`kb(workbench.action.showCommands)`) and use **.NET: Generate Assets for Build and Debug**.
 1. Open Command Palette (`kb(workbench.action.showCommands)`) and use **Docker: Add Docker Files to Workspace...** command:
 
    ![Add Dockerfile to a .NET project](images/quickstarts/aspnetcore-add-dotnet.png)
