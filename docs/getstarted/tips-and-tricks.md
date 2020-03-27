@@ -53,7 +53,13 @@ Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 
 ![Quick Open](images/tips-and-tricks/QuickOpen.gif)
 
-**Tip:** Type `kbstyle(?)` to view help suggestions.
+**Tip:** Type `kbstyle(?)` to view commands suggestions.
+
+![Quick Open command list](images/tips-and-tricks/quick-open-command-dropdown.png)
+
+Typing commands such as `edt` and `term` followed by a space will bring up dropdown lists.
+
+![term command in Quick Open](images/tips-and-tricks/term-quick-open.png)
 
 ### Navigate between recently opened files
 
@@ -62,6 +68,14 @@ Repeat the **Quick Open** keyboard shortcut to cycle quickly between recently op
 ### Open multiple files from Quick Open
 
 You can open multiple files from **Quick Open** by pressing the Right arrow key. This will open the currently selected file in the background and you can continue selecting files from **Quick Open**.
+
+### Navigate between recently opened folders and workspaces
+
+Open Recent
+
+Keyboard Shortcut: `kb(workbench.action.openRecent)`
+
+Displays a Quick Pick dropdown with the list from **File** > **Open Recent** with recently opened folders and workspaces followed by files.
 
 ## Command line
 
@@ -174,12 +188,6 @@ Open User Settings `settings.json`
 
 Keyboard Shortcut: `kb(workbench.action.openSettings)`
 
-Format on paste
-
-```json
-"editor.formatOnPaste": true
-```
-
 Change the font size of various UI elements
 
 ```json
@@ -224,6 +232,12 @@ Format on save
 "editor.formatOnSave": true
 ```
 
+Format on paste
+
+```json
+"editor.formatOnPaste": true
+```
+
 Change the size of Tab characters
 
 ```json
@@ -241,6 +255,8 @@ Render whitespace
 ```json
 "editor.renderWhitespace": "all"
 ```
+
+Whitespace characters are rendered by default in text selection.
 
 Ignore files / folders
 
@@ -343,7 +359,7 @@ Keyboard Shortcut: `kb(workbench.view.extensions)`
 
 In the **Extensions** view, you can search via the search bar or click the **More Actions** (...) button to filter and sort by install count.
 
-![install extensions](images/tips-and-tricks/InstallExtensions.gif)
+![install extensions](images/tips-and-tricks/show-popular-extensions.png)
 
 ### Extension recommendations
 
@@ -378,21 +394,15 @@ Further reading:
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) documentation
 * [Mastering VS Code's Terminal article](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
 
-### Auto Save
-
-Open User Settings `settings.json` with `kb(workbench.action.openSettings)`
-
-```json
-"files.autoSave": "afterDelay"
-```
-
-You can also toggle Auto Save from the top-level menu with the **File** > **Auto Save**.
-
 ### Toggle Sidebar
 
 Keyboard Shortcut: `kb(workbench.action.toggleSidebarVisibility)`
 
 ![toggle side bar](images/tips-and-tricks/toggle_side_bar.gif)
+
+### Toggle Panel
+
+Keyboard Shortcut: `kb(workbench.action.togglePanel)`
 
 ### Zen mode
 
@@ -501,6 +511,20 @@ You can select blocks of text by holding `kbstyle(Shift+Alt)` (`kbstyle(Shift+Op
 
 You can also use [keyboard shortcuts](/docs/editor/codebasics.md#column-box-selection) to trigger column selection.
 
+### Vertical rulers
+
+You can add vertical column rulers to the editor with the `editor.rulers` setting, which takes an array of column character positions where you'd like vertical rulers.
+
+```json
+{
+    "editor.rulers": [
+        20, 40, 60
+    ]
+}
+```
+
+![Editor rulers in the editor](images/tips-and-tricks/editor-rulers.png)
+
 ### Fast scrolling
 
 Pressing the `kbstyle(Alt)` key enables fast scrolling in the editor and Explorers. By default, fast scrolling uses a 5X speed multiplier but you can control the multiplier with the **Editor: Fast Scroll Sensitivity** (`editor.fastScrollSensitivity`) setting.
@@ -543,6 +567,14 @@ Keyboard Shortcut: `kb(workbench.action.showAllSymbols)`
 
 ![go to symbol in workspace](images/tips-and-tricks/go_to_symbol_in_workspace.png)
 
+### Outline view
+
+The Outline view in the File Explorer (default collapsed at the bottom) shows you the symbols of the currently open file.
+
+![Outline view](images/tips-and-tricks/outline-view.png)
+
+You can sort by symbol name, category, and position in the file and allows quick navigation to symbol locations.
+
 ### Navigate to a specific line
 
 Keyboard Shortcut: `kb(workbench.action.gotoLine)`
@@ -557,6 +589,12 @@ Keyboard Shortcut: `kb(editor.action.trimTrailingWhitespace)`
 
 ![trailing whitespace](images/tips-and-tricks/trim_whitespace.gif)
 
+### Transform text commands
+
+You can change selected text to uppercase, lowercase, and title case with the **Transform** commands from the Command Palette.
+
+![Transform text commands](images/tips-and-tricks/transform-text-commands.png)
+
 ### Code formatting
 
 Currently selected source code: `kb(editor.action.formatSelection)`
@@ -570,6 +608,10 @@ Whole document format: `kb(editor.action.formatDocument)`
 Keyboard Shortcut: `kb(editor.fold)` and `kb(editor.unfold)`
 
 ![code folding](images/tips-and-tricks/code_folding.gif)
+
+You can also fold/unfold all regions in the editor with **Fold All** (`kb(editor.foldAll)`) and **Unfold All** (`kb(editor.unfoldAll)`).
+
+You can fold all block comments with **Fold All Block Comments** (`kb(editor.foldAllBlockComments)`).
 
 ### Select current line
 
@@ -800,6 +842,8 @@ View diff decorations in editor. See [documentation](/docs/editor/versioncontrol
 
 During a merge, go to the **Source Control** view (`kb(workbench.view.scm)`) and make changes in the diff view.
 
+You can resolve merge conflicts with the inline CodeLens which lets you **Accept Current Change**, **Accept Incoming Change**, **Accept Both Changes**, and **Compare Changes**.
+
 ### Set VS Code as default merge tool
 
 ```bash
@@ -837,6 +881,14 @@ Inspect variables in the **Run** panels and in the console.
 ### Inline values
 
 You can set `"debug.inlineValues": true` to see variable values inline in the debugger. This feature can be expensive and may slow down stepping, so it is disabled by default.
+
+### Logpoints
+
+Logpoints act much like breakpoints but instead of halting the debugger when they are hit, they log a message to the console. Logpoints are especially useful for injecting logging while debugging production servers that cannot be modified or paused.
+
+Add a logpoint with the **Add Logpoint** command in the left editor gutter and it will be displayed as a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
+
+![Logpoint set in the editor](images/tips-and-tricks/logpoint.png)
 
 ## Task runner
 
