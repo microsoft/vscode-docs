@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -311,6 +311,7 @@ Context name | True when
 `inZenMode` | Window is in Zen Mode.
 `isCenteredLayout` | Editor is in centered layout mode.
 `inDebugRepl` | Focus is in the Debug Console REPL.
+`workbenchState` | Can be `empty`, `folder` (1 folder), or `workspace`.
 `workspaceFolderCount` | Count of workspace folders.
 `replaceActive` | Search view Replace text box is open.
 `view` | True when view identifier matches. Example: `"view == myViewsExplorerID"`.
@@ -354,7 +355,7 @@ View Identifiers:
 * workbench.view.explorer - File Explorer
 * workbench.view.search - Search
 * workbench.view.scm - Source Control
-* workbench.view.debug - Debug
+* workbench.view.debug - Run
 * workbench.view.extensions - Extensions
 
 Panel Identifiers:
@@ -566,7 +567,7 @@ Key|Command|Command id
 `kb(workbench.view.explorer)`|Show Explorer / Toggle Focus|`workbench.view.explorer`
 `kb(workbench.view.search)`|Show Search|`workbench.view.search`
 `kb(workbench.view.scm)`|Show Source Control|`workbench.view.scm`
-`kb(workbench.view.debug)`|Show Debug|`workbench.view.debug`
+`kb(workbench.view.debug)`|Show Run|`workbench.view.debug`
 `kb(workbench.view.extensions)`|Show Extensions|`workbench.view.extensions`
 `kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
 `kb(workbench.action.quickOpenView)`|Quick Open View|`workbench.action.quickOpenView`

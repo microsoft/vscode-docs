@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 4
 Area: containers
 TOCTitle: ASP.NET Core
 ContentId: 29F731D4-C6FE-4742-A1E7-7288FDB81CB9
@@ -19,7 +19,7 @@ In this guide you will learn how to:
 
 - Docker and the VS Code Docker extension must be installed as described on the [overview](overview.md#installation).
 - For .NET development, install [.NET Core SDK](https://dotnet.microsoft.com/download).
-- [C# VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+- [C# VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 
 ## Create a .NET Core Web API project
 
@@ -152,7 +152,7 @@ You can use specific port on the host by changing the Docker run options used by
 
 ## Next steps
 
-Read on to learn more about:
+You're done! Now that your container is ready, you may want to:
 
-- [Debug .NET Core within a Docker container](/docs/containers/debug-netcore.md)
+- [Learn more about debugging .NET Core in a container](/docs/containers/debug-netcore.md)
 - [Deploy a containerized app to Azure App Service](/docs/containers/app-service.md)

@@ -14,14 +14,14 @@ MetaTags:
 ---
 # Using .NET Core in Visual Studio Code
 
-[.NET Core](https://docs.microsoft.com/dotnet/articles/welcome) provides a fast and modular platform for creating server apps that run on Windows, Linux, and macOS. Use Visual Studio Code with the C# and F# extensions to get a powerful editing experience with [C# IntelliSense](https://docs.microsoft.com/visualstudio/ide/visual-csharp-intellisense), F# IntelliSense (smart code completion), and debugging.
+[.NET Core](https://docs.microsoft.com/dotnet/core) provides a fast and modular platform for creating server apps that run on Windows, Linux, and macOS. Use Visual Studio Code with the C# and F# extensions to get a powerful editing experience with [C# IntelliSense](https://docs.microsoft.com/visualstudio/ide/visual-csharp-intellisense), F# IntelliSense (smart code completion), and debugging.
 
 ## Prerequisites
 
 Install the following:
 
-* [.NET Core](https://dotnet.microsoft.com/download). You will need both the Runtime and the SDK.
-* The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
+* [.NET Core SDK](https://dotnet.microsoft.com/download). The SDK also includes the Runtime.
+* The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the VS Code Marketplace.
 * The [F# extension (Ionide)](https://marketplace.visualstudio.com/items?itemName=Ionide.Ionide-fsharp) from the VS Code Marketplace.
 
 ## Create a C# "Hello World" app

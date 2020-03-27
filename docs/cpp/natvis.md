@@ -1,11 +1,11 @@
 ---
-Order: 11
+Order: 12
 Area: cpp
 TOCTitle: Natvis framework
 ContentId: F684A0E8-0AEB-4CA9-83E2-891CC012EA8B
-PageTitle: Pipe transport for remote communication in C++ projects
+PageTitle: The Natvis framework provides custom views for native C++ objects
 DateApproved: 07/25/2019
-MetaDescription: How to set up pipe transport for debugging C++ code in Visual Studio Code.
+MetaDescription: Learn how the Natvis framework provides custom views for native C++ objects in Visual Studio Code
 ---
 # Natvis: Custom views for native objects
 

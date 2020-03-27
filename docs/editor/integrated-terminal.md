@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 2/5/2020
+DateApproved: 3/9/2020
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -392,8 +392,8 @@ This will give you the resolved path at the end:
 From there, removing the files and relaunching VS Code should fix the issue:
 
 ```bash
-rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
-rm -R /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
+rm /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
+rm /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
 ```
 
 ### Can I use Powerline fonts in the Integrated Terminal?

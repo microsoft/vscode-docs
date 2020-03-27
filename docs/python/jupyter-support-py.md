@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 8
 Area: python
 TOCTitle: Python Interactive
 ContentId: C26E4F82-C6CD-4C52-818F-31A95F58207E
@@ -89,7 +89,7 @@ This feature requires the [Live Share extensions](https://marketplace.visualstud
 
 ## Variable explorer and data viewer
 
-Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By expanding the **Variables** section after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code. Clicking on each column header will allow you to sort the variables in the table.
+Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By expanding the **Variables** section after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code.
 
 ![Variable Explorer](images/jupyter/jupyter-variable-explorer.png)
 
