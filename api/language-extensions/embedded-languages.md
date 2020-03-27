@@ -21,7 +21,7 @@ Today, we see an increasing amount of embedded languages, such as:
 
 This guide focuses on implementing language features for embedded languages. If you are interested in providing syntax highlighting for embedded languages, you can find information on the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide#embedded-languages).
 
-This guide includes two samples that illustrates two approaches to building such a language server: **Language Services** and **Request Forwarding**. We'll take a look at both samples and conclude with each approach's pros and cons.
+This guide includes two samples that illustrates two approaches to build such a language server: **Language Services** and **Request Forwarding**. We'll take a look at both samples and conclude with each approach's pros and cons.
 
 Code for both samples can be found at:
 
@@ -41,7 +41,7 @@ A **language service** is a library that implements [programmatic language featu
 - The HTML Language Server uses [vscode-html-languageservice](https://github.com/microsoft/vscode-html-languageservice) to support HTML
 - The HTML Language Server uses [vscode-css-languageservice](https://github.com/microsoft/vscode-css-languageservice) to support CSS in HTML
 
-The HTML Language Server analyzes a HTML document, breaks it down into langauge regions, and uses the corresponding language service to handle language server requests. For example:
+The HTML Language Server analyzes a HTML document, breaks it down into language regions and uses the corresponding language service to handle language server requests. For example:
 
 - For auto-completion request at `<|`, the HTML language server uses the HTML language service to find out HTML completions.
 - For auto-completion request at `<style>.foo { | }</style>`, the HTML language server uses the CSS language service to find out CSS completions.
@@ -221,6 +221,7 @@ Language Service:
 
 - \+ Full control of the language server and the user experience
 - \+ No dependencies on other language servers. All code is in one repository
+- \+ The language server can be reused in all [LSP-compliant code editors](https://microsoft.github.io/language-server-protocol/implementors/tools/)
 - \- Might be hard to embed language services written in other languages
 - \- Need continued maintenance to get new features from language service dependencies
 
@@ -228,7 +229,8 @@ Request forwarding:
 
 - \+ Avoid issues embedding language services not written in the language server's language (e.g Embedding C# compiler in a Razor language server to support C#)
 - \+ No maintenance needed to get new features upstream from other language services
+- \+ Do not work with diagnostics errors which are pushed from Language Server
 - \- Hard to share state to other language servers because of lack of control
 - \- Cross-language features might be hard to implement (for example, providing CSS completion for `.foo` when `<div class="foo">` is present)
 
-Overall, either approach is a tradeoff, and which approach to take depends on your specific scenario.
+Overall, we recommend building a language server by embedding language services, as this approach gives you more control over the user experience and the server is reusable for any LSP-compliant editors. However, if you have a simple use case where embedded content can be easily handled without context or language server state, or if bundling the Node library is a problem for you, you can consider the Request Forwarding approach.
