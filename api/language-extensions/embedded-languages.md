@@ -213,6 +213,19 @@ let clientOptions: LanguageClientOptions = {
 }
 ```
 
+## Potential Issues
+
+While implementing embedded language servers, we have encountered many issues. Although we do not have perfect solution for all of them, we want to give you a heads-up as you are likely to encounter those issues as well.
+
+### Hard to implement language features
+
+Generally, language features that work across language region boundaries are harder to implement. For example, auto-completion or hover content is easy to implement, as you can detect the embedded content's language and simply compute a reponse based on the embedded content. However, language features such as formatting or renaming might need special handling. In the case of formatting, you need to handle indentation and formatter settings for multiple regions inside the single document. In the case of renaming, it can be much more challenging to make it work across different regions within different documents.
+
+### Langauge Services can be stateful and hard to embed
+
+VS Code's HTML support HTML, CSS and JavaScript language features. Although the HTML and CSS language services are non stateful, the TypeScript server powering JavaScript language features is. We only offer basic JavaScript support inside HTML documents because it is hard to inform TypeScript of the project's state. For example, if you include a `<script>` tag that points to the lodash library hosted on a CDN, you will not get `_.` completions inside `<script>` tags.
+
+
 ## Conclusion
 
 Both approaches have their pros and cons.
