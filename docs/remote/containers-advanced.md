@@ -348,7 +348,7 @@ To create the named local volume, follow these steps:
     "mounts": [
         "source=unique-vol-name-here,target=/root/.vscode-server/extensions,type=volume",
         // And/or for VS Code Insiders
-        "source=unique-vol-name-here-insiders,target=/.vscode-server-insiders/extensions,type=volume",
+        "source=unique-vol-name-here-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
     ]
     ```
 
