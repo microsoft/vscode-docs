@@ -244,13 +244,13 @@ Language Service:
 - \+ No dependencies on other language servers. All code is in one repository.
 - \+ The language server can be reused in all [LSP-compliant code editors](https://microsoft.github.io/language-server-protocol/implementors/tools/).
 - \- Might be hard to embed language services written in other languages.
-- \- Need continued maintenance to get new features from language service dependencies.
+- \- Needs continued maintenance to get new features from language service dependencies.
 
 Request forwarding:
 
 - \+ Avoid issues embedding language services not written in the language server's language (for example, embedding C# compiler in a Razor language server to support C#).
 - \+ No maintenance needed to get new features upstream from other language services.
-- \+ Do not work with diagnostics errors, which are pushed from Language server.
+- \+ Does not work with diagnostics errors, which are pushed from Language server.
 - \- Hard to share state to other language servers because of lack of control.
 - \- Cross-language features might be hard to implement (for example, providing CSS completion for `.foo` when `<div class="foo">` is present).
 
