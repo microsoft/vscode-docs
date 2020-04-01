@@ -41,11 +41,13 @@ Once `ALLOWED_HOSTS` have been declared, the next step is to push your Django im
 
 1. Open the **Command Palette** (`kb(workbench.action.showCommands)`) and select **Docker: Push**.
 
-1. Choose the image you just built to push into the registry. Upload progress will appear in the Terminal.
+1. Choose the image you just built to push into the registry.
 
 1. Choose the registry you created to push into. This will help with correctly tagging the image.
 
     ![Select a registry](images/quickstarts/select-registry.png)
+
+1. Once a registry and full tag have been chosen, the image will be pushed. Upload progress will appear in the Terminal.
 
 1. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Docker Explorer**, then expand the registry and image name to see the exact image. (You may need to refresh the **Docker Explorer**.)
 
