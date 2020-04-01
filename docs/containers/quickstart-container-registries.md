@@ -29,7 +29,6 @@ For each registry, users have different actions that can be performed using the 
 
 ![Azure registry context menu](images/registries/azure-registry-context-menu.png)
 
-- **Set as default**: this sets the property "docker.defaultRegistryPath" under the User settings
 - **Delete registry**: deletes the registry permanently
 - **Open in portal**: opens the browser and navigates to the registry in Azure Portal
 - **View properties**: opens the registry properties in a json format

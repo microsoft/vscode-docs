@@ -12,19 +12,9 @@ MetaSocialImage: images/tutorial/social.png
 
 ## Create a container registry
 
-Container registries are a secure online repository of images. With proper authentication, they enable cloud services such as Azure App Service to download the image and instantiate any number of running containers. This [cloud-native](https://azure.microsoft.com/overview/cloudnative/) best practice makes it possible to scale out a web app to handle increased loads.
+Create a container registry to push images to. For more information about how to authenticate to and work with registries see [Using container registries](/docs/containers/quickstart-container-registries.md) page.
 
-Registry options include the following:
-
-- The [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/), a private, secure, hosted registry for your images.
-- [Docker Hub](https://hub.docker.com/), Docker's own hosted registry that provides a free way to share images.
-- A private registry running on your own server, as described on [Docker registry](https://docs.docker.com/registry/) in the Docker documentation.
-
-To create an Azure Container Registry:
-
-1. Follow [Quickstart: Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal), but stop before "Push image to ACR". Django deployments must include the following settings to work properly.
-
-1. Make sure that the registry endpoint you created is visible under **Registries** in the **Docker Explorer** of VS Code:
+Make sure that the registry endpoint you created is visible under **Registries** in the **Docker Explorer** of VS Code:
 
     ![Docker Explorer in VS Code showing registries](images/quickstarts/python-django-registries.png)
 
@@ -49,11 +39,13 @@ To create an Azure Container Registry:
 
 Once `ALLOWED_HOSTS` have been declared, the next step is to push your Django image to a container registry:
 
-1. Ensure your image is tagged with the correct path registry path (for example, `username.azurecr.io/django-tutorial:latest`).
-
 1. Open the **Command Palette** (`kb(workbench.action.showCommands)`) and select **Docker: Push**.
 
 1. Choose the image you just built to push into the registry. Upload progress will appear in the Terminal.
+
+1. Choose the registry you created to push into. This will help with correctly tagging the image.
+
+    ![Select a registry](images/quickstarts/select-registry.png)
 
 1. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Docker Explorer**, then expand the registry and image name to see the exact image. (You may need to refresh the **Docker Explorer**.)
 
