@@ -62,3 +62,15 @@ If you want to remove all your data from our servers, just turn off sync via the
 ### Can I access history of remote preferences?
 
 Currently not, but [this is planned](https://github.com/microsoft/vscode/issues/85619) before the feature leaves preview.
+
+## Troubleshooting keychain issues
+
+Settings Sync persists authentication information to the system keychain. Writing to the keychain can fail in some cases if the keychain is misconfigured.
+
+### macOS
+
+If the keychain throws the error "The user name or passphrase you entered is not correct.", open the Keychain Access app, right click on the `login` keychain, and lock and unlock it again. This was first reported in [issue #76](https://github.com/atom/node-keytar/issues/76) as a problem after upgrading to macOS High Sierra, but it has also been reported on more recent macOS versions.
+
+### Linux
+
+If the keychain throws the error "No such interface “org.freedesktop.Secret.Collection” on object at path /org/freedesktop/secrets/collection/login", try following the steps described in [issue #92972](https://github.com/microsoft/vscode/issues/92972#issuecomment-602919353) to create a new keyring.
