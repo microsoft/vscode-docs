@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 ## Create a container registry
 
-Create a container registry to push images to. For more information about how to authenticate to and work with registries see [Using container registries](/docs/containers/quickstart-container-registries.md) page.
+Create a container registry to push images to. For more information about how to authenticate to and work with registries, see [Using container registries](/docs/containers/quickstart-container-registries.md).
 
 Make sure that the registry endpoint you created is visible under **Registries** in the **Docker Explorer** of VS Code:
 
@@ -47,7 +47,7 @@ Once `ALLOWED_HOSTS` have been declared, the next step is to push your Django im
 
     ![Select a registry](images/quickstarts/select-registry.png)
 
-1. Once a registry and full tag have been chosen, the image will be pushed. Upload progress will appear in the Terminal.
+1. Once a registry and full tag have been chosen, the image will be pushed. Upload progress will appear in the **Terminal** window.
 
 1. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Docker Explorer**, then expand the registry and image name to see the exact image. (You may need to refresh the **Docker Explorer**.)
 
