@@ -115,7 +115,7 @@ In this example, VS Code adds an import for `Button` from [material-ui](https://
 
 To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
-> **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code your code with the `javascript.preferences.quoteStyle` and `javascript.preferences.importModuleSpecifier` settings.
+> **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `javascript.preferences.quoteStyle` and `javascript.preferences.importModuleSpecifier` settings.
 
 ## Formatting
 
