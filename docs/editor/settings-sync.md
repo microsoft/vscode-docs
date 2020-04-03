@@ -37,6 +37,7 @@ All built-in and installed extensions are synchronized along with their global e
 
 Following UI State is synchronized currently:
 
+- Display Language
 - Activity Bar entries
 - Panel entries
 - Views layout and visibility
