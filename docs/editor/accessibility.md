@@ -123,7 +123,8 @@ There is limited screen reader support for the editor with VoiceOver.
 Screen reader support for the editor is still work in progress because the accessibility implementation for Chrome on Linux is work in progress.
 Thus there are a couple of things needed in order to have screen reader Orca working with VS Code:
 
-* Make sure to use the latest version of Orca out of master. More details can be found on the [Orca page](https://github.com/GNOME/orca). We have tested it works with Ubuntu 18 and with Ubuntu 19 we have encountered issues.
+* Make sure to use the latest version of Orca out of master. More details can be found on the [Orca page](https://github.com/GNOME/orca).
+* We have tested that VS Code works well with Orca on Ubuntu 18, Fedora 31, Arch Linux. With Ubuntu 19 we have encountered issues.
 * Make sure to have the setting `"editor.accessibilitySupport": "on"` in VS Code. You can do this using settings, or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn on accessibilitySupport.
 
 After enabling that setting, VS Code should work with the Orca screen reader.
