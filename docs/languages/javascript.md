@@ -230,7 +230,7 @@ The JavaScript references CodeLens displays an inline count of reference for cla
 
 ![JavaScript references CodeLens](images/javascript/references-codelens.png)
 
-To enable the references code lens, set `"javascript.referencesCodeLens.enabled"` to `true`.
+To enable the references CodeLens, set `"javascript.referencesCodeLens.enabled"` to `true`.
 
 Click on the reference count to quickly browse a list of references:
 

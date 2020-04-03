@@ -347,7 +347,7 @@ To see editor rulers, define their location with `"editor.rulers"`
 
 CodeLens:
 
-![Code Lenses](images/theme-color/codelens.png)
+![CodeLens](images/theme-color/codelens.png)
 
 - `editorCodeLens.foreground`: Foreground color of an editor CodeLens.
 
