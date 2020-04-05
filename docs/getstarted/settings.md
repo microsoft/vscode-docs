@@ -31,7 +31,7 @@ To open your user and workspace settings, use the following VS Code menu command
 
 You can also open the Settings editor from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
 
-In the example below, the color theme and the icon theme have been changed.
+In the example below, the color theme and the file icon theme have been changed.
 
 ![Example Settings](images/settings/settings.png)
 
@@ -826,7 +826,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls whether an editor is revealed in any of the visible groups if opened. If disabled, an editor will prefer to open in the currently active editor group. If enabled, an already opened editor will be revealed instead of opened again in the currently active editor group. Note that there are some cases where this setting is ignored, e.g. when forcing an editor to open in a specific group or to the side of the currently active group.
 	"workbench.editor.revealIfOpen": false,
 
-	// Controls whether opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
+	// Controls whether opened editors should show with an icon or not. This requires a file icon theme to be enabled as well.
 	"workbench.editor.showIcons": true,
 
 	// Controls whether opened editors should show in tabs or not.

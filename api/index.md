@@ -25,7 +25,7 @@ If you are looking for published extensions, head to the [VS Code Extension Mark
 
 Here are some examples of what you can achieve with the Extension API:
 
-- Change the look of VS Code with a color or icon theme - [Theming](/api/extension-capabilities/theming)
+- Change the look of VS Code with a color or file icon theme - [Theming](/api/extension-capabilities/theming)
 - Add custom components & views in the UI - [Extending the Workbench](/api/extension-capabilities/extending-workbench)
 - Create a Webview to display a custom webpage built with HTML/CSS/JS - [Webview Guide](/api/extension-guides/webview)
 - Support a new programming language - [Language Extensions Overview](/api/language-extensions/overview)

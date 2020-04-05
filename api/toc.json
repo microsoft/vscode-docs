@@ -36,7 +36,7 @@
       ["Overview", "/api/extension-guides/overview"],
       ["Command", "/api/extension-guides/command"],
       ["Color Theme", "/api/extension-guides/color-theme"],
-      ["Icon Theme", "/api/extension-guides/icon-theme"],
+      ["File Icon Theme", "/api/extension-guides/file-icon-theme"],
       ["Tree View", "/api/extension-guides/tree-view"],
       ["Webview", "/api/extension-guides/webview"],
       ["Virtual Documents", "/api/extension-guides/virtual-documents"],
