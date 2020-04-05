@@ -438,3 +438,24 @@ This happens when you have legacy console mode enabled in conhost's properties. 
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
 
 The terminal can have problems rendering in some environments, for example you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.rendererType": "dom"` to avoid using the canvas in the terminal.
+
+### Why are there duplicate paths in the terminal's `$PATH` environment variable and/or why are they reversed?
+
+This happens on macOS in particular because of how the terminal launches using VS Code's environment. When VS Code launches for the first time, in order to source your "development environment", it launches your configured shell as a _login shell_ which runs your `~/.profile`/`~/.bash_profile`/`~/.zprofile` scripts. Now when the terminal launches it also runs as a login shell which will put the standard paths into the front (eg. `/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin`) and re-initialize your shell environment.
+
+To help you understand this a little more, you can simulate what is happening by launching an inner login shell within your operating system's builtin terminal:
+
+```sh
+# Add /test to the beginning of $PATH
+export PATH=/test:$PATH
+# Echo $PATH, /test should be at the beginning
+echo $PATH
+# Run bash as a login shell
+bash -l
+# Echo $PATH, the values should be jumbled
+echo $PATH
+```
+
+Unfortunately, unlike in Linux, standalone macOS terminals all run as login shells by default since macOS does not run a login shell when the user logs into the system. This encourages "bad behavior" like initializing aliases in your profile script when they should live in your rc script as that runs on non-login shells.
+
+There are two direct fixes for this, you can set `"terminal.integrated.inheritEnv": false` which will strip most environment variables away from the terminal's environment except for some key ones (like `HOME`, `SHELL`, `TMPDIR`, etc.). The other fix is to no longer run a login shell in the terminal by setting `"terminal.integrated.shellArgs": []`, if you go with this fix you will want to make sure any aliases in your profile scripts are moved over to your `~/.bashrc`/`~/.zshrc` file since aliases only apply to the shell they're set in.
