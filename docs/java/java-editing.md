@@ -1,7 +1,7 @@
 ---
 Order: 2
 Area: java
-TOCTitle: Working with source code
+TOCTitle: Work with source code
 ContentId: 843e139a-9e3c-4b4f-95d1-32a9a7480e8e
 PageTitle: Working with Java source code in Visual Studio Code
 DateApproved: 6/17/2019
