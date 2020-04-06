@@ -31,6 +31,7 @@ VSCode uses a two step approach:
 - [Semantic tokenization](#semantic-tokenization) is optional on applied on top of syntax tokens. Semantic tokens come from language servers. A language server has the full understanding of the source file and can classify each symbol identifier with the symbol it resolves to. A constant variable name is rendered as constant throughout the file, not just in its declaration. Same for parameter names, property names, class names and so on.
 As language servers take a while to load and analyze the project, semantic tokens come in with a delay.
 
+Before diving into the details, a good start is to play with the [scope inspector](#scope-inspector) and explore what tokens are present in a source file. To see both semantic and syntax token, use a built-in theme (e.g. Dark+) on a TypeScipt file.
 
 ## Syntax tokenization
 
@@ -411,7 +412,7 @@ The scope inspector displays the following information:
 
 1. The current token.
 1. Metadata about the token and information about its computed appearance. If you are working with embedded languages, the important entries here `language` and `token type`.
-1. The semantic token section only is shown when the current theme supports semantic highlighting and there is a semantic token provider available for the current language. It shows the current semantic token type and modifiers alonng with the theme rules that match the current semantic token type and modifiers.
-1. The TextMate section shows the  scope list for the current TextMate token, with the most specific scope at the top. It also sThows the theme rules that apply to the token. This only shows the theme rules that are responsible for the token's current style, it does not show overridden rules. If semantic tokens are present, the theme rules are only shown when they differ from the rule matching the semantic token.
+1. The semantic token section is only shown when a semantic token provider is available for the current language and when the current theme supports semantic highlighting. It shows the current semantic token type and modifiers along with the theme rules that match the semantic token type and modifiers.
+1. The TextMate section shows the scope list for the current TextMate token, with the most specific scope at the top. It also shows the most specific theme rules that match the scopes. This only shows the theme rules that are responsible for the token's current style, it does not show overridden rules. If semantic tokens are present, the theme rules are only shown when they differ from the rule matching the semantic token.
 
 [tm-grammars]: https://macromates.com/manual/en/language_grammars
