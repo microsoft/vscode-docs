@@ -304,6 +304,10 @@ Context name | True when
 `timelineFollowActiveEditor` | True if the Timeline view is following the active editor.
 **Timeline item contexts** |
 `timelineItem` | True when the timeline item's context value matches. Example: `"timelineItem =~ /git:file:commit\\b/"`.
+**Extension contexts** |
+`extension` | True when the extension's ID matches. Example: `"extension == eamodio.gitlens"`.
+`extensionStatus` | True when the extension is installed. Example: `"extensionStatus == installed"`.
+`extensionHasConfiguration` | True if the extension has configuration.
 **Global UI contexts** |
 `notificationFocus` | Notification has keyboard focus.
 `notificationCenterVisible` | Notification Center is visible at the bottom right of VS Code.
