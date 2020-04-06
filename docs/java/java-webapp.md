@@ -1,5 +1,4 @@
 ---
-Order: 8
 Area: java
 TOCTitle: Java Web App
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
