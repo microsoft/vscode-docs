@@ -145,7 +145,7 @@ You can disable a built-in theme extension as you would any other VS Code [exten
 
 ![disable theme](images/themes/disable-theme.png)
 
-# Icon Themes
+# File Icon Themes
 
 File icon themes can be contributed by extensions and selected by users as their favorite set of file icons. File icons are shown in the File Explorer and tabbed headings.
 
@@ -158,22 +158,22 @@ File icon themes can be contributed by extensions and selected by users as their
 
 ![file icon theme drop-down](images/themes/file-icon-theme-dropdown.png)
 
-By default, the **Seti** file icon set is used and those are the icons you see in the File Explorer. Once an icon theme is selected, the selected theme will be remembered and appear again whenever VS Code is restarted. You can disable file icons by selecting **None**.
+By default, the **Seti** file icon set is used and those are the icons you see in the File Explorer. Once an file icon theme is selected, the selected theme will be remembered and appear again whenever VS Code is restarted. You can disable file icons by selecting **None**.
 
-VS code ships with two icon themes; **Minimal** and **Seti**. To install more icon themes, select the **Install Additional File Icon Themes** item in the icon theme picker and you'll see a query for file icon themes (tag:icon-theme) in the Extensions view.
+VS code ships with two file icon themes; **Minimal** and **Seti**. To install more file icon themes, select the **Install Additional File Icon Themes** item in the file icon theme picker and you'll see a query for file icon themes (tag:icon-theme) in the Extensions view.
 
 You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
 
 The active File Icon theme is persisted in your user [settings](/docs/getstarted/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
 
 ```json
-  // Specifies the icon theme used in the workbench.
+  // Specifies the file icon theme used in the workbench.
   "workbench.iconTheme": "vs-seti"
 ```
 
 ## Creating your own File Icon Theme
 
-You can create your own File Icon Theme from icons (preferably SVG), see the [Icon Theme](/api/extension-guides/icon-theme.md) topic in our Extension API section for details.
+You can create your own File Icon Theme from icons (preferably SVG), see the [File Icon Theme](/api/extension-guides/file-icon-theme.md) topic in our Extension API section for details.
 
 ## Next steps
 
@@ -183,4 +183,4 @@ Themes are just one way to customize VS Code. If you'd like to learn more about 
 * [Snippets](/docs/editor/userdefinedsnippets.md) - Add additional snippets to your favorite language.
 * [Extension API](/api) - Learn about other ways to extend VS Code.
 * [Color Theme](/api/extension-guides/color-theme.md) - Color Theme extension API.
-* [Icon Theme](/api/extension-guides/icon-theme.md) - Icon Theme extension API.
+* [FIle Icon Theme](/api/extension-guides/file-icon-theme.md) - File Icon Theme extension API.
