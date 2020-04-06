@@ -13,16 +13,30 @@ Syntax highlighting determines the color and style of source code displayed in t
 
 There are two components to syntax highlighting:
 
-- Breaking text into a list of tokens and scopes using a grammar
-- Then using a theme to map these scopes to specific colors and styles
+- Breaking text into a list of tokens
+- Using a theme to map the tokens to specific colors and styles
 
-This document only discusses the first part: breaking text into tokens and scopes that existing color themes can colorize. For more information about customizing the styling of different scopes in the editor, see the [Color Theme Guide](/api/extension-guides/color-theme#syntax-colors)
+This document discusses the first part: breaking text into syntax and semantic tokens.
 
-## TextMate grammars
+How tokens are mapped to colors and styles is covered in the [Color Theme Guide](/api/extension-guides/color-theme#syntax-colors).
 
-VS Code uses [TextMate grammars][tm-grammars] to break text into a list of tokens. TextMate grammars are a structured collection of [Oniguruma regular expressions](https://macromates.com/manual/en/regular_expressions) and are typically written as a plist or JSON. You can find a good introduction to TextMate grammars [here](https://www.apeth.com/nonblog/stories/textmatebundle.html), and you can take a look at existing TextMate grammars to learn more about how they work.
+## Tokenization
 
-### Tokens and scopes
+The tokenization of text is about breaking the text into segments and to classify each segment with a token type.
+
+VSCode uses a two step approach:
+
+- [Syntax tokenization](#syntax-tokenization) is based on lexical rules that are expressed as regular expressions contained in a TextMate grammar. The TextMate engine runs in the same process as the renderer and tokens are updated as the user types.
+
+- [Semantic tokenization](#semantic-tokenization) is optional on applied on top of syntax tokens. Semantic tokens come from language servers. A language server has the full understanding of the source file and can classify each symbol identifier with the symbol it resolves to. A constant variable name is rendered as constant throughout the file, not just in its declaration. Same for parameter names, property names, class names and so on.
+As language servers take a while to load and analyze the project, semantic tokens come in with a delay.
+
+
+## Syntax tokenization
+
+VS Code uses [TextMate grammars][tm-grammars] as the syntax tokenization engine. TextMate grammars are a structured collection of [Oniguruma regular expressions](https://macromates.com/manual/en/regular_expressions) and are typically written as a plist or JSON. You can find a good introduction to TextMate grammars [here](https://www.apeth.com/nonblog/stories/textmatebundle.html), and you can take a look at existing TextMate grammars to learn more about how they work.
+
+### TextMate tokens and scopes
 
 Tokens are one or more characters that are part of the same program element. Example tokens include operators such as `+` and `*`, variable names such as `myVar`, or strings such as `"my string"`.
 
@@ -156,7 +170,7 @@ The `embeddedLanguages` contribution point maps a scope in the embedded language
 
 Now if you try to comment code or trigger snippets inside an set of tokens marked `meta.embedded.block.javascript`, they will get the correct `//` JavaScript style comment and the correct JavaScript snippets.
 
-## Developing a new grammar extension
+### Developing a new grammar extension
 
 To quickly create a new grammar extension, use [VS Code's Yeoman templates](/api/get-started/your-first-extension) to run `yo code` and select the `New Language` option:
 
@@ -178,13 +192,13 @@ After answering all the questions, Yeoman will create a new extension with the s
 
 Remember, if you are contributing a grammar to a language that VS Code already knows about, be sure to delete the `languages` contribution point in the generated `package.json`.
 
-### Converting an existing TextMate grammar
+#### Converting an existing TextMate grammar
 
 `yo code` can also help convert an existing TextMate grammar to a VS Code extension. Again, start by running `yo code` and selecting `Language extension`. When asked for an existing grammar file, give it the full path to either a `.tmLanguage` or `.json` TextMate grammar file:
 
 ![Converting an existing TextMate grammar](images/syntax-highlighting/yo-convert.png)
 
-### Using YAML to write a grammar
+#### Using YAML to write a grammar
 
 As a grammar grows more complex, it can become difficult to understand and maintain it as json. If you find yourself writing complex regular expressions or needing to add comments to explain aspects of the grammar, consider using yaml to define your grammar instead.
 
@@ -202,29 +216,8 @@ $ npm install js-yaml --save-dev
 $ npx js-yaml syntaxes/abc.tmLanguage.yaml > syntaxes/abc.tmLanguage.json
 ```
 
-### Scope inspector
 
-VS Code's built-in scope inspector tool helps debug grammars. It displays the scopes for the token at the current position in a file, along with metadata about which theme rules apply to that token.
-
-Trigger the scope inspector from the Command Palette with the `Developer: Inspect Editor Tokens and Scopes` command or [create a keybinding](/docs/getstarted/keybindings) for it:
-
-```json
-{
-  "key": "cmd+alt+shift+i",
-  "command": "editor.action.inspectTMScopes"
-}
-```
-
-![scope inspector](images/syntax-highlighting/scope-inspector.png)
-
-The scope inspector displays the following information:
-
-1. The current token.
-1. Metadata about the token and information about its computed appearance. If you are working with embedded languages, the important entries here `language` and `token type`.
-1. Theme rules that apply to the token. This only shows the theme rules that are responsible for the token's current style, it does not show overridden rules.
-1. Complete scope list, with the most specific scope at the top.
-
-## Injection grammars
+### Injection grammars
 
 Injection grammars let you extend an existing grammar. An injection grammar is a regular TextMate grammar that is injected into a specific scope within an existing grammar. Example applications of injection grammars:
 
@@ -232,7 +225,7 @@ Injection grammars let you extend an existing grammar. An injection grammar is a
 - Add more specific scope information to an existing grammar.
 - Adding highlighting for a new language to Markdown fenced code blocks.
 
-### Creating a basic injection grammar
+#### Creating a basic injection grammar
 
 Injection grammars are contributed though the `package.json` just like regular grammars. However, instead of specifying a `language`, an injection grammar uses `injectTo` to specify a list of target language scopes to inject the grammar into.
 
@@ -274,7 +267,7 @@ The grammar itself is a standard TextMate grammar except for the top level `inje
 
 The `L:` in the injection selector means that the injection is added to the left of existing grammar rules. This basically means that our injected grammar's rules will be applied before any existing grammar rules.
 
-### Embedded languages
+#### Embedded languages
 
 Injection grammars can also contribute embedded languages to their parent grammar. Just like with a normal grammar, an injection grammars can use `embeddedLanguages` to map scopes from the embedded language to a top level language scope.
 
@@ -297,7 +290,7 @@ An extension that highlights sql queries in javascript strings for example may u
 }
 ```
 
-### Token types and embedded languages
+#### Token types and embedded languages
 
 There is one additional complication for injection languages embedded languages: by default, VS Code treats all tokens within a string as string contents and all tokens with a comment as token content. Since features such as bracket matching and auto closing pairs are disabled inside of strings and comments, if the embedded language appears inside a string or comment, these features will also be disabled in the embedded language.
 
@@ -324,5 +317,101 @@ If you can't add a `meta.embedded.*` scope to your grammar, you can alternativel
   }
 }
 ```
+
+## Semantic Tokenization
+
+Semantic tokenization has been added a new feature in 1.44. It allows language servers to provide additional token information based on the language server's knowledge on symbols in the source file. Themes can opt-in to use that information to improve and refine the syntax highlighting based on the TextMate grammar. The editor applies the highlighting that comes from semantic tokens on top of the highlighting from syntax tokens.
+.
+To do so, language extensions can register a `semantic token provider` by document language and/or file name. The editor will make requests to the providers when semantic tokens are needed.
+
+```ts
+const tokenTypes = ['class', 'interface', 'enum', 'function', 'variable'];
+const tokenModifiers = ['declaration', 'documentation'];
+const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers);
+
+const documentSemanticHighlightProvider: vscode.DocumentSemanticTokensProvider = {
+  provideDocumentSemanticTokens(document: vscode.TextDocument): vscode.ProviderResult<vscode.SemanticTokens> {
+    // analyze the document and return semantic tokens
+  }
+};
+
+const selector = { language: 'java', scheme: 'file' };
+
+vscode.languages.registerDocumentSemanticTokensProvider(selector, documentSemanticHighlightProvider, legend);
+```
+
+The semantic token provider API comes in several flavors to accomodate each language servers capabilities, and each token provider can decide which APIs to implement.
+
+- provide all tokens of a document
+- provide all tokens of a document as a delta to the previous response
+- provide all tokens of a document range
+
+Each token returned by the provider comes with a classification that consists of a token type, any number of token modifiers and a token language. This information is similar than the TextMate scopes described above, but we chose to define a new, cleaner classification system.
+
+
+### Semantic Token Classification
+
+These are the standard semantic token types and semantic token modifiers predefined by VSCode.
+
+  - standard semantic token types:
+      - namespace,
+      - type, class, enum, interface, struct, typeParameter
+      - parameter, variable, property, enumMember, event
+      - function, member, macro
+      - label,
+      - comment, string, keyword, number, regexp, operator
+  - standard semantic token modifiers:
+      - declaration
+      - readonly, static, deprecated, abstract
+      - async, modification, documentation, defaultLibrary
+
+Themes can define rules that directly match against the semantic token types and modifiers. Additionally, VSCode has map from semantic tokens to TextMate scopes and can use the TextMate scopes as fallback when a theme does not define a semantic token themeing rule.
+
+Extensions can define new types and modifiers through the `semanticTokenTypes` and `semanticTokenModifiers` contribution points. Additionally, the `semanticTokenScopes` contribution point allows to extend the semantic tokens to TextMate scopes map.
+```json
+{
+  "contributes": {
+    "semanticTokenTypes": [{
+      "id": "templateType",
+      "superType": "type",
+      "description": "A template type."
+    }],
+    "semanticTokenModifiers": [{
+      "id": "native",
+      "description": "Annotates a symbol that is implemented nativly"
+    }],
+    "semanticTokenScopes": [
+      {
+        "language": "cpp",
+        "scopes": {
+          "templateType": [ "entity.name.type.template.cpp" ]
+        }
+      }
+    ]
+  }
+}
+```
+
+## Scope inspector
+
+VS Code's built-in scope inspector tool helps debug grammars and semantic tokens. It displays the scopes for the token and the semantic tokens at the current position in a file, along with metadata about which theme rules apply to that token.
+
+Trigger the scope inspector from the Command Palette with the `Developer: Inspect Editor Tokens and Scopes` command or [create a keybinding](/docs/getstarted/keybindings) for it:
+
+```json
+{
+  "key": "cmd+alt+shift+i",
+  "command": "editor.action.inspectTMScopes"
+}
+```
+
+![scope inspector](images/syntax-highlighting/scope-inspector.png)
+
+The scope inspector displays the following information:
+
+1. The current token.
+1. Metadata about the token and information about its computed appearance. If you are working with embedded languages, the important entries here `language` and `token type`.
+1. The semantic token section only is shown when the current theme supports semantic highlighting and there is a semantic token provider available for the current language. It shows the current semantic token type and modifiers alonng with the theme rules that match the current semantic token type and modifiers.
+1. The TextMate section shows the  scope list for the current TextMate token, with the most specific scope at the top. It also sThows the theme rules that apply to the token. This only shows the theme rules that are responsible for the token's current style, it does not show overridden rules. If semantic tokens are present, the theme rules are only shown when they differ from the rule matching the semantic token.
 
 [tm-grammars]: https://macromates.com/manual/en/language_grammars
