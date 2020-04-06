@@ -300,6 +300,10 @@ Context name | True when
 **Integrated terminal contexts** |
 `terminalFocus` | An integrated terminal has focus.
 `terminalIsOpen` | An integrated terminal is opened.
+**Timeline contexts** |
+`timelineFollowActiveEditor` | True if the Timeline view is following the active editor.
+**Timeline item contexts** |
+`timelineItem` | True when the timeline item's context value matches. Example: `"timelineItem =~ /git:file:commit\\b/"`.
 **Global UI contexts** |
 `notificationFocus` | Notification has keyboard focus.
 `notificationCenterVisible` | Notification Center is visible at the bottom right of VS Code.

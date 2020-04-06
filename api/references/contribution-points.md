@@ -343,6 +343,8 @@ Currently extension writers can contribute to:
 - The comment thread context menu - `comments/commentThread/context`
 - The comment title menu bar - `comments/comment/title`
 - The comment context menu - `comments/comment/context`
+- The timeline title menu bar - `timeline/title`
+- The timeline item context menu - `timeline/item/context`
 
 > **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
@@ -428,6 +430,12 @@ The **editor title menu** has these default groups:
 - `1_diff` - Commands related to working with diff editors.
 - `3_open` - Commands related to opening editors.
 - `5_close` - Commands related to closing editors.
+
+The **timeline item context menu** has these default groups:
+
+- `inline` - Important or frequently used timeline item commands. Rendered as a toolbar.
+- `1_actions` - Commands related to working with timeline items.
+- `5_copy` - Commands related to copying timeline item information.
 
 ### Sorting inside groups
 
