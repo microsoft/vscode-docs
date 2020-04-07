@@ -154,6 +154,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.filterMatchBackground`: Background color of the filtered matches in lists and trees.
 - `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
 - `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
+- `list.deemphasizedForeground`: List/Tree foreground color for items that are deemphasized.
 
 ## Activity Bar
 
@@ -605,6 +606,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `pickerGroup.foreground`: Quick picker (Quick Open) color for grouping labels.
 - `quickInput.background`: Quick input background color. The quick input widget is the container for views like the color theme picker.
 - `quickInput.foreground`: Quick input foreground color. The quick input widget is the container for views like the color theme picker.
+- `quickInputTitle.background`: Quick picker title background color. The quick picker widget is the container for pickers like the command palette.
 
 ## Integrated Terminal colors
 
