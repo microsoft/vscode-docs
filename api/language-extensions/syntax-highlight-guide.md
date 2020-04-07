@@ -4,7 +4,7 @@ ContentId: 2bb06188-d394-4b98-872c-0bf26c8a674d
 DateApproved: 3/9/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: A guide to
+MetaDescription: A guide to syntax highlighting
 ---
 
 # Syntax Highlight Guide
@@ -13,12 +13,10 @@ Syntax highlighting determines the color and style of source code displayed in t
 
 There are two components to syntax highlighting:
 
-- Breaking text into a list of tokens
-- Using a theme to map the tokens to specific colors and styles
+- [Tokenization](#tokenization): Breaking text into a list of tokens
+- [Theming](#theming): Using themes or user settings to map the tokens to specific colors and styles
 
-This document discusses the first part: breaking text into syntax and semantic tokens.
-
-How tokens are mapped to colors and styles is covered in the [Color Theme Guide](/api/extension-guides/color-theme#syntax-colors).
+Before diving into the details, a good start is to play with the [scope inspector](#scope-inspector) and explore what tokens are present in a source file and what theme rules they match to. To see both semantic and syntax token, use a built-in theme (e.g. Dark+) on a TypeScript file.
 
 ## Tokenization
 
@@ -30,8 +28,6 @@ VSCode uses a two step approach:
 
 - [Semantic tokenization](#semantic-tokenization) is optional on applied on top of syntax tokens. Semantic tokens come from language servers. A language server has the full understanding of the source file and can classify each symbol identifier with the symbol it resolves to. A constant variable name is rendered as constant throughout the file, not just in its declaration. Same for parameter names, property names, class names and so on.
 As language servers take a while to load and analyze the project, semantic tokens come in with a delay.
-
-Before diving into the details, a good start is to play with the [scope inspector](#scope-inspector) and explore what tokens are present in a source file. To see both semantic and syntax token, use a built-in theme (e.g. Dark+) on a TypeScipt file.
 
 ## Syntax tokenization
 
@@ -151,7 +147,7 @@ Note that text that is not matched by one of the rules, such as the string `xyz`
 
 If your grammar include embedded languages within the parent language, such as CSS style blocks in HTML, you can use the `embeddedLanguages` contribution point to tell VS Code to treat the embedded language as distinct from the parent language. This ensures that bracket matching, commenting, and other basic language features work as expected in the embedded language.
 
-The `embeddedLanguages` contribution point maps a scope in the embedded language to a top level language scope. In the example below, any tokens in the `meta.embedded.block.javascript` scope will be treated as javascript content:
+The `embeddedLanguages` contribution point maps a scope in the embedded language to a top level language scope. In the example below, any tokens in the `meta.embedded.block.javascript` scope will be treated as JavaScript content:
 
 ```json
 {
@@ -230,7 +226,7 @@ Injection grammars let you extend an existing grammar. An injection grammar is a
 
 Injection grammars are contributed though the `package.json` just like regular grammars. However, instead of specifying a `language`, an injection grammar uses `injectTo` to specify a list of target language scopes to inject the grammar into.
 
-For this example, we'll create a very simple injection grammar that highlights `TODO` as a keyword in javascript comments. To apply our injection grammar in javascript files, we use the `source.js` target language scope in `injectTo`:
+For this example, we'll create a very simple injection grammar that highlights `TODO` as a keyword in JavaScript comments. To apply our injection grammar in JavaScript files, we use the `source.js` target language scope in `injectTo`:
 
 ```json
 {
@@ -272,7 +268,7 @@ The `L:` in the injection selector means that the injection is added to the left
 
 Injection grammars can also contribute embedded languages to their parent grammar. Just like with a normal grammar, an injection grammars can use `embeddedLanguages` to map scopes from the embedded language to a top level language scope.
 
-An extension that highlights sql queries in javascript strings for example may use `embeddedLanguages` to make sure all token inside the string marked `meta.embedded.inline.sql` are treated as sql for basic language features such as bracket matching and snippet selection.
+An extension that highlights SQL queries in JavaScript strings for example may use `embeddedLanguages` to make sure all token inside the string marked `meta.embedded.inline.sql` are treated as SQL for basic language features such as bracket matching and snippet selection.
 
 ```json
 {
@@ -330,45 +326,50 @@ const tokenTypes = ['class', 'interface', 'enum', 'function', 'variable'];
 const tokenModifiers = ['declaration', 'documentation'];
 const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers);
 
-const documentSemanticHighlightProvider: vscode.DocumentSemanticTokensProvider = {
+const provider: vscode.DocumentSemanticTokensProvider = {
   provideDocumentSemanticTokens(document: vscode.TextDocument): vscode.ProviderResult<vscode.SemanticTokens> {
     // analyze the document and return semantic tokens
   }
 };
 
-const selector = { language: 'java', scheme: 'file' };
+const selector = { language: 'java', scheme: 'file' }; // register for all Java documents from the local file system
 
-vscode.languages.registerDocumentSemanticTokensProvider(selector, documentSemanticHighlightProvider, legend);
+vscode.languages.registerDocumentSemanticTokensProvider(selector, provider, legend);
 ```
 
-The semantic token provider API comes in several flavors to accomodate each language servers capabilities, and each token provider can decide which APIs to implement.
+The semantic token provider API comes in 2 flavors to accommodate each language servers capabilities
 
-- provide all tokens of a document
-- provide all tokens of a document as a delta to the previous response
-- provide all tokens of a document range
+`DocumentSemanticTokensProvider` always takes a full document as input
+
+- `provideDocumentSemanticTokens`: provides all tokens of a document
+- `provideDocumentSemanticTokensEdits`: provides all tokens of a document as a delta to the previous response
+
+The `DocumentRangeSemanticTokensProvider` works only on a range:
+
+- `provideDocumentRangeSemanticTokens`: provides all tokens of a document range
 
 Each token returned by the provider comes with a classification that consists of a token type, any number of token modifiers and a token language. This information is similar than the TextMate scopes described above, but we chose to define a new, cleaner classification system.
 
+As seen in the example above, the provider names the types and modifiers it's going to use in a `SemaniticTokensLegend`. That allows the `provide` APIs to return token types and modifies as an index to the legend.
 
 ### Semantic Token Classification
 
 These are the standard semantic token types and semantic token modifiers predefined by VSCode.
 
   - standard semantic token types:
-      - namespace,
+      - namespace
       - type, class, enum, interface, struct, typeParameter
       - parameter, variable, property, enumMember, event
       - function, member, macro
-      - label,
+      - label
       - comment, string, keyword, number, regexp, operator
   - standard semantic token modifiers:
       - declaration
       - readonly, static, deprecated, abstract
       - async, modification, documentation, defaultLibrary
 
-Themes can define rules that directly match against the semantic token types and modifiers. Additionally, VSCode has map from semantic tokens to TextMate scopes and can use the TextMate scopes as fallback when a theme does not define a semantic token themeing rule.
+Extensions can define new types and modifiers through the `semanticTokenTypes` and `semanticTokenModifiers` contribution points.
 
-Extensions can define new types and modifiers through the `semanticTokenTypes` and `semanticTokenModifiers` contribution points. Additionally, the `semanticTokenScopes` contribution point allows to extend the semantic tokens to TextMate scopes map.
 ```json
 {
   "contributes": {
@@ -380,18 +381,122 @@ Extensions can define new types and modifiers through the `semanticTokenTypes` a
     "semanticTokenModifiers": [{
       "id": "native",
       "description": "Annotates a symbol that is implemented nativly"
-    }],
+    }]
+  }
+}
+```
+A contributed type can name a super type from which it will inherit all styling rules.
+
+
+### Semantic Token Scope Map
+
+Color themes can define rules that directly match against the semantic token types and modifiers. This is described in the [Semantic Theming Rule](#semantic theming rules) section.
+
+However, in order to make semantic highlighting also work for themes that have not defined any specific semantic rules and to serve as fallback for custom token types and modifiers, VSCode maintains a map from semantic token selectors to TextMate scopes.
+
+If a theme has semantic highlighting enabled, but does not contain a rule for the given semantic token, these TextMate scopes are used to find a TextMate theming rule instead.
+
+The following table shows the predefined mappings.
+
+| Semantic Token Selector       | Fallback TextMate Scope                   |
+| ----------------------------- | -------------------------------- |
+| `namespace`|`entity.name.namespace`|
+| `type`|`entity.name.type`|
+| `type.defaultLibrary`|`support.type`|
+| `struct`|`storage.type.struct`|
+| `class`|`entity.name.type.class`|
+| `class.defaultLibrary`|`support.class`|
+| `interface`|`entity.name.type.interface`|
+| `enum`|`entity.name.type.enum`|
+| `function`|`entity.name.function`|
+| `function.defaultLibrary`|`support.function`|
+| `member`|`entity.name.function.member`|
+| `macro`|`entity.name.other.preprocessor.macro`|
+| `variable`|`variable.other.readwrite` , `entity.name.variable`|
+| `variable.readonly`|`variable.other.constant`|
+| `variable.readonly.defaultLibrary`|`support.constant`|
+| `parameter`|`variable.parameter`|
+| `property`|`variable.other.property`|
+| `property.readonly`|`variable.other.constant.property`|
+| `enumMember`|`variable.other.enummember`|
+| `event`|`variable.other.event`|
+
+
+This map can be extended by new rules through the `semanticTokenScopes` contribution point.
+
+There are two use cases for extensions to do that:
+
+- The extension that defines custom token types and token modifiers provides TextMate scopes as fallback when a theme does not define a theming rule for the added semantic token type or modifiers:
+```json
+{
+  "contributes": {
     "semanticTokenScopes": [
       {
-        "language": "cpp",
         "scopes": {
-          "templateType": [ "entity.name.type.template.cpp" ]
+          "templateType": [ "entity.name.type.template" ]
         }
       }
     ]
   }
 }
 ```
+
+- The provider of a TextMate grammar can describe the language specific scopes. That helps with themes that contain language specific theming rules.
+```json
+{
+  "contributes": {
+    "semanticTokenScopes": [
+      {
+        "language": "typescript",
+        "scopes": {
+          "property.readonly": ["variable.other.constant.property.ts"],
+        }
+      }
+    ]
+  }
+}
+```
+
+## Theming
+
+Theming is about assigning colors and styles to tokens. Theming rules are specified in color themes, but users can customize the theming rules in the user settings.
+
+Themes always define TextMate theming rules in the `tokenColors` section. The `semanticHighlighting` setting allows themes to specify whether they supports semantic highlighting as well. Optionally, themes can define theming rules rules for semantic tokens in the `semanticTokenColors` section.
+
+
+The [Color Theme Guide](/api/extension-guides/color-theme#syntax-colors) describes how to create a color theme.
+
+
+### TextMate theming
+
+TextMate theme rules are defined in `tokenColors` and have the same syntax as regular TextMate themes. Each rule defines a TextMate scope selector and a resulting color and style.
+
+When evaluating the color and style of a token, the current token's scope is matched against the rule's selector to find the most specific rule for each style property (foreground, bold, italic, underline)
+
+### Semantic theming
+
+Using the `semanticHighlighting` setting, a theme can tell the editor whether semantic tokens should be shown or not.
+
+If enabled, semantic tokens are first matched against the semantic token rules defined in `semanticTokenColors`:
+
+```json
+{
+	"semanticTokenColors": {
+		"variable.readonly:java": "#ff0000"
+	}
+}
+```
+`variable.readonly:java` is called a selector and has the form (*|type)(.modifier)*(:language)?
+
+Here are other examples of selectors and styles:
+
+  - "*.declaration": { "fontStyle": "bold" }: // all declarations are bold
+  - "class:java": { "foreground": "#00ff00" "fontStyle": "bold" } // classes in java
+
+The semantic token selector has the format `(*|tokenType)(.tokenModifier)*(:tokenLanguage)?`.
+
+
+If no rule matches, the VSCode uses the [Semantic Token Scope Map][#semantic-token-scope-map] to evaluate a TextMate scope for the given semantic token. That scope is matched against the TextMate theming rules in `tokenColors`.
 
 ## Scope inspector
 
