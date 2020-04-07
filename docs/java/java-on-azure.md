@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 9
 Area: java
 TOCTitle: Java on Azure
 ContentId: 01210769-05be-4854-9482-13e342850ad7

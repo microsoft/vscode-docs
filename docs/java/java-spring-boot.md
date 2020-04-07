@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 7
 Area: java
 TOCTitle: Spring Boot
 ContentId: d37118cf-1b5b-4aee-9727-52fcfcac16bd
