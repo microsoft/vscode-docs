@@ -22,7 +22,7 @@ Before diving into the details, a good start is to play with the [scope inspecto
 
 The tokenization of text is about breaking the text into segments and to classify each segment with a token type.
 
-VSCode uses a two step approach:
+VS Code uses a two step approach:
 
 - [Syntax tokenization](#syntax-tokenization) is based on lexical rules that are expressed as regular expressions contained in a TextMate grammar. The TextMate engine runs in the same process as the renderer and tokens are updated as the user types.
 
