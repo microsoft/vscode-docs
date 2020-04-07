@@ -111,7 +111,8 @@ Having the generated JavaScript file in the same folder as the TypeScript source
 }
 ```
 
-Delete `helloworld.js`, run `tsc` again and `helloworld.js` will be placed in the `out` directory.
+Delete `helloworld.js`, run just the command `tsc`.
+You will see `helloworld.js` will be placed in the `out` directory.
 
 See [Compiling TypeScript](/docs/typescript/typescript-compiling.md) to learn about other features of the TypeScript language service and how to use tasks to run your builds directly from VS Code.
 
