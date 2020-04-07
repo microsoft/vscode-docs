@@ -78,38 +78,25 @@ We will cover using a container as your full-time development environment first.
 
 Let's start by using a sample project to try things out.
 
-1. Clone one of the sample repositories below.
-
-    ```bash
-    git clone https://github.com/Microsoft/vscode-remote-try-node
-    git clone https://github.com/Microsoft/vscode-remote-try-python
-    git clone https://github.com/Microsoft/vscode-remote-try-go
-    git clone https://github.com/Microsoft/vscode-remote-try-java
-    git clone https://github.com/Microsoft/vscode-remote-try-dotnetcore
-    git clone https://github.com/Microsoft/vscode-remote-try-php
-    git clone https://github.com/Microsoft/vscode-remote-try-rust
-    git clone https://github.com/Microsoft/vscode-remote-try-cpp
-    ```
-
-2. Start VS Code and click on the quick actions Status Bar item in the lower left corner of the window.
+1. Start VS Code, and in a new window, click on the quick actions Status Bar item in the lower left corner.
 
     ![Quick actions Status bar item](images/common/remote-dev-status-bar.png)
 
-3. Select **Remote-Containers: Open Folder in Container...** from the command list that appears, and open the root folder of the project you just cloned.
+2. Select **Remote-Containers: Try a Sample...** from the command list that appears and select sample from the list.
 
-4. The window will then reload, but since the container does not exist yet, VS Code will create one. This may take some time, and a progress notification will provide status updates. Fortunately, this step isn't necessary the next time you open the folder since the container will already exist.
+    ![Select a sample from the list](images/containers/select-a-sample.png)
+
+3. The window will then reload, but since the container does not exist yet, VS Code will create one and clone the sample repository into an isolated [container volume](https://docs.docker.com/storage/volumes/). This may take some time, and a progress notification will provide status updates. Fortunately, this step isn't necessary the next time you open the folder since the container will already exist.
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-5. After the container is built, VS Code automatically connects to it and maps the project folder from your local file system into the container. Check out the **Things to try** section of `README.md` in the repository you cloned to see what to do next.
+4. After the container is built, VS Code automatically connects to it and maps the project folder from your local file system into the container. Check out the **Things to try** section of `README.md` in the repository you cloned to see what to do next.
 
-> **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
+You may be wondering where the repository source code is located. In this case, the source code is stored in a [container volume](https://docs.docker.com/storage/volumes/) which is not directly accessible from your local operating system. However, you can work with content in your local filesystem from a container as well! We'll cover that next.
 
 ## Quick start: Open an existing folder in a container
 
-Next we will cover how to set up a dev container for an existing project to use as your full-time development environment.
-
-The steps are similar to those above:
+Next we will cover how to set up a dev container for an existing project to use as your full-time development environment using existing source code on your filesystem. Follow these steps:
 
 1. Start VS Code, run the **Remote-Containers: Open Folder in Container...** command from the Command Palette (`kbstyle(F1)`) or quick actions Status bar item, and select the project folder you would like to set up the container for.
 
@@ -137,6 +124,8 @@ You can now interact with your project in VS Code just as you could when opening
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
 
+While using this approach to [bind mount](https://docs.docker.com/storage/bind-mounts/) the local filesystem into a container is convenient, it does have some performance overhead on Windows and macOS. There are [some techniques](/docs/remote/containers-advanced.md#improving-container-disk-performance) that you can apply to improve disk performance, or you can [open a repository in a container using a isolated container volume](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) instead.
+
 ### Open an existing workspace in a container
 
 You can also follow a similar process to open a [VS Code multi-root workspace](/docs/editor/multi-root-workspaces) in a **single container** if the workspace only **references relative paths to sub-folders of the folder the `.code-workspace` file is in (or the folder itself).**
@@ -149,6 +138,40 @@ You can either:
 Once connected, you may want to **add the `.devcontainer` folder** to the workspace so you can easily edit its contents if it is not already visible.
 
 Also note that, while you cannot use multiple containers for the same workspace in the same VS Code window, you can use [multiple Docker Compose managed containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) from separate windows.
+
+## Quick start: Open a Git repository or GitHub PR in an isolated container volume
+
+While you can [open a locally cloned repository in a container](#quick-start-open-an-existing-folder-in-a-container), you may want to work with an isolated copy of a repository for a PR review or to investigate another branch without impacting your work.
+
+Repository Containers use isolated, local Docker volumes instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS. (See [Advanced Configuration](/docs/remote/containers-advanced.md#improving-container-disk-performance) for information on how to use these types of volumes in other scenarios.)
+
+For example, follow these steps to open one of the "try" repositories in a Repository Container:
+
+1. Start VS Code and run **Remote-Containers: Open Repository in Container...** from the Command Palette (`kbstyle(F1)`).
+
+2. Enter `microsoft/vscode-remote-try-node` (or one of the other "try" repositories), a Git URI, a GitHub branch URL, or a GitHub PR URL in the input box that appears and press `kbstyle(Enter)`.
+
+    ![Input box with a repository name in it](images/containers/vscode-remote-try-node.png)
+
+    > **Tip:** If you choose a private repository, you may want to setup a credential manager or add your SSH keys to your SSH agent. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container).
+
+3. If your repository does not have a `.devcontainer/devcontainer.json` file in it, you'll be asked to pick a starting point from a filterable list or an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) (if one exists).
+
+    > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
+
+    ![Select a node dev container definition](images/containers/select-dev-container-def.png)
+
+    Note the dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
+
+4. The VS Code window (instance) will reload, clone the source code, and start building the dev container. A progress notification provides status updates.
+
+    ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+
+5. After the build completes, VS Code will automatically connect to the container.
+
+You can now work with the repository source code in this isolated environment as you would if you had cloned the code locally.
+
+> **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
 
 ## Quick start: Configure a sandbox for multiple projects or folders
 
@@ -198,30 +221,6 @@ Let's set up a container for use with all of the Python projects in the `./Repos
     ![Container explorer with multiple folders under python container](images/containers/containers-explorer-python.png)
 
 > **Tip:** Instead of mounting the local filesystem, you can use a similar flow to set up a container with an isolated, more performant volume that you clone your source code into. See the [Advanced Containers](/docs/remote/containers-advanced.md#use-a-named-volume-for-your-entire-source-tree) article for details.
-
-## Quick start: Open a Git repository in an isolated container volume
-
-While you can [open a locally cloned repository in a container](#quick-start-open-an-existing-folder-in-a-container), you may want to work with an isolated copy of a repository for a PR review or to investigate another branch without impacting your work. If you are working with a GitHub repository with an existing `devcontainer.json` file, you can use a Repository Container instead.
-
-Repository Containers use isolated, local Docker volumes instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS. (See [Advanced Configuration](/docs/remote/containers-advanced.md#improving-container-disk-performance) for information on how to use these types of volumes in other scenarios.)
-
-For example, follow these steps to open one of the "try" repositories in a Repository Container:
-
-1. Start VS Code and run **Remote-Containers: Open Repository in Container...** from the Command Palette (`kbstyle(F1)`).
-
-2. Enter `microsoft/vscode-remote-try-node` (or one of the other "try" repositories) in the input box that appears and press `kbstyle(Enter)`.
-
-    ![Input box with a repository name in it](images/containers/vscode-remote-try-node.png)
-
-    > **Tip:** If you choose a private repository, you may want to setup a credential manager or add your SSH keys to your SSH agent. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container).
-
-3. The VS Code window (instance) will reload, clone the source code, and start building the dev container. A progress notification provides status updates.
-
-    ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
-
-4. After the build completes, VS Code will automatically connect to the container.
-
-You can now work with the repository source code in this isolated environment as you would if you had cloned the code locally.
 
 ## Creating a devcontainer.json file
 
