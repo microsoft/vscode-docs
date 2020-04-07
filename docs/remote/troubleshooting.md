@@ -541,6 +541,29 @@ git config --global core.autocrlf false
 
 Finally, you may need to clone the repository again for these settings to take effect.
 
+### Setting the project name for Docker Compose
+
+VS Code will respect the value of [the `COMPOSE_PROJECT_NAME` environment variable](https://docs.docker.com/compose/reference/envvars/#compose_project_name) if set for the VS Code process or in a `.env` file in the root of the project.
+
+For example, after shutting down all VS Code windows, you can start VS Code from the command line as follows:
+
+```bash
+# from bash
+COMPOSE_PROJECT_NAME=foo code .
+```
+
+```PowerShell
+# from PowerShell
+$env:COMPOSE_PROJECT_NAME=foo
+code .
+```
+
+Or add the following to a `.env` file in the root of the project (**not** in the `.devcontainer` folder):
+
+```
+COMPOSE_PROJECT_NAME=foo
+```
+
 ### Avoid setting up Git in a container when using Docker Compose
 
 See [Sharing Git credentials with your container](/docs/remote/containers.md#sharing-git-credentials-with-your-container) in the main containers article for information on resolving this issue.
