@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 ---
 # Remote Development Tips and Tricks
 
@@ -158,11 +158,8 @@ If you are still having trouble, set the following properties in `settings.json`
 
 ```json
 "remote.SSH.showLoginTerminal": true,
-"remote.SSH.useLocalServer": false,
-"remote.SSH.windowsRemotes": ["<your remote's hostname>"]
+"remote.SSH.useLocalServer": false
 ```
-
-The last property is only required if you are connecting to a Windows host.
 
 **Work around a bug with some versions of Windows OpenSSH server**
 
@@ -171,8 +168,15 @@ Due to a bug in certain versions of OpenSSH server for Windows, the default chec
 Fortunately, you can work around this problem by specifically telling VS Code if your SSH host is running Windows by adding the following to `settings.json`:
 
 ```json
-"remote.SSH.useLocalServer": false,
-"remote.SSH.windowsRemotes": ["<your remote's hostname>"]
+"remote.SSH.useLocalServer": false
+```
+
+You can also force VS Code to identify a particular host as Windows using the following property:
+
+```json
+"remote.SSH.remotePlatform": {
+    "host-in-ssh-config-or-fqdn": "windows"
+}
 ```
 
 A fix has been merged so this problem should be resolved in a version of the server greater than 8.1.0.0.
@@ -249,11 +253,8 @@ If you are still having trouble, you may need to the following properties in `se
 
 ```json
 "remote.SSH.showLoginTerminal": true,
-"remote.SSH.useLocalServer": false,
-"remote.SSH.windowsRemotes": ["<your remote's hostname>"]
+"remote.SSH.useLocalServer": false
 ```
-
-The last property is only required if you are connecting to a Windows host.
 
 If you are on macOS and Linux and want to reduce how often you have to enter a password or token, you can enable the `ControlMaster` feature on your **local machine** so that OpenSSH runs multiple SSH sessions over a single connection.
 
@@ -492,6 +493,8 @@ If you are running into Docker issues or would prefer not to run Docker locally,
 
 5. **Switch out of "Linux Containers on Windows (LCOW)" mode.** While disabled by default, recent versions of Docker support [Linux Containers on Windows (LCOW)](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers) that can allow you to use both Windows and Linux containers at the same time. However, this is a new feature, so you may encounter issues and the Remote - Containers extension only supports Linux containers currently. You can switch out of LCOW mode at any time by right-clicking on the Docker task bar item and selecting **Switch to Linux Containers...** from the context menu.
 
+6. **Enable experimental Docker WSL2 support in VS Code settings to work with content stored in the WSL2 filesystem.** If you are using [Docker Desktop's WSL2 engine](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can enable experimental support in the Remote - Containers extension that will allow you to open folders from the `\\wsl$` share in a container. Simply check **Remote > Containers: Experimental WSL** in [VS Code settings](/docs/getstarted/settings.md) and restart VS Code. See [this excellent blog post](https://stuartleeks.com/posts/vscode-devcontainers-wsl/) for complete setup details.
+
 If you are still having trouble, see the [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot/#volumes).
 
 ### Enabling file sharing in Docker Desktop
@@ -531,7 +534,7 @@ If you would prefer to still always upload Unix-style line endings (LF), you can
 git config --global core.autocrlf input
 ```
 
-If you'd prefer to disable line ending conversation entirely, run the following instead:
+If you'd prefer to disable line-ending conversion entirely, run the following instead:
 
 ```bash
 git config --global core.autocrlf false
@@ -706,6 +709,7 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 * [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
 * [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance)
 * [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced.md#avoiding-extension-reinstalls-on-container-rebuild)
+* [Setting the project name for Docker Compose](/docs/remote/containers-advanced.md#setting-the-project-name-for-docker-compose)
 * [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
 * [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
 * [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
@@ -826,7 +830,7 @@ For large workspace you may want to increase the polling interval, `remote.WSL.f
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 
-Since Windows and Linux use different default line endings, Git may report a large number of modified files that have no differences aside from their line endings. To prevent this from happening, you can disable line ending conversion using a `.gitattributes` file or globally on the Windows side.
+Since Windows and Linux use different default line endings, Git may report a large number of modified files that have no differences aside from their line endings. To prevent this from happening, you can disable line-ending conversion using a `.gitattributes` file or globally on the Windows side.
 
 Typically adding or modifying a  `.gitattributes` file in your repository is the most reliable way to solve this problem. Committing this file to source control will help others and allows you to vary behaviors by repository as appropriate. For example, adding the following to `.gitattributes` file to the root of your repository will force everything to be LF, except for Windows batch files that require CRLF:
 
@@ -844,7 +848,7 @@ If you would prefer to still always upload Unix-style line endings (LF), you can
 git config --global core.autocrlf input
 ```
 
-If you'd prefer to disable line ending conversation entirely, run the following instead:
+If you'd prefer to disable line-ending conversion entirely, run the following instead:
 
 ```bash
 git config --global core.autocrlf false
