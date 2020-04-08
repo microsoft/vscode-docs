@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 ---
 # Remote Development using SSH
 
@@ -67,19 +67,25 @@ To connect to a remote host for the first time, follow these steps:
 
     ![Illustration of user@host input box](images/ssh/ssh-user@box.png)
 
-3. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up-to-date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
+3. If VS Code cannot automatically detect the type of server you are connecting to, you will be asked to select the type manually.
+
+    ![Illustration of platform selection](images/ssh/ssh-select-platform.png)
+
+    Once you select a platform, it will be stored in [VS Code settings](/docs/getstarted/settings.md) under the `remote.SSH.remotePlatform` property so you can change it at any time.
+
+4. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up-to-date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
 
     > **Tip:** Connection hanging or failing? See [troubleshooting tips](/docs/remote/troubleshooting.md#troubleshooting-hanging-or-failing-connections) for information on resolving common problems.
     >
     > If you see errors about SSH file permissions, see the section on [Fixing SSH file permission errors](/docs/remote/troubleshooting.md#fixing-ssh-file-permission-errors).
 
-4. After you are connected, you'll be in an empty window. You can always refer to the Status bar to see which host you are connected to.
+5. After you are connected, you'll be in an empty window. You can always refer to the Status bar to see which host you are connected to.
 
     ![SSH Status bar item](images/ssh/ssh-statusbar.png)
 
     Clicking on the Status bar item will provide a list of remote commands while you are connected.
 
-5. You can then open any folder or workspace on the remote machine using **File > Open...** or **File > Open Workspace...** just as you would locally!
+6. You can then open any folder or workspace on the remote machine using **File > Open...** or **File > Open Workspace...** just as you would locally!
 
     ![File Open on a remote SSH host](images/ssh/ssh-open-folder.png)
 

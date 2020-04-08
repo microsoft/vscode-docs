@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 ---
 # Remote Development Tips and Tricks
 
@@ -158,11 +158,8 @@ If you are still having trouble, set the following properties in `settings.json`
 
 ```json
 "remote.SSH.showLoginTerminal": true,
-"remote.SSH.useLocalServer": false,
-"remote.SSH.windowsRemotes": ["<your remote's hostname>"]
+"remote.SSH.useLocalServer": false
 ```
-
-The last property is only required if you are connecting to a Windows host.
 
 **Work around a bug with some versions of Windows OpenSSH server**
 
@@ -171,8 +168,15 @@ Due to a bug in certain versions of OpenSSH server for Windows, the default chec
 Fortunately, you can work around this problem by specifically telling VS Code if your SSH host is running Windows by adding the following to `settings.json`:
 
 ```json
-"remote.SSH.useLocalServer": false,
-"remote.SSH.windowsRemotes": ["<your remote's hostname>"]
+"remote.SSH.useLocalServer": false
+```
+
+You can also force VS Code to identify a particular host as Windows using the following property:
+
+```json
+"remote.SSH.remotePlatform": {
+    "host-in-ssh-config-or-fqdn": "windows"
+}
 ```
 
 A fix has been merged so this problem should be resolved in a version of the server greater than 8.1.0.0.
@@ -249,11 +253,8 @@ If you are still having trouble, you may need to the following properties in `se
 
 ```json
 "remote.SSH.showLoginTerminal": true,
-"remote.SSH.useLocalServer": false,
-"remote.SSH.windowsRemotes": ["<your remote's hostname>"]
+"remote.SSH.useLocalServer": false
 ```
-
-The last property is only required if you are connecting to a Windows host.
 
 If you are on macOS and Linux and want to reduce how often you have to enter a password or token, you can enable the `ControlMaster` feature on your **local machine** so that OpenSSH runs multiple SSH sessions over a single connection.
 
