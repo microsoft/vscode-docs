@@ -8,7 +8,7 @@ MetaDescription: How to configure and troubleshoot debugging of Python apps runn
 
 # Debug Python within a container
 
-When adding Docker files to a Python project, tasks, and launch configurations are added to enable debugging the application within a Docker container. To accommodate the various scenarios of Python projects, some apps may require additional configuration.
+When adding Docker files to a Python project, tasks and launch configurations are added to enable debugging the application within a Docker container. To accommodate the various scenarios of Python projects, some apps may require additional configuration.
 
 ## Configuring the Docker container entry point
 
@@ -149,3 +149,9 @@ To debug your app running with Gunicorn (or any other web server):
 1. Set a breakpoint in the chosen file.
 1. Navigate to **Run and Debug** and select the **Python: Remote Attach** launch configuration.
 1. Hit `kb(workbench.action.debug.start)` to attach the debugger.
+
+## Next steps
+
+Learn more about:
+
+- [Configuring a non-root user in your container](/docs/containers/python-user-rights.md)

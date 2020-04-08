@@ -53,7 +53,7 @@ After verifying your app runs properly, you can now Dockerize your application.
 
     >**Tip**: You may also enter the path to a folder name as long as this folder includes a `__main__.py` file.
 
-1. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000 while Flask defaults to port 5000; however, any unused port will work.
+1. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000 while Flask defaults to port 5000; however, any unused port will work. We recommend selecting port 1024 or above to mitigate security concerns from [running as a root user](/docs/containers/python-user-rights.md).
 
 1. With all of this information, the Docker extension creates the following files:
 
@@ -64,7 +64,7 @@ After verifying your app runs properly, you can now Dockerize your application.
     - If Docker Compose was selected, a `docker-compose.yml` file.
 
     - If one does not already exist, a `requirements.txt` file for capturing all app dependencies.
-    > **Tip**: If the virtual environment/host machine is meant to be identical to the container, ensure app dependencies are ported over by running `pip freeze > requirements.txt` in the terminal to overwrite this file.
+    > **Important note**: To use our setup, the Python framework (Django/Flask) and Gunicorn **must be included** in the `requirements.txt` file. If the virtual environment/host machine already has these prerequisites installed and is supposed to be identical to the container environment, ensure app dependencies are ported over by running `pip freeze > requirements.txt` in the terminal. **This will overwrite your current `requirements.txt` file.**
 
 ### File modifications for Django/Flask apps
 
