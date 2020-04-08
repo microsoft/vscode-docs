@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Install the extension
 PageTitle: Install the Visual Studio Remote - Containers extension
 MetaDescription: Install the Visual Studio Remote - Containers extension
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 ---
 # Install the extension
 

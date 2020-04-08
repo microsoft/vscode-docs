@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: b76a223a-a210-4bdb-b537-36c1ea6814ae
-DateApproved: 3/30/2020
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to create Language Servers to provide rich language features for embedded programming languages in Visual Studio Code.
@@ -242,7 +242,7 @@ VS Code's HTML support provides HTML, CSS, and JavaScript language features. Alt
 
 ### Encoding and decoding
 
-The main language of a document might have a different encoding or escaping rules than its embedded language. For example, this HTML document is invalid according to [HTML spec](https://www.w3.org/TR/html401/appendix/notes.html#h-B.3.2):
+The main language of a document might have a different encoding or escaping rules than its embedded language. For example, this HTML document is invalid according to the [HTML spec](https://www.w3.org/TR/html401/appendix/notes.html#h-B.3.2):
 
 ```html
 <SCRIPT type="text/javascript">
