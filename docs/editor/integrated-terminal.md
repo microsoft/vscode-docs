@@ -423,12 +423,15 @@ By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. You can co
 }
 ```
 
-### How do I fix the error "ConnectNamedPipe failed: Windows error 232"
+### How do I fix the errors "ConnectNamedPipe failed: Windows error 232" or terminal exited with code x on Windows
 
 This error can occur due to anti-virus software intercepting winpty from creating a pty. To work around this error, you can exclude the following file from your anti-virus scanning:
 
 ```bash
+<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty.dll
 <install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
+<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\conpty.node
+<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\conpty_console_list.node
 ```
 
 ### How do I fix when a terminal exits with error code 3221225786 on Windows?

@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 ---
 # Advanced Container Configuration
 
@@ -471,6 +471,29 @@ Note that on Alpine Linux, you'll need to install the `shadow` package first.
 
 ```Dockerfile
 RUN apk add --no-cache shadow
+```
+
+## Setting the project name for Docker Compose
+
+VS Code will respect the value of [the `COMPOSE_PROJECT_NAME` environment variable](https://docs.docker.com/compose/reference/envvars/#compose_project_name) if set for the VS Code process or in a `.env` file in the root of the project.
+
+For example, after shutting down all VS Code windows, you can start VS Code from the command line as follows:
+
+```bash
+# from bash
+COMPOSE_PROJECT_NAME=foo code .
+```
+
+```PowerShell
+# from PowerShell
+$env:COMPOSE_PROJECT_NAME=foo
+code .
+```
+
+Or add the following to a `.env` file in the root of the project (**not** in the `.devcontainer` folder):
+
+```
+COMPOSE_PROJECT_NAME=foo
 ```
 
 ## Using Docker or Kubernetes from a container
