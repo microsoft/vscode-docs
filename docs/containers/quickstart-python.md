@@ -64,7 +64,7 @@ After verifying your app runs properly, you can now Dockerize your application.
     - If Docker Compose was selected, a `docker-compose.yml` file.
 
     - If one does not already exist, a `requirements.txt` file for capturing all app dependencies.
-    > **Tip**: If the virtual environment/host machine is meant to be identical to the container, ensure app dependencies are ported over by running `pip freeze > requirements.txt` in the terminal to overwrite this file.
+    > **Important note**: To use our setup, the Python framework (Django or Flask) and Gunicorn **must be included** in the `requirements.txt` file. If the virtual environment/host machine already has these prerequisites installed and is supposed to be identical to the container environment, ensure app dependencies are ported over by running `pip freeze > requirements.txt` in the terminal. **This will overwrite your current `requirements.txt` file.**
 
 ### File modifications for Django/Flask apps
 
