@@ -1,6 +1,6 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
-ContentId:
+ContentId: b76a223a-a210-4bdb-b537-36c1ea6814ae
 DateApproved: 3/30/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
@@ -185,8 +185,9 @@ const virtualDocumentContents = new Map<string, string>()
 workspace.registerTextDocumentContentProvider('embedded-content', {
   provideTextDocumentContent: uri => {
     // Remove leading `/` and ending `.css` to get original URI
-    const originalUri = uri.fsPath.slice(1).slice(0, -4)
-    return virtualDocumentContents.get(originalUri)
+    const originalUri = uri.path.slice(1).slice(0, -4);
+    const decodedUri = decodeURIComponent(originalUri);
+    return virtualDocumentContents.get(decodedUri);
   }
 })
 ```

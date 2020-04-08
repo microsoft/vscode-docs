@@ -98,8 +98,14 @@ VS Code will remember unsaved changes to files when you exit by default. Hot exi
 You can configure hot exit by setting `files.hotExit` to the following values:
 
 * `"off"`: Disable hot exit.
-* `"onExit"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu). All windows with backups will be restored upon next launch.
+* `"onExit"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu). All windows without folders opened will be restored upon next launch.
 * `"onExitAndWindowClose"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu), and also for any window with a folder opened regardless of whether it is the last window. All windows without folders opened will be restored upon next launch. To restore folder windows as they were before shutdown, set `window.restoreWindows` to `all`.
+
+If something happens to go wrong with hot exit, all backups are stored in the following folders for standard install locations:
+
+- **Windows** `%APPDATA%\Code\Backups`
+- **macOS** `$HOME/Library/Application Support/Code/Backups`
+- **Linux** `$HOME/.config/Code/Backups`
 
 ## Find and Replace
 

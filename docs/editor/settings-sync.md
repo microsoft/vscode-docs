@@ -25,7 +25,7 @@ After making this selection, the browser will open so that you can sign in to a 
 
 ## Configuring synced data
 
-Machine settings (with `machine` or `machine-overridable` [scopes](updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `sync.ignoredSettings`.
+Machine settings (with `machine` or `machine-overridable` [scopes](/updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `sync.ignoredSettings`.
 
 ![Settings Sync ignored settings](images/settings-sync/sync-ignored-settings.png)
 
