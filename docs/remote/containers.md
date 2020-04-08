@@ -167,9 +167,11 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
     ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
 
-5. After the build completes, VS Code will automatically connect to the container.
+    If you pasted in a Github pull request URL in step 2, the PR will be automatically checked out and the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension will be installed in the container. The extension provides additional PR related features like a PR explorer, interacting with PR comments inline, and status bar visibility.
 
-You can now work with the repository source code in this isolated environment as you would if you had cloned the code locally.
+    ![PR status in status bar](images/containers/checkout-pr-status.png)
+
+5. After the build completes, VS Code will automatically connect to the container.You can now work with the repository source code in this isolated environment as you would if you had cloned the code locally.
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
 
