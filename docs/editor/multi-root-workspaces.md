@@ -216,7 +216,6 @@ Workspace scoped launch configurations live in the `"launch"` section of the wor
 
 ![Workspace Settings](images/multi-root-workspaces/workspace-settings.png)
 
-
 Alternatively, new launch configurations can be added via the "Add Config (workspace)" entry of the Launch Configuration drop-down menu:
 
 ![Add Config](images/multi-root-workspaces/add-config.png)
@@ -280,7 +279,7 @@ From the TSLint extension [Workspace](https://github.com/Microsoft/vscode-tslint
 
 ### Workspace task configuration
 
-Workspace scoped tasks live in the `"tasks"` section of the workspace configuration file (**Workspaces: Open Workspace Configuration File** in the Command Palette). Only `"shell"` and `"process"` type tasks can be defined in the workspace configuration file. 
+Workspace scoped tasks live in the `"tasks"` section of the workspace configuration file (**Workspaces: Open Workspace Configuration File** in the Command Palette). Only `"shell"` and `"process"` type tasks can be defined in the workspace configuration file.
 
 ## Source Control
 

@@ -394,9 +394,9 @@ Examples:
 }
 ```
 
-## Welcome Content
+## Welcome content
 
-If your view can be empty, or if you want to contribute welcome content to another extension's empty view, you can contribute `viewsWelcome` content. An empty view is a view that has no `message` and an empty tree.
+If your view can be empty, or if you want to add Welcome content to another extension's empty view, you can contribute `viewsWelcome` content. An empty view is a view that has no `message` and an empty tree.
 
 ```json
 "contributes": {
@@ -411,7 +411,7 @@ If your view can be empty, or if you want to contribute welcome content to anoth
 
 ![Welcome Content](images/tree-view/welcome-content.png)
 
-Links are supported in welcome content. By convention, a link on line by itself is a button. Each welcome content can also contain a `when` clause. For more examples, see the [built-in git extension](https://github.com/microsoft/vscode/tree/master/extensions/git).
+Links are supported in Welcome content. By convention, a link on a line by itself is a button. Each Welcome content can also contain a `when` clause. For more examples, see the [built-in Git extension](https://github.com/microsoft/vscode/tree/master/extensions/git).
 
 ## TreeDataProvider
 

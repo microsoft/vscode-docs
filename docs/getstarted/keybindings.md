@@ -300,9 +300,9 @@ Context name | True when
 **Integrated terminal contexts** |
 `terminalFocus` | An integrated terminal has focus.
 `terminalIsOpen` | An integrated terminal is opened.
-**Timeline contexts** |
+**Timeline view contexts** |
 `timelineFollowActiveEditor` | True if the Timeline view is following the active editor.
-**Timeline item contexts** |
+**Timeline view item contexts** |
 `timelineItem` | True when the timeline item's context value matches. Example: `"timelineItem =~ /git:file:commit\\b/"`.
 **Extension contexts** |
 `extension` | True when the extension's ID matches. Example: `"extension == eamodio.gitlens"`.
