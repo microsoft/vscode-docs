@@ -32,6 +32,12 @@ Here's the embedded language server we'll be building:
 
 ![sample](images/embedded-languages/embedded-lsp-sample.gif)
 
+Both samples contribute a new language, `html1`, for illustration purpose. You can create a file `.html1` and test the following functionalities:
+
+- Completions for HTML tags
+- Completions for CSS in `<style>` tag
+- Diagnostics for CSS (only in the Language Services sample)
+
 ## Language Services
 
 A **language service** is a library that implements [programmatic language features](/api/language-extensions/programmatic-language-features) for a single language. A **language server** can embed language services to handle embedded languages.
