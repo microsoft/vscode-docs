@@ -533,7 +533,7 @@ If you would prefer to still always upload Unix-style line endings (LF), you can
 git config --global core.autocrlf input
 ```
 
-If you'd prefer to disable line ending conversation entirely, run the following instead:
+If you'd prefer to disable line-ending conversion entirely, run the following instead:
 
 ```bash
 git config --global core.autocrlf false
@@ -851,7 +851,7 @@ For large workspace you may want to increase the polling interval, `remote.WSL.f
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 
-Since Windows and Linux use different default line endings, Git may report a large number of modified files that have no differences aside from their line endings. To prevent this from happening, you can disable line ending conversion using a `.gitattributes` file or globally on the Windows side.
+Since Windows and Linux use different default line endings, Git may report a large number of modified files that have no differences aside from their line endings. To prevent this from happening, you can disable line-ending conversion using a `.gitattributes` file or globally on the Windows side.
 
 Typically adding or modifying a  `.gitattributes` file in your repository is the most reliable way to solve this problem. Committing this file to source control will help others and allows you to vary behaviors by repository as appropriate. For example, adding the following to `.gitattributes` file to the root of your repository will force everything to be LF, except for Windows batch files that require CRLF:
 
@@ -869,7 +869,7 @@ If you would prefer to still always upload Unix-style line endings (LF), you can
 git config --global core.autocrlf input
 ```
 
-If you'd prefer to disable line ending conversation entirely, run the following instead:
+If you'd prefer to disable line-ending conversion entirely, run the following instead:
 
 ```bash
 git config --global core.autocrlf false
