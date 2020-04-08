@@ -952,6 +952,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/custom-editors</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/api/extension-guides/virtual-documents</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
