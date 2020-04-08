@@ -11,7 +11,7 @@ MetaDescription: Configure the C++ extension in Visual Studio Code to target Mic
 
 In this tutorial, you configure Visual Studio Code to use the Microsoft Visual C++ compiler and debugger on Windows.
 
-After configuring VS Code, you will compile and debug a simple Hello World program in VS Code. This tutorial does not teach you details about or the Microsoft C++ toolset or the C++ language. For those subjects, there are many good resources available on the Web.
+After configuring VS Code, you will compile and debug a simple Hello World program in VS Code. This tutorial does not teach you details about the Microsoft C++ toolset or the C++ language. For those subjects, there are many good resources available on the Web.
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
