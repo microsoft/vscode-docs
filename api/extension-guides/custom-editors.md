@@ -26,8 +26,8 @@ But if you're feeling ready and are thinking about all the cool custom editors y
 
 ### VS Code API Usage
 
-- [`window.registerCustomEditor`](/api/references/vscode-api#window.registerCustomEditor)
-- [`CustomTextEditor`](/api/references/vscode-api#CustomTextEditor)
+- [`window.registerCustomEditorProvider`](/api/references/vscode-api#window.registerCustomEditorProvider)
+- [`CustomTextEditorProvider`](/api/references/vscode-api#CustomTextEditorProvider)
 
 ## Custom Editor API basics
 
@@ -35,9 +35,9 @@ A custom editor is an alternative view that is shown in place of VS Code's stand
 
 The view side of a custom editor is implemented using a [webview](/api/extension-guides/webview). This lets you build the user interface of your custom editor using standard HTML, CSS, and JavaScript. Webviews cannot access the VS Code API directly but they can talk with extensions by passing messages back and forth. Check out our [webview documentation](/api/extension-guides/webview) for more information on webviews and best practices for working with them.
 
-The other part of a custom editor is the document model. This model is how your extension understands the resource (file) it is working with. A `CustomTextEditor` uses VS Code's standard [TextDocument](/api/references/vscode-api#TextDocument) as its document model and all changes to the file are expressed using VS Code's standard text editing APIs.
+The other part of a custom editor is the document model. This model is how your extension understands the resource (file) it is working with. A `CustomTextEditorProvider` uses VS Code's standard [TextDocument](/api/references/vscode-api#TextDocument) as its document model and all changes to the file are expressed using VS Code's standard text editing APIs.
 
-Custom editors have a single document model per resource but there may be multiple editor instances (views) of this document. For example, imagine that you open a file that has a `CustomTextEditor` and then run the **View: Split editor** command. In this case, there is still just a single `TextDocument` since there is still just a single copy of the resource in the workspace,  but there are now two webviews for that resource.
+Custom editors have a single document model per resource but there may be multiple editor instances (views) of this document. For example, imagine that you open a file that has a `CustomTextEditorProvider` and then run the **View: Split editor** command. In this case, there is still just a single `TextDocument` since there is still just a single copy of the resource in the workspace,  but there are now two webviews for that resource.
 
 ### Contribution point
 
@@ -87,7 +87,7 @@ Here's a basic `customEditor` contribution for the [custom editor extension samp
 
 ### Custom editor activation
 
-When a user opens one of your custom editors, VS Code fires an `onCustomEditor:VIEW_TYPE` activation event. During activation, your extension must call `registerCustomEditor` to register a custom editor with the expected `viewType`.
+When a user opens one of your custom editors, VS Code fires an `onCustomEditor:VIEW_TYPE` activation event. During activation, your extension must call `registerCustomEditorProvider` to register a custom editor with the expected `viewType`.
 
 It's important to note that `onCustomEditor` is only called when VS Code needs to create an instance of your custom editor. If VS Code is merely showing the user some information about an available custom editor—such as with the **View: Reopen with** command—your extension will not be activated.
 
@@ -109,7 +109,7 @@ Using the [custom editor extension sample][sample], here's what happens when the
 
 1. VS Code fires an `onCustomEditor:catCustoms.catScratch` activation event.
 
-    This activates our extension if it has not already been activated. During activation, our extension must ensure the extension registers a `CustomTextEditorProvider` for `catCustoms.catScratch` by calling `registerCustomEditor`.
+    This activates our extension if it has not already been activated. During activation, our extension must ensure the extension registers a `CustomTextEditorProvider` for `catCustoms.catScratch` by calling `registerCustomEditorProvider`.
 
 1. VS Code then invokes `resolveCustomTextEditor` on the registered `CustomTextEditorProvider` for `catCustoms.catScratch`.
 
