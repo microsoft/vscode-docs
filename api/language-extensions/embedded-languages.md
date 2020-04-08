@@ -205,25 +205,24 @@ let clientOptions: LanguageClientOptions = {
   documentSelector: [{ scheme: 'file', language: 'html' }],
   middleware: {
     provideCompletionItem: async (document, position, context, token, next) => {
-      const originalUri = document.uri.toString()
-      // Get virtual CSS document, with all non-CSS code replaced with whitespace
-      virtualDocumentContents.set(originalUri, getCSSVirtualContent(htmlLanguageService, document.getText()))
+      // If not in `<style>`, do not perform request forwarding
+      if (!isInsideStyleRegion(htmlLanguageService, document.getText(), document.offsetAt(position))) {
+        return await next(document, position, context, token);
+      }
 
-      /**
-       * Compute a virtual URI. The `embedded-content` scheme makes sure that our registered
-       * `TextDocumentProvider` is used. The ending `.css` suffix makes sure that VS Code forwards
-       * the request to CSS language server
-       */
-      const vdocUriString = `embedded-content://css/${encodeURIComponent(originalUri)}.css`
-      const vdocUri = Uri.parse(vdocUriString)
+      const originalUri = document.uri.toString();
+      virtualDocumentContents.set(originalUri, getCSSVirtualContent(htmlLanguageService, document.getText()));
 
-      // Ask VS Code for completions on the virtual file
+      const vdocUriString = `embedded-content://css/${encodeURIComponent(
+        originalUri
+      )}.css`;
+      const vdocUri = Uri.parse(vdocUriString);
       return await commands.executeCommand<CompletionList>(
         'vscode.executeCompletionItemProvider',
         vdocUri,
         position,
         context.triggerCharacter
-      )
+      );
     }
   }
 }
@@ -240,6 +239,18 @@ Generally, language features that work across language region boundaries are har
 ### Language Services can be stateful and hard to embed
 
 VS Code's HTML support provides HTML, CSS, and JavaScript language features. Although the HTML and CSS language services are non-stateful, the TypeScript server powering the JavaScript language features is. We only offer basic JavaScript support inside HTML documents because it is hard to inform TypeScript of the project's state. For example, if you include a `<script>` tag that points to the `lodash` library hosted on a CDN, you will not get `_.` completions inside `<script>` tags.
+
+### Encoding and decoding
+
+The main language of a document might have a different encoding or escaping rules than its embedded language. For example, this HTML document is invalid according to [HTML spec](https://www.w3.org/TR/html401/appendix/notes.html#h-B.3.2):
+
+```html
+<SCRIPT type="text/javascript">
+  document.write ("<EM>This won't work</EM>")
+</SCRIPT>
+```
+
+In this case, if the language server for the embedded JavaScript returns a result that contains `</`, it should be escaped to `<\/`.
 
 ## Conclusion
 
