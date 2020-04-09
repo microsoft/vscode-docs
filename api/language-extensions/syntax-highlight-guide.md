@@ -22,16 +22,25 @@ Before diving into the details, a good start is to play with the [scope inspecto
 
 The tokenization of text is about breaking the text into segments and to classify each segment with a token type.
 
-VS Code uses a two step approach:
+VS Code's tokenization engine is powered by [TextMate grammars][tm-grammars]. TextMate grammars are a structured collection of regular expressions and are written as a plist (XML) or JSON files. VS Code extensions can contribute grammars through the `grammar` contribution point.
 
-- [Syntax tokenization](#syntax-tokenization) is based on lexical rules that are expressed as regular expressions contained in a TextMate grammar. The TextMate engine runs in the same process as the renderer and tokens are updated as the user types.
+The TextMate tokenization engine runs in the same process as the renderer and tokens are updated as the user types.
+Tokens are used for syntax highlighting, but also to classify the source code into areas of comments, strings, regex.
 
-- [Semantic tokenization](#semantic-tokenization) is optional on applied on top of syntax tokens. Semantic tokens come from language servers. A language server has the full understanding of the source file and can classify each symbol identifier with the symbol it resolves to. A constant variable name is rendered as constant throughout the file, not just in its declaration. Same for parameter names, property names, class names and so on.
+Since 1.43, VS Code also allows extension to provide tokenization through a [Semantic Token Provider](/api/references/vscode-api#DocumentSemanticTokensProvider). Semantic providers are typically implemented by language servers that have a deeper understanding of the source file and can resolve symbols in the context of the project.
+For example, a constant variable name can be rendered as constant throughout the project, not just at the place of its declaration.
+
+Highlighting based on semantic tokens considered an addition to the TextMate based syntax highlighting. The semantic highlighting goes on top of the syntax highlighting.
+
 As language servers take a while to load and analyze the project, semantic tokens come in with a delay.
 
-## Syntax tokenization
+This article focuses on the TextMate based tokenization. Semantic tokenization and theming is explained in dept in the [Semantic Highlighting Guide](semantic-highlighting-guide)
 
-VS Code uses [TextMate grammars][tm-grammars] as the syntax tokenization engine. TextMate grammars are a structured collection of [Oniguruma regular expressions](https://macromates.com/manual/en/regular_expressions) and are typically written as a plist or JSON. You can find a good introduction to TextMate grammars [here](https://www.apeth.com/nonblog/stories/textmatebundle.html), and you can take a look at existing TextMate grammars to learn more about how they work.
+### TextMate grammars
+
+VS Code uses [TextMate grammars][tm-grammars] as the syntax tokenization engine. Invented for the TextMate editor, they are have been adopted by many other editors and IDEs due to large number of language bundles created and maintained by the Open Source community.
+
+TextMate grammars rely on [Oniguruma regular expressions](https://macromates.com/manual/en/regular_expressions) and are typically written as a plist or JSON. You can find a good introduction to TextMate grammars [here](https://www.apeth.com/nonblog/stories/textmatebundle.html), and you can take a look at existing TextMate grammars to learn more about how they work.
 
 ### TextMate tokens and scopes
 
@@ -315,188 +324,18 @@ If you can't add a `meta.embedded.*` scope to your grammar, you can alternativel
 }
 ```
 
-## Semantic Tokenization
-
-Semantic tokenization has been added a new feature in 1.44. It allows language servers to provide additional token information based on the language server's knowledge on symbols in the source file. Themes can opt-in to use that information to improve and refine the syntax highlighting based on the TextMate grammar. The editor applies the highlighting that comes from semantic tokens on top of the highlighting from syntax tokens.
-.
-To do so, language extensions can register a `semantic token provider` by document language and/or file name. The editor will make requests to the providers when semantic tokens are needed.
-
-```ts
-const tokenTypes = ['class', 'interface', 'enum', 'function', 'variable'];
-const tokenModifiers = ['declaration', 'documentation'];
-const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers);
-
-const provider: vscode.DocumentSemanticTokensProvider = {
-  provideDocumentSemanticTokens(document: vscode.TextDocument): vscode.ProviderResult<vscode.SemanticTokens> {
-    // analyze the document and return semantic tokens
-  }
-};
-
-const selector = { language: 'java', scheme: 'file' }; // register for all Java documents from the local file system
-
-vscode.languages.registerDocumentSemanticTokensProvider(selector, provider, legend);
-```
-
-The semantic token provider API comes in 2 flavors to accommodate each language servers capabilities
-
-`DocumentSemanticTokensProvider` always takes a full document as input
-
-- `provideDocumentSemanticTokens`: provides all tokens of a document
-- `provideDocumentSemanticTokensEdits`: provides all tokens of a document as a delta to the previous response
-
-The `DocumentRangeSemanticTokensProvider` works only on a range:
-
-- `provideDocumentRangeSemanticTokens`: provides all tokens of a document range
-
-Each token returned by the provider comes with a classification that consists of a token type, any number of token modifiers and a token language. This information is similar than the TextMate scopes described above, but we chose to define a new, cleaner classification system.
-
-As seen in the example above, the provider names the types and modifiers it's going to use in a `SemaniticTokensLegend`. That allows the `provide` APIs to return token types and modifies as an index to the legend.
-
-### Semantic Token Classification
-
-These are the standard semantic token types and semantic token modifiers predefined by VSCode.
-
-  - standard semantic token types:
-      - namespace
-      - type, class, enum, interface, struct, typeParameter
-      - parameter, variable, property, enumMember, event
-      - function, member, macro
-      - label
-      - comment, string, keyword, number, regexp, operator
-  - standard semantic token modifiers:
-      - declaration
-      - readonly, static, deprecated, abstract
-      - async, modification, documentation, defaultLibrary
-
-Extensions can define new types and modifiers through the `semanticTokenTypes` and `semanticTokenModifiers` contribution points.
-
-```json
-{
-  "contributes": {
-    "semanticTokenTypes": [{
-      "id": "templateType",
-      "superType": "type",
-      "description": "A template type."
-    }],
-    "semanticTokenModifiers": [{
-      "id": "native",
-      "description": "Annotates a symbol that is implemented nativly"
-    }]
-  }
-}
-```
-A contributed type can name a super type from which it will inherit all styling rules.
-
-
-### Semantic Token Scope Map
-
-Color themes can define rules that directly match against the semantic token types and modifiers. This is described in the [Semantic Theming Rule](#semantic theming rules) section.
-
-However, in order to make semantic highlighting also work for themes that have not defined any specific semantic rules and to serve as fallback for custom token types and modifiers, VSCode maintains a map from semantic token selectors to TextMate scopes.
-
-If a theme has semantic highlighting enabled, but does not contain a rule for the given semantic token, these TextMate scopes are used to find a TextMate theming rule instead.
-
-The following table shows the predefined mappings.
-
-| Semantic Token Selector       | Fallback TextMate Scope                   |
-| ----------------------------- | -------------------------------- |
-| `namespace`|`entity.name.namespace`|
-| `type`|`entity.name.type`|
-| `type.defaultLibrary`|`support.type`|
-| `struct`|`storage.type.struct`|
-| `class`|`entity.name.type.class`|
-| `class.defaultLibrary`|`support.class`|
-| `interface`|`entity.name.type.interface`|
-| `enum`|`entity.name.type.enum`|
-| `function`|`entity.name.function`|
-| `function.defaultLibrary`|`support.function`|
-| `member`|`entity.name.function.member`|
-| `macro`|`entity.name.other.preprocessor.macro`|
-| `variable`|`variable.other.readwrite` , `entity.name.variable`|
-| `variable.readonly`|`variable.other.constant`|
-| `variable.readonly.defaultLibrary`|`support.constant`|
-| `parameter`|`variable.parameter`|
-| `property`|`variable.other.property`|
-| `property.readonly`|`variable.other.constant.property`|
-| `enumMember`|`variable.other.enummember`|
-| `event`|`variable.other.event`|
-
-
-This map can be extended by new rules through the `semanticTokenScopes` contribution point.
-
-There are two use cases for extensions to do that:
-
-- The extension that defines custom token types and token modifiers provides TextMate scopes as fallback when a theme does not define a theming rule for the added semantic token type or modifiers:
-```json
-{
-  "contributes": {
-    "semanticTokenScopes": [
-      {
-        "scopes": {
-          "templateType": [ "entity.name.type.template" ]
-        }
-      }
-    ]
-  }
-}
-```
-
-- The provider of a TextMate grammar can describe the language specific scopes. That helps with themes that contain language specific theming rules.
-```json
-{
-  "contributes": {
-    "semanticTokenScopes": [
-      {
-        "language": "typescript",
-        "scopes": {
-          "property.readonly": ["variable.other.constant.property.ts"],
-        }
-      }
-    ]
-  }
-}
-```
-
 ## Theming
 
 Theming is about assigning colors and styles to tokens. Theming rules are specified in color themes, but users can customize the theming rules in the user settings.
-
-Themes always define TextMate theming rules in the `tokenColors` section. The `semanticHighlighting` setting allows themes to specify whether they supports semantic highlighting as well. Optionally, themes can define theming rules rules for semantic tokens in the `semanticTokenColors` section.
-
-
-The [Color Theme Guide](/api/extension-guides/color-theme#syntax-colors) describes how to create a color theme.
-
-
-### TextMate theming
 
 TextMate theme rules are defined in `tokenColors` and have the same syntax as regular TextMate themes. Each rule defines a TextMate scope selector and a resulting color and style.
 
 When evaluating the color and style of a token, the current token's scope is matched against the rule's selector to find the most specific rule for each style property (foreground, bold, italic, underline)
 
-### Semantic theming
 
-Using the `semanticHighlighting` setting, a theme can tell the editor whether semantic tokens should be shown or not.
+The [Color Theme Guide](/api/extension-guides/color-theme#syntax-colors) describes how to create a color theme.
 
-If enabled, semantic tokens are first matched against the semantic token rules defined in `semanticTokenColors`:
-
-```json
-{
-	"semanticTokenColors": {
-		"variable.readonly:java": "#ff0000"
-	}
-}
-```
-`variable.readonly:java` is called a selector and has the form (*|type)(.modifier)*(:language)?
-
-Here are other examples of selectors and styles:
-
-  - "*.declaration": { "fontStyle": "bold" }: // all declarations are bold
-  - "class:java": { "foreground": "#00ff00" "fontStyle": "bold" } // classes in java
-
-The semantic token selector has the format `(*|tokenType)(.tokenModifier)*(:tokenLanguage)?`.
-
-
-If no rule matches, the VSCode uses the [Semantic Token Scope Map][#semantic-token-scope-map] to evaluate a TextMate scope for the given semantic token. That scope is matched against the TextMate theming rules in `tokenColors`.
+Theming for semantic tokens is explained in dept in the [Semantic Highlighting Guide](semantic-highlighting-guide#theming)
 
 ## Scope inspector
 
@@ -517,7 +356,7 @@ The scope inspector displays the following information:
 
 1. The current token.
 1. Metadata about the token and information about its computed appearance. If you are working with embedded languages, the important entries here `language` and `token type`.
-1. The semantic token section is only shown when a semantic token provider is available for the current language and when the current theme supports semantic highlighting. It shows the current semantic token type and modifiers along with the theme rules that match the semantic token type and modifiers.
+1. The semantic token section are shown when a semantic token provider is available for the current language and when the current theme supports semantic highlighting. It shows the current semantic token type and modifiers along with the theme rules that match the semantic token type and modifiers.
 1. The TextMate section shows the scope list for the current TextMate token, with the most specific scope at the top. It also shows the most specific theme rules that match the scopes. This only shows the theme rules that are responsible for the token's current style, it does not show overridden rules. If semantic tokens are present, the theme rules are only shown when they differ from the rule matching the semantic token.
 
 [tm-grammars]: https://macromates.com/manual/en/language_grammars
