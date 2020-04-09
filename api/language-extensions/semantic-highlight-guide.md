@@ -11,7 +11,7 @@ MetaDescription: A guide to syntax highlighting
 
 Semantic highlighting is an addition to syntax highlighting as described in the [Syntax Highlight Guide](syntax-highlight-guide).
 
-VS Code uses TextMate grammars as the main tokenization engine. TextMate grammars work on a single file as input and break it up based based on lexical rules expressed in regular expressions. 
+VS Code uses TextMate grammars as the main tokenization engine. TextMate grammars work on a single file as input and break it up based based on lexical rules expressed in regular expressions.
 
 Semantic tokenization has been added a new feature in 1.44. It allows language servers to provide additional token information based on the language server's knowledge on how to resolve symbols in the context of a project.
 
@@ -106,11 +106,36 @@ Extensions can define new types and modifiers through the `semanticTokenTypes` a
 A contributed type can name a super type from which it will inherit all styling rules.
 
 
+## Theming
+
+Theming is about assigning colors and styles to tokens. Theming rules are specified in color themes, but users can customize the theming rules in the user settings.
+
+Using the `semanticHighlighting` setting, a color theme can tell the editor whether semantic tokens should be shown or not.
+
+If enabled, semantic tokens are first matched against the semantic token rules defined in `semanticTokenColors`:
+
+```json
+{
+	"semanticTokenColors": {
+		"variable.readonly:java": "#ff0000"
+	}
+}
+```
+`variable.readonly:java` is called a selector and has the form (*|type)(.modifier)*(:language)?
+
+Here are other examples of selectors and styles:
+
+  - "*.declaration": { "fontStyle": "bold" }: // all declarations are bold
+  - "class:java": { "foreground": "#00ff00" "fontStyle": "bold" } // classes in java
+
+The semantic token selector has the format `(*|tokenType)(.tokenModifier)*(:tokenLanguage)?`.
+
+
+If no rule matches, the VSCode uses the [Semantic Token Scope Map][#semantic-token-scope-map] to evaluate a TextMate scope for the given semantic token. That scope is matched against the TextMate theming rules in `tokenColors`.
+
 ## Semantic Token Scope Map
 
-Color themes can define rules that directly match against the semantic token types and modifiers. This is described in the [Semantic Theming Rule](#semantic theming rules) section.
-
-However, in order to make semantic highlighting also work for themes that have not defined any specific semantic rules and to serve as fallback for custom token types and modifiers, VSCode maintains a map from semantic token selectors to TextMate scopes.
+In order to make semantic highlighting also work for themes that have not defined any specific semantic rules and to serve as fallback for custom token types and modifiers, VSCode maintains a map from semantic token selectors to TextMate scopes.
 
 If a theme has semantic highlighting enabled, but does not contain a rule for the given semantic token, these TextMate scopes are used to find a TextMate theming rule instead.
 
@@ -175,31 +200,6 @@ There are two use cases for extensions to do that:
 }
 ```
 
-## Theming
+### Sample
 
-Theming is about assigning colors and styles to tokens. Theming rules are specified in color themes, but users can customize the theming rules in the user settings.
-
-Using the `semanticHighlighting` setting, a color theme can tell the editor whether semantic tokens should be shown or not.
-
-If enabled, semantic tokens are first matched against the semantic token rules defined in `semanticTokenColors`:
-
-```json
-{
-	"semanticTokenColors": {
-		"variable.readonly:java": "#ff0000"
-	}
-}
-```
-`variable.readonly:java` is called a selector and has the form (*|type)(.modifier)*(:language)?
-
-Here are other examples of selectors and styles:
-
-  - "*.declaration": { "fontStyle": "bold" }: // all declarations are bold
-  - "class:java": { "foreground": "#00ff00" "fontStyle": "bold" } // classes in java
-
-The semantic token selector has the format `(*|tokenType)(.tokenModifier)*(:tokenLanguage)?`.
-
-
-If no rule matches, the VSCode uses the [Semantic Token Scope Map][#semantic-token-scope-map] to evaluate a TextMate scope for the given semantic token. That scope is matched against the TextMate theming rules in `tokenColors`.
-
-
+We have a [Semantic Tokens Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/semantic-tokens-sample) that illustrates how to create a semantic token provider
