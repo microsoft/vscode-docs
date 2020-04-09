@@ -13,10 +13,9 @@ Semantic highlighting is an addition to syntax highlighting as described in the 
 
 VS Code uses TextMate grammars as the main tokenization engine. TextMate grammars work on a single file as input and break it up based based on lexical rules expressed in regular expressions.
 
-Semantic tokenization has been added a new feature in 1.44. It allows language servers to provide additional token information based on the language server's knowledge on how to resolve symbols in the context of a project.
+Semantic tokenization allows language servers to provide additional token information based on the language server's knowledge on how to resolve symbols in the context of a project.
 
-Themes can opt-in to use semantic tokens to improve and refine the syntax highlighting based on the TextMate grammar. The editor applies the highlighting that comes from semantic tokens on top of the highlighting from syntax tokens.
-
+Themes can opt-in to use semantic tokens to improve and refine the syntax highlighting from grammars. The editor applies the highlighting from semantic tokens on top of the highlighting from grammars.
 
 Here's an example of what semantic highlighting can add:
 
@@ -200,6 +199,8 @@ There are two use cases for extensions to do that:
 }
 ```
 
-### Sample
+### Try it out
 
 We have a [Semantic Tokens Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/semantic-tokens-sample) that illustrates how to create a semantic token provider
+
+The [scope inspector](syntax-highlight-guide#scope-inspector) allows you to explore what semanitc tokens are present in a source file and what theme rules they match to. To see semantic token, use a built-in theme (e.g. Dark+) on a TypeScript file.
