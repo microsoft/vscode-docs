@@ -127,7 +127,7 @@ By default, the find operations are run on the entire file in the editor. It can
 
 ![Find In Selection](images/codebasics/find-in-selection.gif)
 
-If you want it to be the default behavior of the Find Widget, you can set `editor.find.autoFindInSelection` to `true`.
+If you want it to be the default behavior of the Find Widget, you can set `editor.find.autoFindInSelection` to `always`, or to `multiline`, if you want it to be run on selected text only when multiple lines of content are selected.
 
 ### Advanced find and replace options
 
