@@ -1,7 +1,7 @@
 ---
 Order: 3
 Area: java
-TOCTitle: Running and Debugging
+TOCTitle: Run and Debug
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
 PageTitle: Run and Debug Java in Visual Studio Code
 DateApproved: 6/17/2019
