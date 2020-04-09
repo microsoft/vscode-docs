@@ -30,13 +30,10 @@ The project mode will provide you full support for [standalone Java files](#stan
 ![Switch to Syntax](images/java-project/syntaxonly.png)
 
 You can also configure your editor to control whether to enable syntax mode. The configuration is `java.server.launchMode`, below are the accepted values:
-- Hybrid (Default)
-Provides full features with better responsiveness. It starts a standard language server and a secondary syntax server. The syntax server provides syntax features until the standard server is ready. And the syntax server will be shutdown automatically after the standard server is fully ready.
-- Standard
-Provides full features such as intellisense, refactoring, building, Maven/Gradle support etc. With this option, you will wait for the full server is up for all features.
-- LightWeight
-Starts a syntax server with lower start-up cost. Only provides syntax features such as outline, navigation, javadoc, syntax errors. The lightweight mode won't load thirdparty extensions, such as java test runner, java debugger, etc. This mode consumes the least resource but won't provide key features such as IntelliSense.
 
+- `Hybrid` (default) - Provides full features with better responsiveness. It starts a standard language server and a secondary syntax server. The syntax server provides syntax features until the standard server is ready. The syntax server will be shutdown automatically after the standard server up and running.
+- `Standard` - Provides full features such as IntelliSense, refactoring, building, Maven/Gradle support etc. With this option, you will wait until the full server is up for all features.
+- `LightWeight` - Starts a syntax server with lower start-up cost. Only provides syntax features such as outline, navigation, Javadoc, syntax errors. The lightweight mode won't load third party extensions, such as Java test runner, Java debugger, etc. This mode consumes the least resources but won't provide key features such as IntelliSense.
 
 ## Project management
 

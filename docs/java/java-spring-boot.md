@@ -24,7 +24,7 @@ If you run into any issues when using the features below, you can contact us by 
 
 A working Java environment with essential extensions installed is needed, including:
 
-* [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/), version 1.8.
+* [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/), version 1.8.
 * [Apache Maven](https://maven.apache.org/), version 3.0 or later.
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 

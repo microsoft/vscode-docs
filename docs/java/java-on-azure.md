@@ -7,7 +7,7 @@ PageTitle: Deploy Java to Azure
 DateApproved: 04/01/2020
 MetaDescription: How to deploy Java applications to Azure with Visual Studio Code
 ---
-# Deploy Python to Azure
+# Deploy Java to Azure
 
 The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extensions for Visual Studio Code make it easy to deploy Java applications (including containers) to [Azure App Service](https://azure.microsoft.com/services/app-service) and to deploy serverless code to [Azure Functions](https://azure.microsoft.com/services/functions).
 
@@ -20,4 +20,4 @@ The following tutorials below walk you though the details.  Please also check th
 | Tutorial | Description |
 | --- | --- |
 | [Deploy Java web apps to Azure App Service](/docs/java/java-webapp.md) | Deploy a web app using the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. |
-| [Create an Azure Functions project using Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) | Deploy serverless code using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. |
+| [Create an Azure Functions project using Visual Studio Code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) | Deploy serverless code using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. |

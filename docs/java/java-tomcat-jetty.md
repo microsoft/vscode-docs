@@ -10,9 +10,9 @@ MetaDescription: Tomcat and Jetty extensions for Java developer using Visual Stu
 
 # Working with Application Servers in VS Code
 
-Although Visual Studio Code is a code editor-centric development tool, so it doesn't come with any embedded application server. For most servers, you will need to deploy it using command line, and then use the right debugger [configuration](https://code.visualstudio.com/docs/java/java-debugging#_configuration) if you wish to attach to it.
+Visual Studio Code is a code editor-centric development tool, so it doesn't come with any embedded application server. For most servers, you will need to deploy them using the command line, and then use the appropriate debugger [configuration](https://code.visualstudio.com/docs/java/java-debugging#_configuration) if you wish to attach to it.
 
-On the other hand, we know that for certain Java workloads, server integration is very useful. With Visual Studio Code, you can find 3rd party extensions for popular application servers, for example [Tomcat](http://tomcat.apache.org/) and [Jetty](http://www.eclipse.org/jetty/), which are helpful when working with those servers locally.
+On the other hand, we know that for certain Java workloads, server integration is very useful. With Visual Studio Code, you can find 3rd party extensions for popular application servers, for example [Tomcat](https://tomcat.apache.org/) and [Jetty](https://www.eclipse.org/jetty/), which are helpful when working with those servers locally.
 
 For [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard), see [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
 
@@ -51,6 +51,6 @@ More details could be found in the [GitHub repository](https://github.com/summer
 
 ## Other servers
 
-[Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector) extension by Red hat allows you to sstart, stop and deploy to Red hat server and runtime products like Wildfly, JBoss EAP, MInishift, CDK.
+The [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector) extension by Red hat allows you to start, stop, and deploy to a Red Hat server and runtime products like Wildfly, JBoss EAP, Minishift, CDK.
 
-[Microprofile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack) provides tools from creating a MicroProfile project to developing and deploying to runtimes such as Open Libery, Quarkus and Payara.
+[Microprofile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack) provides tools for creating MicroProfile projects to develop and deploy to runtimes such as Open Liberty, Quarkus, and Payara.

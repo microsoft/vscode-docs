@@ -9,18 +9,17 @@ MetaDescription: Maven Support, Java Package and Dependency Management in Visual
 MetaSocialImage:
 ---
 
-# Java Project Management in VS Code
+# Java build tools in VS Code
 
-This document will give you an overview of how work with your build tool in VS Code. Including the usage of [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension as well as other tools.
+This document will give you an overview of how work with your Java build tools in Visual Studio Code. It covers the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension as well as other tools.
 
 If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
 
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'project')" href="javascript:void(0)">Report an issue</a>
 
-
 ## Maven
 
-[Maven](http://maven.apache.org/) is a software tool that helps you manage Java projects and automate application builds. The [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension for Visual Studio Code provides fully integrated Maven support, allowing you to explore Maven projects, execute Maven commands, and perform the goals of build lifecycle and plugins.
+[Maven](https://maven.apache.org/) is a software tool that helps you manage Java projects and automate application builds. The [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension for Visual Studio Code provides fully integrated Maven support, allowing you to explore Maven projects, execute Maven commands, and perform the goals of build lifecycle and plugins.
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-maven">Install the Maven for Java extension</a>
 
@@ -122,7 +121,7 @@ There are two ways to generate a Maven project:
 
 ## Gradle
 
-VS Code supports basic Gradle Java project (not including Android). There're also couple 3rd party extensions available for writing `.gradle` files as well as running Gradle tasks.
+VS Code supports basic Gradle Java project (not including Android). There are also a couple third party extensions available for writing `.gradle` files as well as running Gradle tasks.
 
 * [Gradle Language Support](https://marketplace.visualstudio.com/items?itemName=naco-siren.gradle-language)
 * [Gradle Tasks](https://marketplace.visualstudio.com/items?itemName=richardwillis.vscode-gradle)
