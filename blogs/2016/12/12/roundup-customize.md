@@ -43,7 +43,7 @@ Some of my favorite themes are:
 
 Want to create your own theme? See the [documentation](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesthemes) to get started.
 
-VS Code also supports [File Icon](https://code.visualstudio.com/docs/getstarted/themes#_select-an-icon-theme) themes to add images to files and folders in the UI. You can preview your installed File Icon themes in VS Code by **File** > **Preferences** > **File Icon Theme** or by opening the **Command Palette** and typing "file icon".
+VS Code also supports [File Icon](https://code.visualstudio.com/docs/getstarted/themes#_file-icon-themes) themes to add images to files and folders in the UI. You can preview your installed File Icon themes in VS Code by **File** > **Preferences** > **File Icon Theme** or by opening the **Command Palette** and typing "file icon".
 
 Here are two File Icon themes I really like:
 
