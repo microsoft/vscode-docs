@@ -112,6 +112,7 @@ Java support in Visual Studio Code detects issues within your code automatically
   <source src="/docs/java/java-editing/quick-fix.mp4" type="video/mp4">
 </video>
 
+For more details about refactoring and code actions, see [Refactoring and Source Actions](/docs/java/java-refactoring.md).
 
 ### IntelliSense
 
