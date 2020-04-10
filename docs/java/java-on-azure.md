@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 11
 Area: java
 TOCTitle: Java on Azure
 ContentId: 01210769-05be-4854-9482-13e342850ad7
@@ -21,3 +21,4 @@ The following tutorials below walk you though the details.  Please also check th
 | --- | --- |
 | [Deploy Java web apps to Azure App Service](/docs/java/java-webapp.md) | Deploy a web app using the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. |
 | [Create an Azure Functions project using Visual Studio Code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) | Deploy serverless code using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. |
+
