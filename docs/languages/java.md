@@ -96,7 +96,7 @@ A "folder workspace" is presented by VS Code when you open a filesystem folder (
 
 A "multi-root workspace" can refer to multiple folders (directories) from disparate parts of the file system and VS Code displays the contents of the folder(s) of the workspace together in the [File Explorer](/docs/getstarted/userinterface.md#basic-layout). To learn more, see [Multi-root Workspaces](/docs/editor/multi-root-workspaces.md).
 
-### Java in VS Code
+### Java project in VS Code
 
 In contrast to IDEs such as IntelliJ IDEA, NetBeans, or Eclipse, the concept of a "Java project" is provided entirely by extensions, and is not a core concept in the base VS Code. When working with "Java projects" in VS Code, you must have the necessary extensions installed to work with those project files.
 
@@ -110,7 +110,7 @@ With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjav
 
 Visual Studio Code also supports working with standalone Java files outside of a Java project, described in the [Java Tutorial with VS Code](/docs/java/java-tutorial.md).
 
-### VS Code Workspaces that contain Java
+### VS Code Workspaces that contain Java project
 
 Assuming the necessary Java extensions are installed, opening a VS Code workspace that contains Java artifacts will cause those extensions to understand those artifacts and present options for working with them.
 
@@ -122,7 +122,7 @@ More details about Java project support can be found in [Java Project Management
 
 Java in Visual Studio Code also supports source code navigation features such as search for symbol, Peek Definition, and Go to Definition. The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for [Spring Boot](https://projects.spring.io/spring-boot/) projects.
 
-There are also other editing related features available for Java, such as refactoring and formatting. To learn more, read [Editing Java in Visual Studio Code](/docs/java/java-editing.md).
+One of the key advantage of VS Code is speed. When you open your Java source file or folder, within a few seconds, with the help of [Syntax Mode](/docs/java/java-project.md#Syntax-Mode), you will be able to navigate your code base with Outline view as well as commands such as **Go to Definition** and **Go to Reference**. This is especially useful when you open a project for the first time.
 
 ### Code Completion
 
@@ -132,7 +132,7 @@ There are also other editing related features available for Java, such as refact
   <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
 </video>
 
-See also in [Java Code Navigation and Editing](/docs/java/java-editing.md). VS Code also support a range of [Refactoring](/docs/java/java-refactoring.md) and [Linting](/docs/java/java-linting.md) features.
+See also in [Java Code Navigation and Editing](/docs/java/java-editing.md). VS Code also support a range of [Refactoring](/docs/java/java-refactoring.md), [Linting](/docs/java/java-linting.md) features.
 
 ## Debugging
 

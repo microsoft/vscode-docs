@@ -19,7 +19,7 @@ If you run into any issues when using the features below, you can contact us by 
 
 With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate your methods within the same class. [Package and Dependency View](docs/java/java-project.md#package-and-dependency-view) also provide a great overview of your project. As a Java editor, it also supports CodeLens (references) and Javadoc hovers and highlights out of box.
 
-Once you open your Java project or any source files with VS Code, all code navigation features as well as syntax check would be available immediately by its [Syntax Mode](docs/java/java-project.md#syntax-mode).
+Once you open your Java project or any source files with VS Code, all code navigation features as well as syntax check and documentation (hover to see Javadoc) would be available immediately by its [Syntax Mode](docs/java/java-project.md#syntax-mode).
 
 ### Search for symbols
 
@@ -63,7 +63,11 @@ You can keep track of class implementations and overriding methods by clicking t
 
 A Call Hierarchy view shows all calls from or to a function and allows you to drill into callers of callers and call of calls. Right-click on a function and select **Peek** > **Peek Call Hierarchy**.
 
-![Call Hierarchy](images/java-editing/call-hierarchy.png)
+![Call Hierarchy Peek](images/java-editing/call-hierarchy.png)
+
+You can also right-click in a function body and pick "`Show Call Hierarchy`".
+
+![Call Hierarchy Menu](images/java-editing/call-hierarchy.gif)
 
 ### Folding regions
 
@@ -128,7 +132,7 @@ IntelliCode works well with popular Java libraries and frameworks like Java SE a
 
 ### Create new file
 
-VS Code supports applying templates when you create a Java source file.
+VS Code supports applying templates when you create a Java source file. When you create a `.java` file in the File Explorer, the language server will automatically generate the class body, and fill the package info for you:
 
 ![New File](images/java-editing/create-new-file.gif)
 

@@ -9,7 +9,7 @@ MetaDescription: Java Code Refactoring and Source Actions for Visual Studio Code
 ---
 # Java Code Refactoring and Source Actions in Visual Studio Code
 
-VS Code provide lots of refactoring options to refactor your code, source actions to generate code and fix issues while you're coding.
+VS Code provide lots of refactoring options to refactor your code, source actions to generate code and fix issues while you're coding. To access them, click on the `light bulb` 💡 whenever you see it. Or right-click the editor view and pick "`Source Action...`".
 
 ## Refactoring
 
