@@ -135,7 +135,7 @@ VS Code's Yeoman [extension generator](/api/get-started/your-first-extension.md)
 
 See the [Create a new Color Theme](/api/extension-guides/color-theme.md#create-a-new-color-theme) topic in our Extension API section to learn more.
 
-## Remove default themes
+## Remove default Color Themes
 
 If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`). Open the `...` **More Actions** drop-down menu from the top of the Extensions view, select **Show Built-in Extensions**, and you'll see a **THEMES** section listing the default themes.
 
@@ -145,11 +145,11 @@ You can disable a built-in theme extension as you would any other VS Code [exten
 
 ![disable theme](images/themes/disable-theme.png)
 
-# File Icon Themes
+## File Icon Themes
 
 File icon themes can be contributed by extensions and selected by users as their favorite set of file icons. File icons are shown in the File Explorer and tabbed headings.
 
-## Selecting the File Icon Theme
+### Selecting the File Icon Theme
 
 1. In VS Code, open the File Icon Theme picker with **File** > **Preferences** > **File Icon Theme**. (**Code** > **Preferences** > **File Icon Theme** on macOS).
 2. You can also use the **Preferences: File Icon Theme** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
@@ -183,4 +183,4 @@ Themes are just one way to customize VS Code. If you'd like to learn more about 
 * [Snippets](/docs/editor/userdefinedsnippets.md) - Add additional snippets to your favorite language.
 * [Extension API](/api) - Learn about other ways to extend VS Code.
 * [Color Theme](/api/extension-guides/color-theme.md) - Color Theme extension API.
-* [FIle Icon Theme](/api/extension-guides/file-icon-theme.md) - File Icon Theme extension API.
+* [File Icon Theme](/api/extension-guides/file-icon-theme.md) - File Icon Theme extension API.

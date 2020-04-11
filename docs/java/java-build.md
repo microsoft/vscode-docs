@@ -1,7 +1,7 @@
 ---
 Order: 6
 Area: java
-TOCTitle: Build Tool
+TOCTitle: Build Tools
 ContentId: 6ba93ee8-33d7-483a-a3b0-82241cedecbf
 PageTitle: Syntax Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
 DateApproved: 6/17/2019

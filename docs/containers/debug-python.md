@@ -8,7 +8,7 @@ MetaDescription: How to configure and troubleshoot debugging of Python apps runn
 
 # Debug Python within a container
 
-When adding Docker files to a Python project, tasks, and launch configurations are added to enable debugging the application within a Docker container. To accommodate the various scenarios of Python projects, some apps may require additional configuration.
+When adding Docker files to a Python project, tasks and launch configurations are added to enable debugging the application within a Docker container. To accommodate the various scenarios of Python projects, some apps may require additional configuration.
 
 ## Configuring the Docker container entry point
 
