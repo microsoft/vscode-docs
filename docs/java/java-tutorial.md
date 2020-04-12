@@ -99,7 +99,7 @@ To learn more about editing Java, see [Java Editing](/docs/java/java-editing.md)
 
 ## Running and Debugging Your Program
 
-To run and debug Java code, set a breakpoint then either press `kb(workbench.action.debug.start)` (F5 by default) on your keyboard or in the **Run** menu, select **Start Debugging**. You can also use the **Run|Debug** options on a [CodeLens](/blogs/2017/02/12/code-lens-roundup.md). After the code compiles, you can see all your variables and threads in the Run view. 
+To run and debug Java code, set a breakpoint then either press `kb(workbench.action.debug.start)` (F5 by default) on your keyboard or **Start Debugging** > **Run** in the menubar. You can also use the **Run|Debug** options on a [CodeLens](/blogs/2017/02/12/code-lens-roundup.md). After the code compiles, you can see all your variables and threads in the Run view. 
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-tutorial/run-debug.mp4" type="video/mp4">
