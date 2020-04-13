@@ -506,6 +506,21 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/java/java-editing</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/java/java-refactoring</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/java/java-linting</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/java/java-webapp</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -537,11 +552,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/java/java-spring-boot</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/java/java-editing</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -81,11 +81,11 @@ If you have multiple subfolders that have source code for your project, you can 
 
 ## Working with JAR files
 
-If you just started to learn Java and don't have any clue what Maven or Gradle is, VS Code Java lets you work with JAR files directly without any build tools with `JAVA DEPENDENCIES` view.
+If you're just starting to learn Java and don't know what Maven or Gradle are, the Java extension lets you work with JAR files directly without any build tools through the **JAVA DEPENDENCIES** view.
 
 ### Adding external JAR
 
-You can use the Java Dependency Viewer to add any JAR file to your project. Go to `JAVA DEPENDENCIES` view, find the `Referenced Libraries` node and click the `+` icon:
+You can use the Java Dependency Viewer to add any JAR file to your project. Go to the **JAVA DEPENDENCIE** view, find the **Referenced Libraries** node, and click the **+** button to add a JAR file:
 
 ![Add Dependency](images/java-project/manage-dependencies.gif)
 
@@ -215,7 +215,7 @@ In addition to Maven, there's also a [Bazel extension](https://marketplace.visua
 
 Read on to find out more about:
 
-* [Java Editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
-* [Java Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
-* [Java Testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
-* [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+- [Java Editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
+- [Java Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
+- [Java Testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
+- [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

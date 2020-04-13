@@ -1,7 +1,7 @@
 ---
 Order: 8
 Area: java
-TOCTitle: Test
+TOCTitle: Testing
 ContentId: 82be3b78-2c09-4571-abec-69f95f111e0f
 PageTitle: Java Unit Tests in Visual Studio Code
 DateApproved: 6/17/2019
@@ -136,5 +136,5 @@ Visit the [GitHub repository](https://github.com/Microsoft/vscode-java-test) of 
 
 Read on to find out about:
 
-* [Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
-* [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+- [Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
+- [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

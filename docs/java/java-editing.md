@@ -7,7 +7,7 @@ PageTitle: Navigate and Edit Java Source Code in Visual Studio Code
 DateApproved: 6/17/2019
 MetaDescription: Navigate and Edit Java Source Code in Visual Studio Code
 ---
-# Navigate and Edit Java Source Code in Visual Studio Code
+# Navigate and edit Java source code
 
 Visual Studio Code is a source code editor first and foremost with rich editing [features](/docs/editor/codebasics.md). In this document, we will go through a few Java-specific features, which are helpful when working with Java.
 
@@ -15,7 +15,7 @@ If you run into any issues when using the features below, you can contact us by 
 
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'editing')" href="javascript:void(0)">Report an issue</a>
 
-## Code Navigation
+## Code navigation
 
 With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate your methods within the same class. [Package and Dependency View](docs/java/java-project.md#package-and-dependency-view) also provide a great overview of your project. As a Java editor, it also supports CodeLens (references) and Javadoc hovers and highlights out of box.
 
@@ -65,7 +65,7 @@ A Call Hierarchy view shows all calls from or to a function and allows you to dr
 
 ![Call Hierarchy Peek](images/java-editing/call-hierarchy.png)
 
-You can also right-click in a function body and pick "`Show Call Hierarchy`".
+You can also right-click in a function body and pick **Show Call Hierarchy**.
 
 ![Call Hierarchy Menu](images/java-editing/call-hierarchy.gif)
 
@@ -90,7 +90,7 @@ With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select
 
 ### Navigating code with Spring Boot
 
-[Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for Spring Boot projects.
+The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for Spring Boot projects.
 
 * `@/` shows all defined request mappings (mapped path, request method, source location)
 * `@+` shows all defined beans (bean name, bean type, source location)
@@ -101,8 +101,7 @@ With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select
 
 To learn more about Spring Boot support with Visual Studio Code, read [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
 
-
-## Code Editing
+## Code editing
 
 Editing code is also easy with IntelliSense for smart code completions and signature details. You can use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
 
@@ -136,11 +135,8 @@ VS Code supports applying templates when you create a Java source file. When you
 
 ![New File](images/java-editing/create-new-file.gif)
 
-## Code Snippets
+## Code snippets
 
 Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Leveraging information from Java language server, it also provides a preview of the code snippet during the selection.
 
 ![Code Snippet](images/java-editing/code-snippet.png)
-
-
-

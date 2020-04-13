@@ -3,19 +3,19 @@ Order: 3
 Area: java
 TOCTitle: Refactoring
 ContentId: 36ee3e12-9bcc-4f01-9672-857ad2733c2d
-PageTitle: Java Code Refactoring and Source Actions for Visual Studio Code
+PageTitle: Java code refactoring and Source Actions for Visual Studio Code
 DateApproved: 4/9/2020
-MetaDescription: Java Code Refactoring and Source Actions for Visual Studio Code
+MetaDescription: Java code refactoring and Source Actions for Visual Studio Code
 ---
-# Java Code Refactoring and Source Actions in Visual Studio Code
+# Java refactoring and Source Actions
 
-VS Code provide lots of refactoring options to refactor your code, source actions to generate code and fix issues while you're coding. To access them, click on the `light bulb` 💡 whenever you see it. Or right-click the editor view and pick "`Source Action...`".
+Visual Studio Code provide many options to refactor your source code as well as Source Actions to generate code and fix issues while you're coding. To access them, click on the `light bulb` 💡 whenever you see it. Or right-click the editor view and pick **Source Action...**.
 
 ## Refactoring
 
 The goal of the Java program refactoring is to make system-wide code changes without affecting behavior of the program. The Java Language Support for VS Code provides a lot of easily accessible refactoring options.
 
-### Invoke Refactoring
+### Invoke refactoring
 
 Refactoring commands are available from the context menu of the editor. Select the element you want to refactor, right-click to open the context menu and choose `Refactor...`:
 
@@ -51,15 +51,19 @@ Then you will see all the available refactoring options.
   - [Change var type to resolved type](#change-var-type-to-resolved-type)
 
 ### Assign to variable
+
 Assigns an expression to a local variable or a field.
 
 #### Example
+
 ##### Before
 
 ```java
 Arrays.asList("apple", "lemon", "banana");
 ```
+
 ##### After
+
 ```java
 List<String> fruits = Arrays.asList("apple", "lemon", "banana");
 ```
@@ -71,9 +75,11 @@ It can also be used to assigns a parameter to a new field for unused parameter(s
 </video>
 
 ### Change modifiers to final
+
 Adds `final` modifier to all the variables and parameters in the current source file.
 
 #### Example
+
 ##### Before
 
 ```java
@@ -86,7 +92,9 @@ public class Clazz {
   }
 }
 ```
+
 ##### After
+
 ```java
 public class Clazz {
   public void method(final int value) {
@@ -99,10 +107,13 @@ public class Clazz {
 ```
 
 ### Convert anonymous to nested class
+
 Converts an anonymous inner class to a member class.
 
 #### Example
+
 Let's convert the anonymous class `Interface(){...}` to a member of the class `Clazz`.
+
 ##### Before
 
 ```java
@@ -117,7 +128,9 @@ public class Clazz {
   }
 }
 ```
+
 ##### After
+
 ```java
 public class Clazz {
   private final class MyInterface extends Interface {
@@ -140,10 +153,13 @@ public class Clazz {
 ```
 
 ### Convert to anonymous class creation
+
 Converts lambda expression to anonymous class creation.
 
 #### Example
+
 The variable `runnable` is assigned with a lambda expression. Let's convert it to an anonymous class creation.
+
 ##### Before
 
 ```java
@@ -153,7 +169,9 @@ public void method() {
   };
 }
 ```
+
 ##### After
+
 ```java
 public void method() {
   Runnable runnable = new Runnable() {
@@ -167,11 +185,12 @@ public void method() {
 
 > Also see: [Convert to lambda expression](#convert-to-lambda-expression)
 
-
 ### Convert to enhanced for loop
+
 Converts the simple `for` loop to `for-each` style.
 
 #### Example
+
 ##### Before
 
 ```java
@@ -181,7 +200,9 @@ public void order(String[] books) {
   }
 }
 ```
+
 ##### After
+
 ```java
 public void order(String[] books) {
   for (String book : books) {
@@ -189,15 +210,19 @@ public void order(String[] books) {
   }
 }
 ```
+
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/convert-for-loop.mp4" type="video/mp4">
 </video>
 
 ### Convert to lambda expression
+
 Converts an anonymous class creation to the lambda expression.
 
 #### Example
+
 Let's convert the anonymous class `Runnable(){...}` to a lamda expression.
+
 ##### Before
 
 ```java
@@ -210,7 +235,9 @@ public void method() {
   };
 }
 ```
+
 ##### After
+
 ```java
 public void method() {
     Runnable runnable = () -> {
@@ -218,15 +245,17 @@ public void method() {
     };
   }
 ```
+
 > Also see: [Convert to anonymous class creation](#convert-to-anonymous-class-creation)
 
-
-
 ### Convert to static import
+
 Converts the field or method to static import.
 
 #### Example
+
 Let's transform the `Assert.assertEquals()` invocation to a static import.
+
 ##### Before
 
 ```java
@@ -236,7 +265,9 @@ public void test() {
   Assert.assertEquals(expected, actual);
 }
 ```
+
 ##### After
+
 ```java
 import static org.junit.Assert.assertEquals;
 ...
@@ -244,16 +275,19 @@ public void test() {
   assertEquals(expected, actual);
 }
 ```
+
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/convert-static-imports.mp4" type="video/mp4">
 </video>
 
-
 ### Extract to constant
+
 Creates a static final field from the selected expression and substitutes a field reference, then rewrites other places where the same expression occurs.
 
 #### Examples
+
 Let's extract the value of π: `3.14` to a constant.
+
 ##### Before
 
 ```java
@@ -261,7 +295,9 @@ public double getArea(double r) {
   return 3.14 * r * r;
 }
 ```
+
 ##### After
+
 ```java
 private static final double PI = 3.14;
 
@@ -272,12 +308,14 @@ public double getArea(double r) {
 
 > Also see: [Inline constant](#inline-constant)
 
-
 ### Extract to field
+
 Declares a new field and initializes it with the selected expression. The original expression is replaced with the usage of the field.
 
 #### Examples
+
 Let's extract the variable `area` to a field of the class `Square`.
+
 ##### Before
 
 ```java
@@ -289,7 +327,9 @@ class Square {
   }
 }
 ```
+
 ##### After
+
 ```java
 class Square {
   private int area;
@@ -313,10 +353,13 @@ When selecting a variable declaration, convert the variable to field.
 </video>
 
 ### Extract to method
+
 Creates a new method containing the statements or expressions currently selected and replaces the selection with a reference to the new method. This feature is useful for cleaning up lengthy, cluttered, or overly-complicated methods.
 
 #### Examples
+
 Let's extract the expression `height * width` to a new method.
+
 ##### Before
 
 ```java
@@ -326,7 +369,9 @@ public void method() {
   int area = height * width;
 }
 ```
+
 ##### After
+
 ```java
 public void method() {
   int height = 1;
@@ -345,12 +390,14 @@ private int getArea(int height, int width) {
 
 > Also see: [Inline method](#inline-method)
 
-
 ### Extract to local variable
+
 Creates a new variable assigned to the expression currently selected and replaces the selection with a reference to the new variable.
 
 #### Examples
+
 Let's extract the expression `platform.equalsIgnoreCase("MAC")` to a new variable.
+
 ##### Before
 
 ```java
@@ -360,7 +407,9 @@ public void method() {
   }
 }
 ```
+
 ##### After
+
 ```java
 public void method() {
   boolean isMac = platform.equalsIgnoreCase("MAC");
@@ -383,10 +432,13 @@ After the extraction, you can also perform a rename in the same transaction.
 > Also see: [Inline local variable](#inline-local-variable)
 
 ### Inline constant
+
 Replaces a constant reference with its defined value.
 
 #### Examples
+
 Let's replace the constant `PI` to its defined value: `3.14`.
+
 ##### Before
 
 ```java
@@ -398,6 +450,7 @@ public double getArea(double r) {
 ```
 
 ##### After
+
 ```java
 private static final double PI = 3.14;
 
@@ -408,12 +461,14 @@ public double getArea(double r) {
 
 > Also see: [Extract to constant](#extract-to-constant)
 
-
 ### Inline local variable
+
 Replaces redundant variable usage with its initializer.
 
 #### Examples
+
 Let's replace the variable `isMac` directly to the boolean expression.
+
 ##### Before
 
 ```java
@@ -424,7 +479,9 @@ public void method() {
   }
 }
 ```
+
 ##### After
+
 ```java
 public void method() {
   if (platform.equalsIgnoreCase("MAC")) {
@@ -435,12 +492,14 @@ public void method() {
 
 > Also see: [Extract to local variable](#extract-to-local-variable)
 
-
 ### Inline method
+
 Replaces calls to the method with the method’s body.
 
 #### Example
+
 Let's replace the method `getArea(int height, int width)` directly to the expression `height * width`.
+
 ##### Before
 
 ```java
@@ -454,7 +513,9 @@ private int getArea(int height, int width) {
   return height * width;
 }
 ```
+
 ##### After
+
 ```java
 public void method() {
   int height = 1;
@@ -469,14 +530,16 @@ public void method() {
 
 > Also see: [Extract to method](#extract-to-method)
 
-
 ### Invert conditions
+
 Inverts the boolean expression in the conditions.
 
 #### Example
+
 Let's invert the boolean expression in the if statement.
 
 ##### Before
+
 ```java
 public void method(int value) {
   if (value > 5 && value < 15) {
@@ -484,7 +547,9 @@ public void method(int value) {
   }
 }
 ```
+
 ##### After
+
 ```java
 public void method(int value) {
   if (value <= 5 || value >= 15) {
@@ -494,35 +559,45 @@ public void method(int value) {
 ```
 
 ### Invert local variable
+
 Inverts the local boolean variable.
 
 #### Example
+
 Let's invert the variable `valid`.
 
 ##### Before
+
 ```java
 public void method(int value) {
   boolean valid = value > 5 && value < 15;
 }
 ```
+
 ##### After
+
 ```java
 public void method(int value) {
   boolean notValid = value <= 5 || value >= 15;
 }
 ```
+
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/invert-variable.mp4" type="video/mp4">
 </video>
 
 ### Move
+
 Moves the selected elements and corrects all references to the elements (also in other files). Available actions are:
+
 - Move class to another package
 - Move static or instance method to another class
 - Move inner class to a new file
 
-#### Examples
+#### Example
+
 Let's move the static method `print()` from class `Office` to class `Printer`.
+
 ##### Before
 
 ```java
@@ -540,6 +615,7 @@ public class Office {
 ```
 
 ##### After
+
 ```java
 public class Office {
   public static void main(String[] args) {
@@ -574,12 +650,14 @@ Move an inner class to new a new file.
 
 ### Rename
 
-**_Default shortcut:_ <kbd>F2</kbd>**
+Default shortcut: `kb(editor.action.rename)`
 
 Renames the selected element and corrects all references to the elements (also in other files).
 
-#### Examples
+#### Example
+
 Let's rename the class `Foo` to `Bar`
+
 ##### Before
 
 ```java
@@ -591,7 +669,9 @@ public void myMethod() {
   Foo myClass = new Foo();
 }
 ```
+
 ##### After
+
 ```java
 public class Bar {
   // ...
@@ -609,15 +689,19 @@ The shortcut to invoke the Rename refactoring is `kb(editor.action.rename)`. Whe
 </video>
 
 ### Change resolved type to var type
+
 Uses `var` to declare local variables.
 
-#### Examples
+#### Example
+
 ##### Before
 
 ```java
 String s = "";
 ```
+
 ##### After
+
 ```java
 var s = "";
 ```
@@ -627,24 +711,28 @@ var s = "";
 ---
 
 ### Change var type to resolved type
+
 Uses the resolved type to declare local variables.
 
-#### Examples
+#### Example
+
 ##### Before
 
 ```java
 var s = "";
 ```
+
 ##### After
+
 ```java
 String s = "";
 ```
 
 > Also see: [Change resolved type to var type](#change-resolved-type-to-var-type)
 
-## Source Action
+## Source Actions
 
-Source actions could be used to generate common code structures and recurring elements. Some of them are quick fixes which helps you fix your code issues on the fly.
+Source Actions could be used to generate common code structures and recurring elements. Some of them are quick fixes which helps you fix your code issues on the fly.
 
 ### Generate constructor from super class
 
@@ -664,7 +752,7 @@ Generate delegate methods
 
 ### Override/implement methods
 
-With this source action, all the candidates are presented to you with a checklist. You can then decide what to override or implement.
+With this Source Action, all the candidates are presented to you with a checklist. You can then decide what to override or implement.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/override-implement-methods.mp4" type="video/mp4">
@@ -672,8 +760,7 @@ With this source action, all the candidates are presented to you with a checklis
 
 ### Organize imports
 
-You can use this source action to clean up your imports. It
-can also deal with ambiguous imports, in that case, a dropdown list will be presented for you to pick the right one. The code line with the unresolved type is also presented to you to help you decide.
+You can use this Source Action to clean up your imports. It can also deal with ambiguous imports, in that case, a dropdown list will be presented for you to pick the right one. The code line with the unresolved type is also presented to you to help you decide.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/resolve-ambiguous-imports.mp4" type="video/mp4">
@@ -681,7 +768,7 @@ can also deal with ambiguous imports, in that case, a dropdown list will be pres
 
 ### Generate getters and setters
 
-You can bulk generate getters and setters for all new member variables. If the class has more than one field, the source action will prompt a Quick Pick for you to select the target fields to use to generate the accessor methods.
+You can bulk generate getters and setters for all new member variables. If the class has more than one field, the Source Action will prompt a Quick Pick for you to select the target fields to use to generate the accessor methods.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/advancedgettersetter.mp4" type="video/mp4">
@@ -693,8 +780,8 @@ You can bulk generate getters and setters for all new member variables. If the c
 
 There are two options for you to customize the generated code:
 
-* If you use Java 7+, you can set `java.codeGeneration.hashCodeEquals.useJava7Objects` to `true` to generate shorter code that calls `Objects.hash` and `Objects.equals`.
-* You can also set `java.codeGeneration.hashCodeEquals.useInstanceof` to `true` to use `instanceOf` operator to check the object types instead of calling `Object.getClass()`.
+- If you use Java 7+, you can set `java.codeGeneration.hashCodeEquals.useJava7Objects` to `true` to generate shorter code that calls `Objects.hash` and `Objects.equals`.
+- You can also set `java.codeGeneration.hashCodeEquals.useInstanceof` to `true` to use `instanceOf` operator to check the object types instead of calling `Object.getClass()`.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/generate-hashcode-equals.mp4" type="video/mp4">
@@ -702,7 +789,7 @@ There are two options for you to customize the generated code:
 
 ### Generate `toString()`
 
-There is a new source action to generate the `toString()` method. Customization is possible with a check list of all the member variables.
+There is a new Source Action to generate the `toString()` method. Customization is possible with a check list of all the member variables.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/generate-tostring.mp4" type="video/mp4">
@@ -728,10 +815,10 @@ When your package name doesn't match the folder name, you have the options to ei
 
 The list of Code Actions supported by VS Code keeps growing and only listed the most popular ones above. Other notable supported actions include (but not limited to):
 
-* Create unresolved types
-* Remove the `final` modifier
-* Remove unnecessary cast
-* Remove redundant interfaces
-* Add missing case labels in switch statements
-* Jump to definition on break/continue
-* Correct access to static elements
+- Create unresolved types
+- Remove the `final` modifier
+- Remove unnecessary cast
+- Remove redundant interfaces
+- Add missing case labels in switch statements
+- Jump to definition on break/continue
+- Correct access to static elements

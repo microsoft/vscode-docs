@@ -69,7 +69,7 @@ tasks.withType(Test) {
 }
 ```
 
-> Note: if you are modifying a project that was already opened in VS Code before, you may need to force clean the workspace and reload. To do so, run command `Java: Clean the Java language server workspace`.
+> Note: If you are modifying a project that was already opened in VS Code, you may need to force clean the workspace and reload. To do so, run command **Java: Clean the Java language server workspace**.
 
 ## Will this be available for Visual Studio?
 

@@ -3,11 +3,11 @@ Order: 4
 Area: java
 TOCTitle: Linting
 ContentId: dd4fa82e-0021-404c-87e4-3b69f1e12463
-PageTitle: Formatting, Linting and code analysis for Java in Visual Studio Code
+PageTitle: Formatting, linting, and code analysis for Java in Visual Studio Code
 DateApproved: 4/9/2020
-MetaDescription: Formatting, Linting and code analysis for Java in Visual Studio Code
+MetaDescription: Formatting, linting, and code analysis for Java in Visual Studio Code
 ---
-# Formatting, Linting and code analysis for Java in Visual Studio Code
+# Java formatting, linting, and code analysis
 
 [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) also provides [formatting settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings). You can export an Eclipse formatter file and then use it for your project in VS Code.
 

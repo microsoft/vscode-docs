@@ -10,9 +10,9 @@ MetaDescription: Java tutorial showing basic Java language support in the Visual
 
 # Writing Java with Visual Studio Code
 
-This tutorial shows you how to write and run Hello World program in Java with Visual Studio Code, also known as VS Code. It also covers a few advanced features, which you can explore by reading other documents in this section.
+This tutorial shows you how to write and run Hello World program in Java with Visual Studio Code. It also covers a few advanced features, which you can explore by reading other documents in this section.
 
-For an overview of featuer available for Java in VS Code, see [Java Language Overview](docs/languages/java.md)
+For an overview of the features available for Java in VS Code, see [Java Language Overview](docs/languages/java.md)
 
 If you run into any issues when following this tutorial, you can contact us by clicking the **Report an issue** button below.
 
@@ -20,11 +20,11 @@ If you run into any issues when following this tutorial, you can contact us by c
 
 If you need to install VS Code, [download it here](https://code.visualstudio.com/download).
 
-## Supported Java Versions
+## Supported Java versions
 
-VS Code works with all major versions of Java SE up to 13. 
+VS Code works with all major versions of Java SE up to 13.
 
-## Setting Up Visual Studio Code for Java Development
+## Setting up Visual Studio Code for Java Development
 
 ### Installing a Java Development Kit (JDK)
 
@@ -34,14 +34,15 @@ Before going through this tutorial, your development environment must have a Jav
 * [AdoptOpenJDK](https://adoptopenjdk.net/)
 * [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/)
 
-### Configuring Your Development Environment to Use a JDK
+### Configuring your development environment to use a JDK
+
 Your development environment needs to know where the JDK is located. A common way to do this is [setting the value of the `JAVA_HOME` system environment variable](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) to the install location of the JDK, for example, `C:\Program Files\Java\jdk-13.0.2`. Or if you want to configure only VS Code to use the JDK, use the `java.home` setting in [VS Code's User or Workspace settings](/docs/getstarted/settings.md).
 
-To help you get started quickly, we created a special [Installer of Visual Studio Code for Java developers](https://aka.ms/vscode-java-installer-win).
+To help you get started quickly, there is a special [Installer of Visual Studio Code for Java developers](https://aka.ms/vscode-java-installer-win).
 
 > **Note**: The installer is currently only available for Windows. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions. We're working on the macOS version. Please stay tuned.
 
-The package can be used as a clean install, or you can also use it to update an existing development environment to add Java or VS Code. After you've [downloaded](https://aka.ms/vscode-java-installer-win) and opened it, it automatically tries to detect a JDK, VS Code, and essential Java extensions. During install, it downloads the stable versions of those tools from trusted online sources then installs and configures them.
+The package can be used as a clean install, or you can also use it to update an existing development environment to add Java or VS Code. After you've [downloaded](https://aka.ms/vscode-java-installer-win) and opened it, the installer automatically tries to detect a JDK, VS Code, and essential Java extensions. During install, it downloads the stable versions of those tools from trusted online sources then installs and configures them.
 
 ![Detect Environment](images/java-tutorial/detect-eng.png)
 
@@ -62,17 +63,17 @@ You can also select which extensions you would like to install separately. For t
 
 If a JDK is not already installed, the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides links to download a reliable JDK.
 
-## VS Code Settings for the JDK
+## Settings for the JDK
 
-To access various VS Code settings, bring up the **Command Palette** (`kb(workbench.action.showCommands)`) and use the command **Java: Configure Java Runtime** 
+To access various settings for using the JDK, bring up the **Command Palette** (`kb(workbench.action.showCommands)`) and use the command **Java: Configure Java Runtime**.
 
 ![JDK Configuration](images/java-tutorial/jdk-configuration.png)
 
-The [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), also provides a Quick Start guide and tips for code editing and debugging. It also has a FAQ that answers some frequently asked questions. Use the command **Java: Getting Started** from the Command Palette (`kb(workbench.action.showCommands)`). 
+The [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), also provides a Quick Start guide and tips for code editing and debugging. It also has a FAQ that answers some frequently asked questions. Use the command **Java: Getting Started** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Java Getting Started](images/java-tutorial/getting-started.png)
 
-## Creating the Source Code File
+## Creating a source code file
 
 Create a folder for your Java program and open the folder with VS Code. Then in VS Code, create a new file and save it with the name `Hello.java`. When you open that file, the Java Language Server automatically starts loading, and you should see a loading icon on the right side of the Status Bar. After it finishes loading, you will see a thumbs-up icon.
 
@@ -90,7 +91,7 @@ You can also create an Eclipse style project using the **Java: Create Java Proje
 
 Visual Studio Code also supports more complex Java projects, see [Project Management](/docs/java/java-project.md).
 
-## Editing Code
+## Editing source code
 
 You can use code snippets to scaffold your classes and methods. VS Code also provides IntelliSense for code completion, and various refactor methods.
 
@@ -100,9 +101,9 @@ You can use code snippets to scaffold your classes and methods. VS Code also pro
 
 To learn more about editing Java, see [Java Editing](/docs/java/java-editing.md).
 
-## Running and Debugging Your Program
+## Running and debugging your program
 
-To run and debug Java code, set a breakpoint then either press `kb(workbench.action.debug.start)` (F5 by default) on your keyboard or **Start Debugging** > **Run** in the menubar. You can also use the **Run|Debug** options on a [CodeLens](/blogs/2017/02/12/code-lens-roundup.md). After the code compiles, you can see all your variables and threads in the Run view. 
+To run and debug Java code, set a breakpoint, then either press `kb(workbench.action.debug.start)` on your keyboard or use the **Run** > **Start Debugging** menu item. You can also use the **Run|Debug** CodeLens options in the editor. After the code compiles, you can see all your variables and threads in the Run view.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-tutorial/run-debug.mp4" type="video/mp4">
@@ -112,7 +113,7 @@ The debugger also supports advanced features such as Hot Code replacement and co
 
 For more information, see [Java Debugging](/docs/java/java-debugging.md).
 
-## More Features
+## More features
 
 The editor also has much more capability for your Java workload.
 
@@ -120,5 +121,5 @@ The editor also has much more capability for your Java workload.
 * [Debugging](/docs/java/java-debugging.md) illustrates all the key features of the Java Debugger
 * [Testing](/docs/java/java-testing.md) provides comprehensive support for JUnit and TestNG framework
 * [Java Project Management](/docs/java/java-project.md) shows you how to use a project view and work with Maven
-* [Spring Boot Support](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great support for Spring Boot, Tomcat, and Jetty
+* [Spring Boot](/docs/java/java-spring-boot.md) and [Tomcat and Jetty](/docs/java/java-tomcat-jetty.md) demonstrate great framework support
 * [Java Web Apps](/docs/java/java-webapp.md) shows how to work with Java Web App in VS Code
