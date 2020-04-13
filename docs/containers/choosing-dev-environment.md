@@ -9,7 +9,7 @@ MetaDescription: Guidance on choosing remote or local environments for developin
 ---
 # Your development environment
 
-You can choose whether to develop a container-based service in the **local environment**, or in a **remote environment**. The local environment is the operating system of your developer workstation; using the local environment means you build and run your service container(s) using Docker installed on your workstation. Docker is supported on Windows, MacOS, and various Linux distributions; for system and hardware requirements refer to [Docker installation page](https://docs.docker.com/get-docker/).
+You can choose whether to develop a container-based service in the **local environment**, or in a **remote environment**. The local environment is the operating system of your developer workstation; using the local environment means you build and run your service container(s) using Docker installed on your workstation. Docker is supported on Windows, macOS, and various Linux distributions; for system and hardware requirements refer to [Docker installation page](https://docs.docker.com/get-docker/).
 
 [A remote development environment](/docs/remote/remote-overview.md) is different from your developer workstation. It can be a remote machine accessible via SSH, a virtual machine running on your developer workstation, or a development container. A remote environment can have advantages over the local environment, the main one being the ability to use the same operating system during development, and when your service is running in production. To use a remote environment, you need to ensure that `docker` command (Docker CLI) [is available and functional within that environment](#enabling-docker-cli-inside-a-remote-development-environment).
 
