@@ -28,7 +28,7 @@ The second important choice is whether to debug your service running as an ordin
 
 1. Debugging your service running in a container is possible, but brings additional complexity. Use normal debugging by default, and debugging in the container when you need it.
 
-> The Docker extension natively supports container debugging for .NET-, Node.js-, and Python-based based services.
+> The Docker extension natively supports container debugging for .NET-, Node.js-, and Python-based services.
 
 ## Enabling Docker CLI inside a remote development environment
 
