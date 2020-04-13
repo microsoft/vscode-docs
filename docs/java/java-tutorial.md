@@ -22,7 +22,7 @@ If you need to install VS Code, [download it here](https://code.visualstudio.com
 
 ## Supported Java versions
 
-VS Code works with all major versions of Java SE up to 13.
+VS Code works with all major versions of Java SE up to 14.
 
 ## Setting up Visual Studio Code for Java Development
 
