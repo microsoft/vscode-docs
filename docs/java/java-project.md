@@ -19,7 +19,7 @@ If you run into any issues when using the features below, you can contact us by 
 
 ## Syntax Mode
 
-Reading and navigating through source code is a common use for a lightweight editor. When developers use VS Code to open a Java source file/folder that doesn't involve a project system, it's annoying to see semantic errors reported when the source cannot be resolved to a project. With Syntax Mode, you'll be able to read source code more efficiently with the help of Code Navigation (between your sources and JDK), Outline as well as Javadoc features. Syntax errors are also reported so you can fix them right away.
+Reading and navigating through source code is a common use for a lightweight editor. When developers use VS Code to open a Java source file/folder that doesn't involve a project system (such as drag and drop some Java files into VS Code), it's annoying to see semantic errors reported when the source cannot be resolved to a project. With Syntax Mode, you'll be able to read source code more efficiently with the help of Code Navigation (between your sources and JDK), Outline as well as Javadoc features. Syntax errors are also reported so you can fix them right away.
 
 Usually you won't even know Syntax Mode is on, but you can configure it. Go to Problems panel, and look for the warning `File xxx is non-project file, only syntax errors are reported`, which means you are in Syntax Mode. If you want to see all the type errors and get full support, right-click on this warning and switch out of Syntax Mode through the context menu. See the screenshots below.
 
@@ -79,9 +79,13 @@ If you have multiple subfolders that have source code for your project, you can 
   <source src="/docs/java/java-project/multiple-source.mp4" type="video/mp4">
 </video>
 
+## Working with JAR files
+
+If you just started to learn Java and don't have any clue what Maven or Gradle is, VS Code Java lets you work with JAR files directly without any build tools with `JAVA DEPENDENCIES` view.
+
 ### Adding external JAR
 
-You can use the Java Dependency Viewer to add any JAR file to your project.
+You can use the Java Dependency Viewer to add any JAR file to your project. Go to `JAVA DEPENDENCIES` view, find the `Referenced Libraries` node and click the `+` icon:
 
 ![Add Dependency](images/java-project/manage-dependencies.gif)
 
@@ -91,7 +95,9 @@ The other easy way to bring additional JAR files as dependencies is to create a 
   <source src="/docs/java/java-project/lib.mp4" type="video/mp4">
 </video>
 
-Behind the scene, there's a setting `java.project.referencedLibaries`. Below are details on how to customize this setting.
+### Library configuration
+
+Behind the scene, there's a setting `java.project.referencedLibaries` in `settings.json`. Below are details on how to customize this setting.
 
 **Include libraries**
 
@@ -161,7 +167,7 @@ In case VS Code throws an error for a classpath issue, try setting your classpat
 
 In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean the java language server workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
 
-### Configure multiple JDK
+## Configure multiple JDK
 
 As Java evolves, Java developers sometimes need to deal with multiple Java runtimes. The Java extension supports preference mapping through the `java.configuration.runtimes` array for Java execution environments. VS Code will detect the runtime required for your project and choose the appropriate one configured.
 

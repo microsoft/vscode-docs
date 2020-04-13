@@ -52,7 +52,10 @@ There are also other popular Java extensions you can pick for your own needs, in
 3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 4. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
 5. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
-6. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
+6. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
+7. [Microprofile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
+8. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
+9. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 
 Thanks to the great Java community around VS Code, the list doesn't end there. You can search for more Java extensions easily within VS Code:
 
@@ -71,6 +74,12 @@ For developers new to Java or new to VS Code, we provide a Getting Started exper
 
 ![Java Getting Started](images/java/getting-started.png)
 
+## Standalone Java source files
+
+You can use VS Code to open any Java source file(s). As an lightweight editor, VS Code can provide you features such as syntax highlighting and error detection, code navigation, outline as well as Javadoc features with its [Syntax Server](https://code.visualstudio.com/docs/java/java-project#_syntax-mode) immediately without resolving the project. Syntax mode makes VS Code an ideal tool for reading and learning any Java code base.
+
+At the same time, a more powerful Java language server will be started in backend to resolve and index your whole project to provide you more advanced features such as code completion. You can switch between Syntax mode and full langauge server as you need.
+
 ## Java project support
 
 There are three things you must understand to work with Java in VS Code:
@@ -87,7 +96,7 @@ A "folder workspace" is presented by VS Code when you open a filesystem folder (
 
 A "multi-root workspace" can refer to multiple folders (directories) from disparate parts of the file system and VS Code displays the contents of the folder(s) of the workspace together in the [File Explorer](/docs/getstarted/userinterface.md#basic-layout). To learn more, see [Multi-root Workspaces](/docs/editor/multi-root-workspaces.md).
 
-### Java in VS Code
+### Java project in VS Code
 
 In contrast to IDEs such as IntelliJ IDEA, NetBeans, or Eclipse, the concept of a "Java project" is provided entirely by extensions, and is not a core concept in the base VS Code. When working with "Java projects" in VS Code, you must have the necessary extensions installed to work with those project files.
 
@@ -101,15 +110,21 @@ With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjav
 
 Visual Studio Code also supports working with standalone Java files outside of a Java project, described in the [Java Tutorial with VS Code](/docs/java/java-tutorial.md).
 
-### VS Code Workspaces that contain Java
+### VS Code Workspaces that contain Java project
 
 Assuming the necessary Java extensions are installed, opening a VS Code workspace that contains Java artifacts will cause those extensions to understand those artifacts and present options for working with them.
 
-More details about Java project support can be found in [Java Project Management in Visual Studio Code](/docs/java/java-project.md).
+More details about Java project support can be found in [Java Project Management in Visual Studio Code](/docs/java/java-project.md) and [Build Tools](/docs/java/java-build.md).
 
 ## Editing
 
-### IntelliSense
+### Code Navigation
+
+Java in Visual Studio Code also supports source code navigation features such as search for symbol, Peek Definition, and Go to Definition. The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for [Spring Boot](https://projects.spring.io/spring-boot/) projects.
+
+One of the key advantage of VS Code is speed. When you open your Java source file or folder, within a few seconds, with the help of [Syntax Mode](/docs/java/java-project.md#Syntax-Mode), you will be able to navigate your code base with Outline view as well as commands such as **Go to Definition** and **Go to Reference**. This is especially useful when you open a project for the first time.
+
+### Code Completion
 
 [IntelliSense](/docs/editor/intellisense.md) is a general term for language features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules. VS Code supports code completion and IntelliSense for Java through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). It also provides AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) by putting what you're most likely to use at the top of your completion list.
 
@@ -117,11 +132,7 @@ More details about Java project support can be found in [Java Project Management
   <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
 </video>
 
-### Navigating
-
-Java in Visual Studio Code also supports source code navigation features such as search for symbol, Peek Definition, and Go to Definition. The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for [Spring Boot](https://projects.spring.io/spring-boot/) projects.
-
-There are also other editing related features available for Java, such as refactoring and formatting. To learn more, read [Editing Java in Visual Studio Code](/docs/java/java-editing.md).
+See also in [Java Code Navigation and Editing](/docs/java/java-editing.md). VS Code also support a range of [Refactoring](/docs/java/java-refactoring.md), [Linting](/docs/java/java-linting.md) features.
 
 ## Debugging
 
@@ -155,7 +166,7 @@ The [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-
   <source src="/docs/languages/java/tomcat.mp4" type="video/mp4">
 </video>
 
-See [Tomcat and Jetty Support](/docs/java/java-tomcat-jetty.md) to learn more about Tomcat and Jetty support with VS Code.
+See [Application Servers](/docs/java/java-tomcat-jetty.md) to learn more about support for Tomcat and Jetty as well as other application servers with VS Code.
 
 [Spring Boot](https://projects.spring.io/spring-boot/) support is provided by [Pivotal](https://marketplace.visualstudio.com/search?term=publisher%3A%22Pivotal%22&target=VSCode&category=All%20categories&sortBy=Relevance). There are also [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) and [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) extensions available from Microsoft to further improve your experience with Spring Boot in Visual Studio Code.
 

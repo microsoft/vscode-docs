@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 7
 Area: java
 TOCTitle: Run and Debug
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
@@ -160,7 +160,7 @@ With the help of expression evaluation, the debugger also supports conditional b
 
 ### Data Breakpoint
 
-You can have the debugger break when a variable change its value.
+You can have the debugger break when a variable change its value. Please note that the data breakpoint can only be set inside a debug session. That means you need to launch your application and break on a regular breakpoint first. Then you can pick a field in the `VARIABLES` view and set a data breakpoint.
 
 ![Data Breakpoint](images/java-debugging/data-breakpoint.png)
 
