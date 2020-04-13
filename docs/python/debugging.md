@@ -59,7 +59,7 @@ During debugging, the Status Bar shows the current configuration and the current
 
 ![Debugging Status Bar](images/debugging/debug-status-bar.png)
 
-By default, the debugger uses the same `python.pythonPath` workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `pythonPath` in `launch.json` for the applicable debugger configuration as described in the next section. Alternately, select the named interpreter on the Status Bar to select a different one, which updates `python.pythonPath`.
+By default, the debugger uses the same `python.pythonPath` workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `python` in `launch.json` for the applicable debugger configuration as described in the next section. Alternately, select the named interpreter on the Status Bar to select a different one, which updates `python.pythonPath`.
 
 ## Basic debugging
 
@@ -312,7 +312,7 @@ Identifies the type of debugger to use; leave this set to `python` for Python co
 Specifies the mode in which to start debugging:
 
 - `launch`: start the debugger on the file specified in `program`
-- `attach`: attach the debugger to an already running process. See [Remote debugging](#remote-debugging) for an example.
+- `attach`: attach the debugger to an already running process. See [Remote debugging](#remote-script-debugging-with-ssh) for an example.
 
 ### `program`
 
@@ -328,25 +328,13 @@ You can also rely on a relative path from the workspace root. For example, if th
 "program": "${workspaceFolder}/pokemongo_bot/event_handlers/__init__.py",
 ```
 
-### `pythonPath`
+### `python`
 
 Points to the Python interpreter to be used for debugging, which can be a folder containing a Python interpreter. The value can use variables like `${workspaceFolder}` and `${workspaceFolder}/.venv`.
 
-If not specified, this setting defaults to the interpreter identified in the `python.pythonPath` setting, which is equivalent to using the value `${config:python.pythonPath}`. To use a different interpreter, specify its path instead in the `pythonPath` property of a debug configuration.
+If not specified, this setting defaults to the interpreter identified in the `python.pythonPath` setting, which is equivalent to using the value `${config:python.pythonPath}`. To use a different interpreter, specify its path instead in the `python` property of a debug configuration.
 
-You can specify platform-specific paths by placing `pythonPath` within a parent object named `osx`, `windows`, or `linux`. For example, the configuration for PySpark uses the following values:
-
-```json
-"osx": {
-    "pythonPath": "^\"\\${env:SPARK_HOME}/bin/spark-submit\""
-},
-"windows": {
-    "pythonPath": "^\"\\${env:SPARK_HOME}/bin/spark-submit.cmd\""
-},
-"linux": {
-    "pythonPath": "^\"\\${env:SPARK_HOME}/bin/spark-submit\""
-},
-```
+You can specify platform-specific paths by placing `python` within a parent object named `osx`, `windows`, or `linux`.
 
 Alternately, you can use a custom environment variable that's defined on each platform to contain the full path to the Python interpreter to use, so that no additional folder paths are needed.
 
@@ -445,7 +433,6 @@ The configuration drop-down provides a variety of different options for general 
 | Flask | See [Flask debugging](#flask-debugging) below. |
 | Gevent | Adds `"gevent": true` to the standard integrated terminal configuration. |
 | Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, adds `"jinja": true` for enabling template debugging, and adds `"pyramid": true` to ensure that the program is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
-| PySpark | Runs the program using PySpark instead of the default interpreter, using platform-specific values for `pythonPath` as shown earlier under the [pythonPath option](#pythonpath). |
 | Scrapy | Specifies `"module": "scrapy"`  and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]`. |
 
@@ -502,7 +489,7 @@ If you want to run Flask's development server in development mode, use the follo
 
 There are many reasons why the debugger may not work. Oftentimes the debug console reveals specific causes, but two specific reasons are as follows:
 
-- The path to the python executable is incorrect: check the value of `pythonPath` in your user settings.
+- The path to the python executable is incorrect: check the value of `python.pythonPath` in your user settings.
 - There are invalid expressions in the watch window: clear all expressions from the Watch window and restart the debugger.
 - If you're working with a multi-threaded app that uses native thread APIs (such as the Win32 `CreateThread` function rather than the Python threading APIs), it's presently necessary to include the following source code at the top of whichever file you wish to debug:
 
