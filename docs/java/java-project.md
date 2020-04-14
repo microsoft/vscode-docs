@@ -9,7 +9,7 @@ MetaDescription: Maven Support, Java Package and Dependency Management in Visual
 MetaSocialImage:
 ---
 
-# Java Project Management in VS Code
+# Java project management in VS Code
 
 This document will give you an overview of how to work with your Java project using the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) as well as the Syntax Mode which works best for reading and navigating through source files even without a project structure.
 

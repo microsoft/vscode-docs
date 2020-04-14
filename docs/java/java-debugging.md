@@ -9,7 +9,7 @@ MetaDescription: See how you can run and debug your Java source code locally, an
 MetaSocialImage:
 ---
 
-# Running and Debugging Java
+# Running and debugging Java
 
 Visual Studio Code allows you to debug Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension. It's a lightweight Java debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug), which extends the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java).
 
