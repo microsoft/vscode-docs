@@ -32,7 +32,7 @@ With the docker-compose files, you can now specify port mappings in the docker-c
 
 ## Add new containers to your projects
 
-If you want to add a second app or service, modify the `docker-compose.yml` file to add the new app. Typically, you can cut and paste the existing section and change the names as appropriate for the new app.
+If you want to add a second app or service, modify the `docker-compose.yml` file to add the new service. Typically, you can cut and paste the existing service section and change the names as appropriate for the new service.
 
 You can run the **Add Docker Files to Workspace** command again to generate the `Dockerfile` for a new app. There's one `docker-compose.yml` and one `docker-compose.debug.yml` file for project for .NET Core and Python, or one per package.json for Node.js.
 
