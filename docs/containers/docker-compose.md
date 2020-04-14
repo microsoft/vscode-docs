@@ -97,7 +97,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
 
 - When you choose attach, VS Code asks to choose a container:
 
-   ![Screenshot of attach choose container](./images/compose/select-container-group.png)
+   ![Screenshot of attach choose container](images/compose/select-container-group.png)
 
    To skip this step, specify the container name in the **Attach** configuration in launch.json:
 
@@ -115,7 +115,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
 
 When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.  
 
-![Screenshot of Configuration dropdown](./images/compose/docker-compose-configuration.png)
+![Screenshot of Configuration dropdown](images/compose/docker-compose-configuration.png)
 
 Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
 
