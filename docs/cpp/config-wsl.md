@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 4
 Area: cpp
 TOCTitle: GCC on Windows Subsystem for Linux
 ContentId: dc79a06a-6665-478c-9298-a1fc9cf8010d
@@ -219,7 +219,7 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 
 ### Modifying tasks.json
 
-You can modify your `tasks.json` to build multiple C++ files by using an argument like `"*.cpp"` instead of `${file}`. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example 'helloworld.out').
+You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `${file}`. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example 'helloworld.out').
 
 ## Debug helloworld.cpp
 

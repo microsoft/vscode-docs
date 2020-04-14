@@ -1,19 +1,19 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f470466d-89b0-4115-ab7a-2448023b0a6d
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating Icon Theme in Visual Studio Code
 ---
 
-# Icon Theme
+# File Icon Theme
 
 Visual Studio Code displays icons next to filenames throughout its UI, and extensions can contribute new sets of file icons that users can choose from.
 
-## Adding a new Icon Theme
+## Adding a new File Icon Theme
 
-You can create your own icon theme from icons (preferably SVG) and from icon fonts. As example, check out the two built-in themes: [Minimal](https://github.com/Microsoft/vscode/tree/master/extensions/theme-defaults) and [Seti](https://github.com/Microsoft/vscode/tree/master/extensions/theme-seti).
+You can create your own file icon theme from icons (preferably SVG) and from icon fonts. As example, check out the two built-in themes: [Minimal](https://github.com/Microsoft/vscode/tree/master/extensions/theme-defaults) and [Seti](https://github.com/Microsoft/vscode/tree/master/extensions/theme-seti).
 
 To begin, create a VS Code extension and add the `iconTheme` contribution point.
 
@@ -33,9 +33,9 @@ To begin, create a VS Code extension and add the `iconTheme` contribution point.
 
 The `id` is the identifier for the icon theme. It is currently only used internally. In the future, it might be used in the settings, so make it unique but also readable. `label` is shown in the icon theme picker drop-down. The `path` points to a file in the extension that defines the icon set. If your icon set name follows the `*icon-theme.json` name scheme, you will get completion support and hovers in VS Code.
 
-### Icon Set File
+### File Icon Set File
 
-The icon set file is a JSON file consisting of file icon associations and icon definitions.
+The file icon set file is a JSON file consisting of file icon associations and icon definitions.
 
 An icon association maps a file type ('file', 'folder', 'json-file'...) to an icon definition. Icon definitions define where the icon is located: That can be an image file or also glyph in a font.
 

@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
 PageTitle: Running Visual Studio Code on macOS
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
@@ -71,14 +71,6 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences settings.
 
 ## Common questions
-
-### Unable to open on macOS Catalina
-
-After downloading, when you try to open VS Code on macOS Catalina, you may see a message '"Visual Studio Code" can't be opened because Apple cannot check it for malicious software'. This is because VS Code is not currently notarized but VS Code will run successfully on macOS Catalina.
-
-To workaround the notarization check, follow the instructions to [Open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac) or from the Apple menu, go to **System Preferences** > **Security & Privacy** > **General** and choose **Open Anyway**.
-
-![Notarization check workaround to Open Anyway](images/mac/open-anyway.png)
 
 ### Why do I see "Visual Studio Code would like access to your calendar."
 

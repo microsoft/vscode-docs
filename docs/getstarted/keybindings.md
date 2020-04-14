@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -300,6 +300,14 @@ Context name | True when
 **Integrated terminal contexts** |
 `terminalFocus` | An integrated terminal has focus.
 `terminalIsOpen` | An integrated terminal is opened.
+**Timeline view contexts** |
+`timelineFollowActiveEditor` | True if the Timeline view is following the active editor.
+**Timeline view item contexts** |
+`timelineItem` | True when the timeline item's context value matches. Example: `"timelineItem =~ /git:file:commit\\b/"`.
+**Extension contexts** |
+`extension` | True when the extension's ID matches. Example: `"extension == eamodio.gitlens"`.
+`extensionStatus` | True when the extension is installed. Example: `"extensionStatus == installed"`.
+`extensionHasConfiguration` | True if the extension has configuration.
 **Global UI contexts** |
 `notificationFocus` | Notification has keyboard focus.
 `notificationCenterVisible` | Notification Center is visible at the bottom right of VS Code.
@@ -311,6 +319,7 @@ Context name | True when
 `inZenMode` | Window is in Zen Mode.
 `isCenteredLayout` | Editor is in centered layout mode.
 `inDebugRepl` | Focus is in the Debug Console REPL.
+`workbenchState` | Can be `empty`, `folder` (1 folder), or `workspace`.
 `workspaceFolderCount` | Count of workspace folders.
 `replaceActive` | Search view Replace text box is open.
 `view` | True when view identifier matches. Example: `"view == myViewsExplorerID"`.

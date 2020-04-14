@@ -83,23 +83,11 @@ The extension will create `Dockerfile` and `.dockerignore` files. If you elected
 
 ## Debug in the service container
 
-When the Docker extension adds files to the application, it also adds a **VS Code debugger configuration** in `.vscode/launch.json` for debugging the service when running inside a container. The extension detects the protocol and port used by the service and points the browser to the service, but make sure the application's output is written to the debug console.
-
-1. Open the `.bin/www` file in the editor.
-1. After the `require()` statements, add a line that forces the debug logger to write to the debug console, as shown below:
-
-   ```javascript
-   var app = require('../app');
-   var debug = require('debug')('express-app:server');
-   var http = require('http');
-
-   // Add the following line to force the debug logger to write to the debug console.
-   debug.log = console.debug.bind(console);
-   ```
+When the Docker extension adds files to the application, it also adds a **VS Code debugger configuration** in `.vscode/launch.json` for debugging the service when running inside a container. The extension detects the protocol and port used by the service and points the browser to the service.
 
 1. Set a breakpoint in the `get()` handler for the `'/'` route in `routes/index.js`.
 
-1. Make sure the **Docker Node.js Launch and Attach** debugger configuration is selected.
+1. Make sure the **Docker Node.js Launch** debugger configuration is selected.
 
    ![Selected Docker debug configuration](images/quickstarts/node-debug-configuration.png)
 

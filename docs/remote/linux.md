@@ -5,7 +5,7 @@ TOCTitle: Linux Prerequisites
 PageTitle: Linux Prerequisites for Visual Studio Code Remote Development
 ContentId: 7ec8dedf-0659-437e-98f1-2d27f5e243eb
 MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Remote - Containers, and Remote - WSL
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 ---
 # Remote Development with Linux
 
@@ -19,9 +19,10 @@ The extensions are known to work when connecting to recent stable/LTS version of
 * **CentOS / RHEL 64-bit x86** (7+)
 * **Alpine Linux 64-bit x86 containers or WSL hosts** (3.7+) in Remote - Containers, Remote - WSL
 
-There is also experimental support in **[VS Code Insiders](https://code.visualstudio.com/insiders/)** for:
+The following non-Linux SSH hosts are also supported:
 
 * **Windows 10 / Server 2016/2019 SSH hosts** (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enabling `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md).
+* **macOS** 10.14+ (Mojave) SSH hosts with [Remote Login enabled](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
 
 However, if you are using a non-standard configuration or downstream distribution of Linux, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
 
@@ -82,8 +83,6 @@ The following is a list of distributions and any base requirements that may be m
 | ✅ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 16.04 (64-bit) | `ubuntu:16.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 14.04 (64-bit) | `ubuntu:14.04` | &lt;none&gt;  | &lt;none&gt; |
-| 🔬 Windows 10 1903 (64-bit) | Not supported. | &lt;none&gt;  | Use the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enable `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md). |
-| 🔬 Windows Server 2019 1903 (64-bit) | Not supported. | &lt;none&gt;  | Use the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enable `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md). |
 
 ## Updating glibc and libstdc++ on RHEL / CentOS 6
 

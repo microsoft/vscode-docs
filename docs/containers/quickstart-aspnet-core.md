@@ -19,7 +19,7 @@ In this guide you will learn how to:
 
 - Docker and the VS Code Docker extension must be installed as described on the [overview](overview.md#installation).
 - For .NET development, install [.NET Core SDK](https://dotnet.microsoft.com/download).
-- [C# VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
+- Microsoft [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
 
 ## Create a .NET Core Web API project
 
@@ -32,7 +32,8 @@ In this guide you will learn how to:
 
 ## Add Docker files to the project
 
-1. Open the project folder in VS Code
+1. Open the project folder in VS Code.
+1. Wait for the C# extension to prompt you to add required assets for build and debug, and choose **Yes**. You can also open the Command Palette (`kb(workbench.action.showCommands)`) and use the **.NET: Generate Assets for Build and Debug** command.
 1. Open Command Palette (`kb(workbench.action.showCommands)`) and use **Docker: Add Docker Files to Workspace...** command:
 
    ![Add Dockerfile to a .NET project](images/quickstarts/aspnetcore-add-dotnet.png)

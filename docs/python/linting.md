@@ -78,7 +78,7 @@ To select a different linter, use the **Python: Select Linter** command. You can
 Custom arguments are specified in the appropriate arguments setting for each linter. Each top-level element of an argument string that's separated by a space on the command line must be a separate item in the args list. For example:
 
 ```json
-"python.linting.pylintArgs": ["--reports", "12", "--disable-msg", "I0011"],
+"python.linting.pylintArgs": ["--reports", "12", "--disable", "I0011"],
 "python.linting.flake8Args": ["--ignore=E24,W504", "--verbose"]
 "python.linting.pydocstyleArgs": ["--ignore=D400", "--ignore=D4"]
 ```

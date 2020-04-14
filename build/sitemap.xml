@@ -456,6 +456,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/python/data-science-tutorial</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/python/tutorial-django</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -501,6 +506,21 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/java/java-editing</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/java/java-refactoring</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/java/java-linting</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/java/java-webapp</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -512,6 +532,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/java/java-project</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/java/java-build</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -531,7 +556,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/java/java-editing</loc>
+        <loc>https://code.visualstudio.com/docs/java/java-on-azure</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -567,6 +592,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/cpp/config-msvc</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/cpp/config-linux</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -927,7 +957,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/api/extension-guides/icon-theme</loc>
+        <loc>https://code.visualstudio.com/api/extension-guides/file-icon-theme</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -938,6 +968,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/extension-guides/webview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/custom-editors</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -993,6 +1028,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/language-extensions/language-server-extension-guide</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/language-extensions/embedded-languages</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

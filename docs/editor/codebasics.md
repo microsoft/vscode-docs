@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -98,8 +98,14 @@ VS Code will remember unsaved changes to files when you exit by default. Hot exi
 You can configure hot exit by setting `files.hotExit` to the following values:
 
 * `"off"`: Disable hot exit.
-* `"onExit"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu). All windows with backups will be restored upon next launch.
+* `"onExit"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu). All windows without folders opened will be restored upon next launch.
 * `"onExitAndWindowClose"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu), and also for any window with a folder opened regardless of whether it is the last window. All windows without folders opened will be restored upon next launch. To restore folder windows as they were before shutdown, set `window.restoreWindows` to `all`.
+
+If something happens to go wrong with hot exit, all backups are stored in the following folders for standard install locations:
+
+- **Windows** `%APPDATA%\Code\Backups`
+- **macOS** `$HOME/Library/Application Support/Code/Backups`
+- **Linux** `$HOME/.config/Code/Backups`
 
 ## Find and Replace
 
@@ -121,7 +127,7 @@ By default, the find operations are run on the entire file in the editor. It can
 
 ![Find In Selection](images/codebasics/find-in-selection.gif)
 
-If you want it to be the default behavior of the Find Widget, you can set `editor.find.autoFindInSelection` to `true`.
+If you want it to be the default behavior of the Find Widget, you can set `editor.find.autoFindInSelection` to `always`, or to `multiline`, if you want it to be run on selected text only when multiple lines of content are selected.
 
 ### Advanced find and replace options
 

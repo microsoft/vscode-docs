@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/Languages_typescript.png
 ---
@@ -32,6 +32,22 @@ tsc --version
 ```
 
 Another option is to install the TypeScript compiler locally in your project (`npm install --save-dev typescript`) and has the benefit of avoiding possible interactions with other TypeScript projects you may have.
+
+## Syntax highlighting and semantic highlighting
+
+In addition to syntax highlighting, TypeScript and JavaScript also provides semantic highlighting.
+
+Syntax highlighting colors the text based on lexical rules. Semantic highlighting enriches the syntax coloring based on resolved symbol information from the language service.
+
+Whether semantic highlighting is visible depends on the current color theme. Each theme can [configure](/docs/getstarted/themes.md#semantic-highlighting) whether to display semantic highlighting and how it styles the semantic tokens.
+
+If semantic highlighting is enabled and the color theme has a corresponding styling rule defined, different colors and styles can be seen.
+
+Semantic highlighting can change colors based on:
+
+- The resolved type of a symbol: namespace, variable, property, variable, property, class, interface, typeParameter.
+- Whether the variable/property is read-only (const) or modifiable.
+- Whether the variable/property type is callable (a function type) or not.
 
 ## IntelliSense
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code has a rich extension API. Learn how to create your own extensions for VS Code.
@@ -25,7 +25,7 @@ If you are looking for published extensions, head to the [VS Code Extension Mark
 
 Here are some examples of what you can achieve with the Extension API:
 
-- Change the look of VS Code with a color or icon theme - [Theming](/api/extension-capabilities/theming)
+- Change the look of VS Code with a color or file icon theme - [Theming](/api/extension-capabilities/theming)
 - Add custom components & views in the UI - [Extending the Workbench](/api/extension-capabilities/extending-workbench)
 - Create a Webview to display a custom webpage built with HTML/CSS/JS - [Webview Guide](/api/extension-guides/webview)
 - Support a new programming language - [Language Extensions Overview](/api/language-extensions/overview)

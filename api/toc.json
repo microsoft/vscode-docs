@@ -36,9 +36,10 @@
       ["Overview", "/api/extension-guides/overview"],
       ["Command", "/api/extension-guides/command"],
       ["Color Theme", "/api/extension-guides/color-theme"],
-      ["Icon Theme", "/api/extension-guides/icon-theme"],
+      ["File Icon Theme", "/api/extension-guides/file-icon-theme"],
       ["Tree View", "/api/extension-guides/tree-view"],
       ["Webview", "/api/extension-guides/webview"],
+      ["Custom Editors", "/api/extension-guides/custom-editors"],
       ["Virtual Documents", "/api/extension-guides/virtual-documents"],
       ["Task Provider", "/api/extension-guides/task-provider"],
       ["Source Control", "/api/extension-guides/scm-provider"],
@@ -57,7 +58,8 @@
       ["Language Configuration Guide", "/api/language-extensions/language-configuration-guide"],
       ["Programmatic Language Features", "/api/language-extensions/programmatic-language-features"],
       // ["Smart Editing Guide", "/api/language-extensions/smart-editing-guide"],
-      ["Language Server Extension Guide", "/api/language-extensions/language-server-extension-guide"]
+      ["Language Server Extension Guide", "/api/language-extensions/language-server-extension-guide"],
+      ["Embedded Languages", "/api/language-extensions/embedded-languages"]
     ]
   },
   {

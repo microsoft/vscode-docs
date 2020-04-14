@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -154,6 +154,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.filterMatchBackground`: Background color of the filtered matches in lists and trees.
 - `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
 - `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
+- `list.deemphasizedForeground`: List/Tree foreground color for items that are deemphasized.
 
 ## Activity Bar
 
@@ -347,7 +348,7 @@ To see editor rulers, define their location with `"editor.rulers"`
 
 CodeLens:
 
-![Code Lenses](images/theme-color/codelens.png)
+![CodeLens](images/theme-color/codelens.png)
 
 - `editorCodeLens.foreground`: Foreground color of an editor CodeLens.
 
@@ -605,6 +606,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `pickerGroup.foreground`: Quick picker (Quick Open) color for grouping labels.
 - `quickInput.background`: Quick input background color. The quick input widget is the container for views like the color theme picker.
 - `quickInput.foreground`: Quick input foreground color. The quick input widget is the container for views like the color theme picker.
+- `quickInputTitle.background`: Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
 
 ## Integrated Terminal colors
 

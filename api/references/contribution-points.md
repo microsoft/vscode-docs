@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 3/9/2020
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -339,10 +339,13 @@ Currently extension writers can contribute to:
 - The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
 - The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
 - The macOS Touch Bar - `touchBar`
-- The comment thread title - `comments/commentThread/title`
-- The comment thread actions - `comments/commentThread/context`
-- The comment title - `comments/comment/title`
-- The comment actions - `comments/comment/context`
+- The comment thread title menu bar - `comments/commentThread/title`
+- The comment thread context menu - `comments/commentThread/context`
+- The comment title menu bar - `comments/comment/title`
+- The comment context menu - `comments/comment/context`
+- The Timeline view title menu bar - `timeline/title`
+- The Timeline view item context menu - `timeline/item/context`
+- The Extensions view context menu - `extension/context`
 
 > **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
@@ -428,6 +431,17 @@ The **editor title menu** has these default groups:
 - `1_diff` - Commands related to working with diff editors.
 - `3_open` - Commands related to opening editors.
 - `5_close` - Commands related to closing editors.
+
+The **Timeline view item context menu** has these default groups:
+
+- `inline` - Important or frequently used timeline item commands. Rendered as a toolbar.
+- `1_actions` - Commands related to working with timeline items.
+- `5_copy` - Commands related to copying timeline item information.
+
+The **Extensions view context menu** has these default groups:
+
+- `1_copy` - Commands related to copying extension information.
+- `2_configure` - Commands related to configuring an extension.
 
 ### Sorting inside groups
 

@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 7
 Area: python
 TOCTitle: Jupyter Notebook Support
 ContentId: 779b7ad3-0aaa-4632-9998-0d8f964c0599
@@ -158,7 +158,7 @@ The Python Jupyter Notebook Editor window has full IntelliSense – code complet
 
 ## Variable explorer and data viewer
 
-Within the Python Notebook Editor, it's possible to view, inspect, and filter the variables within your current Jupyter session. By clicking the **Variables** icon in the top toolbar after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code. Clicking on each column header will allow you to sort the variables in the table.
+Within the Python Notebook Editor, it's possible to view, inspect, and filter the variables within your current Jupyter session. By clicking the **Variables** icon in the top toolbar after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code.
 
 ![Variable Explorer](images/jupyter/native-variable-explorer.png)
 
