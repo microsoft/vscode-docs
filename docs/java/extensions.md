@@ -51,7 +51,7 @@ Here are a few useful extensions:
 1. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
 2. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
 3. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
-4. [Microprofile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
+4. [MicroProfile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
 5. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
 6. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 7. [Java Linter](https://marketplace.visualstudio.com/items?itemName=faustinoaq.javac-linter)
