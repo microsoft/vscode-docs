@@ -24,6 +24,8 @@ If you need to install VS Code, [download it here](https://code.visualstudio.com
 
 VS Code works with all major versions of Java SE up to 14.
 
+> **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java version](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-version)
+
 ## Setting up Visual Studio Code for Java Development
 
 ### Installing a Java Development Kit (JDK)
