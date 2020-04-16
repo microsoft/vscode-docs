@@ -5,7 +5,7 @@ TOCTitle: Application Servers
 ContentId: 4f5e169c-d91d-46b7-8c36-b695b5862313
 PageTitle: Working with application servers in Visual Studio Code
 DateApproved: 1/2/2019
-MetaDescription: Tomcat and Jetty extensions for Java developer using Visual Studio Code.
+MetaDescription: Tomcat, Jetty and Open Liberty extensions for Java developer using Visual Studio Code.
 ---
 
 # Working with Application Servers in VS Code
@@ -51,9 +51,9 @@ More details could be found in the [GitHub repository](https://github.com/summer
 
 ## Open Liberty
 
-The [Open Liberty Tools](https://marketplace.visualstudio.com/items?itemName=Open-Liberty.liberty-dev-vscode-ext) extension lets you run your application on Open Liberty in development mode, allowing you to deploy, test and debug your application from Visual Studio Code.
+The [Open Liberty Tools](https://marketplace.visualstudio.com/items?itemName=Open-Liberty.liberty-dev-vscode-ext) extension lets you run your application on Open Liberty, allowing you to deploy, test and debug your application from Visual Studio Code.
 
-While your Open Liberty server is running in development mode your code is automatically compiled and deployed to the running server, making it easy to iterate on your changes. You can run tests on demand or even automatically so that you can get immediate feedback on your changes. You can also attach a debugger at any time to debug your running application.
+After you start your application with the Open Liberty tools extension, your code is automatically compiled and deployed to the running server, making it easy to iterate on your changes. You can run tests on demand or even automatically so that you can get immediate feedback on your changes. You can also attach a debugger at any time to debug your running application.
 
 More details can be found in the [GitHub repository](https://github.com/OpenLiberty/liberty-dev-vscode-ext) of the [Open Liberty Tools](https://marketplace.visualstudio.com/items?itemName=Open-Liberty.liberty-dev-vscode-ext) extension.
 
