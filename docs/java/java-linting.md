@@ -101,3 +101,20 @@ By default, SonarLint provides a wide array of rules to detect bugs and vulnerab
 ![SonarLint Activate-Deactivate Rules](images/java-linting/SonarLint.Activate-Deactivate.Rules.gif)
 
 For more details about the [SonarLint for VS Code extension](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode), visit the [SonarLint website](https://www.sonarlint.org/vscode/).
+
+## Formatter
+
+Currently, you need an Eclipse formatter file like [Google Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml). Set the following property:
+
+```
+"java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+```
+The property can point to an URL or a local file path.
+If the formatter xml file contains more profiles you will be able to set a profile name as:
+
+```
+"java.format.settings.profile": "GoogleStyle",
+```
+You can also define the formatting preferences in your project's [`.settings/org.eclipse.jdt.core.prefs`](https://gist.github.com/fbricon/30c5971f7e492c8a74ca2b2d7a7bb966). It will override global formatting settings.
+
+We're currently working on a solution to allow editing those formatting preferences conveniently in VS Code. For now, the best way to edit them is to use Eclipse. See [Formatter Settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings).
