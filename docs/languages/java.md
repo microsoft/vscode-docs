@@ -52,10 +52,11 @@ There are also other popular Java extensions you can pick for your own needs, in
 3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 4. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
 5. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
-6. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
-7. [MicroProfile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
-8. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
-9. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
+6. [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector)
+7. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
+8. [MicroProfile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
+9. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
+10. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 
 Thanks to the great Java community around VS Code, the list doesn't end there. You can search for more Java extensions easily within VS Code:
 

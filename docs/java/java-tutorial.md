@@ -24,8 +24,6 @@ If you need to install VS Code, [download it here](https://code.visualstudio.com
 
 VS Code works with all major versions of Java SE up to 14.
 
-> **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java version](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-version)
-
 ## Setting up Visual Studio Code for Java Development
 
 ### Installing a Java Development Kit (JDK)
@@ -75,6 +73,8 @@ The [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vs
 
 ![Java Getting Started](images/java-tutorial/getting-started.png)
 
+> **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java version](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-version)
+
 ## Creating a source code file
 
 Create a folder for your Java program and open the folder with VS Code. Then in VS Code, create a new file and save it with the name `Hello.java`. When you open that file, the Java Language Server automatically starts loading, and you should see a loading icon on the right side of the Status Bar. After it finishes loading, you will see a thumbs-up icon.
@@ -85,7 +85,9 @@ Create a folder for your Java program and open the folder with VS Code. Then in 
 
 >**Note**: If you open a Java file in VS Code without opening its folder, the Java Language Server might not work properly.
 
-You can also create an Eclipse style project using the **Java: Create Java Project** command. Bring up the **Command Palette**  (`kb(workbench.action.showCommands)`) and then type `java` to search for this command. After selecting the command, you will be prompted for the location and name of the project.
+VS Code will also try to figure out the correct package for the new type and fill the new file with template. See [Create new file](/docs/java/java-editing.md#create-new-file).
+
+You can also create a Java project using the **Java: Create Java Project** command. Bring up the **Command Palette**  (`kb(workbench.action.showCommands)`) and then type `java` to search for this command. After selecting the command, you will be prompted for the location and name of the project. You can also choose your build tool from this command.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-tutorial/JavaHelloWorld.Project.mp4" type="video/mp4">

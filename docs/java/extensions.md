@@ -51,14 +51,15 @@ Here are a few useful extensions:
 1. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
 2. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
 3. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
-4. [MicroProfile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
-5. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
-6. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
-7. [Java Linter](https://marketplace.visualstudio.com/items?itemName=faustinoaq.javac-linter)
-8. [Java Decompiler](https://marketplace.visualstudio.com/items?itemName=dgileadi.java-decompiler)
-9. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
-10. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
-11. [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel)
+4. [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector)
+5. [MicroProfile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
+6. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
+7. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
+8. [Java Linter](https://marketplace.visualstudio.com/items?itemName=faustinoaq.javac-linter)
+9. [Java Decompiler](https://marketplace.visualstudio.com/items?itemName=dgileadi.java-decompiler)
+10. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
+11. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
+12. [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel)
 
 We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as support for Gradle and other Java application servers.
 
