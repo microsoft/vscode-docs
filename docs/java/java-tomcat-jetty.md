@@ -47,10 +47,10 @@ The extension includes the following features:
   <source src="/docs/java/java-tomcat-jetty/jetty.mp4" type="video/mp4">
 </video>
 
-More details could be found in the [GitHub repository](https://github.com/summersun/vscode-jetty) of the [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension.
+More details could be found in the [GitHub repository](https://github.com/summersun/vscode-jetty) of the [Jetty for Java](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty) extension.
 
 ## Other servers
 
-The [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector) extension by Red hat allows you to start, stop, and deploy to a Red Hat server and runtime products like Wildfly, JBoss EAP, Minishift, CDK.
+The [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector) extension by Red Hat allows you to start, stop, and deploy to a Red Hat server and runtime products like Wildfly, JBoss EAP, Minishift, CDK.
 
-[Microprofile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack) provides tools for creating MicroProfile projects to develop and deploy to runtimes such as Open Liberty, Quarkus, and Payara.
+[MicroProfile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack) provides tools for creating MicroProfile projects to develop and deploy to runtimes such as Open Liberty, Quarkus, and Payara.

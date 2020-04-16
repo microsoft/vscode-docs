@@ -53,7 +53,7 @@ There are also other popular Java extensions you can pick for your own needs, in
 4. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
 5. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
 6. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
-7. [Microprofile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
+7. [MicroProfile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
 8. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
 9. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 
