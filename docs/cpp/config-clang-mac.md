@@ -231,8 +231,6 @@ Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `m
 
 ### Start a debugging session
 
-> **Note**: You may have issues debugging on macOS Catalina. See [issue #3829](https://github.com/microsoft/vscode-cpptools/issues/3829) for details and possible workarounds.
-
 1. Go back to `helloworld.cpp` so that it is the active file in the editor. This is important because VS Code uses the active file to determine what you want to debug.
 2. Press `kb(workbench.action.debug.start)` or from the main menu choose **Run > Start Debugging**. Before you start stepping through the source code, let's take a moment to notice several changes in the user interface:
 

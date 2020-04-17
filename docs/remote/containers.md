@@ -966,10 +966,12 @@ While the `postCreateCommand` property allows you to install additional tools in
 version: '3'
 services:
   your-service-name-here:
+      # Note that the path of the Dockerfile and context is relative to the *primary*
+      # docker-compose.yml file (the first in the devcontainer.json "dockerComposeFile"
+      # array). The sample below assumes your primary file is in the root of your project.
       build:
         context: .
-        # Location is relative to folder containing this compose file
-        dockerfile: Dockerfile
+        dockerfile: .devcontainer/Dockerfile
       volumes:
         - .:/workspace:cached
       command: /bin/sh -c "while sleep 1000; do :; done"

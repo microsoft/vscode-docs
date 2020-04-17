@@ -16,23 +16,19 @@ MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 
 ## Welcome to React
 
-We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To install and use the generator as well as run the React application server, you'll need [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (Node.js package manager) installed. npm is included with Node.js which you can download and install from [Node.js downloads](https://nodejs.org/en/download/).
+We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To use the generator as well as run the React application server, you'll need [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (Node.js package manager) installed. npm is included with Node.js which you can download and install from [Node.js downloads](https://nodejs.org/en/download/).
 
 >**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
 
-To install the `create-react-app` generator, in a terminal or command prompt type:
+You can now create a new React application by typing:
 
 ```bash
-npm install -g create-react-app
-```
-
-This may take a few minutes to install. You can now create a new React application by typing:
-
-```bash
-create-react-app my-app
+npx create-react-app my-app
 ```
 
 where `my-app` is the name of the folder for your application. This may take a few minutes to create the React application and install its dependencies.
+
+>**Note**: If you've previously installed `create-react-app` globally via `npm install -g create-react-app`, we recommend you uninstall the package using `npm uninstall -g create-react-app` to ensure that npx always uses the latest version.
 
 Let's quickly run our React application by navigating to the new folder and typing `npm start` to start the web server and open the application in a browser:
 

@@ -908,7 +908,7 @@ Perform the following steps to enable the administrative interface:
      path("admin/", admin.site.urls),
     ```
 
-1. Run the server, the open a browser to the app's /admin page (such as `http://127.0.0.1:8000/admin` when using the development server).
+1. Run the server, then open a browser to the app's /admin page (such as `http://127.0.0.1:8000/admin` when using the development server).
 
 1. A login page appears, courtesy of `django.contrib.auth`. Enter your superuser credentials.
 

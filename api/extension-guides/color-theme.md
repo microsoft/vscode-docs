@@ -50,6 +50,27 @@ For example, the following would change the color of comments within the editor:
 
 The setting supports a simple model with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than that, you need to use TextMate theme rules directly, which are explained in detail in the [Syntax Highlighting Guide](/api/language-extensions/syntax-highlight-guide).
 
+## Semantic colors
+
+Semantic highlighting is available for TypeScript and JavaScript in VS Code release 1.43. We expect it to be adopted by other languages soon.
+
+Semantic highlighting enriches syntax coloring based on symbol information from the language service, which has more complete understanding of the project. The coloring changes appear once the language server is running and has computed the semantic tokens.
+
+Each theme controls whether to enable semantic highlighting with a specific setting that is part of the theme definition. The style of each semantic token is defined by the theme's styling rules.
+
+Users can override the semantic highlighting feature and colorization rules using the `editor.tokenColorCustomizations` setting:
+
+Enable semantic highlighting for a specific theme:
+
+```json
+"editor.tokenColorCustomizations": {
+    "[Material Theme]": {
+        "semanticHighlighting": true
+    }
+},
+```
+
+Themes can define theming rules for semantic tokens as described in the [Syntax Highlighting Guide](/api/language-extensions/syntax-highlight-guide#semantic-theming).
 
 ## Semantic colors
 
@@ -109,7 +130,7 @@ You can also use an existing TextMate theme by telling the extension generator t
 }
 ```
 
-> **Tip:** Give your color definition file the `.color-theme.json` suffix and you will get hovers, code completion, color decorators, and color pickers when editing.
+> **Tip:** Give your color definition file the `-color-theme.json` suffix and you will get hovers, code completion, color decorators, and color pickers when editing.
 
 > **Tip:** [ColorSublime](https://colorsublime.github.io) has hundreds of existing TextMate themes to choose from. Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"https://raw.githubusercontent.com/Colorsublime/Colorsublime-Themes/master/themes/(name).tmTheme"`
 

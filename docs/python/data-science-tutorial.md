@@ -168,7 +168,7 @@ With the dataset ready, you can now begin creating a model. For this section you
    X_test = sc.transform(x_test)
    ```
 
-1. There are a number of different machine learning algorithms that you could choose from to model the data and scikit-learn provides support for a number of [them](https://scikit-learn.org/stable/user_guide.html), as well as a [chart](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html) to help select the one that's right for your scenario. For now, use the [Naïve Bayes algorithm](https://scikit-learn.org/stable/modules/naive_bayes.ntml), a common algorithm for classification problems. Add a cell with the following code to create and train the algorithm.
+1. There are a number of different machine learning algorithms that you could choose from to model the data and scikit-learn provides support for a number of [them](https://scikit-learn.org/stable/user_guide.html), as well as a [chart](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html) to help select the one that's right for your scenario. For now, use the [Naïve Bayes algorithm](https://scikit-learn.org/stable/modules/naive_bayes.html), a common algorithm for classification problems. Add a cell with the following code to create and train the algorithm.
 
    ```python
    from sklearn.naive_bayes import GaussianNB
