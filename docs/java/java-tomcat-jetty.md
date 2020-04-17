@@ -53,7 +53,11 @@ More details could be found in the [GitHub repository](https://github.com/summer
 
 The [Open Liberty Tools](https://marketplace.visualstudio.com/items?itemName=Open-Liberty.liberty-dev-vscode-ext) extension lets you run your application on Open Liberty, allowing you to deploy, test and debug your application from Visual Studio Code.
 
-After you start your application with the Open Liberty tools extension, your code is automatically compiled and deployed to the running server, making it easy to iterate on your changes. You can run tests on demand or even automatically so that you can get immediate feedback on your changes. You can also attach a debugger at any time to debug your running application.
+After you start your application with the Open Liberty Tools extension, your code is automatically compiled and deployed to the running server, making it easy to iterate on your changes. You can run tests on demand or even automatically so that you can get immediate feedback on your changes. You can also attach a debugger at any time to debug your running application.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-tomcat-jetty/open-liberty.mp4" type="video/mp4">
+</video>
 
 More details can be found in the [GitHub repository](https://github.com/OpenLiberty/liberty-dev-vscode-ext) of the [Open Liberty Tools](https://marketplace.visualstudio.com/items?itemName=Open-Liberty.liberty-dev-vscode-ext) extension.
 
