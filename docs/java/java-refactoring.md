@@ -688,6 +688,10 @@ The shortcut to invoke the Rename refactoring is `kb(editor.action.rename)`. Whe
   <source src="/docs/java/java-refactoring/rename.mp4" type="video/mp4">
 </video>
 
+Rename refactoring is also supported from file explorer. After requesting the change, a preview of impacted files will be provided and you can decide how to apply those changes.
+
+![Rename from Explorer](images/java-refactoring/rename-explorer.png)
+
 ### Change resolved type to var type
 
 Uses `var` to declare local variables.

@@ -71,6 +71,18 @@ tasks.withType(Test) {
 
 > Note: If you are modifying a project that was already opened in VS Code, you may need to force clean the workspace and reload. To do so, run command **Java: Clean the Java language server workspace**.
 
+## How can I use it behind a corporate proxy?
+
+When using the Java extension behind a corporate proxy, you might need to let the Java Language server know how to connect to the Internet, in order to download build runtimes, java dependencies and their sources through that proxy.
+
+This is done by configuring the `java.jdt.ls.vmargs` setting in VS Code preferences (all on one line):
+
+```json
+{
+"java.jdt.ls.vmargs": "-Dhttp.proxyHost=webproxy.corp.net -Dhttp.proxyPort=proxyport -Dhttp.proxyUser=user -Dhttp.proxyPassword=password -Dhttps.proxyHost=webproxy.corp.net -Dhttps.proxyPort=proxyport -Dhttps.proxyUser=user -Dhttps.proxyPassword=password"
+}
+```
+
 ## Will this be available for Visual Studio?
 
 Currently we don't plan to extend the Java support to Visual Studio. There's already great IDEs for Java and we're focusing on VS Code to provide a lightweight experience in a polyglot editor.
