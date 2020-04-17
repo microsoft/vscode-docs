@@ -54,6 +54,7 @@
     "topics": [
       ["Overview", "/api/language-extensions/overview"],
       ["Syntax Highlight Guide", "/api/language-extensions/syntax-highlight-guide"],
+      ["Semantic Highlight Guide", "/api/language-extensions/semantic-highlight-guide"],
       ["Snippet Guide", "/api/language-extensions/snippet-guide"],
       ["Language Configuration Guide", "/api/language-extensions/language-configuration-guide"],
       ["Programmatic Language Features", "/api/language-extensions/programmatic-language-features"],

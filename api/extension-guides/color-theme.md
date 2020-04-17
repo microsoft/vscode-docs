@@ -50,7 +50,6 @@ For example, the following would change the color of comments within the editor:
 
 The setting supports a simple model with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than that, you need to use TextMate theme rules directly, which are explained in detail in the [Syntax Highlighting Guide](/api/language-extensions/syntax-highlight-guide).
 
-
 ## Semantic colors
 
 Semantic highlighting is available for TypeScript and JavaScript in VS Code release 1.43. We expect it to be adopted by other languages soon.
@@ -72,7 +71,6 @@ Enable semantic highlighting for a specific theme:
 ```
 
 Themes can define theming rules for semantic tokens as described in the [Syntax Highlighting Guide](/api/language-extensions/syntax-highlight-guide#semantic-theming).
-
 
 ## Create a new Color Theme
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
-ContentId: 2bb06188-d394-4b98-872c-0bf26c8a674d
-DateApproved: 3/9/2020
+ContentId: 8308017a-75de-430a-b420-d9d2064162b9
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to syntax highlighting
@@ -9,13 +9,9 @@ MetaDescription: A guide to syntax highlighting
 
 # Semantic Highlight Guide
 
-Semantic highlighting is an addition to syntax highlighting as described in the [Syntax Highlight Guide](syntax-highlight-guide).
+Semantic highlighting is an addition to syntax highlighting as described in the [Syntax Highlight Guide](syntax-highlight-guide). VS Code uses TextMate grammars as the main tokenization engine. TextMate grammars work on a single file as input and break it up based on lexical rules expressed in regular expressions.
 
-VS Code uses TextMate grammars as the main tokenization engine. TextMate grammars work on a single file as input and break it up based based on lexical rules expressed in regular expressions.
-
-Semantic tokenization allows language servers to provide additional token information based on the language server's knowledge on how to resolve symbols in the context of a project.
-
-Themes can opt-in to use semantic tokens to improve and refine the syntax highlighting from grammars. The editor applies the highlighting from semantic tokens on top of the highlighting from grammars.
+Semantic tokenization allows language servers to provide additional token information based on the language server's knowledge on how to resolve symbols in the context of a project. Themes can opt-in to use semantic tokens to improve and refine the syntax highlighting from grammars. The editor applies the highlighting from semantic tokens on top of the highlighting from grammars.
 
 Here's an example of what semantic highlighting can add:
 
@@ -32,7 +28,6 @@ Notice the color differences based on language service symbol understanding:
 - line 10: `languageMode` is colored as a parameter
 - line 11: `Range` and `Position` are colored as classes and `document` as a parameter.
 - line 13: `getFoldingRanges` is colored as a function.
-
 
 ## Semantic token provider
 
@@ -54,36 +49,39 @@ const selector = { language: 'java', scheme: 'file' }; // register for all Java 
 vscode.languages.registerDocumentSemanticTokensProvider(selector, provider, legend);
 ```
 
-The semantic token provider API comes in 2 flavors to accommodate each language servers capabilities
+The semantic token provider API comes in two flavors to accommodate each language server's capabilities:
 
-`DocumentSemanticTokensProvider` always takes a full document as input
+- `DocumentSemanticTokensProvider` - Always takes a full document as input.
 
-- `provideDocumentSemanticTokens`: provides all tokens of a document
-- `provideDocumentSemanticTokensEdits`: provides all tokens of a document as a delta to the previous response
+  - `provideDocumentSemanticTokens` - Provides all tokens of a document.
+  - `provideDocumentSemanticTokensEdits`- Provides all tokens of a document as a delta to the previous response.
 
-The `DocumentRangeSemanticTokensProvider` works only on a range:
+- `DocumentRangeSemanticTokensProvider` - Works only on a range:
 
-- `provideDocumentRangeSemanticTokens`: provides all tokens of a document range
+  - `provideDocumentRangeSemanticTokens` - Provides all tokens of a document range.
 
-Each token returned by the provider comes with a classification that consists of a token type, any number of token modifiers and a token language. This information is similar than the TextMate scopes described above, but we chose to define a new, cleaner classification system.
+Each token returned by the provider comes with a classification that consists of a token type, any number of token modifiers, and a token language. This information is similar to the TextMate scopes described in the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide), but we chose to define a new, cleaner classification system.
 
-As seen in the example above, the provider names the types and modifiers it's going to use in a `SemaniticTokensLegend`. That allows the `provide` APIs to return token types and modifies as an index to the legend.
+As seen in the example above, the provider names the types and modifiers it's going to use in a `SemanticTokensLegend`. That allows the `provide` APIs to return token types and modifies as an index to the legend.
 
 ## Semantic Token Classification
 
-These are the standard semantic token types and semantic token modifiers predefined by VSCode.
+These are the standard semantic token types and semantic token modifiers predefined by VS Code.
 
-  - standard semantic token types:
-      - namespace
-      - type, class, enum, interface, struct, typeParameter
-      - parameter, variable, property, enumMember, event
-      - function, member, macro
-      - label
-      - comment, string, keyword, number, regexp, operator
-  - standard semantic token modifiers:
-      - declaration
-      - readonly, static, deprecated, abstract
-      - async, modification, documentation, defaultLibrary
+Standard semantic token types:
+
+- namespace
+- type, class, enum, interface, struct, typeParameter
+- parameter, variable, property, enumMember, event
+- function, member, macro
+- label
+- comment, string, keyword, number, regexp, operator
+
+Standard semantic token modifiers:
+
+- declaration
+- readonly, static, deprecated, abstract
+- async, modification, documentation, defaultLibrary
 
 Extensions can define new types and modifiers through the `semanticTokenTypes` and `semanticTokenModifiers` contribution points.
 
@@ -97,13 +95,13 @@ Extensions can define new types and modifiers through the `semanticTokenTypes` a
     }],
     "semanticTokenModifiers": [{
       "id": "native",
-      "description": "Annotates a symbol that is implemented nativly"
+      "description": "Annotates a symbol that is implemented natively"
     }]
   }
 }
 ```
-A contributed type can name a super type from which it will inherit all styling rules.
 
+A contributed type can name a super type from which it will inherit all styling rules.
 
 ## Theming
 
@@ -115,26 +113,26 @@ If enabled, semantic tokens are first matched against the semantic token rules d
 
 ```json
 {
-	"semanticTokenColors": {
-		"variable.readonly:java": "#ff0000"
-	}
+  "semanticTokenColors": {
+    "variable.readonly:java": "#ff0000"
+  }
 }
 ```
-`variable.readonly:java` is called a selector and has the form (*|type)(.modifier)*(:language)?
+
+`variable.readonly:java` is called a selector and has the form `(*|type)(.modifier)*(:language)`?
 
 Here are other examples of selectors and styles:
 
-  - "*.declaration": { "fontStyle": "bold" }: // all declarations are bold
-  - "class:java": { "foreground": "#00ff00" "fontStyle": "bold" } // classes in java
+- "*.declaration": { "fontStyle": "bold" }: // all declarations are bold
+- "class:java": { "foreground": "#00ff00" "fontStyle": "bold" } // classes in java
 
 The semantic token selector has the format `(*|tokenType)(.tokenModifier)*(:tokenLanguage)?`.
 
+If no rule matches, the VS Code uses the [Semantic Token Scope Map][#semantic-token-scope-map] to evaluate a TextMate scope for the given semantic token. That scope is matched against the TextMate theming rules in `tokenColors`.
 
-If no rule matches, the VSCode uses the [Semantic Token Scope Map][#semantic-token-scope-map] to evaluate a TextMate scope for the given semantic token. That scope is matched against the TextMate theming rules in `tokenColors`.
+## Semantic token scope map
 
-## Semantic Token Scope Map
-
-In order to make semantic highlighting also work for themes that have not defined any specific semantic rules and to serve as fallback for custom token types and modifiers, VSCode maintains a map from semantic token selectors to TextMate scopes.
+In order to make semantic highlighting also work for themes that have not defined any specific semantic rules and to serve as fallback for custom token types and modifiers, VS Code maintains a map from semantic token selectors to TextMate scopes.
 
 If a theme has semantic highlighting enabled, but does not contain a rule for the given semantic token, these TextMate scopes are used to find a TextMate theming rule instead.
 
@@ -163,12 +161,12 @@ The following table shows the predefined mappings.
 | `enumMember`|`variable.other.enummember`|
 | `event`|`variable.other.event`|
 
-
 This map can be extended by new rules through the `semanticTokenScopes` contribution point.
 
 There are two use cases for extensions to do that:
 
 - The extension that defines custom token types and token modifiers provides TextMate scopes as fallback when a theme does not define a theming rule for the added semantic token type or modifiers:
+
 ```json
 {
   "contributes": {
@@ -184,6 +182,7 @@ There are two use cases for extensions to do that:
 ```
 
 - The provider of a TextMate grammar can describe the language specific scopes. That helps with themes that contain language specific theming rules.
+
 ```json
 {
   "contributes": {
@@ -201,6 +200,6 @@ There are two use cases for extensions to do that:
 
 ### Try it out
 
-We have a [Semantic Tokens Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/semantic-tokens-sample) that illustrates how to create a semantic token provider
+We have a [Semantic Tokens Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/semantic-tokens-sample) that illustrates how to create a semantic token provider.
 
-The [scope inspector](syntax-highlight-guide#scope-inspector) allows you to explore what semanitc tokens are present in a source file and what theme rules they match to. To see semantic token, use a built-in theme (e.g. Dark+) on a TypeScript file.
+The [scope inspector](/api/language-extensions/syntax-highlight-guide#scope-inspector) tool allows you to explore what semantic tokens are present in a source file and what theme rules they match to. To see semantic token, use a built-in theme (for example Dark+) on a TypeScript file.
