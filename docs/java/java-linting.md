@@ -104,17 +104,22 @@ For more details about the [SonarLint for VS Code extension](https://marketplace
 
 ## Formatter
 
-Currently, you need an Eclipse formatter file like [Google Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml). Set the following property:
+Currently, you need an Eclipse formatter file like [Google Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml).
 
-```
+Set the following property:
+
+```json
 "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
 ```
-The property can point to an URL or a local file path.
-If the formatter xml file contains more profiles you will be able to set a profile name as:
 
-```
+The property can point to a URL or a local file path.
+
+If the formatter XML file contains more than one profile, you can set the profile name:
+
+```json
 "java.format.settings.profile": "GoogleStyle",
 ```
-You can also define the formatting preferences in your project's [`.settings/org.eclipse.jdt.core.prefs`](https://gist.github.com/fbricon/30c5971f7e492c8a74ca2b2d7a7bb966). It will override global formatting settings.
 
-We're currently working on a solution to allow editing those formatting preferences conveniently in VS Code. For now, the best way to edit them is to use Eclipse. See [Formatter Settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings).
+You can also define the formatting preferences in your project's [.settings/org.eclipse.jdt.core.prefs](https://gist.github.com/fbricon/30c5971f7e492c8a74ca2b2d7a7bb966). It will override the global formatting settings.
+
+We are working on a solution to allow editing your formatting preferences from within VS Code. For now, the best way to edit them is to use Eclipse. See [Formatter Settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings) for details.

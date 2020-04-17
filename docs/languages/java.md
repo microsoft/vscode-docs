@@ -83,9 +83,9 @@ For developers new to Java or new to VS Code, we provide a Getting Started exper
 
 ## Standalone Java source files
 
-You can use VS Code to open any Java source file(s). As an lightweight editor, VS Code can provide you features such as syntax highlighting and error detection, code navigation, outline as well as Javadoc features with its [Syntax Server](https://code.visualstudio.com/docs/java/java-project#_syntax-mode) immediately without resolving the project. Syntax mode makes VS Code an ideal tool for reading and learning any Java code base.
+You can use VS Code to open any Java source file(s). As a lightweight editor, VS Code can provide you features such as syntax highlighting and error detection, code navigation, outline as well as Javadoc features with its [Syntax Server](https://code.visualstudio.com/docs/java/java-project#_syntax-mode) immediately without resolving the project. Syntax mode makes VS Code an ideal tool for reading and learning any Java code base.
 
-At the same time, a more powerful Java language server will be started in backend to resolve and index your whole project to provide you more advanced features such as code completion. You can switch between Syntax mode and full langauge server as you need.
+At the same time, a more powerful Java language server will be started in backend to resolve and index your whole project to provide you more advanced features such as code completion. You can switch between Syntax mode and full language server as you need.
 
 ## Java project support
 
@@ -129,7 +129,7 @@ More details about Java project support can be found in [Java Project Management
 
 Java in Visual Studio Code also supports source code navigation features such as search for symbol, Peek Definition, and Go to Definition. The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for [Spring Boot](https://projects.spring.io/spring-boot/) projects.
 
-One of the key advantage of VS Code is speed. When you open your Java source file or folder, within a few seconds, with the help of [Syntax Mode](/docs/java/java-project.md#Syntax-Mode), you will be able to navigate your code base with Outline view as well as commands such as **Go to Definition** and **Go to Reference**. This is especially useful when you open a project for the first time.
+One of the key advantages of VS Code is speed. When you open your Java source file or folder, within a few seconds, with the help of [Syntax Mode](/docs/java/java-project.md#Syntax-Mode), you will be able to navigate your code base with Outline view as well as commands such as **Go to Definition** and **Go to Reference**. This is especially useful when you open a project for the first time.
 
 ### Code Completion
 
@@ -139,7 +139,7 @@ One of the key advantage of VS Code is speed. When you open your Java source fil
   <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
 </video>
 
-See also in [Java Code Navigation and Editing](/docs/java/java-editing.md). VS Code also support a range of [Refactoring](/docs/java/java-refactoring.md), [Linting](/docs/java/java-linting.md) features.
+See also in [Java Code Navigation and Editing](/docs/java/java-editing.md). VS Code also supports a range of [Refactoring](/docs/java/java-refactoring.md) and [Linting](/docs/java/java-linting.md) features.
 
 ## Debugging
 

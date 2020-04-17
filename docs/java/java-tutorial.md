@@ -73,7 +73,7 @@ The [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vs
 
 ![Java Getting Started](images/java-tutorial/getting-started.png)
 
-> **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java version](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-version)
+> **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions)
 
 ## Creating a source code file
 
@@ -85,7 +85,7 @@ Create a folder for your Java program and open the folder with VS Code. Then in 
 
 >**Note**: If you open a Java file in VS Code without opening its folder, the Java Language Server might not work properly.
 
-VS Code will also try to figure out the correct package for the new type and fill the new file with template. See [Create new file](/docs/java/java-editing.md#create-new-file).
+VS Code will also try to figure out the correct package for the new type and fill the new file from a template. See [Create new file](/docs/java/java-editing.md#create-new-file).
 
 You can also create a Java project using the **Java: Create Java Project** command. Bring up the **Command Palette**  (`kb(workbench.action.showCommands)`) and then type `java` to search for this command. After selecting the command, you will be prompted for the location and name of the project. You can also choose your build tool from this command.
 

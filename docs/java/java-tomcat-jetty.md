@@ -12,7 +12,7 @@ MetaDescription: Tomcat, Jetty and Open Liberty extensions for Java developer us
 
 Visual Studio Code is a code editor-centric development tool, so it doesn't come with any embedded application server. For most servers, you will need to deploy them using the command line, and then use the appropriate debugger [configuration](https://code.visualstudio.com/docs/java/java-debugging#_configuration) if you wish to attach to it.
 
-On the other hand, we know that for certain Java workloads, server integration is very useful. With Visual Studio Code, you can find 3rd party extensions for popular application servers, for example [Tomcat](https://tomcat.apache.org/), [Jetty](https://www.eclipse.org/jetty/) and [Open Liberty](https://openliberty.io/), which are helpful when working with those servers locally.
+On the other hand, we know that for certain Java workloads, server integration is very useful. With Visual Studio Code, you can find third party extensions for popular application servers, for example [Tomcat](https://tomcat.apache.org/), [Jetty](https://www.eclipse.org/jetty/), and [Open Liberty](https://openliberty.io/), which are helpful when working with those servers locally.
 
 For [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard), see [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
 
@@ -51,9 +51,9 @@ More details could be found in the [GitHub repository](https://github.com/summer
 
 ## Open Liberty
 
-The [Open Liberty Tools](https://marketplace.visualstudio.com/items?itemName=Open-Liberty.liberty-dev-vscode-ext) extension lets you run your application on Open Liberty, allowing you to deploy, test and debug your application from Visual Studio Code.
+The [Open Liberty Tools](https://marketplace.visualstudio.com/items?itemName=Open-Liberty.liberty-dev-vscode-ext) extension lets you run your application on Open Liberty, allowing you to deploy, test, and debug your application from Visual Studio Code.
 
-After you start your application with the Open Liberty Tools extension, your code is automatically compiled and deployed to the running server, making it easy to iterate on your changes. You can run tests on demand or even automatically so that you can get immediate feedback on your changes. You can also attach a debugger at any time to debug your running application.
+After you start your application with the Open Liberty Tools extension, your source code is automatically compiled and deployed to the running server, making it easy to iterate on your changes. You can run tests on demand or automatically, so that you can get immediate feedback on your changes. You can also attach a debugger at any time to debug your running application.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-tomcat-jetty/open-liberty.mp4" type="video/mp4">
@@ -63,7 +63,7 @@ More details can be found in the [GitHub repository](https://github.com/OpenLibe
 
 ## Other servers
 
-Alternatively, you can use [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector) from Red Hat to deploy projects to Apache Felix, Tomcat and Karaf in VS Code.
+You can use the [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector) extension from Red Hat to deploy projects to Apache Felix, Tomcat, and Karaf in VS Code.
 
 The [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector) extension by Red Hat allows you to start, stop, and deploy to a Red Hat server and runtime products like WildFly, JBoss EAP, Minishift, CDK.
 
