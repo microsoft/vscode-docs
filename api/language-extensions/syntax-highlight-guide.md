@@ -16,7 +16,7 @@ There are two components to syntax highlighting:
 - [Tokenization](#tokenization): Breaking text into a list of tokens
 - [Theming](#theming): Using themes or user settings to map the tokens to specific colors and styles
 
-Before diving into the details, a good start is to play with the [scope inspector](#scope-inspector) tool and explore what tokens are present in a source file and what theme rules they match to. To see both semantic and syntax token, use a built-in theme (for example Dark+) on a TypeScript file.
+Before diving into the details, a good start is to play with the [scope inspector](#scope-inspector) tool and explore what tokens are present in a source file and what theme rules they match to. To see both semantic and syntax token, use a built-in theme (for example, Dark+) on a TypeScript file.
 
 ## Tokenization
 
