@@ -8,7 +8,7 @@ DateApproved: 7/25/2019
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
-# Getting Started with Java in Visual Studio Code
+# Getting Started with Java in VS Code
 
 This tutorial shows you how to write and run Hello World program in Java with Visual Studio Code. It also covers a few advanced features, which you can explore by reading other documents in this section.
 
