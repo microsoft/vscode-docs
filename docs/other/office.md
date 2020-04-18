@@ -9,7 +9,7 @@ MetaDescription: See how to use the features of Visual Studio Code and integrate
 ---
 # Office Add-ins with Visual Studio Code
 
-[Office Add-ins](https://dev.office.com/getting-started/addins) run inside an Office application and can interact with contents of the Office document using the rich JavaScript API.
+[Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-ins) run inside an Office application and can interact with contents of the Office document using the rich JavaScript API.
 
 ![Office Add-in overview](images/office/officeaddinoverview.png)
 
