@@ -31,7 +31,7 @@ If you chose **Python: General**, non-root privileges will be set up by default,
 
 ### Docker file changes
 
-Within the Dockerfile, you must expose a non-system port, create a working directory for your app code, and then add a non-root user with access to the app directory. Lastly, ensure your exposed port **matches** the port binding of the Gunicorn command. The `CMD` command below is configuring Gunicorn for a Django container. For more information on configuring Gunicorn, refer to our documentation on [Gunicorn configuration for Django/Flask apps](/docs/containers/quickstart-python.md##_file-modifications-for-djangoflask-apps).
+Within the Dockerfile, you must expose a non-system port, create a working directory for your app code, and then add a non-root user with access to the app directory. Lastly, ensure your exposed port **matches** the port binding of the Gunicorn command. The `CMD` command below configures Gunicorn for a Django container. For more information on configuring Gunicorn, refer to our documentation on [Gunicorn configuration for Django/Flask apps](/docs/containers/quickstart-python.md#file-modifications-for-djangoflask-apps).
 
 ``` dockerfile
 # 1024 or higher
