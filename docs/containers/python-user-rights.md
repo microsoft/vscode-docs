@@ -171,7 +171,7 @@ If your container starts and stops immediately after `kb(workbench.action.debug.
     ```
 
 1. Hit `kb(workbench.action.debug.start)` to run your container again.
-1. After the container exits once more, navigate to the Docker Extension, right click the container, and select **View Logs**.
+1. After the container exits once more, navigate to the Docker Extension, right-click the container, and select **View Logs**.
   ![User clicking view logs on their container](/docs/containers/images/quickstarts/python-user-rights-view-logs.png)
 
 In a Django app, you may see the error:
