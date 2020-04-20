@@ -20,7 +20,7 @@ This guide will help you to:
 
 ## Running your containerized app as a non-root user
 
-The **Add Dockerfiles to Workspace** command for Django and Flask will automatically set up non-root privileges if a non-system port is chosen. If your current Dockerfile and `tasks.json` is not setup for non-root usage, we recommend these steps:
+The **Add Dockerfiles to Workspace** command for Django and Flask automatically sets up non-root privileges if you choose a non-system port. If your current Dockerfile and `tasks.json` is not setup for non-root usage, follow these steps:
 
 - Run **Add Dockerfiles to Workspace**.
 - Choose **Python: Django** or **Python: Flask**.
