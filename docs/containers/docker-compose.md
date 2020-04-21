@@ -7,9 +7,9 @@ PageTitle: Use Docker Compose to work with multiple containers
 DateApproved: 04/21/2020
 MetaDescription: Develop a multi-container app running in a Docker containers using Docker Compose and Visual Studio Code.
 ---
-# Multi-container apps with Docker Compose
+# Multi-containers with Docker Compose
 
-Docker Compose provides a way to orchestrate multiple containers that work together. Examples include a service that processes requests and a front-end web site, or a service that uses a supporting function such as a Redis cache. If you are using the microservices model for your app development, you can use Docker Compose to factor the app code into several independently running services that communicate using web requests. This article helps you enable Docker Compose for your apps, whether they are Node.js, Python, or .NET Core, and also helps you configure debugging in VS Code for these scenarios.
+Docker Compose provides a way to orchestrate multiple containers that work together. Examples include a service that processes requests and a front-end web site, or a service that uses a supporting function such as a Redis cache. If you are using the microservices model for your app development, you can use Docker Compose to factor the app code into several independently running services that communicate using web requests. This article helps you enable Docker Compose for your apps, whether they are Node.js, Python, or .NET Core, and also helps you configure debugging in Visual Studio Code for these scenarios.
 
 Also, for single-container scenarios, using Docker Compose provides tool-independent configuration in a way that a single Dockerfile does not. Configuration settings such as volume mounts for the container, port mappings, and environment variables can be declared in the docker-compose YML files.
 
@@ -28,7 +28,7 @@ The Docker extension adds the following files to your workspace:
 
 ![Screenshot of project with docker-compose files](images/compose/docker-compose-files.png)
 
-The VS Code Docker extension generates files that work out of the box, but you can also customize them to optimize for your scenario. You can then use the **Docker Compose Up** command (right-click on the `docker-compose.yml` file, or find the command in the **Command Palette**) to get everything started at once. You can also use the `docker-compose up` command from the command prompt or terminal window in VS Code to start the containers. Refer to the [Docker Compose docs](https://docs.docker.com/compose/up) about how to configure the Docker Compose behavior and what command-line options are available.
+The VS Code Docker extension generates files that work out of the box, but you can also customize them to optimize for your scenario. You can then use the **Docker Compose Up** command (right-click on the `docker-compose.yml` file, or find the command in the **Command Palette**) to get everything started at once. You can also use the `docker-compose up` command from the command prompt or terminal window in VS Code to start the containers. Refer to the [Docker Compose documentation](https://docs.docker.com/compose/up) about how to configure the Docker Compose behavior and what command-line options are available.
 
 With the docker-compose files, you can now specify port mappings in the docker-compose files, rather than in the .json configuration files. For examples, see the [Docker Compose documentation](https://docs.docker.com/compose/compose-file/#ports).
 
@@ -48,13 +48,13 @@ For .NET, the folder structure is already set up to handle multiple projects whe
 
 ## Debug
 
-First, refer to the debugging docs for your target platform,  to understand the basics on debugging in containers with VS Code:
+First, refer to the debugging documentation for your target platform, to understand the basics on debugging in containers with VS Code:
 
-- [Node.js debugging docs](/docs/containers/debug-node.md)
-- [Python Docker debugging docs](/docs/containers/debug-python.md)
-- [.NET Core debugging docs](/docs/containers/debug-netcore.md)
+- [Node.js debugging](/docs/containers/debug-node.md)
+- [Python Docker debugging](/docs/containers/debug-python.md)
+- [.NET Core debugging](/docs/containers/debug-netcore.md)
 
-If you want to debug in Docker Compose, run the command **Docker Compose Up** using one of the two docker compose files as described in the previous section, and then attach using the appropriate **Attach** launch configuration. Launching directly using the normal launch configuration does not use Docker Compose.
+If you want to debug in Docker Compose, run the command **Docker Compose Up** using one of the two Docker Compose files as described in the previous section, and then attach using the appropriate **Attach** launch configuration. Launching directly using the normal launch configuration does not use Docker Compose.
 
 Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Docker extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The process is as follows:
 
@@ -112,7 +112,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
     }
    ```
 
-1. When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.  
+1. When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.
 
    ![Screenshot of Configuration dropdown](images/compose/docker-compose-configuration.png)
 
@@ -120,7 +120,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
 
    ![Screenshot of starting debugging](images/compose/docker-compose-attach.png)
 
-When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically, so you need to start the browser on the host and navigate to the app at `http://localhost:{port}`, where the `port` is found by inspecting the .json configuration for the running container as described previously.  
+When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically, so you need to start the browser on the host and navigate to the app at `http://localhost:{port}`, where the `port` is found by inspecting the `.json` configuration for the running container as described previously.
 
 ![Screenshot of debug session](images/compose/docker-compose-debugging.png)
 
@@ -212,6 +212,6 @@ volumes:
     - /host-folder-path:/container-folder-path
 ```
 
-## See also
+## Next steps
 
 - [Overview of Docker Compose in the Docker documentation](https://docs.docker.com/compose/)
