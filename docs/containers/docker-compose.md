@@ -7,7 +7,7 @@ PageTitle: Use Docker Compose to work with multiple containers
 DateApproved: 04/21/2020
 MetaDescription: Develop a multi-container app running in a Docker containers using Docker Compose and Visual Studio Code.
 ---
-# Develop multi-container apps using Docker Compose
+# Multi-container apps using Docker Compose
 
 Docker Compose provides a way to orchestrate multiple containers that work together. Examples include a service that processes requests and a front-end web site, or a service that uses a supporting function such as a Redis cache. If you are using the microservices model for your app development, you can use Docker Compose to factor the app code into several independently running services that communicate using web requests. This article helps you enable Docker Compose for your apps, whether they are Node.js, Python, or .NET Core, and also helps you configure debugging in VS Code for these scenarios.
 
@@ -23,16 +23,16 @@ You can add Docker Compose files to your workspace at the same time you add a Do
 
 The Docker extension adds the following files to your workspace:
 
-- *docker-compose.yml* – Brings up the containers as expected in production.
-- *docker-compose.debug.yml* – Provides a simplified mode for starting that enables the debugger. This is not available with Python. For Python, see [How to debug your app with Gunicorn](/docs/containers/debug-python.md#how-to-debug-your-app-with-gunicorn).
+- `docker-compose.yml` – Brings up the containers as expected in production.
+- `docker-compose.debug.yml` – Provides a simplified mode for starting that enables the debugger. This is not available with Python. For Python, see [How to debug your app with Gunicorn](/docs/containers/debug-python.md#how-to-debug-your-app-with-gunicorn).
 
 ![Screenshot of project with docker-compose files](images/compose/docker-compose-files.png)
 
-The VS Code Docker extension generates files that work out of the box, but you can also customize them to optimize for your scenario. You can then use the **Docker Compose Up** command (right-click on the *docker-compose.yml* file, or find the command in the Command Palette). You can also use the `docker-compose up` command from the command prompt or terminal window in VS Code to start the containers. Refer to the [Docker Compose docs](https://docs.docker.com/compose/up) about how to configure the Docker Compose behavior and what command-line options are available.
+The VS Code Docker extension generates files that work out of the box, but you can also customize them to optimize for your scenario. You can then use the **Docker Compose Up** command (right-click on the `docker-compose.yml` file, or find the command in the Command Palette) to get everything started at once. You can also use the `docker-compose up` command from the command prompt or terminal window in VS Code to start the containers. Refer to the [Docker Compose docs](https://docs.docker.com/compose/up) about how to configure the Docker Compose behavior and what command-line options are available.
 
 With the docker-compose files, you can now specify port mappings in the docker-compose files, rather than in the .json configuration files. For examples, see the [Docker Compose documentation](https://docs.docker.com/compose/compose-file/#ports).
 
->[!TIP] When using Docker Compose, don't specify a host port. Instead, let the Docker pick a random available port to automatically avoid port conflict issues.
+> **Tip**: When using Docker Compose, don't specify a host port. Instead, let the Docker pick a random available port to automatically avoid port conflict issues.
 
 ## Add new containers to your projects
 
@@ -42,7 +42,7 @@ You can run the **Add Docker Files to Workspace** command again to generate the 
 
 In Node.js packages and Python projects, you have the `Dockerfile`, `.dockerignore`, `docker-compose*.yml` files all in the root folder of the workspace. When you add another app or service, move the Dockerfile into the app's folder.
 
-For Python, the situation is similar to Node.js, but there is no *docker-compose.debug.yml* file.
+For Python, the situation is similar to Node.js, but there is no `docker-compose.debug.yml` file.
 
 For .NET, the folder structure is already set up to handle multiple projects when you create the Docker Compose files, `.dockerignore` and `docker-compose*.yml` are placed in the workspace root (for example, if the project is in `src/project1`, then the files are in `src`), so when you add another service, you create another project in a folder, say `project2`, and recreate or modify the docker-compose files as described previously.
 
@@ -77,7 +77,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
         command: node --inspect=0.0.0.0:9229 ./bin/www
     ```
 
-    Python apps do not include the *docker-compose.debug.yml* file.
+    Python apps do not include the `docker-compose.debug.yml` file.
 
 1. If you have multiple apps, you need to change the port for one of them, so that each app has a unique port. You can point to the right debugging port in the `launch.json`, and save the file. If you omit this, the port will be chosen automatically.
 
@@ -149,7 +149,7 @@ Here's an example that shows the Node.js launch configuration - Attach:
             "request": "attach",
             "name": "Docker: Attach to Node",
             "remoteRoot": "/usr/src/app",
-            "port": 9229 // This is optional. It will be inferred from the docker-compose.debug.yml file.
+            "port": 9229 // Optional; otherwise inferred from the docker-compose.debug.yml.
         },
         // ...
     ]
@@ -157,7 +157,7 @@ Here's an example that shows the Node.js launch configuration - Attach:
 
 ### Python
 
-Python doesn't have a *docker-compose.debug.yml*. Here's an example showing the Python launch configuration - Django Attach:
+Python doesn't have a `docker-compose.debug.yml`. Here's an example showing the Python launch configuration - Django Attach:
 
 ```json
     "configurations": [
