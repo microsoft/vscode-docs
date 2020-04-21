@@ -7,7 +7,7 @@ PageTitle: Use Docker Compose to work with multiple containers
 DateApproved: 04/21/2020
 MetaDescription: Develop a multi-container app running in a Docker containers using Docker Compose and Visual Studio Code.
 ---
-# Multi-containers with Docker Compose
+# Use Docker Compose
 
 Docker Compose provides a way to orchestrate multiple containers that work together. Examples include a service that processes requests and a front-end web site, or a service that uses a supporting function such as a Redis cache. If you are using the microservices model for your app development, you can use Docker Compose to factor the app code into several independently running services that communicate using web requests. This article helps you enable Docker Compose for your apps, whether they are Node.js, Python, or .NET Core, and also helps you configure debugging in Visual Studio Code for these scenarios.
 
