@@ -158,3 +158,4 @@ Read on to learn more about:
 - [Debugging Node.js within Docker containers](/docs/containers/debug-node.md)
 - [Debugging Python within Docker containers](/docs/containers/debug-python.md)
 - [Debugging .NET Core within Docker containers](/docs/containers/debug-netcore.md)
+- [Debugging with Docker Compose](/docs/containers/docker-compose.md#debug)
