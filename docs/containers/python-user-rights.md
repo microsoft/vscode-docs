@@ -7,11 +7,11 @@ DateApproved: 04/20/2020
 MetaDescription: How to setup a non-root user for VS Code Docker Extension
 ---
 
-# User Privileges in Python Containers
+# User privileges in Python containers
 
 When containerizing an application for production, your goal should be to port existing code into a separate runtime environment without introducing unforeseen security concerns. For this reason, you should select the default port for **Python: Django** (8000) and **Python: Flask** (5000) during execution of the **Add Dockerfiles to Workspace** command, or opt for a port **greater than** 1023. This will allow VS Code to configure the Dockerfile with non-root access and prevent a malicious user from elevating permissions in the container, ultimately [obtaining host machine root access](https://nvd.nist.gov/vuln/detail/CVE-2019-5736). When you choose **Python: General**, the Docker extension configures non-root access by default, since no port is chosen. However, in all cases, to use a non-root user within a container, you must ensure each resource your application needs to read or modify [can be accessed](#invalid-file-permissions).
 
-If a user selects ports less than 1024 when adding Dockerfiles to workspace, by default, **we cannot** scaffold a Dockerfile that will run the container as a non-root user. This is because ports in this range are called *well-known* or *system* ports and must execute with root privileges in order to bind a network socket to an IP address.
+If a user selects ports less than 1024 when adding Dockerfiles to workspace, by default, **we cannot** scaffold a Dockerfile that will run the container as a non-root user. This is because ports in this range are called **well-known** or **system** ports and must execute with root privileges in order to bind a network socket to an IP address.
 
 This guide will help you to:
 
@@ -31,7 +31,7 @@ If you chose **Python: General**, non-root privileges will be set up by default,
 
 ### Docker file changes
 
-Within the Dockerfile, you must expose a non-system port, create a working directory for your app code, and then add a non-root user with access to the app directory. Lastly, ensure your exposed port **matches** the port binding of the Gunicorn command. The `CMD` command below configures Gunicorn for a Django container. For more information on configuring Gunicorn, refer to our documentation on [Gunicorn configuration for Django/Flask apps](/docs/containers/quickstart-python.md#file-modifications-for-djangoflask-apps).
+Within the Dockerfile, you must expose a non-system port, create a working directory for your app code, and then add a non-root user with access to the app directory. Lastly, ensure your exposed port **matches** the port binding of the Gunicorn command. The `CMD` command below configures Gunicorn for a Django container. For more information on configuring Gunicorn, refer to the documentation on [Gunicorn configuration for Django/Flask apps](/docs/containers/quickstart-python.md#file-modifications-for-djangoflask-apps).
 
 ``` dockerfile
 # 1024 or higher
@@ -53,7 +53,7 @@ CMD ["gunicorn", "--bind", "0.0.0.0:1024", "pythonPath.to.wsgi"]
 
 ### Modifications to `tasks.json` for Django\Flask apps
 
-After choosing a non-system port and setting up our container to run as a non-root user, we must ensure the `docker run` task within our `tasks.json` also expects the same port.
+After choosing a non-system port and setting up the container to run as a non-root user, we must ensure the `docker run` task within `tasks.json` also expects the same port.
 
 #### Django Apps
 
@@ -107,7 +107,7 @@ After choosing a non-system port and setting up our container to run as a non-ro
 
 Following the guide up to this point should eliminate most configuration issues caused by running as a non-root user. However, we have compiled a list (non-exhaustive) of common errors you may run into.
 
-If you encounter any other problems due to running as a non-root user, **please** report the issue on our [Docker Extension GitHub page](https://github.com/microsoft/vscode-docker/issues/new). We love your feedback!
+If you encounter any other problems due to running as a non-root user, **please** report the issue in the [Docker Extension repository](https://github.com/microsoft/vscode-docker/issues/new). We love your feedback!
 
 ### Invalid file permissions
 
@@ -172,7 +172,8 @@ If your container starts and stops immediately after `kb(workbench.action.debug.
 
 1. Hit `kb(workbench.action.debug.start)` to run your container again.
 1. After the container exits once more, navigate to the Docker Extension, right-click the container, and select **View Logs**.
-  ![User clicking view logs on their container](/docs/containers/images/quickstarts/python-user-rights-view-logs.png)
+
+  ![User clicking view logs on their container](images/quickstarts/python-user-rights-view-logs.png)
 
 In a Django app, you may see the error:
 
@@ -185,4 +186,4 @@ In a Flask app, you may see the error:
 
 This likely means you are exposing a system-port (ports less than 1024) while attempting to run as a non-root user. This incompatible configuration is demonstrated in the image above.
 
-To solve this issue, modify your Dockerfile and `tasks.json` file in the manner shown [above](#configure-non-root-privileges-for-your-application).
+To solve this issue, modify your Dockerfile and `tasks.json` file in the manner shown [above](#running-your-containerized-app-as-a-nonroot-user).
