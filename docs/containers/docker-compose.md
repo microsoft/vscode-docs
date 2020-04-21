@@ -7,7 +7,7 @@ PageTitle: Use Docker Compose to work with multiple containers
 DateApproved: 04/21/2020
 MetaDescription: Develop a multi-container app running in a Docker containers using Docker Compose and Visual Studio Code.
 ---
-# Multi-container apps using Docker Compose
+# Multi-container apps with Docker Compose
 
 Docker Compose provides a way to orchestrate multiple containers that work together. Examples include a service that processes requests and a front-end web site, or a service that uses a supporting function such as a Redis cache. If you are using the microservices model for your app development, you can use Docker Compose to factor the app code into several independently running services that communicate using web requests. This article helps you enable Docker Compose for your apps, whether they are Node.js, Python, or .NET Core, and also helps you configure debugging in VS Code for these scenarios.
 
@@ -28,7 +28,7 @@ The Docker extension adds the following files to your workspace:
 
 ![Screenshot of project with docker-compose files](images/compose/docker-compose-files.png)
 
-The VS Code Docker extension generates files that work out of the box, but you can also customize them to optimize for your scenario. You can then use the **Docker Compose Up** command (right-click on the `docker-compose.yml` file, or find the command in the Command Palette) to get everything started at once. You can also use the `docker-compose up` command from the command prompt or terminal window in VS Code to start the containers. Refer to the [Docker Compose docs](https://docs.docker.com/compose/up) about how to configure the Docker Compose behavior and what command-line options are available.
+The VS Code Docker extension generates files that work out of the box, but you can also customize them to optimize for your scenario. You can then use the **Docker Compose Up** command (right-click on the `docker-compose.yml` file, or find the command in the **Command Palette**) to get everything started at once. You can also use the `docker-compose up` command from the command prompt or terminal window in VS Code to start the containers. Refer to the [Docker Compose docs](https://docs.docker.com/compose/up) about how to configure the Docker Compose behavior and what command-line options are available.
 
 With the docker-compose files, you can now specify port mappings in the docker-compose files, rather than in the .json configuration files. For examples, see the [Docker Compose documentation](https://docs.docker.com/compose/compose-file/#ports).
 
@@ -205,7 +205,7 @@ Select your app's container group.
 
 ## Volume mounts
 
-By default, the Docker extension does not do any volume mounting for debugging components. There's no need for it in .NET Core or Node.js, since the required components are built into the runtime. If your app requires volume mounts, specify them by using the `volumes` tag in the docker-compose.yml files.
+By default, the Docker extension does not do any volume mounting for debugging components. There's no need for it in .NET Core or Node.js, since the required components are built into the runtime. If your app requires volume mounts, specify them by using the `volumes` tag in the `docker-compose*.yml` files.
 
 ```yml
 volumes:
