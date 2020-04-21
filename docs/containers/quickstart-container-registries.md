@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 7
 Area: containers
 TOCTitle: Registries
 ContentId: 318A4299-AF24-4ADA-863D-E73B314FC440

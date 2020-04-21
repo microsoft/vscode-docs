@@ -142,3 +142,4 @@ You're done! Now that your container is ready, you may want to:
 - [Push your Django image to an Azure Container Registry](/docs/containers/tutorial-django-push-to-registry.md)
 - [Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 - [Deploy a containerized app to Azure App Service](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01)
+- [Learn about using Docker Compose](/docs/containers/docker-compose.md)

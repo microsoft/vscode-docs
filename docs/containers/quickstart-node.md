@@ -117,4 +117,5 @@ When the Docker extension adds files to the application, it also adds a **VS Cod
 
 You're done! Now that your container is ready, you may want to:
 
-[Learn more about debugging Node.js in a container](/docs/containers/debug-node.md)
+- [Learn more about debugging Node.js in a container](/docs/containers/debug-node.md)
+- [Learn about using Docker Compose](/docs/containers/docker-compose.md)
