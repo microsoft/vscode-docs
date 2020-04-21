@@ -32,7 +32,7 @@ Without any configuration, the extension will attempt to locate headers by searc
 
 Or, if you install a build system extension that interfaces with our extension, you can allow that extension to provide the configurations for you. For example, the CMake Tools extension can configure projects that use the CMake build system. Use the `C/C++: Change Configuration Provider...` command to enable any such extension to provide the configurations for IntelliSense.
 
-A third option for projects without build system extension support is to use a [`compile_commands.json`](https://clang.llvm.org/docs/JSONCompilationDatabase.html) file if your build system supports generating this file. In the "Advanced" section of the Configuration UI, you can supply the path to your `compile_commands.json` and the extension will use the compilation information listed in that file to configure IntelliSense.
+A third option for projects without build system extension support is to use a [compile_commands.json](https://clang.llvm.org/docs/JSONCompilationDatabase.html) file if your build system supports generating this file. In the "Advanced" section of the Configuration UI, you can supply the path to your `compile_commands.json` and the extension will use the compilation information listed in that file to configure IntelliSense.
 
 **Note:** If the extension is unable to resolve any of the `#include` directives in your source code, it will not show linting information for the body of the source file. If you check the Problems window in VS Code, the extension will provide more information about which files it was unable to locate. If you want to show the linting information anyway, you can change the value of the `C_Cpp.errorSquiggles` setting.
 
