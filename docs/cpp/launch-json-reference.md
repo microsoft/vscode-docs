@@ -80,7 +80,7 @@ When a `visualizerFile` is specified, `showDisplayString` will enable the displa
        "moduleLoad": false,
        "trace": true
     },
-   "visualizerFile": "${workspaceRoot}/my.natvis",
+   "visualizerFile": "${workspaceFolder}/my.natvis",
    "showDisplayString": true
 }
 ```
@@ -108,10 +108,10 @@ Environment variables to add to the environment for the program. Example: `[ { "
    "name": "C++ Launch",
    "type": "cppdbg",
    "request": "launch",
-   "program": "${workspaceRoot}/a.out",
+   "program": "${workspaceFolder}/a.out",
    "args": ["arg1", "arg2"],
    "environment": [{"name": "squid", "value": "clam"}],
-   "cwd": "${workspaceRoot}"
+   "cwd": "${workspaceFolder}"
 }
 ```
 
@@ -154,7 +154,7 @@ The command to execute after the debugger is fully set up in order to cause the 
    "name": "C++ Launch",
    "type": "cppdbg",
    "request": "launch",
-   "program": "${workspaceRoot}/a.out",
+   "program": "${workspaceFolder}/a.out",
    "stopAtEntry": false,
    "customLaunchSetupCommands": [
       { "text": "target-run", "description": "run target", "ignoreFailures": false }

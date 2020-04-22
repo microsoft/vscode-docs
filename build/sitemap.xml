@@ -761,6 +761,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/containers/python-user-rights</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/containers/app-service</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

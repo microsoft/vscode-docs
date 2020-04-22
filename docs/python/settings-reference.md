@@ -235,7 +235,6 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 The Python extension settings support predefined variables. Similar to the general VS Code settings, variables use the **${variableName}** syntax. Specifically, the extension supports the following variables:
 
 - **${cwd}** - the task runner's current working directory on startup
-- **${workspaceRoot}** - the path of the folder opened in VS Code
 - **${workspaceFolder}** - the path of the folder opened in VS Code
 - **${workspaceRootFolderName}** - the name of the folder opened in VS Code without any slashes (/)
 - **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)

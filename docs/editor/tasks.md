@@ -253,7 +253,7 @@ The `tasks.json` file looks like this:
             "command": "gulp",
             "args": ["build"],
             "options": {
-                "cwd": "${workspaceRoot}/client"
+                "cwd": "${workspaceFolder}/client"
             }
         },
         {
@@ -261,7 +261,7 @@ The `tasks.json` file looks like this:
             "command": "gulp",
             "args": ["build"],
             "options": {
-                "cwd": "${workspaceRoot}/server"
+                "cwd": "${workspaceFolder}/server"
             }
         },
         {

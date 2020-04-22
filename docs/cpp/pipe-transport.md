@@ -49,7 +49,7 @@ The `pipeTransport` can also be used to debug a process in a Docker container. F
 
 ```json
 "pipeTransport": {
-    "pipeCwd": "${workspaceRoot}",
+    "pipeCwd": "${workspaceFolder}",
     "pipeProgram": "docker",
     "pipeArgs": [
         "exec",
