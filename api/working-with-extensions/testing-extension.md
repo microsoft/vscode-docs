@@ -7,7 +7,7 @@ DateApproved: 4/8/2020
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
 ---
 
-# Testing Extension
+# Testing Extensions
 
 Visual Studio Code supports running and debugging tests for your extension. These tests will run inside a special instance of VS Code named the **Extension Development Host**, and have full access to the VS Code API. We refer to these tests as integration tests, because they go beyond unit tests that can run without a VS Code instance. This documentation focuses on VS Code integration tests.
 
