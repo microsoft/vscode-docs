@@ -223,10 +223,11 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
   ![editorGroupHeader.tabsBackground](images/theme-color/editorgroupheader-tabsbackground.gif)
 
-- `editorGroupHeader.tabsBorder`: Border color of the editor group title header when tabs are enabled.
+- `editorGroupHeader.tabsBorder`: Border color below the editor tabs control when tabs are enabled.
 
   ![editorGroupHeader.tabsBorder](images/theme-color/editorgroupheader-tabsborder.gif)
 
+- `editorGroupHeader.border`: Border color between editor group header and editor (i.e. below breadrcumbs if enabled).
 - `editorGroup.emptyBackground`: Background color of an empty editor group.
 - `editorGroup.focusedEmptyBorder`: Border color of an empty editor group that is focused.
 - `tab.activeBackground`: Active Tab background color in an active group.
@@ -238,11 +239,14 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.activeBorderTop`: Top border for the active tab.
 - `tab.unfocusedActiveBorderTop`: Top border for the active tab in an inactive editor group
 - `tab.inactiveBackground`: Inactive Tab background color.
+- `tab.unfocusedInactiveBackground`: Inactive Tab background color in an unfocused group
 - `tab.inactiveForeground`: Inactive Tab foreground color in an active group.
 - `tab.unfocusedActiveForeground`: Active tab foreground color in an inactive editor group.
 - `tab.unfocusedInactiveForeground`: Inactive tab foreground color in an inactive editor group.
 - `tab.hoverBackground`: Tab background color when hovering
-- `tab.unfocusedHoverBackground`: Tab background color in an unfocused group when hovering
+- `tab.unfocusedHoverBackground`: Tab background color in an unfocused group when hovering-
+- `tab.hoverForeground`: Tab foreground color when hovering
+- `tab.unfocusedHoverForeground`: Tab foreground color in an unfocused group when hovering
 - `tab.hoverBorder`: Border to highlight tabs when hovering
 - `tab.unfocusedHoverBorder`: Border to highlight tabs in an unfocused group when hovering
 - `tab.activeModifiedBorder`: Border on the top of modified (dirty) active tabs in an active group.
