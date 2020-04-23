@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 10
 Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
