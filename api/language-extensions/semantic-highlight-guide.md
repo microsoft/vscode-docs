@@ -68,6 +68,8 @@ As seen in the example above, the provider names the types and modifiers it's go
 
 These are the standard semantic token types and semantic token modifiers predefined by VS Code.
 
+The standard types and modifiers cover common concepts used by many languages. While each languages might use a different terminology for some types and modifiers, by adhering to the standard classifications, it will be possible for theme authors to define theming rules that work across languages.
+
 Standard semantic token types:
 
 - namespace
@@ -83,7 +85,8 @@ Standard semantic token modifiers:
 - readonly, static, deprecated, abstract
 - async, modification, documentation, defaultLibrary
 
-Extensions can define new types and modifiers through the `semanticTokenTypes` and `semanticTokenModifiers` contribution points.
+
+If necessary, extensions can define new types and modifiers or create sub types of existing type through the `semanticTokenTypes` and `semanticTokenModifiers` contribution points.
 
 ```json
 {
@@ -119,14 +122,14 @@ If enabled, semantic tokens are first matched against the semantic token rules d
 }
 ```
 
-`variable.readonly:java` is called a selector and has the form `(*|type)(.modifier)*(:language)`?
+`variable.readonly:java` is called a selector and has the form `(*|tokenType)(.tokenModifier)*(:tokenLanguage)?`.
+
 
 Here are other examples of selectors and styles:
 
 - "*.declaration": { "fontStyle": "bold" }: // all declarations are bold
 - "class:java": { "foreground": "#00ff00" "fontStyle": "bold" } // classes in java
 
-The semantic token selector has the format `(*|tokenType)(.tokenModifier)*(:tokenLanguage)?`.
 
 If no rule matches, the VS Code uses the [Semantic Token Scope Map][#semantic-token-scope-map] to evaluate a TextMate scope for the given semantic token. That scope is matched against the TextMate theming rules in `tokenColors`.
 
