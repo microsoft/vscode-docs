@@ -93,40 +93,56 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
     ]
    ```
 
-1. VS code tries to copy `vsdbg` from the host machine to the target container using a default path.
-
 1. When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.
 
    ![Screenshot of Configuration dropdown](images/compose/docker-compose-configuration.png)
 
-1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
+1. Right-click on the ``docker-compose.debug.yml` file and choose **Compose Up**.
 
 1. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
+
+1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
 
 ### Python
 
 For debugging Python with Docker Compose, first read [How to debug your app with Gunicorn](/docs/containers/debug-python.md#how-to-debug-your-app-with-gunicorn), then follow these steps.
 
-1. On the **Debug** tab, choose the **Configuration** dropdown, choose **New Configuration** and select the `Docker Attach` configuration template **Python Docker Attach (Preview)**.
+1. On the **Debug** tab, choose the **Configuration** dropdown, choose **New Configuration**, choose **Python**, and select the `Remote Attach` configuration template.
 
-1. If you have multiple apps, you need to change the port for one of them, so that each app has a unique port. You can point to the right debugging port in the `launch.json`, and save the file. If you omit this, the port will be chosen automatically.
+   ![Screenshot of Python Remote Attach](images/compose/docker-compose-python-remote-attach.png)
+
+1. You'll be prompted to choose the host machine (for example, localhost) and port you want to use for debugging. The default debugging port for Python is 5678. If you have multiple apps, you need to change the port for one of them, so that each app has a unique port. You can point to the right debugging port in the `launch.json`, and save the file. If you omit this, the port will be chosen automatically.
 
     ```json
-        "configurations": [
-            {
-
-            },
-            // ...
-        ]
+         "configurations": [
+         {
+            "name": "Python: Remote Attach",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/app"
+                }
+            ]
+        }
     ```
-
-1. VS code tries to copy `vsdbg` from the host machine to the target container using a default path.
 
 1. When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.
 
-1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
+1. Right-click on the ``docker-compose.debug.yml` file and choose **Compose Up**.
 
 1. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
+
+   ![Screenshot - Open in Browser](images/compose/docker-compose-open-in-browser.png)
+
+1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
+
+You're now debugging your running app in the container.
+
+![Screenshot of debugging in Python](images/compose/docker-compose-python-debug.png)
 
 ### .NET
 
@@ -177,6 +193,10 @@ For debugging Python with Docker Compose, first read [How to debug your app with
 
 1. When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.
 
+1. Right-click on the ``docker-compose.debug.yml` file and choose **Compose Up**.
+
+1. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
+
 1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
 
    ![Screenshot of starting debugging](images/compose/docker-compose-attach.png)
@@ -195,9 +215,9 @@ For debugging Python with Docker Compose, first read [How to debug your app with
        "containerName": "Your ContainerName"
    ```
 
-1. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
+If everything is configured correctly, the debugger should be attached to your .NET Core app.
 
-   ![Screenshot of debug session](images/compose/docker-compose-debugging.png)
+![Screenshot of debug session](images/compose/docker-compose-debugging.png)
 
 ## Volume mounts
 
