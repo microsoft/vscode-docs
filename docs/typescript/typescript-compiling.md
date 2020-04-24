@@ -236,7 +236,19 @@ It is possible to have mixed TypeScript and JavaScript projects. To enable JavaS
 
 ## Working with large projects
 
+If you are working in a codebase with hundreds or thousands of TypeScript files, here are some steps you can take to improve both the editing experience in VS Code as well as compile times on the command line.
 
+**Make sure your tsconfig only includes files you care about**
+
+Use `include` or `files` in your project's tsconfig to make sure the project only includes the files that should be part of the project.
+
+[More information](https://github.com/microsoft/TypeScript/wiki/Performance#configuring-tsconfigjson-or-jsconfigjson) on configuring your tsconfig.
+
+**Break up your project using project references**
+
+Instead of structuring your code as a single large project, you can improve performance by breaking it up into smaller projects using [project references](https://www.typescriptlang.org/docs/handbook/project-references.html). This allows TypeScript to load just subset of your codebase at a time instead of the loading entire thing.
+
+See the [TypeScript docs](https://www.typescriptlang.org/docs/handbook/project-references.html) for details on how to use project reference and best practices for working with them.
 
 ## Next steps
 
