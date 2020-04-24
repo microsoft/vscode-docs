@@ -234,6 +234,10 @@ It is possible to have mixed TypeScript and JavaScript projects. To enable JavaS
 
 >**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
 
+## Working with large projects
+
+
+
 ## Next steps
 
 Read on to find out about:
