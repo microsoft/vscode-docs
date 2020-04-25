@@ -85,7 +85,7 @@ This is done by configuring the `java.jdt.ls.vmargs` setting in VS Code preferen
 
 ## Will this be available for Visual Studio?
 
-Currently we don't plan to extend the Java support to Visual Studio. There's already great IDEs for Java and we're focusing on VS Code to provide a lightweight experience in a polyglot editor.
+Currently we don't plan to extend the Java support to Visual Studio. There are already great IDEs for Java and we're focusing on VS Code to provide a lightweight experience in a polyglot editor.
 
 ## Does VS Code Java support other display languages?
 
