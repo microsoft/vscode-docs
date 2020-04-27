@@ -327,7 +327,7 @@ TextMate theme rules are defined in `tokenColors` and have the same syntax as re
 
 When evaluating the color and style of a token, the current token's scope is matched against the rule's selector to find the most specific rule for each style property (foreground, bold, italic, underline)
 
-The [Color Theme Guide](/api/extension-guides/color-theme#syntax-colors) describes how to create a color theme. Theming for semantic tokens is explained in the [Semantic Highlighting Guide](semantic-highlighting-guide#theming).
+The [Color Theme Guide](/api/extension-guides/color-theme#syntax-colors) describes how to create a color theme. Theming for semantic tokens is explained in the [Semantic Highlighting Guide](semantic-highlight-guide#theming).
 
 ## Scope inspector
 
