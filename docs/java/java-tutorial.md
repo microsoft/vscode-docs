@@ -30,7 +30,7 @@ VS Code works with all major versions of Java SE up to 14.
 
 Before going through this tutorial, your development environment must have a Java SE Development Kit (JDK) installed. If it doesn't, you can download and install a JDK from one of these sources:
 
-* [Oracle Java SE](https://www.oracle.com/technetwork/java/javasds/index.html)
+* [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [AdoptOpenJDK](https://adoptopenjdk.net/)
 * [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/)
 
