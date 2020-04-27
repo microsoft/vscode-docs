@@ -21,7 +21,7 @@ If you already have one or more Dockerfiles, you can add Docker Compose files by
 
 You can add Docker Compose files to your workspace at the same time you add a Dockerfile by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and using the **Docker: Add Docker Files to Workspace** command. You'll be asked if you want to add Docker Compose files. If you want to keep your existing Dockerfile, choose **No** when prompted to overwrite the Dockerfile.
 
-The Docker extension adds the `docker-compose.yml` file to your workspace This file contains configuration to brings up the containers as expected in production. In some cases, a `docker-compose.debug.yml` is also generated. This file provides a simplified mode for starting that enables the debugger.
+The Docker extension adds the `docker-compose.yml` file to your workspace. This file contains the configuration to bring up the containers as expected in production. In some cases, a `docker-compose.debug.yml` is also generated. This file provides a simplified mode for starting that enables the debugger.
 
 ![Screenshot of project with docker-compose files](images/compose/docker-compose-files.png)
 
@@ -53,7 +53,7 @@ First, refer to the debugging documentation for your target platform, to underst
 
 If you want to debug in Docker Compose, run the command **Docker Compose Up** using one of the two Docker Compose files as described in the previous section, and then attach using the appropriate **Attach** launch configuration. Launching directly using the normal launch configuration does not use Docker Compose.
 
-Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Docker extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The process for each platform (Node, Python, and .NET Core) is described in the following sections.
+Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Docker extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The process for each platform (Node.js, Python, and .NET Core) is described in the following sections.
 
 ### Node.js
 
@@ -97,7 +97,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
 
    ![Screenshot of Configuration dropdown](images/compose/docker-compose-configuration.png)
 
-1. Right-click on the ``docker-compose.debug.yml` file and choose **Compose Up**.
+1. Right-click on the `docker-compose.debug.yml` file and choose **Compose Up**.
 
 1. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
 
@@ -132,7 +132,7 @@ For debugging Python with Docker Compose, first read [How to debug your app with
 
 1. When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.
 
-1. Right-click on the ``docker-compose.debug.yml` file and choose **Compose Up**.
+1. Right-click on the `docker-compose.debug.yml` file and choose **Compose Up**.
 
 1. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
 
@@ -193,7 +193,7 @@ You're now debugging your running app in the container.
 
 1. When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.
 
-1. Right-click on the ``docker-compose.debug.yml` file and choose **Compose Up**.
+1. Right-click on the `docker-compose.debug.yml` file and choose **Compose Up**.
 
 1. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
 
