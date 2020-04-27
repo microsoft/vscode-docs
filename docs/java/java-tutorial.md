@@ -12,7 +12,7 @@ MetaDescription: Java tutorial showing basic Java language support in the Visual
 
 This tutorial shows you how to write and run Hello World program in Java with Visual Studio Code. It also covers a few advanced features, which you can explore by reading other documents in this section.
 
-For an overview of the features available for Java in VS Code, see [Java Language Overview](docs/languages/java.md)
+For an overview of the features available for Java in VS Code, see [Java Language Overview](/docs/languages/java.md)
 
 If you run into any issues when following this tutorial, you can contact us by clicking the **Report an issue** button below.
 
@@ -30,7 +30,7 @@ VS Code works with all major versions of Java SE up to 14.
 
 Before going through this tutorial, your development environment must have a Java SE Development Kit (JDK) installed. If it doesn't, you can download and install a JDK from one of these sources:
 
-* [Oracle Java SE](https://www.oracle.com/technetwork/java/javasds/index.html)
+* [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [AdoptOpenJDK](https://adoptopenjdk.net/)
 * [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/)
 
