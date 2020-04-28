@@ -25,10 +25,14 @@ We recommend using the Visual Studio Code [Remote-SSH extension](/docs/container
 
 1. Verify that your identity is available to the agent with `ssh-add -l`. It should list one or more identities that look something like `2048 SHA256:abcdefghijk somethingsomething (RSA)`. If it does not list any identity, you will not be able to connect. Also, it needs to have the right identity. The Docker CLI working does not mean that the Explorer window will work. The Explorer window uses [dockerode](https://www.npmjs.com/package/dockerode) (which in turn uses [ssh2](https://www.npmjs.com/package/ssh2)), whereas the Docker CLI uses the `ssh` command, and benefits from an automatically inferred configuration.
 
-1. Configure VS Code with your `DOCKER_HOST` to `ssh://username@host:port`. If you don't include username, it will use your current local user name, which might be wrong. If you omit the port, it defaults to 22.
+1. Create a [Docker context](https://docs.docker.com/engine/context/working-with-contexts/) that points to the remote machine running Docker. Use `ssh://username@host:port` as the Docker endpoint (replace "host" with your remote machine name, or the remote machine IP address). Issue the following command from terminal window:
 
-    * You can use the `DOCKER_HOST` environment variable, or
+    ```shell
+    docker context create my-remote-docker-machine --docker "host=ssh://username@host:port"
+    ```
 
-    * There's a setting `docker.host` in VS Code, which has the same effect, but allows for user or workspace settings instead of machine settings.
+    If you don't include user name, the command will use your current local user name, which might be wrong. If you omit the port, it defaults to 22.
 
-1. It is recommended to change the refresh rate to something longer with the `docker.explorerRefreshInterval` setting. The connection over SSH is slow, and it can result in trying to refresh again before the previous refresh even finished. We recommend at least 3000 ms.
+1. Issue **Docker Context: Use** Visual Studio Code command to activate the Docker context pointing to the remote machine. This command causes both VS Code and Docker CLI to use the remote machine context.
+
+1. It is recommended to change the refresh rate to something longer than the default with the `docker.explorerRefreshInterval` setting. The connection over SSH is slow, and it can result in trying to refresh again before the previous refresh even finished. We recommend at least 3000 ms.
