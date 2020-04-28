@@ -148,41 +148,6 @@ You're now debugging your running app in the container.
 
 1. On the **Debug** tab, choose the **Configuration** dropdown, choose **New Configuration** and select the `Docker Attach` configuration template **.NET Core Docker Attach (Preview)**.
 
-1. Configure the debugging port in `docker-compose.debug.yml`. This is set when you create the file, so you might not need to change it.
-
-   ```yml
-    version: '3.4'
-
-    services:
-      mywebapp:
-        image: mywebapp
-        build:
-          context: .
-          dockerfile: Dockerfile
-        ports:
-          - 80
-        environment:
-          - ASPNETCORE_ENVIRONMENT=Development
-          - ASPNETCORE_URLS=http://+:80
-        volumes:
-          - ~/.vsdbg:/remote_debugger:rw
-    ```
-
-1. If you have multiple apps, you need to change the port for one of them, so that each app has a unique port. You can point to the right debugging port in the `launch.json`, and save the file. If you omit this, the port will be chosen automatically.
-
-   An example launch configuration for an ASP.NET web app in a Docker container is shown in the following code:
-
-   ```json
-        {
-            "name": "Docker .NET Core Attach (Preview)",
-            "type": "docker",
-            "request": "attach",
-            "platform": "netCore",
-            "sourceFileMap": {
-                "/src": "${workspaceFolder}"
-        }
-   ```
-
 1. VS code tries to copy `vsdbg` from the host machine to the target container using a default path. You can also provide a path to an existing instance of `vsdbg` in the **Attach** configuration.
 
    ```json
@@ -201,19 +166,19 @@ You're now debugging your running app in the container.
 
    ![Screenshot of starting debugging](images/compose/docker-compose-attach.png)
 
-1. If you try to attach to a .NET Core app running in a container, you'll see a prompt asking if you want to install the debugger (`.vsdbg` bits into the container).
+1. If you try to attach to a .NET Core app running in a container, you'll see a prompt ask to select your app's container.
 
-   ![Screenshot of debugger install prompt](./images/compose/docker-compose-netcore-debugger-prompt.png)
-
-   Select your app's container group.
-
-   ![Screenshot of container group selection](./images/compose/select-container-group.png)
+   ![Screenshot of container selection](./images/compose/select-container.png)
 
    To skip this step, specify the container name in the **Attach** configuration in launch.json:
 
    ```json
        "containerName": "Your ContainerName"
    ```
+
+   Next, you're asked if you want to copy the debugger (`.vsdbg` bits into the container). Choose **Yes**.
+
+   ![Screenshot of debugger install prompt](./images/compose/docker-compose-netcore-debugger-prompt.png)
 
 If everything is configured correctly, the debugger should be attached to your .NET Core app.
 
