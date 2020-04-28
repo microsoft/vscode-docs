@@ -506,13 +506,13 @@ To change Docker's drive and folder sharing settings:
 **Windows:**
 
 1. Right-click on the Docker task bar item and select **Settings**.
-2. Go to the **Shared Drives** tab and check the drive(s) where your source code is located.
+2. Go to **Resources > File Sharing** and check the drive(s) where your source code is located.
 3. If you see a message about your local firewall blocking the sharing action, see [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps.
 
 **macOS:**
 
 1. Click on the Docker menu bar item and select **Preferences**.
-2. Go to the **File Sharing** tab. Confirm that the folder containing your source code is under one of the shared folders listed.
+2. Go to **Resources > File Sharing**. Confirm that the folder containing your source code is under one of the shared folders listed.
 
 ### Resolving Git line ending issues in containers (resulting in many modified files)
 

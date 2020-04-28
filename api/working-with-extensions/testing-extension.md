@@ -7,7 +7,7 @@ DateApproved: 4/8/2020
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
 ---
 
-# Testing Extension
+# Testing Extensions
 
 Visual Studio Code supports running and debugging tests for your extension. These tests will run inside a special instance of VS Code named the **Extension Development Host**, and have full access to the VS Code API. We refer to these tests as integration tests, because they go beyond unit tests that can run without a VS Code instance. This documentation focuses on VS Code integration tests.
 
@@ -280,7 +280,7 @@ The [`vscode`](https://github.com/Microsoft/vscode-extension-vscode) module had 
 - Remove `vscode` dependency.
 - Add `vscode-test` dependency.
 - As the old `vscode` module was also used for downloading VS Code type definition, you need to
-  - Manually install `@types/vscode` that follows your `engine.vscode` in `package.json`. For example, if your `engine.vscode` is `1.30`, install `@types/vscode@1.30`.
+  - Manually install `@types/vscode` that follows your `engine.vscode` in `package.json`. For example, if your `engine.vscode` is `1.30`, install `"@types/vscode": "^1.30.0"`.
   - Remove `"postinstall": "node ./node_modules/vscode/bin/install"` from `package.json`.
 - Add a [test script](#the-test-script). You can use [`runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts) in the sample as a starting point.
 - Point the `test` script in `package.json` to run the compiled output of `runTest.ts`.

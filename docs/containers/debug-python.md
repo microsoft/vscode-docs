@@ -149,3 +149,9 @@ To debug your app running with Gunicorn (or any other web server):
 1. Set a breakpoint in the chosen file.
 1. Navigate to **Run and Debug** and select the **Python: Remote Attach** launch configuration.
 1. Hit `kb(workbench.action.debug.start)` to attach the debugger.
+
+## Next steps
+
+Learn more about:
+
+- [Configuring a non-root user in your container](/docs/containers/python-user-rights.md)

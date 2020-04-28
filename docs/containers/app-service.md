@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: containers
 TOCTitle: Deploy to Azure
 ContentId: 044913F5-F99D-4228-A916-0443260AB7FB
@@ -48,14 +48,14 @@ Before deploying the image to an App Service, the image must be uploaded to a co
 
    ![Registries](images/app-service/explorer-registries.png)
 
-3. Tag the image. In order to upload an image to a registry, the image needs to be tagged with registry name so that the docker push will upload it to the right registry.
+3. Optionally, tag the image. In order to upload an image to a registry, the image needs to be tagged with registry name so that the docker push will upload it to the right registry.
     - The image built in previous section will appear in the Docker view under Images section. Right-click and choose **Tag...**.
 
         ![Tag image](images/app-service/explorer-tag-image.png)
     - Specify the new name `<your registry or username>/<image name>:<tag>` and complete the
     tag action. For example, new image name for ACR would be 'mainacr.azurecr.io/webapp6:latest' and for Docker Hub it would be 'myusername/webapp6:latest'.
 
-4. The newly tagged image will show up in the Docker view under the registry that the image tag points to. Select this image and choose **Push**.
+4. The image will show up in the Docker view under the registry that the image tag points to. Select this image and choose **Push**. If the image has not yet been tagged, you will be prompted to choose a registry to push to, and the image will be tagged based on the selection.
 
     ![Push image](images/app-service/explorer-push-image.png)
 

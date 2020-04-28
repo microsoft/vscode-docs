@@ -7,7 +7,7 @@ DateApproved: 4/8/2020
 MetaDescription: Bundling Visual Studio Code extensions (plug-ins) with webpack.
 ---
 
-# Bundling Extension
+# Bundling Extensions
 
 Visual Studio Code extensions often grow quickly in size. They are authored in multiple source files and depend on modules from [npm](https://www.npmjs.com). Decomposition and reuse are development best practices but they come at a cost when installing and running extensions. Loading 100 small files is much slower than loading one large file. That's why we recommend bundling. Bundling is the process of combining multiple small source files into a single file.
 

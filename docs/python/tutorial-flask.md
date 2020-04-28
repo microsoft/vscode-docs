@@ -373,7 +373,7 @@ The following sections demonstrate both types of static files.
     <link rel="stylesheet" type="text/css" href="\{{ url_for('static', filename='site.css')}}" />
     ```
 
-    Flask's [`url_for` tag](http://flask.pocoo.org/docs/0.12/api/#flask.url_for) that's used here creates the appropriate path to the file. Because it can accept variables as arguments, `url_for` allows you to programmatically control the generated path, if desired.
+    Flask's [url_for](http://flask.pocoo.org/docs/0.12/api/#flask.url_for) tag that is used here, creates the appropriate path to the file. Because it can accept variables as arguments, `url_for` allows you to programmatically control the generated path, if desired.
 
 1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag (and also displays a message if you just use a hello/ URL without a name):
 

@@ -167,7 +167,7 @@ In case VS Code throws an error for a classpath issue, try setting your classpat
 
 In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean the java language server workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
 
-## Configure multiple JDK
+## Configure JDK
 
 As Java evolves, Java developers sometimes need to deal with multiple Java runtimes. The Java extension supports preference mapping through the `java.configuration.runtimes` array for Java execution environments. VS Code will detect the runtime required for your project and choose the appropriate one configured.
 
@@ -196,6 +196,8 @@ As Java evolves, Java developers sometimes need to deal with multiple Java runti
 ```
 
 Runtime names must be one of: "J2SE-1.5", "JavaSE-1.6", "JavaSE-1.7", "JavaSE-1.8", "JavaSE-9", "JavaSE-10", "JavaSE-11", "JavaSE-12", "JavaSE-13", "JavaSE-14". We will update the list with each supported release of the JDK.
+
+> **Note**: To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 
 ## Build Status
 

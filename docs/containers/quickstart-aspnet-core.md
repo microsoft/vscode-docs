@@ -157,3 +157,4 @@ You're done! Now that your container is ready, you may want to:
 
 - [Learn more about debugging .NET Core in a container](/docs/containers/debug-netcore.md)
 - [Deploy a containerized app to Azure App Service](/docs/containers/app-service.md)
+- [Learn about using Docker Compose](/docs/containers/docker-compose.md)

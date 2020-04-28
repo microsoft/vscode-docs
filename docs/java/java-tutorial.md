@@ -3,16 +3,16 @@ Order: 1
 Area: java
 TOCTitle: Getting Started
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
-PageTitle: Writing Java with Visual Studio Code
+PageTitle: Getting Started with Java in Visual Studio Code
 DateApproved: 7/25/2019
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
-# Writing Java with Visual Studio Code
+# Getting Started with Java in VS Code
 
 This tutorial shows you how to write and run Hello World program in Java with Visual Studio Code. It also covers a few advanced features, which you can explore by reading other documents in this section.
 
-For an overview of the features available for Java in VS Code, see [Java Language Overview](docs/languages/java.md)
+For an overview of the features available for Java in VS Code, see [Java Language Overview](/docs/languages/java.md)
 
 If you run into any issues when following this tutorial, you can contact us by clicking the **Report an issue** button below.
 
@@ -30,7 +30,7 @@ VS Code works with all major versions of Java SE up to 14.
 
 Before going through this tutorial, your development environment must have a Java SE Development Kit (JDK) installed. If it doesn't, you can download and install a JDK from one of these sources:
 
-* [Oracle Java SE](https://www.oracle.com/technetwork/java/javasds/index.html)
+* [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [AdoptOpenJDK](https://adoptopenjdk.net/)
 * [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/)
 
@@ -73,6 +73,8 @@ The [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vs
 
 ![Java Getting Started](images/java-tutorial/getting-started.png)
 
+> **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions)
+
 ## Creating a source code file
 
 Create a folder for your Java program and open the folder with VS Code. Then in VS Code, create a new file and save it with the name `Hello.java`. When you open that file, the Java Language Server automatically starts loading, and you should see a loading icon on the right side of the Status Bar. After it finishes loading, you will see a thumbs-up icon.
@@ -83,7 +85,9 @@ Create a folder for your Java program and open the folder with VS Code. Then in 
 
 >**Note**: If you open a Java file in VS Code without opening its folder, the Java Language Server might not work properly.
 
-You can also create an Eclipse style project using the **Java: Create Java Project** command. Bring up the **Command Palette**  (`kb(workbench.action.showCommands)`) and then type `java` to search for this command. After selecting the command, you will be prompted for the location and name of the project.
+VS Code will also try to figure out the correct package for the new type and fill the new file from a template. See [Create new file](/docs/java/java-editing.md#create-new-file).
+
+You can also create a Java project using the **Java: Create Java Project** command. Bring up the **Command Palette**  (`kb(workbench.action.showCommands)`) and then type `java` to search for this command. After selecting the command, you will be prompted for the location and name of the project. You can also choose your build tool from this command.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-tutorial/JavaHelloWorld.Project.mp4" type="video/mp4">

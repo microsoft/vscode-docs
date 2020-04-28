@@ -59,7 +59,7 @@ You can run Docker commands to manage [images](https://docs.docker.com/engine/re
 
 ## Using image registries
 
-You can display the content and push/pull/delete images from [Docker Hub](https://hub.docker.com/) and [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/):
+You can display the content and push/pull/delete images from [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), [Docker Hub](https://hub.docker.com/), [GitLab](https://gitlab.com/), and more:
 
 ![Azure Container Registry content](images/overview/container-registry.png)
 

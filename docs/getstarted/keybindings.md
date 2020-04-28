@@ -238,6 +238,7 @@ Equality | `==` | `"editorLangId == typescript"`
 Inequality | `!=` | `"resourceExtname != .js"`
 Or | `||` | `"isLinux || isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
+Matches | `=~` | `resourceScheme =~ /^untitled$|^file$/`
 
 ### Contexts
 
