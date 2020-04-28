@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 12/12/2019
+DateApproved: 4/8/2020
 ---
 # Advanced Container Configuration
 
@@ -132,7 +132,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 You can also use a mount to persist your bash command history across sessions / container rebuilds.
 
-First, update your `Dockerfile` so that each time a command is used in `bash`, the history is updated and stored in a location we will persist. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-non-root-user-to-your-dev-container) in the container (if one exists).
+First, update your `Dockerfile` so that each time a command is used in `bash`, the history is updated and stored in a location we will persist. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container (if one exists).
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
@@ -148,7 +148,7 @@ RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhisto
 
 Next, add a local volume to store the command history. This step varies depending on whether or not you are using Docker Compose.
 
-* **Dockerfile or image**:  Use the `mounts` property (VS Code 1.41+) in your `devcontainer.json` file. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-non-root-user-to-your-dev-container) in the container (if one exists).
+* **Dockerfile or image**:  Use the `mounts` property (VS Code 1.41+) in your `devcontainer.json` file. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container (if one exists).
 
     ```json
       "mounts": [
@@ -156,7 +156,7 @@ Next, add a local volume to store the command history. This step varies dependin
       ]
     ```
 
-* **Docker Compose:** Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-non-root-user-to-your-dev-container) in the container (if one exists).
+* **Docker Compose:** Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container (if one exists).
 
     ```yaml
     version: '3'
@@ -212,7 +212,7 @@ Follow these steps:
     ]
     ```
 
-2. Since this repository [runs VS Code as the non-root "node" user](#adding-a-non-root-user-to-your-dev-container), we need to add a `postCreateCommand` to be sure the user can access the folder.
+2. Since this repository [runs VS Code as the non-root "node" user](#adding-a-nonroot-user-to-your-dev-container), we need to add a `postCreateCommand` to be sure the user can access the folder.
 
     ```json
     "remoteUser": "node",
@@ -220,7 +220,7 @@ Follow these steps:
     "workspaceFolder": "/workspace",
     "mounts": [
         "source=try-node-node_modules,target=/workspace/node_modules,type=volume"
-    ]
+    ],
     "postCreateCommand": "sudo chown node node_modules"
     ```
 
@@ -254,7 +254,7 @@ While vscode-remote-try-node does not use Docker Compose, the steps are similar,
     "workspaceFolder": "/workspace"
     ```
 
-3. If you're running in the container with a [user other than root](#adding-a-non-root-user-to-your-dev-container), add a `postCreateCommand` to update the owner of the folder you mount since it may have been mounted as root. Replace `user-name-goes-here` with the appropriate user.
+3. If you're running in the container with a [user other than root](#adding-a-nonroot-user-to-your-dev-container), add a `postCreateCommand` to update the owner of the folder you mount since it may have been mounted as root. Replace `user-name-goes-here` with the appropriate user.
 
     ```json
     "remoteUser": "node",
@@ -326,16 +326,16 @@ There are a two side effects of doing this you should be aware of:
 
 To create the named local volume, follow these steps:
 
-1. **If you are running as a non-root user**, you'll need to ensure your Dockerfile creates `~/.vscode-server/extensions` and/or `~/.vscode-server-insiders/extensions` in the container with this non-root user as the owner. If you do not do this, the folder will be owned by root and your connection will fail with a permissions issue. See [Adding a non-root user to your dev container](#adding-a-non-root-user-to-your-dev-container) for full details, but you can use this snippet in your Dockerfile to create the folders. Replace `user-name-goes-here` with the actual user name:
+1. **If you are running as a non-root user**, you'll need to ensure your Dockerfile creates `~/.vscode-server/extensions` and/or `~/.vscode-server-insiders/extensions` in the container with this non-root user as the owner. If you do not do this, the folder will be owned by root and your connection will fail with a permissions issue. See [Adding a non-root user to your dev container](#adding-a-nonroot-user-to-your-dev-container) for full details, but you can use this snippet in your Dockerfile to create the folders. Replace `user-name-goes-here` with the actual user name:
 
     ```Dockerfile
     ARG USERNAME=user-name-goes-here
 
     RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
             /home/$USERNAME/.vscode-server-insiders/extensions \
-        && chown -R user-name-goes-here \
-            /home/$USERNAME/.vscode-server/extensions \
-            /home/$USERNAME/.vscode-server-insiders/extensions
+        && chown -R $USERNAME \
+            /home/$USERNAME/.vscode-server \
+            /home/$USERNAME/.vscode-server-insiders
     ```
 
 2. Next, we'll configure a named volume mount for `~/.vscode-server/extensions` and `~/.vscode-server-insiders/extensions` in the container. The configuration will depend on whether you specify an image, Dockerfile, or Docker Compose file in your `devcontainer.json` file.
@@ -348,7 +348,7 @@ To create the named local volume, follow these steps:
     "mounts": [
         "source=unique-vol-name-here,target=/root/.vscode-server/extensions,type=volume",
         // And/or for VS Code Insiders
-        "source=unique-vol-name-here-insiders,target=/.vscode-server-insiders/extensions,type=volume",
+        "source=unique-vol-name-here-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
     ]
     ```
 
@@ -398,7 +398,7 @@ If the image or Dockerfile you are using **already provides an optional non-root
 "remoteUser": "user-name-goes-here"
 ```
 
-On Linux, if you are referencing a **Dockerfile or image** in `devcontainer.json`, this will also automatically update the container user's UID/GID to match your local user to avoid the bind mount permissions problem that exists in this environment (unless you set `"updateRemoteUserUID": false`).
+On Linux, if you are referencing a **Dockerfile or image** in `devcontainer.json`, this will also automatically update the container user's UID/GID to match your local user to avoid the bind mount permissions problem that exists in this environment (unless you set `"updateRemoteUserUID": false`). In the **Docker Compose** case, the container user's UID/GID will not be updated but you can [manually change these values in a Dockerfile](#change-the-uidgid-of-an-existing-container-user).
 
 Since this setting only affects VS Code and related sub-processes, VS Code needs to be restarted (or the window reloaded) for it to take effect. However, UID/GID updates are only applied when the container is created and requires a rebuild to change.
 
@@ -452,6 +452,49 @@ USER $USERNAME
 > **Tip:** If you hit an error when building about the GID or UID already existing, the image you selected likely already has a non-root user you can take advantage of directly.
 
 In either case, if you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+### Change the UID/GID of an existing container user
+
+While the `remoteUser` property tries to automatically update the UID/GID as appropriate on Linux when using a **Dockerfile or image**, you can use this snippet in your Dockerfile to manually change the UID/GID of a user instead. Update the `ARG` values as appropriate.
+
+```Dockerfile
+ARG USERNAME=user-name-goes-here
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupmod --gid $USER_GID $USERNAME \
+    && usermod --uid $USER_UID --gid $USER_GID $USERNAME \
+    && chown -R $USER_UID:$USER_GID /home/$USERNAME
+```
+
+Note that on Alpine Linux, you'll need to install the `shadow` package first.
+
+```Dockerfile
+RUN apk add --no-cache shadow
+```
+
+## Setting the project name for Docker Compose
+
+VS Code will respect the value of [the `COMPOSE_PROJECT_NAME` environment variable](https://docs.docker.com/compose/reference/envvars/#compose_project_name) if set for the VS Code process or in a `.env` file in the root of the project.
+
+For example, after shutting down all VS Code windows, you can start VS Code from the command line as follows:
+
+```bash
+# from bash
+COMPOSE_PROJECT_NAME=foo code .
+```
+
+```PowerShell
+# from PowerShell
+$env:COMPOSE_PROJECT_NAME=foo
+code .
+```
+
+Or add the following to a `.env` file in the root of the project (**not** in the `.devcontainer` folder):
+
+```
+COMPOSE_PROJECT_NAME=foo
+```
 
 ## Using Docker or Kubernetes from a container
 

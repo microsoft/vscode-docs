@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 8
 Area: python
 TOCTitle: Python Interactive
 ContentId: C26E4F82-C6CD-4C52-818F-31A95F58207E
@@ -11,7 +11,7 @@ MetaSocialImage: images/tutorial/social.png
 
 # Working with the Python Interactive window
 
-[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with [Jupyter Notebooks natively](/docs/python/jupyter-support.md), as well as through Python code files. This topic covers the support offered through Python code files and demonstrates how to:
+[Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with [Jupyter Notebooks natively](/docs/python/jupyter-support.md), as well as through Python code files. This topic covers the support offered through Python code files and demonstrates how to:
 
 - Work with Jupyter-like code cells
 - Run code in the Python Interactive Window
@@ -26,14 +26,14 @@ Once the appropriate environment is activated, you can create and run Jupyter-li
 
 ## Jupyter code cells
 
-You define Jupyter-like code cells within Python code using a `#%%` comment:
+You define Jupyter-like code cells within Python code using a `# %%` comment:
 
 ```python
-#%%
+# %%
 msg = "Hello World"
 print(msg)
 
-#%%
+# %%
 msg = "Hello again"
 print(msg)
 ```
@@ -52,7 +52,7 @@ Selecting a command starts Jupyter (if necessary, which might take a minute), th
 
 ![Code cells running in a Python Interactive window](images/jupyter/code-cells-02.png)
 
-You can also run code cells using (`kbstyle(Ctrl+Enter)`) or the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `#%%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
+You can also run code cells using (`kbstyle(Ctrl+Enter)`) or the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `# %%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
 
 You can also click in the margin to the left of line numbers to set breakpoints. Then you can use **Debug Cell** to start a debugging session for that code cell. The debugger stops execution at breakpoints and allows you to step through code one line at a time and inspect variables (see [Debugging](debugging.md) for details).
 
@@ -89,7 +89,7 @@ This feature requires the [Live Share extensions](https://marketplace.visualstud
 
 ## Variable explorer and data viewer
 
-Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By expanding the **Variables** section after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code. Clicking on each column header will allow you to sort the variables in the table.
+Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By expanding the **Variables** section after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code.
 
 ![Variable Explorer](images/jupyter/jupyter-variable-explorer.png)
 
@@ -122,7 +122,7 @@ When you open a notebook file, Visual Studio Code will open it in the Notebook E
 
 ![Icon to convert a Jupyter notebook file](images/jupyter/native-toolbar-convert.png)
 
-Select the convert icon, wait a few seconds, and then VS Code opens the converted notebook in an untitled file. The notebook's cells are delimited in the Python file with `#%%` comments; Markdown cells are converted wholly to comments preceded with `#%% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
+Select the convert icon, wait a few seconds, and then VS Code opens the converted notebook in an untitled file. The notebook's cells are delimited in the Python file with `# %%` comments; Markdown cells are converted wholly to comments preceded with `# %% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
 
 ![Jupyter notebook running in VS Code and the Python Interactive window](images/jupyter/jupyter-notebook.png)
 
@@ -151,7 +151,7 @@ The Visual Studio Code debugger lets you step through your code, set breakpoints
 
 In addition to opening a Jupyter notebook, you can also use one of the following commands from the Command Palette (`kb(workbench.action.showCommands)`) to export content from a Python file in VS Code to a Jupyter notebook (with the `.ipynb` extension).
 
-- **Python: Export Current Python File as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file, using the `#%%` and `#%% [markdown]` delimiters to specify their respective cell types.
+- **Python: Export Current Python File as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file, using the `# %%` and `# %% [markdown]` delimiters to specify their respective cell types.
 - **Python: Export Current Python File and Output as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file and includes output from code cells.
 - **Python: Export Python Interactive window as Jupyter Notebook**: creates a Jupyter notebook from the contents of the Python Interactive window.
 

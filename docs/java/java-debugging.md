@@ -1,7 +1,7 @@
 ---
-Order: 3
+Order: 7
 Area: java
-TOCTitle: Running and Debugging
+TOCTitle: Run and Debug
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
 PageTitle: Run and Debug Java in Visual Studio Code
 DateApproved: 6/17/2019
@@ -9,7 +9,7 @@ MetaDescription: See how you can run and debug your Java source code locally, an
 MetaSocialImage:
 ---
 
-# Running and Debugging Java
+# Running and debugging Java
 
 Visual Studio Code allows you to debug Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension. It's a lightweight Java debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug), which extends the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java).
 
@@ -66,7 +66,7 @@ Another way to start debugging is to right-click a Java file in the File Explore
 
 ### Pressing F5
 
-Once you click **Run** on the CodeLens or press `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Debug** menu or the Debug view opened by the Debug icon in the Activity Bar on the side of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
+Once you click **Run** on the CodeLens or press `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Run** menu or the Run view opened by the Run icon in the Activity Bar on the side of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/debug-intro.mp4" type="video/mp4">
@@ -80,7 +80,7 @@ It's possible that there might be multiple debugging configurations for your pro
 
 If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations). For more details, please read [Launch configurations](/docs/editor/debugging.md#launch-configurations).
 
-By default, the Java debugger doesn't persist the `launch.json` in your workspace. If you would like to save it, you can click the **create a launch.json file** link in the Debug view where you will also find the **Debug** and **Run** buttons.
+By default, the Java debugger doesn't persist the `launch.json` in your workspace. If you would like to save it, you can click the **create a launch.json file** link in the Run view where you will also find the **Debug** and **Run** buttons.
 
 ![Debug Menu](images/java-debugging/run-debug-button.png)
 
@@ -111,6 +111,12 @@ Java 9 and newer versions are supported with VS Code Java Debugger as well.
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/java9.mp4" type="video/mp4">
 </video>
+
+### Threads
+
+You can see all the running threads in the **Call Stack** pane and work with individual thread using the context menu.
+
+![ContextMenu](images/java-debugging/thread-context-menu.png)
 
 ### Debug session inputs
 
@@ -154,7 +160,7 @@ With the help of expression evaluation, the debugger also supports conditional b
 
 ### Data Breakpoint
 
-You can have the debugger break when a variable change its value.
+You can have the debugger break when a variable change its value. Note that the data breakpoint can only be set inside a debug session. This means you need to launch your application and break on a regular breakpoint first. You can then pick a field in the `VARIABLES` view and set a data breakpoint.
 
 ![Data Breakpoint](images/java-debugging/data-breakpoint.png)
 
@@ -201,7 +207,7 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `sourcePaths` - The extra source directories of the program. The debugger looks for source code from project settings by default. This option allows the debugger to look for source code in extra directories.
 - `modulePaths` - The modulepaths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
 - `classPaths` - The classpaths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
-- `encoding` - The `file.encoding` setting for the JVM. If not specified, 'UTF-8' will be used. Possible values can be found in [Supported Encodings](http://docs.oracle.com/javase/8/docs/technotes/guides/intl/encoding.doc.html).
+- `encoding` - The `file.encoding` setting for the JVM. If not specified, 'UTF-8' will be used. Possible values can be found in [Supported Encodings](https://docs.oracle.com/javase/8/docs/technotes/guides/intl/encoding.doc.html).
 - `vmArgs` - The extra options and system properties for the JVM (for example -Xms\<size\> -Xmx\<size\> -D\<name\>=\<value\>), it accepts a string or an array of string.
 - `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. This setting also works when the debugger looks for the specified main class when launching a program. It is required when the workspace has multiple Java projects, otherwise the expression evaluation and conditional breakpoint may not work.
 - `cwd` - The working directory of the program. Defaults to `${workspaceFolder}`.

@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 10
 Area: cpp
 TOCTitle: c_cpp_properties.json
 ContentId: EC1BA944-09B5-41EA-AAED-779A02C90C98
@@ -63,6 +63,8 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
 
 - `compilerPath` (optional)
   The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. The extension will query the compiler to determine the system include paths and default defines to use for IntelliSense.
+
+  Putting `"compilerPath": ""` (empty string) will skip querying a compiler. This is useful if a specified compiler doesn't support the arguments that are used for the query, as the extension will default back to any compiler it can find (like Visual C). Leaving out the `compilerPath` property does not skip the query.
 
 - `compilerArgs` (optional)
   Compiler arguments to modify the includes or defines used, for example `-nostdinc++`, `-m32`, etc.

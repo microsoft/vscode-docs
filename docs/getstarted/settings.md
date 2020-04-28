@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 12/12/2019
+DateApproved: 4/8/2020
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -31,7 +31,7 @@ To open your user and workspace settings, use the following VS Code menu command
 
 You can also open the Settings editor from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
 
-In the example below, the color theme and the icon theme have been changed.
+In the example below, the color theme and the file icon theme have been changed.
 
 ![Example Settings](images/settings/settings.png)
 
@@ -49,7 +49,7 @@ When you open the settings editor, you can search and discover settings you are 
 
 ### Edit settings
 
-Each setting can be edited by either a **checkbox**, an **input** or by a **drop-down**. Simply edit the text or select the option you want to change to the desired settings.
+Each setting can be edited by either a **checkbox**, an **input** or by a **drop-down**. Edit the text or select the option you want to change to the desired settings.
 
 ![Edit a Setting](images/settings/settings-edit.png)
 
@@ -136,7 +136,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Editor
 
-	// Controls whether the diff editor shows changes in leading or trailing whitespace as diffs.
+	// When enabled, the diff editor ignores changes in leading or trailing whitespace.
 	"diffEditor.ignoreTrimWhitespace": true,
 
 	// Timeout in milliseconds after which diff computation is cancelled. Use 0 for no timeout.
@@ -204,14 +204,17 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Code action kinds to be run on save.
 	"editor.codeActionsOnSave": {},
 
-	// Timeout in milliseconds after which the code actions that are run on save are cancelled.
-	"editor.codeActionsOnSaveTimeout": 750,
-
 	// Controls whether the editor shows CodeLens.
 	"editor.codeLens": true,
 
 	// Controls whether the editor should render the inline color decorators and color picker.
 	"editor.colorDecorators": true,
+
+	// Enable that the selection with the mouse and keys is doing column selection.
+	"editor.columnSelection": false,
+
+	// Controls whether a space character is inserted when commenting.
+	"editor.comments.insertSpace": true,
 
 	// Controls whether syntax highlighting should be copied into the clipboard.
 	"editor.copyWithSyntaxHighlighting": true,
@@ -239,6 +242,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Defines a default formatter which takes precedence over all other formatter settings. Must be the identifier of an extension contributing a formatter.
 	"editor.defaultFormatter": null,
 
+	// Controls whether the Go to Definition mouse gesture always opens the peek widget.
+	"editor.definitionLinkOpensInPeek": false,
+
 	// Controls whether `editor.tabSize#` and `#editor.insertSpaces` will be automatically detected when a file is opened based on the file contents.
 	"editor.detectIndentation": true,
 
@@ -260,8 +266,8 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - multiline: Turn on Find in selection automatically when multiple lines of content are selected.
 	"editor.find.autoFindInSelection": "never",
 
-  // Controls whether the Find Widget should read or modify the shared find clipboard on macOS.
-  "editor.find.globalFindClipboard": true,
+    // Controls whether the Find Widget should read or modify the shared find clipboard on macOS.
+    "editor.find.globalFindClipboard": false,
 
 	// Controls whether the search string in the Find Widget is seeded from the editor selection.
 	"editor.find.seedSearchStringFromSelection": true,
@@ -269,13 +275,18 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls whether the editor has code folding enabled.
 	"editor.folding": true,
 
-	// Controls the strategy for computing folding ranges. `auto` uses a language specific folding strategy, if available. `indentation` uses the indentation based folding strategy.
+	// Controls whether the editor should highlight folded ranges.
+	"editor.foldingHighlight": true,
+
+	// Controls the strategy for computing folding ranges.
+	//  - auto: Use a language-specific folding strategy if available, else the indentation-based one.
+	//  - indentation: Use the indentation-based folding strategy.
 	"editor.foldingStrategy": "auto",
 
 	// Controls the font family.
 	"editor.fontFamily": "Consolas, 'Courier New', monospace",
 
-	// Configures font ligatures.
+	// Configures font ligatures or font features.
 	"editor.fontLigatures": false,
 
 	// Controls the font size in pixels.
@@ -289,9 +300,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 	// Format a file on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.
 	"editor.formatOnSave": false,
-
-	// Timeout in milliseconds after which the formatting that is run on file save is cancelled.
-	"editor.formatOnSaveTimeout": 750,
 
 	// Controls whether the editor should automatically format the line after typing.
 	"editor.formatOnType": false,
@@ -393,7 +401,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Render the actual characters on a line as opposed to color blocks.
 	"editor.minimap.renderCharacters": true,
 
-	// Scale of content drawn in the minimap.
+	// Scale of content drawn in the minimap: 1, 2 or 3.
 	"editor.minimap.scale": 1,
 
 	// Controls when the minimap slider is shown.
@@ -402,13 +410,19 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls the side where to render the minimap.
 	"editor.minimap.side": "right",
 
+	// Controls the size of the minimap.
+	//  - proportional: The minimap has the same size as the editor contents (and might scroll).
+	//  - fill: The minimap will stretch or shrink as necessary to fill the height of the editor (no scrolling).
+	//  - fit: The minimap will shrink as necessary to never be larger than the editor (no scrolling).
+	"editor.minimap.size": "proportional",
+
 	// A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events.
 	"editor.mouseWheelScrollSensitivity": 1,
 
 	// Zoom the font of the editor when using mouse wheel and holding `Ctrl`.
 	"editor.mouseWheelZoom": false,
 
-  // The modifier to be used to add multiple cursors with the mouse. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.
+	// The modifier to be used to add multiple cursors with the mouse. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier. [Read more](https://code.visualstudio.com/docs/editor/codebasics#_multicursor-modifier).
 	//  - ctrlCmd: Maps to `Control` on Windows and Linux and to `Command` on macOS.
 	//  - alt: Maps to `Alt` on Windows and Linux and to `Option` on macOS.
 	"editor.multiCursorModifier": "alt",
@@ -424,11 +438,22 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls whether a border should be drawn around the overview ruler.
 	"editor.overviewRulerBorder": true,
 
+	// Controls the amount of space between the bottom edge of the editor and the last line.
+	"editor.padding.bottom": 0,
+
+	// Controls the amount of space between the top edge of the editor and the first line.
+	"editor.padding.top": 0,
+
 	// Controls whether the parameter hints menu cycles or closes when reaching the end of the list.
 	"editor.parameterHints.cycle": false,
 
 	// Enables a pop-up that shows parameter documentation and type information as you type.
 	"editor.parameterHints.enabled": true,
+
+	// Controls whether to focus the inline editor or the tree in the peek widget.
+	//  - tree: Focus the tree when opening peek
+	//  - editor: Focus the editor when opening peek
+	"editor.peekWidgetDefaultFocus": "tree",
 
 	// Controls whether suggestions should automatically show up while typing.
 	"editor.quickSuggestions": {
@@ -439,6 +464,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 	// Controls the delay in milliseconds after which quick suggestions will show up.
 	"editor.quickSuggestionsDelay": 10,
+
+	// Enable/disable the ability to preview changes before renaming
+	"editor.rename.enablePreview": true,
+
+	// Controls whether the editor auto renames on type.
+	"editor.renameOnType": false,
 
 	// Controls whether the editor should render control characters.
 	"editor.renderControlCharacters": false,
@@ -456,12 +487,15 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - all: Highlights both the gutter and the current line.
 	"editor.renderLineHighlight": "line",
 
+	// Controls if the editor should render the current line highlight only when the editor is focused
+	"editor.renderLineHighlightOnlyWhenFocus": false,
+
 	// Controls how the editor should render whitespace characters.
 	//  - none
 	//  - boundary: Render whitespace characters except for single spaces between words.
 	//  - selection: Render whitespace characters only on selected text.
 	//  - all
-	"editor.renderWhitespace": "none",
+	"editor.renderWhitespace": "selection",
 
 	// Controls whether selections should have rounded corners.
 	"editor.roundedSelection": true,
@@ -475,13 +509,21 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls whether the editor will scroll beyond the last line.
 	"editor.scrollBeyondLastLine": true,
 
-  // Controls whether the Linux primary clipboard should be supported.
-  "editor.selectionClipboard": true,
+    // Controls whether the Linux primary clipboard should be supported.
+    "editor.selectionClipboard": true,
+
+	// Scroll only along the predominant axis when scrolling both vertically and horizontally at the same time. Prevents horizontal drift when scrolling vertically on a trackpad.
+	"editor.scrollPredominantAxis": true,
 
 	// Controls whether the editor should highlight matches similar to the selection.
 	"editor.selectionHighlight": true,
 
-	// Controls whether the fold controls on the gutter are automatically hidden.
+	// Controls whether the semanticHighlighting is shown for the languages that support it.
+	"editor.semanticHighlighting.enabled": true,
+
+	// Controls when the folding controls on the gutter are shown.
+	//  - always: Always show the folding controls.
+	//  - mouseover: Only show the folding controls when the mouse is over the gutter.
 	"editor.showFoldingControls": "mouseover",
 
 	// Controls fading out of unused code.
@@ -502,9 +544,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 	// Controls whether filtering and sorting suggestions accounts for small typos.
 	"editor.suggest.filterGraceful": true,
-
-	// Controls whether unexpected text modifications while accepting completions should be highlighted, e.g `insertMode` is `replace` but the completion only supports `insert`.
-	"editor.suggest.insertHighlight": false,
 
 	// Controls whether words are overwritten when accepting completions. Note that this depends on extensions opting into this feature.
 	//  - insert: Insert suggestion without overwriting text right of the cursor.
@@ -562,6 +601,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// When enabled IntelliSense shows `interface`-suggestions.
 	"editor.suggest.showInterfaces": true,
 
+	// When enabled IntelliSense shows `issues`-suggestions.
+	"editor.suggest.showIssues": true,
+
 	// When enabled IntelliSense shows `keyword`-suggestions.
 	"editor.suggest.showKeywords": true,
 
@@ -592,6 +634,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// When enabled IntelliSense shows `unit`-suggestions.
 	"editor.suggest.showUnits": true,
 
+	// When enabled IntelliSense shows `user`-suggestions.
+	"editor.suggest.showUsers": true,
+
 	// When enabled IntelliSense shows `value`-suggestions.
 	"editor.suggest.showValues": true,
 
@@ -601,7 +646,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// When enabled IntelliSense shows `text`-suggestions.
 	"editor.suggest.showWords": true,
 
-	// Control whether an active snippet prevents quick suggestions.
+	// Controls whether an active snippet prevents quick suggestions.
 	"editor.suggest.snippetsPreventQuickSuggestions": true,
 
 	// Font size for the suggest widget. When set to `0`, the value of `editor.fontSize` is used.
@@ -634,6 +679,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Remove trailing auto inserted whitespace.
 	"editor.trimAutoWhitespace": true,
 
+	// Controls whether clicking on the empty content after a folded line will unfold the line.
+	"editor.unfoldOnClickAfterEndOfLine": false,
+
 	// Inserting and deleting whitespace follows tab stops.
 	"editor.useTabStops": true,
 
@@ -659,6 +707,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - indent: Wrapped lines get +1 indentation toward the parent.
 	//  - deepIndent: Wrapped lines get +2 indentation toward the parent.
 	"editor.wrappingIndent": "same",
+
+	// Controls the algorithm that computes wrapping points.
+	//  - simple: Assumes that all characters are of the same width. This is a fast algorithm that works correctly for monospace fonts and certain scripts (like Latin characters) where glyphs are of equal width.
+	//  - advanced: Delegates wrapping points computation to the browser. This is a slow algorithm, that might cause freezes for large files, but it works correctly in all cases.
+	"editor.wrappingStrategy": "simple",
 
 // SCM
 
@@ -700,6 +753,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 	// Controls how many providers are visible in the Source Control Provider section. Set to `0` to be able to manually resize the view.
 	"scm.providers.visible": 10,
+
+	// If set, automatically switch to the preferred color theme based on the OS appearance.
+	"window.autoDetectColorScheme": false,
 
 // Workbench
 
@@ -746,6 +802,15 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - long: Show the name of the file followed by its absolute path.
 	"workbench.editor.labelFormat": "default",
 
+	// Controls if the number of opened editors should be limited or not. When enabled, less recently used editors that are not dirty will close to make space for newly opening editors.
+	"workbench.editor.limit.enabled": false,
+
+	// Controls if the limit of maximum opened editors should apply per editor group or across all editor groups.
+	"workbench.editor.limit.perEditorGroup": false,
+
+	// Controls the maximum number of opened editors. Use the `workbench.editor.limit.perEditorGroup` setting to control this limit per editor group or across all groups.
+	"workbench.editor.limit.value": 10,
+
 	// Navigate between open files using mouse buttons four and five if provided.
 	"workbench.editor.mouseBackForwardToNavigate": true,
 
@@ -761,14 +826,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls whether an editor is revealed in any of the visible groups if opened. If disabled, an editor will prefer to open in the currently active editor group. If enabled, an already opened editor will be revealed instead of opened again in the currently active editor group. Note that there are some cases where this setting is ignored, e.g. when forcing an editor to open in a specific group or to the side of the currently active group.
 	"workbench.editor.revealIfOpen": false,
 
-	// Controls whether opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
+	// Controls whether opened editors should show with an icon or not. This requires a file icon theme to be enabled as well.
 	"workbench.editor.showIcons": true,
 
 	// Controls whether opened editors should show in tabs or not.
 	"workbench.editor.showTabs": true,
-
-  // Navigate between open files using three-finger swipe horizontally.
-  "workbench.editor.swipeToNavigate": false,
 
 	// Controls the sizing of editor groups when splitting them.
 	//  - distribute: Splits all the editor groups to equal parts.
@@ -783,14 +845,24 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - shrink: Allow tabs to get smaller when the available space is not enough to show all tabs at once.
 	"workbench.editor.tabSizing": "fit",
 
-  // Controls font aliasing method in the workbench.
-  //  - default: Sub-pixel font smoothing. On most non-retina displays this will give the sharpest text.
-  //  - antialiased: Smooth the font on the level of the pixel, as opposed to the subpixel. Can make the font appear lighter overall.
-  //  - none: Disables font smoothing. Text will show with jagged sharp edges.
-  //  - auto: Applies `default` or `antialiased` automatically based on the DPI of displays.
-  "workbench.fontAliasing": "default",
+    // Controls font aliasing method in the workbench.
+    //  - default: Sub-pixel font smoothing. On most non-retina displays this will give the sharpest text.
+    //  - antialiased: Smooth the font on the level of the pixel, as opposed to the subpixel. Can make the font appear lighter overall.
+    //  - none: Disables font smoothing. Text will show with jagged sharp edges.
+    //  - auto: Applies `default` or `antialiased` automatically based on the DPI of displays.
+    "workbench.fontAliasing": "default",
 
-	// Specifies the icon theme used in the workbench or 'null' to not show any file icons.
+	// Controls the height of the scrollbars used for tabs and breadcrumbs in the editor title area.
+	//  - default: The default size.
+	//  - large: Increases the size, so it can be grabed more easily with the mouse
+	"workbench.editor.titleScrollbarSizing": "default",
+
+	// Controls the format of the label for an untitled editor.
+	//  - content: The name of the untitled file is derived from the contents of its first line unless it has an associated file path. It will fallback to the name in case the line is empty or contains no word characters.
+	//  - name: The name of the untitled file is not derived from the contents of the file.
+	"workbench.editor.untitled.labelFormat": "content",
+
+	// Specifies the file icon theme used in the workbench or 'null' to not show any file icons.
 	//  - null: No file icons
 	//  - vs-minimal
 	//  - vs-seti
@@ -799,7 +871,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls whether keyboard navigation in lists and trees is automatically triggered simply by typing. If set to `false`, keyboard navigation is only triggered when executing the `list.toggleKeyboardNavigation` command, for which you can assign a keyboard shortcut.
 	"workbench.list.automaticKeyboardNavigation": true,
 
-	// Controls whether lists and trees support horizontal scrolling in the workbench.
+	// Controls whether lists and trees support horizontal scrolling in the workbench. Warning: turning on this setting has a performance implication.
 	"workbench.list.horizontalScrolling": false,
 
 	// Controls the keyboard navigation style for lists and trees in the workbench. Can be simple, highlight and filter.
@@ -816,8 +888,21 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls how to open items in trees and lists using the mouse (if supported). For parents with children in trees, this setting will control if a single click expands the parent or a double click. Note that some trees and lists might choose to ignore this setting if it is not applicable.
 	"workbench.list.openMode": "singleClick",
 
-	// Controls the default location of the panel (terminal, debug console, output, problems). It can either show at the bottom or on the right of the workbench.
+	// Controls the default location of the panel (terminal, debug console, output, problems). It can either show at the bottom, right, or left of the workbench.
 	"workbench.panel.defaultLocation": "bottom",
+
+	// Specifies the preferred color theme for dark OS appearance when 'window.autoDetectColorScheme' is enabled.
+	"workbench.preferredDarkColorTheme": "Default Dark+",
+
+	// Specifies the preferred color theme used in high contrast mode when 'window.autoDetectHighContrast' is enabled.
+	"workbench.preferredHighContrastColorTheme": "Default High Contrast",
+
+	// Specifies the preferred color theme for light OS appearance when 'window.autoDetectColorScheme' is enabled.
+	"workbench.preferredLightColorTheme": "Default Light+",
+
+	// Specifies the workbench icon theme used.
+	//  - Default: Default
+	"workbench.productIconTheme": "Default",
 
 	// Controls whether Quick Open should close automatically once it loses focus.
 	"workbench.quickOpen.closeOnFocusLost": true,
@@ -839,7 +924,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls whether opening settings also opens an editor showing all default settings.
 	"workbench.settings.openDefaultSettings": false,
 
-	// Controls the behavior of the settings editor Table of Contents while searching.
+    // Controls the behavior of the settings editor Table of Contents while searching.
 	//  - hide: Hide the Table of Contents while searching.
 	//  - filter: Filter the Table of Contents to just categories that have matching settings. Clicking a category will filter the results to that category.
 	"workbench.settings.settingsSearchTocBehavior": "filter",
@@ -847,7 +932,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls whether to use the split JSON editor when editing settings as JSON.
 	"workbench.settings.useSplitJSON": false,
 
-	// Controls the location of the sidebar. It can either show on the left or right of the workbench.
+	// Controls the location of the sidebar and activity bar. They can either show on the left or right of the workbench.
 	"workbench.sideBar.location": "left",
 
 	// Controls which editor is shown at startup, if none are restored from the previous session.
@@ -878,8 +963,8 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// If enabled, will automatically change to high contrast theme if Windows is using a high contrast theme, and to dark theme when switching away from a Windows high contrast theme.
 	"window.autoDetectHighContrast": true,
 
-  // If enabled, clicking on an inactive window will both activate the window and trigger the element under the mouse if it is clickable. If disabled, clicking anywhere on an inactive window will activate it only and a second click is required on the element.
-  "window.clickThroughInactive": true,
+    // If enabled, clicking on an inactive window will both activate the window and trigger the element under the mouse if it is clickable. If disabled, clicking anywhere on an inactive window will activate it only and a second click is required on the element.
+    "window.clickThroughInactive": true,
 
 	// Controls whether closing the last editor should also close the window. This setting only applies for windows that do not show folders.
 	"window.closeWhenEmpty": false,
@@ -890,8 +975,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// If enabled, double clicking the application icon in the title bar will close the window and the window cannot be dragged by the icon. This setting only has an effect when `window.titleBarStyle` is set to `custom`.
 	"window.doubleClickIconToClose": false,
 
-  // Enables macOS Sierra window tabs. Note that changes require a full restart to apply and that native tabs will disable a custom title bar style if configured.
-  "window.nativeTabs": false,
+    // Controls if native full-screen should be used on macOS. Disable this option to prevent macOS from creating a new space when going full-screen.
+    "window.nativeFullScreen": true,
+
+    // Enables macOS Sierra window tabs. Note that changes require a full restart to apply and that native tabs will disable a custom title bar style if configured.
+    "window.nativeTabs": false,
 
 	// Controls whether the main menus can be opened via Alt-key shortcuts. Disabling mnemonics allows to bind these Alt-key shortcuts to editor commands instead.
 	"window.enableMenuBarMnemonics": true,
@@ -907,6 +995,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls the dimensions of opening a new window when at least one window is already opened. Note that this setting does not have an impact on the first window that is opened. The first window will always restore the size and location as you left it before closing.
 	//  - default: Open new windows in the center of the screen.
 	//  - inherit: Open new windows with same dimension as last active one.
+	//  - offset: Open new windows with same dimension as last active one with an offset position.
 	//  - maximized: Open new windows maximized.
 	//  - fullscreen: Open new windows in full screen mode.
 	"window.newWindowDimensions": "default",
@@ -939,7 +1028,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - folders: Reopen all folders. Empty workspaces will not be restored.
 	//  - one: Reopen the last active window.
 	//  - none: Never reopen a window. Always start with an empty one.
-	"window.restoreWindows": "one",
+	"window.restoreWindows": "all",
 
 	// Controls the window title based on the active editor. Variables are substituted based on the context:
 	// - `${activeEditorShort}`: the file name (e.g. myFile.txt).
@@ -972,17 +1061,17 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// When enabled, the editor will attempt to guess the character set encoding when opening files. This setting can also be configured per language.
 	"files.autoGuessEncoding": false,
 
-  // Controls auto save of dirty files.
-	//  - off: A dirty file is never automatically saved.
-	//  - afterDelay: A dirty file is automatically saved after the configured `files.autoSaveDelay`.
-	//  - onFocusChange: A dirty file is automatically saved when the editor loses focus.
-	//  - onWindowChange: A dirty file is automatically saved when the window loses focus.
+	// Controls auto save of dirty editors. Read more about autosave [here](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save).
+	//  - off: A dirty editor is never automatically saved.
+	//  - afterDelay: A dirty editor is automatically saved after the configured `files.autoSaveDelay`.
+	//  - onFocusChange: A dirty editor is automatically saved when the editor loses focus.
+	//  - onWindowChange: A dirty editor is automatically saved when the window loses focus.
 	"files.autoSave": "off",
 
-	// Controls the delay in ms after which a dirty file is saved automatically. Only applies when `files.autoSave` is set to `afterDelay`.
+	// Controls the delay in ms after which a dirty editor is saved automatically. Only applies when `files.autoSave` is set to `afterDelay`.
 	"files.autoSaveDelay": 1000,
 
-	// The default language mode that is assigned to new files.
+	// The default language mode that is assigned to new files. If configured to `${activeEditorLanguage}`, will use the language mode of the currently active text editor if any.
 	"files.defaultLanguage": "",
 
 	// Moves files/folders to the OS trash (recycle bin on Windows) when deleting. Disabling this will delete files/folders permanently.
@@ -997,7 +1086,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - auto: Uses operating system specific end of line character.
 	"files.eol": "auto",
 
-  // Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting.
+	// Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting.
 	"files.exclude": {
 		"**/.git": true,
 		"**/.svn": true,
@@ -1007,9 +1096,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 	},
 
 	// Controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
-	//  - off: Disable hot exit.
-	//  - onExit: Hot exit will be triggered when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu). All windows with backups will be restored upon next launch.
-	//  - onExitAndWindowClose: Hot exit will be triggered when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu), and also for any window with a folder opened regardless of whether it's the last window. All windows without folders opened will be restored upon next launch. To restore folder windows as they were before shutdown set `window.restoreWindows` to `all`.
+	//  - off: Disable hot exit. A prompt will show when attempting to close a window with dirty files.
+	//  - onExit: Hot exit will be triggered when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu). All windows without folders opened will be restored upon next launch. A list of workspaces with unsaved files can be accessed via `File > Open Recent > More...`
+	//  - onExitAndWindowClose: Hot exit will be triggered when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu), and also for any window with a folder opened regardless of whether it's the last window. All windows without folders opened will be restored upon next launch. A list of workspaces with unsaved files can be accessed via `File > Open Recent > More...`
 	"files.hotExit": "onExit",
 
 	// When enabled, insert a final new line at the end of the file when saving it.
@@ -1018,17 +1107,26 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls the memory available to VS Code after restart when trying to open large files. Same effect as specifying `--max-memory=NEWSIZE` on the command line.
 	"files.maxMemoryForLargeFilesMB": 4096,
 
-	// When enabled, will trim all new lines after the final new line at the end of the file when saving it.
+	// Timeout in milliseconds after which file participants for create, rename, and delete are cancelled. Use `0` to disable participants.
+	"files.participants.timeout": 5000,
+
+	// A save conflict can occur when a file is saved to disk that was changed by another program in the meantime. To prevent data loss, the user is asked to compare the changes in the editor with the version on disk. This setting should only be changed if you frequently encounter save conflict errors and may result in data loss if used without caution.
+	//  - askUser: Will refuse to save and ask for resolving the save conflict manually.
+	//  - overwriteFileOnDisk: Will resolve the save conflict by overwriting the file on disk with the changes in the editor.
+	"files.saveConflictResolution": "askUser",
+
+    // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
 	"files.trimFinalNewlines": false,
 
 	// When enabled, will trim trailing whitespace when saving a file.
 	"files.trimTrailingWhitespace": false,
 
-	// Configure glob patterns of file paths to exclude from file watching. Patterns must match on absolute paths (i.e. prefix with ** or the full path to match properly). Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
+	// Configure glob patterns of file paths to exclude from file watching. Patterns must match on absolute paths (i.e. prefix with ** or the full path to match properly). Changing this setting requires a restart. When you experience Code consuming lots of CPU time on startup, you can exclude large folders to reduce the initial load.
 	"files.watcherExclude": {
 		"**/.git/objects/**": true,
 		"**/.git/subtree-cache/**": true,
-		"**/node_modules/*/**": true
+		"**/node_modules/*/**": true,
+		"**/.hg/store/**": true
 	},
 
 // Screencast Mode
@@ -1117,7 +1215,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - alwaysExpand
 	"search.collapseResults": "alwaysExpand",
 
-  // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the `files.exclude` setting.
+	// Configure glob patterns for excluding files and folders in fulltext searches and quick open. Inherits all glob patterns from the `files.exclude` setting.
 	"search.exclude": {
 		"**/node_modules": true,
 		"**/bower_components": true,
@@ -1127,11 +1225,13 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls whether to follow symlinks while searching.
 	"search.followSymlinks": true,
 
-  // Controls whether the search view should read or modify the shared find clipboard on macOS.
-  "search.globalFindClipboard": false,
+    // Controls whether the search view should read or modify the shared find clipboard on macOS.
+    "search.globalFindClipboard": false,
 
-	// Controls whether the search will be shown as a view in the sidebar or as a panel in the panel area for more horizontal space.
-	"search.location": "sidebar",
+	// Controls sorting order of editor history in quick open when filtering.
+	//  - default: History entries are sorted by relevance based on the filter value used. More relevant entries appear first.
+	//  - recency: History entries are sorted by recency. More recently opened entries appear first.
+	"search.quickOpen.history.filterSortOrder": "default",
 
 	// Whether to include results from recently opened files in the file results for Quick Open.
 	"search.quickOpen.includeHistory": true,
@@ -1139,14 +1239,32 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Whether to include results from a global symbol search in the file results for Quick Open.
 	"search.quickOpen.includeSymbols": false,
 
+	// Configure effect of double clicking a result in a search editor.
+	//  - selectWord: Double clicking selects the word under the cursor.
+	//  - goToLocation: Double clicking opens the result in the active editor group.
+	//  - openLocationToSide: Double clicking opens the result in the editor group to the side, creating one if it does not yet exist.
+	"search.searchEditor.doubleClickBehaviour": "goToLocation",
+
 	// Search all files as you type.
 	"search.searchOnType": true,
+
+	// When `search.searchOnType` is enabled, controls the timeout in milliseconds between a character being typed and the search starting. Has no effect when `search.searchOnType` is disabled.
+	"search.searchOnTypeDebouncePeriod": 300,
 
 	// Controls whether to show line numbers for search results.
 	"search.showLineNumbers": false,
 
 	// Search case-insensitively if the pattern is all lowercase, otherwise, search case-sensitively.
 	"search.smartCase": false,
+
+	// Controls sorting order of search results.
+	//  - default: Results are sorted by folder and file names, in alphabetical order.
+	//  - fileNames: Results are sorted by file names ignoring folder order, in alphabetical order.
+	//  - type: Results are sorted by file extensions, in alphabetical order.
+	//  - modified: Results are sorted by file last modified date, in descending order.
+	//  - countDescending: Results are sorted by count per file, in descending order.
+	//  - countAscending: Results are sorted by count per file, in ascending order.
+	"search.sortOrder": "default",
 
 	// Controls whether to use global `.gitignore` and `.ignore` files when searching for files.
 	"search.useGlobalIgnoreFiles": false,
@@ -1179,11 +1297,14 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Keyboard
 
-  // Controls the dispatching logic for key presses to use either `code` (recommended) or `keyCode`.
-  "keyboard.dispatch": "code",
+    // Controls the dispatching logic for key presses to use either `code` (recommended) or `keyCode`.
+    "keyboard.dispatch": "code",
 
-  // Enables the macOS touchbar buttons on the keyboard if available.
-  "keyboard.touchbar.enabled": true,
+    // Enables the macOS touchbar buttons on the keyboard if available.
+    "keyboard.touchbar.enabled": true,
+
+    // A set of identifiers for entries in the touchbar that should not show up (for example `workbench.action.navigateBack`.
+    "keyboard.touchbar.ignored": [],
 
 // Update
 
@@ -1205,11 +1326,17 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Allow setting breakpoints in any file.
 	"debug.allowBreakpointsEverywhere": false,
 
+	// Controls if the debug console should be automatically closed when the debug session ends.
+	"debug.console.closeOnEnd": false,
+
 	// Controls the font family in the debug console.
 	"debug.console.fontFamily": "default",
 
 	// Controls the font size in pixels in the debug console.
 	"debug.console.fontSize": 14,
+
+	// Controls if the debug console should suggest previously typed input.
+	"debug.console.historySuggestions": true,
 
 	// Controls the line height in pixels in the debug console. Use 0 to compute the line height from the font size.
 	"debug.console.lineHeight": 0,
@@ -1230,6 +1357,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - debugAnyway: Ignore task errors and start debugging.
 	//  - showErrors: Show the Problems view and do not start debugging.
 	//  - prompt: Prompt user.
+	//  - abort: Cancel debugging.
 	"debug.onTaskErrors": "prompt",
 
 	// Controls when the debug view should open.
@@ -1267,7 +1395,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Enable/disable autoclosing of HTML tags.
 	"html.autoClosingTags": true,
 
-  // A list of relative file paths pointing to JSON files following the custom data format.
+    // A list of relative file paths pointing to JSON files following the custom data format.
 	// VS Code loads custom data on startup to enhance its HTML support for the custom HTML tags, attributes and attribute values you specify in the JSON files.
 	// The file paths are relative to workspace and only workspace folder settings are considered.
 	"html.customData": [],
@@ -1284,7 +1412,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// List of tags, comma separated, that should have an extra newline before them. `null` defaults to `"head, body, /html"`.
 	"html.format.extraLiners": "head, body, /html",
 
-	// Format and indent `{{#foo}}` and `{{/foo}}`.
+	// Format and indent `\{{#foo}}` and `\{{/foo}}`.
 	"html.format.indentHandlebars": false,
 
 	// Indent `<head>` and `<body>` sections.
@@ -1311,9 +1439,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 	// Maximum amount of characters per line (0 = disable).
 	"html.format.wrapLineLength": 120,
-
-	// Enable/disable mirroring cursor on matching HTML tag.
-	"html.mirrorCursorOnMatchingTag": true,
 
 	// Controls whether the built-in HTML language support suggests HTML5 tags, properties and values.
 	"html.suggest.html5": true,
@@ -1465,6 +1590,13 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - non-relative: Based on the `baseUrl` configured in your `jsconfig.json` / `tsconfig.json`.
 	"javascript.preferences.importModuleSpecifier": "auto",
 
+	// Preferred path ending for auto imports.
+	//  - auto: Use project settings to select a default.
+	//  - minimal: Shorten `./component/index.js` to `./component`.
+	//  - index: Shorten `./component/index.js` to `./component/index`
+	//  - js: Do not shorten path endings; include the `.js` extension.
+	"javascript.preferences.importModuleSpecifierEnding": "auto",
+
 	// Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports. Requires using TypeScript 2.9 or newer in the workspace.
 	"javascript.preferences.quoteStyle": "auto",
 
@@ -1588,6 +1720,13 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - non-relative: Based on the `baseUrl` configured in your `jsconfig.json` / `tsconfig.json`.
 	"typescript.preferences.importModuleSpecifier": "auto",
 
+	// Preferred path ending for auto imports.
+	//  - auto: Use project settings to select a default.
+	//  - minimal: Shorten `./component/index.js` to `./component`.
+	//  - index: Shorten `./component/index.js` to `./component/index`
+	//  - js: Do not shorten path endings; include the `.js` extension.
+	"typescript.preferences.importModuleSpecifierEnding": "auto",
+
 	// Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports. Requires using TypeScript 2.9 or newer in the workspace.
 	"typescript.preferences.quoteStyle": "auto",
 
@@ -1651,6 +1790,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Enable/disable spawning a separate TypeScript server that can more quickly respond to syntax related operations, such as calculating folding or computing document symbols. Requires using TypeScript 3.4.0 or newer in the workspace.
 	"typescript.tsserver.useSeparateSyntaxServer": true,
 
+	// Configure which watching strategies should be used to keep track of files and directories. Requires using TypeScript 3.8+ in the workspace.
+	"typescript.tsserver.watchOptions": {},
+
 	// Enable/disable automatic updating of import paths when you rename or move a file in VS Code. Requires using TypeScript 2.9 or newer in the workspace.
 	//  - prompt: Prompt on each rename.
 	//  - always: Always update paths automatically.
@@ -1668,7 +1810,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// By default, VS Code triggers property value completion after selecting a CSS property. Use this setting to disable this behavior.
 	"css.completion.triggerPropertyValueCompletion": true,
 
-  // A list of relative file paths pointing to JSON files following the custom data format.
+    // A list of relative file paths pointing to JSON files following the custom data format.
 	// VS Code loads custom data on startup to enhance its CSS support for the custom CSS properties, at directives, pseudo classes and pseudo elements you specify in the JSON files.
 	// The file paths are relative to workspace and only workspace folder settings are considered.
 	"css.customData": [],
@@ -1901,6 +2043,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// When enabled, recommendations will not be fetched or shown unless specifically requested by the user. Some recommendations are fetched from a Microsoft online service.
 	"extensions.showRecommendationsOnlyOnDemand": false,
 
+// Output
+
+	// Enable/disable the ability of smart scrolling in the output view. Smart scrolling allows you to lock scrolling automatically when you click in the output view and unlocks when you click in the last line.
+	"output.smartScroll.enabled": true,
+
 // Terminal
 
 	// Customizes what kind of terminal to launch.
@@ -1923,6 +2070,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 	// Whether or not to allow chord keybindings in the terminal. Note that when this is true and the keystroke results in a chord it will bypass `terminal.integrated.commandsToSkipShell`, setting this to false is particularly useful when you want ctrl+k to go to your shell (not VS Code).
 	"terminal.integrated.allowChords": true,
+
+	// Whether to allow menubar mnemonics (eg. alt+f) to trigger the open the menubar. Note that this will cause all alt keystrokes will skip the shell when true. This does nothing on macOS.
+	"terminal.integrated.allowMnemonics": false,
 
 	// A path that when set will override `terminal.integrated.shell.linux` and ignore `shellArgs` values for automation-related terminal usage like tasks and debug.
 	"terminal.integrated.automationShell.linux": null,
@@ -1947,6 +2097,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 	// Controls the style of terminal cursor.
 	"terminal.integrated.cursorStyle": "block",
+
+	// Controls the width of the cursor when `terminal.integrated.cursorStyle` is set to `line`.
+	"terminal.integrated.cursorWidth": 1,
 
 	// An explicit start path where the terminal will be launched, this is used as the current working directory (cwd) for the shell process. This may be particularly useful in workspace settings if the root directory is not a convenient cwd.
 	"terminal.integrated.cwd": "",
@@ -1974,6 +2127,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 	// Object with environment variables that will be added to the VS Code process to be used by the terminal on Windows. Set to `null` to delete the environment variable.
 	"terminal.integrated.env.windows": {},
+
+	// Scrolling speed multiplier when pressing `Alt`.
+	"terminal.integrated.fastScrollSensitivity": 5,
 
 	// Controls the font family of the terminal, this defaults to `editor.fontFamily`'s value.
 	"terminal.integrated.fontFamily": "",
@@ -2005,10 +2161,13 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// When set the foreground color of each cell will change to try meet the contrast ratio specified. Example values:
 	//
 	// - 1: The default, do nothing.
-  // - 4.5: Minimum for WCAG AA compliance.
-  // - 7: Minimum for WCAG AAA compliance.
+    // - 4.5: WCAG AA compliance (minimum).
+    // - 7: WCAG AAA compliance (enhanced).
 	// - 21: White on black or black on white.
 	"terminal.integrated.minimumContrastRatio": 1,
+
+	// A multiplier to be used on the `deltaY` of mouse wheel scroll events.
+	"terminal.integrated.mouseWheelScrollSensitivity": 1,
 
 	// Controls how the terminal is rendered.
 	//  - auto: Let VS Code guess which renderer to use.
@@ -2026,24 +2185,24 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls the maximum amount of lines the terminal keeps in its buffer.
 	"terminal.integrated.scrollback": 1000,
 
-  // The path of the shell that the terminal uses on Linux (default: /bin/bash).
+    // The path of the shell that the terminal uses on Linux (default: /bin/bash).
 	"terminal.integrated.shell.linux": null,
 
-  // The path of the shell that the terminal uses on macOS (default: /bin/bash).
+    // The path of the shell that the terminal uses on macOS (default: /bin/bash).
 	"terminal.integrated.shell.osx": null,
 
-  // The path of the shell that the terminal uses on Windows (default: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe).
+    // The path of the shell that the terminal uses on Windows (default: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe).
 	"terminal.integrated.shell.windows": null,
 
-  // The command line arguments to use when on the Linux terminal.
+    // The command line arguments to use when on the Linux terminal.
 	"terminal.integrated.shellArgs.linux": [],
 
-  // The command line arguments to use when on the macOS terminal.
+    // The command line arguments to use when on the macOS terminal.
 	"terminal.integrated.shellArgs.osx": [
 		"-l"
 	],
 
-  // The command line arguments to use when on the Windows terminal.
+    // The command line arguments to use when on the Windows terminal.
 	"terminal.integrated.shellArgs.windows": [],
 
 	// Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
@@ -2055,12 +2214,17 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - inherited: On macOS and Linux, a new split terminal will use the working directory of the parent terminal. On Windows, this behaves the same as initial.
 	"terminal.integrated.splitCwd": "inherited",
 
+	// Controls what version of unicode to use when evaluating the width of characters in the terminal. If you experience emoji or other wide characters not taking up the right amount of space or backspace either deleting too much or too little then you may want to try tweaking this setting.
+	//  - 6: Version 6 of unicode, this is an older version which should work better on older systems.
+	//  - 11: Version 11 of unicode, this version provides better support on modern systems that use modern versions of unicode.
+	"terminal.integrated.unicodeVersion": "11",
+
 	// Whether to use ConPTY for Windows terminal process communication (requires Windows 10 build number 18309+). Winpty will be used if this is false.
 	"terminal.integrated.windowsEnableConpty": true,
 
 // Tasks
 
-	// Controls enablement of `provideTasks` for all task provider extension. If the Tasks: Run Task command is slow, disabling auto detect for task providers may help. Individual extensions my provide settings to disabled auto detection.
+	// Controls enablement of `provideTasks` for all task provider extension. If the Tasks: Run Task command is slow, disabling auto detect for task providers may help. Individual extensions may also provide settings that disable auto detection.
 	"task.autoDetect": "on",
 
 	// Configures whether to show the problem matcher prompt when running a task. Set to `true` to never prompt, or use a dictionary of task types to turn off prompting only for specific task types.
@@ -2389,6 +2553,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 		]
 	},
 
+	// Restores the ports you forwarded in a workspace.
+	"remote.restoreForwardedPorts": false,
+
 // Node debug
 
 	// Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
@@ -2525,7 +2692,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls whether the Git Sync command appears in the status bar.
 	"git.enableStatusBarSync": true,
 
-	// Fetch all branches when pulling or just the current one.
+	// When enabled, fetch all branches when pulling. Otherwise, fetch just the current one.
 	"git.fetchOnPull": false,
 
 	// List of git repositories to ignore.

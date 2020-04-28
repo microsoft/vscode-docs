@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 6
 Area: python
 TOCTitle: Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
@@ -34,7 +34,7 @@ To thoroughly test this function, you want to throw at it every conceivable inpu
 
 For each input, you then define the function's expected return value (or values). In this example, again, the function should return true for only properly formatted strings. (Whether the number itself is a real account is a different matter that would be handled elsewhere through a database query.)
 
-With all the arguments and expected return values in hand, you now write the tests themselves, which are simply pieces of code that call the function with a particular input, then compare the actual return value with the expected return value (this comparison is called an *assertion*):
+With all the arguments and expected return values in hand, you now write the tests themselves, which are pieces of code that call the function with a particular input, then compare the actual return value with the expected return value (this comparison is called an *assertion*):
 
 ```python
 # Import the code to be tested

@@ -1,5 +1,5 @@
 ---
-Order: 14
+Order: 15
 Area: cpp
 TOCTitle: FAQ
 ContentId: 652c9cec-b8fa-4597-a894-f2ea9a095c31
@@ -32,7 +32,7 @@ Without any configuration, the extension will attempt to locate headers by searc
 
 Or, if you install a build system extension that interfaces with our extension, you can allow that extension to provide the configurations for you. For example, the CMake Tools extension can configure projects that use the CMake build system. Use the `C/C++: Change Configuration Provider...` command to enable any such extension to provide the configurations for IntelliSense.
 
-A third option for projects without build system extension support is to use a [`compile_commands.json`](https://clang.llvm.org/docs/JSONCompilationDatabase.html) file if your build system supports generating this file. In the "Advanced" section of the Configuration UI, you can supply the path to your `compile_commands.json` and the extension will use the compilation information listed in that file to configure IntelliSense.
+A third option for projects without build system extension support is to use a [compile_commands.json](https://clang.llvm.org/docs/JSONCompilationDatabase.html) file if your build system supports generating this file. In the "Advanced" section of the Configuration UI, you can supply the path to your `compile_commands.json` and the extension will use the compilation information listed in that file to configure IntelliSense.
 
 **Note:** If the extension is unable to resolve any of the `#include` directives in your source code, it will not show linting information for the body of the source file. If you check the Problems window in VS Code, the extension will provide more information about which files it was unable to locate. If you want to show the linting information anyway, you can change the value of the `C_Cpp.errorSquiggles` setting.
 
@@ -66,7 +66,7 @@ The paths that you specify for this setting are the same paths that you would se
 
 This array of path strings is used by the "Tag Parser" ("browse engine"). This engine will **recursively** enumerate all files under the paths specified and track them as potential includes while tag parsing your project folder. To disable recursive enumeration of a path, you can append a `/*` to the path string.
 
-When you open a workspace for the first time, the extension adds `${workspaceRoot}` to both arrays. If this is undesirable, you can open your **c_cpp_properties.json** file and remove it.
+When you open a workspace for the first time, the extension adds `${workspaceFolder}` to both arrays. If this is undesirable, you can open your **c_cpp_properties.json** file and remove it.
 
 ## How do I recreate the IntelliSense database?
 
@@ -96,7 +96,7 @@ If you do not want to use the IntelliSense caching feature that improves the per
 
 The debugger needs to be configured to know which executable and debugger to use:
 
-From the main menu, select **Debug** > **Add Configuration...**.
+From the main menu, select **Run** > **Add Configuration...**.
 
 The file `launch.json` will now be open for editing with a new configuration. The default settings will *probably* work except that you need to specify the `program` setting.
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
-DateApproved: 12/12/2019
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code has a rich extension API. Learn how to create your own extensions for VS Code.
@@ -15,24 +15,17 @@ This documentation describes:
 
 - How to build, run, debug, test and publish an extension
 - How to take advantage of VS Code's rich Extension API
-- Where to find guides and code samples to help get you started
+- Where to find [guides](https://code.visualstudio.com/api/extension-guides/overview) and [code samples](https://github.com/Microsoft/vscode-extension-samples) to help get you started
+
+Code samples are available at [Microsoft/vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples).
 
 If you are looking for published extensions, head to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode).
-
-## What's new?
-
-VS Code updates on a monthly cadence, and that applies to the Extension API as well. New features and APIs become available every month to increase the power and scope of VS Code extensions.
-
-To stay current with the Extension API, you can review the monthly release notes, which have dedicated sections covering:
-
-* [Extension authoring](https://code.visualstudio.com/updates#_extension-authoring) - Learn what new extension APIs are available in the latest release.
-* [Proposed extension APIs](https://code.visualstudio.com/updates#_proposed-extension-apis) - Review and give feedback on upcoming proposed APIs.
 
 ## What can extensions do?
 
 Here are some examples of what you can achieve with the Extension API:
 
-- Change the look of VS Code with a color or icon theme - [Theming](/api/extension-capabilities/theming)
+- Change the look of VS Code with a color or file icon theme - [Theming](/api/extension-capabilities/theming)
 - Add custom components & views in the UI - [Extending the Workbench](/api/extension-capabilities/extending-workbench)
 - Create a Webview to display a custom webpage built with HTML/CSS/JS - [Webview Guide](/api/extension-guides/webview)
 - Support a new programming language - [Language Extensions Overview](/api/language-extensions/overview)
@@ -51,6 +44,15 @@ Building a good extension can take a lot of effort. Here is what each section of
 - **Language Extensions** illustrates how to add support for a programming language with guides and code samples.
 - **Advanced Topics** explains advanced concepts such as [Extension Host](/api/advanced-topics/extension-host), [Supporting Remote Development and VS Online](/api/advanced-topics/remote-extensions), and [Proposed API](/api/advanced-topics/using-proposed-api).
 - **References** contains exhaustive references for the [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points), and many other topics.
+
+## What's new?
+
+VS Code updates on a monthly cadence, and that applies to the Extension API as well. New features and APIs become available every month to increase the power and scope of VS Code extensions.
+
+To stay current with the Extension API, you can review the monthly release notes, which have dedicated sections covering:
+
+* [Extension authoring](https://code.visualstudio.com/updates#_extension-authoring) - Learn what new extension APIs are available in the latest release.
+* [Proposed extension APIs](https://code.visualstudio.com/updates#_proposed-extension-apis) - Review and give feedback on upcoming proposed APIs.
 
 ## Looking for help
 

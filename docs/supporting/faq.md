@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 12/12/2019
+DateApproved: 4/8/2020
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -151,23 +151,11 @@ The Electron shell used by Visual Studio Code has trouble with some GPU (graphic
 code --disable-gpu
 ```
 
-## Blurriness on macOS Mojave
-
-If you have updated to macOS 10.14 (Mojave), you might have noticed that fonts in VS Code look blurry if you are not using a high-DPI monitor.
-
-A workaround for this is to run:
-
-```bash
-defaults write com.microsoft.VSCode.helper CGFontRenderingFontSmoothingDisabled -bool NO
-```
-
-from a terminal followed by restarting your computer.
-
-Note that this change is global for every application and not specific to VS Code. See [issue #51132](https://github.com/Microsoft/vscode/issues/51132) for the related discussion.
-
 ## Installation appears to be corrupt [Unsupported]
 
-VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text '[Unsupported]' in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. [Reinstalling VS Code](/download) will replace the modified files and silence the warning.
+VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text **[Unsupported]** in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. [Reinstalling VS Code](/download) will replace the modified files and silence the warning.
+
+You may also see the **[Unsupported]** message if VS Code files have been mistakenly quarantined or removed by anti-virus software (see issue [#94858](https://github.com/microsoft/vscode/issues/94858) for an example). Check your anti-virus software settings and reinstall VS Code to repair the missing files.
 
 ## Technical Support
 

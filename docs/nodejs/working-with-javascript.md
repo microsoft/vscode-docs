@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Working with JavaScript
 PageTitle: Working with JavaScript in Visual Studio Code
 ContentId: 3e5af2a6-7669-4b5d-b19f-78077af14fda
-DateApproved: 12/12/2019
+DateApproved: 4/8/2020
 MetaDescription: Working with JavaScript in Visual Studio Code
 ---
 # Working with JavaScript
@@ -41,7 +41,7 @@ Type declaration files are automatically downloaded and managed by Visual Studio
 }
 ```
 
-You can alternately explicitly list packages to acquire type declaration files for in a [`jsconfig.json`](#_javascript-projects-jsconfigjson).
+You can alternately explicitly list packages to acquire type declaration files for in a [jsconfig.json](#_javascript-projects-jsconfigjson).
 
 ```json
 {

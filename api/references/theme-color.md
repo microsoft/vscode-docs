@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 12/12/2019
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -154,6 +154,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.filterMatchBackground`: Background color of the filtered matches in lists and trees.
 - `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
 - `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
+- `list.deemphasizedForeground`: List/Tree foreground color for items that are deemphasized.
 
 ## Activity Bar
 
@@ -192,6 +193,11 @@ The Minimap shows a minified version of the current file.
 - `minimap.selectionHighlight`: Highlight color for the editor selection.
 - `minimap.errorHighlight`: Highlight color for errors within the editor.
 - `minimap.warningHighlight`: Highlight color for warnings within the editor.
+- `minimap.background`: Minimap background color.
+
+- `minimapSlider.background`: Minimap slider background color.
+- `minimapSlider.hoverBackground`: Minimap slider background color when hovering.
+- `minimapSlider.activeBackground`: Minimap slider background color when clicked on.
 
 - `minimapGutter.addedBackground`: Minimap gutter color for added content.
 - `minimapGutter.modifiedBackground`: Minimap gutter color for modified content.
@@ -294,6 +300,7 @@ Search Editor colors highlight results in a Search Editor. This can be configure
 
 - `searchEditor.findMatchBackground`: Color of the editor's results.
 - `searchEditor.findMatchBorder`: Border color of the editor's results.
+- `searchEditor.textInputBorder`: Search editor text input box border.
 
 The hover highlight is shown behind the symbol for which a hover is shown.
 
@@ -341,7 +348,7 @@ To see editor rulers, define their location with `"editor.rulers"`
 
 CodeLens:
 
-![Code Lenses](images/theme-color/codelens.png)
+![CodeLens](images/theme-color/codelens.png)
 
 - `editorCodeLens.foreground`: Foreground color of an editor CodeLens.
 
@@ -356,6 +363,11 @@ Bracket matches:
 
 - `editorBracketMatch.background`: Background color behind matching brackets.
 - `editorBracketMatch.border`: Color for matching brackets boxes.
+
+
+Folding:
+
+- `editor.foldBackground`: Background color for folded ranges. The color must not be opaque so as not to hide underlying decorations.
 
 Overview ruler:
 
@@ -594,6 +606,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `pickerGroup.foreground`: Quick picker (Quick Open) color for grouping labels.
 - `quickInput.background`: Quick input background color. The quick input widget is the container for views like the color theme picker.
 - `quickInput.foreground`: Quick input foreground color. The quick input widget is the container for views like the color theme picker.
+- `quickInputTitle.background`: Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
 
 ## Integrated Terminal colors
 
@@ -738,8 +751,6 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `debugIcon.stepOutForeground`: Debug toolbar icon for step over.
 - `debugIcon.continueForeground`: Debug toolbar icon for continue.
 - `debugIcon.stepBackForeground`: Debug toolbar icon for step back.
-
-Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
 
 ## Extension colors
 

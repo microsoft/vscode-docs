@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 891072bb-c46d-4392-800a-84d747072ce3
-DateApproved: 12/12/2019
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Continuous Integration for testing Visual Studio Code extensions (plug-ins).
@@ -67,6 +67,34 @@ Finally, [create a new pipeline](https://docs.microsoft.com/azure/devops/pipelin
 ![pipelines](images/continuous-integration/pipelines.png)
 
 You can enable the build to run continuously when pushing to a branch and even on pull requests. See [Build pipeline triggers](https://docs.microsoft.com/azure/devops/pipelines/build/triggers) to learn more.
+
+## Github Actions
+
+You can also configure Github Actions to run your extension CI using the [gabrielbb xvfb action](https://github.com/marketplace/actions/gabrielbb-xvfb-action). This automatically checks if Linux is the current OS and runs the tests in an Xvfb enabled environment accordingly:
+
+```yaml
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: $\{{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 8.x
+      - run: npm install
+      - name: Run tests
+        uses: GabrielBB/xvfb-action@v1.0
+        with:
+          run: npm test
+
+```
 
 ## Travis CI
 

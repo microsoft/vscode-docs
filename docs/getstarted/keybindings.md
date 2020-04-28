@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 12/12/2019
+DateApproved: 4/8/2020
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -238,6 +238,7 @@ Equality | `==` | `"editorLangId == typescript"`
 Inequality | `!=` | `"resourceExtname != .js"`
 Or | `||` | `"isLinux || isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
+Matches | `=~` | `resourceScheme =~ /^untitled$|^file$/`
 
 ### Contexts
 
@@ -300,6 +301,14 @@ Context name | True when
 **Integrated terminal contexts** |
 `terminalFocus` | An integrated terminal has focus.
 `terminalIsOpen` | An integrated terminal is opened.
+**Timeline view contexts** |
+`timelineFollowActiveEditor` | True if the Timeline view is following the active editor.
+**Timeline view item contexts** |
+`timelineItem` | True when the timeline item's context value matches. Example: `"timelineItem =~ /git:file:commit\\b/"`.
+**Extension contexts** |
+`extension` | True when the extension's ID matches. Example: `"extension == eamodio.gitlens"`.
+`extensionStatus` | True when the extension is installed. Example: `"extensionStatus == installed"`.
+`extensionHasConfiguration` | True if the extension has configuration.
 **Global UI contexts** |
 `notificationFocus` | Notification has keyboard focus.
 `notificationCenterVisible` | Notification Center is visible at the bottom right of VS Code.
@@ -311,6 +320,7 @@ Context name | True when
 `inZenMode` | Window is in Zen Mode.
 `isCenteredLayout` | Editor is in centered layout mode.
 `inDebugRepl` | Focus is in the Debug Console REPL.
+`workbenchState` | Can be `empty`, `folder` (1 folder), or `workspace`.
 `workspaceFolderCount` | Count of workspace folders.
 `replaceActive` | Search view Replace text box is open.
 `view` | True when view identifier matches. Example: `"view == myViewsExplorerID"`.
@@ -354,7 +364,7 @@ View Identifiers:
 * workbench.view.explorer - File Explorer
 * workbench.view.search - Search
 * workbench.view.scm - Source Control
-* workbench.view.debug - Debug
+* workbench.view.debug - Run
 * workbench.view.extensions - Extensions
 
 Panel Identifiers:
@@ -416,6 +426,7 @@ Key|Command|Command id
 ---|-------|----------
 `kb(editor.action.clipboardCutAction)`|Cut line (empty selection)|`editor.action.clipboardCutAction`
 `kb(editor.action.clipboardCopyAction)`|Copy line (empty selection)|`editor.action.clipboardCopyAction`
+`kb(editor.action.clipboardPasteAction)`|Paste|`editor.action.clipboardPasteAction`
 `kb(editor.action.deleteLines)`|Delete Line|`editor.action.deleteLines`
 `kb(editor.action.insertLineAfter)`|Insert Line Below|`editor.action.insertLineAfter`
 `kb(editor.action.insertLineBefore)`|Insert Line Above|`editor.action.insertLineBefore`
@@ -423,6 +434,8 @@ Key|Command|Command id
 `kb(editor.action.moveLinesUpAction)`|Move Line Up|`editor.action.moveLinesUpAction`
 `kb(editor.action.copyLinesDownAction)`|Copy Line Down|`editor.action.copyLinesDownAction`
 `kb(editor.action.copyLinesUpAction)`|Copy Line Up|`editor.action.copyLinesUpAction`
+`kb(undo)`|Undo|`undo`
+`kb(redo)`|Redo|`redo`
 `kb(editor.action.addSelectionToNextFindMatch)`|Add Selection To Next Find Match|`editor.action.addSelectionToNextFindMatch`
 `kb(editor.action.moveSelectionToNextFindMatch)`|Move Last Selection To Next Find Match|`editor.action.moveSelectionToNextFindMatch`
 `kb(cursorUndo)`|Undo last cursor operation|`cursorUndo`
@@ -499,7 +512,7 @@ Key|Command|Command id
 `kb(editor.action.marker.nextInFiles)`|Go to Next Error or Warning|`editor.action.marker.nextInFiles`
 `kb(editor.action.marker.prevInFiles)`|Go to Previous Error or Warning|`editor.action.marker.prevInFiles`
 `kb(workbench.action.showCommands)` or `kbstyle(F1)`|Show All Commands|`workbench.action.showCommands`
-`kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Navigate Editor Group History|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
+`kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`|Navigate Editor Group History|`workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup`
 `kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`
 `kb(workbench.action.quickInputBack)`|Go back in Quick Input|`workbench.action.quickInputBack`
 `kb(workbench.action.navigateForward)`|Go Forward|`workbench.action.navigateForward`
@@ -544,8 +557,6 @@ Key|Command|Command id
 `kb(workbench.action.closeAllEditors)`|Close All|`workbench.action.closeAllEditors`
 `kb(workbench.action.reopenClosedEditor)`|Reopen Closed Editor|`workbench.action.reopenClosedEditor`
 `kb(workbench.action.keepEditor)`|Keep Open|`workbench.action.keepEditor`
-`kb(workbench.action.openNextRecentlyUsedEditorInGroup)`|Open Next|`workbench.action.openNextRecentlyUsedEditorInGroup`
-`kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Open Previous|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
 `kb(workbench.action.files.copyPathOfActiveFile)`|Copy Path of Active File|`workbench.action.files.copyPathOfActiveFile`
 `kb(workbench.action.files.revealActiveFileInWindows)`|Reveal Active File in Windows|`workbench.action.files.revealActiveFileInWindows`
 `kb(workbench.action.files.showOpenedFileInNewWindow)`|Show Opened File in New Window|`workbench.action.files.showOpenedFileInNewWindow`
@@ -565,7 +576,7 @@ Key|Command|Command id
 `kb(workbench.view.explorer)`|Show Explorer / Toggle Focus|`workbench.view.explorer`
 `kb(workbench.view.search)`|Show Search|`workbench.view.search`
 `kb(workbench.view.scm)`|Show Source Control|`workbench.view.scm`
-`kb(workbench.view.debug)`|Show Debug|`workbench.view.debug`
+`kb(workbench.view.debug)`|Show Run|`workbench.view.debug`
 `kb(workbench.view.extensions)`|Show Extensions|`workbench.view.extensions`
 `kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
 `kb(workbench.action.quickOpenView)`|Quick Open View|`workbench.action.quickOpenView`

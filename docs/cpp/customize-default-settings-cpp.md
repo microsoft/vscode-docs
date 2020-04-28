@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: cpp
 TOCTitle: Settings
 ContentId: 4E34F6AF-BFC6-4BBB-8464-2E50C85AE826
@@ -20,7 +20,7 @@ C_Cpp.default.includePath                          : string[]
 C_Cpp.default.defines                              : string[]
 C_Cpp.default.compileCommands                      : string
 C_Cpp.default.macFrameworkPath                     : string[]
-C_Cpp.default.forcedIncludes                       : string[]
+C_Cpp.default.forcedInclude                        : string[]
 C_Cpp.default.intelliSenseMode                     : string
 C_Cpp.default.compilerPath                         : string
 C_Cpp.default.cStandard                            : c89 | c99 | c11
@@ -47,13 +47,13 @@ A special variable has been added to the accepted syntax of `c_cpp_properties.js
             "${default}"
         ],
         "defines": [
-            "${default}",
+            "${default}"
         ],
         "macFrameworkPath": [
             "${default}",
             "additional/paths"
         ],
-        "forceInclude": [
+        "forcedInclude": [
             "${default}",
             "additional/paths"
         ],

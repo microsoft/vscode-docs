@@ -4,42 +4,17 @@ Area: languages
 TOCTitle: C++
 ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
 PageTitle: C++ programming with Visual Studio Code
-DateApproved: 10/3/2019
+DateApproved: 2/25/2020
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 MetaSocialImage: images/cpp/languages_cpp.png
 ---
 # C/C++ for Visual Studio Code (Preview)
 
-C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to enable cross-platform C and C++ development on Windows, Linux, and macOS. The extension is still in preview and our focus is code editing, navigation, and debugging support for C and C++ code everywhere that VS Code runs.
-
-Below you can see syntax highlighting, smart suggestions, and IntelliSense for C++ source code in VS Code with the C++ extension.
-
-![cpp hero](images/cpp/cpp-hero.png)
-
-**Note**: If you just want a lightweight tool to edit your C++ files, Visual Studio Code is a great choice. But if you want the best possible experience for editing, testing and debugging your existing Visual C++ projects or debugging on Windows, we recommend Visual Studio IDE.
-
-[Visual Studio Community](https://visualstudio.microsoft.com/vs/community) is a free edition and includes:
-
-- support for CMake or any other build system
-- support for Clang and GCC as well as the Microsoft C++ compiler
-- support for CTest, Google Test, Boost.Test, and Microsoft Native Test Framework
-- C++ code analysis tools including C++ Core Guidelines checkers
-- the state-of-the-art Visual Studio debugger
-
-## Getting started
-
-### Install Visual Studio Code
-
-If you don't have VS Code installed, go to the [Download](/download) page to find the VS Code install that matches your platform. Installing VS Code is fast and should only take a few minutes.
-
-### Install the Microsoft C/C++ extension
-
-1. Open VS Code.
-1. Click the Extensions view icon on the Sidebar (`kb(workbench.view.extensions)`).
-1. Search for `c++`.
-1. Click **Install**.
+C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to enable cross-platform C and C++ development on Windows, Linux, and macOS.
 
 ![cpp extension](images/cpp/cpp-extension.png)
+
+## Getting started
 
 ### C/C++ compiler and debugger
 
@@ -48,20 +23,28 @@ The C/C++ extension does not include a C++ compiler or debugger. You will need t
 Popular C++ compilers are:
 
 - [GCC](https://gcc.gnu.org/) on Linux
-- [Mingw-w64](http://www.mingw-w64.org/) on Windows
+- GCC via [Mingw-w64](http://www.mingw-w64.org/) on Windows
 - [Microsoft C++ compiler](https://docs.microsoft.com/cpp/build/building-on-the-command-line?view=vs-2019) on Windows
 - Clang for [XCode](https://developer.apple.com/xcode/) on macOS
 
 Make sure your compiler executable is in your platform path so the extension can find it. You can check availability of your C++ tools by opening the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) in VS Code and try running the executable (for example `g++ --help`).
 
-## Tutorials
+### Install the Microsoft C/C++ extension
 
-For instructions on configuring VS Code for specific environments, see:
+1. Open VS Code.
+1. Click the Extensions view icon on the Sidebar (`kb(workbench.view.extensions)`).
+1. Search for `c++`.
+1. Click **Install**.
 
-- [Get Started with C++ and WSL](/docs/cpp/config-wsl.md)
-- [Get Started with C++ and Mingw-w64](/docs/cpp/config-mingw.md)
-- [Get Started with C++ and Clang/LLVM on macOS](/docs/cpp/config-clang-mac.md)
-- [Get Started with C++ MSVC](/docs/cpp/config-msvc.md)
+## Hello World tutorials
+
+Get started with C++ and VS Code with Hello World tutorials for your environment:
+
+- [GCC on Windows](/docs/cpp/config-mingw.md)
+- [Microsoft C++ on Windows](/docs/cpp/config-msvc.md)
+- [GCC on Linux](/docs/cpp/config-linux.md)
+- [GCC on Windows Subsystem For Linux](/docs/cpp/config-wsl.md)
+- [Clang/LLVM on macOS](/docs/cpp/config-clang-mac.md)
 
 ## Documentation
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03
-DateApproved: 12/12/2019
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to create Language Servers to provide rich language features in Visual Studio Code.
@@ -190,7 +190,7 @@ export function activate(context: ExtensionContext) {
   client.start();
 }
 
-export function deactivate(): Thenable<void> {
+export function deactivate(): Thenable<void> | undefined {
   if (!client) {
     return undefined;
   }
@@ -383,7 +383,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 
 connection.onDidChangeWatchedFiles(_change => {
   // Monitored files have change in VS Code
-  connection.console.log('We received an file change event');
+  connection.console.log('We received a file change event');
 });
 
 // This handler provides the initial list of the completion items.
@@ -513,7 +513,7 @@ documents.onDidChangeContent(async (change) => {
 To run the Language Server, do the following:
 
 - press `kb(workbench.action.tasks.build)` to start the build task. The task compiles both the client and the server.
-- open the debug viewlet, select the `Launch Client` launch configuration, and press the `Start Debugging` button to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
+- open the Run view, select the `Launch Client` launch configuration, and press the `Start Debugging` button to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
 - Create a test.txt file in the root folder and paste the following content:
 
 ```bash
@@ -532,7 +532,7 @@ Debugging the client code is as easy as debugging a normal extension. Set a brea
 
 ![Debugging the client](images/language-server-extension-guide/debugging-client.png)
 
-Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the Debug view and select the launch configuration `Attach to Server` and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server.
+Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the Run view and select the launch configuration `Attach to Server` and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server.
 
 ![Debugging the server](images/language-server-extension-guide/debugging-server.png)
 

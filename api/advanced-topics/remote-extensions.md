@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 12/12/2019
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development and Visual Studio Online support to extensions
@@ -51,7 +51,7 @@ Follow these steps:
 
 5. While VS Online's cloud-based environments should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
 
-6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside in the Visual Studio Online environment.
+6. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension inside in the Visual Studio Online environment.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the environment.
 
@@ -75,7 +75,7 @@ Follow these steps:
 
 5. Run `yarn install` or `npm install` in a new VS Code terminal window (`kb(workbench.action.terminal.new)`) to ensure the Linux versions Node.js native dependencies are install. You can also install other OS or runtime dependencies, but you may want to add these to `.devcontainer/Dockerfile` as well so they are available if you rebuild the container.
 
-6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside this same container and attach the debugger.
+6. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension inside this same container and attach the debugger.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the container.
 
@@ -91,7 +91,7 @@ Follow steps:
 
 3. Install any required dependencies that might be missing (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
 
-4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside on the remote host and attach the debugger.
+4. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension inside on the remote host and attach the debugger.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else on the SSH host.
 
@@ -109,7 +109,7 @@ Follow these steps:
 
 3. Install any required dependencies that might be missing (for example using `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`). You will at least want to run `yarn install` or `npm install` to ensure Linux versions of native Node.js dependencies are available.
 
-4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension and attach the debugger as you would locally.
+4. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension and attach the debugger as you would locally.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in WSL.
 
@@ -139,7 +139,7 @@ VS Code's APIs are designed to automatically run in the right location regardles
 
 If your extension is not functioning as expected, it may be running in the wrong location. Most commonly, this shows up as an extension running remotely when you expect it to only be run locally. You can use the **Developer: Show Running Extensions** command from the Command Palette (`kbstyle(F1)`) to see where an extension is running.
 
-If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [`package.json`](/api/get-started/extension-anatomy#extension-manifest):
+If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [package.json](/api/get-started/extension-anatomy#extension-manifest):
 
 As of VS Code 1.40, this value is an array which means extensions can specify more than one kind. For example:
 
@@ -233,27 +233,33 @@ export function activate(context: vscode.ExtensionContext) {
 
 If your extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a `libsecret`-based keyring on Linux, or a browser-based equivalent) rather than the one on the remote machine environment. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a container.
 
-Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in a Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.
+Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [keytar node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in a Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.
 
 For example:
 
 ```typescript
-import * as vscode from 'vscode';
+import { env } from 'vscode';
+import * as keytarType from 'keytar';
 
-function getCoreNodeModule(moduleName) {
-    try {
-        return require(`${vscode.env.appRoot}/node_modules.asar/${moduleName}`);
-    }
-    catch (err) { }
-    try {
-        return require(`${vscode.env.appRoot}/node_modules/${moduleName}`);
-    }
-    catch (err) { }
-    return undefined;
+declare const __webpack_require__: typeof require;
+declare const __non_webpack_require__: typeof require;
+function getNodeModule<T>(moduleName: string): T | undefined {
+	const r = typeof __webpack_require__ === "function" ? __non_webpack_require__ : require;
+	try {
+		return r(`${env.appRoot}/node_modules.asar/${moduleName}`);
+	} catch (err) {
+		// Not in ASAR.
+	}
+	try {
+		return r(`${env.appRoot}/node_modules/${moduleName}`);
+	} catch (err) {
+		// Not available.
+	}
+	return undefined;
 }
 
 // Use it
-const keytar = getCoreNodeModule('keytar');
+const keytar = getNodeModule<typeof keytarType>('keytar');
 await keytar.setPassword('my-service-name','my-account','iamal337d00d');
 const password = await keytar.getPassword('my-service-name','my-account');
 ```

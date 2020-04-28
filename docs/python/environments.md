@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 5
 Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
@@ -119,6 +119,14 @@ When you create a new virtual environment, a prompt will be displayed to allow y
 ![Python environment prompt](images/environments/python-environment-prompt.png)
 
 This will add the path to the Python interpreter from the new virtual environment to your workspace settings. That environment will then be used when installing packages and running code through the Python extension. For examples of using virtual environment in projects, see the [Django tutorial](/docs/python/tutorial-django.md) and the [Flask tutorial](/docs/python/tutorial-flask.md).
+
+If the activate command generates the message "Activate.ps1 is not digitally signed. You cannot run this script on the
+current system.", then you need to temporarily change the PowerShell execution policy to allow scripts to
+run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=135170) in the PowerShell documentation):
+
+```cmd
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+```
 
 > **Note**: If you're using a version of the Python extension prior to 2018.10, and you create a virtual environment in a VS Code terminal, you must run the **Reload Window** command from the Command Palette and then use **Python: Select Interpreter** to activate the environment. If you have any problems with VS Code recognizing a virtual environment, please [file an issue](https://github.com/Microsoft/vscode-docs/issues) in the documentation repository so we can help determine the cause.
 
@@ -247,10 +255,10 @@ where `...` means any other text as used in the value. The curly braces are requ
 Within this syntax, the following rules apply:
 
 - Variables are processed in the order they appear in the `.env` file, so you can use any variable that's defined earlier in the file.
-- Single or double quotes don't affect substituted value and are included in the defined value. For example, if the value of `VAR1` is `abcedfg`, then `VAR2='${OTHERVAR}'` assigns the value `'abcedfg'` to `VAR2`.
+- Single or double quotes don't affect substituted value and are included in the defined value. For example, if the value of `VAR1` is `abcedfg`, then `VAR2='${VAR1}'` assigns the value `'abcedfg'` to `VAR2`.
 - The `$` character can be escaped with a backslash, as in `\$`.
 - You can use recursive substitution, such as `PYTHONPATH=${PROJ_DIR}:${PYTHONPATH}` (where `PROJ_DIR` is any other environment variable).
-- You can use only simple substitution; nesting such as `${_${OTHERVAR}_EX}` is not supported.
+- You can use only simple substitution; nesting such as `${_${VAR1}_EX}` is not supported.
 - Entries with unsupported syntax are left as-is.
 
 ## Use of the PYTHONPATH variable
