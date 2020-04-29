@@ -194,6 +194,25 @@ You can also provide an `enumDescriptions` property, which provides descriptive 
 }
 ```
 
+You can also use `markdownEnumDescriptions`, and your descriptions will be rendered as markdown.
+
+**deprecationMessage** / **markdownDeprecationMessage**
+
+If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. It won't show up in the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as markdown in the settings UI.
+
+Example:
+
+```json
+{
+  "json.colorDecorators.enable": {
+    "type": "boolean",
+    "description": "Enables or disables color decorators",
+    "markdownDeprecationMessage": "**Deprecated**: Please use `#editor.colorDecorators#` instead.",
+    "deprecationMessage": "Deprecated: Please use editor.colorDecorators instead."
+  }
+}
+```
+
 **Other JSON Schema properties**
 
 You can use any the properties defined by JSON Schema to describe other constraints on configuration values.
