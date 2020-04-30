@@ -1146,6 +1146,19 @@ Right-click on the Docker task bar item. On Windows, select the **Settings** men
 
 See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) for information on workarounds to common Docker for Windows issues.
 
+### Can I use Podman instead of Docker?
+
+Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore generally does work if you symlink the `podman` command to `docker` command on Linux.
+
+```bash
+sudo ln -s $(which podman) /usr/local/bin/docker
+```
+
+However, certain tricks like [Docker-in-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Sample...** and **[Remote- Containers: Open repository in container...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
+
+Docker Compose is also not supported with Podman.
+
+
 ### I'm seeing an error about a missing library or dependency
 
 Some extensions rely on libraries not found in specific Docker images. For example, [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/) requires the installation of system-level dependencies, which are [listed in their documentation](https://docs.microsoft.com/visualstudio/liveshare/reference/linux#install-prerequisites-manually). The need for these dependencies may depend on the operating system (for example, specific Linux distribution) used by your Docker image. You may need to install these dependencies during the Docker build process, by adding required commands to your Dockerfile. Search the specific extension's documentation to check for dependencies and see [Installing additional software](#installing-additional-software) for help with resolving the problem.
