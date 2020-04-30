@@ -78,7 +78,9 @@ For information about creating and using debugging configurations see the [Initi
 The debugger can also be run from the command line. The debugger command line syntax is as follows:
 
 ```bash
-python -m debugpy --listen [<address>:]<port>
+python -m debugpy
+    --listen | --connect
+    [<address>:]<port>
     [--wait-for-client]
     [--configure-<name> <value>]...
     [--log-to <path>] [--log-to-stderr]
@@ -99,10 +101,17 @@ You would then use the following configuration to attach from the VS Code Python
     "name": "Python: Attach",
     "type": "python",
     "request": "attach",
-    "host": "localhost",
-    "port": 5678,
+    "connect": {
+        "host": "localhost",
+        "port": 5678
+    },
+    "listen": {
+        "port": 5678
+    }
 }
 ```
+
+> **Note**: Specifying host is optional for **listen**, by default 127.0.0.1 is used.
 
 If you wanted to debug remote code or code running in a docker container, on the remote machine or container, you would need to modify the previous CLI command to specify a host.
 
@@ -126,11 +135,14 @@ The associated configuration file would then look as follows.
 
 |Flag  |Options  |Description  |
 |---------|---------|---------|
-|**--listen**     |  `[<address>:]<port>`       |   **Required**. Specifies the host address and port for the debug adapter server. This is the same address that is used in the VS Code debug configuration. By default the host address is `localhost (127.0.0.1)`.      |
+|**--listen** or **--connect**  |  `[<address>:]<port>`       |   **Required**. Specifies the host address and port for the debug adapter server to wait for incoming connections (--listen) or to connect with a client that is waiting for an incoming connection (--connect). This is the same address that is used in the VS Code debug configuration. By default the host address is `localhost (127.0.0.1)`.      |
 |**--wait-for-client**     |   none      | **Optional**. Specifies that the code should not run until there's a connection from the debug server. This setting allows you to debug from the first line of your code.        |
 |**--log-to**     |   `<path>`      | **Optional**. Specifies a path to an existing directory for saving logs.         |
 |**--log-to-stderr**     |    none     |  **Optional**. Enables debugpy to write logs directly to stderr.       |
-|**--pid**     |    `<pid>`     | **Optional**. Specifies a process that is already running that the debugger should attach to.        |
+|**--pid**     |    `<pid>`     | **Optional**. Specifies a process that is already running to inject the debug server into.        |
+|**--configure-<name>** | `<value>` | **Optional**. Sets a debug property that must be known to the debug server before the client connects. Such properties can be used directly in *launch* configuration, but must be set in this manner for *attach* configurations. For example, if you don't want the debug server to automatically inject itself into subprocesses created by the process you're attaching to, use `--configure-subProcess false`.|
+
+> **Note**: `[<arg>]` can be used to pass command line arguments along to the app being launched.
 
 ## Debugging by attaching over a network connection
 
@@ -145,9 +157,9 @@ In some scenarios, you need to debug a Python script that's invoked locally by a
     ```python
     import debugpy
 
-    # 5678 is the default attach port in the VS Code debug configurations
+    # 5678 is the default attach port in the VS Code debug configurations. Unless a host and port are specified, host defaults to 127.0.0.1
+    debugpy.listen(5678)
     print("Waiting for debugger attach")
-    debugpy.listen(('localhost', 5678))
     debugpy.wait_for_client()
     breakpoint()
     ```
@@ -233,7 +245,7 @@ Now that an SSH tunnel has been set up to the remote computer, you can begin you
    1. Launch the remote process through debugpy, for example:
 
        ```bash
-       python3 -m debugpy --listen 5678 --wait-for-client -m myproject
+       python3 -m debugpy --listen 1.2.3.4:5678 --wait-for-client -m myproject
        ```
 
        This starts the package `myproject` using `python3`, with the remote computer's private IP address of `1.2.3.4` and listening on port `5678` (you can also start the remote Python process by specifying a file path instead of using `-m`, such as `./hello.py`).
@@ -247,7 +259,7 @@ Now that an SSH tunnel has been set up to the remote computer, you can begin you
     #debugpy.listen(('1.2.3.4', 5678))
 
     # Pause the program until a remote debugger is attached
-    #debugpy.wait_for_attach()
+    #debugpy.wait_for_client()
     ```
 
 1. Local computer: switch to the Run view in VS Code, select the **Python: Attach** configuration
@@ -330,13 +342,13 @@ You can also rely on a relative path from the workspace root. For example, if th
 
 ### `python`
 
-Points to the Python interpreter to be used for debugging, which can be a folder containing a Python interpreter. The value can use variables like `${workspaceFolder}` and `${workspaceFolder}/.venv`.
+Full path that points to the Python interpreter to be used for debugging.
 
 If not specified, this setting defaults to the interpreter identified in the `python.pythonPath` setting, which is equivalent to using the value `${config:python.pythonPath}`. To use a different interpreter, specify its path instead in the `python` property of a debug configuration.
 
-You can specify platform-specific paths by placing `python` within a parent object named `osx`, `windows`, or `linux`.
-
 Alternately, you can use a custom environment variable that's defined on each platform to contain the full path to the Python interpreter to use, so that no additional folder paths are needed.
+
+If you need to pass arguments to the Python interpreter, you can use the syntax `"python": ["<path>", "<arg>",...]`.
 
 ### `args`
 
@@ -352,13 +364,14 @@ When set to `true`, breaks the debugger at the first line of the program being d
 
 ### `console`
 
-Specifies how program output is displayed.
+Specifies how program output is displayed as long as the defaults for `redirectOutput` aren't modified.
 
 | Value                            | Where output is displayed                                          |
 |----------------------------------|--------------------------------------------------------------------|
-| `"internalConsole"`              | VS Code debug console                                              |
-| `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md) |
-| `"externalTerminal"`             | Separate console window                                            |
+| `"internalConsole"`              | **VS Code debug console.** If `redirectOutput` is set to False, no output is displayed.                                 |
+| `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md). If `redirectOutput` is set to True, output is also displayed in the debug console.|
+| `"externalTerminal"`             | **Separate console window**. If `redirectOutput` is set to True, output is also displayed in the debug console.                                            |
+
 
 ### `cwd`
 
@@ -374,7 +387,7 @@ As an example, say `${workspaceFolder}` contains a `py_code` folder containing `
 
 ### `redirectOutput`
 
-When omitted or set to `true` (the default), causes the debugger to print all output from the program into the VS Code debug output window. If set to `false`, program output is not displayed in the debugger output window.
+When omitted or set to `true` (the default for internalConsole), causes the debugger to print all output from the program into the VS Code debug output window. If set to `false` (the default for integratedTerminal and externalTerminal), program output is not displayed in the debugger output window.
 
 This option is typically disabled when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console.
 
