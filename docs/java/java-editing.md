@@ -96,7 +96,11 @@ Below is just one example, left is the behavior after enabling semantic highligh
 
 ![Semantic Highlighting](images/java-editing/semantic-highlighting.png)
 
-You can also find more details of semantic highlighting [here](https://github.com/redhat-developer/vscode-java/wiki/Semantic-Highlighting).
+To enable semantic highlighting, you can toggle the the `java.semanticHighlighting.enabled` preference. You will also be prompted to enable or disable it on startup:
+
+![Semantic Highlighting Switch](images/java-editing/semantic-highlighting-switch.png)
+
+You can also find more details of Java semantic highlighting [here](https://github.com/redhat-developer/vscode-java/wiki/Semantic-Highlighting).
 
 ### Navigating code with Spring Boot
 
