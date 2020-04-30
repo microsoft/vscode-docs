@@ -80,7 +80,7 @@ The debugger can also be run from the command line. The debugger command line sy
 ```bash
 python -m debugpy
     --listen | --connect
-    [<address>:]<port>
+    [<host>:]<port>
     [--wait-for-client]
     [--configure-<name> <value>]...
     [--log-to <path>] [--log-to-stderr]
@@ -103,9 +103,6 @@ You would then use the following configuration to attach from the VS Code Python
     "request": "attach",
     "connect": {
         "host": "localhost",
-        "port": 5678
-    },
-    "listen": {
         "port": 5678
     }
 }
@@ -135,7 +132,7 @@ The associated configuration file would then look as follows.
 
 |Flag  |Options  |Description  |
 |---------|---------|---------|
-|**--listen** or **--connect**  |  `[<address>:]<port>`       |   **Required**. Specifies the host address and port for the debug adapter server to wait for incoming connections (--listen) or to connect with a client that is waiting for an incoming connection (--connect). This is the same address that is used in the VS Code debug configuration. By default the host address is `localhost (127.0.0.1)`.      |
+|**--listen** or **--connect**  |  `[<host>:]<port>`       |   **Required**. Specifies the host address and port for the debug adapter server to wait for incoming connections (--listen) or to connect with a client that is waiting for an incoming connection (--connect). This is the same address that is used in the VS Code debug configuration. By default the host address is `localhost (127.0.0.1)`.      |
 |**--wait-for-client**     |   none      | **Optional**. Specifies that the code should not run until there's a connection from the debug server. This setting allows you to debug from the first line of your code.        |
 |**--log-to**     |   `<path>`      | **Optional**. Specifies a path to an existing directory for saving logs.         |
 |**--log-to-stderr**     |    none     |  **Optional**. Enables debugpy to write logs directly to stderr.       |
