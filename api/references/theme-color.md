@@ -643,6 +643,18 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `debugToolBar.border`: Debug toolbar border color.
 - `editor.stackFrameHighlightBackground`: Background color of the top stack frame highlight in the editor.
 - `editor.focusedStackFrameHighlightBackground`: Background color of the focused stack frame highlight in the editor.
+- `debugView.exceptionLabelForeground`: Foreground color for a label shown in the CALL STACK view when the debugger breaks on an exception
+- `debugView.exceptionLabelBackground`: Background color for a label shown in the CALL STACK view when the debugger breaks on an exception
+- `debugView.stateLabelForeground`: Foreground color for a label in the CALL STACK view showing the current session's or thread's state
+- `debugView.stateLabelBackground`: Background color for a label in the CALL STACK view showing the current session's or thread's state
+- `debugView.valueChangedHighlight`: Color used to highlight value changes in the debug views (ie. in the Variables view)
+- `debugTokenExpression.name`: Foreground color for the token names shown in debug views (ie. the Variables or Watch view)
+- `debugTokenExpression.value`: Foreground color for the token values shown in debug views
+- `debugTokenExpression.string`: Foreground color for strings in debug views
+- `debugTokenExpression.boolean`: Foreground color for booleans in debug views
+- `debugTokenExpression.number`: Foreground color for numbers in debug views
+- `debugTokenExpression.error`: Foreground color for expression errors in debug views
+
 
 ## Welcome page
 
