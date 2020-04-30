@@ -89,7 +89,6 @@ Semantic highlighting is available for TypeScript and JavaScript in VS Code rele
 
 Semantic highlighting enriches syntax coloring based on symbol information from the language service, which has more complete understanding of the project. The coloring changes appear once the language server is running and has computed the semantic tokens.
 
-
 Each theme controls whether to enable semantic highlighting with a specific setting that is part of the theme definition. The style of each semantic token is defined by the theme's styling rules.
 
 Users can override the semantic highlighting feature and colorization rules using the `editor.tokenColorCustomizations` setting:

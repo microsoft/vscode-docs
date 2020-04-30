@@ -22,13 +22,13 @@ Tutorial | Description
 [Remote via SSH](/remote-tutorials/ssh/getting-started) | Connect to remote and virtual machines with Visual Studio Code via SSH.
 [Working in WSL](/remote-tutorials/wsl/getting-started) | Run Visual Studio Code in Windows Subsystem for Linux.
 [Containers](/remote-tutorials/containers/getting-started) | Run Visual Studio Code in a Docker Container.
-[Visual Studio Online](https://docs.microsoft.com/visualstudio/online/how-to/vscode) | Connect to a VS Online environment with Visual Studio Code.
+[Visual Studio Codespaces](https://docs.microsoft.com/visualstudio/online/how-to/vscode) | Connect to a VS Codespace with Visual Studio Code.
 
 ## Remote extensions
 
 * [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 * [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
 * [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-* [Visual Studio Online](https://marketplace.visualstudio.com/items?itemName=ms-vsonline.vsonline)
+* [Visual Studio Codespaces](https://marketplace.visualstudio.com/items?itemName=ms-vsonline.vsonline)
 
 Install all three Remote extensions with the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
