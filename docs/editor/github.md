@@ -67,6 +67,10 @@ From the pull request view you can view, manage, and create pull requests. The q
 
 ### Reviewing
 
+Pull requests can be reviewed from the **Pull Requests** view. You can add comments, approve, close, and merge all from the pull request description.
+
+![Review Pull Request](images/github/review-pull-request.gif)
+
 ## Issues
 
 ### Creating issues
@@ -84,3 +88,9 @@ From the **Issues** view, you can see your issues and work on them. By default, 
 If your workflow doesn't involve creating a branch, or if you want to be promped to enter a branch name every time, you can configure that step to be skipped with the `githubIssues.useBranchForIssues` setting.
 
 ## Common questions
+
+### How do I sign out?
+
+You can manage how VS Code and extensions access your account through the account manager above the settings gear:
+
+![Account Manager](images/github/account.png)
