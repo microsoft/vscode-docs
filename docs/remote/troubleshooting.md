@@ -483,23 +483,27 @@ If you are running into Docker issues or would prefer not to run Docker locally,
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few "gotchas" that can cause problems. Here are some tips on avoiding them:
 
+1. **Consider using the new Docker WSL2 back-end on Windows 10 (2004+).** If you are using [Docker Desktop's WSL2 back-end](https://aka.ms/vscode-remote/containers/docker-wsl), you can you to open folders inside WSL as well as locally. Containers are also shared between Windows and inside WSL and this new engine is less susceptible to file sharing issues. See the [quick start](/docs/remote/containers.md#open-a-wsl2-folder-in-a-container-on-windows) for details.
+
+2. **Switch out of "Linux Containers on Windows (LCOW)" mode.** While disabled by default, recent versions of Docker support [Linux Containers on Windows (LCOW)](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers) that can allow you to use both Windows and Linux containers at the same time. However, this is a new feature, so you may encounter issues and the Remote - Containers extension only supports Linux containers currently. You can switch out of LCOW mode at any time by right-clicking on the Docker task bar item and selecting **Switch to Linux Containers...** from the context menu.
+
+3. **Make sure your firewall allows Docker to set up a shared drive.** Docker only needs to connect between two machine local IPs, but some firewall software may still block any drive sharing or the needed ports. See [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps on resolving this problem.
+
+Here are some tips that applied to older versions of Docker for Windows but should now be resolved. If you run into strage behaviors due to a possible regression, these tips have solved problems in the past.
+
 1. **Use an AD domain account or local administrator account when sharing drives. Do not use an AAD (email-based) account.** AAD (email-based) accounts have well-known issues, as documented in Docker [issue #132](https://github.com/docker/for-win/issues/132) and [issue #1352](https://github.com/docker/for-win/issues/1352). If you must use an AAD account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
 
 2. **Stick with alphanumeric passwords to avoid drive sharing problems.** When asked to share your drives on Windows, you will be prompted for the username and password of an account with admin privileges on the machine. If you are warned about an incorrect username or password, this may be due to special characters in the password. For example, `!`, `[` and `]` are known to cause issues. Change your password to alphanumeric characters to resolve. See this issue about [Docker volume mounting problems](https://github.com/moby/moby/issues/23992#issuecomment-234979036) for details.
 
-3. **Make sure your firewall allows Docker to set up a shared drive.** Docker only needs to connect between two machine local IPs, but some firewall software may still block any drive sharing or the needed ports. See [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps on resolving this problem.
-
-4. **Use your Docker ID to sign in to Docker (not your email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
-
-5. **Switch out of "Linux Containers on Windows (LCOW)" mode.** While disabled by default, recent versions of Docker support [Linux Containers on Windows (LCOW)](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers) that can allow you to use both Windows and Linux containers at the same time. However, this is a new feature, so you may encounter issues and the Remote - Containers extension only supports Linux containers currently. You can switch out of LCOW mode at any time by right-clicking on the Docker task bar item and selecting **Switch to Linux Containers...** from the context menu.
-
-6. **Enable experimental Docker WSL2 support in VS Code settings to work with content stored in the WSL2 filesystem.** If you are using [Docker Desktop's WSL2 engine](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can enable experimental support in the Remote - Containers extension that will allow you to open folders from the `\\wsl$` share in a container. Simply check **Remote > Containers: Experimental WSL** in [VS Code settings](/docs/getstarted/settings.md) and restart VS Code. See [this excellent blog post](https://stuartleeks.com/posts/vscode-devcontainers-wsl/) for complete setup details.
+3. **Use your Docker ID to sign in to Docker (not your email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 
 If you are still having trouble, see the [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot/#volumes).
 
 ### Enabling file sharing in Docker Desktop
 
 The VS Code [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension can only automatically mount your source code into a container if your code is in a folder or drive shared with Docker. If you open a dev container from a non-shared location, the container will successfully start but the workspace will be empty.
+
+Note that this step is **not required with [Docker Desktop's WSL2 engine](https://aka.ms/vscode-remote/containers/docker-wsl)**.
 
 To change Docker's drive and folder sharing settings:
 

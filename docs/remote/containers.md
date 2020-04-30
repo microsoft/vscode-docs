@@ -23,7 +23,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 **Local:**
 
-* **Windows:** [Docker Desktop](https://www.docker.com/products/docker-desktop) 2.0+ on Windows 10 Pro/Enterprise. (Docker Toolbox is not supported. Windows container images are not supported.)
+* **Windows:** [Docker Desktop](https://www.docker.com/products/docker-desktop) 2.0+ on Windows 10 Pro/Enterprise. Windows 10 Home (2004+) requires Docker Desktop 2.2+ and the [WSL2 back-end](https://aka.ms/vscode-remote/containers/docker-wsl2). (Docker Toolbox is not supported. Windows container images are not supported.)
 * **macOS**:  [Docker Desktop](https://www.docker.com/products/docker-desktop) 2.0+.
 * **Linux**: [Docker CE/EE](https://docs.docker.com/install/#supported-platforms) 18.06+ and [Docker Compose](https://docs.docker.com/compose/install) 1.21+. (The Ubuntu snap package is not supported.)
 
@@ -48,7 +48,9 @@ To get started, follow these steps:
 
     1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
 
-    2. Right-click on the Docker taskbar item and select the **Settings** menu item (**Preferences** on macOS) and update **Resources > File Sharing** with any source code locations you want to open in a container. If you run into trouble, see [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) on avoiding common problems with sharing.
+    2. If not using WSL2 on Windows, right-click on the Docker task bar item, select **Settings / Preferences** and update **Resources > File Sharing** with any locations your source code is kept. See [tips and tricks](/docs/remote/troubleshooting.md#container-tips) for troubleshooting.
+
+    3. Enabling [Windows WSL2 back-end](https://aka.ms/vscode-remote/containers/docker-wsl2): Right-click on the Docker taskbar item and select **Settings**. Check **Use the WSL2 based engine** and verify your distribution is enabled under **Resources > WSL Integration**.
 
     **Linux**:
 
@@ -125,6 +127,17 @@ You can now interact with your project in VS Code just as you could when opening
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
 
 While using this approach to [bind mount](https://docs.docker.com/storage/bind-mounts/) the local filesystem into a container is convenient, it does have some performance overhead on Windows and macOS. There are [some techniques](/docs/remote/containers-advanced.md#improving-container-disk-performance) that you can apply to improve disk performance, or you can [open a repository in a container using a isolated container volume](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) instead.
+
+### Open a WSL2 folder in a container on Windows
+
+If you are using [Windows Subsystem for Linux v2 (WSL2)](https://docs.microsoft.com/en-us/windows/wsl/wsl2-about) and have enabled [Docker Desktop's WSL2 back-end](https://aka.ms/vscode-remote/containers/docker-wsl2), you can work with source code stored inside WSL!
+
+Once the WSL2 engine is enabled, you can either:
+
+* Select **Remote-Containers: Open Folder in Container...** from the Command Palette `(kbstyle(F1))` and choose a WSL folder using the local `\\wsl$` share.
+* Use the **Remote-Containers: Reopen Folder in Container** command from a folder already opened using the **[Remote - WSL extension](https://aka.ms/vscode-remote/download/wsl)**.
+
+The rest of the quick start applies as-is! You can learn more about the [Remote - WSL extension in is documentation](/docs/remote/wsl.md).
 
 ### Open an existing workspace in a container
 
@@ -1094,7 +1107,6 @@ Variables can be referenced in certain string values in attached configuration f
 * All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
 * The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
 * Docker Toolbox on Windows is not supported.
-* Docker variants or alternate containerization tool kits like [Podman](https://podman.io) are not supported.
 * If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 * Local proxy settings are not reused inside the container, which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 
@@ -1102,33 +1114,23 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/containers/i
 
 ### Docker limitations
 
-* First-time installs of Docker Desktop for Windows will require an additional "sharing" step to give your container access to local source code. However, this step may not work with certain AAD (email-based) identities. See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) and [Enabling file sharing in Docker Desktop](/docs/remote/troubleshooting.md#enabling-file-sharing-in-docker-desktop) for details and workarounds.
+* First-time installs of Docker Desktop for Windows when not using the WSL 2 engine will require an additional "sharing" step to give your container access to local source code. However, this step may not work with certain AAD (email-based) identities. See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) and [Enabling file sharing in Docker Desktop](/docs/remote/troubleshooting.md#enabling-file-sharing-in-docker-desktop) for details and workarounds.
 * You may see errors if you sign in to Docker with your email address instead of your Docker ID. This is a known issue and can be resolved by signing in with your Docker ID instead. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
 * If you see high CPU spikes for `com.docker.hyperkit` on macOS, this may be due to a [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759). See the Docker issue for details.
-* If you see either of these messages building a Dockerfile, you may be hitting a known Docker issue with Debian 8 (Jessie):
-
-    ```text
-    W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease
-    E: Some index files failed to download. They have been ignored, or old ones used instead
-    ```
-
-    See [Resolving Dockerfile build failures](/docs/remote/troubleshooting.md#resolving-dockerfile-build-failures-for-images-using-debian-8) for a workaround.
 
 See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docker-for-windows/troubleshoot) or [Mac](https://docs.docker.com/docker-for-mac/troubleshoot), consult [Docker Support Resources](https://success.docker.com/article/best-support-resources) for more information.
 
 ### Docker Extension limitations
 
-By default, the Docker extension will run remotely. While this is a sensible default for SSH and WSL 2, it means the extension will not show local containers when VS Code is connected to a container.
+By default, the Docker extension will run remotely. While this is a sensible default for SSH, it means the extension will not show local containers when VS Code is connected to a container.
 
 You can use one of the following solutions to resolve this problem:
 
 * Open a new local window (**File > New Window**) and use it to work with local containers.
 
-* Install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/remote/containers.md#option-1-use-the-containers-remote-explorer) in situations when you need to see your local containers.
+* Use the [Remote Explorer](/docs/remote/containers.md#option-1-use-the-containers-remote-explorer) in situations when you need to see your local containers.
 
 * Forward the [Docker socket and install the Docker CLI](https://aka.ms/vscode-remote/samples/docker-in-docker) (only) in the container.
-
-* Use the [extensionKind property](#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
 
 ### Extension limitations
 
@@ -1143,10 +1145,6 @@ In addition, while Alpine support is available, some extensions installed in the
 Right-click on the Docker task bar item. On Windows, select the **Settings** menu item then **Resources > File Sharing** and check the drive(s) where your source code is located. On macOS, select the **Preferences** menu item then **Resources > File Sharing** and make sure the folder containing your source code is under a file path specified in the list.
 
 See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) for information on workarounds to common Docker for Windows issues.
-
-### I am seeing "W: Failed to fetch ..." when building a Dockerfile
-
-If you see "W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease" when building a Dockerfile, you may be hitting a known Docker issue with Debian 8 (Jessie). See [Resolving Dockerfile build failures](/docs/remote/troubleshooting.md#resolving-dockerfile-build-failures-for-images-using-debian-8) for a workaround.
 
 ### I'm seeing an error about a missing library or dependency
 
@@ -1183,10 +1181,6 @@ You can install extensions manually without an internet connection using the **E
 Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
 VS Code Server runs on a random port inside the container and VS Code itself uses `docker exec` to communicate with it over Docker's configured communication channel.
-
-### Can I use the extension with source code stored in WSL2 on Windows?
-
-If you are using [Docker Desktop's WSL2 engine](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can enable experimental support in the Remote - Containers extension that will allow you to open folders from the `\\wsl$` share in a container. Simply check **Remote > Containers: Experimental WSL** in [VS Code settings](/docs/getstarted/settings.md) and restart VS Code. See [this excellent blog post](https://stuartleeks.com/posts/vscode-devcontainers-wsl/) for complete setup details.
 
 ### As an extension author, what do I need to do to make sure my extension works?
 
