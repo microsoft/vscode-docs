@@ -158,7 +158,7 @@ In some scenarios, you need to debug a Python script that's invoked locally by a
     debugpy.listen(5678)
     print("Waiting for debugger attach")
     debugpy.wait_for_client()
-    breakpoint()
+    debugpy.breakpoint()
     ```
 
 1. Open a terminal using **Terminal: Create New Integrated Terminal**, which activates the script's selected environment.
@@ -169,7 +169,7 @@ In some scenarios, you need to debug a Python script that's invoked locally by a
 
 1. Switch to the Run view, select the appropriate configuration from the debugger drop-down list, and start the debugger.
 
-1. The debugger should stop on the `breakpoint()` call, from which point you can use the debugger normally. You can, of course, set other breakpoints in the script code using the UI instead of using `breakpoint()`.
+1. The debugger should stop on the `debugpy.breakpoint()` call, from which point you can use the debugger normally. You can, of course, set other breakpoints in the script code using the UI instead of using `debugpy.breakpoint()`.
 
 ### Remote script debugging with SSH
 
@@ -426,7 +426,7 @@ Breakpoints can also be set to trigger based on expressions, hit counts, or a co
 
 ### Invoking a breakpoint in code
 
-In your Python code, you can call `breakpoint()` at any point where you want to pause the debugger during a debugging session.
+In your Python code, you can call `debugpy.breakpoint()` at any point where you want to pause the debugger during a debugging session.
 
 ### Breakpoint validation
 
