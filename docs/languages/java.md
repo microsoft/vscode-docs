@@ -83,7 +83,7 @@ For developers new to Java or new to VS Code, we provide a Getting Started exper
 
 ## Standalone Java source files
 
-You can use VS Code to open any Java source file(s). As a lightweight editor, VS Code can provide you features such as syntax and [semantic](/docs/editor/codebasics.md#semantic-highlighting) highlighting and error detection, code navigation, outline as well as Javadoc features with its [Syntax Server](https://code.visualstudio.com/docs/java/java-project#_syntax-mode) immediately without resolving the project. Syntax mode makes VS Code an ideal tool for reading and learning any Java code base.
+You can use VS Code to open any Java source file(s). As a lightweight editor, VS Code can provide you features such as syntax and [semantic](/docs/getstarted/themes.md#semantic-highlighting) highlighting and error detection, code navigation, outline as well as Javadoc features with its [Syntax Server](https://code.visualstudio.com/docs/java/java-project#_syntax-mode) immediately without resolving the project. Syntax mode makes VS Code an ideal tool for reading and learning any Java code base.
 
 At the same time, a more powerful Java language server will be started in backend to resolve and index your whole project to provide you more advanced features such as code completion. You can switch between Syntax mode and full language server as you need.
 
