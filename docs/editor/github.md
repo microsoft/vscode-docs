@@ -75,7 +75,11 @@ Pull requests can be reviewed from the **Pull Requests** view. You can assign re
 
 ![Review Pull Request](images/github/review-pull-request.gif)
 
-From the description page, you can also easily checkout the pull request locally using the "Checkout" button. This will add a new **Changes in Pull Request** view from which you can view diff changes. These diff editors use the local file, so file navigation, intellisense, and editing work as normal. You can add comments within the editor on these diffs. Both adding single comments and creating a whole review is supported.
+From the description page, you can also easily checkout the pull request locally using the "Checkout" button. This will add a new **Changes in Pull Request** view from which you can view diffs of the current changes as well as all commits and the changes within these commits. Files that have been commented on are decorated with a diamond icon. To view the file on disk, you can use the **Open File** inline action.
+
+![Changes in Pull Request](images/github/changes-view.png)
+
+The diff editors from this view use the local file, so file navigation, intellisense, and editing work as normal. You can add comments within the editor on these diffs. Both adding single comments and creating a whole review is supported.
 
 ## Issues
 
