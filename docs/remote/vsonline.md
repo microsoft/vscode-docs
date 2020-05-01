@@ -29,7 +29,7 @@ Example customizations include:
 * Setting environment variables.
 * Configuring editor settings and installing preferred extensions.
 
-See the [VS Codespaces Configuring](https://docs.microsoft.com/visualstudio/online/reference/configuring) documentation for VS Codespaces specific `devcontainer.json` settings.
+See the [Codespace Configuring](https://docs.microsoft.com/visualstudio/online/reference/configuring) documentation for Codespace-specific `devcontainer.json` settings.
 
 ## Dotfile per user configuration
 
@@ -37,15 +37,15 @@ Dotfiles are files whose filename begins with a dot (.). They typically contain 
 
 You can specify a GitHub repo containing your dotfiles, a target location for the files, as well as install commands when creating a Codespace.
 
-See the [VS Codespaces Personalizing](https://docs.microsoft.com/visualstudio/online/reference/personalizing) documentation to learn how to add your dotfile configurations to a Codespace.
+See the [Codespace Personalizing](https://docs.microsoft.com/visualstudio/online/reference/personalizing) documentation to learn how to add your dotfile configurations to a Codespace.
 
 ## Getting started
 
-The Visual Studio Codespaces documentation has Quickstarts for all three clients. The Quickstarts will fast-track you through signing in to VS Codespaces, creating your first environment, and connecting to it with your preferred client:
+The Visual Studio Codespaces documentation has Quickstarts for all three clients. The Quickstarts will fast-track you through signing in to Visual Studio Codespaces, creating your first environment, and connecting to it with your preferred client:
 
-* [VS Codespaces in VS Code](https://docs.microsoft.com/visualstudio/online/quickstarts/vscode) - Use the [VS Codespaces](https://marketplace.visualstudio.com/items?itemName=ms-vsonline.vsonline) extension to connect and work in your environment.
-* [VS Codespaces in the browser](https://docs.microsoft.com/visualstudio/online/quickstarts/browser) - Connect to your VS Codespace through a browser-based editor.
-* [VS Codespaces in Visual Studio IDE](https://docs.microsoft.com/visualstudio/online/quickstarts/vs) - Try out the Visual Studio IDE Private Preview for VS Codespaces.
+* [Codespaces in VS Code](https://docs.microsoft.com/visualstudio/online/quickstarts/vscode) - Use the [Visual Studio Codespaces](https://marketplace.visualstudio.com/items?itemName=ms-vsonline.vsonline) extension to connect and work in your environment.
+* [Codespaces in the browser](https://docs.microsoft.com/visualstudio/online/quickstarts/browser) - Connect to your Codespace through a browser-based editor.
+* [Codespaces in Visual Studio IDE](https://docs.microsoft.com/visualstudio/online/quickstarts/vs) - Try out the Visual Studio IDE Private Preview for Visual Studio Codespaces.
 
 ## How-to guides
 
@@ -60,8 +60,8 @@ If you already have a working development environment, you can connect your own 
 
 ## Extension authors
 
-The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work in Visual Studio Codespaces environments without any modification. However, we recommend that you test your extension in VS Codespaces to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development and Visual Studio Codespaces](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work in Visual Studio Codespaces environments without any modification. However, we recommend that you test your extension in a Codespace to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development and Visual Studio Codespaces](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Questions or feedback
 
-If you have questions, you can consult the Visual Studio Codespaces [Troubleshooting guide](https://docs.microsoft.com/visualstudio/online/resources/troubleshooting) and [FAQ](https://docs.microsoft.com/visualstudio/online/resources/faq). If you want to provide [Feedback](https://docs.microsoft.com/visualstudio/online/resources/feedback), you can enter issues in the VS Codespaces GitHub [repository](https://github.com/MicrosoftDocs/vsonline).
+If you have questions, you can consult the Visual Studio Codespaces [Troubleshooting guide](https://docs.microsoft.com/visualstudio/online/resources/troubleshooting) and [FAQ](https://docs.microsoft.com/visualstudio/online/resources/faq). If you want to provide [Feedback](https://docs.microsoft.com/visualstudio/online/resources/feedback), you can enter issues in the Visual Studio Codespaces GitHub [repository](https://github.com/MicrosoftDocs/vsonline).
