@@ -9,9 +9,9 @@ MetaDescription: Configure VS Code c_cpp_properties.json to get IntelliSense whe
 ---
 # Configure IntelliSense for cross-compiling
 
-The article covers configuring the C/C++ Extension to provide proper IntelliSense when you compile for a different architecture than your development host machine. Such as when your host machine is x64 but you are compiling for ARM.
+The article covers configuring the C/C++ Extension to provide proper IntelliSense when you compile for a different architecture than your development host machine--such as when your host machine is x64 but you are compiling for ARM.
 
-For IntelliSense to reflect the right sizes of data types, you need to configure the C++ extension to emulate the target architecture. You also need to set the path to the compiler so that the extension can query your compiler to retrieve system libraries and compiler defines.
+The C/C++ extension doesn't provide compilation/build features. But it does provide IntelliSense, and for the extension to provide IntelliSense that reflects the right sizes of data types you need to configure the C++ extension to emulate the target architecture.
 
 These configuration settings are stored in your project's `c_cpp_properties.json` file. To edit this file, select **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`):
 
@@ -19,7 +19,7 @@ These configuration settings are stored in your project's `c_cpp_properties.json
 
 ## Example IntelliSense configuration
 
-The following example shows configuring the C/C++ extension for a Linux x64 host machine that targets Linux ARM.  It configures the following C++ extension settings:
+ The following example shows configuring the C/C++ extension for a Linux x64 host machine that targets Linux ARM.  It configures the following C++ extension settings:
 
 - **Compiler path**: the extension queries your compiler to retrieve system libraries and compiler defines.
 - **IntelliSense mode**: emulates the target architecture and compiler so that IntelliSense will reflect the correct sizes of data types such as `pointer`, `size_t`, `long`, and so on.
