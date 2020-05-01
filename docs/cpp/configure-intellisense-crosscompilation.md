@@ -9,9 +9,9 @@ MetaDescription: Configure VS Code c_cpp_properties.json to get IntelliSense whe
 ---
 # Configure IntelliSense for cross-compiling
 
-The article is about configuring the C/C++ Extension to provide proper IntelliSense when you compile for a different architecture than your development host machine. Such as when your host machine is x64 but you are compiling for ARM.
+The article is about configuring the C/C++ extension to provide proper IntelliSense when you compile for a different architecture than your development host machine. Such as when your host machine is x64 but you are compiling for ARM.
 
-The C/C++ extension doesn't provide compilation features itself--it works using a compiler you specify. It does provide IntelliSense. For the extension to provide correct IntelliSense, and to reflect the right sizes of data types, you need to configure the C++ extension to emulate the target architecture.
+The C/C++ extension isn't a compiler--it provides IntelliSense. For it to provide correct IntelliSense, and to reflect the right sizes of data types, you need to configure the C++ extension to emulate the target architecture.
 
 These configuration settings are stored in your project's `c_cpp_properties.json` file. To edit this file, select **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`):
 
@@ -19,18 +19,12 @@ These configuration settings are stored in your project's `c_cpp_properties.json
 
 ## Example IntelliSense configuration
 
- The following shows configuring the C/C++ extension for a Linux x64 host machine that targets Linux ARM.  It configures the following C++ extension settings:
+ The following shows configuring the C/C++ extension for a Linux x64 host machine that targets Linux ARM.  It configures the following Intellisense settings:
 
 - **Compiler path**: the extension queries your compiler at this location to retrieve system libraries and compiler defines.
 - **IntelliSense mode**: emulates the target architecture and compiler so that the extension can provide correct IntelliSense and reflect the right sizes of data types such as `pointer`, `size_t`, `long`, and so on.
 
 At a minimum, setting **compiler path** and **IntelliSense mode** provides enough information for the extension to emulate your project's target  architecture.
-
-### IntelliSense mode
-
-Set to the architecture-specific variant of the compiler you are using. For example:
-
-![IntelliSense mode setting](images/intellisense/intellisense-mode.png)
 
 ### Compiler path
 
@@ -38,11 +32,17 @@ Set to the full path of the compiler you are using to build your project. For ex
 
 ![Compiler path setting](images/intellisense/compiler-path.png)
 
+### IntelliSense mode
+
+Set to the architecture-specific variant of the compiler you are using. For example:
+
+![IntelliSense mode setting](images/intellisense/intellisense-mode.png)
+
 ### Include path
 
-You only need to modify the **Include path** if your program includes header files that are not in your workspace, or that are in the standard library path.
+You only need to modify the **Include path** if your program includes header files that aren't in your workspace, or that are not in the standard library path.
 
-The C/C++ extension tries to populate the include path by querying the compiler specified by **Compiler path**. If it is unable to get the path for the target system libraries, you can enter the include path manually.
+The C/C++ extension populates the include path by querying the compiler specified by **Compiler path**. If it can't get the path for the target system libraries, enter the include path manually.
 
 ![Include path setting](images/intellisense/include-path.png)
 
