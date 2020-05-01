@@ -26,7 +26,7 @@ These configuration settings are stored in your project's `c_cpp_properties.json
 
 At a minimum, setting **compiler path** and **IntelliSense mode** provides enough information for the extension to emulate your project's target  architecture.
 
-### IntelliSense mode**
+### IntelliSense mode
 
 Set to the architecture-specific variant of the compiler you are using. For example:
 
@@ -37,8 +37,6 @@ Set to the architecture-specific variant of the compiler you are using. For exam
 Set to the full path of the compiler you are using to build your project. For example:
 
 ![Compiler path setting](images/intellisense/compiler-path.png)
-
-If you don't want the extension to query the `compilerPath` to determine system includes, set `"compilerPath": ""`.
 
 ### Include path
 
