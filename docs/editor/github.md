@@ -59,17 +59,23 @@ The issues that appear in the suggestion can be configured with the **GitHub Iss
 
 ## Pull requests
 
-### Creating Pull Requests
-
 From the pull request view you can view, manage, and create pull requests. The query used to display pull requests can be configured with the `githubPullRequests.queries` setting.
 
 ![Pull Request View](images/github/pull-request-view.png)
 
+### Creating Pull Requests
+
+You can use the **GitHub Pull Requests: Create Pull Request** or use the "+" button in the **Pull Requests View** to create a pull request. If you have not already pushed your branch to a remote, the extension will do this for you. You can use the last commit message, the branch name, or write a custom title for the pull request. If your repository has a pull request template, this will automatically be used for the description.
+
+![Creating a Pull Request](images/github/pull-request-create.gif)
+
 ### Reviewing
 
-Pull requests can be reviewed from the **Pull Requests** view. You can add comments, approve, close, and merge all from the pull request description.
+Pull requests can be reviewed from the **Pull Requests** view. You can assign reviewers and labels, add comments, approve, close, and merge all from the pull request description.
 
 ![Review Pull Request](images/github/review-pull-request.gif)
+
+From the description page, you can also easily checkout the pull request locally using the "Checkout" button. This will add a new **Changes in Pull Request** view from which you can view diff changes. These diff editors use the local file, so file navigation, intellisense, and editing work as normal. You can add comments within the editor on these diffs. Both adding single comments and creating a whole review is supported.
 
 ## Issues
 
