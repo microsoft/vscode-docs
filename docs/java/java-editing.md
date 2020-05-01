@@ -88,6 +88,20 @@ With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select
   <source src="/docs/java/java-editing/smart-selection.mp4" type="video/mp4">
 </video>
 
+### Semantic Highlighting
+
+Syntax highlighting is a very important feature that allows you to read code more efficiently. With the help of [Semantic Highlighting](https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview), VS Code can provide more accurate source code coloring based on symbol information from the Java language service.
+
+Below is just one example, left is the behavior after enabling semantic highlighting and right is the one with only syntax highlighting.
+
+![Semantic Highlighting](images/java-editing/semantic-highlighting.png)
+
+To enable semantic highlighting, you can toggle the `java.semanticHighlighting.enabled` setting. You will also be prompted to enable or disable semantic highlighting on startup:
+
+![Semantic Highlighting Switch](images/java-editing/semantic-highlighting-switch.png)
+
+You can learn more about the details of Java semantic highlighting on the [Java extension wiki](https://github.com/redhat-developer/vscode-java/wiki/Semantic-Highlighting).
+
 ### Navigating code with Spring Boot
 
 The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for Spring Boot projects.

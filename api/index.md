@@ -42,7 +42,7 @@ Building a good extension can take a lot of effort. Here is what each section of
 - **Extension Capabilities** dissects VS Code's vast API into smaller categories and points you to more detailed topics.
 - **Extension Guides** includes guides and code samples that explain specific usages of VS Code Extension API.
 - **Language Extensions** illustrates how to add support for a programming language with guides and code samples.
-- **Advanced Topics** explains advanced concepts such as [Extension Host](/api/advanced-topics/extension-host), [Supporting Remote Development and VS Online](/api/advanced-topics/remote-extensions), and [Proposed API](/api/advanced-topics/using-proposed-api).
+- **Advanced Topics** explains advanced concepts such as [Extension Host](/api/advanced-topics/extension-host), [Supporting Remote Development and Visual Studio Codespaces](/api/advanced-topics/remote-extensions), and [Proposed API](/api/advanced-topics/using-proposed-api).
 - **References** contains exhaustive references for the [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points), and many other topics.
 
 ## What's new?

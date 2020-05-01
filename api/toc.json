@@ -68,7 +68,7 @@
     "area": "advanced-topics",
     "topics": [
       ["Extension Host", "/api/advanced-topics/extension-host"],
-      ["Remote Development and VS Online", "/api/advanced-topics/remote-extensions"],
+      ["Remote Development and Codespaces", "/api/advanced-topics/remote-extensions"],
       // ["Extension Dependencies", "/api/advanced-topics/extension-dependencies"],
       ["Using Proposed API", "/api/advanced-topics/using-proposed-api"],
       ["Migrate from TSLint to ESLint", "/api/advanced-topics/tslint-eslint-migration"],
