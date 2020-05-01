@@ -268,6 +268,22 @@ Below are example configuration scopes from the built-in Git extension:
 
 You can see that `git.alwaysSignOff` has `resource` scope and can be set per user, workspace, or folder, while the ignored repositories list with `window` scope applies more globally for the VS Code window or workspace (which might be multi-root).
 
+**Linking to settings**
+
+You can insert a link to another setting, which will be rendered as a clickable link in the settings UI, by using this special syntax in the markdown-type properties: ``` `#target.setting.id#` ```. This will work in `markdownDescription`, `markdownEnumDescriptions`, and `markdownDeprecationMessage`. Example:
+
+```json
+  "files.autoSaveDelay": {
+    "markdownDescription": "Controls the delay in ms after which a dirty editor is saved automatically. Only applies when `#files.autoSave#` is set to `afterDelay`.",
+    // ...
+  }
+```
+
+In the settings UI, this is rendered as:
+
+![setting link example](images/contribution-points/setting-link.png)
+
+
 ## contributes.configurationDefaults
 
 Contribute default language-specific editor configurations. This will override default editor configurations for the provided language.
