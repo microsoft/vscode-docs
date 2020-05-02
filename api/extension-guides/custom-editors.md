@@ -9,14 +9,16 @@ MetaDescription: Use the Custom Editor API to create customizable editors within
 
 # Custom Editor API
 
-Custom editors allow extensions to create fully customizable read/write editors that are used in place of VS Code's standard text editor for specific types of text resources. They have a wide variety of use cases, such as:
+Custom editors allow extensions to create fully customizable read/write editors that are used in place of VS Code's standard text editor for specific types of resources. They have a wide variety of use cases, such as:
 
 - Previewing assets, such as shaders or 3D models, directly in VS Code.
 - Creating WYSIWYG editors for languages such as Markdown or XAML.
 - Offering alternative visual renderings for data files such as CSV or JSON or XML.
-- Building fully customizable editing experiences text files.
+- Building fully customizable editing experiences for binary or text files.
 
-This document provides an overview of the custom editor API and the basics of implementing a custom editor. Although custom editors are a powerful new extension point, implementing a basic custom editor is not actually that difficult! Still, if you are working on your first VS Code extension, you may want to consider holding off on diving into custom editors until you are more familiar with the basics of the VS Code API. Custom editors build on a lot of VS Code concepts—such as [webviews](/api/extension-guides/webview) and text documents—so it may be a bit overwhelming if you are learning all of these new ideas at the same time.
+This document provides an overview of the custom editor API and the basics of implementing a custom editor. We'll take a look at the two types of custom editors and how they differ, as well as which one is right for you use case. Then for each of these custom editor types, we'll cover the basics of building a well behaved custom editor.
+
+Although custom editors are a powerful new extension point, implementing a basic custom editor is not actually that difficult! Still, if you are working on your first VS Code extension, you may want to consider holding off on diving into custom editors until you are more familiar with the basics of the VS Code API. Custom editors build on a lot of VS Code concepts—such as [webviews](/api/extension-guides/webview) and text documents—so it may be a bit overwhelming if you are learning all of these new ideas at the same time.
 
 But if you're feeling ready and are thinking about all the cool custom editors you are going to build, then let's get started! Be sure to download the [custom editor extension sample][sample] so you can follow along with the documentation and see how the custom editor API comes together.
 
@@ -35,9 +37,21 @@ A custom editor is an alternative view that is shown in place of VS Code's stand
 
 The view side of a custom editor is implemented using a [webview](/api/extension-guides/webview). This lets you build the user interface of your custom editor using standard HTML, CSS, and JavaScript. Webviews cannot access the VS Code API directly but they can talk with extensions by passing messages back and forth. Check out our [webview documentation](/api/extension-guides/webview) for more information on webviews and best practices for working with them.
 
-The other part of a custom editor is the document model. This model is how your extension understands the resource (file) it is working with. A `CustomTextEditorProvider` uses VS Code's standard [TextDocument](/api/references/vscode-api#TextDocument) as its document model and all changes to the file are expressed using VS Code's standard text editing APIs.
+The other part of a custom editor is the document model. This model is how your extension understands the resource (file) it is working with. A `CustomTextEditorProvider` uses VS Code's standard [TextDocument](/api/references/vscode-api#TextDocument) as its document model and all changes to the file are expressed using VS Code's standard text editing APIs. `CustomReadonlyEditorProvider` and `CustomEditorProvider` on the other hand let you provide your own document model, which lets them be used for non-text file formats.
 
 Custom editors have a single document model per resource but there may be multiple editor instances (views) of this document. For example, imagine that you open a file that has a `CustomTextEditorProvider` and then run the **View: Split editor** command. In this case, there is still just a single `TextDocument` since there is still just a single copy of the resource in the workspace,  but there are now two webviews for that resource.
+
+### `CustomEditor` vs `CustomTextEditor`
+
+There are two classes of custom editors: custom text editors and custom editors. The main difference between these is how they define their document model.
+
+A `CustomTextEditorProvider` uses VS Code's standard [`TextDocument`](https://code.visualstudio.com/api/references/vscode-api#TextDocument) as its data model. You can use a `CustomTextEditor` for any text based file types. `CustomTextEditor` are considerably easier to implement because VS Code already know about how to work with text files and can therefore implement operations such as save and backing up files for hot exit.
+
+With a `CustomEditorProvider` on the other hand, your extension brings its own document model. This means that you can use a `CustomEditor` for binary formats such as images, but it also means that your extension is responsible for a lot more, including implementing save and backing. You can skip over much of this complexity if your custom editor is readonly, such custom editors for previews.
+
+> **Note:** `CustomEditorProvider` is still a proposed API in VS Code 1.45. We are aiming to finalize the API for VS Code 1.46.
+
+When trying to decide which type of custom editor to use, the decision is usually simple: if you are working with a text based file format use `CustomTextEditorProvider`, for binary file formats use `CustomEditorProvider`.
 
 ### Contribution point
 
@@ -155,11 +169,135 @@ Also remember that if you are working with a structured language such as JSON or
 
 Finally, if updating your webviews is expensive, consider [debouncing](https://davidwalsh.name/javascript-debounce-function) the updates to your webview.
 
+
+## Custom Editor
+
+> **Note:** Custom editors for binary files are still a proposed API in VS Code 1.45. We are aiming to finalize the API for VS Code 1.46.
+
+`CustomEditorProvider` and `CustomReadonlyEditorProvider` let you create custom editors for binary file formats. This gives your full control over how changes are made to the file as letting your extension control `save` and other file operations. Again, if you are building an editor for a text based file format, strongly consider using a `CustomTextEditor` instead. Custom text editors are far simpler to implement and even supports features that a `CustomEditor` cannot, such as live synchronization between your custom editor and VS Code's normal text editor.
+
+The [custom editor extension sample][sample] includes a simple example custom binary editor for paw draw files (which are just jpeg files that end with a `.pawdraw` file extension).
+
+### CustomDocument
+
+With custom editors, your extension is responsible for implementing its own document model with the the `CustomDocument` interface. This leaves your extension free to store whatever data it needs on a `CustomDocument` in order to your custom editor, but it also means that your extension must also implement basic document operations such as saving and backup for hot exit.
+
+Remember that, just like with `TextDocument`, there is one `CustomDocument` for each resource. Users can open multiple editors for a single resource—such as by splitting the current custom editor—but all those editors will be backed by the same `CustomDocument`.
+
+### Custom Editor lifecycle
+
+**Opening Custom Editors**
+When the user opens a file that matches the `customEditor` contribution point, VS Code fires an `onCustomEditor` [activation event](/api/references/activation-events) and then invokes the provider registered for the provided view type. A `CustomEditorProvider` has two roles: providing the document for the custom editor and then providing the editor itself. Here's a ordered list of what happens for the `catCustoms.pawDraw` editor from the [custom editor extension sample][sample]:
+
+1. VS Code fires an `onCustomEditor:catCustoms.pawDraw` activation event.
+
+    This activates our extension if it has not already been activated. We must also make sure our extension registers a `CustomReadonlyEditorProvider` or `CustomEditorProvider` for `catCustoms.pawDraw` during activation.
+
+1. VS Code calls `openCustomDocument` on our `CustomReadonlyEditorProvider` or `CustomEditorProvider` registered for `catCustoms.pawDraw` editors.
+
+    Here our extension is given a resource uri and must return a new `CustomDocument` for that resource. This is the point at which our extension should create its document internal model for that resource. This may involve reading and parsing the initial resource state from disk or initializing our new `CustomDocument`.
+
+    Our extension can define this model by creating a new class that implements `CustomDocument`. Remember that this initialization stage is entirely up to extensions; VS Code does not care about any additional information extensions store on a `CustomDocument`.
+
+1. VS Code calls `resolveCustomEditor` with the `CustomDocument` from step 2 and a new `WebviewPanel`.
+
+    Here our extension must fill in the initial html for the custom editor. If we need, we can also hold onto a reference to the `WebviewPanel` so that we can reference it later, for example inside commands.
+
+Once `resolveCustomEditor` returns, our custom editor is displayed to the user.
+
+If the user opens the same resource in another editor group using our custom editor—for example by splitting the first editor—the extension's job is simplified. In this case, VS Code just calls `resolveCustomEditor` with the same `CustomDocument` we created when the first editor was opened.
+
+**Closing Custom Editors**
+
+Say we have two instance of our custom editors open for the same resource. When the user closes these editors, VS Code signals our extension so that it can clean up any resources associated with the editor.
+
+When the first editor instance is closed, VS Code fires the `WebviewPanel.onDidDispose` event on the `WebviewPanel` from the closed editor. At this point, our extension must clean up any resources associated with that specific editor instance.
+
+When the second editor is closed, VS Code again fires `WebviewPanel.onDidDispose`. However now we've also closed all the editors associated with the `CustomDocument`. When there are no more editors for a `CustomDocument`, VS Code calls the `CustomDocument.dispose` on it. Our extension's implementation of `dispose` must clean up any resources associated with the document.
+
+If the user then reopens the same resource using our custom editor, we will go back through the whole `openCustomDocument`, `resolveCustomEditor` flow with a new `CustomDocument`.
+
+### Readonly Custom editors
+
+Before diving into your amazing new custom editor, it's worth noting that many of the following sections only apply to custom editors that support editing and, while it may sound paradoxical, many custom editors don't require editing capabilities at all. Consider a image preview for example. Or a visual rendering of a memory dump. Both can be implemented using custom editors but neither need to be editable. That's where `CustomReadonlyEditorProvider` comes in.
+
+A `CustomReadonlyEditorProvider` lets you create custom editors that do not support editing. They can still be interactive, but won't have support for operations such as undo and save. Readonly custom editors are also far easier to build than a full on custom editor.
+
+If you are wanting to create a fully editable custom editor though, let's take a look at how that's done.
+
+### Editable Custom Editor Basics
+
+Editable custom editors let you hook in to standard VS Code operations such as undo and redo, save, and hot exit. This makes editable custom editors very powerful, but also means that properly implementing is much more complex than implementing an editable custom text editor or a readonly custom editor.
+
+Editable custom editors are implemented by `CustomEditorProvider`. This interface extends `CustomReadonlyEditorProvider`, so you'll have to implement basic operations such as `openCustomDocument` and `resolveCustomEditor`, along with a set of editing specific operations.
+
+**Edits**
+
+Changes to a editable custom document are expressed through edits.  An edit can be anything from a text change, to an operation such as an image rotation, to reordering a list.
+
+Your extension is responsible for notify VS Code whenever the user makes an edit in one of the webviews for a custom editor. This is done by firing the `onDidChangeCustomDocument` event on the `CustomEditorProvider`. Firing this event causes VS Code to mark the editor as dirty. If your editor supports it, users will also be able to undo the edit. It's important that your extension always fires a `onDidChangeCustomDocument` event whenever an edit is made. VS Code will prompt users to save a custom document when they close the last custom editor for it, but only if the document has been marked dirty with `onDidChangeCustomDocument`.
+
+**CustomDocumentContentChangeEvent**
+
+A `CustomDocumentContentChangeEvent` is a bare-bones edit. It's only function is to tell VS Code that an document has been changed. It does not support undo/redo and does not have any associated metadata.
+
+When an extension fires a `CustomDocumentContentChangeEvent` from `onDidChangeCustomDocument`, VS Code will mark the associated document as being dirty. At this point, the only way for the document to become non-dirty is for the user to either save or revert it.
+
+**CustomDocumentEditEvent**
+
+A `CustomDocumentEditEvent` is a more complex edit that supports undo/redo. You should always try to implement your custom editor using `CustomDocumentEditEvent`, and only fallback to using `CustomDocumentContentChangeEvent` if implementing undo/redo is not possible.
+
+A `CustomDocumentContentChangeEvent` has the following fields:
+
+- `document` — The `CustomDocument` the edit was for.
+- `label` — Optional text that that describes what type of edit was made (for example: "Crop", "Insert", ...)
+- `undo` — Function invoked by VS Code when the edit needs to be undone.
+- `redo` — Function invoked by VS Code when the edits needs to be redone.
+
+When an extension fires a `CustomDocumentEditEvent` from `onDidChangeCustomDocument`, VS Code will mark the associated document as being dirty. A user can then either save or revert the document to make it no longer dirty, or undo/redo back to the document's last saved state.
+
+`undo` and `redo` are called by VS Code when that specific edits needs to be undone or reapplied. VS Code maintains an internal stack of edits, so if your extension fires `onDidChangeCustomDocument` with three edits—`a`, `b`, `c`:
+
+```ts
+onDidChangeCustomDocument(a);
+onDidChangeCustomDocument(b);
+onDidChangeCustomDocument(c);
+```
+
+The following sequence of user actions results in these calls:
+
+```
+undo — c.undo()
+undo — b.undo()
+redo — b.redo()
+redo — c.redo()
+redo — no op, no more edits
+```
+
+To implement undo/redo, your extension must update it's associated custom document's internal state as well as updating all associated webviews for the document so that they reflect the document's new state. Keep in mind that there may be multiple visible editors for a single resource. For example, multiple instances of an image editor must always show the same pixel data but may allow each editor instance to have its own zoom level and UI state.
+
+### Saving
+
+When a user saves a custom editor, your extension is responsible for writing the saved resource in its current state to disk. How your custom editor goes about this depends largely on how your extension's `CustomDocument` implementation and how it represents edits internally.
+
+You should generally use the [workspace FS api](https://code.visualstudio.com/api/references/vscode-api#FileSystem) to write the resource to disk. The FS APIs take a `UInt8Array` of data and can write out both binary and text based files. For binary file data, simply put the binary data into the `UInt8Array`. For text file data, use `Buffer` to convert a string into a `UInt8Array`:
+
+```ts
+const writeData = Buffer.from("", 'utf8');
+vscode.workspace.fs.writeFile(fileUri, writeData);
+```
+
+Some possible approaches to generating the file data include:
+
+- Replay the edits since the last save to generate a new file.
+- Always tracking the resource's current state.
+- Ask a `WebviewPanel` for the custom editor for file data to save.
+
+Remember that custom editors can be saved even when they are not visible. We recommend that your implementation of `save` does not depend on a `WebviewPanel`. If this is not possible, you can use the `WebviewPanelOptions.retainContextWhenHidden` setting so that the webview stays alive even when it is hidden. Keep in mind however that `retainContextWhenHidden` has significant memory overhead.
+
 ## Next steps
 
 If you'd like to learn more about VS Code extensibility, try these topics:
 
 - [Extension API](/api) - Learn about the full VS Code Extension API.
 - [Extension Capabilities](/api/extension-capabilities/overview) - Take a look at other ways to extend VS Code.
-
-[sample]: https://github.com/microsoft/vscode-extension-samples/tree/master/custom-editor-sample
