@@ -13,7 +13,7 @@ Visual Studio Code contains a set of built-in icons that are used in views and t
 
 A product icon theme allows an extension to redefine these icons to give VSCode a custom appearance. Not covered by product icon themes are the file icons (covered by file icon themes) and icons contributed by extensions.
 
-VS Code requires the icons to be defined as glyphs in an icon font and (currently) limits product icons to consist of a single color. The color used for a icon is specific to the place where it is shown and is defined by the active color theme.
+VS Code requires the icons to be defined as glyph in an icon font and (currently) limits product icons to consist of a single color. The color used for a icon is specific to the place where it is shown and is defined by the active color theme.
 
 Important: Product icon themes are still in preview. The product icon theme format might still change. Until then, an extension defining  product icon theme needs to set `enableProposedApi`. Running a extension is limited to extension development in [Insider release](https://code.visualstudio.com/insiders/). Also, you cannot publish extensions such an extension to the Marketplace.
 
@@ -99,7 +99,7 @@ Each definition uses `fontId` to reference one of the fonts defined in the `font
 }
 ```
 
-A list of all icon ids can be found [here](https://code.visualstudio.com/api/references/icons-in-labels#icon-listing).
+A list of all icon identifiers can be found in the [icon reference](/api/references/icons-in-labels#icon-listing).
 
 ## Develop and test
 
@@ -114,9 +114,12 @@ To switch between product icon theme, use the command **Preferences: Product Ico
 
 To find out what the which icon is used at a certain place, run **Help > Toggle Developer Tools**
 - click on the Developer Tools inspect tool
-- move the mouse over the icon to inpect
+- move the mouse over the icon to inspect
 - if the icon's class name is `codicon.codicon-remote`, then the icon id is `remote`.
 
 
 ![dev tools inspect tool](./images/product-icon-theme/dev-tool-select-tool.png)
 
+## Sample
+
+The [Product Color Theme Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/product-icon-theme-sample) can be used as a playground.
