@@ -4,7 +4,7 @@ ContentId: f470466d-89b0-4115-ab7a-2448023b0a6d
 DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: A guide to creating Icon Theme in Visual Studio Code
+MetaDescription: A guide to creating File Icon Theme in Visual Studio Code
 ---
 
 # File Icon Theme
@@ -31,7 +31,7 @@ To begin, create a VS Code extension and add the `iconTheme` contribution point.
 }
 ```
 
-The `id` is the identifier for the icon theme. It is currently only used internally. In the future, it might be used in the settings, so make it unique but also readable. `label` is shown in the icon theme picker drop-down. The `path` points to a file in the extension that defines the icon set. If your icon set name follows the `*icon-theme.json` name scheme, you will get completion support and hovers in VS Code.
+The `id` is the identifier for the icon theme. It is used as an identifier in the settings, so make it unique but also readable. `label` is shown in the file icon theme picker drop-down. The `path` points to a file in the extension that defines the icon set. If your icon set name follows the `*icon-theme.json` name scheme, you will get completion support and hovers in VS Code.
 
 ### File Icon Set File
 

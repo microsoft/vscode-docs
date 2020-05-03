@@ -37,6 +37,7 @@
       ["Command", "/api/extension-guides/command"],
       ["Color Theme", "/api/extension-guides/color-theme"],
       ["File Icon Theme", "/api/extension-guides/file-icon-theme"],
+      ["Product Icon Theme", "/api/extension-guides/product-icon-theme"],
       ["Tree View", "/api/extension-guides/tree-view"],
       ["Webview", "/api/extension-guides/webview"],
       ["Custom Editors", "/api/extension-guides/custom-editors"],

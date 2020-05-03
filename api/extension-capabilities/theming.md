@@ -9,10 +9,11 @@ MetaDescription: Learn how to add custom themes for colors and icons in Visual S
 
 # Theming
 
-In Visual Studio Code, there are two types of themes:
+In Visual Studio Code, there are three types of themes:
 
 - **Color Theme**: A mapping from both UI Component Identifier and Text Token Identifier to colors. Color theme allows you to apply your favorite colors to both VS Code UI Components and the text in the editor.
 - **File Icon Theme**: A mapping from file type / file name to images. File icons are displayed across the VS Code UI in places such as File Explorer, Quick Open List, and Editor Tab.
+- **Product Icon Theme**: A set of icons used throughout the UI, from the side bar, the view action bars, status bar to the editor glyph margin.
 
 ## Color Theme
 
@@ -35,3 +36,11 @@ File icon themes allow you to:
 
 The [File Icon Theme Guide](/api/extension-guides/file-icon-theme) discusses how to create a File Icon Theme.
 ![file-icon-theme](images/theming/file-icon-theme.png)
+
+## Product Icon Theme
+
+Product icon themes allow you to:
+
+Redefine all the built-in icons used all over the workbench. Examples are the icons in filter action buttons and view icons, in the status bar, breakpoints and the folding icons in trees and the editor.
+
+The [Product Icon Theme Guide](/api/extension-guides/product-icon-theme) discusses how to create a Product Icon Theme.
