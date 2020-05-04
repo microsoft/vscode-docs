@@ -96,11 +96,3 @@ From the **Issues** view, you can see your issues and work on them. By default, 
 ![Work on Issue](images/github/work-on-issue.gif)
 
 If your workflow doesn't involve creating a branch, or if you want to be promped to enter a branch name every time, you can configure that step to be skipped with the `githubIssues.useBranchForIssues` setting.
-
-## Common questions
-
-### How do I sign out?
-
-You can manage how VS Code and extensions access your account through the account manager above the settings gear:
-
-![Account Manager](images/github/account.png)
