@@ -21,6 +21,8 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`breakpoints`](/api/references/contribution-points#contributes.breakpoints)
 - [`grammars`](/api/references/contribution-points#contributes.grammars)
 - [`themes`](/api/references/contribution-points#contributes.themes)
+- [`iconThemes`](/api/references/contribution-points#contributes.iconThemes)
+- [`productIconThemes`](/api/references/contribution-points#contributes.productIconThemes)
 - [`snippets`](/api/references/contribution-points#contributes.snippets)
 - [`jsonValidation`](/api/references/contribution-points#contributes.jsonValidation)
 - [`views`](/api/references/contribution-points#contributes.views)
@@ -690,7 +692,9 @@ See the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide
 
 ## contributes.themes
 
-Contribute a TextMate theme to VS Code. You must specify a label, whether the theme is a dark theme or a light theme (such that the rest of VS Code changes to match your theme) and the path to the file (XML plist format).
+Contribute a color theme to VS Code, defining workbench colors and styles for syntax tokens in the editor.
+
+You must specify a label, whether the theme is a dark theme or a light theme (such that the rest of VS Code changes to match your theme) and the path to the file (JSON format).
 
 ### theme example
 
@@ -701,16 +705,68 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
       {
         "label": "Monokai",
         "uiTheme": "vs-dark",
-        "path": "./themes/Monokai.tmTheme"
+        "path": "./themes/monokai-color-theme.json"
       }
     ]
   }
 }
 ```
 
-![themes extension point example](images/contribution-points/themes.png)
+![color theme extension point example](images/contribution-points/color-themes.png)
 
 See the [Color Theme Guide](/api/extension-guides/color-theme) on how to create a Color Theme.
+
+## contributes.iconThemes
+
+Contribute a file icon theme to VS Code. File icons are shown next to file names, indicating the file type.
+
+You must specify an id (used in the settings), a label and the path to the file icon definition file.
+
+### file icon theme example
+
+```json
+{
+  "contributes": {
+		"iconThemes": [
+			{
+				"id": "metro",
+				"label": "Metro File Icons",
+				"path": "./fileicons/metro-file-icon-theme.json"
+			}
+		]
+  }
+}
+```
+
+![file icon theme extension point example](images/contribution-points/file-icon-themes.png)
+
+See the [File Icon Theme Guide](/api/extension-guides/file-icon-theme) on how to create a File Icon Theme.
+
+## contributes.productIconThemes
+
+Contribute a product icon theme to VS Code. Product icons are all icons used in VS Code except file icons and icons contributed from extensions.
+
+You must specify an id (used in the settings), a label and the path to the icon definition file.
+
+### product icon theme example
+
+```json
+{
+  "contributes": {
+		"productIconThemes": [
+			{
+				"id": "elegant",
+				"label": "Elegant Icon Theme",
+				"path": "./producticons/elegant-product-icon-theme.json"
+			}
+		]
+  }
+}
+```
+
+![product icon theme extension point example](images/contribution-points/product-icon-themes.png)
+
+See the [Product Icon Theme Guide](/api/extension-guides/product-icon-theme) on how to create a Product Icon Theme.
 
 ## contributes.snippets
 
