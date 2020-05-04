@@ -72,7 +72,6 @@ Enable semantic highlighting for a specific theme:
 
 Themes can define theming rules for semantic tokens as described in the [Syntax Highlighting Guide](/api/language-extensions/syntax-highlight-guide#semantic-theming).
 
-
 ## Create a new Color Theme
 
 Once you have tweaked your theme colors using `workbench.colorCustomizations` and `editor.tokenColorCustomizations`, it's time to create the actual theme.

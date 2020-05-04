@@ -9,16 +9,15 @@ MetaDescription: Reference of all product icons by id
 
 # Product Icon Reference
 
-Visual Studio Code contains a set of built-in icons that are used in views and the editor, but can also be used in hovers, the status bar and by extensions. We call these icons the _product icons_ as opposed to _file icons_ which are used next to file names throughout the UI.
+Visual Studio Code contains a set of built-in icons that are used in views and the editor, but can also be used in hovers, the status bar, and by extensions. These icons are **product icons** as opposed to **file icons**, which are used next to file names throughout the UI.
 
-The product icons that ship with VSCode are contained in the [Codicon icon font](https://github.com/microsoft/vscode-codicons) and form the 'Default' product icon theme. Extensions can provide new [Product Icon Themes](/api/extension-guides/product-icon-theme) to redefine these icons and give VSCode a new appearance.
+The product icons that ship with VS Code are contained in the [Codicon icon font](https://github.com/microsoft/vscode-codicons) and form the **default** product icon theme. Extensions can provide new [Product Icon Themes](/api/extension-guides/product-icon-theme) to redefine these icons and give VS Code a new appearance.
 
 In order to allow this, all product icons are identified an ID. The icon identifier is what's used in UI components. The association of icon identifier to an actual icon font glyph is then done in the product icon theme.
 
+## Icons in labels
 
-## Icons in Labels
-
-Icons can be used in Markdown labels in hovers, in the  [`StatusBarItem`](/api/references/vscode-api#StatusBarItem) text and [`QuickPickItem`](/api/references/vscode-api#QuickPickItem) label API. The syntax for adding an icon in Markdown is `$(iconIdentifier)`:
+Icons can be used in Markdown labels in hovers, in the  [StatusBarItem](/api/references/vscode-api#StatusBarItem) text and [QuickPickItem](/api/references/vscode-api#QuickPickItem) label API. The syntax for adding an icon in Markdown is `$(iconIdentifier)`:
 
 ```ts
 $(alert);
@@ -42,13 +41,11 @@ $(sync~spin)
 
 Below are the full listings of the product icons by identifier. The preview shows the default icon as shipped with VS Code, but [Product Icon Themes](/api/extension-guides/product-icon-theme) can replace these.
 
-You can see from the previews that some glyph appear multiple times for different identifiers.
-E.g. the same right arrow for `chevron-left`, `folding-collapsed`, `breadcrumb-separator`.
+You can see from the previews that some glyphs appear multiple times for different identifiers. For example, the same right arrow is used for `chevron-left`, `folding-collapsed`, and `breadcrumb-separator`.
 
-That's a choice of the default icon theme. A custom product icon theme has the freedom to style each usage different.
+That's a choice of the default icon theme but a custom product icon theme has the freedom to style each usage differently.
 
-In order to allow each icon in VSCode to be customized, we give every icon usage a separate ID, describing the function of the icon. This is work in progress and more icons will be added in the coming milestones. In order to keep existing themes working, every new icon is defined with a default icon that is used when a theme has no icon definition for a given id.
-
+In order to allow each icon in VS Code to be customized, every icon usage has a separate ID, describing the function of the icon. This is work in progress and more icons will be added in the coming milestones. In order to keep existing themes working, every new icon is defined with a default icon that is used when a theme has no icon definition for a given ID.
 
 <div id="codicon-listing">
 
