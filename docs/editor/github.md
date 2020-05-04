@@ -23,7 +23,7 @@ Once you've installed the [GitHub Pull Requests and Issues extension](https://ma
 
 ### Cloning a repository
 
-You can search for and clone a repository from GitHub using the **Git: Clone** command or by using the **Clone Repository** button in the Source Control (available when you have no folder open).
+You can search for and clone a repository from GitHub using the **Git: Clone** command or by using the **Clone Repository** button in the Source Control (available when you have no folder open or in the command palette via <kbd>F1</kbd>).
 
 ![Clone From GitHub](images/github/clone-from-github.gif)
 
