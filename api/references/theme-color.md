@@ -377,6 +377,7 @@ Overview ruler:
 
 This ruler is located beneath the scroll bar on the right edge of the editor and gives an overview of the decorations in the editor.
 
+- `editorOverviewRuler.background`: Background color of the editor overview ruler. Only used when the minimap is enabled and placed on the right side of the editor.
 - `editorOverviewRuler.border`: Color of the overview ruler border.
 - `editorOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches. The color must not be opaque so as not to hide underlying decorations.
 - `editorOverviewRuler.rangeHighlightForeground`: Overview ruler marker color for highlighted ranges, like by the Quick Open, Symbol in File and Find features. The color must not be opaque so as not to hide underlying decorations.
@@ -417,6 +418,8 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.addedBackground`: Editor gutter background color for lines that are added.
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
 - `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
+- `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
+
 
 ## Diff editor colors
 
@@ -427,6 +430,7 @@ For coloring inserted and removed text, use either a background or a border colo
 - `diffEditor.removedTextBackground`: Background color for text that got removed. The color must not be opaque so as not to hide underlying decorations.
 - `diffEditor.removedTextBorder`: Outline color for text that got removed.
 - `diffEditor.border`: Border color between the two text editors.
+- `diffEditor.diagonalFill`: Color of the diff editor's diagonal fill. The diagonal fill is used in side-by-side diff views.
 
 ## Editor widget colors
 
@@ -497,6 +501,7 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `editorOverviewRuler.currentContentForeground`: Current overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.commonContentForeground`: Common ancestor overview ruler foreground for inline merge conflicts.
+
 
 ## Panel colors
 
