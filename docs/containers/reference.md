@@ -157,7 +157,7 @@ Here are all properties available for configuring `docker-build` task. All prope
 
 ## Docker run task
 
-The `docker-run` task runs (creates/starts) a Docker container using the Docker command line (CLI). The task can be used by itself, or as part of a chain of tasks to debug an application within a Docker container.
+The `docker-run` task in `tasks.json` creates and starts a Docker container using the Docker command line (CLI). The task can be used by itself, or as part of a chain of tasks to debug an application within a Docker container.
 
 The most important configuration settings for the `docker-run` task are `dockerRun` and `platform`:
 
