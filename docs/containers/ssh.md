@@ -46,7 +46,7 @@ We recommend using the Visual Studio Code [Remote-SSH extension](/docs/container
     ssh-add id_ecdsa
     ```
 
-- Windows 10 build 1909 and older are affected by [an issue that prevents SSH from getting to your identities after Windows OS update](https://github.com/PowerShell/Win32-OpenSSH/issues/1234). The workaround is to add a dummy service entry (run the following from administrative command prompt window):
+- Windows 10 build 1909 and older are affected by [an issue that prevents SSH from getting to your identities after Windows OS update](https://github.com/PowerShell/Win32-OpenSSH/issues/1234). The workaround is to add a dummy service entry to system configuration. Run the following from administrative command prompt window:
 
     ```shell
     sc create sshd binPath=C:\Windows\System32\OpenSSH\ssh.exe
