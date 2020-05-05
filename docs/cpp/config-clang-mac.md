@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 2
 Area: cpp
 TOCTitle: Clang on macOS
 ContentId: 6ef32219-81ad-4d73-84b8-8d4384a45f8a
