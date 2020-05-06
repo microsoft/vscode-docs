@@ -21,7 +21,13 @@ You will be asked to sign in and what preferences you would like to sync; curren
 
 ![Settings Sync configure dialog](images/settings-sync/sync-configure.png)
 
-After making this selection, the browser will open so that you can sign in to a Microsoft account. Both personal accounts, such as Outlook accounts, and Azure accounts can be used. You can also link a GitHub account to a new or existing Microsoft account. If at any time you decide you want to sync your data to a different account, you can use the **Microsoft Account: Sign Out** command from the Command Palette (`kb(workbench.action.showCommands)`), and then use the **Sync: Sign in to sync** entry from the **Manage** gear menu.
+Clicking on `Sign in & Turn on` button will ask you to choose signing in with your Microsoft or Github account.
+
+![Settings Sync configure dialog](images/settings-sync/sync-accounts.png)
+
+After making this selection, the browser will open so that you can sign in to your Microsoft or Github account. When Microsoft account is choosen, you can use both personal accounts, such as Outlook accounts, and Azure accounts and you can also link a GitHub account to a new or existing Microsoft account.
+
+After signing in, Sync will be turned on and continue to sync automatically in the background.
 
 ## Configuring synced data
 
@@ -53,6 +59,10 @@ When synchronizing settings between multiple machines, there may occasionally be
 - **Accept Local**: Selecting this option will overwrite **remote** settings in the cloud with your local settings.
 - **Accept Remote**: Selecting this option will overwrite **local** settings with remote settings from the cloud.
 - **Show Conflicts**: Selecting this will display a diff editor similar to the Source Control diff editor, where you can preview the local and remote settings and choose to either accept local or remote or manually resolve the changes in your local settings file and then accept the local file.
+
+## Switching Accounts
+
+If at any time you decide you want to sync your data to a different account, you can turn off and turn on sync again with different account.
 
 ## Restoring data
 
