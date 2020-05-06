@@ -616,7 +616,7 @@ We try to keep feature parity between both protocol implementations but this bec
 
 ## New JavaScript Debugger
 
-We're working on a new version of our debugger for Node.js and Chrome applications. You can head over to its page [on the marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug-nightly) to install it and learn what's new.
+We're working on a new version of our debugger for Node.js and Chrome applications. You can head over to its page [on the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug-nightly) to install it and learn what's new.
 
 ## Next steps
 

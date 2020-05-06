@@ -123,7 +123,7 @@ VS Code's built-in JavaScript formatter providers basic code formatting with rea
 
 The `javascript.format.*` [settings](/docs/getstarted/settings.md) configure the built-in formatter. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
 
-For more specialized code formatting styles, try installing one of the JavaScript formatting extensions from the [marketplace](https://marketplace.visualstudio.com/vscode).
+For more specialized code formatting styles, try installing one of the JavaScript formatting extensions from the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## JSX and auto closing tags
 
