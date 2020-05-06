@@ -33,7 +33,7 @@ Issue context is typically needed when committing a change that resolves a parti
 
 ![Completion Suggestions](completion-suggestions.gif)
 
-The list of possible issues is configurable with the setting `githubIssues.queries`, so if you work across multiple repositories you can include queries for those issues. The list of users includes the collaborators in the currently open repository.
+The list of possible issues is configurable with the setting `githubIssues.queries`, so if you work across multiple repositories you can include queries for those issues. The queries use the [GitHub search syntax](https://help.github.com/en/articles/understanding-the-search-syntax). The list of users includes the collaborators in the currently open repository.
 
 ![Issue Queries](issue-queries.png)
 
