@@ -135,7 +135,7 @@ If you are using [Windows Subsystem for Linux v2 (WSL2)](https://docs.microsoft.
 Once the WSL2 engine is enabled, you can either:
 
 * Select **Remote-Containers: Open Folder in Container...** from the Command Palette `(kbstyle(F1))` and choose a WSL folder using the local `\\wsl$` share.
-* Use the **Remote-Containers: Reopen Folder in Container** command from a folder already opened using the **[Remote - WSL extension](https://aka.ms/vscode-remote/download/wsl)**.
+* Use the **Remote-Containers: Reopen Folder in Container** command from a folder already opened using the [Remote - WSL](https://aka.ms/vscode-remote/download/wsl) extension.
 
 The rest of the quick start applies as-is! You can learn more about the [Remote - WSL extension in is documentation](/docs/remote/wsl.md).
 

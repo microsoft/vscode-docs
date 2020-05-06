@@ -503,7 +503,7 @@ If you are still having trouble, see the [Docker Desktop for Windows troubleshoo
 
 The VS Code [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension can only automatically mount your source code into a container if your code is in a folder or drive shared with Docker. If you open a dev container from a non-shared location, the container will successfully start but the workspace will be empty.
 
-Note that this step is **not required with [Docker Desktop's WSL2 engine](https://aka.ms/vscode-remote/containers/docker-wsl)**.
+Note that this step is **not required** with [Docker Desktop's WSL2 engine](https://aka.ms/vscode-remote/containers/docker-wsl).
 
 To change Docker's drive and folder sharing settings:
 

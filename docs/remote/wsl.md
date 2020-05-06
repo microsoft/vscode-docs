@@ -139,7 +139,7 @@ If you are using WSL2 and [Docker Desktop's WSL2 back-end](https://docs.docker.c
 
     > **Tip:**  Go to **Settings > Resources > WSL Integration** and enable Docker integration with the WSL distribution you will be using.
 
-2. If you have not already, Install the [Remote - Containers VS Code extension](https://aka.ms/vscode-remote/download/containers) along with the WSL extension.
+2. If you have not already, install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension along with the WSL extension.
 
 3. Next, [open your source code folder in WSL](#open-a-remote-folder-or-workspace) as you would normally.
 
