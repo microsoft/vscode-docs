@@ -729,6 +729,8 @@
 { "key": "ctrl+1",                "command": "workbench.action.focusFirstEditorGroup" },
 { "key": "ctrl+4",                "command": "workbench.action.focusFourthEditorGroup" },
 { "key": "ctrl+k ctrl+left",      "command": "workbench.action.focusLeftGroup" },
+{ "key": "f6",                    "command": "workbench.action.focusNextPart" },
+{ "key": "shift+f6",              "command": "workbench.action.focusPreviousPart" },
 { "key": "ctrl+k ctrl+right",     "command": "workbench.action.focusRightGroup" },
 { "key": "ctrl+2",                "command": "workbench.action.focusSecondEditorGroup" },
 { "key": "ctrl+7",                "command": "workbench.action.focusSeventhEditorGroup" },
