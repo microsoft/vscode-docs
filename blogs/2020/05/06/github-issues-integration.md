@@ -29,7 +29,7 @@ Issue hovers work on full issue URLs, issue comment URLs, issues referenced by n
 
 ![User Hover](user-hover.png)
 
-Issue context is typically needed when committing a change that resolves a particular issue, both within source code files and in Markdown (such as a changelog). To easily add this context, we have added completion suggestions for issues and users. In the Git commit textbox, you can format your issue completion with the `githubIssues.issueCompletionFormatScm` setting. In Markdown files, issues complete as a Markdown link, and in other files, issues complete as a simple issue number (#1234).
+Issue context is typically needed in commit messages to reference an issue the commit resolves, within source code files, and in Markdown (such as a changelog). To easily add this context, we have added completion suggestions for issues and users. In the Git commit textbox, you can format your issue completion with the `githubIssues.issueCompletionFormatScm` setting. In Markdown files, issues complete as a Markdown link, and in other files, issues complete as a simple issue number (#1234).
 
 ![Completion Suggestions](completion-suggestions.gif)
 
