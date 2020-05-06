@@ -11,8 +11,7 @@ MetaSocialImage:
 
 May 6, 2020 by Alex Ross, [@alexr00](https://github.com/alexr00/)
 
-On the VS Code team, we use [issues](https://github.com/microsoft/vscode/issues) to track all of our work. From our detailed [iteration plans](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aiteration-plan) to individual bugs, we track everything as GitHub issues. Because of how much our team and other GitHub projects use issues every day, we've added GitHub issues integration to VS Code. This complements the GitHub Pull Request work we [announced](https://code.visualstudio.com/blogs/2018/09/10/introducing-github-pullrequests) over a year ago. This new support is now available in the [GitHub Pull Requests and Issues extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) (formerly named GitHub Pull Requests) to move the issues and the code closer together.
-
+On the VS Code team, we use [issues](https://github.com/microsoft/vscode/issues) to track all of our work. From our detailed [iteration plans](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aiteration-plan) to individual bugs, we track everything as GitHub issues. Because of how much our team and other GitHub projects use issues every day, we've added GitHub issues integration to VS Code. This complements the GitHub Pull Request work we [announced](https://code.visualstudio.com/blogs/2018/09/10/introducing-github-pullrequests) over a year ago. Starting with VS Code version 1.45, this new support to move the issues and the code closer together is will be available in the [GitHub Pull Requests and Issues extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) (formerly named GitHub Pull Requests).
 
 ## Our Integration Approach
 
