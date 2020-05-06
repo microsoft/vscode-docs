@@ -26,7 +26,7 @@ Linking to issues in code is a normal part of our workflow, especially when ther
 
 ![Issue Hover](issue-hover.png)
 
-Issue hovers work on full issue urls, issue comment urls, issues reference by #1234, and issues reference by owner/repository#1234. We also often reference users in our codebase. Our [proposed API](https://github.com/microsoft/vscode/blob/d8317abc50e347d76fd471f5a070996cc7f73e20/src/vs/vscode.proposed.d.ts) has many of these references to make it obvious who's responsible for the proposals.
+Issue hovers work on full issue urls, issue comment urls, issues reference by #1234, and issues reference by owner/repository#1234 (ex. Microsoft/vscode#1234). We also often reference users in our codebase. Our [proposed API](https://github.com/microsoft/vscode/blob/d8317abc50e347d76fd471f5a070996cc7f73e20/src/vs/vscode.proposed.d.ts) has many of these references to make it obvious who's responsible for the proposals.
 
 ![User Hover](user-hover.png)
 
