@@ -614,6 +614,10 @@ If your runtime supports both protocols, here are a few additional reasons for u
 
 We try to keep feature parity between both protocol implementations but this becomes more and more difficult because the technology underlying `legacy` is deprecated whereas the new `inspector` evolves quickly. For this reason, we specify the supported protocols if a feature is not supported by both `legacy` and `inspector`.
 
+## New JavaScript Debugger
+
+We're working on a new version of our debugger for Node.js and Chrome applications. You can head over to its page [on the marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug-nightly) to install it and learn what's new.
+
 ## Next steps
 
 In case you didn't already read the Node.js section, take a look at:
