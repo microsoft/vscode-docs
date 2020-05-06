@@ -109,7 +109,7 @@ You can add a volume bound to any local folder by using the following appropriat
     ```json
     "mounts": [
         "source=${localEnv:HOME}${localEnv:USERPROFILE},target=/host-home-folder,type=bind,consistency=cached",
-        "source=${localWorkspaceFolder}/data,target=/data,type=bind,consistency=cached"
+        "source=${localWorkspaceFolder}/app-data,target=/data,type=bind,consistency=cached"
     ]
     ```
 
@@ -205,10 +205,8 @@ Follow these steps:
 1. Use the `workspaceMount` property in `devcontainer.json` to tell VS Code where to bind your source code. Then use the `mounts` property (VS Code 1.41+) to mount the `node_modules` sub-folder into a named local volume instead.
 
     ```json
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-    "workspaceFolder": "/workspace"
     "mounts": [
-        "source=try-node-node_modules,target=/workspace/node_modules,type=volume"
+        "source=try-node-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
     ]
     ```
 
@@ -216,10 +214,8 @@ Follow these steps:
 
     ```json
     "remoteUser": "node",
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-    "workspaceFolder": "/workspace",
     "mounts": [
-        "source=try-node-node_modules,target=/workspace/node_modules,type=volume"
+        "source=try-node-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
     ],
     "postCreateCommand": "sudo chown node node_modules"
     ```

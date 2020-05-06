@@ -131,6 +131,32 @@ The script needs to be a valid Bourne shell script. Be aware that an invalid scr
 
 Check the WSL log (Remote WSL: Open WSL Log) for output and errors.
 
+## Advanced: Opening a WSL2 folder in a container
+
+If you are using WSL2 and [Docker Desktop's WSL2 back-end](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can use the [Remote - Containers](/docs/remote/containers.md) extension to work with source code stored inside WSL! Just follow these steps:
+
+1. If you have not already, [install and setup](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) Docker Desktop's WSL2 support.
+
+    > **Tip:**  Go to **Settings > Resources > WSL Integration** and enable Docker integration with the WSL distribution you will be using.
+
+2. If you have not already, Install the [Remote - Containers VS Code extension](https://aka.ms/vscode-remote/download/containers) along with the WSL extension.
+
+3. Next, [open your source code folder in WSL](#open-a-remote-folder-or-workspace) as you would normally.
+
+4. Once your folder is open in WSL, select **Remote-Containers: Reopen Folder in Container** from the Command Palette (`kbstyle(F1)`).
+
+5. If the folder does not have a `.devcontainer/devcontainer.json` file in it, you'll be asked to pick a starting point from a filterable list or an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) (if one exists).
+
+    ![Select a node dev container definition](images/containers/select-dev-container-def.png)
+
+6. The VS Code window (instance) will reload and start building the dev container. A progress notification provides status updates.
+
+    ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+
+7. After the build completes, VS Code will automatically connect to the container. You can now work with the your source code from inside the container.
+
+See the [Remote - Containers documentation](/docs/remote/containers.md) for more information.
+
 ## Known limitations
 
 This section contains a list of common know issues with WSL. The intent is not to provide a complete list of issues but to highlight some of the common problems seen with WSL.
@@ -167,17 +193,7 @@ If you clone a Git repository using SSH and your SSH key has a passphrase, VS Co
 
 ### Docker Extension limitations
 
-By default, the Docker extension will run remotely. Depending on how WSL is configured, this can prevent the extension from seeing local containers.
-
-You can use one of the following solutions to resolve this problem:
-
-- Use the [Docker Technical Preview for WSL 2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL 1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
-
-- Open a new local window (**File > New Window**) and use it to work with local containers.
-
-- Install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/remote/containers.md#option-1-use-the-containers-remote-explorer) in situations when you need to see your local containers.
-
-- Use the [extensionKind property](/docs/remote/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
+While the Docker extension can run both remotely and locally, if it is already installed locally, you will be unable to install on a remote SSH host without first uninstalling it locally. We will address this problem in a future VS Code release.
 
 ### Extension limitations
 
@@ -253,10 +269,6 @@ For example, the setting below will force the Docker extension to run locally an
 ```
 
 A value of `"ui"` instead of `"workspace"` will force the extension to run on the local UI/client side instead. Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
-
-### Can I use the Remote - Containers extension to work with source code stored in WSL2 on Windows?
-
-If you are using [Docker Desktop's WSL2 engine](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can enable experimental support in the Remote - Containers extension that will allow you to open folders from the `\\wsl$` share in a container. Simply check **Remote > Containers: Experimental WSL** in [VS Code settings](/docs/getstarted/settings.md) and restart VS Code. See [this excellent blog post](https://stuartleeks.com/posts/vscode-devcontainers-wsl/) for complete setup details.
 
 ### As an extension author, what do I need to do?
 
