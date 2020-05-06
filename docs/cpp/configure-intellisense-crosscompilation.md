@@ -46,7 +46,7 @@ The C/C++ extension populates the include path by querying the compiler specifie
 
 ![Include path setting](images/intellisense/include-path.png)
 
-Given the settings above, your `c_cpp_configuration.json` file will look something like the following. You can can open it by selecting **C/C++: Edit Configurations (JSON)** from the Command Palette:
+Given the settings above, your `c_cpp_configuration.json` file will look something like the following. You can open it by selecting **C/C++: Edit Configurations (JSON)** from the Command Palette:
 
 ```json
 {
