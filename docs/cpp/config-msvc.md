@@ -1,7 +1,7 @@
 ---
-Order: 2
+Order: 4
 Area: cpp
-TOCTitle: Microsoft C++
+TOCTitle: Microsoft C++ on Windows
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
 PageTitle: Configure Visual Studio Code for Microsoft C++
 DateApproved: 2/19/2020
