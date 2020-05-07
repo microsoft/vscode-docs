@@ -92,7 +92,7 @@ For Python Docker images, the `docker-build` task infers the following options:
 
 **Minimal configuration using defaults**
 
-When building .NET Core-based Docker image, one can omit the `platform` property and just set the `netCore` object (`platform` is implicitly set to `netcore` when `netCore` object is present). Note that `appProject` is a required property:
+When you build a .NET Core-based Docker image, you can omit the `platform` property and just set the `netCore` object (`platform` is implicitly set to `netcore` when `netCore` object is present). Note that `appProject` is a required property:
 
 ```json
 {
