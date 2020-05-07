@@ -68,7 +68,7 @@ Windows Subsystem for Linux represents a great choice for container-based servic
 
 ![Enable Docker inside WSL 2 distribution](images/devenv/devenv-enable-docker-wsl2.png)
 
-> As of November 2019, WSL 2 is part of Windows Insider builds. To try out the new Docker engine you will need Windows Insider build 19018 or newer, and the [Docker Desktop for Windows Edge release 2.1.6.1 or newer](https://docs.docker.com/docker-for-windows/edge-release-notes/)
+> To use WSL 2 for Docker development you will need Windows 10 version 2004 or newer, and Docker Desktop for Windows version 2.2.0.5 or newer.
 >
 > The old version of WSL (WSL 1) does not provide an easy way to connect to the Docker daemon on the host.
 
