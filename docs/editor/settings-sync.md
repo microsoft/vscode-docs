@@ -21,13 +21,13 @@ You will be asked to sign in and what preferences you would like to sync; curren
 
 ![Settings Sync configure dialog](images/settings-sync/sync-configure.png)
 
-Clicking on `Sign in & Turn on` button will ask you to choose signing in with your Microsoft or Github account.
+Selecting the **Sign in & Turn on** button will ask you to choose between signing in with your Microsoft or Github account.
 
 ![Settings Sync configure dialog](images/settings-sync/sync-accounts.png)
 
-After making this selection, the browser will open so that you can sign in to your Microsoft or Github account. When Microsoft account is choosen, you can use both personal accounts, such as Outlook accounts, and Azure accounts and you can also link a GitHub account to a new or existing Microsoft account.
+After making this selection, the browser will open so that you can sign in to your Microsoft or Github account. When a Microsoft account is chosen, you can use either personal accounts, such as Outlook accounts, or Azure accounts, and you can also link a GitHub account to a new or existing Microsoft account.
 
-After signing in, Sync will be turned on and continue to sync automatically in the background.
+After signing in, Settings Sync will be turned on and continue to synchronize your preferences automatically in the background.
 
 ## Configuring synced data
 
@@ -62,7 +62,7 @@ When synchronizing settings between multiple machines, there may occasionally be
 
 ## Switching Accounts
 
-If at any time you decide you want to sync your data to a different account, you can turn off and turn on sync again with different account.
+If at any time you want to sync your data to a different account, you can turn off and turn on Settings Sync again with different account.
 
 ## Restoring data
 
