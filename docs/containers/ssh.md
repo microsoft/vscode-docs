@@ -31,8 +31,27 @@ We recommend using the Visual Studio Code [Remote-SSH extension](/docs/container
     docker context create my-remote-docker-machine --docker "host=ssh://username@host:port"
     ```
 
-    If you don't include user name, the command will use your current local user name, which might be wrong. If you omit the port, it defaults to 22.
+    Always include the user name in the Docker endpoint address, even if it is the same as the local user name. If you omit the port, it defaults to 22.
 
 1. Use the **Command Palette** (`kb(workbench.action.showCommands)`) to issue the **Docker Context: Use** command to activate the Docker context pointing to the remote machine. This command causes both VS Code and Docker CLI to use the remote machine context.
 
 1. It is recommended to change the refresh rate to something longer than the default with the `docker.explorerRefreshInterval` setting. The connection over SSH is slow, and it can result in trying to refresh again before the previous refresh even finished. We recommend at least 3000 ms.
+
+## Tips
+
+- The "host" part in the Docker endpoint string (`ssh://username@host:port`) must be either a globally-resolvable DNS machine name, or an IP address. Docker extension will not be able to use host aliases defined in the [SSH configuration file](https://www.ssh.com/ssh/config/).
+
+- Make sure the remote machine host key is already memorized [in the known_hosts file](https://www.ssh.com/ssh/key/#known-host-keys). The simplest way to ensure this is to connect to the machine via `ssh` client program (run `ssh username@host:port` from the command line). Upon first-time connection, the `ssh` program will display the host key and let you approve it, updating the `known_hosts` file automatically.
+
+- There is [an issue with ssh-keygen utility that comes with Windows 10 build 1909 and older](https://github.com/PowerShell/Win32-OpenSSH/issues/1263) that prevents it from working properly with newer SSH daemons (for example, the one that comes with Ubuntu 20.04 LTS and newer). The workaround is to use ECDSA-type key, not RSA-type key, for the SSH connection. You can generate an ECDSA SSH key and add it to SSH agent with following commands:
+
+    ```shell
+    ssh-keygen -t ecdsa -b 521
+    ssh-add id_ecdsa
+    ```
+
+- Windows 10 build 1909 and older are affected by [an issue that prevents SSH from getting to your identities after Windows OS update](https://github.com/PowerShell/Win32-OpenSSH/issues/1234). The workaround is to add a dummy service entry to system configuration. Run the following from administrative command prompt window:
+
+    ```shell
+    sc create sshd binPath=C:\Windows\System32\OpenSSH\ssh.exe
+    ```
