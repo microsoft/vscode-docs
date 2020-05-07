@@ -37,10 +37,11 @@ To generate a `launch.json` file with Python configurations, do the following st
 1. A configuration menu will open from the Command Palette allowing you to choose the type of debug configuration you want for the opened file. For now, in the **Select a debug configuration** menu that appears, select **Python File**.
 ![Debug configurations menu](images/debugging/debug-configurations.png)
 
-> **Note** Starting a debugging session through the Debug Panel, **F5** or **Run > Start Debugging**, when no configuration exists will also bring up the debug configuration menu, but will not create a launch.json file.
+   > **Note** Starting a debugging session through the Debug Panel, **F5** or **Run > Start Debugging**, when no configuration exists will also bring up the debug configuration menu, but will not create a launch.json file.
 
 1. The Python extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
-![Configuration json](images/debugging/configuration-json.png)
+
+   ![Configuration json](images/debugging/configuration-json.png)
 
 The details of configuration properties are covered later in this article under [Standard configuration and options](#set-configuration-options). Additional configurations are also described in this article under [Debugging specific app types](#debugging-specific-app-types).
 
@@ -59,7 +60,7 @@ During debugging, the Status Bar shows the current configuration and the current
 
 ![Debugging Status Bar](images/debugging/debug-status-bar.png)
 
-By default, the debugger uses the same `python.pythonPath` workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `python` in `launch.json` for the applicable debugger configuration as described in the next section. Alternately, select the named interpreter on the Status Bar to select a different one, which updates `python.pythonPath`.
+By default, the debugger uses the same `python.pythonPath` workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `python` in `launch.json` for the applicable debugger configuration. Alternately, select the named interpreter on the Status Bar to select a different one.
 
 ## Basic debugging
 
@@ -137,7 +138,7 @@ The associated configuration file would then look as follows.
 |**--log-to**     |   `<path>`      | **Optional**. Specifies a path to an existing directory for saving logs.         |
 |**--log-to-stderr**     |    none     |  **Optional**. Enables debugpy to write logs directly to stderr.       |
 |**--pid**     |    `<pid>`     | **Optional**. Specifies a process that is already running to inject the debug server into.        |
-|**--configure-<name>** | `<value>` | **Optional**. Sets a debug property that must be known to the debug server before the client connects. Such properties can be used directly in *launch* configuration, but must be set in this manner for *attach* configurations. For example, if you don't want the debug server to automatically inject itself into subprocesses created by the process you're attaching to, use `--configure-subProcess false`.|
+|**--configure-\<name>** | `<value>` | **Optional**. Sets a debug property that must be known to the debug server before the client connects. Such properties can be used directly in *launch* configuration, but must be set in this manner for *attach* configurations. For example, if you don't want the debug server to automatically inject itself into subprocesses created by the process you're attaching to, use `--configure-subProcess false`.|
 
 > **Note**: `[<arg>]` can be used to pass command line arguments along to the app being launched.
 
@@ -187,7 +188,7 @@ The following steps outline the general process to set up an SSH tunnel. An SSH 
     AllowTcpForwarding yes
     ```
 
-> **Note**: The default for AllowTcpForwarding is yes, so you might not need to make a change.
+   > **Note**: The default for AllowTcpForwarding is yes, so you might not need to make a change.
 
 1. If you had to add or modify `AllowTcpForwarding`, restart the SSH server. On Linux/macOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH or `sshd` in the list of services, and select **Restart**.
 
@@ -199,21 +200,21 @@ The following steps outline the general process to set up an SSH tunnel. An SSH 
 
 1. In your VS Code workspace, create a configuration for remote debugging in your `launch.json` file, setting the port to match the port used in the `ssh` command and the host to `localhost`. You use `localhost` here because you've set up the SSH tunnel.
 
-```json
-{
-    "name": "Python: Attach",
-    "type": "python",
-    "request": "attach",
-    "port": 5678,
-    "host": "localhost",
-    "pathMappings": [
-        {
-            "localRoot": "${workspaceFolder}", // Maps C:\Users\user1\project1
-            "remoteRoot": "."                  // To current working directory ~/project1
-        }
-    ]
-}
-```
+    ```json
+    {
+        "name": "Python: Attach",
+        "type": "python",
+        "request": "attach",
+        "port": 5678,
+        "host": "localhost",
+        "pathMappings": [
+            {
+                "localRoot": "${workspaceFolder}", // Maps C:\Users\user1\project1
+                "remoteRoot": "."                  // To current working directory ~/project1
+            }
+        ]
+    }
+    ```
 
 **Starting debugging**
 
@@ -368,7 +369,6 @@ Specifies how program output is displayed as long as the defaults for `redirectO
 | `"internalConsole"`              | **VS Code debug console.** If `redirectOutput` is set to False, no output is displayed.                                 |
 | `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md). If `redirectOutput` is set to True, output is also displayed in the debug console.|
 | `"externalTerminal"`             | **Separate console window**. If `redirectOutput` is set to True, output is also displayed in the debug console.                                            |
-
 
 ### `cwd`
 
