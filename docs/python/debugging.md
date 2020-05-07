@@ -160,6 +160,7 @@ In some scenarios, you need to debug a Python script that's invoked locally by a
     print("Waiting for debugger attach")
     debugpy.wait_for_client()
     debugpy.breakpoint()
+    print('break on this line')
     ```
 
 1. Open a terminal using **Terminal: Create New Integrated Terminal**, which activates the script's selected environment.
