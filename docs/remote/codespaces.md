@@ -11,7 +11,7 @@ DateApproved: 5/7/2020
 
 [Visual Studio Codespaces](https://docs.microsoft.com/visualstudio/online/overview/what-is-vsonline) provides cloud-powered development environments for any activity - whether it's a long-term project, or a short-term task like reviewing a pull request. You can work with these environments from three possible clients: Visual Studio Code, a browser-based editor, or the Visual Studio IDE (currently in Private Preview).
 
-![Visual Studio Codespaces extension](images/vsonline/vscodespaces-extension.png)
+![Visual Studio Codespaces extension](images/codespaces/vscodespaces-extension.png)
 
 ## Environments
 
