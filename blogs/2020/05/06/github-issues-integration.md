@@ -55,6 +55,12 @@ A common workflow is to look at your issues, pick one to work on, create a branc
 
 To fit more workflows, there are several options you can configure. If your flow doesn't involve creating a topic branch, you can disable the branch creation with `githubIssues.useBranchForIssues`. If you have a different naming scheme for your branches, you can use the `githubIssues.workingIssueBranch` setting. The issues listed in the **Issues** view can be configured to use a custom query with `githubIssues.queries`.
 
+## Want to learn more?
+
+You can watch this **What every Github user should know about VS Code** talk from [GitHub Satellite](https://githubsatellite.com) by Sana Ajani, [@sana_ajani](https://twitter.com/sana_ajani), and Burke Holland, [@burkeholland](https://twitter.com/burkeholland).
+
+<iframe src="https://www.youtube.com/embed/T6sW1Dk9B4E?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
 ## Going forward
 
 Currently, most of these features are only supported in repository clones (not forks), so there is more work to be done to support that and other use cases. We would love to see your feedback for this extension, so feel free to leave us a suggestion in the issues in the extension [repo](https://github.com/microsoft/vscode-pull-request-github/issues)!
