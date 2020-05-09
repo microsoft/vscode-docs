@@ -61,6 +61,8 @@ You can watch this **What every Github user should know about VS Code** talk fro
 
 <iframe src="https://www.youtube.com/embed/T6sW1Dk9B4E?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
+You can also read the [Working with GitHub](/docs/editor/github.md) topic, which describes VS Code's GitHub integration in more detail.
+
 ## Going forward
 
 Currently, most of these features are only supported in repository clones (not forks), so there is more work to be done to support that and other use cases. We would love to see your feedback for this extension, so feel free to leave us a suggestion in the issues in the extension [repo](https://github.com/microsoft/vscode-pull-request-github/issues)!
