@@ -190,7 +190,7 @@ There is one `CustomDocument` per opened file. Users can open multiple editors f
 
 By default, VS Code only allows there to be one editor for each custom document. This limitation makes it easier to correctly implement a custom editor as you do not have to worry about synchronizing multiple custom editor instances with each other.
 
-If your extension can support it however, we recommend setting `supportsMultipleEditorsPerDocument: false` when registering your custom editor so that multiple editor instances can be opened for the same document. This will make your custom editors behave more like VS Code's normal text editors.
+If your extension can support it however, we recommend setting `supportsMultipleEditorsPerDocument: true` when registering your custom editor so that multiple editor instances can be opened for the same document. This will make your custom editors behave more like VS Code's normal text editors.
 
 **Opening Custom Editors**
 When the user opens a file that matches the `customEditor` contribution point, VS Code fires an `onCustomEditor` [activation event](/api/references/activation-events) and then invokes the provider registered for the provided view type. A `CustomEditorProvider` has two roles: providing the document for the custom editor and then providing the editor itself. Here's a ordered list of what happens for the `catCustoms.pawDraw` editor from the [custom editor extension sample][sample]:
