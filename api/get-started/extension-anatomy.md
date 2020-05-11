@@ -48,7 +48,7 @@ You can read more about the configuration files:
 - `tasks.json` for defining VS Code [Tasks](/docs/editor/tasks)
 - `tsconfig.json` consult the TypeScript [Handbook](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 
-However, let's focus on `package.json` and `extensions.ts`, which are essential to understanding the `Hello World` extension.
+However, let's focus on `package.json` and `extension.ts`, which are essential to understanding the `Hello World` extension.
 
 ### Extension Manifest
 
