@@ -81,7 +81,7 @@ The extension automatically looks for interpreters in the following locations:
 - Virtual environments located in the folder identified by the `python.venvPath` setting (see [General settings](/docs/python/settings-reference.md#general-settings)), which can contain multiple virtual environments. The extension looks for virtual environments in the first-level subfolders of `venvPath`.
 - Virtual environments located in a `~/.virtualenvs` folder for [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/).
 - Interpreters installed by [pyenv](https://github.com/pyenv/pyenv).
-- A [pipenv](https://pipenv.readthedocs.io/) environment for the workplace folder. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects.
+- A [pipenv](https://pipenv.readthedocs.io/) environment for the workspace folder. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects.
 - Virtual environments located in the path identified by `WORKON_HOME` (as used by [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/) and [pipenv](https://pipenv.readthedocs.io/)).
 - Conda environments that contain a Python interpreter. VS Code does not show conda environments that don't contain an interpreter.
 - Interpreters installed in a `.direnv` folder for [direnv](https://direnv.net/) under the workspace (project) folder.
