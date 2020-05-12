@@ -128,11 +128,11 @@ cache: yarn
 
 You can configure the CI to publish a new version of the extension automatically.
 
-The publish command is similar to publishing from a local environment using the [`vsce`](https://github.com/Microsoft/vsce) service but the command needs to also include the Personal Access Token (PAT).
+The publish command is similar to publishing from a local environment using the [`vsce`](https://github.com/Microsoft/vsce) service but the command needs to also include the Personal Access Token (PAT). By default, [`vsce`](https://github.com/Microsoft/vsce) will use an environmental variable named `VSCE_PAT` (if defined) for the Personal Access Token.
 
 You shouldn't expose the PAT with the rest of the source code (it's a sensitive information), so you can store it in a "secret variable". The value of that variable will not be exposed and you can use it in the `azure-pipelines.yml` file.
 
-To create a secret variable, follow the [Azure DevOps Secrets instructions](https://docs.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables).
+To create a secret variable named `VSCE_PAT`, follow the [Azure DevOps Secrets instructions](https://docs.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables).
 
 Next steps will be:
 
@@ -155,12 +155,12 @@ trigger:
     include: ['*']
 ```
 
-4. Add a `publish` step in `azure-pipelines.yml` that calls `yarn deploy` with the secret variable. (`VSCODE_MARKETPLACE_TOKEN` in the example should be replaced with the name of the secret you created at the beginning of the process).
+4. Add a `publish` step in `azure-pipelines.yml` that calls `yarn deploy` with the secret variable.
 
 ```yaml
 - bash: |
     echo ">>> Publish"
-    yarn deploy -p $(VSCODE_MARKETPLACE_TOKEN)
+    yarn deploy
   displayName: Publish
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Agent.OS'], 'Linux'))
 ```
