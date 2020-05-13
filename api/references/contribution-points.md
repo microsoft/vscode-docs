@@ -217,15 +217,23 @@ Example:
 
 **Other JSON Schema properties**
 
-You can use any the properties defined by JSON Schema to describe other constraints on configuration values.
+You can use any of the validation JSON Schema properties to describe other constraints on configuration values:
 
 - `default` for defining the default value of a property
 - `minimum` and `maximum` for restricting numeric values
 - `maxLength`, `minLength` for restricting string length
 - `pattern` for restricting strings to a given regular expression
+- `patternErrorMessage` for giving a tailored error message when a pattern does not match.
 - `format` for restricting strings to well-known formats, such as `date`, `time`, `ipv4`, `email`,
   and `uri`
 - `maxItems`, `minItems` for restricting array length
+
+**Unsupported JSON Schema properties**
+
+Note supported in the configuration section are:
+
+- `$ref` and `definition`: The configuration schemas must be self-contained and must make no assumptions how the full settings JSON schema document looks like.
+
 
 For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/understanding-json-schema/reference/index.html).
 
