@@ -73,7 +73,7 @@ Given the settings above, your `c_cpp_configuration.json` file will look somethi
 
 ## Next steps
 
-- For more information about IntelliSense configuration, see [Customizing default settings](/docs/customize-default-settings-cpp).
+- For more information about IntelliSense configuration, see [Customizing default settings](/docs/cpp/customize-default-settings-cpp.md).
 - If you have trouble configuring the settings, file an issue in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
-- Explore the [c_cpp_properties schema](/docs/c-cpp-properties-schema-reference).
+- Explore the [c_cpp_properties schema](/docs/cpp/c-cpp-properties-schema-reference.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).
