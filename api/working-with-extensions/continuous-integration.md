@@ -128,7 +128,7 @@ cache: yarn
 
 You can configure the CI to publish a new version of the extension automatically.
 
-The publish command is similar to publishing from a local environment using the [`vsce`](https://github.com/Microsoft/vsce) service but the command needs to also include the Personal Access Token (PAT). By default, [`vsce`](https://github.com/Microsoft/vsce) will use an environmental variable named `VSCE_PAT` (if defined) for the Personal Access Token.
+The publish command is similar to publishing from a local environment using the [`vsce`](https://github.com/Microsoft/vsce) service but the command needs to also include the Personal Access Token (PAT). [`vsce`](https://github.com/Microsoft/vsce) can also pick up on the `VSCE_PAT` environmental variable for the Personal Access Token.
 
 You shouldn't expose the PAT with the rest of the source code (it's a sensitive information), so you can store it in a "secret variable". The value of that variable will not be exposed and you can use it in the `azure-pipelines.yml` file.
 
