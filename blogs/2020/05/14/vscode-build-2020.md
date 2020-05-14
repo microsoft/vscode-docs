@@ -59,12 +59,18 @@ Additionally, the VS Code team will be online for an **Ask the Team** session on
 
 In addition to the live sessions, you'll have the opportunity to learn more about VS Code with 6 videos that will be available on-demand on the [Channel 9](https://channel9.msdn.com/Events/Build/2020) website. They'll become available on Tuesday, May 19 at 12pm (noon), and we'll update this blog with direct links once they're published.
 
-* **Visual Studio Code tips and tricks**, Matt Bierner ([@mattbierner](https://twitter.com/mattbierner))
-* **What every Visual Studio Code user should know about GitHub**, Rachel Macfarlane ([@RMacfarlane](https://github.com/RMacfarlane)), Alex Ross ([@alexr00](https://github.com/alexr00))
-* **What's New in TypeScript**, Daniel Rosenwasser ([@drosenwasser](https://twitter.com/drosenwasser))
-* **Python development with Visual Studio Code**, Luciana Abud ([@luumelo14](https://twitter.com/luumelo14))
-* **Supercharge your data science workflow with Python and Visual Studio Code**, Sid Unnithan ([@SidUnnithan](https://twitter.com/SidUnnithan)), Jeffrey Mew ([@jeffrey_mew](https://twitter.com/jeffrey_mew))
-* **Build containerized microservices faster and ship with confidence using Visual Studio Code and GitHub**, Nick Greenfield ([@greenie-msft](https://github.com/greenie-msft))
+* **Visual Studio Code tips and tricks**
+  * Matt Bierner ([@mattbierner](https://twitter.com/mattbierner))
+* **What every Visual Studio Code user should know about GitHub**
+  * Rachel Macfarlane ([@RMacfarlane](https://github.com/RMacfarlane)), Alex Ross ([@alexr00](https://github.com/alexr00))
+* **What's New in TypeScript**
+  * Daniel Rosenwasser ([@drosenwasser](https://twitter.com/drosenwasser))
+* **Python development with Visual Studio Code**
+  * Luciana Abud ([@luumelo14](https://twitter.com/luumelo14))
+* **Supercharge your data science workflow with Python and Visual Studio Code**
+  * Sid Unnithan ([@SidUnnithan](https://twitter.com/SidUnnithan)), Jeffrey Mew ([@jeffrey_mew](https://twitter.com/jeffrey_mew))
+* **Build containerized microservices faster and ship with confidence using Visual Studio Code and GitHub**
+  * Nick Greenfield ([@greenie-msft](https://github.com/greenie-msft))
 
 ## Follow us for more
 
