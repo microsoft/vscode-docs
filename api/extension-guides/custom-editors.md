@@ -47,7 +47,7 @@ There are two classes of custom editors: custom text editors and custom editors.
 
 A `CustomTextEditorProvider` uses VS Code's standard [`TextDocument`](https://code.visualstudio.com/api/references/vscode-api#TextDocument) as its data model. You can use a `CustomTextEditor` for any text based file types. `CustomTextEditor` are considerably easier to implement because VS Code already know about how to work with text files and can therefore implement operations such as save and backing up files for hot exit.
 
-With a `CustomEditorProvider` on the other hand, your extension brings its own document model. This means that you can use a `CustomEditor` for binary formats such as images, but it also means that your extension is responsible for a lot more, including implementing save and backing. You can skip over much of this complexity if your custom editor is readonly, such custom editors for previews.
+With a `CustomEditorProvider` on the other hand, your extension brings its own document model. This means that you can use a `CustomEditor` for binary formats such as images, but it also means that your extension is responsible for a lot more, including implementing save and backing. You can skip over much of this complexity if your custom editor is readonly, such as custom editors for previews.
 
 > **Note:** `CustomEditorProvider` is still a proposed API in VS Code 1.45. We are aiming to finalize the API for VS Code 1.46.
 
