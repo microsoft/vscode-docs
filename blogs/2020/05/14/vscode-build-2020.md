@@ -13,9 +13,9 @@ May 14, 2020 by Alessandro Segala, [@ItalyPaleAle](https://twitter.com/ItalyPale
 
 The [Microsoft Build 2020](https://mybuild.microsoft.com) conference is starting next Tuesday, May 19, and will be running for 48 continuous hours. For the first time, Build is a fully digital event, open to everyone for free.
 
-![Microsoft Build 2020](build-2020.png)
+[![Microsoft Build 2020](build-2020.png)](https://mybuild.microsoft.com)
 
-Our team has been hard at work creating new experiences for all developers using Visual Studio Code. At Build, we'll demo new features we've been working on in VS Code (hint: Preferences Sync!) as well as Notebooks, Remote Development, and a bunch of cool tips and tricks. You will also be able to check out what we've been working on with partner teams (Visual Studio Codespaces, Visual Studio Live Share) and together with our friends at GitHub.
+Our team has been hard at work creating new experiences for all developers using Visual Studio Code. At Build, we'll demo new features we've been working on in VS Code (hint: Settings Sync!) as well as Notebooks, Remote Development, and a bunch of cool tips and tricks. You will also be able to check out what we've been working on with partner teams (Visual Studio Codespaces, Visual Studio Live Share) and together with our friends at GitHub.
 
 In our sessions, you can learn how Visual Studio Code enables teams to remain productive and collaborate even when distributed.
 
@@ -69,7 +69,7 @@ In addition to the live sessions, you'll have the opportunity to learn more abou
   * Luciana Abud ([@luumelo14](https://twitter.com/luumelo14))
 * **Supercharge your data science workflow with Python and Visual Studio Code**
   * Sid Unnithan ([@SidUnnithan](https://twitter.com/SidUnnithan)), Jeffrey Mew ([@jeffrey_mew](https://twitter.com/jeffrey_mew))
-* **Build containerized microservices faster and ship with confidence using Visual Studio Code and GitHub**
+* **Build containerized microservices faster and ship with confidence using VS Code and GitHub**
   * Nick Greenfield ([@greenie-msft](https://github.com/greenie-msft))
 
 ## Follow us for more
