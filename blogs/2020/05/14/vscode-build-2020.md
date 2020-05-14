@@ -5,7 +5,7 @@ PageTitle: Visual Studio Code at Microsoft Build 2020
 MetaDescription: Visual Studio Code at Microsoft Build 2020
 Date: 2020-05-14
 Author: Alessandro Segala
-MetaSocialImage: vscode-build-social.png
+MetaSocialImage: /assets/blogs/2020/05/14/vscode-build-social.png
 ---
 # Visual Studio Code at Build 2020
 
