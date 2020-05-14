@@ -72,4 +72,4 @@ Currently, most of these features are only supported in repository clones (not f
 Happy Coding!
 
 Alex Ross, VS Code developer
-[@alexr00000](https://twitter.com/alexr00000)
+[@alexr00](https://github.com/alexr00)
