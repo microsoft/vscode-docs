@@ -1020,7 +1020,7 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 
 ## devcontainer.json reference
 
-See [Setting up a folder to run in a container](#in-depth-setting-up-a-folder-to-run-in-a-container) for more information on configuring a dev container or the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers) for a wide variety of base configurations.
+See [Setting up a folder to run in a container](#indepth-setting-up-a-folder-to-run-in-a-container) for more information on configuring a dev container or the [vscode-dev-containers repository](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers) for a wide variety of base configurations.
 
 | Property | Type | Description |
 |----------|------|-------------|
