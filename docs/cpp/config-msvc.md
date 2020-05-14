@@ -37,7 +37,7 @@ To successfully complete this tutorial, you must do the following:
 
    ![Cpp build tools workload](images/msvc/cpp-build-tools.png)
    
-    You can use the C++ Toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any C++ codebases as long as you also have a valid Visual Studio license (either Community, Pro or Enterprise) that you are actively using to develop these C++ codebases.
+>**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any C++ codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise) that you are actively using to develop that C++ codebase.
 
 ### Check your Microsoft Visual C++ installation
 
