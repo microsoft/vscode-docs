@@ -105,7 +105,11 @@ For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and MI
 * Call stack
 * Stepping
 
- For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
+For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
+
+### Natvis framework
+
+You create custom views of C++ object in the debugger with the [Natvis](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework. You can read the [Custom views for native objects](/docs/cpp/natvis.md) topic for details on using Natvis with the C/C++ extension.
 
 ## Known limitations
 
