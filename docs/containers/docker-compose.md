@@ -232,7 +232,7 @@ Let's assume you have  different set of input files for each environment. You co
 ```
 
 #### Pick a template when the command is invoked
-If you omit the `match` property from command templates, you will be asked which template to use each time compose up command is invoked. For example:
+If you omit the `match` property from command templates, you will be asked which template to use each time `compose up` command is invoked. For example:
 ```json
 "docker.commands.composeUp": [
     {
