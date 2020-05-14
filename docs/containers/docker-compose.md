@@ -231,8 +231,8 @@ Let's assume you have  different set of input files for each environment. You co
 ]
 ```
 
-#### Pick a template at runtime
-By invoking the `compose up` command with the following command customization, you can give an option to choose a template at runtime and the `${configurationFile}` will be replaced with the selected file.
+#### Pick a template when the command is invoked
+If you omit the `match` property from command templates, you will be asked which template to use each time compose up command is invoked. For example:
 ```json
 "docker.commands.composeUp": [
     {
