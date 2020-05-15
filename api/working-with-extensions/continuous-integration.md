@@ -11,6 +11,18 @@ MetaDescription: Use Continuous Integration for testing Visual Studio Code exten
 
 Extension integration tests can be run on CI services. The [`vscode-test`](https://github.com/Microsoft/vscode-test) library helps you setup extension tests on CI providers and contains a [sample extension](https://github.com/microsoft/vscode-test/tree/master/sample) setup on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/vscode-test/_build?definitionId=15) or jump directly to the [`azure-pipelines.yml` file](https://github.com/microsoft/vscode-test/blob/master/sample/azure-pipelines.yml).
 
+## Automated Publishing
+
+You can also configure the CI to publish a new version of the extension automatically.
+
+The publish command is similar to publishing from a local environment using the [`vsce`](https://github.com/Microsoft/vsce) service but the command needs to also include the Personal Access Token (PAT). [`vsce`](https://github.com/Microsoft/vsce) can also pick up on the `VSCE_PAT` environmental variable for the Personal Access Token.
+
+You shouldn't expose the PAT with the rest of the source code (it's a sensitive information), so you can store it in a "secret variable". The value of that variable will not be exposed and you can use it in the CI pipline.
+
+# Example Implementations
+
+The following examples use a sample project that uses [Yarn](https://yarnpkg.com/), but can be adapted to use [npm](https://www.npmjs.com/) as well.
+
 ## Azure Pipelines
 
 <a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="/assets/api/working-with-extensions/continuous-integration/pipelines-logo.png" width="318" /></a>
@@ -23,7 +35,12 @@ Then, add the following `azure-pipelines.yml` file to the root of your extension
 
 ```yaml
 trigger:
-- master
+  branches:
+    include:
+    - master
+  tags:
+    include:
+    - v*
 
 strategy:
   matrix:
@@ -68,76 +85,11 @@ Finally, [create a new pipeline](https://docs.microsoft.com/azure/devops/pipelin
 
 You can enable the build to run continuously when pushing to a branch and even on pull requests. See [Build pipeline triggers](https://docs.microsoft.com/azure/devops/pipelines/build/triggers) to learn more.
 
-## Github Actions
+### Automated Publishing
 
-You can also configure Github Actions to run your extension CI using the [gabrielbb xvfb action](https://github.com/marketplace/actions/gabrielbb-xvfb-action). This automatically checks if Linux is the current OS and runs the tests in an Xvfb enabled environment accordingly:
-
-```yaml
-on: [push]
-
-jobs:
-  build:
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
-    runs-on: $\{{ matrix.os }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 8.x
-      - run: npm install
-      - name: Run tests
-        uses: GabrielBB/xvfb-action@v1.0
-        with:
-          run: npm test
-
-```
-
-## Travis CI
-
-[vscode-test](https://github.com/microsoft/vscode-test) also includes a [Travis CI build definition](https://github.com/microsoft/vscode-test/blob/master/.travis.yml). Because the way to define environment variables is different from Azure Pipelines to Travis CI, the `xvfb` script is a little bit different:
-
-```yaml
-language: node_js
-os:
-  - osx
-  - linux
-node_js: 8
-
-install:
-  - |
-    if [ $TRAVIS_OS_NAME == "linux" ]; then
-      export DISPLAY=':99.0'
-      /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-    fi
-script:
-  - |
-    echo ">>> Compile vscode-test"
-    yarn && yarn compile
-    echo ">>> Compiled vscode-test"
-    cd sample
-    echo ">>> Run sample integration test"
-    yarn && yarn compile && yarn test
-cache: yarn
-```
-
-## Automated publishing
-
-You can configure the CI to publish a new version of the extension automatically.
-
-The publish command is similar to publishing from a local environment using the [`vsce`](https://github.com/Microsoft/vsce) service but the command needs to also include the Personal Access Token (PAT). [`vsce`](https://github.com/Microsoft/vsce) can also pick up on the `VSCE_PAT` environmental variable for the Personal Access Token.
-
-You shouldn't expose the PAT with the rest of the source code (it's a sensitive information), so you can store it in a "secret variable". The value of that variable will not be exposed and you can use it in the `azure-pipelines.yml` file.
-
-To setup `VSCE_PAT` as a secret variable, follow the [Azure DevOps Secrets instructions](https://docs.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables).
-
-Next steps will be:
-
-1. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
-2. Declare a `deploy` script in `package.json` without the PAT.
+1. Set up `VSCE_PAT` as a secret variable using the [Azure DevOps Secrets instructions](https://docs.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables).
+2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
+3. Declare a `deploy` script in `package.json` without the PAT.
 
 ```json
 "scripts": {
@@ -145,17 +97,17 @@ Next steps will be:
 }
 ```
 
-3. Configure the CI so the build will run for all the branches that include tags by adding a `trigger` section in `azure-pipelines.yml`:
+4. Configure the CI so the build will also run when tags are created:
 
 ```yaml
 trigger:
-  branches:
-    include: ['*']
   tags:
-    include: ['*']
+    include:
+    - master
+    - refs/tags/v*
 ```
 
-4. Add a `publish` step in `azure-pipelines.yml` that calls `yarn deploy` with the secret variable.
+5. Add a `publish` step in `azure-pipelines.yml` that calls `yarn deploy` with the secret variable.
 
 ```yaml
 - bash: |
@@ -172,3 +124,134 @@ In our example, the condition has three checks:
 - `succeeded()` - Publish only if the tests pass.
 - `startsWith(variables['Build.SourceBranch'], 'refs/tags/')` - Publish only if a tagged (release) build.
 - `eq(variables['Agent.OS'], 'Linux')` - Include if your build runs on multiple agents (Windows, Linux, etc.). If not, remove that part of the condition.
+
+## Github Actions
+
+You can also configure Github Actions to run your extension CI using the [gabrielbb xvfb action](https://github.com/marketplace/actions/gabrielbb-xvfb-action). This automatically checks if Linux is the current OS and runs the tests in an Xvfb enabled environment accordingly:
+
+```yaml
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: $\{{ matrix.os }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 8.x
+    - run: npm install
+    - name: Run tests
+      uses: GabrielBB/xvfb-action@v1.0
+      with:
+        run: npm test
+```
+
+### Automated Publishing
+
+1. Set up `VSCE_PAT` as an encrypted secret secret using the [GitHub Actions secrets instructions](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository).
+2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
+3. Declare a `deploy` script in `package.json` without the PAT.
+
+```json
+"scripts": {
+  "deploy": "vsce publish --yarn"
+}
+```
+
+4. Configure the CI so the build will also run when tags are created:
+
+```yaml
+on:
+  push:
+    branches:
+    - master
+  release:
+    types:
+    - created
+```
+
+5. Add a `publish` job to the pipeline that calls `npm run deploy` with the secret variable.
+
+```yaml
+- name: Publish
+  if: success() && startsWith( github.ref, 'refs/tags/releases/') && matrix.os == 'ubuntu-latest'
+  run: npm run deploy
+  env:
+    VSCE_PAT: ${{ secrets.VSCE_PAT }}
+```
+
+The [`if`](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) property tells the CI to run the publish step only in certain cases.
+
+In our example, the condition has three checks:
+
+- `success()` - Publish only if the tests pass.
+- `startsWith( github.ref, 'refs/tags/releases/')` - Publish only if a tagged (release) build.
+- `matrix.os == 'ubuntu-latest'` - Include if your build runs on multiple agents (Windows, Linux, etc.). If not, remove that part of the condition.
+
+## Travis CI
+
+[vscode-test](https://github.com/microsoft/vscode-test) also includes a [Travis CI build definition](https://github.com/microsoft/vscode-test/blob/master/.travis.yml). Because the way to define environment variables is different from other CI platforms, the `xvfb` script is a little bit different:
+
+```yaml
+language: node_js
+os:
+- osx
+- linux
+node_js: 8
+
+install:
+- |
+  if [ $TRAVIS_OS_NAME == "linux" ]; then
+    export DISPLAY=':99.0'
+    /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  fi
+script:
+- |
+  echo ">>> Compile vscode-test"
+  yarn && yarn compile
+  echo ">>> Compiled vscode-test"
+  cd sample
+  echo ">>> Run sample integration test"
+  yarn && yarn compile && yarn test
+cache: yarn
+```
+
+### Automated Publishing
+
+1. Set up `VSCE_PAT` as an encrypted secret secret using the [TravisCI encryption key usage instructions](https://docs.travis-ci.com/user/encryption-keys/#usage).
+2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
+3. Declare a `deploy` script in `package.json` without the PAT.
+
+```json
+"scripts": {
+  "deploy": "vsce publish --yarn"
+}
+```
+
+4. Add an `after_script` stage to the job that calls `npm run deploy` with the secret variable.
+
+```yaml
+after_script:
+- |
+  echo ">>> Publish"
+  yarn deploy
+
+stages:
+- name: after_script
+  if: env(TRAVIS_TAG) =~ ^v
+```
+
+The [`stages`](https://docs.travis-ci.com/user/conditional-builds-stages-jobs#conditional-stages) property tells the CI to include stages when certain conditions are met.
+
+In our example, the condition has one check:
+
+- `env(TRAVIS_TAG) =~ ^v` - Publish only if a tagged (release) build that starts with the letter `v`.

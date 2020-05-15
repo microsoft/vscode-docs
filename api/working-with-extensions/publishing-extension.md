@@ -266,4 +266,4 @@ Please note that when building and publishing your extension from Windows, all t
 
 ### Can I publish from a continuous integration (CI) build?
 
-Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps to automatically publish your extension to the Marketplace.
+Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps, GitHub Actions, and TravisCI to automatically publish your extension to the Marketplace.
