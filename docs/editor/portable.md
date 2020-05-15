@@ -13,7 +13,7 @@ Visual Studio Code supports [Portable mode](https://en.wikipedia.org/wiki/Portab
 
 This mode also provides a way to set the installation folder location for VS Code extensions, useful for corporate environments that prevent extensions from being installed in the Windows AppData folder.
 
-Portable mode is supported on the ZIP download for Windows, and the .TAR.GZ download for Linux, as well as the regular Application download for macOS. See the [Download page](/download) to find the correct `.zip / .tar.gz` file for your platform.
+Portable mode is supported on the ZIP download for Windows, and the TAR.GZ download for Linux, as well as the regular Application download for macOS. See the [Download page](/download) to find the correct `.zip / .tar.gz` file for your platform.
 
 > **Note:** Do not attempt to configure portable mode on an installation from the **Windows User or System installers**. Portable mode is only supported on the Windows ZIP (`.zip`) archive. Note as well that the Windows ZIP archive does not support auto update.
 
