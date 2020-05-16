@@ -100,7 +100,7 @@ Although working in the global environment is an easy way to get started, that e
 
 For this reason, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that environment's subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages.
 
-> **Tip**: A **conda environment** is a virtual environments that's created and managed using the `conda` package manager. See [Conda environments](#conda-environments) for more details.
+> **Tip**: A **conda environment** is a virtual environment that's created and managed using the `conda` package manager. See [Conda environments](#conda-environments) for more details.
 
 To create a virtual environment, use the following command, where ".venv" is the name of the environment folder:
 
