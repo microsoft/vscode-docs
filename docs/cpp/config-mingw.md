@@ -222,6 +222,8 @@ The `program` setting specifies the program you want to debug. Here it is set to
 
 By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`. Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
 
+>**Note**: The `preLaunchTask` setting is used to specify task to be executed before launch. Make sure it is consistent with the `task.json` file `label` setting.
+
 ### Start a debugging session
 
 1. Go back to `helloworld.cpp` so that it is the active file.
