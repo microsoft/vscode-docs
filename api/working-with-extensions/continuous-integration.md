@@ -19,8 +19,6 @@ The publish command is similar to publishing from a local environment using [`vs
 
 # Example Implementations
 
-The following examples use a sample project that uses [Yarn](https://yarnpkg.com/), but can be adapted to use [npm](https://www.npmjs.com/) as well.
-
 ## Azure Pipelines
 
 <a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="/assets/api/working-with-extensions/continuous-integration/pipelines-logo.png" width="318" /></a>
@@ -253,3 +251,9 @@ The [`stages`](https://docs.travis-ci.com/user/conditional-builds-stages-jobs#co
 In our example, the condition has one check:
 
 - `env(TRAVIS_TAG) =~ ^v` - Publish only if a tagged (release) build that starts with the letter `v`.
+
+## Common questions
+
+### Do I need to use Yarn for continuous integration?
+
+All of the above examples refer to a hypothetical project built with [Yarn](https://yarnpkg.com/), but can be adapted to use [npm](https://www.npmjs.com/), [Grunt](https://gruntjs.com/), [Gulp](https://gulpjs.com/), or any other Javascript build tool.
