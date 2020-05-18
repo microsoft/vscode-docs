@@ -15,9 +15,7 @@ Extension integration tests can be run on CI services. The [`vscode-test`](https
 
 You can also configure the CI to publish a new version of the extension automatically.
 
-The publish command is similar to publishing from a local environment using the [`vsce`](https://github.com/Microsoft/vsce) service but the command needs to also include the Personal Access Token (PAT). [`vsce`](https://github.com/Microsoft/vsce) can also pick up on the `VSCE_PAT` environmental variable for the Personal Access Token.
-
-You shouldn't expose the PAT with the rest of the source code (it's a sensitive information), so you can store it in a "secret variable". The value of that variable will not be exposed and you can use it in the CI pipline.
+The publish command is similar to publishing from a local environment using [`vsce`](https://github.com/Microsoft/vsce), but you must somehow provide the Personal Access Token (PAT) in a secure way. By storing the PAT as a `VSCE_PAT` _secret variable_, `vsce` will be able to use it. Secret variables are never exposed, so they are safe to use in a CI pipeline.
 
 # Example Implementations
 
