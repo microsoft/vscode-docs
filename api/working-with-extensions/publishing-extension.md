@@ -114,13 +114,6 @@ You can also enter your Personal Access Token as you publish with an optional pa
 vsce publish -p <token>
 ```
 
-Your Personal Access Token may also be defined by the `VSCE_PAT` environmental variable.
-
-```bash
-export VSCE_PAT=97bd38305a81f2d89b5f3aa44500ec964b87cf8a
-vsce publish
-```
-
 ## Auto-incrementing the extension version
 
 You can auto-increment an extension's version number when you publish by specifying the [SemVer](https://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
