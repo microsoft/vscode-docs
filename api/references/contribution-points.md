@@ -64,7 +64,7 @@ Contribute configuration keys that will be exposed to the user. The user will be
 
 ![configuration extension point example](images/contribution-points/configuration.png)
 
-You can read these values from your extension using `vscode.workspace.getConfiguration('myExtension')`.
+You can read these values from your extension using `vscode.workspace.getConfiguration().Get('myExtension.keyName')`.
 
 ### Configuration schema
 
