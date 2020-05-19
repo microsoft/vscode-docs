@@ -473,7 +473,7 @@ RUN apk add --no-cache shadow
 
 ## Setting the project name for Docker Compose
 
-VS Code will respect the value of [the `COMPOSE_PROJECT_NAME` environment variable](https://docs.docker.com/compose/reference/envvars/#compose_project_name) if set for the VS Code process or in a `.env` file in the root of the project.
+VS Code will respect the value of the [COMPOSE_PROJECT_NAME](https://docs.docker.com/compose/reference/envvars/#compose_project_name)  environment variable if set for the VS Code process or in a `.env` file in the root of the project.
 
 For example, after shutting down all VS Code windows, you can start VS Code from the command line as follows:
 

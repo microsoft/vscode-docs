@@ -29,13 +29,13 @@ There are a number of great live sessions at Build, too many list here, but we t
 
 * Chris Dias ([@ChrisDias](https://twitter.com/ChrisDias)) and Aaron Powell ([@slace](https://twitter.com/slace))
 * [Tuesday May 19 at 4:15pm](https://mybuild.microsoft.com/sessions/44eb0651-9449-4a50-b344-638ec520e042)
-* [Wednesday May 20 at 7:30am](https://mybuild.microsoft.com/sessions/5bf61d0b-f4af-4b2e-bcb4-56829ada4e5b))
+* [Wednesday May 20 at 7:30am](https://mybuild.microsoft.com/sessions/5bf61d0b-f4af-4b2e-bcb4-56829ada4e5b)
 * [Thursday May 21 at 12:45am](https://mybuild.microsoft.com/sessions/98051ab8-b26e-4582-9215-5d21f2b18afd)
 
 **How to be super productive with Node.js and Visual Studio Code**
 
 * Brian Holt ([@holtbt](https://twitter.com/holtbt)) and Aaron Powell ([@slace](https://twitter.com/slace))
-* [Tuesday May 19 at 7:30pm](https://mybuild.microsoft.com/sessions/a908c4f8-210f-49b4-a7fe-671b4e3890f9)
+* [Tuesday May 19 at 7:30pm](https://mybuild.microsoft.com/sessions/28de040a-934e-4890-9168-58501e070653)
 * [Wednesday May 20 at 8:15am](https://mybuild.microsoft.com/sessions/a908c4f8-210f-49b4-a7fe-671b4e3890f9)
 * [Thursday May 21 at 1:30am](https://mybuild.microsoft.com/sessions/0f743b92-55fd-4c51-8ac5-bc30b56e07e1)
 
