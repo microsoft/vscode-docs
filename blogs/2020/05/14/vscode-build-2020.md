@@ -23,53 +23,53 @@ In our sessions, you can learn how Visual Studio Code enables teams to remain pr
 
 There are a number of great live sessions at Build, too many list here, but we think the following offerings will be interesting to developers using Visual Studio Code. All of these sessions are going to be live-streamed on the [Microsoft Build](https://mybuild.microsoft.com/) website, and are repeated three times across three time zones. And, each session includes a live Q&A at the end.
 
-All times shown below are in Pacific Time; click on the time to see it converted to your local time zone.
+*All times shown below are in Pacific Time.*
 
 **Remote development with Visual Studio Code**
 
-* Chris Dias ([@ChrisDias](https://twitter.com/ChrisDias))
-* [Tuesday May 19 at 4:15pm](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200519T1615&p1=234)
-* [Wednesday May 20 at 7:30am](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200520T0730&p1=234)
-* [Thursday May 21 at 12:45am](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200521T0045&p1=234)
+* Chris Dias ([@ChrisDias](https://twitter.com/ChrisDias)) and Aaron Powell ([@slace](https://twitter.com/slace))
+* [Tuesday May 19 at 4:15pm](https://mybuild.microsoft.com/sessions/44eb0651-9449-4a50-b344-638ec520e042)
+* [Wednesday May 20 at 7:30am](https://mybuild.microsoft.com/sessions/5bf61d0b-f4af-4b2e-bcb4-56829ada4e5b))
+* [Thursday May 21 at 12:45am](https://mybuild.microsoft.com/sessions/98051ab8-b26e-4582-9215-5d21f2b18afd)
 
 **How to be super productive with Node.js and Visual Studio Code**
 
 * Brian Holt ([@holtbt](https://twitter.com/holtbt)) and Aaron Powell ([@slace](https://twitter.com/slace))
-* [Tuesday May 19 at 7:30pm](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200519T1930&p1=234)
-* [Wednesday May 20 at 8:15am](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200520T0815&p1=234)
-* [Thursday May 21 at 1:30am](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200521T0130&p1=234)
+* [Tuesday May 19 at 7:30pm](https://mybuild.microsoft.com/sessions/a908c4f8-210f-49b4-a7fe-671b4e3890f9)
+* [Wednesday May 20 at 8:15am](https://mybuild.microsoft.com/sessions/a908c4f8-210f-49b4-a7fe-671b4e3890f9)
+* [Thursday May 21 at 1:30am](https://mybuild.microsoft.com/sessions/0f743b92-55fd-4c51-8ac5-bc30b56e07e1)
 
 **Build Python apps in Azure faster with Visual Studio Code**
 
 * Nicolas Garfinkel
-* [Tuesday May 19 at 9pm](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200519T21&p1=234)
-* [Wednesday May 20 at 12:30pm](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200520T1230&p1=234)
-* [Thursday May 21 at 3am](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200521T0300&p1=234)
+* [Tuesday May 19 at 9pm](https://mybuild.microsoft.com/sessions/4b7d35d7-7af8-442d-953a-abcc12627d24)
+* [Wednesday May 20 at 12:30pm](https://mybuild.microsoft.com/sessions/314e756d-b145-4d84-90c1-1aea9235df72)
+* [Thursday May 21 at 3am](https://mybuild.microsoft.com/sessions/b7a2db58-78fb-49b8-9372-66cd63f2f26f)
 
 **How to be productive with your team while remote**
 
 * Jonathan Carter ([@LostInTangent](https://twitter.com/LostInTangent))
-* [Tuesday May 19 at 12:30pm](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200519T1230&p1=234)
-* [Wednesday May 20 at 3:30am](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200520T0330&p1=234)
-* [Wednesday May 20 at 6pm](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200520T18&p1=234)
+* [Tuesday May 19 at 12:30pm](https://mybuild.microsoft.com/sessions/a0d2222c-cbd4-42ad-9471-88f91dc639f7)
+* [Wednesday May 20 at 3:30am](https://mybuild.microsoft.com/sessions/a0e69c1b-96e9-452a-9b3f-91665f4a51cf)
+* [Wednesday May 20 at 6pm](https://mybuild.microsoft.com/sessions/ef29e80e-19e3-4a51-a32c-75dc8e58820b)
 
-Additionally, the VS Code team will be online for an **Ask the Team** session on Tuesday, May 19 at 11:45am PDT, where you can come and ask us anything, just like coming to the booth on the expo hall floor, only virtually.
+Additionally, the VS Code team will be online for an **Ask the Team** session on [Tuesday, May 19 at 11:45am PDT](https://mybuild.microsoft.com/sessions/be31cf74-1b32-4ac5-9673-333bc6018b18), where you can come and ask us anything, just like coming to the booth on the expo hall floor, only virtually.
 
 ## Learn with on-demand videos
 
-In addition to the live sessions, you'll have the opportunity to learn more about VS Code with 6 videos that will be available on-demand on the [Channel 9](https://channel9.msdn.com/Events/Build/2020) website. They'll become available on Tuesday, May 19 at 12pm (noon), and we'll update this blog with direct links once they're published.
+In addition to the live sessions, you'll have the opportunity to learn more about VS Code with 6 videos that will be available on-demand on the [Channel 9](https://channel9.msdn.com/Events/Build/2020) website.
 
-* **Visual Studio Code tips and tricks**
+* [**Visual Studio Code tips and tricks**](https://aka.ms/Build2020AppDev-VSCodeTips)
   * Matt Bierner ([@mattbierner](https://twitter.com/mattbierner))
-* **What every Visual Studio Code user should know about GitHub**
+* [**What every Visual Studio Code user should know about GitHub**](https://aka.ms/Build2020AppDev-VSCodeAndGitHub)
   * Rachel Macfarlane ([@RMacfarlane](https://github.com/RMacfarlane)), Alex Ross ([@alexr00](https://github.com/alexr00))
-* **What's New in TypeScript**
+* [**What's New in TypeScript**](https://aka.ms/Build2020AppDev-TypeScript)
   * Daniel Rosenwasser ([@drosenwasser](https://twitter.com/drosenwasser))
-* **Python development with Visual Studio Code**
+* [**Python development with Visual Studio Code**](https://aka.ms/Build2020AppDev-Python)
   * Luciana Abud ([@luumelo14](https://twitter.com/luumelo14))
-* **Supercharge your data science workflow with Python and Visual Studio Code**
+* [**Supercharge your data science workflow with Python and Visual Studio Code**](https://aka.ms/Build2020AppDev-DataScience)
   * Sid Unnithan ([@SidUnnithan](https://twitter.com/SidUnnithan)), Jeffrey Mew ([@jeffrey_mew](https://twitter.com/jeffrey_mew))
-* **Build containerized microservices faster and ship with confidence using VS Code and GitHub**
+* [**Build containerized microservices faster and ship with confidence using VS Code and GitHub**](https://aka.ms/Build2020AppDev-InnerLoops)
   * Nick Greenfield ([@greenie-msft](https://github.com/greenie-msft))
 
 ## Follow us for more
