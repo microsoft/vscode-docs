@@ -41,7 +41,7 @@ There are a number of great live sessions at Build, too many list here, but we t
 
 **Build Python apps in Azure faster with Visual Studio Code**
 
-* Nicolas Garfinkel
+* Nicolas Garfinkel ([@NicolasGarfink1](https://twitter.com/NicolasGarfink1))
 * [Tuesday May 19 at 9pm](https://mybuild.microsoft.com/sessions/4b7d35d7-7af8-442d-953a-abcc12627d24)
 * [Wednesday May 20 at 12:30pm](https://mybuild.microsoft.com/sessions/314e756d-b145-4d84-90c1-1aea9235df72)
 * [Thursday May 21 at 3am](https://mybuild.microsoft.com/sessions/b7a2db58-78fb-49b8-9372-66cd63f2f26f)
