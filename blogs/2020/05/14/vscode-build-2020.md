@@ -51,7 +51,7 @@ There are a number of great live sessions at Build, too many list here, but we t
 * Jonathan Carter ([@LostInTangent](https://twitter.com/LostInTangent))
 * [Tuesday May 19 at 12:30pm](https://mybuild.microsoft.com/sessions/a0d2222c-cbd4-42ad-9471-88f91dc639f7)
 * [Wednesday May 20 at 3:30am](https://mybuild.microsoft.com/sessions/a0e69c1b-96e9-452a-9b3f-91665f4a51cf)
-* [Wednesday May 20 at 6pm](https://mybuild.microsoft.com/sessions/ef29e80e-19e3-4a51-a32c-75dc8e58820b )
+* [Wednesday May 20 at 6pm](https://mybuild.microsoft.com/sessions/ef29e80e-19e3-4a51-a32c-75dc8e58820b)
 
 Additionally, the VS Code team will be online for an **Ask the Team** session on [Tuesday, May 19 at 11:45am PDT](https://mybuild.microsoft.com/sessions/be31cf74-1b32-4ac5-9673-333bc6018b18), where you can come and ask us anything, just like coming to the booth on the expo hall floor, only virtually.
 
