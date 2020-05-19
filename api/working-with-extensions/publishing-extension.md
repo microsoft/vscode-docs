@@ -78,7 +78,7 @@ Give the Personal Access Token a name, optionally extend its expiration date to 
 
 ![Personal access token details](images/publishing-extension/token3.png)
 
-Finally, scroll down the list of possible scopes until you find **Marketplace** and select both **Acquire** and **Manage**:
+Finally, scroll down the list of possible scopes until you find **Marketplace** and select **Manage**:
 
 ![Personal access token details](images/publishing-extension/token4.png)
 
@@ -247,7 +247,7 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 
-One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accessible accounts` in the Accounts field drop-down (instead selecting a specific account). You should also set the Authorized Scopes to `All scopes` for the publish to work.
+One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accessible accounts` in the Accounts field drop-down (instead selecting a specific account). You should also set the Authorized Scopes to `Marketplace (Manage)` for the publish to work.
 
 ### I can't unpublish my extension through the `vsce` tool?
 
@@ -259,4 +259,4 @@ Please note that when building and publishing your extension from Windows, all t
 
 ### Can I publish from a continuous integration (CI) build?
 
-Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps to automatically publish your extension to the Marketplace.
+Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps, GitHub Actions, and TravisCI to automatically publish your extension to the Marketplace.
