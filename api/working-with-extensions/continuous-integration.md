@@ -9,21 +9,19 @@ MetaDescription: Use Continuous Integration for testing Visual Studio Code exten
 
 # Continuous Integration
 
-Extension integration tests can be run on CI services. The [`vscode-test`](https://github.com/Microsoft/vscode-test) library helps you setup extension tests on CI providers and contains a [sample extension](https://github.com/microsoft/vscode-test/tree/master/sample) setup on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/vscode-test/_build?definitionId=15) or jump directly to the [`azure-pipelines.yml` file](https://github.com/microsoft/vscode-test/blob/master/sample/azure-pipelines.yml).
+Extension integration tests can be run on CI services. The [`vscode-test`](https://github.com/Microsoft/vscode-test) library helps you set up extension tests on CI providers and contains a [sample extension](https://github.com/microsoft/vscode-test/tree/master/sample) setup on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/vscode-test/_build?definitionId=15) or jump directly to the [`azure-pipelines.yml` file](https://github.com/microsoft/vscode-test/blob/master/sample/azure-pipelines.yml).
 
-## Automated Publishing
+## Automated publishing
 
 You can also configure the CI to publish a new version of the extension automatically.
 
-The publish command is similar to publishing from a local environment using [`vsce`](https://github.com/Microsoft/vsce), but you must somehow provide the Personal Access Token (PAT) in a secure way. By storing the PAT as a `VSCE_PAT` _secret variable_, `vsce` will be able to use it. Secret variables are never exposed, so they are safe to use in a CI pipeline.
-
-# Example Implementations
+The publish command is similar to publishing from a local environment using [`vsce`](https://github.com/Microsoft/vsce), but you must somehow provide the Personal Access Token (PAT) in a secure way. By storing the PAT as a `VSCE_PAT` **secret variable**, `vsce` will be able to use it. Secret variables are never exposed, so they are safe to use in a CI pipeline.
 
 ## Azure Pipelines
 
 <a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="/assets/api/working-with-extensions/continuous-integration/pipelines-logo.png" width="318" /></a>
 
-[Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is great for running VS Code extension tests as it supports running the tests on Windows, macOS, and Linux. For Open Source projects, you get unlimited minutes and 10 free parallel jobs. This section explains how to setup an Azure Pipelines for running your extension tests.
+[Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is great for running VS Code extension tests as it supports running the tests on Windows, macOS, and Linux. For Open Source projects, you get unlimited minutes and 10 free parallel jobs. This section explains how to set up an Azure Pipelines for running your extension tests.
 
 First, create a free account on [Azure DevOps](https://azure.microsoft.com/services/devops/) and create an [Azure DevOps project](https://azure.microsoft.com/features/devops-projects/) for your extension.
 
@@ -81,9 +79,9 @@ Finally, [create a new pipeline](https://docs.microsoft.com/azure/devops/pipelin
 
 You can enable the build to run continuously when pushing to a branch and even on pull requests. See [Build pipeline triggers](https://docs.microsoft.com/azure/devops/pipelines/build/triggers) to learn more.
 
-### Automated Publishing
+### Automated publishing
 
-1. Set up `VSCE_PAT` as a secret variable using the [Azure DevOps Secrets instructions](https://docs.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables).
+1. Set up `VSCE_PAT` as a secret variable using the [Azure DevOps secrets instructions](https://docs.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables).
 2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
 3. Declare a `deploy` script in `package.json` without the PAT.
 
@@ -113,7 +111,7 @@ trigger:
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Agent.OS'], 'Linux'))
 ```
 
-The [`condition`](https://docs.microsoft.com/azure/devops/pipelines/process/conditions) property tells the CI to run the publish step only in certain cases.
+The [condition](https://docs.microsoft.com/azure/devops/pipelines/process/conditions) property tells the CI to run the publish step only in certain cases.
 
 In our example, the condition has three checks:
 
@@ -121,9 +119,9 @@ In our example, the condition has three checks:
 - `startsWith(variables['Build.SourceBranch'], 'refs/tags/')` - Publish only if a tagged (release) build.
 - `eq(variables['Agent.OS'], 'Linux')` - Include if your build runs on multiple agents (Windows, Linux, etc.). If not, remove that part of the condition.
 
-## Github Actions
+## GitHub Actions
 
-You can also configure Github Actions to run your extension CI using the [gabrielbb xvfb action](https://github.com/marketplace/actions/gabrielbb-xvfb-action). This automatically checks if Linux is the current OS and runs the tests in an Xvfb enabled environment accordingly:
+You can also configure GitHub Actions to run your extension CI using the [gabrielbb xvfb action](https://github.com/marketplace/actions/gabrielbb-xvfb-action). This automatically checks if Linux is the current OS and runs the tests in an Xvfb enabled environment accordingly:
 
 ```yaml
 on:
@@ -151,9 +149,9 @@ jobs:
         run: npm test
 ```
 
-### Automated Publishing
+### Automated publishing
 
-1. Set up `VSCE_PAT` as an encrypted secret secret using the [GitHub Actions secrets instructions](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository).
+1. Set up `VSCE_PAT` as an encrypted secret using the [GitHub Actions secrets instructions](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository).
 2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
 3. Declare a `deploy` script in `package.json` without the PAT.
 
@@ -185,7 +183,7 @@ on:
     VSCE_PAT: ${{ secrets.VSCE_PAT }}
 ```
 
-The [`if`](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) property tells the CI to run the publish step only in certain cases.
+The [if](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) property tells the CI to run the publish step only in certain cases.
 
 In our example, the condition has three checks:
 
@@ -195,7 +193,7 @@ In our example, the condition has three checks:
 
 ## Travis CI
 
-[vscode-test](https://github.com/microsoft/vscode-test) also includes a [Travis CI build definition](https://github.com/microsoft/vscode-test/blob/master/.travis.yml). Because the way to define environment variables is different from other CI platforms, the `xvfb` script is a little bit different:
+[vscode-test](https://github.com/microsoft/vscode-test) also includes a [Travis CI build definition](https://github.com/microsoft/vscode-test/blob/master/.travis.yml). The way to define environment variables in Travis CI is different from other CI frameworks, so the `xvfb` script is also different:
 
 ```yaml
 language: node_js
@@ -221,9 +219,9 @@ script:
 cache: yarn
 ```
 
-### Automated Publishing
+### Automated publishing
 
-1. Set up `VSCE_PAT` as an encrypted secret secret using the [TravisCI encryption key usage instructions](https://docs.travis-ci.com/user/encryption-keys/#usage).
+1. Set up `VSCE_PAT` as an encrypted secret using the [Travis CI encryption key usage instructions](https://docs.travis-ci.com/user/encryption-keys/#usage).
 2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
 3. Declare a `deploy` script in `package.json` without the PAT.
 
@@ -246,7 +244,7 @@ stages:
   if: env(TRAVIS_TAG) =~ ^v
 ```
 
-The [`stages`](https://docs.travis-ci.com/user/conditional-builds-stages-jobs#conditional-stages) property tells the CI to include stages when certain conditions are met.
+The [stages](https://docs.travis-ci.com/user/conditional-builds-stages-jobs#conditional-stages) property tells the CI to include stages when certain conditions are met.
 
 In our example, the condition has one check:
 
@@ -256,4 +254,4 @@ In our example, the condition has one check:
 
 ### Do I need to use Yarn for continuous integration?
 
-All of the above examples refer to a hypothetical project built with [Yarn](https://yarnpkg.com/), but can be adapted to use [npm](https://www.npmjs.com/), [Grunt](https://gruntjs.com/), [Gulp](https://gulpjs.com/), or any other Javascript build tool.
+All of the above examples refer to a hypothetical project built with [Yarn](https://yarnpkg.com/), but can be adapted to use [npm](https://www.npmjs.com/), [Grunt](https://gruntjs.com/), [Gulp](https://gulpjs.com/), or any other JavaScript build tool.
