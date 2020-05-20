@@ -66,7 +66,7 @@ If at any time you want to sync your data to a different account, you can turn o
 
 ## Restoring data
 
-VS Code always stores local backups of your preferences while syncing and provides remote and local sync backup views for accessing your remote and local backup data respectively. In case something goes wrong, you can access these views using commands `Preferences Sync: Show Remote Backup` and `Preferences Sync: Show Local Backup` and restore your data.
+VS Code always stores local backups of your preferences while syncing and provides remote and local sync backup views for accessing your remote and local backup data respectively. In case something goes wrong, you can access these views using commands `Preferences Sync: Show Synced Data` and `Preferences Sync: Show Local Backup` and restore your data.
 
 ![Settings Sync backup views](images/settings-sync/sync-backup-views.png)
 
