@@ -1,10 +1,10 @@
 ---
-Order: 16
+Order: 10
 Area: cpp
 TOCTitle: FAQ
 ContentId: 652c9cec-b8fa-4597-a894-f2ea9a095c31
 PageTitle: C/C++ extension FAQ
-DateApproved: 07/25/2019
+DateApproved: 05/22/2020
 MetaDescription: Frequently asked questions about the C/C++ extension in Visual Studio Code.
 ---
 # Frequently asked questions
@@ -135,3 +135,7 @@ When you start debugging, if your breakpoints aren't bound (solid red circle) or
 ### Debugging starts but all the lines in my stack trace are grey
 
 If your debugger is showing a grey stacktrace, won't stop at a breakpoint, or the symbols in the call stack are grey, then your executable was compiled without [debug symbols](#how-do-i-enable-debug-symbols).
+
+## What do I do if I suspect a C/C++ extension problem
+
+If you are experiencing a problem with the extension that we can't diagnose based on information in your issue report, we might ask you to enable logging and send us your logs. See [C/C++ extension logging](enable-logging-cpp.md) for how to get C/C++ extension logs.
