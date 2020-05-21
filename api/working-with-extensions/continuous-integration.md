@@ -79,7 +79,7 @@ Finally, [create a new pipeline](https://docs.microsoft.com/azure/devops/pipelin
 
 You can enable the build to run continuously when pushing to a branch and even on pull requests. See [Build pipeline triggers](https://docs.microsoft.com/azure/devops/pipelines/build/triggers) to learn more.
 
-### Automated publishing
+### Azure Pipelines automated publishing
 
 1. Set up `VSCE_PAT` as a secret variable using the [Azure DevOps secrets instructions](https://docs.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables).
 2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
@@ -149,7 +149,7 @@ jobs:
         run: npm test
 ```
 
-### Automated publishing
+### GitHub Actions automated publishing
 
 1. Set up `VSCE_PAT` as an encrypted secret using the [GitHub Actions secrets instructions](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository).
 2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
@@ -219,7 +219,7 @@ script:
 cache: yarn
 ```
 
-### Automated publishing
+### Travis CI automated publishing
 
 1. Set up `VSCE_PAT` as an encrypted secret using the [Travis CI encryption key usage instructions](https://docs.travis-ci.com/user/encryption-keys/#usage).
 2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
