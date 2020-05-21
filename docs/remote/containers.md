@@ -94,7 +94,7 @@ Let's start by using a sample project to try things out.
 
 4. After the container is built, VS Code automatically connects to it and maps the project folder from your local file system into the container. Check out the **Things to try** section of `README.md` in the repository you cloned to see what to do next.
 
-You may be wondering where the repository source code is located. In this case, the source code is stored in a [container volume](https://docs.docker.com/storage/volumes/) which is not directly accessible from your local operating system. However, you can work with content in your local filesystem from a container as well! We'll cover that next.
+You may be wondering where the repository source code is located. In this case, the source code is stored in a [container volume](https://docs.docker.com/storage/volumes/) that is not directly accessible from your local operating system. However, you can work with content in your local filesystem from a container as well! We'll cover that next.
 
 ## Quick start: Open an existing folder in a container
 
@@ -184,7 +184,7 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
     ![PR status in status bar](images/containers/checkout-pr-status.png)
 
-5. After the build completes, VS Code will automatically connect to the container.You can now work with the repository source code in this isolated environment as you would if you had cloned the code locally.
+5. After the build completes, VS Code will automatically connect to the container. You can now work with the repository source code in this isolated environment as you would if you had cloned the code locally.
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
 
