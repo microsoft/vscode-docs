@@ -39,14 +39,14 @@ You can also split the terminal by triggering the `kb(workbench.action.terminal.
 
 When focusing a split terminal pane, you can move focus and resize using one of the following commands:
 
-Key|Command
----|---
-`kb(workbench.action.terminal.focusPreviousPane)` | Focus Previous Pane
-`kb(workbench.action.terminal.focusNextPane)` | Focus Next Pane
-`kb(workbench.action.terminal.resizePaneLeft)` | Resize Pane Left
-`kb(workbench.action.terminal.resizePaneRight)` | Resize Pane Right
-`kb(workbench.action.terminal.resizePaneUp)` | Resize Pane Up
-`kb(workbench.action.terminal.resizePaneDown)` | Resize Pane Down
+Key|Command|
+---|---|
+`kb(workbench.action.terminal.focusPreviousPane)` | Focus Previous Pane |
+`kb(workbench.action.terminal.focusNextPane)` | Focus Next Pane |
+`kb(workbench.action.terminal.resizePaneLeft)` | Resize Pane Left |
+`kb(workbench.action.terminal.resizePaneRight)` | Resize Pane Right |
+`kb(workbench.action.terminal.resizePaneUp)` | Resize Pane Up |
+`kb(workbench.action.terminal.resizePaneDown)` | Resize Pane Down |
 
 ## Configuration
 
@@ -56,7 +56,7 @@ The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10
 
 ### Windows
 
-For Windows there is a convenient shell selector located inside the terminal dropdown that lets you choose between several detected shells including Command Prompt, PowerShell, PowerShell Core, Git Bash and WSL Bash. The **Terminal: Select Default Shell** command is also available through the Command Palette if you prefer to access it there.
+For Windows, there is a convenient shell selector located inside the terminal dropdown that lets you choose between several detected shells including Command Prompt, PowerShell, PowerShell Core, Git Bash and WSL Bash. The **Terminal: Select Default Shell** command is also available through the Command Palette if you prefer to access it there.
 
 Just like on other platforms you can fine tune the exact executable used in your settings file, for example:
 
@@ -111,17 +111,17 @@ The **View: Toggle Integrated Terminal** command is bound to `kb(workbench.actio
 
 Below are the keyboard shortcuts to quickly navigate within the integrated terminal:
 
-Key|Command
----|---
-`kb(workbench.action.terminal.toggleTerminal)`|Show integrated terminal
-`kb(workbench.action.terminal.new)`|Create new terminal
-`kb(workbench.action.terminal.scrollUp)`|Scroll up
-`kb(workbench.action.terminal.scrollDown)`|Scroll down
-`kb(workbench.action.terminal.scrollUpPage)`|Scroll page up
-`kb(workbench.action.terminal.scrollDownPage)`|Scroll page down
-`kb(workbench.action.terminal.scrollToTop)`|Scroll to top
-`kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom
-`kb(workbench.action.terminal.clear)`|Clear the terminal
+Key|Command|
+---|---|
+`kb(workbench.action.terminal.toggleTerminal)`|Show integrated terminal|
+`kb(workbench.action.terminal.new)`|Create new terminal|
+`kb(workbench.action.terminal.scrollUp)`|Scroll up|
+`kb(workbench.action.terminal.scrollDown)`|Scroll down|
+`kb(workbench.action.terminal.scrollUpPage)`|Scroll page up|
+`kb(workbench.action.terminal.scrollDownPage)`|Scroll page down|
+`kb(workbench.action.terminal.scrollToTop)`|Scroll to top|
+`kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom|
+`kb(workbench.action.terminal.clear)`|Clear the terminal|
 
 Other terminal commands are available and can be bound to your preferred keyboard shortcuts, such as:
 
@@ -221,8 +221,8 @@ This feature supports [variable substitution](/docs/editor/variables-reference.m
 
 Note that the command only works with the `\u0000` format for using characters via their character code (not `\x00`). You can read more about these hex code and the sequences terminals work with on the following resources:
 
-- [XTerm Control Sequences](http://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
-- [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
+* [XTerm Control Sequences](http://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
+* [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
 
 ## Rename terminal sessions
 
