@@ -144,7 +144,7 @@ jobs:
         node-version: 10.x
     - run: npm install
     - name: Run tests
-      uses: GabrielBB/xvfb-action@v1.0
+      uses: GabrielBB/xvfb-action@v1.2
       with:
         run: npm test
 ```
