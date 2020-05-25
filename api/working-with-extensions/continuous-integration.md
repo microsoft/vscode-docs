@@ -52,7 +52,7 @@ steps:
 
 - task: NodeTool@0
   inputs:
-    versionSpec: '8.x'
+    versionSpec: '10.x'
   displayName: 'Install Node.js'
 
 - bash: |
@@ -141,7 +141,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: 8.x
+        node-version: 10.x
     - run: npm install
     - name: Run tests
       uses: GabrielBB/xvfb-action@v1.0
@@ -200,7 +200,7 @@ language: node_js
 os:
 - osx
 - linux
-node_js: 8
+node_js: 10
 
 install:
 - |
