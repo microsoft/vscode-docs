@@ -21,7 +21,7 @@ MetaDescription: Frequently asked questions about the C/C++ extension in Visual 
 - [How do I set up debugging?](#how-do-i-set-up-debugging)
 - [How do I enable debug symbols?](#how-do-i-enable-debug-symbols)
 - [Why is debugging not working?](#why-is-debugging-not-working)
-- [What do I do if I suspect a C/C++ extension problem](#what-do-i-do-if-i=suspect-a-c/c++-extension-problem)
+- [What do I do if I suspect a C/C++ extension problem](#what-do-i-do-if-i-suspect-a-cc-extension-problem)
 
 ## Why are my files corrupted on format?
 

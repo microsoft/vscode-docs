@@ -107,7 +107,7 @@ For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and LL
 
 For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
 
-For additional ways to configure the launch.json file so that you can debug your C/C++ app, see [Configuring C/C++ debugging](launch-json-reference.md).
+For additional ways to configure the launch.json file so that you can debug your C/C++ app, see [Configuring C/C++ debugging](/docs/cpp/launch-json-reference.md).
 
 ### Natvis framework
 
@@ -115,11 +115,11 @@ You create custom views of C++ object in the debugger with the [Natvis](https://
 
 ### Debug remotely
 
-For information about attaching to a remote process, such as debugging a process in a Docker container, see [Pipe transport](pipe-transport.md).
+For information about attaching to a remote process, such as debugging a process in a Docker container, see [Pipe transport](/docs/cpp/pipe-transport.md).
 
 ### Debug the debugger
 
-If you are experiencing a debugging problem with the extension that we can't diagnose based on information in your issue report, we might ask you to enable logging and send us your logs. See [Enable logging for the debug adapter](enable-logging-cpp.md#enable-logging-for-the-debug adapter) to learn how to get C/C++ extension logs.
+If you are experiencing a debugging problem with the extension that we can't diagnose based on information in your issue report, we might ask you to enable logging and send us your logs. See [Enable logging for the debug adapter](/docs/cpp/enable-logging-cpp.md#enable-logging-for-the-debug-adapter) to learn how to get C/C++ extension logs.
 
 ## Known limitations
 
@@ -158,7 +158,7 @@ Read on to find out about:
 * [Configure VS Code for Windows Subsystem for Linux](/docs/cpp/config-wsl.md)
 * [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
-* [Configure C/C++ debugging](launch-json-reference.md) - Learn about additional debugger configuration options.
+* [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md) - Learn about additional debugger configuration options.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful Visual Studio Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more.
