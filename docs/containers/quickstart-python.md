@@ -138,7 +138,8 @@ The Docker extension will launch your browser to a randomly mapped port:
 
 You're done! Now that your container is ready, you may want to:
 
-- [Learn more about debugging Python in a container](/docs/containers/debug-python.md)
+- [Learn about debugging Python in a container](/docs/containers/debug-python.md)
+- [Customize your Docker build and run tasks](/docs/containers/reference.md)
 - [Push your Django image to an Azure Container Registry](/docs/containers/tutorial-django-push-to-registry.md)
 - [Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 - [Deploy a containerized app to Azure App Service](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01)
