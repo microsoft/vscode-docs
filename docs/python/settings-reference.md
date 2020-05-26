@@ -146,15 +146,15 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 | pylintCategorySeverity.error | `"Error"` | Mapping for Pylint error message to VS Code type. | [Linting](/docs/python/linting.md) |
 | pylintCategorySeverity.fatal | `"Error"` | Mapping for Pylint fatal message to VS Code type. | [Linting](/docs/python/linting.md) |
 
-### Pep8/pycodestyle
+### pycodestyle (pep8)
 
 | Setting<br/>(python.linting.) | Default | Description | See also |
 | --- | --- | --- | --- |
-| pep8Enabled | `false` | Specifies whether to enable pep8. | [Linting](/docs/python/linting.md) |
-| pep8Args | `[]` | Additional arguments for pep8, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| pep8Path | `"pep8"` | The path to pep8. | [Linting](/docs/python/linting.md) |
-| pep8CategorySeverity.W | `"Warning"` | Mapping for pep8 W message to VS Code type.| [Linting](/docs/python/linting.md) |
-| pep8CategorySeverity.E | `"Error"` | Mapping for pep8 E message to VS Code type.| [Linting](/docs/python/linting.md) |
+| pycodestyleEnabled | `false` | Specifies whether to enable pycodestyle. | [Linting](/docs/python/linting.md) |
+| pycodestyleArgs | `[]` | Additional arguments for pycodestyle, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
+| pycodestylePath | `"pycodestyle"` | The path to pycodestyle. | [Linting](/docs/python/linting.md) |
+| pycodestyleCategorySeverity.W | `"Warning"` | Mapping for pycodestyle W message to VS Code type.| [Linting](/docs/python/linting.md) |
+| pycodestyleCategorySeverity.E | `"Error"` | Mapping for pycodestyle E message to VS Code type.| [Linting](/docs/python/linting.md) |
 
 ### Flake8
 
