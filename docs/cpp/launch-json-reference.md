@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order: 
 Area: cpp
 TOCTitle: Debug configuration
 ContentId: 8cb0c932-d5f2-41e7-b297-5fd100ce4e0c
@@ -213,6 +213,10 @@ Server-started pattern to look for in the debug server output.
 ### serverLaunchTimeout
 
 Time in milliseconds, for the debugger to wait for the debugServer to start up. Default is 10000.
+
+### pipeTransport
+
+For information about attaching to a remote process, such as debugging a process in a Docker container, see the [Pipe transport](pipe-transport.md) settings article.
 
 ## Additional properties
 
