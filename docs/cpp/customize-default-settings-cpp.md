@@ -111,7 +111,7 @@ System includes should not be added to the `includePath` or `browse.path` variab
 
 ### Enhanced semantic colorization
 
-When IntelliSense is enable, the Visual Studio Code C/C++ extension supports semantic colorization. See [Enhanced colorization](/docs/cpp/colorization-cpp.md) for more details about setting colors for classes, functions, variables and so on.
+When IntelliSense is enabled, the Visual Studio Code C/C++ extension supports semantic colorization. See [Enhanced colorization](/docs/cpp/colorization-cpp.md) for more details about setting colors for classes, functions, variables and so on.
 
 ### Extension logging
 
