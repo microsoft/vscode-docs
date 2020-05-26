@@ -155,6 +155,7 @@ You can use specific port on the host by changing the Docker run options used by
 
 You're done! Now that your container is ready, you may want to:
 
-- [Learn more about debugging .NET Core in a container](/docs/containers/debug-netcore.md)
+- [Learn about debugging .NET Core in a container](/docs/containers/debug-netcore.md)
+- [Customize your Docker build and run tasks](/docs/containers/reference.md)
 - [Deploy a containerized app to Azure App Service](/docs/containers/app-service.md)
 - [Learn about using Docker Compose](/docs/containers/docker-compose.md)
