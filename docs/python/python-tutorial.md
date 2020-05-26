@@ -249,7 +249,7 @@ A best practice among Python developers is to avoid installing packages into a g
 > **Note**: For additional information about virtual environments, see [Environments](/docs/python/environments.md#global-virtual-and-conda-environments).
 
 1. Create and activate the virtual environment
-   >**Note**: When you create a new virtual environment, you should be prompted by VS  Code to set it as the default for your workspace folder. If selected, the environment will automatically be activated when you open a new terminal.
+   >**Note**: When you create a new virtual environment, you should be prompted by VS Code to set it as the default for your workspace folder. If selected, the environment will automatically be activated when you open a new terminal.
 
    ![Virtual environment dialog](images/tutorial/virtual-env-dialog.png)
 
