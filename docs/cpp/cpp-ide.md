@@ -55,9 +55,9 @@ For example, on the Windows platform:
   "C_Cpp.clang_format_path": "C:\\Program Files (x86)\\LLVM\\bin\\clang-format.exe"
 ```
 
-#### Enhanced semantic colorization
+### Enhanced semantic colorization
 
-When IntelliSense is enable, the Visual Studio Code C/C++ extension supports semantic colorization. See [Enhanced colorization](colorization-cpp.md) for more details about setting colors for classes, functions, variables and so on.
+When IntelliSense is enabled, the Visual Studio Code C/C++ extension supports semantic colorization. See [Enhanced colorization](/docs/cpp/colorization-cpp.md) for more details about setting colors for classes, functions, variables and so on.
 
 ### Quick Info
 
@@ -119,4 +119,4 @@ Read on to find out about:
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
 * [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 
-If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues). You may be asked to provide logging information from the extension to help diagnose the issue. See [C/C++ extension logging](enable-logging-cpp.md) for help on providing extension logs.
+If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues). You may be asked to provide logging information from the extension to help diagnose the issue. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for help on providing extension logs.
