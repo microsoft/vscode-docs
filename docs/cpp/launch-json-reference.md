@@ -1,5 +1,5 @@
 ---
-Order: 
+Order:
 Area: cpp
 TOCTitle: Debug configuration
 ContentId: 8cb0c932-d5f2-41e7-b297-5fd100ce4e0c
@@ -216,7 +216,7 @@ Time in milliseconds, for the debugger to wait for the debugServer to start up. 
 
 ### pipeTransport
 
-For information about attaching to a remote process, such as debugging a process in a Docker container, see the [Pipe transport](pipe-transport.md) settings article.
+For information about attaching to a remote process, such as debugging a process in a Docker container, see the [Pipe transport](/docs/cpp/pipe-transport.md) settings article.
 
 ## Additional properties
 

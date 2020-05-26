@@ -11,7 +11,7 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
 
 This article explains the scheme for the c_cpp_properties.json settings file.
 
-For more information about changing these settings, see [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md) and [Configure IntelliSense for cross-compiling](configure-intellisense-crosscompilation.md).
+For more information about changing these settings, see [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md) and [Configure IntelliSense for cross-compiling](/docs/cpp/configure-intellisense-crosscompilation.md).
 
 ## Example
 
