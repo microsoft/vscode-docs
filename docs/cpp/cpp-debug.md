@@ -158,11 +158,10 @@ Read on to find out about:
 * [Configure VS Code for Windows Subsystem for Linux](/docs/cpp/config-wsl.md)
 * [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
-* [Configuring C/C++ debugging](launch-json-reference.md)
+* [Configure C/C++ debugging](launch-json-reference.md) - Learn about additional debugger configuration options.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful Visual Studio Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more.
 * [Debugging](/docs/editor/debugging.md) - find out about the Visual Studio Code debugger.
-* [Configuring C/C++ debugging](launch-json-reference.md) - find out about additional debugger configuration options.
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues).

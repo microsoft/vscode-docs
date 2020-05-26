@@ -21,6 +21,7 @@ MetaDescription: Frequently asked questions about the C/C++ extension in Visual 
 - [How do I set up debugging?](#how-do-i-set-up-debugging)
 - [How do I enable debug symbols?](#how-do-i-enable-debug-symbols)
 - [Why is debugging not working?](#why-is-debugging-not-working)
+- [## What do I do if I suspect a C/C++ extension problem](#what-do-i-do-if-i=suspect-a-c/c++-extension-problem)
 
 ## Why are my files corrupted on format?
 
@@ -34,7 +35,7 @@ Or, if you install a build system extension that interfaces with our extension, 
 
 A third option for projects without build system extension support is to use a [compile_commands.json](https://clang.llvm.org/docs/JSONCompilationDatabase.html) file if your build system supports generating this file. In the "Advanced" section of the Configuration UI, you can supply the path to your `compile_commands.json` and the extension will use the compilation information listed in that file to configure IntelliSense.
 
-**Note:** If the extension is unable to resolve any of the `#include` directives in your source code, it will not show linting information for the body of the source file. If you check the Problems window in VS Code, the extension will provide more information about which files it was unable to locate. If you want to show the linting information anyway, you can change the value of the `C_Cpp.errorSquiggles` setting.
+**Note:** If the extension is unable to resolve any of the `#include` directives in your source code, it will not show linting information for the body of the source file. If you check the **Problems** window in VS Code, the extension will provide more information about which files it was unable to locate. If you want to show the linting information anyway, you can change the value of the `C_Cpp.errorSquiggles` setting.
 
 ## Why do I see red squiggles under Standard Library types?
 
@@ -139,3 +140,5 @@ If your debugger is showing a grey stacktrace, won't stop at a breakpoint, or th
 ## What do I do if I suspect a C/C++ extension problem
 
 If you are experiencing a problem with the extension that we can't diagnose based on information in your issue report, we might ask you to enable logging and send us your logs. See [C/C++ extension logging](enable-logging-cpp.md) for how to get C/C++ extension logs.
+
+If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues).
