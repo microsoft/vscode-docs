@@ -127,8 +127,10 @@ This section contributes `configuration` settings to VS Code. The example will e
 The actual Language Client code and the corresponding `package.json` is in the `/client` folder. The interesting part in the `/client/package.json` file is that it adds a dependency to the `vscode` extension host API and the `vscode-languageclient` library:
 
 ```json
+"engines": {
+    "vscode": "^1.1.18"
+},
 "dependencies": {
-    "vscode": "^1.1.18",
     "vscode-languageclient": "^4.1.4"
 }
 ```
