@@ -77,6 +77,16 @@ You can install a previous release of VS Code by uninstalling your current versi
 
 >**Note:** On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md).
 
+### Opt out of extension updates
+
+By default, VS Code will also auto-update extensions as new versions become available. If you do not want extensions to automatically update, you can clear the **Extensions: Auto Update** check box in the Settings editor (`kb(workbench.action.openSettings)`).
+
+If you use the JSON editor to modify your settings, add the following line:
+
+```json
+    "extensions.autoUpdate": false
+```
+
 ## Licensing
 
 ### Location
