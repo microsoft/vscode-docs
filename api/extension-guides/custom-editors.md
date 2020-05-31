@@ -16,7 +16,7 @@ Custom editors allow extensions to create fully customizable read/write editors 
 - Offering alternative visual renderings for data files such as CSV or JSON or XML.
 - Building fully customizable editing experiences for binary or text files.
 
-This document provides an overview of the custom editor API and the basics of implementing a custom editor. We'll take a look at the two types of custom editors and how they differ, as well as which one is right for you use case. Then for each of these custom editor types, we'll cover the basics of building a well behaved custom editor.
+This document provides an overview of the custom editor API and the basics of implementing a custom editor. We'll take a look at the two types of custom editors and how they differ, as well as which one is right for your use case. Then for each of these custom editor types, we'll cover the basics of building a well behaved custom editor.
 
 Although custom editors are a powerful new extension point, implementing a basic custom editor is not actually that difficult! Still, if you are working on your first VS Code extension, you may want to consider holding off on diving into custom editors until you are more familiar with the basics of the VS Code API. Custom editors build on a lot of VS Code concepts—such as [webviews](/api/extension-guides/webview) and text documents—so it may be a bit overwhelming if you are learning all of these new ideas at the same time.
 
