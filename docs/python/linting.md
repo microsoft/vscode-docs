@@ -83,7 +83,7 @@ Custom arguments are specified in the appropriate arguments setting for each lin
 "python.linting.pydocstyleArgs": ["--ignore=D400", "--ignore=D4"]
 ```
 
-Note that if a top-level element is a single value, as delineated by quotation marks or braces, is still appears as a single item in the list even if the value itself contains spaces.
+Note that if a top-level element is a single value, as delineated by quotation marks or braces, it still appears as a single item in the list even if the value itself contains spaces.
 
 A custom path is generally unnecessary as the Python extension resolves the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting. For example, if your selected interpreter is a virtual environment but you want to use a linter that's installed in a global environment, then set the appropriate path setting to point to the global environment's linter.
 
