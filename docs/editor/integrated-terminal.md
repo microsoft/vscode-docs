@@ -52,7 +52,7 @@ Key|Command
 
 The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10 and cmd.exe on earlier versions of Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in user [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell using the `terminal.integrated.shellArgs.*` user settings.
 
->**Note:** For [enhanced security](/docs/getstarted/settings.md#settings-and-security), such settings can only be defined in user settings and not at workspace scope.
+>**Note:** These settings won't work automatically in the workspace scope, you must whitelist the _workspace_ to allow setting your shell, shell args and it's environment using the `Terminal: Manage Workspace Shell Permissions` command.
 
 ### Windows
 

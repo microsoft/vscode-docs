@@ -115,12 +115,6 @@ Some settings allow you to specify an executable that VS Code will run to perfor
 Here is the list of settings not supported in workspace settings:
 
 * `git.path`
-* `terminal.integrated.shell.linux`
-* `terminal.integrated.shellArgs.linux`
-* `terminal.integrated.shell.osx`
-* `terminal.integrated.shellArgs.osx`
-* `terminal.integrated.shell.windows`
-* `terminal.integrated.shellArgs.windows`
 * `terminal.external.windowsExec`
 * `terminal.external.osxExec`
 * `terminal.external.linuxExec`
