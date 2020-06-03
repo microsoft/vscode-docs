@@ -655,7 +655,7 @@ A matcher that captures the above warning (and errors) looks like this:
 }
 ```
 
-Note that the file, line, and message properties are mandatory. The `fileLocation` specifies whether the file paths in the problem are `absolute` or `relative`. If the task produces both absolute and relative paths, you can use the `autoDetect` file location. With `autoDetect`, paths are first tested as absolute paths, and if the file doesn't exist then the path is assumed to be relative.
+Note that the file, line, and message properties are mandatory. The `fileLocation` specifies whether the file paths that are produced by the task output and matched in the problem are `absolute` or `relative`. If the task produces both absolute and relative paths, you can use the `autoDetect` file location. With `autoDetect`, paths are first tested as absolute paths, and if the file doesn't exist then the path is assumed to be relative.
 
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
 
