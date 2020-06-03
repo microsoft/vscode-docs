@@ -129,7 +129,7 @@ Using the [custom editor extension sample][sample], here's what happens when the
 
     This method takes the `TextDocument` for the resource that is being opened and a `WebviewPanel`. The extension must fill in the initial HTML contents for this webview panel.
 
-Once `resolveCustomEditor` returns, our custom editor is displayed to the user. What is drawn inside the webview is entirely up to our extension.
+Once `resolveCustomTextEditor` returns, our custom editor is displayed to the user. What is drawn inside the webview is entirely up to our extension.
 
 This same flow happens every time a custom editor is opened, even when you split a custom editor. Every instance of a custom editor has its own `WebviewPanel`, although multiple custom text editors will share the same `TextDocument` if they are for the same resource. Remember: think of the `TextDocument` as being the model for the resource while the webview panels are views of that model.
 
