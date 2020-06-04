@@ -1113,8 +1113,6 @@
                                         "when": "isDevelopment" },
 { "key": "alt+cmd+i",             "command": "workbench.action.toggleDevTools",
                                         "when": "isDevelopment" },
-{ "key": "cmd+f4",                "command": "extension.node-debug.pickLoadedScript",
-                                        "when": "debugType == 'node2'" },
 { "key": "f10",                   "command": "extension.node-debug.startWithStopOnEntry",
                                         "when": "!inDebugMode && debugConfigurationType == 'node'" },
 { "key": "cmd+k alt+cmd+s",       "command": "git.stageSelectedRanges",
