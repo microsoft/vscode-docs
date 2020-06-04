@@ -15,7 +15,7 @@ Color themes let you modify the colors in Visual Studio Code's user interface to
 
 ## Selecting the Color Theme
 
-1. In VS Code, open the Color Theme picker with **File** > **Preferences** > **Color Theme**. (**Code** > **Preferences** > **Color Theme** on macOS).
+1. In VS Code, open the Color Theme picker with **Code** > **Preferences** > **Color Theme**. (**Code** > **Preferences** > **Color Theme** on macOS).
 2. You can also use the keyboard shortcut `kb(workbench.action.selectTheme)` to display the picker.
 3. Use the cursor keys to preview the colors of the theme.
 4. Select the theme you want and press `kbstyle(Enter)`.
