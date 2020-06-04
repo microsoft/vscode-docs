@@ -55,7 +55,7 @@ vscode.languages.registerDocumentFormattingEditProvider('foo-lang', {
 
 Recently, we added the "Format on Save" feature. An extension properly implementing the formatting API supports this feature without any new code.
 
-> Tip: To take advantage of this, a formatting extension needs to be registered using the [registerDocumentFormattingEditProvider](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L4172) API call.
+> Tip: To take advantage of this, a formatting extension needs to be registered using the [registerDocumentFormattingEditProvider](https://github.com/microsoft/vscode/blob/a80f904d4e9afa7a05ae57a0123c11b727097129/src/vs/vscode.d.ts#L10089) API call.
 
 ## Multiple Formatters
 
@@ -80,7 +80,7 @@ Last, we want to bring more awareness to formatters and have added a new ["Forma
 
 To summarize, an extension that implements the formatting extension API properly will do the following :
 
-1. Register formatters via [registerDocumentFormattingEditProvider](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L4172).  
+1. Register formatters via [registerDocumentFormattingEditProvider](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L4172).
 2. Implement the formatting logic per the [DocumentFormattingEditProvider interface](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L2143).
 3. Have a setting to enable / disable the formatter.
 4. Add the "Formatters" category to the extension manifest.
