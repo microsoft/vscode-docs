@@ -117,7 +117,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-You can enable command URIs in webviews by setting `enableCommandUris` in the `WebviewOptions` when the webview is created.
+You can enable command URIs in [webviews](/api/extension-guides/webview) by setting `enableCommandUris` in the `WebviewOptions` when the webview is created.
 
 ## Creating new commands
 
