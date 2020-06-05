@@ -976,8 +976,6 @@
                                         "when": "isDevelopment" },
 { "key": "ctrl+shift+i",          "command": "workbench.action.toggleDevTools",
                                         "when": "isDevelopment" },
-{ "key": "ctrl+f4",               "command": "extension.node-debug.pickLoadedScript",
-                                        "when": "debugType == 'node2'" },
 { "key": "f10",                   "command": "extension.node-debug.startWithStopOnEntry",
                                         "when": "!inDebugMode && debugConfigurationType == 'node'" },
 { "key": "ctrl+shift+v",          "command": "markdown.showPreview",

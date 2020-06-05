@@ -41,6 +41,12 @@ VS Code also has many preset keyboard shortcuts for commands. These are displaye
 
 You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) brings up the Keyboard Shortcuts editor where you can discover and modify keybindings for VS Code actions. See [Key Bindings](/docs/getstarted/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
 
+For a quick navigation across the workbench we recommend using **Focus Next Part** (`kb(workbench.action.focusNextPart)`) and **Focus Previous Part** (`kb(workbench.action.focusPreviousPart)`) commands.
+
+### Anchor selection
+
+To make it easier to start and end selection using the keyboard we have four commands: **Set Selection Anchor** (`kb(editor.action.setSelectionAnchor)`), **Select From Anchor to Cursor** (`kb(editor.action.selectFromAnchorToCursor)`), **Cancel Selection Anchor** (`kb(editor.action.cancelSelectionAnchor)`) and **Go to Selection Anchor**.
+
 ## Tab navigation
 
 You can use the `kbstyle(Tab)` key to jump between VS Code UI controls. Use `kbstyle(Shift+Tab)` to tab in reverse order.  As you tab through the UI controls, you can see an indicator around the UI element once the element gains focus.
@@ -100,6 +106,10 @@ Output in the Integrated Terminal can be navigated through by using the "navigat
 
 The setting `terminal.integrated.minimumContrastRatio` can be set to a number between 1 and 21, this will cause the text color either increase or reduce luminance until the contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.
 
+## Status Bar accessibility
+
+Once a focus is in the status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between status bar entries.
+
 ## Debugger accessibility
 
 The VS Code debugger UI is user accessible and has the following features:
@@ -116,7 +126,7 @@ VS Code has some known accessibility issues depending on the platform. Here's a 
 
 ### macOS
 
-There is limited screen reader support for the editor with VoiceOver.
+There is screen reader support for the editor with VoiceOver.
 
 ### Linux
 
