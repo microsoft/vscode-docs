@@ -189,3 +189,9 @@ Use the property `defaultSnippets` to specify any number of snippets for the giv
 
 Note that `defaultSnippets` is not part of the JSON schema specification but a VS Code-specific schema extension.
 
+
+### Offline mode
+
+`json.schemaDownload.enable` controls whether the JSON extension fetches JSON schemas from `http` and `https`.
+
+A warning triangle will show in the status bar when the current editor would like to use schemas that can not be downloaded. 
