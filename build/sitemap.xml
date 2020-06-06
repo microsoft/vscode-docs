@@ -621,6 +621,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/cpp/configure-intellisense-crosscompilation</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/cpp/colorization-cpp</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -676,7 +681,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/remote/vsonline</loc>
+        <loc>https://code.visualstudio.com/docs/remote/codespaces</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

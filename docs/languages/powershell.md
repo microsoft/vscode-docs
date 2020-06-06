@@ -93,7 +93,7 @@ You can also click the gear icon located in the lower left corner of the Activit
 
 ![codeGear](images/powershell/codeGear.png)
 
-You can also use the keyboard shortcut `kb(workbench.action.openSettings)` to open your settings. The VS Code team has introduced a settings GUI in the latest version 1.27.1 as the new default interface for customizing settings. In VS Code versions prior to 1.27.1, this will open your `settings.json` file.
+You can also use the keyboard shortcut `kb(workbench.action.openSettings)` to open your settings. The VS Code team has introduced a settings GUI in version 1.27.1 as the new default interface for customizing settings. In VS Code versions prior to 1.27.1, this will open your `settings.json` file.
 
 You can still open the `settings.json` file by using **Preferences: Open Settings (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`) or by changing the default settings editor with the `"workbench.settings.editor"` setting.
 
