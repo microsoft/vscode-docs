@@ -124,11 +124,13 @@ Next look at the [`configuration`](/api/references/contribution-points#contribut
 
 This section contributes `configuration` settings to VS Code. The example will explain how these settings are sent over to the language server on startup and on every change of the settings.
 
-The actual Language Client code and the corresponding `package.json` is in the `/client` folder. The interesting part in the `/client/package.json` file is that it adds a dependency to the `vscode` extension host API and the `vscode-languageclient` library:
+The actual Language Client source code and the corresponding `package.json` is in the `/client` folder. The interesting part in the `/client/package.json` file is that it references the `vscode` extension host API through the `engines` field and adds a dependency to the `vscode-languageclient` library:
 
 ```json
+"engines": {
+    "vscode": "^1.1.18"
+},
 "dependencies": {
-    "vscode": "^1.1.18",
     "vscode-languageclient": "^4.1.4"
 }
 ```

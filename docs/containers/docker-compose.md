@@ -193,6 +193,76 @@ volumes:
     - /host-folder-path:/container-folder-path
 ```
 
+## Docker Compose with multiple Compose files
+Workspaces can have multiple docker-compose files to handle different environments like development, test and production. The content of the configuration can be split into multiple files. For example, a base compose file that defines the common information for all environments and override files that defines environment-specific information. When these files are passed as input to the `docker-compose` command, it combines these files into a single configuration. By default, the **Docker: Compose Up** command passes a single file as input to the compose command, but you can customize the `compose up` command to pass in multiple files using [command customization](https://code.visualstudio.com/docs/containers/reference#_command-customization). Or, you can use a [custom task](https://code.visualstudio.com/docs/editor/tasks#_custom-tasks) to invoke the `docker-compose` command with the desired parameters.
+
+> **Note**: If your workspace has `docker-compose.yml` and `docker-compose.override.yml` and no other compose files, then the `docker-compose` command is invoked with no input files and it implicitly uses these files. In this case, no customization is needed.
+### Command Customization
+[Command customization](https://code.visualstudio.com/docs/containers/reference#_command-customization) provides various ways to customize the `compose up` command based on your requirements. The following are few sample command customization for the `compose up` command.
+#### Base file and an override file
+Let's assume your workspace has a base compose file (`docker-compose.yml`) and an override file for each environment (`docker-compose.dev.yml`, `docker-compose.test.yml` and `docker-compose.prod.yml`) and you always compose up with the base file and an override file. In this case the `compose up` command can be customized as in the following example. When the `compose up` command is invoked, the `${configurationFile}` is replaced by the selected file.
+```json
+"docker.commands.composeUp": [
+    {
+        "label": "override",
+        "template": "docker-compose -f docker-compose.yml ${configurationFile}  up -d --build",
+    }
+]
+```
+#### Template matching
+Let's assume you have  different set of input files for each environment. You could define multiple templates with regular expression match, and the selected file name will be matched against this `match` property and the corresponding template will be used.
+```json
+"docker.commands.composeUp": [
+    {
+        "label": "dev-match",
+        "template": "docker-compose -f docker-compose.yml -f docker-compose.debug.yml -f docker-compose.dev.yml up -d --build",
+        "match": "dev"
+    },
+    {
+        "label": "test-match",
+        "template": "docker-compose -f docker-compose.yml -f docker-compose.debug.yml -f docker-compose.test.yml up -d --build",
+        "match": "test"
+    },
+    {
+        "label": "prod-match",
+        "template": "docker-compose -f docker-compose.yml -f docker-compose.release.yml -f docker-compose.prod.yml up -d --build",
+        "match": "prod"
+    }
+]
+```
+
+#### Pick a template when the command is invoked
+If you omit the `match` property from command templates, you will be asked which template to use each time `compose up` command is invoked. For example:
+```json
+"docker.commands.composeUp": [
+    {
+        "label": "dev",
+        "template": "docker-compose -f docker-compose.yml -f docker-compose.common.dev.yml ${configurationFile} up -d --build"
+    },
+    {
+        "label": "test",
+        "template": "docker-compose -f docker-compose.yml -f docker-compose.common.test.yml ${configurationFile} up -d --build"
+    },
+    {
+        "label": "prod",
+        "template": "docker-compose -f docker-compose.yml -f docker-compose.common.prod.yml ${configurationFile} up -d --build"
+    },
+],
+```
+
+### Custom Tasks
+Rather than use command customization, you can also define a task like the following to invoke a `docker-compose` command. Please refer [custom task](https://code.visualstudio.com/docs/editor/tasks#_custom-tasks) for more detail on this.
+```json
+{
+    "type": "shell",
+    "label": "compose-up-dev",
+    "command": "docker-compose -f docker-compose.yml -f docker-compose.Common.yml -f docker-compose.dev.yml up -d --build",
+    "presentation": {
+        "reveal": "always",
+        "panel": "new"
+    }
+}
+```
 ## Next steps
 
 - [Overview of Docker Compose in the Docker documentation](https://docs.docker.com/compose/)

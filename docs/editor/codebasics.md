@@ -273,7 +273,7 @@ Perl5|`#region` or `=pod`|`#endregion` or `=cut`
 PHP|`#region`|`#endregion`
 PowerShell|`#region`|`#endregion`
 Python|`#region` or `# region`|`#endregion` or `# endregion`
-TypeScript/JavaScript|`//#region` or `//region`|`//#endregion` or `//endregion`
+TypeScript/JavaScript|`//#region` |`//#endregion`
 Visual Basic|`#Region`|`#End Region`
 
 To fold and unfold only the regions defined by markers use:

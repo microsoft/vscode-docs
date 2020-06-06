@@ -57,7 +57,7 @@ Most common JavaScript libraries ship with declaration files or have type declar
 
 ### Fixing npm not installed warning for Automatic Type Acquisition
 
-[Automatic Type Acquisition](#automatic-type-acquisition) uses [npm](https://www.npmjs.com), the Node.js package manager, to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
+[Automatic Type Acquisition](#typings-and-automatic-type-acquisition) uses [npm](https://www.npmjs.com), the Node.js package manager, to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
 
 Run `npm --version` from a terminal or command prompt to quickly check that npm is installed and available.
 

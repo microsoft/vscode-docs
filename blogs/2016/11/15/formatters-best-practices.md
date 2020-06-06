@@ -55,11 +55,11 @@ vscode.languages.registerDocumentFormattingEditProvider('foo-lang', {
 
 Recently, we added the "Format on Save" feature. An extension properly implementing the formatting API supports this feature without any new code.
 
-> Tip: To take advantage of this, a formatting extension needs to be registered using the [registerDocumentFormattingEditProvider](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L4172) API call.
+> Tip: To take advantage of this, a formatting extension needs to be registered using the [registerDocumentFormattingEditProvider](https://github.com/microsoft/vscode/blob/a80f904d4e9afa7a05ae57a0123c11b727097129/src/vs/vscode.d.ts#L10089) API call.
 
 ## Multiple Formatters
 
-A common misunderstanding is that when contributing a formatter, you must support all programming languages. When an extension registers as a formatter with [registerDocumentFormattingEditProvider](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L4172), it indicates with a [DocumentSelector](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L1501) which programming languages it supports. With that information, the editor can enable the formatting actions when for example, an HTML document is open. Likewise, the editor will disable the formatting actions when displaying documents for which no formatter is registered.
+A common misunderstanding is that when contributing a formatter, you must support all programming languages. When an extension registers as a formatter with [registerDocumentFormattingEditProvider](https://github.com/microsoft/vscode/blob/a80f904d4e9afa7a05ae57a0123c11b727097129/src/vs/vscode.d.ts#L10089), it indicates with a [DocumentSelector](https://github.com/microsoft/vscode/blob/a80f904d4e9afa7a05ae57a0123c11b727097129/src/vs/vscode.d.ts#L1940) which programming languages it supports. With that information, the editor can enable the formatting actions when for example, an HTML document is open. Likewise, the editor will disable the formatting actions when displaying documents for which no formatter is registered.
 
 What happens when there are multiple formatters for one language? This can be a problem when different formatters' actions contradict. In the October release, we added settings to enable or disable the default formatters that ship with VS Code. The best practice is for extension authors to add a similar setting as what we did in VS Code as shown below.
 
@@ -80,8 +80,8 @@ Last, we want to bring more awareness to formatters and have added a new ["Forma
 
 To summarize, an extension that implements the formatting extension API properly will do the following :
 
-1. Register formatters via [registerDocumentFormattingEditProvider](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L4172).  
-2. Implement the formatting logic per the [DocumentFormattingEditProvider interface](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L2143).
+1. Register formatters via [registerDocumentFormattingEditProvider](https://github.com/microsoft/vscode/blob/a80f904d4e9afa7a05ae57a0123c11b727097129/src/vs/vscode.d.ts#L10089).
+2. Implement the formatting logic per the [DocumentFormattingEditProvider interface](https://github.com/microsoft/vscode/blob/a80f904d4e9afa7a05ae57a0123c11b727097129/src/vs/vscode.d.ts#L3425).
 3. Have a setting to enable / disable the formatter.
 4. Add the "Formatters" category to the extension manifest.
 

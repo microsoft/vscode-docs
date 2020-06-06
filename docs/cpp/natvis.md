@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order:
 Area: cpp
 TOCTitle: Natvis framework
 ContentId: F684A0E8-0AEB-4CA9-83E2-891CC012EA8B
