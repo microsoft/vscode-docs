@@ -597,19 +597,21 @@ If you do not have GPG set up, on **Windows**, you can install [Gpg4win](https:/
 
 On **Linux**, you can install `gnupg2` using your system's package manger **locally**. If needed you can add  `([ -S "$HOME/.gnupg/S.gpg-agent" ] || gpg-agent --daemon)` to your `.bash_profile` or `.zprofile` (for Zsh) to make sure the agent starts.
 
-Once you have a running gnupg-agent locally, install `gnupg` in your container. e.g.:
+Once you have a running gnupg-agent locally, install `gnupg` in your container by updating your Dockerfile. e.g.:
 
 ```bash
-apt-get update && apt-get install gnupg2
+RUN apt-get update && apt-get install gnupg2
 ```
 
 Or if running as a [non-root user](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container):
 
 ```bash
-sudo apt-get update && sudo apt-get install gnupg2
+RUN sudo apt-get update && sudo apt-get install gnupg2
 ```
 
 The next time the container starts, your GPG keys should be accessible inside the container as well.
+
+> **Note:** If you used `gpg` previously in the container, you may need to run **Remote-Containers: Rebuild Container** for the update to take effect.
 
 ## Managing containers
 
@@ -1050,7 +1052,7 @@ See [Setting up a folder to run in a container](#indepth-setting-up-a-folder-to-
 | `context` | string | Path that the Docker build should be run from relative to `devcontainer.json`. For example, a value of `".."` would allow you to reference content in sibling directories. Defaults to `"."`. |
 | `appPort` | integer,<br>string,<br>array |  In most cases, we recommend using the new [forwardPorts property](#always-forwarding-a-port). This property accepts a port or array of ports that should be [published](#publishing-a-port) locally when the container is running. Unlike `forwardPorts`, your application may need to listen on all interfaces (`0.0.0.0`) not just `localhost` for it to be available externally. Defaults to `[]`. |
 | `containerEnv` | object | A set of name-value pairs that sets or overrides environment variables for the container. Environment and [pre-defined variables](#variables-in-devcontainerjson) may be referenced in the values. For example:<br/> `"containerEnv": { "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }`<br /> Requires the container be recreated / rebuilt to change. |
-| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-devcontainerjson) may be referenced in the values. For example: <br />`"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path", "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }`<br />Updates are applied when VS Code is restarted (or the window is reloaded). |
+| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-devcontainerjson) may be referenced in the values. Be sure **Terminal > Integrated: Inherit Env** is is checked in settings or the variables will not appear in the terminal. For example: <br />`"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path", "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }`<br />Updates are applied when VS Code is restarted (or the window is reloaded). |
 | `containerUser` | string | Overrides the user all operations run as inside the container. Defaults to either `root` or the last `USER` instruction in the related Dockerfile used to create the image.<br>On Linux, the specified container user's UID/GID will be updated to match the local user's UID/GID to avoid permission problems with bind mounts (unless disabled using `updateRemoteUserID`).<br>Requires the container be recreated / rebuilt for updates to take effect. |
 | `remoteUser` | string | Overrides the user that VS Code runs as in the container (along with sub-processes like terminals, tasks, or debugging). Defaults to the `containerUser`.<br>On Linux, the specified container user's UID/GID will be updated to match the local user's UID/GID to avoid permission problems with bind mounts (unless disabled using `updateRemoteUserID`).<br>Updates are applied when VS Code is restarted (or the window is reloaded), but UID/GID updates are only applied when the container is created and requires a rebuild to change. |
 | `updateRemoteUserUID` | boolean | On Linux, if `containerUser` or `remoteUser` is specified, the container user's UID/GID will be updated to match the local user's UID/GID to avoid permission problems with bind mounts. Defaults to `true`.<br>Requires the container be recreated / rebuilt for updates to take effect. |
@@ -1067,7 +1069,7 @@ See [Setting up a folder to run in a container](#indepth-setting-up-a-folder-to-
 | `service` | string | **Required.** The name of the service VS Code should connect to once running.  |
 | `runServices` | array | An array of services in your Docker Compose configuration that should be started by VS Code. These will also be stopped when you disconnect unless `"shutdownAction"` is `"none"`. Defaults to all services. |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
-| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-devcontainerjson) may be referenced in the values. For example: <br />`"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path", "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }`<br />Updates are applied when VS Code is restarted (or the window is reloaded) |
+| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-devcontainerjson) may be referenced in the values. Be sure **Terminal > Integrated: Inherit Env** is is checked in settings or the variables will not appear in the terminal. For example: <br />`"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path", "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }`<br />Updates are applied when VS Code is restarted (or the window is reloaded) |
 | `remoteUser` | string | Overrides the user that VS Code runs as in the container (along with sub-processes like terminals, tasks, or debugging). Does not change the user the container as a whole runs as (which can be [set in your Docker Compose file](https://docs.docker.com/compose/compose-file/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir)). Defaults to the user the container as a whole is running as (often `root`).<br>Updates are applied when VS Code is restarted (or the window is reloaded). |
 | `shutdownAction` | enum | Indicates whether VS Code should stop the containers when the VS Code window is closed / shut down.<br>Values are  `none` and `stopCompose` (default). |
 |**General**|||
@@ -1161,16 +1163,13 @@ See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-des
 
 ### Can I use Podman instead of Docker?
 
-Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore generally does work if you symlink the `podman` command to `docker` command on Linux.
+Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore generally does work if you pdate the setting **Remote > Containers: Docker Path** to `podman` on Linux.
 
-```bash
-sudo ln -s $(which podman) /usr/local/bin/docker
-```
+![Docker Path setting](images/containers/docker-path-setting.png)
 
 However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Sample...** and **[Remote- Containers: Open repository in container...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
 
-Docker Compose is also not supported with Podman.
-
+Docker Compose is also not supported by Podman.
 
 ### I'm seeing an error about a missing library or dependency
 

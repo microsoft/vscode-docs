@@ -13,7 +13,9 @@ This article includes advanced setup scenarios for the [Visual Studio Code Remot
 
 ## Adding environment variables
 
-You can set environment variables in your container without altering the container image by using one of the options below. (Note that this section uses properties added in VS Code 1.41.)
+You can set environment variables in your container without altering the container image by using one of the options below. However, note that you should verify **Terminal > Integrated: Inherit Env** is is checked in settings or variables you set may not appear in the integrated terminal.
+
+![Inherit env setting](images/containers/inherit-env.png)
 
 ### Option 1: Add individual variables
 
