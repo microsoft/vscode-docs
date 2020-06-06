@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order:
 Area: cpp
 TOCTitle: c_cpp_properties.json
 ContentId: EC1BA944-09B5-41EA-AAED-779A02C90C98
@@ -9,7 +9,9 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
 ---
 # c_cpp_properties.json reference
 
-> See also: [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md)
+This article explains the scheme for the c_cpp_properties.json settings file.
+
+For more information about changing these settings, see [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md) and [Configure IntelliSense for cross-compiling](/docs/cpp/configure-intellisense-crosscompilation.md).
 
 ## Example
 

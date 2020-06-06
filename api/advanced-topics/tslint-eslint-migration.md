@@ -57,7 +57,7 @@ Congratulations. You should now have a working ESLint setup and it's time to cle
 
 The removal of TSLint depends on your project, but usually these are the steps:
 
-* Update `vscode/extensions.json` to recommend the ESLint extension and not TSLint anymore:
+* Update `.vscode/extensions.json` to recommend the ESLint extension and not TSLint anymore:
 
   ```json
   "recommendations": [

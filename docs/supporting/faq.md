@@ -77,6 +77,16 @@ You can install a previous release of VS Code by uninstalling your current versi
 
 >**Note:** On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md).
 
+### Opt out of extension updates
+
+By default, VS Code will also auto-update extensions as new versions become available. If you do not want extensions to automatically update, you can clear the **Extensions: Auto Update** check box in the Settings editor (`kb(workbench.action.openSettings)`).
+
+If you use the JSON editor to modify your settings, add the following line:
+
+```json
+    "extensions.autoUpdate": false
+```
+
 ## Licensing
 
 ### Location
@@ -98,6 +108,16 @@ See the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/mic
 ### What does "Built on Open Source" mean?
 
 [Microsoft Visual Studio Code](https://code.visualstudio.com) is a [Microsoft licensed](https://code.visualstudio.com/License/) distribution of ['Code - OSS'](https://github.com/Microsoft/vscode) that includes Microsoft proprietary assets (such as icons) and features (Visual Studio Marketplace integration, small aspects of enabling Remote Development). While these additions make up a very small percentage of the overall distribution code base, it is more accurate to say that Visual Studio Code is "built" on open source, rather than "is" open source, because of these differences. More information on what each distribution includes can be found in the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) article.
+
+### How do I find the license for an extension?
+
+Most extensions link to their license on their Marketplace page or in the overview section, when you select an extension in the Extensions view.
+
+For example:
+
+![Extensions view details license link](images/faq/extensions-view-license-link.png)
+
+If you don't find a link to the license, you may find a license in the extension's repository if it is public, or you can contact the extension author through the Q & A section of the Marketplace.
 
 ## Are all VS Code extensions open source?
 

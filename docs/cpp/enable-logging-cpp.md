@@ -1,5 +1,5 @@
 ---
-Order: 14
+Order:
 Area: cpp
 TOCTitle: Logging
 ContentId: EC8DC085-A0E4-4401-B41F-6497EDD49352
@@ -35,9 +35,9 @@ Enabling logging for the debug adapter will show communication information betwe
 
 Logging configuration for the debug adapter is configured in `launch.json`.
 
-### Logging for MI debuggers
+### Logging for LLDB-MI debuggers
 
-The logging block for MI debuggers with its default configuration in `launch.json` is as follows:
+The logging block for macOS LLDB-MI debuggers, along with its default configuration, is in `launch.json`:
 
 ```json
 "logging": {
