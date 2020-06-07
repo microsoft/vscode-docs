@@ -543,6 +543,14 @@ The following font related variables are also defined:
 - `--vscode-editor-font-weight` - Editor font weight (from the `editor.fontWeight` setting).
 - `--vscode-editor-font-size` - Editor font size (from the `editor.fontSize` setting).
 
+Finally, for special cases where you need to write css that targets a single theme, the body element of webviews has a new data attribute called `vscode-theme-name` that stores the full name of the currently active theme. This lets you write theme specific css for webviews:
+
+```css
+body[data-vscode-theme-name="One Dark Pro"] {
+    background: hotpink;
+}
+```
+
 ## Scripts and message passing
 
 Webviews are just like iframes, which means that they can also run scripts. JavaScript is disabled in webviews by default, but it can easily re-enable by passing in the `enableScripts: true` option.
