@@ -49,8 +49,6 @@ A `CustomTextEditorProvider` uses VS Code's standard [`TextDocument`](https://co
 
 With a `CustomEditorProvider` on the other hand, your extension brings its own document model. This means that you can use a `CustomEditor` for binary formats such as images, but it also means that your extension is responsible for a lot more, including implementing save and backing. You can skip over much of this complexity if your custom editor is readonly, such as custom editors for previews.
 
-> **Note:** `CustomEditorProvider` is still a proposed API in VS Code 1.45. We are aiming to finalize the API for VS Code 1.46.
-
 When trying to decide which type of custom editor to use, the decision is usually simple: if you are working with a text based file format use `CustomTextEditorProvider`, for binary file formats use `CustomEditorProvider`.
 
 ### Contribution point
@@ -171,8 +169,6 @@ Finally, if updating your webviews is expensive, consider [debouncing](https://d
 
 
 ## Custom Editor
-
-> **Note:** Custom editors for binary files are still a proposed API in VS Code 1.45. We are aiming to finalize the API for VS Code 1.46.
 
 `CustomEditorProvider` and `CustomReadonlyEditorProvider` let you create custom editors for binary file formats. This API gives your full control over the file is displayed to users, how edits are made to it, and lets your extension hook into `save` and other file operations. Again, if you are building an editor for a text based file format, strongly consider using a [`CustomTextEditor`](#custom-text-editor) instead as they are far simpler to implement.
 
