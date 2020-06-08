@@ -186,7 +186,7 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
 5. After the build completes, VS Code will automatically connect to the container. You can now work with the repository source code in this isolated environment as you would if you had cloned the code locally.
 
-Note that if the container fails to come up due to something like a Docker build error, you can select **Inspect Volume** in the dialog that appears to go into a "recovery container" that allows you to edit your Dockerfile or other content. Once done, use **File > Open Recent** to select the repository container and retry.
+Note that if the container fails to come up due to something like a Docker build error, you can select **Open in Recovery Container** in the dialog that appears to go into a "recovery container" that allows you to edit your Dockerfile or other content. Once done, use **File > Open Recent** to select the repository container and retry.
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
 
@@ -310,9 +310,9 @@ You can also iterate on your container when using **Remote-Containers: Open Repo
 1. Start with **Remote-Containers: Open Repository in Container** in the Command Palette (`kbstyle(F1)`). If the repository you enter does not have a `devcontainer.json` in it, you'll be asked to select a starting point.
 2. Edit the contents of the `.devcontainer` folder as required.
 3. Try it with **Remote-Containers: Rebuild Container**.
-4. If you see an error, click on **Inspect Volume** in the dialog that appears.
+4. If you see an error, click on **Open in Recovery Container** in the dialog that appears.
 5. Edit the contents of the `.devcontainer` folder as required in this "recovery container."
-6. Use **File > Open Recent** to select the repository container and jump to step 4 if you still hit problems.
+6. Use **Remote-Containers: Reopen in Container** and jump to step 4 if you still hit problems.
 
 ### Adding configuration files to public or private repositories
 
@@ -593,11 +593,9 @@ fi
 
 If want to GPG sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/en/github/authenticating-to-github/managing-commit-signature-verification).
 
-If you do not have GPG set up, on **Windows**, you can install [Gpg4win](https://www.gpg4win.org/) or on **macOS** you can install [GPG Tools](https://gpgtools.org/).
+If you do not have GPG set up, on **Windows**, you can install [Gpg4win](https://www.gpg4win.org/) or on **macOS** you can install [GPG Tools](https://gpgtools.org/). On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
 
-On **Linux**, you can install `gnupg2` using your system's package manger **locally**. If needed you can add  `([ -S "$HOME/.gnupg/S.gpg-agent" ] || gpg-agent --daemon)` to your `.bash_profile` or `.zprofile` (for Zsh) to make sure the agent starts.
-
-Once you have a running gnupg-agent locally, install `gnupg` in your container by updating your Dockerfile. e.g.:
+Next, install `gnupg2` in your container by updating your Dockerfile. e.g.:
 
 ```bash
 RUN apt-get update && apt-get install gnupg2
@@ -617,7 +615,7 @@ The next time the container starts, your GPG keys should be accessible inside th
 
 By default, the Remote - Containers extension automatically starts the containers mentioned in the `devcontainer.json` when you open the folder. When you close VS Code, the extension automatically shuts down the containers you've connected to. You can change this behavior by adding `"shutdownAction": "none"` to `devcontainer.json`.
 
-While you can use the command line to manage your containers, you can use the Containers Explorer. You can right-click on a running container and stop it. You can also start exited containers, remove containers, and remove recent folders. From the Details view, you can forward ports and open already forwarded ports in the browser.
+While you can use the command line to manage your containers, you can also use the  **Remote Explorer**. To stop a container, select Containers from the drop down (if present), right-click on a running container, and select **Stop Container**. You can also start exited containers, remove containers, and remove recent folders. From the Details view, you can forward ports and open already forwarded ports in the browser.
 
 ![Containers Explorer screenshot](images/containers/containers-explorer.png)
 
@@ -1163,7 +1161,7 @@ See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-des
 
 ### Can I use Podman instead of Docker?
 
-Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore generally does work if you pdate the setting **Remote > Containers: Docker Path** to `podman` on Linux.
+Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore generally does work if you update the setting **Remote > Containers: Docker Path** to `podman` on Linux.
 
 ![Docker Path setting](images/containers/docker-path-setting.png)
 

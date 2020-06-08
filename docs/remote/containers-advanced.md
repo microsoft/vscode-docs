@@ -13,7 +13,7 @@ This article includes advanced setup scenarios for the [Visual Studio Code Remot
 
 ## Adding environment variables
 
-You can set environment variables in your container without altering the container image by using one of the options below. However, note that you should verify **Terminal > Integrated: Inherit Env** is is checked in settings or variables you set may not appear in the integrated terminal.
+You can set environment variables in your container without altering the container image by using one of the options below. However, note that you should verify **Terminal > Integrated: Inherit Env** is checked in settings or variables you set may not appear in the integrated terminal.
 
 ![Inherit env setting](images/containers/inherit-env.png)
 
@@ -222,11 +222,11 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ### Use "Open Repository in a Container"
 
-The **Remote-Containers: Open Repository in a Container...** command uses an isolated, local Docker named volume instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS. See
+The **Remote-Containers: Open Repository in a Container...** command uses an isolated, local Docker named volume instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS.
 
 See [Open a Repository in a Container](containers.md#quick-start-open-an-existing-folder-in-a-container) for details on using this approach.
 
-The next two sections will outline how to use a named volume instead in other scenarios.
+The next two sections will outline how to use a named volume in other scenarios.
 
 ### Use a targeted named volume
 
