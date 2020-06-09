@@ -23,6 +23,7 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
 - [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
 - [`*`](/api/references/activation-events#Start-up)
+- [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
 
@@ -178,6 +179,18 @@ The `*` activation event is emitted and interested extensions will be activated 
 ...
 "activationEvents": [
     "*"
+]
+...
+```
+
+## onStartupFinished
+
+This activation event is emitted and interested extensions will be activated **some time after** VS Code starts up. This is similar to the `*` activation event, but it will not slow down VS Code startup.
+
+```json
+...
+"activationEvents": [
+    "onStartupFinished"
 ]
 ...
 ```
