@@ -20,11 +20,11 @@ Last year, we worked with the Go team to enable support for a new language serve
 
 ## The Go extension for VS Code joins the Go project
 
-Today we are happy to announce that the Go team has officially stepped up as the **new maintainer of the Go extension**. During the last few years working together with the Go team, it is clear they are in the best position to advance the tooling ecosystem for Go and ensure that it evolves alongside the language.
+Today we are happy to announce that the Go team has officially stepped up as the **new maintainer of the Go extension**. During the last few years working together with the Go team, it's been clear they are in the best position to advance the tooling ecosystem for Go and ensure that it evolves alongside the language.
 
-Both the Go and Visual Studio Code teams recognize the importance of Visual Studio Code for Go developers, and we will continue to work together to deliver a great experience for all *Gophers*.
+Both the Go and Visual Studio Code teams recognize the importance of Visual Studio Code for Go developers. Even as the extension graduates to be part of the Go project, the VS Code team will continue to work together with the rest of the Go project and the community to deliver a great experience for all *Gophers*. 
 
-Being part of the Go project will also ensure that we'll engage with the community every step along the way. The extension currently depends on many different tools that are maintained by the community, and we want to work with the owners of those projects to help reduce the burden of maintenance work on the Go community.
+Being part of the Go project will also ensure that the community is engaged on every step along the way. The extension currently depends on many different tools that are maintained by the community, and we want to work with the owners of those projects to help reduce the burden of maintenance work on the Go community.
 
 In practical terms, as the extension graduates to being part of the Go project, we will be changing the publisher of the extension from "Microsoft" to "Golang" in the VS Code Marketplace.
 
