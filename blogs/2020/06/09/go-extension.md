@@ -41,3 +41,5 @@ From all of us in the Visual Studio Code and Go teams, we are excited for the fu
 Happy Coding!
 
 The VS Code Team
+
+PS: You can read the announcement from the Go team [here](https://blog.golang.org/vscode-go)
