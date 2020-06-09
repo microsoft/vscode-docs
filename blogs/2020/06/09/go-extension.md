@@ -42,4 +42,4 @@ Happy Coding!
 
 The VS Code Team
 
-PS: You can read the announcement from the Go team [here](https://blog.golang.org/vscode-go)
+P.S. You can also read the announcement from the Go team on [The Go Blog](https://blog.golang.org/vscode-go).
