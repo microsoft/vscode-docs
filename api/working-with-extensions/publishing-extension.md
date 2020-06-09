@@ -187,7 +187,7 @@ For example, imagine that the latest Stable version of VS Code is `1.8.0` and th
 
 ### Marketplace integration
 
-You can customize how your extension looks in the Visual Studio Marketplace. See the [Go extension](https://marketplace.visualstudio.com/items/ms-vscode.Go) for an example.
+You can customize how your extension looks in the Visual Studio Marketplace. See the [Go extension](https://marketplace.visualstudio.com/items/golang.go) for an example.
 
 Here are some tips for making your extension look great on the Marketplace:
 

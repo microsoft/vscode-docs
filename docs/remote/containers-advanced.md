@@ -589,7 +589,7 @@ You can then set up `container1-src/.devcontainer.json` for Go development as fo
     "dockerComposeFile": ["../docker-compose.yml"],
     "service": "container-1",
     "shutdownAction": "none",
-    "extensions": ["ms-vscode.Go"],
+    "extensions": ["golang.go"],
     // Open the sub-folder with the source code
     "workspaceFolder": "/workspace/container1-src",
 }

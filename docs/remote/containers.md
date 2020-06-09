@@ -718,7 +718,7 @@ For example:
     "name": "My Go App",
     "dockerFile": "Dockerfile",
     "extensions": [
-        "ms-vscode.go"
+        "golang.go"
     ],
     "runArgs": [
         "--cap-add=SYS_PTRACE",
