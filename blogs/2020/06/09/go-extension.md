@@ -5,11 +5,10 @@ PageTitle: Visual Studio Code Go extension joins the Go project
 MetaDescription: Visual Studio Code Go extension joins the Go project
 Date: 2020-06-09
 Author: Alessandro Segala
-MetaSocialImage: /assets/blogs/2020/06/09/go-extension-build-social.png
 ---
 # The next phase of the Go experience
 
-June 9, 2020 by Alessandro Segala, [@ItalyPaleAle](https://twitter.com/ItalyPaleAle)
+June 9, 2020 by The VS Code Team, [@code](https://twitter.com/code)
 
 Since the very beginning, we have worked with developer communities to build Visual Studio Code as a powerful, extensible editor. Five years into this journey, individuals, and organizations in our community have helped us create an editor that is really for all developers, using any language.
 
@@ -41,4 +40,4 @@ From all of us in the Visual Studio Code and Go teams, we are excited for the fu
 
 Happy Coding!
 
-Alessandro Segala, VS Code Product Manager [@ItalyPaleAle](https://twitter.com/ItalyPaleAle)
+The VS Code Team
