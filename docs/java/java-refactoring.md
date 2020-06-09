@@ -688,7 +688,7 @@ The shortcut to invoke the Rename refactoring is `kb(editor.action.rename)`. Whe
   <source src="/docs/java/java-refactoring/rename.mp4" type="video/mp4">
 </video>
 
-Rename refactoring is also supported from the File Explorer for folder and file. After requesting the change, a preview of impacted files will be provided and you can decide how to apply those changes.
+Rename refactoring is also supported from the File Explorer for folders and files. After requesting the change, a preview of impacted files will be provided and you can decide how to apply those changes.
 
 ![Rename from Explorer](images/java-refactoring/rename-explorer.gif)
 
