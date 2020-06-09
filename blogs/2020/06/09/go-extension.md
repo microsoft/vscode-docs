@@ -10,9 +10,9 @@ Author: Alessandro Segala
 
 June 9, 2020 by The VS Code Team, [@code](https://twitter.com/code)
 
-From the beginning, we have worked with developer communities to build Visual Studio Code as a powerful, extensible editor. Five years into this journey, individuals and organizations in our community have helped us create an editor that is really for all developers, using any language. VS Code is now the primary editor for many of our 11 million users.
+From the beginning, we have worked with developer communities to build Visual Studio Code as a powerful, extensible editor. Five years into this journey, individuals and organizations in our community have helped us create an editor that is really for all developers, using any language.
 
-VS Code is also the most popular editor for Go developers (used by 41% of developers according to the [Go developer survey](https://blog.golang.org/survey2019-results)). We are proud of the work that we have done on the [Go extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=golang.Go), which is the result of an extensive development effort together with the Go community by virtue of both code contributions and integration with over a dozen independently maintained tools.
+For many of our 11 million users, VS Code is their primary code editor, as is the case for 41% of developers that are working with Go (according to the [Go developer survey](https://blog.golang.org/survey2019-results)). We are proud of the work that we have done on the [Go extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=golang.Go), which is the result of an extensive development effort together with the Go community by virtue of both code contributions and integration with over a dozen independently maintained tools.
 
 ![Go extension](go-extension.png)
 
