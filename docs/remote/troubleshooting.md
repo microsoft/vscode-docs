@@ -118,6 +118,8 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
         IdentityFile ~/.ssh/id_rsa-remote-ssh
     ```
 
+    > **Tip:** You can use `/` for Windows paths as well. If you use `\` you will need to use two slashes. e.g. `C:\\path\\to\\my\\id_rsa`.
+
 ### Reusing a key generated in PuTTYGen
 
 If you used PuTTYGen to set up SSH public key authentication for the host you are connecting to, you need to convert your private key so that other SSH clients can use it. To do this:
@@ -301,12 +303,10 @@ eval "$(ssh-agent -s)"
 To start the SSH Agent automatically on login, add these lines to your `~/.bash_profile`:
 
 ```bash
-if [ -z "$SSH_AUTH_SOCK" ]
-then
+if [ -z "$SSH_AUTH_SOCK" ]; then
    # Check for a currently running instance of the agent
    RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
-   if [ "$RUNNING_AGENT" = "0" ]
-   then
+   if [ "$RUNNING_AGENT" = "0" ]; then
         # Launch a new instance of the agent
         ssh-agent -s &> .ssh/ssh-agent
    fi
