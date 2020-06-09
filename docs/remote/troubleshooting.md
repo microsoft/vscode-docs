@@ -118,7 +118,7 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
         IdentityFile ~/.ssh/id_rsa-remote-ssh
     ```
 
-    > **Tip:** You can use `/` for Windows paths as well. If you use `\` you will need to use two slashes. e.g. `C:\\path\\to\\my\\id_rsa`.
+    > **Tip:** You can use `/` for Windows paths as well. If you use `\` you will need to use two slashes. For example, `C:\\path\\to\\my\\id_rsa`.
 
 ### Reusing a key generated in PuTTYGen
 

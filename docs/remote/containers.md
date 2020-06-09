@@ -305,7 +305,7 @@ Here is the typical edit loop using these commands:
 
 If you already have a successful build, you can still edit the contents of the `.devcontainer` folder as required when connected to the container and then select **Remote-Containers: Rebuild Container** in the Command Palette (`kbstyle(F1)`) so the changes take effect.
 
-You can also iterate on your container when using **Remote-Containers: Open Repository in Container** command.
+You can also iterate on your container when using the **Remote-Containers: Open Repository in Container** command.
 
 1. Start with **Remote-Containers: Open Repository in Container** in the Command Palette (`kbstyle(F1)`). If the repository you enter does not have a `devcontainer.json` in it, you'll be asked to select a starting point.
 2. Edit the contents of the `.devcontainer` folder as required.
@@ -383,9 +383,9 @@ To attach to a container in a Kuberntes cluster, first install the [Kubernetes e
 
 ## Inspecting Volumes
 
-Occasionally you may run into a situation where you are using a Docker named volume you want to inspect or make changes in. You can use VS Code to work with these contents without creating or modifying `devcontainer.json` file by selecting the **Remote-Containers: Inspect Volume in Container...** from the Command Pallette (`kbstyle(F1)`).
+Occasionally you may run into a situation where you are using a Docker named volume that you want to inspect or make changes in. You can use VS Code to work with these contents without creating or modifying `devcontainer.json` file by selecting the **Remote-Containers: Inspect Volume in Container...** from the Command Palette (`kbstyle(F1)`).
 
-If you have the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed, you can also right-click on a volume in the Volumes section of the **Docker Explorer** and select **Inspect in Visual Studio Code**.
+If you have the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed, you can also right-click on a volume in the **Volumes** section of the **Docker Explorer** and select **Inspect in Visual Studio Code**.
 
 ![Inspect in VS Code context menu](images/containers/inspect-volume-context-menu.png)
 
@@ -591,11 +591,11 @@ fi
 
 ### Sharing GPG Keys
 
-If want to GPG sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/en/github/authenticating-to-github/managing-commit-signature-verification).
+If want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/en/github/authenticating-to-github/managing-commit-signature-verification).
 
 If you do not have GPG set up, on **Windows**, you can install [Gpg4win](https://www.gpg4win.org/) or on **macOS** you can install [GPG Tools](https://gpgtools.org/). On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
 
-Next, install `gnupg2` in your container by updating your Dockerfile. e.g.:
+Next, install `gnupg2` in your container by updating your Dockerfile. For example:
 
 ```bash
 RUN apt-get update && apt-get install gnupg2

@@ -13,7 +13,7 @@ This article includes advanced setup scenarios for the [Visual Studio Code Remot
 
 ## Adding environment variables
 
-You can set environment variables in your container without altering the container image by using one of the options below. However, note that you should verify **Terminal > Integrated: Inherit Env** is checked in settings or variables you set may not appear in the integrated terminal.
+You can set environment variables in your container without altering the container image by using one of the options below. However, you should verify **Terminal > Integrated: Inherit Env** is checked in settings or the variables you set may not appear in the Integrated Terminal.
 
 ![Inherit env setting](images/containers/inherit-env.png)
 
@@ -198,9 +198,9 @@ The Remote - Containers extension uses "bind mounts" to source code in your loca
 
 ### Store your source code in the WSL2 filesystem on Windows
 
-Windows 10 2004 and up includes an improved version of the "Windows Subsystem for Linux" (WSL2) that provides a full Linux kernel and has significantly improved performance over WSL1. Docker Desktop 2.3+ includes a new WSL2 Engine that runs Docker in WSL rather than in a VM. Therefore, if you store your source code in the WSL2 filesystem, you will see improved performance along with better compatibility for things like setting permissions.
+Windows 10 2004 and up includes an improved version of the Windows Subsystem for Linux (WSL2) that provides a full Linux kernel and has significantly improved performance over WSL1. Docker Desktop 2.3+ includes a new WSL2 Engine that runs Docker in WSL rather than in a VM. Therefore, if you store your source code in the WSL2 filesystem, you will see improved performance along with better compatibility for things like setting permissions.
 
-See [Open a WSL2 folder in a container on Windows](containers.md#open-a-wsl2-folder-in-a-container-on-windows) for details on using this new engine from VS Code.
+See [Open a WSL2 folder in a container on Windows](/docs/remote/containers.md#open-a-wsl2-folder-in-a-container-on-windows) for details on using this new engine from VS Code.
 
 ### Update the mount consistency to 'delegated' for macOS
 
@@ -220,11 +220,11 @@ When using **Docker Compose**, update your local bind mount in `docker-compose.y
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-### Use "Open Repository in a Container"
+### Use Open Repository in a Container
 
 The **Remote-Containers: Open Repository in a Container...** command uses an isolated, local Docker named volume instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS.
 
-See [Open a Repository in a Container](containers.md#quick-start-open-an-existing-folder-in-a-container) for details on using this approach.
+See [Open a Repository in a Container](/docs/remote/containers.md#quick-start-open-an-existing-folder-in-a-container) for details on using this approach.
 
 The next two sections will outline how to use a named volume in other scenarios.
 
@@ -262,9 +262,9 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 Two notes on this approach:
 
-1. If you delete the `node_modules` folder in the container, it may loose the connection to the volume. Delete the contents of the `node_modules` folder instead when needed (`rm -rf node_modules/* node_modules/.*`).
+1. If you delete the `node_modules` folder in the container, it may lose the connection to the volume. Delete the contents of the `node_modules` folder instead when needed (`rm -rf node_modules/* node_modules/.*`).
 
-2. You'll find that an empty `node_modules` folder gets created locally with this method. This is because the volume mount point in the container is inside local filesystem bind mount. This is expected and harmless.
+2. You'll find that an empty `node_modules` folder gets created locally with this method. This is because the volume mount point in the container is inside the local filesystem bind mount. This is expected and harmless.
 
 **Docker Compose**:
 
