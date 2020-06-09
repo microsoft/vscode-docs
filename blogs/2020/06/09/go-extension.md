@@ -26,7 +26,7 @@ Both the Go and Visual Studio Code teams recognize the importance of Visual Stud
 
 Being part of the Go project will also ensure that the community is engaged on every step along the way. The extension currently depends on many different tools that are maintained by the community, and we want to work with the owners of those projects to help reduce the burden of maintenance work on the Go community.
 
-In practical terms, as the extension graduates to being part of the Go project, we will be changing the publisher of the extension from "Microsoft" to "Golang" in the VS Code Marketplace.
+In practical terms, as the extension graduates to being part of the Go project, we will be changing the publisher of the extension from "Microsoft" to "Go Team at Google" in the VS Code Marketplace.
 
 Additionally, the source code repository for the extension is changing to join the rest of the Go project at [golang/vscode-go](https://github.com/golang/vscode-go).
 
