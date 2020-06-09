@@ -281,7 +281,7 @@ You can register to this activation event in `package.json` and VS Code will act
 
 ## View Container
 
-A View Container contains a list of views that are displayed in the Activity Bar along with the built-in View Containers. Examples of built-in View Containers are Source Control and Explorer.
+A View Container contains a list of views that are displayed in the Activity Bar or Panel along with the built-in View Containers. Examples of built-in View Containers are Source Control and Explorer.
 
 ![View Container](images/tree-view/view-container.png)
 
@@ -291,7 +291,7 @@ You have to specify the following required fields:
 
 - `id` - The name of the new view container you're creating.
 - `title` - The name that will show up at the top of the view container.
-- `icon` - An image that will be displayed for the view container in the Activity Bar.
+- `icon` - An image that will be displayed for the view container when in the Activity Bar.
 
 ```json
 "contributes": {
@@ -301,6 +301,41 @@ You have to specify the following required fields:
         "id": "package-explorer",
         "title": "Package Explorer",
         "icon": "media/dep.svg"
+      }
+    ]
+  }
+}
+```
+
+Alternatively, you could contribute this view to the panel by placing it under the `panel` node.
+
+```json
+"contributes": {
+  "viewsContainers": {
+    "panel": [
+      {
+        "id": "package-explorer",
+        "title": "Package Explorer",
+        "icon": "media/dep.svg"
+      }
+    ]
+  }
+}
+```
+
+## Contributing views to View Containers
+
+Once you've created a View Container, you can use the [contributes.views](/api/references/contribution-points#contributes.views) Contribution Point in `package.json`.
+
+```json
+"contributes": {
+  "views": {
+    "package-explorer": [
+      {
+        "id": "nodeDependencies",
+        "name": "Node Dependencies",
+        "icon": "media/dep.svg",
+        "contextualTitle": "Package Explorer"
       }
     ]
   }
