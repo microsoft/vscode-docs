@@ -30,7 +30,7 @@ In practical terms, as the extension graduates to being part of the Go project, 
 
 Additionally, the source code repository for the extension is changing to join the rest of the Go project at [golang/vscode-go](https://github.com/golang/vscode-go).
 
-Amongst our community of contributors, we'd like to extend special thanks to Ramya Rao ([@ramyanexus](https://twitter.com/ramyanexus/)), the lead maintainer of the extension and contributor to the community for many years, as well as Luke Hoban ([@lukehoban](https://twitter.com/lukehoban/)) and Eric Gamma ([@erichgamma](https://twitter.com/erichgamma/)) for their contributions since September 2015! We would also like to thank Rebecca Stambler ([@stamblerre](https://twitter.com/stamblerre/)) and the Go team for their collaboration.
+Amongst our community of contributors, we'd like to extend special thanks to Ramya Rao ([@ramyanexus](https://twitter.com/ramyanexus/)), the lead maintainer of the extension and contributor to the community for many years, as well as Luke Hoban ([@lukehoban](https://twitter.com/lukehoban/)) and Erich Gamma ([@erichgamma](https://twitter.com/erichgamma/)) for their contributions since September 2015! We would also like to thank Rebecca Stambler ([@stamblerre](https://twitter.com/stamblerre/)) and the Go team for their collaboration.
 
 ## Contributing and support
 
