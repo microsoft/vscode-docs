@@ -72,6 +72,12 @@ In addition to the live sessions, you'll have the opportunity to learn more abou
 * [**Build containerized microservices faster and ship with confidence using VS Code and GitHub**](https://aka.ms/Build2020AppDev-InnerLoops)
   * Nick Greenfield ([@greenie-msft](https://github.com/greenie-msft))
 
+## The History of VS Code
+
+And you won't want to miss Erich Gamma telling the story of Visual Studio Code.
+
+* [**The History of Visual Studio Code**](https://mybuild.microsoft.com/sessions/6b571733-8198-48da-b870-ef804dcfea93?source=sessions)
+
 ## Follow us for more
 
 The sessions above just scratch the surface of what our team (and our teammates at Microsoft and GitHub) have been working on and will showcase at Build. Check out the [Microsoft Build](https://mybuild.microsoft.com/) website for the complete agenda, including keynotes, all other developer sessions, and more opportunities to engage with us.
