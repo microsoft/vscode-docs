@@ -38,9 +38,10 @@ In this guide you will learn how to:
 
    ![Add Dockerfile to a .NET project](images/quickstarts/aspnetcore-add-dotnet.png)
 
-1. Use **ASP.NET Core** when prompted for application platform.
+1. Use **.NET: ASP.NET Core** when prompted for application platform.
 1. Choose **Windows** or **Linux** when prompted to choose the operating system.
     > Windows is only applicable if your Docker installation is configured to use Windows containers.
+1. You will be asked if you want to add Docker Compose files. We will not use Docker Compose in this tutorial, so both "Yes" and "No" answers are fine.
 1. Change the port for application endpoint to `5000`.
 1. `Dockerfile` and `.dockerignore` files are added to the workspace.
 
@@ -103,6 +104,21 @@ You can use the Docker extension to author Docker files. The extension provides 
     ]
    ```
 
+   > By default Docker will assign a randomly chosen **host port** to a port exposed by a container (the **container port**). In our application the exposed (container) port is 5000. When you issue **Run** command for an image, VS Code will try to use the same port number for the host port and container port. This makes it easy to remember which port to use to communicate with the container, but it won't work if the host port is already in use.
+   >
+   > If you cannot see the data from the container in your browser, make sure there are no errors reported by the `docker run` command (look at the command output in the terminal window). You can also verify which host port is using by the container by right-clicking the container in the Docker view and choosing **Inspect"". This will open a JSON document that describes the container in detail. Search for `PortBindings` element, for example:
+   >
+   > ```jsonc
+   > "PortBindings": {
+   >   "5000/tcp": [
+   >     {
+   >       "HostIp": "",
+   >       "HostPort": "5000"
+   >     }
+   >   ]
+   > },
+   > ```
+
 1. When done testing, right-click the container in the Docker view and choose **Stop**.
 
 ## Debug in container
@@ -127,8 +143,6 @@ When Docker files were added to the application, the Docker extension also added
     - The debug version of the service container builds and starts.
     - The browser opens to request a new weather forecast.
     - The breakpoint in the `WeatherForecastController` is hit.
-
-By default Docker will assign a randomly chosen **host port** to a port exposed by a container (the **container port**). In this case the exposed (container) port is 5000, but it will be exposed on the host via a random port, such as 32737.
 
 You can use specific port on the host by changing the Docker run options used by `docker-run: debug` task (defined in `.vscode/tasks.json` file). For example, if you want to use the same port (5000) to expose the service, the `docker-run: debug` task definition would look like this:
 
