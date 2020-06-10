@@ -106,7 +106,7 @@ You can use the Docker extension to author Docker files. The extension provides 
 
    > By default Docker will assign a randomly chosen **host port** to a port exposed by a container (the **container port**). In our application the exposed (container) port is 5000. When you issue **Run** command for an image, VS Code will try to use the same port number for the host port and container port. This makes it easy to remember which port to use to communicate with the container, but it won't work if the host port is already in use.
    >
-   > If you cannot see the data from the container in your browser, make sure there are no errors reported by the `docker run` command (look at the command output in the terminal window). You can also verify which host port is using by the container by right-clicking the container in the Docker view and choosing **Inspect"". This will open a JSON document that describes the container in detail. Search for `PortBindings` element, for example:
+   > If you cannot see the data from the container in your browser, make sure there are no errors reported by the `docker run` command (look at the command output in the terminal window). You can also verify which host port is using by the container by right-clicking the container in the Docker view and choosing **Inspect**. This will open a JSON document that describes the container in detail. Search for `PortBindings` element, for example:
    >
    > ```jsonc
    > "PortBindings": {
