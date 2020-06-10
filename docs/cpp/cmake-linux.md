@@ -102,7 +102,7 @@ This creates a hello world CMake project containing `main.cpp`, `CMakeLists.txt`
 
 ## Select a kit
 
-Before you can use the CMake tools extension to build a project, you need to configure it to know about the compilers on your system. Do that by scanning for what CMake calls 'kits'. A kit contains project-agnostic, configuration-agnostic build instructions for your code--such as the name of the compiler you're using. To scan for kits:
+Before you can use the CMake tools extension to build a project, you need to configure it to know about the compilers on your system. Do that by scanning for what CMake calls 'kits'. A kit represents a toolchain, which is the compilers, linkers, and other tools used to build your project. To scan for kits:
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and run **CMake: Select a Kit**. If you don't see any compilers listed, select **Scan for kits**. This will create a list of compilers found on your system. If you scanned for kits, reopen the Command Palette and run **CMake: Select a Kit** again to see the list of compilers.
 
