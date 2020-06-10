@@ -44,7 +44,7 @@ You can manually install the extension pack from the Extensions view (`kb(workbe
 
 For more details, please read [Java tutorial](/docs/java/java-tutorial.md).
 
-## Config
+## Configure
 
 By default, the debugger will run out-of-box by automatically finding the main class and generate the default configuration for you to launch your application.
 
