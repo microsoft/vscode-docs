@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 5/7/2020
+DateApproved: 6/10/2020
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 # Editing JSON with Visual Studio Code
@@ -194,4 +194,4 @@ Note that `defaultSnippets` is not part of the JSON schema specification but a V
 
 `json.schemaDownload.enable` controls whether the JSON extension fetches JSON schemas from `http` and `https`.
 
-A warning triangle will show in the status bar when the current editor would like to use schemas that can not be downloaded. 
+A warning triangle will show in the status bar when the current editor would like to use schemas that can not be downloaded.

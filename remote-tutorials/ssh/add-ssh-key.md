@@ -4,7 +4,7 @@ Area: ssh
 TOCTitle: Add SSH key
 PageTitle: Add SSH key to your virtual machine
 MetaDescription: Add SSH key to your virtual machine
-DateApproved: 5/7/2020
+DateApproved: 6/10/2020
 ---
 # Add SSH key to your VM
 

@@ -5,7 +5,7 @@ TOCTitle: Visual Studio Codespaces
 PageTitle: Developing with Visual Studio Codespaces
 ContentId: 8d30ed21-208f-4b4e-8510-5a4a33c42618
 MetaDescription: Using Visual Studio Code Codespaces
-DateApproved: 5/7/2020
+DateApproved: 6/10/2020
 ---
 # Visual Studio Codespaces
 
