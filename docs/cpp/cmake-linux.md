@@ -11,13 +11,15 @@ MetaDescription: Get started with the CMake Tools Visual Studio Code extension o
 
 CMake is an open-source, cross-platform tool for building, testing, and packaging software. It uses platform and compiler independent configuration files to generate native makefiles that can be used with your compiler, on your platform.
 
-In this tutorial, you'll use the CMake Tools extension for Visual Studio Code to configure, build, and debug a simple C++ CMake project on Linux.  
+The CMake Tools extension integrates Visual Studio Code and CMake to make it easy to configure, build, and debug your C++ project using CMake.
+
+In this tutorial, you'll use the CMake Tools extension for Visual Studio Code to configure, build, and debug a simple C++ CMake project on Linux. Aside from installing CMake and your compiler, debugger, the steps in this tutorial apply generally to how you'd use CMake on other platforms, like Windows.
 
 If you have any trouble, please file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
-To successfully complete this tutorial, you need to install the following:
+To successfully complete this tutorial on Ubuntu, install the following:
 
 1. [Visual Studio Code](/download).
 1. [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'c++' in the Extensions view (`kb(workbench.view.extensions)`).
@@ -32,7 +34,7 @@ To successfully complete this tutorial, you need to install the following:
 
 ### Ensure that CMake is installed
 
-The VS Code CMake Tools extension does it work through the CMake installed on your system. For best results, you want CMake version 3.17 or above.
+The VS Code CMake Tools extension does its work using CMake installed on your system. For best results, use CMake version 3.17 or greater.
 
 See if CMake is already installed on your system. Open a Terminal window and enter the following command:
 
@@ -46,7 +48,7 @@ To install, or get the latest version of CMake on your system, see the instructi
 
 Although you'll use VS Code to edit your source code, you'll compile and debug the source code using the compiler and debugger installed on your system.
 
-For example, for this tutorial on Ubuntu, we'll use the GCC compiler and GDB to debug. These tools are not installed by default on Ubuntu, so you need to install them. Fortunately, that's easy.
+For this tutorial on Ubuntu, we'll use the GCC compiler and GDB to debug. These tools are not installed by default on Ubuntu, so you need to install them. Fortunately, that's easy.
 
 ### Check if GCC is installed
 
@@ -56,7 +58,7 @@ For example, for this tutorial on Ubuntu, we'll use the GCC compiler and GDB to 
 gcc -v
 ```
 
-If GCC isn't installed, run the following command from the terminal window to update the Ubuntu package lists. An out-of-date Linux distribution can interfere with attempts to get the latest packages.
+If GCC isn't installed, run the following command from the terminal window to update the Ubuntu package lists. An out-of-date Linux distribution can interfere with getting the latest packages.
 
 ```bash
 sudo apt-get update
@@ -100,9 +102,9 @@ This creates a hello world CMake project containing `main.cpp`, `CMakeLists.txt`
 
 ## Select a kit
 
-Before you can use the CMake tools extension to build a project, you need to configure it to know about the compilers on your system. You do that by scanning for what CMake calls 'kits'. A kit contains project-agnostic, configuration-agnostic build instructions for your code--such as the name of the compiler you're using. To scan for kits:
+Before you can use the CMake tools extension to build a project, you need to configure it to know about the compilers on your system. Do that by scanning for what CMake calls 'kits'. A kit contains project-agnostic, configuration-agnostic build instructions for your code--such as the name of the compiler you're using. To scan for kits:
 
-1. Open the Command Palette (`kb(workbench.action.showCommands)`) and run **CMake: Select a Kit**. If you don't see any compilers listed, select **Scan for kits**. This will create a list of compilers found on your system. If you scanned for kits, reopen the Command Palette and run **CMake: Select a Kit** again.
+1. Open the Command Palette (`kb(workbench.action.showCommands)`) and run **CMake: Select a Kit**. If you don't see any compilers listed, select **Scan for kits**. This will create a list of compilers found on your system. If you scanned for kits, reopen the Command Palette and run **CMake: Select a Kit** again to see the list of compilers.
 
 1. Select the compiler you want to use. For example, depending on the compilers you have installed, you might see something like:
 
@@ -120,13 +122,18 @@ To change the kit, you can click on the kit in the status bar, or run the **CMak
 
 ### Select a variant
 
-A variant contains instructions for how to build your project. By default, the CMake Tools extension provides four variants, each corresponding to a default build type: Debug, Release, MinRelSize, and RelWithDebInfo.
+A variant contains instructions for how to build your project. By default, the CMake Tools extension provides four variants, each corresponding to a default build type: `Debug`, `Release`, `MinRelSize`, and `RelWithDebInfo`. These options provide the following:
+
+`Debug`: disables optimizations and includes debug info.
+`Release` : Includes optimizations but no debug info.
+`MinRelSize` : Optimizes for size. No debug info.
+`RelWithDebInfo` : Optimizes for speed and includes debug info.
 
 To select a variant, open the Command Palette (`kb(workbench.action.showCommands)`) run the **CMake: Select Variant** command.
 
 ![Select variant](images/cpp/cmake-select-variant.png)
 
-Select "Debug" to include debug information with your build.  
+Select **Debug** to include debug information with your build.  
 
 ![Select debug variant type](images/cpp/cmake-variant-type.png)
 
@@ -134,7 +141,7 @@ The selected variant will appear in the status bar next to the active kit.
 
 ### CMake: Configure
 
-Now that you've selected a kit and a variant, open the Command Palette (`kb(workbench.action.showCommands)`) run the **CMake: Configure** command to configure your project. This generates build files and writes them to the project's build folder.
+Now that you've selected a kit and a variant, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Configure** command to configure your project. This generates build files in the project's build folder using the kit and variant you selected.
 
 ## Build hello world
 
@@ -142,20 +149,20 @@ After configuring your project, you're ready to build. Open the Command Palette 
 
 ![Build](images/cpp/cmake-build.png)
 
-You can select which targets you'd like to build by selecting **CMake: Set Build Target** from the Command Palette. By default, CMake Tools builds all targets.
+You can select which targets you'd like to build by selecting **CMake: Set Build Target** from the Command Palette. 
 
-The selected target will appear in the status bar next to the **Build** button.
+By default, CMake Tools builds all targets. The selected target will appear in the status bar next to the **Build** button.
 
 ## Debug hello world
 
 To run and debug your project, open `main.cpp` and put a breakpoint on the `std::cout` line.
-Then open the Command Palette (`kb(workbench.action.showCommands)`) and run **CMake: Debug**. The debugger should stop on the `std::out` line:
+Then open the Command Palette (`kb(workbench.action.showCommands)`) and run **CMake: Debug**. The debugger  stops on the `std::out` line:
 
 ![Debug](images/cpp/cmake-debug.png)
 
 Go ahead and press **F5** to continue.
 
-You've now used the VS Code CMake Tools extension to control CMake to build and debug a C++ app on Ubuntu. The steps are the same for other platforms, the difference being how you install CMake and the compiler/debugger for the platform of your choice. For instructions on setting up compilers/debuggers for other platforms, you can see the following:
+You've now used the VS Code CMake Tools extension to use CMake to build and debug a C++ app on Ubuntu. The steps are the same for other platforms; the difference being how you install CMake and the compiler/debugger for the platform of your choice. For instructions on setting up compilers/debuggers for other platforms, see the following:
 
 -[Microsoft C++ on Windows](config-msvc.md)
 -[Clang on macOS](config-clang-mac.md)
