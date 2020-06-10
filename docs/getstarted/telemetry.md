@@ -89,7 +89,7 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 > **Note**: VS Code extensions may also use online services and may not provide settings to configure the usage of these online services, or they may not register their settings to show up when searching for `@tag:usesOnlineServices`. Consult the specific extension's documentation to learn about its usage of online services.
 
-### non-Microsoft online services used by VS Code
+### Non-Microsoft online services used by VS Code
 
 The built-in **npm support for VS Code** extension sends requests to `https://registry.npmjs.org` and `https://registry.bower.io`.
 

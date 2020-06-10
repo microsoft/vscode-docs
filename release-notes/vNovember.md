@@ -48,7 +48,7 @@ The [`vsce` publishing tool](/docs/extensions/publish-extension.md) lets you eas
 
 ## Extension samples
 
-If you'd rather start your extension by modifying a working example, you can find [extension samples](/docs/extensions/samples/.md) as well as the source code for many extensions on GitHub ([Go Language Support](https://github.com/microsoft/vscode-go)).
+If you'd rather start your extension by modifying a working example, you can find [extension samples](/docs/extensions/samples/.md) as well as the source code for many extensions on GitHub ([Go Language Support](https://github.com/golang/vscode-go)).
 
 ## VS Code is Open Source!
 

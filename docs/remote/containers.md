@@ -375,7 +375,7 @@ Finally, if you have extensions you want installed regardless of the container y
 
 ### Attaching to a container in a Kubernetes cluster
 
-To attach to a container in a Kuberntes cluster, first install the [Kubernetes extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) and `kubectl` along with the Remote - Containers extension. Then select the Kubernetes explorer from the activity bar and expand the cluster and Pod where the container you want to attach to resides. Finally, right-click on the container and select **Attach Visual Studio Code** from context menu.
+To attach to a container in a Kubernetes cluster, first install the [Kubernetes extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) and `kubectl` along with the Remote - Containers extension. Then select the Kubernetes explorer from the activity bar and expand the cluster and Pod where the container you want to attach to resides. Finally, right-click on the container and select **Attach Visual Studio Code** from context menu.
 
 > **Note:** Attached container configuration files are not yet supported for containers in a Kubernetes cluster.
 
@@ -738,7 +738,7 @@ For example:
     "name": "My Go App",
     "dockerFile": "Dockerfile",
     "extensions": [
-        "ms-vscode.go"
+        "golang.go"
     ],
     "runArgs": [
         "--cap-add=SYS_PTRACE",
