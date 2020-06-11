@@ -30,7 +30,7 @@ To successfully complete this tutorial on Ubuntu, install the following:
 
     ![CMake tools extension](images/cpp/cmake-extension.png)
 
-1. You'll also need to install CMake, a compiler, a debugger, and .
+1. You'll also need to install CMake, a compiler, a debugger, and a generator.
 
 ### Ensure that CMake is installed
 
@@ -48,7 +48,7 @@ To install, or get the latest version of CMake on your system, see the instructi
 
 Although you'll use VS Code to edit your source code, you'll compile and debug the source code using the compiler, debugger, and build tools (such as make) installed on your system.
 
-For this tutorial on Ubuntu, we'll use the GCC compiler, GDB to debug, and related development tools. These tools are not installed by default on Ubuntu, so you need to install them. Fortunately, that's easy.
+For this tutorial on Ubuntu, we'll use the GCC compiler, GDB to debug, and make to genenerate native build files. These tools are not installed by default on Ubuntu, so you need to install them. Fortunately, that's easy.
 
 ### Check if GCC is installed
 
@@ -64,7 +64,7 @@ If GCC isn't installed, run the following command from the terminal window to up
 sudo apt-get update
 ```
 
-Next install the GNU compiler, development tools, and GDB debugger with this command:
+Next, install the GNU compiler, make, and the GDB debugger with this command:
 
 ```bash
 sudo apt-get install build-essential gdb
