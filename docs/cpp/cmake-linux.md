@@ -72,7 +72,9 @@ sudo apt-get install build-essential gdb
 
 ## Create a CMake quickstart
 
-The first thing to do is create a folder for your project. From the terminal window, create an empty folder called `cmakeQuickStart`, navigate into it, and open VS Code in that folder by entering the following commands:
+If you have an existing CMake project that already has a CMakeLists.txt file in the root directory, you can skip to [Select a kit](#select-a-kit) to configure your existing project.
+
+Otherwise, create a folder for a new project. From the terminal window, create an empty folder called `cmakeQuickStart`, navigate into it, and open VS Code in that folder by entering the following commands:
 
 ```cmd
 mkdir cmakeQuickStart
@@ -94,17 +96,17 @@ Next, select **Executable** as the project type to create a basic source file (`
 
 ![Choose project type](images/cpp/cmake-choose-type.png)
 
-**Note:** If you had wanted to create a basic source and header file, you would have selected **Library** instead. But for this tutorial, **Executable** will do. If you are prompted to configure intellisense for the folder, you can either ignore the prompt or select **Allow**.
+**Note:** If you had wanted to create a basic source and header file, you would have selected **Library** instead. But for this tutorial, **Executable** will do. If you are prompted to configure IntelliSense for the folder, you can either ignore the prompt or select **Allow**.
 
 This creates a hello world CMake project containing `main.cpp`, `CMakeLists.txt` (which tells the CMake tools how to build your project), and a folder named **build** for your build files:
 
 ![Project contents](images/cpp/cmake-project-contents.png)
 
-## Select a kit
+### Select a kit
 
 Before you can use the CMake tools extension to build a project, you need to configure it to know about the compilers on your system. Do that by scanning for what CMake calls 'kits'. A kit represents a toolchain, which is the compilers, linkers, and other tools used to build your project. To scan for kits:
 
-1. Open the Command Palette (`kb(workbench.action.showCommands)`) and run **CMake: Select a Kit**. If you don't see any compilers listed, select **Scan for kits**. This will create a list of compilers found on your system. If you scanned for kits, reopen the Command Palette and run **CMake: Select a Kit** again to see the list of compilers.
+1. Open the Command Palette (`kb(workbench.action.showCommands)`) and run **CMake: Select a Kit**. The extension will automatically scan for kits on your computer and create a list of compilers found on your system.
 
 1. Select the compiler you want to use. For example, depending on the compilers you have installed, you might see something like:
 
@@ -118,7 +120,7 @@ The kit you selected previously is shown in the status bar. For example:
 
 ![Selected kit in status bar](images/cpp/cmake-kit-statusbar.png)
 
-To change the kit, you can click on the kit in the status bar, or run the **CMake: Select a kit** again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `CMakeKits.json` file directly to add it yourself.
+To change the kit, you can click on the kit in the status bar, or run the **CMake: Select a kit** again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `cmake-tools-kits.json` file in your project and add it manually.
 
 ### Select a variant
 
