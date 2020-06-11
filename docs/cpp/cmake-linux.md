@@ -172,5 +172,5 @@ You've now used the VS Code CMake Tools extension to use CMake to build and debu
 
 ## Next steps
 
-- Explore the [VS Code User Guide](/docs/editor/codebasics.md).
+- Explore the [CMake Tools docs](https://vector-of-bool.github.io/docs/vscode-cmake-tools/index.html)
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md)
