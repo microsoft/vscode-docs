@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 5/7/2020
+DateApproved: 6/10/2020
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -40,6 +40,12 @@ VS Code also has many preset keyboard shortcuts for commands. These are displaye
 ![Keyboard shortcuts in Command Palette](images/accessibility/keyboard-shortcuts.png)
 
 You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) brings up the Keyboard Shortcuts editor where you can discover and modify keybindings for VS Code actions. See [Key Bindings](/docs/getstarted/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
+
+For a quick navigation across the workbench we recommend using **Focus Next Part** (`kb(workbench.action.focusNextPart)`) and **Focus Previous Part** (`kb(workbench.action.focusPreviousPart)`) commands.
+
+### Anchor selection
+
+To make it easier to start and end selection using the keyboard we have four commands: **Set Selection Anchor** (`kb(editor.action.setSelectionAnchor)`), **Select From Anchor to Cursor** (`kb(editor.action.selectFromAnchorToCursor)`), **Cancel Selection Anchor** (`kb(editor.action.cancelSelectionAnchor)`) and **Go to Selection Anchor**.
 
 ## Tab navigation
 
@@ -100,6 +106,10 @@ Output in the Integrated Terminal can be navigated through by using the "navigat
 
 The setting `terminal.integrated.minimumContrastRatio` can be set to a number between 1 and 21, this will cause the text color either increase or reduce luminance until the contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.
 
+## Status Bar accessibility
+
+Once a focus is in the status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between status bar entries.
+
 ## Debugger accessibility
 
 The VS Code debugger UI is user accessible and has the following features:
@@ -116,7 +126,7 @@ VS Code has some known accessibility issues depending on the platform. Here's a 
 
 ### macOS
 
-There is limited screen reader support for the editor with VoiceOver.
+There is screen reader support for the editor with VoiceOver.
 
 ### Linux
 

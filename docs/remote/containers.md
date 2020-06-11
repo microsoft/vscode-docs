@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 5/7/2020
+DateApproved: 6/10/2020
 ---
 # Developing inside a Container
 
@@ -30,7 +30,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 **Containers**:
 
 * x86_64 / ARMv7l (AArch32) / ARMv8l (AArch64) Debian 9+, Ubuntu 16.04+, CentOS / RHEL 7+
-* x86_64 Alpine Linux 3.7+
+* x86_64 Alpine Linux 3.8+
 
 Other `glibc` based Linux containers may work if they have [needed prerequisites](/docs/remote/linux.md).
 
@@ -186,6 +186,8 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
 5. After the build completes, VS Code will automatically connect to the container. You can now work with the repository source code in this isolated environment as you would if you had cloned the code locally.
 
+Note that if the container fails to come up due to something like a Docker build error, you can select **Open in Recovery Container** in the dialog that appears to go into a "recovery container" that allows you to edit your Dockerfile or other content. Once done, use **File > Open Recent** to select the repository container and retry.
+
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
 
 ## Quick start: Configure a sandbox for multiple projects or folders
@@ -299,9 +301,18 @@ Here is the typical edit loop using these commands:
 3. Try it with **Remote-Containers: Reopen Folder in Container**.
 4. If you see an error, click on **Open Folder Locally** in the dialog that appears.
 5. After the window reloads, a copy of the **build log will appear** in the so you can investigate the problem. Edit the contents of the `.devcontainer` folder as required. (You can also use the **Remote-Containers: Open Log File...** command to see the log again if you close it.)
-1. Run **Remote-Containers: Rebuild and Reopen Folder in Container** and jump to step 4 if needed.
+6. Run **Remote-Containers: Rebuild and Reopen Folder in Container** and jump to step 4 if needed.
 
 If you already have a successful build, you can still edit the contents of the `.devcontainer` folder as required when connected to the container and then select **Remote-Containers: Rebuild Container** in the Command Palette (`kbstyle(F1)`) so the changes take effect.
+
+You can also iterate on your container when using the **Remote-Containers: Open Repository in Container** command.
+
+1. Start with **Remote-Containers: Open Repository in Container** in the Command Palette (`kbstyle(F1)`). If the repository you enter does not have a `devcontainer.json` in it, you'll be asked to select a starting point.
+2. Edit the contents of the `.devcontainer` folder as required.
+3. Try it with **Remote-Containers: Rebuild Container**.
+4. If you see an error, click on **Open in Recovery Container** in the dialog that appears.
+5. Edit the contents of the `.devcontainer` folder as required in this "recovery container."
+6. Use **Remote-Containers: Reopen in Container** and jump to step 4 if you still hit problems.
 
 ### Adding configuration files to public or private repositories
 
@@ -369,6 +380,14 @@ To attach to a container in a Kubernetes cluster, first install the [Kubernetes 
 > **Note:** Attached container configuration files are not yet supported for containers in a Kubernetes cluster.
 
 ![Attach to Kubernetes Container](images/containers/k8s-attach.png)
+
+## Inspecting Volumes
+
+Occasionally you may run into a situation where you are using a Docker named volume that you want to inspect or make changes in. You can use VS Code to work with these contents without creating or modifying `devcontainer.json` file by selecting the **Remote-Containers: Inspect Volume in Container...** from the Command Palette (`kbstyle(F1)`).
+
+If you have the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed, you can also right-click on a volume in the **Volumes** section of the **Docker Explorer** and select **Inspect in Visual Studio Code**.
+
+![Inspect in VS Code context menu](images/containers/inspect-volume-context-menu.png)
 
 ## Managing extensions
 
@@ -556,15 +575,13 @@ First, start the SSH Agent in the background by running the following in a termi
 eval "$(ssh-agent -s)"
 ```
 
-Then add these lines to your `~/.bash_profile` so it starts on login:
+Then add these lines to your `~/.bash_profile` or `~/.zprofile` (for Zsh) so it starts on login:
 
 ```bash
-if [ -z "$SSH_AUTH_SOCK" ]
-then
+if [ ! -z "$SSH_AUTH_SOCK" ]; then
    # Check for a currently running instance of the agent
    RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
-   if [ "$RUNNING_AGENT" = "0" ]
-   then
+   if [ "$RUNNING_AGENT" = "0" ]; then
         # Launch a new instance of the agent
         ssh-agent -s &> .ssh/ssh-agent
    fi
@@ -572,32 +589,35 @@ then
 fi
 ```
 
+### Sharing GPG Keys
+
+If want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/en/github/authenticating-to-github/managing-commit-signature-verification).
+
+If you do not have GPG set up, on **Windows**, you can install [Gpg4win](https://www.gpg4win.org/) or on **macOS** you can install [GPG Tools](https://gpgtools.org/). On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
+
+Next, install `gnupg2` in your container by updating your Dockerfile. For example:
+
+```bash
+RUN apt-get update && apt-get install gnupg2
+```
+
+Or if running as a [non-root user](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container):
+
+```bash
+RUN sudo apt-get update && sudo apt-get install gnupg2
+```
+
+The next time the container starts, your GPG keys should be accessible inside the container as well.
+
+> **Note:** If you used `gpg` previously in the container, you may need to run **Remote-Containers: Rebuild Container** for the update to take effect.
+
 ## Managing containers
 
 By default, the Remote - Containers extension automatically starts the containers mentioned in the `devcontainer.json` when you open the folder. When you close VS Code, the extension automatically shuts down the containers you've connected to. You can change this behavior by adding `"shutdownAction": "none"` to `devcontainer.json`.
 
-You can also manually manage your containers using one of the following options:
-
-### Option 1: Use the Containers Remote Explorer
-
-From the Containers Explorer, you can right-click on a running container and stop it. You can also start exited containers, remove containers, and remove recent folders. From the Details view, you can forward ports and open already forwarded ports in the browser.
+While you can use the command line to manage your containers, you can also use the  **Remote Explorer**. To stop a container, select Containers from the drop down (if present), right-click on a running container, and select **Stop Container**. You can also start exited containers, remove containers, and remove recent folders. From the Details view, you can forward ports and open already forwarded ports in the browser.
 
 ![Containers Explorer screenshot](images/containers/containers-explorer.png)
-
-### Option 2: Use the Docker CLI
-
-1. Open a **local** terminal/PowerShell (or use a local window in VS Code).
-2. Type `docker ps` to see running containers. Use `docker ps -a` to also see any stopped containers.
-3. Type `docker stop <Container ID>` from this list to stop a container.
-4. If you would like to delete a container, type `docker rm <Container ID>` to remove it.
-
-### Option 3: Use Docker Compose
-
-1. Open a **local** terminal/PowerShell (or use a local window in VS Code).
-2. Go to the directory with your `docker-compose.yml` file.
-3. Type `docker-compose top` to see running processes.
-4. Type `docker-compose stop` to stop the containers. If you have more than one Docker Compose file, you can specify additional Docker Compose files with the `-f` argument.
-5. If you would like to delete the containers, type `docker-compose down` to both stop and delete them.
 
 If you want to clean out images or mass-delete containers, see [Cleaning out unused containers and images](/docs/remote/troubleshooting.md#cleaning-out-unused-containers-and-images) for different options.
 
@@ -718,7 +738,7 @@ For example:
     "name": "My Go App",
     "dockerFile": "Dockerfile",
     "extensions": [
-        "ms-vscode.go"
+        "golang.go"
     ],
     "runArgs": [
         "--cap-add=SYS_PTRACE",
@@ -730,15 +750,15 @@ For example:
 
 While less efficient than a custom Dockerfile, you can also use the `postCreateCommand` property to **install additional software** that **may not be in your base image** or for cases where you would prefer **not to modify a deployment Dockerfile** you are reusing.
 
-For example, here is a `devcontainer.json` that adds `git` and the [Git Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension to the base Debian 9 container image:
+For example, here is a `devcontainer.json` that adds compiler tools and the [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension to the base Ubuntu 18.04 container image:
 
 ```json
 {
-    "image": "debian:9",
+    "image": "ubuntu:18.04",
     "extensions": [
-        "eamodio.gitlens"
+        "ms-vscode.cpptools"
     ],
-    "postCreateCommand": "apt-get update && apt-get install -y git"
+    "postCreateCommand": "apt-get update && apt-get install -y build-essential cmake cppcheck valgrind"
 }
 ```
 
@@ -889,16 +909,16 @@ If you want all processes to run as a different user, add this to the appropriat
 user: your-user-name-here
 ```
 
-If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as Git inside the service's container. While less efficient than adding these tools to the container image, you can also use the `postCreateCommand` property for this purpose.
+If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as `curl` inside the service's container. While less efficient than adding these tools to the container image, you can also use the `postCreateCommand` property for this purpose.
 
 ```json
-"postCreateCommand": "apt-get update && apt-get install -y git"
+"postCreateCommand": "apt-get update && apt-get install -y curl"
 ```
 
 Or if running as a non-root user and `sudo` is installed in the container:
 
 ```json
-"postCreateCommand": "sudo apt-get update && sudo apt-get install -y git"
+"postCreateCommand": "sudo apt-get update && sudo apt-get install -y curl"
 ```
 
 See [installing additional software](#installing-additional-software) for more information on using `apt-get` to install software.
@@ -1030,7 +1050,7 @@ See [Setting up a folder to run in a container](#indepth-setting-up-a-folder-to-
 | `context` | string | Path that the Docker build should be run from relative to `devcontainer.json`. For example, a value of `".."` would allow you to reference content in sibling directories. Defaults to `"."`. |
 | `appPort` | integer,<br>string,<br>array |  In most cases, we recommend using the new [forwardPorts property](#always-forwarding-a-port). This property accepts a port or array of ports that should be [published](#publishing-a-port) locally when the container is running. Unlike `forwardPorts`, your application may need to listen on all interfaces (`0.0.0.0`) not just `localhost` for it to be available externally. Defaults to `[]`. |
 | `containerEnv` | object | A set of name-value pairs that sets or overrides environment variables for the container. Environment and [pre-defined variables](#variables-in-devcontainerjson) may be referenced in the values. For example:<br/> `"containerEnv": { "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }`<br /> Requires the container be recreated / rebuilt to change. |
-| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-devcontainerjson) may be referenced in the values. For example: <br />`"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path", "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }`<br />Updates are applied when VS Code is restarted (or the window is reloaded). |
+| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-devcontainerjson) may be referenced in the values. Be sure **Terminal > Integrated: Inherit Env** is is checked in settings or the variables will not appear in the terminal. For example: <br />`"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path", "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }`<br />Updates are applied when VS Code is restarted (or the window is reloaded). |
 | `containerUser` | string | Overrides the user all operations run as inside the container. Defaults to either `root` or the last `USER` instruction in the related Dockerfile used to create the image.<br>On Linux, the specified container user's UID/GID will be updated to match the local user's UID/GID to avoid permission problems with bind mounts (unless disabled using `updateRemoteUserID`).<br>Requires the container be recreated / rebuilt for updates to take effect. |
 | `remoteUser` | string | Overrides the user that VS Code runs as in the container (along with sub-processes like terminals, tasks, or debugging). Defaults to the `containerUser`.<br>On Linux, the specified container user's UID/GID will be updated to match the local user's UID/GID to avoid permission problems with bind mounts (unless disabled using `updateRemoteUserID`).<br>Updates are applied when VS Code is restarted (or the window is reloaded), but UID/GID updates are only applied when the container is created and requires a rebuild to change. |
 | `updateRemoteUserUID` | boolean | On Linux, if `containerUser` or `remoteUser` is specified, the container user's UID/GID will be updated to match the local user's UID/GID to avoid permission problems with bind mounts. Defaults to `true`.<br>Requires the container be recreated / rebuilt for updates to take effect. |
@@ -1047,7 +1067,7 @@ See [Setting up a folder to run in a container](#indepth-setting-up-a-folder-to-
 | `service` | string | **Required.** The name of the service VS Code should connect to once running.  |
 | `runServices` | array | An array of services in your Docker Compose configuration that should be started by VS Code. These will also be stopped when you disconnect unless `"shutdownAction"` is `"none"`. Defaults to all services. |
 | `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
-| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-devcontainerjson) may be referenced in the values. For example: <br />`"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path", "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }`<br />Updates are applied when VS Code is restarted (or the window is reloaded) |
+| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-devcontainerjson) may be referenced in the values. Be sure **Terminal > Integrated: Inherit Env** is is checked in settings or the variables will not appear in the terminal. For example: <br />`"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path", "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }`<br />Updates are applied when VS Code is restarted (or the window is reloaded) |
 | `remoteUser` | string | Overrides the user that VS Code runs as in the container (along with sub-processes like terminals, tasks, or debugging). Does not change the user the container as a whole runs as (which can be [set in your Docker Compose file](https://docs.docker.com/compose/compose-file/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir)). Defaults to the user the container as a whole is running as (often `root`).<br>Updates are applied when VS Code is restarted (or the window is reloaded). |
 | `shutdownAction` | enum | Indicates whether VS Code should stop the containers when the VS Code window is closed / shut down.<br>Values are  `none` and `stopCompose` (default). |
 |**General**|||
@@ -1055,7 +1075,9 @@ See [Setting up a folder to run in a container](#indepth-setting-up-a-folder-to-
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
 | `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |
 | `forwardPorts` | array | An array of ports that should be forwarded from inside the container to the local machine. |
-| `postCreateCommand` | string,<br>array | A command string or list of command arguments to run **inside** the container after is created. The commands execute from the `workspaceFolder` in the container. Use `&&` in a string to execute multiple commands. For example, `"yarn install"` or `"apt-get update && apt-get install -y git"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. <br />It fires after your source code has been mounted, so you can also run shell scripts from your source tree. For example: `bash scripts/install-dev-tools.sh`. Not set by default. |
+| `postCreateCommand` | string,<br>array | A command string or list of command arguments to run **inside** the container after is created. The commands execute from the `workspaceFolder` in the container. Use `&&` in a string to execute multiple commands. For example, `"yarn install"` or `"apt-get update && apt-get install -y curl"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. <br />It fires after your source code has been mounted, so you can also run shell scripts from your source tree. For example: `bash scripts/install-dev-tools.sh`. Not set by default. |
+| `postStartCommand` | string,<br>array | A command string or list of command arguments to run when the container starts (in all cases). The parameters behave exactly like `postCreateCommand`, but the commands execute on start rather than create. Not set by default. |
+| `postAttachCommand` | string,<br>array | A command string or list of command arguments to run after VS Code has attached to a running container (in all cases). The parameters behave exactly like `postCreateCommand`, but the commands execute on attach rather than create. Not set by default. |
 | `initializeCommand` | string,<br>array | A command string or list of command arguments to run on the **local machine** before the container is created. This runs either when the container image is being built and when the running container is created or started. The commands execute from the `workspaceFolder` locally. For example, `"yarn install"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. |
 | `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
 
@@ -1086,6 +1108,8 @@ Variables can be referenced in certain string values in `devcontainer.json` in t
 | `forwardPorts` | array | A list of ports that should be forwarded from inside the container to the local machine. |
 | `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-attached-container-config-files) may be referenced in the values.<br>For example: `"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path" }` |
 | `remoteUser` | string | Overrides the user that VS Code runs as in the container (along with sub-processes like terminals, tasks, or debugging). Defaults to the user the container as a whole is running as (often `root`). |
+| `postAttachCommand` | string,<br>array | A command string or list of command arguments to run after VS Code attaches to the container. Use `&&` in a string to execute multiple commands. For example, `"yarn install"` or `"apt-get update && apt-get install -y curl"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. Not set by default. |
+
 
 ### Variables in attached container config files
 
@@ -1137,16 +1161,13 @@ See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-des
 
 ### Can I use Podman instead of Docker?
 
-Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore generally does work if you symlink the `podman` command to `docker` command on Linux.
+Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore generally does work if you update the setting **Remote > Containers: Docker Path** to `podman` on Linux.
 
-```bash
-sudo ln -s $(which podman) /usr/local/bin/docker
-```
+![Docker Path setting](images/containers/docker-path-setting.png)
 
 However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Sample...** and **[Remote- Containers: Open repository in container...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
 
-Docker Compose is also not supported with Podman.
-
+Docker Compose is also not supported by Podman.
 
 ### I'm seeing an error about a missing library or dependency
 

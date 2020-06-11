@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 5/7/2020
+DateApproved: 6/10/2020
 ---
 # Advanced Container Configuration
 
@@ -13,7 +13,9 @@ This article includes advanced setup scenarios for the [Visual Studio Code Remot
 
 ## Adding environment variables
 
-You can set environment variables in your container without altering the container image by using one of the options below. (Note that this section uses properties added in VS Code 1.41.)
+You can set environment variables in your container without altering the container image by using one of the options below. However, you should verify **Terminal > Integrated: Inherit Env** is checked in settings or the variables you set may not appear in the Integrated Terminal.
+
+![Inherit env setting](images/containers/inherit-env.png)
 
 ### Option 1: Add individual variables
 
@@ -194,6 +196,38 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 The Remote - Containers extension uses "bind mounts" to source code in your local filesystem by default. While this is the simplest option, on macOS and Windows, you may encounter slower disk performance when running commands like `yarn install` from inside the container. There are few things you can do to resolve these type of issues.
 
+### Store your source code in the WSL2 filesystem on Windows
+
+Windows 10 2004 and up includes an improved version of the Windows Subsystem for Linux (WSL2) that provides a full Linux kernel and has significantly improved performance over WSL1. Docker Desktop 2.3+ includes a new WSL2 Engine that runs Docker in WSL rather than in a VM. Therefore, if you store your source code in the WSL2 filesystem, you will see improved performance along with better compatibility for things like setting permissions.
+
+See [Open a WSL2 folder in a container on Windows](/docs/remote/containers.md#open-a-wsl2-folder-in-a-container-on-windows) for details on using this new engine from VS Code.
+
+### Update the mount consistency to 'delegated' for macOS
+
+By default, the Remote - Containers extension uses the Docker [cached mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) on macOS since this provides a good mix between performance and write guarantees on the host OS. However, you can opt to use the `delegated` consistency instead if you do not expect to be writing to the same file in both locations very often.
+
+When using a **Dockerfile or image**, update the **Remote > Containers: Workspace Mount Consistency** property in settings to `delegated`:
+
+![Workspace Mount setting](images/containers/workspace-mount-setting.png)
+
+When using **Docker Compose**, update your local bind mount in `docker-compose.yml` as follows:
+
+```yaml
+    volumes:
+      # Update this to wherever you want VS Code to mount the folder of your project
+      - .:/workspace:delegated
+```
+
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+### Use Open Repository in a Container
+
+The **Remote-Containers: Open Repository in a Container...** command uses an isolated, local Docker named volume instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS.
+
+See [Open a Repository in a Container](/docs/remote/containers.md#quick-start-open-an-existing-folder-in-a-container) for details on using this approach.
+
+The next two sections will outline how to use a named volume in other scenarios.
+
 ### Use a targeted named volume
 
 Since macOS and Windows run containers in a VM, "bind" mounts are not as fast as using the container's filesystem directly. Fortunately, Docker has the concept of a local "named volume" that can act like the container's filesystem but survives container rebuilds. This makes it ideal for storing package folders like `node_modules`, data folders, or output folders like `build` where write performance is critical. Follow the appropriate steps below based on what you reference in `devcontainer.json`.
@@ -225,6 +259,12 @@ Follow these steps:
     This second step is not required if you will be running in the container as `root`.
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+Two notes on this approach:
+
+1. If you delete the `node_modules` folder in the container, it may lose the connection to the volume. Delete the contents of the `node_modules` folder instead when needed (`rm -rf node_modules/* node_modules/.*`).
+
+2. You'll find that an empty `node_modules` folder gets created locally with this method. This is because the volume mount point in the container is inside the local filesystem bind mount. This is expected and harmless.
 
 **Docker Compose**:
 
@@ -259,18 +299,6 @@ While vscode-remote-try-node does not use Docker Compose, the steps are similar,
     "workspaceFolder": "/workspace",
     "postCreateCommand": "sudo chown user-name-goes-here node_modules"
     ```
-
-If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
-
-### Update the mount consistency to 'delegated' for macOS
-
-By default, the Remote - Containers extension uses the Docker [cached mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) on macOS since this provides a good mix between performance and write guarantees on the host OS. However, you can opt to use the `delegated` consistency instead if you do not expect to be writing to the same file in both locations very often.
-
-Update the `remote.containers.workspaceMountConsistency` property in settings.json:
-
-```json
-"remote.containers.workspaceMountConsistency": "delegated"
-```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
@@ -589,7 +617,7 @@ You can then set up `container1-src/.devcontainer.json` for Go development as fo
     "dockerComposeFile": ["../docker-compose.yml"],
     "service": "container-1",
     "shutdownAction": "none",
-    "extensions": ["ms-vscode.Go"],
+    "extensions": ["golang.go"],
     // Open the sub-folder with the source code
     "workspaceFolder": "/workspace/container1-src",
 }

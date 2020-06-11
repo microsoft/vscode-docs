@@ -4,7 +4,7 @@ Area: ssh
 TOCTitle: Connect using SSH
 PageTitle: Connect to your virtual machine using SSH
 MetaDescription: Connect to your virtual machine using SSH
-DateApproved: 5/7/2020
+DateApproved: 6/10/2020
 ---
 # Connect using SSH
 

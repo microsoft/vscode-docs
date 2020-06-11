@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 6eb86aa4-0f4c-4168-b34a-6ec6b204e960
-DateApproved: 5/7/2020
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Custom Editor API to create customizable editors within Visual Studio Code.
@@ -48,8 +48,6 @@ There are two classes of custom editors: custom text editors and custom editors.
 A `CustomTextEditorProvider` uses VS Code's standard [`TextDocument`](https://code.visualstudio.com/api/references/vscode-api#TextDocument) as its data model. You can use a `CustomTextEditor` for any text based file types. `CustomTextEditor` are considerably easier to implement because VS Code already know about how to work with text files and can therefore implement operations such as save and backing up files for hot exit.
 
 With a `CustomEditorProvider` on the other hand, your extension brings its own document model. This means that you can use a `CustomEditor` for binary formats such as images, but it also means that your extension is responsible for a lot more, including implementing save and backing. You can skip over much of this complexity if your custom editor is readonly, such as custom editors for previews.
-
-> **Note:** `CustomEditorProvider` is still a proposed API in VS Code 1.45. We are aiming to finalize the API for VS Code 1.46.
 
 When trying to decide which type of custom editor to use, the decision is usually simple: if you are working with a text based file format use `CustomTextEditorProvider`, for binary file formats use `CustomEditorProvider`.
 
@@ -129,7 +127,7 @@ Using the [custom editor extension sample][sample], here's what happens when the
 
     This method takes the `TextDocument` for the resource that is being opened and a `WebviewPanel`. The extension must fill in the initial HTML contents for this webview panel.
 
-Once `resolveCustomEditor` returns, our custom editor is displayed to the user. What is drawn inside the webview is entirely up to our extension.
+Once `resolveCustomTextEditor` returns, our custom editor is displayed to the user. What is drawn inside the webview is entirely up to our extension.
 
 This same flow happens every time a custom editor is opened, even when you split a custom editor. Every instance of a custom editor has its own `WebviewPanel`, although multiple custom text editors will share the same `TextDocument` if they are for the same resource. Remember: think of the `TextDocument` as being the model for the resource while the webview panels are views of that model.
 
@@ -171,8 +169,6 @@ Finally, if updating your webviews is expensive, consider [debouncing](https://d
 
 
 ## Custom Editor
-
-> **Note:** Custom editors for binary files are still a proposed API in VS Code 1.45. We are aiming to finalize the API for VS Code 1.46.
 
 `CustomEditorProvider` and `CustomReadonlyEditorProvider` let you create custom editors for binary file formats. This API gives your full control over the file is displayed to users, how edits are made to it, and lets your extension hook into `save` and other file operations. Again, if you are building an editor for a text based file format, strongly consider using a [`CustomTextEditor`](#custom-text-editor) instead as they are far simpler to implement.
 

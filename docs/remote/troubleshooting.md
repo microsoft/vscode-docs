@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 5/7/2020
+DateApproved: 6/10/2020
 ---
 # Remote Development Tips and Tricks
 
@@ -117,6 +117,8 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
         HostName host-fqdn-or-ip-goes-here
         IdentityFile ~/.ssh/id_rsa-remote-ssh
     ```
+
+    > **Tip:** You can use `/` for Windows paths as well. If you use `\` you will need to use two slashes. For example, `C:\\path\\to\\my\\id_rsa`.
 
 ### Reusing a key generated in PuTTYGen
 
@@ -301,12 +303,10 @@ eval "$(ssh-agent -s)"
 To start the SSH Agent automatically on login, add these lines to your `~/.bash_profile`:
 
 ```bash
-if [ -z "$SSH_AUTH_SOCK" ]
-then
+if [ -z "$SSH_AUTH_SOCK" ]; then
    # Check for a currently running instance of the agent
    RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
-   if [ "$RUNNING_AGENT" = "0" ]
-   then
+   if [ "$RUNNING_AGENT" = "0" ]; then
         # Launch a new instance of the agent
         ssh-agent -s &> .ssh/ssh-agent
    fi

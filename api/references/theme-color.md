@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 5/7/2020
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -102,6 +102,7 @@ Colors for input controls such as in the Search view or the Find/Replace dialog.
 - `input.placeholderForeground`: Input box foreground color for placeholder text.
 - `inputOption.activeBackground`: Background color of activated options in input fields.
 - `inputOption.activeBorder`: Border color of activated options in input fields.
+- `inputOption.activeForeground`: Foreground color of activated options in input fields.
 - `inputValidation.errorBackground`: Input validation background color for error severity.
 - `inputValidation.errorForeground`: Input validation foreground color for error severity.
 - `inputValidation.errorBorder`: Input validation border color for error severity.
@@ -162,6 +163,7 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 
 - `activityBar.background`: Activity Bar background color.
 - `activityBar.dropBackground`: Drag and drop feedback color for the Activity Bar items.
+- `activityBar.dropBorder`: Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
 - `activityBar.foreground`: Activity Bar foreground color (for example used for the icons).
 - `activityBar.inactiveForeground`: Activity Bar item foreground color when it is inactive.
 - `activityBar.border`: Activity Bar border color with the Side Bar.
@@ -170,6 +172,7 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeBorder`: Activity Bar active indicator border color.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
+
 
 ## Side Bar
 
@@ -510,10 +513,16 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panel.background`: Panel background color.
 - `panel.border`: Panel border color to separate the panel from the editor.
 - `panel.dropBackground`: Drag and drop feedback color for the panel title items. The color should have transparency so that the panel entries can still shine through.
+- `panel.dropBorder`: Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelTitle.activeBorder`: Border color for the active panel title.
 - `panelTitle.activeForeground`: Title color for the active panel.
 - `panelTitle.inactiveForeground`: Title color for the inactive panel.
 - `panelInput.border`: Input box border for inputs in the panel.
+- `panelSection.border`: Panel section border color used when multiple views are stacked horizontally in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
+- `panelSection.dropBackground`: Drag and drop feedback color for the panel sections. The color should have transparency so that the panel sections can still shine through. Panels are shown below the editor area and contain views like output and integrated terminal.
+- `panelSectionHeader.background`: Panel section header background color. Panels are shown below the editor area and contain views like output and integrated terminal.
+- `panelSectionHeader.foreground`: Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal.
+- `panelSectionHeader.border`: Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
 
 ### Preview
 
@@ -772,6 +781,16 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `debugIcon.stepOutForeground`: Debug toolbar icon for step over.
 - `debugIcon.continueForeground`: Debug toolbar icon for continue.
 - `debugIcon.stepBackForeground`: Debug toolbar icon for step back.
+
+- `debugConsole.infoForeground`: Foreground color for info messages in debug REPL console.
+- `debugConsole.warningForeground`: Foreground color for warning messages in debug REPL console.
+- `debugConsole.errorForeground`: Foreground color for error messages in debug REPL console.
+- `debugConsole.sourceForeground`: Foreground color for source filenames in debug REPL console.
+- `debugConsoleInputIcon.foreground`: Foreground color for debug console input marker icon.
+
+
+
+
 
 ## Extension colors
 

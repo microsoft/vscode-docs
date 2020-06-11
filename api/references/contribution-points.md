@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 5/7/2020
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -217,15 +217,23 @@ Example:
 
 **Other JSON Schema properties**
 
-You can use any the properties defined by JSON Schema to describe other constraints on configuration values.
+You can use any of the validation JSON Schema properties to describe other constraints on configuration values:
 
 - `default` for defining the default value of a property
 - `minimum` and `maximum` for restricting numeric values
 - `maxLength`, `minLength` for restricting string length
 - `pattern` for restricting strings to a given regular expression
+- `patternErrorMessage` for giving a tailored error message when a pattern does not match.
 - `format` for restricting strings to well-known formats, such as `date`, `time`, `ipv4`, `email`,
   and `uri`
 - `maxItems`, `minItems` for restricting array length
+
+**Unsupported JSON Schema properties**
+
+Note supported in the configuration section are:
+
+- `$ref` and `definition`: The configuration schemas needs to be self-contained and can not make assumptions how the aggregated settings JSON schema document looks like.
+
 
 For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/understanding-json-schema/reference/index.html).
 
@@ -814,7 +822,7 @@ Contribute a view to VS Code. You must specify an identifier and name for the vi
 - `test`: Test view container in the Activity Bar
 - [Custom view containers](#contributes.viewsContainers) contributed by Extensions.
 
-When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (`onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value.
+When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (`onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value. The `icon` specified will be used when the title cannot be shown (e.g. when the view is dragged to the Activity Bar). The `contextualTitle` is used when the view is moved out of its default view container and needs additional context.
 
 ```json
 {
@@ -824,7 +832,9 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
         {
           "id": "nodeDependencies",
           "name": "Node Dependencies",
-          "when": "workspaceHasPackageJSON"
+          "when": "workspaceHasPackageJSON",
+          "icon": "media/dep.svg",
+          "contextualTitle": "Package Explorer"
         }
       ]
     }
@@ -838,7 +848,7 @@ Extension writers should create a [TreeView](/api/references/vscode-api#TreeView
 
 ## contributes.viewsContainers
 
-Contribute a view container into which [Custom views](#contributes.views) can be contributed. You must specify an identifier, title, and an icon for the view container. At present, you can contribute them to the Activity Bar (`activitybar`) only. Below example shows how the `Package Explorer` view container is contributed to the Activity Bar and how views are contributed to it.
+Contribute a view container into which [Custom views](#contributes.views) can be contributed. You must specify an identifier, title, and an icon for the view container. At present, you can contribute them to the Activity Bar (`activitybar`) and Panel (`panel`). Below example shows how the `Package Explorer` view container is contributed to the Activity Bar and how views are contributed to it.
 
 ```json
 {

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 5/7/2020
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -542,6 +542,14 @@ The following font related variables are also defined:
 - `--vscode-editor-font-family` - Editor font family (from the `editor.fontFamily` setting).
 - `--vscode-editor-font-weight` - Editor font weight (from the `editor.fontWeight` setting).
 - `--vscode-editor-font-size` - Editor font size (from the `editor.fontSize` setting).
+
+Finally, for special cases where you need to write CSS that targets a single theme, the body element of webviews has a new data attribute called `vscode-theme-name` that stores the full name of the currently active theme. This lets you write theme-specific CSS for webviews:
+
+```css
+body[data-vscode-theme-name="One Dark Pro"] {
+    background: hotpink;
+}
+```
 
 ## Scripts and message passing
 
