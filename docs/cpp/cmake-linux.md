@@ -9,7 +9,7 @@ MetaDescription: Get started with the CMake Tools Visual Studio Code extension o
 ---
 # Get started with CMake Tools on Linux
 
-CMake is an open-source, cross-platform tool for building, testing, and packaging software. It uses platform and compiler independent configuration files to generate native makefiles that can be used with your compiler, on your platform.
+CMake is an open-source, cross-platform tool for building, testing, and packaging software. It uses platform and compiler independent configuration files to generate native build tool files specific to your compiler and platform.
 
 The CMake Tools extension integrates Visual Studio Code and CMake to make it easy to configure, build, and debug your C++ project using CMake.
 
@@ -30,7 +30,7 @@ To successfully complete this tutorial on Ubuntu, install the following:
 
     ![CMake tools extension](images/cpp/cmake-extension.png)
 
-1. You'll also need to install CMake, a compiler, and a debugger.
+1. You'll also need to install CMake, a compiler, a debugger, and .
 
 ### Ensure that CMake is installed
 
@@ -44,11 +44,11 @@ cmake --version
 
 To install, or get the latest version of CMake on your system, see the instructions for your platform on the [Kitware APT Repository](https://apt.kitware.com/). You want to install a version greater than 3.17.
 
-### Ensure that a compiler and debugger are installed
+### Ensure that development tools are installed
 
-Although you'll use VS Code to edit your source code, you'll compile and debug the source code using the compiler and debugger installed on your system.
+Although you'll use VS Code to edit your source code, you'll compile and debug the source code using the compiler, debugger, and build tools (such as make) installed on your system.
 
-For this tutorial on Ubuntu, we'll use the GCC compiler and GDB to debug. These tools are not installed by default on Ubuntu, so you need to install them. Fortunately, that's easy.
+For this tutorial on Ubuntu, we'll use the GCC compiler, GDB to debug, and related development tools. These tools are not installed by default on Ubuntu, so you need to install them. Fortunately, that's easy.
 
 ### Check if GCC is installed
 
@@ -64,7 +64,7 @@ If GCC isn't installed, run the following command from the terminal window to up
 sudo apt-get update
 ```
 
-Next install the GNU compiler tools and the GDB debugger with this command:
+Next install the GNU compiler, development tools, and GDB debugger with this command:
 
 ```bash
 sudo apt-get install build-essential gdb
