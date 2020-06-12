@@ -165,7 +165,7 @@ Go ahead and press `kb(workbench.action.debug.start)` to continue.
 You've now used the VS Code CMake Tools extension to use CMake to build and debug a C++ app on Ubuntu. The steps are the same for other platforms; the difference being how you install CMake and the compiler/debugger for the platform of your choice. For instructions on setting up compilers/debuggers for other platforms, see the following:
 
 * [Microsoft C++ on Windows](/docs/cpp/config-msvc.md)
-* [Clang on macOS](/docs/cpp/clang-mac.md)
+* [Clang on macOS](/docs/cpp/config-clang-mac.md)
 * [GCC on Windows Subsystem for Linux](/docs/cpp/config-wsl.md)
 
 ## Next steps
