@@ -423,227 +423,223 @@ Some commands included below do not have default keyboard shortcuts and so are d
 
 ### Basic Editing
 
-Key|Command|Command id
----|-------|----------
-`kb(editor.action.clipboardCutAction)`|Cut line (empty selection)|`editor.action.clipboardCutAction`
-`kb(editor.action.clipboardCopyAction)`|Copy line (empty selection)|`editor.action.clipboardCopyAction`
-`kb(editor.action.clipboardPasteAction)`|Paste|`editor.action.clipboardPasteAction`
-`kb(editor.action.deleteLines)`|Delete Line|`editor.action.deleteLines`
-`kb(editor.action.insertLineAfter)`|Insert Line Below|`editor.action.insertLineAfter`
-`kb(editor.action.insertLineBefore)`|Insert Line Above|`editor.action.insertLineBefore`
-`kb(editor.action.moveLinesDownAction)`|Move Line Down|`editor.action.moveLinesDownAction`
-`kb(editor.action.moveLinesUpAction)`|Move Line Up|`editor.action.moveLinesUpAction`
-`kb(editor.action.copyLinesDownAction)`|Copy Line Down|`editor.action.copyLinesDownAction`
-`kb(editor.action.copyLinesUpAction)`|Copy Line Up|`editor.action.copyLinesUpAction`
-`kb(undo)`|Undo|`undo`
-`kb(redo)`|Redo|`redo`
-`kb(editor.action.addSelectionToNextFindMatch)`|Add Selection To Next Find Match|`editor.action.addSelectionToNextFindMatch`
-`kb(editor.action.moveSelectionToNextFindMatch)`|Move Last Selection To Next Find Match|`editor.action.moveSelectionToNextFindMatch`
-`kb(cursorUndo)`|Undo last cursor operation|`cursorUndo`
-`kb(editor.action.insertCursorAtEndOfEachLineSelected)`|Insert cursor at end of each line selected|`editor.action.insertCursorAtEndOfEachLineSelected`
-`kb(editor.action.selectHighlights)`|Select all occurrences of current selection|`editor.action.selectHighlights`
-`kb(editor.action.changeAll)`|Select all occurrences of current word|`editor.action.changeAll`
-`kb(expandLineSelection)`|Select current line|`expandLineSelection`
-`kb(editor.action.insertCursorBelow)`|Insert Cursor Below|`editor.action.insertCursorBelow`
-`kb(editor.action.insertCursorAbove)`|Insert Cursor Above|`editor.action.insertCursorAbove`
-`kb(editor.action.jumpToBracket)`|Jump to matching bracket|`editor.action.jumpToBracket`
-`kb(editor.action.indentLines)`|Indent Line|`editor.action.indentLines`
-`kb(editor.action.outdentLines)`|Outdent Line|`editor.action.outdentLines`
-`kb(cursorHome)`|Go to Beginning of Line|`cursorHome`
-`kb(cursorEnd)`|Go to End of Line|`cursorEnd`
-`kb(cursorBottom)`|Go to End of File|`cursorBottom`
-`kb(cursorTop)`|Go to Beginning of File|`cursorTop`
-`kb(scrollLineDown)`|Scroll Line Down|`scrollLineDown`
-`kb(scrollLineUp)`|Scroll Line Up|`scrollLineUp`
-`kb(scrollPageDown)`|Scroll Page Down|`scrollPageDown`
-`kb(scrollPageUp)`|Scroll Page Up|`scrollPageUp`
-`kb(editor.fold)`|Fold (collapse) region|`editor.fold`
-`kb(editor.unfold)`|Unfold (uncollapse) region|`editor.unfold`
-`kb(editor.foldRecursively)`|Fold (collapse) all subregions|`editor.foldRecursively`
-`kb(editor.unfoldRecursively)`|Unfold (uncollapse) all subregions|`editor.unfoldRecursively`
-`kb(editor.foldAll)`|Fold (collapse) all regions|`editor.foldAll`
-`kb(editor.unfoldAll)`|Unfold (uncollapse) all regions|`editor.unfoldAll`
-`kb(editor.action.addCommentLine)`|Add Line Comment|`editor.action.addCommentLine`
-`kb(editor.action.removeCommentLine)`|Remove Line Comment|`editor.action.removeCommentLine`
-`kb(editor.action.commentLine)`|Toggle Line Comment|`editor.action.commentLine`
-`kb(editor.action.blockComment)`|Toggle Block Comment|`editor.action.blockComment`
-`kb(actions.find)`|Find|`actions.find`
-`kb(editor.action.startFindReplaceAction)`|Replace|`editor.action.startFindReplaceAction`
-`kb(editor.action.nextMatchFindAction)`|Find Next|`editor.action.nextMatchFindAction`
-`kb(editor.action.previousMatchFindAction)`|Find Previous|`editor.action.previousMatchFindAction`
-`kb(editor.action.selectAllMatches)`|Select All Occurrences of Find Match|`editor.action.selectAllMatches`
-`kb(toggleFindCaseSensitive)`|Toggle Find Case Sensitive|`toggleFindCaseSensitive`
-`kb(toggleFindRegex)`|Toggle Find Regex|`toggleFindRegex`
-`kb(toggleFindWholeWord)`|Toggle Find Whole Word|`toggleFindWholeWord`
-`kb(editor.action.toggleTabFocusMode)`|Toggle Use of Tab Key for Setting Focus|`editor.action.toggleTabFocusMode`
-`kb(toggleRenderWhitespace)`|Toggle Render Whitespace|`toggleRenderWhitespace`
-`kb(editor.action.toggleWordWrap)`|Toggle Word Wrap|`editor.action.toggleWordWrap`
+Command|Key|Command id
+-------|---|----------
+Cut line (empty selection)|`kb(editor.action.clipboardCutAction)`|`editor.action.clipboardCutAction`
+Copy line (empty selection)|`kb(editor.action.clipboardCopyAction)`|`editor.action.clipboardCopyAction`
+Paste|`kb(editor.action.clipboardPasteAction)`|`editor.action.clipboardPasteAction`
+Delete Line|`kb(editor.action.deleteLines)`|`editor.action.deleteLines`
+Insert Line Below|`kb(editor.action.insertLineAfter)`|`editor.action.insertLineAfter`
+Insert Line Above|`kb(editor.action.insertLineBefore)`|`editor.action.insertLineBefore`
+Move Line Down|`kb(editor.action.moveLinesDownAction)`|`editor.action.moveLinesDownAction`
+Move Line Up|`kb(editor.action.moveLinesUpAction)`|`editor.action.moveLinesUpAction`
+Copy Line Down|`kb(editor.action.copyLinesDownAction)`|`editor.action.copyLinesDownAction`
+Copy Line Up|`kb(editor.action.copyLinesUpAction)`|`editor.action.copyLinesUpAction`
+Undo|`kb(undo)`|`undo`
+Redo|`kb(redo)`|`redo`
+Add Selection To Next Find Match|`kb(editor.action.addSelectionToNextFindMatch)`|`editor.action.addSelectionToNextFindMatch`
+Move Last Selection To Next Find Match|`kb(editor.action.moveSelectionToNextFindMatch)`|`editor.action.moveSelectionToNextFindMatch`
+Undo last cursor operation|`kb(cursorUndo)`|`cursorUndo`
+Insert cursor at end of each line selected|`kb(editor.action.insertCursorAtEndOfEachLineSelected)`|`editor.action.insertCursorAtEndOfEachLineSelected`
+Select all occurrences of current selection|`kb(editor.action.selectHighlights)`|`editor.action.selectHighlights`
+Select all occurrences of current word|`kb(editor.action.changeAll)`|`editor.action.changeAll`
+Select current line|`kb(expandLineSelection)`|`expandLineSelection`
+Insert Cursor Below|`kb(editor.action.insertCursorBelow)`|`editor.action.insertCursorBelow`
+Insert Cursor Above|`kb(editor.action.insertCursorAbove)`|`editor.action.insertCursorAbove`
+Jump to matching bracket|`kb(editor.action.jumpToBracket)`|`editor.action.jumpToBracket`
+Indent Line|`kb(editor.action.indentLines)`|`editor.action.indentLines`
+Outdent Line|`kb(editor.action.outdentLines)`|`editor.action.outdentLines`
+Go to Beginning of Line|`kb(cursorHome)`|`cursorHome`
+Go to End of Line|`kb(cursorEnd)`|`cursorEnd`
+Go to End of File|`kb(cursorBottom)`|`cursorBottom`
+Go to Beginning of File|`kb(cursorTop)`|`cursorTop`
+Scroll Line Down|`kb(scrollLineDown)`|`scrollLineDown`
+Scroll Line Up|`kb(scrollLineUp)`|`scrollLineUp`
+Scroll Page Down|`kb(scrollPageDown)`|`scrollPageDown`
+Scroll Page Up|`kb(scrollPageUp)`|`scrollPageUp`
+Fold (collapse) region|`kb(editor.fold)`|`editor.fold`
+Unfold (uncollapse) region|`kb(editor.unfold)`|`editor.unfold`
+Fold (collapse) all subregions|`kb(editor.foldRecursively)`|`editor.foldRecursively`
+Unfold (uncollapse) all subregions|`kb(editor.unfoldRecursively)`|`editor.unfoldRecursively`
+Fold (collapse) all regions|`kb(editor.foldAll)`|`editor.foldAll`
+Unfold (uncollapse) all regions|`kb(editor.unfoldAll)`|`editor.unfoldAll`
+Add Line Comment|`kb(editor.action.addCommentLine)`|`editor.action.addCommentLine`
+Remove Line Comment|`kb(editor.action.removeCommentLine)`|`editor.action.removeCommentLine`
+Toggle Line Comment|`kb(editor.action.commentLine)`|`editor.action.commentLine`
+Toggle Block Comment|`kb(editor.action.blockComment)`|`editor.action.blockComment`
+Find|`kb(actions.find)`|`actions.find`
+Replace|`kb(editor.action.startFindReplaceAction)`|`editor.action.startFindReplaceAction`
+Find Next|`kb(editor.action.nextMatchFindAction)`|`editor.action.nextMatchFindAction`
+Find Previous|`kb(editor.action.previousMatchFindAction)`|`editor.action.previousMatchFindAction`
+Select All Occurrences of Find Match|`kb(editor.action.selectAllMatches)`|`editor.action.selectAllMatches`
+Toggle Find Case Sensitive|`kb(toggleFindCaseSensitive)`|`toggleFindCaseSensitive`
+Toggle Find Regex|`kb(toggleFindRegex)`|`toggleFindRegex`
+Toggle Find Whole Word|`kb(toggleFindWholeWord)`|`toggleFindWholeWord`
+Toggle Use of Tab Key for Setting Focus|`kb(editor.action.toggleTabFocusMode)`|`editor.action.toggleTabFocusMode`
+Toggle Render Whitespace|`kb(toggleRenderWhitespace)`|`toggleRenderWhitespace`
+Toggle Word Wrap|`kb(editor.action.toggleWordWrap)`|`editor.action.toggleWordWrap`
 
 ### Rich Languages Editing
 
-Key|Command|Command id
----|-------|----------
-`kb(editor.action.triggerSuggest)`|Trigger Suggest|`editor.action.triggerSuggest`
-`kb(editor.action.triggerParameterHints)`|Trigger Parameter Hints|`editor.action.triggerParameterHints`
-`kb(editor.action.formatDocument)`|Format Document|`editor.action.formatDocument`
-`kb(editor.action.formatSelection)`|Format Selection|`editor.action.formatSelection`
-`kb(editor.action.revealDefinition)`|Go to Definition|`editor.action.revealDefinition`
-`kb(editor.action.showHover)`|Show Hover|`editor.action.showHover`
-`kb(editor.action.peekDefinition)`|Peek Definition|`editor.action.peekDefinition`
-`kb(editor.action.revealDefinitionAside)`|Open Definition to the Side|`editor.action.revealDefinitionAside`
-`kb(editor.action.quickFix)`|Quick Fix|`editor.action.quickFix`
-`kb(editor.action.goToReferences)`|Go to References|`editor.action.goToReferences`
-`kb(editor.action.rename)`|Rename Symbol|`editor.action.rename`
-`kb(editor.action.inPlaceReplace.down)`|Replace with Next Value|`editor.action.inPlaceReplace.down`
-`kb(editor.action.inPlaceReplace.up)`|Replace with Previous Value|`editor.action.inPlaceReplace.up`
-`kb(editor.action.smartSelect.expand)`|Expand AST Selection|`editor.action.smartSelect.expand`
-`kb(editor.action.smartSelect.shrink)`|Shrink AST Selection|`editor.action.smartSelect.shrink`
-`kb(editor.action.trimTrailingWhitespace)`|Trim Trailing Whitespace|`editor.action.trimTrailingWhitespace`
-`kb(workbench.action.editor.changeLanguageMode)`|Change Language Mode|`workbench.action.editor.changeLanguageMode`
+Command|Key|Command id
+-------|---|----------
+Trigger Suggest|`kb(editor.action.triggerSuggest)`|`editor.action.triggerSuggest`
+Trigger Parameter Hints|`kb(editor.action.triggerParameterHints)`|`editor.action.triggerParameterHints`
+Format Document|`kb(editor.action.formatDocument)`|`editor.action.formatDocument`
+Format Selection|`kb(editor.action.formatSelection)`|`editor.action.formatSelection`
+Go to Definition|`kb(editor.action.revealDefinition)`|`editor.action.revealDefinition`
+Show Hover|`kb(editor.action.showHover)`|`editor.action.showHover`
+Peek Definition|`kb(editor.action.peekDefinition)`|`editor.action.peekDefinition`
+Open Definition to the Side|`kb(editor.action.revealDefinitionAside)`|`editor.action.revealDefinitionAside`
+Quick Fix|`kb(editor.action.quickFix)`|`editor.action.quickFix`
+Go to References|`kb(editor.action.goToReferences)`|`editor.action.goToReferences`
+Rename Symbol|`kb(editor.action.rename)`|`editor.action.rename`
+Replace with Next Value|`kb(editor.action.inPlaceReplace.down)`|`editor.action.inPlaceReplace.down`
+Replace with Previous Value|`kb(editor.action.inPlaceReplace.up)`|`editor.action.inPlaceReplace.up`
+Expand AST Selection|`kb(editor.action.smartSelect.expand)`|`editor.action.smartSelect.expand`
+Shrink AST Selection|`kb(editor.action.smartSelect.shrink)`|`editor.action.smartSelect.shrink`
+Trim Trailing Whitespace|`kb(editor.action.trimTrailingWhitespace)`|`editor.action.trimTrailingWhitespace`
+Change Language Mode|`kb(workbench.action.editor.changeLanguageMode)`|`workbench.action.editor.changeLanguageMode`
 
 ### Navigation
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.action.showAllSymbols)`|Show All Symbols|`workbench.action.showAllSymbols`
-`kb(workbench.action.gotoLine)`|Go to Line...|`workbench.action.gotoLine`
-`kb(workbench.action.quickOpen)`|Go to File..., Quick Open|`workbench.action.quickOpen`
-`kb(workbench.action.gotoSymbol)`|Go to Symbol...|`workbench.action.gotoSymbol`
-`kb(workbench.actions.view.problems)`|Show Problems|`workbench.actions.view.problems`
-`kb(editor.action.marker.nextInFiles)`|Go to Next Error or Warning|`editor.action.marker.nextInFiles`
-`kb(editor.action.marker.prevInFiles)`|Go to Previous Error or Warning|`editor.action.marker.prevInFiles`
-`kb(workbench.action.showCommands)` or `kbstyle(F1)`|Show All Commands|`workbench.action.showCommands`
-`kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`|Navigate Editor Group History|`workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup`
-`kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`
-`kb(workbench.action.quickInputBack)`|Go back in Quick Input|`workbench.action.quickInputBack`
-`kb(workbench.action.navigateForward)`|Go Forward|`workbench.action.navigateForward`
+Command|Key|Command id
+-------|---|----------
+Show All Symbols|`kb(workbench.action.showAllSymbols)`|`workbench.action.showAllSymbols`
+Go to Line...|`kb(workbench.action.gotoLine)`|`workbench.action.gotoLine`
+Go to File..., Quick Open|`kb(workbench.action.quickOpen)`|`workbench.action.quickOpen`
+Go to Symbol...|`kb(workbench.action.gotoSymbol)`|`workbench.action.gotoSymbol`
+Show Problems|`kb(workbench.actions.view.problems)`|`workbench.actions.view.problems`
+Go to Next Error or Warning|`kb(editor.action.marker.nextInFiles)`|`editor.action.marker.nextInFiles`
+Go to Previous Error or Warning|`kb(editor.action.marker.prevInFiles)`|`editor.action.marker.prevInFiles`
+Show All Commands|`kb(workbench.action.showCommands)` or `kbstyle(F1)`|`workbench.action.showCommands`
+Navigate Editor Group History|`kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`|`workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup`
+Go Back|`kb(workbench.action.navigateBack)`|`workbench.action.navigateBack`
+Go back in Quick Input|`kb(workbench.action.quickInputBack)`|`workbench.action.quickInputBack`
+Go Forward|`kb(workbench.action.navigateForward)`|`workbench.action.navigateForward`
 
 ### Editor/Window Management
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.action.newWindow)`|New Window|`workbench.action.newWindow`
-`kb(workbench.action.closeWindow)`|Close Window|`workbench.action.closeWindow`
-`kb(workbench.action.closeActiveEditor)`|Close Editor|`workbench.action.closeActiveEditor`
-`kb(workbench.action.closeFolder)`|Close Folder|`workbench.action.closeFolder`
-`kb(workbench.action.navigateEditorGroups)`|Cycle Between Editor Groups|`workbench.action.navigateEditorGroups`
-`kb(workbench.action.splitEditor)`|Split Editor|`workbench.action.splitEditor`
-`kb(workbench.action.focusFirstEditorGroup)`|Focus into First Editor Group|`workbench.action.focusFirstEditorGroup`
-`kb(workbench.action.focusSecondEditorGroup)`|Focus into Second Editor Group|`workbench.action.focusSecondEditorGroup`
-`kb(workbench.action.focusThirdEditorGroup)`|Focus into Third Editor Group|`workbench.action.focusThirdEditorGroup`
-`kb(workbench.action.focusPreviousGroup)`|Focus into Editor Group on the Left|`workbench.action.focusPreviousGroup`
-`kb(workbench.action.focusNextGroup)`|Focus into Editor Group on the Right|`workbench.action.focusNextGroup`
-`kb(workbench.action.moveEditorLeftInGroup)`| Move Editor Left |`workbench.action.moveEditorLeftInGroup`
-`kb(workbench.action.moveEditorRightInGroup)`| Move Editor Right |`workbench.action.moveEditorRightInGroup`
-`kb(workbench.action.moveActiveEditorGroupLeft)`|Move Active Editor Group Left|`workbench.action.moveActiveEditorGroupLeft`
-`kb(workbench.action.moveActiveEditorGroupRight)`|Move Active Editor Group Right|`workbench.action.moveActiveEditorGroupRight`
-`kb(workbench.action.moveEditorToNextGroup)`|Move Editor into Next Group|`workbench.action.moveEditorToNextGroup`
-`kb(workbench.action.moveEditorToPreviousGroup)`|Move Editor into Previous Group|`workbench.action.moveEditorToPreviousGroup`
+Command|Key|Command id
+-------|---|----------
+New Window|`kb(workbench.action.newWindow)`|`workbench.action.newWindow`
+Close Window|`kb(workbench.action.closeWindow)`|`workbench.action.closeWindow`
+Close Editor|`kb(workbench.action.closeActiveEditor)`|`workbench.action.closeActiveEditor`
+Close Folder|`kb(workbench.action.closeFolder)`|`workbench.action.closeFolder`
+Cycle Between Editor Groups|`kb(workbench.action.navigateEditorGroups)`|`workbench.action.navigateEditorGroups`
+Split Editor|`kb(workbench.action.splitEditor)`|`workbench.action.splitEditor`
+Focus into First Editor Group|`kb(workbench.action.focusFirstEditorGroup)`|`workbench.action.focusFirstEditorGroup`
+Focus into Second Editor Group|`kb(workbench.action.focusSecondEditorGroup)`|`workbench.action.focusSecondEditorGroup`
+Focus into Third Editor Group|`kb(workbench.action.focusThirdEditorGroup)`|`workbench.action.focusThirdEditorGroup`
+Focus into Editor Group on the Left|`kb(workbench.action.focusPreviousGroup)`|`workbench.action.focusPreviousGroup`
+Focus into Editor Group on the Right|`kb(workbench.action.focusNextGroup)`|`workbench.action.focusNextGroup`
+ Move Editor Left |`kb(workbench.action.moveEditorLeftInGroup)`|`workbench.action.moveEditorLeftInGroup`
+ Move Editor Right |`kb(workbench.action.moveEditorRightInGroup)`|`workbench.action.moveEditorRightInGroup`
+Move Active Editor Group Left|`kb(workbench.action.moveActiveEditorGroupLeft)`|`workbench.action.moveActiveEditorGroupLeft`
+Move Active Editor Group Right|`kb(workbench.action.moveActiveEditorGroupRight)`|`workbench.action.moveActiveEditorGroupRight`
+Move Editor into Next Group|`kb(workbench.action.moveEditorToNextGroup)`|`workbench.action.moveEditorToNextGroup`
+Move Editor into Previous Group|`kb(workbench.action.moveEditorToPreviousGroup)`|`workbench.action.moveEditorToPreviousGroup`
 
-### File Management
+## File Management
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.action.files.newUntitledFile)`|New File|`workbench.action.files.newUntitledFile`
-`kb(workbench.action.files.openFile)`|Open File...|`workbench.action.files.openFile`
-`kb(workbench.action.files.save)`|Save|`workbench.action.files.save`
-`kb(workbench.action.files.saveAll)`|Save All|`workbench.action.files.saveAll`
-`kb(workbench.action.files.saveAs)`|Save As...|`workbench.action.files.saveAs`
-`kb(workbench.action.closeActiveEditor)`|Close|`workbench.action.closeActiveEditor`
-`kb(workbench.action.closeOtherEditors)`|Close Others|`workbench.action.closeOtherEditors`
-`kb(workbench.action.closeEditorsInGroup)`|Close Group|`workbench.action.closeEditorsInGroup`
-`kb(workbench.action.closeEditorsInOtherGroups)`|Close Other Groups|`workbench.action.closeEditorsInOtherGroups`
-`kb(workbench.action.closeEditorsToTheLeft)`|Close Group to Left|`workbench.action.closeEditorsToTheLeft`
-`kb(workbench.action.closeEditorsToTheRight)`|Close Group to Right|`workbench.action.closeEditorsToTheRight`
-`kb(workbench.action.closeAllEditors)`|Close All|`workbench.action.closeAllEditors`
-`kb(workbench.action.reopenClosedEditor)`|Reopen Closed Editor|`workbench.action.reopenClosedEditor`
-`kb(workbench.action.keepEditor)`|Keep Open|`workbench.action.keepEditor`
-`kb(workbench.action.files.copyPathOfActiveFile)`|Copy Path of Active File|`workbench.action.files.copyPathOfActiveFile`
-`kb(workbench.action.files.revealActiveFileInWindows)`|Reveal Active File in Windows|`workbench.action.files.revealActiveFileInWindows`
-`kb(workbench.action.files.showOpenedFileInNewWindow)`|Show Opened File in New Window|`workbench.action.files.showOpenedFileInNewWindow`
-`kb(workbench.files.action.compareFileWith)`|Compare Opened File With|`workbench.files.action.compareFileWith`
+Command|Key|Command id
+-------|---|----------
+New File|`kb(workbench.action.files.newUntitledFile)`|`workbench.action.files.newUntitledFile`
+Open File...|`kb(workbench.action.files.openFile)`|`workbench.action.files.openFile`
+Save|`kb(workbench.action.files.save)`|`workbench.action.files.save`
+Save All|`kb(workbench.action.files.saveAll)`|`workbench.action.files.saveAll`
+Save As...|`kb(workbench.action.files.saveAs)`|`workbench.action.files.saveAs`
+Close|`kb(workbench.action.closeActiveEditor)`|`workbench.action.closeActiveEditor`
+Close Others|`kb(workbench.action.closeOtherEditors)`|`workbench.action.closeOtherEditors`
+Close Group|`kb(workbench.action.closeEditorsInGroup)`|`workbench.action.closeEditorsInGroup`
+Close Other Groups|`kb(workbench.action.closeEditorsInOtherGroups)`|`workbench.action.closeEditorsInOtherGroups`
+Close Group to Left|`kb(workbench.action.closeEditorsToTheLeft)`|`workbench.action.closeEditorsToTheLeft`
+Close Group to Right|`kb(workbench.action.closeEditorsToTheRight)`|`workbench.action.closeEditorsToTheRight`
+Close All|`kb(workbench.action.closeAllEditors)`|`workbench.action.closeAllEditors`
+Reopen Closed Editor|`kb(workbench.action.reopenClosedEditor)`|`workbench.action.reopenClosedEditor`
+Keep Open|`kb(workbench.action.keepEditor)`|`workbench.action.keepEditor`
+Copy Path of Active File|`kb(workbench.action.files.copyPathOfActiveFile)`|`workbench.action.files.copyPathOfActiveFile`
+Reveal Active File in Windows|`kb(workbench.action.files.revealActiveFileInWindows)`|`workbench.action.files.revealActiveFileInWindows`
+Show Opened File in New Window|`kb(workbench.action.files.showOpenedFileInNewWindow)`|`workbench.action.files.showOpenedFileInNewWindow`
+Compare Opened File With|`kb(workbench.files.action.compareFileWith)`|`workbench.files.action.compareFileWith`
 
 ### Display
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.action.toggleFullScreen)`|Toggle Full Screen|`workbench.action.toggleFullScreen`
-`kb(workbench.action.toggleZenMode)`|Toggle Zen Mode|`workbench.action.toggleZenMode`
-`kb(workbench.action.exitZenMode)`|Leave Zen Mode|`workbench.action.exitZenMode`
-`kb(workbench.action.zoomIn)`|Zoom in|`workbench.action.zoomIn`
-`kb(workbench.action.zoomOut)`|Zoom out|`workbench.action.zoomOut`
-`kb(workbench.action.zoomReset)`|Reset Zoom|`workbench.action.zoomReset`
-`kb(workbench.action.toggleSidebarVisibility)`|Toggle Sidebar Visibility|`workbench.action.toggleSidebarVisibility`
-`kb(workbench.view.explorer)`|Show Explorer / Toggle Focus|`workbench.view.explorer`
-`kb(workbench.view.search)`|Show Search|`workbench.view.search`
-`kb(workbench.view.scm)`|Show Source Control|`workbench.view.scm`
-`kb(workbench.view.debug)`|Show Run|`workbench.view.debug`
-`kb(workbench.view.extensions)`|Show Extensions|`workbench.view.extensions`
-`kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
-`kb(workbench.action.quickOpenView)`|Quick Open View|`workbench.action.quickOpenView`
-`kb(workbench.action.terminal.openNativeConsole)`|Open New Command Prompt|`workbench.action.terminal.openNativeConsole`
-`kb(markdown.showPreview)`|Toggle Markdown Preview|`markdown.showPreview`
-`kb(markdown.showPreviewToSide)`|Open Preview to the Side|`markdown.showPreviewToSide`
-`kb(workbench.action.terminal.toggleTerminal)`|Toggle Integrated Terminal|`workbench.action.terminal.toggleTerminal`
+Command|Key|Command id
+-------|---|----------
+Toggle Full Screen|`kb(workbench.action.toggleFullScreen)`|`workbench.action.toggleFullScreen`
+Toggle Zen Mode|`kb(workbench.action.toggleZenMode)`|`workbench.action.toggleZenMode`
+Leave Zen Mode|`kb(workbench.action.exitZenMode)`|`workbench.action.exitZenMode`
+Zoom in|`kb(workbench.action.zoomIn)`|`workbench.action.zoomIn`
+Zoom out|`kb(workbench.action.zoomOut)`|`workbench.action.zoomOut`
+Reset Zoom|`kb(workbench.action.zoomReset)`|`workbench.action.zoomReset`
+Toggle Sidebar Visibility|`kb(workbench.action.toggleSidebarVisibility)`|`workbench.action.toggleSidebarVisibility`
+Show Explorer / Toggle Focus|`kb(workbench.view.explorer)`|`workbench.view.explorer`
+Show Search|`kb(workbench.view.search)`|`workbench.view.search`
+Show Source Control|`kb(workbench.view.scm)`|`workbench.view.scm`
+Show Run|`kb(workbench.view.debug)`|`workbench.view.debug`
+Show Extensions|`kb(workbench.view.extensions)`|`workbench.view.extensions`
+Show Output|`kb(workbench.action.output.toggleOutput)`|`workbench.action.output.toggleOutput`
+Quick Open View|`kb(workbench.action.quickOpenView)`|`workbench.action.quickOpenView`
+Open New Command Prompt|`kb(workbench.action.terminal.openNativeConsole)`|`workbench.action.terminal.openNativeConsole`
+Toggle Markdown Preview|`kb(markdown.showPreview)`|`markdown.showPreview`
+Open Preview to the Side|`kb(markdown.showPreviewToSide)`|`markdown.showPreviewToSide`
+Toggle Integrated Terminal|`kb(workbench.action.terminal.toggleTerminal)`|`workbench.action.terminal.toggleTerminal`
 
 ### Search
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.view.search)`|Show Search|`workbench.view.search`
-`kb(workbench.action.replaceInFiles)`|Replace in Files|`workbench.action.replaceInFiles`
-`kb(toggleSearchCaseSensitive)`|Toggle Match Case|`toggleSearchCaseSensitive`
-`kb(toggleSearchWholeWord)`|Toggle Match Whole Word|`toggleSearchWholeWord`
-`kb(toggleSearchRegex)`|Toggle Use Regular Expression|`toggleSearchRegex`
-`kb(workbench.action.search.toggleQueryDetails)`|Toggle Search Details|`workbench.action.search.toggleQueryDetails`
-`kb(search.action.focusNextSearchResult)`|Focus Next Search Result|`search.action.focusNextSearchResult`
-`kb(search.action.focusPreviousSearchResult)`|Focus Previous Search Result|`search.action.focusPreviousSearchResult`
-`kb(history.showNext)`|Show Next Search Term|`history.showNext`
-`kb(history.showPrevious)`|Show Previous Search Term|`history.showPrevious`
+Command|Key|Command id
+-------|---|----------
+Show Search|`kb(workbench.view.search)`|`workbench.view.search`
+Replace in Files|`kb(workbench.action.replaceInFiles)`|`workbench.action.replaceInFiles`
+Toggle Match Case|`kb(toggleSearchCaseSensitive)`|`toggleSearchCaseSensitive`
+Toggle Match Whole Word|`kb(toggleSearchWholeWord)`|`toggleSearchWholeWord`
+Toggle Use Regular Expression|`kb(toggleSearchRegex)`|`toggleSearchRegex`
+Toggle Search Details|`kb(workbench.action.search.toggleQueryDetails)`|`workbench.action.search.toggleQueryDetails`
+Focus Next Search Result|`kb(search.action.focusNextSearchResult)`|`search.action.focusNextSearchResult`
+Focus Previous Search Result|`kb(search.action.focusPreviousSearchResult)`|`search.action.focusPreviousSearchResult`
+Show Next Search Term|`kb(history.showNext)`|`history.showNext`
+Show Previous Search Term|`kb(history.showPrevious)`|`history.showPrevious`
 
 ### Preferences
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.action.openSettings)`|Open Settings|`workbench.action.openSettings`
-`kb(workbench.action.openWorkspaceSettings)`|Open Workspace Settings|`workbench.action.openWorkspaceSettings`
-`kb(workbench.action.openGlobalKeybindings)`|Open Keyboard Shortcuts|`workbench.action.openGlobalKeybindings`
-`kb(workbench.action.openSnippets)`|Open User Snippets|`workbench.action.openSnippets`
-`kb(workbench.action.selectTheme)`|Select Color Theme|`workbench.action.selectTheme`
-`kb(workbench.action.configureLocale)`|Configure Display Language|`workbench.action.configureLocale`
+Command|Key|Command id
+-------|---|----------
+Open Settings|`kb(workbench.action.openSettings)`|`workbench.action.openSettings`
+Open Workspace Settings|`kb(workbench.action.openWorkspaceSettings)`|`workbench.action.openWorkspaceSettings`
+Open Keyboard Shortcuts|`kb(workbench.action.openGlobalKeybindings)`|`workbench.action.openGlobalKeybindings`
+Open User Snippets|`kb(workbench.action.openSnippets)`|`workbench.action.openSnippets`
+Select Color Theme|`kb(workbench.action.selectTheme)`|`workbench.action.selectTheme`
+Configure Display Language|`kb(workbench.action.configureLocale)`|`workbench.action.configureLocale`
 
 ### Debug
 
-Key|Command|Command id
----|-------|----------
-`kb(editor.debug.action.toggleBreakpoint)`|Toggle Breakpoint|`editor.debug.action.toggleBreakpoint`
-`kb(workbench.action.debug.start)`|Start|`workbench.action.debug.start`
-`kb(workbench.action.debug.continue)`|Continue|`workbench.action.debug.continue`
-`kb(workbench.action.debug.run)`|Start (without debugging)|`workbench.action.debug.run`
-`kb(workbench.action.debug.pause)`|Pause|`workbench.action.debug.pause`
-`kb(workbench.action.debug.stepInto)`|Step Into|`workbench.action.debug.stepInto`
-`kb(workbench.action.debug.stepOut)`|Step Out|`workbench.action.debug.stepOut`
-`kb(workbench.action.debug.stepOver)`|Step Over|`workbench.action.debug.stepOver`
-`kb(workbench.action.debug.stop)`|Stop|`workbench.action.debug.stop`
-`kb(editor.debug.action.showDebugHover)`|Show Hover|`editor.debug.action.showDebugHover`
+Command|Key|Command id
+-------|---|----------
+Toggle Breakpoint|`kb(editor.debug.action.toggleBreakpoint)`|`editor.debug.action.toggleBreakpoint`
+Start|`kb(workbench.action.debug.start)`|`workbench.action.debug.start`
+Continue|`kb(workbench.action.debug.continue)`|`workbench.action.debug.continue`
+Start (without debugging)|`kb(workbench.action.debug.run)`|`workbench.action.debug.run`
+Pause|`kb(workbench.action.debug.pause)`|`workbench.action.debug.pause`
+Step Into|`kb(workbench.action.debug.stepInto)`|`workbench.action.debug.stepInto`
 
 ### Tasks
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.action.tasks.build)`|Run Build Task|`workbench.action.tasks.build`
-`kb(workbench.action.tasks.test)`|Run Test Task|`workbench.action.tasks.test`
+Command|Key|Command id
+-------|---|----------
+Run Build Task|`kb(workbench.action.tasks.build)`|`workbench.action.tasks.build`
+Run Test Task|`kb(workbench.action.tasks.test)`|`workbench.action.tasks.test`
 
 ### Extensions
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.extensions.action.installExtension)`|Install Extension|`workbench.extensions.action.installExtension`
-`kb(workbench.extensions.action.showInstalledExtensions)`|Show Installed Extensions|`workbench.extensions.action.showInstalledExtensions`
-`kb(workbench.extensions.action.listOutdatedExtensions)`|Show Outdated Extensions|`workbench.extensions.action.listOutdatedExtensions`
-`kb(workbench.extensions.action.showRecommendedExtensions)`|Show Recommended Extensions|`workbench.extensions.action.showRecommendedExtensions`
-`kb(workbench.extensions.action.showPopularExtensions)`|Show Popular Extensions|`workbench.extensions.action.showPopularExtensions`
-`kb(workbench.extensions.action.updateAllExtensions)`|Update All Extensions|`workbench.extensions.action.updateAllExtensions`
+Command|Key|Command id
+-------|---|----------
+Install Extension|`kb(workbench.extensions.action.installExtension)`|`workbench.extensions.action.installExtension`
+Show Installed Extensions|`kb(workbench.extensions.action.showInstalledExtensions)`|`workbench.extensions.action.showInstalledExtensions`
+Show Outdated Extensions|`kb(workbench.extensions.action.listOutdatedExtensions)`|`workbench.extensions.action.listOutdatedExtensions`
+Show Recommended Extensions|`kb(workbench.extensions.action.showRecommendedExtensions)`|`workbench.extensions.action.showRecommendedExtensions`
+Show Popular Extensions|`kb(workbench.extensions.action.showPopularExtensions)`|`workbench.extensions.action.showPopularExtensions`
+Update All Extensions|`kb(workbench.extensions.action.updateAllExtensions)`|`workbench.extensions.action.updateAllExtensions`
 
 ## Next steps
 
@@ -661,7 +657,7 @@ In the **Keyboard Shortcut** editor, you can filter on specific keystrokes to se
 
 ![Key bindings quick outline](images/keybinding/filter-on-keys.png)
 
-### How to add a key binding to an action? For example, add Ctrl+D to Delete Lines
+### How to add a key binding to an action, for example, add Ctrl+D to Delete Lines
 
 Find a rule that triggers the action in the **Default Keyboard Shortcuts** and write a modified version of it in your `keybindings.json` file:
 
@@ -683,6 +679,6 @@ Use the `editorLangId` context key in your `when` clause:
                                      "when": "editorTextFocus && editorLangId == csharp" },
 ```
 
-### I have modified my key bindings in `keybindings.json`, why don't they work?
+### I have modified my key bindings in `keybindings.json`; why don't they work?
 
 The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.
