@@ -7,11 +7,11 @@ DateApproved: 6/10/2020
 MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch failures
 ---
 
-# Troubleshoot Integrated Terminal launch failures
+# Terminal launch failures
 
 To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follow these steps to diagnose issues:
 
-1. If you're on Windows, review the [common issues on Windows](#_common-issues-on-windows) section first.
+1. If you're on Windows, review the [common issues on Windows](#common-issues-on-windows) section first.
 
 2. Check your [settings](/docs/getstarted/settings.md) for any of these settings that could affect the launch:
 
@@ -27,6 +27,8 @@ To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follo
     ```
 
 3. Enable [trace logging](https://github.com/microsoft/vscode/wiki/Terminal-Issues#enabling-trace-logging) and capture a log when launching the terminal. Logging often reveals what is wrong as all arguments used to create the terminal process/pty are recorded. Bad shell names, arguments, or environment variables can cause the terminal to not launch. Keep this log for later if your problem isn't solved.
+
+## Additional troubleshooting steps
 
 If none of these steps helped solve the issue, you can also try:
 
@@ -53,11 +55,11 @@ The easy fix for this issue is to use the 64-bit version. If you must use the 32
 
 This error can occur due to anti-virus software intercepting winpty from creating a pty. To work around this error, you can exclude the following file from your anti-virus scanning:
 
-```bash
-<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty.dll
-<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
-<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\conpty.node
-<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\conpty_console_list.node
+```
+{install_path}\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty.dll
+{install_path}\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
+{install_path}\resources\app\node_modules.asar.unpacked\node-pty\build\Release\conpty.node
+{install_path}\resources\app\node_modules.asar.unpacked\node-pty\build\Release\conpty_console_list.node
 ```
 
 Reporting this issue to the Anti-virus team can also help stamp out the issue all together.
