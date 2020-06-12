@@ -1,11 +1,11 @@
 ---
 Order: 10
 Area: cpp
-TOCTitle: Get started with CMake Tools on Linux
+TOCTitle: CMake Tools on Linux
 ContentId: 86543311-5452-4b1f-a44c-03cc3df04c3f
-PageTitle: Get started with CMake Tools on Linux 
+PageTitle: Get started with CMake Tools on Linux
 DateApproved: 06/11/2020
-MetaDescription: Get started with the CMake Tools Visual Studio Code extension on Linux 
+MetaDescription: Get started with the CMake Tools Visual Studio Code extension on Linux
 ---
 # Get started with CMake Tools on Linux
 
@@ -46,9 +46,9 @@ To install CMake, or to get a later version if you don't at least have version 3
 
 ### Ensure that development tools are installed
 
-Although you'll use VS Code to edit your source code, you'll compile and debug the source code using the compiler, debugger, and build tools (such as make) installed on your system.
+Although you'll use VS Code to edit your source code, you'll compile and debug the source code using the compiler, debugger, and build tools (such as `make`) installed on your system.
 
-For this tutorial on Ubuntu, we'll use the GCC compiler, GDB to debug, and make to build the project. These tools are not installed by default on Ubuntu, so you need to install them. Fortunately, that's easy.
+For this tutorial on Ubuntu, we'll use the GCC compiler, GDB to debug, and `make` to build the project. These tools are not installed by default on Ubuntu, so you need to install them. Fortunately, that's easy.
 
 ### Check if GCC is installed
 
@@ -64,7 +64,7 @@ If GCC isn't installed, run the following command from the Terminal window to up
 sudo apt-get update
 ```
 
-Next, install the GNU compiler, make, and the GDB debugger with this command:
+Next, install the GNU compiler, `make`, and the GDB debugger with this command:
 
 ```bash
 sudo apt-get install build-essential gdb
@@ -114,13 +114,13 @@ Before you can use the CMake Tools extension to build a project, you need to con
 
 ## Configure Hello World
 
-There are two things you must do to configure your CMake project: select a kit (which you just did) and select a variant.  
+There are two things you must do to configure your CMake project: select a kit (which you just did) and select a variant.
 
-The kit you selected previously is shown in the status bar. For example:
+The kit you selected previously is shown in the Status bar. For example:
 
-![Selected kit in status bar](images/cpp/cmake-kit-statusbar.png)
+![Selected kit in Status bar](images/cpp/cmake-kit-statusbar.png)
 
-To change the kit, you can click on the kit in the status bar, or run the **CMake: Select a kit** command again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `cmake-tools-kits.json` file in your project. To edit the file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Edit User-Local CMake Kits** command.
+To change the kit, you can click on the kit in the Status bar, or run the **CMake: Select a kit** command again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `cmake-tools-kits.json` file in your project. To edit the file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Edit User-Local CMake Kits** command.
 
 ### Select a variant
 
@@ -135,11 +135,11 @@ To select a variant, open the Command Palette (`kb(workbench.action.showCommands
 
 ![Select variant](images/cpp/cmake-select-variant.png)
 
-Select **Debug** to include debug information with your build.  
+Select **Debug** to include debug information with your build.
 
 ![Select debug variant type](images/cpp/cmake-variant-type.png)
 
-The selected variant will appear in the status bar next to the active kit.  
+The selected variant will appear in the Status bar next to the active kit.
 
 ### CMake: Configure
 
@@ -147,11 +147,11 @@ Now that you've selected a kit and a variant, open the Command Palette (`kb(work
 
 ## Build hello world
 
-After configuring your project, you're ready to build. Open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Build** command, or simply select the **Build** button from the status bar.  
+After configuring your project, you're ready to build. Open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Build** command, or select the **Build** button from the Status bar.
 
 ![Build](images/cpp/cmake-build.png)
 
-You can select which targets you'd like to build by selecting **CMake: Set Build Target** from the Command Palette. By default, CMake Tools builds all targets. The selected target will appear in the status bar next to the **Build** button.
+You can select which targets you'd like to build by selecting **CMake: Set Build Target** from the Command Palette. By default, CMake Tools builds all targets. The selected target will appear in the Status bar next to the **Build** button.
 
 ## Debug hello world
 
@@ -160,15 +160,15 @@ Then open the Command Palette (`kb(workbench.action.showCommands)`) and run **CM
 
 ![Debug](images/cpp/cmake-debug.png)
 
-Go ahead and press **F5** to continue.
+Go ahead and press `kb(workbench.action.debug.start)` to continue.
 
 You've now used the VS Code CMake Tools extension to use CMake to build and debug a C++ app on Ubuntu. The steps are the same for other platforms; the difference being how you install CMake and the compiler/debugger for the platform of your choice. For instructions on setting up compilers/debuggers for other platforms, see the following:
 
--[Microsoft C++ on Windows](config-msvc.md)
--[Clang on macOS](config-clang-mac.md)
--[GCC on Windows Sysbsystem for Linux](config-wsl.md)
+* [Microsoft C++ on Windows](/docs/cpp/config-msvc.md)
+* [Clang on macOS](/docs/cpp/clang-mac.md)
+* [GCC on Windows Subsystem for Linux](/docs/cpp/config-wsl.md)
 
 ## Next steps
 
-- Explore the [CMake Tools docs](https://vector-of-bool.github.io/docs/vscode-cmake-tools/index.html)
-- Review the [Overview of the C++ extension](/docs/languages/cpp.md)
+* Explore the [CMake Tools](https://vector-of-bool.github.io/docs/vscode-cmake-tools/index.html) documentation
+* Review the [Overview of the C++ extension](/docs/languages/cpp.md)
