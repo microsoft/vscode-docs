@@ -30,7 +30,7 @@ If none of these steps helped solve the issue you can do one of the following:
 - Ask about it on [Stack Overflow](http://stackoverflow.com/), often launch issues are related to environment setup and not a problem with VS Code
 - If the terminal is being launched from an extension, report the issue to the extension by opening the issue reporter (Help > Report Issue) and set File On = "An Extension"
 - If you believe it to be a bug with VS Code, report the issue issue using the issue reporter (Help > Report Issue). This will autofill a lot of relevant information, see [Creating great terminal issues](https://github.com/microsoft/vscode/wiki/Terminal-Issues#creating-great-terminal-issues) for what else to include in the report.
-  - Note that if you're on Windows 1809 (build 17763) or below the issue is related to the legacy "winpty" backend, upgrading to Windows 1903 (build 18362) will move you onto the new "conpty" backend that is built by Microsoft and could fix your problem.
+  - Note that if you're on Windows 10 1809 (build 17763) or below the issue is related to the legacy "winpty" backend, upgrading to Windows 1903 (build 18362) will move you onto the new "conpty" backend that is built by Microsoft and could fix your problem.
 
 
 
