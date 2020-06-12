@@ -293,7 +293,7 @@ The basics of the terminal have been covered in this document, read on to find o
 
 ### I'm having problems launching the terminal
 
-There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch) for these sorts of problems.
+There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) for these sorts of problems.
 
 ### Can I use the integrated terminal with the Windows Subsystem for Linux?
 
