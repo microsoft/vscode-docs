@@ -11,7 +11,7 @@ MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch fail
 
 Follow these steps to diagnose issues:
 
-1. If you're on Windows, check the Common issues on Windows section below first
+1. If you're on Windows, check [common issues on Windows section](#_common-issues-on-windows) first
 2. Check your [settings](https://code.visualstudio.com/docs/getstarted/settings) for any `terminal.integrated` settings that could affect the launch. These settings in particular can cause a terminal to fail launching:
    ```
    terminal.integrated.automationShell
