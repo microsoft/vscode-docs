@@ -73,6 +73,23 @@ You can also open the `keybindings.json` file from the Command Palette (`kb(work
 
 ## Keyboard rules
 
+Each rule consists of:
+
+* a `key` that describes the pressed keys.
+* a `command` containing the identifier of the command to execute.
+* an **optional** `when` clause containing a boolean expression that will be evaluated depending on the current **context**.
+
+Chords (two separate keypress actions) are described by separating the two keypresses with a space. For example, `kbstyle(Ctrl+K Ctrl+C)`.
+
+When a key is pressed:
+
+* the rules are evaluated from **bottom** to **top**.
+* the first rule that matches, both the `key` and in terms of `when`, is accepted.
+* no more rules are processed.
+* if a rule is found and has a `command` set, the `command` is executed.
+
+The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by VS Code so editing it while VS Code is running will update the rules at runtime.
+
 The keyboard shortcuts dispatching is done by analyzing a list of rules that are expressed in JSON. Here are some examples:
 
 ```json
@@ -94,22 +111,6 @@ The keyboard shortcuts dispatching is done by analyzing a list of rules that are
 { "key": "ctrl+k ctrl+w",   "command": "workbench.action.closeAllEditors" },
 ```
 
-Each rule consists of:
-
-* a `key` that describes the pressed keys.
-* a `command` containing the identifier of the command to execute.
-* an **optional** `when` clause containing a boolean expression that will be evaluated depending on the current **context**.
-
-Chords (two separate keypress actions) are described by separating the two keypresses with a space. For example, `kbstyle(Ctrl+K Ctrl+C)`.
-
-When a key is pressed:
-
-* the rules are evaluated from **bottom** to **top**.
-* the first rule that matches, both the `key` and in terms of `when`, is accepted.
-* no more rules are processed.
-* if a rule is found and has a `command` set, the `command` is executed.
-
-The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by VS Code so editing it while VS Code is running will update the rules at runtime.
 
 ## Accepted keys
 
