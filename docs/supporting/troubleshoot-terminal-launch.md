@@ -7,7 +7,7 @@ DateApproved: 6/10/2020
 MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch failures
 ---
 
-# Terminal launch failures
+# Troubleshoot Terminal launch failures
 
 To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follow these steps to diagnose issues:
 
@@ -35,7 +35,7 @@ If none of these steps helped solve the issue, you can also try:
 - Ask about it on [Stack Overflow](https://stackoverflow.com/), often launch issues are related to environment setup and not a problem with VS Code.
 - If the terminal is being launched from an extension, report the issue to the extension by opening the issue reporter (Help > Report Issue) and set File On = "An Extension"
 - If you believe it to be a bug with VS Code, report the issue using the issue reporter (Help > Report Issue). The issue reporter will autofill relevant information, see [Creating great terminal issues](https://github.com/microsoft/vscode/wiki/Terminal-Issues#creating-great-terminal-issues) for what else to include in the report.
-  - If you're on Windows 10 1809 (build 17763) or below, the issue is related to the legacy "winpty" backend. Upgrading to Windows 1903 (build 18362) will move you onto the new "conpty" backend that is built by Microsoft and could fix your problem.
+- If you're on Windows 10 1809 (build 17763) or below, the issue is related to the legacy "winpty" backend. Upgrading to Windows 1903 (build 18362) will move you onto the new "conpty" backend that is built by Microsoft and could fix your problem.
 
 ## Common issues on Windows
 
