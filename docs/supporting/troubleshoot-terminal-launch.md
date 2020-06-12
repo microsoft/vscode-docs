@@ -65,4 +65,4 @@ Reporting this issue to the Anti-virus team can also help stamp out the issue al
 
 This can happen when you have legacy console mode enabled in conhost's properties. To change this, open cmd.exe from the start menu, right-click the title bar, go to Properties and under the Options tab, uncheck Use legacy console.
 
-TODO: conhost.png
+![](images/troubleshoot-terminal-launch/legacy-console-mode.png)
