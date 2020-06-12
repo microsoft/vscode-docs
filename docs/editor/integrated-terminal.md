@@ -291,6 +291,10 @@ The basics of the terminal have been covered in this document, read on to find o
 
 ## Common questions
 
+### I'm having problems launching the terminal
+
+There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch) for these sorts of problems.
+
 ### Can I use the integrated terminal with the Windows Subsystem for Linux?
 
 Yes, you can select the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL) bash shell as your terminal default. If you have WSL enabled (through Windows Features), you can select **WSL Bash** from the terminal **Select Default Shell** dropdown. See [Developing in WSL](/docs/remote/wsl.md) for details on working in WSL and the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
@@ -298,10 +302,6 @@ Yes, you can select the [Windows Subsystem for Linux](https://docs.microsoft.com
 ### Why is VS Code shortcut X not working when the terminal has focus?
 
 Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. An example of this is `kbstyle(Ctrl+B)` to open the Side Bar on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. You can use the `terminal.integrated.commandsToSkipShell` setting to prevent specific key bindings from being handled by the terminal.
-
-### Integrated terminal exited with code 1 on Windows 10
-
-This can happen if you run VS Code in compatibility mode, which may be turned on automatically if you have upgraded Windows. You can change this by right-clicking the executable and selecting properties, then uncheck "Run this program in compatibility mode" in the compatibility tab.
 
 ### Can I use Cmder's shell with the terminal on Windows?
 
@@ -333,14 +333,6 @@ For example, if you have set your default terminal to bash, you will find `termi
 ```
 
 Remove the entry to use the built-in VS Code default or set it to another shell executable path.
-
-### Why is the terminal not working when running the 32-bit Windows client on 64-bit Windows?
-
-The easy fix for this is to use the 64-bit version. If you must use the 32-bit version, you need to use the `sysnative` path when configuring your paths instead of `System32`:
-
-```json
-"terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
-```
 
 ### Why is Cmd+k/Ctrl+k not clearing the terminal?
 
@@ -422,21 +414,6 @@ By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. You can co
   "args": { "text": "\u001bf" }
 }
 ```
-
-### How do I fix the errors "ConnectNamedPipe failed: Windows error 232" or terminal exited with code x on Windows
-
-This error can occur due to anti-virus software intercepting winpty from creating a pty. To work around this error, you can exclude the following file from your anti-virus scanning:
-
-```bash
-<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty.dll
-<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
-<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\conpty.node
-<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\conpty_console_list.node
-```
-
-### How do I fix when a terminal exits with error code 3221225786 on Windows?
-
-This happens when you have legacy console mode enabled in conhost's properties. To change this, open `cmd.exe`, right-click the title bar, go to **Properties** and under the **Options** tab, uncheck **Use legacy console**.
 
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
 
