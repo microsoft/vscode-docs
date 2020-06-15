@@ -109,25 +109,25 @@ Here is an example of using `dockerServerReadyAction` to launch the browser to o
 
 ### How to debug your app with Gunicorn
 
- The **Docker: Python - Django** and **Docker: Python - Flask** launch configurations automatically override the Gunicorn entry point of the container with the Python debugger. More information about Python debugger import usage can be found [here](https://github.com/microsoft/ptvsd#ptvsd-import-usage).
+ The **Docker: Python - Django** and **Docker: Python - Flask** launch configurations automatically override the Gunicorn entry point of the container with the Python debugger. More information about Python debugger import usage can be found [here](https://github.com/microsoft/debugpy#debugpy-import-usage).
 
 To debug your app running with Gunicorn (or any other web server):
 
-1. Add ptvsd to your `requirements.txt` file:
+1. Add debugpy to your `requirements.txt` file:
 
     ```python
-    ptvsd==4.3.2
+    debugpy
     ```
 
 1. Add the following code snippet to the file that you wish to debug:
 
     ```python
-    import ptvsd
-    ptvsd.enable_attach(address=('0.0.0.0', 5678))
-    ptvsd.wait_for_attach()
+    import debugpy
+    debugpy.listen(5678)
+    debugpy.wait_for_client()
     ```
 
-1. Add a **Python: Remote Attach** configuration to `launch.json` in the `.vscode` folder:
+2. Add a **Python: Remote Attach** configuration to `launch.json` in the `.vscode` folder:
 
     ```json
     {
@@ -143,12 +143,12 @@ To debug your app running with Gunicorn (or any other web server):
     }
     ```
 
-1. Save the `launch.json` file.
-1. Modify the `docker-compose.yml` file to expose the debugger port by adding `5678:5678` to the [ports section](https://docs.docker.com/compose/). If you are using `docker run` to run your container from the terminal, you must append `-p 5678:5678`.
-1. Start the container by right-clicking on a `docker-compose.yml` file and selecting **Compose Up** or doing `docker run` from the command line.
-1. Set a breakpoint in the chosen file.
-1. Navigate to **Run and Debug** and select the **Python: Remote Attach** launch configuration.
-1. Hit `kb(workbench.action.debug.start)` to attach the debugger.
+3. Save the `launch.json` file.
+4. Modify the `docker-compose.yml` file to expose the debugger port by adding `5678:5678` to the [ports section](https://docs.docker.com/compose/). If you are using `docker run` to run your container from the terminal, you must append `-p 5678:5678`.
+5. Start the container by right-clicking on a `docker-compose.yml` file and selecting **Compose Up** or doing `docker run` from the command line.
+6. Set a breakpoint in the chosen file.
+7. Navigate to **Run and Debug** and select the **Python: Remote Attach** launch configuration.
+8. Hit `kb(workbench.action.debug.start)` to attach the debugger.
 
 ## Next steps
 
