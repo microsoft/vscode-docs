@@ -216,8 +216,8 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
       "python": {
         "args": [
           "run",
-          "--host 0.0.0.0",
-          "--port 5000"
+          "--host", "0.0.0.0",
+          "--port", "5000"
         ],
         "module": "flask"
       }

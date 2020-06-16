@@ -95,8 +95,8 @@ After choosing a non-system port and setting up the container to run as a non-ro
       "run",
       "--no-debugger",
       "--no-reload",
-      "--host 0.0.0.0",
-      "--port 1024" //Change this port number
+      "--host", "0.0.0.0",
+      "--port", "1024" //Change this port number
     ],
     "module": "flask"
   }
