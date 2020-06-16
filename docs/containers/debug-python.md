@@ -109,7 +109,7 @@ Here is an example of using `dockerServerReadyAction` to launch the browser to o
 
 ## How to enable hot reloading in Django or Flask apps
 
-When you select **Docker: Add Docker Files to Workspace** for Django or Flask, we provide you a Dockerfile and `tasks.json` configured for static deployment. Each time you make changes to your app code, you will need to rebuild and re-run your container. Hot reloading allows you to visualize changes in your app code as your container continues to run. Enable hot reloading with these steps:
+When you select **Docker: Add Docker Files to Workspace** for Django or Flask, we provide you a Dockerfile and `tasks.json` configured for static deployment. Each time you make changes to your app code, you need to rebuild and re-run your container. Hot reloading allows you to visualize changes in your app code as your container continues to run. Enable hot reloading with these steps:
 
 ### For Django Apps
 
