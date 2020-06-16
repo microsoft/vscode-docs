@@ -185,6 +185,7 @@ We allow badges from the following URL prefixes:
 - docs.rs
 - gemnasium.com
 - githost.io
+- github.com
 - gitlab.com
 - godoc.org
 - goreportcard.com
