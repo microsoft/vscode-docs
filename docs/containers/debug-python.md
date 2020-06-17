@@ -230,22 +230,22 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
 
 ## How to debug your app with Gunicorn
 
- The **Docker: Python - Django** and **Docker: Python - Flask** launch configurations automatically override the Gunicorn entry point of the container with the Python debugger. More information about Python debugger import usage can be found [here](https://github.com/microsoft/ptvsd#ptvsd-import-usage).
+ The **Docker: Python - Django** and **Docker: Python - Flask** launch configurations automatically override the Gunicorn entry point of the container with the Python debugger. More information about Python debugger import usage can be found [here](https://github.com/microsoft/debugpy#debugpy-import-usage).
 
 To debug your app running with Gunicorn (or any other web server):
 
-1. Add ptvsd to your `requirements.txt` file:
+1. Add debugpy to your `requirements.txt` file:
 
     ```python
-    ptvsd==4.3.2
+    debugpy
     ```
 
 1. Add the following code snippet to the file that you wish to debug:
 
     ```python
-    import ptvsd
-    ptvsd.enable_attach(address=('0.0.0.0', 5678))
-    ptvsd.wait_for_attach()
+    import debugpy
+    debugpy.listen(5678)
+    debugpy.wait_for_client()
     ```
 
 1. Add a **Python: Remote Attach** configuration to `launch.json` in the `.vscode` folder:
