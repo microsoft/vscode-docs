@@ -243,8 +243,8 @@ When building a Python-based Docker image, you can omit the `platform` property 
         "run",
         "--no-debugger",
         "--no-reload",
-        "--host 0.0.0.0",
-        "--port 5000"
+        "--host", "0.0.0.0",
+        "--port", "5000"
       ],
       "module": "flask"
     }
