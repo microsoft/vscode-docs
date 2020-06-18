@@ -81,12 +81,13 @@ The extension automatically looks for interpreters in the following locations:
 - Virtual environments located in the folder identified by the `python.venvPath` setting (see [General settings](/docs/python/settings-reference.md#general-settings)), which can contain multiple virtual environments. The extension looks for virtual environments in the first-level subfolders of `venvPath`.
 - Virtual environments located in a `~/.virtualenvs` folder for [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/).
 - Interpreters installed by [pyenv](https://github.com/pyenv/pyenv).
-- A [pipenv](https://pipenv.readthedocs.io/) environment for the workspace folder. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects.
-- Virtual environments located in the path identified by `WORKON_HOME` (as used by [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/) and [pipenv](https://pipenv.readthedocs.io/)).
+- Virtual environments located in the path identified by `WORKON_HOME` (as used by [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/)).
 - Conda environments that contain a Python interpreter. VS Code does not show conda environments that don't contain an interpreter.
 - Interpreters installed in a `.direnv` folder for [direnv](https://direnv.net/) under the workspace (project) folder.
 
 You can also [manually specify an interpreter](#manually-specify-an-interpreter) if Visual Studio Code does not locate it automatically.
+
+> **Note**: Once the "select interpreter" flow is triggered, [pipenv](https://pipenv.readthedocs.io/) environments for the workspace folder will be searched for. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects.
 
 The extension also loads an [environment variable definitions file](#environment-variable-definitions-file) identified by the `python.envFile` setting. The default value of this setting is `${workspaceFolder}/.env`.
 
@@ -99,6 +100,8 @@ By default, any Python interpreter that you've installed run in its own **global
 Although working in the global environment is an easy way to get started, that environment will, over time, become cluttered with many different packages that you've installed for different projects. Such clutter makes it difficult to thoroughly test an application against a specific set of packages with known versions, which is exactly the kind of environment you'd set up on a build server or web server.
 
 For this reason, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that environment's subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages.
+
+> **Note**: While it's possible to open a virtual environment folder as a workspace, doing so is not recommended and might cause issues with using the Python extension.
 
 > **Tip**: A **conda environment** is a virtual environment that's created and managed using the `conda` package manager. See [Conda environments](#conda-environments) for more details.
 
@@ -150,6 +153,8 @@ Additional notes:
 
 - If you create a new conda environment while VS Code is running, use the **Reload Window** command to refresh the environment list shown with **Python: Select Interpreter**; otherwise you may not see the environment there. It might take a short time to appear; if you don't see it at first, wait 15 seconds then try using the command again.
 
+- To ensure the environment is set up well from a shell perspective, one option is to use an Anaconda prompt with the activated environment to launch VS Code using the `code .` command. At that point you just need to select the interpreter using the Command Palette or by clicking on the status bar.
+
 - Although the Python extension for VS Code doesn't currently have direct integration with conda environment.yml files, VS Code itself is a great YAML editor.
 
 - Conda environments can't be automatically activated in the VS Code Integrated Terminal if the default shell is set to PowerShell. To change the shell, see [Integrated terminal - Configuration](/docs/editor/integrated-terminal.md#configuration).
@@ -200,6 +205,8 @@ Then do any of the following steps:
     "python.pythonPath": "${env:PYTHON_INSTALL_LOC}",
     ```
 
+    > **Note**: Variable substitution is only supported in VS Code settings files, it will not work in `.env` environment files.
+
     By using an environment variable, you can easily transfer a project between operating systems where the paths are different, just be sure to set the environment variable on the operating system first.
 
 ## Environment variable definitions file
@@ -241,6 +248,8 @@ MYPROJECT_DBPASSWORD=kKKfa98*11@
 ```
 
 You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, then set the `envFile` property in the debug configuration to `${workspaceFolder}/dev.env`.
+
+> **Note**: When environment variables are specified using multiple methods, be aware that there is an order of precedence. Environment variables contained in the `.env` file specified by the `python.envFile` setting (user or workspace) will override variables defined in the `envFile` specified in `launch.json`, as well as any `env` variables defined in the `launch.json` file itself. Similarly, environment variables defined in the `envFile` specified in `launch.json` will override `env` variables defined in the `launch.json` file.
 
 ### Variable substitution
 
