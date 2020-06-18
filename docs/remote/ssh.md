@@ -210,7 +210,7 @@ If you would like VS Code to remember any ports you have forwarded, check **Remo
 
 If you would like the local port of the tunnel to be different than the remote server's, you can change this via the **Forwarded Ports** panel.
 
-Right-click the tunnel you want to modify and select **Change Local Port** in the context menu.
+Right-click the tunnel you want to modify, and select **Change Local Port** in the context menu.
 
 ![Change Local Port](images/ssh/ssh-tunnel-different-local-port.png)
 
