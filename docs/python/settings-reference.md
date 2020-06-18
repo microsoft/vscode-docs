@@ -30,6 +30,7 @@ For general information about working with settings in VS Code, refer to [User a
 | python.terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
 | python.terminal.activateEnvironment | `true` | Indicates whether to automatically activate the environment you select using the **Python: Select Interpreter** command when a new terminal is created. For example, when this setting is `true` and you select a virtual environment, the extension automatically runs the environment's *activate* command when creating a new terminal (`source env/bin/activate` on macOS/Linux; `env\scripts\activate` on Windows). |
 | python.terminal.activateEnvInCurrentTerminal | `false` | Specifies whether to activate the currently open terminal when the Python extension is activated, using the virtual environment selected. |
+| python.logging.level| `error` | Specifies the level of logging to be performed by the extension. The possible levels of logging, in increasing level of information provided, are `off`, `error`, `warn`, `info`, and `debug`. When set to `off`, which is not recommended, basic information will still be shown such as startup information and commands run by the Python extension. At the `error` level, basic information and errors will be shown. At the `warn` level, basic, error, and warning information will be shown. At the `info` level, basic, error, warning, and additional information like method execution times and return values will be shown. At this time, the `debug` level doesn't display additional information. |
 | python.insidersChannel | `off` | Specifies whether to participate in the Insiders program and the channel to use. Set to `weekly` or `daily` to automatically download and install the latest Insiders builds of the Python extension, which include upcoming features and bug fixes.
 
 ## Workspace symbol (tags) settings
@@ -203,16 +204,21 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 
 ## Testing settings
 
+### General settings
+
+| Setting<br/>(python.testing.) | Default | Description | See also |
+| --- | --- | --- | --- |
+| cwd | null | Specifies an optional working directory for tests. | [Testing](/docs/python/testing.md) |
+| promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. | [Testing](/docs/python/testing.md)  |
+| debugPort | `3000` | Port number used for debugging of unittest tests. | [Testing](/docs/python/testing.md) |
+  autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a test file. | [Testing](/docs/python/testing.md) |
+
 ### unittest framework
 
 | Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | unittestEnabled | `false` | Specifies whether unittest is enabled for testing. | [Testing](/docs/python/testing.md)  |
 | unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each top-level element that's separated by a space is a separate item in the list. | [Testing](/docs/python/testing.md) |
-| cwd | null | Specifies an optional working directory for tests. | [Testing](/docs/python/testing.md) |
-| promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. | [Testing](/docs/python/testing.md)  |
-| debugPort | `3000` | Port number used for debugging of unittest tests. | [Testing](/docs/python/testing.md) |
-  autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a test file. | [Testing](/docs/python/testing.md) |
 
 ### pytest framework
 
