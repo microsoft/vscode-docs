@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Getting Started
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Getting Started with Java in Visual Studio Code
-DateApproved: 7/25/2019
+DateApproved: 6/19/2020
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
@@ -38,9 +38,12 @@ Before going through this tutorial, your development environment must have a Jav
 
 Your development environment needs to know where the JDK is located. A common way to do this is [setting the value of the `JAVA_HOME` system environment variable](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) to the install location of the JDK, for example, `C:\Program Files\Java\jdk-13.0.2`. Or if you want to configure only VS Code to use the JDK, use the `java.home` setting in [VS Code's User or Workspace settings](/docs/getstarted/settings.md).
 
-To help you get started quickly, there is a special [Installer of Visual Studio Code for Java developers](https://aka.ms/vscode-java-installer-win).
+To help you get started quickly, there are special installers of Visual Studio Code for Java developers, which include all the necessary dependencies and extensions for Java development in Visual Studio Code:
 
-> **Note**: The installer is currently only available for Windows. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions. We're working on the macOS version. Please stay tuned.
+* **Windows:** [Installer of Visual Studio Code for Java developers](https://aka.ms/vscode-java-installer-win)
+* **macOS:** [Installer of Visual Studio Code for Java developers](https://aka.ms/vscode-java-installer-mac)
+
+> **Note**: The installers are only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
 
 The package can be used as a clean install, or you can also use it to update an existing development environment to add Java or VS Code. After you've [downloaded](https://aka.ms/vscode-java-installer-win) and opened it, the installer automatically tries to detect a JDK, VS Code, and essential Java extensions. During install, it downloads the stable versions of those tools from trusted online sources then installs and configures them.
 
