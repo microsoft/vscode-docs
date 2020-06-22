@@ -15,7 +15,7 @@ Visual Studio Code is a small download (< 100 MB) and has a disk footprint of 20
 We recommend:
 
 * 1.6 GHz or faster processor
-* 1 GB of RAM
+* 4 GB of RAM
 
 ## Platforms
 
