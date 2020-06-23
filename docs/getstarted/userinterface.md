@@ -68,7 +68,14 @@ The editor has a navigation bar above its contents called [Breadcrumbs](https://
 
 ![Breadcrumbs](images/userinterface/breadcrumbs.png)
 
-Breadcrumbs always show the file path and if the current file type has language support for symbols, the symbol path up to the cursor position. You can disable breadcrumbs with the **View** > **Show Breadcrumbs** toggle command. For more information about the breadcrumbs feature, such as how to customize their appearance, see the [Breadcrumbs](/docs/editor/editingevolved.md#breadcrumbs) section of the [Code Navigation](/docs/editor/editingevolved.md) article.
+Breadcrumbs always show the file path and if the current file type has language support for symbols, the symbol path up to the cursor position. You can disable breadcrumbs with the **View** > **Show Breadcrumbs** toggle command. For more information about the breadcrumbs feature, such as how to customize their appearance, see the [Breadcrumbs](/docs/editor/editingevolved.md#breadcrumbs) section of the [Code
+Navigation](/docs/editor/editingevolved.md) article.
+
+## Editor Actions
+
+The editor has a context aware menu bar called Editor Actions.  It shows available commands and actions that can be performed on the currently open file
+
+![Editor Actions](images/userinterface/editor-actions.png)
 
 ## Explorer
 
