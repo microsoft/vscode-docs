@@ -98,7 +98,7 @@ class SampleProvider implements vscode.NotebookContentProvider {
 }
 ```
 
-Now try running your extension and opeing a Jupyter Notebook formatted file saved with the `.notebook` extension:
+Now try running your extension and opening a Jupyter Notebook formatted file saved with the `.notebook` extension:
 ![Notebook showing contents of a Jupyter Notebook formatted file](images/notebook/ipynb-simple-provider.png)
 
 You should be able to open Jupyter-formatted notebooks and view their cells as both plaintext and rendered markdown, as well as edit the cells. However, edits will not be persisted to disk, and you won't be able to run any cells. Saving edits is as simple as implementing the `saveNotebook`-family commands above, but to run a cell, we'll need to implement a Kernel.
