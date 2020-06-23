@@ -19,8 +19,8 @@ A notebook visually consits of a sequence of cells. A cell can either be a *mark
 A `NotebookContentProvider` is responsible for taking a serialized description of a notebook and generating a list of markdown and code cells. It additionally handles saving modifications made in the notebook back to the original resource.
 
 Samples:
- - [`.ipynb` Content Provider](): This provider is able to read and write notebooks in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html).
- - [Markdown Content Provider](): Providers need not operate only on existing notebook formats, in this case normal markdown files are rendered as a notebook.
+ - [`.ipynb` Content Provider](): Work with notebooks in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html).
+ - [Markdown Content Provider](): Work with normal markdown files as a notebook.
 
 #### Example
 In this example we build a simplified notebook provider extension for viewing files in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html) with a `.notebook` extension.
