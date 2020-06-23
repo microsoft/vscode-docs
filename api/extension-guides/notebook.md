@@ -23,10 +23,9 @@ Samples:
  - [Markdown Content Provider](): Providers need not operate only on existing notebook formats, in this case normal markdown files are rendered as a notebook.
 
 #### Example
-In this example we build a simplified notebook provider extension for viewing Jupyter-formatted notbooks with the `.notebook` file extension.
+In this example we build a simplified notebook provider extension for viewing files in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html) with a `.notebook` extension.
 
 A content provider is declared in `package.json` under the `contributes.notebookProvider` section as follows:
-
 ```json
 {
   ...
@@ -48,7 +47,7 @@ A content provider is declared in `package.json` under the `contributes.notebook
 }
 ```
 
-The content provider is then registered in the extension's activation event. In this example we open notebooks in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html), with some simplifications for purposes of example:
+The content provider is then registered in the extension's activation event:
 ```ts
 import * as vscode from 'vscode';
 
