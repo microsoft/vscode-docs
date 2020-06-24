@@ -23,7 +23,7 @@ In each guide-sample combo, you can expect to find:
 
 ## Guides & Samples
 
-Here is a subset of guides on the VS Code website. Each guide illustrates one [VS Code API](/api/references/vscode-api) usage or a [Contribution Point](/api/references/contribution-points).
+Here are the guides on the VS Code website. Each guide illustrates one [VS Code API](/api/references/vscode-api) usage or a [Contribution Point](/api/references/contribution-points).
 
 | Guide on VS Code Website | API & Contribution |
 | --- | --- |
