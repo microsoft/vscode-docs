@@ -88,7 +88,7 @@ Select **Create** and you'll be presented with your newly created Personal Acces
 
 A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
 
-Once you have a [Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token), you can create a new publisher using `vsce`:
+Once you have a [Personal Access Token](/api/testing-and-publishing/publishing-extension#get-a-personal-access-token), you can create a new publisher using `vsce`:
 
 ```bash
 vsce create-publisher (publisher name)
@@ -240,8 +240,8 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 ## Next steps
 
 * [Extension Marketplace](/docs/editor/extension-gallery) - Learn more about VS Code's public extension Marketplace.
-* [Testing Extensions](/api/working-with-extensions/testing-extension) - Add tests to your extension project to ensure high quality.
-* [Bundling Extensions](/api/working-with-extensions/bundling-extension) - Improve load times by bundling your extension files with webpack.
+* [Testing Extensions](/api/testing-and-publishing/testing-extension) - Add tests to your extension project to ensure high quality.
+* [Bundling Extensions](/api/testing-and-publishing/bundling-extension) - Improve load times by bundling your extension files with webpack.
 
 ## Common questions
 
@@ -259,4 +259,4 @@ Please note that when building and publishing your extension from Windows, all t
 
 ### Can I publish from a continuous integration (CI) build?
 
-Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps, GitHub Actions, and Travis CI to automatically publish your extension to the Marketplace.
+Yes, see the [Automated publishing](/api/testing-and-publishing/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/testing-and-publishing/continuous-integration) topic to learn how to configure Azure DevOps, GitHub Actions, and Travis CI to automatically publish your extension to the Marketplace.

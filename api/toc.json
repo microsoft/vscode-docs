@@ -54,13 +54,13 @@
     ]
   },
   {
-    "name": "Working With Extensions",
-    "area": "working-with-extensions",
+    "name": "Testing and Publishing",
+    "area": "testing-and-publishing",
     "topics": [
-      ["Testing Extensions", "/api/working-with-extensions/testing-extension"],
-      ["Publishing Extensions", "/api/working-with-extensions/publishing-extension"],
-      ["Bundling Extensions", "/api/working-with-extensions/bundling-extension"],
-      ["Continuous Integration", "/api/working-with-extensions/continuous-integration"]
+      ["Testing Extensions", "/api/testing-and-publishing/testing-extension"],
+      ["Publishing Extensions", "/api/testing-and-publishing/publishing-extension"],
+      ["Bundling Extensions", "/api/testing-and-publishing/bundling-extension"],
+      ["Continuous Integration", "/api/testing-and-publishing/continuous-integration"]
       // ["Profiling Extension", "/api/advanced-topics/profiling-extension"],
     ]
   },
