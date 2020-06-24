@@ -23,7 +23,7 @@ In each guide-sample combo, you can expect to find:
 
 ## Guides & Samples
 
-Here are the guides on the VS Code website. Each guide illustrates one [VS Code API](/api/references/vscode-api) usage or a [Contribution Point](/api/references/contribution-points).
+Here are the guides on the VS Code website, including their usage of the [VS Code API](/api/references/vscode-api) [Contribution Points](/api/references/contribution-points).
 
 | Guide on VS Code Website | API & Contribution |
 | --- | --- |
@@ -41,7 +41,7 @@ Here are the guides on the VS Code website. Each guide illustrates one [VS Code 
 | [Markdown Extension](https://code.visualstudio.com/api/extension-guides/markdown-extension) | markdown.previewStyles<br>markdown.markdownItPlugins<br>markdown.previewScripts |
 | [Custom Data Extension](https://code.visualstudio.com/api/extension-guides/custom-data-extension) | contributes.html.customData<br>contributes.css.customData |
 
-Here is a list of additional samples from the [VS Code Extensions samples repo](https://github.com/microsoft/vscode-extension-samples). Each sample illustrates one [VS Code API](/api/references/vscode-api) usage or a [Contribution Point](/api/references/contribution-points).
+Here is a list of additional samples from the [VS Code Extensions samples repo](https://github.com/microsoft/vscode-extension-samples).
 
 | Sample on GitHub Repo | API & Contribution |
 | --- | --- |
