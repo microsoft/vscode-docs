@@ -87,7 +87,7 @@
       ["Contribution Points", "/api/references/contribution-points"],
       ["Activation Events", "/api/references/activation-events"],
       ["Extension Manifest", "/api/references/extension-manifest"],
-      ["Commands", "/api/references/commands"],
+      ["Built-in Commands", "/api/references/commands"],
       ["Theme Color", "/api/references/theme-color"],
       ["Product Icon Reference", "/api/references/icons-in-labels"],
       ["Document Selector", "/api/references/document-selector"]
