@@ -9,9 +9,9 @@ The notebook API allows extensions to open files as notebooks, execute notebook 
 
 
 ## Parts of a Notebook
-A notebook visually consits of a sequence of cells. A cell can either be a *markdown cell*, which is typically used for documentation purposes and, or a *code cell*, which can be executed to produce output in a variety of formats. An overview of how a notebook functions is presented below:
+Visually, a notebook consits of a sequence of cells. A cell can either be a *markdown cell*, which is typically used for documentation purposes, or a *code cell*, which can be executed to produce output in a variety of formats. The cells of a notebook are rendered by VS Code and provided by a `NotebookContentProvider`, which handles reading data from disk and converting it into a description of cells, as well as saving modifications to the notebook back to disk. The *code cells* of a notebook can be exectuted by a `NotebookKernel`, which provides for taking a cell and from it producing output in a variety of formats ranging from plain text to formatted documents or even interactive applets. Some output formats, such as plain text, JSON, images, or HTML can be rendered by VS Code core, but for others, like application-specific data formats or cases where interactive outputs are desired, a `NotebookOutputRenderer` can be created to fully customize the presentation of output data.
 
-![Overview of 3 componenets of notebooks: NotebookContentProvider, NotebookKernel, and NotebookOutputRenderer, and how they interact. Described textually in following sections.](images/notebook/architecture-overview.jpg)
+![Overview of 3 componenets of notebooks: NotebookContentProvider, NotebookKernel, and NotebookOutputRenderer, and how they interact. Described textually above and in following sections.](images/notebook/architecture-overview.png)
 
 ### Content Provider
 [`NotebookContentProvider` API Reference](/api/references/vscode-api#NotebookContentProvider)
@@ -101,10 +101,12 @@ class SampleProvider implements vscode.NotebookContentProvider {
 Now try running your extension and opening a Jupyter Notebook formatted file saved with the `.notebook` extension:
 ![Notebook showing contents of a Jupyter Notebook formatted file](images/notebook/ipynb-simple-provider.png)
 
-You should be able to open Jupyter-formatted notebooks and view their cells as both plaintext and rendered markdown, as well as edit the cells. However, edits will not be persisted to disk, and you won't be able to run any cells. Saving edits is as simple as implementing the `saveNotebook`-family commands above, but to run a cell, we'll need to implement a Kernel.
+You should be able to open Jupyter-formatted notebooks and view their cells as both plaintext and rendered markdown, as well as edit the cells. However, edits will not be persisted to disk, and you won't be able to run any cells. Saving requires implementing the `saveNotebook`-family commands above, and to run a cell we'll need to implement a `NotebookKernel`.
 
 ### Kernel
 [`NotebookKernel` API Reference](/api/references/vscode-api#NotebookKernel)
+
+A `NotebookKernel` is responsible for taking a *code cell* and from it producing some output or set of outputs. The exact mechanism
 
 
 ### Output Renderer
