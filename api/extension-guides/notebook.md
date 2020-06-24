@@ -9,7 +9,10 @@ The notebook API allows extensions to open files as notebooks, execute notebook 
 
 
 ## Parts of a Notebook
-Visually, a notebook consits of a sequence of cells. A cell can either be a *markdown cell*, which is typically used for documentation purposes, or a *code cell*, which can be executed to produce output in a variety of formats. The cells of a notebook are rendered by VS Code and provided by a `NotebookContentProvider`, which handles reading data from disk and converting it into a description of cells, as well as saving modifications to the notebook back to disk. The *code cells* of a notebook can be exectuted by a `NotebookKernel`, which provides for taking a cell and from it producing output in a variety of formats ranging from plain text to formatted documents or even interactive applets. Some output formats, such as plain text, JSON, images, or HTML can be rendered by VS Code core, but for others, like application-specific data formats or cases where interactive outputs are desired, a `NotebookOutputRenderer` can be created to fully customize the presentation of output data.
+
+A notebook consists of a sequence of cells and their outputs. The cells of a notebook can be either *markdown cells* or *code cells*, and are rendered within the core of VS Code. The outputs can be of a variety of formats. Some output formats, such as plain text, JSON, images,and HTML are rendered by VS Code core. Others, such as application-specific data or interactive applets, are rendered by extensions.
+
+Cells in a notebook are read and written to disk by a `NotebookContentProvider`, which handles reading data from disk and converting it into a description of cells, as well as saving modifications to the notebook back to disk. The *code cells* of a notebook can be exectuted by a `NotebookKernel`, which provides for taking a cell and from it producing output in a variety of formats ranging from plain text to formatted documents or interactive applets. Application-specific output formats and interactive applet outputs are rendered by an `NotebookOutputRenderer`.
 
 ![Overview of 3 componenets of notebooks: NotebookContentProvider, NotebookKernel, and NotebookOutputRenderer, and how they interact. Described textually above and in following sections.](images/notebook/architecture-overview.png)
 
