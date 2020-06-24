@@ -14,6 +14,7 @@ A notebook consists of a sequence of cells and their outputs. The cells of a not
 
 Cells in a notebook are read and written to disk by a `NotebookContentProvider`, which handles reading data from disk and converting it into a description of cells, as well as saving modifications to the notebook back to disk. The *code cells* of a notebook can be exectuted by a `NotebookKernel`, which provides for taking a cell and from it producing output in a variety of formats ranging from plain text to formatted documents or interactive applets. Application-specific output formats and interactive applet outputs are rendered by an `NotebookOutputRenderer`.
 
+Visually:
 ![Overview of 3 componenets of notebooks: NotebookContentProvider, NotebookKernel, and NotebookOutputRenderer, and how they interact. Described textually above and in following sections.](images/notebook/architecture-overview.png)
 
 ### Content Provider
