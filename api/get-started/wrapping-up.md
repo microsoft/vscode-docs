@@ -11,13 +11,13 @@ MetaDescription: Next steps to take after studying the Getting Started section
 
 In the [Your First Extension](/api/get-started/your-first-extension) topic, you learned how to create, run and debug an extension. In the [Extension Anatomy](/api/get-started/extension-anatomy) topic, you learned fundamental concepts to Visual Studio Code extension development. However, we have only seen the tip of the iceberg, and here are some suggested routes for furthering your VS Code extension development skills.
 
-## Working with Extensions
+## Testing and Publishing Extensions
 
 This section includes topics that help you develop high-quality VS Code extension. For example, you can learn
 
-- How to add [integration tests](/api/working-with-extensions/testing-extension) for your extension
-- How to [publish your extension](/api/working-with-extensions/publishing-extension) to the VS Code [Marketplace](https://marketplace.visualstudio.com/)
-- How to set up [Continuous Integration](/api/working-with-extensions/continuous-integration) for your extension
+- How to add [integration tests](/api/testing-and-publishing/testing-extension) for your extension
+- How to [publish your extension](/api/testing-and-publishing/publishing-extension) to the VS Code [Marketplace](https://marketplace.visualstudio.com/)
+- How to set up [Continuous Integration](/api/testing-and-publishing/continuous-integration) for your extension
 
 ## Extension Capabilities
 
