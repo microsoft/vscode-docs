@@ -857,13 +857,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - shrink: Allow tabs to get smaller when the available space is not enough to show all tabs at once.
     "workbench.editor.tabSizing": "fit",
 
-    // Controls font aliasing method in the workbench.
-    //  - default: Sub-pixel font smoothing. On most non-retina displays this will give the sharpest text.
-    //  - antialiased: Smooth the font on the level of the pixel, as opposed to the subpixel. Can make the font appear lighter overall.
-    //  - none: Disables font smoothing. Text will show with jagged sharp edges.
-    //  - auto: Applies `default` or `antialiased` automatically based on the DPI of displays.
-    "workbench.fontAliasing": "default",
-
     // Controls the height of the scrollbars used for tabs and breadcrumbs in the editor title area.
     //  - default: The default size.
     //  - large: Increases the size, so it can be grabed more easily with the mouse
@@ -876,6 +869,13 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Configure which editor to use for specific file types.
     "workbench.editorAssociations": [],
+
+	// Controls font aliasing method in the workbench.
+	//  - default: Sub-pixel font smoothing. On most non-retina displays this will give the sharpest text.
+	//  - antialiased: Smooth the font on the level of the pixel, as opposed to the subpixel. Can make the font appear lighter overall.
+	//  - none: Disables font smoothing. Text will show with jagged sharp edges.
+	//  - auto: Applies `default` or `antialiased` automatically based on the DPI of displays.
+	"workbench.fontAliasing": "default",
 
     // Specifies the file icon theme used in the workbench or 'null' to not show any file icons.
     //  - null: No file icons
@@ -902,6 +902,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls how to open items in trees and lists using the mouse (if supported). For parents with children in trees, this setting will control if a single click expands the parent or a double click. Note that some trees and lists might choose to ignore this setting if it is not applicable.
     "workbench.list.openMode": "singleClick",
+
+	// Controls whether lists and trees have smooth scrolling.
+	"workbench.list.smoothScrolling": false,
 
     // Controls the default location of the panel (terminal, debug console, output, problems). It can either show at the bottom, right, or left of the workbench.
     "workbench.panel.defaultLocation": "bottom",
@@ -1022,7 +1025,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Note that there can still be cases where this setting is ignored (e.g. when using the `--new-window` or `--reuse-window` command line option).
     //  - on: Files will open in a new window.
     //  - off: Files will open in the window with the files' folder open or the last active window.
-    //  - default: Files will open in a new window unless picked from within the application (e.g. via the File menu).
+	//  - default: Files will open in the window with the files' folder open or the last active window unless opened via the Dock or from Finder.
     "window.openFilesInNewWindow": "off",
 
     // Controls whether folders should open in a new window or replace the last active window.
@@ -1063,13 +1066,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     // - `${remoteName}`: e.g. SSH
     // - `${dirty}`: a dirty indicator if the active editor is dirty.
     // - `${separator}`: a conditional separator (" - ") that only shows when surrounded by variables with values or static text.
-    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
+	"window.title": "${activeEditorShort}${separator}${rootName}",
 
     // Adjust the appearance of the window title bar. On Linux and Windows, this setting also affects the application and context menu appearances. Changes require a full restart to apply.
     "window.titleBarStyle": "custom",
 
     // Separator used by `window.title`.
-    "window.titleSeparator": " - ",
+	"window.titleSeparator": " — ",
 
     // Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
     "window.zoomLevel": 0,
@@ -1269,8 +1272,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Whether to include results from a global symbol search in the file results for Quick Open.
     "search.quickOpen.includeSymbols": false,
 
-    // The default number of surrounding context lines to use when creating new Search Editors with `Search Editor: Open new Search Editor` and `Search Editor: Open new Search Editor to the Side`. If defined, this overrides `search.searchEditor.reusePriorSearchConfiguration`.
-    "search.searchEditor.defaultNumberOfContextLines": null,
+	// The default number of surrounding context lines to use when creating new Search Editors. If using `search.searchEditor.reusePriorSearchConfiguration`, this can be set to `null` (empty) to use the prior Search Editor's configuration.
+	"search.searchEditor.defaultNumberOfContextLines": 1,
 
 // Configure effect of double clicking a result in a search editor.
     //  - selectWord: Double clicking selects the word under the cursor.
@@ -1778,6 +1781,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports. Requires using TypeScript 2.9 or newer in the workspace.
     "typescript.preferences.quoteStyle": "auto",
 
+	// Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
+	"typescript.preferences.renameShorthandProperties": true,
+
     // Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
     "typescript.preferences.useAliasesForRenames": true,
 
@@ -2117,7 +2123,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "terminal.external.osxExec": "Terminal.app",
 
     // Customizes which terminal to run on Windows.
-    "terminal.external.windowsExec": "C:\\WINDOWS\\System32\\cmd.exe",
+	"terminal.external.windowsExec": "C:\\Windows\\System32\\cmd.exe",
 
 // Integrated Terminal
 
@@ -2136,7 +2142,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // A path that when set will override `terminal.integrated.shell.windows` and ignore `shellArgs` values for automation-related terminal usage like tasks and debug.
     "terminal.integrated.automationShell.windows": null,
 
-    // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open.
+	// A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open. Use the command prefixed with `-` to remove default commands from the list.
     "terminal.integrated.commandsToSkipShell": [],
 
     // Controls whether to confirm on exit if there are active terminal sessions.
@@ -2615,6 +2621,11 @@ Below are the Visual Studio Code default settings and their values. You can also
         "editor.lineNumbers": "off"
     },
 
+	// Configure editor settings to be overridden for [shellscript] language.
+	"[shellscript]":  {
+		"files.eol": "\n"
+	},
+
     // Configure editor settings to be overridden for [yaml] language.
     "[yaml]":  {
         "editor.insertSpaces": true,
@@ -2776,7 +2787,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, fetch all branches when pulling. Otherwise, fetch just the current one.
     "git.fetchOnPull": false,
 
-
     // List of git repositories to ignore.
     "git.ignoredRepositories": [],
 
@@ -2895,6 +2905,35 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - Below: Open the diff view below the current editor group.
     "merge-conflict.diffViewPosition": "Current",
 
+// JavaScript Debugger
+
+	// Configures whether property getters will be expanded automatically. If this is false, the getter will appear as `get propertyName` and will only be evaluated when you click on it.
+	"debug.javascript.autoExpandGetters": false,
+
+	// When debugging a remote web app, configures whether to automatically tunnel the remote server to your local machine.
+	"debug.javascript.automaticallyTunnelRemoteServer": true,
+
+	// Where a "Run" and "Debug" code lens should be shown in your npm scripts. It may be on "all", scripts, on "top" of the script section, or "never".
+	"debug.javascript.codelens.npmScripts": "top",
+
+	// Options used when debugging open links clicked from inside the JavaScript Debug Terminal. Can be set to "off" to disable this behavior, or "always" to enable debugging in all terminals.
+	"debug.javascript.debugByLinkOptions": "on",
+
+	// Default options used when debugging a process through the `Debug: Attach to Node.js Process` command
+	"debug.javascript.pickAndAttachOptions": {},
+
+	// Whether to suggest pretty printing JavaScript code that looks minified when you step into it.
+	"debug.javascript.suggestPrettyPrinting": true,
+
+	// Default launch options for the JavaScript debug terminal and npm scripts.
+	"debug.javascript.terminalOptions": {},
+
+	// Use the new in-preview JavaScript debugger for Node.js and Chrome.
+	"debug.javascript.usePreview": false,
+
+	// Whether a loading prompt should be shown if breakpoint prediction takes a while.
+	"debug.javascript.warnOnLongPrediction": true,
+
 // References Search View
 
     // Controls whether 'Peek References' or 'Find References' is invoked when selecting code lens references
@@ -2926,7 +2965,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "npm.runSilent": false,
 
     // The default click action used in the npm scripts explorer: `open` or `run`, the default is `open`.
-    "npm.scriptExplorerAction": "open"
+	"npm.scriptExplorerAction": "open"
 }
 ```
 
