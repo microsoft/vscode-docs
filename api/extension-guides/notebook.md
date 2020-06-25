@@ -123,7 +123,7 @@ Text outputs are the most simple output format, and work much like many REPL's y
 ![Cell with simple text output](images/notebook/text-output.png)
 
 #### Error Output
-Error outputs are helpful for displaying runtime errors in a consistant and understandable manner. They consist only of a `text` field, which is rendered as plain text in the cell's output element:
+Error outputs are helpful for displaying runtime errors in a consistant and understandable manner. They contain `ename` and `evalue` fields for displaying the error type and message, respectively, as well as `traceback` field which takes a list of strings which get displaayed like a callstack:
 ```ts
 {
 	outputKind: vscode.CellOutputKind.Error,
@@ -138,7 +138,7 @@ Error outputs are helpful for displaying runtime errors in a consistant and unde
 Rich outputs are the most advanced form of displaying cell outputs. They allow for providing many different representations of the output data, keyed by mimetype. For example, if a cell output was to represent a GitHub Issue the kernel might produce a rich output with several properties on its `data` field:
 - A `text/html` field containing a formatted view of the issue
 - An `application/json` field constiang a machine readable view
-- An `application/github-issue` field that a `NotebookOutputRenderer` could use to create a fully interactive view of the issue right within the notebook
+- An `application/github-issue` field that a `NotebookOutputRenderer` could use to create a fully interactive view of the issue
 
 In this case, the `text/html` and `application/json` views will be rendered by VS Code natively, but the `application/github-issue` view will display an error if no `NotebookOutputRenderer` was registered to that mimetype.
 ```ts
@@ -151,7 +151,7 @@ In this case, the `text/html` and `application/json` views will be rendered by V
 	}
 }
 ```
-![Cell with rich output showing switching betweeen formatted html, a json editor, and an error message showing no renderer is available (application/hello-world)](images/notebook/error-output.gif)
+![Cell with rich output showing switching betweeen formatted html, a json editor, and an error message showing no renderer is available (application/hello-world)](images/notebook/rich-output.gif)
 
 ##### Built-in Renderers
 
