@@ -244,7 +244,7 @@ export function activate(context: vscode.ExtensionContext) {
 ```
 
 #### Static Renderers
-A static renderer simply takes output of a paarticular mimetype and produces and HTML rendered view of that data. This is similar to having the kernel simply return a `text/html` output, but it allows for multiple different rendered views of the same output.
+A static renderer simply takes output of a particular mimetype and produces and HTML rendered view of that data. This is similar to having the kernel simply return a `text/html` output, but it allows for multiple different rendered views of the same output.
 
 ```ts
 class SampleRenderer implements vscode.NotebookOutputRenderer {
