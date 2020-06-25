@@ -110,8 +110,63 @@ You should be able to open Jupyter-formatted notebooks and view their cells as b
 ### Kernel
 [`NotebookKernel` API Reference](/api/references/vscode-api#NotebookKernel)
 
-A `NotebookKernel` is responsible for taking a *code cell* and from it producing some output or set of outputs. The exact mechanism
+A `NotebookKernel` is responsible for taking a *code cell* and from it producing some output or set of outputs. The exact mechanism by which is does this is up to the extension, but outputs must be in one of three formats:
 
+#### Text Output
+Text outputs are the most simple output format, and work much like many REPL's you may be familar with. They consist only of a `text` field, which is rendered as plain text in the cell's output element:
+```ts
+{
+	outputKind: vscode.CellOutputKind.Text,
+	text: '...'
+}
+```
+![Cell with simple text output](images/notebook/text-output.png)
+
+#### Error Output
+Error outputs are helpful for displaying runtime errors in a consistant and understandable manner. They consist only of a `text` field, which is rendered as plain text in the cell's output element:
+```ts
+{
+	outputKind: vscode.CellOutputKind.Error,
+	ename: 'Error Name',
+	evalue: 'Error Value',
+	traceback: ['stack frame 1', 'stack frame 2', 'stack frame 3', 'stack frame 4']
+}
+```
+![Cell with error output showing error name and message, as well as a stack trace](images/notebook/error-output.png)
+
+#### Rich Output
+Rich outputs are the most advanced form of displaying cell outputs. They allow for providing many different representations of the output data, keyed by mimetype. For example, if a cell output was to represent a GitHub Issue the kernel might produce a rich output with several properties on its `data` field:
+- A `text/html` field containing a formatted view of the issue
+- An `application/json` field constiang a machine readable view
+- An `application/github-issue` field that a `NotebookOutputRenderer` could use to create a fully interactive view of the issue right within the notebook
+
+In this case, the `text/html` and `application/json` views will be rendered by VS Code natively, but the `application/github-issue` view will display an error if no `NotebookOutputRenderer` was registered to that mimetype.
+```ts
+{
+	outputKind: vscode.CellOutputKind.Rich,
+	data: {
+		'text/html': '<div><b>Hello</b> World</div>',
+		'application/json': { hello: 'world' },
+		'application/hello-world': 'my-hello-world-data-interchange-format',
+	}
+}
+```
+![Cell with rich output showing switching betweeen formatted html, a json editor, and an error message showing no renderer is available (application/hello-world)](images/notebook/error-output.gif)
+
+##### Built-in Renderers
+
+By default VS Code can render the mimetypes:
+- 'application/json
+- 'application/javascript
+- 'text/html
+- 'image/svg+xml
+- 'text/markdown
+- 'image/png
+- 'image/jpeg
+- 'text/plain
+- 'text/x-javascript
+
+To render an alternative mimetype, a `NotebookOutputRenderer` must be registered for that mimetype.
 
 ### Output Renderer
 [`NotebookOutputRenderer` API Reference](/api/references/vscode-api#NotebookOutputRenderer)
