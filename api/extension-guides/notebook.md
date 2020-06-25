@@ -110,9 +110,37 @@ You should be able to open Jupyter-formatted notebooks and view their cells as b
 ### Kernel
 [`NotebookKernel` API Reference](/api/references/vscode-api#NotebookKernel)
 
-A `NotebookKernel` is responsible for taking a *code cell* and from it producing some output or set of outputs. The exact mechanism by which is does this is up to the extension, but outputs must be in one of three formats:
+A `NotebookKernel` is responsible for taking a *code cell* and from it producing some output or set of outputs.
 
-#### Text Output
+A kernel can either be directly associated with associated with a content provider by setting the `NotebookContentProvider#kernel` property, or registered globally by envoking the `vscode.registerNotebookKernel` function with ...TODO: Figure out how this function is supposed to be called :)...
+
+#### Best Practices
+
+While a kernel need only return an output, it can be desirable to set metadata on cells as it executes them to enable features like the run duration counter, execution order badge, and run status icon. For instance, a kernel's `executeCell` function might look like this:
+```ts
+async function executeCell(document: vscode.NotebookDocument, cell: vscode.NotebookCell, token: vscode.CancellationToken) {
+  try {
+    cell.metadata.runState = vscode.NotebookCellRunState.Running;
+    const start = +new Date();
+    cell.metadata.runStartTime = start;
+    cell.metadata.executionOrder = ++this.runIndex;
+    const result = await doExecuteCell(document, cell, token);
+    cell.outputs = [result];
+    cell.metadata.runState = vscode.NotebookCellRunState.Success;
+    cell.metadata.lastRunDuration = +new Date() - start;
+  } catch (e) {
+    cell.outputs = [{ outputKind: vscode.CellOutputKind.Error, ename: e.name, evalue: e.message, traceback: [e.stack] }];
+    cell.metadata.runState = vscode.NotebookCellRunState.Error;
+    cell.metadata.lastRunDuration = undefined;
+  }
+};
+```
+
+#### Output Types
+
+Outputs must be in one of three formats: Text Output, Error Output, or Rich Output. A kernel may provide multiple outputs for a single execution of a cell, in which case they will be displayed as a list.
+
+##### Text Output
 Text outputs are the most simple output format, and work much like many REPL's you may be familar with. They consist only of a `text` field, which is rendered as plain text in the cell's output element:
 ```ts
 {
@@ -122,7 +150,7 @@ Text outputs are the most simple output format, and work much like many REPL's y
 ```
 ![Cell with simple text output](images/notebook/text-output.png)
 
-#### Error Output
+##### Error Output
 Error outputs are helpful for displaying runtime errors in a consistant and understandable manner. They contain `ename` and `evalue` fields for displaying the error type and message, respectively, as well as `traceback` field which takes a list of strings which get displaayed like a callstack:
 ```ts
 {
@@ -134,7 +162,7 @@ Error outputs are helpful for displaying runtime errors in a consistant and unde
 ```
 ![Cell with error output showing error name and message, as well as a stack trace](images/notebook/error-output.png)
 
-#### Rich Output
+##### Rich Output
 Rich outputs are the most advanced form of displaying cell outputs. They allow for providing many different representations of the output data, keyed by mimetype. For example, if a cell output was to represent a GitHub Issue the kernel might produce a rich output with several properties on its `data` field:
 - A `text/html` field containing a formatted view of the issue
 - An `application/json` field constiang a machine readable view
@@ -152,8 +180,6 @@ In this case, the `text/html` and `application/json` views will be rendered by V
 }
 ```
 ![Cell with rich output showing switching betweeen formatted html, a json editor, and an error message showing no renderer is available (application/hello-world)](images/notebook/rich-output.gif)
-
-##### Built-in Renderers
 
 By default VS Code can render the mimetypes:
 - application/json
