@@ -23,6 +23,6 @@ We have a great collection of sample extensions that you can adapt from, and som
 
 This section includes topics that help you develop high-quality VS Code extension. For example, you can learn
 
-- How to add [integration tests](/api/testing-and-publishing/testing-extension) for your extension
-- How to [publish your extension](/api/testing-and-publishing/publishing-extension) to the VS Code [Marketplace](https://marketplace.visualstudio.com/)
-- How to set up [Continuous Integration](/api/testing-and-publishing/continuous-integration) for your extension
+- How to add [integration tests](/api/working-with-extensions/testing-extension) for your extension
+- How to [publish your extension](/api/working-with-extensions/publishing-extension) to the VS Code [Marketplace](https://marketplace.visualstudio.com/)
+- How to set up [Continuous Integration](/api/working-with-extensions/continuous-integration) for your extension

@@ -174,7 +174,7 @@ Here is a sample `launch.json` debugger configuration:
 ```
 
 <video autoplay loop muted playsinline controls>
-  <source src="/api/testing-and-publishing/testing-extension/debug.mp4" type="video/mp4">
+  <source src="/api/working-with-extensions/testing-extension/debug.mp4" type="video/mp4">
 </video>
 
 ## Tips
@@ -288,4 +288,4 @@ The [`vscode`](https://github.com/Microsoft/vscode-extension-vscode) module had 
 
 ## Next steps
 
-- [Continuous Integration](/api/testing-and-publishing/continuous-integration) - Run your extension tests in a Continuous Integration service such as Azure DevOps.
+- [Continuous Integration](/api/working-with-extensions/continuous-integration) - Run your extension tests in a Continuous Integration service such as Azure DevOps.

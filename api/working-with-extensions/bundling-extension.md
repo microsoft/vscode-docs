@@ -169,5 +169,5 @@ To address the warning, you should either:
 ## Next steps
 
 * [Extension Marketplace](/docs/editor/extension-gallery) - Learn more about VS Code's public extension Marketplace.
-* [Testing Extensions](/api/testing-and-publishing/testing-extension) - Add tests to your extension project to ensure high quality.
-* [Continuous Integration](/api/testing-and-publishing/continuous-integration) - Learn how to run extension CI builds on Azure Pipelines.
+* [Testing Extensions](/api/working-with-extensions/testing-extension) - Add tests to your extension project to ensure high quality.
+* [Continuous Integration](/api/working-with-extensions/continuous-integration) - Learn how to run extension CI builds on Azure Pipelines.
