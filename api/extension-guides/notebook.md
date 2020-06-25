@@ -32,22 +32,22 @@ In this example we build a simplified notebook provider extension for viewing fi
 A content provider is declared in `package.json` under the `contributes.notebookProvider` section as follows:
 ```json
 {
-  ...
-  "activationEvents": ["onNotebookEditor:notebook-renderer-demo"],
-  "contributes": {
-    ...
-    "notebookProvider": [
-      {
-        "viewType": "notebook-renderer-demo",
-        "displayName": "My Notebook Renderer",
-        "selector": [
-          {
-            "filenamePattern": "*.notebook"
-          }
-        ]
-      }
-    ]
-  }
+	...
+	"activationEvents": ["onNotebookEditor:notebook-renderer-demo"],
+	"contributes": {
+		...
+		"notebookProvider": [
+			{
+				"viewType": "notebook-renderer-demo",
+				"displayName": "My Notebook",
+				"selector": [
+					{
+						"filenamePattern": "*.notebook"
+					}
+				]
+			}
+		]
+	}
 }
 ```
 
@@ -123,20 +123,20 @@ Samples:
 While a kernel need only return an output, it can be desirable to set metadata on cells as it executes them to enable features like the run duration counter, execution order badge, and run status icon. For instance, a kernel's `executeCell` function might look like this:
 ```ts
 async function executeCell(document: vscode.NotebookDocument, cell: vscode.NotebookCell, token: vscode.CancellationToken) {
-  try {
-    cell.metadata.runState = vscode.NotebookCellRunState.Running;
-    const start = +new Date();
-    cell.metadata.runStartTime = start;
-    cell.metadata.executionOrder = ++this.runIndex;
-    const result = await doExecuteCell(document, cell, token);
-    cell.outputs = [result];
-    cell.metadata.runState = vscode.NotebookCellRunState.Success;
-    cell.metadata.lastRunDuration = +new Date() - start;
-  } catch (e) {
-    cell.outputs = [{ outputKind: vscode.CellOutputKind.Error, ename: e.name, evalue: e.message, traceback: [e.stack] }];
-    cell.metadata.runState = vscode.NotebookCellRunState.Error;
-    cell.metadata.lastRunDuration = undefined;
-  }
+	try {
+		cell.metadata.runState = vscode.NotebookCellRunState.Running;
+		const start = +new Date();
+		cell.metadata.runStartTime = start;
+		cell.metadata.executionOrder = ++this.runIndex;
+		const result = await doExecuteCell(document, cell, token);
+		cell.outputs = [result];
+		cell.metadata.runState = vscode.NotebookCellRunState.Success;
+		cell.metadata.lastRunDuration = +new Date() - start;
+	} catch (e) {
+		cell.outputs = [{ outputKind: vscode.CellOutputKind.Error, ename: e.name, evalue: e.message, traceback: [e.stack] }];
+		cell.metadata.runState = vscode.NotebookCellRunState.Error;
+		cell.metadata.lastRunDuration = undefined;
+	}
 };
 ```
 
@@ -155,7 +155,7 @@ Text outputs are the most simple output format, and work much like many REPL's y
 ![Cell with simple text output](images/notebook/text-output.png)
 
 ##### Error Output
-Error outputs are helpful for displaying runtime errors in a consistant and understandable manner. They contain `ename` and `evalue` fields for displaying the error type and message, respectively, as well as `traceback` field which takes a list of strings which get displaayed like a callstack:
+Error outputs are helpful for displaying runtime errors in a consistant and understandable manner. They contain `ename` and `evalue` fields for displaying the error type and message, respectively, as well as `traceback` field which takes a list of strings which get displayed like a callstack:
 ```ts
 {
 	outputKind: vscode.CellOutputKind.Error,
@@ -200,3 +200,64 @@ To render an alternative mimetype, a `NotebookOutputRenderer` must be registered
 
 ### Output Renderer
 [`NotebookOutputRenderer` API Reference](/api/references/vscode-api#NotebookOutputRenderer)
+
+An output renderer is responsible for taking output data of a specific mimetype and providing a rendered view of that data. The complexity of the rendered view can range from simple static HTML to dynamic fully interactive applets.
+
+Renderers are declared for a set of mimetypes by contributing to the `constributes.notebookOutputRenderer` property of an extension's `package.json`:
+
+```json
+{
+	...
+	"activationEvents": ["...."],
+	"contributes": {
+		...
+		"notebookOutputRenderer": [
+			{
+				"viewType": "notebook-renderer-demo",
+				"displayName": "My Notebook Renderer",
+				"mimeTypes": [
+					"application/hello-world"
+				]
+			}
+		]
+	}
+}
+```
+
+The renderer is then registered in the extension's activation event:
+```ts
+import * as vscode from 'vscode';
+
+class SampleRenderer implements vscode.NotebookOutputRenderer {
+	...
+}
+
+export function activate(context: vscode.ExtensionContext) {
+	context.subscriptions.push(
+		vscode.notebook.registerNotebookOutputRenderer(
+			rendererType,
+			{ mimeTypes: ['application/hello-world'] },
+			new SampleRenderer(),
+		)
+	);
+}
+```
+
+#### Static Renderers
+A static renderer simply takes output of a paarticular mimetype and produces and HTML rendered view of that data. This is similar to having the kernel simply return a `text/html` output, but it allows for multiple different rendered views of the same output.
+
+```ts
+class SampleRenderer implements vscode.NotebookOutputRenderer {
+	render(
+		document: vscode.NotebookDocument,
+		{ output, mimeType }: vscode.NotebookRenderRequest,
+	): string {
+		const name = output.data[mimeType];
+		return `Hello <b>${name}</b>! You're viewing data in ${mimeType} format.`;
+	}
+}
+```
+
+![Cell output switching between multiple different rendered views](images/notebook/static-renderer.gif)
+
+#### Dynamic Renerers
