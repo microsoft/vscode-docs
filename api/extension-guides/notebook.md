@@ -23,8 +23,8 @@ Visually:
 A `NotebookContentProvider` is responsible for taking a serialized description of a notebook and generating a list of markdown and code cells. It additionally handles saving modifications made in the notebook back to the original resource.
 
 Samples:
- - [`.ipynb` Content Provider](): Work with notebooks in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html).
- - [Markdown Content Provider](): Work with normal markdown files as a notebook.
+ - [`.ipynb` Content Provider](https://github.com/microsoft/notebook-extension-samples/tree/master/notebook-provider): Work with notebooks in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html).
+ - [Markdown Content Provider](https://github.com/microsoft/vscode-markdown-notebook): Open and edit markdown files as a notebook.
 
 #### Example
 In this example we build a simplified notebook provider extension for viewing files in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html) with a `.notebook` extension.
@@ -113,6 +113,10 @@ You should be able to open Jupyter-formatted notebooks and view their cells as b
 A `NotebookKernel` is responsible for taking a *code cell* and from it producing some output or set of outputs.
 
 A kernel can either be directly associated with associated with a content provider by setting the `NotebookContentProvider#kernel` property, or registered globally by envoking the `vscode.registerNotebookKernel` function with ...TODO: Figure out how this function is supposed to be called :)...
+
+Samples:
+- [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/master/src/notebookProvider.ts): Kernel to execute queries for GitHib Issues
+- [HTTP Request Notebook](): Kernel to issue HTTP requests (TODO: Publish my extension? Where?)
 
 #### Best Practices
 
