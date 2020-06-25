@@ -156,15 +156,15 @@ In this case, the `text/html` and `application/json` views will be rendered by V
 ##### Built-in Renderers
 
 By default VS Code can render the mimetypes:
-- 'application/json
-- 'application/javascript
-- 'text/html
-- 'image/svg+xml
-- 'text/markdown
-- 'image/png
-- 'image/jpeg
-- 'text/plain
-- 'text/x-javascript
+- application/json
+- application/javascript
+- text/html
+- image/svg+xml
+- text/markdown
+- image/png
+- image/jpeg
+- text/plain
+- text/x-javascript
 
 To render an alternative mimetype, a `NotebookOutputRenderer` must be registered for that mimetype.
 
