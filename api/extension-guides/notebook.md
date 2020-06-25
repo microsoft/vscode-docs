@@ -38,8 +38,8 @@ A content provider is declared in `package.json` under the `contributes.notebook
 		...
 		"notebookProvider": [
 			{
-				"viewType": "notebook-renderer-demo",
-				"displayName": "My Notebook",
+				"viewType": "ny-notebook-provider",
+				"displayName": "My Notebook Provider",
 				"selector": [
 					{
 						"filenamePattern": "*.notebook"
@@ -58,7 +58,7 @@ import * as vscode from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
 		vscode.notebook.registerNotebookContentProvider(
-			"notebook-renderer-demo", new SampleProvider()
+			"ny-notebook-provider", new SampleProvider()
 		)
 	);
 }
@@ -112,7 +112,7 @@ You should be able to open Jupyter-formatted notebooks and view their cells as b
 
 A `NotebookKernel` is responsible for taking a *code cell* and from it producing some output or set of outputs.
 
-A kernel can either be directly associated with associated with a content provider by setting the `NotebookContentProvider#kernel` property, or registered globally by envoking the `vscode.registerNotebookKernel` function with ...TODO: Figure out how this function is supposed to be called :)...
+A kernel can either be directly associated with a content provider by setting the `NotebookContentProvider#kernel` property, or registered globally by envoking the `vscode.registerNotebookKernel` function with ...TODO: Figure out how this function is supposed to be called :)...
 
 Samples:
 - [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/master/src/notebookProvider.ts): Kernel to execute queries for GitHib Issues
@@ -203,6 +203,8 @@ To render an alternative mimetype, a `NotebookOutputRenderer` must be registered
 
 An output renderer is responsible for taking output data of a specific mimetype and providing a rendered view of that data. The complexity of the rendered view can range from simple static HTML to dynamic fully interactive applets.
 
+Renderers can be thought of in two categories: static renderers, which generate all rendered output in the context of the extension and simply pass it as HTML to become an element in the *notebook output context* webview; and dynamic renderers, which preload scripts into the output context in order to establish a runtime within the *notebook output context* webview capable of dynamically rendering outputs and communicating back to the extension host.
+
 Renderers are declared for a set of mimetypes by contributing to the `constributes.notebookOutputRenderer` property of an extension's `package.json`:
 
 ```json
@@ -213,7 +215,7 @@ Renderers are declared for a set of mimetypes by contributing to the `constribut
 		...
 		"notebookOutputRenderer": [
 			{
-				"viewType": "notebook-renderer-demo",
+				"viewType": "my-notebook-renderer",
 				"displayName": "My Notebook Renderer",
 				"mimeTypes": [
 					"application/hello-world"
@@ -235,7 +237,7 @@ class SampleRenderer implements vscode.NotebookOutputRenderer {
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
 		vscode.notebook.registerNotebookOutputRenderer(
-			rendererType,
+			"my-notebook-renderer",
 			{ mimeTypes: ['application/hello-world'] },
 			new SampleRenderer(),
 		)
@@ -244,7 +246,7 @@ export function activate(context: vscode.ExtensionContext) {
 ```
 
 #### Static Renderers
-A static renderer simply takes output of a particular mimetype and produces an HTML rendered view of that data. This is similar to having the kernel return a `text/html` output, but it allows for multiple different HTML rendered views of the same output.
+A static renderer simply takes output of a particular mimetype and produces an HTML view of that data. This is similar to having the kernel itself return a `text/html` output, but it allows for multiple different HTML rendered views of the same output.
 
 ```ts
 class SampleRenderer implements vscode.NotebookOutputRenderer {
@@ -260,7 +262,42 @@ class SampleRenderer implements vscode.NotebookOutputRenderer {
 
 ![Cell output switching between multiple different rendered views](images/notebook/static-renderer.gif)
 
-#### Dynamic Renderers
-Dynamic renderers built upon the static renderer concept of generating HTML for a particular output, but add the ability for outputs to communicate either between themselves or back to the extension via message passing.
+All rendered outputs of a notebook live in a single webview, meaning state can be shared across outputs through use of global variables in `<script>` tags, though for use cases where shared state is needed it may be desirable to instead use a Dynamic Renderer, which adds the ability to define a set of scripts to preload into the *notebook output context* webview to establish a shared output runtime.
 
-In all cases, the `NotebookOutputRenderer` rendered outputs of each notebook live in a single sandboxed *notebook output context*. Dynamic renderers build upon this by preloading a script into that environment that manages all outputs generated by the renderer, and facilitates message passing between the notebook output context and the extension host.
+#### Dynamic Renderers
+Dynamic renderers build upon the static renderer concept of generating HTML for a particular output, but add the ability to preload scripts into the webview by adding a set of uri's to the `NotebookOutputRenderer#preloads` field of the renderer. These scripts can contain arbitrary JavaScript, and additionally have access to a global `acquireNotebookRendererApi<T = any>(rendererType: string): INotebookRendererApi<T>` function, which provides an interface for interacting with the extension host from within the webview context:
+
+TODO: This should be hosted somewhere https://github.com/microsoft/vscode/issues/99320
+```ts
+interface Disposable { dispose(): void }
+interface Event<T> { (listener: (e: T) => any, thisArgs?: any, disposables?: Disposable[]): Disposable }
+interface INotebookRendererApi<T> {
+	setState(value: T): void;
+	getState(): T | undefined;
+
+	/**
+	 * Sends a message to the renderer extension code. Can be received in
+	 * the `onDidReceiveMessage` event in `NotebookCommunication`.
+	 */
+	postMessage(msg: unknown): void;
+
+	/**
+	 * Fired before an output is destroyed, with its output ID, or undefined if
+	 * all cells are about to unmount.
+	 */
+	onWillDestroyOutput: Event<{ outputId: string } | undefined>;
+
+	/**
+	 * Fired when an output is rendered. The `outputId` provided is the same
+	 * as the one given in {@see NotebookOutputRenderer.render}
+	 * and {@see onWillDestroyOutput}.
+	 */
+	onDidCreateOutput: Event<{ element: HTMLElement; outputId: string }>;
+
+	/**
+	 * Called when the renderer uses `postMessage` on the NotebookCommunication
+	 * instance for this renderer.
+	 */
+	onDidReceiveMessage: Event<any>;
+}
+```
