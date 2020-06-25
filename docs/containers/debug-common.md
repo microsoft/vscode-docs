@@ -44,6 +44,31 @@ Example `launch.json` configuration for debugging a Node.js application:
 }
 ```
 
+## .NET Core
+
+More information about debugging .NET Core applications within Docker containers can be found in [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md).
+
+> The previous (Preview) .NET Core Docker debugging support is being deprecated. You can still find documentation on that support at [Debug .NET Core - Deprecated](https://github.com/microsoft/vscode-docker/wiki/Debug-NetCore-Deprecated).
+
+Example `launch.json` configuration for debugging a .NET Core application:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch .NET Core in Docker",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "Run Docker Container",
+            "netCore": {
+                "appProject": "${workspaceFolder}/project.csproj"
+            }
+        }
+    ]
+}
+```
+
 ## Python
 
 More information about debugging Python applications within Docker containers can be found at [Debug Python within a container](/docs/containers/debug-python.md).
@@ -69,31 +94,6 @@ Example `launch.json` configuration for debugging a Python application:
       }
     }
   ]
-}
-```
-
-## .NET Core
-
-More information about debugging .NET Core applications within Docker containers can be found in [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md).
-
-> The previous (Preview) .NET Core Docker debugging support is being deprecated. You can still find documentation on that support at [Debug .NET Core - Deprecated](https://github.com/microsoft/vscode-docker/wiki/Debug-NetCore-Deprecated).
-
-Example `launch.json` configuration for debugging a .NET Core application:
-
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Launch .NET Core in Docker",
-            "type": "docker",
-            "request": "launch",
-            "preLaunchTask": "Run Docker Container",
-            "netCore": {
-                "appProject": "${workspaceFolder}/project.csproj"
-            }
-        }
-    ]
 }
 ```
 
