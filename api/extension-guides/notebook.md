@@ -145,7 +145,7 @@ In this case, the `text/html` and `application/json` views will be rendered by V
 {
 	outputKind: vscode.CellOutputKind.Rich,
 	data: {
-		'text/html': '<div><b>Hello</b> World</div>',
+		'text/html': '<b>Hello</b> World',
 		'application/json': { hello: 'world' },
 		'application/hello-world': 'my-hello-world-data-interchange-format',
 	}
