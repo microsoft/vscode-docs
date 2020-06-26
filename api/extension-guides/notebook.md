@@ -12,7 +12,7 @@ The notebook API allows extensions to open files as notebooks, execute notebook 
 
 A notebook consists of a sequence of cells and their outputs. The cells of a notebook can be either *markdown cells* or *code cells*, and are rendered within the core of VS Code. The outputs can be of a variety of formats. Some output formats, such as plain text, JSON, images,and HTML are rendered by VS Code core. Others, such as application-specific data or interactive applets, are rendered by extensions.
 
-Cells in a notebook are read and written to disk by a `NotebookContentProvider`, which handles reading data from disk and converting it into a description of cells, as well as saving modifications to the notebook back to disk. The *code cells* of a notebook can be exectuted by a `NotebookKernel`, which provides for taking a cell and from it producing output in a variety of formats ranging from plain text to formatted documents or interactive applets. Application-specific output formats and interactive applet outputs are rendered by an `NotebookOutputRenderer`.
+Cells in a notebook are read and written to the filesystem by a `NotebookContentProvider`, which handles reading data from the filesystem and converting it into a description of cells, as well as persisting modifications to the notebook back to the filesystem. The *code cells* of a notebook can be exectuted by a `NotebookKernel`, which provides for taking a cell and from it producing output in a variety of formats ranging from plain text to formatted documents or interactive applets. Application-specific output formats and interactive applet outputs are rendered by an `NotebookOutputRenderer`.
 
 Visually:
 ![Overview of 3 componenets of notebooks: NotebookContentProvider, NotebookKernel, and NotebookOutputRenderer, and how they interact. Described textually above and in following sections.](images/notebook/architecture-overview.png)
@@ -68,7 +68,7 @@ class SampleProvider implements vscode.NotebookContentProvider {
 		const content = JSON.parse((await vscode.workspace.fs.readFile(uri)).toString());
 		return {
 			languages: [],
-			metadata: content.metadata,
+			metadata: { custom: content.metadata },
 			cells: content.cells.map((cell: any) => {
 				if (cell.cell_type === 'markdown') {
 					return {
@@ -116,7 +116,7 @@ A kernel can either be directly associated with a content provider by setting th
 
 Samples:
 - [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/master/src/notebookProvider.ts): Kernel to execute queries for GitHib Issues
-- [HTTP Request Notebook](): Kernel to issue HTTP requests (TODO: Publish my extension? Where?)
+- [HTTP Request Notebook](): Kernel to issue HTTP requests (TODO: PR againt https://github.com/Huachao/vscode-restclient to add notebooks)
 
 #### Best Practices
 
@@ -155,16 +155,16 @@ Text outputs are the most simple output format, and work much like many REPL's y
 ![Cell with simple text output](images/notebook/text-output.png)
 
 ##### Error Output
-Error outputs are helpful for displaying runtime errors in a consistant and understandable manner. They contain `ename` and `evalue` fields for displaying the error type and message, respectively, as well as `traceback` field which takes a list of strings which get displayed like a callstack:
+Error outputs are helpful for displaying runtime errors in a consistant and understandable manner. They contain `ename` and `evalue` fields for displaying the error type and message, respectively, as well as `traceback` field which takes a list of strings which get displayed like a callstack. Strings in the traaceback stack support normal ANSI escape sequences for colorization:
 ```ts
 {
 	outputKind: vscode.CellOutputKind.Error,
 	ename: 'Error Name',
 	evalue: 'Error Value',
-	traceback: ['stack frame 1', 'stack frame 2', 'stack frame 3', 'stack frame 4']
+	traceback: ['\x1b[35mstack frame 1\x1b[0m', 'stack frame 2', 'stack frame 3', 'stack frame 4']
 }
 ```
-![Cell with error output showing error name and message, as well as a stack trace](images/notebook/error-output.png)
+![Cell with error output showing error name and message, as well as a stack trace with magenta text](images/notebook/error-output.png)
 
 ##### Rich Output
 Rich outputs are the most advanced form of displaying cell outputs. They allow for providing many different representations of the output data, keyed by mimetype. For example, if a cell output was to represent a GitHub Issue the kernel might produce a rich output with several properties on its `data` field:
@@ -265,7 +265,7 @@ class SampleRenderer implements vscode.NotebookOutputRenderer {
 All rendered outputs of a notebook live in a single webview, meaning state can be shared across outputs through use of global variables in `<script>` tags, though for use cases where shared state is needed it may be desirable to instead use a Dynamic Renderer, which adds the ability to define a set of scripts to preload into the *notebook output context* webview to establish a shared output runtime.
 
 #### Dynamic Renderers
-Dynamic renderers build upon the static renderer concept of generating HTML for a particular output, but add the ability to preload scripts into the webview by adding a set of uri's to the `NotebookOutputRenderer#preloads` field of the renderer. These scripts can contain arbitrary JavaScript, and additionally have access to a global `acquireNotebookRendererApi<T = any>(rendererType: string): INotebookRendererApi<T>` function, which provides an interface for interacting with the extension host from within the webview context:
+Dynamic renderers build upon the static renderer concept of generating HTML for a particular output, but add the ability to preload scripts into the webview by adding a set of uri's to the `NotebookOutputRenderer#preloads` field of the renderer. These scripts can contain arbitrary JavaScript, and additionally have access to a global `acquireNotebookRendererApi()` function, which provides an interface for interacting with the extension host from within the webview context:
 
 TODO: This should be hosted somewhere https://github.com/microsoft/vscode/issues/99320
 ```ts
