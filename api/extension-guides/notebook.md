@@ -265,39 +265,67 @@ class SampleRenderer implements vscode.NotebookOutputRenderer {
 All rendered outputs of a notebook live in a single webview, meaning state can be shared across outputs through use of global variables in `<script>` tags, though for use cases where shared state is needed it may be desirable to instead use a Dynamic Renderer, which adds the ability to define a set of scripts to preload into the *notebook output context* webview to establish a shared output runtime.
 
 #### Dynamic Renderers
-Dynamic renderers build upon the static renderer concept of generating HTML for a particular output, but add the ability to preload scripts into the webview by adding a set of uri's to the `NotebookOutputRenderer#preloads` field of the renderer. These scripts can contain arbitrary JavaScript, and additionally have access to a global `acquireNotebookRendererApi()` function, which provides an interface for interacting with the extension host from within the webview context:
+Dynamic renderers build upon the static renderer concept of generating HTML for a particular output, but add the ability to preload scripts into the webview by adding a set of uri's to the `NotebookOutputRenderer#preloads` field of the renderer. These scripts can contain arbitrary JavaScript, and additionally have access to a global `acquireNotebookRendererApi()`() //TODO: Link to API doc hosted somewhere https://github.com/microsoft/vscode/issues/99320 // function, which provides an interface for interacting with the extension host from within the webview context. For instance, a client script running in the *notebook output context* might look like this:
 
-TODO: This should be hosted somewhere https://github.com/microsoft/vscode/issues/99320
+`client.js`:
 ```ts
-interface Disposable { dispose(): void }
-interface Event<T> { (listener: (e: T) => any, thisArgs?: any, disposables?: Disposable[]): Disposable }
-interface INotebookRendererApi<T> {
-	setState(value: T): void;
-	getState(): T | undefined;
+const notebookApi = acquireNotebookRendererApi("notebook-renderer-demo");
 
-	/**
-	 * Sends a message to the renderer extension code. Can be received in
-	 * the `onDidReceiveMessage` event in `NotebookCommunication`.
-	 */
-	postMessage(msg: unknown): void;
+let totalRenders = 0;
 
-	/**
-	 * Fired before an output is destroyed, with its output ID, or undefined if
-	 * all cells are about to unmount.
-	 */
-	onWillDestroyOutput: Event<{ outputId: string } | undefined>;
+// element is the HTMLElement returned by the `render` prociess.
+// In this case, a script element containg JSON-encoded information.
+notebookApi.onDidCreateOutput(({ element }) => {
+	totalRenders++;
 
-	/**
-	 * Fired when an output is rendered. The `outputId` provided is the same
-	 * as the one given in {@see NotebookOutputRenderer.render}
-	 * and {@see onWillDestroyOutput}.
-	 */
-	onDidCreateOutput: Event<{ element: HTMLElement; outputId: string }>;
+	const tag = element.querySelector('script')!;
+	const mimeType = tag.dataset.mimeType as string;
+	const data = JSON.parse(tag.innerHTML);
 
-	/**
-	 * Called when the renderer uses `postMessage` on the NotebookCommunication
-	 * instance for this renderer.
-	 */
-	onDidReceiveMessage: Event<any>;
-}
+	// Dynamically generate DOM nodes insider the notebook output context
+	const outputContainer = element.appendChild(document.createElement('div'));
+	outputContainer.innerText = `${totalRenders} -- ${mimeType}: ${data.message}`;
+
+	const button = outputContainer.appendChild(document.createElement('button'));
+	button.innerText = data.buttonTitle;
+
+	// Allow for communication back to extension host process.
+	button.onclick = () => notebookApi.postMessage("Clicked " + data.buttonTitle);
+});
 ```
+
+This client script must then be preloaded into the *notebook output context* by referencing it from the `NotebookOutputRenderer`. Additionally, the renderer must implement `resolveNotebook`, which is called whenever new editor is created for a notebook and provides a [communication object](/api/references/vscode-api#NotebookCommunication) that is able to communicate bidirectionally with the editor's output context.
+
+```ts
+class SampleRenderer implements vscode.NotebookOutputRenderer {
+	public readonly preloads: vscode.Uri[] = [];
+
+	constructor(context: vscode.ExtensionContext) {
+		this.preloads.push(vscode.Uri.file(path.join(context.extensionPath, 'out/client.js')));
+	}
+
+	render(
+		document: vscode.NotebookDocument,
+		{ output, mimeType }: vscode.NotebookRenderRequest,
+	): string {
+		return `
+		<script data-renderer="notebook-renderer-demo" data-mime-type="${mimeType}" type="application/json">
+			${JSON.stringify(output.data[mimeType])}
+		</script>
+		`;
+	}
+
+	public resolveNotebook(document: vscode.NotebookDocument, communication: vscode.NotebookCommunication) {
+		communication.onDidReceiveMessage(message =>
+			vscode.window.showInformationMessage(message));
+	}
+```
+
+*Note:* `resolveNotebook` is called whenever a new editor is created for a notebook. A single notebook will have multiple editors, webviews, and `communication` channels if the user splits the notebook's editor. These can be differentiated through the `communication.editorId` field.
+
+Using the above renderer with a kernel that produces output in the `application/hello-world` mimetype, the final rendered notebook would function as below:
+
+![Multiple cell outputs shown. Outputs display a counter of the total number of gobal renders triggered. Clicking buttons triggers a vscode native information message](images/notebook/dynamic-renderer.gif)
+
+Samples:
+ - [Notebook Renderer Starter](https://github.com/microsoft/notebook-renderer-starter): Starter code for dynamic renderers with confuguration for webpack, hot reloading, and css modules.
