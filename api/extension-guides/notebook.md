@@ -279,7 +279,7 @@ class SampleRenderer implements vscode.NotebookOutputRenderer {
 All rendered outputs of a notebook live in a single webview, meaning state can be shared across outputs through use of global variables in `<script>` tags, though for use cases where shared state is needed it may be desirable to instead use a Dynamic Renderer, which adds the ability to define a set of scripts to preload into the *notebook output context* webview to establish a shared output runtime.
 
 #### Dynamic Renderers
-Dynamic renderers build upon the static renderer concept of generating HTML for a particular output, but add the ability to preload scripts into the webview by adding a set of uri's to the `NotebookOutputRenderer#preloads` field of the renderer. These scripts can contain arbitrary JavaScript, and additionally have access to a global `acquireNotebookRendererApi()`() //TODO: Link to API doc hosted somewhere https://github.com/microsoft/vscode/issues/99320 // function, which provides an interface for interacting with the extension host from within the webview context. For instance, a client script running in the *notebook output context* might look like this:
+Dynamic renderers build upon the static renderer concept of generating HTML for a particular output, but add the ability to preload scripts into the webview by adding a set of uri's to the `NotebookOutputRenderer#preloads` field of the renderer. These scripts can contain arbitrary JavaScript, and additionally have access to a global `acquireNotebookRendererApi()`(https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/vscode-notebook-renderer/index.d.ts) function, which provides an interface for interacting with the extension host from within the webview context. For instance, a client script running in the *notebook output context* might look like this:
 
 `client.js`:
 ```ts
@@ -307,9 +307,14 @@ notebookApi.onDidCreateOutput(({ element }) => {
 	button.onclick = () => notebookApi.postMessage("Clicked " + data.buttonTitle);
 });
 ```
+This client script must then be preloaded into the *notebook output context* by referencing it from `NotebookOutputRenderer#preloads`.
 
-This client script must then be preloaded into the *notebook output context* by referencing it from the `NotebookOutputRenderer`. Additionally, the renderer must implement `resolveNotebook`, which is called whenever new editor is created for a notebook and provides a [communication object](/api/references/vscode-api#NotebookCommunication) that is able to communicate bidirectionally with the editor's output context.
+*Note:* Typings for the renderer context can be acquired by installing `@types/vscode-notebook-renderer`. These typings inject `acquireNotebookRendererApi` as global variable, so we keep them seprate from the rest of `@types/vscode`.
 
+
+To facilitate communication between the extension host and output contenxts, the renderer must implement `resolveNotebook`, which is called whenever new editor is created for a notebook and provides a [communication object](/api/references/vscode-api#NotebookCommunication) that is able to communicate bidirectionally between the extension host and the editor's output context.
+
+For example, a `NotebookOutputRenderer` that injects `out/client.js` into the output context, transfers data into the output context via JSON blobs, and logs all of the messages it recieves from the outoput context as information dialogs might look like this:
 ```ts
 class SampleRenderer implements vscode.NotebookOutputRenderer {
 	public readonly preloads: vscode.Uri[] = [];
@@ -342,4 +347,4 @@ Using the above renderer with a kernel that produces output in the `application/
 ![Multiple cell outputs shown. Outputs display a counter of the total number of gobal renders triggered. Clicking buttons triggers a vscode native information message](images/notebook/dynamic-renderer.gif)
 
 Samples:
- - [Notebook Renderer Starter](https://github.com/microsoft/notebook-renderer-starter): Starter code for dynamic renderers with confuguration for webpack, hot reloading, and css modules.
+ - [Notebook Renderer Starter](https://github.com/microsoft/notebook-renderer-starter): Starter code for dynamic renderers with support for debugging in the output context, webpack, hot reloading, and css modules.
