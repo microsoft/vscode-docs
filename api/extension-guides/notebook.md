@@ -169,7 +169,7 @@ Text outputs are the most simple output format, and work much like many REPL's y
 ![Cell with simple text output](images/notebook/text-output.png)
 
 ##### Error Output
-Error outputs are helpful for displaying runtime errors in a consistant and understandable manner. They contain `ename` and `evalue` fields for displaying the error type and message, respectively, as well as `traceback` field which takes a list of strings which get displayed like a callstack. Strings in the traaceback stack support normal ANSI escape sequences for colorization:
+Error outputs are helpful for displaying runtime errors in a consistant and understandable manner. They contain `ename` and `evalue` fields for displaying the error type and message, respectively, as well as `traceback` field which takes a list of strings which get displayed like a callstack. Strings in the traceback stack support ANSI escape sequences for colorization:
 ```ts
 {
 	outputKind: vscode.CellOutputKind.Error,
@@ -193,7 +193,7 @@ In this case, the `text/html` and `application/json` views will be rendered by V
 	data: {
 		'text/html': '<b>Hello</b> World',
 		'application/json': { hello: 'world' },
-		'application/hello-world': 'my-hello-world-data-interchange-format',
+		'application/custom': 'my-custom-data-interchange-format',
 	}
 }
 ```
