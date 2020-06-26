@@ -474,9 +474,13 @@ The **editor tab context menu** has these default groups:
 
 The **editor title menu** has these default groups:
 
+- `navigation` - Commands related to navigating.
+- `1_run` - Commands related to running and debugging the editor.
 - `1_diff` - Commands related to working with diff editors.
 - `3_open` - Commands related to opening editors.
 - `5_close` - Commands related to closing editors.
+
+`navigation` and `1_run` are shown in the primary editor title area. The other groups are shown in the secondary area - under the `...` menu.
 
 The **Timeline view item context menu** has these default groups:
 
