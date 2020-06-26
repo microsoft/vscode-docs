@@ -112,7 +112,21 @@ You should be able to open Jupyter-formatted notebooks and view their cells as b
 
 A `NotebookKernel` is responsible for taking a *code cell* and from it producing some output or set of outputs.
 
-A kernel can either be directly associated with a content provider by setting the `NotebookContentProvider#kernel` property, or registered globally by envoking the `vscode.registerNotebookKernel` function with ...TODO: Figure out how this function is supposed to be called :)...
+A kernel can either be directly associated with a content provider by setting the `NotebookContentProvider#kernel` property, or registered globally by envoking the `vscode.registerNotebookKernel` function with an identifier for the kernel, a list of file patterns it should be available in, and a `vsocde.NotebookKernel` object:
+
+```ts
+vscode.notebook.registerNotebookKernel(
+	"http-kernel",
+	["*.http"],
+	{
+		label: "Http Kernel",
+		executeCell(document: NotebookDocument, cell: NotebookCell, token: CancellationToken): Promise<void> { ... }
+		executeAllCells(document: NotebookDocument, token: CancellationToken): Promise<void> { ... }
+	}
+)
+```
+
+If a kernel has been directly registered to a `NotebookContentProvider` via the `NotebookContentProvider#kernel` property, it will be selected by defualt when opening notebooks provided by that content provider. Otherwise, a kernel will be selected from those that are registered for a particular file pattern, and the user can change between kernels using the `Notebook: Select Notebook Kernel` command.
 
 Samples:
 - [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/master/src/notebookProvider.ts): Kernel to execute queries for GitHib Issues
