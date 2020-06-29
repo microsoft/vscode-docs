@@ -97,7 +97,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
 
 ## Extension Entry File
 
-The extension entry file exports two functions, `activate` and `deactivate`. `activate` is executed when your registered **Activation Event** happens. `deactivate` gives you a chance to clean up before your extension becomes deactivated. For many extensions, explicit cleanup may not be required, and the `deactivate` method can be removed. But if an extension needs to perform an operation when VS Code is shutting down or the extension is disabled or uninstalled, this is the method to do so.
+The extension entry file exports two functions, `activate` and `deactivate`. `activate` is executed when your registered **Activation Event** happens. `deactivate` gives you a chance to clean up before your extension becomes deactivated. For many extensions, explicit cleanup may not be required, and the `deactivate` method can be removed. However, if an extension needs to perform an operation when VS Code is shutting down or the extension is disabled or uninstalled, this is the method to do so.
 
 The [`vscode`](https://www.npmjs.com/package/vscode) module contains a script located at `node ./node_modules/vscode/bin/install`. The script pulls the VS Code API definition file depending on the `engines.vscode` field in `package.json`. After running the script, you would get IntelliSense, jump to definition and other TypeScript language features in your code.
 
