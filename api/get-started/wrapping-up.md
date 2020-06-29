@@ -21,7 +21,7 @@ This section includes topics that help you develop high-quality VS Code extensio
 
 ## Extension Capabilities
 
-In this section, we split the [VS Code API](/api/references/vscode-api) and [Contribution Points](/api/references/contribution-points) into a few categories, each with short descriptions as to what your extension could achieve. Validate that your extension idea is achievable by reviewing the [VS Code API](/api/reference/vscode-api) or reading the [Extension Capabilities](/api/extension-capabilities/overview) section for new extension ideas.
+In this section, we split the [VS Code API](/api/references/vscode-api) and [Contribution Points](/api/references/contribution-points) into a few categories, each with short descriptions as to what your extension could achieve. Validate that your extension idea is achievable by reviewing the [VS Code API](/api/references/vscode-api) or reading the [Extension Capabilities](/api/extension-capabilities/overview) section for new extension ideas.
 
 ## Guides & Samples
 
