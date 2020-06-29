@@ -21,7 +21,7 @@ We have a great collection of sample extensions that you can adapt from, and som
 
 ## Testing and Publishing
 
-This section includes topics that help you develop high-quality VS Code extension. For example, you can learn
+This section includes topics that help you develop high-quality VS Code extensions. For example, you can learn
 
 - How to add [integration tests](/api/working-with-extensions/testing-extension) for your extension
 - How to [publish your extension](/api/working-with-extensions/publishing-extension) to the VS Code [Marketplace](https://marketplace.visualstudio.com/)
