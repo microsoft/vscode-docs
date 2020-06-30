@@ -85,7 +85,7 @@ We need to select the folder we want to open in a container. First make sure you
 
 I have an existing HelloNode folder on my WSL 2 filesystem with my Node project in it. I’ll select: **Remote-Containers: Reopen in Container…**:
 
-![Command Palette: Remote-Containers: Reopen in Container...](7-reopen-in-container.png)
+![Command Palette: Remote-Containers: Reopen in Container...](7-reopen-container.png)
 
 A list of container definitions will appear since there is no DevContainer configuration in the repository yet. The list of container configuration definitions that appears is filtered based on my project type. I’ll select **Node.js 14**:
 
