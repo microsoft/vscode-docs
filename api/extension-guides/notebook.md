@@ -352,3 +352,4 @@ Using the above renderer with a kernel that produces output in the `application/
 
 Samples:
  - [Notebook Renderer Starter](https://github.com/microsoft/notebook-renderer-starter): Starter code for dynamic renderers with support for debugging in the output context, webpack, hot reloading, and css modules.
+ - [nteract Renderer](https://github.com/microsoft/notebook-extension-samples/tree/master/notebook-renderer): Example code for rendering [nteract](https://nteract.io/) outputs
