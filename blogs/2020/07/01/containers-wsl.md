@@ -49,7 +49,7 @@ Prerequisites:
 
 Once installed, Docker will recognize that you have WSL installed and prompt to enable WSL integration. You want to **Enable WSL integration**.
 
-![Docker Desktop WSL integration dialog](Insert image 1)
+![Docker Desktop WSL integration dialog](1-docker-desktop-wsl-integration.png)
 
 Optional: Install the new [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/) for the best experience, including the ability to open new PowerShell and Ubuntu terminals in the same interface.
 
@@ -57,23 +57,23 @@ Optional: Install the new [Windows Terminal](https://docs.microsoft.com/en-us/wi
 
 Let’s connect VS Code to our WSL 2 engine. Open an Ubuntu terminal, navigate to the source code folder of your choice, and type `code .` This will launch an instance of VS Code that lets you use WSL as your full-time development environment. You can also connect to WSL from the Command Palette. I’m going to open a simple [HelloNode](https://github.com/bamurtaugh/HelloNode) application:
 
-![Launch code . from Ubuntu terminal](Insert image 2)
+![Launch code . from Ubuntu terminal](2-ubuntu-launch-code.png)
 
 Once VS Code opens, it recognizes we have WSL installed and recommends we install the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension. I’ll select Install:
 
-![Remote - WSL extension recommended](Insert image 3)
+![Remote - WSL extension recommended](3-wsl-extension-recommended.png)
 
 After installing the extension, we can reload VS Code to connect to WSL 2:
 
-![Reload VS Code after installing extension](Insert image 4)
+![Reload VS Code after installing extension](4-reload-vscode.png)
 
 Once we’ve reloaded, notice we’re connected to Ubuntu by the WSL indicator in the bottom left:
 
-![WSL: Ubuntu bottom left indicator](Insert image 5)
+![WSL: Ubuntu bottom left indicator](5-wsl-left-indicator.png)
 
 When we installed the Remote - WSL extension, it added the Remote Explorer to VS Code. When we look inside the Explorer, we can see information about our Linux distros:
 
-![Remote Explorer with WSL Targets](Insert image 6)
+![Remote Explorer with WSL Targets](6-remote-explorer-wsl-targets.png)
 
 ## Working with containers
 
@@ -85,25 +85,25 @@ We need to select the folder we want to open in a container. First make sure you
 
 I have an existing HelloNode folder on my WSL 2 filesystem with my Node project in it. I’ll select: **Remote-Containers: Reopen in Container…**:
 
-![Command Palette: Remote-Containers: Reopen in Container...](Insert image 7)
+![Command Palette: Remote-Containers: Reopen in Container...](7-reopen-in-container.png)
 
 A list of container definitions will appear since there is no DevContainer configuration in the repository yet. The list of container configuration definitions that appears is filtered based on my project type. I’ll select **Node.js 14**:
 
-![Command Palette: Node.js 14](Insert image 8)
+![Command Palette: Node.js 14](8-node-14.png)
 
 A new instance of VS Code opens. VS Code starts building the image, and then starts our container:
 
-![VS Code instance starting with Dev Container](Insert image 9)
+![VS Code instance starting with Dev Container](9-vscode-starting-with-container.png)
 
 Our application now has a .devcontainer folder in which the container configuration information is stored. To double-check we’re connected to both WSL and within a container, let’s open the integrated terminal and check for the `uname` and version of Node:
 
-![Check uname and node -v](Insert image 10)
+![Check uname and node -v](10-uname-node.png)
 
 As we can see, our `uname` came back as Linux, so we are still connected to the WSL 2 engine, and `node -v` returned v14.4.0, so we are configured in our Node 14 container successfully.
 
 Let’s try running our app with **F5**:
 
-![Local host running Hello World app](Insert image 11)
+![Local host running Hello World app](11-localhost-hello-world.png)
 
 Success!
 
