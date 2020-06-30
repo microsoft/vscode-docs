@@ -57,7 +57,7 @@ Optional: Install the new [Windows Terminal](https://docs.microsoft.com/en-us/wi
 
 Let’s connect VS Code to our WSL 2 engine. Open an Ubuntu terminal, navigate to the source code folder of your choice, and type `code .` This will launch an instance of VS Code that lets you use WSL as your full-time development environment. You can also connect to WSL from the Command Palette. I’m going to open a simple [HelloNode](https://github.com/bamurtaugh/HelloNode) application:
 
-![Launch code . from Ubuntu terminal](2-ubuntu-launch-code.png)
+![Launch code . from Ubuntu terminal](2-ubuntu-launch.png)
 
 Once VS Code opens, it recognizes we have WSL installed and recommends we install the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension. I’ll select Install:
 
