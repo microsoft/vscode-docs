@@ -9,17 +9,6 @@
     ]
   },
   {
-    "name": "Working With Extensions",
-    "area": "working-with-extensions",
-    "topics": [
-      ["Testing Extensions", "/api/working-with-extensions/testing-extension"],
-      ["Publishing Extensions", "/api/working-with-extensions/publishing-extension"],
-      ["Bundling Extensions", "/api/working-with-extensions/bundling-extension"],
-      ["Continuous Integration", "/api/working-with-extensions/continuous-integration"]
-      // ["Profiling Extension", "/api/advanced-topics/profiling-extension"],
-    ]
-  },
-  {
     "name": "Extension Capabilities",
     "area": "extension-capabilities",
     "topics": [
@@ -62,6 +51,17 @@
       // ["Smart Editing Guide", "/api/language-extensions/smart-editing-guide"],
       ["Language Server Extension Guide", "/api/language-extensions/language-server-extension-guide"],
       ["Embedded Languages", "/api/language-extensions/embedded-languages"]
+    ]
+  },
+  {
+    "name": "Testing and Publishing",
+    "area": "working-with-extensions",
+    "topics": [
+      ["Testing Extensions", "/api/working-with-extensions/testing-extension"],
+      ["Publishing Extensions", "/api/working-with-extensions/publishing-extension"],
+      ["Bundling Extensions", "/api/working-with-extensions/bundling-extension"],
+      ["Continuous Integration", "/api/working-with-extensions/continuous-integration"]
+      // ["Profiling Extension", "/api/advanced-topics/profiling-extension"],
     ]
   },
   {
