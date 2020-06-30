@@ -79,19 +79,15 @@ When we installed the Remote - WSL extension, it added the Remote Explorer to VS
 
 We can leverage the [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension to view and attach to containers, in addition to a variety of other robust behaviors, such as [developing within a set of sample containers](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container), [opening existing source code in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container), or [working with a GitHub repository](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container) in an isolated container volume. We can also view and attach to containers using the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension.
 
-While you can access source code from both Windows and the WSL 2 filesystem when using the WSL 2 engine, we recommend using the WSL 2 file system because performance is much better. Since the performance is better when using the filesystem inside WSL 2, let’s walkthrough how to use it.
+While you can access source code from both Windows and the WSL 2 filesystem when using the WSL 2 engine, we recommend using the WSL 2 file system because [performance is much better](https://www.docker.com/blog/docker-desktop-wsl-2-best-practices/). Since the performance is better when using the filesystem inside WSL 2, let’s walkthrough how to use it.
 
+We need to select the folder we want to open in a container. First make sure you’ve installed the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. We can then call the **Remote-Containers: Reopen Folder in Container** command from a folder already opened using the Remote - WSL extension.
 
-
-We need to select the folder we want to open in a container. First make sure you’ve installed the Remote - Containers extension. We can then call the Remote-Containers: Reopen Folder in Container command from a folder already opened using the Remote - WSL extension.
-
-
-
-I have an existing HelloNode folder on my WSL 2 filesystem with my Node project in it. I’ll select: “Remote-Containers: Reopen in Container…”:
+I have an existing HelloNode folder on my WSL 2 filesystem with my Node project in it. I’ll select: **Remote-Containers: Reopen in Container…**:
 
 ![Command Palette: Remote-Containers: Reopen in Container...](Insert image 7)
 
-A list of container definitions will appear since there is no DevContainer configuration in the repository yet. The list of container configuration definitions that appears is filtered based on my project type. I’ll select “Node.js 14:”
+A list of container definitions will appear since there is no DevContainer configuration in the repository yet. The list of container configuration definitions that appears is filtered based on my project type. I’ll select **Node.js 14**:
 
 ![Command Palette: Node.js 14](Insert image 8)
 
@@ -99,15 +95,13 @@ A new instance of VS Code opens. VS Code starts building the image, and then sta
 
 ![VS Code instance starting with Dev Container](Insert image 9)
 
-Our application now has a .devcontainer file in which the container configuration information is stored. To double-check we’re connected to both WSL and within a container, let’s open the integrated terminal and check for the `uname` and version of Node:
+Our application now has a .devcontainer folder in which the container configuration information is stored. To double-check we’re connected to both WSL and within a container, let’s open the integrated terminal and check for the `uname` and version of Node:
 
 ![Check uname and node -v](Insert image 10)
 
 As we can see, our `uname` came back as Linux, so we are still connected to the WSL 2 engine, and `node -v` returned v14.4.0, so we are configured in our Node 14 container successfully.
 
-I can even work with my local `app.js` source code from Windows.
-
-Let’s try running our app with “F5.”
+Let’s try running our app with **F5**:
 
 ![Local host running Hello World app](Insert image 11)
 
@@ -115,7 +109,7 @@ Success!
 
 ## Feedback & further reading
 
-To help set up VS Code with WSL and containers, we have detailed articles on the VS Code Remote Development documentation. If you have any questions or feedback for our team, please feel free to open an issue on the VS Code Remote Development GitHub Repository or Tweet us @ code.
+To help set up VS Code with WSL and containers, we have detailed articles on the VS Code [Remote Development documentation](https://code.visualstudio.com/docs/remote/remote-overview). If you have any questions or feedback for our team, please feel free to open an issue on the VS Code [Remote Development GitHub Repository](https://github.com/microsoft/vscode-remote-release/issues) or Tweet us [@code](https://twitter.com/code).
 
 Happy Coding!
 
