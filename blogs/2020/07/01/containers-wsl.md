@@ -36,7 +36,7 @@ The new May 2020 version of Docker Desktop can build containers much faster and 
 
 Since WSL 2 in Windows and Docker Desktop are now GA, you can feel even more confident using your remote containers in WSL 2.
 
-## Getting setup
+## Getting set up
 
 Prerequisites:
 
