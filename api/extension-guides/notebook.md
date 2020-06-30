@@ -158,6 +158,10 @@ async function executeCell(document: vscode.NotebookDocument, cell: vscode.Noteb
 
 Outputs must be in one of three formats: Text Output, Error Output, or Rich Output. A kernel may provide multiple outputs for a single execution of a cell, in which case they will be displayed as a list.
 
+Simple formats like Text Output, Error Output, or "simple" varients of Rich Output (HTML, markdown, json, etc.) are rendered by VS Code Core, whereas aapplication specific Rich Output types are rendered by a [`NotebookOutputRenderer`](#output-renderer). An extension may optinally choose to render "simple" Rich Outputs itself, for instance to add LaTeX support to markdown outputs.
+
+![](images/notebook/kernel.png)
+
 ##### Text Output
 Text outputs are the most simple output format, and work much like many REPL's you may be familar with. They consist only of a `text` field, which is rendered as plain text in the cell's output element:
 ```ts
