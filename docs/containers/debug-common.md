@@ -15,6 +15,14 @@ The Docker extension provides a `docker` debug configuration provider that manag
 
 The Docker extension currently supports debugging [Node.js](#node-js), [Python](#python), and [.NET Core](#net-core) applications within Docker containers.
 
+Scaffolding or pasting a launch configuration into `launch.json` is **not sufficient** to build and debug a Docker container. To successfully run a Docker launch configuration, you must have:
+
+- A Dockerfile.
+- `docker-build` and `docker-run` tasks in `tasks.json`.
+- A launch configuration that invokes these tasks.
+
+> **Note:** We recommend using the **Docker: Add Docker Files to Workspace...** command create these items if none of these assets already exist. If you already have a functional Dockerfile, we recommend using the **Docker: Initialize for Docker debugging** command to scaffold a launch configuration and Docker-related tasks.
+
 ## Node.js
 
 More information about debugging Node.js applications within Docker containers can be found at [Debug Node.js within a container](/docs/containers/debug-node.md).
