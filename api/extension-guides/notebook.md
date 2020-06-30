@@ -160,7 +160,7 @@ Outputs must be in one of three formats: Text Output, Error Output, or Rich Outp
 
 Simple formats like Text Output, Error Output, or "simple" varients of Rich Output (HTML, markdown, json, etc.) are rendered by VS Code Core, whereas aapplication specific Rich Output types are rendered by a [`NotebookOutputRenderer`](#output-renderer). An extension may optinally choose to render "simple" Rich Outputs itself, for instance to add LaTeX support to markdown outputs.
 
-![](images/notebook/kernel.png)
+![Diagram of the differnet output types described above](images/notebook/kernel.png)
 
 ##### Text Output
 Text outputs are the most simple output format, and work much like many REPL's you may be familar with. They consist only of a `text` field, which is rendered as plain text in the cell's output element:
