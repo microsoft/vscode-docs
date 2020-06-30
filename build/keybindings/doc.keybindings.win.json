@@ -1104,7 +1104,7 @@
                                         "when": "editorLangId == 'markdown'" },
 { "key": "shift+alt+f12",         "command": "references-view.find",
                                         "when": "editorHasReferenceProvider" },
-{ "key": "ctrl+k ctrl+u",         "command": "git.unstageSelectedRanges",
+{ "key": "ctrl+k ctrl+n",         "command": "git.unstageSelectedRanges",
                                         "when": "isInDiffEditor" },
 { "key": "ctrl+k v",              "command": "markdown.showPreviewToSide",
                                         "when": "editorLangId == 'markdown'" },

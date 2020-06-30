@@ -1227,7 +1227,7 @@
                                         "when": "editorHasReferenceProvider" },
 { "key": "f11",                   "command": "extension.node-debug.startWithStopOnEntry",
                                         "when": "!inDebugMode && debugConfigurationType == 'node'" },
-{ "key": "cmd+k cmd+u",           "command": "git.unstageSelectedRanges",
+{ "key": "cmd+k cmd+n",           "command": "git.unstageSelectedRanges",
                                         "when": "isInDiffEditor" },
 { "key": "cmd+k v",               "command": "markdown.showPreviewToSide",
                                         "when": "editorLangId == 'markdown'" },
