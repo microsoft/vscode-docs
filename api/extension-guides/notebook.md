@@ -266,6 +266,10 @@ export function activate(context: vscode.ExtensionContext) {
 #### Static Renderers
 A static renderer simply takes output of a particular mimetype and produces an HTML view of that data. This is similar to having the kernel itself return a `text/html` output, but it allows for multiple different HTML rendered views of the same output.
 
+All rendered outputs of a notebook live in a single webview isolated from the main VS Code Extension Host runtime. This means state can be shared across notebook outputs through use of global variables in `<script>` tags, though for use cases where shared state is needed it may be desirable to instead use a [Dynamic Renderer](#dynamic-renderers), which adds the ability to define a set of scripts to preload into the *notebook output context* webview to establish a shared output runtime. A visualization of the data flow of a static renderer can be seen below.
+
+![Visualization of static renderer, showing multiple rich outputs being mapped by an NotebookOutputRenderer to HTML, then piped to a shared "notebook output context".](images/notebook/static-renderer.png)
+
 ```ts
 class SampleRenderer implements vscode.NotebookOutputRenderer {
 	render(
@@ -279,8 +283,6 @@ class SampleRenderer implements vscode.NotebookOutputRenderer {
 ```
 
 ![Cell output switching between multiple different rendered views](images/notebook/static-renderer.gif)
-
-All rendered outputs of a notebook live in a single webview, meaning state can be shared across outputs through use of global variables in `<script>` tags, though for use cases where shared state is needed it may be desirable to instead use a Dynamic Renderer, which adds the ability to define a set of scripts to preload into the *notebook output context* webview to establish a shared output runtime.
 
 #### Dynamic Renderers
 Dynamic renderers build upon the static renderer concept of generating HTML for a particular output, but add the ability to preload scripts into the webview by adding a set of uri's to the `NotebookOutputRenderer#preloads` field of the renderer. These scripts can contain arbitrary JavaScript, and additionally have access to a global `acquireNotebookRendererApi()`(https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/vscode-notebook-renderer/index.d.ts) function, which provides an interface for interacting with the extension host from within the webview context. For instance, a client script running in the *notebook output context* might look like this:
