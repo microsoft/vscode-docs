@@ -1,12 +1,12 @@
 ---
 Order: 59
 TOCTitle: Remote Containers in WSL 2
-PageTitle: Remote Containers in WSL 2
-MetaDescription: Remote Containers in WSL 2
+PageTitle: Using Remote Containers in WSL 2
+MetaDescription: Using Remote Containers in WSL 2
 Date: 2020-07-01
 Author: Brigit Murtaugh
 ---
-# Remote Containers in WSL 2
+# Using Remote Containers in Windows Subsystem for Linux (WSL) 2
 
 July 1, 2020 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
