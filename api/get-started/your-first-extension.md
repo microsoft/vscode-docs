@@ -14,6 +14,11 @@ In this topic, we'll teach you the fundamental concepts for building extensions.
 ```bash
 npm install -g yo generator-code
 ```
+Allow the terminal to recognize `code` command by modifying the environment variable:
+
+```
+setx Path "%Path%;C:\Users\USERNAME\AppData\Local\Programs\Microsoft VS Code\bin"
+```
 
 The generator scaffolds a TypeScript or JavaScript project ready for development. Run the generator and fill out a few fields for a TypeScript project:
 
