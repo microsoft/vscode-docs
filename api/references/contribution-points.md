@@ -230,7 +230,7 @@ You can use any of the validation JSON Schema properties to describe other const
 
 **Unsupported JSON Schema properties**
 
-Note supported in the configuration section are:
+Not supported in the configuration section are:
 
 - `$ref` and `definition`: The configuration schemas needs to be self-contained and can not make assumptions how the aggregated settings JSON schema document looks like.
 
