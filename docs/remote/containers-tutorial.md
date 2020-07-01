@@ -25,8 +25,6 @@ Docker is needed to create and manage your containers.
 
 Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).
 
-> NOTE! - You'll have to signup for Docker Hub, verify your email address, and get a DockerID in order to get the installer.
-
 ### Start Docker
 
 Run the Docker Desktop application to start Docker. You will know it's running if you look in the activity tray and see the Docker whale icon.

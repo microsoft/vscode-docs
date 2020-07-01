@@ -193,7 +193,7 @@ The server will now forward traffic on port 3000 to your local machine. When you
 
 ![Running Express Application](images/ssh-tutorial/express.png)
 
-## Edit and debug with VS Code
+## Edit and debug
 
 From the Visual Studio Code File Explorer (`kb(workbench.view.explorer)`), navigate to your new `myExpressApp` folder and double-click the `app.js` file to open it in the editor.
 

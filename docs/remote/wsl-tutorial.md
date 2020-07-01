@@ -142,7 +142,7 @@ You'll start a new instance of the bash shell in WSL, again from VS Code running
 
 ![Remote - WSL Status bar](images/wsl-tutorial/wsl-status-bar.png)
 
-## Edit and debug with VS Code
+## Edit and debug
 
 ### Installing the Python extension (and additional tools)
 
