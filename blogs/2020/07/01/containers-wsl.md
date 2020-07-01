@@ -71,7 +71,7 @@ Once we've reloaded, we can confirm that we're connected to Ubuntu by checking t
 
 ![WSL: Ubuntu bottom left indicator](5-wsl-left-indicator.png)
 
-Installing the Remote - WSL extension, added the Remote Explorer to VS Code. When we look inside the Explorer, we can see information about our Linux distros:
+Installing the Remote - WSL extension added the Remote Explorer to VS Code. When we look inside the Explorer, we can see information about our Linux distros:
 
 ![Remote Explorer with WSL Targets](6-remote-explorer-wsl-targets.png)
 
