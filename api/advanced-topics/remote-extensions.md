@@ -1,27 +1,27 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: A guide to adding Visual Studio Code Remote Development and Visual Studio Online support to extensions
+MetaDescription: A guide to adding Visual Studio Code Remote Development and Visual Studio Codespaces support to extensions
 ---
-# Supporting Remote Development and Visual Studio Online
+# Supporting Remote Development and Visual Studio Codespaces
 
-**[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). **[Visual Studio Online](https://aka.ms/vso)** is a preview service that expands these capabilities with managed cloud-hosted or self-hosted environments that are accessible from both VS Code and a browser-based editor.
+**[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). **[Visual Studio Codespaces](https://aka.ms/vso)** is a preview service that expands these capabilities with managed cloud-hosted or self-hosted environments that are accessible from both VS Code and a browser-based editor.
 
-To ensure performance, Remote Development and Visual Studio Online both transparently run certain VS Code extensions remotely. However, this can have subtle impacts on how extensions need to work.  While many extensions will work without any modifications, you may need to make changes so that your extension works properly in all environments, although these changes are often fairly minor.
+To ensure performance, Remote Development and Visual Studio Codespaces both transparently run certain VS Code extensions remotely. However, this can have subtle impacts on how extensions need to work.  While many extensions will work without any modifications, you may need to make changes so that your extension works properly in all environments, although these changes are often fairly minor.
 
-This article summarizes what extension authors need to know about VS Code Remote Development and VS Online including the extension [architecture](#architecture-and-extension-kinds), how to [debug your extension](#debugging-extensions) in remote workspaces or VS Online, and recommendations on [what to do if your extension does not work properly](#common-problems).
+This article summarizes what extension authors need to know about Remote Development and Codespaces including the extension [architecture](#architecture-and-extension-kinds), how to [debug your extension](#debugging-extensions) in remote workspaces or Codespaces, and recommendations on [what to do if your extension does not work properly](#common-problems).
 
 ## Architecture and extension kinds
 
-In order to make working with Remote Development or VS Online as transparent as possible to users, VS Code distinguishes two kinds of extensions:
+In order to make working with Remote Development or Codespaces as transparent as possible to users, VS Code distinguishes two kinds of extensions:
 
 - **UI Extensions**: These extensions contribute to the VS Code user interface and are always run on the user's local machine. UI Extensions cannot directly access files in the remote workspace, or run scripts/tools installed in that workspace or on the machine. Example UI Extensions include: themes, snippets, language grammars, and keymaps.
 
-- **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions run on the local machine. When in a remote workspace or when using VS Online, Workspace Extensions run on the remote machine / environment. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in the workspace (either directly or by invoking scripts/tools). While Workspace Extensions do not focus on modifying the UI, they can contribute explorers, views, and other UI elements as well.
+- **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions run on the local machine. When in a remote workspace or when using Codespaces, Workspace Extensions run on the remote machine / environment. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in the workspace (either directly or by invoking scripts/tools). While Workspace Extensions do not focus on modifying the UI, they can contribute explorers, views, and other UI elements as well.
 
-When a user installs an extension, VS Code automatically installs it to the correct location based on its kind. If an extension can run as either kind, VS Code will attempt to choose the optimal one for the situation. UI Extensions are run in VS Code's [local Extension Host](/api/advanced-topics/extension-host), while Workspace Extensions are run in a **Remote Extension Host** that sits in a small **VS Code Server**. To ensure the latest VS Code client features are available, the server needs to match the VS Code client version exactly. Therefore, the server is automatically installed (or updated) by the Remote Development or VS Online extensions when you open a folder in a container, on a remote SSH host, in a VS Online environment, or in the Windows Subsystem for Linux (WSL). (VS Code also automatically manages starting and stopping the server, so users aren't aware of its presence.)
+When a user installs an extension, VS Code automatically installs it to the correct location based on its kind. If an extension can run as either kind, VS Code will attempt to choose the optimal one for the situation. UI Extensions are run in VS Code's [local Extension Host](/api/advanced-topics/extension-host), while Workspace Extensions are run in a **Remote Extension Host** that sits in a small **VS Code Server**. To ensure the latest VS Code client features are available, the server needs to match the VS Code client version exactly. Therefore, the server is automatically installed (or updated) by the Remote Development or Visual Studio Codespaces extensions when you open a folder in a container, on a remote SSH host, using Codespaces, or in the Windows Subsystem for Linux (WSL). (VS Code also automatically manages starting and stopping the server, so users aren't aware of its presence.)
 
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
@@ -29,37 +29,35 @@ The VS Code APIs are designed to automatically run on the correct machine (eithe
 
 ## Debugging Extensions
 
-While you [can install a development version of your extension](#installing-a-development-version-of-your-extension) in a remote environment for testing, if you encounter issues, you will likely want to debug your extension directly in a remote environment. In this section, we will cover how to edit, launch, and debug your extension in [Visual Studio Online](#debugging-with-visual-studio-online), a [local container](#debugging-in-a-development-container), an [SSH host](#debugging-using-ssh), or in [WSL](#debugging-using-wsl).
+While you [can install a development version of your extension](#installing-a-development-version-of-your-extension) in a remote environment for testing, if you encounter issues, you will likely want to debug your extension directly in a remote environment. In this section, we will cover how to edit, launch, and debug your extension in [Visual Studio Codespaces](#debugging-with-visual-studio-codespaces), a [local container](#debugging-in-a-development-container), an [SSH host](#debugging-using-ssh), or in [WSL](#debugging-using-wsl).
 
-Typically, your best starting point for testing is to use a remote environment that restricts port access (for example VS Online, a container, or remote SSH hosts with a restrictive firewall) since extensions that work in these environments tend to work in less restrictive ones like WSL.
+Typically, your best starting point for testing is to use a remote environment that restricts port access (for example Codespaces, a container, or remote SSH hosts with a restrictive firewall) since extensions that work in these environments tend to work in less restrictive ones like WSL.
 
-### Debugging with Visual Studio Online
+### Debugging with Visual Studio Codespaces
 
-Debugging your extension in [Visual Studio Online](https://aka.ms/vso) preview can be a great starting point since you can use both VS Code and VS Online's browser-based editor for testing and troubleshooting. Note that, while there is a cost to the service's cloud-based managed environments, you can use your own desktop/laptop as a self-hosted environment at no cost.
+Debugging your extension in [Visual Studio Codespaces](https://aka.ms/vso) preview can be a great starting point since you can use both VS Code and the Codespaces browser-based editor for testing and troubleshooting. Note that, while there is a cost to the service's cloud-based managed environments, you can use your own desktop/laptop as a self-hosted environment at no cost.
 
 Follow these steps:
 
-1. Install the [Visual Studio Online extension and sign in](https://vso-docs/vscode).
+1. Install the [Visual Studio Codespaces extension and sign in](https://aka.ms/vso-docs/vscode).
 
 2. Create a new managed [cloud-hosted environment](https://aka.ms/vso-docs/vscode/cloud-hosted) (paid) or register your own desktop as a [self-hosted environment](https://aka.ms/vso-docs/vscode/self-hosted) (free).
 
-    > **Note:** When using a self-hosted environment, you may have to restore your environment on restart or after a network glitch using the **VS Online: Restore Local Environment** command due to bugs. See [MicrosoftDocs/vsonline#5](https://github.com/MicrosoftDocs/vsonline/issues/5), [MicrosoftDocs/vsonline#14](https://github.com/MicrosoftDocs/vsonline/issues/14) for more information.
-
-3. If you have not already connected to your environment, select  **VS Online: Connect to Environment** from the Command Palette (`kbstyle(F1)`) in VS Code to connect.
+3. If you have not already connected to your environment, select  **Codespaces: Connect to Codespace** from the Command Palette (`kbstyle(F1)`) in VS Code to connect.
 
 4. Once connected, either use **File > Open... / Open Folder...** to select the environment folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it into the environment and open it.
 
-5. While VS Online's cloud-based environments should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
+5. While Visual Studio Codespaces cloud-based environments should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
 
-6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside in the Visual Studio Online environment.
+6. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension inside in the Codespace.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the environment.
 
-The extension development host window that appears will include your extension running in a VS Online environment with the debugger attached to it.
+The extension development host window that appears will include your extension running in a Codespace with the debugger attached to it.
 
-**Using the VS Online browser-based editor**
+**Using the Codespaces browser-based editor**
 
-Once you have an environment with your extension source code, you can also use VS Online's browser-based editor by [going to the portal](https://aka.ms/vso) to connect or selecting **VS Online: Open in Browser** from VS Code's Command Palette (`kbstyle(F1)`) locally. Once connected to the environment, you can **edit and debug your extension in the browser** exactly like you can from VS Code.
+Once you have an environment with your extension source code, you can also use the Codespaces browser-based editor by [going to the portal](https://aka.ms/vso) to connect or selecting **Codespaces: Open in Browser** from VS Code's Command Palette (`kbstyle(F1)`) locally. Once connected to the environment, you can **edit and debug your extension in the browser** exactly like you can from VS Code.
 
 ### Debugging in a development container
 
@@ -73,9 +71,9 @@ Follow these steps:
 
 4. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You will now be able to develop your source code from inside the container just as you would in the local case.
 
-5. Run `yarn install` or `npm install` in a new VS Code terminal window (`kb(workbench.action.terminal.new)`) to ensure the Linux versions Node.js native dependencies are install. You can also install other OS or runtime dependencies, but you may want to add these to `.devcontainer/Dockerfile` as well so they are available if you rebuild the container.
+5. Run `yarn install` or `npm install` in a new VS Code terminal window (`kb(workbench.action.terminal.new)`) to ensure the Linux versions Node.js native dependencies are installed. You can also install other OS or runtime dependencies, but you may want to add these to `.devcontainer/Dockerfile` as well so they are available if you rebuild the container.
 
-6. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside this same container and attach the debugger.
+6. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension inside this same container and attach the debugger.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the container.
 
@@ -91,7 +89,7 @@ Follow steps:
 
 3. Install any required dependencies that might be missing (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
 
-4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension inside on the remote host and attach the debugger.
+4. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension inside on the remote host and attach the debugger.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else on the SSH host.
 
@@ -109,7 +107,7 @@ Follow these steps:
 
 3. Install any required dependencies that might be missing (for example using `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`). You will at least want to run `yarn install` or `npm install` to ensure Linux versions of native Node.js dependencies are available.
 
-4. Finally, press `kb(workbench.action.debug.start)` or use the **Debug view** to launch the extension and attach the debugger as you would locally.
+4. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension and attach the debugger as you would locally.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in WSL.
 
@@ -117,7 +115,7 @@ The extension development host window that appears will include your extension r
 
 ## Installing a development version of your extension
 
-Any time VS Code automatically installs an extension on an SSH host, inside a container or WSL, or through VS Online, the Marketplace version is used (and not the version already installed on your local machine).
+Any time VS Code automatically installs an extension on an SSH host, inside a container or WSL, or through Visual Studio Codespaces, the Marketplace version is used (and not the version already installed on your local machine).
 
 While this makes sense in most situations, you may want to use (or share) an unpublished version of your extension for testing without having to set up a debugging environment. To install an unpublished version of your extension, you can package the extension as a `VSIX` and manually install it into a VS Code window that is already connected to a running remote environment.
 
@@ -125,7 +123,7 @@ Follow these steps:
 
 1. If this is a published extension, you may want to add `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest Marketplace version.
 2. Next, use `vsce package` to package your extension as a VSIX.
-3. Connect to a [Visual Studio Online environment](https://aka.ms/vso), [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
+3. Connect to a [Visual Studio Codespace](https://aka.ms/vso), [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
 4. Use the **Install from VSIX...** command available in the Extensions view **More Actions** (`...`) menu to install the extension in this specific window (not a local one).
 5. Reload when prompted.
 
@@ -139,7 +137,7 @@ VS Code's APIs are designed to automatically run in the right location regardles
 
 If your extension is not functioning as expected, it may be running in the wrong location. Most commonly, this shows up as an extension running remotely when you expect it to only be run locally. You can use the **Developer: Show Running Extensions** command from the Command Palette (`kbstyle(F1)`) to see where an extension is running.
 
-If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [`package.json`](/api/get-started/extension-anatomy#extension-manifest):
+If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [package.json](/api/get-started/extension-anatomy#extension-manifest):
 
 As of VS Code 1.40, this value is an array which means extensions can specify more than one kind. For example:
 
@@ -153,10 +151,10 @@ As of VS Code 1.40, this value is an array which means extensions can specify mo
 
 Following combination of locations are supported:
 
-- `"extensionKind": ["workspace"]` — Indicates the extension requires access to workspace contents and therefore will run in VS Code Server when connected to a remote workspace or VS Online. Most extensions fall into this category.
-- `"extensionKind": ["ui"]` — Indicates the extension **must** run as a UI extension because it requires access to local assets, devices, or capabilities. Therefore, it can only run in VS Code's local extension host and will not work in VS Online's browser-based editor (as there is no local extension host available).
-- `"extensionKind": ["ui", "workspace"]` — Indicates the extension **prefers** to run as a UI extension, but does not have any hard requirements on local assets, devices, or capabilities. When using VS Code, the extension will run in VS Code's local extension host if it exists locally, otherwise will run in VS Code's workspace extension host if it exists there. When using VS Online's browser-based editor, it will run in the remote extension host always (as no local extension host is available). The old  `"ui"`  value (as a string) maps to this type for backwards compatibility, but is considered deprecated.
-- `"extensionKind": ["workspace", "ui"]` — Indicates the extension **prefers** to run as a workspace extension, but does not have any hard requirements on accessing workspace contents. When using VS Code, the extension will run in VS Code's workspace extension host if it exists in remote workspace, otherwise will run in VS Code's local extension host if it exists locally. When using VS Online's browser-based editor, it will run in the remote extension host always (as no local extension host is available).
+- `"extensionKind": ["workspace"]` — Indicates the extension requires access to workspace contents and therefore will run in VS Code Server when connected to a remote workspace or Codespace. Most extensions fall into this category.
+- `"extensionKind": ["ui"]` — Indicates the extension **must** run as a UI extension because it requires access to local assets, devices, or capabilities. Therefore, it can only run in VS Code's local extension host and will not work in the Codespaces browser-based editor (as there is no local extension host available).
+- `"extensionKind": ["ui", "workspace"]` — Indicates the extension **prefers** to run as a UI extension, but does not have any hard requirements on local assets, devices, or capabilities. When using VS Code, the extension will run in VS Code's local extension host if it exists locally, otherwise will run in VS Code's workspace extension host if it exists there. When using the Codespaces browser-based editor, it will run in the remote extension host always (as no local extension host is available). The old  `"ui"`  value (as a string) maps to this type for backwards compatibility, but is considered deprecated.
+- `"extensionKind": ["workspace", "ui"]` — Indicates the extension **prefers** to run as a workspace extension, but does not have any hard requirements on accessing workspace contents. When using VS Code, the extension will run in VS Code's workspace extension host if it exists in remote workspace, otherwise will run in VS Code's local extension host if it exists locally. When using the Codespaces browser-based editor, it will run in the remote extension host always (as no local extension host is available).
 
 You can also quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you wish to force the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) to be a workspace extension (instead of its UI default), you would set:
 
@@ -233,27 +231,33 @@ export function activate(context: vscode.ExtensionContext) {
 
 If your extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a `libsecret`-based keyring on Linux, or a browser-based equivalent) rather than the one on the remote machine environment. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a container.
 
-Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [`keytar` node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in a Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.
+Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [keytar node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in a Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.
 
 For example:
 
 ```typescript
-import * as vscode from 'vscode';
+import { env } from 'vscode';
+import * as keytarType from 'keytar';
 
-function getCoreNodeModule(moduleName) {
-    try {
-        return require(`${vscode.env.appRoot}/node_modules.asar/${moduleName}`);
-    }
-    catch (err) { }
-    try {
-        return require(`${vscode.env.appRoot}/node_modules/${moduleName}`);
-    }
-    catch (err) { }
-    return undefined;
+declare const __webpack_require__: typeof require;
+declare const __non_webpack_require__: typeof require;
+function getNodeModule<T>(moduleName: string): T | undefined {
+	const r = typeof __webpack_require__ === "function" ? __non_webpack_require__ : require;
+	try {
+		return r(`${env.appRoot}/node_modules.asar/${moduleName}`);
+	} catch (err) {
+		// Not in ASAR.
+	}
+	try {
+		return r(`${env.appRoot}/node_modules/${moduleName}`);
+	} catch (err) {
+		// Not available.
+	}
+	return undefined;
 }
 
 // Use it
-const keytar = getCoreNodeModule('keytar');
+const keytar = getNodeModule<typeof keytarType>('keytar');
 await keytar.setPassword('my-service-name','my-account','iamal337d00d');
 const password = await keytar.getPassword('my-service-name','my-account');
 ```
@@ -294,7 +298,7 @@ Spawning a process or using a module like `opn` to launch a browser or other app
 
 Instead of relying on a third-party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better, `vscode.env.openExternal` **does automatic localhost port forwarding!** You can use it to point to a local web server on a remote machine or environment and serve up content even if that port is blocked externally.
 
-> **Note:** Currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for VS Code do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
+> **Note:** Currently the forwarding mechanism in the Codespaces browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Codespaces extensions for VS Code do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
 
 This API was added in VS Code 1.31. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -330,7 +334,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 While the [localhost forwarding mechanism in `vscode.env.openExternal` is useful](#opening-something-in-a-local-browser-or-application), there may also be situations where you want to forward something without actually launching a new browser window or application. This is where the `vscode.env.asExternalUri` API comes in.
 
-> **Note:** Currently the forwarding mechanism in Visual Studio Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Visual Studio Online extensions for VS Code do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
+> **Note:** Currently the forwarding mechanism in the Visual Studio Codespaces browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Visual Studio Codespaces extensions for VS Code do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
 
 This API was added in VS Code 1.40. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -364,13 +368,13 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-It is important to note that the URI that is passed back by the API **may not reference localhost at all**, so you should use it in its entirety. This is particularly important for VS Online's browser-based editor, where localhost cannot be used.
+It is important to note that the URI that is passed back by the API **may not reference localhost at all**, so you should use it in its entirety. This is particularly important for the Codespaces browser-based editor, where localhost cannot be used.
 
 ### Callbacks and URI handlers
 
 The `vscode.window.registerUriHandler` API allows your extension to register a custom URI that, if opened in a browser, will fire a callback function in your extension. A common use case for registering a URI handler is when implementing a service sign in with an [OAuth 2.0](https://oauth.net/2/) authentication provider (e.g Azure AD). However, it can be used for any scenario where you want an external application or the browser to send information to your extension.
 
-The Remote Development and VS Online extensions in VS Code will transparently handle passing the URI to your extension regardless of where it is actually running (local or remote). However, `vscode://` URIs will not work with VS Online's browser-based editor since opening these URIs in something like a browser would attempt to pass them to the local VS Code client rather than the browser-based editor. Fortunately, this can be easily remedied by using the `vscoode.env.asExternalUri` API.
+The Remote Development and Codespaces extensions in VS Code will transparently handle passing the URI to your extension regardless of where it is actually running (local or remote). However, `vscode://` URIs will not work with the Codespaces browser-based editor since opening these URIs in something like a browser would attempt to pass them to the local VS Code client rather than the browser-based editor. Fortunately, this can be easily remedied by using the `vscoode.env.asExternalUri` API.
 
 The `vscode.env.asExternalUri` API was added in VS Code 1.40. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -417,13 +421,13 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-When running this sample in VS Code, it wires up a `vscode://` or `vscode-insiders://` URI that can be used as a callback for an authentication provider. When running in VS Online's browser-based editor, it wires up a `https://*.online.visualstudio.com` URI without any code changes or special conditions.
+When running this sample in VS Code, it wires up a `vscode://` or `vscode-insiders://` URI that can be used as a callback for an authentication provider. When running in the Codespaces browser-based editor, it wires up a `https://*.online.visualstudio.com` URI without any code changes or special conditions.
 
 While OAuth is outside the scope of this document, note that if you adapted this sample to a real authentication provider, you may need to build a proxy service in front of the provider. This is because not all providers allow `vscode://` callback URIs and others do not allow wildcard host names for callbacks over HTTPS. We also recommend using an [OAuth 2.0 Authorization Code with PKCE flow](https://oauth.net/2/pkce/) wherever possible (e.g Azure AD supports PKCE) to improve the security of the callback.
 
-### Varying behaviors when running remotely or VS Online's browser editor
+### Varying behaviors when running remotely or in the Codespaces browser editor
 
-In some cases, your Workspace Extension may need to vary the behavior when running remotely. In others, you might want to vary its behavior when running in VS Online's browser-based editor. VS Code provides three APIs to detect these situations: `vscode.env.uiKind`, `extension.extensionKind`, and `vscode.env.remoteName`.
+In some cases, your Workspace Extension may need to vary the behavior when running remotely. In others, you might want to vary its behavior when running in the Codespaces browser-based editor. VS Code provides three APIs to detect these situations: `vscode.env.uiKind`, `extension.extensionKind`, and `vscode.env.remoteName`.
 
 The `vscode.env.uiKind` API was added to VS Code 1.40 while `extension.extensionKind` and `vscode.env.remoteName` were added in 1.36. To start, update the `engines.vscode` value in `package.json` to one of these versions and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -448,9 +452,9 @@ export async function activate(context: vscode.ExtensionContext) {
         vscode.window.showInformationMessage('I am running remotely!');
     }
 
-    // VS Online's browser-based editor will return UIKind.Web for uiKind
+    // Codespaces browser-based editor will return UIKind.Web for uiKind
     if (vscode.env.uiKind === vscode.UIKind.Web) {
-        vscode.window.showInformationMessage('I am running in the VS Online browser editor!');
+        vscode.window.showInformationMessage('I am running in the Codespaces browser editor!');
     }
 
     // VS Code will return undefined for remoteName if working with a local workspace
@@ -489,11 +493,11 @@ See the [command API guide](/api/extension-guides/command) for details on workin
 
 ## Using the Webview API
 
-Like the clipboard API, the [Webview API](/api/extension-guides/webview) is always run on the user's local machine or in the browser, even when used from a Workspace Extension. This means that many webview-based extensions should just work, even when used in remote workspaces or VS Online environments. However, there are some considerations to be aware of so that your webview extension works properly when run remotely.
+Like the clipboard API, the [Webview API](/api/extension-guides/webview) is always run on the user's local machine or in the browser, even when used from a Workspace Extension. This means that many webview-based extensions should just work, even when used in remote workspaces or Codespaces. However, there are some considerations to be aware of so that your webview extension works properly when run remotely.
 
 ### Always use asWebviewUri
 
-VS Code 1.39 introduced a new `asWebviewUri` API to manage extension resources. Using this API instead of hard coding `vscode-resource://` URIs is required to ensure the VS Online browser-based editor works with your extension. See the [Webview API](/api/extension-guides/webview) guide for details, but here is a quick example.
+VS Code 1.39 introduced a new `asWebviewUri` API to manage extension resources. Using this API instead of hard coding `vscode-resource://` URIs is required to ensure the Codespaces browser-based editor works with your extension. See the [Webview API](/api/extension-guides/webview) guide for details, but here is a quick example.
 
 To start, update the `engines.vscode` value in `package.json` to at least 1.39 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -531,13 +535,13 @@ panel.webview.html = `<!DOCTYPE html>
 
 The VS Code webview includes a [message passing](/api/extension-guides/webview#scripts-and-message-passing) API that allows you to dynamically update your webview content without the use of a local web server. Even if your extension is running some local web services that you want to interact with to update webview content, you can do this from the extension itself rather than directly from your HTML content.
 
-This is an important pattern for Remote Development and VS Online to ensure your webview code works both from VS Code and VS Online's browser-based editor.
+This is an important pattern for Remote Development and Visual Studio Codespaces to ensure your webview code works in both VS Code and the Codespaces browser-based editor.
 
 **Why message passing instead of a localhost web server?**
 
-The alternate pattern is to serve up web content in an `iframe` or have webview content directly interact with a localhost server. Unfortunately, by default, `localhost` inside a webview will resolve to a developer's local machine. This means that for a remotely running workspace extension, the webviews it creates would not be able to access local servers spawned by the extension. Even if you use the IP of the machine, the ports you are connecting to will typically be blocked by default in a cloud VM or a container. Even if this worked from VS Code, it would not work from VS Online's browser-based editor.
+The alternate pattern is to serve up web content in an `iframe` or have webview content directly interact with a localhost server. Unfortunately, by default, `localhost` inside a webview will resolve to a developer's local machine. This means that for a remotely running workspace extension, the webviews it creates would not be able to access local servers spawned by the extension. Even if you use the IP of the machine, the ports you are connecting to will typically be blocked by default in a cloud VM or a container. Even if this worked in VS Code, it would not work in the Codespaces browser-based editor.
 
-Here's an illustration of the problem when using the Remote - SSH extension, but the problem also exists for Remote - Containers and Visual Studio Online:
+Here's an illustration of the problem when using the Remote - SSH extension, but the problem also exists for Remote - Containers and Visual Studio Codespaces:
 
 ![Webview problem](images/remote-extensions/webview-problem.png)
 
@@ -545,7 +549,7 @@ If at all possible, **you should avoid doing this** since it complicates your ex
 
 ### Workarounds for using localhost from a webview
 
-If you can't use the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API for some reason, there are two options that will work with the Remote Development and Visual Studio Online extensions in VS Code. Unfortunately, neither of these options currently work with the VS Online browser-based editor due to [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11).
+If you can't use the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API for some reason, there are two options that will work with the Remote Development and Visual Studio Codespaces extensions in VS Code. Unfortunately, neither of these options currently work with the Codespaces browser-based editor due to [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11).
 
 Each option allows webview content to route through the same channel VS Code uses to talk to VS Code Server. For example, if we update the illustration in the previous section for Remote - SSH, you would have this:
 
@@ -553,9 +557,9 @@ Each option allows webview content to route through the same channel VS Code use
 
 ### Option 1 - Use asExternalUri
 
-VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local http and https requests remotely in a programmatic way. You can be use this same API to forward requests to localhost web servers from the webview when your extension is running in VS Code. In the future, if you intend to **only serve up content in an iframe**, you will be able to use this API to support VS Online's browser-based editor but this is **currently blocked** by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11).
+VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local http and https requests remotely in a programmatic way. You can be use this same API to forward requests to localhost web servers from the webview when your extension is running in VS Code. In the future, if you intend to **only serve up content in an iframe**, you will be able to use this API to support the Codespaces browser-based editor but this is **currently blocked** by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11).
 
-> **Note:** In addition to the issue above, currently the forwarding mechanism in VS Online's browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and VS Online extensions for the VS Code client do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
+> **Note:** In addition to the issue above, currently the forwarding mechanism in the Codespaces browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Codespaces extensions for the VS Code client do not have this limitation. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details.
 
 To start, update the `engines.vscode` value in `package.json` to at least 1.40 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -603,7 +607,7 @@ Note that any HTML content served up in the `iframe` in the example above **need
 
 ### Option 2 - Use a port mapping
 
-If you do **not intend to support VS Online's browser-based editor**, you can use the `portMapping` option available in the webview API. (This approach will also work with VS Online from the VS Code client, but not in the browser).
+If you do **not intend to support the Codespaces browser-based editor**, you can use the `portMapping` option available in the webview API. (This approach will also work with Codespaces from the VS Code client, but not in the browser).
 
 The port mapping API was added in VS Code 1.34. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
 
@@ -701,8 +705,8 @@ There are a few extension problems that could be resolved with some added functi
 
 | Problem | Description |
 |---------|-------------|
-| **Webview HTML content cannot directly access port forwarded servers in VS Online's browser-based editor** | Currently this is blocked by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). (Note that this does not affect the Remote Development or VS Online extensions for the VS Code client.) We generally suggest moving to the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API for webview content and interacting with any servers your extension spins up since this avoids the problem. In the future, we hope to allow local web server content [housed in an iframe](#webview-localhost-option-2---use-asexternaluri) to work from a webview. |
-| **Websockets do not work in port forwarded content in VS Online's browser-based editor** | Currently, only the http and https protocols are supported by VS Online's browser-based forwarding mechanism. Web sockets and other protocols will not work even if served up in web content. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details. (Note that this does not affect the Remote Development or VS Online extensions for the VS Code client.) |
+| **Webview HTML content cannot directly access port forwarded servers in Codespaces browser-based editor** | Currently this is blocked by [MicrosoftDocs/vsonline#11](https://github.com/MicrosoftDocs/vsonline/issues/11). (Note that this does not affect the Remote Development or Codespaces extensions for the VS Code client.) We generally suggest moving to the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API for webview content and interacting with any servers your extension spins up since this avoids the problem. In the future, we hope to allow local web server content [housed in an iframe](#webview-localhost-option-2---use-asexternaluri) to work from a webview. |
+| **Websockets do not work in port forwarded content in Codespaces browser-based editor** | Currently, only the http and https protocols are supported by Codespaces browser-based forwarding mechanism. Web sockets and other protocols will not work even if served up in web content. See [MicrosoftDocs/vsonline#19](https://github.com/MicrosoftDocs/vsonline/issues/19) for details. (Note that this does not affect the Remote Development or Codespaces extensions for the VS Code client.) |
 | **Cannot access / transfer remote workspace files to local machine** | Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem. |
 | **Cannot access attached devices from Workspace extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. We are investigating the best approach to solve this problem. |
 

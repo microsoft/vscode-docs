@@ -136,7 +136,7 @@ If you don't already have a `jsconfig.json` file in your workspace, add a `jscon
 
 ## Languages - C&#35;
 
-C# language support is now an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). You can install it from within VS Code by searching for 'C#':
+C# language support is now an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp). You can install it from within VS Code by searching for 'C#':
 
 ![Installing C# extension](images/February/ext-csharp.png)
 

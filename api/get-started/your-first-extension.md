@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Create your first Visual Studio Code extension (plug-in) with a simple Hello World example.
@@ -59,12 +59,12 @@ You should see the updated message showing up.
 Here are some ideas for you to try:
 
 - Give the `Hello World` command a new name in the Command Palette.
-- [Contribute](/api/references/contribution-points) another command that displays current time in an information message.
+- [Contribute](/api/references/contribution-points) another command that displays current time in an information message. Contribution points are static declarations you make in the package.json Extension Manifest to extend VS Code, such as adding commands, menus, or keybindings to your extension.
 - Replace the `vscode.window.showInformationMessage` with another [VS Code API](/api/references/vscode-api) call to show a warning message.
 
 ## Debugging the extension
 
-VS Code's built-in debugging functionality makes it easy to debug extensions. Set a breakpoint by clicking the gutter next to a line, and VS Code will hit the breakpoint. You can hover over variables in the editor or use the Debug View in the left to check a variable's value. The Debug Console allows you to evaluate expressions.
+VS Code's built-in debugging functionality makes it easy to debug extensions. Set a breakpoint by clicking the gutter next to a line, and VS Code will hit the breakpoint. You can hover over variables in the editor or use the Run view in the left to check a variable's value. The Debug Console allows you to evaluate expressions.
 
 <video autoplay loop muted playsinline controls title="Debug VS Code extension video">
   <source src="/api/get-started/your-first-extension/debug.mp4" type="video/mp4">

@@ -1,10 +1,10 @@
 ---
-Order: 13
+Order: 14
 Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Using Emmet abbreviations inside Visual Studio Code.
 ---
 # Emmet in Visual Studio Code
@@ -13,7 +13,7 @@ Emmet support is built right into Visual Studio Code, **no extension is required
 
 ## How to expand Emmet abbreviations and snippets
 
-Emmet abbreviation and snippet expansions are enabled by default in `html`, `haml`, `jade`, `slim`, `jsx`, `xml`, `xsl`, `css`, `scss`, `sass`, `less` and `stylus` files. As well as any language that inherits from any of the above like `handlebars` and `php`.
+Emmet abbreviation and snippet expansions are enabled by default in `html`, `haml`, `pug`, `slim`, `jsx`, `xml`, `xsl`, `css`, `scss`, `sass`, `less` and `stylus` files, as well as any language that inherits from any of the above like `handlebars` and `php`.
 
 ![Emmet in suggestion/auto-completion list](images/emmet/emmet.gif)
 
@@ -63,11 +63,11 @@ For example:
     "javascript": "javascriptreact",
     "vue-html": "html",
     "razor": "html",
-    "plaintext": "jade"
+    "plaintext": "pug"
 }
 ```
 
-Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non HTML/CSS context. To avoid this, you can use the following setting.
+Emmet has no knowledge of these new languages, and so there might be Emmet suggestions showing up in non HTML/CSS contexts. To avoid this, you can use the following setting.
 
 ```json
 "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly"
@@ -178,7 +178,7 @@ Below is an example for the contents of this `snippets.json` file.
 {
     "html": {
         "snippets": {
-            "ull": "ul>li[id=${1} class=${2}]*2{ Will work with html, jade, haml and slim }",
+            "ull": "ul>li[id=${1} class=${2}]*2{ Will work with html, pug, haml and slim }",
             "oll": "<ol><li id=${1} class=${2}> Will only work in html </ol>",
             "ran": "{ Wrap plain text in curly braces }"
         }
@@ -204,9 +204,9 @@ Cursor location | `${cursor}` or `|` can be used | Use only textmate syntax like
 
 ### HTML Emmet snippets
 
-HTML custom snippets are applicable to all other markup flavors like `haml` or `jade`. When snippet value is an abbreviation and not actual HTML, the appropriate transformations can be applied to get the right output as per the language type.
+HTML custom snippets are applicable to all other markup flavors like `haml` or `pug`. When snippet value is an abbreviation and not actual HTML, the appropriate transformations can be applied to get the right output as per the language type.
 
-For example, for an unordered list with a list item, if your snippet value is `ul>li`, you can use the same snippet in `html`, `haml`, `jade` or `slim`, but if your snippet value is `<ul><li></li></ul>`, then it will work only in `html` files.
+For example, for an unordered list with a list item, if your snippet value is `ul>li`, you can use the same snippet in `html`, `haml`, `pug` or `slim`, but if your snippet value is `<ul><li></li></ul>`, then it will work only in `html` files.
 
 If you want a snippet for plain text, then surround the text with the `{}`.
 
@@ -241,7 +241,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     "emmet.includeLanguages": {
         "javascript": "javascriptreact",
         "vue-html": "html",
-        "plaintext": "jade"
+        "plaintext": "pug"
     }
     ```
 

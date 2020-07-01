@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Network
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
 PageTitle: Setup Visual Studio Code's Network Connection
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Setup VS Code's Network Connection.
 ---
 # Network Connections in Visual Studio Code
@@ -23,6 +23,7 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `vscode.blob.core.windows.net`
 * `marketplace.visualstudio.com`
 * `*.gallery.vsassets.io`
+* `*.gallerycdn.vsassets.io`
 * `rink.hockeyapp.net`
 * `vscode.search.windows.net`
 * `raw.githubusercontent.com`
@@ -85,9 +86,9 @@ See [Chromium HTTP authentication](https://www.chromium.org/developers/design-do
 
 Often HTTPS proxies rewrite SSL certificates of the incoming requests. Chromium was designed to reject responses which are signed by certificates which it doesn't trust. If you hit any SSL trust issues, there are a few options available for you:
 
-* Since Chromium simply uses the OS's certificate trust infrastructure, the preferred option is to add your proxy's certificate to your OS's trust chain. See the [Chromium Root Certificate Policy](https://www.chromium.org/Home/chromium-security/root-ca-policy) documentation to learn more.
-* If your proxy runs in `localhost`, you can always try the [`--allow-insecure-localhost`](https://peter.sh/experiments/chromium-command-line-switches/#allow-insecure-localhost) command-line flag.
-* If all else fails, you can tell VS Code to ignore all certificate errors using the [`--ignore-certificate-errors`](https://peter.sh/experiments/chromium-command-line-switches/#ignore-certificate-errors) command-line flag. **Warning:** This is **dangerous** and **not recommended**, since it opens the door to security issues.
+* Since Chromium uses the OS's certificate trust infrastructure, the preferred option is to add your proxy's certificate to your OS's trust chain. See the [Chromium Root Certificate Policy](https://www.chromium.org/Home/chromium-security/root-ca-policy) documentation to learn more.
+* If your proxy runs in `localhost`, you can always try the [--allow-insecure-localhost](https://peter.sh/experiments/chromium-command-line-switches/#allow-insecure-localhost) command-line flag.
+* If all else fails, you can tell VS Code to ignore all certificate errors using the [--ignore-certificate-errors](https://peter.sh/experiments/chromium-command-line-switches/#ignore-certificate-errors) command-line flag. **Warning:** This is **dangerous** and **not recommended**, since it opens the door to security issues.
 
 ## Legacy proxy server support
 

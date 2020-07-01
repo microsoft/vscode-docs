@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
@@ -256,7 +256,7 @@ npm install gulp gulp-markdown-it
 
 > **Note:** gulp-markdown-it is a Gulp plug-in for the **markdown-it** module we were using before. There are many other Gulp Markdown plug-ins you can use, as well as plug-ins for Grunt.
 
-You can test that your gulp installation was successful but typing `gulp -v`. You should see a version displayed for both the global (CLI) and local installations.
+You can test that your gulp installation was successful by typing `gulp -v`. You should see a version displayed for both the global (CLI) and local installations.
 
 ### Step 2: Create a simple Gulp task
 
@@ -276,8 +276,8 @@ gulp.task('markdown', function() {
         }));
 });
 
-gulp.task('default', ['markdown'], function() {
-    gulp.watch('**/*.md', ['markdown']);
+gulp.task('default', function() {
+    return gulp.watch('**/*.md', gulp.series(['markdown']));
 });
 ```
 

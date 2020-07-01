@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Working with JavaScript
 PageTitle: Working with JavaScript in Visual Studio Code
 ContentId: 3e5af2a6-7669-4b5d-b19f-78077af14fda
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Working with JavaScript in Visual Studio Code
 ---
 # Working with JavaScript
@@ -41,7 +41,7 @@ Type declaration files are automatically downloaded and managed by Visual Studio
 }
 ```
 
-You can alternately explicitly list packages to acquire type declaration files for in a [`jsconfig.json`](#_javascript-projects-jsconfigjson).
+You can alternately explicitly list packages to acquire type declaration files for in a [jsconfig.json](#_javascript-projects-jsconfigjson).
 
 ```json
 {
@@ -57,7 +57,7 @@ Most common JavaScript libraries ship with declaration files or have type declar
 
 ### Fixing npm not installed warning for Automatic Type Acquisition
 
-[Automatic Type Acquisition](#automatic-type-acquisition) uses [npm](https://www.npmjs.com), the Node.js package manager, to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
+[Automatic Type Acquisition](#typings-and-automatic-type-acquisition) uses [npm](https://www.npmjs.com), the Node.js package manager, to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
 
 Run `npm --version` from a terminal or command prompt to quickly check that npm is installed and available.
 

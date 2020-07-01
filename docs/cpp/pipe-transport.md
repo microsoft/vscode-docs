@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order:
 Area: cpp
 TOCTitle: Pipe transport
 ContentId: 59BE5FF7-563F-4044-A562-294E75A75F96
@@ -9,7 +9,7 @@ MetaDescription: How to set up pipe transport for debugging C++ code in Visual S
 ---
 # Pipe transport
 
-Pipe transport allows communication through a pipe program to a remote shell. An example on Linux would be `ssh`. With the introduction of [Visual Studio Code Remote Development](/docs/remote/remote-overview.md) pipe transport is relevant primarily for IoT scenarios.
+Pipe transport allows communication through a pipe program to a remote shell. For example, `ssh` on Linux. With the introduction of [Visual Studio Code Remote Development](/docs/remote/remote-overview.md) pipe transport is relevant primarily for IoT scenarios.
 
 ## How-To
 
@@ -49,7 +49,7 @@ The `pipeTransport` can also be used to debug a process in a Docker container. F
 
 ```json
 "pipeTransport": {
-    "pipeCwd": "${workspaceRoot}",
+    "pipeCwd": "${workspaceFolder}",
     "pipeProgram": "docker",
     "pipeArgs": [
         "exec",

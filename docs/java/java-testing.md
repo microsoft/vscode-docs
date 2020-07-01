@@ -1,7 +1,7 @@
 ---
-Order: 4
+Order: 8
 Area: java
-TOCTitle: Unit Testing
+TOCTitle: Testing
 ContentId: 82be3b78-2c09-4571-abec-69f95f111e0f
 PageTitle: Java Unit Tests in Visual Studio Code
 DateApproved: 6/17/2019
@@ -72,7 +72,7 @@ Here's a brief session with TestNG:
 
 ![Run from Codelens](images/java-testing/run_codelens.png)
 
-- The extension will generate `Run Test` and `Debug Test` shortcuts (also known as CodeLens) above the class and method definition. Simply click on them will start running or debugging the target test cases.
+- The extension will generate **Run Test** and **Debug Test** shortcuts (also known as CodeLens) above the class and method definition. Select them to start running or debugging the target test cases.
 
 > Note: If you cannot see the CodeLens in your editor, please refer to this [issue comment](https://github.com/Microsoft/vscode-java-test/issues/470#issuecomment-444681714) as a workaround.
 
@@ -101,6 +101,10 @@ Here's a brief session with TestNG:
 - You can also click the ✔️ or ❌ mark in the CodeLens to open the Test Report.
 
 ![Report Navigation](images/java-testing/report_navigate.png)
+
+- For a quick peek of the test status or results, you can see them in the Test Explorer directly.
+
+![Test Status in Explorer](images/java-testing/test-status.png)
 
 - You can navigate to the source location of the target test case by clicking the navigate button.
 
@@ -132,5 +136,5 @@ Visit the [GitHub repository](https://github.com/Microsoft/vscode-java-test) of 
 
 Read on to find out about:
 
-* [Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
-* [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+- [Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
+- [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

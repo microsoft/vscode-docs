@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Telemetry
 PageTitle: Visual Studio Code Telemetry
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Learn about Visual Studio Code collected telemetry and how to opt out.
 ---
 # Telemetry
@@ -79,7 +79,7 @@ You can find more information about how the Visual Studio family approaches GDPR
 
 ## Managing online services
 
-Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, or providing Natural Language Search within the Settings editor. You can choose to turn on/off features that use these services.
+Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, Settings Sync, or providing Natural Language Search within the Settings editor. You can choose to turn on/off features that use these services.
 
 Please note, that turning off these features does not put VS Code into offline mode. For example, if you search for extensions in the **Extensions** view, VS Code still searches the online VS Code Marketplace. The settings ensure that VS Code does not talk to online services without you requesting it.
 
@@ -89,7 +89,7 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 > **Note**: VS Code extensions may also use online services and may not provide settings to configure the usage of these online services, or they may not register their settings to show up when searching for `@tag:usesOnlineServices`. Consult the specific extension's documentation to learn about its usage of online services.
 
-### non-Microsoft online services used by VS Code
+### Non-Microsoft online services used by VS Code
 
 The built-in **npm support for VS Code** extension sends requests to `https://registry.npmjs.org` and `https://registry.bower.io`.
 

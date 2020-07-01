@@ -4,13 +4,13 @@ Area: nodejs
 TOCTitle: Angular Tutorial
 ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
 PageTitle: Angular JavaScript Tutorial in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Angular JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/angular/Welcome-to-app.png
 ---
 # Using Angular in Visual Studio Code
 
-[Angular](https://angular.io/) is a popular JavaScript library for building web application user interfaces developed by Google. The Visual Studio Code editor supports Angular IntelliSense and code navigation out of the box.
+[Angular](https://angular.io/) is a popular JavaScript library developed by Google for building web application user interfaces. The Visual Studio Code editor supports Angular IntelliSense and code navigation out of the box.
 
 ![Welcome to app](images/angular/Welcome-to-app.png)
 
@@ -70,7 +70,7 @@ You can click the information button (`i`) to see a flyout with more documentati
 
 ![angular intellisense](images/angular/intellisense.png)
 
-VS Code uses the TypeScript language service for code intelligence ([IntelliSense](/docs/editor/intellisense.md)) and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+VS Code uses the TypeScript language service for code intelligence ([IntelliSense](/docs/editor/intellisense.md)) and it has a feature called [Automatic Type Acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
 
 ### Go to Definition, Peek definition
 
@@ -123,7 +123,7 @@ To set a breakpoint in `app.component.ts`, click on the gutter to the left of th
 
 ### Configure the Chrome debugger
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on the gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** drop-down list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
+We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Run view (`kb(workbench.view.debug)`) and click on the gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** drop-down list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
 We need to make one change for our example: change the port of the `url` from `8080` to `4200`. Your `launch.json` should look like this:
 

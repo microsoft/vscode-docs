@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -77,6 +77,16 @@ You can install a previous release of VS Code by uninstalling your current versi
 
 >**Note:** On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md).
 
+### Opt out of extension updates
+
+By default, VS Code will also auto-update extensions as new versions become available. If you do not want extensions to automatically update, you can clear the **Extensions: Auto Update** check box in the Settings editor (`kb(workbench.action.openSettings)`).
+
+If you use the JSON editor to modify your settings, add the following line:
+
+```json
+    "extensions.autoUpdate": false
+```
+
 ## Licensing
 
 ### Location
@@ -98,6 +108,16 @@ See the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/mic
 ### What does "Built on Open Source" mean?
 
 [Microsoft Visual Studio Code](https://code.visualstudio.com) is a [Microsoft licensed](https://code.visualstudio.com/License/) distribution of ['Code - OSS'](https://github.com/Microsoft/vscode) that includes Microsoft proprietary assets (such as icons) and features (Visual Studio Marketplace integration, small aspects of enabling Remote Development). While these additions make up a very small percentage of the overall distribution code base, it is more accurate to say that Visual Studio Code is "built" on open source, rather than "is" open source, because of these differences. More information on what each distribution includes can be found in the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) article.
+
+### How do I find the license for an extension?
+
+Most extensions link to their license on their Marketplace page or in the overview section, when you select an extension in the Extensions view.
+
+For example:
+
+![Extensions view details license link](images/faq/extensions-view-license-link.png)
+
+If you don't find a link to the license, you may find a license in the extension's repository if it is public, or you can contact the extension author through the Q & A section of the Marketplace.
 
 ## Are all VS Code extensions open source?
 
@@ -151,23 +171,11 @@ The Electron shell used by Visual Studio Code has trouble with some GPU (graphic
 code --disable-gpu
 ```
 
-## Blurriness on macOS Mojave
-
-If you have updated to macOS 10.14 (Mojave), you might have noticed that fonts in VS Code look blurry if you are not using a high-DPI monitor.
-
-A workaround for this is to run:
-
-```bash
-defaults write com.microsoft.VSCode.helper CGFontRenderingFontSmoothingDisabled -bool NO
-```
-
-from a terminal followed by restarting your computer.
-
-Note that this change is global for every application and not specific to VS Code. See [issue #51132](https://github.com/Microsoft/vscode/issues/51132) for the related discussion.
-
 ## Installation appears to be corrupt [Unsupported]
 
-VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text '[Unsupported]' in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. [Reinstalling VS Code](/download) will replace the modified files and silence the warning.
+VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text **[Unsupported]** in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. [Reinstalling VS Code](/download) will replace the modified files and silence the warning.
+
+You may also see the **[Unsupported]** message if VS Code files have been mistakenly quarantined or removed by anti-virus software (see issue [#94858](https://github.com/microsoft/vscode/issues/94858) for an example). Check your anti-virus software settings and reinstall VS Code to repair the missing files.
 
 ## Technical Support
 

@@ -1,10 +1,10 @@
 ---
-Order: 9
+Order: 10
 Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -39,24 +39,24 @@ You can also split the terminal by triggering the `kb(workbench.action.terminal.
 
 When focusing a split terminal pane, you can move focus and resize using one of the following commands:
 
-Key|Command
----|---
-`kb(workbench.action.terminal.focusPreviousPane)` | Focus Previous Pane
-`kb(workbench.action.terminal.focusNextPane)` | Focus Next Pane
-`kb(workbench.action.terminal.resizePaneLeft)` | Resize Pane Left
-`kb(workbench.action.terminal.resizePaneRight)` | Resize Pane Right
-`kb(workbench.action.terminal.resizePaneUp)` | Resize Pane Up
-`kb(workbench.action.terminal.resizePaneDown)` | Resize Pane Down
+Key|Command|
+---|---|
+`kb(workbench.action.terminal.focusPreviousPane)` | Focus Previous Pane |
+`kb(workbench.action.terminal.focusNextPane)` | Focus Next Pane |
+`kb(workbench.action.terminal.resizePaneLeft)` | Resize Pane Left |
+`kb(workbench.action.terminal.resizePaneRight)` | Resize Pane Right |
+`kb(workbench.action.terminal.resizePaneUp)` | Resize Pane Up |
+`kb(workbench.action.terminal.resizePaneDown)` | Resize Pane Down |
 
 ## Configuration
 
 The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10 and cmd.exe on earlier versions of Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in user [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell using the `terminal.integrated.shellArgs.*` user settings.
 
->**Note:** For [enhanced security](/docs/getstarted/settings.md#settings-and-security), such settings can only be defined in user settings and not at workspace scope.
+>**Note:** These settings won't work automatically in the workspace scope, you must whitelist the _workspace_ to allow setting your shell, shell args and it's environment using the `Terminal: Manage Workspace Shell Permissions` command.
 
 ### Windows
 
-For Windows there is a convenient shell selector located inside the terminal dropdown that lets you choose between several detected shells including Command Prompt, PowerShell, PowerShell Core, Git Bash and WSL Bash. The **Terminal: Select Default Shell** command is also available through the Command Palette if you prefer to access it there.
+For Windows, there is a convenient shell selector located inside the terminal dropdown that lets you choose between several detected shells including Command Prompt, PowerShell, PowerShell Core, Git Bash and WSL Bash. The **Terminal: Select Default Shell** command is also available through the Command Palette if you prefer to access it there.
 
 Just like on other platforms you can fine tune the exact executable used in your settings file, for example:
 
@@ -88,7 +88,7 @@ For example, to enable running bash as a login shell (which runs `.bash_profile`
 
 ### Using variables
 
-The `shell`, `shellArgs`, `env` and `cwd` terminal settings all support resolving [variables](https://code.visualstudio.com/docs/editor/variables-reference):
+The `shell`, `shellArgs`, `env`, and `cwd` terminal settings all support resolving [variables](https://code.visualstudio.com/docs/editor/variables-reference):
 
 ```json
 // Open the terminal in the currently opened file's directory
@@ -111,17 +111,17 @@ The **View: Toggle Integrated Terminal** command is bound to `kb(workbench.actio
 
 Below are the keyboard shortcuts to quickly navigate within the integrated terminal:
 
-Key|Command
----|---
-`kb(workbench.action.terminal.toggleTerminal)`|Show integrated terminal
-`kb(workbench.action.terminal.new)`|Create new terminal
-`kb(workbench.action.terminal.scrollUp)`|Scroll up
-`kb(workbench.action.terminal.scrollDown)`|Scroll down
-`kb(workbench.action.terminal.scrollUpPage)`|Scroll page up
-`kb(workbench.action.terminal.scrollDownPage)`|Scroll page down
-`kb(workbench.action.terminal.scrollToTop)`|Scroll to top
-`kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom
-`kb(workbench.action.terminal.clear)`|Clear the terminal
+Key|Command|
+---|---|
+`kb(workbench.action.terminal.toggleTerminal)`|Show integrated terminal|
+`kb(workbench.action.terminal.new)`|Create new terminal|
+`kb(workbench.action.terminal.scrollUp)`|Scroll up|
+`kb(workbench.action.terminal.scrollDown)`|Scroll down|
+`kb(workbench.action.terminal.scrollUpPage)`|Scroll page up|
+`kb(workbench.action.terminal.scrollDownPage)`|Scroll page down|
+`kb(workbench.action.terminal.scrollToTop)`|Scroll to top|
+`kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom|
+`kb(workbench.action.terminal.clear)`|Clear the terminal|
 
 Other terminal commands are available and can be bound to your preferred keyboard shortcuts, such as:
 
@@ -180,7 +180,7 @@ By default, when a chord keybinding is the highest priority keybinding it will a
 
 ### Find
 
-The Integrated Terminal has basic find functionality which can be triggered with `kb(workbench.action.terminal.focusFindWidget)`.
+The Integrated Terminal has basic find functionality that can be triggered with `kb(workbench.action.terminal.focusFindWidget)`.
 
 If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find widget on Linux and Windows, you will need to remove the keybinding like so:
 
@@ -221,8 +221,8 @@ This feature supports [variable substitution](/docs/editor/variables-reference.m
 
 Note that the command only works with the `\u0000` format for using characters via their character code (not `\x00`). You can read more about these hex code and the sequences terminals work with on the following resources:
 
-- [XTerm Control Sequences](http://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
-- [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
+* [XTerm Control Sequences](http://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
+* [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
 
 ## Rename terminal sessions
 
@@ -263,7 +263,7 @@ You can set `terminal.integrated.automationShell.<platform>` to override the she
 
 ## Changing how the terminal is rendered
 
-By default, the integrated terminal will render using multiple `<canvas>` elements which are better tuned than the DOM for rendering interactive text that changes often. However, Electron/Chromium are slower at rendering to canvas on some environments so VS Code also provides a fallback DOM-renderer experience. VS Code will try to detect slow performance and give you the option to change via a notification. You can also change the rendering directly by setting `terminal.integrated.rendererType` in your user or workspace [settings](/docs/getstarted/settings.md).
+By default, the integrated terminal will render using multiple `<canvas>` elements, which are better tuned than the DOM for rendering interactive text that changes often. However, Electron/Chromium are slower at rendering to canvas on some environments so VS Code also provides a fallback DOM-renderer experience. VS Code will try to detect slow performance and give you the option to change via a notification. You can also change the rendering directly by setting `terminal.integrated.rendererType` in your user or workspace [settings](/docs/getstarted/settings.md).
 
 ```js
 {
@@ -291,17 +291,17 @@ The basics of the terminal have been covered in this document, read on to find o
 
 ## Common questions
 
+### I'm having problems launching the terminal
+
+There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) for these sorts of problems.
+
 ### Can I use the integrated terminal with the Windows Subsystem for Linux?
 
-Yes, you can select the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL) bash shell as your terminal default. If you have WSL enabled (through Windows Features), you can select **WSL Bash** from the terminal **Select Default Shell** drop down. See [Developing in WSL](/docs/remote/wsl.md) for details on working in WSL and the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
+Yes, you can select the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL) bash shell as your terminal default. If you have WSL enabled (through Windows Features), you can select **WSL Bash** from the terminal **Select Default Shell** dropdown. See [Developing in WSL](/docs/remote/wsl.md) for details on working in WSL and the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
 
 ### Why is VS Code shortcut X not working when the terminal has focus?
 
-Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. Some examples are `kbstyle(F1)` to open the **Command Palette** and `kbstyle(Ctrl+P)` for **Quick Open** on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. You can use the `terminal.integrated.commandsToSkipShell` setting to prevent specific key bindings from being handled by the terminal.
-
-### Integrated terminal exited with code 1 on Windows 10
-
-This can happen if you run VS Code in compatibility mode which may be turned on automatically if you have upgraded Windows. You can change this by right-clicking the executable and selecting properties, then uncheck "Run this program in compatibility mode" in the compatibility tab.
+Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. An example of this is `kbstyle(Ctrl+B)` to open the Side Bar on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. You can use the `terminal.integrated.commandsToSkipShell` setting to prevent specific key bindings from being handled by the terminal.
 
 ### Can I use Cmder's shell with the terminal on Windows?
 
@@ -316,7 +316,7 @@ You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-
 
 ### PowerShell on macOS is complaining about a "-l" argument, how do I fix it?
 
-When configuring the integrated terminal to use PowerShell on macOS you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
+When configuring the integrated terminal to use PowerShell on macOS, you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
 
 ```js
 "terminal.integrated.shellArgs.osx": []
@@ -334,17 +334,9 @@ For example, if you have set your default terminal to bash, you will find `termi
 
 Remove the entry to use the built-in VS Code default or set it to another shell executable path.
 
-### Why is the terminal not working when running the 32-bit Windows client on 64-bit Windows?
-
-The easy fix for this is to use the 64-bit version. If you must use the 32-bit version you need to use the `sysnative` path when configuring your paths instead of `System32`:
-
-```json
-"terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
-```
-
 ### Why is Cmd+k/Ctrl+k not clearing the terminal?
 
-Normally `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` clears the terminal on macOS/Windows, but this can stop working when chord keybindings are added either by the user or extensions. The `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` keybindings rely on the VS Code keybinding priority system which defines which keybinding is active at any given time (user > extension > default). In order to fix this, you need to redefine your user keybinding which will have priority, preferably at the bottom of your user `keybindings.json` file:
+Normally `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` clears the terminal on macOS/Windows, but this can stop working when chord keybindings are added either by the user or extensions. The `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` keybindings rely on the VS Code keybinding priority system that defines which keybinding is active at any given time (user > extension > default). In order to fix this, you need to redefine your user keybinding that will have priority, preferably at the bottom of your user `keybindings.json` file:
 
 macOS:
 
@@ -371,7 +363,7 @@ Run `npm config delete prefix` or `nvm use --delete-prefix v8.9.1 --silent` to u
 
 This is mostly a macOS problem and does not happen in external terminals. The typical reasons for this are the following:
 
-* `npm` was globally installed using another instance of `node` which is somewhere in your path (such as `/usr/local/bin/npm`).
+* `npm` was globally installed using another instance of `node` that is somewhere in your path (such as `/usr/local/bin/npm`).
 * In order to get the development tools on the `$PATH`, VS Code will launch a bash login shell on start up. This means that your `~/.bash_profile` has already run and when an Integrated Terminal launches, it will run **another** login shell, reordering the `$PATH` potentially in unexpected ways.
 
 To resolve this issue, you need to track down where the old `npm` is installed and remove both it and its out of date node_modules. You can do this by finding the `nvm` initialization script and running `which npm` before it runs, which should print the path when you launch a new terminal.
@@ -392,8 +384,8 @@ This will give you the resolved path at the end:
 From there, removing the files and relaunching VS Code should fix the issue:
 
 ```bash
-rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
-rm -R /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
+rm /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
+rm /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
 ```
 
 ### Can I use Powerline fonts in the Integrated Terminal?
@@ -423,18 +415,29 @@ By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. You can co
 }
 ```
 
-### How do I fix the error "ConnectNamedPipe failed: Windows error 232"
-
-This error can occur due to anti-virus software intercepting winpty from creating a pty. To workaround this error, you can exclude the following file from your anti-virus scanning:
-
-```bash
-<install_path>\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty-agent.exe
-```
-
-### How do I fix when a terminal exits with error code 3221225786 on Windows?
-
-This happens when you have legacy console mode enabled in conhost's properties. To change this, open `cmd.exe`, right click the title bar, go to **Properties** and under the **Options** tab, uncheck **Use legacy console**.
-
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
 
 The terminal can have problems rendering in some environments, for example you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.rendererType": "dom"` to avoid using the canvas in the terminal.
+
+### Why are there duplicate paths in the terminal's `$PATH` environment variable and/or why are they reversed?
+
+This can happen on macOS because of how the terminal launches using VS Code's environment. When VS Code launches for the first time, in order to source your "development environment", it launches your configured shell as a **login shell**, which runs your `~/.profile`/`~/.bash_profile`/`~/.zprofile` scripts. Now when the terminal launches, it also runs as a login shell, which will put the standard paths to the front (for example, `/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin`) and reinitialize your shell environment.
+
+To get a better understanding, you can simulate what is happening by launching an inner login shell within your operating system's built-in terminal:
+
+```sh
+# Add /test to the beginning of $PATH
+export PATH=/test:$PATH
+# Echo $PATH, /test should be at the beginning
+echo $PATH
+# Run bash as a login shell
+bash -l
+# Echo $PATH, the values should be jumbled
+echo $PATH
+```
+
+Unfortunately, unlike in Linux, standalone macOS terminals all run as login shells by default, since macOS does not run a login shell when the user logs into the system. This encourages "bad behavior", like initializing aliases in your profile script when they should live in your `rc` script as that runs on non-login shells.
+
+There are two direct fixes for this. You can set `"terminal.integrated.inheritEnv": false`, which will strip most environment variables from the terminal's environment, except for some important ones (like `HOME`, `SHELL`, `TMPDIR`, etc.).
+
+The other fix is to no longer run a login shell in the terminal by setting `"terminal.integrated.shellArgs": []`. If you go with this fix, you will want to make sure any aliases in your profile scripts are moved over to your `~/.bashrc`/`~/.zshrc` file since aliases only apply to the shell they're set in.

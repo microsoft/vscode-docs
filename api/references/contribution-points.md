@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -21,6 +21,8 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`breakpoints`](/api/references/contribution-points#contributes.breakpoints)
 - [`grammars`](/api/references/contribution-points#contributes.grammars)
 - [`themes`](/api/references/contribution-points#contributes.themes)
+- [`iconThemes`](/api/references/contribution-points#contributes.iconThemes)
+- [`productIconThemes`](/api/references/contribution-points#contributes.productIconThemes)
 - [`snippets`](/api/references/contribution-points#contributes.snippets)
 - [`jsonValidation`](/api/references/contribution-points#contributes.jsonValidation)
 - [`views`](/api/references/contribution-points#contributes.views)
@@ -194,17 +196,44 @@ You can also provide an `enumDescriptions` property, which provides descriptive 
 }
 ```
 
+You can also use `markdownEnumDescriptions`, and your descriptions will be rendered as markdown.
+
+**deprecationMessage** / **markdownDeprecationMessage**
+
+If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. It won't show up in the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as markdown in the settings UI.
+
+Example:
+
+```json
+{
+  "json.colorDecorators.enable": {
+    "type": "boolean",
+    "description": "Enables or disables color decorators",
+    "markdownDeprecationMessage": "**Deprecated**: Please use `#editor.colorDecorators#` instead.",
+    "deprecationMessage": "Deprecated: Please use editor.colorDecorators instead."
+  }
+}
+```
+
 **Other JSON Schema properties**
 
-You can use any the properties defined by JSON Schema to describe other constraints on configuration values.
+You can use any of the validation JSON Schema properties to describe other constraints on configuration values:
 
 - `default` for defining the default value of a property
 - `minimum` and `maximum` for restricting numeric values
 - `maxLength`, `minLength` for restricting string length
 - `pattern` for restricting strings to a given regular expression
+- `patternErrorMessage` for giving a tailored error message when a pattern does not match.
 - `format` for restricting strings to well-known formats, such as `date`, `time`, `ipv4`, `email`,
   and `uri`
 - `maxItems`, `minItems` for restricting array length
+
+**Unsupported JSON Schema properties**
+
+Note supported in the configuration section are:
+
+- `$ref` and `definition`: The configuration schemas needs to be self-contained and can not make assumptions how the aggregated settings JSON schema document looks like.
+
 
 For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/understanding-json-schema/reference/index.html).
 
@@ -217,6 +246,7 @@ A configuration setting can have one of the following possible scopes:
 - `machine-overridable` - Machine specific settings that can be overridden by workspace or folder settings.
 - `window` - Windows (instance) specific settings which can be configured in user, workspace, or remote settings.
 - `resource` - Resource settings, which apply to files and folders, and can be configured in all settings levels, even folder settings.
+- `language-overridable` - Resource settings that can be overridable at a language level.
 
 Configuration scopes determine when a setting is available to the user through the Settings editor and whether the setting is applicable. If no `scope` is declared, the default is `window`.
 
@@ -247,6 +277,22 @@ Below are example configuration scopes from the built-in Git extension:
 ```
 
 You can see that `git.alwaysSignOff` has `resource` scope and can be set per user, workspace, or folder, while the ignored repositories list with `window` scope applies more globally for the VS Code window or workspace (which might be multi-root).
+
+**Linking to settings**
+
+You can insert a link to another setting, which will be rendered as a clickable link in the settings UI, by using this special syntax in the markdown-type properties: ``` `#target.setting.id#` ```. This will work in `markdownDescription`, `markdownEnumDescriptions`, and `markdownDeprecationMessage`. Example:
+
+```json
+  "files.autoSaveDelay": {
+    "markdownDescription": "Controls the delay in ms after which a dirty editor is saved automatically. Only applies when `#files.autoSave#` is set to `afterDelay`.",
+    // ...
+  }
+```
+
+In the settings UI, this is rendered as:
+
+![setting link example](images/contribution-points/setting-link.png)
+
 
 ## contributes.configurationDefaults
 
@@ -330,6 +376,7 @@ Currently extension writers can contribute to:
 - The editor title menu bar - `editor/title`
 - The editor title context menu - `editor/title/context`
 - The debug callstack view context menu - `debug/callstack/context`
+- The debug callstack view inline actions - `debug/callstack/context` group `inline`
 - The debug toolbar - `debug/toolbar`
 - The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
 - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
@@ -338,10 +385,13 @@ Currently extension writers can contribute to:
 - The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
 - The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
 - The macOS Touch Bar - `touchBar`
-- The comment thread title - `comments/commentThread/title`
-- The comment thread actions - `comments/commentThread/context`
-- The comment title - `comments/comment/title`
-- The comment actions - `comments/comment/context`
+- The comment thread title menu bar - `comments/commentThread/title`
+- The comment thread context menu - `comments/commentThread/context`
+- The comment title menu bar - `comments/comment/title`
+- The comment context menu - `comments/comment/context`
+- The Timeline view title menu bar - `timeline/title`
+- The Timeline view item context menu - `timeline/item/context`
+- The Extensions view context menu - `extension/context`
 
 > **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
@@ -427,6 +477,17 @@ The **editor title menu** has these default groups:
 - `1_diff` - Commands related to working with diff editors.
 - `3_open` - Commands related to opening editors.
 - `5_close` - Commands related to closing editors.
+
+The **Timeline view item context menu** has these default groups:
+
+- `inline` - Important or frequently used timeline item commands. Rendered as a toolbar.
+- `1_actions` - Commands related to working with timeline items.
+- `5_copy` - Commands related to copying timeline item information.
+
+The **Extensions view context menu** has these default groups:
+
+- `1_copy` - Commands related to copying extension information.
+- `2_configure` - Commands related to configuring an extension.
 
 ### Sorting inside groups
 
@@ -639,7 +700,9 @@ See the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide
 
 ## contributes.themes
 
-Contribute a TextMate theme to VS Code. You must specify a label, whether the theme is a dark theme or a light theme (such that the rest of VS Code changes to match your theme) and the path to the file (XML plist format).
+Contribute a color theme to VS Code, defining workbench colors and styles for syntax tokens in the editor.
+
+You must specify a label, whether the theme is a dark theme or a light theme (such that the rest of VS Code changes to match your theme) and the path to the file (JSON format).
 
 ### theme example
 
@@ -650,16 +713,68 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
       {
         "label": "Monokai",
         "uiTheme": "vs-dark",
-        "path": "./themes/Monokai.tmTheme"
+        "path": "./themes/monokai-color-theme.json"
       }
     ]
   }
 }
 ```
 
-![themes extension point example](images/contribution-points/themes.png)
+![color theme extension point example](images/contribution-points/color-themes.png)
 
 See the [Color Theme Guide](/api/extension-guides/color-theme) on how to create a Color Theme.
+
+## contributes.iconThemes
+
+Contribute a file icon theme to VS Code. File icons are shown next to file names, indicating the file type.
+
+You must specify an id (used in the settings), a label and the path to the file icon definition file.
+
+### file icon theme example
+
+```json
+{
+  "contributes": {
+		"iconThemes": [
+			{
+				"id": "metro",
+				"label": "Metro File Icons",
+				"path": "./fileicons/metro-file-icon-theme.json"
+			}
+		]
+  }
+}
+```
+
+![file icon theme extension point example](images/contribution-points/file-icon-themes.png)
+
+See the [File Icon Theme Guide](/api/extension-guides/file-icon-theme) on how to create a File Icon Theme.
+
+## contributes.productIconThemes
+
+Contribute a product icon theme to VS Code. Product icons are all icons used in VS Code except file icons and icons contributed from extensions.
+
+You must specify an id (used in the settings), a label and the path to the icon definition file.
+
+### product icon theme example
+
+```json
+{
+  "contributes": {
+		"productIconThemes": [
+			{
+				"id": "elegant",
+				"label": "Elegant Icon Theme",
+				"path": "./producticons/elegant-product-icon-theme.json"
+			}
+		]
+  }
+}
+```
+
+![product icon theme extension point example](images/contribution-points/product-icon-themes.png)
+
+See the [Product Icon Theme Guide](/api/extension-guides/product-icon-theme) on how to create a Product Icon Theme.
 
 ## contributes.snippets
 
@@ -703,11 +818,11 @@ Contribute a view to VS Code. You must specify an identifier and name for the vi
 
 - `explorer`: Explorer view container in the Activity Bar
 - `scm`: Source Control Management (SCM) view container in the Activity Bar
-- `debug`: Debug view container in the Activity Bar
+- `debug`: Run and Debug view container in the Activity Bar
 - `test`: Test view container in the Activity Bar
 - [Custom view containers](#contributes.viewsContainers) contributed by Extensions.
 
-When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (`onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value.
+When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (`onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value. The `icon` specified will be used when the title cannot be shown (e.g. when the view is dragged to the Activity Bar). The `contextualTitle` is used when the view is moved out of its default view container and needs additional context.
 
 ```json
 {
@@ -717,7 +832,9 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
         {
           "id": "nodeDependencies",
           "name": "Node Dependencies",
-          "when": "workspaceHasPackageJSON"
+          "when": "workspaceHasPackageJSON",
+          "icon": "media/dep.svg",
+          "contextualTitle": "Package Explorer"
         }
       ]
     }
@@ -731,7 +848,7 @@ Extension writers should create a [TreeView](/api/references/vscode-api#TreeView
 
 ## contributes.viewsContainers
 
-Contribute a view container into which [Custom views](#contributes.views) can be contributed. You must specify an identifier, title, and an icon for the view container. At present, you can contribute them to the Activity Bar (`activitybar`) only. Below example shows how the `Package Explorer` view container is contributed to the Activity Bar and how views are contributed to it.
+Contribute a view container into which [Custom views](#contributes.views) can be contributed. You must specify an identifier, title, and an icon for the view container. At present, you can contribute them to the Activity Bar (`activitybar`) and Panel (`panel`). Below example shows how the `Package Explorer` view container is contributed to the Activity Bar and how views are contributed to it.
 
 ```json
 {
@@ -917,7 +1034,20 @@ The above example extension contributes the [`typescript-styled-plugin`](https:/
 }
 ```
 
-TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript.
+TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript, unless the plugin explicitly sets `"enableForWorkspaceTypeScriptVersions": true`.
+
+```json
+{
+  "contributes": {
+    "typescriptServerPlugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "enableForWorkspaceTypeScriptVersions": true
+      }
+    ]
+  }
+}
+```
 
 ## contributes.resourceLabelFormatters
 

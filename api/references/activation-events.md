@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of Activation Events.
@@ -21,7 +21,9 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onView`](/api/references/activation-events#onView)
 - [`onUri`](/api/references/activation-events#onUri)
 - [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
+- [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
 - [`*`](/api/references/activation-events#Start-up)
+- [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
 
@@ -143,18 +145,31 @@ If the `vscode.git` extension defines `onUri` as an activation event, it will be
 
 ## onWebviewPanel
 
-This activation event is emitted and interested extensions will be activated whenever VS Code needs to restore a webview with the matching `viewType`.
+This activation event is emitted and interested extensions will be activated whenever VS Code needs to restore a [webview](/api/extension-guides/webview) with the matching `viewType`.
 
 For example, the declaration of onWebviewPanel below:
 
 ```json
 "activationEvents": [
-    ...,
     "onWebviewPanel:catCoding"
 ]
 ```
 
 will cause the extension to be activated when VS Code needs to restore a webview with the viewType: `catCoding`. The viewType is set in the call to `window.createWebviewPanel` and you will need to have another activation event (for example, onCommand) to initially activate your extension and create the webview.
+
+## onCustomEditor
+
+This activation event is emitted and interested extensions will be activated whenever VS Code needs to create a [custom editor](/api/extension-guides/custom-editors) with the matching `viewType`.
+
+For example, the declaration of onCustomEditor below:
+
+```json
+"activationEvents": [
+    "onCustomEditor:catCustoms.pawDraw"
+]
+```
+
+will cause the extension to be activated when VS Code needs to restore a custom editor with the viewType: `catCustoms.pawDraw`. The viewType is set in the [`customEditors` contribution point](/api/extension-guides/custom-editors#contribution-point) and bound to a provider with `registerCustomEditorProvider`.
 
 ## Start up
 
@@ -164,6 +179,18 @@ The `*` activation event is emitted and interested extensions will be activated 
 ...
 "activationEvents": [
     "*"
+]
+...
+```
+
+## onStartupFinished
+
+This activation event is emitted and interested extensions will be activated **some time after** VS Code starts up. This is similar to the `*` activation event, but it will not slow down VS Code startup.
+
+```json
+...
+"activationEvents": [
+    "onStartupFinished"
 ]
 ...
 ```

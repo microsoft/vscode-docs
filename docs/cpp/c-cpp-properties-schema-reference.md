@@ -1,15 +1,17 @@
 ---
-Order: 9
+Order:
 Area: cpp
 TOCTitle: c_cpp_properties.json
 ContentId: EC1BA944-09B5-41EA-AAED-779A02C90C98
 PageTitle: c_cpp_properties.json reference
-DateApproved: 07/25/2019
+DateApproved: 06/26/2020
 MetaDescription: Schema reference for C++ project settings in Visual Studio Code.
 ---
 # c_cpp_properties.json reference
 
-> See also: [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md)
+This article explains the scheme for the c_cpp_properties.json settings file.
+
+For more information about changing these settings, see [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md) and [Configure IntelliSense for cross-compiling](/docs/cpp/configure-intellisense-crosscompilation.md).
 
 ## Example
 
@@ -64,6 +66,8 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
 - `compilerPath` (optional)
   The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. The extension will query the compiler to determine the system include paths and default defines to use for IntelliSense.
 
+  Putting `"compilerPath": ""` (empty string) will skip querying a compiler. This is useful if a specified compiler doesn't support the arguments that are used for the query, as the extension will default back to any compiler it can find (like Visual C). Leaving out the `compilerPath` property does not skip the query.
+
 - `compilerArgs` (optional)
   Compiler arguments to modify the includes or defines used, for example `-nostdinc++`, `-m32`, etc.
 
@@ -88,7 +92,7 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
   The version of the C++ language standard to use for IntelliSense.
 
 - `configurationProvider`
-  The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `vector-of-bool.cmake-tools` to provide configuration information from the CMake Tools extension.
+  The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `ms-vscode.cmake-tools` to provide configuration information from the CMake Tools extension.
 
 - `windowsSdkVersion`
   The versions of the Windows SDK include path to use on Windows, for example `10.0.17134.0`.

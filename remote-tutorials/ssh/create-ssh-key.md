@@ -4,7 +4,7 @@ Area: ssh
 TOCTitle: Set up SSH
 PageTitle: Set up SSH
 MetaDescription: Set up an SSH key to use with Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 ---
 # Set up SSH
 

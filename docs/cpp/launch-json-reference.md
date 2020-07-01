@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order:
 Area: cpp
 TOCTitle: Debug configuration
 ContentId: 8cb0c932-d5f2-41e7-b297-5fd100ce4e0c
@@ -21,7 +21,7 @@ Set or change the following options to control VS Code's behavior during debuggi
 
 ### program (required)
 
-Specifies the full path to executable the debugger will launch or attach to.
+Specifies the full path to the executable the debugger will launch or attach to. The debugger requires this location in order to load debug symbols.
 
 ### symbolSearchPath
 
@@ -36,6 +36,8 @@ An optional flag that tells the Visual Studio Windows Debugger to require curren
 Tells GDB or LLDB what paths to search for .so files. Separate multiple paths with a semicolon. For example: `"/Users/user/dir1;/Users/user/dir2"`.
 
 ### externalConsole
+
+Used only when launching the debuggee. For `attach`, this parameter does not change the debuggee's behavior.
 
 - **Windows**: When set to true, it will spawn an external console. When set to false, it will use VS Code's integratedTerminal.
 - **Linux**: When set to true, it will notify VS Code to spawn an external console. When set to false, it will use VS Code's integratedTerminal.
@@ -78,7 +80,7 @@ When a `visualizerFile` is specified, `showDisplayString` will enable the displa
        "moduleLoad": false,
        "trace": true
     },
-   "visualizerFile": "${workspaceRoot}/my.natvis",
+   "visualizerFile": "${workspaceFolder}/my.natvis",
    "showDisplayString": true
 }
 ```
@@ -106,10 +108,10 @@ Environment variables to add to the environment for the program. Example: `[ { "
    "name": "C++ Launch",
    "type": "cppdbg",
    "request": "launch",
-   "program": "${workspaceRoot}/a.out",
+   "program": "${workspaceFolder}/a.out",
    "args": ["arg1", "arg2"],
    "environment": [{"name": "squid", "value": "clam"}],
-   "cwd": "${workspaceRoot}"
+   "cwd": "${workspaceFolder}"
 }
 ```
 
@@ -152,7 +154,7 @@ The command to execute after the debugger is fully set up in order to cause the 
    "name": "C++ Launch",
    "type": "cppdbg",
    "request": "launch",
-   "program": "${workspaceRoot}/a.out",
+   "program": "${workspaceFolder}/a.out",
    "stopAtEntry": false,
    "customLaunchSetupCommands": [
       { "text": "target-run", "description": "run target", "ignoreFailures": false }
@@ -172,7 +174,7 @@ The command to execute after the debugger is fully set up in order to cause the 
 }
 ```
 
-### loadSymbolInfo
+### symbolLoadInfo
 
 - **loadAll**: If true, symbols for all libs will be loaded, otherwise no solib symbols will be loaded. Modified by ExceptionList. Default value is true.
 - **exceptionList**: List of filenames (wildcards allowed) separated by semicolons `;`. Modifies behavior of LoadAll. If LoadAll is true then don't load symbols for libs that match any name in the list. Otherwise only load symbols for libs that match. Example: ```"foo.so;bar.so"```
@@ -211,6 +213,10 @@ Server-started pattern to look for in the debug server output.
 ### serverLaunchTimeout
 
 Time in milliseconds, for the debugger to wait for the debugServer to start up. Default is 10000.
+
+### pipeTransport
+
+For information about attaching to a remote process, such as debugging a process in a Docker container, see the [Pipe transport](/docs/cpp/pipe-transport.md) settings article.
 
 ## Additional properties
 

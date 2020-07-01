@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 995c7085-5fc0-44e0-a171-30a759c0b7da
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using commands programmatically in Visual Studio Code extensions (plug-ins)
@@ -90,7 +90,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-The list of arguments to the command is passed as a JSON array that has been properly URI encoded: The example below uses the `git.stage` command to create a hover like that stages the current file:
+The list of arguments to the command is passed as a JSON array that has been properly URI encoded: The example below uses the `git.stage` command to create a hover link that stages the current file:
 
 ```ts
 import * as vscode from 'vscode';
@@ -117,6 +117,8 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
+You can enable command URIs in [webviews](/api/extension-guides/webview) by setting `enableCommandUris` in the `WebviewOptions` when the webview is created.
+
 ## Creating new commands
 
 ### Registering a command
@@ -129,7 +131,7 @@ import * as vscode from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
   const command = 'myExtension.sayHello';
 
-  const commandHandler = (name?: string = 'world') => {
+  const commandHandler = (name: string = 'world') => {
     console.log(`Hello ${name}!!!`);
   };
 

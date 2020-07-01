@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order: 12
 Area: python
 TOCTitle: Create containers
 ContentId: 4e45a3f6-b72d-4647-82a5-22f7ee593d47
@@ -90,7 +90,7 @@ A container image is a bundle of your app code and its dependencies. To create a
 
 ## Using production servers
 
-For Python, the Docker extension by default specifies the base image `python:alpine` in the `Dockerfile` and includes commands to run only the Flask development server. These defaults obviously don't accommodate Django, for one, and when deploying to the cloud, as with Azure App Service, you should also use production-ready web servers instead of a development server. (If you're used Flask, you're probably accustomed to seeing the development server's warning in this regard!)
+For Python, the Docker extension by default specifies the base image `python:alpine` in the `Dockerfile` and includes commands to run only the Flask development server. These defaults obviously don't accommodate Django, for one, and when deploying to the cloud, as with Azure App Service, you should also use production-ready web servers instead of a development server. (If you've used Flask, you're probably accustomed to seeing the development server's warning in this regard!)
 
 For this reason, you need to modify the `Dockerfile` to use a base image with production servers, then provide the necessary configuration for your app. The following sections provide details for both Flask and Django.
 

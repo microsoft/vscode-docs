@@ -93,7 +93,7 @@ You can also click the gear icon located in the lower left corner of the Activit
 
 ![codeGear](images/powershell/codeGear.png)
 
-You can also use the keyboard shortcut `kb(workbench.action.openSettings)` to open your settings. The VS Code team has introduced a settings GUI in the latest version 1.27.1 as the new default interface for customizing settings. In VS Code versions prior to 1.27.1, this will open your `settings.json` file.
+You can also use the keyboard shortcut `kb(workbench.action.openSettings)` to open your settings. The VS Code team has introduced a settings GUI in version 1.27.1 as the new default interface for customizing settings. In VS Code versions prior to 1.27.1, this will open your `settings.json` file.
 
 You can still open the `settings.json` file by using **Preferences: Open Settings (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`) or by changing the default settings editor with the `"workbench.settings.editor"` setting.
 
@@ -111,9 +111,9 @@ Or run the **PowerShell: Show Session Menu** command from the Command Palette (`
 
 ## Pester
 
-[Pester](https://github.com/pester/Pester/wiki/Pester) is a [Behavior-driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development) (BDD) based unit test runner for PowerShell. Pester provides a framework for running unit tests to execute and validate PowerShell commands. Pester follows a file naming convention for naming tests to be discovered by Pester at test time and a simple set of functions that expose a testing [domain-specific language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL) for isolating, running, evaluating and reporting the results of PowerShell commands.
+[Pester](https://pester.dev/) is a [Behavior-driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development) (BDD) based unit test runner for PowerShell. Pester provides a framework for running unit tests to execute and validate PowerShell commands. Pester follows a file naming convention for naming tests to be discovered by Pester at test time and a simple set of functions that expose a testing [domain-specific language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL) for isolating, running, evaluating and reporting the results of PowerShell commands.
 
-Windows 10 and Server 2016 comes with Pester 3.40 pre-installed. To update Pester or to install the latest version on other platforms follow the [Pester installation instructions](https://github.com/pester/Pester#installation).
+Windows 10 and Server 2016 comes with Pester 3.40 pre-installed. To update Pester or to install the latest version on other platforms follow the [Pester installation instructions](https://pester.dev/docs/introduction/installation).
 
 ![Pester CodeLens Integration](images/powershell/pesterCodeLens.png)
 
@@ -175,7 +175,7 @@ Check out the FAQ page on the [PowerShell extensions Wiki](https://github.com/Po
 
 ## Types.ps1xml and Format.ps1xml files
 
-`ps1xml` files are PowerShell's way to extend the type system and define output formatting. For more information on these files, please refer to the official PowerShell documentation on [`Types.ps1xml`](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_types.ps1xml?view=powershell-6) and [`Format.ps1xml`](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_format.ps1xml?view=powershell-6).
+`ps1xml` files are PowerShell's way to extend the type system and define output formatting. For more information on these files, please refer to the official PowerShell documentation on [Types.ps1xml](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_types.ps1xml?view=powershell-6) and [Format.ps1xml](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_format.ps1xml?view=powershell-6).
 You can get IntelliSense features when authoring `ps1xml` files by installing the [XML extension by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml).
 After installing, add this configuration to your user settings:
 

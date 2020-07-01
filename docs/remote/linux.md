@@ -5,7 +5,7 @@ TOCTitle: Linux Prerequisites
 PageTitle: Linux Prerequisites for Visual Studio Code Remote Development
 ContentId: 7ec8dedf-0659-437e-98f1-2d27f5e243eb
 MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Remote - Containers, and Remote - WSL
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 ---
 # Remote Development with Linux
 
@@ -17,11 +17,12 @@ The extensions are known to work when connecting to recent stable/LTS version of
 * **Debian 64-bit x86, ARMv8l (AArch64)** (Stretch/9+)
 * **Raspbian ARMv7l (AArch32) 32-bit** (Stretch/9+)
 * **CentOS / RHEL 64-bit x86** (7+)
-* **Alpine Linux 64-bit x86 containers or WSL hosts** (3.7+) in Remote - Containers, Remote - WSL
+* **Alpine Linux 64-bit x86 containers or WSL hosts** (3.8+) in Remote - Containers, Remote - WSL
 
-There is also experimental support in **[VS Code Insiders](https://code.visualstudio.com/insiders/)** for:
+The following non-Linux SSH hosts are also supported:
 
-* **Windows 10 / Server 2016/2019 SSH hosts** (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
+* **Windows 10 / Server 2016/2019 SSH hosts** (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enabling `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md).
+* **macOS** 10.14+ (Mojave) SSH hosts with [Remote Login enabled](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
 
 However, if you are using a non-standard configuration or downstream distribution of Linux, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
 
@@ -47,7 +48,7 @@ You may encounter issues with certain extensions with native dependencies with *
 | General |  kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18, Python 2.6 or 2.7, tar | OpenSSH server, `bash`, and `curl` or `wget` | Run `ldd --version` to check the glibc version. Run `strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX` to see if libstdc++ 3.4.18 is available. |
 | Ubuntu 16.04+, Debian 8+, Raspbian Stretch/9+ and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18. Debian < 8 (Jessie) and Ubuntu < 14.04 do not meet this requirement.  |
 | RHEL / CentOS 7+ | `glibc libgcc libstdc++ python ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18.  RHEL / CentOS < 7 does not meet this requirement without using a [workaround to upgrade](#updating-glibc-and-libstdc-on-rhel-centos-6). |
-| Alpine Linux 3.7+ | `musl libgcc libstdc++`. musl >= 1.1.18, glibc not required. | Not yet supported. | Supported in Remote - Containers and Remote - WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
+| Alpine Linux 3.8+ | `musl libgcc libstdc++`. musl >= 1.1.18, glibc not required. | Not yet supported. | Supported in Remote - Containers and Remote - WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
 | openSUSE Leap / SUSE Linux Enterprise 15+|`glibc libgcc_s1 libstdc++6 python ca-certificates gzip tar`|`curl` or `wget` |Requires kernel >= 3.10, glibc, libstdc++6|
 
 ## Tips by Linux distribution
@@ -62,7 +63,7 @@ The following is a list of distributions and any base requirements that may be m
 
 | Server Distribution | Docker Image | Missing libraries | Notes / additional steps |
 |---------------------|--------------|-------------------|------------------|
-| ⚠️ Alpine Linux 3.10 (64-bit) | `alpine:latest` | `libgcc libstdc++` |  Supported in Remote - Containers and Remote - WSL only. Some extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
+| ⚠️ Alpine Linux 3.10 (64-bit) | `alpine:3.10` | `libgcc libstdc++` |  Supported in Remote - Containers and Remote - WSL only. Some extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
 | ✅ CentOS 7 Server (64-bit) | `centos:7` | &lt;none&gt; | &lt;none&gt; |
 | 🛑 CentOS 6 Server (64-bit) | `centos:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | ✅ Debian 9 Server (64-bit) | `debian:9` | &lt;none&gt; | &lt;none&gt; |
@@ -82,8 +83,6 @@ The following is a list of distributions and any base requirements that may be m
 | ✅ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 16.04 (64-bit) | `ubuntu:16.04` | &lt;none&gt;  | &lt;none&gt; |
 | ✅ Ubuntu Server 14.04 (64-bit) | `ubuntu:14.04` | &lt;none&gt;  | &lt;none&gt; |
-| 🔬 Windows 10 1903 (64-bit) | Not supported. | &lt;none&gt;  | Use the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
-| 🔬 Windows Server 2019 1903 (64-bit) | Not supported. | &lt;none&gt;  | Use the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
 
 ## Updating glibc and libstdc++ on RHEL / CentOS 6
 

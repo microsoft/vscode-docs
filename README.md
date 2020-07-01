@@ -63,9 +63,10 @@ You might want to clone the repo without the 1.6GB images. Here are the steps:
     - macOS / Linux: `GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:Microsoft/vscode-docs.git`.
     - Windows: `$env:GIT_LFS_SKIP_SMUDGE="1"; git clone git@github.com:Microsoft/vscode-docs.git`.
 4. Now you can selectively checkout some binary files to work with. For example:
-    - `git lfs pull -I "docs/nodejs"`
-    - `git lfs pull -I "release-notes/images/1_3*/*"`
-    - You can do `git lfs pull -I <PATTERN>`, as long as `<PATTERN>` is comma-separated glob strings. For more patterns, see [Git LFS: Include and Exclude](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-fetch.1.ronn#include-and-exclude).
+    - `git lfs pull -I "docs/nodejs"` to only download images in `docs/nodejs`
+    - `git lfs pull -I "release-notes/images/1_4*/*"` to only download images in `release-notes/images/1_4*`
+    - `git lfs pull -I "docs,api"` to download all images in `docs` and in `api`
+    - `git lfs pull -I <PATTERN>`, as long as `<PATTERN>` is a valid [Git LFS Include and Exclude pattern](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-fetch.1.ronn#include-and-exclude).
 
 The history of this repo before we adopted LFS can be found at [microsoft/vscode-docs-archive](https://github.com/Microsoft/vscode-docs-archive).
 

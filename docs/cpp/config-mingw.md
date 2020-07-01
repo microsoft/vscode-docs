@@ -1,260 +1,246 @@
 ---
-Order: 1
+Order: 3
 Area: cpp
-TOCTitle: Mingw-w64 on Windows
+TOCTitle: GCC on Windows
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
 PageTitle: Get Started with C++ and Mingw-w64 in Visual Studio Code
-DateApproved: 07/25/2019
+DateApproved: 1/6/2020
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a Mingw-w64 installation
 ---
-# Using Mingw-w64 in VS Code
+# Using GCC with MinGW
 
-In this tutorial, you configure Visual Studio Code on Windows to use the GCC C++ compiler (g++) and GDB debugger in [Mingw-w64](http://mingw-w64.org/doku.php/start) to create programs that run on Windows.
+In this tutorial, you configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger from [Mingw-w64](http://mingw-w64.org/doku.php/start) to create programs that run on Windows.
 
-After configuring VS Code, you will compile and debug a simple program to get familiar with the VS Code user interface. After completing this tutorial, you will be ready to create and configure your own workspace, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you about GCC or Mingw-w64 or the C++ language. For those subjects, there are many good resources available on the Web.
+After configuring VS Code, you will compile and debug a simple Hello World program in VS Code. This tutorial does not teach you about GCC or Mingw-w64 or the C++ language. For those subjects, there are many good resources available on the Web.
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
-To successfully complete this tutorial, you must do the following:
+To successfully complete this tutorial, you must do the following steps:
 
 1. Install [Visual Studio Code](/download).
 
-1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+1. Install the [C/C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'c++' in the Extensions view (`kb(workbench.view.extensions)`).
 
-1. Install [Mingw-w64](http://mingw-w64.org/doku.php/download/mingw-builds) to a folder that has no spaces in its path (in other words, NOT the default location of C:/Program Files/). In this tutorial, we assume it is installed under `C:\Mingw-w64`.
+    ![C/C++ extension](images/cpp/cpp-extension.png)
+
+1. You will install Mingw-w64 via the SourceForge website. Click [Mingw-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download) to begin downloading the compressed archive file. Extract the tools from the compressed file to a folder that has no spaces in its path. In this tutorial, we assume it is installed under `C:\mingw-w64`.
 
 1. Add the path to your Mingw-w64 `bin` folder to the Windows PATH environment variable.
-   1. Go to your Windows OS Settings and search for **Edit environment variables for your account**.
+   1. In the Windows search bar, type 'settings' to open your Windows Settings.
+   1. Search for **Edit environment variables for your account**.
    1. Choose the `Path` variable and then select **Edit**.
    1. Select **New** and add the Mingw-w64 path to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. Here is an example: `c:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin`.
    1. Select **OK** to save the `Path` update. You will need to reopen any console windows for the new PATH location to be available.
 
-## Create a workspace
+### Check your MinGW installation
 
-1. At a new Windows command prompt, create an empty folder called `projects` where you can place all your VS Code projects. Then create a sub-folder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
+To check that your Mingw-w64 tools are correctly installed and available, open a new Command Prompt and type:
 
-   ```cmd
-   mkdir projects
-   cd projects
-   mkdir helloworld
-   cd helloworld
-   code .
-   ```
+```bash
+g++ --version
+gdb --version
+```
 
-The **code .** command opens VS Code in the current working folder, which becomes your *workspace*. Before we can get IntelliSense support, or compile and debug our code, we have to configure VS Code for Mingw-w64. After completing the configuration, we will have three files in a `.vscode` sub-folder:
+If you don't see the expected output or `g++` or `gdb` is not a recognized command, check your installation (Windows **Control Panel** > **Programs**) and make sure your PATH entry matches the Mingw-w64 location.
 
-- `c_cpp_properties.json` (compiler path and IntelliSense settings)
+## Create Hello World
+
+From a Windows command prompt, create an empty folder called `projects` where you can place all your VS Code projects. Then create a sub-folder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
+
+```cmd
+mkdir projects
+cd projects
+mkdir helloworld
+cd helloworld
+code .
+```
+
+The "code ." command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
+
 - `tasks.json` (build instructions)
 - `launch.json` (debugger settings)
+- `c_cpp_properties.json` (compiler path and IntelliSense settings)
 
-## Configure the compiler path
+### Add a source code file
 
-1. Press `kb(workbench.action.showCommands)` to open the Command Palette. It looks like this:
+In the File Explorer title bar, select the **New File** button and name the file `helloworld.cpp`.
 
-   ![Command Palette](images/cpp/command-palette.png)
+![New File title bar button](images/mingw/new-file-button.png)
 
-1. Start typing "C/C++" and then choose **Edit Configurations (UI)** from the list of suggestions. This opens the **C/C++ IntelliSense Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the .vscode folder.
+### Add hello world source code
 
-   ![Command Palette](images/mingw/intellisense-configurations-mingw.png)
+Now paste in this source code:
 
-1. Find the **Compiler path** setting. VS Code will attempt to populate it with a default compiler based on what it finds on your system. It first looks for the MSVC compiler, then for g++ on Windows Subsystem for Linux (WSL), then for g++ on Mingw-w64. If you have Visual Studio or WSL installed, then you will need to change the compiler path here. If you installed Mingw-w64 version 8.1.0 under C:\mingw-w64, using Win32 threads and SEH exception handling, the path should look like this: `C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\g++.exe`. If you chose different options when installing Mingw-w64, your path will be different.
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
 
-   The **Compiler path** setting is the most important setting in your configuration. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide lots of useful information to you as you write code. This information is called *IntelliSense* and you'll see some examples later in this tutorial.
+using namespace std;
 
-1. Set **IntelliSense mode** to `gcc-x64`.
-
-You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or in the standard library path.
-
-Visual Studio code places these settings in `.vscode/c_cpp_properties.json`. If you open that file directly, it should look like this (depending on your specific Mingw-w64 path):
-
-```json
+int main()
 {
-    "configurations": [
-        {
-            "name": "Win32",
-            "includePath": [
-                "${workspaceFolder}/**",
-                "${vcpkgRoot}/x86-windows/include"
-            ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "windowsSdkVersion": "10.0.17763.0",
-            "compilerPath": "C:\\mingw-w64\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "${default}"
-        }
-    ],
-    "version": 4
+    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+
+    for (const string& word : msg)
+    {
+        cout << word << " ";
+    }
+    cout << endl;
 }
 ```
 
-## Create a build task
+Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
 
-Next, create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the g++ compiler to create an executable file based on the source code.
+![File Explorer](images/mingw/file-explorer-mingw.png)
 
-1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Configure Default Build Task**. In the dropdown, select **Create tasks.json file from template**, then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
+You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
-1. Go ahead and replace the entire file contents with the following code snippet:
+The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
 
-```json
-{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build hello world",
-            "type": "shell",
-            "command": "g++",
-            "args": [
-                "-g",
-                "-o",
-                "helloworld",
-                "helloworld.cpp"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        }
-    ]
-}
-```
-
-   The `command` setting specifies the program to run; in this case that is g++.exe. The `args` array specifies the command-line arguments that will be passed to g++. These arguments must be specified in the order expected by the compiler.
-
-   The `label` value is what you will see in the VS Code Command Palette; you can name this whatever you like.
-
-   The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false you'll have to run it from the Command Palette menu under **Run Build Task**.
-
-## Configure debug settings
-
-Next, we'll configure VS Code to launch the GCC debugger (gdb.exe) when you press `kb(workbench.action.debug.start)`.
-
-1. From the Command Palette, type "launch" and then choose **Debug: Open launch.json**. Next, choose the **GDB/LLDB** environment.
-
-1. For `program`, use the program name `helloworld.exe` (which matches what you specified in `tasks.json`). You will need to adjust your `miDebuggerPath` value to match the path to your Mingw-w64 installation.
-
-1. By default, the C++ extension adds a breakpoint to the first line of `main`. The `stopAtEntry` value is set to `true` to cause the debugger to stop on that breakpoint. You can set this to `false` if you prefer to ignore it.
-
-1. Optionally, set `externalConsole` to `true` to run the program in an external console.
-
-Your complete `launch.json` file should look something like this:
-
-```json
-{
-     // Use IntelliSense to learn about possible attributes.
-     // Hover to view descriptions of existing attributes.
-     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-     "version": "0.2.0",
-     "configurations": [
-         {
-             "name": "(gdb) Launch",
-             "type": "cppdbg",
-             "request": "launch",
-             "program": "${workspaceFolder}/helloworld.exe",
-             "args": [],
-             "stopAtEntry": true,
-             "cwd": "${workspaceFolder}",
-             "environment": [],
-             "externalConsole": true,
-             "MIMode": "gdb",
-             "miDebuggerPath": "C:\\mingw-w64\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\gdb.exe",
-             "setupCommands": [
-                 {
-                     "description": "Enable pretty-printing for gdb",
-                     "text": "-enable-pretty-printing",
-                     "ignoreFailures": true
-                 }
-             ]
-         }
-     ]
-}
-```
-
-VS Code is now configured to use Mingw-w64. The configuration applies to the current workspace. To reuse the configuration, just copy the three JSON files to a .vscode sub-folder in a new workspace and change the names of the source file(s) and executable as needed.
-
-The remaining steps are provided as an optional exercise to help you get familiar with the editing and debugging experience.
-
-## Add a source code file
-
-1. In the main VS Code menu, click on **File > New File** and name it `helloworld.cpp`.
-1. Paste in this source code:
-
-   ```cpp
-   #include <iostream>
-   #include <vector>
-   #include <string>
-
-   using namespace std;
-
-   int main()
-   {
-
-       vector<string> msg {"Hello", "C++", "World", "from", "VS Code!"};
-
-       for (const string& word : msg)
-       {
-           cout << word << " ";
-       }
-       cout << endl;
-   }
-   ```
-
-1. Now press `kb(workbench.action.files.save)` to save the file. Notice how all the files you have just edited appear in the **File Explorer** view in the left panel of VS Code:
-
-   ![File Explorer](images/cpp/file-explorer-mingw.png)
-
-   This same panel is also used for source control, debugging, searching and replacing text, and managing extensions. The buttons on the left control those views. We'll look at the **Debug View** later in this tutorial. You can find out more about the other views in the VS Code documentation.
+>**Note**: When you save or open a C++ file, you may see a notification from the C/C++ extension about the availability of an Insiders version, which lets you test new features and fixes. You can ignore this notification by selecting the `X` (**Clear Notification**).
 
 ## Explore IntelliSense
 
 In your new `helloworld.cpp` file, hover over `vector` or `string` to see type information. After the declaration of the `msg` variable, start typing `msg.` as you would when calling a member function. You should immediately see a completion list that shows all the member functions, and a window that shows the type information for the `msg` object:
 
-![Statement completion IntelliSense](images/cpp/cpp-intellisense-vector.png)
+![Statement completion IntelliSense](images/wsl/msg-intellisense.png)
 
-You can press the TAB key to insert the selected member; then, when you add the opening parenthesis, you will see information about any arguments that the function requires.
+You can press the `kbstyle(Tab)` key to insert the selected member; then, when you add the opening parenthesis, you will see information about any arguments that the function requires.
 
-## Build the program
+## Build helloworld.cpp
 
-1. To run the build task that you defined in `tasks.json`, press `kb(workbench.action.tasks.build)` or from the main menu choose **View > Command Palette** and start typing "Tasks: Run Build Task". The option will appear before you finish typing.
-1. When the task starts, you should see the integrated Terminal window appear below the code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful g++ build, the output looks something like this:
+Next, you will create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the g++ compiler to create an executable file based on the source code.
 
-   ![G++ build output in terminal](images/mingw/gcc-task-in-terminal.png)
+From the main menu, choose **Terminal** > **Configure Default Build Task**. In the dropdown, which will display a tasks dropdown listing various predefined build tasks for C++ compilers. Choose **g++.exe build active file**, which will build the file that is currently displayed (active) in the editor.
 
-1. As the message instructs, press any key to close the build message; the terminal now returns to the shell command prompt.
+![Tasks C++ build dropdown](images/mingw/build-active-file.png)
 
-## Start a debugging session
+This will create a `tasks.json` file in a `.vscode` folder and open it in the editor.
 
-1. You are now ready to run the program. Press `kb(workbench.action.debug.start)` or from the main menu choose **Debug > Start Debugging**. Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
+Your new `tasks.json` file should look similar to the JSON below:
 
-- The Terminal (**View** > **Terminal**) shows the command line that was used to start gdb. It shows the paths to the C++ extension, as well as to your mingw-w64 installation. In general, you should never need to be concerned with the details here:
+```json
+{
+"version": "2.0.0",
+"tasks": [
+    {
+        "type": "shell",
+        "label": "g++.exe build active file",
+        "command": "C:\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe",
+        "args": [
+            "-g",
+            "${file}",
+            "-o",
+            "${fileDirname}\\${fileBasenameNoExtension}.exe"
+        ],
+        "options": {
+            "cwd": "C:\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin"
+        },
+        "problemMatcher": [
+            "$gcc"
+        ],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        }
+    }
+]
+}
+```
 
-   ```cmd
-   $ env "c:\Users\username\.vscode\extensions\ms-vscode.cpptools-0.21.0\debugAdapters\bin\WindowsDebugLauncher.exe" --std
-   in=Microsoft-MIEngine-In-slkzoloe.km0 --stdout=Microsoft-MIEngine-Out-b2nqrdmk.cc2 --stderr=Microsoft-MIEngine-Error-
-   f42jy5qt.jfs --pid=Microsoft-MIEngine-Pid-32dwsmv3.tuh --dbgExe=C:/mingw-w64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw6
-   4/bin/gdb.exe --interpreter=mi
-   ```
+The `command` setting specifies the program to run; in this case that is g++. The `args` array specifies the command-line arguments that will be passed to g++. These arguments must be specified in the order expected by the compiler. This task tells g++ to take the active file (`${file}`), compile it, and create an executable file in the current directory (`${fileDirname}`) with the same name as the active file but with the `.exe` extension (`${fileBasenameNoExtension}.exe`), resulting in `helloworld.exe` for our example.
 
-   The Terminal will display the output from the program.
-- The code editor highlights the first statement in the `main` method. This is a breakpoint that the C++ extension automatically sets for you:
+>**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
-   ![Initial breakpoint](images/cpp/breakpoint-default.png)
+The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
-- The workspace pane on the left now shows debugging information. You'll see an example later in this tutorial.
+The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false, you can still run it from the Terminal menu with **Tasks: Run Build Task**.
+
+### Running the build
+
+1. Go back to `helloworld.cpp`. Your task builds the active file and you want to build `helloworld.cpp`.
+1. To run the build task defined in `tasks.json`, press `kb(workbench.action.tasks.build)` or from the **Terminal** main menu choose **Tasks: Run Build Task**.
+1. When the task starts, you should see the Integrated Terminal panel appear below the source code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful g++ build, the output looks something like this:
+
+   ![G++ build output in terminal](images/mingw/build-output-in-terminal.png)
+
+1. Create a new terminal using the **+** button and you'll have a new terminal (running PowerShell) with the `helloworld` folder as the working directory. Run `dir` and you should now see the executable `helloworld.exe`.
+
+    ![Hello World in PowerShell terminal](images/mingw/helloworld-in-terminal.png)
+
+1. You can run `helloworld` in the terminal by typing `.\helloworld.exe`.
+
+>**Note**: You might need to press `kbstyle(Enter)` a couple of times initially to see the PowerShell prompt in the terminal. This issue should be fixed in a future release of Windows.
+
+### Modifying tasks.json
+
+You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}\\*.cpp"` instead of `${file}`. This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}\\${fileBasenameNoExtension}.exe"` with a hard-coded filename (for example `"${workspaceFolder}\\myProgram.exe"`).
+
+## Debug helloworld.cpp
+
+Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program. From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
+
+You'll then see a dropdown for various predefined debugging configurations. Choose **g++.exe build and debug active file**.
+
+![C++ debug configuration dropdown](images/mingw/build-and-debug-active-file.png)
+
+VS Code creates a `launch.json` file, opens it in the editor, and builds and runs 'helloworld'.
+
+```json
+{
+"version": "0.2.0",
+"configurations": [
+    {
+        "name": "g++.exe build and debug active file",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "miDebuggerPath": "C:\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\gdb.exe",
+        "setupCommands": [
+            {
+                "description": "Enable pretty-printing for gdb",
+                "text": "-enable-pretty-printing",
+                "ignoreFailures": true
+            }
+        ],
+        "preLaunchTask": "g++.exe build active file"
+    }
+]
+}
+```
+
+The `program` setting specifies the program you want to debug. Here it is set to the active file folder `${fileDirname}` and active filename with the `.exe` extension `${fileBasenameNoExtension}.exe`, which if `helloworld.cpp` is the active file will be `helloworld.exe`.
+
+By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`. Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
+
+>**Note**: The `preLaunchTask` setting is used to specify task to be executed before launch. Make sure it is consistent with the `task.json` file `label` setting.
+
+### Start a debugging session
+
+1. Go back to `helloworld.cpp` so that it is the active file.
+2. Press `kb(workbench.action.debug.start)` or from the main menu choose **Run > Start Debugging**. Before you start stepping through the source code, let's take a moment to notice several changes in the user interface:
+
+- The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
+- The editor highlights the first statement in the `main` method. This is a breakpoint that the C++ extension automatically sets for you:
+
+   ![Initial breakpoint](images/mingw/stopAtEntry.png)
+
+- The Run view on the left shows debugging information. You'll see an example later in the tutorial.
 
 - At the top of the code editor, a debugging control panel appears. You can move this around the screen by grabbing the dots on the left side.
 
-![Debugging controls](images/cpp/debug-controls.png)
-
 ## Step through the code
 
-Now we're ready to start stepping through the code.
+Now you're ready to start stepping through the code.
 
 1. Click or press the **Step over** icon in the debugging control panel.
 
@@ -262,12 +248,12 @@ Now we're ready to start stepping through the code.
 
    This will advance program execution to the first line of the for loop, and skip over all the internal function calls within the `vector` and `string` classes that are invoked when the `msg` variable is created and initialized. Notice the change in the **Variables** window on the left.
 
-   ![Debugging windows](images/cpp/debugger-panel.png)
+   ![Debugging windows](images/wsl/debug-view-variables.png)
 
    In this case, the errors are expected because, although the variable names for the loop are now visible to the debugger, the statement has not executed yet, so there is nothing to read at this point. The contents of `msg` are visible, however, because that statement has completed.
 
-1. Press **Step over** again to advance to the next statement in this program (skipping over all the internal code that is executed to initialize the loop). Now, the **Variables** window shows information about the loop variables. The program output appears in the **Terminal** tab (not the **Debug Console** or **Output** windows!).
-1. Press **Step over** again to execute the `cout` statement.
+1. Press **Step over** again to advance to the next statement in this program (skipping over all the internal code that is executed to initialize the loop). Now, the **Variables** window shows information about the loop variables.
+1. Press **Step over** again to execute the `cout` statement. (Note that as of the March 2019 release, the C++ extension does not print any output to the **Debug Console** until the loop exits.)
 1. If you like, you can keep pressing **Step over** until all the words in the vector have been printed to the console. But if you are curious, try pressing the **Step Into** button to step through source code in the C++ standard library!
 
    ![Breakpoint in gcc standard library header](images/cpp/gcc-system-header-stepping.png)
@@ -278,7 +264,9 @@ Now we're ready to start stepping through the code.
 
    Then press `kb(workbench.action.debug.start)` to start execution from the current line in the standard library header. Execution will break on `cout`. If you like, you can press `kb(editor.debug.action.toggleBreakpoint)` again to toggle off the breakpoint.
 
-   In the **Debug Console** tab, you can see diagnostic information that is output by GDB.
+   When the loop has completed, you can see the output in the Integrated Terminal, along with some other diagnostic information that is output by GDB.
+
+   ![Debug output in terminal](images/mingw/debug-output.png)
 
 ## Set a watch
 
@@ -290,12 +278,65 @@ Sometimes you might want to keep track of the value of a variable as your progra
 
 1. Add another watch by adding this statement before the loop: `int i = 0;`. Then, inside the loop, add this statement: `++i;`. Now add a watch for `i` as you did in the previous step.
 
-1. To quickly view the value of any variable while execution is paused on a breakpoint, you can simply hover over it with the mouse pointer.
+1. To quickly view the value of any variable while execution is paused on a breakpoint, you can hover over it with the mouse pointer.
 
    ![Mouse hover](images/cpp/mouse-hover.png)
+
+## C/C++ configurations
+
+If you want more control over the C/C++ extension, you can create a `c_cpp_properties.json` file, which will allow you to change settings such as the path to the compiler, include paths, C++ standard (default is C++17), and more.
+
+You can view the C/C++ configuration UI by running the command **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+![Command Palette](images/cpp/command-palette.png)
+
+This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
+
+![Command Palette](images/mingw/intellisense-configurations-mingw.png)
+
+Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If you open that file directly, it should look something like this:
+
+```json
+{
+"configurations": [
+    {
+        "name": "Win32",
+        "includePath": [
+            "${workspaceFolder}/**"
+        ],
+        "defines": [
+            "_DEBUG",
+            "UNICODE",
+            "_UNICODE"
+        ],
+        "compilerPath": "C:\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\gcc.exe",
+        "cStandard": "c11",
+        "cppStandard": "c++17",
+        "intelliSenseMode": "clang-x86"
+    }
+],
+"version": 4
+}
+```
+
+You only need to add to the **Include path** array setting if your program includes header files that are not in your workspace or in the standard library path.
+
+### Compiler path
+
+The `compilerPath` setting is an important setting in your configuration. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide useful features like smart completions and **Go to Definition** navigation.
+
+The C/C++ extension attempts to populate `compilerPath` with the default compiler location based on what it finds on your system. The extension looks in several common compiler locations.
+
+The `compilerPath` search order is:
+
+* First check for the Microsoft Visual C++ compiler
+* Then look for g++ on Windows Subsystem for Linux (WSL)
+* Then g++ for Mingw-w64.
+
+If you have Visual Studio or WSL installed, you may need to change `compilerPath` to match the preferred compiler for your project. For example, if you installed Mingw-w64 version 8.1.0 under C:\mingw-w64, using the Win32 threads and SEH exception handling options, the path would look like this: `C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\g++.exe`.
 
 ## Next steps
 
 - Explore the [VS Code User Guide](/docs/editor/codebasics.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).
-- Create a new workspace, copy your .json files to it, adjust the necessary settings for the new workspace path, program name, and so on, and start coding!
+- Create a new workspace, copy your `.vscode` JSON files to it, adjust the necessary settings for the new workspace path, program name, and so on, and start coding!

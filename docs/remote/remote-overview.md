@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Visual Studio Code Remote Development
 ContentId: eceea3f0-feee-47c2-8b65-1f1b0825355b
 MetaDescription: Visual Studio Code Remote Development
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 ---
 # VS Code Remote Development
 
@@ -36,9 +36,9 @@ The [Remote Development extension pack](https://aka.ms/vscode-remote/download/ex
 
 While most VS Code extensions should work unmodified in a remote environment, extension authors can learn more at [Supporting Remote Development](/api/advanced-topics/remote-extensions.md).
 
-## Visual Studio Online
+## Visual Studio Codespaces
 
-[Visual Studio Online](/docs/remote/vsonline.md) provides remote development environments that are managed for you. You can configure and create a development environment hosted in the cloud, which is spun up and available when you need it.
+[Visual Studio Codespaces](/docs/remote/codespaces.md) provides remote development environments that are managed for you. You can configure and create a development environment hosted in the cloud, which is spun up and available when you need it.
 
 ## Questions or feedback
 

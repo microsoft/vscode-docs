@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Linting Python in Visual Studio Code
 
-Linting highlights syntactical and stylistic problems in your Python source code, which oftentimes helps you identify and correct subtle programming errors or unconventional coding practices that can lead to errors. For example, linting detects use of an uninitialized or undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine built-in types or functions. Linting is thus distinct from [Formatting](editing.md#formatting) because linting analyzes how the code runs and detects errors whereas formatting simply restructures how code *appears*.
+Linting highlights syntactical and stylistic problems in your Python source code, which oftentimes helps you identify and correct subtle programming errors or unconventional coding practices that can lead to errors. For example, linting detects use of an uninitialized or undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine built-in types or functions. Linting is thus distinct from [Formatting](editing.md#formatting) because linting analyzes how the code runs and detects errors whereas formatting only restructures how code *appears*.
 
 By default, linting for Python is enabled in Visual Studio Code using [Pylint](https://www.pylint.org), and you can enable other linters of your choice. You can easily enable and disable all linting by using the **Python: Enable Linting** command.
 
@@ -68,7 +68,7 @@ The following table provides a summary of available Python linters and their bas
 | [Flake8](#flake8) | [flake8](https://pypi.org/project/flake8/) | Disabled | flake8Enabled | flake8Args | flake8Path |
 | [mypy](#mypy) | [mypy](https://pypi.org/project/mypy/) | Disabled | mypyEnabled | mypyArgs | mypyPath |
 | [pydocstyle](#pydocstyle) | [pydocstyle](https://pypi.org/project/pydocstyle/) | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
-| [Pep8 (pycodestyle)](#pep8-pycodestyle) | [pep8](https://pypi.org/project/pep8/) | Disabled | pep8Enabled | pep8Args | pep8Path |
+| [pycodestyle (pep8)](#pycodestyle-pep8) | [pycodestyle](https://pypi.org/project/pycodestyle/) | Disabled | pycodestyleEnabled | pycodestyleArgs | pycodestylePath |
 | [prospector](#prospector) | [prospector](https://pypi.org/project/prospector/) | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
 | pylama | [pylama](https://pypi.org/project/pylama/) | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |
 | bandit | [bandit](https://pypi.org/project/bandit/) | Disabled | banditEnabled | banditArgs | banditPath |
@@ -78,12 +78,12 @@ To select a different linter, use the **Python: Select Linter** command. You can
 Custom arguments are specified in the appropriate arguments setting for each linter. Each top-level element of an argument string that's separated by a space on the command line must be a separate item in the args list. For example:
 
 ```json
-"python.linting.pylintArgs": ["--reports", "12", "--disable-msg", "I0011"],
+"python.linting.pylintArgs": ["--reports", "12", "--disable", "I0011"],
 "python.linting.flake8Args": ["--ignore=E24,W504", "--verbose"]
 "python.linting.pydocstyleArgs": ["--ignore=D400", "--ignore=D4"]
 ```
 
-Note that if a top-level element is a single value, as delineated by quotation marks or braces, is still appears as a single item in the list even if the value itself contains spaces.
+Note that if a top-level element is a single value, as delineated by quotation marks or braces, it still appears as a single item in the list even if the value itself contains spaces.
 
 A custom path is generally unnecessary as the Python extension resolves the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting. For example, if your selected interpreter is a virtual environment but you want to use a linter that's installed in a global environment, then set the appropriate path setting to point to the global environment's linter.
 
@@ -203,26 +203,26 @@ For more information, see [Configuration Files](http://www.pydocstyle.org/en/2.1
 
 The Python extension maps all pydocstyle errors to the Convention (C) category.
 
-## Pep8 (pycodestyle)
+## pycodestyle (pep8)
 
 ### Command-line arguments and configuration files
 
-See [pycodestyle example usage and output](https://pep8.readthedocs.io/en/latest/intro.html#example-usage-and-output) for general switches. For example, to ignore error E303 (too many blank lines), add the following line to your `settings.json` file:
+See [pycodestyle example usage and output](https://pycodestyle.pycqa.org/en/latest/intro.html#example-usage-and-output) for general switches. For example, to ignore error E303 (too many blank lines), add the following line to your `settings.json` file:
 
 ```json
-"python.linting.pep8Args": ["--ignore=E303"]
+"python.linting.pycodestyleArgs": ["--ignore=E303"]
 ```
 
-Pep8 options are read from the `[pep8]` section of a `tox.ini` or `setup.cfg` file located in any parent folder of the path(s) being processed. For details, see [pycodestyle configuration](https://pep8.readthedocs.io/en/latest/intro.html#configuration).
+pycodestyle options are read from the `[pycodestyle]` section of a `tox.ini` or `setup.cfg` file located in any parent folder of the path(s) being processed. For details, see [pycodestyle configuration](https://pycodestyle.pycqa.org/en/latest/intro.html#configuration).
 
 ### Message category mapping
 
-The Python extension maps pep8 message categories to VS Code categories through the following settings. If desired, change the setting to change the mapping.
+The Python extension maps pycodestyle message categories to VS Code categories through the following settings. If desired, change the setting to change the mapping.
 
-| Pep8 category | Applicable setting<br/>(python.linting.) | VS Code category mapping |
+| pycodestyle category | Applicable setting<br/>(python.linting.) | VS Code category mapping |
 | --- | --- | --- |
-| W | pep8CategorySeverity.W | Warning |
-| E | pep8CategorySeverity.E | Error |
+| W | pycodestyleCategorySeverity.W | Warning |
+| E | pycodestyleCategorySeverity.E | Error |
 
 ## Prospector
 

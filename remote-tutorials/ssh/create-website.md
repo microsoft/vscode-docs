@@ -4,7 +4,7 @@ Area: ssh
 TOCTitle: Create a website
 PageTitle: Create a Node.js Express web app on your virtual machine
 MetaDescription: Create a Node.js Express web app on your virtual machine
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 ---
 # Create your Node.js Application
 
@@ -43,7 +43,7 @@ You can now scaffold a new Express application called `myExpressApp` by running:
 express myExpressApp --view pug
 ```
 
-The `--view pug` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine (formerly known as `jade`).
+The `--view pug` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine.
 
 To install all of the application's dependencies, go to the new folder and run `npm install`.
 

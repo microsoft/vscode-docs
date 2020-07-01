@@ -1,5 +1,4 @@
 ---
-Order: 8
 Area: java
 TOCTitle: Java Web App
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
@@ -24,7 +23,7 @@ Before running and deploying this sample, you must have the Java SE Development 
 
 Download and install the Java SE Development Kit (JDK), version 8:
 
-<a class="tutorial-next-btn" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" style="background-color:#68217A">Download JDK</a>
+<a class="tutorial-next-btn" href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" style="background-color:#68217A">Download JDK</a>
 
 >**Note**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
 
@@ -136,6 +135,52 @@ Open the **Output** window in VS Code to view the deployment logs. Once the depl
 ![Greeting from Spring Boot](images/java-webapp/greeting.png)
 
 > **Note:** For more advanced features of App Service, you can check out the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
+
+## Connect with data services
+
+[Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is a globally distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
+
+The [Spring Boot Starter](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) makes it easy to store data in and retrieve data from your Azure Cosmos DB with SQL API.
+
+### Create an Azure Cosmos DB entity on Azure
+
+1. Go to [Azure portal](https://portal.azure.com/) and click the '+' to **Create a resource**.
+2. Click **Databases**, and then click **Azure Cosmos DB** to create your database.
+3. Select **SQL (Document DB) API** and type in other information for your database.
+4. Navigate to the database you have created, click **Keys**, and copy your **URI** and **PRIMARY KEY** for your database.
+
+### Config your project
+
+1. You can start from the [Spring Data Azure Cosmos DB Sample Project](https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-cosmosdb-spring-boot-sample).
+
+2. Navigate to `src/main/resources` and open `application.properties`. Replace below properties in `application.properties` with information of your database.
+
+    ```bash
+    azure.documentdb.uri=your-documentdb-uri
+    azure.documentdb.key=your-documentdb-key
+    azure.documentdb.database=your-documentdb-databasename
+    ```
+
+### Run and debug the application
+
+You can press `kb(workbench.action.debug.start)` to run your application. To check the result, open [Azure portal](https://portal.azure.com/) and access your Cosmos DB. Click **Data Explorer**, and next choose **Documents**. You will see data being shown if it is successfully written into Cosmos DB. You can also browse your data entries in Cosmos DB with [Azure Cosmos DB Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb).
+
+After setting a breakpoint (`kb(editor.debug.action.toggleBreakpoint)`) in your source code, refresh your browser to hit the breakpoint. Details about debugging can be found in [Java Debugging](/docs/java/java-debugging.md)
+
+Alternatively, you can also use Maven to package and run your project as steps below:
+
+1. Navigate to the directory `azure-spring-boot` and run the command.
+
+   ```bash
+   mvn install
+   ```
+
+2. Navigate to the directory `azure-documentdb-spring-boot-sample` and run the command.
+
+   ```bash
+   mvn package
+   java -jar target/azure-documentdb-spring-boot-sample-0.0.1-SNAPSHOT.jar
+   ```
 
 ## Next steps
 

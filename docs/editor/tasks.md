@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -253,7 +253,7 @@ The `tasks.json` file looks like this:
             "command": "gulp",
             "args": ["build"],
             "options": {
-                "cwd": "${workspaceRoot}/client"
+                "cwd": "${workspaceFolder}/client"
             }
         },
         {
@@ -261,7 +261,7 @@ The `tasks.json` file looks like this:
             "command": "gulp",
             "args": ["build"],
             "options": {
-                "cwd": "${workspaceRoot}/server"
+                "cwd": "${workspaceFolder}/server"
             }
         },
         {
@@ -627,7 +627,7 @@ helloWorld.c:5:3: warning: implicit declaration of function ‘prinft’
 
 We want to produce a problem matcher that can capture the message in the output and show a corresponding problem in VS Code.  Problem matchers heavily rely on [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). The section below assumes you are familiar with regular expressions.
 
->**Tip:** We have found the [RegEx101 playground](https://regex101.com/) to be a great way to develop and test regular expressions.
+>**Tip:** We have found the [RegEx101 playground](https://regex101.com/), which has an ECMAScript (JavaScript) flavor, to be a great way to develop and test regular expressions.
 
 A matcher that captures the above warning (and errors) looks like this:
 
@@ -655,7 +655,7 @@ A matcher that captures the above warning (and errors) looks like this:
 }
 ```
 
-Note that the file, line, and message properties are mandatory. The `fileLocation` specifies whether the file paths in the problem are `absolute` or `relative`. If the task produces both absolute and relative paths, you can use the `autoDetect` file location. With `autoDetect`, paths are first tested as absolute paths, and if the file doesn't exist then the path is assumed to be relative.
+Note that the file, line, and message properties are mandatory. The `fileLocation` specifies whether the file paths that are produced by the task output and matched in the problem are `absolute` or `relative`. If the task produces both absolute and relative paths, you can use the `autoDetect` file location. With `autoDetect`, paths are first tested as absolute paths, and if the file doesn't exist then the path is assumed to be relative.
 
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
 
@@ -700,6 +700,8 @@ There are a couple more properties that can be used inside a pattern. These are:
 You can also define a problem matcher that captures only a file. To do so, define a `pattern` with the optional `kind` attribute set to `file`. In this case, there is no need to provide a `line` or `location` property.
 
 >**Note:** A functional pattern must at least provide a match group for `file` and `message` if the `kind` property is set to `file`. If no `kind` property is provided or the `kind` property is set to `location`, a function pattern must provide a `line` or `location` property as well.
+
+>**Note:** The problem matcher only parses output from the given command. If you wish to parse output written to separate file (e.g. a log file), make the command that you run print out lines from the separate file before it finishes executing.
 
 ## Defining a multiline problem matcher
 

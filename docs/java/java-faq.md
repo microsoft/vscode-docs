@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order: 13
 Area: java
 TOCTitle: FAQ
 ContentId: 2ad03b46-0779-4c9a-897e-6e6b628f598a
@@ -35,29 +35,57 @@ We're currently publishing our updates at [The Visual Studio Blog](https://devbl
 
 While you're using Java within VS Code, you might also see a *Release Notes* once you update the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). That will give you an overview on the notable updates included in the extensions.
 
-## How can I use Visual Studio Code with Java 12 and 13?
+## How can I use Visual Studio Code with new Java versions?
 
-Thanks to the upstream update from JDT, you can now build your project with Java 12 and Java 13 features with VS Code as well. To use the experimental language features such as the new `switch` statement, add the following settings to `pom.xml`:
+Thanks to the upstream update from JDT, you can now build your project up to Java 14 with VS Code as well. To use the experimental/preview language features, you need to modify your project settings.
+
+Maven - modify `pom.xml`:
 
 ```xml
-<build>
-    <plugins>
+  <build>
+    <pluginManagement>
+      <plugins>
         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.0</version>
-            <configuration>
-                <source>12</source>
-                <compilerArgs>--enable-preview</compilerArgs>
-            </configuration>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <release>14</release>
+            <compilerArgs>--enable-preview</compilerArgs>
+          </configuration>
         </plugin>
-    </plugins>
-</build>
+      </plugins>
+    </pluginManagement>
+  </build>
+```
+
+Gradle:
+
+```groovy
+sourceCompatibility = 14
+tasks.withType(JavaCompile) {
+    options.compilerArgs += '--enable-preview'
+}
+tasks.withType(Test) {
+    jvmArgs += "--enable-preview"
+}
+```
+
+> Note: If you are modifying a project that was already opened in VS Code, you may need to force clean the workspace and reload. To do so, run command **Java: Clean the Java language server workspace**.
+
+## How can I use it behind a corporate proxy?
+
+When using the Java extension behind a corporate proxy, you might need to let the Java Language server know how to connect to the Internet, in order to download build runtimes, Java dependencies, and their sources through that proxy.
+
+This is done by configuring the `java.jdt.ls.vmargs` setting in VS Code preferences (all on one line):
+
+```json
+{
+"java.jdt.ls.vmargs": "-Dhttp.proxyHost=webproxy.corp.net -Dhttp.proxyPort=proxyport -Dhttp.proxyUser=user -Dhttp.proxyPassword=password -Dhttps.proxyHost=webproxy.corp.net -Dhttps.proxyPort=proxyport -Dhttps.proxyUser=user -Dhttps.proxyPassword=password"
+}
 ```
 
 ## Will this be available for Visual Studio?
 
-Currently we don't plan to extend the Java support to Visual Studio. There's already great IDEs for Java and we're focusing on VS Code to provide a lightweight experience in a polyglot editor.
+Currently we don't plan to extend the Java support to Visual Studio. There are already great IDEs for Java and we're focusing on VS Code to provide a lightweight experience in a polyglot editor.
 
 ## Does VS Code Java support other display languages?
 

@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Tutorial
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 PageTitle: Build Node.js Apps with Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: The Visual Studio Code editor has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: images/nodejs/runtimes_node.png
 ---
@@ -89,9 +89,9 @@ To set a breakpoint in `app.js`, put the editor cursor on the first line and pre
 
 ![app.js breakpoint set](images/nodejs/app-js-breakpoint-set.png)
 
-To start debugging, select the Debug View in the Activity Bar:
+To start debugging, select the Run View in the Activity Bar:
 
-![Debug icon](images/nodejs/debugicon.png)
+![Run icon](images/nodejs/debugicon.png)
 
 You can now click Debug toolbar green arrow or press `kb(workbench.action.debug.start)` to launch and debug "Hello World". Your breakpoint will be hit and you can view and step through the simple application.  Notice that VS Code displays a different colored Status Bar to indicate it is in Debug mode and the DEBUG CONSOLE is displayed.
 
@@ -121,7 +121,7 @@ We can now scaffold a new Express application called `myExpressApp` by running:
 express myExpressApp --view pug
 ```
 
-This creates a new folder called `myExpressApp` with the contents of your application. The `--view pug` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine (formerly known as `jade`).
+This creates a new folder called `myExpressApp` with the contents of your application. The `--view pug` parameters tell the generator to use the [pug](https://pugjs.org/api/getting-started.html) template engine.
 
 To install all of the application's dependencies (again shipped as npm modules), go to the new folder and execute `npm install`:
 
@@ -170,7 +170,7 @@ You can also write code that references modules in other files. For example, in 
 
 ## Debug your Express app
 
-You will need to create a debugger configuration file `launch.json` for your Express application. Click on the Debug icon in the **Activity Bar** and then the Configure gear icon at the top of the Debug view to create a default `launch.json` file.  Select the **Node.js** environment by ensuring that the `type` property in `configurations` is set to `"node"`.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `"${workspaceFolder}\\bin\\www`) for the **Launch Program** configuration.
+You will need to create a debugger configuration file `launch.json` for your Express application. Click on the Run icon in the **Activity Bar** and then the Configure gear icon at the top of the Run view to create a default `launch.json` file.  Select the **Node.js** environment by ensuring that the `type` property in `configurations` is set to `"node"`.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `"${workspaceFolder}\\bin\\www`) for the **Launch Program** configuration.
 
 ```json
 {
@@ -186,7 +186,7 @@ You will need to create a debugger configuration file `launch.json` for your Exp
 }
 ```
 
-Save the new file and make sure **Launch Program** is selected in the configuration drop-down at the top of the Debug view. Open `app.js` and set a breakpoint near the top of the file where the Express app object is created by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
+Save the new file and make sure **Launch Program** is selected in the configuration drop-down at the top of the Run view. Open `app.js` and set a breakpoint near the top of the file where the Express app object is created by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
 
 ![Debug session](images/nodejs/debugsession.png)
 

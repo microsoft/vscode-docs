@@ -27,11 +27,11 @@ Due to this focus, many standard C# project types are not recognized by VS Code.
 
 ## Installing C&#35; support
 
-C# language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). You can install it from within VS Code by searching for 'C#' in the **Extensions** view (`kb(workbench.view.extensions)`) or if you already have a project with C# files, VS Code will prompt you to install the extension as soon as you open a C# file.
+C# language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp). You can install it from within VS Code by searching for 'C#' in the **Extensions** view (`kb(workbench.view.extensions)`) or if you already have a project with C# files, VS Code will prompt you to install the extension as soon as you open a C# file.
 
 [Video Tutorial on Getting Started with C# in VS Code with .NET Core](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows)
 
-In addition to the [Microsoft C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), the community has produced other extensions.
+In addition to the [Microsoft C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), the community has produced other extensions.
 
 <div class="marketplace-extensions-csharp"></div>
 

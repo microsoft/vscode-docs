@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -22,18 +22,18 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 ## Commands
 
-`vscode.executeWorkspaceSymbolProvider` - Execute all workspace symbol provider.
+`vscode.executeWorkspaceSymbolProvider` - Execute all workspace symbol providers.
 
 - _query_ - Search string
 - _(returns)_ - A promise that resolves to an array of SymbolInformation and DocumentSymbol instances.
 
-`vscode.executeDefinitionProvider` - Execute all definition provider.
+`vscode.executeDefinitionProvider` - Execute all definition providers.
 
 - _uri_ - Uri of a text document
 - _position_ - Position of a symbol
 - _(returns)_ - A promise that resolves to an array of Location instances.
 
-`vscode.executeDeclarationProvider` - Execute all declaration provider.
+`vscode.executeDeclarationProvider` - Execute all declaration providers.
 
 - _uri_ - Uri of a text document
 - _position_ - Position of a symbol
@@ -51,7 +51,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 - _position_ - Position of a symbol
 - _(returns)_ - A promise that resolves to an array of Location instances.
 
-`vscode.executeHoverProvider` - Execute all hover provider.
+`vscode.executeHoverProvider` - Execute all hover providers.
 
 - _uri_ - Uri of a text document
 - _position_ - Position of a symbol

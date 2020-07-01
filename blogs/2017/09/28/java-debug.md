@@ -36,7 +36,7 @@ You also install the **Java Extension Pack** directly from this blog post:
 After reloading VS Code, open a folder that contains a Java project and follow below steps:
 
 1. Prepare the project. Open a `.java` file, and the Java extensions will be activated. Maven, Gradle and Eclipse projects are supported. Project build is automatically handled by the extensions, no need to be triggered manually.
-2. Start debugging. Switch to **Debug** view (`kb(workbench.view.debug)`) and open `launch.json` to add a debug configuration for Java.
+2. Start debugging. Switch to **Run** view (`kb(workbench.view.debug)`) and open `launch.json` to add a debug configuration for Java.
 3. Fill in the `mainClass` for `Launch` setting or `hostName` and `port` for `Attach`.
 4. Set your breakpoint and hit `F5` to start debugging.
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -47,7 +47,7 @@ $ vsce publish
 
 ---
 
-**Note:** Due to security concerns, `vsce` will not publish extensions which contain user provided SVG images.
+**Note:** Due to security concerns, `vsce` will not publish extensions which contain user-provided SVG images.
 
 The publishing tool checks the following constraints:
 
@@ -66,11 +66,11 @@ Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services
 
 First, make sure you have an Azure DevOps [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
 
-In the following examples, the organization's name is `vscode`. From your organization's home page (for example: `https://dev.azure.com/vscode`), go to the **Security** page:
+In the following examples, the organization's name is `vscode`. From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
 
-![Security page](images/publishing-extension/token1.png)
+![Personal settings menu](images/publishing-extension/token1.png)
 
-Select `Personal access tokens` and click **New Token** to create a new Personal Access Token:
+On the **Personal Access Tokens** page, click **New Token** to create a new Personal Access Token:
 
 ![Create personal access token](images/publishing-extension/token2.png)
 
@@ -78,11 +78,11 @@ Give the Personal Access Token a name, optionally extend its expiration date to 
 
 ![Personal access token details](images/publishing-extension/token3.png)
 
-Finally, scroll down the list of possible scopes until you find **Marketplace** and select both **Acquire** and **Manage**:
+Finally, scroll down the list of possible scopes until you find **Marketplace** and select **Manage**:
 
 ![Personal access token details](images/publishing-extension/token4.png)
 
-Click **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
+Select **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
 
 ### Create a publisher
 
@@ -187,7 +187,7 @@ For example, imagine that the latest Stable version of VS Code is `1.8.0` and th
 
 ### Marketplace integration
 
-You can customize how your extension looks in the Visual Studio Marketplace. See the [Go extension](https://marketplace.visualstudio.com/items/ms-vscode.Go) for an example.
+You can customize how your extension looks in the Visual Studio Marketplace. See the [Go extension](https://marketplace.visualstudio.com/items/golang.go) for an example.
 
 Here are some tips for making your extension look great on the Marketplace:
 
@@ -247,7 +247,7 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 
-One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accessible accounts` in the Accounts field drop-down (instead selecting a specific account). You should also set the Authorized Scopes to `All scopes` for the publish to work.
+One easy mistake to make when creating the PAT (Personal Access Token) is to not select **All accessible organizations** in the **Organizations** field drop-down (instead selecting a specific organization). You should also set the Authorized Scopes to `Marketplace (Manage)` for the publish to work.
 
 ### I can't unpublish my extension through the `vsce` tool?
 
@@ -259,4 +259,4 @@ Please note that when building and publishing your extension from Windows, all t
 
 ### Can I publish from a continuous integration (CI) build?
 
-Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps to automatically publish your extension to the Marketplace.
+Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps, GitHub Actions, and Travis CI to automatically publish your extension to the Marketplace.

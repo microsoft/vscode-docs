@@ -3,7 +3,7 @@ Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
@@ -44,7 +44,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Azure Stream Analytics Tools](https://marketplace.visualstudio.com/items/ms-bigdatatools.vscode-asa)|  | [Microsoft](https://marketplace.visualstudio.com/items/ms-bigdatatools.vscode-asa/license) |
 | [Azure Terraform](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureterraform)| ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureterraform/license) |
 | [C++](https://marketplace.visualstudio.com/items/ms-vscode.cpptools)  | | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode.cpptools/license) |
-| [C# ](https://marketplace.visualstudio.com/items/ms-vscode.csharp) | ✔ ([Repo](https://github.com/OmniSharp/omnisharp-vscode))  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode.csharp/license) |
+| [C# ](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp) | ✔ ([Repo](https://github.com/OmniSharp/omnisharp-vscode))  | [Microsoft](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp/license) |
 | [Cordova Tools](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools) | ✔ ([Repo](https://github.com/microsoft/vscode-cordova)) | [Microsoft](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools/license) |
 | [Debugger for Chrome ](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-chrome) | ✔ | [MIT](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-chrome/license) |
 | [Debugger for Edge](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-edge) | ✔ | [MIT](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-edge/license) |
@@ -57,7 +57,6 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Duffle Coat](https://marketplace.visualstudio.com/items/ms-kubernetes-tools.duffle-coat) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-kubernetes-tools.duffle-coat/license) |
 | [Dynamics AL Language](https://marketplace.visualstudio.com/items/ms-dynamics-smb.al) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-dynamics-smb.al/license) |
 | [GitHub Issues](https://marketplace.visualstudio.com/items/ms-vscode.github-issues-prs) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.github-issues-prs/license) |
-| [Go](https://marketplace.visualstudio.com/items/ms-vscode.Go) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.Go/license) |
 | [IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode) |  | [Microsoft](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) |
 | [Java Debugger](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug/license) |
 | [Java Dependency Viewer](https://marketplace.visualstudio.com/items/vscjava.vscode-java-dependency) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-dependency/license) |

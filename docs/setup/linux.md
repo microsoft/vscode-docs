@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -19,7 +19,7 @@ Visual Studio Code is officially distributed as a Snap package in the [Snap Stor
 
 [![Get it from the Snap Store](images/linux/snap-store.png)](https://snapcraft.io/code)
 
-You can install it simply by running:
+You can install it by running:
 
 ```bash
 sudo snap install --classic code # or code-insiders
@@ -43,14 +43,14 @@ sudo apt install ./<file>.deb
 # sudo apt-get install -f # Install dependencies
 ```
 
-Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the system's package manager. Note that 32-bit and .tar.gz binaries are also available on the [VS Code download page](/Download).
+Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the system's package manager. Note that other binaries are also available on the [VS Code download page](/Download).
 
 The repository and key can also be installed manually with the following script:
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 ```
 
 Then update the package cache and install the package using:
@@ -125,7 +125,7 @@ The [VS Code .rpm package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=7608
 sudo dnf install <file>.rpm
 ```
 
-Note that 32-bit and .tar.gz binaries are also available on the [VS Code download page](/Download).
+Note that other binaries are also available on the [VS Code download page](/Download).
 
 ## Updates
 
@@ -213,7 +213,7 @@ fs.inotify.max_user_watches=524288
 
 The new value can then be loaded in by running `sudo sysctl -p`. Note that [Arch Linux](https://www.archlinux.org/) works a little differently, See [Increasing the amount of inotify watchers](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) for details.
 
-While 524,288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524,288 watches are consumed, that results in an upper bound of around 256MB (32-bit) or 512MB (64-bit).
+While 524,288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 1080 bytes](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524,288 watches are consumed, that results in an upper bound of around 540 MiB.
 
 Another option is to exclude specific workspace directories from the VS Code file watcher with the `files.watcherExclude` [setting](/docs/getstarted/settings.md). The default for `files.watcherExclude` excludes `node_modules` and some folders under `.git`, but you can add other directories that you don't want VS Code to track.
 

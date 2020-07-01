@@ -34,8 +34,8 @@ To successfully complete this tutorial, you need to first setup your Python  dev
 
 ## Install Visual Studio Code and the Python Extension
 
-1. If you have not already done so, install [VS Code](https://code.visualstudio.com/)
-2. Next, install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the Visual Studio Marketplace. For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-gallery.md). The Python extension is named **Python** and published by Microsoft.
+1. If you have not already done so, install [VS Code](https://code.visualstudio.com/).
+2. Next, install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the Visual Studio Marketplace. For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-gallery.md). The Python extension is named **Python** and it's published by Microsoft.
 
    [![Python extension on Marketplace](images/tutorial/python-extension-marketplace.png)](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
@@ -49,7 +49,7 @@ Install [Python from python.org](https://www.python.org/downloads/). You can typ
 
 >**Note**: If you don't have admin access, an additional option for installing Python on Windows is to use the Microsoft Store. The Microsoft Store provides installs of [Python 3.7](https://www.microsoft.com/en-us/p/python-37/9nj46sx7x90p) and [Python 3.8](https://www.microsoft.com/en-us/p/python-38/9mssztt1n39l). Be aware that you might have compatibility issues with some packages using this method.
 
-For additional information about Python on Windows, see [Using Python on Windows at Python.org](https://docs.python.org/3.7/using/windows.html)
+For additional information about using Python on Windows, see [Using Python on Windows at Python.org](https://docs.python.org/3.7/using/windows.html)
 
 ### macOS
 
@@ -59,7 +59,7 @@ The system install of Python on macOS is not supported. Instead, an installation
 
 ### Linux
 
-The built-in Python 3 installation on Linux works well, but to install other Python packages you must install `pip` with [`get-pip.py`](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
+The built-in Python 3 installation on Linux works well, but to install other Python packages you must install `pip` with [get-pip.py](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
 
 ### Other options
 
@@ -89,7 +89,7 @@ If the installation was successful, the output window should show the version of
 
 ## Start VS Code in a project (workspace) folder
 
-At a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
+Using a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
 ```bash
 mkdir hello
@@ -156,13 +156,13 @@ For full details on editing, formatting, and refactoring, see [Editing code](/do
 
 It's simple to run `hello.py` with Python. Just click the **Run Python File in Terminal** play button in the top-right side of the editor.
 
-![Run python file in terminal button](images/tutorial/run-python-file-in-terminal-button.png)
+![Using the run python file in terminal button](images/tutorial/run-python-file-in-terminal-button.png)
 
 The button opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows):
 
 ![Program output in a Python terminal](images/tutorial/output-in-terminal.png)
 
-There are three other ways you can run Python within VS Code:
+There are three other ways you can run Python code within VS Code:
 
 - Right-click anywhere in the editor window and select **Run Python File in Terminal** (which saves the file automatically):
 
@@ -215,7 +215,7 @@ Select the blue **Continue** button on the toolbar again (or press F5) to run th
 
 If you restart the debugger, the debugger again stops on the first breakpoint.
 
-To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Debug > Stop debugging** menu command.
+To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Run > Stop debugging** menu command.
 
 For full details, see [Debugging configurations](/docs/python/debugging.md), which includes notes on how to use a specific Python interpreter for debugging.
 
@@ -242,14 +242,14 @@ Next, try running the file in the debugger using the "Python: Current file" conf
 
 Unless you're using an Anaconda distribution or have previously installed the `matplotlib` package, you should see the message, **"ModuleNotFoundError: No module named 'matplotlib'"**. Such a message indicates that the required package isn't available in your system.
 
-To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`)). This command opens a command prompt for your selected interpreter.
+To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`). This command opens a command prompt for your selected interpreter.
 
 A best practice among Python developers is to avoid installing packages into a global interpreter environment. You instead use a project-specific `virtual environment` that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments. Such isolation reduces many complications that can arise from conflicting package versions. To create a *virtual environment* and install the required packages, enter the following commands as appropriate for your operating system:
 
 > **Note**: For additional information about virtual environments, see [Environments](/docs/python/environments.md#global-virtual-and-conda-environments).
 
 1. Create and activate the virtual environment
-   >**Note**: When you create a new virtual environment, you should be prompted by VS  Code to set it as the default for your workspace folder. If selected, the environment will automatically be activated when you open a new terminal.
+   >**Note**: When you create a new virtual environment, you should be prompted by VS Code to set it as the default for your workspace folder. If selected, the environment will automatically be activated when you open a new terminal.
 
    ![Virtual environment dialog](images/tutorial/virtual-env-dialog.png)
 

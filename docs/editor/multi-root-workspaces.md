@@ -1,10 +1,10 @@
 ---
-Order: 10
+Order: 16
 Area: editor
 TOCTitle: Multi-root Workspaces
 ContentId: 8d55f6b8-977f-4c26-a888-f3d8d982dd2d
 PageTitle: Multi-root Workspaces in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: You can open and work on multiple project folders in Visual Studio Code with multi-root workspaces.
 ---
 # Multi-root Workspaces
@@ -136,9 +136,9 @@ VS Code UI such as the **OPEN EDITORS** and **Quick Open** (`kb(workbench.action
 
 ![quick pick has folder name](images/multi-root-workspaces/quick-open-list.png)
 
-If you are using an [Icon Theme](/docs/getstarted/themes.md#icon-themes) and the active theme supports it, you will see a special Workspace icon.
+If you are using an [File Icon Theme](/docs/getstarted/themes.md#file-icon-themes) and the active theme supports it, you will see a special Workspace icon.
 
-Below you can see the Workspace icons from the built-in **Minimal (Visual Studio Code)** icon theme:
+Below you can see the Workspace icons from the built-in **Minimal (Visual Studio Code)** file icon theme:
 
 ![custom workspace icon](images/multi-root-workspaces/workspace-icon.png)
 
@@ -216,7 +216,6 @@ Workspace scoped launch configurations live in the `"launch"` section of the wor
 
 ![Workspace Settings](images/multi-root-workspaces/workspace-settings.png)
 
-
 Alternatively, new launch configurations can be added via the "Add Config (workspace)" entry of the Launch Configuration drop-down menu:
 
 ![Add Config](images/multi-root-workspaces/add-config.png)
@@ -277,6 +276,10 @@ Similar to how VS Code searches for debugging configurations, VS Code will also 
 ![tasks drop-down](images/multi-root-workspaces/tasks-dropdown.png)
 
 From the TSLint extension [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace) example above, you can see that there are two **configured tasks** from `tasks.json` files in the `tslint` and `tslint-tests` folders and numerous autodetected npm and TypeScript compiler **detected tasks**.
+
+### Workspace task configuration
+
+Workspace scoped tasks live in the `"tasks"` section of the workspace configuration file (**Workspaces: Open Workspace Configuration File** in the Command Palette). Only `"shell"` and `"process"` type tasks can be defined in the workspace configuration file.
 
 ## Source Control
 

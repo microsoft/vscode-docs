@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -406,13 +406,13 @@ Two frequently used applications of remote debugging are:
 
 ## Access Loaded Scripts
 
-If you need to set a breakpoint in a script that is not part of your workspace and therefore cannot be easily located and opened through normal VS Code file browsing, you can access the loaded scripts via the **LOADED SCRIPTS** view in the debug viewlet:
+If you need to set a breakpoint in a script that is not part of your workspace and therefore cannot be easily located and opened through normal VS Code file browsing, you can access the loaded scripts via the **LOADED SCRIPTS** view in the Run view:
 
 ![Loaded Scripts Explorer](images/nodejs-debugging/loaded-scripts-explorer.gif)
 
- Alternatively, you can use the **Debug: Open Loaded Script** action (`kb(extension.node-debug.pickLoadedScript)`) which opens a Quick Pick, where you can filter and select the script to open.
+The **LOADED SCRIPTS** view lets you quickly select the script by typing it's name or filter the list when **Enable Filter on Type** is on.
 
- Scripts are loaded into a read-only editor where you can set breakpoints. These breakpoints are remembered across debug sessions but you only have access to the script content while a debug session is running.
+Scripts are loaded into a read-only editor where you can set breakpoints. These breakpoints are remembered across debug sessions but you only have access to the script content while a debug session is running.
 
 ## Restarting debug sessions automatically when source is edited
 
@@ -613,6 +613,10 @@ If your runtime supports both protocols, here are a few additional reasons for u
 * Debugging via the `inspector` protocol can handle some trickier source map setups. If you have trouble setting breakpoints in source mapped files, try using `inspector`.
 
 We try to keep feature parity between both protocol implementations but this becomes more and more difficult because the technology underlying `legacy` is deprecated whereas the new `inspector` evolves quickly. For this reason, we specify the supported protocols if a feature is not supported by both `legacy` and `inspector`.
+
+## New JavaScript Debugger
+
+We're working on a new version of our debugger for Node.js and Chrome applications. You can head over to its page [on the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug-nightly) to install it and learn what's new.
 
 ## Next steps
 

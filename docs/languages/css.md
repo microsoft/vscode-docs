@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, SCSS and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, SCSS, and Less support in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less
@@ -52,9 +52,9 @@ To just disable it for css, Less and SCSS, use
 
 ## Folding
 
-You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges are available for all declarations (e.g. rule declarations) and for multiline comments in the source code.
+You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding regions are available for all declarations (for example, rule declarations) and for multiline comments in the source code.
 
-Additionally you can use the following region markers to define a folding range:
+Additionally you can use the following region markers to define a folding region:
 `/*#region*/` and `/*#endregion*/` in CSS/SCSS/Less or `// #region` and `// #endregion` In SCSS/Less.
 
 If you prefer to switch to indentation based folding for CSS, Less and SCSS, use:
@@ -64,7 +64,6 @@ If you prefer to switch to indentation based folding for CSS, Less and SCSS, use
     "editor.foldingStrategy": "indentation"
 },
 ```
-
 
 ## Emmet snippets
 

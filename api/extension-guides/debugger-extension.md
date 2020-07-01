@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to provide debugger extensions (plug-ins) for Visual Studio Code through a Debug Adapter.
@@ -82,7 +82,7 @@ To try Mock Debug:
 
 - Create a new empty folder `mock test` and open it in VS Code.
 - Create a file `readme.md` and enter several lines of arbitrary text.
-- Switch to the Debug view and press the gear icon.
+- Switch to the Run view and press the gear icon.
 - VS Code will let you select an "environment" in order to create a default launch configuration. Pick "Mock Debug".
 - Press the green Start button and then Enter to confirm the suggested file `readme.md`.
 
@@ -102,7 +102,7 @@ Now let's get the source for Mock Debug and start development on it within VS Co
 ```bash
 git clone https://github.com/Microsoft/vscode-mock-debug.git
 cd vscode-mock-debug
-npm install
+yarn
 ```
 
 Open the project folder `vscode-mock-debug` in VS Code.
@@ -298,7 +298,7 @@ Since VS Code runs on different platforms, we have to make sure that the DA prog
 
 **configurationAttributes** declares the schema for the `launch.json` attributes that are available for this debugger. This schema is used for validating the `launch.json` and supporting IntelliSense and hover help when editing the launch configuration.
 
-The **initialConfigurations** define the initial content of the default `launch.json` for this debugger. This information is used when a project does not have a `launch.json` and a user starts a debug session or clicks on the gear icon in the debug viewlet. In this case VS Code lets the user pick a debug environment and then creates the corresponding `launch.json`:
+The **initialConfigurations** define the initial content of the default `launch.json` for this debugger. This information is used when a project does not have a `launch.json` and a user starts a debug session or clicks on the gear icon in the Run view. In this case VS Code lets the user pick a debug environment and then creates the corresponding `launch.json`:
 
 ![Debugger Quickpick](images/debugger-extension/debug-init-config.png)
 
@@ -327,7 +327,7 @@ The variable can now be used in any string typed value of a launch configuration
 If the static nature of debug contributions in the `package.json` is not sufficient, a `DebugConfigurationProvider` can be used to dynamically control the following aspects of a debug extension:
 
 - The initial debug configurations for a newly created launch.json can be generated dynamically, e.g. based on some contextual information available in the workspace.
-- A launch configuration can be _resolved_ (or modified) before it is used to start a new debug session. This allows for filling in default values based on information available in the workspace.
+- A launch configuration can be _resolved_ (or modified) before it is used to start a new debug session. This allows for filling in default values based on information available in the workspace. Two _resolve_ methods exist: `resolveDebugConfiguration` is called before variables are substituted in the launch configuration, `resolveDebugConfigurationWithSubstitutedVariables` is called after all variables have been substituted. The former must be used if the validation logic inserts additional variables into the debug configuration. The latter must be used if the validation logic needs access to the final values of all debug configuration attributes.
 
 The `MockConfigurationProvider` in `src/extension.ts` implements `resolveDebugConfiguration` to detect the case where a debug session is started when no launch.json exists, but a Markdown file is open in the active editor. This is a typical scenario where the user has a file open in the editor and just wants to debug it without creating a launch.json.
 
@@ -346,7 +346,7 @@ This catch-all `onDebug` is triggered as soon as any debug functionality is used
 A better approach for expensive debug extensions is to use more fine-grained activation events:
 
 - `onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
-- `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
+- `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` or `resolveDebugConfigurationWithSubstitutedVariables` methods of the `DebugConfigurationProvider` for the specified type is called.
 
 **Rule of thumb:** If activation of a debug extensions is cheap, use `onDebug`. If it is expensive, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`.
 
@@ -361,7 +361,16 @@ Once you have created your debugger extension you can publish it to the Marketpl
 
 As we have seen, developing a debugger extension typically involves debugging both the extension and the debug adapter in two parallel sessions. As explained above VS Code supports this nicely but development could be easier if both the extension and the debug adapter would be one program that could be debugged in one debug session.
 
-This approach is in fact easily doable as long as your debug adapter is implemented in TypeScript/JavaScript. The basic idea is to run the debug adapter as a server inside the extension host and to make VS Code to connect to it instead of launching a new debug adapter per session.
+This approach is in fact easily doable as long as your debug adapter is implemented in TypeScript/JavaScript. The basic idea is to run the debug adapter directly inside the extension and to make VS Code to connect to it instead of launching a new external debug adapter per session.
 
-Mock Debug shows how a [DebugAdapterDescriptorFactory](https://github.com/Microsoft/vscode-mock-debug/blob/6a2ef01b95bb22cdf55683f4d616cad501051510/src/extension.ts#L74-L98) can be used to create and [register](https://github.com/Microsoft/vscode-mock-debug/blob/6a2ef01b95bb22cdf55683f4d616cad501051510/src/extension.ts#L32-L36) a server-based debug adapter.
-The feature is enabled by setting the compile time flag [`EMBED_DEBUG_ADAPTER`](https://github.com/Microsoft/vscode-mock-debug/blob/6a2ef01b95bb22cdf55683f4d616cad501051510/src/extension.ts#L17) to true. If you now start debugging the extension with **F5** you will hit breakpoints not only in the extension host but in the debug adapter as well.
+For this VS Code provides extension API to control how a debug adapter is created and run. A `DebugAdapterDescriptorFactory` has a method `createDebugAdapterDescriptor` that is called by VS Code when a debug session starts and a debug adapter is needed. This method must return a descriptor object (`DebugAdapterDescriptor`) that describes how the debug adapter is run.
+
+Today VS Code supports three different ways for running a debug adapter and consequently offers three different descriptor types:
+
+- `DebugAdapterExecutable`: this object describes a debug adapter as an external executable with a path and optional arguments and runtime. The executable must implement the Debug Adapter Protocol and communicate via stdin/stdout. This is VS Code's default mode of operation and VS Code uses this descriptor automatically with the corresponding values from the package.json if no `DebugAdapterDescriptorFactory` is explicitely registered.
+- `DebugAdapterServer`: this object describes a debug adapter running as a server that communicates via a specific local or remote port. A debug adapter implementation based on the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module supports this server mode automatically.
+- `DebugAdapterInlineImplementation`: this object describes a debug adapter as a JavaScript or Typescript object that implements the `vscode.DebugAdapter` interface. A debug adapter implementation based on version 1.38-pre.4 or later of the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module implements the interface automatically.
+
+Mock Debug shows examples for the [three types of DebugAdapterDescriptorFactories](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L91-L150)  and how they are [registered for the 'mock' debug type](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L50). The run mode to use can be selected by [setting the global variable `runMode`](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L16) to one of the possible values `external`, `server`, or `inline`.
+
+For devlopment the `inline` and `server` modes are particularly useful because they allow for debugging extension and debug adapter within a single process.

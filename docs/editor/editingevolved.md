@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -57,7 +57,7 @@ Allowed values are:
 
 ### Breadcrumb keyboard navigation
 
-To interact with breadcrumbs, use the **Focus Breadcrumbs** command or press `kb(breadcrumbs.focusAndSelect)`. It will select that last element and open a dropdown that allows you to navigate to a sibling file or symbol. Use the `kb(breadcrumbs.focusPrevious)` and `kb(breadcrumbs.focusNext)` keyboard shortcuts to go to elements before or after the current element. When the dropdown appears, simply start typing - all matching elements will be highlighted and the best match will be selected for quick navigation.
+To interact with breadcrumbs, use the **Focus Breadcrumbs** command or press `kb(breadcrumbs.focusAndSelect)`. It will select that last element and open a dropdown that allows you to navigate to a sibling file or symbol. Use the `kb(breadcrumbs.focusPrevious)` and `kb(breadcrumbs.focusNext)` keyboard shortcuts to go to elements before or after the current element. When the dropdown appears, start typing - all matching elements will be highlighted and the best match will be selected for quick navigation.
 
 You can also interact with breadcrumbs without the dropdown. Press `kb(breadcrumbs.focus)` to focus the last element, use `kb(breadcrumbs.focusPrevious)` and `kb(breadcrumbs.focusNext)` to navigate, and use `kb(breadcrumbs.revealFocused)` to reveal the element in the editor.
 
@@ -117,7 +117,7 @@ Some languages like C# support inline reference information, that is updated liv
 
 > **Tip:** Directly invoke the **Peek References** action by clicking on these annotations.
 
-> **Tip:** Reference information shown in CodeLens can be turned on or off through the `editor.codeLens` setting.
+> **Tip:** Reference information shown in CodeLens can be turned on or off through the `editor.codeLens` [setting](/docs/getstarted/settings.md).
 
 ## Rename symbol
 
@@ -151,3 +151,48 @@ Now that you know how the editor works, time to try a few other things...
 * [User Interface](/docs/getstarted/userinterface.md) - In case you missed a basic orientation around VS Code.
 * [Key Bindings](/docs/getstarted/keybindings.md) - Learn how to modify key bindings to your preference.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
+
+## Common questions
+
+### How can I automatically select the second entry in Quick Open instead of the first?
+
+With the command `workbench.action.quickOpenPreviousEditor`, you can have the second entry automatically selected in Quick Open. This can be useful if you want to select the previous entry from the list without having to invoke another keybinding:
+
+```json
+{
+	"key": "ctrl+p",
+	"command": "workbench.action.quickOpenPreviousEditor"
+},
+{
+	"key": "ctrl+p",
+	"command": "-workbench.action.quickOpen"
+}
+```
+
+### How can I configure Ctrl+Tab to navigate across all editors of all groups
+
+By default, `kbstyle(Ctrl+Tab)` navigates between editors of the same editor group. If you want to navigate across all opened editors in all groups, you can create keyboard shortcuts for the `workbench.action.quickOpenPreviousRecentlyUsedEditor` and `workbench.action.quickOpenLeastRecentlyUsedEditor` commands:
+
+```json
+{
+    "key": "ctrl+tab",
+    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
+    "when": "!inEditorsPicker"
+},
+{
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.quickOpenLeastRecentlyUsedEditor",
+    "when": "!inEditorsPicker"
+}
+```
+
+### How can I navigate between recently used editors without a picker
+
+Here is a list of commands you can use to navigate in editors without opening a picker:
+
+Key|Command|Command id
+---|-------|----------
+`kb(workbench.action.openNextRecentlyUsedEditor)`|Open Next Recently Used Editor|`workbench.action.openNextRecentlyUsedEditor`
+`kb(workbench.action.openPreviousRecentlyUsedEditor)`|Open Previously Used Editor|`workbench.action.openPreviousRecentlyUsedEditor`
+`kb(workbench.action.openNextRecentlyUsedEditorInGroup)`|Open Next Recently Used Editor in Group|`workbench.action.openNextRecentlyUsedEditorInGroup`
+`kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Open Previously Used Editor in Group|`workbench.action.openPreviousRecentlyUsedEditorInGroup`

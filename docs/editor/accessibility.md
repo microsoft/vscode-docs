@@ -1,10 +1,10 @@
 ---
-Order: 16
+Order: 17
 Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -13,7 +13,11 @@ Visual Studio Code has many features to help make the editor accessible to all u
 
 ## Zoom
 
-You can increase the Zoom level in VS Code with the **View** > **Zoom In** command (`kb(workbench.action.zoomIn)`).  The zoom level increases by 20% each time the command is executed. The **View** > **Zoom Out** (`kb(workbench.action.zoomOut)`) command lets you decrease the Zoom level.
+You can adjust the Zoom level in VS Code with the **View** > **Appearance** > **Zoom** commands.  The zoom level increases or decreases by 20% each time a **Zoom** command is executed.
+
+* **View** > **Appearance** > **Zoom In** (`kb(workbench.action.zoomIn)`) - increase the Zoom level.
+* **View** > **Appearance** > **Zoom Out** (`kb(workbench.action.zoomOut)`) - decrease the Zoom level.
+* **View** > **Appearance** > **Reset Zoom** (`kb(workbench.action.zoomReset)`) - reset the Zoom level to 0.
 
 ![Zoomed in editor](images/accessibility/zoomed-in.png)
 
@@ -37,13 +41,19 @@ VS Code also has many preset keyboard shortcuts for commands. These are displaye
 
 You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) brings up the Keyboard Shortcuts editor where you can discover and modify keybindings for VS Code actions. See [Key Bindings](/docs/getstarted/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
 
+For a quick navigation across the workbench we recommend using **Focus Next Part** (`kb(workbench.action.focusNextPart)`) and **Focus Previous Part** (`kb(workbench.action.focusPreviousPart)`) commands.
+
+### Anchor selection
+
+To make it easier to start and end selection using the keyboard we have four commands: **Set Selection Anchor** (`kb(editor.action.setSelectionAnchor)`), **Select From Anchor to Cursor** (`kb(editor.action.selectFromAnchorToCursor)`), **Cancel Selection Anchor** (`kb(editor.action.cancelSelectionAnchor)`) and **Go to Selection Anchor**.
+
 ## Tab navigation
 
 You can use the `kbstyle(Tab)` key to jump between VS Code UI controls. Use `kbstyle(Shift+Tab)` to tab in reverse order.  As you tab through the UI controls, you can see an indicator around the UI element once the element gains focus.
 
 Some areas that support Tab navigation are:
 
-* The View switcher (File Explorer, Search, Source Control, Debug, Extensions)
+* The View switcher (File Explorer, Search, Source Control, Run, Extensions)
 * The header of collapsible sections in a view to expand/collapse
 * Actions in views and sections
 * Actions for items in the tree
@@ -60,7 +70,7 @@ Read-only files never trap the `kbstyle(Tab)` key. The **Integrated Terminal** p
 
 ## Screen readers
 
-VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](https://www.nvaccess.org), but we expect all screen readers to benefit from this support.
+VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](https://www.nvaccess.org), VoiceOver on macOS and Orca on Linux.
 
 There is a community developed [NVDA add-on for VS Code](https://github.com/pawelurbanski/nvda-for-vs-code), that improves unintentional switching between forms and browse mode as well as providing better text reading while using IntelliSense. The add-on requires VS Code version 1.33 or higher. See the add-on [README](https://github.com/pawelurbanski/nvda-for-vs-code/blob/master/README.md) file for more details.
 
@@ -73,8 +83,6 @@ The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.n
 When the suggestions pop up, they will get announced to screen readers. It is possible to navigate the suggestions using `kbstyle(Ctrl+Up)` and `kbstyle(Ctrl+Down)`, you can dismiss the suggestions with `kbstyle(Shift+Escape)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
 
 The **Go to Next/Previous Difference** actions (`kb(editor.action.diffReview.next)` and `kb(editor.action.diffReview.prev)`), when in a diff editor pane, will bring up the Diff Review pane, which allows the navigation of the diffs, presented in a unified patch format. Arrow Up and Arrow Down can be used to navigate through the unchanged, inserted or deleted lines. Pressing `kbstyle(Enter)` will return focus to the modified pane of the diff editor at the selected line number (or closest still existing line number in case a deleted line is selected). Use `kbstyle(Escape)` or `kb(Shift+Escape)` to dismiss the Diff Review pane.
-
-> Setting `editor.accessibilityPageSize` controls the number of lines in the editor that can be read out by a screen reader at once. Warning: this has a performance implication for numbers larger than the default, for good machines we recommend a value of 1000.
 
 ## Accessibility help
 
@@ -92,11 +100,15 @@ Certain features such as folding, minimap (code overview), and word wrap are dis
 
 ## Terminal accessibility
 
-Output in the Integrated Terminal can be navigated through by using the scroll commands available in the Command Palette (press `kbstyle(F1)` and search for "Terminal Scroll").
+Output in the Integrated Terminal can be navigated through by using the "navigation mode" commands available in the Command Palette (press `kbstyle(F1)` and search for "terminal navigation mode").
 
 ### Minimum contrast ratio
 
 The setting `terminal.integrated.minimumContrastRatio` can be set to a number between 1 and 21, this will cause the text color either increase or reduce luminance until the contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.
+
+## Status Bar accessibility
+
+Once a focus is in the status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between status bar entries.
 
 ## Debugger accessibility
 
@@ -104,21 +116,29 @@ The VS Code debugger UI is user accessible and has the following features:
 
 * Changes in debug state are read out (for example 'started', 'breakpoint hit', 'terminated', ...).
 * All debug actions are keyboard accessible.
-* Both the Debug View and Debug Console support Tab navigation.
+* Both the Run view and Debug Console support Tab navigation.
 * Debug hover is keyboard accessible (`kb(editor.action.showHover)`).
 * Keyboard shortcuts can be created to set focus to each debugger area.
 
 ## Current known issues
 
-VS Code has some known accessibility issues depending on the platform.
+VS Code has some known accessibility issues depending on the platform. Here's a [full list](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility) of VS Code accessibility issues.
 
 ### macOS
 
-There is limited screen reader support for the editor with VoiceOver.
+There is screen reader support for the editor with VoiceOver.
 
 ### Linux
 
-There is no screen reader support for the editor. This is because there is no accessibility implementation for Chrome on Linux.
+Screen reader support for the editor is still work in progress because the accessibility implementation for Chrome on Linux is work in progress.
+Thus there are a couple of things needed in order to have screen reader Orca working with VS Code:
+
+* Make sure to use the latest version of Orca out of master. More details can be found on the [Orca page](https://gitlab.gnome.org/GNOME/orca/-/blob/master/README.md).
+* We have tested that VS Code works well with Orca on Ubuntu 18, Fedora 31, Arch Linux. With Ubuntu 19 we have encountered issues.
+* Make sure to have the setting `"editor.accessibilitySupport": "on"` in VS Code. You can do this using settings, or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn on accessibilitySupport.
+* If Orca is still silent, try setting `ACCESSIBILITY_ENABLED=1` as an environment variable.
+
+After enabling that setting, VS Code should work with the Orca screen reader.
 
 ## Next steps
 

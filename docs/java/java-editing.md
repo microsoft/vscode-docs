@@ -1,13 +1,13 @@
 ---
 Order: 2
 Area: java
-TOCTitle: Editing Code
+TOCTitle: Navigate and Edit
 ContentId: 843e139a-9e3c-4b4f-95d1-32a9a7480e8e
-PageTitle: Editing Java in Visual Studio Code
+PageTitle: Navigate and edit Java Source Code in Visual Studio Code
 DateApproved: 6/17/2019
-MetaDescription: Editing Java in Visual Studio Code with IntelliSense, Refactoring and Formatting.
+MetaDescription: Navigate and edit Java Source Code in Visual Studio Code
 ---
-# Editing Java in Visual Studio Code
+# Navigate and edit Java source code
 
 Visual Studio Code is a source code editor first and foremost with rich editing [features](/docs/editor/codebasics.md). In this document, we will go through a few Java-specific features, which are helpful when working with Java.
 
@@ -15,27 +15,11 @@ If you run into any issues when using the features below, you can contact us by 
 
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'editing')" href="javascript:void(0)">Report an issue</a>
 
-## Code editing and navigation
+## Code navigation
 
-With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate your methods within the same class. Editing code is also easy with IntelliSense for smart code completions and signature details. You can use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
+With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate your methods within the same class. [Package and Dependency View](/docs/java/java-project.md#package-and-dependency-view) also provide a great overview of your project. As a Java editor, it also supports CodeLens (references) and Javadoc hovers and highlights out of box.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/code-editing.mp4" type="video/mp4">
-</video>
-
-Java support in Visual Studio Code detects issues within your code automatically, and provides you with Quick Fix suggestions.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/quick-fix.mp4" type="video/mp4">
-</video>
-
-As a Java editor, it also supports CodeLens (references) and Javadoc hovers and highlights out of box.
-
-Folding range allows you to fold or unfold code snippet to better view the source code.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/folding-range.mp4" type="video/mp4">
-</video>
+Once you open your Java project or any source files with VS Code, all code navigation features as well as syntax check and documentation (hover to see Javadoc) would be available immediately by its [Syntax Mode](/docs/java/java-project.md#syntax-mode).
 
 ### Search for symbols
 
@@ -75,9 +59,52 @@ You can keep track of class implementations and overriding methods by clicking t
   <source src="/docs/java/java-editing/goto-super-implementation.mp4" type="video/mp4">
 </video>
 
+### Call Hierarchy
+
+A Call Hierarchy view shows all calls from or to a function and allows you to drill into callers of callers and call of calls. Right-click on a function and select **Peek** > **Peek Call Hierarchy**.
+
+![Call Hierarchy Peek](images/java-editing/call-hierarchy.png)
+
+You can also right-click in a function body and pick **Show Call Hierarchy**.
+
+![Call Hierarchy Menu](images/java-editing/call-hierarchy.gif)
+
+### Folding regions
+
+Folding regions allows you to fold or unfold code snippet to better view the source code.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/folding-range.mp4" type="video/mp4">
+</video>
+
+### Smart Selection
+
+With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select-api) (semantic selection), you can expand or shrink the selection range based on the semantic information of the caret position in your source code.
+
+* To expand the selection, use `kb(editor.action.smartSelect.expand)`.
+* To shrink the selection, use `kb(editor.action.smartSelect.shrink)`.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/smart-selection.mp4" type="video/mp4">
+</video>
+
+### Semantic Highlighting
+
+Syntax highlighting is a very important feature that allows you to read code more efficiently. With the help of [Semantic Highlighting](https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview), VS Code can provide more accurate source code coloring based on symbol information from the Java language service.
+
+Below is just one example, left is the behavior after enabling semantic highlighting and right is the one with only syntax highlighting.
+
+![Semantic Highlighting](images/java-editing/semantic-highlighting.png)
+
+To enable semantic highlighting, you can toggle the `java.semanticHighlighting.enabled` setting. You will also be prompted to enable or disable semantic highlighting on startup:
+
+![Semantic Highlighting Switch](images/java-editing/semantic-highlighting-switch.png)
+
+You can learn more about the details of Java semantic highlighting on the [Java extension wiki](https://github.com/redhat-developer/vscode-java/wiki/Semantic-Highlighting).
+
 ### Navigating code with Spring Boot
 
-[Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for Spring Boot projects.
+The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for Spring Boot projects.
 
 * `@/` shows all defined request mappings (mapped path, request method, source location)
 * `@+` shows all defined beans (bean name, bean type, source location)
@@ -87,6 +114,22 @@ You can keep track of class implementations and overriding methods by clicking t
 ![Spring Navigation](images/java-editing/spring-navigation.png)
 
 To learn more about Spring Boot support with Visual Studio Code, read [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
+
+## Code editing
+
+Editing code is also easy with IntelliSense for smart code completions and signature details. You can use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/code-editing.mp4" type="video/mp4">
+</video>
+
+Java support in Visual Studio Code detects issues within your code automatically, and provides you with Quick Fix suggestions.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-editing/quick-fix.mp4" type="video/mp4">
+</video>
+
+For more details about refactoring and code actions, see [Refactoring and Source Actions](/docs/java/java-refactoring.md).
 
 ### IntelliSense
 
@@ -100,278 +143,14 @@ In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://
 
 IntelliCode works well with popular Java libraries and frameworks like Java SE and Spring. It will help you whether you are doing monolithic web apps or modern microservices.
 
-### Smart Selection
+### Create new file
 
-With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select-api) (semantic selection), you can expand or shrink the selection range based on the semantic information of the caret position in your source code.
+VS Code supports applying templates when you create a Java source file. When you create a `.java` file in the File Explorer, the language server will automatically generate the class body, and fill the package info for you:
 
-* To expand the selection, use `kb(editor.action.smartSelect.expand)`.
-* To shrink the selection, use `kb(editor.action.smartSelect.shrink)`.
+![New File](images/java-editing/create-new-file.gif)
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/smart-selection.mp4" type="video/mp4">
-</video>
-
-## Refactoring and Code Actions
-
-Here we will show you the most used refactoring features for Java in Visual Studio Code, namely rename, move, extract methods and variables and more.
-
-### Rename
-
-Rename allows you to rename variables, classes, methods, packages, folders, and almost any Java identifiers. When you rename an identifier, all references to that identifier are also renamed. The shortcut to invoke the Rename refactoring is `kb(editor.action.rename)`. When you invoke the shortcut on an identifier in the editor, a small box displays within the editor itself where you can change the identifier name. When you press `kbstyle(Enter)`, all references to that identifier are changed too.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/rename.mp4" type="video/mp4">
-</video>
-
-### Move
-
-The Move refactoring lets you move packages and classes between the source roots of a project, class members to other classes, and inner classes to upper hierarchy levels.
-
-For example, you can perform the move refactoring on a static method if it is used more in another class than in its own class.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/move-static-method.mp4" type="video/mp4">
-</video>
-
-You can also move a class to another package.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/move-class.mp4" type="video/mp4">
-</video>
-
-And move an inner class to new a new file.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/move-inner-type.mp4" type="video/mp4">
-</video>
-
-### Extract methods and variables
-
-Extract to constant, method, and local variables all come in handy with Java on Visual Studio Code.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/refactor.mp4" type="video/mp4">
-</video>
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/extract-local-variable.mp4" type="video/mp4">
-</video>
-
-After the extraction, you can also perform a rename in the same transaction.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/extract-rename.mp4" type="video/mp4">
-</video>
-
-### Convert a local variable to a field
-
-When selecting an expression, extract to field.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/extract-field.mp4" type="video/mp4">
-</video>
-
-When selecting a variable declaration, convert the variable to field.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/convert-field.mp4" type="video/mp4">
-</video>
-
-### Inline
-
-The Inline refactoring lets you reverse the refactoring for a local variable, method, and constant.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/inline.mp4" type="video/mp4">
-</video>
-
-### Convert to enhanced for-loop
-
-The enhanced for-loop is a popular feature. Its simple structure allows one to simplify code by presenting for-loops that visit each element of an array/collection without explicitly expressing how one goes from element to element.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/convert-for-loop.mp4" type="video/mp4">
-</video>
-
-### Generate getters and setters
-
-You can bulk generate getters and setters for all new member variables. If the class has more than one field, the source action will prompt a Quick Pick for you to select the target fields to use to generate the accessor methods.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/advancedgettersetter.mp4" type="video/mp4">
-</video>
-
-### Resolve ambiguous imports
-
-To deal with ambiguous imports, you now have a dropdown list to pick the right one. The code line with the unresolved type is also presented to you to help you decide.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/resolve-ambiguous-imports.mp4" type="video/mp4">
-</video>
-
-### Override/implement methods
-
-With this source action, all the candidates are presented to you with a checklist. You can then decide what to override or implement.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/override-implement-methods.mp4" type="video/mp4">
-</video>
-
-### Generate `hashCode()` and `equals()`
-
-`hashCode()` and `equals()` can be generated with default implementations. All the non-static member variables are listed, and you can customize the generated code using the check list.
-
-There are two options for you to customize the generated code:
-
-* If you use Java 7+, you can set `java.codeGeneration.hashCodeEquals.useJava7Objects` to `true` to generate shorter code that calls `Objects.hash` and `Objects.equals`.
-* You can also set `java.codeGeneration.hashCodeEquals.useInstanceof` to `true` to use `instanceOf` operator to check the object types instead of calling `Object.getClass()`.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/generate-hashcode-equals.mp4" type="video/mp4">
-</video>
-
-### Generate `toString()`
-
-There is a new source action to generate the `toString()` method. Customization is possible with a check list of all the member variables.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/generate-tostring.mp4" type="video/mp4">
-</video>
-
-### Convert to static imports
-
-Convert static functions calls to static imports.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/convert-static-imports.mp4" type="video/mp4">
-</video>
-
-### Generate delegate methods
-
-Generate delegate methods
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/generate-delegate-methods.mp4" type="video/mp4">
-</video>
-
-### Generate constructor from super class
-
-Add a constructor from super class.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/generate-constructor.mp4" type="video/mp4">
-</video>
-
-### Invert local variable
-
-This refactoring lets you change the sense of a Boolean variable to the opposite one.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/invert-variable.mp4" type="video/mp4">
-</video>
-
-### Assign parameter to new field
-
-This source action assigns a parameter to a new field for unused parameter(s) in a constructor.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/assign-to-field.mp4" type="video/mp4">
-</video>
-
-### Fix non-accessible reference
-
-This Quick Fix helps you fix non-accessible reference.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/fix-non-access-reference.mp4" type="video/mp4">
-</video>
-
-### Create non-existing package
-
-When your package name doesn't match the folder name, you have the options to either change the package name in your source code, or move the folder in the file system (even when the destination folder doesn't exist yet).
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/create-non-exist-package.mp4" type="video/mp4">
-</video>
-
-### Other Code Actions supported
-
-The list of Code Actions supported by VS Code keeps growing and only listed the most popular ones above. Other notable supported actions include (but not limited to):
-
-* Convert anonymous class to lambda expression
-* Convert lambda to anonymous class
-* Convert anonymous class to nested class
-* Create unresolved types
-* Add `final` modifier where possible
-* Remove unnecessary cast
-
-### Code Snippets
+## Code snippets
 
 Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Leveraging information from Java language server, it also provides a preview of the code snippet during the selection.
 
 ![Code Snippet](images/java-editing/code-snippet.png)
-
-## Formatting
-
-[Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) also provides [formatting settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings). You can export an Eclipse formatter file and then use it for your project in VS Code.
-
-In addition, there's a [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension, which you can use with either existing `checkstyle` configurations (Google's or Sun's Check) or your own customized files. When editing a Java file, the extension will check the file format and provide Quick Fixes if possible on the fly.
-
-Set Checkstyle configuration file.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/checkstyle.mp4" type="video/mp4">
-</video>
-
-The [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension supports live linting.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/checkstyle-live-linting.mp4" type="video/mp4">
-</video>
-
-And batch check.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/checkstyle-batch.mp4" type="video/mp4">
-</video>
-
-The Problems panel will open when you click the Checkstyle status icon in the Status bar.
-
-### Set Checkstyle configuration file
-
-![Set Checkstyle configuration file](images/java-editing/set_config.png)
-
-* To set the configuration file, right-click the `.xml` file and select **Set the Checkstyle Configuration File**.
-* You can also trigger the command **Checkstyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. The extension looks for a `checkstyle.xml` file in your workspace to make Checkstyle configuration easier. You will also see the two built-in configurations:
-
-  * **Google's Check**
-  * **Sun's Check**
-
-* Command **Checkstyle: Set the Checkstyle Configuration** detects potential **Checkstyle** configuration files and lists them. You can also provide a configuration file by directly writing a URL in the input box.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-editing/checkstyle-configuration.mp4" type="video/mp4">
-</video>
-
-You can also set the Checkstyle version by using the command **Checkstyle: Set the Checkstyle Version**.
-
-The command will:
-
-* List the latest Checkstyle version from the main repo.
-* List all the downloaded versions.
-* List all the supported versions.
-* Mark the currently used version with a check symbol.
-
-In addition, you can also bring any 3rd-party modules for Checkstyle by configuring its path. For example, after using the configuration below, you can add `<module name="SingleBreakOrContinueCheck"/>` or `<module name="com.github.sevntu.checkstyle.checks.naming.SingleBreakOrContinueCheck"/>` to `checkstyle.xml` to leverage those checks.
-
-```json
-"java.checkstyle.modules": [ "${workspaceFolder}/src/main/resources/sevntu-checks-1.35.0.jar" ]
-```
-
-### Check the style and fix the violations
-
-![Fix style violation](images/java-editing/quick_fix.png)
-
-* When editing a Java file, the extension will check the file format and provide Quick Fixes if possible. You can click the lightbulb button in the editor to show the available Quick Fixes.
-
-For more details about [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle), visit its [GitHub Repository](https://github.com/jdneo/vscode-checkstyle).

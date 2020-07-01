@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/Languages_typescript.png
 ---
@@ -32,6 +32,22 @@ tsc --version
 ```
 
 Another option is to install the TypeScript compiler locally in your project (`npm install --save-dev typescript`) and has the benefit of avoiding possible interactions with other TypeScript projects you may have.
+
+## Syntax highlighting and semantic highlighting
+
+In addition to syntax highlighting, TypeScript and JavaScript also provides semantic highlighting.
+
+Syntax highlighting colors the text based on lexical rules. Semantic highlighting enriches the syntax coloring based on resolved symbol information from the language service.
+
+Whether semantic highlighting is visible depends on the current color theme. Each theme can [configure](/docs/getstarted/themes.md#semantic-highlighting) whether to display semantic highlighting and how it styles the semantic tokens.
+
+If semantic highlighting is enabled and the color theme has a corresponding styling rule defined, different colors and styles can be seen.
+
+Semantic highlighting can change colors based on:
+
+- The resolved type of a symbol: namespace, variable, property, variable, property, class, interface, typeParameter.
+- Whether the variable/property is read-only (const) or modifiable.
+- Whether the variable/property type is callable (a function type) or not.
 
 ## IntelliSense
 
@@ -148,14 +164,39 @@ VS Code includes some handy refactorings for TypeScript such as **Extract functi
 
 ![TypeScript refactoring](images/typescript/refactorings.png)
 
-Available refactorings include:
-
-- Extract to method or function.
-- Extract to constant.
-- Convert between named imports and namespace imports.
-- Move to new file.
-
 See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
+
+Available TypeScript refactorings include:
+
+* **Extract to method or function** - Extract the selected statements or expressions to either a new method or a new function in the file.
+
+   ![Triggering the extract method refactoring on a selection](images/typescript/refactor-extract-function.gif)
+
+   After selecting the **Extract to method** or **Extract to function** refactoring, enter the name of the extracted method/function.
+
+* **Extract to constant** - Extract the selected expression to a new constant in the file.
+
+   ![Extracting a constant from a selection](images/typescript/refactor-extract-constant.gif)
+
+* **Extract type to interface or type alias** - Extract the selected complex type to either an interface or a type alias.
+
+   ![Extract an inline type to an interface](images/typescript/refactor-extract-interface.gif)
+
+* **Move to new file** - Move one or more classes, functions, constants, or interfaces in the top-level scope of the file to a new file. The new file's name is inferred from the selected symbol's name.
+
+   ![Moving a class to a new file](images/typescript/refactor-move-file.gif)
+
+* **Convert between named imports and namespace imports** - Convert between named imports (`import { Name } from './foo'`) and namespace imports (`import * as foo from './foo'`).
+
+   ![Converting a named import to a namespace import](images/typescript/refactor-convert-import.gif)
+
+* **Convert between default export and named export** - Convert from using a `export default` and having a named export (`export const Foo = ...`).
+
+* **Generate get and set accessors** - Encapsulate a selected class property by generating a getter and setter for it.
+
+   ![Generating getters and setters from class property](images/typescript/refactor-generate-get-set.gif)
+
+* **Convert parameters to destructured object** - Rewrite a function that takes a long list of arguments to take a single arguments object.
 
 ## Quick Fixes
 

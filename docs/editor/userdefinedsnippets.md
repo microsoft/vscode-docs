@@ -1,17 +1,17 @@
 ---
-Order: 12
+Order: 13
 Area: editor
 TOCTitle: Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Snippets in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Snippets in Visual Studio Code
 
 Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
 
-In Visual Studio Code, snippets appear in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions, as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": "on"`, type a *snippet prefix*, and press `kb(insertSnippet)` to insert a snippet.
+In Visual Studio Code, snippets appear in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions, as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": "on"`, type a **snippet prefix** (trigger text), and press `kb(insertSnippet)` to insert a snippet.
 
 The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exceptions of 'interpolated shell code' and the use of `\u`; both are not supported.
 
@@ -21,7 +21,7 @@ The snippet syntax follows the [TextMate snippet syntax](https://manual.macromat
 
 Many [extensions](/docs/editor/extension-gallery.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets.  If you find one you want to use, install it and restart VS Code and the new snippet will be available (see [Extension Marketplace](/docs/editor/extension-gallery.md#browse-and-install-extensions) for more instructions on installing an extension).
 
-Below are some popular extensions which include snippets in their language support:
+Below are some popular extensions that include snippets in their language support:
 
 <div class="marketplace-extensions-snippets"></div>
 
@@ -58,7 +58,7 @@ Below is an example of a `for` loop snippet for JavaScript:
 In the example above:
 
 * "For Loop" is the snippet name. It is displayed via IntelliSense if no `description` is provided.
-* `prefix` defines one or more trigger words which display the snippet in IntelliSense. Substring matching is performed on prefixes, so in this case, "fc" could match "for-const".
+* `prefix` defines one or more trigger words that display the snippet in IntelliSense. Substring matching is performed on prefixes, so in this case, "fc" could match "for-const".
 * `body` is one or more lines of content, which will be joined as multiple lines upon insertion. Newlines and embedded tabs will be formatted according to the context in which the snippet is inserted.
 * `description` is an optional description of the snippet displayed by IntelliSense.
 
@@ -106,7 +106,7 @@ Placeholders can have choices as values. The syntax is a comma-separated enumera
 
 ### Variables
 
-With `$name` or `${name:default}` you can insert the value of a variable. When a variable isn't set, its *default* or the empty string is inserted. When a variable is unknown (that is, its name isn't defined) the name of the variable is inserted and it is transformed into a placeholder.
+With `$name` or `${name:default}`, you can insert the value of a variable. When a variable isn't set, its **default** or the empty string is inserted. When a variable is unknown (that is, its name isn't defined) the name of the variable is inserted and it is transformed into a placeholder.
 
 The following variables can be used:
 
@@ -141,7 +141,7 @@ For inserting line or block comments, honoring the current language:
 
 * `BLOCK_COMMENT_START` Example output: in PHP `/*` or in HTML `<!--`
 * `BLOCK_COMMENT_END ` Example output: in PHP `*/` or in HTML `-->`
-* `LINE_COMMENT` Example output: in PHP `//` or in HTML `<!-- -->`
+* `LINE_COMMENT` Example output: in PHP `//`
 
 The snippet below inserts `/* Hello World */` in JavaScript files and `<!-- Hello World -->` in HTML files:
 
@@ -243,9 +243,9 @@ You can create custom [keybindings](/docs/getstarted/keybindings.md) to insert s
 }
 ```
 
-The keybinding will invoke the **Insert Snippet** command but instead of prompting you to select a snippet, it will insert the provided snippet. You define the custom [keybinding](/docs/getstarted/keybindings.md) as usual with a keyboard shortcut, command id, and optional [when clause context](/docs/getstarted/keybindings.md#when-clause-contexts) for when the keyboard shortcut is enabled.
+The keybinding will invoke the **Insert Snippet** command but instead of prompting you to select a snippet, it will insert the provided snippet. You define the custom [keybinding](/docs/getstarted/keybindings.md) as usual with a keyboard shortcut, command ID, and optional [when clause context](/docs/getstarted/keybindings.md#when-clause-contexts) for when the keyboard shortcut is enabled.
 
-Also, instead of using the `snippet` argument value to define your snippet inline, you can reference an existing snippet by using the `langId` and `name` arguments:
+Also, instead of using the `snippet` argument value to define your snippet inline, you can reference an existing snippet by using the `langId` and `name` arguments. The `langId` argument is the name of the JSON user snippet file and `name` is the snippet's unique name from this file:
 
 ```json
 {
@@ -261,7 +261,7 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 
 ## Next steps
 
-* [Command Line](/docs/editor/command-line.md) - VS Code has a rich command line interface to open or diff files and install extensions.
+* [Command Line](/docs/editor/command-line.md) - VS Code has a rich command-line interface to open or diff files and install extensions.
 * [Extension API](/api) - Learn about other ways to extend VS Code.
 * [Snippet Guide](/api/language-extensions/snippet-guide.md) - You can package snippets for use in VS Code.
 

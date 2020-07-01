@@ -1,5 +1,4 @@
 ---
-Order: 9
 Area: java
 TOCTitle: Azure Functions in Java
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -98,8 +98,14 @@ VS Code will remember unsaved changes to files when you exit by default. Hot exi
 You can configure hot exit by setting `files.hotExit` to the following values:
 
 * `"off"`: Disable hot exit.
-* `"onExit"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu). All windows with backups will be restored upon next launch.
+* `"onExit"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu). All windows without folders opened will be restored upon next launch.
 * `"onExitAndWindowClose"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu), and also for any window with a folder opened regardless of whether it is the last window. All windows without folders opened will be restored upon next launch. To restore folder windows as they were before shutdown, set `window.restoreWindows` to `all`.
+
+If something happens to go wrong with hot exit, all backups are stored in the following folders for standard install locations:
+
+- **Windows** `%APPDATA%\Code\Backups`
+- **macOS** `$HOME/Library/Application Support/Code/Backups`
+- **Linux** `$HOME/.config/Code/Backups`
 
 ## Find and Replace
 
@@ -121,7 +127,7 @@ By default, the find operations are run on the entire file in the editor. It can
 
 ![Find In Selection](images/codebasics/find-in-selection.gif)
 
-If you want it to be the default behavior of the Find Widget, you can set `editor.find.autoFindInSelection` to `true`.
+If you want it to be the default behavior of the Find Widget, you can set `editor.find.autoFindInSelection` to `always`, or to `multiline`, if you want it to be run on selected text only when multiple lines of content are selected.
 
 ### Advanced find and replace options
 
@@ -239,9 +245,9 @@ You can also use the following actions:
 * Fold Level X (`kb(editor.foldLevel2)` for level 2) folds all regions of level X, except the region at the current cursor position.
 * Fold All Block Comments (`kb(editor.foldAllBlockComments)`) folds all regions that start with a block comment token.
 
-Folding ranges are by default evaluated based on the indentation of lines. A folding range starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
+Folding regions are by default evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
 
-Since the 1.22 release, folding ranges can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding: Markdown, HTML, CSS, LESS, SCSS, and JSON.
+Since the 1.22 release, folding regions can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding: Markdown, HTML, CSS, LESS, SCSS, and JSON.
 
 If you prefer to switch back to indentation-based folding for one (or all) of the languages above, use:
 
@@ -255,19 +261,20 @@ Regions can also be defined by markers defined by each language. The following l
 
 Language|Start region|End region
 --------|------------|----------
+Bat|`::#region` or `REM #region`|`::#endregion` or `REM #endregion`
 C#|`#region`|`#endregion`
 C/C++|`#pragma region`|`#pragma endregion`
 CSS/Less/SCSS|`/*#region*/`|`/*#endregion*/`
 Coffeescript|`#region`|`#endregion`
 F#|`//#region` or `(#region)`|`//#endregion` or `(#endregion)`
 Java|`//#region` or `//<editor-fold>`|`// #endregion` or `//</editor-fold>`
+Markdown|`<!-- #region -->`|`<!-- #endregion -->`
+Perl5|`#region` or `=pod`|`#endregion` or `=cut`
 PHP|`#region`|`#endregion`
 PowerShell|`#region`|`#endregion`
 Python|`#region` or `# region`|`#endregion` or `# endregion`
-TypeScript/JavaScript|`//#region` or `//region`|`//#endregion` or `//endregion`
+TypeScript/JavaScript|`//#region` |`//#endregion`
 Visual Basic|`#Region`|`#End Region`
-Bat| `::#region`|`::#endregion`
-Markdown|`<!-- #region -->`|`<!-- #endregion -->`
 
 To fold and unfold only the regions defined by markers use:
 

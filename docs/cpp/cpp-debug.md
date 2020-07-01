@@ -1,10 +1,10 @@
 ---
-Order: 5
+Order: 6
 Area: cpp
 TOCTitle: Debugging
 ContentId: 9150091A-6F3A-46B9-881B-B8FD788FA705
 PageTitle: Debug C++ in Visual Studio Code
-DateApproved: 07/25/2019
+DateApproved: 05/21/2020
 MetaDescription: How to debug C++ programs in Visual Studio Code.
 ---
 # Debug C++ in Visual Studio Code
@@ -43,13 +43,13 @@ In the editor, conditional breakpoints are indicated by a breakpoint symbol that
 
 ## Function breakpoints
 
-Function breakpoints enable you to break execution at the beginning of a function instead of on a particular line of code. To set a function breakpoint, on the **Debug** pane right-click inside the **Breakpoints** section, then choose **Add Function Breakpoint** and enter the name of the function on which you want to break execution.
+Function breakpoints enable you to break execution at the beginning of a function instead of on a particular line of code. To set a function breakpoint, on the **Run** view right-click inside the **Breakpoints** section, then choose **Add Function Breakpoint** and enter the name of the function on which you want to break execution.
 
 ## Expression evaluation
 
 VS Code supports expression evaluation in several contexts:
 
-* You can type an expression into the **Watch** section of the **Debug** panel and it will be evaluated each time a breakpoint is hit.
+* You can type an expression into the **Watch** section of the **Run** view and it will be evaluated each time a breakpoint is hit.
 * You can type an expression into the **Debug Console** and it will be evaluated only once.
 * You can evaluate any expression that appears in your code while you're stopped at a breakpoint.
 
@@ -94,9 +94,9 @@ For example:
 }
 ```
 
-## GDB, LLDB, and MI Commands (GDB/LLDB)
+## GDB, LLDB, and LLDB-MI Commands (GDB/LLDB)
 
-For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and MI commands directly through the debug console with the `-exec` command, but be careful, executing commands directly in the debug console is untested and might crash VS Code in some cases.
+For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and LLDB-MI commands directly through the debug console with the `-exec` command, but be careful, executing commands directly in the debug console is untested and might crash VS Code in some cases.
 
 ## Other debugging features
 
@@ -105,7 +105,21 @@ For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and MI
 * Call stack
 * Stepping
 
- For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
+For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
+
+For additional ways to configure the launch.json file so that you can debug your C/C++ app, see [Configuring C/C++ debugging](/docs/cpp/launch-json-reference.md).
+
+### Natvis framework
+
+You create custom views of C++ object in the debugger with the [Natvis](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework. You can read the [Custom views for native objects](/docs/cpp/natvis.md) topic for details on using Natvis with the C/C++ extension.
+
+### Debug remotely
+
+For information about attaching to a remote process, such as debugging a process in a Docker container, see [Pipe transport](/docs/cpp/pipe-transport.md).
+
+### Debug the debugger
+
+If you are experiencing a debugging problem with the extension that we can't diagnose based on information in your issue report, we might ask you to enable logging and send us your logs. See [Enable logging for the debug adapter](/docs/cpp/enable-logging-cpp.md#enable-logging-for-the-debug-adapter) to learn how to get C/C++ extension logs.
 
 ## Known limitations
 
@@ -144,9 +158,10 @@ Read on to find out about:
 * [Configure VS Code for Windows Subsystem for Linux](/docs/cpp/config-wsl.md)
 * [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
+* [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md) - Learn about additional debugger configuration options.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful Visual Studio Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
-* [Debugging](/docs/editor/debugging.md) - find out about the Visual Studio Code debugger
+* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more.
+* [Debugging](/docs/editor/debugging.md) - find out about the Visual Studio Code debugger.
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues).

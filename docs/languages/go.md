@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Go
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
 PageTitle: Go with Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Go.
 ---
 # Go in Visual Studio Code
@@ -13,7 +13,7 @@ Using the Go extension for Visual Studio Code, you get language features like In
 
 ![go extension banner](images/go/go-extension.png)
 
-You can install the Go extension from the VS Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go).
+You can install the Go extension from the VS Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=golang.go).
 
 ## IntelliSense
 
@@ -105,15 +105,15 @@ You can rename symbols using `kb(editor.action.rename)` or by running the **Rena
 
 ## Debugging
 
-The Go extension lets you debug Go code as well. You will need to install the [Delve](https://github.com/derekparker/delve) debugger manually as a prerequisite. Read [Debugging Go code using VS Code](https://github.com/Microsoft/vscode-go/wiki/Debugging-Go-code-using-VS-Code) for setup steps, information on remote debugging and a troubleshooting guide.
+The Go extension lets you debug Go code as well. You will need to install the [Delve](https://github.com/derekparker/delve) debugger manually as a prerequisite. Read [Debug Go programs in VS Code](https://github.com/golang/vscode-go/blob/master/docs/debugging.md) for setup steps, information on remote debugging and a troubleshooting guide.
 
 ## Next steps
 
-This has been a brief overview showing the Go extension features within VS Code. For more information, see the details provided in the Go extension [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go).
+This has been a brief overview showing the Go extension features within VS Code. For more information, see the details provided in the Go extension [README](https://marketplace.visualstudio.com/items?itemName=golang.go).
 
-To stay up-to-date on the latest features/bug fixes for the Go extension, see the [CHANGELOG](https://github.com/Microsoft/vscode-go/blob/master/CHANGELOG.md).
+To stay up-to-date on the latest features/bug fixes for the Go extension, see the [CHANGELOG](https://github.com/golang/vscode-go/blob/master/CHANGELOG.md).
 
-If you have any issues or feature requests, feel free to log them in the Go extension [repo](https://github.com/Microsoft/vscode-go/issues).
+If you have any issues or feature requests, feel free to log them in the Go extension [repo](https://github.com/golang/vscode-go/issues).
 
 If you'd like to learn more about VS Code, try these topics:
 

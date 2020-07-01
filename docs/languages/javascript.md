@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -115,7 +115,7 @@ In this example, VS Code adds an import for `Button` from [material-ui](https://
 
 To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
-> **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code your code with the `javascript.preferences.quoteStyle` and `javascript.preferences.importModuleSpecifier` settings.
+> **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `javascript.preferences.quoteStyle` and `javascript.preferences.importModuleSpecifier` settings.
 
 ## Formatting
 
@@ -123,7 +123,7 @@ VS Code's built-in JavaScript formatter providers basic code formatting with rea
 
 The `javascript.format.*` [settings](/docs/getstarted/settings.md) configure the built-in formatter. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
 
-For more specialized code formatting styles, try installing one of the JavaScript formatting extensions from the [marketplace](https://marketplace.visualstudio.com/vscode).
+For more specialized code formatting styles, try installing one of the JavaScript formatting extensions from the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## JSX and auto closing tags
 
@@ -230,7 +230,7 @@ The JavaScript references CodeLens displays an inline count of reference for cla
 
 ![JavaScript references CodeLens](images/javascript/references-codelens.png)
 
-To enable the references code lens, set `"javascript.referencesCodeLens.enabled"` to `true`.
+To enable the references CodeLens, set `"javascript.referencesCodeLens.enabled"` to `true`.
 
 Click on the reference count to quickly browse a list of references:
 
@@ -345,7 +345,7 @@ Yes, you can. You can see this working using JavaScript source maps in the [Node
 
 Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `javascript.validate.enable` [setting](/docs/getstarted/settings.md).
 
-With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code. Since VS Code's JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
+With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code.
 
 ### Can I use other JavaScript tools like Flow?
 

@@ -5,7 +5,7 @@ TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 ---
 # Developing in WSL
 
@@ -33,7 +33,9 @@ To get started, you need to:
 
 3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
-### Open a folder in WSL
+### Open a remote folder or workspace
+
+#### From the WSL terminal
 
 Opening a folder inside the Windows Subsystem for Linux in VS Code is very similar to opening up a Windows folder from the command prompt or PowerShell.
 
@@ -43,7 +45,7 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
 3. Type **`code .`** in the terminal. When doing this for the first time, you should see VS Code fetching components needed to run in WSL. This should only take a short while, and is only needed once.
 
-    > **Note:** If this command does not work, you may not have added VS Code to your path when it was installed.
+    > **Note:** If this command does not work, you may need to restart your terminal or you may not have added VS Code to your path when it was installed.
 
 4. After a moment, a new VS Code window will appear, and you'll see a notification that VS Code is opening the folder in WSL.
 
@@ -57,6 +59,8 @@ Opening a folder inside the Windows Subsystem for Linux in VS Code is very simil
 
 That's it! Any VS Code operations you perform in this window will be executed in the WSL environment, everything from editing and file operations, to debugging, using terminals, and more.
 
+#### From VS Code
+
 Alternatively, you can open a Remote WSL window directly from VS Code:
 
 1. Start VS Code.
@@ -67,11 +71,19 @@ If you already have a folder open, you can also use the **Remote-WSL: Reopen in 
 
 If you are in a WSL window and want to open the current input in a local window, use **Remote-WSL: Reopen in Windows**.
 
+#### From the Windows command prompt
+
+To open a WSL window directly from a Windows prompt use the `--remote` command line parameter:
+
+`code --remote wsl+<distro name> <path in WSL>`
+
+for example: `code --remote wsl+Ubuntu /home/jim/projects/c`
+
 ## Working with Git
 
 If you are working with the same repository in WSL and Windows, be sure to set up consistent line endings. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
 
-You can also avoid passwords by configuring WSL to use the Windows Git credential manager. See [tips and tricks](/docs/remote/troubleshooting.md#sharing-git-credentials-between-windows-and-wsl) to for details.
+You can also avoid passwords by configuring WSL to use the Windows Git credential manager. See [tips and tricks](/docs/remote/troubleshooting.md#sharing-git-credentials-between-windows-and-wsl) for details.
 
 ## Managing extensions
 
@@ -85,11 +97,11 @@ If you install an extension from the Extensions view, it will automatically be i
 
 > **Note:** If you are an extension author and your extension is not working properly or installs in the wrong place, see [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. Select **Install** to install an extension on your remote host.
+Local extensions that actually need to run remotely will appear dimmed and disabled in the **Local - Installed** category. Select **Install** to install an extension on your remote host.
 
 ![Disabled Extensions w/Install Button](images/wsl/wsl-disabled-extensions.png)
 
-You can also install all locally installed extensions inside WSL by going to the Extensions view and selecting **Install Local Extensions in WSL: [Name]** from the **More Actions** menu (...).
+You can also install all locally installed extensions inside WSL by going to the Extensions view and selecting **Install Local Extensions in WSL: [Name]** using the cloud button at the right of the **Local - Installed** title bar. This will display a drop down where you can select which locally installed extensions to install in your WSL instance.
 
 ![Install all extensions](images/wsl/install-all-extn-wsl.png)
 
@@ -103,13 +115,13 @@ You can also use the `code` command line from this same terminal window to perfo
 
 ## Debugging in WSL
 
-Once you've opened a folder in WSL, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kbstyle(F5)`), the application will start on remote host and attach the debugger to it.
+Once you've opened a folder in WSL, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kb(workbench.action.debug.start)`), the application will start on remote host and attach the debugger to it.
 
 See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
 ## WSL specific settings
 
-VS Code's local user settings are also reused when you have opened a folder in WSL. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and WSL. Fortunately, once you have connected to WSL, you can also set WSL specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the settings editor. These will override any local settings you have in place whenever you open a folder in WSL.
+VS Code's local user settings are also reused when you have opened a folder in WSL. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and WSL. Fortunately, once you have connected to WSL, you can also set WSL specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting the **Remote** tab in the Settings editor. These will override any local settings you have in place whenever you open a folder in WSL.
 
 ## Advanced: Environment setup script
 
@@ -118,6 +130,32 @@ When VS Code Remote is started in WSL, no shell startup scripts are run. This wa
 The script needs to be a valid Bourne shell script. Be aware that an invalid script will prevent the server from starting up. If you end up with a script that prevents the server from starting, you will have to use a regular WSL shell and delete or rename the setup script.
 
 Check the WSL log (Remote WSL: Open WSL Log) for output and errors.
+
+## Advanced: Opening a WSL2 folder in a container
+
+If you are using WSL2 and [Docker Desktop's WSL2 back-end](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can use the [Remote - Containers](/docs/remote/containers.md) extension to work with source code stored inside WSL! Just follow these steps:
+
+1. If you have not already, [install and setup](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) Docker Desktop's WSL2 support.
+
+    > **Tip:**  Go to **Settings > Resources > WSL Integration** and enable Docker integration with the WSL distribution you will be using.
+
+2. If you have not already, install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension along with the WSL extension.
+
+3. Next, [open your source code folder in WSL](#open-a-remote-folder-or-workspace) as you would normally.
+
+4. Once your folder is open in WSL, select **Remote-Containers: Reopen Folder in Container** from the Command Palette (`kbstyle(F1)`).
+
+5. If the folder does not have a `.devcontainer/devcontainer.json` file in it, you'll be asked to pick a starting point from a filterable list or an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) (if one exists).
+
+    ![Select a node dev container definition](images/containers/select-dev-container-def.png)
+
+6. The VS Code window (instance) will reload and start building the dev container. A progress notification provides status updates.
+
+    ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+
+7. After the build completes, VS Code will automatically connect to the container. You can now work with the your source code from inside the container.
+
+See the [Remote - Containers documentation](/docs/remote/containers.md) for more information.
 
 ## Known limitations
 
@@ -129,7 +167,7 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) 
 
 That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
 
-To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based has a performance impact for large workspaces.
+To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based file watching has a performance impact for large workspaces.
 
 For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `files.watcherExclude`.
 
@@ -155,17 +193,7 @@ If you clone a Git repository using SSH and your SSH key has a passphrase, VS Co
 
 ### Docker Extension limitations
 
-By default, the Docker extension will run remotely. Depending on how WSL is configured, this can prevent the extension from seeing local containers.
-
-You can use one of the following solutions to resolve this problem:
-
-- Use the [Docker Technical Preview for WSL 2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL 1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
-
-- Open a new local window (**File > New Window**) and use it to work with local containers.
-
-- Install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/remote/containers.md#option-1-use-the-containers-remote-explorer) in situations when you need to see your local containers.
-
-- Use the [`extensionKind` property](/docs/remote/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
+While the Docker extension can run both remotely and locally, if it is already installed locally, you will be unable to install on a remote SSH host without first uninstalling it locally. We will address this problem in a future VS Code release.
 
 ### Extension limitations
 

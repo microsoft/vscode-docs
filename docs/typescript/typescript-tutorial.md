@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Tutorial
 ContentId: cb4f3742-733c-49d8-96db-d4bf8403bf64
 PageTitle: TypeScript tutorial with Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: TypeScript tutorial with Visual Studio Code.
 MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
 ---
@@ -49,7 +49,7 @@ let message : string = "Hello World";
 console.log(message);
 ```
 
-To compile your TypeScript code, you can open the [Integrated Terminal](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.toggleTerminal)`) and type `tsc helloworld.ts`. This will compile and create a new `HelloWorld.js` JavaScript file.
+To compile your TypeScript code, you can open the [Integrated Terminal](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.toggleTerminal)`) and type `tsc helloworld.ts`. This will compile and create a new `helloworld.js` JavaScript file.
 
 ![compiled hello world](images/tutorial/compiled-hello-world.png)
 
@@ -111,7 +111,7 @@ Having the generated JavaScript file in the same folder as the TypeScript source
 }
 ```
 
-Delete `helloworld.js`, run `tsc` again and `helloworld.js` will be placed in the `out` directory.
+Delete `helloworld.js` and rerun the command `tsc`. You will see that `helloworld.js` is now placed in the `out` directory.
 
 See [Compiling TypeScript](/docs/typescript/typescript-compiling.md) to learn about other features of the TypeScript language service and how to use tasks to run your builds directly from VS Code.
 
@@ -152,7 +152,7 @@ The debugger will start a session, run your code, and display the "Hello World" 
 
 ![debug console output](images/tutorial/debug-console.png)
 
-In `helloworld.ts`, set a breakpoint by clicking on the left gutter of the editor. You will see a red circle if the breakpoint is set. Press `kb(workbench.action.debug.start)` again. Execution will stop when the breakpoint is hit and you'll be able to see debugging information such as variable values and the call stack in the Debug view (`kb(workbench.view.debug)`).
+In `helloworld.ts`, set a breakpoint by clicking on the left gutter of the editor. You will see a red circle if the breakpoint is set. Press `kb(workbench.action.debug.start)` again. Execution will stop when the breakpoint is hit and you'll be able to see debugging information such as variable values and the call stack in the Run view (`kb(workbench.view.debug)`).
 
 ![debug breakpoint](images/tutorial/debug-breakpoint.png)
 

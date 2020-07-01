@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 54fdcc33-7ad1-40cc-bc87-ded1841d01ad
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Virtual Documents in Visual Studio Code extensions (plug-ins)
@@ -24,7 +24,7 @@ Calling `registerTextDocumentContentProvider` returns a disposable with which th
 ```ts
 const myProvider = class implements vscode.TextDocumentContentProvider {
   provideTextDocumentContent(uri: vscode.Uri): string {
-    // simply invoke cowsay, use uri-path as text
+    // invoke cowsay, use uri-path as text
     return cowsay.say({ text: uri.path });
   }
 };

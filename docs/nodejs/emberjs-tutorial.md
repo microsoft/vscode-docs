@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Ember Tutorial
 ContentId: 4a60ed36-93ff-4ff3-b650-ce74baa405ca
 PageTitle: Ember JavaScript Tutorial in Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: Ember JavaScript tutorial showing IntelliSense and code navigation support in the Visual Studio Code editor.
 ---
 # Using Ember in Visual Studio Code
@@ -67,7 +67,7 @@ After you select a suggestion and type `.`, you see the types and methods on the
 
 ![Ember intellisense](images/emberjs/intellisense.png)
 
-VS Code uses the TypeScript language service for its JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+VS Code uses the TypeScript language service for its JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
 
 If you select a method, you'll also get parameter help:
 

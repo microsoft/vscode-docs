@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Debugging
 ContentId: 19c60eb6-662b-444a-92f6-009642cc1e5b
 PageTitle: TypeScript debugging with Visual Studio Code
-DateApproved: 12/12/2019
+DateApproved: 6/10/2020
 MetaDescription: TypeScript debugging with Visual Studio Code.
 MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
 ---
@@ -31,7 +31,7 @@ For a simple example of source maps in action, see the [TypeScript tutorial](/do
 }
 ```
 
-For more advanced debugging scenarios, you can create your own debug configuration `launch.json` file. To see the default configuration, go to the Debug view (`kb(workbench.view.debug)`) and press the gear icon to **Configure or Fix 'launch.json'**. If you have other debugger extensions installed (such as the Debugger for Chrome), you should select **Node.js** from the drop down.
+For more advanced debugging scenarios, you can create your own debug configuration `launch.json` file. To see the default configuration, go to the Run view (`kb(workbench.view.debug)`) and press the gear icon to **Configure or Fix 'launch.json'**. If you have other debugger extensions installed (such as the Debugger for Chrome), you should select **Node.js** from the drop down.
 
 ![configure launch.json](images/debugging/configure-debugging.png)
 
@@ -116,7 +116,7 @@ To debug the client-side code, install the [Debugger for Chrome](https://marketp
 
 ![debugger for chrome extension](images/debugging/debugger-for-chrome.png)
 
-In the Debug view, press the gear icon to create a `launch.json` file selecting **Chrome** as the debugger.
+In the Run view, press the gear icon to create a `launch.json` file selecting **Chrome** as the debugger.
 
 Update the `launch.json` to specify the local file URL to `helloweb.html`:
 
@@ -135,7 +135,7 @@ Update the `launch.json` to specify the local file URL to `helloweb.html`:
 }
 ```
 
-The Debug view configuration dropdown will now show the new configuration **Launch Chrome against localhost**. If you run that configuration, your browser will launch with your web page. Open `helloweb.ts` in the editor and click the left gutter to add a breakpoint (it will be displayed as a red circle). Press `kb(workbench.action.debug.start)` to start the debug session, which launches the browser and hits your breakpoint in `helloweb.ts`.
+The Run view configuration dropdown will now show the new configuration **Launch Chrome against localhost**. If you run that configuration, your browser will launch with your web page. Open `helloweb.ts` in the editor and click the left gutter to add a breakpoint (it will be displayed as a red circle). Press `kb(workbench.action.debug.start)` to start the debug session, which launches the browser and hits your breakpoint in `helloweb.ts`.
 
 ![client-side debug breakpoint](images/debugging/client-side-debug-breakpoint.png)
 
