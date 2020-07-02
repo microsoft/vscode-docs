@@ -207,8 +207,11 @@ Currently, to debug a Jupyter Notebook you will need to first export it as a Pyt
 You can offload intensive computation in a Jupyter Notebook to other computers by connecting to a remote Jupyter server. Once connected, code cells run on the remote server rather than the local computer.
 
 To connect to a remote Jupyter server:
+1. Run the **Python: Specify local or remote Jupyter server for connections** command from the Command Palette (`kb(workbench.action.showCommands)`).
+2. When prompted to 'Pick how to connect to Jupyter', select 'Existing: Specify the URI of an existing server'.
 
-1. Run the **Python: Specify Jupyter server URI** command from the Command Palette (`kb(workbench.action.showCommands)`).
-2. When prompted, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
+    ![Choose to connect to an existing server](images/jupyter/connect-to-existing.png)
+
+3. When prompted to 'Enter the URI of the running Jupyter server', provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
 
     ![Prompt to supply a Jupyter server URI](images/jupyter/enter-url-auth-token.png)
