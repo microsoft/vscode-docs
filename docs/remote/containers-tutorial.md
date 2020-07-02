@@ -1,6 +1,6 @@
 ---
-Order:
-Area: containers
+Order: 7
+Area: remote
 TOCTitle: Containers Tutorial
 PageTitle: Getting started with Dev Containers
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
@@ -48,6 +48,8 @@ The Remote - Containers extension lets you run Visual Studio Code inside a Docke
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-containers">Install the Remote - Containers extension</a>
 
+<!-- TBD add extension image? -->
+
 ### Check installation
 
 With the Remote - Containers extension installed, you will see a new Status bar item at the far left.
@@ -62,9 +64,13 @@ The Remote Status bar item can quickly show you in which context VS Code is runn
 
 To create a Docker container, we are going to clone a GitHub repository with a Node.js project.
 
+Run the git clone command in a terminal or command prompt.
+
 ```bash
 git clone https://github.com/Microsoft/vscode-remote-try-node
 ```
+
+<!-- TBD switch to Try Sample flow -->
 
 **Note**: There are other remote container samples such as `vscode-remote-try-python` or `vscode-remote-try-java`, but this tutorial will use `vscode-remote-try-node`.
 
@@ -85,6 +91,7 @@ If this is your first time connecting, a Docker image will be downloaded, built,
 Once the container is running and you're connected, you should see your remote context change in the bottom left of the Status bar:
 
 ![Building image](images/containers-tutorial/connected.png)
+<!-- TBD old settings icon -->
 
 ## Check your environment
 
@@ -156,6 +163,16 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 
 [Full list](/docs/remote/containers.md#devcontainerjson-reference) of `devcontainer.json` options.
 
-## Next steps
+## Congratulation!
+
+Congratulations, you've successfully completed this tutorial!
 
 This has been a brief overview of what is possible using dev containers. To learn about other scenarios or learn more about containerized development, checkout the [Developing inside Containers](/docs/remote/containers.md) documentation.
+
+Check out the other Remote Development extensions.
+
+* [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
+* [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
+
+Or get them all by installing the
+[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Extension Pack.

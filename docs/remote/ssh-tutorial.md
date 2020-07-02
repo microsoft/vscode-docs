@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 6
 Area: remote
 TOCTitle: SSH Tutorial
 PageTitle: Connect over SSH with Visual Studio Code
@@ -11,7 +11,7 @@ DateApproved: 6/10/2020
 
 This tutorial walks you through creating and connecting to a virtual machine (VM) on Azure using the Visual Studio Code [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension. You'll create a Node.js Express web app to show how you can edit and debug on a remote machine with VS Code just like you could if the source code was local.
 
-**Note**: Your Linux VM can be hosted anywhere - on your local host, on premise, in Azure, or in any other cloud, as long as the chosen Linux distribution meets these [prerequisites](/docs/remote/linux.md#local-linux-prerequisites).
+> **Note**: Your Linux VM can be hosted anywhere - on your local host, on premise, in Azure, or in any other cloud, as long as the chosen Linux distribution meets these [prerequisites](/docs/remote/linux.md#local-linux-prerequisites).
 
 ## Prerequisites
 
@@ -28,12 +28,14 @@ The Remote - SSH extension is used to connect to SSH hosts.
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-ssh">Install the Remote - SSH extension</a>
 
 ![Remote - SSH extension](images/ssh-tutorial/remote-ssh-extension.png)
+<!-- TBD Refresh -->
 
 ### Remote - SSH
 
 With the Remote - SSH extension installed, you will see a new Status bar item at the far left.
 
 ![Remote Status bar item](images/ssh-tutorial/remote-status-bar.png)
+ <!-- TBD old settings icon -->
 
 The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Remote - SSH commands.
 
@@ -43,9 +45,11 @@ The Remote Status bar item can quickly show you in which context VS Code is runn
 
 If you don't have an existing Linux virtual machine, you can create a new VM through the [Azure portal](https://portal.azure.com). In the Azure portal, search for "Virtual Machines", and choose **Add**. From there, you can select your Azure subscription and create a new resource group, if you don't already have one.
 
+> **Note**: In this tutorial, we are using Azure, but your Linux VM can be hosted anywhere, as long as the Linux distribution meets these [prerequisites](/docs/remote/linux.md#local-linux-prerequisites).
+
 ![Create a virtual machine](images/ssh-tutorial/create-vm.png)
 
-Now you can specify details of your VM, such as the name, the size of, and the base image. Choose Ubuntu Server 18.04 LTS for this example, but you can choose recent versions of other Linux distros and look at VS Code's [supported SSH servers](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
+Now you can specify details of your VM, such as the name, the size, and the base image. Choose Ubuntu Server 18.04 LTS for this example, but you can choose recent versions of other Linux distros and look at VS Code's [supported SSH servers](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
 ![Virtual machine instance details](images/ssh-tutorial/vm-instance-details.png)
 
@@ -65,7 +69,7 @@ This will generate the SSH key. Press `kbstyle(Enter)` at the following prompt t
 
 ![ssh-keygen output](images/ssh-tutorial/ssh-keygen.png)
 
-You will then be prompted to enter a secure passphrase but you can leave that blank. You should now have a `id_rsa.pub` file which containers your new public SSH key.
+You will then be prompted to enter a secure passphrase, but you can leave that blank. You should now have a `id_rsa.pub` file which containers your new public SSH key.
 
 ## Add SSH key to your VM
 
@@ -90,6 +94,7 @@ Now that you've created an SSH host, let's connect to it!
 You'll have noticed an indicator on the bottom-left corner of the Status bar. This indicator tells you in which context VS Code is running (local or remote). Click on the indicator to bring up a list of Remote extension commands.
 
 ![Remote extension commands](images/ssh-tutorial/remote-commands.png)
+ <!-- TBD insiders and old icons -->
 
 Choose the **Remote-SSH: Connect to Host** command and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
 
@@ -112,6 +117,7 @@ You'll know you're connected to your VM by looking at the indicator in the Statu
 The Remote - SSH extension also contributes a new icon on your Activity bar, and clicking on it will open the SSH explorer. Here you can configure your SSH connections. For instance, you can save the hosts you connect to the most and access them from here instead of entering the user and hostname.
 
 ![Remote button on Activity bar](images/ssh-tutorial/remote-on-activity-bar.png)
+ <!-- TBD old icon, no remote explorer dropdown -->
 
 Once you're connected to your SSH host, you can interact with files and open folders on the remote machine. If you open the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), you'll see you're working inside a bash shell **while you're on Windows**.
 
@@ -148,7 +154,7 @@ npm --version
 sudo npm install -g express-generator
 ```
 
-The `-g` switch installs the Express Generator globally on your machine so you can run it from anywhere.
+The `-g` switch installs the Express Generator globally on your machine so that you can run it from anywhere.
 
 ### Create a new application
 
@@ -220,12 +226,15 @@ The app will start, and you'll hit the breakpoint. You can inspect variables, cr
 Press `kb(workbench.action.debug.stepOver)` to step or `kb(workbench.action.debug.start)` again to finish your debugging session.
 
 ![VS Code debug view](images/ssh-tutorial/debug-view.png)
+ <!-- TBD old image -->
 
 You get the full development experience of Visual Studio Code connected over SSH.
 
 ### Ending your SSH connection
 
 You can end your session over SSH and go back to running VS Code locally with **File** > **Close Remote Connection**.
+
+<!-- TBD add screenshot of command -->
 
 ### Congratulations!
 
@@ -237,4 +246,4 @@ Next, check out the other Remote Development extensions.
 * [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 Or get them all by installing the
-[Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack.
+[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Extension Pack.

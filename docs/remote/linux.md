@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order:
 Area: remote
 TOCTitle: Linux Prerequisites
 PageTitle: Linux Prerequisites for Visual Studio Code Remote Development

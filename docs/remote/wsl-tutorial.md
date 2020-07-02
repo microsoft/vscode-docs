@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 8
 Area: remote
 TOCTitle: WSL Tutorial
 PageTitle: Work in Windows Subsystem for Linux with Visual Studio Code
@@ -22,6 +22,7 @@ The Remote - WSL extension enables you to run Visual Studio Code within the Wind
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-wsl">Install the Remote - WSL extension</a>
 
 ![Remote - WSL extension](images/wsl-tutorial/remote-wsl-extension.png)
+<!-- TBD Refresh -->
 
 ### Prerequisite check
 
@@ -32,6 +33,7 @@ With the Remote - WSL extension installed, you will see a new Status bar item at
 The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Remote - WSL commands.
 
 ![Remote - WSL commands](images/wsl-tutorial/remote-wsl-commands.png)
+ <!-- TBD old settings icon -->
 
 ## Enable WSL
 
@@ -63,7 +65,7 @@ After restarting Windows, you can check that you have WSL enabled by opening a C
 
 ![WSL check](images/wsl-tutorial/wsl-check.png)
 
-WSL is enabled but you haven't installed a Linux distribution yet.
+WSL is enabled, but you haven't installed a Linux distribution yet.
 
 ## Install a Linux distro
 
@@ -79,7 +81,7 @@ And when done, select **Launch** to get started. This will open a Linux terminal
 
 ![Linux terminal](images/wsl-tutorial/linux-terminal.png)
 
-# Python development
+## Python development
 
 If you don't have Python already installed, run the following commands to install Python3 and pip, the package manager for Python, into your Linux installation.
 
@@ -102,9 +104,10 @@ echo 'print("hello from python on ubuntu on windows!")' >> hello.py
 python3 hello.py
 ```
 
-In a remote Linux environment (this WSL distro is technically another machine without UI, that just happens to be running locally on your computer), your development tools and experiences are pretty limited.  You can run [Vim](https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/) in the terminal to edit your file or you can edit the sources on the Windows side through the `\\wsl$` mount:
+In a remote Linux environment (this WSL distro is technically another machine without UI, that just happens to be running locally on your computer), your development tools and experiences are pretty limited.  You can run [Vim](https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/) in the terminal to edit your file, or you can edit the sources on the Windows side through the `\\wsl$` mount:
 
 ![\\wsl$ mount](images/wsl-tutorial/wsl$-mount.png)
+ <!-- TBD old icons -->
 
 The problem with this model is that the Python runtime, pip, or any conda packages for that matter, are not installed on Windows.
 
@@ -116,7 +119,7 @@ Remember, Python is installed in the Linux distro, which means if you're editing
 
 In the WSL terminal, make sure you are in the helloWorld folder, and type in `'code .'` to launch Visual Studio Code. The `'.'` argument tells VS Code to open the current folder.
 
-> **Note:** If this command does not work, you may need to restart your terminal or you may not have added VS Code to your path when it was installed.
+> **Note:** If this command does not work, you may need to restart your terminal, or you may not have added VS Code to your path when it was installed.
 
 ![launch VS Code](images/wsl-tutorial/launch-code.png)
 
@@ -129,6 +132,7 @@ The next thing that happens is VS Code will start and open the `helloWorld` fold
 Now, when you hover over `hello.py`, you get the proper Linux path.
 
 ![show hello.py Linux path](images/wsl-tutorial/show-linux-path.png)
+ <!-- TBD old icons -->
 
 ### Integrated Terminal
 
@@ -141,6 +145,7 @@ You'll start a new instance of the bash shell in WSL, again from VS Code running
 **Tip**: In the lower left corner of the Status Bar, you can see that you're connected to your **WSL: Ubuntu** instance.
 
 ![Remote - WSL Status bar](images/wsl-tutorial/wsl-status-bar.png)
+ <!-- TBD old settings icon -->
 
 ## Edit and debug
 
@@ -150,9 +155,10 @@ Click on `hello.py` to open it for editing. You will be prompted with an extensi
 
 ![Python extension recommendation](images/wsl-tutorial/python-extension-recommendation.png)
 
-To prove that the extension is installed in WSL, open the Extensions view again (`kb(workbench.view.extensions)`). You will see a section titled **WSL – Installed** and you can see any extensions that are installed on the WSL side.
+To prove that the extension is installed in WSL, open the Extensions view again (`kb(workbench.view.extensions)`). You will see a section titled **WSL – Installed**, and you can see any extensions that are installed on the WSL side.
 
 ![WSL installed extensions](images/wsl-tutorial/wsl-installed-extensions.png)
+ <!-- TBD old icons -->
 
 Upon reload, you'll also get prompted telling you that the pylint linter is not installed. Linters are used to show errors and warnings in source code. Go ahead and select **Install**.
 
@@ -181,6 +187,7 @@ The app will start, and you'll hit the breakpoint. You can inspect variables, cr
 Press `kb(workbench.action.debug.stepOver)` to step and you'll see the output of the print statement in the debug console.
 
 ![VS Code debug view](images/wsl-tutorial/debug-view.png)
+ <!-- TBD old icons -->
 
 You get the full development experience of Visual Studio Code, using the Linux instance installed in WSL.
 
@@ -194,6 +201,8 @@ If you want to switch back to the Windows, select the **Show Local** option and 
 
 You can end your session in WSL and go back to running VS Code locally with **File** > **Close Remote Connection**.
 
+<!-- TBD add screenshot -->
+
 ### Congratulations!
 
 Congratulations, you've successfully completed this tutorial!
@@ -204,4 +213,4 @@ Next, check out the other Remote Development extensions.
 * [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 Or get them all by installing the
-[Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack.
+[Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Extension Pack.

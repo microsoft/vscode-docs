@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 10
 Area: remote
 TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
