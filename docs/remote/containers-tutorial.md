@@ -163,7 +163,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 
 [Full list](/docs/remote/containers.md#devcontainerjson-reference) of `devcontainer.json` options.
 
-## Congratulation!
+### Congratulations!
 
 Congratulations, you've successfully completed this tutorial!
 
