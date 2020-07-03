@@ -19,7 +19,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ## Getting started
 
-> **Note**: After reviewing this topic, you can get started with the introductory [Containers tutorial](/docs/remote/containers-tutorial.md).
+**Note**: After reviewing this topic, you can get started with the introductory [Containers tutorial](/docs/remote/containers-tutorial.md).
 
 ### System requirements
 
