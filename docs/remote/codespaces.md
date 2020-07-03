@@ -29,7 +29,7 @@ Example customizations include:
 * Setting environment variables.
 * Configuring editor settings and installing preferred extensions.
 
-See the [Codespace Configuring](https://docs.microsoft.com/visualstudio/online/reference/configuring) documentation for Codespace-specific `devcontainer.json` settings.
+See the [Configuring Codespace Environments](https://docs.microsoft.com/visualstudio/online/reference/configuring) documentation for Codespace-specific `devcontainer.json` settings.
 
 ## Dotfile per user configuration
 
