@@ -66,11 +66,23 @@ If at any time you want to sync your data to a different account, you can turn o
 
 ## Restoring data
 
-VS Code always stores local backups of your preferences while syncing and provides remote and local sync backup views for accessing your remote and local backup data respectively. In case something goes wrong, you can access these views using commands **Preferences Sync: Show Synced Data** and **Preferences Sync: Show Local Backup** and restore your data.
+VS Code always stores local and remote backups of your preferences while syncing and provides views for accessing these. In case something goes wrong, you can restore your data from these views.
 
 ![Settings Sync backup views](images/settings-sync/sync-backup-views.png)
 
+You can open these views using **Preferences Sync: Show Synced Data** command from the Command Palette. Local Sync activity view is hidden by default and you can enable it using `views` submenu under **Preferences Sync** view overflow actions.
+
+![Settings Sync enable local backup views](images/settings-sync/sync-enable-local-activity-view.png)
+
 Local backups folder in the disk can be accessed via the **Preferences Sync: Open Local Backups Folder** command. The folder is organized by the type of preference and contains versions of your JSON files named with a timestamp of when the backup occurred. These backups are automatically deleted after 30 days.
+
+## Synced Machines
+
+VS Code keeps track of the machines synchronizing your preferences and provides a view to access them. Every machine is given a default name based on the type of VS Code (Insiders or Stable) and the platform it is on. You can always update the machine name using the edit action available on the machine entry in the view. You can also disable sync on other machine using **Turn off Preferences Sync** context menu action on the machine entry in the view.
+
+![Settings Sync machines views](images/settings-sync/sync-machines-view.png)
+
+You can open this view using **Preferences Sync: Show Synced Data** command from the Command Palette.
 
 ## Reporting issues
 
@@ -78,7 +90,7 @@ Settings Sync activity can be monitored in the **Log (Preferences Sync)** output
 
 ## How do I delete my data?
 
-If you want to remove all your data from our servers, just turn off sync via the **Manage** gear menu and select the checkbox to clear all cloud data. If you choose to re-enable sync, it will be as if you're signing in for the first time.
+If you want to remove all your data from our servers, just turn off sync via **Preferences Sync is On** menu available under **Manage** gear menu and select the checkbox to clear all cloud data. If you choose to re-enable sync, it will be as if you're signing in for the first time.
 
 ## Next steps
 
