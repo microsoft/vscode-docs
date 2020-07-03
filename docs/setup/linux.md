@@ -169,7 +169,7 @@ With WSL, you can install and run Linux distributions on Windows. This enables y
 
 When coupled with the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of a Linux distro on WSL.
 
-See the [Developing in WSL](/docs/remote/wsl.md) documentation to learn more or try the [Working in WSL](/remote-tutorials/wsl/getting-started.md) step-by-step tutorial.
+See the [Developing in WSL](/docs/remote/wsl.md) documentation to learn more or try the [Working in WSL](/docs/remote/wsl-tutorial.md) step-by-step tutorial.
 
 ## Next steps
 

@@ -19,6 +19,8 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ## Getting started
 
+> **Note**: After reviewing this topic, you can get started with the introductory [SSH tutorial](/docs/remote/ssh-tutorial.md).
+
 ### System requirements
 
 **Local:**  A supported [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) must also be installed.

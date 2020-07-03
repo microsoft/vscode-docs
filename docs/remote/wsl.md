@@ -19,6 +19,8 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ## Getting started
 
+> **Note**: After reviewing this topic, you can get started with the introductory [WSL tutorial](/docs/remote/wsl-tutorial.md).
+
 ### Installation
 
 To get started, you need to:
