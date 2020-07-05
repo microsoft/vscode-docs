@@ -59,7 +59,7 @@ You should see the updated message showing up.
 Here are some ideas for you to try:
 
 - Give the `Hello World` command a new name in the Command Palette.
-- [Contribute](/api/references/contribution-points) another command that displays current time in an information message.
+- [Contribute](/api/references/contribution-points) another command that displays current time in an information message. Contribution points are static declarations you make in the package.json Extension Manifest to extend VS Code, such as adding commands, menus, or keybindings to your extension.
 - Replace the `vscode.window.showInformationMessage` with another [VS Code API](/api/references/vscode-api) call to show a warning message.
 
 ## Debugging the extension
