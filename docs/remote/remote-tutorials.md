@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order:
 Area: remote
 TOCTitle: Tutorials
 PageTitle: Remote Development with Visual Studio Code Tutorials
