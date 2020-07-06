@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Getting Started
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Getting Started with Java in Visual Studio Code
-DateApproved: 6/23/2020
+DateApproved: 7/6/2020
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
@@ -22,7 +22,7 @@ If you need to install VS Code, [download it here](https://code.visualstudio.com
 
 ## Supported Java versions
 
-VS Code works with all major versions of Java SE up to 14.
+VS Code works with all major versions of Java SE from 11.
 
 ## Setting up Visual Studio Code for Java Development
 
