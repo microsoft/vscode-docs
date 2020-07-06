@@ -17,19 +17,19 @@ If you run into any issues when using the features below, you can contact us by 
 
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'project')" href="javascript:void(0)">Report an issue</a>
 
-## Syntax Mode
+## Lightweight Mode
 
-Reading and navigating through source code is a common use for a lightweight editor. When developers use VS Code to open a Java source file/folder that doesn't involve a project system (such as drag and drop some Java files into VS Code), it's annoying to see semantic errors reported when the source cannot be resolved to a project. With Syntax Mode, you'll be able to read source code more efficiently with the help of Code Navigation (between your sources and JDK), Outline as well as Javadoc features. Syntax errors are also reported so you can fix them right away.
+Reading and navigating through source code is a common use for a lightweight editor. When developers use VS Code to open a Java source file/folder that doesn't involve a project system (such as drag and drop some Java files into VS Code), it's annoying to see semantic errors reported when the source cannot be resolved to a project. With Lightweight Mode, you'll be able to read source code more efficiently with the help of Code Navigation (between your sources and JDK), Outline as well as Javadoc features. Syntax errors are also reported so you can fix them right away.
 
-Usually you won't even know Syntax Mode is on, but you can configure it. Go to Problems panel, and look for the warning `File xxx is non-project file, only syntax errors are reported`, which means you are in Syntax Mode. If you want to see all the type errors and get full support, right-click on this warning and switch out of Syntax Mode through the context menu. See the screenshots below.
+Usually you won't even know Lightweight Mode is on, but you can configure it. Go to Problems panel, and look for the warning `File xxx is non-project file, only syntax errors are reported`, which means you are in Lightweight Mode. If you want to see all the type errors and get full support, right-click on this warning and switch out of Lightweight Mode through the context menu. See the screenshots below.
 
 ![Enable Semantic](images/java-project/enablesemantic.png)
 
-The project mode will provide you full support for [standalone Java files](#standalone-java-file-support). It's also easy to turn back to Syntax Mode for either a single file or any non-project files with the **Only report syntax errors for** actions.
+The project mode will provide you full support for [standalone Java files](#standalone-java-file-support). It's also easy to turn back to Lightweight Mode for either a single file or any non-project files with the **Only report syntax errors for** actions.
 
-![Switch to Syntax](images/java-project/syntaxonly.png)
+![Switch to Lightweight](images/java-project/syntaxonly.png)
 
-You can also configure your editor to control whether to enable syntax mode. The configuration is `java.server.launchMode`, below are the accepted values:
+You can also configure your editor to control whether to enable lightweight mode. The configuration is `java.server.launchMode`, below are the accepted values:
 
 - `Hybrid` (default) - Provides full features with better responsiveness. It starts a standard language server and a secondary syntax server. The syntax server provides syntax features until the standard server is ready. The syntax server will be shutdown automatically after the standard server up and running.
 - `Standard` - Provides full features such as IntelliSense, refactoring, building, Maven/Gradle support etc. With this option, you will wait until the full server is up for all features.
