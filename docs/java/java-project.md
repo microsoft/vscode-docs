@@ -4,14 +4,14 @@ Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
 PageTitle: Syntax Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
-DateApproved: 6/17/2019
+DateApproved: 7/6/2020
 MetaDescription: Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
 
 # Java project management in VS Code
 
-This document will give you an overview of how to work with your Java project using the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) as well as the Syntax Mode which works best for reading and navigating through source files even without a project structure.
+This document will give you an overview of how to work with your Java project using the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) as well as the Lightweight Mode which works best for reading and navigating through source files even without a project structure.
 
 If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
 
@@ -65,7 +65,7 @@ The extension also has a hierarchy view of your project and dependencies, which 
 
 ### Standalone Java file support
 
-Visual Studio Code also supports Java files without a project system. The solution is folder-based, so you can open a source folder with Visual Studio Code. After switching from [Syntax Mode](#syntax-mode) to Project Mode (by selecting the **Report compilation errors...** Quick Fix), all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
+Visual Studio Code also supports Java files without a project system. The solution is folder-based, so you can open a source folder with Visual Studio Code. After switching from [Lightweight Mode](#lightweight-mode) to Project Mode (by selecting the **Report compilation errors...** Quick Fix), all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
