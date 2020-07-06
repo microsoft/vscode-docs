@@ -136,17 +136,30 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
         IdentityFile ~/.ssh/exported-keyfile-from-putty
     ```
 
-### Connect to a remote host from the terminal
+### Improving security on multi-user servers
 
-Once a host has been configured, you can connect to it directly from the terminal by passing a remote URI.
+By default, the "VS Code Server" installed and maintained by the Remote - Containers extension when it connects listens to `localhost` on a random TCP port that is then forwarded to your local machine. While this means only those on the machine can access the port, if the host is being used by many users at once, you may want to lock down access further to reduce the chances of one user discovering the port number and attempting to access another user's VS Code Server instance.
 
-For example, to connect to `remote_server` and open the `/code/my_project` folder, run:
+If you are connecting to a **Linux or macOS** host, you can switch to using Unix sockets that are locked down to a particular user instead. This socket is then forwarded instead of the port.
 
-```bash
-code --folder-uri "vscode-remote://ssh-remote+remote_server/code/my_project"
-```
+> **Note:** This setting **disables connection multiplexing** so configuring [public key authentication](#configuring-key-based-authentication) is strongly recommended.
 
-You can also use the `--file-uri` switch to open a specific file instead.
+To configure it:
+
+1. Ensure you have a **local OpenSSH 6.7+ SSH client** on Windows, macOS, or Linux and an **OpenSSH 6.7+ Linux or macOS Host** (Windows does not support this mode).
+
+2. Switch Remote - SSH into socket mode by enabling **Remote.SSH: Remote Server Listen On Socket** in your **local** VS Code [User settings](/docs/getstarted/settings.md).
+
+    ![Listen on socket VS Code setting](images/ssh/ssh-listen-on-socket.png)
+
+3. If you've already connected to the SSH Host, select **Remote-SSH: Kill VS Code Server on Host...** from the Command Palette (`kbstyle(F1)`) so the setting takes effect.
+
+If you encounter an error when connecting, you may need to enable socket forwarding on your SSH Host's [sshd config](https://www.ssh.com/ssh/sshd_config/). To do so:
+
+1. Open `/etc/ssh/sshd_config` in a text editor (like vi, nano, pico) on the **SSH host** (not locally).
+2. Add the setting  `AllowStreamLocalForwarding yes`.
+3. Restart the SSH server. (On Ubuntu, run `sudo systemctl restart sshd`.).
+4. Retry.
 
 ### Troubleshooting hanging or failing connections
 
@@ -430,6 +443,17 @@ Follow these steps:
 3. Once you've installed SSHFS for Windows, you can use the File Explorer's **Map Network Drive...** option with the path `\\sshfs\user@hostname`, where `user@hostname` is your remote user and hostname / IP. You can script this using the command prompt as follows: `net use /PERSISTENT:NO X: \\sshfs\user@hostname`
 
 4. Once done, disconnect by right-clicking on the drive in the File Explorer and selecting **Disconnect**.
+
+### Connect to a remote host from the terminal
+
+Once a host has been configured, you can connect to it directly from the terminal by passing a remote URI.
+
+For example, to connect to `remote_server` and open the `/code/my_project` folder, run:
+
+```bash
+code --folder-uri "vscode-remote://ssh-remote+remote_server/code/my_project"
+```
+You can also use the `--file-uri` switch to open a specific file instead.
 
 ### Using rsync to maintain a local copy of your source code
 
