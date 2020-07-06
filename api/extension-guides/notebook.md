@@ -361,3 +361,10 @@ Using the above renderer with a kernel that produces output in the `application/
 Samples:
  - [Notebook Renderer Starter](https://github.com/microsoft/notebook-renderer-starter): Starter code for dynamic renderers with support for debugging in the output context, webpack, hot reloading, and css modules.
  - [nteract Renderer](https://github.com/microsoft/notebook-extension-samples/tree/master/notebook-renderer): Example code for rendering [nteract](https://nteract.io/) outputs
+
+## Supporting Debugging
+For some kernels, such as those that implement a programming language, it can be desirable to allow debugging a cell's execution. To accomplish this, a notebook kernel can implement a [debug adapter](https://microsoft.github.io/debug-adapter-protocol/), either by directly implementing the protocol, or providing an interface between an existing notebook debugger and the protocol.
+
+Samples:
+- (vscode-nodebook)[https://github.com/microsoft/vscode-nodebook]: Node.js notebook debugger, which directly implements the debug adapter protocol
+- (vscode-simple-jupyter-notebook)[https://github.com/microsoft/vscode-simple-jupyter-notebook]: Jupyter notebook with debugging support provided by the existing Xeus debugger
