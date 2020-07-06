@@ -138,7 +138,13 @@ Windows:
 
 Linux:
 
-* GDB needs elevated permissions to attach to a process. When using *attach to process*, you need to provide your password before the debugging session can begin.
+* You may see an error saying: `ptrace: Operation not permitted`. This is due to GDB needing elevated permissions in order to attach to a process. This can be solved using the solutions below:
+    1. When using *attach to process*, you need to provide your password before the debugging session can begin.
+    1. To disable this error temporarily, use the following command:
+
+        `echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope`
+
+    1. To remove the error permanently, edit `/etc/sysctl.d/10-ptrace.conf` and modify `kernel.yama.ptrace_scope` value of `1` to `0`.
 
 macOS:
 
